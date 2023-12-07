@@ -52,14 +52,10 @@ export default function QuestApolloPage() {
         </div>
       </div>
       <DashboardGuideContainer>
-        <div className="w-full overflow-auto flex flex-col items-center space-y-[20px]">
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
-          <QuestGuidePolaroid/>
+        <div className="w-full overflow-auto flex flex-col space-y-[50px] py-[60px] p-[30px]">
+          <p className="text-slate-500 text-xl font-bold uppercase">Day 10</p>
+          <p className="text-slate-500 text-xl font-bold uppercase">Day 5</p>
+          <p className="text-slate-500 text-xl font-bold uppercase">Day 0</p>
         </div>
       </DashboardGuideContainer>
     </DashboardGuideWrapper>

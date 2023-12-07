@@ -10,7 +10,7 @@ export default function Album() {
             <Image
               width={125}
               height={125}
-              src="/voyager/gallery/personal.png"
+              src="/voyager/collection/personal.png"
               alt={""}
             />
           </div>

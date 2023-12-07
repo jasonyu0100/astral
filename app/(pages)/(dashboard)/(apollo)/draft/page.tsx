@@ -1,26 +1,30 @@
 "use client";
-import DraftControllerBottomLeft from "./common/controller/bottom/left/main";
-import DraftControllerBottom from "./common/controller/bottom/main";
-import DraftControllerBottomRight from "./common/controller/bottom/right/main";
+
+import DashboardGuideContainer from "../../(common)/dashboard/content/guide/container/main";
+import DashboardGuideWrapper from "../../(common)/dashboard/content/guide/main";
+import DraftConstellation from "./common/constellation/main";
+import DraftGuide from "./common/controller/guide/main";
+import LeftContainer from "./common/controller/left/main";
 import ControllerContainer from "./common/controller/main";
-import DraftControllerTopLeft from "./common/controller/top/left/main";
-import DraftControllerTop from "./common/controller/top/main";
-import DraftControllerTopRight from "./common/controller/top/right/main";
-import DraftPolaroid from "./common/polaroid/main";
+import ConstellationIndicator from "./common/controller/right/constellation-space/indicator/main";
+import ConstellationSpace from "./common/controller/right/constellation-space/main";
+import RightContainer from "./common/controller/right/main";
+import DraftStoreRow from "./common/controller/right/store-row/main";
 
 export default function ApolloDraft() {
   return (
-    <>
+    <div className="flex flex-row">
       <ControllerContainer>
-        <DraftControllerTop>
-          <DraftControllerTopLeft />
-          <DraftControllerTopRight />
-        </DraftControllerTop>
-        <DraftControllerBottom>
-          <DraftControllerBottomLeft />
-          <DraftControllerBottomRight />
-        </DraftControllerBottom>
+        <LeftContainer />
+        <RightContainer>
+          <DraftStoreRow />
+          <ConstellationSpace>
+            <DraftConstellation />
+            <ConstellationIndicator/>
+          </ConstellationSpace>
+        </RightContainer>
       </ControllerContainer>
-    </>
+      <DraftGuide/>
+    </div>
   );
 }
