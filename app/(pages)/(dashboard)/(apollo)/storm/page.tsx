@@ -1,24 +1,20 @@
 "use client";
-import {
-  GlassContainer,
-  sharpGlassBorder,
-} from "@/(pages)/(common)/texture/glass/main";
-import StormHeader from "./header/main";
-import StormChatBody from "./chat/main";
-import StormMessageInput from "./message/main";
-import StormSidePanel from "./side-panel/main";
+import StormHeader from "./common/controller/main/header/main";
+import StormChatBody from "./common/controller/main/chat/main";
+import StormMessageInput from "./common/controller/main/input/main";
+import StormSidePanel from "./common/controller/side-panel/main";
+import StormController from "./common/controller/main";
+import StormControllerMain from "./common/controller/main/main";
 
 export default function ApolloStorm() {
   return (
-    <>
-      <div className="flex flex-row">
-        <div className="flex flex-col flex-shrink-0 bg-red-600 rounded-md w-[700px] h-[700px]">
-          <StormHeader />
-          <StormChatBody />
-          <StormMessageInput/>
-        </div>
-        <StormSidePanel/>
-      </div>
-    </>
+    <StormController>
+      <StormControllerMain>
+        <StormHeader />
+        <StormChatBody />
+        <StormMessageInput />
+      </StormControllerMain>
+      <StormSidePanel />
+    </StormController>
   );
 }
