@@ -1,5 +1,3 @@
-import { MutableRefObject } from "react";
-
 export default function DashboardGuideWrapper({
   children,
 }: {

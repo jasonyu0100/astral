@@ -1,40 +1,40 @@
 "use client";
 
-import LowerController from "./common/controller/lower/main";
-import ProgressColumn from "./common/controller/lower/progress-col/main";
-import StackRow from "./common/controller/lower/stack-row/main";
+import FlowBottomContainer from "./common/controller/bottom-container/main";
+import FlowProgressColumn from "./common/controller/bottom-container/progress-col/main";
+import FlowStackRow from "./common/controller/bottom-container/stack-row/main";
 import FlowController from "./common/controller/main";
-import FlowAdd from "./common/controller/upper/add/main";
-import InspirationRow from "./common/controller/upper/inspiration-row/main";
-import UpperController from "./common/controller/upper/main";
+import FlowAdd from "./common/controller/top-container/add/main";
+import FlowInspireRow from "./common/controller/top-container/inspire-row/main";
+import FlowTopContainer from "./common/controller/top-container/main";
 import FlowPolaroid from "./common/polaroid/main";
-import StickyStack from "./common/stack/main";
+import FlowStickyStack from "./common/sticky-stack/main";
 
 export default function ApolloFlow() {
   return (
     <FlowController>
-      <UpperController>
-        <InspirationRow>
+      <FlowTopContainer>
+        <FlowInspireRow>
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
-        </InspirationRow>
+        </FlowInspireRow>
         <FlowAdd/>
-      </UpperController>
-      <LowerController>
-        <StackRow>
-          <StickyStack />
-          <StickyStack />
-          <StickyStack />
-          <StickyStack />
-          <StickyStack />
-          <StickyStack />
-          <StickyStack />
-        </StackRow>
-        <ProgressColumn>
+      </FlowTopContainer>
+      <FlowBottomContainer>
+        <FlowStackRow>
+          <FlowStickyStack />
+          <FlowStickyStack />
+          <FlowStickyStack />
+          <FlowStickyStack />
+          <FlowStickyStack />
+          <FlowStickyStack />
+          <FlowStickyStack />
+        </FlowStackRow>
+        <FlowProgressColumn>
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
@@ -43,8 +43,8 @@ export default function ApolloFlow() {
           <FlowPolaroid />
           <FlowPolaroid />
           <FlowPolaroid />
-        </ProgressColumn>
-      </LowerController>
+        </FlowProgressColumn>
+      </FlowBottomContainer>
     </FlowController>
   );
 }

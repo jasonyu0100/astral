@@ -1,15 +1,23 @@
 "use client";
-import Image from "next/image";
-import AlbumRow from "./row/main";
+import GeminiCollectionShelf from "./common/controller/shelf/main";
+import GeminiCollectionController from "./common/controller/main";
+import GeminiCollectionAlbum from "./common/controller/shelf/album/main";
 
-export default function GeminiAlbumsPage() {
+export default function GeminiCollectionPage() {
   const brands = [];
 
   return (
-    <div className="flex flex-col divide-y-[3px] divide-slate-700 w-[1000px] bg-slate-800 rounded-md">
-      <AlbumRow />
-      <AlbumRow />
-      <AlbumRow />
-    </div>
+    <GeminiCollectionController>
+      <GeminiCollectionShelf>
+        <GeminiCollectionAlbum />
+        <GeminiCollectionAlbum />
+        <GeminiCollectionAlbum />
+      </GeminiCollectionShelf>
+      <GeminiCollectionShelf>
+        <GeminiCollectionAlbum />
+        <GeminiCollectionAlbum />
+        <GeminiCollectionAlbum />
+      </GeminiCollectionShelf>
+    </GeminiCollectionController>
   );
 }

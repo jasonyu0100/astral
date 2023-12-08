@@ -1,25 +1,28 @@
 "use client";
 
-import SeaPoints from "./common/points/main";
-import SeaPoint from "./common/points/point/main";
-import StoryDivider from "./common/story/divider/main";
-import StoryContainer from "./common/story/main";
-import StoryRow from "./common/story/row/main";
+import SeaController from "./common/controller/main";
+import SeaPointsContainer from "./common/controller/points/main";
+import SeaPoint from "./common/controller/points/point/main";
+import SeaDivider from "./common/controller/story/divider/main";
+import SeaStoryContainer from "./common/controller/story/main";
+import StoryRow from "./common/controller/story/row/main";
 
 export default function ApolloLaunch() {
   return (
-    <div className="flex flex-row">
-      <StoryContainer>
+    <SeaController>
+      <SeaStoryContainer>
         <StoryRow />
-      </StoryContainer>
-      <SeaPoints>
+      </SeaStoryContainer>
+      <SeaPointsContainer>
         <SeaPoint>Test</SeaPoint>
-        <StoryDivider/>
-        <SeaPoint>Test</SeaPoint>
-        <SeaPoint>Test</SeaPoint>
+        <SeaDivider/>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
-      </SeaPoints>
-    </div>
+        <SeaPoint>Test</SeaPoint>
+        <SeaPoint>Test</SeaPoint>
+        <SeaPoint>Test</SeaPoint>
+        <SeaPoint>Test</SeaPoint>
+      </SeaPointsContainer>
+    </SeaController>
   );
 }

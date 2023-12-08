@@ -1,4 +1,4 @@
-export default function ControllerContainer({
+export default function DraftController({
   children,
 }: {
   children: React.ReactNode;
