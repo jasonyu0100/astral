@@ -1,8 +1,8 @@
-import { MuseumRowProps, MuseumSection } from "../../common/museum/row/main";
+import { SailMuseumRowProps, SailMuseumSection } from "../../common/museum/row/main";
 
 const leadArtSrcRoot = "/voyager/sail/lead";
 
-export const leadArtData: MuseumSection[] = [
+export const leadArtData: SailMuseumSection[] = [
   {
     title: "Cosmos",
     description: "What we are building",

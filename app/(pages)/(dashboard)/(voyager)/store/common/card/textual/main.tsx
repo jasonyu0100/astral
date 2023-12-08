@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function TextualStoreCard({ src }: { src: string }) {
+export default function StoreTextualCard({ src }: { src: string }) {
   const [flipped, changeFlipped] = useState(true);
 
   return (

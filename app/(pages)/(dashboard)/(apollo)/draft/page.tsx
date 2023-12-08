@@ -1,7 +1,5 @@
 "use client";
 
-import DashboardGuideContainer from "../../(common)/dashboard/content/guide/container/main";
-import DashboardGuideWrapper from "../../(common)/dashboard/content/guide/main";
 import DraftConstellation from "./common/controller/right-container/space/constellation/main";
 import DraftGuidePoint from "./common/controller/guide/point/main";
 import DraftGuide from "./common/controller/guide/main";

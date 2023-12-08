@@ -1,5 +1,5 @@
-import { DashboardContent } from "@/(pages)/(dashboard)/(common)/dashboard/content/main";
-import StoreTabs from "@/(pages)/(dashboard)/(common)/dashboard/tabs/voyager-tabs/store-tabs/main";
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
+import StoreTabs from "@/(pages)/(dashboard)/(voyager)/common/voyager-tabs/store-tabs/main";
 
 export default function StoreVisualLayout({
   children,

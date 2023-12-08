@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function SonicStoreCard({ src }: { src: string }) {
+export default function StoreSonicCard({ src }: { src: string }) {
   const [flipped, changeFlipped] = useState(true);
 
   return (

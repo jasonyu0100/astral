@@ -1,5 +1,5 @@
-import { DashboardContent } from "@/(pages)/(dashboard)/(common)/dashboard/content/main";
-import SailTabs from "@/(pages)/(dashboard)/(common)/dashboard/tabs/voyager-tabs/sail-tabs/main";
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
+import SailTabs from "@/(pages)/(dashboard)/(voyager)/common/voyager-tabs/sail-tabs/main";
 
 export default function ArtConnectLayout({
   children,

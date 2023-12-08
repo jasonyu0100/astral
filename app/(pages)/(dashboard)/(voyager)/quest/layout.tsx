@@ -1,6 +1,6 @@
-import { DashboardWrapper } from "@/(pages)/(dashboard)/(common)/dashboard/container/main";
-import { DashboardBackground } from "@/(pages)/(dashboard)/(common)/dashboard/background/main";
-import { Sidebar } from "@/(pages)/(dashboard)/(common)/dashboard/sidebar";
+import { DashboardWrapper } from "@/(pages)/(dashboard)/(common)/wrapper/main";
+import { DashboardBackground } from "@/(pages)/(dashboard)/(common)/background/main";
+import { Sidebar } from "@/(pages)/(dashboard)/(common)/sidebar";
 
 export default function QuestLayout({
   children,

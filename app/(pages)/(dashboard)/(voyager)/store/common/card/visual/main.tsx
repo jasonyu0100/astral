@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function VisualStoreCard({ src }: { src: string }) {
+export default function StoreVisualCard({ src }: { src: string }) {
   const [flipped, changeFlipped] = useState(false);
 
   return (

@@ -1,4 +1,4 @@
-export default function DashboardGuideWrapper({
+export default function StoreGuideWrapper({
   children,
 }: {
   children: React.ReactNode;
@@ -12,3 +12,4 @@ export default function DashboardGuideWrapper({
     </div>
   );
 }
+

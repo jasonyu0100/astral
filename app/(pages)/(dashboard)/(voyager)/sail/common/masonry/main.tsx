@@ -1,4 +1,4 @@
-export default function MastMasonryContainer({
+export default function SailMasonryContainer({
   children,
 }: {
   children: React.ReactNode;

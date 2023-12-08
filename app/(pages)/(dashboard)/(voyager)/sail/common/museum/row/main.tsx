@@ -1,10 +1,10 @@
-export interface MuseumSection {
+export interface SailMuseumSection {
   title: string;
-  works: MuseumRowProps[];
+  works: SailMuseumRowProps[];
   description: string;
 }
 
-export interface MuseumRowProps {
+export interface SailMuseumRowProps {
   author: string;
   title: string;
   date: string;
@@ -12,13 +12,13 @@ export interface MuseumRowProps {
   src: string;
 }
 
-export default function MuseumRow({
+export default function SailMuseumRow({
   author,
   title,
   date,
   description,
   src,
-}: MuseumRowProps) {
+}: SailMuseumRowProps) {
   return (
     <div className="flex flex-row w-full justify-evenly items-center">
       <div className="bg-white w-[200px] p-[20px] border-slate-950 border-[10px] flex justify-center items-center">

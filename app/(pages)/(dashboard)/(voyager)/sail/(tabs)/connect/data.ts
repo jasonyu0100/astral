@@ -1,4 +1,4 @@
-import { MuseumRowProps, ArtSection } from "../../common/museum/row/main";
+import { SailMuseumRowProps, ArtSection } from "../../common/museum/row/main";
 
 const connnectArtSrcRoot = "/voyager/sail/connect";
 

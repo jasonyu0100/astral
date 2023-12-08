@@ -1,5 +1,4 @@
-export default function DashboardGuideContainer({
-  children,
+export default function StoreGuideController({children,
 }: {
   children: React.ReactNode;
 }) {

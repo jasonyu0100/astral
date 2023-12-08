@@ -1,4 +1,4 @@
-export default function MastMuseumContainer({
+export default function SailMuseumContainer({
   children,
 }: {
   children: React.ReactNode;
