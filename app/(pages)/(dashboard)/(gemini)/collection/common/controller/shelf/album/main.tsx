@@ -10,7 +10,7 @@ export default function GeminiCollectionAlbum() {
             <Image
               width={125}
               height={125}
-              src="/voyager/collection/personal.png"
+              src="/gemini/collection/personal.png"
               alt={""}
             />
           </div>

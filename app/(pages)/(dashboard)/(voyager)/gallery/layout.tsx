@@ -1,6 +1,6 @@
 import { DashboardWrapper } from "@/(pages)/(dashboard)/(common)/wrapper/main";
 import { DashboardBackground } from "@/(pages)/(dashboard)/(common)/background/main";
-import { Sidebar } from "@/(pages)/(dashboard)/(common)/sidebar";
+import { Sidebar } from "../common/sidebar";
 
 export default function VoyagerGalleryLayout({
   children,

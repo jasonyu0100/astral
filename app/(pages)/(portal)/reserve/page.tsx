@@ -90,7 +90,7 @@ export default function HelloLanding() {
             >
               <Image
                 alt="test"
-                src={`/hello/${categories[categoryIndex]}-${variant}.png`}
+                src={`/landing/${categories[categoryIndex]}-${variant}.png`}
                 width={550}
                 height={550}
               />

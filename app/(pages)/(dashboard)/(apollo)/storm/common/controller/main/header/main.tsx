@@ -1,8 +1,13 @@
+import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
 import Image from "next/image";
 
-export default function StormHeader() {
+function StormHeader() {
   return (
-    <div className="flex flex-col justify-center items-center flex-shrink-0 rounded-tl-md w-full h-[80px] bg-gradient-to-r from-slate-700 to-slate-800 backdrop-blur-[20px]">
+    <Texture 
+      sizeStyle="h-[80px] w-full"
+      backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
+      borderStyle=""
+    >
       <div className="flex flex-col items-center">
         <div className="w-[40px] h-[40px] mt-[5px] rounded-[20px] overflow-hidden bg-white">
             <Image
@@ -14,6 +19,8 @@ export default function StormHeader() {
         </div>
         <div className="text-white text-sm mt-[5px] font-bold">Jason ></div>
       </div>
-    </div>
+    </Texture>
   );
 }
+
+export default StormHeader;
