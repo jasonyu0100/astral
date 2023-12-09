@@ -6,6 +6,7 @@ import StormVoiceIcon from "../../../icon/voice/main";
 export default function StormMessageInput() {
   return (
     <Texture
+      displayName={StormMessageInput.name}
       sizeStyle="h-[80px] w-full"
       backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
       borderStyle=""

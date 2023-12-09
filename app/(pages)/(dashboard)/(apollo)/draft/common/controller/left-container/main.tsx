@@ -1,13 +1,30 @@
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/texture/data";
+import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+
 export default function DraftLeftContainer() {
   return (
-    <div className="flex flex-col h-full w-[160px]">
-      <div className="w-full h-[160px] bg-slate-800 flex items-center justify-center">
+    <Texture displayName={DraftLeftContainer.name} sizeStyle="h-[full] w-[160px]">
+      <Texture
+        sizeStyle="h-[160px] w-[160px]"
+        backgroundStyle={backgroundStyles["glass-10"]}
+        containerStyle={containerStyles["col-centered"]}
+        borderStyle={borderStyles["border-b"]}
+      >
         <div className="w-[100px] h-[100px] bg-slate-300 rounded-[50px]"></div>
-      </div>
-      <div className="w-full h-[540px] bg-slate-800 flex flex-col overflow-auto items-center pt-[20px] space-y-[20px]">
+      </Texture>
+      <Texture
+        sizeStyle="w-[160px] h-[540px]"
+        backgroundStyle={backgroundStyles["glass-10"]}
+        containerStyle={containerStyles["col-center"]}
+        contentStyle="overflow-auto pt-[20px] space-y-[20px]"
+      >
         <div className="w-[120px] h-[160px] bg-slate-400"></div>
         <div className="w-[120px] h-[160px] bg-slate-400"></div>
-      </div>
-    </div>
+      </Texture>
+    </Texture>
   );
 }

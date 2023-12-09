@@ -1,11 +1,22 @@
-import DraftConstellation from "./space/constellation/main";
-import DraftSpace from "./space/main";
-import DraftStoreRow from "./store-row/main";
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/texture/data";
+import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
 
-export default function DraftRightContainer({children}: {children: React.ReactNode}) {
+export default function DraftRightContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className={`flex flex-col h-full w-[840px] bg-slate-800`}>
+    <Texture
+      displayName={DraftRightContainer.name}
+      sizeStyle="h-[full] w-[840px]"
+      backgroundStyle={backgroundStyles["glass-5"]}
+      containerStyle={containerStyles["col"]}
+    >
       {children}
-    </div>
+    </Texture>
   );
 }

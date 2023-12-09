@@ -1,22 +1,34 @@
-import Image from "next/image";
+import { backgroundStyles, borderStyles, containerStyles } from "./data";
 
-function TextureContent({ children }: { children: React.ReactNode }) {
+export interface TextureContentProps {
+  containerStyle?: string;
+  contentStyle?: string;
+  children: React.ReactNode;
+}
+
+function TextureContent({
+  containerStyle,
+  contentStyle,
+  children,
+}: TextureContentProps) {
   return (
     <div
-      className={`absolute top-0 w-full h-full`}
+      className={`absolute top-0 w-full h-full ${containerStyle} ${contentStyle}`}
     >
       {children}
     </div>
   );
 }
 
+export interface TextureBackgroundProps {
+  backgroundStyle?: string;
+  borderStyle?: string;
+}
+
 function TextureBackground({
   backgroundStyle,
   borderStyle,
-}: {
-  backgroundStyle: string;
-  borderStyle: string;
-}) {
+}: TextureBackgroundProps) {
   return (
     <div
       className={`w-full h-full flex-shrink-0 ${backgroundStyle} ${borderStyle}`}
@@ -24,24 +36,41 @@ function TextureBackground({
   );
 }
 
+export interface TextureProps {
+  displayName?: string;
+  sizeStyle?: string;
+  containerStyle?: string;
+  contentStyle?: string;
+  backgroundStyle?: string;
+  borderStyle?: string;
+  children: React.ReactNode;
+}
+
 function Texture({
+  displayName,
   sizeStyle,
+  containerStyle,
+  contentStyle,
   backgroundStyle,
   borderStyle,
   children,
-}: {
-  sizeStyle: string;
-  children: React.ReactNode;
-  backgroundStyle: string;
-  borderStyle: string;
-}) {
+}: TextureProps) {
   return (
-    <div className={`relative flex-shrink-0 ${sizeStyle}`}>
+    <div id={displayName ? displayName : ""} className={`relative flex-shrink-0 ${sizeStyle}`}>
       <TextureBackground
-        backgroundStyle={backgroundStyle}
-        borderStyle={borderStyle}
+        backgroundStyle={
+          backgroundStyle ? backgroundStyle : backgroundStyles["glass-10"]
+        }
+        borderStyle={borderStyle ? borderStyle : borderStyles["none"]}
       />
-      <TextureContent>{children}</TextureContent>
+      <TextureContent
+        containerStyle={
+          containerStyle ? containerStyle : containerStyles["col"]
+        }
+        contentStyle={contentStyle ? contentStyle : ""}
+      >
+        {children}
+      </TextureContent>
     </div>
   );
 }

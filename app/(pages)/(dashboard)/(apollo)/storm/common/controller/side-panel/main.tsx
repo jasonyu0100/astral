@@ -4,6 +4,7 @@ import SidePanelColumn from "./column/main";
 import SidePanelGalaxy from "./galaxy/main";
 import SidePanelAdd from "./add/main";
 import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+import { containerStyles } from "@/(pages)/(dashboard)/(common)/texture/data";
 
 export default function StormSidePanel({
   children,
@@ -12,15 +13,15 @@ export default function StormSidePanel({
 }) {
   return (
     <Texture
+      displayName={StormSidePanel.name}
       sizeStyle="w-[80px] h-[710px]"
       backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
       borderStyle=""
+      containerStyle={containerStyles["col-center"]}
     >
-      <div className="flex flex-col items-center flex-shrink-0 w-full h-full">
-        <SidePanelGalaxy />
-        <SidePanelColumn>{children}</SidePanelColumn>
-        <SidePanelAdd />
-      </div>
+      <SidePanelGalaxy />
+      <SidePanelColumn>{children}</SidePanelColumn>
+      <SidePanelAdd />
     </Texture>
   );
 }
