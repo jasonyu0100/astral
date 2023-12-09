@@ -1,11 +1,23 @@
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/texture/data";
+import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+
 export default function FlowInspireRow({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row overflow-auto items-center space-x-[20px] p-[20px] flex-shrink-0 bg-slate-800 w-[700px] h-[200px]">
-        {children}
-    </div>
+    <Texture
+      displayName={FlowInspireRow.name}
+      sizeStyle="w-[700px] h-[200px]"
+      backgroundStyle={backgroundStyles["glass-10"]}
+      containerStyle={containerStyles["row-center"]}
+      contentStyle="overflow-auto space-x-[20px] p-[20px]"
+    >
+      {children}
+    </Texture>
   );
 }

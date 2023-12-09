@@ -4,18 +4,18 @@ import {
 } from "@/(pages)/(dashboard)/(common)/texture/data";
 import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
 
-export default function FlowProgressColumn({
+export default function DraftStoreCol({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Texture
-      displayName={FlowProgressColumn.name}
-      sizeStyle="w-[200px] h-full"
+      displayName={DraftStoreCol.name}
+      sizeStyle="w-[160px] h-[540px]"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="space-y-[20px] p-[20px] overflow-auto"
+      contentStyle="overflow-auto pt-[20px] space-y-[20px]"
     >
       {children}
     </Texture>

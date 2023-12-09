@@ -37,7 +37,7 @@ function TextureBackground({
 }
 
 export interface TextureProps {
-  displayName?: string;
+  displayName: string;
   sizeStyle?: string;
   containerStyle?: string;
   contentStyle?: string;
@@ -56,10 +56,10 @@ function Texture({
   children,
 }: TextureProps) {
   return (
-    <div id={displayName ? displayName : ""} className={`relative flex-shrink-0 ${sizeStyle}`}>
+    <div id={displayName} className={`relative flex-shrink-0 ${sizeStyle}`}>
       <TextureBackground
         backgroundStyle={
-          backgroundStyle ? backgroundStyle : backgroundStyles["glass-10"]
+          backgroundStyle ? backgroundStyle : backgroundStyles["none"]
         }
         borderStyle={borderStyle ? borderStyle : borderStyles["none"]}
       />

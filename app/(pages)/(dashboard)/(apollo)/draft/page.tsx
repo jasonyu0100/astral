@@ -10,17 +10,29 @@ import DraftSpace from "./common/controller/right-container/space/main";
 import DraftRightContainer from "./common/controller/right-container/main";
 import DraftStoreRow from "./common/controller/right-container/store-row/main";
 import DraftWrapper from "./common/controller/wrapper/main";
+import DraftLeftContainerAdd from "./common/controller/left-container/add/main";
+import DraftStoreCol from "./common/controller/left-container/store-col/main";
+import DraftStoreColItem from "./common/controller/left-container/store-col/item/main";
+import DraftStoreRowItem from "./common/controller/right-container/store-row/item/main";
 
 export default function ApolloDraftPage() {
   return (
     <DraftWrapper>
       <DraftController>
-        <DraftLeftContainer />
+        <DraftLeftContainer>
+          <DraftLeftContainerAdd />
+          <DraftStoreCol>
+            <DraftStoreColItem />
+            <DraftStoreColItem />
+          </DraftStoreCol>
+        </DraftLeftContainer>
         <DraftRightContainer>
-          <DraftStoreRow />
+          <DraftStoreRow>
+            <DraftStoreRowItem/>
+          </DraftStoreRow>
           <DraftSpace>
             <DraftConstellation />
-            <DraftConstellationIndicator/>
+            <DraftConstellationIndicator />
           </DraftSpace>
         </DraftRightContainer>
       </DraftController>

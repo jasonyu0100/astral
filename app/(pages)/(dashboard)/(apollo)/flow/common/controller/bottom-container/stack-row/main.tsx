@@ -1,7 +1,23 @@
-export default function FlowStackRow({ children }: { children: React.ReactNode }) {
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/texture/data";
+import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+
+export default function FlowStackRow({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex flex-row overflow-auto flex-shrink-0 space-x-[20px] bg-slate-800 w-[700px] h-full p-[20px]">
+    <Texture
+      displayName={FlowStackRow.name}
+      sizeStyle="w-[700px] h-full"
+      backgroundStyle={backgroundStyles["glass-10"]}
+      containerStyle={containerStyles["row-center"]}
+      contentStyle="space-x-[20px] p-[20px] overflow-auto"
+    >
       {children}
-    </div>
+    </Texture>
   );
 }
