@@ -1,9 +1,9 @@
 "use client";
 
-import PillarsArtContainer from "../../common/art-container/main";
-import PillarsMasonryContainer from "../../common/masonry/main";
-import PillarsMuseumContainer from "../../common/museum/main";
-import PillarsMuseumRow from "../../common/museum/row/main";
+import PillarsController from "../../common/controller/main";
+import PillarsMasonryContainer from "../../common/controller/masonry/main";
+import PillarsMuseumContainer from "../../common/controller/museum/main";
+import PillarsMuseumRow from "../../common/controller/museum/row/main";
 import PillarsGuideWrapper from "../../common/guide/wrapper/main";
 import PillarsGuideController from "../../common/guide/main";
 import PillarsGuideBody from "../../common/guide/body/main";
@@ -13,7 +13,7 @@ import { leadArtData } from "./data";
 export default function PillarsLead() {
   return (
     <PillarsGuideWrapper>
-      <PillarsArtContainer>
+      <PillarsController>
         <PillarsMasonryContainer>
           {leadArtData
             .map((data) => data.works)
@@ -30,7 +30,7 @@ export default function PillarsLead() {
               <PillarsMuseumRow {...data} />
             ))}
         </PillarsMuseumContainer>
-      </PillarsArtContainer>
+      </PillarsController>
       <PillarsGuideController>
         <PillarsGuideBody>
           <PillarsGuideController>Bento</PillarsGuideController>

@@ -1,5 +1,5 @@
-import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function DraftController({
   children,
@@ -7,13 +7,13 @@ export default function DraftController({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={DraftController.name}
       sizeStyle="w-[1000px] h-[700px]"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.row}
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

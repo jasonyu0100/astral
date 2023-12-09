@@ -1,10 +1,10 @@
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 import Image from "next/image";
 
 function StormHeader() {
   return (
-    <Texture 
+    <Layer 
       displayName={StormHeader.name}
       sizeStyle="h-[80px] w-full"
       backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
@@ -20,7 +20,7 @@ function StormHeader() {
             />
         </div>
         <div className="text-white text-sm mt-[5px] font-bold">Jason ></div>
-    </Texture>
+    </Layer>
   );
 }
 

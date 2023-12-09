@@ -1,4 +1,4 @@
-import { PillarsMuseumRowProps, PillarsMuseumSection } from "../../common/museum/row/main";
+import { PillarsMuseumRowProps, PillarsMuseumSection } from "../../common/controller/museum/row/main";
 
 const leadArtSrcRoot = "/voyager/pillars/lead";
 

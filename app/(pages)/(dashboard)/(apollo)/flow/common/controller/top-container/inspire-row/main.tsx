@@ -1,8 +1,8 @@
 import {
   backgroundStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+} from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function FlowInspireRow({
   children,
@@ -10,7 +10,7 @@ export default function FlowInspireRow({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={FlowInspireRow.name}
       sizeStyle="w-[700px] h-[200px]"
       backgroundStyle={backgroundStyles["glass-10"]}
@@ -18,6 +18,6 @@ export default function FlowInspireRow({
       contentStyle="overflow-auto space-x-[20px] p-[20px]"
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

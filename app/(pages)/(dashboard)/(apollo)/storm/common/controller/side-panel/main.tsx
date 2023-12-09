@@ -3,8 +3,8 @@ import StormSidePanelAvatar from "./avatar/main";
 import SidePanelColumn from "./column/main";
 import SidePanelGalaxy from "./galaxy/main";
 import SidePanelAdd from "./add/main";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/texture/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 
 export default function StormSidePanel({
   children,
@@ -12,7 +12,7 @@ export default function StormSidePanel({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={StormSidePanel.name}
       sizeStyle="w-[80px] h-[710px]"
       backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
@@ -22,6 +22,6 @@ export default function StormSidePanel({
       <SidePanelGalaxy />
       <SidePanelColumn>{children}</SidePanelColumn>
       <SidePanelAdd />
-    </Texture>
+    </Layer>
   );
 }

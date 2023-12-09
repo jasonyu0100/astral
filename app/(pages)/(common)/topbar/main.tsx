@@ -17,6 +17,7 @@ export default function Navbar() {
         <NavbarLink href="/about">ABOUT</NavbarLink>
         <NavbarLink href="/learn">LEARN</NavbarLink>
         <NavbarLink href="/pricing">PRICING</NavbarLink>
+        <NavbarLink href="/dev/layer">DEV</NavbarLink>
       </NavbarLeftLinks>
       <NavbarRightSide>
         <NavbarIconLink>

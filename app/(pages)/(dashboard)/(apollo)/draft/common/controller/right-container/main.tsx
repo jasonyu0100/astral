@@ -1,8 +1,8 @@
 import {
   backgroundStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+} from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function DraftRightContainer({
   children,
@@ -10,13 +10,13 @@ export default function DraftRightContainer({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={DraftRightContainer.name}
       sizeStyle="h-[full] w-[840px]"
       backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["col"]}
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

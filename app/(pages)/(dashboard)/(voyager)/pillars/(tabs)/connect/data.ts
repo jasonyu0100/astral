@@ -1,4 +1,4 @@
-import { PillarsMuseumRowProps, ArtSection } from "../../common/museum/row/main";
+import { PillarsMuseumRowProps, ArtSection } from "../../common/controller/museum/row/main";
 
 const connnectArtSrcRoot = "/voyager/pillars/connect";
 

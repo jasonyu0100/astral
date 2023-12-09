@@ -1,8 +1,8 @@
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 import StormFileIcon from "../../../icon/file/main";
 import StormSendIcon from "../../../icon/send/main";
 import StormVoiceIcon from "../../../icon/voice/main";
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/texture/data";
+import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 import StormMessageInputLeft from "./left/main";
 import StormMessageInputText from "./text/main";
 import StormMessageInputRight from "./right/main";
@@ -11,7 +11,7 @@ import StormMessageInputSend from "./right/voice/main";
 
 export default function StormMessageInput({children} : { children: React.ReactNode}) {
   return (
-    <Texture
+    <Layer
       displayName={StormMessageInput.name}
       sizeStyle="h-[80px] w-full"
       backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
@@ -19,6 +19,6 @@ export default function StormMessageInput({children} : { children: React.ReactNo
       borderStyle=""
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

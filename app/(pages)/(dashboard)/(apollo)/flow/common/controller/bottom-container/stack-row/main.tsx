@@ -1,8 +1,8 @@
 import {
   backgroundStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+} from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function FlowStackRow({
   children,
@@ -10,7 +10,7 @@ export default function FlowStackRow({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={FlowStackRow.name}
       sizeStyle="w-[700px] h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
@@ -18,6 +18,6 @@ export default function FlowStackRow({
       contentStyle="space-x-[20px] p-[20px] overflow-auto"
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

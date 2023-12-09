@@ -1,5 +1,5 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import StoreTabs from "@/(pages)/(dashboard)/(voyager)/common/tabs/store-tabs/main";
+import StoreTabs from "@/(pages)/(dashboard)/(voyager)/common/tabs/4-store-tabs/main";
 
 export default function StoreCultureLayout({
   children,

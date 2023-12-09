@@ -1,7 +1,7 @@
-import { DraftTab } from "./draft-tab/main";
-import { FlowTab } from "./flow-tab/main";
-import { SeaTab } from "./sea-tab/main";
-import { StormTab } from "./storm-tab/main";
+import { DraftTab } from "./2-draft-tab/main";
+import { FlowTab } from "./3-flow-tab/main";
+import { SeaTab } from "./4-sea-tab/main";
+import { StormTab } from "./1-storm-tab/main";
 
 interface ApolloTabProps {
   tab?: string;

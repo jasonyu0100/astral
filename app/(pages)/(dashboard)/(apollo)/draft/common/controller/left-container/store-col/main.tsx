@@ -1,8 +1,8 @@
 import {
   backgroundStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/texture/data";
-import Texture from "@/(pages)/(dashboard)/(common)/texture/main";
+} from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function DraftStoreCol({
   children,
@@ -10,7 +10,7 @@ export default function DraftStoreCol({
   children: React.ReactNode;
 }) {
   return (
-    <Texture
+    <Layer
       displayName={DraftStoreCol.name}
       sizeStyle="w-[160px] h-[540px]"
       backgroundStyle={backgroundStyles["glass-10"]}
@@ -18,6 +18,6 @@ export default function DraftStoreCol({
       contentStyle="overflow-auto pt-[20px] space-y-[20px]"
     >
       {children}
-    </Texture>
+    </Layer>
   );
 }

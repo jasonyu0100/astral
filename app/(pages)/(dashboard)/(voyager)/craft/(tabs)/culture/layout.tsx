@@ -1,5 +1,5 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/common/tabs/craft-tabs/main";
+import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/common/tabs/3-craft-tabs/main";
 
 export default function CraftStoryLayout({
   children,
