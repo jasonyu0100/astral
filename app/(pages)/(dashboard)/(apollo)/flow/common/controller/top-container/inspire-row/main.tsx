@@ -1,5 +1,6 @@
 import {
   backgroundStyles,
+  borderStyles,
   containerStyles,
 } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
@@ -12,10 +13,11 @@ export default function FlowInspireRow({
   return (
     <Layer
       displayName={FlowInspireRow.name}
-      sizeStyle="w-[700px] h-[200px]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      sizeStyle="w-[800px] h-[160px]"
+      backgroundStyle={backgroundStyles["glass-20"]}
       containerStyle={containerStyles["row-center"]}
-      contentStyle="overflow-auto space-x-[20px] p-[20px]"
+      borderStyle={borderStyles["border-b"]}
+      contentStyle="overflow-auto space-x-[40px] px-[40px]"
     >
       {children}
     </Layer>

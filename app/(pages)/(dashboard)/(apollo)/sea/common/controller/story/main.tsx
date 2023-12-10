@@ -1,5 +1,22 @@
-export default function SeaStoryContainer({children} : {children: React.ReactNode}) {
-    return <div className="flex flex-shrink-0 bg-slate-500 rounded-md w-[500px] h-[700px]">
+import {
+  backgroundStyles,
+  borderStyles,
+} from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+
+export default function SeaStoryContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+      <Layer
+        displayName={SeaStoryContainer.name}
+        sizeStyle="w-[500px] h-[700px]"
+        backgroundStyle={backgroundStyles["glass-10"]}
+        borderStyle={borderStyles["rounded"]}
+      >
         {children}
-    </div>
+      </Layer>
+  );
 }

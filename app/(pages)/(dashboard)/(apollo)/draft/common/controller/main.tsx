@@ -1,4 +1,4 @@
-import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import { borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function DraftController({
@@ -9,8 +9,7 @@ export default function DraftController({
   return (
     <Layer
       displayName={DraftController.name}
-      sizeStyle="w-[1000px] h-[700px]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      sizeStyle="w-[1000px] h-full"
       containerStyle={containerStyles.row}
     >
       {children}

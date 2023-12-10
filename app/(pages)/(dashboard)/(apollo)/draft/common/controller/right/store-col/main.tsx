@@ -1,5 +1,6 @@
 import {
   backgroundStyles,
+  borderStyles,
   containerStyles,
 } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
@@ -13,9 +14,8 @@ export default function DraftStoreCol({
     <Layer
       displayName={DraftStoreCol.name}
       sizeStyle="w-[160px] h-[540px]"
-      backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="overflow-auto pt-[20px] space-y-[20px]"
+      contentStyle="overflow-auto py-[40px] space-y-[40px]"
     >
       {children}
     </Layer>

@@ -9,6 +9,8 @@ import PillarsGuideController from "../../common/guide/main";
 import PillarsGuideBody from "../../common/guide/body/main";
 import PillarsGuideLink from "../../common/guide/body/link/main";
 import { connectArtData } from "./data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import MasonryMedia from "../../common/controller/masonry/media/main";
 
 export default function PillarsConnect() {
   return (
@@ -19,7 +21,7 @@ export default function PillarsConnect() {
             .map((data) => data.works)
             .flat(1)
             .map((data) => (
-              <img className="max-w-full rounded-lg mb-6" src={data.src} />
+              <MasonryMedia src={data.src} />
             ))}
         </PillarsMasonryContainer>
         <PillarsMuseumContainer>

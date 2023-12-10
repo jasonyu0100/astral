@@ -22,18 +22,16 @@ function TextureContent({
 
 export interface TextureBackgroundProps {
   backgroundStyle?: string;
-  borderStyle?: string;
   effectStyle?: string;
 }
 
 function TextureBackground({
   backgroundStyle,
-  borderStyle,
   effectStyle,
 }: TextureBackgroundProps) {
   return (
     <div
-      className={`w-full h-full flex-shrink-0 ${backgroundStyle} ${borderStyle} ${effectStyle}`}
+      className={`w-full h-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
     ></div>
   );
 }
@@ -60,12 +58,11 @@ function Layer({
   children,
 }: LayerProps) {
   return (
-    <div id={displayName} className={`relative flex-shrink-0 ${sizeStyle ? sizeStyle : "w-full h-full"}`}>
+    <div id={displayName} className={`relative flex-shrink-0 ${sizeStyle ? sizeStyle : "w-full h-full"} ${borderStyle ? borderStyle : borderStyles["none"]}`}>
       <TextureBackground
         backgroundStyle={
           backgroundStyle ? backgroundStyle : backgroundStyles["none"]
         }
-        borderStyle={borderStyle ? borderStyle : borderStyles["none"]}
         effectStyle={effectStyle ? effectStyle: effectStyles["none"]}
       />
       <TextureContent

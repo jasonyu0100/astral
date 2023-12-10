@@ -1,16 +1,23 @@
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
-export default function StormChatBody({children} : { children : React.ReactNode}) {
+export default function StormChatBody({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Layer
       displayName={StormChatBody.name}
       sizeStyle="w-full h-[550px]"
-      backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-5"
+      containerStyle={containerStyles.col}
       borderStyle=""
+      contentStyle="py-[40px] px-[60px] space-y-[30px]"
     >
-      <div className="flex flex-col flex-shrink-0 w-full h-full py-[40px] px-[60px] space-y-[30px]">
-        {children}
-      </div>
+      {children}
     </Layer>
   );
 }

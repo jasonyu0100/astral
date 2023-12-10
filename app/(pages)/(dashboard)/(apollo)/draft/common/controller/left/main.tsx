@@ -4,8 +4,6 @@ import {
   containerStyles,
 } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
-import DraftLeftContainerAdd from "./add/main";
-import DraftStoreCol from "./store-col/main";
 
 export default function DraftLeftContainer({
   children,
@@ -15,7 +13,9 @@ export default function DraftLeftContainer({
   return (
     <Layer
       displayName={DraftLeftContainer.name}
-      sizeStyle="h-[full] w-[160px]"
+      sizeStyle="h-full w-[800px]"
+      backgroundStyle={backgroundStyles["glass-5"]}
+      containerStyle={containerStyles["col"]}
     >
       {children}
     </Layer>

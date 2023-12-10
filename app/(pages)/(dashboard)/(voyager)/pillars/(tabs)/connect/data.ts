@@ -8,14 +8,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Architect",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/architect-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Architect",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -28,14 +28,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Artist",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/artist-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Artist",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -48,14 +48,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Creative",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/creative-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Creative",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -69,14 +69,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Creator",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/creator-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Creator",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -89,14 +89,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Designer",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/designer-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Designer",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -109,14 +109,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "DJ",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/dj-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "DJ",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -129,14 +129,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Illustrator",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/illustrator-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Illustrator",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -149,14 +149,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Mover",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/mover-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Mover",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -169,14 +169,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Musician",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/musician-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Musician",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -189,14 +189,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Performer",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/performer-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Performer",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -209,14 +209,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Personality",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/personality-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Personality",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -229,14 +229,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Photographer",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/photographer-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Photographer",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -249,14 +249,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Producer",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/producer-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Producer",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -269,14 +269,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Star",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/star-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Star",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -290,14 +290,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Storyteller",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/storyteller-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Storyteller",
         date: "September 2023",
         description: "For Creatives by Creatives",
@@ -310,14 +310,14 @@ export const connectArtData: ArtSection[] = [
     description: "For Creatives by Creatives",
     works: [
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Writer",
         date: "September 2023",
         description: "For Creatives by Creatives",
         src: `${connnectArtSrcRoot}/writer-f.png`,
       },
       {
-        author: "J22 & Tom",
+        author: "Jason",
         title: "Writer",
         date: "September 2023",
         description: "For Creatives by Creatives",

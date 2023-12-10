@@ -1,13 +1,23 @@
 "use client";
 
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+
 export default function GalleryContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col w-full bg-white rounded-t-lg overflow-hidden">
+    <Layer
+      displayName={GalleryContainer.name}
+      sizeStyle="h-full w-full"
+      containerStyle={containerStyles.col}
+      backgroundStyle={backgroundStyles["glass-5"]}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      contentStyle="overflow-auto"
+    >
       {children}
-    </div>
+    </Layer>
   );
 }

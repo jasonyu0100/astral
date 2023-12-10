@@ -1,4 +1,4 @@
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 import Image from "next/image";
 
@@ -7,8 +7,7 @@ function StormHeader() {
     <Layer 
       displayName={StormHeader.name}
       sizeStyle="h-[80px] w-full"
-      backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
-      borderStyle=""
+      backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-centered"]}
     >
         <div className="w-[40px] h-[40px] mt-[5px] rounded-[20px] overflow-hidden">

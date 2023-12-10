@@ -1,7 +1,19 @@
-export default function SeaPointsContainer({ children }: { children: React.ReactNode }) {
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+
+export default function SeaPointsContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex flex-col ml-[40px] overflow-auto space-y-[20px] h-[700px] pr-[20px]">
+    <Layer
+      displayName={SeaPointsContainer.name}
+      sizeStyle="h-[700px] w-[300px]"
+      containerStyle={containerStyles["col-center"]}
+      contentStyle="overflow-auto space-y-[30px]"
+    >
       {children}
-    </div>
+    </Layer>
   );
 }

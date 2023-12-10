@@ -9,17 +9,19 @@ import PillarsGuideController from "../../common/guide/main";
 import PillarsGuideBody from "../../common/guide/body/main";
 import PillarsGuideLink from "../../common/guide/body/link/main";
 import { leadArtData } from "./data";
+import MasonryMedia from "../../common/controller/masonry/media/main";
 
 export default function PillarsLead() {
   return (
     <PillarsGuideWrapper>
       <PillarsController>
+        <MasonryMedia src={"/voyager/pillars/lead/touch-c.png"} />
         <PillarsMasonryContainer>
           {leadArtData
             .map((data) => data.works)
             .flat(1)
             .map((data) => (
-              <img className="max-w-full rounded-lg mb-6" src={data.src} />
+              <MasonryMedia src={data.src} />
             ))}
         </PillarsMasonryContainer>
         <PillarsMuseumContainer>

@@ -6,9 +6,8 @@ export default function DraftLeftContainerAdd() {
     <Layer
       displayName={DraftLeftContainerAdd.name}
       sizeStyle="h-[160px] w-[160px]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-20"]}
       containerStyle={containerStyles["col-centered"]}
-      borderStyle={borderStyles["border-b"]}
     >
       <div className="w-[100px] h-[100px] bg-slate-300 rounded-[50px]"></div>
     </Layer>

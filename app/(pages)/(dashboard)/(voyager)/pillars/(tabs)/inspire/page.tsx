@@ -9,6 +9,7 @@ import PillarsGuideBody from "../../common/guide/body/main";
 import PillarsGuideLink from "../../common/guide/body/link/main";
 import PillarsMuseumContainer from "../../common/controller/museum/main";
 import { inspireArtData } from "./data";
+import MasonryMedia from "../../common/controller/masonry/media/main";
 
 export default function PillarsInspire() {
   return (
@@ -19,7 +20,7 @@ export default function PillarsInspire() {
             .map((data) => data.works)
             .flat(1)
             .map((data) => (
-              <img className="max-w-full rounded-lg mb-6" src={data.src} />
+              <MasonryMedia src={data.src} />
             ))}
         </PillarsMasonryContainer>
         <PillarsMuseumContainer>

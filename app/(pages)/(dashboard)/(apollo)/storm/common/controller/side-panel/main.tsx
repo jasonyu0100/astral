@@ -4,7 +4,7 @@ import SidePanelColumn from "./column/main";
 import SidePanelGalaxy from "./galaxy/main";
 import SidePanelAdd from "./add/main";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 
 export default function StormSidePanel({
   children,
@@ -14,10 +14,11 @@ export default function StormSidePanel({
   return (
     <Layer
       displayName={StormSidePanel.name}
-      sizeStyle="w-[80px] h-[710px]"
-      backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
+      sizeStyle="w-[80px] h-full"
+      backgroundStyle={backgroundStyles["glass-20"]}
       borderStyle=""
       containerStyle={containerStyles["col-center"]}
+      contentStyle="justify-between"
     >
       <SidePanelGalaxy />
       <SidePanelColumn>{children}</SidePanelColumn>

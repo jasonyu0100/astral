@@ -1,11 +1,20 @@
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+
 export default function GalleryList({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col divide-y-[2px] h-full divide-slate-700 w-full bg-slate-800 py-[10px]">
+    <Layer
+      sizeStyle="w-full h-full"
+      displayName={GalleryList.name}
+      containerStyle={containerStyles["col-center"]}
+      backgroundStyle={backgroundStyles["glass-10"]}
+      contentStyle="divide-y-[2px] divide-slate-700 py-[10px] overflow-auto"
+    >
       {children}
-    </div>
+    </Layer>
   );
 }

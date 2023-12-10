@@ -27,11 +27,20 @@ export const effectStyles = {
 }
 
 export const borderStyles = {
-  "border-all": "border border-slate-400 border-opacity-30",
-  "border-l": "border-l border-slate-400 border-opacity-30",
-  "border-r": "border-r border-slate-400 border-opacity-30",
-  "border-b": "border-b border-slate-400 border-opacity-30",
-  "border-t": "border-t border-slate-400 border-opacity-30",
+  "border-all": "border border-slate-200 border-opacity-30",
+  "border-t": "border-t border-slate-200 border-opacity-30",
+  "border-r": "border-r border-slate-200 border-opacity-30",
+  "border-b": "border-b border-slate-200 border-opacity-30",
+  "border-l": "border-l border-slate-200 border-opacity-30",
+  "rounded": "rounded-[10px] overflow-hidden",
+  "rounded-tl": "rounded-tl-[10px] overflow-hidden",
+  "rounded-tr": "rounded-tr-[10px] overflow-hidden",
+  "rounded-bl": "rounded-bl-[10px] overflow-hidden",
+  "rounded-br": "rounded-br-[10px] overflow-hidden",
+  "rounded-t": "rounded-t-[10px] overflow-hidden",
+  "rounded-r": "rounded-r-[10px] overflow-hidden",
+  "rounded-b": "rounded-b-[10px] overflow-hidden",
+  "rounded-l": "rounded-l-[10px] overflow-hidden",
   "none": "",
 }
 

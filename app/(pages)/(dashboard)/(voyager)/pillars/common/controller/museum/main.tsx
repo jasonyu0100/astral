@@ -1,3 +1,5 @@
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+
 export default function PillarsMuseumContainer({
   children,
 }: {
