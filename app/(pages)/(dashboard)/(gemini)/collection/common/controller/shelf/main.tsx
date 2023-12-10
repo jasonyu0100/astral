@@ -1,5 +1,6 @@
 "use client";
-import GeminiCollectionAlbum from "./album/main";
+import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 
 export default function GeminiCollectionShelf({
   children,
@@ -7,8 +8,14 @@ export default function GeminiCollectionShelf({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-[250px] flex flex-row items-center w-full px-[40px] space-x-[100px]">
+    <Layer
+      displayName={GeminiCollectionShelf.name}
+      sizeStyle="h-[250px] w-full"
+      backgroundStyle={backgroundStyles["glass-5"]}
+      containerStyle={containerStyles.row}
+      contentStyle="px-[40px] space-x-[100px]"
+    >
       {children}
-    </div>
+    </Layer>
   );
 }

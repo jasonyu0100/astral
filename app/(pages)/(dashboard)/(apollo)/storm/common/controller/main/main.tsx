@@ -9,7 +9,7 @@ export default function StormControllerMain({
   return (
     <Layer
       displayName={StormControllerMain.name}
-      sizeStyle="w-[700px] h-full"
+      sizeStyle="w-[840px] h-full"
       containerStyle={containerStyles["col"]}
       contentStyle="justify-between"
     >

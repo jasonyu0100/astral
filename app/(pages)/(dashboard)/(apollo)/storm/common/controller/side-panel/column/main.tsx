@@ -4,7 +4,7 @@ export default function SidePanelColumn({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-[550px] overflow-auto w-full flex flex-col items-center space-y-[20px] py-[20px] flex-shrink-0">
+    <div className="overflow-auto w-full flex flex-col items-center space-y-[20px] py-[20px] flex-shrink-0" style={{height:"calc(100% - 160px)"}}>
       {children}
     </div>
   );

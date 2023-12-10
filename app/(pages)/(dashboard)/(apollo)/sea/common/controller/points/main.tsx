@@ -16,7 +16,7 @@ export default function SeaPointsContainer({
       sizeStyle="h-[700px] w-[500px]"
       containerStyle={containerStyles["col-center"]}
       backgroundStyle={backgroundStyles["glass-20"]}
-        borderStyle={`${borderStyles["rounded"]}`}
+        borderStyle={`${borderStyles["rounded-r"]}`}
       contentStyle="overflow-auto"
     >
       {children}

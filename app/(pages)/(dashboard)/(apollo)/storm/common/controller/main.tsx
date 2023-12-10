@@ -15,9 +15,8 @@ export default function StormController({
   return (
     <Layer
       displayName={StormController.name}
-      sizeStyle="w-[780px] h-full"
+      sizeStyle="w-[1000px] h-full"
       effectStyle={effectStyles["glow-md"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["row"]}
       borderStyle={borderStyles["rounded-t"]}
     >
