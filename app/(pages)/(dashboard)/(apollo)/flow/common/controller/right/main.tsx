@@ -4,17 +4,17 @@ import {
 } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
-export default function FlowBottomContainer({
+export default function FlowRightContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={FlowBottomContainer.name}
-      sizeStyle="h-[540px] w-full"
-      containerStyle={containerStyles.row}
-      borderStyle={borderStyles["rounded-b"]}
+      displayName={FlowRightContainer.name}
+      sizeStyle="h-full w-[160px]"
+      containerStyle={containerStyles.col}
+      borderStyle={borderStyles["rounded-tr"]}
     >
       {children}
     </Layer>

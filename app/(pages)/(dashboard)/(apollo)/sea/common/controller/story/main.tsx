@@ -13,8 +13,8 @@ export default function SeaStoryContainer({
       <Layer
         displayName={SeaStoryContainer.name}
         sizeStyle="w-[500px] h-[700px]"
-        backgroundStyle={backgroundStyles["glass-10"]}
-        borderStyle={borderStyles["rounded"]}
+        backgroundStyle={backgroundStyles["glass-20"]}
+        borderStyle={`${borderStyles["rounded"]}`}
       >
         {children}
       </Layer>

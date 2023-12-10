@@ -1,50 +1,63 @@
 "use client";
 
-import FlowBottomContainer from "./common/controller/bottom-container/main";
-import FlowProgressColumn from "./common/controller/bottom-container/progress-col/main";
-import FlowStackRow from "./common/controller/bottom-container/stack-row/main";
+import FlowRightContainer from "./common/controller/right/main";
+import FlowProgressColumn from "./common/controller/right/progress-col/main";
+import FlowStackRow from "./common/controller/left/stack-row/main";
 import FlowController from "./common/controller/main";
-import FlowAdd from "./common/controller/top-container/add/main";
-import FlowInspireRow from "./common/controller/top-container/inspire-row/main";
-import FlowTopContainer from "./common/controller/top-container/main";
+import FlowAdd from "./common/controller/right/add/main";
+import FlowInspireRow from "./common/controller/left/inspire-row/main";
+import FlowLeftContainer from "./common/controller/left/main";
 import FlowPolaroid from "./common/polaroid/main";
 import FlowStickyStack from "./common/sticky-stack/main";
+import FlowGuideController from "./guide/main";
+import FlowGuideBody from "./guide/body/main";
+import FlowGuideWrapper from "./guide/wrapper/main";
+import FlowGuideLink from "./guide/body/link/main";
 
 export default function ApolloFlow() {
   return (
-    <FlowController>
-      <FlowTopContainer>
-        <FlowInspireRow>
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-        </FlowInspireRow>
-        <FlowAdd/>
-      </FlowTopContainer>
-      <FlowBottomContainer>
-        <FlowStackRow>
-          <FlowStickyStack />
-          <FlowStickyStack />
-          <FlowStickyStack />
-          <FlowStickyStack />
-          <FlowStickyStack />
-          <FlowStickyStack />
-          <FlowStickyStack />
-        </FlowStackRow>
-        <FlowProgressColumn>
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-          <FlowPolaroid />
-        </FlowProgressColumn>
-      </FlowBottomContainer>
-    </FlowController>
+    <FlowGuideWrapper>
+      <FlowController>
+        <FlowLeftContainer>
+          <FlowInspireRow>
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+          </FlowInspireRow>
+          <FlowStackRow>
+            <FlowStickyStack />
+            <FlowStickyStack />
+            <FlowStickyStack />
+            <FlowStickyStack />
+            <FlowStickyStack />
+            <FlowStickyStack />
+            <FlowStickyStack />
+          </FlowStackRow>
+        </FlowLeftContainer>
+        <FlowRightContainer>
+          <FlowAdd />
+          <FlowProgressColumn>
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+            <FlowPolaroid />
+          </FlowProgressColumn>
+        </FlowRightContainer>
+      </FlowController>
+      <FlowGuideController>
+        <FlowGuideBody>
+          <FlowGuideLink>CONST0</FlowGuideLink>
+          <FlowGuideLink>CONST1</FlowGuideLink>
+          <FlowGuideLink>CONST2</FlowGuideLink>
+        </FlowGuideBody>
+      </FlowGuideController>
+    </FlowGuideWrapper>
   );
 }

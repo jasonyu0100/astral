@@ -15,7 +15,6 @@ export default function ApolloLaunch() {
       </SeaStoryContainer>
       <SeaPointsContainer>
         <SeaPoint>Test</SeaPoint>
-        <SeaDivider/>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>

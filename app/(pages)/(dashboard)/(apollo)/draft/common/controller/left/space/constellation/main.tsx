@@ -1,6 +1,6 @@
 export default function DraftConstellation() {
   return (
-    <div className="w-[624px] h-[416px] relative">
+    <div className="w-[624px] h-[416px] mt-[50px] relative">
       <div className="w-[120px] h-[150px] pt-2.5 left-0 top-0 absolute bg-stone-100 shadow flex-col justify-end items-center inline-flex">
         <img
           className="w-[100px] h-[100px]"

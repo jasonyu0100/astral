@@ -1,17 +1,17 @@
 import { borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
-export default function FlowTopContainer({
+export default function FlowLeftContainer({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={FlowTopContainer.name}
-      sizeStyle="h-[160px] w-full"
-      containerStyle={containerStyles.row}
-      borderStyle={borderStyles["rounded-t"]}
+      displayName={FlowLeftContainer.name}
+      sizeStyle="h-full w-[800px]"
+      containerStyle={containerStyles.col}
+      borderStyle={borderStyles["rounded-tl"]}
     >
       {children}
     </Layer>

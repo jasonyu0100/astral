@@ -1,4 +1,8 @@
-import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(dashboard)/(common)/layer/data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 
 export default function SeaPointsContainer({
@@ -9,9 +13,11 @@ export default function SeaPointsContainer({
   return (
     <Layer
       displayName={SeaPointsContainer.name}
-      sizeStyle="h-[700px] w-[300px]"
+      sizeStyle="h-[700px] w-[500px]"
       containerStyle={containerStyles["col-center"]}
-      contentStyle="overflow-auto space-y-[30px]"
+      backgroundStyle={backgroundStyles["glass-20"]}
+        borderStyle={`${borderStyles["rounded"]}`}
+      contentStyle="overflow-auto"
     >
       {children}
     </Layer>

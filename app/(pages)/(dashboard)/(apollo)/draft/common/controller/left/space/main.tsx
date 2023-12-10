@@ -13,9 +13,8 @@ export default function DraftSpace({
   return (
     <Layer
       displayName={DraftSpace.name}
-      sizeStyle="w-full h-[540px]"
-      containerStyle={containerStyles["col-centered"]}
-      contentStyle="p-[20px]"
+      sizeStyle="w-full h-full"
+      containerStyle={containerStyles["col-center"]}
     >
       {children}
     </Layer>

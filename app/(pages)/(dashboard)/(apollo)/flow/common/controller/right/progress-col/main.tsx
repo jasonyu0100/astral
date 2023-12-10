@@ -13,11 +13,10 @@ export default function FlowProgressColumn({
   return (
     <Layer
       displayName={FlowProgressColumn.name}
-      sizeStyle="w-[260px] h-full"
-      backgroundStyle={backgroundStyles["glass-30"]}
-      borderStyle={borderStyles["border-l"]}
+      sizeStyle="w-full h-full"
+      backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="space-y-[20px] p-[20px] overflow-auto"
+      contentStyle="space-y-[20px] p-[20px] pb-[180px] overflow-auto"
     >
       {children}
     </Layer>
