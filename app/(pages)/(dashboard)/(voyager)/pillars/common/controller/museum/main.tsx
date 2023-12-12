@@ -1,5 +1,5 @@
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function PillarsMuseumContainer({
   children,
@@ -11,7 +11,7 @@ export default function PillarsMuseumContainer({
       displayName={PillarsMuseumContainer.name}
       backgroundStyle={backgroundStyles["glass-10"]}
       sizeStyle={"w-full h-full overflow-auto"}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
       containerStyle={containerStyles.row}
     >
       <div className="flex flex-row flex-shrink-0 overflow-auto px-[50px] py-[20px] space-x-[100px] w-full">

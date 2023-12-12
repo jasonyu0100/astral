@@ -1,5 +1,5 @@
-import { backgroundStyles, borderStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function SeaPoint({ children }: { children: React.ReactNode }) {
   return (

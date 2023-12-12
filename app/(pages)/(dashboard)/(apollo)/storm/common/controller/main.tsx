@@ -4,8 +4,8 @@ import {
   borderStyles,
   containerStyles,
   effectStyles,
-} from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function StormController({
   children,
@@ -15,10 +15,10 @@ export default function StormController({
   return (
     <Layer
       displayName={StormController.name}
-      sizeStyle="w-[1000px] h-full"
+      sizeStyle="w-[900px] h-full"
       effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["row"]}
-      borderStyle={borderStyles["rounded-t"]}
+      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

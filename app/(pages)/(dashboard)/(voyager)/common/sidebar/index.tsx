@@ -1,1 +1,1 @@
-export { VoyagerSidebar as Sidebar } from './main'
+export { VoyagerSidebar as VoyagerSidebar } from './main'

@@ -1,4 +1,5 @@
-import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
+import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import StoreTabs from "@/(pages)/(dashboard)/(voyager)/common/tabs/4-store-tabs/main";
 
 export default function StoreVisualLayout({
@@ -9,7 +10,7 @@ export default function StoreVisualLayout({
   return (
     <>
       <StoreTabs tab={"Visual"} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardBodyContent>{children}</DashboardBodyContent>
     </>
   );
 }

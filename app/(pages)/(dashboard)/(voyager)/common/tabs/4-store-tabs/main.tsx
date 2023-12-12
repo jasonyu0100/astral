@@ -9,7 +9,7 @@ interface StoreTabProps {
 
 export const StoreTabs: React.FC<StoreTabProps> = ({ tab }) => {
   return (
-    <div className="h-[3rem] flex flex-row gap-[5rem]">
+    <div className="px-[2rem] pt-[2rem] flex flex-row gap-[5rem]">
       <BackTab />
       <div className="h-[3rem] flex flex-row gap-[6rem]">
         <StoreVisualTab active={tab === "Visual"} />

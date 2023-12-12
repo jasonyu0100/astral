@@ -1,5 +1,5 @@
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function SeaController({
   children,

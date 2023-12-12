@@ -1,5 +1,5 @@
-import { borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function FlowLeftContainer({
   children,
@@ -9,9 +9,9 @@ export default function FlowLeftContainer({
   return (
     <Layer
       displayName={FlowLeftContainer.name}
-      sizeStyle="h-full w-[800px]"
+      sizeStyle="h-full w-[840px]"
       containerStyle={containerStyles.col}
-      borderStyle={borderStyles["rounded-tl"]}
+      borderStyle={borderStyles["rounded-l"]}
     >
       {children}
     </Layer>

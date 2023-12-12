@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function DraftRightContainer({
   children,
@@ -14,7 +14,7 @@ export default function DraftRightContainer({
     <Layer
       displayName={DraftRightContainer.name}
       sizeStyle="h-full w-[160px]"
-      borderStyle={borderStyles["rounded-tr"]}
+      borderStyle={borderStyles["rounded-r"]}
       backgroundStyle={backgroundStyles["glass-10"]}
     >
       {children}

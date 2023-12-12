@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function DraftLeftContainer({
   children,
@@ -13,9 +13,9 @@ export default function DraftLeftContainer({
   return (
     <Layer
       displayName={DraftLeftContainer.name}
-      sizeStyle="h-full w-[800px]"
+      sizeStyle="h-full w-[840px]"
       backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={borderStyles["rounded-tl"]}
+      borderStyle={borderStyles["rounded-l"]}
       containerStyle={containerStyles["col"]}
     >
       {children}

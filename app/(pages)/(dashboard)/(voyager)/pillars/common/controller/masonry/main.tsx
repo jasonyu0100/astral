@@ -1,5 +1,5 @@
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function PillarsMasonryContainer({
   children,
@@ -11,7 +11,7 @@ export default function PillarsMasonryContainer({
       displayName={PillarsMasonryContainer.name}
       backgroundStyle={backgroundStyles["glass-10"]}
       sizeStyle={"w-full h-full"}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
       containerStyle={containerStyles.row}
     >
       <div className="w-full h-full">

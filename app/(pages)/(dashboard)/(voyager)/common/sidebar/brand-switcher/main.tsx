@@ -1,10 +1,14 @@
-export default function BrandSwitcher({children} : {children: React.ReactNode}) {
-    return <div className="w-full">
-        <a
-          href="/collection"
-          className="self-stretch justify-start items-center gap-[1rem] inline-flex h-[3rem]"
-        >
-            {children}
-        </a>
-      </div>
+export default function BrandSwitcher({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href="/collection"
+      className="self-stretch justify-start items-center gap-[1rem] inline-flex w-full h-[5rem]"
+    >
+      <div className="flex flex-row w-full h-full items-center space-x-[1rem]">{children}</div>
+    </a>
+  );
 }

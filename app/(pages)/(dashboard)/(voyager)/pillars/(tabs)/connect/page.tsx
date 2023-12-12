@@ -9,7 +9,7 @@ import PillarsGuideController from "../../common/guide/main";
 import PillarsGuideBody from "../../common/guide/body/main";
 import PillarsGuideLink from "../../common/guide/body/link/main";
 import { connectArtData } from "./data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import Layer from "@/(pages)/(common)/layer/main";
 import MasonryMedia from "../../common/controller/masonry/media/main";
 import { useState } from "react";
 

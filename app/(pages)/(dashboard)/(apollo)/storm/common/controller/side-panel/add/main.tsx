@@ -1,6 +1,6 @@
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import Layer from "@/(pages)/(common)/layer/main";
 import StormAddIcon from "../../../icon/add/main";
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
 export default function SidePanelAdd() {
   return (

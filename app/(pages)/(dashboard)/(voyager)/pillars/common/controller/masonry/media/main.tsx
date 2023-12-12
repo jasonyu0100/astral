@@ -1,5 +1,5 @@
-import { backgroundStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 import { useState } from "react";
 
 export default function MasonryMedia({ src }: { src: string }) {

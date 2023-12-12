@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function DraftStoreCol({
   children,

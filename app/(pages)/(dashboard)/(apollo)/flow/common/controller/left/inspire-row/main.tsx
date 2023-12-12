@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function FlowInspireRow({
   children,
@@ -13,7 +13,7 @@ export default function FlowInspireRow({
   return (
     <Layer
       displayName={FlowInspireRow.name}
-      sizeStyle="w-[800px] h-[160px]"
+      sizeStyle="w-full h-[160px]"
       backgroundStyle={backgroundStyles["glass-20"]}
       containerStyle={containerStyles["row-center"]}
       contentStyle="overflow-auto space-x-[40px] px-[40px]"

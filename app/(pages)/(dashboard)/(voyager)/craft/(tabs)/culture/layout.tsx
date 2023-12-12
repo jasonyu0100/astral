@@ -1,4 +1,5 @@
-import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
+import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
+import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/common/tabs/3-craft-tabs/main";
 
 export default function CraftStoryLayout({
@@ -9,7 +10,7 @@ export default function CraftStoryLayout({
   return (
     <>
       <CraftTabs tab={"Culture"} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardBodyContent>{children}</DashboardBodyContent>
     </>
   );
 }

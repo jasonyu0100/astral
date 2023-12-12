@@ -1,5 +1,9 @@
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function StoreController({
   children,
@@ -7,14 +11,14 @@ export default function StoreController({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
-      displayName={StoreController.name}
-      sizeStyle="h-full w-full"
-      containerStyle={containerStyles.col}
-      backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-    >
-      {children}
-    </Layer>
+      <Layer
+        displayName={StoreController.name}
+        sizeStyle="h-full w-full"
+        containerStyle={containerStyles.col}
+        backgroundStyle={backgroundStyles["glass-10"]}
+        borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
+      >
+        {children}
+      </Layer>
   );
 }

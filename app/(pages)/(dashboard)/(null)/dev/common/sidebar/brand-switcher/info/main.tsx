@@ -5,7 +5,7 @@ export default function BrandInfo() {
         Cosmos
       </div>
       <div className="w-[180px] h-[25px] text-slate-300 text-base font-normal font-['Creato Display'] leading-normal">
-        J22
+        Jason
       </div>
     </div>
   );

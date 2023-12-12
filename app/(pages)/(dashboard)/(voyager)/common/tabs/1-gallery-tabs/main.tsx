@@ -9,7 +9,7 @@ interface GalleryTabProps {
 
 export const GalleryTabs: React.FC<GalleryTabProps> = ({ tab }) => {
   return (
-    <div className="h-[3rem] flex flex-row gap-[5rem]">
+    <div className="px-[2rem] pt-[2rem] flex flex-row gap-[5rem]">
       <BackTab />
       <div className="h-[3rem] flex flex-row gap-[6rem]">
         <NowTab active={tab === "Now"} />

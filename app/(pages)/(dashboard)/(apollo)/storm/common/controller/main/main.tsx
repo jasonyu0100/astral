@@ -1,5 +1,5 @@
-import { containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function StormControllerMain({
   children,
@@ -9,9 +9,10 @@ export default function StormControllerMain({
   return (
     <Layer
       displayName={StormControllerMain.name}
-      sizeStyle="w-[840px] h-full"
+      sizeStyle="w-[820px] h-full"
       containerStyle={containerStyles["col"]}
       contentStyle="justify-between"
+      borderStyle={borderStyles["rounded-l"]}
     >
       {children}
     </Layer>

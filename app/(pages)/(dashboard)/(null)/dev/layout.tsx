@@ -1,7 +1,7 @@
-import { DashboardWrapper } from "@/(pages)/(dashboard)/(common)/wrapper/main";
-import { DashboardBackground } from "@/(pages)/(dashboard)/(common)/background/main";
+import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
+import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import { DevSidebar } from "./common/sidebar/main";
-import { DashboardContent } from "../../(common)/content/main";
+import { DashboardBody } from "../../(common)/controller/body/main";
 
 export default function GeminiLayout({
   children,
@@ -9,11 +9,11 @@ export default function GeminiLayout({
   children: React.ReactNode;
 }) {
   return (
-    <DashboardWrapper>
+    <DashboardController>
       <DevSidebar />
-      <DashboardBackground>
-        <DashboardContent>{children}</DashboardContent>
-      </DashboardBackground>
-    </DashboardWrapper>
+      <DashboardBody>
+        <DashboardBodyContent>{children}</DashboardBodyContent>
+      </DashboardBody>
+    </DashboardController>
   );
 }

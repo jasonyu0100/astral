@@ -3,8 +3,8 @@ import {
   backgroundStyles,
   containerStyles,
   effectStyles,
-} from "../../../(common)/layer/data";
-import Layer from "../../../(common)/layer/main";
+} from "../../../../(common)/styles/data";
+import Layer from "../../../../(common)/layer/main";
 
 export default function LayerPage() {
   return (

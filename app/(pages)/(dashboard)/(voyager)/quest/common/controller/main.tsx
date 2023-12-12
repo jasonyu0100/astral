@@ -1,5 +1,5 @@
-import { backgroundStyles, borderStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
 
 export default function QuestController({
   children,
@@ -10,7 +10,7 @@ export default function QuestController({
     <Layer
       displayName={QuestController.name}
       sizeStyle="w-full h-full"
-      borderStyle={`${borderStyles["border-all"]} ${borderStyles["rounded-t"]}`}
+      borderStyle={`${borderStyles["border-all"]} ${borderStyles["rounded"]}`}
       backgroundStyle={backgroundStyles["glass-5"]}
       contentStyle="overflow-auto"
     >

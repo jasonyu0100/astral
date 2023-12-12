@@ -3,8 +3,8 @@ import StormSidePanelAvatar from "./avatar/main";
 import SidePanelColumn from "./column/main";
 import SidePanelGalaxy from "./galaxy/main";
 import SidePanelAdd from "./add/main";
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
-import { backgroundStyles, containerStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import Layer from "@/(pages)/(common)/layer/main";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
 export default function StormSidePanel({
   children,
@@ -16,7 +16,7 @@ export default function StormSidePanel({
       displayName={StormSidePanel.name}
       sizeStyle="w-[80px] h-full"
       backgroundStyle={backgroundStyles["glass-20"]}
-      borderStyle=""
+      borderStyle={borderStyles["rounded-r"]}
       containerStyle={containerStyles["col-center"]}
       contentStyle="justify-between"
     >

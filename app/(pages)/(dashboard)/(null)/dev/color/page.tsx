@@ -1,5 +1,5 @@
-import { backgroundStyles } from "../../../(common)/layer/data";
-import Layer from "../../../(common)/layer/main";
+import { backgroundStyles } from "../../../../(common)/styles/data";
+import Layer from "../../../../(common)/layer/main";
 
 export default function ColorPage() {
   return (

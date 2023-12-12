@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
+import Layer from "@/(pages)/(common)/layer/main";
 import FlowStickyNote from "../sticky/main";
 import MultiStickyNote from "../sticky/multi/main";
-import { backgroundStyles } from "@/(pages)/(dashboard)/(common)/layer/data";
+import { backgroundStyles } from "@/(pages)/(common)/styles/data";
 
 export default function FlowStickyStack() {
   return (

@@ -1,13 +1,20 @@
-export default function SidebarIndicatorCraft() {
+import SidebarIndicatorGreenJewel from "../indicator/jewel/green/main";
+import SidebarIndicator from "../indicator/main";
+import SidebarIndicatorText from "../indicator/text/main";
+
+export default function SidebarCraftIndicator({
+  activeIndicator,
+}: {
+  activeIndicator: string;
+}) {
+  const indicatorLabel = "Craft";
+  const active = activeIndicator === indicatorLabel;
+
   return (
-    <a
-      href="/craft/speech"
-      className="self-stretch justify-start items-center gap-[1rem] inline-flex h-[3rem]"
-    >
-      <div className="w-[2.5rem] h-[2.5rem] bg-gradient-to-br from-amber-300 to-emerald-400 rounded-full" />
-      <div className="text-center text-white text-2xl font-bold leading-9">
-        Craft
-      </div>
-    </a>
+    <SidebarIndicator href="/craft/speech">
+      <SidebarIndicatorGreenJewel active={active}/>
+      <SidebarIndicatorText active={active}>{indicatorLabel}</SidebarIndicatorText>
+    </SidebarIndicator>
   );
 }
+
