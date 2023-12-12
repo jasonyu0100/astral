@@ -6,7 +6,7 @@ export default function SidebarIndicatorQuest() {
     >
       <div className="w-[2.5rem] h-[2.5rem] bg-gradient-to-br from-slate-500 to-slate-700 rounded-full" />
       <div className="text-center text-white text-2xl font-bold leading-9">
-        Quest
+        Portfolio
       </div>
     </a>
   );

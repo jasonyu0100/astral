@@ -7,7 +7,7 @@ export default function MasonryMedia({ src }: { src: string }) {
 
   return (
     <div
-      className="w-full h-full"
+      className="w-full"
       onClick={() => changeFlipped(!flipped)}
     >
       {flipped ? (

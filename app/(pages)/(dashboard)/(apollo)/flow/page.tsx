@@ -53,9 +53,10 @@ export default function ApolloFlow() {
       </FlowController>
       <FlowGuideController>
         <FlowGuideBody>
-          <FlowGuideLink>CONST0</FlowGuideLink>
-          <FlowGuideLink>CONST1</FlowGuideLink>
-          <FlowGuideLink>CONST2</FlowGuideLink>
+          <FlowGuideLink>Melody</FlowGuideLink>
+          <FlowGuideLink>Harmonic</FlowGuideLink>
+          <FlowGuideLink>Beat</FlowGuideLink>
+          <FlowGuideLink>Arrangement</FlowGuideLink>
         </FlowGuideBody>
       </FlowGuideController>
     </FlowGuideWrapper>

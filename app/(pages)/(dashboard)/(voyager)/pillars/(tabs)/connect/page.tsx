@@ -11,32 +11,44 @@ import PillarsGuideLink from "../../common/guide/body/link/main";
 import { connectArtData } from "./data";
 import Layer from "@/(pages)/(dashboard)/(common)/layer/main";
 import MasonryMedia from "../../common/controller/masonry/media/main";
+import { useState } from "react";
 
 export default function PillarsConnect() {
+  const dataSource = connectArtData;
+  const [section, changeSection] = useState("Summary");
+  const sectionTitles = ["Summary", ...dataSource.map((data) => data.title)];
+  const allWorks = dataSource.map((data) => data.works).flat(1);
+  const getSectionWorks = () => {
+    const sectionData = dataSource
+      .filter((work) => work.title === section)
+      .at(0);
+    return sectionData?.works || [];
+  };
+
   return (
     <PillarsGuideWrapper>
       <PillarsController>
-        <PillarsMasonryContainer>
-          {connectArtData
-            .map((data) => data.works)
-            .flat(1)
-            .map((data) => (
+        {section === "Summary" ? (
+          <PillarsMasonryContainer>
+            {allWorks.map((data) => (
               <MasonryMedia src={data.src} />
             ))}
-        </PillarsMasonryContainer>
-        <PillarsMuseumContainer>
-          {connectArtData
-            .map((data) => data.works)
-            .flat(1)
-            .map((data) => (
-              <PillarsMuseumRow {...data} />
+          </PillarsMasonryContainer>
+        ) : (
+          <PillarsMuseumContainer>
+            {getSectionWorks().map((work) => (
+              <PillarsMuseumRow {...work} />
             ))}
-        </PillarsMuseumContainer>
+          </PillarsMuseumContainer>
+        )}
       </PillarsController>
       <PillarsGuideController>
         <PillarsGuideBody>
-          {connectArtData.map((data) => (
-            <PillarsGuideLink>{data.title}</PillarsGuideLink>
+          <PillarsGuideController>Bento</PillarsGuideController>
+          {sectionTitles.map((sectionTitle) => (
+            <PillarsGuideLink onClick={() => changeSection(sectionTitle)}>
+              {sectionTitle}
+            </PillarsGuideLink>
           ))}
         </PillarsGuideBody>
       </PillarsGuideController>

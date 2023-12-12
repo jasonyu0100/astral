@@ -6,7 +6,7 @@ export default function SidebarIndicatorGallery() {
     >
       <div className="w-[2.5rem] h-[2.5rem] bg-gradient-to-br from-cyan-500 to-violet-500 rounded-full" />
       <div className="text-center text-white text-2xl font-bold leading-9">
-        Gallery
+        Works
       </div>
     </a>
   );

@@ -46,9 +46,10 @@ export default function ApolloDraftPage() {
       </DraftController>
       <DraftGuideController>
         <DraftGuideBody>
-          <DraftGuideLink>Const0</DraftGuideLink>
-          <DraftGuideLink>Const1</DraftGuideLink>
-          <DraftGuideLink>Const2</DraftGuideLink>
+          <DraftGuideLink>Melody</DraftGuideLink>
+          <DraftGuideLink>Harmonic</DraftGuideLink>
+          <DraftGuideLink>Beat</DraftGuideLink>
+          <DraftGuideLink>Arrangement</DraftGuideLink>
         </DraftGuideBody>
       </DraftGuideController>
     </DraftGuideWrapper>

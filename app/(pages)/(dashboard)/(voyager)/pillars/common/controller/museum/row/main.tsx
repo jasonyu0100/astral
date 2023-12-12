@@ -28,7 +28,7 @@ export default function PillarsMuseumRow({
   src,
 }: PillarsMuseumRowProps) {
   return (
-    <div className="flex flex-row w-full justify-evenly items-center">
+    <div className="flex flex-col justify-center items-center space-y-[50px]">
       <PillarsMuseumMedia src={src} />
       <PillarsMuseumDisplay>
         <PillarsMuseumDisplayAuthor>{author}</PillarsMuseumDisplayAuthor>
