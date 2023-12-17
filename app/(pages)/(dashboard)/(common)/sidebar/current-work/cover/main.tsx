@@ -3,20 +3,16 @@ import clsx from "clsx";
 
 export default function SidebarWorkCover({ active }: { active: boolean }) {
   return (
-    <div
+    <img
+      src="/voyager/release/producer.png"
       className={clsx(
-        "w-[2.5rem] h-[2.5rem] flex flex-shrink-0 flex-col justify-center items-center bg-white",
+        "w-[2.5rem] h-[2.5rem] rounded-full border-[3px] border-slate-50",
         {
           "opacity-50": !active,
           "opacity-100": active,
           [effectStyles["glow-lg"]]: active,
         }
       )}
-    >
-      <img
-        src="/voyager/release/producer.png"
-        style={{ width: "2rem", height: "2rem" }}
-      />
-    </div>
+    />
   );
 }
