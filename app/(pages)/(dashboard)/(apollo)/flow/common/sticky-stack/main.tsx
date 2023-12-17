@@ -7,6 +7,7 @@ export default function FlowStickyStack() {
   return (
       <div className="flex flex-col space-y-[40px] flex-shrink-0 h-full w-[120px]">
         <Layer 
+          displayName={FlowStickyStack.name}
           sizeStyle="h-[50px] w-[120px]"
           backgroundStyle={backgroundStyles["glass-10"]}
         >

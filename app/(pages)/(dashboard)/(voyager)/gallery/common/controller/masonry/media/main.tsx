@@ -12,6 +12,7 @@ export default function MasonryMedia({ src }: { src: string }) {
     >
       {flipped ? (
         <Layer 
+            displayName="glass media"
             sizeStyle="w-full h-full"
             backgroundStyle={backgroundStyles["glass-10"]}
             contentStyle=""

@@ -1,8 +1,8 @@
-import { GalleryMuseumRowProps, ArtSection } from "../../common/controller/museum/row/main";
+import { GalleryMuseumSection } from "../../common/controller/museum/row/main";
 
 const inspireArtSrcRoot = "/voyager/gallery/inspire";
 
-export const inspireArtData: ArtSection[] = [
+export const inspireArtData: GalleryMuseumSection[] = [
   {
     title: "Purpose",
     description: "The purpose of Cosmos Brand.",

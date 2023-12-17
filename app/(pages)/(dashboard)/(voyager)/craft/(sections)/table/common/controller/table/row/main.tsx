@@ -29,8 +29,7 @@ export default function CraftTableRow({
       <CraftTableDescription>
         {description}
       </CraftTableDescription>
-      <CraftTableMedia src={src}>
-      </CraftTableMedia>
+      <CraftTableMedia src={src}/>
     </div>
   );
 }

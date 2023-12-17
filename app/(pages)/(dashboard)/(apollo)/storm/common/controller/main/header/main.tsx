@@ -18,7 +18,7 @@ function StormHeader() {
                 height={40}
             />
         </div>
-        <div className="text-white text-sm mt-[5px] font-bold">Jason ></div>
+        <div className="text-white text-sm mt-[5px] font-bold">Jason {">"}</div>
     </Layer>
   );
 }

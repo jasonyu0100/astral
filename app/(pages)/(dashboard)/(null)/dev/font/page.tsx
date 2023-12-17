@@ -5,6 +5,7 @@ export default function TexturePage() {
   return (
     <div className="flex flex-col">
       <Layer
+        displayName="glass-10"
         sizeStyle="w-[200px] h-[200px]"
         backgroundStyle={backgroundStyles["glass-10"]}
       ></Layer>

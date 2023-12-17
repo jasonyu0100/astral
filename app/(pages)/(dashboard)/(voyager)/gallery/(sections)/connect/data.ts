@@ -1,8 +1,8 @@
-import { GalleryMuseumRowProps, ArtSection } from "../../common/controller/museum/row/main";
+import { GalleryMuseumSection } from "../../common/controller/museum/row/main";
 
 const connnectArtSrcRoot = "/voyager/gallery/connect";
 
-export const connectArtData: ArtSection[] = [
+export const connectArtData: GalleryMuseumSection[] = [
   {
     title: "Architect",
     description: "For Creatives by Creatives",

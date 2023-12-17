@@ -24,7 +24,7 @@ export default function CraftStoreController({
       >
         {children}
       </Layer>
-      <BreadCrumb>craft > brand > icon</BreadCrumb>
+      <BreadCrumb>craft {">"} brand {">"} icon</BreadCrumb>
     </BreadCrumbWrapper>
   );
 }
