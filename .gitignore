@@ -9,8 +9,6 @@
 # Node artifact files
 node_modules/
 dist/
-public/apollo/
-public/voyager/
 
 # Compiled Java class files
 *.class
