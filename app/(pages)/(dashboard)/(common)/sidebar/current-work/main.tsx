@@ -1,4 +1,4 @@
-export default function WorkPlayer({
+export default function SidebarCurrentWork({
   children,
 }: {
   children: React.ReactNode;

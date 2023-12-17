@@ -1,10 +1,10 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function WorkInfo({ active }: { active: boolean }) {
+export default function SidebarWorkInfo({ active }: { active: boolean }) {
   return (
     <div
-      id={WorkInfo.name}
+      id={SidebarWorkInfo.name}
       className={clsx(
         "w-[180px] h-[50px] flex-col justify-center items-start inline-flex",
         {

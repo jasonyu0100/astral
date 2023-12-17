@@ -1,7 +1,7 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function WorkCover({ active }: { active: boolean }) {
+export default function SidebarWorkCover({ active }: { active: boolean }) {
   return (
     <div
       className={clsx(
