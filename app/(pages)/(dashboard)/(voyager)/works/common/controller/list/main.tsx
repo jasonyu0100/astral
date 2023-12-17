@@ -12,7 +12,7 @@ export default function WorksList({
       displayName={WorksList.name}
       containerStyle={containerStyles["col-center"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle="divide-y-[2px] divide-slate-700 py-[10px] overflow-auto"
+      contentStyle="divide-y-[2px] divide-slate-700 py-[1rem] overflow-auto"
     >
       {children}
     </Layer>

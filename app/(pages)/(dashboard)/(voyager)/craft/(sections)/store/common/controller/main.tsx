@@ -13,18 +13,15 @@ export default function CraftStoreController({
   children: React.ReactNode;
 }) {
   return (
-    <BreadCrumbWrapper>
-      <Layer
-        displayName={CraftStoreController.name}
-        sizeStyle="h-full w-full"
-        containerStyle={containerStyles.col}
-        backgroundStyle={backgroundStyles["glass-10"]}
-        borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-        contentStyle={"space-y-[50px] p-[20px] overflow-auto"}
-      >
-        {children}
-      </Layer>
-      <BreadCrumb>craft {">"} brand {">"} icon</BreadCrumb>
-    </BreadCrumbWrapper>
+    <Layer
+      displayName={CraftStoreController.name}
+      sizeStyle="h-full max-w-[1500px]"
+      containerStyle={containerStyles.col}
+      backgroundStyle={backgroundStyles["glass-10"]}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      contentStyle={"space-y-[50px] p-[2rem] overflow-auto"}
+    >
+      {children}
+    </Layer>
   );
 }

@@ -12,7 +12,7 @@ interface WorksTabProps {
 export const WorksTabs: React.FC<WorksTabProps> = ({ tab }) => {
   return (
     <Tabs>
-      <TabsBackButton href="/works/now" />
+      {/* <TabsBackButton href="/works/now" /> */}
       <TabsRow>
         <NowTab tab={tab} />
         <ThenTab tab={tab} />

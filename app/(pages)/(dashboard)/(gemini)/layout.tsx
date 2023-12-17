@@ -1,5 +1,5 @@
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import { DashboardSidebar } from "../(common)/sidebar/main";
 
@@ -12,7 +12,7 @@ export default function GeminiLayout({
     <DashboardController>
       <DashboardSidebar />
       <DashboardBody>
-        <DashboardBodyContent>{children}</DashboardBodyContent>
+        <ApolloContent>{children}</ApolloContent>
       </DashboardBody>
     </DashboardController>
   );

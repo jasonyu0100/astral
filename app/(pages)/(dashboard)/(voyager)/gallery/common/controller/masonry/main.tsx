@@ -10,12 +10,12 @@ export default function GalleryMasonryContainer({
     <Layer
       displayName={GalleryMasonryContainer.name}
       backgroundStyle={backgroundStyles["glass-10"]}
-      sizeStyle={"w-full h-full"}
+      sizeStyle={"max-w-[1500px] h-full"}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       containerStyle={containerStyles.row}
     >
       <div className="w-full h-full">
-        <div className="w-full h-full columns-3 gap-[20px] p-[10px] overflow-auto">
+        <div className="w-full h-full columns-3 gap-[2rem] p-[1rem] overflow-auto">
           {children}
         </div>
       </div>

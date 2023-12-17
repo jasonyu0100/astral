@@ -10,7 +10,6 @@ export default function StoryController({
     <Layer
       displayName={StoryController.name}
       sizeStyle="w-full h-full"
-      contentStyle="overflow-auto"
     >
       {children}
     </Layer>

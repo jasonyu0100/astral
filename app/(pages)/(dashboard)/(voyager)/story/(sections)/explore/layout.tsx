@@ -1,6 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
-import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import StoryTabs from "@/(pages)/(dashboard)/(voyager)/story/tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function StoryYearLayout({
   children,
@@ -10,7 +9,7 @@ export default function StoryYearLayout({
   return (
     <>
       <StoryTabs tab={"Explore"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

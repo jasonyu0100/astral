@@ -6,6 +6,7 @@ export default function StormMessageInput({children} : { children: React.ReactNo
     <Layer
       displayName={StormMessageInput.name}
       sizeStyle="h-[80px] w-full"
+      contentStyle="px-[1rem]"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["row-centered"]}
     >

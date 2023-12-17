@@ -5,7 +5,7 @@ export default function StormMessageInputRight({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-[100px] h-[50px] flex flex-row justify-between items-center">
+    <div className="w-[100px] h-[50px] flex flex-row justify-between items-center flex-shrink-0">
         {children}
     </div>
   );

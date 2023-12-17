@@ -3,7 +3,8 @@
 import SeaController from "./common/controller/main";
 import SeaPointsContainer from "./common/controller/points/main";
 import SeaPoint from "./common/controller/points/point/main";
-import SeaDivider from "./common/controller/story/divider/main";
+import SeaHorizontalDivider from "./common/controller/story/divider/horizontal/main";
+import SeaVerticalDivider from "./common/controller/story/divider/vertical/main";
 import SeaStoryContainer from "./common/controller/story/main";
 import StoryRow from "./common/controller/story/row/main";
 import SeaGuideLink from "./common/guide/body/link/main";
@@ -20,7 +21,7 @@ export default function SeaPage() {
         </SeaStoryContainer>
         <SeaPointsContainer>
           <SeaPoint>Test</SeaPoint>
-          <SeaDivider/>
+          <SeaHorizontalDivider/>
           <SeaPoint>Test</SeaPoint>
           <SeaPoint>Test</SeaPoint>
           <SeaPoint>Test</SeaPoint>

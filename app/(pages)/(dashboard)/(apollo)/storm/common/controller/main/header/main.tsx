@@ -10,7 +10,7 @@ function StormHeader() {
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-centered"]}
     >
-        <div className="w-[40px] h-[40px] mt-[5px] rounded-[20px] overflow-hidden">
+        <div className="w-[40px] h-[40px] mt-[5px] rounded-full overflow-hidden">
             <Image
                 alt="test"
                 src={`/apollo/storm/profile.png`}

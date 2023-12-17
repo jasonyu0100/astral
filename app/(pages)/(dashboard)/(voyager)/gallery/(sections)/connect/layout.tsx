@@ -1,6 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
-import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import GalleryTabs from "../../tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function ArtConnectLayout({
   children,
@@ -10,7 +9,7 @@ export default function ArtConnectLayout({
   return (
     <>
       <GalleryTabs tab="Connect" />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

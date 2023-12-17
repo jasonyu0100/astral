@@ -13,7 +13,7 @@ export default function FlowStickyStack() {
         >
 
         </Layer>
-        <div className="flex flex-col space-y-[20px] grow w-[120px] items-center overflow-auto">
+        <div className="flex flex-col space-y-[2rem] grow w-[120px] items-center overflow-auto">
             <MultiStickyNote status="todo"/>
             <MultiStickyNote status="flow"/>
             <MultiStickyNote status="done"/>

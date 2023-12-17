@@ -1,5 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import WorksTabs from "../../tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function WorksNowLayout({
   children,
@@ -9,7 +9,7 @@ export default function WorksNowLayout({
   return (
     <>
       <WorksTabs tab={"Now"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

@@ -17,7 +17,6 @@ export default function WorksHeader({
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}
       backgroundStyle={backgroundStyles["glass-20"]}
-      contentStyle="justify-between px-[100px]"
     >
       {children}
     </Layer>

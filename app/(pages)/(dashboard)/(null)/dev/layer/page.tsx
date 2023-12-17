@@ -10,13 +10,13 @@ export default function LayerPage() {
     <div className="flex flex-col p-[40px] space-y-[40px]">
       <Layer
         displayName={"glass-40"}
-        sizeStyle="w-[200px] h-[200px] mb-[10px]"
+        sizeStyle="w-[200px] h-[200px] mb-[1rem]"
         backgroundStyle={backgroundStyles["glass-40"]}
         effectStyle={effectStyles["glow-md"]}
       ></Layer>
       <Layer
         displayName={"glass-30"}
-        sizeStyle="w-[200px] h-[200px] mb-[10px]"
+        sizeStyle="w-[200px] h-[200px] mb-[1rem]"
         backgroundStyle={backgroundStyles["glass-30"]}
         effectStyle={effectStyles["glow-md"]}
       ></Layer>

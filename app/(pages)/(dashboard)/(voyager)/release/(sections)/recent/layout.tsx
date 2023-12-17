@@ -1,5 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import RecordTabs from "@/(pages)/(dashboard)/(voyager)/release/tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function ReleaseRecentLayout({
   children,
@@ -9,7 +9,7 @@ export default function ReleaseRecentLayout({
   return (
     <>
       <RecordTabs tab={"Recent"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

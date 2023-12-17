@@ -12,9 +12,9 @@ export default function SeaStoryContainer({
   return (
       <Layer
         displayName={SeaStoryContainer.name}
-        sizeStyle="w-[420px] h-[700px]"
+        sizeStyle="w-1/2 max-w-[750px] h-full"
         backgroundStyle={backgroundStyles["glass-20"]}
-        borderStyle={`${borderStyles["rounded"]}`}
+        borderStyle={`${borderStyles["rounded-t"]}`}
       >
         {children}
       </Layer>

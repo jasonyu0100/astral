@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function ReleaseAlbum() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <a className="flex flex-col space-y-[10px] items-center" href="/works/now">
-        <div className="w-[150px] h-[150px] bg-white flex justify-center items-center  mt-[10px]">
+      <a className="flex flex-col space-y-[1rem] items-center" href="/works/now">
+        <div className="w-[150px] h-[150px] bg-white flex justify-center items-center  mt-[1rem]">
           <div className="w-[125px] h-[125px] bg-black">
             <Image
               width={125}

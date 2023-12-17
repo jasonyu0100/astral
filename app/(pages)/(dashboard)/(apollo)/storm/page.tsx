@@ -22,23 +22,25 @@ export default function StormPage() {
   return (
     <StormGuideWrapper>
       <StormController>
-        <StormControllerMain>
-          <StormHeader />
-          <StormChatBody>
-            <StormPartnerChatMessage>123132</StormPartnerChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
-          </StormChatBody>
-          <StormMessageInput>
-            <StormMessageInputLeft />
-            <StormMessageInputText />
-            <StormMessageInputRight>
-              <StormMessageInputVoice />
-              <StormMessageInputSend />
-            </StormMessageInputRight>
-          </StormMessageInput>
-        </StormControllerMain>
+        <div style={{ width: "calc(100% - 80px)" }}>
+          <StormControllerMain>
+            <StormHeader />
+            <StormChatBody>
+              <StormPartnerChatMessage>123132</StormPartnerChatMessage>
+              <StormYouChatMessage>1231231132</StormYouChatMessage>
+              <StormYouChatMessage>1231231132</StormYouChatMessage>
+              <StormYouChatMessage>1231231132</StormYouChatMessage>
+            </StormChatBody>
+            <StormMessageInput>
+              <StormMessageInputLeft />
+              <StormMessageInputText />
+              <StormMessageInputRight>
+                <StormMessageInputVoice />
+                <StormMessageInputSend />
+              </StormMessageInputRight>
+            </StormMessageInput>
+          </StormControllerMain>
+        </div>
         <StormSidePanel>
           <StormSidePanelAvatar />
           <StormSidePanelAvatar />

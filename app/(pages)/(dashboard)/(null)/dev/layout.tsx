@@ -1,5 +1,5 @@
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import { DevSidebar } from "./common/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
 
@@ -12,7 +12,7 @@ export default function DevLayout({
     <DashboardController>
       <DevSidebar />
       <DashboardBody>
-        <DashboardBodyContent>{children}</DashboardBodyContent>
+        <ApolloContent>{children}</ApolloContent>
       </DashboardBody>
     </DashboardController>
   );

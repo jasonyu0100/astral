@@ -3,5 +3,5 @@ export default function RecordLogDescription({
 }: {
   children: React.ReactNode;
 }) {
-  return <span className="w-full p-[10px]">{children}</span>;
+  return <span className="w-full p-[1rem]">{children}</span>;
 }

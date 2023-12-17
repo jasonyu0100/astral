@@ -1,7 +1,7 @@
 import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";
 import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function CraftAddLayout({
   children,
@@ -11,12 +11,12 @@ export default function CraftAddLayout({
   return (
     <>
       <CraftTabs tab={"Add"} />
-      <DashboardBodyContent>
+      <VoyagerContent>
         <BreadCrumbWrapper>
           {children}
           <BreadCrumb>/craft/brand/icon</BreadCrumb>
         </BreadCrumbWrapper>
-      </DashboardBodyContent>
+      </VoyagerContent>
     </>
   );
 }

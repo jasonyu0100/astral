@@ -4,7 +4,7 @@ export default function DraftGuideBody({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full overflow-auto flex flex-col space-y-[50px] p-[30px]">
+    <div className="w-full overflow-auto flex flex-col space-y-[50px] p-[3rem]">
       {children}
     </div>
   );

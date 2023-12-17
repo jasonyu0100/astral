@@ -1,5 +1,6 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import RecordTabs from "@/(pages)/(dashboard)/(voyager)/release/tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function ReleaseAllLayout({
   children,
@@ -9,7 +10,7 @@ export default function ReleaseAllLayout({
   return (
     <>
       <RecordTabs tab={"All"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

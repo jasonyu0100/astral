@@ -19,7 +19,7 @@ export default function StoryRecordLog({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col w-[500px] space-y-[20px] items-center py-[10px]">
+    <div className="flex flex-col w-[500px] space-y-[2rem] items-center py-[2rem]">
       <RecordLogInfo />
       <RecordLogMedia />
       <RecordLogDescription>

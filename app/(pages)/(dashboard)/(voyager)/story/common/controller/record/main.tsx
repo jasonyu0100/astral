@@ -1,3 +1,20 @@
-export default function StoryRecord({children} : { children: React.ReactNode}) {
-    return <div className="w-full flex flex-col items-center space-y-[20px]">{children}</div>
+import Layer from "@/(pages)/(common)/layer/main";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+
+export default function StoryRecord({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Layer
+      backgroundStyle={backgroundStyles["glass-10"]}
+      sizeStyle="max-w-[1500px] h-full"
+      containerStyle={containerStyles["col-center"]}
+      borderStyle={`${borderStyles.rounded} ${borderStyles["border-all"]}`}
+      contentStyle="p-[3rem] overflow-auto"
+    >
+      {children}
+    </Layer>
+  );
 }

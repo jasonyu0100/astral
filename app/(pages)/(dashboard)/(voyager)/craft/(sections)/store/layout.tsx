@@ -1,7 +1,8 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
 import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
 import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function CraftStoreLayout({
   children,
@@ -11,12 +12,12 @@ export default function CraftStoreLayout({
   return (
     <>
       <CraftTabs tab={"Store"} />
-      <DashboardBodyContent>
+      <VoyagerContent>
         <BreadCrumbWrapper>
           {children}
           <BreadCrumb>/craft/brand/icon</BreadCrumb>
         </BreadCrumbWrapper>
-      </DashboardBodyContent>
+      </VoyagerContent>
     </>
   );
 }

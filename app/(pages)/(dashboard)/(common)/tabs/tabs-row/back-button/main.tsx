@@ -7,7 +7,7 @@ export function TabsBackButton({ ...props }: BackTabProps) {
   return (
     <a
       {...props}
-      className="flex flex-col justify-center items-start w-[2rem] mb-1"
+      className="flex flex-col justify-center items-start w-[2rem] h-[3rem] mr-[3rem]"
     >
       <CircleLeftIcon />
     </a>

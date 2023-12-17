@@ -16,11 +16,11 @@ export default function CraftAddController({
     <BreadCrumbWrapper>
       <Layer
         displayName={CraftAddController.name}
-        sizeStyle="h-full w-full"
+        sizeStyle="h-full max-w-[1500px]"
         containerStyle={containerStyles.col}
         backgroundStyle={backgroundStyles["glass-10"]}
         borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-        contentStyle={"space-y-[50px] p-[20px] overflow-auto"}
+        contentStyle={"space-y-[50px] p-[2rem] overflow-auto"}
       >
         {children}
       </Layer>

@@ -5,7 +5,7 @@ export default function CraftGuideWrapper({
 }) {
   return (
     <div
-      className="relative"
+      className="relative max-w-[1500px]"
       style={{ width: "calc(100% - 200px)", height: "100%" }}
     >
       {children}

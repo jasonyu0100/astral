@@ -4,8 +4,6 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
-import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
-import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";
 
 export default function CraftTableController({
   children,
@@ -15,11 +13,11 @@ export default function CraftTableController({
   return (
     <Layer
       displayName={CraftTableController.name}
-      sizeStyle="h-full w-full"
+      sizeStyle="h-full max-w-[1500px]"
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-      contentStyle={"space-y-[50px] p-[20px] overflow-auto"}
+      contentStyle={"space-y-[50px] p-[2rem] overflow-auto"}
     >
       {children}
     </Layer>

@@ -13,9 +13,9 @@ export default function SeaPointsContainer({
   return (
     <Layer
       displayName={SeaPointsContainer.name}
-      sizeStyle="h-[700px] w-[420px]"
+      sizeStyle="h-full w-1/2 max-w-[750px]"
       containerStyle={containerStyles["col-center"]}
-      contentStyle="overflow-auto space-y-[20px] p-[10px]"
+      contentStyle="overflow-auto space-y-[2rem] p-[1rem]"
     >
       {children}
     </Layer>

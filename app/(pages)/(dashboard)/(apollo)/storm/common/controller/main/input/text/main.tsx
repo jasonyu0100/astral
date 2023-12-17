@@ -1,3 +1,3 @@
 export default function StormMessageInputText() {
-    return <div className="w-[600px] mx-[20px] h-[30px] bg-slate-600 rounded-[30px]"></div>
+    return <div className="w-4/5 mx-[2rem] h-[30px] bg-slate-600 rounded-[30px]"></div>
 }

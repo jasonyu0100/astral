@@ -9,7 +9,7 @@ export default function ReleaseController({
   return (
     <Layer
       displayName={ReleaseController.name}
-      sizeStyle="h-full w-full"
+      sizeStyle="h-full max-w-[1500px]"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}

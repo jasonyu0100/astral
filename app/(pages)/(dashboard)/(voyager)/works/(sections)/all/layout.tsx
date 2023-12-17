@@ -1,5 +1,5 @@
+import { VoyagerContent } from "../../../(common)/content/main";
 import WorksTabs from "../../tabs/main";
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 
 export default function WorksAllLayout({
   children,
@@ -9,7 +9,7 @@ export default function WorksAllLayout({
   return (
     <>
       <WorksTabs tab={"All"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

@@ -26,21 +26,29 @@ export const effectStyles = {
   "none": ""
 }
 
+export const roundedStyles = {
+  "rounded-sm": "1rem",
+  "rounded-md": "2rem",
+  "rounded-lg": "3rem",
+  "rounded-xl": "4rem",
+  "rounded-2xl": "5rem",
+}
+
 export const borderStyles = {
   "border-all": "border border-slate-200 border-opacity-30",
   "border-t": "border-t border-slate-200 border-opacity-30",
   "border-r": "border-r border-slate-200 border-opacity-30",
   "border-b": "border-b border-slate-200 border-opacity-30",
   "border-l": "border-l border-slate-200 border-opacity-30",
-  "rounded": "rounded-[10px] overflow-hidden",
-  "rounded-tl": "rounded-tl-[10px] overflow-hidden",
-  "rounded-tr": "rounded-tr-[10px] overflow-hidden",
-  "rounded-bl": "rounded-bl-[10px] overflow-hidden",
-  "rounded-br": "rounded-br-[10px] overflow-hidden",
-  "rounded-t": "rounded-t-[10px] overflow-hidden",
-  "rounded-r": "rounded-r-[10px] overflow-hidden",
-  "rounded-b": "rounded-b-[10px] overflow-hidden",
-  "rounded-l": "rounded-l-[10px] overflow-hidden",
+  "rounded": "rounded-[1rem] overflow-hidden",
+  "rounded-tl": "rounded-tl-[1rem] overflow-hidden",
+  "rounded-tr": "rounded-tr-[1rem] overflow-hidden",
+  "rounded-bl": "rounded-bl-[1rem] overflow-hidden",
+  "rounded-br": "rounded-br-[1rem] overflow-hidden",
+  "rounded-t": "rounded-t-[1rem] overflow-hidden",
+  "rounded-r": "rounded-r-[1rem] overflow-hidden",
+  "rounded-b": "rounded-b-[1rem] overflow-hidden",
+  "rounded-l": "rounded-l-[1rem] overflow-hidden",
   "none": "",
 }
 

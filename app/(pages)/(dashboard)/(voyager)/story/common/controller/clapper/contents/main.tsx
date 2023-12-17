@@ -1,7 +1,7 @@
 export default function ClapperContents() {
   return (
     <>
-      <div className="text-center text-white text-2xl font-extrabold leading-loose mb-[20px]">
+      <div className="text-center text-white text-2xl font-extrabold leading-loose mb-[2rem]">
         PROD. MARKETING CAMPAIGN
       </div>
       <div className="flex flex-row w-[460px] justify-evenly border-t-4 border-b-4 border-slate-200 border-opacity-30">
@@ -30,7 +30,7 @@ export default function ClapperContents() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[440px] pl-[20px] border-b-4 border-slate-200 border-opacity-30  p-[10px]">
+      <div className="flex flex-col w-[440px] pl-[2rem] border-b-4 border-slate-200 border-opacity-30  p-[1rem]">
         <div className="flex flex-row items-center space-x-[40px]">
           <div className="text-white w-[150px] text-xl font-bold font-['Creato Display'] leading-7">
             DIRECTOR
@@ -48,7 +48,7 @@ export default function ClapperContents() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-[420px] p-[20px] pl-[20px]">
+      <div className="flex flex-col w-[420px] p-[2rem] pl-[2rem]">
         <div className="flex flex-row items-center space-x-[40px]">
           <div className="text-white w-[150px] text-xl font-bold font-['Creato Display'] leading-7">
             DATE

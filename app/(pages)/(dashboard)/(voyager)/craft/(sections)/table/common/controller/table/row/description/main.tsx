@@ -4,7 +4,7 @@ export default function CraftTableDescription({
   children: React.ReactNode;
 }) {
   return (
-    <div className="basis-1/4 flex justify-center items-center p-[20px]">
+    <div className="basis-1/4 flex justify-center items-center p-[2rem]">
       <p className="w-[213.65px] text-white text-[15.06px] font-normal leading-snug">
         {children}
       </p>

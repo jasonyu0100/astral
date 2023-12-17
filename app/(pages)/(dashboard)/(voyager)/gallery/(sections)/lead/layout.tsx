@@ -1,5 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import GalleryTabs from "../../tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function ArtLeadLayout({
   children,
@@ -9,7 +9,7 @@ export default function ArtLeadLayout({
   return (
     <>
       <GalleryTabs tab="Lead" />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

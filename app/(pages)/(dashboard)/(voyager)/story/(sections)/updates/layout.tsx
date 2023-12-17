@@ -1,5 +1,5 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
 import StoryTabs from "@/(pages)/(dashboard)/(voyager)/story/tabs/main";
+import { VoyagerContent } from "../../../(common)/content/main";
 
 export default function StoryUpdatesLayout({
   children,
@@ -9,7 +9,7 @@ export default function StoryUpdatesLayout({
   return (
     <>
       <StoryTabs tab={"Updates"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

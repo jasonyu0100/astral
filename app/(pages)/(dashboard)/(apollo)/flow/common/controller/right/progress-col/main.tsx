@@ -16,7 +16,7 @@ export default function FlowProgressColumn({
       sizeStyle="w-full h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="space-y-[20px] p-[20px] pb-[180px] overflow-auto"
+      contentStyle="space-y-[2rem] p-[2rem] pb-[180px] overflow-auto"
     >
       {children}
     </Layer>

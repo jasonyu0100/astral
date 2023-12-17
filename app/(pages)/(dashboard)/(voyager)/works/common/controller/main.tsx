@@ -11,11 +11,10 @@ export default function WorksContainer({
   return (
     <Layer
       displayName={WorksContainer.name}
-      sizeStyle="h-full w-full"
+      sizeStyle="h-full max-w-[1500px]"
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
-      contentStyle="overflow-auto"
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

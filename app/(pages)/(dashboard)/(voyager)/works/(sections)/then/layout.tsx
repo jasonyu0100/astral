@@ -1,5 +1,6 @@
+import { VoyagerContent } from "../../../(common)/content/main";
 import WorksTabs from "../../tabs/main";
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 
 export default function WorksThenLayout({
   children,
@@ -9,7 +10,7 @@ export default function WorksThenLayout({
   return (
     <>
       <WorksTabs tab={"Then"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }

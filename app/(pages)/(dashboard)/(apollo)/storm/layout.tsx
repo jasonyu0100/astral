@@ -1,4 +1,4 @@
-import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/body/content/main";
+import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import ApolloTabs from "@/(pages)/(dashboard)/(apollo)/tabs/main";
 
@@ -10,7 +10,7 @@ export default function StormLayout({
   return (
     <DashboardBody>
       <ApolloTabs tab={"Storm"} />
-      <DashboardBodyContent>{children}</DashboardBodyContent>
+      <ApolloContent>{children}</ApolloContent>
     </DashboardBody>
   );
 }
