@@ -1,5 +1,5 @@
 import { Background } from "@/(pages)/(common)/background/main";
-import Navbar from "../(common)/topbar/main";
+import Topbar from "../(common)/topbar/main";
 
 export default function DashboardLayout({
   children,
@@ -8,7 +8,7 @@ export default function DashboardLayout({
 }) {
   return (
     <Background>
-      <Navbar />
+      <Topbar />
       {children}
     </Background>
   );

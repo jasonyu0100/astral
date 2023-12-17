@@ -14,7 +14,6 @@ export default function FlowRightContainer({
       displayName={FlowRightContainer.name}
       sizeStyle="h-full w-[160px]"
       containerStyle={containerStyles.col}
-      borderStyle={borderStyles["rounded-r"]}
     >
       {children}
     </Layer>

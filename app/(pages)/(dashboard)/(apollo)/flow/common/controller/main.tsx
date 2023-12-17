@@ -13,7 +13,7 @@ export default function FlowController({
     <Layer
       displayName={FlowController.name}
       sizeStyle="h-full w-[1000px]"
-      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       containerStyle={containerStyles.row}
     >
       {children}

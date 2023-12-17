@@ -1,14 +1,14 @@
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { VoyagerSidebar } from "../(voyager)/common/sidebar";
+import { DashboardSidebar } from "../(common)/sidebar/main";
 
-export default function DraftLayout({
+export default function ApolloLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <DashboardController>
-      <VoyagerSidebar />
+      <DashboardSidebar />
       {children}
     </DashboardController>
   );

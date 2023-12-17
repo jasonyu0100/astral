@@ -18,7 +18,7 @@ import StormGuideBody from "./common/guide/body/main";
 import StormGuideLink from "./common/guide/body/link/main";
 import StormGuideController from "./common/guide/main";
 
-export default function ApolloStorm() {
+export default function StormPage() {
   return (
     <StormGuideWrapper>
       <StormController>

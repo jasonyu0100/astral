@@ -16,7 +16,6 @@ export default function StormSidePanel({
       displayName={StormSidePanel.name}
       sizeStyle="w-[80px] h-full"
       backgroundStyle={backgroundStyles["glass-20"]}
-      borderStyle={borderStyles["rounded-r"]}
       containerStyle={containerStyles["col-center"]}
       contentStyle="justify-between"
     >

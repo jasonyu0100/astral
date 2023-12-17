@@ -7,7 +7,7 @@ import WorkGenre from "./genre/main";
 import WorkDay from "./day/main";
 import WorkDate from "./date/main";
 
-export default function GalleryWork() {
+export default function WorksWork() {
   return (
     <div className="flex flex-row w-full p-[10px]">
       <WorkCount />

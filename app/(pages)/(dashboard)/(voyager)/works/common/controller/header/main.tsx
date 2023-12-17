@@ -5,7 +5,7 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
 
-export default function GalleryHeader({
+export default function WorksHeader({
   children,
 }: {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export default function GalleryHeader({
   return (
     <Layer
       sizeStyle="w-full h-[300px]"
-      displayName={GalleryHeader.name}
+      displayName={WorksHeader.name}
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}
       backgroundStyle={backgroundStyles["glass-20"]}

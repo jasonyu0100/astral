@@ -1,14 +1,10 @@
 "use client";
-import { useRouter } from "next/navigation";
-import BrandCover from "./brand-switcher/cover/main";
 import SidebarIndicators from "./indicators/main";
 import SidebarIndicatorBrand from "./indicators/1-brand/main";
 import SidebarIndicatorColor from "./indicators/2-color/main";
 import SidebarIndicatorLayer from "./indicators/3-layer/main";
 import SidebarIndicatorFont from "./indicators/4-font/main";
 import SidebarIndicatorUnits from "./indicators/5-units/main";
-import BrandSwitcher from "./brand-switcher/main";
-import BrandInfo from "./brand-switcher/info/main";
 
 export interface SidebarProps {
   active?: string;
@@ -24,10 +20,6 @@ export function DevSidebar({ active }: SidebarProps) {
         <SidebarIndicatorFont />
         <SidebarIndicatorUnits />
       </SidebarIndicators>
-      <BrandSwitcher>
-        <BrandCover />
-        <BrandInfo />
-      </BrandSwitcher>
     </div>
   );
 }

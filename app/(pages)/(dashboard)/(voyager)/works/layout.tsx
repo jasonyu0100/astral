@@ -1,15 +1,15 @@
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { VoyagerSidebar } from "../common/sidebar";
+import { DashboardSidebar } from "../../(common)/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
 
-export default function VoyagerGalleryLayout({
+export default function WorksLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <DashboardController>
-      <VoyagerSidebar />
+      <DashboardSidebar indicator="Works"/>
       <DashboardBody>
         {children}
       </DashboardBody>

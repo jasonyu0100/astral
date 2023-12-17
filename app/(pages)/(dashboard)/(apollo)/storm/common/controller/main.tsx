@@ -1,4 +1,3 @@
-import EffectWrapper from "@/(pages)/(dashboard)/(common)/effect/main";
 import {
   backgroundStyles,
   borderStyles,
@@ -18,7 +17,7 @@ export default function StormController({
       sizeStyle="w-[900px] h-full"
       effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["row"]}
-      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

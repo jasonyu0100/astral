@@ -14,7 +14,7 @@ import FlowGuideBody from "./guide/body/main";
 import FlowGuideWrapper from "./guide/wrapper/main";
 import FlowGuideLink from "./guide/body/link/main";
 
-export default function ApolloFlow() {
+export default function FlowPage() {
   return (
     <FlowGuideWrapper>
       <FlowController>

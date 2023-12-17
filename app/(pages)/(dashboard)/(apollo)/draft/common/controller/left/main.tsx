@@ -15,7 +15,6 @@ export default function DraftLeftContainer({
       displayName={DraftLeftContainer.name}
       sizeStyle="h-full w-[840px]"
       backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={borderStyles["rounded-l"]}
       containerStyle={containerStyles["col"]}
     >
       {children}

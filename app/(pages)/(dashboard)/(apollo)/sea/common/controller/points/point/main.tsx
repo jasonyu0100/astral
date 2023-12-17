@@ -7,7 +7,7 @@ export default function SeaPoint({ children }: { children: React.ReactNode }) {
       displayName={SeaPoint.name}
       sizeStyle="w-full h-[150px]"
       backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={borderStyles["border-b"]}
+      borderStyle={`${borderStyles["border-all"]} ${borderStyles.rounded}`}
       contentStyle="p-[20px] text-white"
     >
       {children}

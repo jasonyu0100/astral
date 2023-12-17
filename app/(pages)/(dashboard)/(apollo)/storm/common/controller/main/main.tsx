@@ -12,7 +12,6 @@ export default function StormControllerMain({
       sizeStyle="w-[820px] h-full"
       containerStyle={containerStyles["col"]}
       contentStyle="justify-between"
-      borderStyle={borderStyles["rounded-l"]}
     >
       {children}
     </Layer>

@@ -3,7 +3,7 @@ import { DashboardBodyContent } from "@/(pages)/(dashboard)/(common)/controller/
 import { DevSidebar } from "./common/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
 
-export default function GeminiLayout({
+export default function DevLayout({
   children,
 }: {
   children: React.ReactNode;

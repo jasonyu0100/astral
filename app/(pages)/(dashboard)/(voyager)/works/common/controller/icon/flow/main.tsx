@@ -1,4 +1,4 @@
-export default function GalleryFlowIcon() {
+export default function WorksFlowIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

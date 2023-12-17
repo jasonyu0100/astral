@@ -11,7 +11,6 @@ export default function FlowLeftContainer({
       displayName={FlowLeftContainer.name}
       sizeStyle="h-full w-[840px]"
       containerStyle={containerStyles.col}
-      borderStyle={borderStyles["rounded-l"]}
     >
       {children}
     </Layer>

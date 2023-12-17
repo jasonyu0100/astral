@@ -11,7 +11,7 @@ import SeaGuideBody from "./common/guide/body/main";
 import SeaGuideController from "./common/guide/main";
 import SeaGuideWrapper from "./common/guide/wrapper/main";
 
-export default function ApolloLaunch() {
+export default function SeaPage() {
   return (
     <SeaGuideWrapper>
       <SeaController>
@@ -20,6 +20,7 @@ export default function ApolloLaunch() {
         </SeaStoryContainer>
         <SeaPointsContainer>
           <SeaPoint>Test</SeaPoint>
+          <SeaDivider/>
           <SeaPoint>Test</SeaPoint>
           <SeaPoint>Test</SeaPoint>
           <SeaPoint>Test</SeaPoint>

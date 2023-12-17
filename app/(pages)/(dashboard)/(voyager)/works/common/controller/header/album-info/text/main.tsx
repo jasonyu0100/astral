@@ -1,4 +1,4 @@
-export default function GalleryHeaderText({
+export default function WorksHeaderText({
   children,
 }: {
   children: React.ReactNode;

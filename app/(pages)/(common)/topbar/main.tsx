@@ -1,33 +1,33 @@
-import { NavbarAvatar } from "./container/right/avatar/main";
-import { NavbarContainer } from "./container/main";
-import { NavbarIconLink } from "./container/right/icon-link/main";
-import { NavbarLeftLinks } from "./container/left/main";
-import { NavbarLink } from "./container/left/link/main";
-import { NavbarLogoLink } from "./container/left/logo/main";
-import { NavbarRightSide } from "./container/right/main";
+import { TopbarAvatar } from "./container/right-group/avatar/main";
+import { TopbarContainer } from "./container/main";
+import { TopbarIconLink } from "./container/right-group/icon-link/main";
+import { TopbarLeftGroup } from "./container/left-group/main";
+import { TopbarLink } from "./container/left-group/link/main";
+import { TopbarLogo } from "./container/left-group/logo/main";
+import { TopbarRightGroup } from "./container/right-group/main";
 import { SettingsIcon } from "../icons/global/settings/main";
 import { NotificationsIcon } from "../icons/global/notifications/main";
 
-export default function Navbar() {
+export default function Topbar() {
   return (
-    <NavbarContainer>
-      <NavbarLogoLink href="/gallery/now"/>
-      <NavbarLeftLinks>
-        <NavbarLink href="/gallery/now">HOME</NavbarLink>
-        <NavbarLink href="/about">ABOUT</NavbarLink>
-        <NavbarLink href="/learn">LEARN</NavbarLink>
-        <NavbarLink href="/pricing">PRICING</NavbarLink>
-        <NavbarLink href="/dev/layer">DEV</NavbarLink>
-      </NavbarLeftLinks>
-      <NavbarRightSide>
-        <NavbarIconLink>
+    <TopbarContainer>
+      <TopbarLogo href="/works/now"/>
+      <TopbarLeftGroup>
+        <TopbarLink href="/works/now">HOME</TopbarLink>
+        <TopbarLink href="/about">ABOUT</TopbarLink>
+        <TopbarLink href="/learn">LEARN</TopbarLink>
+        <TopbarLink href="/pricing">PRICING</TopbarLink>
+        <TopbarLink href="/dev/layer">DEV</TopbarLink>
+      </TopbarLeftGroup>
+      <TopbarRightGroup>
+        <TopbarIconLink>
           <NotificationsIcon />
-        </NavbarIconLink>
-        <NavbarIconLink>
+        </TopbarIconLink>
+        <TopbarIconLink>
           <SettingsIcon />
-        </NavbarIconLink>
-      </NavbarRightSide>
-      <NavbarAvatar href="/" />
-    </NavbarContainer>
+        </TopbarIconLink>
+      </TopbarRightGroup>
+      <TopbarAvatar href="/" />
+    </TopbarContainer>
   );
 }

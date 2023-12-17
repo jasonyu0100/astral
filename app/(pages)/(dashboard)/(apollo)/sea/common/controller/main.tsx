@@ -11,6 +11,7 @@ export default function SeaController({
       sizeStyle="w-full h-full"
       displayName={SeaController.name}
       containerStyle={containerStyles["row-center"]}
+      contentStyle="space-x-[40px]"
     >
       {children}
     </Layer>

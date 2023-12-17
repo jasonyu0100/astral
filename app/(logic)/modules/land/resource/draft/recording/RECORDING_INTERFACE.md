@@ -1,5 +1,0 @@
-# Children
-1. [[RECORDING_SLICE_INTERFACE]]
-
-**Parents
-[[DRAFT_INTERFACE]] 

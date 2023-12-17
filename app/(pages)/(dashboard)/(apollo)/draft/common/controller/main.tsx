@@ -11,7 +11,7 @@ export default function DraftController({
       displayName={DraftController.name}
       sizeStyle="w-[1000px] h-full"
       containerStyle={containerStyles.row}
-      borderStyle={`${borderStyles["rounded"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

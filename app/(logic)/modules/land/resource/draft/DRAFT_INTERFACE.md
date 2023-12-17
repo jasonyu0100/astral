@@ -1,6 +1,0 @@
-# Children
-1. [[SCRIPT_INTERFACE]]
-2. [[RECORDING_INTERFACE]]
-
-**Parents
-[[RESOURCE_INTERFACE]] 

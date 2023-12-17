@@ -14,7 +14,6 @@ export default function DraftRightContainer({
     <Layer
       displayName={DraftRightContainer.name}
       sizeStyle="h-full w-[160px]"
-      borderStyle={borderStyles["rounded-r"]}
       backgroundStyle={backgroundStyles["glass-10"]}
     >
       {children}
