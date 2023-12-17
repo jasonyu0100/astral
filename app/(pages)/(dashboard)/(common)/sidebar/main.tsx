@@ -1,13 +1,13 @@
 "use client";
-import WorkCover from "./work-player/cover/main";
+import SidebarWorkCover from "./current-work/cover/main";
 import SidebarIndicators from "./indicators/main";
 import SidebarWorksIndicator from "./indicators/1-works-indicator/main";
 import SidebarGalleryIndicator from "./indicators/3-gallery-indicator/main";
 import SidebarCraftIndicator from "./indicators/2-craft-indicator/main";
 import SidebarStoryIndicator from "./indicators/4-story-indicator/main";
 import SidebarRecordIndicator from "./indicators/5-release-indicator/main";
-import WorkPlayer from "./work-player/main";
-import WorkInfo from "./work-player/info/main";
+import SidebarCurrentWork from "./current-work/main";
+import SidebarWorkInfo from "./current-work/info/main";
 
 export interface SidebarProps {
   indicator?: string;
@@ -24,10 +24,10 @@ export function DashboardSidebar({ indicator }: SidebarProps) {
         <SidebarStoryIndicator indicator={indicator} />
         <SidebarRecordIndicator indicator={indicator} />
       </SidebarIndicators>
-      <WorkPlayer>
-        <WorkCover active={!indicator}/>
-        <WorkInfo active={!indicator}/>
-      </WorkPlayer>
+      <SidebarCurrentWork>
+        <SidebarWorkCover active={!indicator}/>
+        <SidebarWorkInfo active={!indicator}/>
+      </SidebarCurrentWork>
     </div>
   );
 }
