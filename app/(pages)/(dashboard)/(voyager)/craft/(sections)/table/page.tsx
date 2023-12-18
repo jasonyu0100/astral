@@ -2,15 +2,12 @@ import CraftTableController from "./(common)/controller/main";
 import CraftTableContainer from "./(common)/controller/table/container/main";
 import CraftTableRow from "./(common)/controller/table/row/main";
 import CraftTableSection from "./(common)/controller/table/section/main";
-import CraftGuideController from "./(common)/guide/main";
-import CraftGuideBody from "./(common)/guide/body/main";
-import CraftGuideLink from "./(common)/guide/body/link/main";
-import CraftGuideWrapper from "./(common)/guide/wrapper/main";
 import { craftWordsLinesData } from "../../data/words/data";
+import CraftCart from "../../(common)/cart/main";
 
 export default function CraftTablePage() {
   return (
-    <CraftGuideWrapper>
+    <div className="w-full h-full space-x-[3rem] flex flex-row">
       <CraftTableController>
         {craftWordsLinesData.map((sectionData) => (
           <>
@@ -23,15 +20,7 @@ export default function CraftTablePage() {
           </>
         ))}
       </CraftTableController>
-      {/* <CraftGuideController>
-        <CraftGuideBody>
-          {craftWordsLinesData.map((data) => (
-            <CraftGuideLink>
-              {data.title}
-            </CraftGuideLink>
-          ))}
-        </CraftGuideBody>
-      </CraftGuideController> */}
-    </CraftGuideWrapper>
+      <CraftCart />
+    </div>
   );
 }

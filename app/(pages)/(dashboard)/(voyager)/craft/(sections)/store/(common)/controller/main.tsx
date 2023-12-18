@@ -16,7 +16,7 @@ export default function CraftStoreController({
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["rounded-tl"]} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       contentStyle={"space-y-[2rem] p-[2rem] overflow-auto"}
     >
       {children}
