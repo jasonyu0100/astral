@@ -1,5 +1,9 @@
 import Layer from "@/(pages)/(common)/layer/main";
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 
 export default function StoryRecord({
   children,
@@ -8,10 +12,11 @@ export default function StoryRecord({
 }) {
   return (
     <Layer
+      displayName={StoryRecord.name}
       backgroundStyle={backgroundStyles["glass-10"]}
       sizeStyle="max-w-[1500px] h-full"
       containerStyle={containerStyles["col-center"]}
-      borderStyle={`${borderStyles.rounded} ${borderStyles["border-all"]}`}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       contentStyle="p-[3rem] overflow-auto"
     >
       {children}

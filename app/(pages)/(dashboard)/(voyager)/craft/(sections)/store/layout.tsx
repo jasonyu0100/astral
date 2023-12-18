@@ -1,4 +1,3 @@
-import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
 import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
 import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
 import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";

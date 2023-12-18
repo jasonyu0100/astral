@@ -8,7 +8,7 @@ import GalleryGuideController from "../../common/guide/main";
 import GalleryGuideBody from "../../common/guide/body/main";
 import GalleryGuideLink from "../../common/guide/body/link/main";
 import GalleryMuseumContainer from "../../common/controller/museum/main";
-import MasonryMedia from "../../common/controller/masonry/media/main";
+import GalleryMasonryMedia from "../../common/controller/masonry/media/main";
 import { inspireArtData } from "./data";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function GalleryInspire() {
         {section === "Summary" ? (
           <GalleryMasonryContainer>
             {allWorks.map((data) => (
-              <MasonryMedia src={data.src} />
+              <GalleryMasonryMedia src={data.src} />
             ))}
           </GalleryMasonryContainer>
         ) : (

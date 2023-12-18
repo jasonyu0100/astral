@@ -8,7 +8,7 @@ import GalleryGuideWrapper from "../../common/guide/wrapper/main";
 import GalleryGuideController from "../../common/guide/main";
 import GalleryGuideBody from "../../common/guide/body/main";
 import GalleryGuideLink from "../../common/guide/body/link/main";
-import MasonryMedia from "../../common/controller/masonry/media/main";
+import GalleryMasonryMedia from "../../common/controller/masonry/media/main";
 import { leadArtData } from "./data";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function GalleryLead() {
         {section === "Summary" ? (
           <GalleryMasonryContainer>
             {allWorks.map((data) => (
-              <MasonryMedia src={data.src} />
+              <GalleryMasonryMedia src={data.src} />
             ))}
           </GalleryMasonryContainer>
         ) : (

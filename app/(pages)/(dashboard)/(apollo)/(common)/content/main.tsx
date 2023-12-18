@@ -5,7 +5,7 @@ export function ApolloContent({
 }) {
   return (
     <div
-      className="flex flex-col px-[3rem] pt-[2rem] w-full h-full"
+      className="flex flex-col pl-[3rem] pr-[2rem] pt-[2rem] w-full h-full"
     >
       
       {children}
