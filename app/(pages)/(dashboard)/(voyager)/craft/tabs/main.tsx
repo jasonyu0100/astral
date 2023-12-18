@@ -1,5 +1,5 @@
-import { CraftStoreTab } from "./1-store-tab/main";
-import { CraftTableTab } from "./2-table-tab/main";
+import { CraftSearchTab } from "./1-search-tab/main";
+import { CraftTableTab } from "./2-view-tab/main";
 import { CraftAddTab } from "./3-add-tab/main";
 import Tabs from "../../../(common)/tabs/main";
 import TabsRow from "../../../(common)/tabs/tabs-row/main";
@@ -14,7 +14,7 @@ export const CraftTabs: React.FC<CraftTabs> = ({ tab }) => {
     <Tabs>
       <TabsBackButton href="/works/now" />
       <TabsRow>
-        <CraftStoreTab tab={tab} />
+        <CraftSearchTab tab={tab} />
         <CraftTableTab tab={tab} />
         <CraftAddTab tab={tab} />
       </TabsRow>

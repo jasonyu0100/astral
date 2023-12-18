@@ -1,11 +1,11 @@
 "use client";
 
-import SeaController from "./common/controller/main";
-import SeaPointsContainer from "./common/controller/points/main";
-import SeaPoint from "./common/controller/points/point/main";
-import SeaHorizontalDivider from "./common/controller/story/divider/horizontal/main";
-import SeaStoryContainer from "./common/controller/story/main";
-import StoryRow from "./common/controller/story/row/main";
+import SeaController from "./(common)/controller/main";
+import SeaPointsContainer from "./(common)/controller/points/main";
+import SeaPoint from "./(common)/controller/points/point/main";
+import SeaHorizontalDivider from "./(common)/controller/story/divider/horizontal/main";
+import SeaStoryContainer from "./(common)/controller/story/main";
+import StoryRow from "./(common)/controller/story/row/main";
 
 export default function SeaPage() {
   return (

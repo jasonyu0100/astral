@@ -3,11 +3,11 @@ import TabGreenShard from "../../../../(common)/tabs/tabs-row/tab/shard/green/ma
 import TabText from "../../../../(common)/tabs/tabs-row/tab/text/main";
 
 export function CraftTableTab({ tab }: { tab?: string }) {
-  const tabText = "Table";
+  const tabText = "View";
   const active = tab === tabText;
 
   return (
-    <Tab href="/craft/table">
+    <Tab href="/craft/view">
       <TabText active={active}>{tabText}</TabText>
       <TabGreenShard active={active} />
     </Tab>

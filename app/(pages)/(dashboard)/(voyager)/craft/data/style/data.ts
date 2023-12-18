@@ -1,7 +1,7 @@
 import {
   CraftSection,
   CraftTableRowProps,
-} from "../../(sections)/table/common/controller/table/row/main";
+} from "../../(sections)/view/common/controller/table/row/main";
 
 const craftStyleBrandSrcRoot = "/voyager/craft/style/brand";
 const craftStyleIdeaSrcRoot = "/voyager/craft/style/idea";

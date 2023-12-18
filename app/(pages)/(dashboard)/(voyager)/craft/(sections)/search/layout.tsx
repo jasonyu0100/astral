@@ -3,14 +3,14 @@ import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
 import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";
 import { VoyagerContent } from "../../../(common)/content/main";
 
-export default function CraftStoreLayout({
+export default function CraftSearchLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      <CraftTabs tab={"Store"} />
+      <CraftTabs tab={"Search"} />
       <VoyagerContent>
         <BreadCrumbWrapper>
           {children}
