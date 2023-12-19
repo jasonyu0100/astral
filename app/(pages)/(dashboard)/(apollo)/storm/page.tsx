@@ -6,7 +6,7 @@ import StormSidePanel from "./(common)/controller/side-panel/main";
 import StormController from "./(common)/controller/main";
 import StormControllerMain from "./(common)/controller/main/main";
 import StormYouChatMessage from "./(common)/controller/main/chat/message/you/main";
-import StormThemChatMessage from "./(common)/controller/main/chat/message/them/main";
+import StormPartnerChatMessage from "./(common)/controller/main/chat/message/them/main";
 import StormSidePanelAvatar from "./(common)/controller/side-panel/avatar/main";
 import StormMessageInputLeft from "./(common)/controller/main/input/left/main";
 import StormMessageInputText from "./(common)/controller/main/input/text/main";
@@ -14,7 +14,12 @@ import StormMessageInputRight from "./(common)/controller/main/input/right/main"
 import StormMessageInputSend from "./(common)/controller/main/input/right/send/main";
 import StormMessageInputVoice from "./(common)/controller/main/input/right/voice/main";
 import { useState } from "react";
-import { Message, defaultMessages } from "./data";
+import {
+  Message,
+  defaultMessages,
+  defaultPartnerMessage,
+  defaultYouMessage,
+} from "./data";
 
 export default function StormPage() {
   const [messages, changeMessages] = useState<Message[]>(defaultMessages);
@@ -26,12 +31,16 @@ export default function StormPage() {
         <StormControllerMain>
           <StormHeader />
           <StormChatBody>
-            <StormThemChatMessage>1231231132</StormThemChatMessage>
-            <StormThemChatMessage>1231231132</StormThemChatMessage>
-            <StormThemChatMessage>1231231132</StormThemChatMessage>
-            {messages.map((message) => (
-              <StormYouChatMessage>{message.message}</StormYouChatMessage>
-            ))}
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            {messages.map((message) =>
+              message.source === "You" ? (
+                <StormYouChatMessage>{message.message}</StormYouChatMessage>
+              ) : (
+                <StormPartnerChatMessage>{message.message}</StormPartnerChatMessage>
+              )
+            )}
           </StormChatBody>
           <StormMessageInput>
             <StormMessageInputLeft />
@@ -42,15 +51,10 @@ export default function StormPage() {
             <StormMessageInputRight>
               <StormMessageInputVoice />
               <StormMessageInputSend
-                onClick={(e) =>
-                  changeMessages((prev) => [
-                    ...prev,
-                    {
-                      message: message,
-                      date: new Date(),
-                    },
-                  ])
-                }
+                onClick={(e) => {
+                  changeMessages((prev) => [...prev, defaultYouMessage]);
+                  changeMessages((prev) => [...prev, defaultPartnerMessage]);
+                }}
               />
             </StormMessageInputRight>
           </StormMessageInput>

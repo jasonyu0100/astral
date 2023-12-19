@@ -1,11 +1,13 @@
 // MESSAGE
 
 export interface YouMessage {
+  source: string;
   date: Date;
   message: string;
 }
 
 export interface PartnerMessage {
+  source: string;
   date: Date;
   message: string;
 }
@@ -13,11 +15,13 @@ export interface PartnerMessage {
 export type Message = YouMessage | PartnerMessage;
 
 export const defaultYouMessage: YouMessage = {
+  source: "You",
   date: new Date("2023-12-19"),
   message: "Hello World",
 };
 
 export const defaultPartnerMessage: PartnerMessage = {
+  source: "gpt-4",
   date: new Date("2023-12-19"),
   message: "Hello World",
 };
