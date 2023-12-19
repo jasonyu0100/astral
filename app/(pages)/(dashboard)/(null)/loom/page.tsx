@@ -4,7 +4,7 @@ import { setup, isSupported } from "@loomhq/record-sdk";
 import { oembed } from "@loomhq/loom-embed";
 import { useEffect, useState } from "react";
 
-const PUBLIC_APP_ID = "46cf669e-5db8-41aa-bb7b-ecd0fdb11b3d";
+const PUBLIC_APP_ID = "cosmos-sandbox";
 const BUTTON_ID = "loom-record-sdk-button";
 
 export default function App() {
