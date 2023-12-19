@@ -17,7 +17,7 @@ export default function DraftConstellationSection({
         containerStyle={containerStyles["row"]}
         backgroundStyle={backgroundStyles["glass-5"]}
       >
-        {children}
+        <div className="w-full h-full relative">{children}</div>
       </Layer>
     </div>
   );

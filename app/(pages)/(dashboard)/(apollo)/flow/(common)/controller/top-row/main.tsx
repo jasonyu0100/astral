@@ -3,12 +3,13 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import FlowAddIcon from "../../icons/add/main";
-import DraftLoomIcon from "../../icons/loom/main";
 import Layer from "@/(pages)/(common)/layer/main";
-import FlowSearchIcon from "../../icons/search/main";
 
-export default function FlowControllerTopRow() {
+export default function FlowControllerTopRow({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Layer
       displayName={FlowControllerTopRow.name}
@@ -18,9 +19,7 @@ export default function FlowControllerTopRow() {
       borderStyle={`${borderStyles["border-b"]}`}
     >
       <div className="ml-auto flex flex-row h-full items-center px-[20px] space-x-[1rem]">
-        <FlowAddIcon />
-        <FlowSearchIcon />
-        <DraftLoomIcon />
+        {children}
       </div>
     </Layer>
   );

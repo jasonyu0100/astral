@@ -3,12 +3,13 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import DraftAddIcon from "../../icons/add/main";
-import DraftLoomIcon from "../../icons/loom/main";
 import Layer from "@/(pages)/(common)/layer/main";
-import DraftSearchIcon from "../../icons/search/main";
 
-export default function DraftControllerTopRow() {
+export default function DraftControllerTopRow({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Layer
       displayName={DraftControllerTopRow.name}
@@ -18,9 +19,7 @@ export default function DraftControllerTopRow() {
       borderStyle={`${borderStyles["border-b"]}`}
     >
       <div className="ml-auto flex flex-row h-full items-center px-[20px] space-x-[1rem]">
-        <DraftAddIcon />
-        <DraftSearchIcon />
-        <DraftLoomIcon />
+        {children}
       </div>
     </Layer>
   );

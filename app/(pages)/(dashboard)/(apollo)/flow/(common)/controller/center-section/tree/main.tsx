@@ -18,7 +18,9 @@ export default function FlowSourceControlSection({
         backgroundStyle={backgroundStyles["glass-5"]}
         contentStyle="overflow-hidden"
       >
-        {children}
+        <div className="flex flex-col h-full px-[2rem] pb-[2rem] overflow-auto">
+          {children}
+        </div>
       </Layer>
     </div>
   );

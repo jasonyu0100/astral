@@ -5,33 +5,53 @@ import StormMessageInput from "./(common)/controller/main/input/main";
 import StormSidePanel from "./(common)/controller/side-panel/main";
 import StormController from "./(common)/controller/main";
 import StormControllerMain from "./(common)/controller/main/main";
-import StormPartnerChatMessage from "./(common)/controller/main/chat/message/partner/main";
 import StormYouChatMessage from "./(common)/controller/main/chat/message/you/main";
+import StormThemChatMessage from "./(common)/controller/main/chat/message/them/main";
 import StormSidePanelAvatar from "./(common)/controller/side-panel/avatar/main";
 import StormMessageInputLeft from "./(common)/controller/main/input/left/main";
 import StormMessageInputText from "./(common)/controller/main/input/text/main";
 import StormMessageInputRight from "./(common)/controller/main/input/right/main";
-import StormMessageInputVoice from "./(common)/controller/main/input/right/send/main";
-import StormMessageInputSend from "./(common)/controller/main/input/right/voice/main";
+import StormMessageInputSend from "./(common)/controller/main/input/right/send/main";
+import StormMessageInputVoice from "./(common)/controller/main/input/right/voice/main";
+import { useState } from "react";
+import { Message, defaultMessages } from "./data";
 
 export default function StormPage() {
+  const [messages, changeMessages] = useState<Message[]>(defaultMessages);
+  const [message, changeMessage] = useState("dsadsadsa");
+
   return (
     <StormController>
       <div style={{ width: "calc(100% - 80px)" }}>
         <StormControllerMain>
           <StormHeader />
           <StormChatBody>
-            <StormPartnerChatMessage>123132</StormPartnerChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
-            <StormYouChatMessage>1231231132</StormYouChatMessage>
+            <StormThemChatMessage>1231231132</StormThemChatMessage>
+            <StormThemChatMessage>1231231132</StormThemChatMessage>
+            <StormThemChatMessage>1231231132</StormThemChatMessage>
+            {messages.map((message) => (
+              <StormYouChatMessage>{message.message}</StormYouChatMessage>
+            ))}
           </StormChatBody>
           <StormMessageInput>
             <StormMessageInputLeft />
-            <StormMessageInputText />
+            <StormMessageInputText
+              onChange={(e) => changeMessage(e.target.value)}
+              value={message}
+            />
             <StormMessageInputRight>
               <StormMessageInputVoice />
-              <StormMessageInputSend />
+              <StormMessageInputSend
+                onClick={(e) =>
+                  changeMessages((prev) => [
+                    ...prev,
+                    {
+                      message: message,
+                      date: new Date(),
+                    },
+                  ])
+                }
+              />
             </StormMessageInputRight>
           </StormMessageInput>
         </StormControllerMain>

@@ -17,7 +17,7 @@ export default function StormChatBody({
         sizeStyle="w-full h-full"
         containerStyle={containerStyles.col}
         backgroundStyle={backgroundStyles["glass-5"]}
-        contentStyle="py-[40px] px-[60px] space-y-[30px]"
+        contentStyle="py-[40px] px-[60px] space-y-[30px] overflow-auto"
       >
         {children}
       </Layer>

@@ -1,9 +1,12 @@
-import StormSendIcon from "../../../../../icon/send/main";
+import StormVoiceIcon from "../../../../../icon/voice/main";
 
-export default function StormMessageInputSend() {
+export interface StormMessageInputTextProps
+  extends React.ComponentPropsWithoutRef<"input"> {}
+
+export default function StormMessageInputVoice() {
   return (
-    <div className="w-[40px] h-[40px] flex items-center bg-blue-500 justify-center rounded-[2rem]">
-      <StormSendIcon />
+    <div className="w-[40px] h-[40px] flex items-center justify-center rounded-[2rem]">
+      <StormVoiceIcon />
     </div>
   );
 }
