@@ -6,8 +6,8 @@ import DraftController from "./(common)/controller/main";
 import DraftControllerTopRow from "./(common)/controller/top/main";
 import DraftControllerCenterSection from "./(common)/controller/center/main";
 import DraftControllerBottomRow from "./(common)/controller/bottom/main";
-import DraftConstellation from "./(common)/controller/bottom/constellation-row/item/main";
-import DraftControllerConstellationRow from "./(common)/controller/bottom/constellation-row/main";
+import DraftConstellation from "./(common)/controller/bottom/constellations/item/main";
+import DraftControllerConstellationRow from "./(common)/controller/bottom/constellations/main";
 import DraftCraftSection from "./(common)/controller/center/craft/main";
 import DraftCraftElement from "./(common)/controller/center/craft/element/main";
 import DraftConstellationAdd from "./(common)/controller/bottom/add/main";
@@ -18,7 +18,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import TopRowAddButton from "./(common)/controller/top/button/add/main";
 import TopRowSearchButton from "./(common)/controller/top/button/search/main";
-import TopRowLoomButton from "./(common)/controller/top/button/loom/main";
+import DraftLoomButton from "./(common)/controller/top/button/loom/main";
 import {
   defaultDraftElement,
   defaultDraftElements,
@@ -45,7 +45,7 @@ export default function DraftPage() {
             }
           />
           <TopRowSearchButton />
-          <TopRowLoomButton />
+          <DraftLoomButton />
         </DraftControllerTopRow>
         <DraftControllerCenterSection>
           <DraftConstellationSection>

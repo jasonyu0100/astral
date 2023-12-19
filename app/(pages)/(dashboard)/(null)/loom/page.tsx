@@ -3,8 +3,9 @@
 import { setup, isSupported } from "@loomhq/record-sdk";
 import { oembed } from "@loomhq/loom-embed";
 import { useEffect, useState } from "react";
+import FlowLoomIcon from "../../(apollo)/flow/(common)/icons/loom/main";
 
-const PUBLIC_APP_ID = "cosmos-sandbox";
+const PUBLIC_APP_ID = "6d3d3c5b-1703-480a-9f11-183bd647c09c";
 const BUTTON_ID = "loom-record-sdk-button";
 
 export default function App() {
@@ -42,7 +43,9 @@ export default function App() {
 
   return (
     <>
-      <button id={BUTTON_ID}>Record</button>
+      <button id={BUTTON_ID}>
+        <FlowLoomIcon />
+      </button>
       <div dangerouslySetInnerHTML={{ __html: videoHTML }}></div>
     </>
   );

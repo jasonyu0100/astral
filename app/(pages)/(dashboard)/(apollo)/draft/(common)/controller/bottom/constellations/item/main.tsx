@@ -5,25 +5,25 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import { ApolloConstellation } from "@/(pages)/(dashboard)/(apollo)/data";
 
-export interface FlowConstellationProps
-  extends React.ComponentPropsWithoutRef<"div"> {
+export interface DraftConstellationProps
+  extends React.ComponentPropsWithoutRef<"button"> {
   constellation: ApolloConstellation;
 }
 
-export default function FlowConstellation({
+export default function DraftConstellation({
   constellation,
   ...props
-}: FlowConstellationProps) {
+}: DraftConstellationProps) {
   return (
     <button {...props}>
       <Layer
-        displayName={FlowConstellation.name}
+        displayName={DraftConstellation.name}
         sizeStyle="w-[80px] h-[100px]"
         backgroundStyle={backgroundStyles["glass-10"]}
         containerStyle={containerStyles["row-centered"]}
         contentStyle="flex-shrink-0"
       >
-        <p className="font-permanentMarker text-white">{constellation.name}</p>
+        <p className="font-bold text-white">{constellation.name}</p>
       </Layer>
     </button>
   );
