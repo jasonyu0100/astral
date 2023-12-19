@@ -1,4 +1,4 @@
-export default function FlowSourceControlLeaves({
+export default function FlowTreeLeaves({
   children,
 }: {
   children: React.ReactNode;

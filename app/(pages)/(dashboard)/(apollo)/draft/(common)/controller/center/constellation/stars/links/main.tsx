@@ -1,7 +1,7 @@
+import { DraftStar } from "@/(pages)/(dashboard)/(apollo)/draft/data";
 import { motion } from "framer-motion";
-import { StarProps } from "../star/main";
 
-export default function ConstellationLinks({ stars }: { stars: StarProps[] }) {
+export default function ConstellationLinks({ stars }: { stars: DraftStar[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {...stars.map((star, i) => (

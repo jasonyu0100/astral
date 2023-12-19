@@ -25,7 +25,10 @@ import {
   defaultDraftStar,
   defaultDraftStars,
 } from "./data";
-import { defaultApolloConstellation, defaultApolloConstellations } from "../data";
+import {
+  defaultApolloConstellation,
+  defaultApolloConstellations,
+} from "../data";
 
 export default function DraftPage() {
   const [constellations, changeConstellations] = useState(
@@ -72,7 +75,14 @@ export default function DraftPage() {
               <DraftCraftElement
                 src={draftElement.src}
                 onClick={() =>
-                  changeDraftStars((prev) => [...prev, defaultDraftStar])
+                  changeDraftStars((prev) => [
+                    ...prev,
+                    {
+                      x: Math.random() * 500,
+                      y: Math.random() * 500,
+                      element: draftElement,
+                    },
+                  ])
                 }
               />
             ))}
@@ -80,7 +90,12 @@ export default function DraftPage() {
         </DraftControllerCenterSection>
         <DraftControllerBottomRow>
           <DraftConstellationAdd
-            onClick={() => changeConstellations((prev) => [...prev, defaultApolloConstellation])}
+            onClick={() =>
+              changeConstellations((prev) => [
+                ...prev,
+                defaultApolloConstellation,
+              ])
+            }
           />
           <Layer
             sizeStyle="h-[80px]"
