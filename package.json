@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@loomhq/loom-embed": "^1.7.0",
+    "@loomhq/record-sdk": "^2.36.18",
     "@types/d3": "^7.4.0",
     "@types/d3-force": "^3.0.5",
     "@types/node": "20.3.1",
