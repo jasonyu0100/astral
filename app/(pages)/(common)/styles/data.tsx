@@ -49,6 +49,7 @@ export const borderStyles = {
   "rounded-r": "rounded-r-[1rem] overflow-hidden",
   "rounded-b": "rounded-b-[1rem] overflow-hidden",
   "rounded-l": "rounded-l-[1rem] overflow-hidden",
+  "rounded-full": "rounded-full overflow-hidden",
   "none": "",
 }
 

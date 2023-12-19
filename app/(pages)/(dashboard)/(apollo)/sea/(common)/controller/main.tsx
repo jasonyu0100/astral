@@ -1,4 +1,8 @@
-import { containerStyles } from "@/(pages)/(common)/styles/data";
+import {
+  borderStyles,
+  containerStyles,
+  effectStyles,
+} from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
 
 export default function SeaController({
@@ -8,10 +12,11 @@ export default function SeaController({
 }) {
   return (
     <Layer
-      sizeStyle="w-full h-full"
       displayName={SeaController.name}
-      containerStyle={containerStyles["row-center"]}
-      contentStyle="space-x-[40px]"
+      sizeStyle="max-w-[1200px] h-full flex-grow"
+      effectStyle={effectStyles["glow-md"]}
+      containerStyle={containerStyles["row"]}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

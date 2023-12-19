@@ -17,9 +17,25 @@
 }
 
 body {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 10px;
+  }
+
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e166;
+    border-radius: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #64748b50;
+    border-radius: 7px;
+  }
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
   border: none;
   outline: none;
   background-color: transparent;

@@ -1,7 +1,15 @@
 import Layer from "@/(pages)/(common)/layer/main";
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 
-export default function StormMessageInput({children} : { children: React.ReactNode}) {
+export default function StormMessageInput({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Layer
       displayName={StormMessageInput.name}
@@ -9,6 +17,7 @@ export default function StormMessageInput({children} : { children: React.ReactNo
       contentStyle="px-[1rem]"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["row-centered"]}
+      borderStyle={borderStyles["border-t"]}
     >
       {children}
     </Layer>

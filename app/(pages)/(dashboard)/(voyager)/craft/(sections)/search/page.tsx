@@ -12,24 +12,24 @@ export default function CraftStorePage() {
         <StoreSearch />
         <StoreSearchFilter />
         <CraftStoreMasonry>
-          <StoreMasonryMedia src="/voyager/craft/store/1.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/2.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/3.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/4.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/5.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/6.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/1.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/2.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/3.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/4.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/5.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/6.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/1.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/2.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/3.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/4.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/5.png" />
-          <StoreMasonryMedia src="/voyager/craft/store/6.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/1.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/2.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/3.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/4.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/5.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/6.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/1.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/2.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/3.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/4.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/5.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/6.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/1.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/2.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/3.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/4.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/5.png" />
+          <StoreMasonryMedia src="/voyager/craft/search/6.png" />
         </CraftStoreMasonry>
       </CraftStoreController>
       <CraftCart />

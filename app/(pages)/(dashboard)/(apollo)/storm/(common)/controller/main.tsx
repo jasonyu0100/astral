@@ -13,7 +13,7 @@ export default function StormController({
   return (
     <Layer
       displayName={StormController.name}
-      sizeStyle="max-w-[900px] h-full flex-grow"
+      sizeStyle="max-w-[1000px] h-full flex-grow"
       effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["row"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}

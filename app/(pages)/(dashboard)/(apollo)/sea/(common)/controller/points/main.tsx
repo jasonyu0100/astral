@@ -13,9 +13,11 @@ export default function SeaPointsContainer({
   return (
     <Layer
       displayName={SeaPointsContainer.name}
-      sizeStyle="flex-grow max-w-[500px] h-full"
+      sizeStyle="w-[400px] h-full"
       containerStyle={containerStyles["col-center"]}
+      backgroundStyle={backgroundStyles["glass-10"]}
       contentStyle="overflow-auto space-y-[2rem] p-[1rem]"
+      borderStyle={borderStyles["border-l"]}
     >
       {children}
     </Layer>

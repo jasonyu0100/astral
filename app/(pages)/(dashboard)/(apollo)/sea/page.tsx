@@ -5,14 +5,16 @@ import SeaPointsContainer from "./(common)/controller/points/main";
 import SeaPoint from "./(common)/controller/points/point/main";
 import SeaHorizontalDivider from "./(common)/controller/story/divider/horizontal/main";
 import SeaStoryContainer from "./(common)/controller/story/main";
-import StoryRow from "./(common)/controller/story/row/main";
+import StoryView from "./(common)/controller/story/view/main";
 
 export default function SeaPage() {
   return (
     <SeaController>
-      <SeaStoryContainer>
-        <StoryRow />
-      </SeaStoryContainer>
+      <div style={{ width: "100%", height: "100%" }}>
+        <SeaStoryContainer>
+          <StoryView />
+        </SeaStoryContainer>
+      </div>
       <SeaPointsContainer>
         <SeaPoint>Test</SeaPoint>
         <SeaHorizontalDivider />

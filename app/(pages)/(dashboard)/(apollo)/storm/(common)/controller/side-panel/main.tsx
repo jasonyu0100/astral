@@ -15,8 +15,9 @@ export default function StormSidePanel({
     <Layer
       displayName={StormSidePanel.name}
       sizeStyle="w-[80px] h-full"
-      backgroundStyle={backgroundStyles["glass-20"]}
+      backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
+      borderStyle={borderStyles["border-l"]}
       contentStyle="justify-between"
     >
       <SidePanelGalaxy />

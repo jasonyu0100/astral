@@ -11,7 +11,7 @@ export default function SidebarCraftIndicator({
   const active = indicator === indicatorLabel;
 
   return (
-    <SidebarIndicator href="/craft/store">
+    <SidebarIndicator href="/craft/search">
       <IndicatorOrangeJewel active={active}/>
       <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
     </SidebarIndicator>

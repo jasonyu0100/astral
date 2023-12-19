@@ -1,8 +1,9 @@
+import Layer from "@/(pages)/(common)/layer/main";
 import {
   borderStyles,
   containerStyles,
+  effectStyles,
 } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
 
 export default function FlowController({
   children,
@@ -12,9 +13,10 @@ export default function FlowController({
   return (
     <Layer
       displayName={FlowController.name}
-      sizeStyle="h-full w-[1000px]"
+      sizeStyle="max-w-[1200px] h-full flex-grow"
+      effectStyle={effectStyles["glow-md"]}
+      containerStyle={containerStyles["col"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-      containerStyle={containerStyles.row}
     >
       {children}
     </Layer>

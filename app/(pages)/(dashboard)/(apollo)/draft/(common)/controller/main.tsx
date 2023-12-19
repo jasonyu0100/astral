@@ -1,5 +1,9 @@
-import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
+import {
+  borderStyles,
+  containerStyles,
+  effectStyles,
+} from "@/(pages)/(common)/styles/data";
 
 export default function DraftController({
   children,
@@ -8,12 +12,10 @@ export default function DraftController({
 }) {
   return (
     <Layer
-      displayName={DraftController.name}
-      sizeStyle="w-[1000px] h-full"
-      containerStyle={containerStyles.row}
+      sizeStyle="max-w-[1200px] h-full flex-grow"
+      effectStyle={effectStyles["glow-md"]}
+      containerStyle={containerStyles["col"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-    >
-      {children}
-    </Layer>
+    >{children}</Layer>
   );
 }

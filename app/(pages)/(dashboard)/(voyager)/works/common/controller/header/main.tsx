@@ -12,7 +12,7 @@ export default function WorksHeader({
 }) {
   return (
     <Layer
-      sizeStyle="w-full h-[300px]"
+      sizeStyle="w-full h-[250px]"
       displayName={WorksHeader.name}
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}
