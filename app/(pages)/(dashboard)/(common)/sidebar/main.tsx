@@ -1,11 +1,11 @@
 "use client";
 import SidebarWorkCover from "./current-work/cover/main";
 import SidebarIndicators from "./indicators/main";
-import SidebarWorksIndicator from "./indicators/1-works-indicator/main";
-import SidebarGalleryIndicator from "./indicators/3-gallery-indicator/main";
-import SidebarCraftIndicator from "./indicators/2-craft-indicator/main";
-import SidebarStoryIndicator from "./indicators/4-story-indicator/main";
-import SidebarRecordIndicator from "./indicators/5-release-indicator/main";
+import IndicatorOne from "./indicators/indicator-1/main";
+import IndicatorThree from "./indicators/indicator-3/main";
+import IndicatorTwo from "./indicators/indicator-2/main";
+import IndicatorFour from "./indicators/indicator-4/main";
+import SidebarRecordIndicator from "./indicators/indicator-5/main";
 import SidebarCurrentWork from "./current-work/main";
 import SidebarWorkInfo from "./current-work/info/main";
 
@@ -22,10 +22,10 @@ export function DashboardSidebar({ indicator }: SidebarProps) {
       </SidebarCurrentWork>
       <div className="w-full h-[1rem] border-t border-slate-400 border-opacity-30"></div>
       <SidebarIndicators>
-        <SidebarWorksIndicator indicator={indicator} />
-        <SidebarCraftIndicator indicator={indicator} />
-        <SidebarGalleryIndicator indicator={indicator} />
-        <SidebarStoryIndicator indicator={indicator} />
+        <IndicatorOne indicator={indicator} />
+        <IndicatorTwo indicator={indicator} />
+        <IndicatorThree indicator={indicator} />
+        <IndicatorFour indicator={indicator} />
         <SidebarRecordIndicator indicator={indicator} />
       </SidebarIndicators>
     </div>

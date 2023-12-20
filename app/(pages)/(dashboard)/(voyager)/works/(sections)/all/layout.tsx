@@ -1,7 +1,7 @@
 import { VoyagerContent } from "../../../(common)/content/main";
 import WorksTabs from "../../tabs/main";
 
-export default function WorksAllLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

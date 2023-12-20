@@ -2,7 +2,7 @@ import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/m
 import { DashboardSidebar } from "../../(common)/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
 
-export default function WorksLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

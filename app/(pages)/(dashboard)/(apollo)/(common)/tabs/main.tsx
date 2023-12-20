@@ -1,7 +1,7 @@
-import { DraftTab } from "./2-draft-tab/main";
-import { FlowTab } from "./3-flow-tab/main";
-import { SeaTab } from "./4-sea-tab/main";
-import { StormTab } from "./1-storm-tab/main";
+import { TabTwo } from "./tab-2/main";
+import { TabThree } from "./tab-3/main";
+import { TabFour } from "./tab-4/main";
+import { TabOne } from "./tab-1/main";
 import TabsRow from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/main";
 import Tabs from "@/(pages)/(dashboard)/(common)/tabs/main";
 import { TabsBackButton } from "../../../(common)/tabs/tabs-row/back-button/main";
@@ -17,10 +17,10 @@ export const ApolloTabs: React.FC<ApolloTabProps> = ({ tab }) => {
     <Tabs>
 
       <TabsRow>
-        <StormTab tab={tab} />
-        <DraftTab tab={tab} />
-        <FlowTab tab={tab} />
-        <SeaTab tab={tab} />
+        <TabOne tab={tab} />
+        <TabTwo tab={tab} />
+        <TabThree tab={tab} />
+        <TabFour tab={tab} />
       </TabsRow>
     </Tabs>
   );

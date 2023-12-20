@@ -2,7 +2,7 @@ import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/m
 import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import ApolloTabs from "@/(pages)/(dashboard)/(apollo)/(common)/tabs/main";
 
-export default function FlowLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

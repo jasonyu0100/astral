@@ -1,6 +1,6 @@
-import { AllTab } from "./3-all-tab/main";
-import { NowTab } from "./1-now-tab/main";
-import { ThenTab } from "./2-then-tab/main";
+import { TabThree } from "./tab-3/main";
+import { TabOne } from "./tab-1/main";
+import { TabTwo } from "./tab-2/main";
 import Tabs from "../../../(common)/tabs/main";
 import TabsRow from "../../../(common)/tabs/tabs-row/main";
 import { TabsBackButton } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/back-button/main";
@@ -14,9 +14,9 @@ export const WorksTabs: React.FC<WorksTabProps> = ({ tab }) => {
     <Tabs>
       {/* <TabsBackButton href="/works/now" /> */}
       <TabsRow>
-        <NowTab tab={tab} />
-        <ThenTab tab={tab} />
-        <AllTab tab={tab} />
+        <TabOne tab={tab} />
+        <TabTwo tab={tab} />
+        <TabThree tab={tab} />
       </TabsRow>
     </Tabs>
   );

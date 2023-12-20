@@ -21,7 +21,7 @@ import {
   defaultYouMessage,
 } from "./data";
 
-export default function StormPage() {
+export default function Page() {
   const [messages, changeMessages] = useState<Message[]>(defaultMessages);
   const [message, changeMessage] = useState("dsadsadsa");
 

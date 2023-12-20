@@ -4,7 +4,7 @@ import clsx from "clsx";
 export default function SidebarWorkCover({ active }: { active: boolean }) {
   return (
     <img
-      src="/voyager/release/producer.png"
+      src="/voyager/record/producer.png"
       className={clsx(
         "w-[2.5rem] h-[2.5rem] rounded-full border-[3px] border-slate-50",
         {

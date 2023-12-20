@@ -2,7 +2,7 @@ import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/m
 import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
 import { DashboardSidebar } from "../../(common)/sidebar/main";
 
-export default function CraftLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;

@@ -27,7 +27,7 @@ import {
 } from "./data";
 import { defaultApolloConstellation, defaultApolloConstellations } from "../data";
 
-export default function DraftPage() {
+export default function Page() {
   const [constellations, changeConstellations] = useState(
     defaultApolloConstellations
   );

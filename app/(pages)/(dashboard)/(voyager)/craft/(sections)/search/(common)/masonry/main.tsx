@@ -4,7 +4,7 @@ export default function CraftStoreMasonry({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full h-full columns-6 gap-[1rem] overflow-auto">
+    <div className="w-full columns-4 gap-[1rem] overflow-auto">
       {children}
     </div>
   );

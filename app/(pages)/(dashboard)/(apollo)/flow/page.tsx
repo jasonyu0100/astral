@@ -20,7 +20,7 @@ import { useState } from "react";
 import { defaultFlowSnapshot, defaultFlowSnapshots } from "./data";
 import { ApolloConstellation, defaultApolloConstellation, defaultApolloConstellations } from "../data";
 
-export default function FlowPage() {
+export default function Page() {
   const [currentConstellation, changeCurrentConstellation] = useState<ApolloConstellation>(defaultApolloConstellation);
   const [constellations, changeConstellations] = useState<ApolloConstellation[]>(defaultApolloConstellations);
   const [flowSnapshots, changeFlowSnapshots] = useState(defaultFlowSnapshots);

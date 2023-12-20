@@ -1,7 +1,7 @@
 import {
   CraftSection,
   CraftTableRowProps,
-} from "../../(sections)/view/common/controller/table/row/main";
+} from "../../(sections)/manage/common/controller/table/row/main";
 
 const craftWordsLinesSrcRoot = "/voyager/craft/speech/lines";
 const craftWordsLabelsSrcRoot = "/voyager/craft/speech/labels";

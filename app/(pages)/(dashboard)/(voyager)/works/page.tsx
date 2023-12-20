@@ -1,6 +1,6 @@
 "use client";
 
-export default function WorksPage() {
+export default function Page() {
   return (
     <>
     </>
