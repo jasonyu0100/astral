@@ -11,18 +11,35 @@ import FlowControllerConstellationRow from "./(common)/controller/bottom/constel
 import FlowSnapshotSection from "./(common)/controller/center/craft/main";
 import FlowSnapshotElement from "./(common)/controller/center/craft/element/main";
 import FlowConstellationAdd from "./(common)/controller/bottom/add/main";
-import FlowTree from "./(common)/controller/center/tree/main";
+import FlowTreeContainer from "./(common)/controller/center/tree/main";
 import FlowSourceControlBranch from "./(common)/controller/center/tree/branch/main";
 import FlowTopRowAddButton from "./(common)/controller/top/button/add/main";
 import FlowTopRowLoomButton from "./(common)/controller/top/button/loom/main";
 import FlowTopRowSearchButton from "./(common)/controller/top/button/search/main";
 import { useState } from "react";
-import { defaultFlowSnapshot, defaultFlowSnapshots } from "./data";
-import { ApolloConstellation, defaultApolloConstellation, defaultApolloConstellations } from "../data";
+import {
+  FlowTree,
+  defaultFlowBranch,
+  defaultFlowLeaf,
+  defaultFlowSnapshot,
+  defaultFlowSnapshots,
+  defaultFlowTree,
+} from "./data";
+import {
+  ApolloConstellation,
+  defaultApolloConstellation,
+  defaultApolloConstellations,
+} from "../data";
+import FlowTreeStem from "./(common)/controller/center/tree/branch/stem/main";
+import FlowTreeLeaves from "./(common)/controller/center/tree/branch/leaves/main";
+import FlowTreeLeaf from "./(common)/controller/center/tree/branch/leaves/leaf/main";
+import FlowTreeLeafAdd from "./(common)/controller/center/tree/branch/leaves/add/main";
 
 export default function Page() {
-  const [currentConstellation, changeCurrentConstellation] = useState<ApolloConstellation>(defaultApolloConstellation);
-  const [constellations, changeConstellations] = useState<ApolloConstellation[]>(defaultApolloConstellations);
+  const [flowTree, changeFlowTree] = useState<FlowTree>(defaultFlowTree);
+  const [constellations, changeConstellations] = useState<
+    ApolloConstellation[]
+  >(defaultApolloConstellations);
   const [flowSnapshots, changeFlowSnapshots] = useState(defaultFlowSnapshots);
 
   return (
@@ -37,12 +54,39 @@ export default function Page() {
         <FlowTopRowLoomButton />
       </FlowControllerTopRow>
       <FlowControllerCenter>
-        <FlowTree>
-          <FlowSourceControlBranch />
-          <FlowSourceControlBranch />
-          <FlowSourceControlBranch />
-          <FlowSourceControlBranch />
-        </FlowTree>
+        <FlowTreeContainer>
+          {flowTree.map((branch, i) => (
+            <FlowSourceControlBranch>
+              <FlowTreeStem branch={branch} />
+              <FlowTreeLeaves>
+                {branch.leaves.map((leaf, j) => (
+                  <FlowTreeLeaf leaf={leaf} />
+                ))}
+                <FlowTreeLeafAdd
+                  onClick={() =>
+                    changeFlowTree((prev) =>
+                      prev.map((o, k) =>
+                        k === i
+                          ? { ...o, leaves: [...o.leaves, defaultFlowLeaf] }
+                          : o
+                      )
+                    )
+                  }
+                />
+              </FlowTreeLeaves>
+            </FlowSourceControlBranch>
+          ))}
+          <FlowSourceControlBranch>
+            <FlowTreeStem branch={defaultFlowBranch} />
+            <FlowTreeLeaves>
+              <FlowTreeLeafAdd
+                onClick={() =>
+                  changeFlowTree((prev) => [...prev, defaultFlowBranch])
+                }
+              />
+            </FlowTreeLeaves>
+          </FlowSourceControlBranch>
+        </FlowTreeContainer>
         <FlowSnapshotSection>
           {flowSnapshots.map((flowSnapshot) => (
             <FlowSnapshotElement src={flowSnapshot.src} />
@@ -51,7 +95,12 @@ export default function Page() {
       </FlowControllerCenter>
       <FlowControllerBottomRow>
         <FlowConstellationAdd
-          onClick={() => changeConstellations((prev) => [...prev, defaultApolloConstellation])}
+          onClick={() =>
+            changeConstellations((prev) => [
+              ...prev,
+              defaultApolloConstellation,
+            ])
+          }
         />
         <Layer
           sizeStyle="h-[80px]"
@@ -61,7 +110,7 @@ export default function Page() {
           {constellations.map((constellation) => (
             <FlowConstellation
               constellation={constellation}
-              onClick={() => changeCurrentConstellation(constellation)}
+              onClick={() => {}}
             />
           ))}
         </FlowControllerConstellationRow>

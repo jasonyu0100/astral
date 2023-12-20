@@ -5,20 +5,22 @@ export interface ApolloDraft {
 }
 
 export interface DraftElement {
+  name?: string;
+  description?: string;
   src: string;
 }
 
 export const defaultDraftElement: DraftElement = {
-  src: "/voyager/craft/elements/1.png",
+  src: "/voyager/craft/elements/1.png", name: "Sunset", description: "A brilliant sunset"
 };
 
 export const defaultDraftElements: DraftElement[] = [
-  { src: "/voyager/craft/elements/1.png" },
-  { src: "/voyager/craft/elements/2.png" },
-  { src: "/voyager/craft/elements/3.png" },
-  { src: "/voyager/craft/elements/4.png" },
-  { src: "/voyager/craft/elements/5.png" },
-  { src: "/voyager/craft/elements/6.png" },
+  { src: "/voyager/craft/elements/1.png", name: "Sunset", description: "A brilliant sunset" },
+  { src: "/voyager/craft/elements/2.png", name: "Valley", description: "A brilliant valley" },
+  { src: "/voyager/craft/elements/3.png", name: "Field", description: "A brilliant field" },
+  { src: "/voyager/craft/elements/4.png", name: "Lake", description: "A brilliant lake" },
+  { src: "/voyager/craft/elements/5.png", name: "Ocean", description: "A brilliant ocean" },
+  { src: "/voyager/craft/elements/6.png", name: "Morning", description: "A brilliant morning" },
 ];
 
 export const defaultApolloDraft: ApolloDraft = {
