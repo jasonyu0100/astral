@@ -17,7 +17,7 @@ export default function SearchController({
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-5"]}
       borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-      contentStyle={"space-y-[2rem] px-[2rem] pt-[2rem] overflow-auto"}
+      contentStyle={"space-y-[2rem] px-[2rem] pt-[4rem] overflow-auto"}
     >
       {children}
     </Layer>

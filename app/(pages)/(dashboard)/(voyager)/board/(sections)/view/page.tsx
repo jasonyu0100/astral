@@ -1,55 +1,51 @@
 "use client";
 
-import GalleryController from "../../(common)/controller/main";
-import GalleryMasonryContainer from "../../(common)/controller/masonry/main";
-import GalleryMuseumRow from "../../(common)/controller/museum/row/main";
-import GalleryGuideWrapper from "../../(common)/guide/wrapper/main";
-import GalleryGuideController from "../../(common)/guide/main";
-import GalleryGuideBody from "../../(common)/guide/body/main";
-import GalleryGuideLink from "../../(common)/guide/body/link/main";
-import GalleryMuseumContainer from "../../(common)/controller/museum/main";
-import GalleryMasonryMedia from "../../(common)/controller/masonry/media/main";
-import { inspireArtData } from "./data";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { defaultBoardStars } from "../../data";
+import BoardController from "../view/(common)/controller/main";
+import BoardControllerCenterSection from "../view/(common)/controller/center/main";
+import BoardCraftSection from "../view/(common)/controller/center/craft/main";
+import BoardConstellationSection from "../view/(common)/controller/center/constellation/main";
+import { motion } from "framer-motion";
+import ConstellationStar from "../view/(common)/controller/center/constellation/stars/star/main";
+import ConstellationLinks from "../view/(common)/controller/center/constellation/stars/links/main";
 
 export default function Page() {
-  const dataSource = inspireArtData;
-  const [section, changeSection] = useState("Summary");
-  const sectionTitles = ["Summary", ...dataSource.map((data) => data.title)];
-  const allWorks = dataSource.map((data) => data.works).flat(1);
-  const getSectionWorks = () => {
-    const sectionData = dataSource
-      .filter((work) => work.title === section)
-      .at(0);
-    return sectionData?.works || [];
-  };
+  const [boardStars, changeBoardStars] = useState(defaultBoardStars);
+  const constraintsRef = useRef(null);
 
   return (
-    <GalleryGuideWrapper>
-      <GalleryController>
-        {section === "Summary" ? (
-          <GalleryMasonryContainer>
-            {allWorks.map((data) => (
-              <GalleryMasonryMedia src={data.src} />
-            ))}
-          </GalleryMasonryContainer>
-        ) : (
-          <GalleryMuseumContainer>
-            {getSectionWorks().map((work) => (
-              <GalleryMuseumRow {...work} />
-            ))}
-          </GalleryMuseumContainer>
-        )}
-      </GalleryController>
-      <GalleryGuideController>
-        <GalleryGuideBody>
-          {sectionTitles.map((sectionTitle) => (
-            <GalleryGuideLink onClick={() => changeSection(sectionTitle)}>
-              {sectionTitle}
-            </GalleryGuideLink>
-          ))}
-        </GalleryGuideBody>
-      </GalleryGuideController>
-    </GalleryGuideWrapper>
+    <>
+      <BoardController>
+        <BoardControllerCenterSection>
+          <BoardConstellationSection>
+            <ConstellationLinks stars={boardStars} />
+            <motion.div
+              className="absolute top-0 left- 0 w-full h-full"
+              ref={constraintsRef}
+            >
+              {boardStars.map((star, i) => (
+                <ConstellationStar
+                  star={star}
+                  constraintsRef={constraintsRef}
+                  updateStar={(data) =>
+                    changeBoardStars((prev) =>
+                      prev.map((o, j) => (j === i ? { ...o, ...data } : o))
+                    )
+                  }
+                />
+              ))}
+            </motion.div>
+          </BoardConstellationSection>
+          <BoardCraftSection>
+            <h1>adsadsads</h1>
+          </BoardCraftSection>
+        </BoardControllerCenterSection>
+      </BoardController>
+    </>
+
   );
 }
+
+
+

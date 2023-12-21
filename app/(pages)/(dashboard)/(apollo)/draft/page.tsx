@@ -22,7 +22,6 @@ import DraftLoomButton from "./(common)/controller/top/button/loom/main";
 import {
   defaultDraftElement,
   defaultDraftElements,
-  defaultDraftStar,
   defaultDraftStars,
 } from "./data";
 import {

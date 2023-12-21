@@ -1,55 +1,81 @@
 "use client";
 
-import GalleryController from "../../(common)/controller/main";
-import GalleryMasonryContainer from "../../(common)/controller/masonry/main";
-import GalleryMuseumContainer from "../../(common)/controller/museum/main";
-import GalleryMuseumRow from "../../(common)/controller/museum/row/main";
-import GalleryGuideWrapper from "../../(common)/guide/wrapper/main";
-import GalleryGuideController from "../../(common)/guide/main";
-import GalleryGuideBody from "../../(common)/guide/body/main";
-import GalleryGuideLink from "../../(common)/guide/body/link/main";
-import GalleryMasonryMedia from "../../(common)/controller/masonry/media/main";
-import { leadArtData } from "./data";
-import { useState } from "react";
+import Layer from "@/(pages)/(common)/layer/main";
+import { backgroundStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { useRef, useState } from "react";
+import { defaultBoardElement, defaultBoardElements, defaultBoardStars } from "../../data";
+import BoardController from "../view/(common)/controller/main";
+import BoardControllerCenterSection from "../view/(common)/controller/center/main";
+import BoardCraftSection from "../view/(common)/controller/center/craft/main";
+import BoardCraftElement from "../view/(common)/controller/center/craft/element/main";
+import BoardConstellationSection from "../view/(common)/controller/center/constellation/main";
+import { motion } from "framer-motion";
+import ConstellationStar from "../view/(common)/controller/center/constellation/stars/star/main";
+import ConstellationLinks from "../view/(common)/controller/center/constellation/stars/links/main";
+import BoardControllerTopRow from "../view/(common)/controller/top/main";
+import BoardLoomButton from "../view/(common)/controller/top/button/loom/main";
+import TopRowSearchButton from "../view/(common)/controller/top/button/search/main";
+import TopRowAddButton from "../view/(common)/controller/top/button/add/main";
 
 export default function Page() {
-  const dataSource = leadArtData;
-  const [section, changeSection] = useState("Summary");
-  const sectionTitles = ["Summary", ...dataSource.map((data) => data.title)];
-  const allWorks = dataSource.map((data) => data.works).flat(1);
-  const getSectionWorks = () => {
-    const sectionData = dataSource
-      .filter((work) => work.title === section)
-      .at(0);
-    return sectionData?.works || [];
-  };
+  const [boardElements, changeBoardElements] = useState(defaultBoardElements);
+  const [boardStars, changeBoardStars] = useState(defaultBoardStars);
+  const constraintsRef = useRef(null);
 
   return (
-    <GalleryGuideWrapper>
-      <GalleryController>
-        {section === "Summary" ? (
-          <GalleryMasonryContainer>
-            {allWorks.map((data) => (
-              <GalleryMasonryMedia src={data.src} />
+    <>
+      <BoardController>
+        <BoardControllerTopRow>
+          <TopRowAddButton
+            onClick={() =>
+              changeBoardElements((prev) => [...prev, defaultBoardElement])
+            }
+          />
+          <TopRowSearchButton />
+          <BoardLoomButton />
+        </BoardControllerTopRow>
+        <BoardControllerCenterSection>
+          <BoardConstellationSection>
+            <ConstellationLinks stars={boardStars} />
+            <motion.div
+              className="absolute top-0 left- 0 w-full h-full"
+              ref={constraintsRef}
+            >
+              {boardStars.map((star, i) => (
+                <ConstellationStar
+                  star={star}
+                  constraintsRef={constraintsRef}
+                  updateStar={(data) =>
+                    changeBoardStars((prev) =>
+                      prev.map((o, j) => (j === i ? { ...o, ...data } : o))
+                    )
+                  }
+                />
+              ))}
+            </motion.div>
+          </BoardConstellationSection>
+          <BoardCraftSection>
+            {boardElements.map((boardElement) => (
+              <BoardCraftElement
+                src={boardElement.src}
+                onClick={() =>
+                  changeBoardStars((prev) => [
+                    ...prev,
+                    {
+                      x: Math.random() * 500,
+                      y: Math.random() * 500,
+                      element: boardElement,
+                    },
+                  ])
+                }
+              />
             ))}
-          </GalleryMasonryContainer>
-        ) : (
-          <GalleryMuseumContainer>
-            {getSectionWorks().map((work) => (
-              <GalleryMuseumRow {...work} />
-            ))}
-          </GalleryMuseumContainer>
-        )}
-      </GalleryController>
-      <GalleryGuideController>
-        <GalleryGuideBody>
-          {sectionTitles.map((sectionTitle) => (
-            <GalleryGuideLink onClick={() => changeSection(sectionTitle)}>
-              {sectionTitle}
-            </GalleryGuideLink>
-          ))}
-        </GalleryGuideBody>
-      </GalleryGuideController>
-    </GalleryGuideWrapper>
+          </BoardCraftSection>
+        </BoardControllerCenterSection>
+      </BoardController>
+    </>
+
   );
 }
+
+
