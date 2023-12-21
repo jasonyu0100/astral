@@ -19,18 +19,19 @@ export default function StoryRecordLog({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col w-[500px] space-y-[2rem] items-center py-[2rem]">
-      <RecordLogInfo />
-      <RecordLogMedia />
-      <RecordLogDescription>
-        <RecordLogTitle>Jason</RecordLogTitle>
-        <RecordLogBody>
-          Lorem ipsum dolor sit amet consectetur. Risus aliquam id amet laoreet
-          velit. Fringilla etiam ac pharetra auctor sed sed aenean in rhoncus.
-          Quisque diam egestas eget facilisis scelerisque eleifend. Elementum
-          blandit venenatis sagittis enim mauris faucibus fringilla.
-        </RecordLogBody>
-      </RecordLogDescription>
+    <div className="flex flex-col w-full space-y-[3rem] items-center py-[2rem]">
+      <div className="w-full flex flex-row space-x-[100px] items-center justify-center">
+        <RecordLogMedia />
+        <RecordLogDescription>
+          <RecordLogInfo />
+          <RecordLogBody>
+            Lorem ipsum dolor sit amet consectetur. Risus aliquam id amet
+            laoreet velit. Fringilla etiam ac pharetra auctor sed sed aenean in
+            rhoncus. Quisque diam egestas eget facilisis scelerisque eleifend.
+            Elementum blandit venenatis sagittis enim mauris faucibus fringilla.
+          </RecordLogBody>
+        </RecordLogDescription>
+      </div>
       <RecordLogDivider />
     </div>
   );

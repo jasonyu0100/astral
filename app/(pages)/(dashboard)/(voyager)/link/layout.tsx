@@ -9,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <DashboardController>
-      <DashboardSidebar indicator="Story"/>
+      <DashboardSidebar indicator="Link"/>
       <DashboardBody>
         {children}
       </DashboardBody>

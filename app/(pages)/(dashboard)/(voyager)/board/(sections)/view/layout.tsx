@@ -8,7 +8,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <GalleryTabs tab="Inspire" />
+      <GalleryTabs tab="View" />
       <VoyagerContent>{children}</VoyagerContent>
     </>
   );
