@@ -4,7 +4,7 @@ import { VoyagerContent } from "../../../(common)/content/main";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <CraftTabs tab={"Manage"} />
+      <CraftTabs tab={"Drive"} />
       <VoyagerContent>{children}</VoyagerContent>
     </>
   );

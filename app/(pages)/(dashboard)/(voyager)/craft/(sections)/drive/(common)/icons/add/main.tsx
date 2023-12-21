@@ -1,4 +1,4 @@
-export default function ManageAddIcon() {
+export default function DriveAddIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

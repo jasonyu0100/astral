@@ -3,16 +3,14 @@
 import CraftTableController from "./(common)/controller/main";
 import CraftTableContainer from "./(common)/controller/table/container/main";
 import CraftTableRow from "./(common)/controller/table/row/main";
-import CraftTableSection from "./(common)/controller/table/section/main";
 import CraftCart from "../../(common)/cart/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
-import CraftManageFolder from "./(common)/folder/main";
-import CraftManageFolderAdd from "./(common)/folder/add/main";
+import CraftDriveFolder from "./(common)/folder/main";
+import CraftDriveFolderAdd from "./(common)/folder/add/main";
 import { useState } from "react";
 import { CraftFolder, CraftSection } from "../../data";
 import { brandSection } from "../../data/brand/main";
-import { logoFolder } from "../../data/brand/logo/main";
 
 export default function Page() {
   const [section, changeSection] = useState<CraftSection | null>(brandSection);
@@ -43,9 +41,9 @@ export default function Page() {
           <>
             <div className="w-full flex flex-row flex-wrap items-center py-[50px] gap-[50px]">
               {section.folders.map((folder) => (
-                <CraftManageFolder onClick={() => changeFolder(folder)} />
+                <CraftDriveFolder onClick={() => changeFolder(folder)} />
               ))}
-              <CraftManageFolderAdd
+              <CraftDriveFolderAdd
               // onClick={() => changeFolders((prev) => [...prev, 1])}
               />
             </div>
