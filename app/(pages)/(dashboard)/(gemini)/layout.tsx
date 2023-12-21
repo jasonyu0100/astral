@@ -1,7 +1,8 @@
-import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { DashboardSidebar } from "../(common)/sidebar/main";
 import { Background } from "@/(pages)/(common)/background/main";
-import Topbar from "@/(pages)/(common)/topbar/main";
+import Topbar from "../../(common)/topbar/main";
+import { DashboardController } from "../(common)/controller/main";
+import { DashboardSidebar } from "../(common)/sidebar/main";
+import { DashboardBody } from "../(common)/controller/body/main";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -9,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Topbar />
       <DashboardController>
         <DashboardSidebar />
-        {children}
+        <DashboardBody>{children}</DashboardBody>
       </DashboardController>
     </Background>
   );

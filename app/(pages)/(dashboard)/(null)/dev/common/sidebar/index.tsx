@@ -1,1 +1,0 @@
-export { DevSidebar as Sidebar } from './main'

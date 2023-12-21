@@ -21,17 +21,17 @@ export default function Topbar() {
         <TopbarLink href="/dev/layer">DEV</TopbarLink>
       </TopbarLeftGroup>
       <TopbarRightGroup>
-        <TopbarIconLink>
+        <TopbarIconLink href="/notifications">
           <NotificationsIcon />
         </TopbarIconLink>
-        <TopbarIconLink>
+        <TopbarIconLink href="/cart">
           <CartIcon />
         </TopbarIconLink>
-        <TopbarIconLink>
+        <TopbarIconLink href="/settings">
           <SettingsIcon />
         </TopbarIconLink>
       </TopbarRightGroup>
-      <TopbarAvatar href="/" />
+      <TopbarAvatar href="/profile" />
     </TopbarContainer>
   );
 }
