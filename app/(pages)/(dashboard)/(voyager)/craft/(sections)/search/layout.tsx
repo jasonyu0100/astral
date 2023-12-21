@@ -1,9 +1,7 @@
 import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
-import BreadCrumbWrapper from "@/(pages)/(common)/breadcrumb/wrapper/main";
-import BreadCrumb from "@/(pages)/(common)/breadcrumb/main";
 import { VoyagerContent } from "../../../(common)/content/main";
 
-export default function CraftSearchLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
@@ -11,12 +9,7 @@ export default function CraftSearchLayout({
   return (
     <>
       <CraftTabs tab={"Search"} />
-      <VoyagerContent>
-        <BreadCrumbWrapper>
-          {children}
-          <BreadCrumb>/craft/brand/icon</BreadCrumb>
-        </BreadCrumbWrapper>
-      </VoyagerContent>
+      <VoyagerContent>{children}</VoyagerContent>
     </>
   );
 }
