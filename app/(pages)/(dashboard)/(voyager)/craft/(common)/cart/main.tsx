@@ -10,13 +10,16 @@ export default function CraftCart() {
   return (
     <Layer
       displayName="adsads"
-      sizeStyle="w-[400px] h-full"
+      sizeStyle="w-[350px] h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["border-l"]}`}
+      borderStyle={`${borderStyles["border-all"]} ${borderStyles["rounded-t"]}`}
       containerStyle={containerStyles.row}
     >
       <div className="w-full h-full p-[2rem] flex flex-col justify-between">
-        <div className="flex flex-col space-y-[2rem] flex-grow my-[2rem] overflow-auto">
+        <div className="h-[3rem] flex flex-shrink-0 border-b border-slate-200 border-opacity-30 items-center">
+          <p className="text-white text-xl font-bold">Cart</p>
+        </div>
+        <div className="flex flex-col space-y-[2rem] flex-grow my-[2rem] overflow-auto border-b border-slate-200 border-opacity-30">
           <CraftCartItem />
           <CraftCartItem />
           <CraftCartItem />
@@ -25,11 +28,12 @@ export default function CraftCart() {
           <CraftCartItem />
         </div>
         <Layer
-          sizeStyle="w-full h-[70px] mt-auto"
-          backgroundStyle={backgroundStyles["glass-10"]}
+          sizeStyle="w-full h-[50px] mt-auto"
+          backgroundStyle={'bg-purple-600'}
           containerStyle={containerStyles["row-centered"]}
+          borderStyle={borderStyles["rounded-full"]}
         >
-          <p className="text-xl text-white font-bold">Add to Craft</p>
+          <p className="text-lg text-white font-extraBold">Add to Craft</p>
         </Layer>
       </div>
     </Layer>

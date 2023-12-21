@@ -15,6 +15,8 @@ export default function CraftTableController({
       displayName={CraftTableController.name}
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles.col}
+      backgroundStyle={backgroundStyles["glass-5"]}
+      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       contentStyle={"space-y-[2rem] p-[2rem] overflow-auto"}
     >
       {children}

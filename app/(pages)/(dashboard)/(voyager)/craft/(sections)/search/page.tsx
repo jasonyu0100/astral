@@ -1,6 +1,6 @@
 "use client";
 
-import CraftStoreController from "./(common)/controller/main";
+import SearchController from "./(common)/controller/main";
 import StoreSearchFilter from "./(common)/controller/search/filter/main";
 import StoreSearch from "./(common)/controller/search/main";
 import CraftStoreMasonry from "./(common)/masonry/main";
@@ -20,17 +20,16 @@ export default function Page() {
     <Layer
       sizeStyle="w-full h-full"
       containerStyle={containerStyles.row}
-      backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      contentStyle={'space-x-[4rem]'}
     >
-      <CraftStoreController>
+      <SearchController>
         <StoreSearch />
         <CraftStoreMasonry>
           {craftSearch.results.map((craftFile) => (
             <StoreMasonryMedia src={craftFile.src} />
           ))}
         </CraftStoreMasonry>
-      </CraftStoreController>
+      </SearchController>
       <CraftCart />
     </Layer>
   );

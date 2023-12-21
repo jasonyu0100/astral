@@ -4,14 +4,9 @@ import CraftTableController from "./(common)/controller/main";
 import CraftTableContainer from "./(common)/controller/table/container/main";
 import CraftTableRow from "./(common)/controller/table/row/main";
 import CraftTableSection from "./(common)/controller/table/section/main";
-import { wordsSection } from "../../data/words/main";
 import CraftCart from "../../(common)/cart/main";
 import Layer from "@/(pages)/(common)/layer/main";
-import {
-  backgroundStyles,
-  borderStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
+import { containerStyles } from "@/(pages)/(common)/styles/data";
 import CraftManageFolder from "./(common)/folder/main";
 import CraftManageFolderAdd from "./(common)/folder/add/main";
 import { useState } from "react";
@@ -21,25 +16,34 @@ import { logoFolder } from "../../data/brand/logo/main";
 
 export default function Page() {
   const [section, changeSection] = useState<CraftSection | null>(brandSection);
-  const [folder, changeFolder] = useState<CraftFolder | null>(logoFolder);
+  const [folder, changeFolder] = useState<CraftFolder | null>(null);
 
   return (
     <Layer
       sizeStyle="w-full h-full"
       containerStyle={containerStyles.row}
-      backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      contentStyle={"space-x-[4rem]"}
     >
       <CraftTableController>
+        <div className="flex flex-col space-y-[2rem]">
+          <div className="flex flex-col">
+            <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
+              Craft > {section?.name} > Logo
+            </div>
+            <div className="w-full mt-[1rem] h-[0px] border border-slate-400 border-opacity-30"></div>
+          </div>
+          <div className="w-full text-white text-base font-normal leading-normal">
+            {section?.description}
+          </div>
+        </div>
         {section === null && folder === null && (
           <>No Section or Folder Selected</>
         )}
-        {section !== null && (
+        {(section !== null && folder === null) && (
           <>
-            <CraftTableSection {...section} />
             <div className="w-full flex flex-row flex-wrap items-center py-[50px] gap-[50px]">
               {section.folders.map((folder) => (
-                <CraftManageFolder />
+                <CraftManageFolder onClick={() => changeFolder(folder)} />
               ))}
               <CraftManageFolderAdd
               // onClick={() => changeFolders((prev) => [...prev, 1])}

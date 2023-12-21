@@ -18,7 +18,7 @@ export default function GalleryMasonryMedia({ src }: { src: string }) {
         <></>
       )}
       <img
-        className="rounded-lg mb-6 shadow-md shadow-slate-500/50 w-full"
+        className="mb-6 shadow-md shadow-slate-500/50 w-full"
         src={src}
       />
     </div>
