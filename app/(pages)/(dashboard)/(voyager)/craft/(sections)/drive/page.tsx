@@ -1,11 +1,11 @@
 "use client";
 
-import CraftTableController from "./(common)/controller/main";
-import CraftTableContainer from "./(common)/controller/table/container/main";
-import CraftTableRow from "./(common)/controller/table/row/main";
+import CraftTableController from "./table/main";
+import CraftTableContainer from "./table/container/main";
+import CraftTableRow from "./table/row/main";
 import CraftCart from "../../(common)/cart/main";
 import Layer from "@/(pages)/(common)/layer/main";
-import { containerStyles } from "@/(pages)/(common)/styles/data";
+import { backgroundStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import CraftDriveFolder from "./(common)/folder/main";
 import CraftDriveFolderAdd from "./(common)/folder/add/main";
 import { useState } from "react";
@@ -25,8 +25,13 @@ export default function Page() {
       <CraftTableController>
         <div className="flex flex-col space-y-[2rem]">
           <div className="flex flex-col">
+            <Layer
+              backgroundStyle={backgroundStyles["glass-10"]}
+            >
+
+            </Layer>
             <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-              Craft > {section?.name} > Logo
+              Craft / {section?.name} / Logo
             </div>
             <div className="w-full mt-[1rem] h-[0px] border border-slate-400 border-opacity-30"></div>
           </div>
