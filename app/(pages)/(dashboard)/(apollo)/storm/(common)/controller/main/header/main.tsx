@@ -7,7 +7,7 @@ function StormHeader() {
     <Layer 
       displayName={StormHeader.name}
       sizeStyle="h-[80px] w-full"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["col-centered"]}
       borderStyle={borderStyles["border-b"]}
     >

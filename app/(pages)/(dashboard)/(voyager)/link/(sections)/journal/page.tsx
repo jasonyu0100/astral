@@ -1,30 +1,31 @@
 "use client";
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 import StoryController from "../../(common)/controller/main";
 import StoryRecordLog from "../../(common)/controller/record/log/main";
 import StoryRecord from "../../(common)/controller/record/main";
-import StoryGuideLink from "../../(common)/guide/body/link/main";
-import StoryGuideBody from "../../(common)/guide/body/main";
-import StoryGuideController from "../../(common)/guide/main";
-import StoryGuideWrapper from "../../(common)/guide/wrapper/main";
+import Layer from "@/(pages)/(common)/layer/main";
+import { useState } from "react";
 
 export default function Page() {
+  const [navigationActive, changeNavigation] = useState(false);
   return (
     <>
-      <StoryGuideWrapper>
-        <StoryController>
-          <StoryRecord>
-            <StoryRecordLog></StoryRecordLog>
-            <StoryRecordLog></StoryRecordLog>
-          </StoryRecord>
-        </StoryController>
-        <StoryGuideController>
-          <StoryGuideBody>
-            <StoryGuideLink>Day 10</StoryGuideLink>
-            <StoryGuideLink>Day 5</StoryGuideLink>
-            <StoryGuideLink>Day 0</StoryGuideLink>
-          </StoryGuideBody>
-        </StoryGuideController>
-      </StoryGuideWrapper>
+      <StoryController>
+        <StoryRecord>
+          <StoryRecordLog></StoryRecordLog>
+          <StoryRecordLog></StoryRecordLog>
+        </StoryRecord>
+        {navigationActive && (
+          <Layer
+            sizeStyle="w-[350px] h-full"
+            containerStyle={containerStyles["row"]}
+            backgroundStyle={backgroundStyles["glass-5"]}
+          ></Layer>
+        )}
+      </StoryController>
     </>
   );
 }

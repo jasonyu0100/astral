@@ -10,10 +10,8 @@ export default function ReleaseController({
     <Layer
       displayName={ReleaseController.name}
       sizeStyle="h-full max-w-[1500px]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["col-center"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
-      contentStyle="divide-y-[3px] divide-slate-700"
     >
       {children}
     </Layer>

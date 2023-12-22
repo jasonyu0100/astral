@@ -14,7 +14,6 @@ export default function WorksContainer({
       sizeStyle="h-full max-w-[1500px]"
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

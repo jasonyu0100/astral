@@ -1,5 +1,6 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import {
+  backgroundStyles,
   borderStyles,
   containerStyles,
   effectStyles,
@@ -13,10 +14,9 @@ export default function FlowController({
   return (
     <Layer
       displayName={FlowController.name}
-      sizeStyle="max-w-[1200px] h-full flex-grow"
-      effectStyle={effectStyles["glow-md"]}
+      sizeStyle="h-full flex-grow"
       containerStyle={containerStyles["col"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
+      backgroundStyle={backgroundStyles["glass-5"]}
     >
       {children}
     </Layer>

@@ -12,6 +12,7 @@ import ConstellationLinks from "../view/(common)/controller/center/constellation
 
 export default function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
+  const [navigationActive, changeNavigation] = useState(false);
   const constraintsRef = useRef(null);
 
   return (
@@ -37,15 +38,13 @@ export default function Page() {
               ))}
             </motion.div>
           </BoardConstellationSection>
-          <BoardCraftSection>
-            <h1>adsadsads</h1>
-          </BoardCraftSection>
+          {navigationActive && (
+            <BoardCraftSection>
+              <h1>adsadsads</h1>
+            </BoardCraftSection>
+          )}
         </BoardControllerCenterSection>
       </BoardController>
     </>
-
   );
 }
-
-
-

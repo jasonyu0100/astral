@@ -15,7 +15,7 @@ export default function DraftControllerBottomRow({
       displayName={DraftControllerBottomRow.name}
       sizeStyle="w-full h-[120px]"
       containerStyle={containerStyles["row-center"]}
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
       borderStyle={`${borderStyles["border-t"]}`}
     >
       {children}

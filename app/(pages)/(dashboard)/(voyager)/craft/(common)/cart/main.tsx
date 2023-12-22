@@ -10,9 +10,8 @@ export default function CraftCart() {
   return (
     <Layer
       displayName="adsads"
-      sizeStyle="w-[350px] h-full"
-      backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["border-all"]} ${borderStyles["rounded-t"]}`}
+      sizeStyle="w-[350px] h-full flex-shrink-0"
+      borderStyle={`${borderStyles["border-l"]}`}
       containerStyle={containerStyles.row}
     >
       <div className="w-full h-full p-[2rem] flex flex-col justify-between">

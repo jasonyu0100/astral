@@ -15,7 +15,7 @@ export default function StormMessageInput({
       displayName={StormMessageInput.name}
       sizeStyle="h-[80px] w-full"
       contentStyle="px-[1rem]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["row-centered"]}
       borderStyle={borderStyles["border-t"]}
     >

@@ -15,7 +15,6 @@ export default function BoardConstellationSection({
         displayName={BoardConstellationSection.name}
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["row"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
       >
         <div className="w-full h-full relative">{children}</div>
       </Layer>

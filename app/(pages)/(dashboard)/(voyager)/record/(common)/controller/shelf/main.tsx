@@ -1,6 +1,6 @@
 "use client";
 import Layer from "@/(pages)/(common)/layer/main";
-import { backgroundStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
 export default function ReleaseShelf({
   children,
@@ -11,8 +11,8 @@ export default function ReleaseShelf({
     <Layer
       displayName={ReleaseShelf.name}
       sizeStyle="h-[250px] w-full"
-      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles.row}
+      borderStyle={borderStyles["border-b"]}
       contentStyle="px-[40px] space-x-[100px]"
     >
       {children}

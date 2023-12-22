@@ -13,10 +13,9 @@ export default function BoardCraftSection({
   return (
     <Layer
       displayName={BoardCraftSection.name}
-      sizeStyle="w-[300px] h-full"
+      sizeStyle="w-[350px] h-full"
       containerStyle={containerStyles["row"]}
-      backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["border-l"]}`}
+      backgroundStyle={backgroundStyles["glass-5"]}
     >
       <div className="w-full h-full flex flex-row flex-wrap p-[1rem] overflow-auto">
         {children}

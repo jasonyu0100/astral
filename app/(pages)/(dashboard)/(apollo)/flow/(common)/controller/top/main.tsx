@@ -15,7 +15,7 @@ export default function FlowControllerTopRow({
       displayName={FlowControllerTopRow.name}
       sizeStyle="w-full h-[50px]"
       containerStyle={containerStyles["col"]}
-      backgroundStyle={backgroundStyles["glass-10"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
       borderStyle={`${borderStyles["border-b"]}`}
     >
       <div className="ml-auto flex flex-row h-full items-center px-[20px] space-x-[1rem]">

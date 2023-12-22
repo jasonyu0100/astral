@@ -13,7 +13,7 @@ export default function SeaPointsContainer({
   return (
     <Layer
       displayName={SeaPointsContainer.name}
-      sizeStyle="w-[400px] h-full"
+      sizeStyle="w-[350px] h-full"
       containerStyle={containerStyles["col-center"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       contentStyle="overflow-auto space-y-[2rem] p-[1rem]"

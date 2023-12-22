@@ -12,10 +12,10 @@ export default function Page() {
       <Layer
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["row-center"]}
+          backgroundStyle={backgroundStyles["glass-5"]}
       >
         <Layer
-          sizeStyle="flex-grow max-w-[900px] h-full"
-          backgroundStyle={backgroundStyles["glass-10"]}
+          sizeStyle="flex-grow h-full"
         >
           <div className="flex flex-row flex-wrap overflow-auto p-[2rem] w-full justify-evenly">
             <div className="w-48 h-56 flex-col justify-center items-start gap-3 inline-flex">
@@ -80,7 +80,7 @@ export default function Page() {
 
         <Layer
           sizeStyle="w-[350px] h-full"
-          backgroundStyle={backgroundStyles["glass-10"]}
+          backgroundStyle={backgroundStyles["glass-5"]}
         ></Layer>
       </Layer>
     </>

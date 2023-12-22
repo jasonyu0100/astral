@@ -18,18 +18,18 @@
 
 body {
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 10px;
     height: 10px;
   }
 
   /* Optional: show position indicator in red */
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e166;
+    background: #cbd5e150;
     border-radius: 7px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #64748b50;
+    background: #64748b30;
     border-radius: 7px;
   }
 }

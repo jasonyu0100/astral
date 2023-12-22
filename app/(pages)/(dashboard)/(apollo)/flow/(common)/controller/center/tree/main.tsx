@@ -15,7 +15,6 @@ export default function FlowTreeContainer({
         displayName={FlowTreeContainer.name}
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["col"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
         contentStyle="overflow-hidden"
       >
         <div className="flex flex-col h-full pr-[2rem] pb-[2rem] overflow-auto">

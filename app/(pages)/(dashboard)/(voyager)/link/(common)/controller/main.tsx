@@ -1,4 +1,4 @@
-import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
 
 export default function StoryController({
@@ -9,6 +9,8 @@ export default function StoryController({
   return (
     <Layer
       displayName={StoryController.name}
+      containerStyle={containerStyles.row}
+      backgroundStyle={backgroundStyles["glass-5"]}
       sizeStyle="w-full h-full"
     >
       {children}

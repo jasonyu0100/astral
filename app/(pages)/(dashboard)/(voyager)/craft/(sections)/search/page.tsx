@@ -16,12 +16,10 @@ import { useState } from "react";
 import { craftSearch } from "../../data/main";
 
 export default function Page() {
+  const [cartActive, changeCartActive] = useState(false);
+
   return (
-    <Layer
-      sizeStyle="w-full h-full"
-      containerStyle={containerStyles.row}
-      contentStyle={'space-x-[4rem]'}
-    >
+    <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
       <SearchController>
         <StoreSearch />
         <CraftStoreMasonry>
@@ -30,7 +28,7 @@ export default function Page() {
           ))}
         </CraftStoreMasonry>
       </SearchController>
-      <CraftCart />
+      {cartActive && <CraftCart />}
     </Layer>
   );
 }

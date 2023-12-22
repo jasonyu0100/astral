@@ -13,7 +13,7 @@ export default function DraftCraftSection({
   return (
     <Layer
       displayName={DraftCraftSection.name}
-      sizeStyle="w-[300px] h-full"
+      sizeStyle="w-[350px] h-full"
       containerStyle={containerStyles["row"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["border-l"]}`}

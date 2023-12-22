@@ -1,4 +1,5 @@
 import {
+  backgroundStyles,
   borderStyles,
   containerStyles,
   effectStyles,
@@ -13,10 +14,9 @@ export default function StormController({
   return (
     <Layer
       displayName={StormController.name}
-      sizeStyle="max-w-[1000px] h-full flex-grow"
-      effectStyle={effectStyles["glow-md"]}
+      sizeStyle="h-full flex-grow"
+      backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["row"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
     >
       {children}
     </Layer>

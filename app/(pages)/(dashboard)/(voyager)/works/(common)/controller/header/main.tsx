@@ -16,7 +16,7 @@ export default function WorksHeader({
       displayName={WorksHeader.name}
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}
-      backgroundStyle={backgroundStyles["glass-20"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
     >
       {children}
     </Layer>

@@ -13,10 +13,8 @@ export default function StoryRecord({
   return (
     <Layer
       displayName={StoryRecord.name}
-      backgroundStyle={backgroundStyles["glass-10"]}
-      sizeStyle="max-w-[1500px] h-full"
+      sizeStyle="flex-grow h-full"
       containerStyle={containerStyles["col-center"]}
-      borderStyle={`${borderStyles["rounded-t"]} ${borderStyles["border-all"]}`}
       contentStyle="p-[3rem] overflow-auto"
     >
       {children}

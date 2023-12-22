@@ -14,7 +14,7 @@ export default function StormSidePanel({
   return (
     <Layer
       displayName={StormSidePanel.name}
-      sizeStyle="w-[80px] h-full"
+      sizeStyle="w-[350px] h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
       borderStyle={borderStyles["border-l"]}
