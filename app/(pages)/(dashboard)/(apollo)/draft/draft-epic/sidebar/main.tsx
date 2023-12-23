@@ -5,15 +5,15 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function FlowSnapshotSection({
+export default function DraftSidebar({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={FlowSnapshotSection.name}
-      sizeStyle="w-[350px] h-full"
+      displayName={DraftSidebar.name}
+      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["row"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["border-l"]}`}

@@ -10,7 +10,7 @@ export default function CraftCart() {
   return (
     <Layer
       displayName="adsads"
-      sizeStyle="w-[350px] h-full flex-shrink-0"
+      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       borderStyle={`${borderStyles["border-l"]}`}
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.row}

@@ -5,7 +5,7 @@ export function VoyagerContent({
 }) {
   return (
     <div
-      className="flex flex-col pl-[3rem] pr-[2rem] pt-[2rem] w-full h-full"
+      className="flex flex-col pl-[2rem] pr-[2rem] pt-[2rem] w-full h-full"
     >
       {children}
     </div>

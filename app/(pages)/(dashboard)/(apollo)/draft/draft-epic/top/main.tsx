@@ -13,9 +13,8 @@ export default function DraftControllerTopRow({
   return (
     <Layer
       displayName={DraftControllerTopRow.name}
-      sizeStyle="w-full h-[80px]"
+      sizeStyle="w-full h-[50px]"
       containerStyle={containerStyles["col"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
     >
       <div className="ml-auto flex flex-row h-full items-center px-[20px] space-x-[1rem]">
         {children}

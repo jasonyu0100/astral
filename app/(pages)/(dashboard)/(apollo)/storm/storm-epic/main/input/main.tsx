@@ -14,8 +14,7 @@ export default function StormMessageInput({
     <Layer
       displayName={StormMessageInput.name}
       sizeStyle="h-[80px] w-full"
-      contentStyle="px-[1rem]"
-      backgroundStyle={backgroundStyles["glass-5"]}
+      contentStyle="px-[2rem]"
       containerStyle={containerStyles["row-centered"]}
     >
       {children}

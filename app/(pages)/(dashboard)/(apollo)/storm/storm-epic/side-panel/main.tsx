@@ -1,8 +1,8 @@
 import Image from "next/image";
-import StormSidePanelAvatar from "./avatar/main";
+import StormSidePanelAvatar from "./column/avatar/main";
 import SidePanelColumn from "./column/main";
-import SidePanelGalaxy from "./galaxy/main";
-import SidePanelAdd from "./add/main";
+import SidePanelHeader from "./header/main";
+import SidePanelAdd from "./footer/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
@@ -18,7 +18,7 @@ export default function StormSidePanel({
   return (
     <Layer
       displayName={StormSidePanel.name}
-      sizeStyle="w-[350px] h-full"
+      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
       borderStyle={borderStyles["border-l"]}

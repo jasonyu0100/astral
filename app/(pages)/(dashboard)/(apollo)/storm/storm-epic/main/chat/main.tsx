@@ -11,12 +11,12 @@ export default function StormChatBody({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full" style={{ height: "calc(100% - 160px)" }}>
+    <div className="w-full" style={{ height: "100%" }}>
       <Layer
         displayName={StormChatBody.name}
         sizeStyle="w-full h-full"
-        containerStyle={containerStyles.col}
-        contentStyle="py-[40px] px-[60px] space-y-[30px] overflow-auto"
+        containerStyle={containerStyles["col-center"]}
+        contentStyle="space-y-[30px] overflow-auto"
       >
         {children}
       </Layer>

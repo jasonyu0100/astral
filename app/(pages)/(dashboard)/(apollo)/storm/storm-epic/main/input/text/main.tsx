@@ -1,3 +1,6 @@
+import Layer from "@/(pages)/(common)/layer/main";
+import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+
 export interface StormMessageInputTextProps
   extends React.ComponentPropsWithoutRef<"input"> {}
 
@@ -5,9 +8,15 @@ export default function StormMessageInputText({
   ...props
 }: StormMessageInputTextProps) {
   return (
-    <input
-      className="w-4/5 mx-[2rem] h-[30px] bg-slate-600 rounded-[30px] px-[1rem] text-white outline-none"
-      {...props}
-    />
+    <Layer
+      sizeStyle="max-w-[600px] flex-grow h-[50px]"
+      backgroundStyle={backgroundStyles["glass-10"]}
+      borderStyle={borderStyles["rounded-full"]}
+    >
+      <input
+        className="w-full h-full px-[2rem] text-white font-bold outline-none bg-transparent"
+        {...props}
+      />
+    </Layer>
   );
 }

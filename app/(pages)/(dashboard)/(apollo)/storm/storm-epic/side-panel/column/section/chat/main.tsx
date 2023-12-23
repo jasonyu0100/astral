@@ -1,4 +1,4 @@
-import StormSidePanelAvatar from "../../../avatar/main";
+import StormSidePanelAvatar from "../../avatar/main";
 
 export default function StormSidePanelChat() {
     return <div className="flex flex-row items-center space-x-[1rem]">

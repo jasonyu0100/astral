@@ -20,12 +20,15 @@ import {
   defaultYouMessage,
 } from "./data";
 import SidePanelColumn from "./storm-epic/side-panel/column/main";
-import SidePanelGalaxy from "./storm-epic/side-panel/galaxy/main";
-import SidePanelAdd from "./storm-epic/side-panel/add/main";
+import SidePanelHeader from "./storm-epic/side-panel/header/main";
+import SidePanelAdd from "./storm-epic/side-panel/footer/main";
 import StormSidePanelSection from "./storm-epic/side-panel/column/section/main";
 import StormSidePanelSectionTitle from "./storm-epic/side-panel/column/section/title/main";
 import StormSidePanelSectionAdd from "./storm-epic/side-panel/column/section/add/main";
 import StormSidePanelChat from "./storm-epic/side-panel/column/section/chat/main";
+import { containerStyles } from "@/(pages)/(common)/styles/data";
+import Layer from "@/(pages)/(common)/layer/main";
+import StormChatMessages from "./storm-epic/main/chat/messages/main";
 
 export default function Page() {
   const [messages, changeMessages] = useState<Message[]>(defaultMessages);
@@ -34,20 +37,22 @@ export default function Page() {
   return (
     <StormController>
       <StormControllerMain>
-        <StormHeader />
         <StormChatBody>
-          <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
-          <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
-          <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
-          {messages.map((message) =>
-            message.source === "You" ? (
-              <StormYouChatMessage>{message.message}</StormYouChatMessage>
-            ) : (
-              <StormPartnerChatMessage>
-                {message.message}
-              </StormPartnerChatMessage>
-            )
-          )}
+          <StormHeader />
+          <StormChatMessages>
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            <StormPartnerChatMessage>1231231132</StormPartnerChatMessage>
+            {messages.map((message) =>
+              message.source === "You" ? (
+                <StormYouChatMessage>{message.message}</StormYouChatMessage>
+              ) : (
+                <StormPartnerChatMessage>
+                  {message.message}
+                </StormPartnerChatMessage>
+              )
+            )}
+          </StormChatMessages>
         </StormChatBody>
         <StormMessageInput>
           <StormMessageInputLeft />
@@ -67,7 +72,7 @@ export default function Page() {
         </StormMessageInput>
       </StormControllerMain>
       <StormSidePanel>
-        <SidePanelGalaxy />
+        <SidePanelHeader />
         <SidePanelColumn>
           <StormSidePanelSection>
             <StormSidePanelSectionTitle>Today</StormSidePanelSectionTitle>
@@ -87,9 +92,7 @@ export default function Page() {
               <StormSidePanelChat/>
               <StormSidePanelChat/>
           </StormSidePanelSection>
-
         </SidePanelColumn>
-        <SidePanelAdd />
       </StormSidePanel>
     </StormController>
   );

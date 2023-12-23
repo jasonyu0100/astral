@@ -14,7 +14,7 @@ export default function LinkFeedSidebar({
   return (
     <Layer
       displayName={LinkFeedSidebar.name}
-      sizeStyle="w-[350px] h-full"
+      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-5"]}
       borderStyle={borderStyles["border-l"]}

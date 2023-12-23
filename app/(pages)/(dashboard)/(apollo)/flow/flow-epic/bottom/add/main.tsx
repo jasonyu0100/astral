@@ -14,19 +14,13 @@ export default function FlowConstellationAdd({
   return (
 
           <Layer
-            sizeStyle="h-[80px] w-[160px]"
+            sizeStyle="h-[80px] w-[100px]"
             containerStyle={containerStyles["row-centered"]}
-            borderStyle={borderStyles["border-r"]}
+            borderStyle={borderStyles["border-l"]}
           >
-        <Layer
-          displayName={FlowConstellationAdd.name}
-          sizeStyle="w-[120px] h-[120px]"
-          containerStyle={containerStyles["row-centered"]}
-          contentStyle="flex-shrink-0"
-        >
           <button {...props}>
             <Layer
-              sizeStyle="w-[80px] h-[80px]"
+              sizeStyle="w-[40px] h-[40px]"
               backgroundStyle={backgroundStyles["glass-10"]}
               containerStyle={containerStyles["col-centered"]}
               borderStyle={borderStyles["rounded-full"]}
@@ -34,7 +28,6 @@ export default function FlowConstellationAdd({
               <DraftAddLgIcon />
             </Layer>
           </button>
-        </Layer>
         </Layer>
   );
 }

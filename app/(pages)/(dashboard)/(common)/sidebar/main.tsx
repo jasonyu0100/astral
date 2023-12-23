@@ -15,7 +15,7 @@ export interface SidebarProps {
 
 export function DashboardSidebar({ indicator }: SidebarProps) {
   return (
-    <div className="w-[16rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] pt-[2rem] pb-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
+    <div className="w-[16rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] pt-[1rem] pb-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
       <SidebarCurrentWork>
         <SidebarWorkCover active={!indicator} />
         <SidebarWorkInfo active={!indicator} />

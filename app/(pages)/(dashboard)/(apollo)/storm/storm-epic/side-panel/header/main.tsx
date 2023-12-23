@@ -1,12 +1,9 @@
-import Image from "next/image";
-import StormAddIcon from "../../icons/add/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function SidePanelGalaxy() {
+export default function SidePanelHeader() {
   return (
     <div className="flex flex-row items-center flex-shrink-0 w-full h-[80px] px-[2rem] space-x-[2rem] justify-between">
-      {/* <Image alt="test" src={`/brand/icon.png`} width={50} height={50} /> */}
       <p className="text-white font-extraBold text-xl">Conversations</p>
       <Layer
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"

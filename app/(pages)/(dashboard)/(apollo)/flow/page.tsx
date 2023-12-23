@@ -7,8 +7,8 @@ import FlowControllerCenter from "./flow-epic/center/main";
 import FlowControllerBottomRow from "./flow-epic/bottom/main";
 import FlowConstellation from "./flow-epic/bottom/constellations/item/main";
 import FlowControllerConstellationRow from "./flow-epic/bottom/constellations/main";
-import FlowSnapshotSection from "./flow-epic/center/craft/main";
-import FlowSnapshotElement from "./flow-epic/center/craft/element/main";
+import FlowSidebar from "./flow-epic/sidebar/main";
+import FlowSnapshotElement from "./flow-epic/sidebar/element/main";
 import FlowConstellationAdd from "./flow-epic/bottom/add/main";
 import FlowTreeContainer from "./flow-epic/center/tree/main";
 import FlowSourceControlBranch from "./flow-epic/center/tree/branch/main";
@@ -92,14 +92,6 @@ export default function Page() {
           </FlowTreeContainer>
         </FlowControllerCenter>
         <FlowControllerBottomRow>
-          <FlowConstellationAdd
-            onClick={() =>
-              changeConstellations((prev) => [
-                ...prev,
-                defaultApolloConstellation,
-              ])
-            }
-          />
           <FlowControllerConstellationRow>
             {constellations.map((constellation) => (
               <FlowConstellation
@@ -108,13 +100,21 @@ export default function Page() {
               />
             ))}
           </FlowControllerConstellationRow>
+            <FlowConstellationAdd
+              onClick={() =>
+                changeConstellations((prev) => [
+                  ...prev,
+                  defaultApolloConstellation,
+                ])
+              }
+            />
         </FlowControllerBottomRow>
       </FlowController>
-      <FlowSnapshotSection>
+      <FlowSidebar>
         {flowSnapshots.map((flowSnapshot) => (
           <FlowSnapshotElement src={flowSnapshot.src} />
         ))}
-      </FlowSnapshotSection>
+      </FlowSidebar>
     </FlowWrapper>
   );
 }

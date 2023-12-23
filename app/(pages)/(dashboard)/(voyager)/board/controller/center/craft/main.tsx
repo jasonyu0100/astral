@@ -13,7 +13,7 @@ export default function BoardCraftSection({
   return (
     <Layer
       displayName={BoardCraftSection.name}
-      sizeStyle="w-[350px] h-full"
+      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["row"]}
       backgroundStyle={backgroundStyles["glass-5"]}
       borderStyle={borderStyles["border-l"]}

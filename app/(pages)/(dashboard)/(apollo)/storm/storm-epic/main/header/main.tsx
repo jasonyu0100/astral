@@ -1,24 +1,24 @@
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
-import Image from "next/image";
 
 function StormHeader() {
   return (
     <Layer 
       displayName={StormHeader.name}
-      sizeStyle="h-[80px] w-full"
-      backgroundStyle={backgroundStyles["glass-5"]}
-      containerStyle={containerStyles["col-centered"]}
+      sizeStyle="h-[60px] w-full"
+      containerStyle={containerStyles["row-center"]}
+      borderStyle={borderStyles["border-b"]}
+      contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
-        <div className="w-[40px] h-[40px] mt-[5px] rounded-full overflow-hidden">
-            <Image
-                alt="test"
-                src={`/apollo/storm/profile.png`}
-                width={40}
-                height={40}
-            />
+        <div className="flex flex-row w-1/3">
+          <div className="text-white text-md font-bold">Chat GPT-3</div>
         </div>
-        <div className="text-white text-sm mt-[5px] font-bold">Jason {">"}</div>
+        <div className="flex flex-row justify-center w-1/3">
+          <div className="text-white text-md font-bold">Hello World</div>
+        </div>
+        <div className="flex flex-row justify-end w-1/3">
+          <div className="text-white text-md font-bold">Help</div>
+        </div>
     </Layer>
   );
 }
