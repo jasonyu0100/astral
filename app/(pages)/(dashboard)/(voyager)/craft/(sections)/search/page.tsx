@@ -4,7 +4,7 @@ import SearchController from "./search-epic/main";
 import SearchBar from "./search-epic/search-bar/main";
 import SearchResults from "./search-epic/results/main";
 import StoreMasonryMedia from "./search-epic/results/media/main";
-import CraftCart from "../../cart-epic/main";
+import CartSidebar from "../../cart-sidebar-epic/main";
 import { useState } from "react";
 import { craftSearch } from "../../data/main";
 import SearchWrapper from "./search-epic/wrapper/main";
@@ -22,7 +22,7 @@ export default function Page() {
           ))}
         </SearchResults>
       </SearchController>
-      {cartActive && <CraftCart />}
+      {cartActive && <CartSidebar />}
     </SearchWrapper>
   );
 }

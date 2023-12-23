@@ -3,7 +3,7 @@
 import CraftTableController from "./table-epic/main";
 import TableContainer from "./table-epic/container/main";
 import TableRow from "./table-epic/row/main";
-import CraftCart from "../../cart-epic/main";
+import CartSidebar from "../../cart-sidebar-epic/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
@@ -64,7 +64,7 @@ export default function Page() {
           </TableContainer>
         )}
       </DriveController>
-      {cartActive && <CraftCart />}
+      {cartActive && <CartSidebar />}
     </DriveWrapper>
   );
 }

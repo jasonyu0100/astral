@@ -102,7 +102,6 @@ export default function Page() {
             />
         </FlowControllerBottomRow>
       </FlowController>
-
       <FlowSidebar>
         <FlowHeader>
           <FlowSidebarHeaderTitle>Snapshots</FlowSidebarHeaderTitle>
