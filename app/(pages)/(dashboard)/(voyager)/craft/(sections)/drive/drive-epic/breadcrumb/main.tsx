@@ -6,9 +6,8 @@ export default function DriveBreadcrumb({  children } : {children: React.ReactNo
             displayName={DriveBreadcrumb.name}
             sizeStyle="w-full h-[4rem]"
             containerStyle={containerStyles["row-center"]}
-            backgroundStyle={backgroundStyles["glass-5"]}
-            borderStyle={borderStyles["rounded-l"]}
-            contentStyle={"px-[3rem] space-x-[2rem] "}
+            borderStyle={borderStyles["border-b"]}
+            contentStyle={"space-x-[1rem] "}
           >
             <div className="flex flex-row space-x-[1rem]">
                 {children}
