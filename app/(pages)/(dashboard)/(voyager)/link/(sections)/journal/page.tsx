@@ -1,39 +1,39 @@
 "use client";
-import {
-  backgroundStyles,
-  borderStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
-import LinkFeed from "../../(common)/controller/main";
-import StoryRecordLog from "../../(common)/controller/record/log/main";
-import StoryRecord from "../../(common)/controller/record/main";
-import Layer from "@/(pages)/(common)/layer/main";
+import LinkFeed from "../../feed/main";
+import StoryRecordLog from "../../feed/record/log/main";
+import StoryRecord from "../../feed/record/main";
 import { useState } from "react";
+import LinkFeedSidebar from "../../feed/sidebar/main";
+import LinkFeedSidebarSection from "../../feed/sidebar/section/main";
+import LinkFeedSidebarEntry from "../../feed/sidebar/section/entry/main";
+import LinkFeedWrapper from "../../feed/wrapper/main";
 
 export default function Page() {
-  const [navigationActive, changeNavigation] = useState(true);
+  const [sidebarActive, changeSidebarActive] = useState(true);
   return (
     <>
-      <Layer
-        sizeStyle="h-full flex-grow"
-        containerStyle={containerStyles["row"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
-      >
+      <LinkFeedWrapper>
         <LinkFeed>
           <StoryRecord>
             <StoryRecordLog></StoryRecordLog>
             <StoryRecordLog></StoryRecordLog>
           </StoryRecord>
         </LinkFeed>
-        {navigationActive && (
-          <Layer
-            sizeStyle="w-[350px] h-full"
-            containerStyle={containerStyles["row"]}
-            backgroundStyle={backgroundStyles["glass-5"]}
-            borderStyle={borderStyles["border-l"]}
-          ></Layer>
+        {sidebarActive && (
+          <LinkFeedSidebar>
+            <LinkFeedSidebarSection>
+              <LinkFeedSidebarEntry />
+              <LinkFeedSidebarEntry />
+              <LinkFeedSidebarEntry />
+            </LinkFeedSidebarSection>
+            <LinkFeedSidebarSection>
+              <LinkFeedSidebarEntry />
+              <LinkFeedSidebarEntry />
+              <LinkFeedSidebarEntry />
+            </LinkFeedSidebarSection>
+          </LinkFeedSidebar>
         )}
-      </Layer>
+      </LinkFeedWrapper>
     </>
   );
 }
