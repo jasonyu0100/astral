@@ -2,13 +2,13 @@
 
 import { useRef, useState } from "react";
 import { defaultBoardStars } from "../../data";
-import BoardController from "../view/(common)/controller/main";
-import BoardControllerCenterSection from "../view/(common)/controller/center/main";
-import BoardCraftSection from "../view/(common)/controller/center/craft/main";
-import BoardConstellationSection from "../view/(common)/controller/center/constellation/main";
+import BoardController from "../../controller/main";
+import BoardControllerCenterSection from "../../controller/center/main";
+import BoardCraftSection from "../../controller/center/craft/main";
+import BoardConstellationSection from "../../controller/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../view/(common)/controller/center/constellation/stars/star/main";
-import ConstellationLinks from "../view/(common)/controller/center/constellation/stars/links/main";
+import ConstellationStar from "../../controller/center/constellation/stars/star/main";
+import ConstellationLinks from "../../controller/center/constellation/stars/links/main";
 import Image from "next/image";
 import {
   backgroundStyles,
@@ -16,6 +16,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
+import BoardWrapper from "../../controller/wrapper/main";
 
 export default function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
@@ -24,11 +25,7 @@ export default function Page() {
 
   return (
     <>
-      <Layer
-        sizeStyle="h-full flex-grow"
-        containerStyle={containerStyles["row"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
-      >
+      <BoardWrapper>
         <BoardController>
           <BoardControllerCenterSection>
             <BoardConstellationSection>
@@ -74,7 +71,7 @@ export default function Page() {
             <h1>adsadsads</h1>
           </BoardCraftSection>
         )}
-      </Layer>
+      </BoardWrapper>
     </>
   );
 }

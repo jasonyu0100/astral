@@ -1,24 +1,24 @@
 "use client";
 
-import ReleaseController from "../../(common)/controller/main";
-import ReleaseAlbum from "../../(common)/controller/shelf/album/main";
-import ReleaseShelf from "../../(common)/controller/shelf/main";
+import RecordCollection from "../../collection/main";
+import RecordAlbum from "../../collection/shelf/album/main";
+import RecordShelf from "../../collection/shelf/main";
 
 export default function Page() {
   return (
     <>
-      <ReleaseController>
-        <ReleaseShelf>
-          <ReleaseAlbum />
-          <ReleaseAlbum />
-          <ReleaseAlbum />
-        </ReleaseShelf>
-        <ReleaseShelf>
-          <ReleaseAlbum />
-          <ReleaseAlbum />
-          <ReleaseAlbum />
-        </ReleaseShelf>
-      </ReleaseController>
+      <RecordCollection>
+        <RecordShelf>
+          <RecordAlbum />
+          <RecordAlbum />
+          <RecordAlbum />
+        </RecordShelf>
+        <RecordShelf>
+          <RecordAlbum />
+          <RecordAlbum />
+          <RecordAlbum />
+        </RecordShelf>
+      </RecordCollection>
     </>
   );
 }

@@ -1,28 +1,24 @@
 "use client";
 
-import Layer from "@/(pages)/(common)/layer/main";
-import {
-  backgroundStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
 import { useRef, useState } from "react";
 import {
   defaultBoardElement,
   defaultBoardElements,
   defaultBoardStars,
 } from "../../data";
-import BoardController from "../view/(common)/controller/main";
-import BoardControllerCenterSection from "../view/(common)/controller/center/main";
-import BoardCraftSection from "../view/(common)/controller/center/craft/main";
-import BoardCraftElement from "../view/(common)/controller/center/craft/element/main";
-import BoardConstellationSection from "../view/(common)/controller/center/constellation/main";
+import BoardController from "../../controller/main";
+import BoardControllerCenterSection from "../../controller/center/main";
+import BoardCraftSection from "../../controller/center/craft/main";
+import BoardCraftElement from "../../controller/center/craft/element/main";
+import BoardConstellationSection from "../../controller/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../view/(common)/controller/center/constellation/stars/star/main";
-import ConstellationLinks from "../view/(common)/controller/center/constellation/stars/links/main";
-import BoardControllerTopRow from "../view/(common)/controller/top/main";
-import BoardLoomButton from "../view/(common)/controller/top/button/loom/main";
-import TopRowSearchButton from "../view/(common)/controller/top/button/search/main";
-import TopRowAddButton from "../view/(common)/controller/top/button/add/main";
+import ConstellationStar from "../../controller/center/constellation/stars/star/main";
+import ConstellationLinks from "../../controller/center/constellation/stars/links/main";
+import BoardControllerTopRow from "../../controller/top/main";
+import BoardLoomButton from "../../controller/top/button/loom/main";
+import TopRowSearchButton from "../../controller/top/button/search/main";
+import TopRowAddButton from "../../controller/top/button/add/main";
+import BoardWrapper from "../../controller/wrapper/main";
 
 export default function Page() {
   const [boardElements, changeBoardElements] = useState(defaultBoardElements);
@@ -30,12 +26,7 @@ export default function Page() {
   const constraintsRef = useRef(null);
 
   return (
-    <>
-      <Layer
-        sizeStyle="h-full flex-grow"
-        containerStyle={containerStyles["row"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
-      >
+      <BoardWrapper>
         <BoardController>
           <BoardControllerTopRow>
             <TopRowAddButton
@@ -85,7 +76,6 @@ export default function Page() {
             />
           ))}
         </BoardCraftSection>
-      </Layer>
-    </>
+      </BoardWrapper>
   );
 }

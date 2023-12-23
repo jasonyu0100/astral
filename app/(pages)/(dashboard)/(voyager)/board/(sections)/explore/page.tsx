@@ -9,7 +9,7 @@ import {
 export default function Page() {
   return (
     <>
-      <Layer
+      {/* <Layer
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["row-center"]}
           backgroundStyle={backgroundStyles["glass-5"]}
@@ -82,7 +82,7 @@ export default function Page() {
           sizeStyle="w-[350px] h-full"
           backgroundStyle={backgroundStyles["glass-5"]}
         ></Layer>
-      </Layer>
+      </Layer> */}
     </>
   );
 }
