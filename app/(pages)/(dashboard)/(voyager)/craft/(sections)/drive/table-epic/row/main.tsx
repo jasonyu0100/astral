@@ -4,7 +4,7 @@ import CraftTableDescription from "./description/main";
 import CraftTableMedia from "./media/main";
 import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/data";
 
-export default function CraftTableRow({
+export default function TableRow({
   name,
   description,
   src,

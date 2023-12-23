@@ -1,6 +1,6 @@
 "use client";
 
-export default function CraftTableContainer({
+export default function TableContainer({
   children,
 }: {
   children: React.ReactNode;

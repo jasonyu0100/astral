@@ -1,8 +1,8 @@
 "use client";
 
-import CraftTableController from "./table/main";
-import CraftTableContainer from "./table/container/main";
-import CraftTableRow from "./table/row/main";
+import CraftTableController from "./table-epic/main";
+import TableContainer from "./table-epic/container/main";
+import TableRow from "./table-epic/row/main";
 import CraftCart from "../../cart-epic/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {
@@ -10,11 +10,21 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import CraftDriveFolder from "./(common)/folder/main";
-import CraftDriveFolderAdd from "./(common)/folder/add/main";
+import DriveFolder from "./drive-epic/folder/main";
+import DriveFolderAdd from "./drive-epic/folder/add/main";
 import { useState } from "react";
 import { CraftFolder, CraftSection } from "../../data";
 import { brandSection } from "../../data/brand/main";
+import DriveWrapper from "./drive-epic/wrapper/main";
+import DriveController from "./drive-epic/main";
+import DriveBreadcrumb from "./drive-epic/breadcrumb/main";
+import DriveBreadcrumbItem from "./drive-epic/breadcrumb/item/main";
+import DriveBreadcrumbDivider from "./drive-epic/breadcrumb/divider/main";
+import DriveSection from "./drive-epic/section/main";
+import DriveSectionCoverImage from "./drive-epic/section/cover-image/main";
+import DriveSectionTitle from "./drive-epic/section/title/main";
+import DriveSectionDescription from "./drive-epic/section/description/main";
+import DriveFolders from "./drive-epic/folders/main";
 
 export default function Page() {
   const [cartActive, changeCartActive] = useState(true);
@@ -22,81 +32,39 @@ export default function Page() {
   const [folder, changeFolder] = useState<CraftFolder | null>(null);
 
   return (
-    <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
-        <Layer
-          sizeStyle="flex-grow h-full"
-          containerStyle={containerStyles["col"]}
-          backgroundStyle={backgroundStyles["glass-5"]}
-          contentStyle="px-[4rem] pt-[4rem]"
-        >
-          <Layer
-            sizeStyle="w-full h-[6rem]"
-            containerStyle={containerStyles["row-center"]}
-            backgroundStyle={backgroundStyles["glass-5"]}
-            borderStyle={borderStyles["rounded-l"]}
-            contentStyle={"px-[3rem] space-x-[2rem] "}
-          >
-            <div className="flex flex-row space-x-[1rem]">
-              <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-                Drive
-              </div>
-              <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-                /
-              </div>
-              <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-                Brand
-              </div>
-              <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-                /
-              </div>
-              <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
-                Logo
-              </div>
-            </div>
-          </Layer>
-          <CraftTableController>
-            <div className="flex flex-col space-y-[2rem]">
-              <img
-                className="w-full h-[500px]"
-                src="/voyager/craft/cover.png"
-              />
-              <p className="text-3xl text-white font-extraBold">Logo</p>
-              <div className="w-full text-white text-base font-normal leading-normal">
-                Lorem ipsum dolor sit amet consectetur. Non viverra turpis proin
-                molestie enim eros. Dolor duis fringilla id leo leo duis. Tortor
-                dui quis sagittis nibh blandit. Commodo nibh adipiscing et
-                phasellus. Nunc egestas pulvinar dui sapien praesent pretium eu.
-                Purus amet sed sed lorem mauris aliquet donec sit in. Consequat
-                eleifend ut quam ut. Tristique at imperdiet eget dui netus
-                facilisis massa urna. Fermentum leo nascetur at proin donec
-                morbi dui. Quisque consectetur varius tempor elit. Est.
-              </div>
-            </div>
-            {section === null && folder === null && (
-              <>No Section or Folder Selected</>
-            )}
-            {section !== null && folder === null && (
-              <>
-                <div className="w-full flex flex-row flex-wrap items-center py-[50px] gap-[50px]">
-                  {section.folders.map((folder) => (
-                    <CraftDriveFolder onClick={() => changeFolder(folder)} />
-                  ))}
-                  <CraftDriveFolderAdd
-                  // onClick={() => changeFolders((prev) => [...prev, 1])}
-                  />
-                </div>
-              </>
-            )}
-            {folder !== null && (
-              <CraftTableContainer>
-                {folder.files.map((data) => (
-                  <CraftTableRow {...data} />
-                ))}
-              </CraftTableContainer>
-            )}
-          </CraftTableController>
-        </Layer>
+    <DriveWrapper>
+      <DriveController>
+        <DriveBreadcrumb>
+          <DriveBreadcrumbItem>Drive</DriveBreadcrumbItem>
+          <DriveBreadcrumbDivider />
+          <DriveBreadcrumbItem>Brand</DriveBreadcrumbItem>
+          <DriveBreadcrumbDivider />
+          <DriveBreadcrumbItem>Logo</DriveBreadcrumbItem>
+        </DriveBreadcrumb>
+        <DriveSection>
+          <DriveSectionCoverImage />
+          <DriveSectionTitle />
+          <DriveSectionDescription />
+        </DriveSection>
+        {section !== null && folder === null && (
+          <DriveFolders>
+            {section.folders.map((folder) => (
+              <DriveFolder onClick={() => changeFolder(folder)} />
+            ))}
+            <DriveFolderAdd
+            // onClick={() => changeFolders((prev) => [...prev, 1])}
+            />
+          </DriveFolders>
+        )}
+        {folder !== null && (
+          <TableContainer>
+            {folder.files.map((data) => (
+              <TableRow {...data} />
+            ))}
+          </TableContainer>
+        )}
+      </DriveController>
       {cartActive && <CraftCart />}
-    </Layer>
+    </DriveWrapper>
   );
 }
