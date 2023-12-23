@@ -1,48 +1,31 @@
 "use client";
 
-import Layer from "@/(pages)/(common)/layer/main";
-import SeaController from "./(common)/controller/main";
-import SeaPointsContainer from "./(common)/controller/points/main";
-import SeaPoint from "./(common)/controller/points/point/main";
-import SeaHorizontalDivider from "./(common)/controller/story/divider/horizontal/main";
-import SeaStoryContainer from "./(common)/controller/story/main";
-import StoryView from "./(common)/controller/story/view/main";
-import {
-  backgroundStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
+import SeaController from "./sea-epic/main";
+import SeaSidebar from "./sea-epic/sidebar/main";
+import SeaPoint from "./sea-epic/sidebar/point/main";
+import SeaStory from "./sea-epic/story/main";
+import StoryAuthorAbout from "./sea-epic/story/author-about/main";
+import SeaWrapper from "./sea-epic/wrapper/main";
 
 export default function Page() {
   return (
-    <Layer
-      sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
-    >
-      <Layer
-        sizeStyle="h-full flex-grow"
-        containerStyle={containerStyles["col"]}
-      >
-        <div style={{ width: "100%", height: "100%" }}>
-          <SeaStoryContainer></SeaStoryContainer>
-        </div>
-        <Layer
-          sizeStyle="h-[80px] w-full"
-          containerStyle={containerStyles["row-center"]}
-        >
-          <StoryView />
-        </Layer>
-      </Layer>
-      <SeaPointsContainer>
-        <SeaPoint>Test</SeaPoint>
-        <SeaHorizontalDivider />
+    <SeaWrapper>
+      <SeaController>
+        <SeaStory>
+          <div className="w-full h-full relative">
+            <StoryAuthorAbout />
+          </div>
+        </SeaStory>
+      </SeaController>
+      <SeaSidebar>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
         <SeaPoint>Test</SeaPoint>
-      </SeaPointsContainer>
-    </Layer>
+        <SeaPoint>Test</SeaPoint>
+      </SeaSidebar>
+    </SeaWrapper>
   );
 }

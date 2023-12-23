@@ -1,25 +1,20 @@
 "use client";
 
 import Layer from "@/(pages)/(common)/layer/main";
-import {
-  backgroundStyles,
-  borderStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
-import FlowController from "./(common)/controller/main";
-import FlowControllerTopRow from "./(common)/controller/top/main";
-import FlowControllerCenter from "./(common)/controller/center/main";
-import FlowControllerBottomRow from "./(common)/controller/bottom/main";
-import FlowConstellation from "./(common)/controller/bottom/constellations/item/main";
-import FlowControllerConstellationRow from "./(common)/controller/bottom/constellations/main";
-import FlowSnapshotSection from "./(common)/controller/center/craft/main";
-import FlowSnapshotElement from "./(common)/controller/center/craft/element/main";
-import FlowConstellationAdd from "./(common)/controller/bottom/add/main";
-import FlowTreeContainer from "./(common)/controller/center/tree/main";
-import FlowSourceControlBranch from "./(common)/controller/center/tree/branch/main";
-import FlowTopRowAddButton from "./(common)/controller/top/button/add/main";
-import FlowTopRowLoomButton from "./(common)/controller/top/button/loom/main";
-import FlowTopRowSearchButton from "./(common)/controller/top/button/search/main";
+import FlowController from "./flow-epic/main";
+import FlowControllerTopRow from "./flow-epic/top/main";
+import FlowControllerCenter from "./flow-epic/center/main";
+import FlowControllerBottomRow from "./flow-epic/bottom/main";
+import FlowConstellation from "./flow-epic/bottom/constellations/item/main";
+import FlowControllerConstellationRow from "./flow-epic/bottom/constellations/main";
+import FlowSnapshotSection from "./flow-epic/center/craft/main";
+import FlowSnapshotElement from "./flow-epic/center/craft/element/main";
+import FlowConstellationAdd from "./flow-epic/bottom/add/main";
+import FlowTreeContainer from "./flow-epic/center/tree/main";
+import FlowSourceControlBranch from "./flow-epic/center/tree/branch/main";
+import FlowTopRowAddButton from "./flow-epic/top/button/add/main";
+import FlowTopRowLoomButton from "./flow-epic/top/button/loom/main";
+import FlowTopRowSearchButton from "./flow-epic/top/button/search/main";
 import { useState } from "react";
 import {
   FlowTree,
@@ -34,10 +29,12 @@ import {
   defaultApolloConstellation,
   defaultApolloConstellations,
 } from "../data";
-import FlowTreeStem from "./(common)/controller/center/tree/branch/stem/main";
-import FlowTreeLeaves from "./(common)/controller/center/tree/branch/leaves/main";
-import FlowTreeLeaf from "./(common)/controller/center/tree/branch/leaves/leaf/main";
-import FlowTreeLeafAdd from "./(common)/controller/center/tree/branch/leaves/add/main";
+import FlowTreeStem from "./flow-epic/center/tree/branch/stem/main";
+import FlowTreeLeaves from "./flow-epic/center/tree/branch/leaves/main";
+import FlowTreeLeaf from "./flow-epic/center/tree/branch/leaves/leaf/main";
+import FlowTreeLeafAdd from "./flow-epic/center/tree/branch/leaves/add/main";
+import FlowWrapper from "./flow-epic/wrapper/main";
+import { borderStyles } from "@/(pages)/(common)/styles/data";
 
 export default function Page() {
   const [flowTree, changeFlowTree] = useState<FlowTree>(defaultFlowTree);
@@ -47,11 +44,8 @@ export default function Page() {
   const [flowSnapshots, changeFlowSnapshots] = useState(defaultFlowSnapshots);
 
   return (
-    <Layer
-      sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
-    >
+    <FlowWrapper>
+
       <FlowController>
         <FlowControllerTopRow>
           <FlowTopRowAddButton
@@ -106,10 +100,6 @@ export default function Page() {
               ])
             }
           />
-          <Layer
-            sizeStyle="h-[80px]"
-            borderStyle={borderStyles["border-r"]}
-          ></Layer>
           <FlowControllerConstellationRow>
             {constellations.map((constellation) => (
               <FlowConstellation
@@ -125,6 +115,6 @@ export default function Page() {
           <FlowSnapshotElement src={flowSnapshot.src} />
         ))}
       </FlowSnapshotSection>
-    </Layer>
+    </FlowWrapper>
   );
 }

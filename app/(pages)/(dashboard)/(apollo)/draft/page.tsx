@@ -6,23 +6,23 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import DraftController from "./(common)/controller/main";
-import DraftControllerTopRow from "./(common)/controller/top/main";
-import DraftControllerCenterSection from "./(common)/controller/center/main";
-import DraftControllerBottomRow from "./(common)/controller/bottom/main";
-import DraftConstellation from "./(common)/controller/bottom/constellations/item/main";
-import DraftControllerConstellationRow from "./(common)/controller/bottom/constellations/main";
-import DraftCraftSection from "./(common)/controller/center/craft/main";
-import DraftCraftElement from "./(common)/controller/center/craft/element/main";
-import DraftConstellationAdd from "./(common)/controller/bottom/add/main";
-import DraftConstellationSection from "./(common)/controller/center/constellation/main";
-import ConstellationLinks from "./(common)/controller/center/constellation/stars/links/main";
-import ConstellationStar from "./(common)/controller/center/constellation/stars/star/main";
+import DraftController from "./draft-epic/main";
+import DraftControllerTopRow from "./draft-epic/top/main";
+import DraftControllerCenterSection from "./draft-epic/center/main";
+import DraftControllerBottomRow from "./draft-epic/bottom/main";
+import DraftConstellation from "./draft-epic/bottom/constellations/item/main";
+import DraftControllerConstellationRow from "./draft-epic/bottom/constellations/main";
+import DraftCraftSection from "./draft-epic/center/craft/main";
+import DraftCraftElement from "./draft-epic/center/craft/element/main";
+import DraftConstellationAdd from "./draft-epic/bottom/add/main";
+import DraftConstellationSection from "./draft-epic/center/constellation/main";
+import ConstellationLinks from "./draft-epic/center/constellation/stars/links/main";
+import ConstellationStar from "./draft-epic/center/constellation/stars/star/main";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import TopRowAddButton from "./(common)/controller/top/button/add/main";
-import TopRowSearchButton from "./(common)/controller/top/button/search/main";
-import DraftLoomButton from "./(common)/controller/top/button/loom/main";
+import TopRowAddButton from "./draft-epic/top/button/add/main";
+import TopRowSearchButton from "./draft-epic/top/button/search/main";
+import DraftLoomButton from "./draft-epic/top/button/loom/main";
 import {
   defaultDraftElement,
   defaultDraftElements,
@@ -32,7 +32,7 @@ import {
   defaultApolloConstellation,
   defaultApolloConstellations,
 } from "../data";
-import DraftControllerSidePanel from "./(common)/controller/side-panel/main";
+import DraftWrapper from "./draft-epic/wrapper/main";
 
 export default function Page() {
   const [constellations, changeConstellations] = useState(
@@ -43,12 +43,7 @@ export default function Page() {
   const constraintsRef = useRef(null);
 
   return (
-    <>
-      <Layer
-        sizeStyle="h-full flex-grow"
-        containerStyle={containerStyles["row"]}
-        backgroundStyle={backgroundStyles["glass-5"]}
-      >
+      <DraftWrapper>
         <DraftController>
           <DraftControllerTopRow>
             <TopRowAddButton
@@ -89,10 +84,6 @@ export default function Page() {
                 ])
               }
             />
-            <Layer
-              sizeStyle="h-[80px]"
-              borderStyle={borderStyles["border-r"]}
-            ></Layer>
             <DraftControllerConstellationRow>
               {constellations.map((constellation) => (
                 <DraftConstellation constellation={constellation} />
@@ -117,7 +108,6 @@ export default function Page() {
             />
           ))}
         </DraftCraftSection>
-      </Layer>
-    </>
+      </DraftWrapper>
   );
 }
