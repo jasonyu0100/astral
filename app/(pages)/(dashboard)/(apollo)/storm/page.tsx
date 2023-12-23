@@ -30,7 +30,6 @@ export default function Page() {
 
   return (
     <StormController>
-      <div style={{ width: "calc(100% - 80px)" }}>
         <StormControllerMain>
           <StormHeader />
           <StormChatBody>
@@ -64,7 +63,6 @@ export default function Page() {
             </StormMessageInputRight>
           </StormMessageInput>
         </StormControllerMain>
-      </div>
       <StormSidePanel>
         <div className="w-full px-[2rem] flex flex-col space-y-[4rem]">
           <div className="flex flex-col space-y-[2rem]">

@@ -1,6 +1,9 @@
 "use client";
 
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
 
 export default function WorksContainer({
@@ -9,13 +12,14 @@ export default function WorksContainer({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
-      displayName={WorksContainer.name}
-      sizeStyle="h-full max-w-[1500px]"
-      containerStyle={containerStyles.col}
-      backgroundStyle={backgroundStyles["glass-5"]}
-    >
-      {children}
-    </Layer>
+      <Layer
+        displayName={WorksContainer.name}
+        sizeStyle="h-full flex-grow"
+        backgroundStyle={backgroundStyles["glass-5"]}
+        containerStyle={containerStyles.col}
+        contentStyle="overflow-auto"
+      >
+        {children}
+      </Layer>
   );
 }

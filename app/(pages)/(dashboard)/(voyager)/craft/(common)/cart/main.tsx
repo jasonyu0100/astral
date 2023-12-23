@@ -12,6 +12,7 @@ export default function CraftCart() {
       displayName="adsads"
       sizeStyle="w-[350px] h-full flex-shrink-0"
       borderStyle={`${borderStyles["border-l"]}`}
+      backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.row}
     >
       <div className="w-full h-full p-[2rem] flex flex-col justify-between">

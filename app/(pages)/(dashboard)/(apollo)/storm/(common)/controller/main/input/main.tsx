@@ -17,7 +17,6 @@ export default function StormMessageInput({
       contentStyle="px-[1rem]"
       backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["row-centered"]}
-      borderStyle={borderStyles["border-t"]}
     >
       {children}
     </Layer>

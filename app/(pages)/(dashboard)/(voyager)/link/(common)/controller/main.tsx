@@ -11,7 +11,7 @@ export default function StoryController({
       displayName={StoryController.name}
       containerStyle={containerStyles.row}
       backgroundStyle={backgroundStyles["glass-5"]}
-      sizeStyle="w-full h-full"
+      sizeStyle="flex-grow h-full"
     >
       {children}
     </Layer>

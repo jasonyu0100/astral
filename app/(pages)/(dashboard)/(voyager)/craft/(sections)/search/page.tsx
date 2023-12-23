@@ -14,20 +14,31 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import { useState } from "react";
 import { craftSearch } from "../../data/main";
+import Image from "next/image";
 
 export default function Page() {
-  const [cartActive, changeCartActive] = useState(false);
+  const [cartActive, changeCartActive] = useState(true);
 
   return (
     <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
-      <SearchController>
-        <StoreSearch />
-        <CraftStoreMasonry>
-          {craftSearch.results.map((craftFile) => (
-            <StoreMasonryMedia src={craftFile.src} />
-          ))}
-        </CraftStoreMasonry>
-      </SearchController>
+      <div className="w-full h-full">
+        <Layer
+          sizeStyle="w-full h-[80px]"
+          backgroundStyle={backgroundStyles["glass-10"]}
+          contentStyle={"px-[4rem]"}
+          containerStyle={containerStyles["row-centered"]}
+        ></Layer>
+        <div style={{ height: "calc(100% - 80px)", width: "100%" }}>
+          <SearchController>
+            <StoreSearch />
+            <CraftStoreMasonry>
+              {craftSearch.results.map((craftFile) => (
+                <StoreMasonryMedia src={craftFile.src} />
+              ))}
+            </CraftStoreMasonry>
+          </SearchController>
+        </div>
+      </div>
       {cartActive && <CraftCart />}
     </Layer>
   );

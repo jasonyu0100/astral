@@ -15,7 +15,6 @@ export default function WorksHeader({
       sizeStyle="w-full h-[250px]"
       displayName={WorksHeader.name}
       containerStyle={containerStyles["row-center"]}
-      borderStyle={borderStyles["border-b"]}
       backgroundStyle={backgroundStyles["glass-5"]}
     >
       {children}

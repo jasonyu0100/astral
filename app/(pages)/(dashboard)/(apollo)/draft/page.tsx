@@ -1,7 +1,11 @@
 "use client";
 
 import Layer from "@/(pages)/(common)/layer/main";
-import { borderStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 import DraftController from "./(common)/controller/main";
 import DraftControllerTopRow from "./(common)/controller/top/main";
 import DraftControllerCenterSection from "./(common)/controller/center/main";
@@ -28,6 +32,7 @@ import {
   defaultApolloConstellation,
   defaultApolloConstellations,
 } from "../data";
+import DraftControllerSidePanel from "./(common)/controller/side-panel/main";
 
 export default function Page() {
   const [constellations, changeConstellations] = useState(
@@ -39,74 +44,80 @@ export default function Page() {
 
   return (
     <>
-      <DraftController>
-        <DraftControllerTopRow>
-          <TopRowAddButton
-            onClick={() =>
-              changeDraftElements((prev) => [...prev, defaultDraftElement])
-            }
-          />
-          <TopRowSearchButton />
-          <DraftLoomButton />
-        </DraftControllerTopRow>
-        <DraftControllerCenterSection>
-          <DraftConstellationSection>
-            <ConstellationLinks stars={draftStars} />
-            <motion.div
-              className="absolute top-0 left- 0 w-full h-full"
-              ref={constraintsRef}
-            >
-              {draftStars.map((star, i) => (
-                <ConstellationStar
-                  star={star}
-                  constraintsRef={constraintsRef}
-                  updateStar={(data) =>
-                    changeDraftStars((prev) =>
-                      prev.map((o, j) => (j === i ? { ...o, ...data } : o))
-                    )
-                  }
-                />
+      <Layer
+        sizeStyle="h-full flex-grow"
+        containerStyle={containerStyles["row"]}
+        backgroundStyle={backgroundStyles["glass-5"]}
+      >
+        <DraftController>
+          <DraftControllerTopRow>
+            <TopRowAddButton
+              onClick={() =>
+                changeDraftElements((prev) => [...prev, defaultDraftElement])
+              }
+            />
+            <TopRowSearchButton />
+            <DraftLoomButton />
+          </DraftControllerTopRow>
+          <DraftControllerCenterSection>
+            <DraftConstellationSection>
+              <ConstellationLinks stars={draftStars} />
+              <motion.div
+                className="absolute top-0 left- 0 w-full h-full"
+                ref={constraintsRef}
+              >
+                {draftStars.map((star, i) => (
+                  <ConstellationStar
+                    star={star}
+                    constraintsRef={constraintsRef}
+                    updateStar={(data) =>
+                      changeDraftStars((prev) =>
+                        prev.map((o, j) => (j === i ? { ...o, ...data } : o))
+                      )
+                    }
+                  />
+                ))}
+              </motion.div>
+            </DraftConstellationSection>
+          </DraftControllerCenterSection>
+          <DraftControllerBottomRow>
+            <DraftConstellationAdd
+              onClick={() =>
+                changeConstellations((prev) => [
+                  ...prev,
+                  defaultApolloConstellation,
+                ])
+              }
+            />
+            <Layer
+              sizeStyle="h-[80px]"
+              borderStyle={borderStyles["border-r"]}
+            ></Layer>
+            <DraftControllerConstellationRow>
+              {constellations.map((constellation) => (
+                <DraftConstellation constellation={constellation} />
               ))}
-            </motion.div>
-          </DraftConstellationSection>
-          <DraftCraftSection>
-            {draftElements.map((draftElement) => (
-              <DraftCraftElement
-                src={draftElement.src}
-                onClick={() =>
-                  changeDraftStars((prev) => [
-                    ...prev,
-                    {
-                      x: Math.random() * 500,
-                      y: Math.random() * 500,
-                      element: draftElement,
-                    },
-                  ])
-                }
-              />
-            ))}
-          </DraftCraftSection>
-        </DraftControllerCenterSection>
-        <DraftControllerBottomRow>
-          <DraftConstellationAdd
-            onClick={() =>
-              changeConstellations((prev) => [
-                ...prev,
-                defaultApolloConstellation,
-              ])
-            }
-          />
-          <Layer
-            sizeStyle="h-[80px]"
-            borderStyle={borderStyles["border-r"]}
-          ></Layer>
-          <DraftControllerConstellationRow>
-            {constellations.map((constellation) => (
-              <DraftConstellation constellation={constellation} />
-            ))}
-          </DraftControllerConstellationRow>
-        </DraftControllerBottomRow>
-      </DraftController>
+            </DraftControllerConstellationRow>
+          </DraftControllerBottomRow>
+        </DraftController>
+        <DraftCraftSection>
+          {draftElements.map((draftElement) => (
+            <DraftCraftElement
+              src={draftElement.src}
+              onClick={() =>
+                changeDraftStars((prev) => [
+                  ...prev,
+                  {
+                    x: Math.random() * 500,
+                    y: Math.random() * 500,
+                    element: draftElement,
+                  },
+                ])
+              }
+            />
+          ))}
+        </DraftCraftSection>
+      </Layer>
     </>
   );
 }

@@ -16,6 +16,7 @@ export default function BoardCraftSection({
       sizeStyle="w-[350px] h-full"
       containerStyle={containerStyles["row"]}
       backgroundStyle={backgroundStyles["glass-5"]}
+      borderStyle={borderStyles["border-l"]}
     >
       <div className="w-full h-full flex flex-row flex-wrap p-[1rem] overflow-auto">
         {children}

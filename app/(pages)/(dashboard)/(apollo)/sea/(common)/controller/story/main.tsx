@@ -11,7 +11,7 @@ export default function SeaStoryContainer({
   return (
       <Layer
         displayName={SeaStoryContainer.name}
-        sizeStyle="flex-grow w-full h-full"
+        sizeStyle="w-full h-full"
       >
         {children}
       </Layer>

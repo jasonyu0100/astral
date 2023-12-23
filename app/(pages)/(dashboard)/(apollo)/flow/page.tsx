@@ -1,7 +1,11 @@
 "use client";
 
 import Layer from "@/(pages)/(common)/layer/main";
-import { borderStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 import FlowController from "./(common)/controller/main";
 import FlowControllerTopRow from "./(common)/controller/top/main";
 import FlowControllerCenter from "./(common)/controller/center/main";
@@ -43,78 +47,84 @@ export default function Page() {
   const [flowSnapshots, changeFlowSnapshots] = useState(defaultFlowSnapshots);
 
   return (
-    <FlowController>
-      <FlowControllerTopRow>
-        <FlowTopRowAddButton
-          onClick={() =>
-            changeFlowSnapshots((prev) => [...prev, defaultFlowSnapshot])
-          }
-        />
-        <FlowTopRowSearchButton />
-        <FlowTopRowLoomButton />
-      </FlowControllerTopRow>
-      <FlowControllerCenter>
-        <FlowTreeContainer>
-          {flowTree.map((branch, i) => (
+    <Layer
+      sizeStyle="h-full flex-grow"
+      containerStyle={containerStyles["row"]}
+      backgroundStyle={backgroundStyles["glass-5"]}
+    >
+      <FlowController>
+        <FlowControllerTopRow>
+          <FlowTopRowAddButton
+            onClick={() =>
+              changeFlowSnapshots((prev) => [...prev, defaultFlowSnapshot])
+            }
+          />
+          <FlowTopRowSearchButton />
+          <FlowTopRowLoomButton />
+        </FlowControllerTopRow>
+        <FlowControllerCenter>
+          <FlowTreeContainer>
+            {flowTree.map((branch, i) => (
+              <FlowSourceControlBranch>
+                <FlowTreeStem branch={branch} />
+                <FlowTreeLeaves>
+                  {branch.leaves.map((leaf, j) => (
+                    <FlowTreeLeaf leaf={leaf} />
+                  ))}
+                  <FlowTreeLeafAdd
+                    onClick={() =>
+                      changeFlowTree((prev) =>
+                        prev.map((o, k) =>
+                          k === i
+                            ? { ...o, leaves: [...o.leaves, defaultFlowLeaf] }
+                            : o
+                        )
+                      )
+                    }
+                  />
+                </FlowTreeLeaves>
+              </FlowSourceControlBranch>
+            ))}
             <FlowSourceControlBranch>
-              <FlowTreeStem branch={branch} />
+              <FlowTreeStem branch={defaultFlowBranch} />
               <FlowTreeLeaves>
-                {branch.leaves.map((leaf, j) => (
-                  <FlowTreeLeaf leaf={leaf} />
-                ))}
                 <FlowTreeLeafAdd
                   onClick={() =>
-                    changeFlowTree((prev) =>
-                      prev.map((o, k) =>
-                        k === i
-                          ? { ...o, leaves: [...o.leaves, defaultFlowLeaf] }
-                          : o
-                      )
-                    )
+                    changeFlowTree((prev) => [...prev, defaultFlowBranch])
                   }
                 />
               </FlowTreeLeaves>
             </FlowSourceControlBranch>
-          ))}
-          <FlowSourceControlBranch>
-            <FlowTreeStem branch={defaultFlowBranch} />
-            <FlowTreeLeaves>
-              <FlowTreeLeafAdd
-                onClick={() =>
-                  changeFlowTree((prev) => [...prev, defaultFlowBranch])
-                }
+          </FlowTreeContainer>
+        </FlowControllerCenter>
+        <FlowControllerBottomRow>
+          <FlowConstellationAdd
+            onClick={() =>
+              changeConstellations((prev) => [
+                ...prev,
+                defaultApolloConstellation,
+              ])
+            }
+          />
+          <Layer
+            sizeStyle="h-[80px]"
+            borderStyle={borderStyles["border-r"]}
+          ></Layer>
+          <FlowControllerConstellationRow>
+            {constellations.map((constellation) => (
+              <FlowConstellation
+                constellation={constellation}
+                onClick={() => {}}
               />
-            </FlowTreeLeaves>
-          </FlowSourceControlBranch>
-        </FlowTreeContainer>
-        <FlowSnapshotSection>
-          {flowSnapshots.map((flowSnapshot) => (
-            <FlowSnapshotElement src={flowSnapshot.src} />
-          ))}
-        </FlowSnapshotSection>
-      </FlowControllerCenter>
-      <FlowControllerBottomRow>
-        <FlowConstellationAdd
-          onClick={() =>
-            changeConstellations((prev) => [
-              ...prev,
-              defaultApolloConstellation,
-            ])
-          }
-        />
-        <Layer
-          sizeStyle="h-[80px]"
-          borderStyle={borderStyles["border-r"]}
-        ></Layer>
-        <FlowControllerConstellationRow>
-          {constellations.map((constellation) => (
-            <FlowConstellation
-              constellation={constellation}
-              onClick={() => {}}
-            />
-          ))}
-        </FlowControllerConstellationRow>
-      </FlowControllerBottomRow>
-    </FlowController>
+            ))}
+          </FlowControllerConstellationRow>
+        </FlowControllerBottomRow>
+      </FlowController>
+      <FlowSnapshotSection>
+        {flowSnapshots.map((flowSnapshot) => (
+          <FlowSnapshotElement src={flowSnapshot.src} />
+        ))}
+      </FlowSnapshotSection>
+    </Layer>
   );
 }

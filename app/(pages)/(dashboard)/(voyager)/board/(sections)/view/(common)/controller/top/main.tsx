@@ -13,7 +13,7 @@ export default function BoardControllerTopRow({
   return (
     <Layer
       displayName={BoardControllerTopRow.name}
-      sizeStyle="w-full h-[50px]"
+      sizeStyle="w-full h-[80px]"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-5"]}
     >
