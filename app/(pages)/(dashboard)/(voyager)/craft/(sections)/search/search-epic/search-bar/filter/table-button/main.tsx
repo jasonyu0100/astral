@@ -4,7 +4,7 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import TableIcon from "../../../../icons/table/main";
+import TableIcon from "../../../icons/table/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
 

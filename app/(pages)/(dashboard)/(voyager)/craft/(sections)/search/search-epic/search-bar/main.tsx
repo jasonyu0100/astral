@@ -5,9 +5,10 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function StoreSearch() {
+export default function SearchBar() {
   return (
     <Layer
+      displayName={SearchBar.name}
       sizeStyle="w-full h-[4rem]"
       containerStyle={containerStyles["row-center"]}
       backgroundStyle={backgroundStyles["glass-5"]}

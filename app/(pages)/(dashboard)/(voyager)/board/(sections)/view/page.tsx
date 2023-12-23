@@ -9,14 +9,8 @@ import BoardConstellationSection from "../../board-epic/center/constellation/mai
 import { motion } from "framer-motion";
 import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
 import ConstellationLinks from "../../board-epic/center/constellation/stars/links/main";
-import Image from "next/image";
-import {
-  backgroundStyles,
-  borderStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
 import BoardWrapper from "../../board-epic/wrapper/main";
+import BoardAuthorInfo from "../../board-epic/author-info/main";
 
 export default function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
@@ -48,27 +42,11 @@ export default function Page() {
               </motion.div>
             </BoardConstellationSection>
           </BoardControllerCenterSection>
-          <Layer
-            sizeStyle="w-full h-[80px]"
-            containerStyle={containerStyles["row-center"]}
-          >
-            <div className="px-[1rem] h-[50px] flex flex-row w-full items-center space-x-[2rem] relative">
-              <div className="w-[50px] h-[50px] bg-white rounded-[25px] overflow-hidden">
-                <Image
-                  alt="test"
-                  src={`/apollo/sea/avatar.png`}
-                  width={50}
-                  height={50}
-                />
-              </div>
-              <p className="text-white font-bold">Jason</p>
-              <p className="text-white font-regular">21 hours ago</p>
-            </div>
-          </Layer>
+          <BoardAuthorInfo/>
         </BoardController>
         {navigationActive && (
           <BoardCraftSection>
-            <h1>adsadsads</h1>
+            <h1 className="text-white">adsadsads</h1>
           </BoardCraftSection>
         )}
       </BoardWrapper>

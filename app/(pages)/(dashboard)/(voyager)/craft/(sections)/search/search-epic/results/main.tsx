@@ -1,4 +1,4 @@
-export default function CraftStoreMasonry({
+export default function SearchResults({
   children,
 }: {
   children: React.ReactNode;

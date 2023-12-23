@@ -1,5 +1,5 @@
 import Layer from "@/(pages)/(common)/layer/main";
-import GridIcon from "../../../../icons/grid/main";
+import GridIcon from "../../../icons/grid/main";
 import {
   backgroundStyles,
   borderStyles,

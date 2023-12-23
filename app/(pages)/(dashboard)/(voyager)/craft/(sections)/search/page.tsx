@@ -1,9 +1,9 @@
 "use client";
 
-import SearchController from "./search-epic/controller/main";
-import StoreSearch from "./search-epic/controller/search/main";
-import CraftStoreMasonry from "./search-epic/masonry/main";
-import StoreMasonryMedia from "./search-epic/masonry/media/main";
+import SearchController from "./search-epic/main";
+import SearchBar from "./search-epic/search-bar/main";
+import SearchResults from "./search-epic/results/main";
+import StoreMasonryMedia from "./search-epic/results/media/main";
 import CraftCart from "../../cart-epic/main";
 import { useState } from "react";
 import { craftSearch } from "../../data/main";
@@ -15,12 +15,12 @@ export default function Page() {
   return (
     <SearchWrapper>
       <SearchController>
-        <StoreSearch />
-        <CraftStoreMasonry>
+        <SearchBar />
+        <SearchResults>
           {craftSearch.results.map((craftFile) => (
             <StoreMasonryMedia src={craftFile.src} />
           ))}
-        </CraftStoreMasonry>
+        </SearchResults>
       </SearchController>
       {cartActive && <CraftCart />}
     </SearchWrapper>
