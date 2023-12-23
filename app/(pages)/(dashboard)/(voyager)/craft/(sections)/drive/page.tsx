@@ -23,22 +23,19 @@ export default function Page() {
 
   return (
     <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
-      <div className="flex-grow h-full">
-        <Layer
-          sizeStyle="w-full h-[80px]"
-          backgroundStyle={backgroundStyles["glass-10"]}
-          contentStyle={"px-[4rem] space-x-[1rem]"}
-          containerStyle={containerStyles["row-center"]}
-        >
-
-        </Layer>
         <Layer
           sizeStyle="flex-grow h-full"
-          containerStyle={containerStyles["row-center"]}
+          containerStyle={containerStyles["col"]}
           backgroundStyle={backgroundStyles["glass-5"]}
+          contentStyle="px-[4rem] pt-[4rem]"
         >
-          <CraftTableController>
-            <div className="flex flex-col space-y-[2rem]">
+          <Layer
+            sizeStyle="w-full h-[6rem]"
+            containerStyle={containerStyles["row-center"]}
+            backgroundStyle={backgroundStyles["glass-5"]}
+            borderStyle={borderStyles["rounded-l"]}
+            contentStyle={"px-[3rem] space-x-[2rem] "}
+          >
             <div className="flex flex-row space-x-[1rem]">
               <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
                 Drive
@@ -56,6 +53,9 @@ export default function Page() {
                 Logo
               </div>
             </div>
+          </Layer>
+          <CraftTableController>
+            <div className="flex flex-col space-y-[2rem]">
               <img
                 className="w-full h-[500px]"
                 src="/voyager/craft/cover.png"
@@ -96,7 +96,6 @@ export default function Page() {
             )}
           </CraftTableController>
         </Layer>
-      </div>
       {cartActive && <CraftCart />}
     </Layer>
   );

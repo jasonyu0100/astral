@@ -19,22 +19,12 @@ export default function Page() {
         containerStyle={containerStyles["row"]}
         backgroundStyle={backgroundStyles["glass-5"]}
       >
-        <div className="flex-grow h-full">
-          <Layer
-            sizeStyle="w-full h-[80px]"
-            backgroundStyle={backgroundStyles["glass-10"]}
-            contentStyle={"px-[4rem] space-x-[1rem]"}
-            containerStyle={containerStyles["row-center"]}
-          ></Layer>
-          <div style={{ height: "calc(100% - 80px)", width: "100%" }}>
-            <StoryController>
-              <StoryRecord>
-                <StoryRecordLog></StoryRecordLog>
-                <StoryRecordLog></StoryRecordLog>
-              </StoryRecord>
-            </StoryController>
-          </div>
-        </div>
+        <StoryController>
+          <StoryRecord>
+            <StoryRecordLog></StoryRecordLog>
+            <StoryRecordLog></StoryRecordLog>
+          </StoryRecord>
+        </StoryController>
         {navigationActive && (
           <Layer
             sizeStyle="w-[350px] h-full"

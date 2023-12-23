@@ -22,22 +22,14 @@ export default function Page() {
   return (
     <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
       <div className="w-full h-full">
-        <Layer
-          sizeStyle="w-full h-[80px]"
-          backgroundStyle={backgroundStyles["glass-10"]}
-          contentStyle={"px-[4rem]"}
-          containerStyle={containerStyles["row-centered"]}
-        ></Layer>
-        <div style={{ height: "calc(100% - 80px)", width: "100%" }}>
-          <SearchController>
-            <StoreSearch />
-            <CraftStoreMasonry>
-              {craftSearch.results.map((craftFile) => (
-                <StoreMasonryMedia src={craftFile.src} />
-              ))}
-            </CraftStoreMasonry>
-          </SearchController>
-        </div>
+        <SearchController>
+          <StoreSearch />
+          <CraftStoreMasonry>
+            {craftSearch.results.map((craftFile) => (
+              <StoreMasonryMedia src={craftFile.src} />
+            ))}
+          </CraftStoreMasonry>
+        </SearchController>
       </div>
       {cartActive && <CraftCart />}
     </Layer>

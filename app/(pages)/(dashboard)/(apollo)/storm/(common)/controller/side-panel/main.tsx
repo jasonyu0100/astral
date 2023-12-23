@@ -4,7 +4,11 @@ import SidePanelColumn from "./column/main";
 import SidePanelGalaxy from "./galaxy/main";
 import SidePanelAdd from "./add/main";
 import Layer from "@/(pages)/(common)/layer/main";
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from "@/(pages)/(common)/styles/data";
 
 export default function StormSidePanel({
   children,
@@ -20,9 +24,7 @@ export default function StormSidePanel({
       borderStyle={borderStyles["border-l"]}
       contentStyle="justify-between"
     >
-      <SidePanelGalaxy />
-      <SidePanelColumn>{children}</SidePanelColumn>
-      <SidePanelAdd />
+      {children}
     </Layer>
   );
 }

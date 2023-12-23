@@ -9,7 +9,7 @@ import WorkDate from "./date/main";
 
 export default function WorksWork() {
   return (
-    <div className="flex flex-row w-full px-[2rem] py-[2rem] justify-between">
+    <div className="flex flex-row w-full px-[2rem] py-[2rem]">
       <WorkCount />
       <WorkInfo />
       <WorkGenre />

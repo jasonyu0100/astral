@@ -12,7 +12,7 @@ export interface WorksAlbumInfoProps {
 
 export default function WorksAlbumInfo({ subHeading, heading }: WorksAlbumInfoProps) {
   return (
-    <div className="flex flex-row space-x-[2rem] items-center ml-[10rem]">
+    <div className="flex flex-row space-x-[2rem] items-center ml-[7rem]">
       <WorksHeaderCover />
       <WorksHeaderText>
         <WorksHeaderTextMain>{heading}</WorksHeaderTextMain>

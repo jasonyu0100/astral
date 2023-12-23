@@ -13,9 +13,9 @@ export default function CraftTableController({
   return (
     <Layer
       displayName={CraftTableController.name}
-      sizeStyle="h-full flex-grow"
+      sizeStyle="flex-grow"
       containerStyle={containerStyles.col}
-      contentStyle={"space-y-[2rem] p-[3rem] overflow-auto"}
+      contentStyle={"space-y-[2rem] pt-[3rem] overflow-auto"}
     >
       {children}
     </Layer>
