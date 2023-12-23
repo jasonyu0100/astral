@@ -6,14 +6,14 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
 
-export default function StormController({
+export default function StormWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={StormController.name}
+      displayName={StormWrapper.name}
       sizeStyle="h-full flex-grow"
       backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["row"]}

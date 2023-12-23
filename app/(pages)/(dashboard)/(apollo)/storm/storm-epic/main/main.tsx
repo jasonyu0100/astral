@@ -11,7 +11,7 @@ export default function StormControllerMain({
       displayName={StormControllerMain.name}
       sizeStyle="flex-grow h-full"
       containerStyle={containerStyles["col"]}
-      contentStyle="justify-between"
+      contentStyle="p-[1rem]"
     >
       {children}
     </Layer>

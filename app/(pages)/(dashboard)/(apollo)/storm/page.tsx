@@ -3,7 +3,7 @@ import StormHeader from "./storm-epic/main/header/main";
 import StormChatBody from "./storm-epic/main/chat/main";
 import StormMessageInput from "./storm-epic/main/input/main";
 import StormSidePanel from "./storm-epic/side-panel/main";
-import StormController from "./storm-epic/main";
+import StormWrapper from "./storm-epic/main";
 import StormControllerMain from "./storm-epic/main/main";
 import StormYouChatMessage from "./storm-epic/main/chat/message/you/main";
 import StormPartnerChatMessage from "./storm-epic/main/chat/message/them/main";
@@ -32,7 +32,7 @@ export default function Page() {
   const [message, changeMessage] = useState("dsadsadsa");
 
   return (
-    <StormController>
+    <StormWrapper>
       <StormControllerMain>
         <StormChatBody>
           <StormHeader />
@@ -91,6 +91,6 @@ export default function Page() {
           </StormSidePanelSection>
         </SidePanelColumn>
       </StormSidePanel>
-    </StormController>
+    </StormWrapper>
   );
 }

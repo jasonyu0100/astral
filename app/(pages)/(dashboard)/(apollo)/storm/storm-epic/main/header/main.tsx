@@ -7,7 +7,7 @@ function StormHeader() {
       displayName={StormHeader.name}
       sizeStyle="h-[60px] w-full"
       containerStyle={containerStyles["row-center"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
+      borderStyle={borderStyles["border-b"]}
       contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
         <div className="flex flex-row w-1/3">

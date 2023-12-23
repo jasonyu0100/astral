@@ -17,6 +17,7 @@ export default function DraftController({
       effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-5"]}
+      contentStyle="p-[1rem]"
     >{children}</Layer>
   );
 }
