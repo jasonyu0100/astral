@@ -17,6 +17,7 @@ export default function DraftSidebar({
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["border-l"]}`}
+      contentStyle="p-[1rem]"
     >
       {children}
     </Layer>

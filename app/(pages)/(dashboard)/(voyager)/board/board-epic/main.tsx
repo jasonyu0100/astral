@@ -1,7 +1,6 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
   effectStyles,
 } from "@/(pages)/(common)/styles/data";
@@ -13,10 +12,13 @@ export default function BoardController({
 }) {
   return (
     <Layer
+      displayName={BoardController.name}
       sizeStyle="h-full flex-grow"
       effectStyle={effectStyles["glow-md"]}
       backgroundStyle={backgroundStyles["glass-5"]}
       containerStyle={containerStyles["col"]}
-    >{children}</Layer>
+    >
+      {children}
+    </Layer>
   );
 }

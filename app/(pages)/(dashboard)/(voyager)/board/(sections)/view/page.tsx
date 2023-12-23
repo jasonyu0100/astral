@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { defaultBoardStars } from "../../data";
 import BoardController from "../../board-epic/main";
 import BoardControllerCenterSection from "../../board-epic/center/main";
-import BoardCraftSection from "../../board-epic/center/craft/main";
+import BoardSidebar from "../../board-epic/sidebar/main";
 import BoardConstellationSection from "../../board-epic/center/constellation/main";
 import { motion } from "framer-motion";
 import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
@@ -45,9 +45,9 @@ export default function Page() {
           <BoardAuthorInfo/>
         </BoardController>
         {navigationActive && (
-          <BoardCraftSection>
+          <BoardSidebar>
             <h1 className="text-white">adsadsads</h1>
-          </BoardCraftSection>
+          </BoardSidebar>
         )}
       </BoardWrapper>
     </>

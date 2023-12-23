@@ -1,4 +1,4 @@
-import DraftSearchIcon from "../../../../../icons/search/main";
+import BoardSearchIcon from "../../../../../icons/search/main";
 
 export interface TopRowSearchButtonProps
   extends React.ComponentPropsWithoutRef<"button"> {}
@@ -8,7 +8,7 @@ export default function TopRowSearchButton({
 }: TopRowSearchButtonProps) {
   return (
     <button {...props}>
-      <DraftSearchIcon />
+      <BoardSearchIcon />
     </button>
   );
 }

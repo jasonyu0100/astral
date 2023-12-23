@@ -16,6 +16,7 @@ export default function CartSidebar() {
       borderStyle={`${borderStyles["border-l"]}`}
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.col}
+      contentStyle="p-[1rem]"
     >
       <CartSidebarHeader>
         <CartSidebarHeaderTitle>Cart (10 items)</CartSidebarHeaderTitle>
@@ -33,9 +34,9 @@ export default function CartSidebar() {
           <CraftCartItem />
         </div>
       </div>
-      <div className="h-[60px] w-full p-[1rem] flex flex-row items-center">
+      <div className="h-[60px] w-full flex flex-row items-center px-[1rem]">
         <Layer
-          sizeStyle="w-full h-[40px]"
+          sizeStyle="w-full h-full"
           backgroundStyle={"bg-purple-600"}
           containerStyle={containerStyles["row-centered"]}
           borderStyle={borderStyles["rounded-full"]}

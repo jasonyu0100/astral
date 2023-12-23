@@ -1,9 +1,7 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
-  effectStyles,
 } from "@/(pages)/(common)/styles/data";
 
 export default function FlowController({
@@ -17,6 +15,7 @@ export default function FlowController({
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-5"]}
+      contentStyle="p-[1rem]"
     >
       {children}
     </Layer>

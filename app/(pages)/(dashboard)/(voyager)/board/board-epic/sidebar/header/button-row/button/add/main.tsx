@@ -1,4 +1,4 @@
-import BoardAddIcon from "../../../icons/add/main";
+import BoardAddIcon from "../../../../../icons/add/main";
 
 export interface TopRowAddButtonProps
   extends React.ComponentPropsWithoutRef<"button"> {}
