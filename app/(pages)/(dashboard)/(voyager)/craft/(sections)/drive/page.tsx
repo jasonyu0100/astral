@@ -3,7 +3,7 @@
 import CraftTableController from "./table/main";
 import CraftTableContainer from "./table/container/main";
 import CraftTableRow from "./table/row/main";
-import CraftCart from "../../(common)/cart/main";
+import CraftCart from "../../cart-epic/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,

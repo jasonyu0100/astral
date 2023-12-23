@@ -1,5 +1,6 @@
 import RecordTabs from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
-import { VoyagerContent } from "../../../(common)/content/main";
+
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
 export default function Layout({
   children,
@@ -9,7 +10,7 @@ export default function Layout({
   return (
     <>
       <RecordTabs tab={"Label"} />
-      <VoyagerContent>{children}</VoyagerContent>
+      <DashboardContent>{children}</DashboardContent>
     </>
   );
 }

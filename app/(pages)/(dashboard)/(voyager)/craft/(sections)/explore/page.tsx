@@ -12,7 +12,7 @@ import ExploreSection from "./explore-epic/section/main";
 import ExploreSectionCoverImage from "./explore-epic/section/cover-image/main";
 import ExploreSectionTitle from "./explore-epic/section/title/main";
 import ExploreSectionDescription from "./explore-epic/section/description/main";
-import CraftCart from "../../(common)/cart/main";
+import CraftCart from "../../cart-epic/main";
 
 export default function Page() {
   const [section, changeSection] = useState<CraftSection | null>(brandSection);

@@ -1,12 +1,12 @@
 "use client";
-import LinkFeed from "../../feed/main";
-import StoryRecordLog from "../../feed/record/log/main";
-import StoryRecord from "../../feed/record/main";
+import LinkFeed from "../../feed-epic/main";
+import StoryRecordLog from "../../feed-epic/record/log/main";
+import StoryRecord from "../../feed-epic/record/main";
 import { useState } from "react";
-import LinkFeedSidebar from "../../feed/sidebar/main";
-import LinkFeedSidebarSection from "../../feed/sidebar/section/main";
-import LinkFeedSidebarEntry from "../../feed/sidebar/section/entry/main";
-import LinkFeedWrapper from "../../feed/wrapper/main";
+import LinkFeedSidebar from "../../feed-epic/sidebar/main";
+import LinkFeedSidebarSection from "../../feed-epic/sidebar/section/main";
+import LinkFeedSidebarEntry from "../../feed-epic/sidebar/section/entry/main";
+import LinkFeedWrapper from "../../feed-epic/wrapper/main";
 
 export default function Page() {
   const [sidebarActive, changeSidebarActive] = useState(true);

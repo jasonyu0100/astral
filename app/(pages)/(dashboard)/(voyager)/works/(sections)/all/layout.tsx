@@ -1,4 +1,5 @@
-import { VoyagerContent } from "../../../(common)/content/main";
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
+
 import WorksTabs from "../../tabs/main";
 
 export default function Layout({
@@ -9,7 +10,7 @@ export default function Layout({
   return (
     <>
       <WorksTabs tab={"All"} />
-      <VoyagerContent>{children}</VoyagerContent>
+      <DashboardContent>{children}</DashboardContent>
     </>
   );
 }

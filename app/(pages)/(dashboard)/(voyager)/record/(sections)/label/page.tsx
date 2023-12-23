@@ -1,8 +1,8 @@
 "use client";
 
-import RecordCollection from "../../collection/main";
-import RecordAlbum from "../../collection/shelf/album/main";
-import RecordShelf from "../../collection/shelf/main";
+import RecordCollection from "../../collection-epic/main";
+import RecordAlbum from "../../collection-epic/shelf/album/main";
+import RecordShelf from "../../collection-epic/shelf/main";
 
 export default function Page() {
   return (

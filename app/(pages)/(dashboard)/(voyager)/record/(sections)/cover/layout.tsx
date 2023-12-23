@@ -1,4 +1,4 @@
-import { ApolloContent } from "@/(pages)/(dashboard)/(apollo)/(common)/content/main";
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 import RecordTabs from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
 
 export default function Layout({
@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <>
       <RecordTabs tab={"Cover"} />
-      <ApolloContent>{children}</ApolloContent>
+      <DashboardContent>{children}</DashboardContent>
     </>
   );
 }

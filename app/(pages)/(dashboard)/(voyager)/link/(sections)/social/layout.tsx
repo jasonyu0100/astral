@@ -1,5 +1,6 @@
 import StoryTabs from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
-import { VoyagerContent } from "../../../(common)/content/main";
+
+import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
 export default function Layout({
   children,
@@ -9,7 +10,7 @@ export default function Layout({
   return (
     <>
       <StoryTabs tab={"Social"} />
-      <VoyagerContent>{children}</VoyagerContent>
+      <DashboardContent>{children}</DashboardContent>
     </>
   );
 }

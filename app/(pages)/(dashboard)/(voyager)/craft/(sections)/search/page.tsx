@@ -1,15 +1,12 @@
 "use client";
 
-import SearchController from "./(common)/controller/main";
-import StoreSearchFilter from "./(common)/controller/search/filter/main";
-import StoreSearch from "./(common)/controller/search/main";
-import CraftStoreMasonry from "./(common)/masonry/main";
-import StoreMasonryMedia from "./(common)/masonry/media/main";
-import CraftCart from "../../(common)/cart/main";
+import SearchController from "./search-epic/controller/main";
+import StoreSearch from "./search-epic/controller/search/main";
+import CraftStoreMasonry from "./search-epic/masonry/main";
+import StoreMasonryMedia from "./search-epic/masonry/media/main";
+import CraftCart from "../../cart-epic/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {
-  backgroundStyles,
-  borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import { useState } from "react";

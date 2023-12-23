@@ -2,13 +2,13 @@
 
 import { useRef, useState } from "react";
 import { defaultBoardStars } from "../../data";
-import BoardController from "../../controller/main";
-import BoardControllerCenterSection from "../../controller/center/main";
-import BoardCraftSection from "../../controller/center/craft/main";
-import BoardConstellationSection from "../../controller/center/constellation/main";
+import BoardController from "../../board-epic/main";
+import BoardControllerCenterSection from "../../board-epic/center/main";
+import BoardCraftSection from "../../board-epic/center/craft/main";
+import BoardConstellationSection from "../../board-epic/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../../controller/center/constellation/stars/star/main";
-import ConstellationLinks from "../../controller/center/constellation/stars/links/main";
+import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
+import ConstellationLinks from "../../board-epic/center/constellation/stars/links/main";
 import Image from "next/image";
 import {
   backgroundStyles,
@@ -16,7 +16,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import Layer from "@/(pages)/(common)/layer/main";
-import BoardWrapper from "../../controller/wrapper/main";
+import BoardWrapper from "../../board-epic/wrapper/main";
 
 export default function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);

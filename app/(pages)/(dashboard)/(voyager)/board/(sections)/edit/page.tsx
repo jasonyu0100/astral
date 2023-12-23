@@ -6,19 +6,19 @@ import {
   defaultBoardElements,
   defaultBoardStars,
 } from "../../data";
-import BoardController from "../../controller/main";
-import BoardControllerCenterSection from "../../controller/center/main";
-import BoardCraftSection from "../../controller/center/craft/main";
-import BoardCraftElement from "../../controller/center/craft/element/main";
-import BoardConstellationSection from "../../controller/center/constellation/main";
+import BoardController from "../../board-epic/main";
+import BoardControllerCenterSection from "../../board-epic/center/main";
+import BoardCraftSection from "../../board-epic/center/craft/main";
+import BoardCraftElement from "../../board-epic/center/craft/element/main";
+import BoardConstellationSection from "../../board-epic/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../../controller/center/constellation/stars/star/main";
-import ConstellationLinks from "../../controller/center/constellation/stars/links/main";
-import BoardControllerTopRow from "../../controller/top/main";
-import BoardLoomButton from "../../controller/top/button/loom/main";
-import TopRowSearchButton from "../../controller/top/button/search/main";
-import TopRowAddButton from "../../controller/top/button/add/main";
-import BoardWrapper from "../../controller/wrapper/main";
+import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
+import ConstellationLinks from "../../board-epic/center/constellation/stars/links/main";
+import BoardControllerTopRow from "../../board-epic/top/main";
+import BoardLoomButton from "../../board-epic/top/button/loom/main";
+import TopRowSearchButton from "../../board-epic/top/button/search/main";
+import TopRowAddButton from "../../board-epic/top/button/add/main";
+import BoardWrapper from "../../board-epic/wrapper/main";
 
 export default function Page() {
   const [boardElements, changeBoardElements] = useState(defaultBoardElements);
