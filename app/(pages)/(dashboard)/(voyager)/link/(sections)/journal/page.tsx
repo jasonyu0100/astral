@@ -4,7 +4,7 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import StoryController from "../../(common)/controller/main";
+import LinkFeed from "../../(common)/controller/main";
 import StoryRecordLog from "../../(common)/controller/record/log/main";
 import StoryRecord from "../../(common)/controller/record/main";
 import Layer from "@/(pages)/(common)/layer/main";
@@ -19,12 +19,12 @@ export default function Page() {
         containerStyle={containerStyles["row"]}
         backgroundStyle={backgroundStyles["glass-5"]}
       >
-        <StoryController>
+        <LinkFeed>
           <StoryRecord>
             <StoryRecordLog></StoryRecordLog>
             <StoryRecordLog></StoryRecordLog>
           </StoryRecord>
-        </StoryController>
+        </LinkFeed>
         {navigationActive && (
           <Layer
             sizeStyle="w-[350px] h-full"
