@@ -1,7 +1,7 @@
 "use client";
 
 import DraftController from "./draft-epic/main";
-import DraftControllerTopRow from "./draft-epic/sidebar/header/main";
+import DraftSidebarHeader from "./draft-epic/sidebar/header/main";
 import DraftControllerCenterSection from "./draft-epic/center/main";
 import DraftControllerBottomRow from "./draft-epic/bottom/main";
 import DraftConstellation from "./draft-epic/bottom/constellations/item/main";
@@ -80,7 +80,7 @@ export default function Page() {
         </DraftControllerBottomRow>
       </DraftController>
       <DraftSidebar>
-        <DraftControllerTopRow>
+        <DraftSidebarHeader>
           <DraftSidebarHeaderTitle>Elements</DraftSidebarHeaderTitle>
           <DraftSidebarButtonRow>
             <TopRowAddButton
@@ -91,7 +91,7 @@ export default function Page() {
             <TopRowSearchButton />
             <DraftLoomButton />
           </DraftSidebarButtonRow>
-        </DraftControllerTopRow>
+        </DraftSidebarHeader>
         <DraftSidebarElements>
           {draftElements.map((draftElement) => (
             <DraftCraftElement

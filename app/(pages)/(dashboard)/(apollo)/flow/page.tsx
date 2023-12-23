@@ -1,20 +1,14 @@
 "use client";
 
-import Layer from "@/(pages)/(common)/layer/main";
 import FlowController from "./flow-epic/main";
-import FlowControllerTopRow from "./flow-epic/top/main";
 import FlowControllerCenter from "./flow-epic/center/main";
 import FlowControllerBottomRow from "./flow-epic/bottom/main";
 import FlowConstellation from "./flow-epic/bottom/constellations/item/main";
 import FlowControllerConstellationRow from "./flow-epic/bottom/constellations/main";
 import FlowSidebar from "./flow-epic/sidebar/main";
-import FlowSnapshotElement from "./flow-epic/sidebar/element/main";
 import FlowConstellationAdd from "./flow-epic/bottom/add/main";
 import FlowTreeContainer from "./flow-epic/center/tree/main";
 import FlowSourceControlBranch from "./flow-epic/center/tree/branch/main";
-import FlowTopRowAddButton from "./flow-epic/top/button/add/main";
-import FlowTopRowLoomButton from "./flow-epic/top/button/loom/main";
-import FlowTopRowSearchButton from "./flow-epic/top/button/search/main";
 import { useState } from "react";
 import {
   FlowTree,
@@ -34,7 +28,14 @@ import FlowTreeLeaves from "./flow-epic/center/tree/branch/leaves/main";
 import FlowTreeLeaf from "./flow-epic/center/tree/branch/leaves/leaf/main";
 import FlowTreeLeafAdd from "./flow-epic/center/tree/branch/leaves/add/main";
 import FlowWrapper from "./flow-epic/wrapper/main";
-import { borderStyles } from "@/(pages)/(common)/styles/data";
+import FlowSidebarHeaderTitle from "./flow-epic/sidebar/header/title/main";
+import FlowSidebarButtonRow from "./flow-epic/sidebar/header/button-row/main";
+import TopRowAddButton from "./flow-epic/sidebar/header/button-row/button/add/main";
+import TopRowSearchButton from "./flow-epic/sidebar/header/button-row/button/search/main";
+import FlowSidebarElements from "./flow-epic/sidebar/elements/main";
+import FlowSnapshot from "./flow-epic/sidebar/elements/element/main";
+import FlowHeader from "./flow-epic/sidebar/header/main";
+import FlowLoomButton from "./flow-epic/sidebar/header/button-row/button/loom/main";
 
 export default function Page() {
   const [flowTree, changeFlowTree] = useState<FlowTree>(defaultFlowTree);
@@ -47,15 +48,6 @@ export default function Page() {
     <FlowWrapper>
 
       <FlowController>
-        <FlowControllerTopRow>
-          <FlowTopRowAddButton
-            onClick={() =>
-              changeFlowSnapshots((prev) => [...prev, defaultFlowSnapshot])
-            }
-          />
-          <FlowTopRowSearchButton />
-          <FlowTopRowLoomButton />
-        </FlowControllerTopRow>
         <FlowControllerCenter>
           <FlowTreeContainer>
             {flowTree.map((branch, i) => (
@@ -110,11 +102,29 @@ export default function Page() {
             />
         </FlowControllerBottomRow>
       </FlowController>
+
       <FlowSidebar>
-        {flowSnapshots.map((flowSnapshot) => (
-          <FlowSnapshotElement src={flowSnapshot.src} />
-        ))}
+        <FlowHeader>
+          <FlowSidebarHeaderTitle>Snapshots</FlowSidebarHeaderTitle>
+          <FlowSidebarButtonRow>
+            <TopRowAddButton
+              onClick={() =>
+                changeFlowSnapshots((prev) => [...prev, defaultFlowSnapshot])
+              }
+            />
+            <TopRowSearchButton />
+            <FlowLoomButton />
+          </FlowSidebarButtonRow>
+        </FlowHeader>
+        <FlowSidebarElements>
+          {flowSnapshots.map((snapshot) => (
+            <FlowSnapshot
+              src={snapshot.src}
+            />
+          ))}
+        </FlowSidebarElements>
       </FlowSidebar>
+
     </FlowWrapper>
   );
 }
