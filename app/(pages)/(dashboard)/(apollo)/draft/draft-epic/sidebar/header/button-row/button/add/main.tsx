@@ -1,4 +1,4 @@
-import DraftAddIcon from "../../../icons/add/main";
+import DraftAddIcon from "../../../../../icons/add/main";
 
 export interface TopRowAddButtonProps
   extends React.ComponentPropsWithoutRef<"button"> {}

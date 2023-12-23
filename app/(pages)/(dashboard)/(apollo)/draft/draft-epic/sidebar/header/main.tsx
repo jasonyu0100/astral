@@ -11,14 +11,8 @@ export default function DraftControllerTopRow({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
-      displayName={DraftControllerTopRow.name}
-      sizeStyle="w-full h-[50px]"
-      containerStyle={containerStyles["col"]}
-    >
-      <div className="ml-auto flex flex-row h-full items-center px-[20px] space-x-[1rem]">
-        {children}
-      </div>
-    </Layer>
+    <div className="flex flex-row items-center flex-shrink-0 w-full h-[60px] px-[1rem] justify-between">
+      {children}
+    </div>
   );
 }

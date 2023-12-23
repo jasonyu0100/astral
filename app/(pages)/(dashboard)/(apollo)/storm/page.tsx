@@ -21,13 +21,10 @@ import {
 } from "./data";
 import SidePanelColumn from "./storm-epic/side-panel/column/main";
 import SidePanelHeader from "./storm-epic/side-panel/header/main";
-import SidePanelAdd from "./storm-epic/side-panel/footer/main";
 import StormSidePanelSection from "./storm-epic/side-panel/column/section/main";
 import StormSidePanelSectionTitle from "./storm-epic/side-panel/column/section/title/main";
 import StormSidePanelSectionAdd from "./storm-epic/side-panel/column/section/add/main";
 import StormSidePanelChat from "./storm-epic/side-panel/column/section/chat/main";
-import { containerStyles } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
 import StormChatMessages from "./storm-epic/main/chat/messages/main";
 
 export default function Page() {
