@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function BoardAuthorInfo() {
   return (
     <Layer
+      displayName={BoardAuthorInfo.name}
       sizeStyle="w-full h-[80px]"
       containerStyle={containerStyles["row-center"]}
     >

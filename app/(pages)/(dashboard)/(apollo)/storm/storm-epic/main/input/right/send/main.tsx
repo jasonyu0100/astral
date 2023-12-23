@@ -4,8 +4,8 @@ export interface StormMessageInputSendProps
 
 export default function StormMessageInputSend({...props} : StormMessageInputSendProps) {
   return (
-    <div className="w-[40px] h-[40px] flex items-center bg-blue-500 justify-center rounded-[2rem]" {...props}>
+    <button className="w-[40px] h-[40px] flex items-center bg-blue-500 justify-center rounded-[2rem]" {...props}>
       <StormSendIcon />
-    </div>
+    </button>
   );
 }

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ConstellationStar from "./star/main";
 import ConstellationLinks from "./links/main";
-import { defaultBoardStars } from "@/(pages)/(dashboard)/(apollo)/board/data";
+import { defaultBoardStars } from "../../../../data";
 
 export default function ConstellationStars({}) {
   const constraintsRef = useRef(null);

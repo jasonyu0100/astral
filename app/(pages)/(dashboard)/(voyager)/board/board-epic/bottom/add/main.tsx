@@ -7,7 +7,7 @@ import {
 import BoardAddLgIcon from "../../icons/add-lg/main";
 
 export interface BoardConstellationAddProps
-  extends React.ComponentPropsWithoutRef<"div"> {}
+  extends React.ComponentPropsWithoutRef<"button"> {}
 
 export default function BoardConstellationAdd({
   ...props
@@ -21,6 +21,7 @@ export default function BoardConstellationAdd({
     >
       <button {...props}>
         <Layer
+          displayName={BoardConstellationAdd.name}
           sizeStyle="w-[80px] h-[80px]"
           backgroundStyle={backgroundStyles["glass-10"]}
           containerStyle={containerStyles["col-centered"]}

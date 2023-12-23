@@ -1,7 +1,6 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
   effectStyles,
 } from "@/(pages)/(common)/styles/data";
@@ -13,6 +12,7 @@ export default function DraftController({
 }) {
   return (
     <Layer
+      displayName={DraftController.name}
       sizeStyle="h-full flex-grow"
       effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["col"]}

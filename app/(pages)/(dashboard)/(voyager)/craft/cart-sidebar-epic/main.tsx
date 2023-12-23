@@ -36,6 +36,7 @@ export default function CartSidebar() {
       </div>
       <div className="h-[60px] w-full flex flex-row items-center px-[1rem]">
         <Layer
+          displayName="Add to Craft"
           sizeStyle="w-full h-full"
           backgroundStyle={"bg-purple-600"}
           containerStyle={containerStyles["row-centered"]}

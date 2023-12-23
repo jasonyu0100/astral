@@ -1,7 +1,7 @@
 import Image from "next/image";
 import StormSidePanelAvatar from "./column/avatar/main";
 import SidePanelColumn from "./column/main";
-import SidePanelHeader from "./header/main";
+import StormSidebarHeader from "./header/main";
 import SidePanelAdd from "./footer/main";
 import Layer from "@/(pages)/(common)/layer/main";
 import {

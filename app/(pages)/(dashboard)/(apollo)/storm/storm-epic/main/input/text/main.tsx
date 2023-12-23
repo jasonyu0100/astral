@@ -9,6 +9,7 @@ export default function StormMessageInputText({
 }: StormMessageInputTextProps) {
   return (
     <Layer
+      displayName={StormMessageInputText.name}
       sizeStyle="max-w-[600px] flex-grow h-[50px]"
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={borderStyles["rounded-full"]}

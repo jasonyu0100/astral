@@ -1,11 +1,12 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function SidePanelHeader() {
+export default function StormSidebarHeader() {
   return (
     <div className="flex flex-row items-center flex-shrink-0 w-full h-[60px] px-[2rem] space-x-[2rem] justify-between">
       <p className="text-white font-extraBold text-xl">Conversations</p>
       <Layer
+        displayName={StormSidebarHeader.name}
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"
         containerStyle={containerStyles["col-centered"]}
       >

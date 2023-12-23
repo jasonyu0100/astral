@@ -2,7 +2,7 @@
 import StormHeader from "./storm-epic/main/header/main";
 import StormChatBody from "./storm-epic/main/chat/main";
 import StormMessageInput from "./storm-epic/main/input/main";
-import StormSidePanel from "./storm-epic/side-panel/main";
+import StormSidePanel from "./storm-epic/sidebar/main";
 import StormWrapper from "./storm-epic/main";
 import StormControllerMain from "./storm-epic/main/main";
 import StormYouChatMessage from "./storm-epic/main/chat/message/you/main";
@@ -19,12 +19,12 @@ import {
   defaultPartnerMessage,
   defaultYouMessage,
 } from "./data";
-import SidePanelColumn from "./storm-epic/side-panel/column/main";
-import SidePanelHeader from "./storm-epic/side-panel/header/main";
-import StormSidePanelSection from "./storm-epic/side-panel/column/section/main";
-import StormSidePanelSectionTitle from "./storm-epic/side-panel/column/section/title/main";
-import StormSidePanelSectionAdd from "./storm-epic/side-panel/column/section/add/main";
-import StormSidePanelChat from "./storm-epic/side-panel/column/section/chat/main";
+import SidePanelColumn from "./storm-epic/sidebar/column/main";
+import StormSidebarHeader from "./storm-epic/sidebar/header/main";
+import StormSidePanelSection from "./storm-epic/sidebar/column/section/main";
+import StormSidePanelSectionTitle from "./storm-epic/sidebar/column/section/title/main";
+import StormSidePanelSectionAdd from "./storm-epic/sidebar/column/section/add/main";
+import StormSidePanelChat from "./storm-epic/sidebar/column/section/chat/main";
 import StormChatMessages from "./storm-epic/main/chat/messages/main";
 
 export default function Page() {
@@ -69,7 +69,7 @@ export default function Page() {
         </StormMessageInput>
       </StormControllerMain>
       <StormSidePanel>
-        <SidePanelHeader />
+        <StormSidebarHeader />
         <SidePanelColumn>
           <StormSidePanelSection>
             <StormSidePanelSectionTitle>Today</StormSidePanelSectionTitle>

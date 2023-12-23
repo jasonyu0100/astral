@@ -13,21 +13,23 @@ export default function DraftConstellationAdd({
   ...props
 }: DraftConstellationAddProps) {
   return (
-          <Layer
-            sizeStyle="h-[80px] w-[100px]"
-            containerStyle={containerStyles["row-centered"]}
-            borderStyle={borderStyles["border-l"]}
-          >
-          <button {...props}>
-            <Layer
-              sizeStyle="w-[40px] h-[40px]"
-              backgroundStyle={backgroundStyles["glass-10"]}
-              containerStyle={containerStyles["col-centered"]}
-              borderStyle={borderStyles["rounded-full"]}
-            >
-              <DraftAddLgIcon />
-            </Layer>
-          </button>
+    <Layer
+      displayName={DraftConstellationAdd.name}
+      sizeStyle="h-[80px] w-[100px]"
+      containerStyle={containerStyles["row-centered"]}
+      borderStyle={borderStyles["border-l"]}
+    >
+      <button {...props}>
+        <Layer
+          displayName={DraftConstellationAdd.name}
+          sizeStyle="w-[40px] h-[40px]"
+          backgroundStyle={backgroundStyles["glass-10"]}
+          containerStyle={containerStyles["col-centered"]}
+          borderStyle={borderStyles["rounded-full"]}
+        >
+          <DraftAddLgIcon />
         </Layer>
+      </button>
+    </Layer>
   );
 }

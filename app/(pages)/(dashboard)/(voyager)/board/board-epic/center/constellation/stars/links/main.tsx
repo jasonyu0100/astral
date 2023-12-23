@@ -1,4 +1,4 @@
-import { BoardStar } from "@/(pages)/(dashboard)/(apollo)/board/data";
+import { BoardStar } from "@/(pages)/(dashboard)/(voyager)/board/data";
 import { motion } from "framer-motion";
 
 export default function ConstellationLinks({ stars }: { stars: BoardStar[] }) {

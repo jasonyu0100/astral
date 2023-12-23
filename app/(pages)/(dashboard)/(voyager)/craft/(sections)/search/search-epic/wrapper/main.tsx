@@ -7,7 +7,9 @@ export default function SearchWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <Layer sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
+    <Layer 
+      displayName={SearchWrapper.name}
+    sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
       {children}
     </Layer>
   );
