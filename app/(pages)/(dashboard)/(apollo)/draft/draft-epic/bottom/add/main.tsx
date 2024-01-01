@@ -15,7 +15,7 @@ export default function DraftConstellationAdd({
   return (
     <Layer
       displayName={DraftConstellationAdd.name}
-      sizeStyle="h-[80px] w-[100px]"
+      sizeStyle="h-[100px] w-[80px]"
       containerStyle={containerStyles["row-centered"]}
       borderStyle={borderStyles["border-l"]}
     >

@@ -13,9 +13,10 @@ export default function DraftControllerBottomRow({
   return (
     <Layer
       displayName={DraftControllerBottomRow.name}
-      sizeStyle="w-full h-[120px]"
-      containerStyle={containerStyles["row-center"]}
+      sizeStyle="w-full h-[140px]"
+      containerStyle={containerStyles["row"]}
       borderStyle={borderStyles["border-t"]}
+      contentStyle={"pt-[1rem] px-[1rem]"}
     >
       {children}
     </Layer>

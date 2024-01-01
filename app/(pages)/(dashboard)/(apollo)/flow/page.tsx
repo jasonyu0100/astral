@@ -46,10 +46,94 @@ export default function Page() {
 
   return (
     <FlowWrapper>
-
       <FlowController>
         <FlowControllerCenter>
-          <FlowTreeContainer>
+          <div className="flex flex-row bg-white w-full h-full items-center overflow-auto">
+            <div className="flex flex-col bg-red-500 w-[200px] h-full flex-shrink-0 items-center">
+              <div className="flex flex-col justify-evenly items-center bg-yellow-400 w-full h-[150px] border-b border-slate-300">
+                <p className="text-white">OCTOBER</p>
+                <div className="w-full h-[1px] bg-slate-50 flex items-center justify-center">
+                  <div className="w-[25px] h-[25px] bg-slate-50 rounded-full">
+
+                  </div>
+
+                </div>
+              </div>
+              <div className="flex flex-col items-center overflow-auto w-full space-y-[20px] p-[20px]" style={{ height: "100%" }}>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-red-500 w-[200px] h-full flex-shrink-0 items-center">
+              <div className="flex flex-col justify-center items-center bg-yellow-400 w-full h-[150px] border-b border-slate-300">
+                <div className="w-full h-[1px] bg-slate-50">
+
+                </div>
+                <p className="text-white">OCTOBER</p>
+              </div>
+              <div className="flex flex-col items-center overflow-auto w-full space-y-[20px] p-[20px]" style={{ height: "100%" }}>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-red-500 w-[200px] h-full flex-shrink-0 items-center">
+              <div className="flex flex-col justify-center items-center bg-yellow-400 w-full h-[150px] border-b border-slate-300">
+                <div className="w-full h-[1px] bg-slate-50">
+
+                </div>
+                <p className="text-white">OCTOBER</p>
+              </div>
+              <div className="flex flex-col items-center overflow-auto w-full space-y-[20px] p-[20px]" style={{ height: "100%" }}>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-red-500 w-[200px] h-full flex-shrink-0 items-center">
+              <div className="flex flex-col justify-center items-center bg-yellow-400 w-full h-[150px] border-b border-slate-300">
+                <div className="w-full h-[1px] bg-slate-50">
+
+                </div>
+                <p className="text-white">OCTOBER</p>
+              </div>
+              <div className="flex flex-col items-center overflow-auto w-full space-y-[20px] p-[20px]" style={{ height: "100%" }}>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+              </div>
+            </div>
+            <div className="flex flex-col bg-red-500 w-[200px] h-full flex-shrink-0 items-center">
+              <div className="flex flex-col justify-center items-center bg-yellow-400 w-full h-[150px] border-b border-slate-300">
+                <div className="w-full h-[1px] bg-slate-50">
+
+                </div>
+                <p className="text-white">OCTOBER</p>
+              </div>
+              <div className="flex flex-col items-center overflow-auto w-full space-y-[20px] p-[20px]" style={{ height: "100%" }}>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+                <div className="flex flex-col bg-sky-500 w-[100px] h-[120px] flex-shrink-0"></div>
+              </div>
+            </div>
+          </div>
+          {/* <FlowTreeContainer>
             {flowTree.map((branch, i) => (
               <FlowSourceControlBranch>
                 <FlowTreeStem branch={branch} />
@@ -81,7 +165,7 @@ export default function Page() {
                 />
               </FlowTreeLeaves>
             </FlowSourceControlBranch>
-          </FlowTreeContainer>
+          </FlowTreeContainer> */}
         </FlowControllerCenter>
         <FlowControllerBottomRow>
           <FlowControllerConstellationRow>
@@ -92,14 +176,14 @@ export default function Page() {
               />
             ))}
           </FlowControllerConstellationRow>
-            <FlowConstellationAdd
-              onClick={() =>
-                changeConstellations((prev) => [
-                  ...prev,
-                  defaultApolloConstellation,
-                ])
-              }
-            />
+          <FlowConstellationAdd
+            onClick={() =>
+              changeConstellations((prev) => [
+                ...prev,
+                defaultApolloConstellation,
+              ])
+            }
+          />
         </FlowControllerBottomRow>
       </FlowController>
       <FlowSidebar>
@@ -117,13 +201,10 @@ export default function Page() {
         </FlowHeader>
         <FlowSidebarElements>
           {flowSnapshots.map((snapshot) => (
-            <FlowSnapshot
-              src={snapshot.src}
-            />
+            <FlowSnapshot src={snapshot.src} />
           ))}
         </FlowSidebarElements>
       </FlowSidebar>
-
     </FlowWrapper>
   );
 }

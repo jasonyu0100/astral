@@ -14,7 +14,7 @@ export default function FlowConstellationAdd({
   return (
     <Layer
       displayName={FlowConstellationAdd.name}
-      sizeStyle="h-[80px] w-[100px]"
+      sizeStyle="h-[100px] w-[80px]"
       containerStyle={containerStyles["row-centered"]}
       borderStyle={borderStyles["border-l"]}
     >

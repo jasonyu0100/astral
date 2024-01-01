@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export default function RecordLogMedia() {
   return (
-    <div className="w-[500px] h-[600px] bg-white p-[25px]">
+    <div className="w-[450px] h-[600px] bg-white p-[25px] flex-shrink-0">
       <img
         className={clsx(
           "w-[450px] h-[450px] object-contain bg-black",

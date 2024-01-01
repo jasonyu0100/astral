@@ -17,7 +17,6 @@ export default function SeaSidebar({
       containerStyle={containerStyles["col-center"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       contentStyle="overflow-auto space-y-[2rem] p-[1rem]"
-      borderStyle={borderStyles["border-l"]}
     >
       {children}
     </Layer>

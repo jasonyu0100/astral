@@ -16,7 +16,6 @@ export default function DraftSidebar({
       sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      borderStyle={`${borderStyles["border-l"]}`}
       contentStyle="p-[1rem]"
     >
       {children}
