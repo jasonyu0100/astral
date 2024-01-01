@@ -1,5 +1,4 @@
-import { exampleWorks } from "./works/main";
-import { Work, exampleWork } from "./works/work/main";
+import { Work, exampleWork, exampleWorks } from "./work/main";
 
 export const worksModel: {
   works: {

@@ -15,3 +15,5 @@ export const exampleWork = {
     src: "/voyager/works/1.png",
   },
 };
+
+export const exampleWorks: Work[] = [exampleWork];

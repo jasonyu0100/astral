@@ -21,7 +21,7 @@ export const defaultBoardElements: BoardElement[] = [
   { src: "/voyager/board/elements/6.png", name: "Morning", description: "A brilliant morning" },
 ];
 
-export const defaultApolloDraft: VoyagerBoard = {
+export const defaultApolloBoard: VoyagerBoard = {
   elements: defaultBoardElements,
 };
 
@@ -49,7 +49,7 @@ export const defaultBoardStars: BoardStar[] = [
   { x: 240, y: 360, element: defaultBoardElement },
 ];
 
-export const defaultConstellationDraft: ConstellationBoard = {
+export const defaultConstellationBoard: ConstellationBoard = {
   stars: defaultBoardStars,
 };
 
