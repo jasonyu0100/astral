@@ -41,9 +41,9 @@ export default function ConstellationStar({
       style={{ x, y }}
     >
       <div className="w-[80px] h-[80px] bg-black">
-        <img className="w-full h-full" src={star.element.src} />
+        <img className="w-full h-full" src={star.media.src} />
         <p className="w-full text-center font-bold">
-          {star.element.name}
+          {star.media.name}
         </p>
       </div>
     </motion.div>

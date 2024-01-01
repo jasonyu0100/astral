@@ -3,29 +3,29 @@ import { DraftMediaObj, exampleDraftMedia } from "../../context/media/main";
 export interface DraftStarObj {
   x: number;
   y: number;
-  element: DraftMediaObj;
+  media: DraftMediaObj;
 }
 
 export const exampleDraftStar: DraftStarObj = {
   x: 120,
   y: 120,
-  element: exampleDraftMedia,
+  media: exampleDraftMedia,
 };
 
 export const exampleDraftConstellation: DraftStarObj[] = [
   {
     x: 120,
     y: 120,
-    element: exampleDraftMedia,
+    media: exampleDraftMedia,
   },
   {
     x: 240,
     y: 120,
-    element: exampleDraftMedia,
+    media: exampleDraftMedia,
   },
   {
     x: 360,
     y: 120,
-    element: exampleDraftMedia,
+    media: exampleDraftMedia,
   },
 ];

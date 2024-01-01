@@ -19,7 +19,7 @@ export const draftModel: {
   };
   points: {
     point: {
-      constellation: {
+      stars: {
         star: {
           example: DraftStarObj;
         };
@@ -43,7 +43,7 @@ export const draftModel: {
   },
   points: {
     point: {
-      constellation: {
+      stars: {
         star: {
           example: exampleDraftStar,
         },
@@ -54,5 +54,3 @@ export const draftModel: {
     example: [exampleDraftPoint],
   },
 };
-
-export { DraftStarObj };
