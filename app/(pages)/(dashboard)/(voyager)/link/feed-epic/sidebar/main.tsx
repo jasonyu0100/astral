@@ -1,7 +1,6 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import React from "react";
@@ -17,7 +16,7 @@ export default function LinkFeedSidebar({
       sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle="p-[2rem] space-y-[4rem]"
+      contentStyle="py-[1rem]"
     >
       {children}
     </Layer>

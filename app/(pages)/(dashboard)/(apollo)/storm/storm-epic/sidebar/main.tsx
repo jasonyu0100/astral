@@ -21,7 +21,7 @@ export default function StormSidePanel({
       sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="justify-between"
+      contentStyle="justify-between py-[1rem]"
     >
       {children}
     </Layer>

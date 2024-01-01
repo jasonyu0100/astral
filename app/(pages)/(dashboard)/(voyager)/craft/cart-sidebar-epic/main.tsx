@@ -15,14 +15,14 @@ export default function CartSidebar() {
       sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.col}
-      contentStyle="p-[1rem]"
+      contentStyle="py-[1rem]"
     >
       <CartSidebarHeader>
         <CartSidebarHeaderTitle>Cart (10 items)</CartSidebarHeaderTitle>
       </CartSidebarHeader>
       <div
-        className="w-full h-full py-[1rem] flex flex-col overflow-auto"
-        style={{ height: "calc(100% - 120px)" }}
+        className="w-full p-[1rem] flex flex-col overflow-auto"
+        style={{ height: "calc(100%)" }}
       >
         <div className="flex flex-col space-y-[2rem] flex-grow overflow-auto border-b border-slate-200 border-opacity-30">
           <CraftCartItem />
@@ -33,7 +33,7 @@ export default function CartSidebar() {
           <CraftCartItem />
         </div>
       </div>
-      <div className="h-[60px] w-full flex flex-row items-center">
+      <div className="h-[60px] w-full px-[1rem] flex flex-row items-center">
         <Layer
           displayName="Add to Craft"
           sizeStyle="w-full h-full"

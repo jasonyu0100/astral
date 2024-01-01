@@ -5,10 +5,10 @@ function StormHeader() {
   return (
     <Layer 
       displayName={StormHeader.name}
-      sizeStyle="h-[60px] w-full"
+      sizeStyle="h-[50px] w-full"
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}
-      contentStyle="px-[1rem] space-x-[1rem] justify-between"
+      contentStyle="px-[3rem] space-x-[1rem] justify-between"
     >
         <div className="flex flex-row w-1/3">
           <div className="text-white text-md font-bold">Chat GPT-3</div>

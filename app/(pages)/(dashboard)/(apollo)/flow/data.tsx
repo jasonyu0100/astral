@@ -28,35 +28,35 @@ export const defaultApolloFlow: ApolloFlow = {
 // CONSTELLATION
 
 export interface ConstellationFlow {
-  tree: FlowTree;
+  timeline: FlowTimeline;
 }
 
-export type FlowTree = FlowBranch[];
+export type FlowTimeline = FlowPoint[];
 
-export interface FlowBranch {
+export interface FlowPoint {
   date: Date;
-  leaves: FlowLeaf[];
+  snapshots: FlowPointSnapshot[];
 }
 
-export interface FlowLeaf {
+export interface FlowPointSnapshot {
   snapshot: FlowSnapshot;
 }
 
-export const defaultFlowLeaf: FlowLeaf = {
+export const defaultFlowLeaf: FlowPointSnapshot = {
   snapshot: defaultFlowSnapshot,
 };
 
-export const defaultFlowBranch: FlowBranch = {
+export const defaultFlowPoint: FlowPoint = {
   date: new Date("2023-12-19"),
-  leaves: [defaultFlowLeaf, defaultFlowLeaf],
+  snapshots: [defaultFlowLeaf, defaultFlowLeaf],
 };
 
-export const defaultFlowTree: FlowTree = [
-  defaultFlowBranch,
-  defaultFlowBranch,
-  defaultFlowBranch,
+export const defaultFlowTimeline: FlowTimeline = [
+  defaultFlowPoint,
+  defaultFlowPoint,
+  defaultFlowPoint,
 ];
 
 export const defaultConstellationFlow: ConstellationFlow = {
-  tree: defaultFlowTree,
+  timeline: defaultFlowTimeline,
 };

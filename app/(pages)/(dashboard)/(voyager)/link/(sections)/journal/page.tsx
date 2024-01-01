@@ -7,6 +7,7 @@ import LinkFeedSidebar from "../../feed-epic/sidebar/main";
 import LinkFeedSidebarSection from "../../feed-epic/sidebar/section/main";
 import LinkFeedSidebarEntry from "../../feed-epic/sidebar/section/entry/main";
 import LinkFeedWrapper from "../../feed-epic/wrapper/main";
+import LinkRecord from "../../feed-epic/sidebar/record/main";
 
 export default function Page() {
   const [sidebarActive, changeSidebarActive] = useState(true);
@@ -21,16 +22,18 @@ export default function Page() {
         </LinkFeed>
         {sidebarActive && (
           <LinkFeedSidebar>
-            <LinkFeedSidebarSection>
-              <LinkFeedSidebarEntry />
-              <LinkFeedSidebarEntry />
-              <LinkFeedSidebarEntry />
-            </LinkFeedSidebarSection>
-            <LinkFeedSidebarSection>
-              <LinkFeedSidebarEntry />
-              <LinkFeedSidebarEntry />
-              <LinkFeedSidebarEntry />
-            </LinkFeedSidebarSection>
+            <LinkRecord>
+              <LinkFeedSidebarSection>
+                <LinkFeedSidebarEntry />
+                <LinkFeedSidebarEntry />
+                <LinkFeedSidebarEntry />
+              </LinkFeedSidebarSection>
+              <LinkFeedSidebarSection>
+                <LinkFeedSidebarEntry />
+                <LinkFeedSidebarEntry />
+                <LinkFeedSidebarEntry />
+              </LinkFeedSidebarSection>
+            </LinkRecord>
           </LinkFeedSidebar>
         )}
       </LinkFeedWrapper>
