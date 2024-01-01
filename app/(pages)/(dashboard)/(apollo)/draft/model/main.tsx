@@ -1,6 +1,6 @@
 import { DraftContextObj, exampleDraftLibrary } from "./context/main";
 import { DraftMediaObj, exampleDraftMedia } from "./context/media/main";
-import { DraftPointObj } from "./point/main";
+import { DraftPointObj, exampleDraftPoint } from "./point/main";
 import {
   DraftStarObj,
   exampleDraftConstellation,
@@ -10,7 +10,9 @@ import {
 export const draftModel: {
   context: {
     library: {
-      media: DraftMediaObj;
+      media: {
+        example: DraftMediaObj;
+      };
       example: DraftMediaObj[];
     };
     example: DraftContextObj;
@@ -27,7 +29,9 @@ export const draftModel: {
 } = {
   context: {
     library: {
-      media: exampleDraftMedia,
+      media: {
+        example: exampleDraftMedia,
+      },
       example: exampleDraftLibrary,
     },
     example: {
@@ -36,11 +40,11 @@ export const draftModel: {
   },
   point: {
     constellation: {
-      star: { example: exampleDraftStar },
+      star: {
+        example: exampleDraftStar,
+      },
       example: exampleDraftConstellation,
     },
-    example: {
-      constellation: exampleDraftConstellation,
-    },
+    example: exampleDraftPoint,
   },
 };

@@ -1,12 +1,12 @@
-import { FlowMomentObj, exampleFlowMoment } from "./moment/main";
+import {
+  FlowMomentObj,
+  exampleFlowMoments,
+} from "./moment/main";
 
 export interface FlowPointObj {
   timeline: FlowMomentObj[];
 }
 
-
-export const exampleFlowTimeline: FlowMomentObj[] = [
-  exampleFlowMoment,
-  exampleFlowMoment,
-  exampleFlowMoment,
-];
+export const exampleFlowPoint = {
+  timeline: exampleFlowMoments,
+};

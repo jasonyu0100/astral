@@ -70,7 +70,7 @@ export default function Page() {
           <FlowSidebarButtonRow>
             <TopRowAddButton
               onClick={() =>
-                changeFlowSnapshots((prev) => [...prev, flowModel.context.gallery.snapshot])
+                changeFlowSnapshots((prev) => [...prev, flowModel.context.gallery.snapshot.example])
               }
             />
             <TopRowSearchButton />

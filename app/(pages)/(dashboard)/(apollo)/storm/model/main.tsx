@@ -1,17 +1,19 @@
-import { StormContextObj } from "./context/main";
-import { StormChatObj } from "./point/chat/main";
+import { StormContextObj, exampleStormContext } from "./context/main";
+import { StormChatObj, exampleStormChat } from "./point/chat/main";
 import {
   StormMessageObj,
   exampleStormMessages,
   exampleYouMessage,
 } from "./point/chat/message/main";
-import { StormPointObj } from "./point/main";
+import { StormPointObj, exampleStormPoint } from "./point/main";
 
 export const stormModel: {
   context: {
     chat: {
       messages: {
-        message: StormMessageObj;
+        message: {
+          example: StormMessageObj;
+        };
         example: StormMessageObj[];
       };
       example: StormChatObj;
@@ -21,7 +23,9 @@ export const stormModel: {
   point: {
     chat: {
       messages: {
-        message: StormMessageObj;
+        message: {
+          example: StormMessageObj;
+        };
         example: StormMessageObj[];
       };
       example: StormChatObj;
@@ -32,25 +36,25 @@ export const stormModel: {
   context: {
     chat: {
       messages: {
-        message: exampleYouMessage,
+        message: {
+          example: exampleYouMessage,
+        },
         example: exampleStormMessages,
       },
-      example: { messages: exampleStormMessages },
+      example: exampleStormChat,
     },
-    example: {
-      chat: { messages: exampleStormMessages },
-    },
+    example: exampleStormContext,
   },
   point: {
     chat: {
       messages: {
-        message: exampleYouMessage,
+        message: {
+          example: exampleYouMessage,
+        },
         example: exampleStormMessages,
       },
-      example: { messages: exampleStormMessages },
+      example: exampleStormChat,
     },
-    example: {
-      chat: { messages: exampleStormMessages },
-    },
+    example: exampleStormPoint,
   },
 };
