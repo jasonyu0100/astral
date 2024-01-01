@@ -54,3 +54,5 @@ export const draftModel: {
     example: [exampleDraftPoint],
   },
 };
+
+export { DraftStarObj };

@@ -6,22 +6,22 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import DraftAddLgIcon from "../../icons/add-lg/main";
 
-export interface DraftConstellationAddProps
+export interface DraftStepsAddProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function DraftConstellationAdd({
+export default function DraftStepsAdd({
   ...props
-}: DraftConstellationAddProps) {
+}: DraftStepsAddProps) {
   return (
     <Layer
-      displayName={DraftConstellationAdd.name}
+      displayName={DraftStepsAdd.name}
       sizeStyle="h-[100px] w-[80px]"
       containerStyle={containerStyles["row-centered"]}
       borderStyle={borderStyles["border-l"]}
     >
       <button {...props}>
         <Layer
-          displayName={DraftConstellationAdd.name}
+          displayName={DraftStepsAdd.name}
           sizeStyle="w-[40px] h-[40px]"
           backgroundStyle={backgroundStyles["glass-10"]}
           containerStyle={containerStyles["col-centered"]}

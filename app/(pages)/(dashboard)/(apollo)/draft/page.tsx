@@ -4,11 +4,11 @@ import DraftController from "./draft-epic/main";
 import DraftSidebarHeader from "./draft-epic/sidebar/header/main";
 import DraftControllerCenterSection from "./draft-epic/center/main";
 import DraftControllerBottomRow from "./draft-epic/bottom/main";
-import DraftStep from "./draft-epic/bottom/constellations/item/main";
-import DraftControllerSteps from "./draft-epic/bottom/constellations/main";
+import DraftStep from "./draft-epic/bottom/steps/step/main";
+import DraftControllerSteps from "./draft-epic/bottom/steps/main";
 import DraftSidebar from "./draft-epic/sidebar/main";
 import DraftCraftElement from "./draft-epic/sidebar/elements/element/main";
-import DraftConstellationAdd from "./draft-epic/bottom/add/main";
+import DraftStepsAdd from "./draft-epic/bottom/add/main";
 import DraftConstellationSection from "./draft-epic/center/constellation/main";
 import ConstellationLinks from "./draft-epic/center/constellation/stars/links/main";
 import ConstellationStar from "./draft-epic/center/constellation/stars/star/main";
@@ -62,7 +62,7 @@ export default function Page() {
               <DraftStep constellation={constellation} />
             ))}
           </DraftControllerSteps>
-          <DraftConstellationAdd
+          <DraftStepsAdd
             onClick={() =>
               changeSteps((prev) => [
                 ...prev,

@@ -3,8 +3,8 @@
 import FlowController from "./flow-epic/main";
 import FlowControllerCenter from "./flow-epic/center/main";
 import FlowControllerBottomRow from "./flow-epic/bottom/main";
-import FlowStep from "./flow-epic/bottom/constellations/item/main";
-import FlowControllerSteps from "./flow-epic/bottom/constellations/main";
+import FlowStep from "./flow-epic/bottom/steps/step/main";
+import FlowControllerSteps from "./flow-epic/bottom/steps/main";
 import FlowSidebar from "./flow-epic/sidebar/main";
 import FlowConstellationAdd from "./flow-epic/bottom/add/main";
 import { useState } from "react";

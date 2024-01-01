@@ -5,22 +5,22 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import DraftAddLgIcon from "../../icons/add-lg/main";
-export interface FlowConstellationAddProps
+export interface FlowStepsAddProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function FlowConstellationAdd({
+export default function FlowStepsAdd({
   ...props
-}: FlowConstellationAddProps) {
+}: FlowStepsAddProps) {
   return (
     <Layer
-      displayName={FlowConstellationAdd.name}
+      displayName={FlowStepsAdd.name}
       sizeStyle="h-[100px] w-[80px]"
       containerStyle={containerStyles["row-centered"]}
       borderStyle={borderStyles["border-l"]}
     >
       <button {...props}>
         <Layer
-          displayName={FlowConstellationAdd.name}
+          displayName={FlowStepsAdd.name}
           sizeStyle="w-[40px] h-[40px]"
           backgroundStyle={backgroundStyles["glass-10"]}
           containerStyle={containerStyles["col-centered"]}
