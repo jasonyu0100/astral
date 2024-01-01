@@ -1,12 +1,12 @@
 import FlowMomentSnapshot from "./snapshot/main";
 import FlowPointHeader from "./header/main";
 import FlowPointColumm from "./column/main";
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { FlowMomentObj, exampleFlowMoment } from "../../../../model/point/moment/main";
 
 export const FlowMomentContext = createContext(exampleFlowMoment);
 
-export default function FlowTimelineMoment({
+export default function FlowMoment({
   flowMoment,
 }: {
   flowMoment: FlowMomentObj;

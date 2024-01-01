@@ -23,7 +23,7 @@ export const flowModel: {
   };
   points: {
     point: {
-      timeline: {
+      moments: {
         moment: {
           snapshots: {
             snapshot: {
@@ -53,7 +53,7 @@ export const flowModel: {
   },
   points: {
     point: {
-      timeline: {
+      moments: {
         moment: {
           snapshots: {
             snapshot: {
