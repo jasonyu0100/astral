@@ -14,7 +14,6 @@ import DriveFolder from "./drive-epic/folder/main";
 import DriveFolderAdd from "./drive-epic/folder/add/main";
 import { useState } from "react";
 import { CraftFolder, CraftSection } from "../../data";
-import { brandSection } from "../../data/brand/main";
 import DriveWrapper from "./drive-epic/wrapper/main";
 import DriveController from "./drive-epic/main";
 import DriveBreadcrumb from "./drive-epic/breadcrumb/main";
@@ -28,7 +27,7 @@ import DriveFolders from "./drive-epic/folders/main";
 
 export default function Page() {
   const [cartActive, changeCartActive] = useState(true);
-  const [section, changeSection] = useState<CraftSection | null>(brandSection);
+  const [section, changeSection] = useState<CraftSection | null>();
   const [folder, changeFolder] = useState<CraftFolder | null>(null);
 
   return (

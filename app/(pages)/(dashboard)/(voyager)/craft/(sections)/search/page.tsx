@@ -6,8 +6,8 @@ import SearchResults from "./search-epic/results/main";
 import StoreMasonryMedia from "./search-epic/results/media/main";
 import CartSidebar from "../../cart-sidebar-epic/main";
 import { useState } from "react";
-import { craftSearch } from "../../data/main";
 import SearchWrapper from "./search-epic/wrapper/main";
+import { craftModel } from "../../model/main";
 
 export default function Page() {
   const [cartActive, changeCartActive] = useState(true);
@@ -17,7 +17,7 @@ export default function Page() {
       <SearchController>
         <SearchBar />
         <SearchResults>
-          {craftSearch.results.map((craftFile) => (
+          {craftModel.search.results.example.map((craftFile) => (
             <StoreMasonryMedia src={craftFile.src} />
           ))}
         </SearchResults>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { CraftFolder, CraftSection } from "../../data";
-import { brandSection } from "../../data/brand/main";
 import ExploreWrapper from "./explore-epic/wrapper/main";
 import ExploreBreadcrumb from "./explore-epic/breadcrumb/main";
 import ExploreBreadcrumbItem from "./explore-epic/breadcrumb/item/main";
@@ -15,7 +14,7 @@ import ExploreSectionDescription from "./explore-epic/section/description/main";
 import CartSidebar from "../../cart-sidebar-epic/main";
 
 export default function Page() {
-  const [section, changeSection] = useState<CraftSection | null>(brandSection);
+  const [section, changeSection] = useState<CraftSection | null>();
   const [folder, changeFolder] = useState<CraftFolder | null>(null);
   const [cartActive, changeCartActive] = useState(true);
 
