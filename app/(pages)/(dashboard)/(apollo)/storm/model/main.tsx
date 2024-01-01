@@ -20,17 +20,20 @@ export const stormModel: {
     };
     example: StormContextObj;
   };
-  point: {
-    chat: {
-      messages: {
-        message: {
-          example: StormMessageObj;
+  points: {
+    point: {
+      chat: {
+        messages: {
+          message: {
+            example: StormMessageObj;
+          };
+          example: StormMessageObj[];
         };
-        example: StormMessageObj[];
+        example: StormChatObj;
       };
-      example: StormChatObj;
+      example: StormPointObj;
     };
-    example: StormPointObj;
+    example: StormPointObj[];
   };
 } = {
   context: {
@@ -45,16 +48,19 @@ export const stormModel: {
     },
     example: exampleStormContext,
   },
-  point: {
-    chat: {
-      messages: {
-        message: {
-          example: exampleYouMessage,
+  points: {
+    point: {
+      chat: {
+        messages: {
+          message: {
+            example: exampleYouMessage,
+          },
+          example: exampleStormMessages,
         },
-        example: exampleStormMessages,
+        example: exampleStormChat,
       },
-      example: exampleStormChat,
+      example: exampleStormPoint,
     },
-    example: exampleStormPoint,
+    example: [exampleStormPoint],
   },
 };

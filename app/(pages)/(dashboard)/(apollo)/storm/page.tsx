@@ -24,7 +24,7 @@ import { StormMessageObj, examplePartnerMessage, exampleYouMessage } from "./mod
 import { stormModel } from "./model/main";
 
 export default function Page() {
-  const [messages, changeMessages] = useState<StormMessageObj[]>(stormModel.point.chat.messages.example);
+  const [messages, changeMessages] = useState<StormMessageObj[]>(stormModel.points.point.chat.messages.example);
   const [message, changeMessage] = useState("dsadsadsa");
 
   return (

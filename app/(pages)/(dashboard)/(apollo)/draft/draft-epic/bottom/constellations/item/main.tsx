@@ -3,21 +3,21 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/model/main";
+import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/model/process/step/main";
 
-export interface DraftConstellationProps
+export interface DraftStepProps
   extends React.ComponentPropsWithoutRef<"button"> {
   constellation: ProcessStepObj;
 }
 
-export default function DraftConstellation({
+export default function DraftStep({
   constellation,
   ...props
-}: DraftConstellationProps) {
+}: DraftStepProps) {
   return (
     <button {...props}>
       <Layer
-        displayName={DraftConstellation.name}
+        displayName={DraftStep.name}
         sizeStyle="w-[80px] h-[100px]"
         backgroundStyle={backgroundStyles["glass-10"]}
         containerStyle={containerStyles["row-centered"]}

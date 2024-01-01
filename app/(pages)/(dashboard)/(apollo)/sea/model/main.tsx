@@ -5,14 +5,20 @@ export const seaModal: {
   context: {
     example: SeaContextObj;
   };
-  point: {
-    example: SeaPointObj;
+  points: {
+    point: {
+      example: SeaPointObj;
+    };
+    example: SeaPointObj[];
   };
 } = {
   context: {
     example: {},
   },
-  point: {
-    example: {},
+  points: {
+    point: {
+      example: {},
+    },
+    example: [],
   },
 };

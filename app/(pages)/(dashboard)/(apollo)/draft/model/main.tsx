@@ -17,14 +17,17 @@ export const draftModel: {
     };
     example: DraftContextObj;
   };
-  point: {
-    constellation: {
-      star: {
-        example: DraftStarObj;
+  points: {
+    point: {
+      constellation: {
+        star: {
+          example: DraftStarObj;
+        };
+        example: DraftStarObj[];
       };
-      example: DraftStarObj[];
+      example: DraftPointObj;
     };
-    example: DraftPointObj;
+    example: DraftPointObj[];
   };
 } = {
   context: {
@@ -38,13 +41,16 @@ export const draftModel: {
       library: exampleDraftLibrary,
     },
   },
-  point: {
-    constellation: {
-      star: {
-        example: exampleDraftStar,
+  points: {
+    point: {
+      constellation: {
+        star: {
+          example: exampleDraftStar,
+        },
+        example: exampleDraftConstellation,
       },
-      example: exampleDraftConstellation,
+      example: exampleDraftPoint,
     },
-    example: exampleDraftPoint,
+    example: [exampleDraftPoint],
   },
 };

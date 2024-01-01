@@ -1,4 +1,4 @@
-export default function DraftControllerConstellationRow({
+export default function DraftControllerSteps({
   children,
 }: {
   children: React.ReactNode;

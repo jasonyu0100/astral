@@ -1,4 +1,4 @@
-export default function FlowControllerConstellationRow({
+export default function FlowControllerSteps({
   children,
 }: {
   children: React.ReactNode;

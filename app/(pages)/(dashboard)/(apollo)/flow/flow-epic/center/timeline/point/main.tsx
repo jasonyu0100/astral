@@ -6,7 +6,7 @@ import { FlowMomentObj, exampleFlowMoment } from "../../../../model/point/moment
 
 export const FlowMomentContext = createContext(exampleFlowMoment);
 
-export default function FlowTimelinePoint({
+export default function FlowTimelineMoment({
   flowMoment,
 }: {
   flowMoment: FlowMomentObj;

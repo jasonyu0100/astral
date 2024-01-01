@@ -4,8 +4,8 @@ import DraftController from "./draft-epic/main";
 import DraftSidebarHeader from "./draft-epic/sidebar/header/main";
 import DraftControllerCenterSection from "./draft-epic/center/main";
 import DraftControllerBottomRow from "./draft-epic/bottom/main";
-import DraftConstellation from "./draft-epic/bottom/constellations/item/main";
-import DraftControllerConstellationRow from "./draft-epic/bottom/constellations/main";
+import DraftStep from "./draft-epic/bottom/constellations/item/main";
+import DraftControllerSteps from "./draft-epic/bottom/constellations/main";
 import DraftSidebar from "./draft-epic/sidebar/main";
 import DraftCraftElement from "./draft-epic/sidebar/elements/element/main";
 import DraftConstellationAdd from "./draft-epic/bottom/add/main";
@@ -22,13 +22,14 @@ import DraftSidebarElements from "./draft-epic/sidebar/elements/main";
 import DraftSidebarButtonRow from "./draft-epic/sidebar/header/button-row/main";
 import DraftSidebarHeaderTitle from "./draft-epic/sidebar/header/title/main";
 import { draftModel } from "./model/main";
+import { processModel } from "../model/main";
 
 export default function Page() {
-  const [constellations, changeConstellations] = useState(
-    draftModel.point.constellation.example
+  const [steps, changeSteps] = useState(
+    processModel.process.steps.example
   );
-  const [draftElements, changeDraftElements] = useState(draftModel.context.library.example);
-  const [draftStars, changeDraftStars] = useState(draftModel.point.constellation.example);
+  const [media, changeMedia] = useState(draftModel.context.library.example);
+  const [draftStars, changeDraftStars] = useState(draftModel.points.point.constellation.example);
   const constraintsRef = useRef(null);
 
   return (
@@ -56,16 +57,16 @@ export default function Page() {
           </DraftConstellationSection>
         </DraftControllerCenterSection>
         <DraftControllerBottomRow>
-          <DraftControllerConstellationRow>
-            {constellations.map((constellation) => (
-              <DraftConstellation constellation={constellation} />
+          <DraftControllerSteps>
+            {steps.map((constellation) => (
+              <DraftStep constellation={constellation} />
             ))}
-          </DraftControllerConstellationRow>
+          </DraftControllerSteps>
           <DraftConstellationAdd
             onClick={() =>
-              changeConstellations((prev) => [
+              changeSteps((prev) => [
                 ...prev,
-                draftModel.point.constellation.star.example,
+                processModel.process.steps.step.example
               ])
             }
           />
@@ -77,7 +78,7 @@ export default function Page() {
           <DraftSidebarButtonRow>
             <TopRowAddButton
               onClick={() =>
-                changeDraftElements((prev) => [...prev, draftModel.context.library.media])
+                changeMedia((prev) => [...prev, draftModel.context.library.media.example])
               }
             />
             <TopRowSearchButton />
@@ -85,7 +86,7 @@ export default function Page() {
           </DraftSidebarButtonRow>
         </DraftSidebarHeader>
         <DraftSidebarElements>
-          {draftElements.map((draftElement) => (
+          {media.map((draftElement) => (
             <DraftCraftElement
               src={draftElement.src}
               onClick={() =>

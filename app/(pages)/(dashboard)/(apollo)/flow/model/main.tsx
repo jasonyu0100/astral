@@ -9,10 +9,7 @@ import {
   exampleFlowMoments,
   exampleFlowMoment,
 } from "./point/moment/main";
-import {
-  FlowPointObj,
-  exampleFlowPoint,
-} from "./point/main";
+import { FlowPointObj, exampleFlowPoint } from "./point/main";
 
 export const flowModel: {
   context: {
@@ -24,20 +21,23 @@ export const flowModel: {
     };
     example: FlowContextObj;
   };
-  point: {
-    timeline: {
-      moment: {
-        snapshots: {
-          snapshot: {
-            example: FlowSnapshotObj;
+  points: {
+    point: {
+      timeline: {
+        moment: {
+          snapshots: {
+            snapshot: {
+              example: FlowSnapshotObj;
+            };
+            example: FlowSnapshotObj[];
           };
-          example: FlowSnapshotObj[];
+          example: FlowMomentObj;
         };
-        example: FlowMomentObj;
+        example: FlowMomentObj[];
       };
-      example: FlowMomentObj[];
+      example: FlowPointObj;
     };
-    example: FlowPointObj;
+    example: FlowPointObj[];
   };
 } = {
   context: {
@@ -51,19 +51,22 @@ export const flowModel: {
       gallery: exampleFlowGallery,
     },
   },
-  point: {
-    timeline: {
-      moment: {
-        snapshots: {
-          snapshot: {
-            example: exampleFlowSnapshot,
+  points: {
+    point: {
+      timeline: {
+        moment: {
+          snapshots: {
+            snapshot: {
+              example: exampleFlowSnapshot,
+            },
+            example: exampleFlowGallery,
           },
-          example: exampleFlowGallery,
+          example: exampleFlowMoment,
         },
-        example: exampleFlowMoment,
+        example: exampleFlowMoments,
       },
-      example: exampleFlowMoments,
+      example: exampleFlowPoint,
     },
-    example: exampleFlowPoint,
+    example: [exampleFlowPoint]
   },
 };

@@ -24,10 +24,10 @@ export const exampleProcessStep = {
     name: "Melody",
     description: "This is a description",
     points: {
-        stormPoint: stormModel.point.example,
-        draftPoint: draftModel.point.example,
-        flowPoint: flowModel.point.example,
-        seaPoint: seaModal.point.example,
+        stormPoint: stormModel.points.point.example,
+        draftPoint: draftModel.points.point.example,
+        flowPoint: flowModel.points.point.example,
+        seaPoint: seaModal.points.point.example,
     }
 }
 
