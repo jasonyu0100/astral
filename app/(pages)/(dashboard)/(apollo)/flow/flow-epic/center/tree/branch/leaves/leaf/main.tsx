@@ -1,8 +1,8 @@
 import Layer from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import { FlowPointSnapshot } from "@/(pages)/(dashboard)/(apollo)/flow/data";
+import { FlowPointSnapshotObj } from "@/(pages)/(dashboard)/(apollo)/flow/model/main";
 
-export default function FlowTreeLeaf({ leaf }: { leaf: FlowPointSnapshot }) {
+export default function FlowTreeLeaf({ leaf }: { leaf: FlowPointSnapshotObj }) {
   return (
     <Layer
       displayName={FlowTreeLeaf.name}

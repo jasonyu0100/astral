@@ -13,12 +13,6 @@ import StormMessageInputRight from "./storm-epic/main/input/right/main";
 import StormMessageInputSend from "./storm-epic/main/input/right/send/main";
 import StormMessageInputVoice from "./storm-epic/main/input/right/voice/main";
 import { useState } from "react";
-import {
-  Message,
-  defaultMessages,
-  defaultPartnerMessage,
-  defaultYouMessage,
-} from "./data";
 import SidePanelColumn from "./storm-epic/sidebar/column/main";
 import StormSidebarHeader from "./storm-epic/sidebar/header/main";
 import StormSidePanelSection from "./storm-epic/sidebar/column/section/main";
@@ -26,9 +20,11 @@ import StormSidePanelSectionTitle from "./storm-epic/sidebar/column/section/titl
 import StormSidePanelSectionAdd from "./storm-epic/sidebar/column/section/add/main";
 import StormSidePanelChat from "./storm-epic/sidebar/column/section/chat/main";
 import StormChatMessages from "./storm-epic/main/chat/messages/main";
+import { StormMessageObj, examplePartnerMessage, exampleYouMessage } from "./model/point/chat/message/main";
+import { stormModel } from "./model/main";
 
 export default function Page() {
-  const [messages, changeMessages] = useState<Message[]>(defaultMessages);
+  const [messages, changeMessages] = useState<StormMessageObj[]>(stormModel.point.chat.messages.example);
   const [message, changeMessage] = useState("dsadsadsa");
 
   return (
@@ -61,8 +57,8 @@ export default function Page() {
             <StormMessageInputVoice />
             <StormMessageInputSend
               onClick={(e) => {
-                changeMessages((prev) => [...prev, defaultYouMessage]);
-                changeMessages((prev) => [...prev, defaultPartnerMessage]);
+                changeMessages((prev) => [...prev, exampleYouMessage]);
+                changeMessages((prev) => [...prev, examplePartnerMessage]);
               }}
             />
           </StormMessageInputRight>

@@ -17,26 +17,18 @@ import { motion } from "framer-motion";
 import TopRowAddButton from "./draft-epic/sidebar/header/button-row/button/add/main";
 import TopRowSearchButton from "./draft-epic/sidebar/header/button-row/button/search/main";
 import DraftLoomButton from "./draft-epic/sidebar/header/button-row/button/loom/main";
-import {
-  defaultDraftElement,
-  defaultDraftElements,
-  defaultDraftStars,
-} from "./data";
-import {
-  defaultApolloConstellation,
-  defaultApolloConstellations,
-} from "../data";
 import DraftWrapper from "./draft-epic/wrapper/main";
 import DraftSidebarElements from "./draft-epic/sidebar/elements/main";
 import DraftSidebarButtonRow from "./draft-epic/sidebar/header/button-row/main";
 import DraftSidebarHeaderTitle from "./draft-epic/sidebar/header/title/main";
+import { draftModel } from "./model/main";
 
 export default function Page() {
   const [constellations, changeConstellations] = useState(
-    defaultApolloConstellations
+    draftModel.point.constellation.example
   );
-  const [draftElements, changeDraftElements] = useState(defaultDraftElements);
-  const [draftStars, changeDraftStars] = useState(defaultDraftStars);
+  const [draftElements, changeDraftElements] = useState(draftModel.context.library.example);
+  const [draftStars, changeDraftStars] = useState(draftModel.point.constellation.example);
   const constraintsRef = useRef(null);
 
   return (
@@ -73,7 +65,7 @@ export default function Page() {
             onClick={() =>
               changeConstellations((prev) => [
                 ...prev,
-                defaultApolloConstellation,
+                draftModel.point.constellation.star.example,
               ])
             }
           />
@@ -85,7 +77,7 @@ export default function Page() {
           <DraftSidebarButtonRow>
             <TopRowAddButton
               onClick={() =>
-                changeDraftElements((prev) => [...prev, defaultDraftElement])
+                changeDraftElements((prev) => [...prev, draftModel.context.library.media])
               }
             />
             <TopRowSearchButton />

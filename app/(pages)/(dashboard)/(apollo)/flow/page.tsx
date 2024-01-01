@@ -9,18 +9,10 @@ import FlowSidebar from "./flow-epic/sidebar/main";
 import FlowConstellationAdd from "./flow-epic/bottom/add/main";
 import { useState } from "react";
 import {
-  FlowTimeline,
-  defaultFlowPoint,
-  defaultFlowLeaf,
-  defaultFlowSnapshot,
-  defaultFlowSnapshots,
-  defaultFlowTimeline,
-} from "./data";
-import {
-  ApolloConstellation,
-  defaultApolloConstellation,
-  defaultApolloConstellations,
-} from "../data";
+  ProcessStepObj,
+  defaultRegion,
+  defaultRegions,
+} from "../model/main";
 import FlowWrapper from "./flow-epic/wrapper/main";
 import FlowSidebarHeaderTitle from "./flow-epic/sidebar/header/title/main";
 import FlowSidebarButtonRow from "./flow-epic/sidebar/header/button-row/main";
@@ -32,24 +24,25 @@ import FlowHeader from "./flow-epic/sidebar/header/main";
 import FlowLoomButton from "./flow-epic/sidebar/header/button-row/button/loom/main";
 import FlowTimelinePoint from "./flow-epic/center/timeline/point/main";
 import FlowTimelineView from "./flow-epic/center/timeline/main";
+import { flowModel } from "./model/main";
+import { FlowMomentObj } from "./model/point/moment/main";
 
 export default function Page() {
-  const [flowTree, changeFlowTree] = useState<FlowTimeline>(defaultFlowTimeline);
+  const [flowMoments, changeFlowMoments] =
+    useState<FlowMomentObj[]>(flowModel.point.timeline.example);
   const [constellations, changeConstellations] = useState<
-    ApolloConstellation[]
-  >(defaultApolloConstellations);
-  const [flowSnapshots, changeFlowSnapshots] = useState(defaultFlowSnapshots);
+    ProcessStepObj[]
+  >(defaultRegions);
+  const [flowSnapshots, changeFlowSnapshots] = useState(flowModel.context.gallery.example);
 
   return (
     <FlowWrapper>
       <FlowController>
         <FlowControllerCenter>
           <FlowTimelineView>
-            <FlowTimelinePoint />
-            <FlowTimelinePoint />
-            <FlowTimelinePoint />
-            <FlowTimelinePoint />
-            <FlowTimelinePoint />
+            {flowMoments.map((flowMoment) => (
+              <FlowTimelinePoint flowMoment={flowMoment} />
+            ))}
           </FlowTimelineView>
         </FlowControllerCenter>
         <FlowControllerBottomRow>
@@ -65,7 +58,7 @@ export default function Page() {
             onClick={() =>
               changeConstellations((prev) => [
                 ...prev,
-                defaultApolloConstellation,
+                defaultRegion,
               ])
             }
           />
@@ -77,7 +70,7 @@ export default function Page() {
           <FlowSidebarButtonRow>
             <TopRowAddButton
               onClick={() =>
-                changeFlowSnapshots((prev) => [...prev, defaultFlowSnapshot])
+                changeFlowSnapshots((prev) => [...prev, flowModel.context.gallery.snapshot])
               }
             />
             <TopRowSearchButton />

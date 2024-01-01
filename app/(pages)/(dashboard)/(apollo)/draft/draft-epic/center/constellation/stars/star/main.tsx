@@ -1,6 +1,6 @@
 import { MutableRefObject } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { DraftStar } from "@/(pages)/(dashboard)/(apollo)/draft/data";
+import { DraftStarObj } from "@/(pages)/(dashboard)/(apollo)/draft/model/main";
 
 export default function ConstellationStar({
   constraintsRef,
@@ -8,7 +8,7 @@ export default function ConstellationStar({
   updateStar,
 }: {
   constraintsRef: MutableRefObject<null>;
-  star: DraftStar;
+  star: DraftStarObj;
   updateStar: (star: Object) => void;
 }) {
   const x = useMotionValue(star.x);

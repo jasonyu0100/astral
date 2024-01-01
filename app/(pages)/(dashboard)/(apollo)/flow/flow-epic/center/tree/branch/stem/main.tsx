@@ -1,6 +1,6 @@
-import { FlowPoint, FlowPointSnapshot } from "@/(pages)/(dashboard)/(apollo)/flow/data";
+import { FlowPointObj, FlowPointSnapshotObj } from "@/(pages)/(dashboard)/(apollo)/flow/model/main";
 
-export default function FlowTreeStem({ branch }: { branch: FlowPoint }) {
+export default function FlowTreeStem({ branch }: { branch: FlowPointObj }) {
   return (
     <div className="relative flex-shrink-0 w-[70px] h-[150px]">
       <p className="absolute text-white left-[-45px] bottom-[65px] -rotate-90 font-bold text-sm w-[150px] text-center">

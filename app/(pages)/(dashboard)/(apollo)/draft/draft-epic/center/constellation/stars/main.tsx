@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ConstellationStar from "./star/main";
 import ConstellationLinks from "./links/main";
-import { defaultDraftStars } from "@/(pages)/(dashboard)/(apollo)/draft/data";
+import { defaultDraftStars } from "@/(pages)/(dashboard)/(apollo)/draft/model/main";
 
 export default function ConstellationStars({}) {
   const constraintsRef = useRef(null);

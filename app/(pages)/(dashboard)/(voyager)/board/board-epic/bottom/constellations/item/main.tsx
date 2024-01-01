@@ -3,11 +3,11 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { ApolloConstellation } from "@/(pages)/(dashboard)/(apollo)/data";
+import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/model/main";
 
 export interface BoardConstellationProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  constellation: ApolloConstellation;
+  constellation: ProcessStepObj;
 }
 
 export default function BoardConstellation({
