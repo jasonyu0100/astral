@@ -5,7 +5,7 @@ import { TabOne } from "./tab-1/main";
 import { TabsRow } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/main";
 import { Tabs } from "@/(pages)/(dashboard)/(common)/tabs/main";
 
-interface ApolloTabProps {
+interface ProcessTabProps {
   tab?: string;
 }
 
@@ -16,7 +16,7 @@ export enum ProcessTabStage {
   Sea = "Sea",
 }
 
-export function ApolloTabs({ tab }: ApolloTabProps) {
+export function ProcessTabs({ tab }: ProcessTabProps) {
   return (
     <Tabs>
       <TabsRow>
