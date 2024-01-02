@@ -1,4 +1,5 @@
 "use client";
+import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
 import { useEffect, useRef, useState } from "react";
 
 export function HelloLanding() {
@@ -95,7 +96,7 @@ export function HelloLanding() {
           </div>
         </div>
         <div className="flex flex-col">
-          <a className="w-[550px] h-[80px] border border-slate-50 flex justify-center items-center cursor-pointer" href="/works/now">
+          <a className="w-[550px] h-[80px] border border-slate-50 flex justify-center items-center cursor-pointer" href={worksMap.works.now.link}>
             <p className="text-white text-2xl font-bold leading-7">
               ENTER
             </p>

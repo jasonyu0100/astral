@@ -1,11 +1,13 @@
 "use client";
 
+import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
+
 export function RecordAlbum() {
   return (
     <div className="flex flex-col items-center justify-center">
       <a
         className="flex flex-col space-y-[1rem] items-center"
-        href="/works/now"
+        href={worksMap.works.now.link}
       >
         <div className="w-[150px] h-[150px] bg-white flex justify-center items-center  mt-[1rem]">
           <div className="w-[125px] h-[125px] bg-black">

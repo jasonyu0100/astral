@@ -1,4 +1,5 @@
 "use client";
+import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
 import { useEffect, useState } from "react";
 
 export interface HelloFormProps {
@@ -95,7 +96,7 @@ export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProp
           </select>
         </div>
       </div>
-      <a className="w-[550px] h-[75px] bg-slate-950 flex flex-col justify-center items-center mt-auto" href="/works/now">
+      <a className="w-[550px] h-[75px] bg-slate-950 flex flex-col justify-center items-center mt-auto" href={worksMap.works.now.link}>
         <div className="text-center text-white text-3xl font-bold leading-9">
           RESERVE
         </div>

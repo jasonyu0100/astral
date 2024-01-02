@@ -1,11 +1,12 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
 import { WorksTabs } from "../../tabs/main";
+import { WorkType } from "../../view";
 
-export function WorksThenLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <WorksTabs tab={"Then"} />
+      <WorksTabs tab={WorkType.Then} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

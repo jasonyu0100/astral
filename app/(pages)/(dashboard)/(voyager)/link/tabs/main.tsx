@@ -4,6 +4,7 @@ import { TabThree } from "./tab-3/main";
 import { TabsRow } from "../../../(common)/tabs/tabs-row/main";
 import { Tabs } from "../../../(common)/tabs/main";
 import { TabsBackButton } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/back-button/main";
+import { worksMap } from "../../works/map";
 
 interface StoryTabProps {
   tab?: string;
@@ -12,7 +13,7 @@ interface StoryTabProps {
 export function StoryTabs({ tab } : StoryTabProps) {
   return (
     <Tabs>
-      <TabsBackButton href="/works/now" />
+      <TabsBackButton href={worksMap.works.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
         <TabTwo tab={tab} />
