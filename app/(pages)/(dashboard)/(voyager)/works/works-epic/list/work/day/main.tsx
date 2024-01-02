@@ -1,7 +1,3 @@
-"use client";
-
-import Image from "next/image";
-
 export function WorkDay() {
   return (
     <div className="flex items-center w-[250px]">

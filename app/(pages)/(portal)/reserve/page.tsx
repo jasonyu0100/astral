@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { HelloForm } from "./form";
 
@@ -88,11 +87,9 @@ export function HelloLanding() {
               initial="flash"
               animate={imageState}
             >
-              <Image
-                alt="test"
+              <img
                 src={`/landing/${categories[categoryIndex]}-${variant}.png`}
-                width={550}
-                height={550}
+                className="w-[550px] h-[550px]"
               />
             </motion.div>
             <div className="w-[550px] h-[550px] bg-slate-200" />

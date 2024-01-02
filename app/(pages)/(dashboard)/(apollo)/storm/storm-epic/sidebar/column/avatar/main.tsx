@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export function StormSidePanelAvatar() {
   return (
     <div className="h-[50px] w-[50px] flex-shrink-0">

@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export function HelloLanding() {
@@ -72,7 +71,7 @@ export function HelloLanding() {
   return (
     <div className="w-screen h-screen relative flex flex-col justify-center items-center bg-gradient-to-b from-violet-950 to-slate-950">
       <div className="w-[650px] h-[770px] relative bg-gradient-to-b from-slate-950 to-violet-900 shadow-2xl flex flex-col justify-center items-center space-y-[75px]">
-        <Image alt="test" src={`/brand/logo.png`} width={500} height={500} />
+        <img src={`/brand/logo.png`} className="w-[500px] h-[500px]" />
         <div className="flex flex-col space-y-[25px]">
           <div className="w-[550px] h-[50px] border-b border-slate-50 ">
             <input
