@@ -4,7 +4,7 @@ export function DriveFolders({
   children: React.ReactNode;
 }) {
   return (
-    <div className="w-full flex flex-row flex-wrap items-center py-[50px] gap-[50px]">
+    <div className="w-full flex flex-row flex-wrap items-center gap-[50px]">
       {children}
     </div>
   );

@@ -6,7 +6,7 @@ export interface ProcessObj {
   contexts: ProcessContextObj;
 }
 
-export const exampleProcessObj = {
-  processSteps: exampleProcessSteps,
+export const exampleProcessObj : ProcessObj = {
+  steps: exampleProcessSteps,
   contexts: exampleProcessContext,
 };

@@ -1,5 +1,9 @@
-export function DriveBreadcrumbItem({children} : {children: React.ReactNode}) {
-    return <div className="text-white text-xl font-extraBold font-['Creato Display'] leading-7">
+export interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
+  children: React.ReactNode;
+}
+
+export function DriveBreadcrumbItem({children, ...props} : InputProps) {
+    return <a className="text-slate-400 text-xl font-extraBold font-['Creato Display'] leading-7" {...props}>
       {children}
-    </div>
+    </a>
 }
