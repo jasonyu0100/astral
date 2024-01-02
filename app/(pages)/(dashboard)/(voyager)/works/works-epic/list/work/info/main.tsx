@@ -1,6 +1,8 @@
+import { processMap } from "@/(pages)/(dashboard)/(apollo)/process/[id]/map";
+
 export function WorkInfo() {
   return (
-    <a className="flex flex-row px-[2rem]" href="/storm">
+    <a className="flex flex-row px-[2rem]">
       <div className="flex justify-end items-center">
         <img className="w-[50px] h-[50px]" src="/voyager/works/think.png" />
       </div>

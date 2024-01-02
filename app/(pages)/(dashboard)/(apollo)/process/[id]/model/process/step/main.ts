@@ -1,11 +1,11 @@
-import { draftModel } from "../../../draft/model/main";
-import { DraftPointObj } from "../../../draft/model/point/main";
-import { flowModel } from "../../../flow/model/main";
-import { FlowPointObj } from "../../../flow/model/point/main";
-import { seaModal } from "../../../sea/model/main";
-import { SeaPointObj } from "../../../sea/model/point/main";
-import { stormModel } from "../../../storm/model/main";
-import { StormPointObj } from "../../../storm/model/point/main";
+import { draftModel } from "../../../(stages)/draft/model/main";
+import { DraftPointObj } from "../../../(stages)/draft/model/point/main";
+import { flowModel } from "../../../(stages)/flow/model/main";
+import { FlowPointObj } from "../../../(stages)/flow/model/point/main";
+import { seaModal } from "../../../(stages)/sea/model/main";
+import { SeaPointObj } from "../../../(stages)/sea/model/point/main";
+import { stormModel } from "../../../(stages)/storm/model/main";
+import { StormPointObj } from "../../../(stages)/storm/model/point/main";
 
 export interface ProcessStepObj {
   id: number;

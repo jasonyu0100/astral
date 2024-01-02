@@ -6,6 +6,13 @@ import { Background } from "@/(pages)/(common)/background/main";
 import { Topbar } from "@/(pages)/(common)/topbar/main";
 import { createContext } from "react";
 
+export enum ProcessStage {
+  Storm = "Storm",
+  Draft = "Draft",
+  Flow = "Flow",
+  Sea = "Sea",
+}
+
 export interface ProcessContextObj {
   processId: string;
 }

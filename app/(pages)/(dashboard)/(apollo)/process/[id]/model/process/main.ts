@@ -2,7 +2,7 @@ import { ProcessContextObj, exampleProcessContext } from "./context/main";
 import { ProcessStepObj, exampleProcessSteps } from "./step/main";
 
 export interface ProcessObj {
-  processSteps: ProcessStepObj[];
+  steps: ProcessStepObj[];
   contexts: ProcessContextObj;
 }
 

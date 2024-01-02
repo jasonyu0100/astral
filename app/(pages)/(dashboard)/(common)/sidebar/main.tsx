@@ -9,6 +9,14 @@ import { IndicatorFive } from "./indicators/indicator-5/main";
 import { SidebarCurrentWork } from "./current-work/main";
 import { SidebarWorkInfo } from "./current-work/info/main";
 
+export enum SidebarIndicatorType {
+  Works = "Works",
+  Craft = "Craft",
+  Board = "Board",
+  Link = "Link",
+  Record = "Record",
+}
+
 export interface SidebarProps {
   indicator?: string;
 }

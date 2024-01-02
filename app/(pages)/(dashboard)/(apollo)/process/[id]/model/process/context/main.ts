@@ -1,11 +1,11 @@
-import { DraftContextObj } from "../../../draft/model/context/main";
-import { draftModel } from "../../../draft/model/main";
-import { FlowContextObj } from "../../../flow/model/context/main";
-import { flowModel } from "../../../flow/model/main";
-import { SeaContextObj } from "../../../sea/model/context/main";
-import { seaModal } from "../../../sea/model/main";
-import { StormContextObj } from "../../../storm/model/context/main";
-import { stormModel } from "../../../storm/model/main";
+import { DraftContextObj } from "../../../(stages)/draft/model/context/main";
+import { draftModel } from "../../../(stages)/draft/model/main";
+import { FlowContextObj } from "../../../(stages)/flow/model/context/main";
+import { flowModel } from "../../../(stages)/flow/model/main";
+import { SeaContextObj } from "../../../(stages)/sea/model/context/main";
+import { seaModal } from "../../../(stages)/sea/model/main";
+import { StormContextObj } from "../../../(stages)/storm/model/context/main";
+import { stormModel } from "../../../(stages)/storm/model/main";
 
 export interface ProcessContextObj {
   stormContext: StormContextObj;
