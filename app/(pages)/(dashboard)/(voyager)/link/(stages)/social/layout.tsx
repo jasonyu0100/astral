@@ -1,15 +1,14 @@
-import { StoryTabs } from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
+import {
+  LinkTabStage,
+  LinkTabs,
+} from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <StoryTabs tab={"Social"} />
+      <LinkTabs tab={LinkTabStage.Social} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

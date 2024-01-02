@@ -3,13 +3,14 @@
 import { Tab } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/main";
 import { TabPurpleShard } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/shard/purple/main";
 import { TabText } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/text/main"
-import { ProcessContext, ProcessStage } from "../../layout";
+import { ProcessContext } from "../../layout";
 import { useContext } from "react";
 import { processMap } from "../../map";
+import { ProcessTabStage } from "../main";
 
 export function TabThree({ tab }: { tab?: string }) {
   const processContext = useContext(ProcessContext);
-  const tabText = ProcessStage.Flow;
+  const tabText = ProcessTabStage.Flow;
   const active = tab === tabText;
 
   return (

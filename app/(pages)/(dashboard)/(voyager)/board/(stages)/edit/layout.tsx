@@ -1,5 +1,5 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import { GalleryTabs } from "../../tabs/main";
+import { BoardTabStage, BoardTabs } from "../../tabs/main";
 
 export default function Layout({
   children,
@@ -8,7 +8,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <GalleryTabs tab="Edit" />
+      <BoardTabs tab={BoardTabStage.Edit} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

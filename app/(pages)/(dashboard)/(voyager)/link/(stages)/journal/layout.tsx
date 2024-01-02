@@ -1,4 +1,4 @@
-import { StoryTabs } from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
+import { LinkTabStage, LinkTabs } from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
@@ -9,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <StoryTabs tab={"Journal"} />
+      <LinkTabs tab={LinkTabStage.Journal} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

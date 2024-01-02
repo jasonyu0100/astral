@@ -1,17 +1,10 @@
 "use client";
 
-import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { DashboardSidebar } from "../../../(common)/sidebar/main";
 import { Background } from "@/(pages)/(common)/background/main";
 import { Topbar } from "@/(pages)/(common)/topbar/main";
+import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
+import { DashboardSidebar } from "../../../(common)/sidebar/main";
 import { createContext } from "react";
-
-export enum ProcessStage {
-  Storm = "Storm",
-  Draft = "Draft",
-  Flow = "Flow",
-  Sea = "Sea",
-}
 
 export interface ProcessContextObj {
   processId: string;

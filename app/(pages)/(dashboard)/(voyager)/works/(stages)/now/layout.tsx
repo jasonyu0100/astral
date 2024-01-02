@@ -1,7 +1,6 @@
-import { WorksTabs } from "../../tabs/main";
+import { WorkTabStages, WorksTabs } from "../../tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import { WorkType } from "../../view";
 
 export default function Layout({
   children,
@@ -10,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <WorksTabs tab={WorkType.Now} />
+      <WorksTabs tab={WorkTabStages.Now} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

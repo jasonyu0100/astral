@@ -2,10 +2,10 @@ import { Tab } from "../../../../(common)/tabs/tabs-row/tab/main";
 import { TabGreenShard } from "../../../../(common)/tabs/tabs-row/tab/shard/green/main";
 import { TabText } from "../../../../(common)/tabs/tabs-row/tab/text/main";
 import { worksMap } from "../../map";
-import { WorkType } from "../../view";
+import { WorkTabStages } from "../main";
 
 export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = WorkType.Then;
+  const tabText = WorkTabStages.Then;
   const active = tab === tabText;
 
   return (

@@ -1,5 +1,5 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import { RecordTabs } from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
+import { RecordTabStage, RecordTabs } from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
 
 export default function Layout({
   children,
@@ -8,7 +8,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <RecordTabs tab={"Cover"} />
+      <RecordTabs tab={RecordTabStage.Cover} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

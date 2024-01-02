@@ -2,9 +2,10 @@ import { TabGreenShard } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/
 import { Tab } from "../../../../(common)/tabs/tabs-row/tab/main";
 import { TabText } from "../../../../(common)/tabs/tabs-row/tab/text/main";
 import { recordMap } from "../../map";
+import { RecordTabStage } from "../main";
 
 export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = "Cover";
+  const tabText = RecordTabStage.Cover;
   const active = tab === tabText;
 
   return (

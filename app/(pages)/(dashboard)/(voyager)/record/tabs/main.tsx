@@ -6,6 +6,11 @@ import { TabThree } from "./tab-3/main";
 import { TabsBackButton } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/back-button/main";
 import { worksMap } from "../../works/map";
 
+export enum RecordTabStage {
+  Label = "Label",
+  Cover = "Cover",
+  Release = "Release",
+}
 interface RecordTabProps {
   tab?: string;
 }

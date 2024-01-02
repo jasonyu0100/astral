@@ -4,15 +4,10 @@ import { WorksList } from "./works-epic/list/main";
 import { WorksContainer } from "./works-epic/main";
 import { WorksHeaderAction } from "./works-epic/header/action/main";
 import { WorksAlbumInfo } from "./works-epic/header/album-info/main";
-
-export enum WorkType {
-  Now = "Now",
-  Then = "Then",
-  All = "All",
-}
+import { WorkTabStages } from "./tabs/main";
 
 export interface WorkViewProps {
-    type: WorkType
+    type: WorkTabStages
 }
 
 export function WorksView({ type } : WorkViewProps) {

@@ -1,6 +1,8 @@
+"use client"
+
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
 import { DashboardBody } from "@/(pages)/(dashboard)/(common)/controller/body/main";
-import { DashboardSidebar } from "../../(common)/sidebar/main";
+import { DashboardSidebar, SidebarIndicatorType } from "../../(common)/sidebar/main";
 
 export default function Layout({
   children,
@@ -9,7 +11,7 @@ export default function Layout({
 }) {
   return (
     <DashboardController>
-      <DashboardSidebar indicator="Craft" />
+      <DashboardSidebar indicator={SidebarIndicatorType.Craft} />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

@@ -6,6 +6,11 @@ import { TabsRow } from "../../../(common)/tabs/tabs-row/main";
 import { TabsBackButton } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/back-button/main";
 import { worksMap } from "../../works/map";
 
+export enum CraftTabStage {
+  Search = "Search",
+  Drive = "Drive",
+  Explore = "Explore",
+}
 interface CraftTabs {
   tab?: string;
 }

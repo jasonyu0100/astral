@@ -1,8 +1,9 @@
-import { WorksView, WorkType } from "../../view";
+import { WorkTabStages } from "../../tabs/main";
+import { WorksView } from "../../view";
 
 export default function Page() {
   return (
-    <WorksView type={WorkType.Then}/>
+    <WorksView type={WorkTabStages.Then}/>
   );
 }
 

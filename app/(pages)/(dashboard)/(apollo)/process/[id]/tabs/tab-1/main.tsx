@@ -4,12 +4,13 @@ import { Tab } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/main";
 import { TabBlueShard } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/shard/blue/main";
 import { TabText } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/tab/text/main";
 import { processMap } from "../../map";
-import { ProcessContext, ProcessStage } from "../../layout";
+import { ProcessContext } from "../../layout";
 import { useContext } from "react";
+import { ProcessTabStage } from "../main";
 
 export function TabOne({ tab }: { tab?: string }) {
   const processContext = useContext(ProcessContext);
-  const tabText = ProcessStage.Storm;
+  const tabText = ProcessTabStage.Storm;
   const active = tab === tabText;
 
   return (

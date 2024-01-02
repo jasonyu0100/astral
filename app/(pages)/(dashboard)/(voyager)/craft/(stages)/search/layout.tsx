@@ -1,4 +1,4 @@
-import { CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
+import { CraftTabStage, CraftTabs } from "@/(pages)/(dashboard)/(voyager)/craft/tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
@@ -9,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <CraftTabs tab={"Search"} />
+      <CraftTabs tab={CraftTabStage.Search} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

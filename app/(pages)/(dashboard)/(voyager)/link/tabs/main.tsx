@@ -6,11 +6,16 @@ import { Tabs } from "../../../(common)/tabs/main";
 import { TabsBackButton } from "@/(pages)/(dashboard)/(common)/tabs/tabs-row/back-button/main";
 import { worksMap } from "../../works/map";
 
-interface StoryTabProps {
+export enum LinkTabStage {
+  Journal = "Journal",
+  Social = "Social",
+  Explore = "Explore"
+}
+interface LinkTabProps {
   tab?: string;
 }
 
-export function StoryTabs({ tab } : StoryTabProps) {
+export function LinkTabs({ tab } : LinkTabProps) {
   return (
     <Tabs>
       <TabsBackButton href={worksMap.works.now.link} />

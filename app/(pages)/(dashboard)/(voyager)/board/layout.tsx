@@ -1,5 +1,7 @@
+"use client"
+
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
-import { DashboardSidebar } from "../../(common)/sidebar/main";
+import { DashboardSidebar, SidebarIndicatorType } from "../../(common)/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
 
 export default function Layout({
@@ -9,7 +11,7 @@ export default function Layout({
 }) {
   return (
     <DashboardController>
-      <DashboardSidebar indicator="Board"/>
+      <DashboardSidebar indicator={SidebarIndicatorType.Board}/>
       <DashboardBody>
         {children}
       </DashboardBody>

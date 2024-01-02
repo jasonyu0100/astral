@@ -4,6 +4,12 @@ import { TabTwo } from "./tab-2/main";
 import { Tabs } from "../../../(common)/tabs/main";
 import { TabsRow } from "../../../(common)/tabs/tabs-row/main";
 
+export enum WorkTabStages {
+  Now = "Now",
+  Then = "Then",
+  All = "All"
+}
+
 interface WorksTabProps {
   tab?: string;
 }

@@ -9,6 +9,13 @@ interface ApolloTabProps {
   tab?: string;
 }
 
+export enum ProcessTabStage {
+  Storm = "Storm",
+  Draft = "Draft",
+  Flow = "Flow",
+  Sea = "Sea",
+}
+
 export function ApolloTabs({ tab }: ApolloTabProps) {
   return (
     <Tabs>
@@ -20,4 +27,4 @@ export function ApolloTabs({ tab }: ApolloTabProps) {
       </TabsRow>
     </Tabs>
   );
-};
+}

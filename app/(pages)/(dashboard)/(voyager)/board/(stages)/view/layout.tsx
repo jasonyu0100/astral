@@ -1,4 +1,4 @@
-import { GalleryTabs } from "../../tabs/main";
+import { BoardTabStage, BoardTabs } from "../../tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 
@@ -9,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <GalleryTabs tab="View" />
+      <BoardTabs tab={BoardTabStage.View} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

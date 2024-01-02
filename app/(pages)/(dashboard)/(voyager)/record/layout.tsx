@@ -1,3 +1,5 @@
+"use client";
+
 import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/main";
 import { DashboardSidebar, SidebarIndicatorType } from "../../(common)/sidebar/main";
 import { DashboardBody } from "../../(common)/controller/body/main";
