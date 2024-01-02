@@ -1,9 +1,10 @@
-import { StormChatObj, exampleStormChat } from "../point/chat/main";
+import { StormChatObj } from "../point/chat/main";
+import { exampleStormChats } from "../point/main";
 
 export interface StormContextObj {
-  chat: StormChatObj;
+  chats: StormChatObj[];
 }
 
 export const exampleStormContext = {
-  chat: exampleStormChat,
+  chats: exampleStormChats,
 };

@@ -1,5 +1,5 @@
-import Tabs from "../../../(common)/tabs/main";
-import TabsRow from "../../../(common)/tabs/tabs-row/main";
+import { Tabs } from "../../../(common)/tabs/main";
+import { TabsRow } from "../../../(common)/tabs/tabs-row/main";
 import { TabTwo } from "./tab-2/main";
 import { TabOne } from "./tab-1/main";
 import { TabThree } from "./tab-3/main";
@@ -9,7 +9,7 @@ interface RecordTabProps {
   tab?: string;
 }
 
-export const RecordTabs: React.FC<RecordTabProps> = ({ tab }) => {
+export function RecordTabs({ tab }: RecordTabProps) {
   return (
     <Tabs>
       <TabsBackButton href="/works/now" />
@@ -20,6 +20,4 @@ export const RecordTabs: React.FC<RecordTabProps> = ({ tab }) => {
       </TabsRow>
     </Tabs>
   );
-};
-
-export default RecordTabs;
+}

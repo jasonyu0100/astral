@@ -1,5 +1,5 @@
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles, containerStyles } from "../../../../(common)/styles/data";
-import Layer from "../../../../(common)/layer/main";
 
 export function DashboardPlayer({ children }: { children: React.ReactNode }) {
   return (

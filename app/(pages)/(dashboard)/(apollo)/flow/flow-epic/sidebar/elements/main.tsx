@@ -1,4 +1,4 @@
-export default function FlowSidebarElements({
+export function FlowSidebarElements({
   children,
 }: {
   children: React.ReactNode;

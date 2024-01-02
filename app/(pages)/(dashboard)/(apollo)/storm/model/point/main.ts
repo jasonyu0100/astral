@@ -1,9 +1,17 @@
 import { StormChatObj, exampleStormChat } from "./chat/main";
 
 export interface StormPointObj {
-  chat: StormChatObj;
+  chats: StormChatObj[];
 }
 
-export const exampleStormPoint = {
-  chat: exampleStormChat,
+export const exampleStormChats: StormChatObj[] = [
+  exampleStormChat
+]
+
+export const exampleStormPoint: StormPointObj = {
+  chats: exampleStormChats,
 };
+
+export const exampleStormPoints: StormPointObj[] = [
+  exampleStormPoint
+]

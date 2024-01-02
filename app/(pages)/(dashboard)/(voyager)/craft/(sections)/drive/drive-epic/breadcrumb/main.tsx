@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function DriveBreadcrumb({  children } : {children: React.ReactNode}) {
+export function DriveBreadcrumb({  children } : {children: React.ReactNode}) {
     return <Layer
             displayName={DriveBreadcrumb.name}
             sizeStyle="w-full h-[4rem]"

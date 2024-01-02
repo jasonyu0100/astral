@@ -1,10 +1,10 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
 
 export interface StormMessageInputTextProps
   extends React.ComponentPropsWithoutRef<"input"> {}
 
-export default function StormMessageInputText({
+export function StormMessageInputText({
   ...props
 }: StormMessageInputTextProps) {
   return (

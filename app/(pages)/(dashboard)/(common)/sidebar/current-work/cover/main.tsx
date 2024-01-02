@@ -1,7 +1,7 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function SidebarWorkCover({ active }: { active: boolean }) {
+export function SidebarWorkCover({ active }: { active: boolean }) {
   return (
     <img
       src="/voyager/record/producer.png"

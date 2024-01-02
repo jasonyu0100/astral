@@ -1,4 +1,4 @@
-import WorksTabs from "../../tabs/main";
+import { WorksTabs } from "../../tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 

@@ -1,11 +1,11 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import React from "react";
 
-export default function ExploreController({
+export function ExploreController({
   children,
 }: {
   children: React.ReactNode;

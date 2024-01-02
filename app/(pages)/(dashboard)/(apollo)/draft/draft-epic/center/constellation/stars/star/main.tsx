@@ -2,7 +2,7 @@ import { MutableRefObject } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { DraftStarObj } from "@/(pages)/(dashboard)/(apollo)/draft/model/point/star/main";
 
-export default function ConstellationStar({
+export function ConstellationStar({
   constraintsRef,
   star,
   updateStar,

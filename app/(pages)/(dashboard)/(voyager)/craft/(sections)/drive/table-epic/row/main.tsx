@@ -1,10 +1,10 @@
 "use client";
-import CraftTableName from "./name/main";
-import CraftTableDescription from "./description/main";
-import CraftTableMedia from "./media/main";
-import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/data";
+import { CraftTableName } from "./name/main";
+import { CraftTableDescription } from "./description/main";
+import { CraftTableMedia } from "./media/main";
+import { CraftFile } from "../../../../model/drive/section/folder/file/main";
 
-export default function TableRow({
+export function TableRow({
   name,
   description,
   src,

@@ -1,4 +1,4 @@
-export default function WorksHeaderTextSub({
+export function WorksHeaderTextSub({
   children,
 }: {
   children: React.ReactNode;

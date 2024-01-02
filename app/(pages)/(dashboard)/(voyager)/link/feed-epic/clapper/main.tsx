@@ -1,4 +1,4 @@
-export default function StoryClapper({
+export function StoryClapper({
   children,
 }: {
   children: React.ReactNode;

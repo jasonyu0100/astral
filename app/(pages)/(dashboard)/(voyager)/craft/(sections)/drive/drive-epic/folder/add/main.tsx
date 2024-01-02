@@ -1,8 +1,8 @@
-import DriveAddIcon from "../../icons/add/main";
+import { DriveAddIcon } from "../../icons/add/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function DriveFolderAdd({ ...props }: InputProps) {
+export function DriveFolderAdd({ ...props }: InputProps) {
   return (
     <div className="w-48 h-56 flex-col justify-center items-start gap-3 inline-flex">
       <button {...props}>

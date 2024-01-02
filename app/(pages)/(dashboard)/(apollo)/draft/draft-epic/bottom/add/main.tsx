@@ -1,15 +1,15 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import DraftAddLgIcon from "../../icons/add-lg/main";
+import { DraftAddLgIcon } from "../../icons/add-lg/main";
 
 export interface DraftStepsAddProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function DraftStepsAdd({
+export function DraftStepsAdd({
   ...props
 }: DraftStepsAddProps) {
   return (

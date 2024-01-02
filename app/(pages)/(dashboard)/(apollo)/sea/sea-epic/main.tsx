@@ -2,9 +2,9 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function SeaController({
+export function SeaController({
   children,
 }: {
   children: React.ReactNode;

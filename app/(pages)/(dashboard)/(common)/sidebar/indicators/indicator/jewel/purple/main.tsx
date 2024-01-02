@@ -1,7 +1,7 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function IndicatorPurpleJewel({
+export function IndicatorPurpleJewel({
   active,
 }: {
   active: boolean;

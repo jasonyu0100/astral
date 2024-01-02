@@ -1,14 +1,14 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import DraftAddLgIcon from "../../icons/add-lg/main";
+import { FlowAddLgIcon } from "../../icons/add-lg/main";
 export interface FlowStepsAddProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function FlowStepsAdd({
+export function FlowStepsAdd({
   ...props
 }: FlowStepsAddProps) {
   return (
@@ -26,7 +26,7 @@ export default function FlowStepsAdd({
           containerStyle={containerStyles["col-centered"]}
           borderStyle={borderStyles["rounded-full"]}
         >
-          <DraftAddLgIcon />
+          <FlowAddLgIcon />
         </Layer>
       </button>
     </Layer>

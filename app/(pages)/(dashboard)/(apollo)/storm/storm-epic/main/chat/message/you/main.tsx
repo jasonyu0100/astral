@@ -1,4 +1,4 @@
-export default function StormYouChatMessage({
+export function StormYouChatMessage({
   children,
 }: {
   children: React.ReactNode;

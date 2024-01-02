@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function WorkInfo() {
+export function WorkInfo() {
   return (
     <a className="flex flex-row px-[2rem]" href="/storm">
       <div className="flex justify-end items-center">

@@ -1,4 +1,4 @@
-export default function DriveFolders({
+export function DriveFolders({
   children,
 }: {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 import { Background } from "@/(pages)/(common)/background/main";
-import Topbar from "../../(common)/topbar/main";
+import { Topbar } from "../../(common)/topbar/main";
 import { DashboardController } from "../(common)/controller/main";
 import { DashboardSidebar } from "../(common)/sidebar/main";
 import { DashboardBody } from "../(common)/controller/body/main";

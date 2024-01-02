@@ -1,4 +1,4 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
@@ -10,7 +10,7 @@ export interface FlowStepProps
   step: ProcessStepObj;
 }
 
-export default function FlowStep({
+export function FlowStep({
   step,
   ...props
 }: FlowStepProps) {

@@ -1,4 +1,4 @@
-export default function SidebarCurrentWork({
+export function SidebarCurrentWork({
   children,
 }: {
   children: React.ReactNode;

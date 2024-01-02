@@ -1,4 +1,4 @@
-export default function GuideLink({
+export function GuideLink({
   children,
 }: {
   children: React.ReactNode;

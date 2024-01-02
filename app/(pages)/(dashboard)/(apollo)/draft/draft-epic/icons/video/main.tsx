@@ -1,4 +1,4 @@
-export default function DraftVideoIcon() {
+export function DraftVideoIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

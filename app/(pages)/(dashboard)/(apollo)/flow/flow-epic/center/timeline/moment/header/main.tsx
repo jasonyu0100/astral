@@ -1,9 +1,9 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import { useContext } from "react";
 import { FlowMomentContext } from "../main";
 
-export default function FlowPointHeader() {
+export function FlowPointHeader() {
   const flowPoint = useContext(FlowMomentContext);
 
   return (

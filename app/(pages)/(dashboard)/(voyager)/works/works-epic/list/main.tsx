@@ -2,9 +2,9 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function WorksList({ children }: { children: React.ReactNode }) {
+export function WorksList({ children }: { children: React.ReactNode }) {
   return (
       <Layer
         sizeStyle="w-full"

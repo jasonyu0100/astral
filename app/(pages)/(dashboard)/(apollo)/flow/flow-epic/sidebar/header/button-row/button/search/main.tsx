@@ -1,11 +1,9 @@
-import FlowSearchIcon from "../../../../../icons/search/main";
+import { FlowSearchIcon } from "../../../../../icons/search/main";
 
 export interface TopRowSearchButtonProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function TopRowSearchButton({
-  ...props
-}: TopRowSearchButtonProps) {
+export function TopRowSearchButton({ ...props }: TopRowSearchButtonProps) {
   return (
     <button {...props}>
       <FlowSearchIcon />

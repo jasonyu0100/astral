@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function StormSidebarHeader() {
+export function StormSidebarHeader() {
   return (
     <div className="flex flex-row items-center flex-shrink-0 w-full px-[1rem] space-x-[2rem] justify-between">
       <p className="text-white font-extraBold text-xl">Conversations</p>

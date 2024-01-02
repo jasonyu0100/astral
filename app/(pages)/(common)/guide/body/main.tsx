@@ -1,4 +1,4 @@
-export default function GuideBody({
+export function GuideBody({
   children,
 }: {
   children: React.ReactNode;

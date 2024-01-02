@@ -1,4 +1,4 @@
-export default function FlowHeader({
+export function FlowHeader({
   children,
 }: {
   children: React.ReactNode;

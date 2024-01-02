@@ -1,4 +1,4 @@
-export default function FlowPointColumm({
+export function FlowPointColumm({
   children,
 }: {
   children: React.ReactNode;

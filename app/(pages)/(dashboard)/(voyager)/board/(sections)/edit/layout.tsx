@@ -1,5 +1,5 @@
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
-import GalleryTabs from "../../tabs/main";
+import { GalleryTabs } from "../../tabs/main";
 
 export default function Layout({
   children,

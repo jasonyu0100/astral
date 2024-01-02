@@ -1,7 +1,7 @@
-import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-function StormHeader() {
+export function StormHeader() {
   return (
     <Layer 
       displayName={StormHeader.name}
@@ -22,5 +22,3 @@ function StormHeader() {
     </Layer>
   );
 }
-
-export default StormHeader;

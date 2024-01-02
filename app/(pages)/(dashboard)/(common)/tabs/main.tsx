@@ -1,4 +1,4 @@
-export default function Tabs({
+export function Tabs({
   children,
 }: {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import RecordTabs from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
+import { RecordTabs } from "@/(pages)/(dashboard)/(voyager)/record/tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 

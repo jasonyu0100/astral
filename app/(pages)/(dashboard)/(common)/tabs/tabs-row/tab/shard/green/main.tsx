@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function TabGreenShard({
+export function TabGreenShard({
   active,
 }: {
   active: boolean;

@@ -1,4 +1,4 @@
-export default function LinkRecord({
+export function LinkRecord({
   children,
 }: {
   children: React.ReactNode;

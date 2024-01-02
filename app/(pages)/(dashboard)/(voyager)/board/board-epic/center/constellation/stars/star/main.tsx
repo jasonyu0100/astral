@@ -2,7 +2,7 @@ import { MutableRefObject } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { BoardStar } from "@/(pages)/(dashboard)/(voyager)/board/data";
 
-export default function ConstellationStar({
+export function ConstellationStar({
   constraintsRef,
   star,
   updateStar,

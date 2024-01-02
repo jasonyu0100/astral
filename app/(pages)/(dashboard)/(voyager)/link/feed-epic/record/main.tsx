@@ -1,11 +1,11 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function StoryRecord({
+export function StoryRecord({
   children,
 }: {
   children: React.ReactNode;

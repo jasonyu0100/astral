@@ -1,4 +1,4 @@
-export default function DraftRecordIcon() {
+export function DraftRecordIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

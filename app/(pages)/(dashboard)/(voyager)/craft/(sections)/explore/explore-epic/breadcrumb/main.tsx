@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function ExploreBreadcrumb({  children } : {children: React.ReactNode}) {
+export function ExploreBreadcrumb({  children } : {children: React.ReactNode}) {
     return <Layer
             displayName={ExploreBreadcrumb.name}
             sizeStyle="w-full h-[4rem]"

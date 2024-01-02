@@ -1,4 +1,4 @@
-export default function RecordLogTitle({
+export function RecordLogTitle({
   children,
 }: {
   children: React.ReactNode;

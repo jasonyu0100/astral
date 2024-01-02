@@ -1,4 +1,4 @@
-export default function TableIcon() {
+export function TableIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

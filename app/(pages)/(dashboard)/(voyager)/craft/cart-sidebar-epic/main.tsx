@@ -1,14 +1,14 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import CraftCartItem from "./item/main";
-import CartSidebarHeader from "./header/main";
-import CartSidebarHeaderTitle from "./header/title/main";
+import { CraftCartItem } from "./item/main";
+import { CartSidebarHeader } from "./header/main";
+import { CartSidebarHeaderTitle } from "./header/title/main";
 
-export default function CartSidebar() {
+export function CartSidebar() {
   return (
     <Layer
       displayName="adsads"

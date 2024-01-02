@@ -1,7 +1,7 @@
 import { borderStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function RecordLogMedia() {
+export function RecordLogMedia() {
   return (
     <div className="w-[450px] h-[600px] bg-white p-[25px] flex-shrink-0">
       <img

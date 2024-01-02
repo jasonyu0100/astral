@@ -6,22 +6,22 @@ import {
   defaultBoardElements,
   defaultBoardStars,
 } from "../../data";
-import BoardController from "../../board-epic/main";
-import BoardControllerCenterSection from "../../board-epic/center/main";
-import BoardSidebar from "../../board-epic/sidebar/main";
-import BoardConstellationSection from "../../board-epic/center/constellation/main";
+import { BoardController } from "../../board-epic/main";
+import { BoardControllerCenterSection } from "../../board-epic/center/main";
+import { BoardSidebar } from "../../board-epic/sidebar/main";
+import { BoardConstellationSection } from "../../board-epic/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
-import ConstellationLinks from "../../board-epic/center/constellation/stars/links/main";
-import BoardWrapper from "../../board-epic/wrapper/main";
-import BoardSidebarHeader from "../../board-epic/sidebar/header/main";
-import BoardSidebarButtonRow from "../../board-epic/sidebar/header/button-row/main";
-import BoardSidebarElements from "../../board-epic/sidebar/elements/main";
-import BoardCraftElement from "../../board-epic/sidebar/elements/element/main";
-import BoardSidebarHeaderTitle from "../../board-epic/sidebar/header/title/main";
-import TopRowSearchButton from "../../board-epic/sidebar/header/button-row/button/search/main";
-import BoardLoomButton from "../../board-epic/sidebar/header/button-row/button/loom/main";
-import TopRowAddButton from "../../board-epic/sidebar/header/button-row/button/add/main";
+import { ConstellationStar } from "../../board-epic/center/constellation/stars/star/main";
+import { ConstellationLinks } from "../../board-epic/center/constellation/stars/links/main";
+import { BoardWrapper } from "../../board-epic/wrapper/main";
+import { BoardSidebarHeader } from "../../board-epic/sidebar/header/main";
+import { BoardSidebarButtonRow } from "../../board-epic/sidebar/header/button-row/main";
+import { BoardSidebarElements } from "../../board-epic/sidebar/elements/main";
+import { BoardCraftElement } from "../../board-epic/sidebar/elements/element/main";
+import { BoardSidebarHeaderTitle } from "../../board-epic/sidebar/header/title/main";
+import { TopRowSearchButton } from "../../board-epic/sidebar/header/button-row/button/search/main";
+import { BoardLoomButton } from "../../board-epic/sidebar/header/button-row/button/loom/main";
+import { TopRowAddButton } from "../../board-epic/sidebar/header/button-row/button/add/main";
 
 export default function Page() {
   const [boardElements, changeBoardElements] = useState(defaultBoardElements);

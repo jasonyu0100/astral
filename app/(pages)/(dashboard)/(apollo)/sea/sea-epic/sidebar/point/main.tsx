@@ -1,7 +1,7 @@
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function SeaPoint({ children }: { children: React.ReactNode }) {
+export function SeaPoint({ children }: { children: React.ReactNode }) {
   return (
     <Layer
       displayName={SeaPoint.name}

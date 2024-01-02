@@ -1,6 +1,6 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function SeaStory({
+export function SeaStory({
   children,
 }: {
   children: React.ReactNode;

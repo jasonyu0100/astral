@@ -1,7 +1,7 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function IndicatorSilverJewel({
+export function IndicatorSilverJewel({
   active,
 }: {
   active: boolean;

@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import ConstellationStar from "./star/main";
-import ConstellationLinks from "./links/main";
+import { ConstellationStar } from "./star/main";
+import { ConstellationLinks } from "./links/main";
 import { defaultBoardStars } from "../../../../data";
 
-export default function ConstellationStars({}) {
+export function ConstellationStars({}) {
   const constraintsRef = useRef(null);
   const [stars, changeStars] = useState(defaultBoardStars);
 

@@ -1,8 +1,8 @@
-import Layer from "@/(pages)/(common)/layer/main";
-import StormAddIcon from "../../icons/add/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
+import { StormAddIcon } from "../../icons/add/main";
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function SidePanelAdd() {
+export function SidePanelAdd() {
   return (
     <div className="flex flex-col items-center justify-center flex-shrink-0 w-full h-[80px]">
       {/* <div className="flex flex-row w-full px-[2rem] items-center space-x-[2rem]">

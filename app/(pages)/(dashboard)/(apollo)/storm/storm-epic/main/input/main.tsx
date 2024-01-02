@@ -1,11 +1,11 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function StormMessageInput({
+export function StormMessageInput({
   children,
 }: {
   children: React.ReactNode;

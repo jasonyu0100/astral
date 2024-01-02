@@ -1,13 +1,13 @@
 "use client";
-import SidebarWorkCover from "./current-work/cover/main";
-import SidebarIndicators from "./indicators/main";
-import IndicatorOne from "./indicators/indicator-1/main";
-import IndicatorThree from "./indicators/indicator-3/main";
-import IndicatorTwo from "./indicators/indicator-2/main";
-import IndicatorFour from "./indicators/indicator-4/main";
-import SidebarRecordIndicator from "./indicators/indicator-5/main";
-import SidebarCurrentWork from "./current-work/main";
-import SidebarWorkInfo from "./current-work/info/main";
+import { SidebarWorkCover } from "./current-work/cover/main";
+import { SidebarIndicators } from "./indicators/main";
+import { IndicatorOne } from "./indicators/indicator-1/main";
+import { IndicatorThree } from "./indicators/indicator-3/main";
+import { IndicatorTwo } from "./indicators/indicator-2/main";
+import { IndicatorFour } from "./indicators/indicator-4/main";
+import { IndicatorFive } from "./indicators/indicator-5/main";
+import { SidebarCurrentWork } from "./current-work/main";
+import { SidebarWorkInfo } from "./current-work/info/main";
 
 export interface SidebarProps {
   indicator?: string;
@@ -26,7 +26,7 @@ export function DashboardSidebar({ indicator }: SidebarProps) {
         <IndicatorTwo indicator={indicator} />
         <IndicatorThree indicator={indicator} />
         <IndicatorFour indicator={indicator} />
-        <SidebarRecordIndicator indicator={indicator} />
+        <IndicatorFive indicator={indicator} />
       </SidebarIndicators>
     </div>
   );

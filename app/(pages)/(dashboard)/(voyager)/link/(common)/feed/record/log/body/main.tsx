@@ -1,4 +1,4 @@
-export default function RecordLogBody({
+export function RecordLogBody({
   children,
 }: {
   children: React.ReactNode;

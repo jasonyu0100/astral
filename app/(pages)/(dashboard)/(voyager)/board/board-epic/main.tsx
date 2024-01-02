@@ -1,11 +1,11 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
   effectStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function BoardController({
+export function BoardController({
   children,
 }: {
   children: React.ReactNode;

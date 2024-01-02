@@ -1,4 +1,4 @@
-export default function DraftSidebarElements({
+export function DraftSidebarElements({
   children,
 }: {
   children: React.ReactNode;

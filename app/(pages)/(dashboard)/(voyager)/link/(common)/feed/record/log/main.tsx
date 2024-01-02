@@ -1,19 +1,10 @@
-import Image from "next/image";
-import RecordLogBody from "./body/main";
-import RecordLogDivider from "./divider/main";
-import RecordLogTitle from "./title/main";
-import Layer from "@/(pages)/(common)/layer/main";
-import clsx from "clsx";
-import {
-  borderStyles,
-  containerStyles,
-  effectStyles,
-} from "@/(pages)/(common)/styles/data";
-import RecordLogMedia from "./media/main";
-import RecordLogInfo from "./info/main";
-import RecordLogDescription from "./description/main";
+import { RecordLogBody } from "./body/main";
+import { RecordLogDivider } from "./divider/main";
+import { RecordLogMedia } from "./media/main";
+import { RecordLogInfo } from "./info/main";
+import { RecordLogDescription } from "./description/main";
 
-export default function StoryRecordLog({
+export function StoryRecordLog({
   children,
 }: {
   children?: React.ReactNode;

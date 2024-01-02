@@ -1,4 +1,4 @@
-export default function BreadCrumb({
+export function BreadCrumb({
   children,
 }: {
   children: React.ReactNode;

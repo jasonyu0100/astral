@@ -1,4 +1,4 @@
-export default function FlowSidebarHeaderTitle({
+export function FlowSidebarHeaderTitle({
   children,
 }: {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-export default function DraftSidebarHeaderTitle({
+export function DraftSidebarHeaderTitle({
   children,
 }: {
   children: React.ReactNode;

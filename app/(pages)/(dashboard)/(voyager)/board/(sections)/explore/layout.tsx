@@ -1,4 +1,4 @@
-import GalleryTabs from "../../tabs/main";
+import { GalleryTabs } from "../../tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 

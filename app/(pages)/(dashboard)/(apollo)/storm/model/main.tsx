@@ -5,23 +5,16 @@ import {
   exampleStormMessages,
   exampleYouMessage,
 } from "./point/chat/message/main";
-import { StormPointObj, exampleStormPoint } from "./point/main";
+import {
+  StormPointObj,
+  exampleStormChats,
+  exampleStormPoint,
+  exampleStormPoints,
+} from "./point/main";
 
 export const stormModel: {
   context: {
-    chat: {
-      messages: {
-        message: {
-          example: StormMessageObj;
-        };
-        example: StormMessageObj[];
-      };
-      example: StormChatObj;
-    };
-    example: StormContextObj;
-  };
-  points: {
-    point: {
+    chats: {
       chat: {
         messages: {
           message: {
@@ -31,25 +24,31 @@ export const stormModel: {
         };
         example: StormChatObj;
       };
+      example: StormChatObj[];
+    };
+    example: StormContextObj;
+  };
+  points: {
+    point: {
+      chats: {
+        chat: {
+          messages: {
+            message: {
+              example: StormMessageObj;
+            };
+            example: StormMessageObj[];
+          };
+          example: StormChatObj;
+        };
+        example: StormChatObj[];
+      };
       example: StormPointObj;
     };
     example: StormPointObj[];
   };
 } = {
   context: {
-    chat: {
-      messages: {
-        message: {
-          example: exampleYouMessage,
-        },
-        example: exampleStormMessages,
-      },
-      example: exampleStormChat,
-    },
-    example: exampleStormContext,
-  },
-  points: {
-    point: {
+    chats: {
       chat: {
         messages: {
           message: {
@@ -59,8 +58,26 @@ export const stormModel: {
         },
         example: exampleStormChat,
       },
+      example: exampleStormChats,
+    },
+    example: exampleStormContext,
+  },
+  points: {
+    point: {
+      chats: {
+        chat: {
+          messages: {
+            message: {
+              example: exampleYouMessage,
+            },
+            example: exampleStormMessages,
+          },
+          example: exampleStormChat,
+        },
+        example: exampleStormChats,
+      },
       example: exampleStormPoint,
     },
-    example: [exampleStormPoint],
+    example: exampleStormPoints,
   },
 };

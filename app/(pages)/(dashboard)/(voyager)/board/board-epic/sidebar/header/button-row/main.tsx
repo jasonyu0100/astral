@@ -1,4 +1,4 @@
-export default function BoardSidebarButtonRow({
+export function BoardSidebarButtonRow({
   children,
 }: {
   children: React.ReactNode;

@@ -7,9 +7,9 @@ import { TopbarLogo } from "./container/left-group/logo/main";
 import { TopbarRightGroup } from "./container/right-group/main";
 import { SettingsIcon } from "./(common)/icons/settings/main";
 import { NotificationsIcon } from "./(common)/icons/notifications/main";
-import CartIcon from "./(common)/icons/cart/main";
+import { CartIcon } from "./(common)/icons/cart/main";
 
-export default function Topbar() {
+export function Topbar() {
   return (
     <TopbarContainer>
       <TopbarLogo href="/works/now"/>

@@ -1,8 +1,8 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
 import { FlowSnapshotObj } from "@/(pages)/(dashboard)/(apollo)/flow/model/context/snapshot/main";
 
-export default function FlowMomentSnapshot({
+export function FlowMomentSnapshot({
   flowSnapshot: flowSnapshot,
 }: {
   flowSnapshot: FlowSnapshotObj;

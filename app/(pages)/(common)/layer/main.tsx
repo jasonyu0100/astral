@@ -47,7 +47,7 @@ export interface LayerProps {
   children?: React.ReactNode;
 }
 
-function Layer({
+export function Layer({
   displayName,
   sizeStyle,
   containerStyle,
@@ -76,5 +76,3 @@ function Layer({
     </div>
   );
 }
-
-export default Layer;

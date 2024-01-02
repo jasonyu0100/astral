@@ -1,4 +1,4 @@
-export default function FlowAddLgIcon() {
+export function FlowAddLgIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

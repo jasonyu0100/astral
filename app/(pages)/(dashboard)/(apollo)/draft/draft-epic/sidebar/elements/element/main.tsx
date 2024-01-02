@@ -1,6 +1,6 @@
 interface DraftCraftElementProps
   extends React.ComponentPropsWithoutRef<"img"> {}
 
-export default function DraftCraftElement({ ...props }: DraftCraftElementProps) {
+export function DraftCraftElement({ ...props }: DraftCraftElementProps) {
   return <img className="w-full h-full mb-[1rem]" {...props} />;
 }

@@ -1,4 +1,4 @@
-export default function ExploreSectionDescription() {
+export function ExploreSectionDescription() {
     return <div className="w-full text-white text-base font-normal leading-normal">
     Lorem ipsum dolor sit amet consectetur. Non viverra turpis proin
     molestie enim eros. Dolor duis fringilla id leo leo duis. Tortor

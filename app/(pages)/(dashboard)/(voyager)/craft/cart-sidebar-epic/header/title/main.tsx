@@ -1,4 +1,4 @@
-export default function CartSidebarHeaderTitle({
+export function CartSidebarHeaderTitle({
   children,
 }: {
   children: React.ReactNode;

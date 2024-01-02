@@ -1,6 +1,6 @@
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
 
-export default function DriveFolder({ ...props }: InputProps) {
+export function DriveFolder({ ...props }: InputProps) {
   return (
     <div className="w-48 h-56 flex-col justify-center items-start gap-3 inline-flex">
       <button {...props}>

@@ -1,11 +1,11 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
   effectStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function DraftController({
+export function DraftController({
   children,
 }: {
   children: React.ReactNode;

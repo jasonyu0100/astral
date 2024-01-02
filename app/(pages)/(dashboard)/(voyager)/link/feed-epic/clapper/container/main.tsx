@@ -1,6 +1,4 @@
-import ClapperContents from "../contents/main";
-
-export default function StoryClapperContainer({
+export function StoryClapperContainer({
   children,
 }: {
   children: React.ReactNode;

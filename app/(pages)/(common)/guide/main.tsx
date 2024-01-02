@@ -1,4 +1,4 @@
-export default function GuideController({children,
+export function GuideController({children,
 }: {
   children: React.ReactNode;
 }) {

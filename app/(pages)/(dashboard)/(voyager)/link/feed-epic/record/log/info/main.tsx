@@ -1,4 +1,4 @@
-export default function RecordLogInfo() {
+export function RecordLogInfo() {
   return (
     <div className="h-[40px] w-full flex flex-row items-center space-x-[2rem]">
       <img

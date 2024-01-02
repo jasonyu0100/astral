@@ -4,9 +4,9 @@ import {
   containerStyles,
   effectStyles,
 } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function StormWrapper({
+export function StormWrapper({
   children,
 }: {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-export default function SidebarIndicators({
+export function SidebarIndicators({
   children,
 }: {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-export default function CraftCartItem() {
+export function CraftCartItem() {
   return (
     <div className="flex flex-row w-full space-x-[2rem] items-center ">
       <div className="w-[75px] h-[75px] bg-white flex-shrink-0">

@@ -1,8 +1,8 @@
 "use client";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function RecordShelf({
+export function RecordShelf({
   children,
 }: {
   children: React.ReactNode;

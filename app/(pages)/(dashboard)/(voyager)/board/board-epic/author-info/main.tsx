@@ -1,8 +1,8 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 import Image from "next/image";
 
-export default function BoardAuthorInfo() {
+export function BoardAuthorInfo() {
   return (
     <Layer
       displayName={BoardAuthorInfo.name}

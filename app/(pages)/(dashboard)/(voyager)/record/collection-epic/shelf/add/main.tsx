@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-export default function RecordCollectionAdd() {
+export function RecordCollectionAdd() {
   return (
     <div className="w-[200px] h-[250px] flex flex-col items-center justify-center">
       <a className="flex flex-col space-y-[1rem] items-center" href="/collection/now">

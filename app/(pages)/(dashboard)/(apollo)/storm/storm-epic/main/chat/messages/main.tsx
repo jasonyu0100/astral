@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function StormChatMessages({children} : {children: React.ReactNode}) {
+export function StormChatMessages({children} : {children: React.ReactNode}) {
     return <Layer
             displayName={StormChatMessages.name}
             sizeStyle="max-w-[900px] w-full flex-grow h-full"

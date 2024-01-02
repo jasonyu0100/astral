@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import DraftView from "./view";
+import { DraftView } from "./view";
 import { processModel } from "../model/main";
 import { draftModel } from "./model/main";
 import { DraftMediaObj } from "./model/context/media/main";

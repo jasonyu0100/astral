@@ -1,2 +1,2 @@
-import HelloLanding from "./(pages)/(portal)/reserve/page";
+import { HelloLanding } from "./(pages)/(portal)/reserve/page";
 export default HelloLanding;

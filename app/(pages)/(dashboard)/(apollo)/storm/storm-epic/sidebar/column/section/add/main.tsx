@@ -1,7 +1,7 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export default function StormSidePanelSectionAdd() {
+export function StormSidePanelSectionAdd() {
   return (
     <div className="flex flex-row w-full items-center space-x-[1rem]">
       <Layer

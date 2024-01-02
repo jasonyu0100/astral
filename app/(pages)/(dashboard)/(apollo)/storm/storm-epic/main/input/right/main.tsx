@@ -1,5 +1,5 @@
 
-export default function StormMessageInputRight({
+export function StormMessageInputRight({
   children,
 }: {
   children: React.ReactNode;

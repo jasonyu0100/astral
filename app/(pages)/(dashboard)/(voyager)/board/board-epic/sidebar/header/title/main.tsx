@@ -1,4 +1,4 @@
-export default function BoardSidebarHeaderTitle({
+export function BoardSidebarHeaderTitle({
   children,
 }: {
   children: React.ReactNode;

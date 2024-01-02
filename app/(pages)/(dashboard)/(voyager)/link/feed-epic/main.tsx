@@ -1,7 +1,7 @@
 import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function LinkFeed({
+export function LinkFeed({
   children,
 }: {
   children: React.ReactNode;

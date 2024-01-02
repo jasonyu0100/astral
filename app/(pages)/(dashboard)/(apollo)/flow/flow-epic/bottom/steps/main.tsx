@@ -1,4 +1,4 @@
-export default function FlowControllerSteps({
+export function FlowControllerSteps({
   children,
 }: {
   children: React.ReactNode;

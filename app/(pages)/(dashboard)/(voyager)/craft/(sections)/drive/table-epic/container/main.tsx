@@ -1,6 +1,6 @@
 "use client";
 
-export default function TableContainer({
+export function TableContainer({
   children,
 }: {
   children: React.ReactNode;

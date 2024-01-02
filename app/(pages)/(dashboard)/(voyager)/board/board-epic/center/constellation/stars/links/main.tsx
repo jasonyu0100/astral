@@ -1,7 +1,7 @@
 import { BoardStar } from "@/(pages)/(dashboard)/(voyager)/board/data";
 import { motion } from "framer-motion";
 
-export default function ConstellationLinks({ stars }: { stars: BoardStar[] }) {
+export function ConstellationLinks({ stars }: { stars: BoardStar[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {...stars.map((star, i) => (

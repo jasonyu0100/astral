@@ -1,4 +1,4 @@
-export default function DraftTextIcon() {
+export function DraftTextIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,7 @@
 import { effectStyles } from "@/(pages)/(common)/styles/data";
 import clsx from "clsx";
 
-export default function SidebarWorkInfo({ active }: { active: boolean }) {
+export function SidebarWorkInfo({ active }: { active: boolean }) {
   return (
     <div
       id={SidebarWorkInfo.name}

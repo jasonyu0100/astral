@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function TabText({
+export function TabText({
   children,
   active,
 }: {

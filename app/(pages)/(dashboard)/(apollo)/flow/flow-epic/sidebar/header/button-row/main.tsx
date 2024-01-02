@@ -1,4 +1,4 @@
-export default function FlowSidebarButtonRow({
+export function FlowSidebarButtonRow({
   children,
 }: {
   children: React.ReactNode;

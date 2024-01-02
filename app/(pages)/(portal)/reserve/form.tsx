@@ -6,7 +6,7 @@ export interface HelloFormProps {
     changeCategoryIndex: (index: number) => void;
 }
 
-export default function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProps) {
+export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProps) {
   const categories = [
     "star",
     "creator",

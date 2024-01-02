@@ -1,4 +1,4 @@
-export default function DraftControllerSteps({
+export function DraftControllerSteps({
   children,
 }: {
   children: React.ReactNode;

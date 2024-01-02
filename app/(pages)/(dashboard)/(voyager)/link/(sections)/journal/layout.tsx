@@ -1,4 +1,4 @@
-import StoryTabs from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
+import { StoryTabs } from "@/(pages)/(dashboard)/(voyager)/link/tabs/main";
 
 import { DashboardContent } from "@/(pages)/(dashboard)/(common)/content/main";
 

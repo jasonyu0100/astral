@@ -1,4 +1,4 @@
-export default function FlowTimeline({
+export function FlowTimeline({
   children,
 }: {
   children: React.ReactNode;

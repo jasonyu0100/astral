@@ -1,20 +1,10 @@
-import Image from "next/image";
-import StormSidePanelAvatar from "./column/avatar/main";
-import SidePanelColumn from "./column/main";
-import StormSidebarHeader from "./header/main";
-import SidePanelAdd from "./footer/main";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export default function StormSidePanel({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function StormSidePanel({ children }: { children: React.ReactNode }) {
   return (
     <Layer
       displayName={StormSidePanel.name}

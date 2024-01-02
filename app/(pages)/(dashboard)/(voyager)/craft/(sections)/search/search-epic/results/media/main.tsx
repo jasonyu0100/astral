@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function StoreMasonryMedia({ src }: { src: string }) {
+export function StoreMasonryMedia({ src }: { src: string }) {
   const [flipped, changeFlipped] = useState(false);
 
   return (

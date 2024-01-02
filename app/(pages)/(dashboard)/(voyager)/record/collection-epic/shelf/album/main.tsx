@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-export default function RecordAlbum() {
+export function RecordAlbum() {
   return (
     <div className="flex flex-col items-center justify-center">
       <a className="flex flex-col space-y-[1rem] items-center" href="/works/now">

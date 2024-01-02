@@ -3,7 +3,7 @@ export interface SidebarIndicatorProps
   children: React.ReactNode;
 }
 
-export default function SidebarIndicator({
+export function SidebarIndicator({
   children,
   ...props
 }: SidebarIndicatorProps) {

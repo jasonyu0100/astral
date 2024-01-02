@@ -3,9 +3,9 @@ import {
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function StormChatBody({
+export function StormChatBody({
   children,
 }: {
   children: React.ReactNode;

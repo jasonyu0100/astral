@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function StoryAuthorAbout() {
+export function StoryAuthorAbout() {
   return (
         <div className="absolute bottom-[20px]">
         <div className="px-[2rem] h-[50px] flex flex-row w-full items-center space-x-[2rem] relative">

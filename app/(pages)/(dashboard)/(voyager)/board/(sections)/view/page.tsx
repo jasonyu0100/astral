@@ -2,15 +2,15 @@
 
 import { useRef, useState } from "react";
 import { defaultBoardStars } from "../../data";
-import BoardController from "../../board-epic/main";
-import BoardControllerCenterSection from "../../board-epic/center/main";
-import BoardSidebar from "../../board-epic/sidebar/main";
-import BoardConstellationSection from "../../board-epic/center/constellation/main";
+import { BoardController } from "../../board-epic/main";
+import { BoardControllerCenterSection } from "../../board-epic/center/main";
+import { BoardSidebar } from "../../board-epic/sidebar/main";
+import { BoardConstellationSection } from "../../board-epic/center/constellation/main";
 import { motion } from "framer-motion";
-import ConstellationStar from "../../board-epic/center/constellation/stars/star/main";
-import ConstellationLinks from "../../board-epic/center/constellation/stars/links/main";
-import BoardWrapper from "../../board-epic/wrapper/main";
-import BoardAuthorInfo from "../../board-epic/author-info/main";
+import { ConstellationStar } from "../../board-epic/center/constellation/stars/star/main";
+import { ConstellationLinks } from "../../board-epic/center/constellation/stars/links/main";
+import { BoardWrapper } from "../../board-epic/wrapper/main";
+import { BoardAuthorInfo } from "../../board-epic/author-info/main";
 
 export default function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
@@ -42,7 +42,7 @@ export default function Page() {
               </motion.div>
             </BoardConstellationSection>
           </BoardControllerCenterSection>
-          <BoardAuthorInfo/>
+          <BoardAuthorInfo />
         </BoardController>
         {navigationActive && (
           <BoardSidebar>

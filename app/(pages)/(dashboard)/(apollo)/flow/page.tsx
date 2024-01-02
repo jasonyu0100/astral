@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { flowModel } from "./model/main";
 import { FlowMomentObj } from "./model/point/moment/main";
-import FlowView from "./view";
+import { FlowView } from "./view";
 import { processModel } from "../model/main";
 import { ProcessStepObj } from "../model/process/step/main";
 import { FlowSnapshotObj } from "./model/context/snapshot/main";

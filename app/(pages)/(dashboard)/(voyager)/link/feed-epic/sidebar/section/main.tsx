@@ -1,4 +1,4 @@
-export default function LinkFeedSidebarSection({
+export function LinkFeedSidebarSection({
   children,
 }: {
   children: React.ReactNode;

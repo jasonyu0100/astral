@@ -1,4 +1,4 @@
-export default function CartSidebarHeader({
+export function CartSidebarHeader({
   children,
 }: {
   children: React.ReactNode;

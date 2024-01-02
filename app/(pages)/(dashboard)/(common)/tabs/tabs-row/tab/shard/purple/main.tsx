@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function TabPurpleShard({
+export function TabPurpleShard({
   active,
 }: {
   active: boolean;

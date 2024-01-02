@@ -1,4 +1,4 @@
-export default function BreadCrumbWrapper({
+export function BreadCrumbWrapper({
   children,
 }: {
   children: React.ReactNode;

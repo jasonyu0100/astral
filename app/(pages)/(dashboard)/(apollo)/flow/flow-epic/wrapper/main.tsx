@@ -1,8 +1,8 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import React from "react";
 
-export default function FlowWrapper({children} : { children: React.ReactNode}) {
+export function FlowWrapper({children} : { children: React.ReactNode}) {
     return <Layer
     displayName={FlowWrapper.name}
       sizeStyle="h-full flex-grow"

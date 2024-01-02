@@ -1,6 +1,6 @@
-import Layer from "@/(pages)/(common)/layer/main";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export default function SidePanelColumn({
+export function SidePanelColumn({
   children,
 }: {
   children: React.ReactNode;

@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import HelloForm from "./form";
+import { HelloForm } from "./form";
 
-export default function HelloLanding() {
+export function HelloLanding() {
   const categories = [
     "star",
     "creator",

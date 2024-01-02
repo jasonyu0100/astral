@@ -1,4 +1,4 @@
-export default function CraftTableDescription({
+export function CraftTableDescription({
   children,
 }: {
   children: React.ReactNode;

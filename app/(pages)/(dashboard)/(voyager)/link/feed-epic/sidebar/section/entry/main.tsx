@@ -1,4 +1,4 @@
-export default function LinkFeedSidebarEntry() {
+export function LinkFeedSidebarEntry() {
   return (
     <div className="flex flex-row items-center space-x-[1rem]">
       <div className="h-[50px] w-[50px] flex-shrink-0">

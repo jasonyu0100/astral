@@ -1,4 +1,4 @@
-export default function GuideWrapper({
+export function GuideWrapper({
   children,
 }: {
   children: React.ReactNode;

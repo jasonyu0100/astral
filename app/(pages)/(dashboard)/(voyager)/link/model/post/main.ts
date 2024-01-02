@@ -1,5 +1,4 @@
-import { LinkPostComment } from "../main";
-import { exampleLinkPostComments } from "./comment/main";
+import { LinkPostComment, exampleLinkPostComments } from "./comment/main";
 
 export interface LinkPost {
   id: string;

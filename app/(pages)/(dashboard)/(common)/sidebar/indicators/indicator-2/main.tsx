@@ -1,8 +1,8 @@
-import IndicatorOrangeJewel from "../indicator/jewel/orange/main";
-import SidebarIndicator from "../indicator/main";
-import IndicatorText from "../indicator/text/main";
+import { IndicatorOrangeJewel } from "../indicator/jewel/orange/main";
+import { SidebarIndicator } from "../indicator/main";
+import { IndicatorText } from "../indicator/text/main";
 
-export default function IndicatorTwo({
+export function IndicatorTwo({
   indicator,
 } : {
   indicator?: string;

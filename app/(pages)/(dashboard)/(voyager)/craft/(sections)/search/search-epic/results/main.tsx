@@ -1,4 +1,4 @@
-export default function SearchResults({
+export function SearchResults({
   children,
 }: {
   children: React.ReactNode;

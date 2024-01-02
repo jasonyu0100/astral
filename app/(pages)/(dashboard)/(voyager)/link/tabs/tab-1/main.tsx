@@ -1,6 +1,6 @@
 import { Tab } from "../../../../(common)/tabs/tabs-row/tab/main";
-import TabBlueShard from "../../../../(common)/tabs/tabs-row/tab/shard/blue/main";
-import TabText from "../../../../(common)/tabs/tabs-row/tab/text/main";
+import { TabBlueShard } from "../../../../(common)/tabs/tabs-row/tab/shard/blue/main";
+import { TabText } from "../../../../(common)/tabs/tabs-row/tab/text/main";
 
 export function TabOne({ tab }: { tab?: string }) {
   const tabText = "Journal";
@@ -9,7 +9,7 @@ export function TabOne({ tab }: { tab?: string }) {
   return (
     <Tab href="/link/journal">
       <TabText active={active}>{tabText}</TabText>
-      <TabBlueShard active={active}/>
+      <TabBlueShard active={active} />
     </Tab>
   );
 }

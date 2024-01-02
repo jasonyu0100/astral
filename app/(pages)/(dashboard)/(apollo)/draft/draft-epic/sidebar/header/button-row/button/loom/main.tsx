@@ -6,11 +6,11 @@ export interface DraftLoomButtonProps
 import { setup, isSupported } from "@loomhq/record-sdk";
 import { oembed } from "@loomhq/loom-embed";
 import { useEffect, useState } from "react";
-import DraftLoomIcon from "../../../../../icons/loom/main";
+import { DraftLoomIcon } from "../../../../../icons/loom/main";
 const PUBLIC_APP_ID = "6d3d3c5b-1703-480a-9f11-183bd647c09c";
 const BUTTON_ID = "loom-record-sdk-button";
 
-export default function DraftLoomButton({ ...props }: DraftLoomButtonProps) {
+export function DraftLoomButton({ ...props }: DraftLoomButtonProps) {
   const [videoHTML, setVideoHTML] = useState("");
 
   useEffect(() => {
