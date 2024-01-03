@@ -1,5 +1,3 @@
-// APOLLO
-
 export interface FlowSnapshotObj {
   src: string;
 }

@@ -2,14 +2,29 @@ import { Layer } from "@/(pages)/(common)/layer/main";
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import { useContext } from "react";
 import { FlowMomentContext } from "../main";
+import { FlowContext } from "../../../../../page";
 
-export function FlowPointHeader() {
-  const flowPoint = useContext(FlowMomentContext);
+interface FlowPointHeaderProps {
+  active: boolean;
+}
+
+export function FlowPointHeader({ active }: FlowPointHeaderProps) {
+  const { updateCurrentMoment } = useContext(FlowContext)
+  const moment = useContext(FlowMomentContext);
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+  };
+  const formattedDate = moment.date.toLocaleDateString("en-US", options);
 
   return (
-    <div className="w-full h-[60px] pb-[20px]">
+    <button className="w-full h-[60px] pb-[20px]" onClick={() => updateCurrentMoment(moment)}>
       <div className="flex flex-col w-full items-center space-y-[20px]">
-        <p className="text-white font-bold text-xl">{flowPoint.date.toDateString()}</p>
+        {active ? (
+          <p className="text-white font-bold text-xl">{formattedDate}</p>
+        ) : (
+          <p className="text-slate-500 font-bold text-xl">{formattedDate}</p>
+        )}
         <Layer
           containerStyle={containerStyles["row-centered"]}
           sizeStyle="w-full"
@@ -19,6 +34,6 @@ export function FlowPointHeader() {
           <div className="w-[15px] h-[15px] bg-slate-400 rounded-full"></div>
         </Layer>
       </div>
-    </div>
+    </button>
   );
 }
