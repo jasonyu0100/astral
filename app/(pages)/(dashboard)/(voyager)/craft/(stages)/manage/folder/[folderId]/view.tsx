@@ -3,12 +3,13 @@
 import { TableContainer } from "./table-epic/container/main";
 import { TableRow } from "./table-epic/row/main";
 import { useState } from "react";
-import { DriveWrapper } from "../../../../drive-epic/wrapper/main";
-import { DriveController } from "../../../../drive-epic/main";
-import { DriveBreadcrumbs } from "../../../../(common)/breadcrumb/main";
-import { DriveBreadcrumbItem } from "../../../../(common)/breadcrumb/item/main";
-import { DriveBreadcrumbDivider } from "../../../../(common)/breadcrumb/divider/main";
-import { craftModel } from "../../../../../../model/main";
+import { DriveWrapper } from "../../drive-epic/wrapper/main";
+import { DriveController } from "../../drive-epic/main";
+import { DriveBreadcrumbs } from "../../(common)/breadcrumb/main";
+import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
+import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
+import { craftModel } from "../../../../model/main";
+import { craftMap } from "../../../../map";
 
 export default function DriveFolderView() {
   const [folder, changeFolder] = useState(
@@ -18,13 +19,13 @@ export default function DriveFolderView() {
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href="/craft/drive">Drive</DriveBreadcrumbItem>
+          <DriveBreadcrumbItem href={craftMap.craft.manage.link}>Drive</DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
-          <DriveBreadcrumbItem href="/craft/drive/section/12">
+          <DriveBreadcrumbItem href={craftMap.craft.manage.section.id.link(folder.sectionId)}>
             Section
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
-          <DriveBreadcrumbItem href="/craft/drive/section/12/folder/13">
+          <DriveBreadcrumbItem href={craftMap.craft.manage.folder.id.link(folder.id)}>
             Folder
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />

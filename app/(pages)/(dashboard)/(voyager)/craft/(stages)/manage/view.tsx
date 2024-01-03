@@ -10,6 +10,7 @@ import { DriveSectionGrid } from "./drive-epic/section-grid/main";
 import { CraftDrive } from "../../model/drive/main";
 import { CraftSection } from "../../model/drive/section/main";
 import { craftModel } from "../../model/main";
+import { craftMap } from "../../map";
 
 interface DriveViewProps {
   drive: CraftDrive;
@@ -21,12 +22,12 @@ export function DriveView({ drive, addSection }: DriveViewProps) {
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href="/craft/drive">Drive</DriveBreadcrumbItem>
+          <DriveBreadcrumbItem href={craftMap.craft.link}>Drive</DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>
         <DriveSectionGrid>
           {drive.sections.map((section) => (
-            <DriveSection section={section}/>
+            <DriveSection section={section} href={craftMap.craft.manage.section.id.link(section.id)}/>
           ))}
           <DriveSectionAdd onClick={() => {
             addSection(craftModel.drive.sections.section.example)

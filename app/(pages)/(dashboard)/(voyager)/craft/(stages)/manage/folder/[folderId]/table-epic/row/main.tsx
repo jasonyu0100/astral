@@ -2,7 +2,7 @@
 import { TableRowName } from "./name/main";
 import { TableRowDescription } from "./description/main";
 import { TableRowMedia } from "./media/main";
-import { CraftFile } from "../../../../../../../../model/drive/section/folder/file/main";
+import { CraftFile } from "../../../../../../model/drive/section/folder/file/main";
 
 export function TableRow({
   name,

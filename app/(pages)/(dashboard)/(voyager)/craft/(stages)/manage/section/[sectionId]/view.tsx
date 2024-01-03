@@ -10,11 +10,12 @@ import { DriveSectionCoverImage } from "./section-epic/section/cover-image/main"
 import { DriveSectionTitle } from "./section-epic/section/title/main";
 import { DriveSectionDescription } from "./section-epic/section/description/main";
 import { craftModel } from "../../../../model/main";
-import { DriveSectionGrid } from "./section-epic/folders/main";
-import { DriveSectionFolder } from "./section-epic/folders/folder/main";
-import { DriveSectionFolderAdd } from "./section-epic/folders/folder/add/main";
+import { DriveSectionGrid } from "./section-epic/folders-grid/main";
+import { DriveSectionFolder } from "./section-epic/folders-grid/folder/main";
+import { DriveSectionFolderAdd } from "./section-epic/folders-grid/folder/add/main";
 import { CraftFolder } from "../../../../model/drive/section/folder/main";
 import { CraftSection } from "../../../../model/drive/section/main";
+import { craftMap } from "../../../../map";
 
 interface DriveSectionViewProps {
   section: CraftSection;
@@ -29,9 +30,13 @@ export function DriveSectionView({
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href="/craft/drive">Drive</DriveBreadcrumbItem>
+          <DriveBreadcrumbItem href={craftMap.craft.manage.link}>
+            Drive
+          </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
-          <DriveBreadcrumbItem href="/craft/drive/section/12">
+          <DriveBreadcrumbItem
+            href={craftMap.craft.manage.section.id.link(section.id)}
+          >
             Section
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
@@ -44,11 +49,16 @@ export function DriveSectionView({
         {section !== null && (
           <DriveSectionGrid>
             {section.folders.map((folder) => (
-              <DriveSectionFolder />
+              <DriveSectionFolder
+                folder={folder}
+                href={craftMap.craft.manage.folder.id.link(folder.id)}
+              />
             ))}
             <DriveSectionFolderAdd
               onClick={() => {
-                addFolder(craftModel.drive.sections.section.folders.folder.example);
+                addFolder(
+                  craftModel.drive.sections.section.folders.folder.example
+                );
               }}
             />
           </DriveSectionGrid>

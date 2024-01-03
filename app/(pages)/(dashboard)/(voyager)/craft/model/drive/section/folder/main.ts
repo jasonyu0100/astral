@@ -1,6 +1,8 @@
 import { CraftFile } from "./file/main";
 
 export interface CraftFolder {
+  id: string;
+  sectionId: string;
   name: string;
   files: CraftFile[];
 }
@@ -39,6 +41,8 @@ export const exampleCraftFiles = [
 ];
 
 export const exampleCraftFolder: CraftFolder = {
+  id: "0",
+  sectionId: "0",
   name: "Symbols",
   files: exampleCraftFiles
 };

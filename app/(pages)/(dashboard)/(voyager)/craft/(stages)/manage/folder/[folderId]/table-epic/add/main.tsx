@@ -2,7 +2,7 @@
 import { TableRowNameEdit } from "./name-edit/main";
 import { TableRowDescriptionEdit } from "./description-edit/main";
 import { TableRowMediaUpload } from "./media-upload/main";
-import { CraftFile } from "../../../../../../../../model/drive/section/folder/file/main";
+import { CraftFile } from "../../../../../../model/drive/section/folder/file/main";
 
 export function TableRowAdd({
   name,
