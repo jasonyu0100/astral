@@ -9,7 +9,7 @@ interface FlowPointHeaderProps {
 }
 
 export function FlowPointHeader({ active }: FlowPointHeaderProps) {
-  const { updateCurrentMoment } = useContext(FlowContext)
+  const { updateCurrentMoment } = useContext(FlowContext);
   const moment = useContext(FlowMomentContext);
   const options: Intl.DateTimeFormatOptions = {
     month: "short",
@@ -18,7 +18,10 @@ export function FlowPointHeader({ active }: FlowPointHeaderProps) {
   const formattedDate = moment.date.toLocaleDateString("en-US", options);
 
   return (
-    <button className="w-full h-[60px] pb-[20px]" onClick={() => updateCurrentMoment(moment)}>
+    <button
+      className="w-full h-[60px] pb-[20px]"
+      onClick={() => updateCurrentMoment(moment)}
+    >
       <div className="flex flex-col w-full items-center space-y-[20px]">
         {active ? (
           <p className="text-white font-bold text-xl">{formattedDate}</p>
@@ -31,7 +34,9 @@ export function FlowPointHeader({ active }: FlowPointHeaderProps) {
           borderStyle={borderStyles["border-b"]}
           displayName={FlowPointHeader.name}
         >
-          <div className="w-[15px] h-[15px] bg-slate-400 rounded-full"></div>
+          <div className="flex flex-row items-center w-full">
+            <div className="w-[15px] h-[15px] bg-slate-400 rounded-full"></div>
+          </div>
         </Layer>
       </div>
     </button>

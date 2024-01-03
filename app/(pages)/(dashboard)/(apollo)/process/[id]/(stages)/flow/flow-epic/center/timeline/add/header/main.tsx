@@ -12,7 +12,21 @@ export function FlowPointHeader() {
           borderStyle={borderStyles["border-b"]}
           displayName={FlowPointHeader.name}
         >
-          <div className="w-[15px] h-[15px] bg-slate-400 rounded-full"></div>
+          <div className="flex flex-row w-full justify-between items-center">
+            <div className="w-[15px] h-[15px] bg-slate-400 rounded-full"></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="24"
+              viewBox="0 0 15 24"
+              fill="none"
+            >
+              <path
+                d="M2.99969 0L0.179688 2.82L9.33969 12L0.179688 21.18L2.99969 24L14.9997 12L2.99969 0Z"
+                fill="#CBD5E1"
+              />
+            </svg>
+          </div>
         </Layer>
       </div>
     </div>
