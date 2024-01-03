@@ -20,20 +20,8 @@ export default function Page() {
   return (
     <ExploreWrapper>
       <ExploreController>
-          <ExploreBreadcrumb>
-            <ExploreBreadcrumbItem>Drive</ExploreBreadcrumbItem>
-            <ExploreBreadcrumbDivider/>
-            <ExploreBreadcrumbItem>Brand</ExploreBreadcrumbItem>
-            <ExploreBreadcrumbDivider/>
-            <ExploreBreadcrumbItem>Logo</ExploreBreadcrumbItem>
-          </ExploreBreadcrumb>
-          <ExploreSection>
-            <ExploreSectionCoverImage/>
-            <ExploreSectionTitle/>
-            <ExploreSectionDescription/>
-          </ExploreSection>
+        <h1 className="text-white">EXPLORE</h1>
       </ExploreController>
-      {cartActive && <CartSidebar />}
     </ExploreWrapper>
   );
 }

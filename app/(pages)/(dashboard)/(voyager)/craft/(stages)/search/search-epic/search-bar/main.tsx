@@ -5,7 +5,12 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export function SearchBar() {
+export interface SearchBarProps
+  extends React.ComponentPropsWithoutRef<"input"> {
+  children: React.ReactNode;
+}
+
+export function SearchBar({ ...props }: SearchBarProps) {
   return (
     <Layer
       displayName={SearchBar.name}
@@ -42,6 +47,7 @@ export function SearchBar() {
       <input
         className="  text-white text-2xl font-regular font-['Creato Display'] leading-7 h-[3rem] bg-transparent outline-none"
         placeholder="enter search..."
+        {...props}
       />
     </Layer>
   );
