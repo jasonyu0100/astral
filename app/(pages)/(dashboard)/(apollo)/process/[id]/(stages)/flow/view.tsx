@@ -46,16 +46,16 @@ export function FlowView({
       <FlowController>
         <FlowControllerCenter>
           <FlowTimeline>
-            {moments.map((flowMoment) => (
-              <FlowMoment flowMoment={flowMoment} />
+            {moments.map((flowMoment, index) => (
+              <FlowMoment flowMoment={flowMoment} index={index} onClick={() => { alert("Clicked moment")}}/>
             ))}
-            <FlowMoment flowMoment={moment} />
+            <FlowMoment flowMoment={moment} index={moments.length} />
           </FlowTimeline>
         </FlowControllerCenter>
         <FlowControllerBottomRow>
           <FlowControllerSteps>
             {steps.map((step) => (
-              <FlowStep step={step} onClick={() => {}} />
+              <FlowStep step={step} onClick={() => { alert("Clicked step")}} />
             ))}
           </FlowControllerSteps>
           <FlowStepsAdd onClick={() => addStep()} />

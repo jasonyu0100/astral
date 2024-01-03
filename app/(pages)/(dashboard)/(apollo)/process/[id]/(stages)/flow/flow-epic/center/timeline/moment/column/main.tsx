@@ -1,12 +1,18 @@
+import clsx from "clsx";
+
 export function FlowPointColumm({
   children,
+  index
 }: {
   children: React.ReactNode;
+  index: number
 }) {
 
   return (
     <div
-      className="flex flex-col items-center overflow-auto w-full space-y-[30px] p-[20px] scrollbar-delayed"
+      className={clsx("flex flex-col items-center w-full space-y-[30px] p-[20px]", {
+        "pt-[100px]": index % 2
+      })}
       style={{ height: "100%" }}
     >
       {children}

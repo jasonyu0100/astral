@@ -14,7 +14,6 @@ export function ConstellationStar({
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);
 
-
   useMotionValueEvent(x, "animationStart", () => {
     console.log("animation started on x");
   });
@@ -37,15 +36,18 @@ export function ConstellationStar({
     <motion.div
       drag
       dragConstraints={constraintsRef}
-      className={`bg-white w-[100px] h-[120px] p-[10px] flex flex-col items-center absolute top-[${x}] left-[${y}]`}
+      className={`w-[100px] h-[150px] p-[10px] flex flex-col space-y-[1rem] items-center absolute top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className="w-[80px] h-[80px] bg-black">
-        <img className="w-full h-full" src={star.media.src} />
-        <p className="w-full text-center font-bold">
-          {star.media.name}
-        </p>
+      <div className="w-[100px] h-[100px]">
+        <img
+          className="w-[100px] h-[100px] rounded-full shadow-md shadow-slate-300/50 flex-shrink-0 pointer-events-none opacity-80"
+          src={star.media.src}
+        />
       </div>
+      <p className="w-full text-center text-white font-bold">
+        {star.media.name}
+      </p>
     </motion.div>
   );
 }

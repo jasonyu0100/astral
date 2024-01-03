@@ -9,12 +9,22 @@ import {
 
 export const FlowMomentContext = createContext(exampleFlowMoment);
 
-export function FlowMoment({ flowMoment }: { flowMoment: FlowMomentObj }) {
+export interface FlowMomentProps {
+
+  flowMoment: FlowMomentObj;
+  index: number;
+}
+
+export function FlowMoment({
+  flowMoment,
+  index,
+  ...props
+}: FlowMomentProps) {
   return (
     <FlowMomentContext.Provider value={flowMoment}>
-      <div className="flex flex-col w-[200px] h-full flex-shrink-0 items-center">
+      <div className="flex flex-col w-[250px] h-full flex-shrink-0 items-center" {...props}>
         <FlowPointHeader />
-        <FlowPointColumm>
+        <FlowPointColumm index={index}>
           {flowMoment.snapshots.map((flowSnapshot) => (
             <FlowMomentSnapshot flowSnapshot={flowSnapshot} />
           ))}

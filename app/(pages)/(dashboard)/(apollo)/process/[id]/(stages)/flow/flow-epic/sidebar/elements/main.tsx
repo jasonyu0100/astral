@@ -8,7 +8,7 @@ export function FlowSidebarElements({
       className="p-[1rem] w-full overflow-auto"
       style={{ height: "calc(100% - 60px)" }}
     >
-      <div className="columns-2 w-full">{children}</div>
+      <div className="columns-4 w-full">{children}</div>
     </div>
   );
 }
