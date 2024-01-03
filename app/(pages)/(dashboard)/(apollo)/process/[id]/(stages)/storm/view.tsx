@@ -23,6 +23,8 @@ import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
 import { StormMessageObj } from "./model/point/chat/message/main";
 import { stormModel } from "./model/main";
 import { processModel } from "../../model/main";
+import { StormSidePanelSectionHeader } from "./storm-epic/sidebar/column/section/header/main";
+import StormSidePanelSectionToggle from "./storm-epic/sidebar/column/section/header/toggle/main";
 
 interface StormViewProps {
   messages: StormMessageObj[];
@@ -33,6 +35,8 @@ export function StormView({ messages, sendMessage }: StormViewProps) {
   const [inputMessage, changeInputMessage] = useState("");
   const [steps, changeSteps] = useState(processModel.process.steps.example);
   const [context, changeContext] = useState(stormModel.context.example);
+
+  const [showInside, changeShowInside] = useState(true);
 
   return (
     <StormWrapper>
@@ -72,27 +76,9 @@ export function StormView({ messages, sendMessage }: StormViewProps) {
         <StormSidebarHeader />
         <SidePanelColumn>
           {steps.map((step) => (
-            <>
-              <StormSidePanelSection>
-                <StormSidePanelSectionTitle>
-                  {step.name}
-                </StormSidePanelSectionTitle>
-                <StormSidePanelSectionAdd />
-                {step.points.stormPoint.chats.map((chat) => (
-                  <>
-                    <StormSidePanelChat>{chat.title}</StormSidePanelChat>
-                  </>
-                ))}
-              </StormSidePanelSection>
-            </>
+            <StormSidePanelSection step={step} />
           ))}
-          <StormSidePanelSection>
-            <StormSidePanelSectionTitle>General</StormSidePanelSectionTitle>
-            <StormSidePanelSectionAdd />
-            {context.chats.map((chat) => (
-              <StormSidePanelChat>{chat.title}</StormSidePanelChat>
-            ))}
-          </StormSidePanelSection>
+          {/* <StormSidePanelSection step={step} /> */}
         </SidePanelColumn>
       </StormSidePanel>
     </StormWrapper>

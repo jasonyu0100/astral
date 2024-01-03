@@ -1,5 +1,6 @@
-export function StormSidePanelSection({children} : {children: React.ReactNode}) {
-    return <div className="flex flex-col space-y-[2rem]">
-        {children}
-    </div>
+import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/model/process/step/main";
+import { StormSidePanelSectionView } from "./view";
+
+export function StormSidePanelSection({step} : {step: ProcessStepObj}) {
+    return <StormSidePanelSectionView step={step} />
 }

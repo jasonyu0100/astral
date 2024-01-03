@@ -4,8 +4,8 @@ import { containerStyles } from "@/(pages)/(common)/styles/data";
 export function StormSidebarHeader() {
   return (
     <div className="flex flex-row items-center flex-shrink-0 w-full px-[1rem] space-x-[2rem] justify-between">
-      <p className="text-white font-extraBold text-xl">Conversations</p>
-      <Layer
+      <p className="text-slate-300 font-extraBold text-xl">Conversations</p>
+      {/* <Layer
         displayName={StormSidebarHeader.name}
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"
         containerStyle={containerStyles["col-centered"]}
@@ -34,7 +34,7 @@ export function StormSidebarHeader() {
             />
           </g>
         </svg>
-      </Layer>
+      </Layer> */}
     </div>
   );
 }
