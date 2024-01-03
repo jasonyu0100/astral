@@ -8,7 +8,7 @@ import { worksMap } from "../../works/map";
 
 export enum CraftTabStage {
   Search = "Search",
-  Drive = "Drive",
+  Manage = "Manage",
   Explore = "Explore",
 }
 interface CraftTabs {

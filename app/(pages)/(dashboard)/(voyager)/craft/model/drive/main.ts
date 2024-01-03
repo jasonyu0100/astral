@@ -6,13 +6,23 @@ export interface CraftDrive {
   cart: CraftFile[];
 }
 
-export const exampleCraftSections = [exampleCraftSection]
+export const exampleCraftSections = [
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+  exampleCraftSection,
+];
 
-export const exampleCraftCart = [
-    exampleCraftFile
-]
+export const exampleCraftCart = [exampleCraftFile];
 
 export const exampleCraftDrive = {
-    sections: exampleCraftSections,
-    cart: exampleCraftCart
-}
+  sections: exampleCraftSections,
+  cart: exampleCraftCart,
+};

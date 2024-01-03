@@ -1,9 +1,13 @@
 import { WorksFlowIcon } from "../../icon/flow/main";
 
-export function WorksHeaderAction() {
+export interface WorksHeaderActions extends React.ComponentPropsWithoutRef<"button"> {
+
+}
+
+export function WorksHeaderAction({...props} : WorksHeaderActions) {
   return (
-    <div className="flex flex-col items-center justify-center rounded-[50px] bg-violet-500 h-[80px] w-[150px] ml-[5rem]">
+    <button className="flex flex-col items-center justify-center rounded-[50px] bg-violet-500 h-[80px] w-[150px] ml-[5rem]" {...props}>
       <WorksFlowIcon />
-    </div>
+    </button>
   );
 }

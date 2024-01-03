@@ -3,8 +3,8 @@ export const craftMap = {
     search: {
       link: "/craft/search",
     },
-    drive: {
-      link: "/craft/drive",
+    manage: {
+      link: "/craft/manage",
     },
     explore: {
       link: "/craft/explore",
