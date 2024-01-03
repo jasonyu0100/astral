@@ -6,11 +6,11 @@ import { DashboardController } from "@/(pages)/(dashboard)/(common)/controller/m
 import { DashboardSidebar } from "../../../(common)/sidebar/main";
 import { createContext } from "react";
 
-export interface ProcessContextObj {
+export interface ProcessIdContextObj {
   processId: string;
 }
 
-export const ProcessContext = createContext<ProcessContextObj>({
+export const ProcessContext = createContext<ProcessIdContextObj>({
   processId: "",
 });
 

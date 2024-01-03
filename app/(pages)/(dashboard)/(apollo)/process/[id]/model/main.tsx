@@ -17,7 +17,7 @@ export const processModel: {
       };
       example: ProcessStepObj[];
     };
-    contexts: {
+    context: {
       example: ProcessContextObj;
     };
     example: ProcessObj;
@@ -30,7 +30,7 @@ export const processModel: {
       },
       example: exampleProcessSteps,
     },
-    contexts: {
+    context: {
       example: exampleProcessContext,
     },
     example: exampleProcessObj,

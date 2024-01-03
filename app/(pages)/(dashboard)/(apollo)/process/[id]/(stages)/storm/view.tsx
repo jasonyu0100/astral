@@ -15,72 +15,71 @@ import { StormMessageInputVoice } from "./storm-epic/main/input/right/voice/main
 import { useState } from "react";
 import { SidePanelColumn } from "./storm-epic/sidebar/column/main";
 import { StormSidebarHeader } from "./storm-epic/sidebar/header/main";
-import { StormSidePanelSection } from "./storm-epic/sidebar/column/section/main";
-import { StormSidePanelSectionTitle } from "./storm-epic/sidebar/column/section/title/main";
-import { StormSidePanelSectionAdd } from "./storm-epic/sidebar/column/section/add/main";
-import { StormSidePanelChat } from "./storm-epic/sidebar/column/section/chat/main";
+import { StormSidePanelStepSection } from "./storm-epic/sidebar/column/step-section/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
 import { StormMessageObj } from "./model/point/chat/message/main";
-import { stormModel } from "./model/main";
-import { processModel } from "../../model/main";
-import { StormSidePanelSectionHeader } from "./storm-epic/sidebar/column/section/header/main";
-import StormSidePanelSectionToggle from "./storm-epic/sidebar/column/section/header/toggle/main";
+import { StormSidePanelGeneralSection } from "./storm-epic/sidebar/column/general-section/main";
+import { ProcessStepObj } from "../../model/process/step/main";
+import { ProcessContextObj } from "../../model/process/context/main";
 
 interface StormViewProps {
   messages: StormMessageObj[];
+  steps: ProcessStepObj[];
+  context: ProcessContextObj;
   sendMessage: (message: string) => void;
 }
 
-export function StormView({ messages, sendMessage }: StormViewProps) {
+export function StormView({
+  messages,
+  sendMessage,
+  steps,
+  context,
+}: StormViewProps) {
   const [inputMessage, changeInputMessage] = useState("");
-  const [steps, changeSteps] = useState(processModel.process.steps.example);
-  const [context, changeContext] = useState(stormModel.context.example);
-
-  const [showInside, changeShowInside] = useState(true);
 
   return (
-    <StormWrapper>
-      <StormControllerMain>
-        <StormChatBody>
-          <StormHeader />
-          <StormChatMessages>
-            {messages.map((message) =>
-              message.source === "You" ? (
-                <StormYouChatMessage>{message.message}</StormYouChatMessage>
-              ) : (
-                <StormPartnerChatMessage>
-                  {message.message}
-                </StormPartnerChatMessage>
-              )
-            )}
-          </StormChatMessages>
-        </StormChatBody>
-        <StormMessageInput>
-          <StormMessageInputLeft />
-          <StormMessageInputText
-            onChange={(e) => changeInputMessage(e.target.value)}
-            value={inputMessage}
-          />
-          <StormMessageInputRight>
-            <StormMessageInputVoice />
-            <StormMessageInputSend
-              onClick={(e) => {
-                sendMessage(inputMessage);
-                changeInputMessage("");
-              }}
+      <StormWrapper>
+        <StormControllerMain>
+          <StormChatBody>
+            <StormHeader />
+            <StormChatMessages>
+              {messages.map((message) =>
+                message.source === "You" ? (
+                  <StormYouChatMessage>{message.message}</StormYouChatMessage>
+                ) : (
+                  <StormPartnerChatMessage>
+                    {message.message}
+                  </StormPartnerChatMessage>
+                )
+              )}
+            </StormChatMessages>
+          </StormChatBody>
+          <StormMessageInput>
+            <StormMessageInputLeft />
+            <StormMessageInputText
+              onChange={(e) => changeInputMessage(e.target.value)}
+              value={inputMessage}
             />
-          </StormMessageInputRight>
-        </StormMessageInput>
-      </StormControllerMain>
-      <StormSidePanel>
-        <StormSidebarHeader />
-        <SidePanelColumn>
-          {steps.map((step) => (
-            <StormSidePanelSection step={step} />
-          ))}
-          {/* <StormSidePanelSection step={step} /> */}
-        </SidePanelColumn>
-      </StormSidePanel>
-    </StormWrapper>
+            <StormMessageInputRight>
+              <StormMessageInputVoice />
+              <StormMessageInputSend
+                onClick={(e) => {
+                  sendMessage(inputMessage);
+                  changeInputMessage("");
+                }}
+              />
+            </StormMessageInputRight>
+          </StormMessageInput>
+        </StormControllerMain>
+        <StormSidePanel>
+          <StormSidebarHeader />
+          <SidePanelColumn>
+            <StormSidePanelGeneralSection context={context} />
+            {steps.map((step) => (
+              <StormSidePanelStepSection step={step} />
+            ))}
+          </SidePanelColumn>
+        </StormSidePanel>
+      </StormWrapper>
   );
 }

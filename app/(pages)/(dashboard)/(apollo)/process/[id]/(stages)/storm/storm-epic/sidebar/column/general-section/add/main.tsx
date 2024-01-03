@@ -1,9 +1,17 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export function StormSidePanelSectionAdd() {
+export interface StormSidePanelSectionAddProps
+  extends React.ComponentPropsWithoutRef<"button"> {}
+
+export function StormSidePanelSectionAdd({
+  ...props
+}: StormSidePanelSectionAddProps) {
   return (
-    <div className="flex flex-row w-full items-center space-x-[1rem]">
+    <button
+      className="flex flex-row w-full items-center space-x-[1rem]"
+      {...props}
+    >
       <Layer
         displayName={StormSidePanelSectionAdd.name}
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"
@@ -36,6 +44,6 @@ export function StormSidePanelSectionAdd() {
         </svg>
       </Layer>
       <p className="text-white font-bold text-lg">New Chat</p>
-    </div>
+    </button>
   );
 }
