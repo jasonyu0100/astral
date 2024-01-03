@@ -7,7 +7,6 @@ import {
 
 export interface SearchBarProps
   extends React.ComponentPropsWithoutRef<"input"> {
-  children: React.ReactNode;
 }
 
 export function SearchBar({ ...props }: SearchBarProps) {

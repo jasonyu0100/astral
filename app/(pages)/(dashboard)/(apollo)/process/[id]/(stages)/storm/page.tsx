@@ -7,13 +7,12 @@ import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 
 export default function Page() {
-  const [messages, changeMessages] = useState<StormMessageObj[]>(
-    stormModel.points.point.chats.chat.messages.example
-  );
-
   const [steps, changeSteps] = useState(processModel.process.steps.example);
   const [context, changeContext] = useState(
     processModel.process.context.example
+  );
+  const [messages, changeMessages] = useState<StormMessageObj[]>(
+    stormModel.points.point.chats.chat.messages.example
   );
 
   const addStep = (step: ProcessStepObj) => {
