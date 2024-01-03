@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export function ConstellationLinks({ stars }: { stars: DraftStarObj[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
-      {...stars.map((star, i) => (
+      {stars.map((star, i) => (
         <line
             className="stroke-slate-300 opacity-30"
           x1={star.x + 50}

@@ -27,8 +27,8 @@ import { processModel } from "../../model/main";
 import { MomentHandling, StepHandling } from "./page";
 
 interface FlowViewProps {
-  currMomentId: string;
-  currStepId: string;
+  momentId: string;
+  stepId: string;
   moments: FlowMomentObj[];
   steps: ProcessStepObj[];
   snapshots: FlowSnapshotObj[];
@@ -37,8 +37,8 @@ interface FlowViewProps {
 }
 
 export function FlowView({
-  currMomentId,
-  currStepId,
+  momentId,
+  stepId,
   moments,
   steps,
   snapshots,
@@ -54,7 +54,7 @@ export function FlowView({
               <FlowMoment
                 flowMoment={flowMoment}
                 index={index}
-                active={flowMoment.id === currMomentId}
+                active={flowMoment.id === momentId}
               />
             ))}
             <FlowAddMoment
@@ -71,7 +71,7 @@ export function FlowView({
           <FlowControllerSteps>
             {steps.map((step) => (
               <FlowStep
-                active={currStepId === step.id}
+                active={stepId === step.id}
                 step={step}
                 onClick={() => {
                   stepHandling.goToStep(step);

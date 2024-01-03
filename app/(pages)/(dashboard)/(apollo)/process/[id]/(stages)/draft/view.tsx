@@ -26,26 +26,24 @@ import { ProcessStepObj } from "../../model/process/step/main";
 import { DraftMediaObj } from "./model/context/media/main";
 import { DraftStarObj } from "./model/point/star/main";
 import { processModel } from "../../model/main";
-
+import { StarHandling, StepHandling } from "./page";
 
 interface DraftViewProps {
+  stepId: string;
   steps: ProcessStepObj[];
   media: DraftMediaObj[];
   stars: DraftStarObj[];
-  spawnStar: (draftMedia: DraftMediaObj) => void;
-  addMedia: (draftMedia: DraftMediaObj) => void;
-  addStep: (step: ProcessStepObj) => void;
-  updateStar: (i: number, data: any) => void;
+  starHandling: StarHandling;
+  stepHandling: StepHandling;
 }
 
 export function DraftView({
+  stepId,
   steps,
   media,
   stars,
-  addMedia,
-  spawnStar,
-  addStep,
-  updateStar,
+  starHandling,
+  stepHandling,
 }: DraftViewProps) {
   const constraintsRef = useRef(null);
 
@@ -63,7 +61,7 @@ export function DraftView({
                 <ConstellationStar
                   star={star}
                   constraintsRef={constraintsRef}
-                  updateStar={(data) => updateStar(i, data)}
+                  updateStar={(data) => starHandling.updateStar(i, data)}
                 />
               ))}
             </motion.div>
@@ -71,12 +69,18 @@ export function DraftView({
         </DraftControllerCenterSection>
         <DraftControllerBottomRow>
           <DraftControllerSteps>
-            {steps.map((constellation) => (
-              <DraftStep constellation={constellation} />
+            {steps.map((step) => (
+              <DraftStep
+                step={step}
+                active={step.id === stepId}
+                onClick={() => stepHandling.goToStep(step)}
+              />
             ))}
           </DraftControllerSteps>
           <DraftStepsAdd
-            onClick={() => addStep(processModel.process.steps.step.example)}
+            onClick={() =>
+              stepHandling.addStep({...processModel.process.steps.step.example, id: Date.now().toFixed().toString()})
+            }
           />
         </DraftControllerBottomRow>
       </DraftController>
@@ -85,7 +89,9 @@ export function DraftView({
           <DraftSidebarHeaderTitle>Elements</DraftSidebarHeaderTitle>
           <DraftSidebarButtonRow>
             <TopRowAddButton
-              onClick={() => addMedia(draftModel.context.library.media.example)}
+              onClick={() =>
+                starHandling.addMedia(draftModel.context.library.media.example)
+              }
             />
             <TopRowSearchButton />
             <DraftLoomButton />
@@ -95,7 +101,7 @@ export function DraftView({
           {media.map((draftMedia) => (
             <DraftCraftElement
               src={draftMedia.src}
-              onClick={() => spawnStar(draftMedia)}
+              onClick={() => starHandling.spawnStar(draftMedia)}
             />
           ))}
         </DraftSidebarElements>

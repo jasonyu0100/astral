@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { DraftStarObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/(stages)/draft/model/point/star/main";
 
@@ -13,6 +13,11 @@ export function ConstellationStar({
 }) {
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);
+
+  useEffect(() => {
+    x.set(star.x)
+    y.set(star.y)
+  }, [star])
 
   useMotionValueEvent(x, "animationStart", () => {
     console.log("animation started on x");

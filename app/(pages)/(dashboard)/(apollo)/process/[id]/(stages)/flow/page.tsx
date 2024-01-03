@@ -31,13 +31,15 @@ export default function Page() {
   const [steps, changeSteps] = useState<ProcessStepObj[]>(
     processModel.process.steps.example
   );
-  const [currStepId, changeCurrStepId] = useState<string>(
+  const [stepId, changeStepId] = useState<string>(
     steps.at(0)?.id || ""
   );
 
-  const [currMomentId, changeCurrMomentId] = useState<string>("");
   const [moments, changeMoments] = useState<FlowMomentObj[]>(
     flowModel.points.point.moments.example
+  );
+  const [momentId, changeMomentId] = useState<string>(
+    moments.at(0)?.id || ""
   );
 
   const [gallerySnapshots, changeGallerySnapshots] = useState(
@@ -47,19 +49,19 @@ export default function Page() {
   const stepHelper = {
     getCurrentStep: () => {
       for (let step of steps) {
-        if (step.id === currStepId) {
+        if (step.id === stepId) {
           return step;
         }
       }
       return null;
     },
-    updateStep: () => {
-      const currentStep = stepHelper.getCurrentStep();
+    syncStep: () => {
+      const currentStep = JSON.parse(JSON.stringify(stepHelper.getCurrentStep()));
       if (currentStep) {
         currentStep.points.flowPoint.timeline = moments;
-        const newStep = JSON.parse(JSON.stringify(currentStep));
+        const newStep = currentStep;
         changeSteps((prev) =>
-          prev.map((step) => (step.id === currStepId ? newStep : step))
+          prev.map((step) => (step.id === stepId ? newStep : step))
         );
       }
     },
@@ -67,16 +69,18 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
+      stepHelper.syncStep();
+      changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
-      changeCurrMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
       changeMoments(step.points.flowPoint.timeline);
+      changeMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
     },
     goToStep: (step: ProcessStepObj) => {
+      stepHelper.syncStep();
       const index = steps.indexOf(step);
-      changeCurrStepId(step.id);
-      changeCurrMomentId(step.points.flowPoint.timeline.at(index)?.id || "");
+      changeStepId(step.id);
       changeMoments(step.points.flowPoint.timeline);
-      stepHelper.updateStep();
+      changeMomentId(step.points.flowPoint.timeline.at(index)?.id || "");
     },
   };
 
@@ -91,7 +95,7 @@ export default function Page() {
 
     getCurrentMoment: () => {
       for (let moment of moments) {
-        if (moment.id === currMomentId) {
+        if (moment.id === momentId) {
           return moment;
         }
       }
@@ -101,11 +105,11 @@ export default function Page() {
 
   const momentHandling: MomentHandling = {
     updateCurrentMoment: (moment: FlowMomentObj) => {
-      changeCurrMomentId(moment.id);
+      changeMomentId(moment.id);
     },
 
     addMomentToStep: (moment: FlowMomentObj) => {
-      changeCurrMomentId(moment.id);
+      changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
     },
 
@@ -131,8 +135,8 @@ export default function Page() {
       }}
     >
       <FlowView
-        currMomentId={currMomentId}
-        currStepId={currStepId}
+        momentId={momentId}
+        stepId={stepId}
         moments={moments}
         steps={steps}
         snapshots={gallerySnapshots}

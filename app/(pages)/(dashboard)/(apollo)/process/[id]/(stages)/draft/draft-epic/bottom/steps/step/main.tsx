@@ -7,13 +7,11 @@ import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/mode
 
 export interface DraftStepProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  constellation: ProcessStepObj;
+  step: ProcessStepObj;
+  active: boolean;
 }
 
-export function DraftStep({
-  constellation,
-  ...props
-}: DraftStepProps) {
+export function DraftStep({ step, active, ...props }: DraftStepProps) {
   return (
     <button {...props}>
       <Layer
@@ -23,7 +21,11 @@ export function DraftStep({
         containerStyle={containerStyles["row-centered"]}
         contentStyle="flex-shrink-0"
       >
-        <p className="font-bold text-white">{constellation.name}</p>
+        {active ? (
+          <p className="font-bold text-white">{step.name}</p>
+        ) : (
+          <p className="font-bold text-slate-500">{step.name}</p>
+        )}
       </Layer>
     </button>
   );
