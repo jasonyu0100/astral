@@ -13,10 +13,10 @@ export function SeaSidebar({
   return (
     <Layer
       displayName={SeaSidebar.name}
-      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
+      sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col-center"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle="overflow-auto space-y-[2rem] p-[1rem]"
+      contentStyle={"py-[2rem] px-[1rem]"}
     >
       {children}
     </Layer>

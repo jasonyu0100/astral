@@ -11,11 +11,11 @@ import { CartSidebarHeaderTitle } from "./header/title/main";
 export function CartSidebar() {
   return (
     <Layer
-      displayName="adsads"
-      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
+      displayName={CartSidebar.name}
+      sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles.col}
-      contentStyle="py-[1rem]"
+      contentStyle={"py-[2rem] px-[1rem]"}
     >
       <CartSidebarHeader>
         <CartSidebarHeaderTitle>Cart (10 items)</CartSidebarHeaderTitle>

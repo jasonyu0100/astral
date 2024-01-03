@@ -8,10 +8,10 @@ export function StormSidePanel({ children }: { children: React.ReactNode }) {
   return (
     <Layer
       displayName={StormSidePanel.name}
-      sizeStyle="max-w-[400px] min-w-[250px] w-1/4 h-full"
+      sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}
-      contentStyle="justify-between py-[1rem]"
+      contentStyle={"py-[2rem] px-[1rem]"}
     >
       {children}
     </Layer>
