@@ -8,7 +8,7 @@ import { stormModel } from "../../../(stages)/storm/model/main";
 import { StormPointObj } from "../../../(stages)/storm/model/point/main";
 
 export interface ProcessStepObj {
-  id: number;
+  id: string;
   name: string;
   description: string;
   points: {
@@ -20,7 +20,7 @@ export interface ProcessStepObj {
 }
 
 export const exampleProcessStep = {
-    id: 0,
+    id: "0",
     name: "Melody",
     description: "This is a description",
     points: {

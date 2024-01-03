@@ -1,7 +1,7 @@
 export interface Piece {
   title: string;
   type: string;
-  date: Date;
+  date: string;
   thumbnail: {
     src: string;
   };
@@ -10,7 +10,7 @@ export interface Piece {
 export const examplePiece = {
   title: "Hello World",
   type: "Music",
-  date: new Date("2023-12-19"),
+  date: new Date("2023-12-19").toISOString(),
   thumbnail: {
     src: "/voyager/pieces/1.png",
   },

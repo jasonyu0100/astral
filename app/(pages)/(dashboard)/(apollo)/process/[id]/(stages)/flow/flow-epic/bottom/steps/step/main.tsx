@@ -8,12 +8,10 @@ import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/mode
 export interface FlowStepProps
   extends React.ComponentPropsWithoutRef<"button"> {
   step: ProcessStepObj;
+  active: boolean;
 }
 
-export function FlowStep({
-  step,
-  ...props
-}: FlowStepProps) {
+export function FlowStep({ step, active, ...props }: FlowStepProps) {
   return (
     <button {...props}>
       <Layer
@@ -23,7 +21,11 @@ export function FlowStep({
         containerStyle={containerStyles["row-centered"]}
         contentStyle="flex-shrink-0"
       >
-        <p className="font-bold text-white">{step.name}</p>
+        {active ? (
+          <p className="font-bold text-white">{step.name}</p>
+        ) : (
+          <p className="font-bold text-slate-500">{step.name}</p>
+        )}
       </Layer>
     </button>
   );

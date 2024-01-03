@@ -24,39 +24,45 @@ import { FlowSnapshotObj } from "./model/context/snapshot/main";
 import { FlowAddMoment } from "./flow-epic/center/timeline/add/main";
 import { flowModel } from "./model/main";
 import { processModel } from "../../model/main";
+import { MomentHandling, StepHandling } from "./page";
 
 interface FlowViewProps {
-  currentMoment: FlowMomentObj;
+  currMomentId: string;
+  currStepId: string;
   moments: FlowMomentObj[];
   steps: ProcessStepObj[];
   snapshots: FlowSnapshotObj[];
-  addStep: (step: ProcessStepObj) => void;
-  addSnapshotToGallery: (snapshot: FlowSnapshotObj) => void;
-  addSnapshotToMoment: (snapshot: FlowSnapshotObj) => void;
-  addMomentToStep: (moment: FlowMomentObj) => void;
+  momentHandling: MomentHandling;
+  stepHandling: StepHandling;
 }
 
 export function FlowView({
-  currentMoment,
+  currMomentId,
+  currStepId,
   moments,
   steps,
   snapshots,
-  addStep,
-  addSnapshotToGallery,
-  addSnapshotToMoment,
-  addMomentToStep,
+  momentHandling,
+  stepHandling,
 }: FlowViewProps) {
   return (
     <FlowWrapper>
       <FlowController>
         <FlowControllerCenter>
           <FlowTimeline>
-            {moments.map((flowMoment, index) => <FlowMoment 
-            flowMoment={flowMoment} index={index} active={flowMoment.id === currentMoment.id}
-            />)}
+            {moments.map((flowMoment, index) => (
+              <FlowMoment
+                flowMoment={flowMoment}
+                index={index}
+                active={flowMoment.id === currMomentId}
+              />
+            ))}
             <FlowAddMoment
               onClick={() =>
-                addMomentToStep({...flowModel.points.point.moments.moment.example, id: Date.now().toFixed().toString()})
+                momentHandling.addMomentToStep({
+                  ...flowModel.points.point.moments.moment.example,
+                  id: Date.now().toFixed().toString(),
+                })
               }
             />
           </FlowTimeline>
@@ -65,16 +71,20 @@ export function FlowView({
           <FlowControllerSteps>
             {steps.map((step) => (
               <FlowStep
+                active={currStepId === step.id}
                 step={step}
                 onClick={() => {
-                  alert("Clicked step");
+                  stepHandling.goToStep(step);
                 }}
               />
             ))}
           </FlowControllerSteps>
           <FlowStepsAdd
             onClick={() => {
-              addStep(processModel.process.steps.step.example)
+              stepHandling.addStep({
+                ...processModel.process.steps.step.example,
+                id: Date.now().toFixed().toString(),
+              });
             }}
           />
         </FlowControllerBottomRow>
@@ -85,7 +95,9 @@ export function FlowView({
           <FlowSidebarButtonRow>
             <TopRowAddButton
               onClick={() =>
-                addSnapshotToGallery(flowModel.context.gallery.snapshot.example)
+                momentHandling.addSnapshotToGallery(
+                  flowModel.context.gallery.snapshot.example
+                )
               }
             />
             <TopRowSearchButton />
@@ -96,7 +108,7 @@ export function FlowView({
           {snapshots.map((snapshot) => (
             <FlowSnapshot
               src={snapshot.src}
-              onClick={() => addSnapshotToMoment(snapshot)}
+              onClick={() => momentHandling.addSnapshotToMoment(snapshot)}
             />
           ))}
         </FlowSidebarElements>

@@ -4,7 +4,7 @@ export interface LinkPost {
   id: string;
   authorId: string;
   description: string;
-  date: Date;
+  date: string;
   visibility: string;
   comments: LinkPostComment[];
   thumbnail: {
@@ -16,7 +16,7 @@ export const exampleJournalLinkPost = {
     id: "0",
     authorId: "0",
     description: "Hello world",
-    date: new Date("2023-12-19"),
+    date: new Date("2023-12-19").toISOString(),
     visibility: "Journal",
     comments: exampleLinkPostComments,
     thumbnail: {
@@ -32,7 +32,7 @@ export const exampleSocialLinkPost = {
     id: "0",
     authorId: "0",
     description: "Hello world",
-    date: new Date("2023-12-19"),
+    date: new Date("2023-12-19").toISOString(),
     visibility: "Social",
     comments: exampleLinkPostComments,
     thumbnail: {
@@ -48,7 +48,7 @@ export const exampleExploreLinkPost = {
     id: "0",
     authorId: "0",
     description: "Hello world",
-    date: new Date("2023-12-19"),
+    date: new Date("2023-12-19").toISOString(),
     visibility: "Explore",
     comments: exampleLinkPostComments,
     thumbnail: {

@@ -15,78 +15,129 @@ export const FlowContext = createContext<FlowContextTypes>({
   updateCurrentMoment: () => {},
 });
 
+export interface MomentHandling {
+  updateCurrentMoment: (moment: FlowMomentObj) => void;
+  addMomentToStep: (moment: FlowMomentObj) => void;
+  addSnapshotToMoment: (snapshot: FlowSnapshotObj) => void;
+  addSnapshotToGallery: (snapshot: FlowSnapshotObj) => void;
+}
+
+export interface StepHandling {
+  addStep: (step: ProcessStepObj) => void;
+  goToStep: (step: ProcessStepObj) => void;
+}
+
 export default function Page() {
   const [steps, changeSteps] = useState<ProcessStepObj[]>(
     processModel.process.steps.example
   );
+  const [currStepId, changeCurrStepId] = useState<string>(
+    steps.at(0)?.id || ""
+  );
 
+  const [currMomentId, changeCurrMomentId] = useState<string>("");
   const [moments, changeMoments] = useState<FlowMomentObj[]>(
     flowModel.points.point.moments.example
   );
 
-  const [currentMoment, changeCurrentMoment] = useState<FlowMomentObj>(
-    flowModel.points.point.moments.moment.example
-  );
   const [gallerySnapshots, changeGallerySnapshots] = useState(
     flowModel.context.gallery.example
   );
 
-  const updateCurrentMoment = (moment: FlowMomentObj) => {
-    changeCurrentMoment(moment);
+  const stepHelper = {
+    getCurrentStep: () => {
+      for (let step of steps) {
+        if (step.id === currStepId) {
+          return step;
+        }
+      }
+      return null;
+    },
+    updateStep: () => {
+      const currentStep = stepHelper.getCurrentStep();
+      if (currentStep) {
+        currentStep.points.flowPoint.timeline = moments;
+        const newStep = JSON.parse(JSON.stringify(currentStep));
+        changeSteps((prev) =>
+          prev.map((step) => (step.id === currStepId ? newStep : step))
+        );
+      }
+    },
   };
 
-  const addStep = (step: ProcessStepObj) => {
-    changeSteps((prev) => [...prev, step]);
-    changeCurrentMoment(
-      step.points.flowPoint.timeline.at(-1) ||
-        flowModel.points.point.moments.moment.example
-    );
-    changeMoments(step.points.flowPoint.timeline);
+  const stepHandling = {
+    addStep: (step: ProcessStepObj) => {
+      changeSteps((prev) => [...prev, step]);
+      changeCurrMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
+      changeMoments(step.points.flowPoint.timeline);
+    },
+    goToStep: (step: ProcessStepObj) => {
+      const index = steps.indexOf(step);
+      changeCurrStepId(step.id);
+      changeCurrMomentId(step.points.flowPoint.timeline.at(index)?.id || "");
+      changeMoments(step.points.flowPoint.timeline);
+      stepHelper.updateStep();
+    },
   };
 
-  const addMomentToStep = (moment: FlowMomentObj) => {
-    changeCurrentMoment(moment);
-    changeMoments((prev) => [...prev, moment]);
+  const momentHelper = {
+    updateMomentsWithCurrent: (newCurrentMoment: FlowMomentObj) => {
+      changeMoments((prev) =>
+        prev.map((moment) =>
+          moment.id === newCurrentMoment.id ? newCurrentMoment : moment
+        )
+      );
+    },
+
+    getCurrentMoment: () => {
+      for (let moment of moments) {
+        if (moment.id === currMomentId) {
+          return moment;
+        }
+      }
+      return null;
+    },
   };
 
-  const updateMomentsWithCurrent = (newCurrentMoment: FlowMomentObj) => {
-    changeMoments((prev) =>
-      prev.map((moment) =>
-        moment.id === newCurrentMoment.id ? newCurrentMoment : moment
-      )
-    );
-  };
+  const momentHandling: MomentHandling = {
+    updateCurrentMoment: (moment: FlowMomentObj) => {
+      changeCurrMomentId(moment.id);
+    },
 
-  const addSnapshotToMoment = (snapshot: FlowSnapshotObj) => {
-    changeCurrentMoment((prev) => {
-      const newCurrentMoment = {
-        ...prev,
-        snapshots: [...prev.snapshots, snapshot],
-      };
-      updateMomentsWithCurrent(newCurrentMoment);
-      return newCurrentMoment;
-    });
-  };
+    addMomentToStep: (moment: FlowMomentObj) => {
+      changeCurrMomentId(moment.id);
+      changeMoments((prev) => [...prev, moment]);
+    },
 
-  const addSnapshotToGallery = (snapshot: FlowSnapshotObj) => {
-    changeGallerySnapshots((prev) => [...prev, snapshot]);
+    addSnapshotToMoment: (snapshot: FlowSnapshotObj) => {
+      const currentMoment = momentHelper.getCurrentMoment();
+      if (currentMoment) {
+        const newCurrentMoment = {
+          ...currentMoment,
+          snapshots: [...currentMoment.snapshots, snapshot],
+        };
+        momentHelper.updateMomentsWithCurrent(newCurrentMoment);
+      }
+    },
+    addSnapshotToGallery: (snapshot: FlowSnapshotObj) => {
+      changeGallerySnapshots((prev) => [...prev, snapshot]);
+    },
   };
 
   return (
     <FlowContext.Provider
       value={{
-        updateCurrentMoment,
+        updateCurrentMoment: momentHandling.updateCurrentMoment,
       }}
     >
       <FlowView
-        currentMoment={currentMoment}
+        currMomentId={currMomentId}
+        currStepId={currStepId}
         moments={moments}
         steps={steps}
         snapshots={gallerySnapshots}
-        addStep={addStep}
-        addSnapshotToGallery={addSnapshotToGallery}
-        addSnapshotToMoment={addSnapshotToMoment}
-        addMomentToStep={addMomentToStep}
+        momentHandling={momentHandling}
+        stepHandling={stepHandling}
       />
     </FlowContext.Provider>
   );
