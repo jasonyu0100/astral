@@ -13,7 +13,7 @@ export function SeaController({
     <Layer
       displayName={SeaController.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["col"]}
+      containerStyle={containerStyles["row-center"]}
     >
       {children}
     </Layer>

@@ -6,10 +6,6 @@ import { ProcessTabStage, ProcessTabs } from "@/(pages)/(dashboard)/(apollo)/pro
 import { useEffect } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-
-  useEffect(() => {
-    console.log('adsads123')
-  }, [])
   return (
     <DashboardBody>
       <ProcessTabs tab={ProcessTabStage.Sea} />

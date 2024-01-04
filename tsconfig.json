@@ -27,7 +27,7 @@
       "@models/*": ["(core)/models/*"]
     },
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(pages)/(dashboard)/(apollo)/process/[id]/(stages)/sea/sea-epic/story/firework/sketch.ts"],
   "exclude": ["node_modules"],
   "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
 }
