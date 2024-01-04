@@ -1,9 +1,9 @@
 import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/model/process/step/main";
-import { StormSidePanelSectionAdd } from "./add/main";
+import { StormSidePanelSectionAdd } from "./chat/add/main";
 import { StormSidePanelChat } from "./chat/main";
 import { StormSidePanelSectionHeader } from "./header/main";
-import StormSidePanelSectionIndicator from "./header/toggle/main";
-import { StormSidePanelSectionTitle } from "./title/main";
+import StormSidePanelSectionIndicator from "./header/indicator/main";
+import { StormSidePanelSectionTitle } from "./header/title/main";
 import { useEffect, useState } from "react";
 import { StormChatObj } from "../../../../model/point/chat/main";
 import { stormModel } from "../../../../model/main";
@@ -36,7 +36,7 @@ export function StormSidePanelStepSection({
   return (
     <div className="flex flex-col space-y-[2rem]">
       <div
-        className="cursor-pointer"
+        className="cursor-pointer w-full"
         onClick={() => {
           changeShow(!show);
         }}

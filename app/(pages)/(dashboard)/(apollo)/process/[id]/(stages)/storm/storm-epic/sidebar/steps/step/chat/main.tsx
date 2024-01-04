@@ -1,4 +1,4 @@
-import { StormSidePanelAvatar } from "../../avatar/main";
+import { StormSidePanelAvatar } from "./avatar/main";
 
 interface StormSidePanelChatProps
   extends React.ComponentPropsWithoutRef<"button"> {

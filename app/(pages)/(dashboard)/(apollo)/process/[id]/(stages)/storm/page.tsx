@@ -28,7 +28,7 @@ export default function Page() {
       }
     },
     syncStepWithChats: () => {
-      const currentStep: ProcessStepObj = JSON.parse(
+      const currentStep = JSON.parse(
         JSON.stringify(syncHandler.getCurrentStep())
       );
       if (currentStep) {
@@ -40,7 +40,7 @@ export default function Page() {
       }
     },
     syncChatWithMessages: () => {
-      const currentChat: StormChatObj = JSON.parse(
+      const currentChat = JSON.parse(
         JSON.stringify(syncHandler.getCurrentChat())
       );
       if (currentChat) {
@@ -55,8 +55,8 @@ export default function Page() {
 
   const stepHandler = {
     addStep: (step: ProcessStepObj) => {
-      syncHandler.syncStepWithChats();
       syncHandler.syncChatWithMessages();
+      syncHandler.syncStepWithChats();
       changeSteps((prev) => [...prev, step]);
       changeStepId(step.id);
       changeChats(step.points.stormPoint.chats);
@@ -64,8 +64,8 @@ export default function Page() {
       changeMessages(chats.at(0)?.messages || []);
     },
     goToStep: (step: ProcessStepObj) => {
-      syncHandler.syncStepWithChats();
       syncHandler.syncChatWithMessages();
+      syncHandler.syncStepWithChats();
       changeStepId(step.id);
       changeChats(step.points.stormPoint.chats);
       changeChatId(chats.at(0)?.id || "");
