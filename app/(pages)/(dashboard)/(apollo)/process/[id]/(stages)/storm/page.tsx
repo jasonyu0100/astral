@@ -8,46 +8,48 @@ import { ProcessStepObj } from "../../model/process/step/main";
 import { StormChatObj } from "./model/point/chat/main";
 
 export default function Page() {
-  const [steps, changeSteps] = useState(processModel.process.steps.example);
+  const [steps, changeSteps] = useState<ProcessStepObj[]>(
+    processModel.process.steps.example
+  );
   const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
-  const [chats, changeChats] = useState(stormModel.points.point.chats.example);
-  const [chatId, changeChatId] = useState<string>(chats.at(0)?.id || "");
+  const [chats, changeChats] = useState<StormChatObj[]>(
+    steps.at(0)?.points.stormPoint.chats || []
+  );
+  const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || "");
   const [messages, changeMessages] = useState<StormMessageObj[]>(
     stormModel.points.point.chats.chat.messages.example
   );
 
+  const serialize = (obj: any) => JSON.parse(JSON.stringify(obj));
+
   const syncHandler = {
-    getCurrentStep: () => {
-      for (let step of steps) {
-        if (step.id === stepId) return step;
-      }
-    },
-    getCurrentChat: () => {
-      for (let chat of chats) {
-        if (chat.id === chatId) return chat;
-      }
-    },
-    syncStepWithChats: () => {
-      const currentStep = JSON.parse(
-        JSON.stringify(syncHandler.getCurrentStep())
+    getCurrentStep: (steps: ProcessStepObj[]) =>
+      steps.filter((step) => step.id === stepId).at(0),
+    getCurrentChat: (chats: StormChatObj[]) =>
+      chats.filter((chat) => chat.id === chatId).at(0),
+    syncBetweenSteps: () => {
+      const currentStep: ProcessStepObj = serialize(
+        syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
-        currentStep.points.stormPoint.chats = chats;
-        const newStep = currentStep;
+        const currentChat = serialize(syncHandler.getCurrentChat(chats));
+        if (currentChat) {
+          currentChat.messages = serialize(messages);
+          currentStep.points.stormPoint.chats = chats.map((chat) =>
+            chat.id === chatId ? currentChat : chat
+          );
+        }
         changeSteps((prev) =>
-          prev.map((step) => (step.id === stepId ? newStep : step))
+          prev.map((step) => (step.id === stepId ? currentStep : step))
         );
       }
     },
-    syncChatWithMessages: () => {
-      const currentChat = JSON.parse(
-        JSON.stringify(syncHandler.getCurrentChat())
-      );
+    syncWithinStep: () => {
+      const currentChat = serialize(syncHandler.getCurrentChat(chats));
       if (currentChat) {
-        currentChat.messages = messages;
-        const newChat = currentChat;
+        currentChat.messages = serialize(messages);
         changeChats((prev) =>
-          prev.map((chat) => (chat.id === chatId ? newChat : chat))
+          prev.map((chat) => (chat.id === chatId ? currentChat : chat))
         );
       }
     },
@@ -55,52 +57,65 @@ export default function Page() {
 
   const stepHandler = {
     addStep: (step: ProcessStepObj) => {
-      syncHandler.syncChatWithMessages();
-      syncHandler.syncStepWithChats();
+      syncHandler.syncBetweenSteps();
       changeSteps((prev) => [...prev, step]);
       changeStepId(step.id);
-      changeChats(step.points.stormPoint.chats);
-      changeChatId(chats.at(0)?.id || "");
-      changeMessages(chats.at(0)?.messages || []);
+      changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
+      changeMessages(step.points.stormPoint.chats.at(0)?.messages || []);
     },
     goToStep: (step: ProcessStepObj) => {
-      syncHandler.syncChatWithMessages();
-      syncHandler.syncStepWithChats();
+      syncHandler.syncBetweenSteps();
       changeStepId(step.id);
-      changeChats(step.points.stormPoint.chats);
-      changeChatId(chats.at(0)?.id || "");
-      changeMessages(chats.at(0)?.messages || []);
+      changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
+      changeMessages(step.points.stormPoint.chats.at(0)?.messages || []);
     },
   };
 
   const chatHandler = {
     selectChat: (chat: StormChatObj, step: ProcessStepObj) => {
-      syncHandler.syncStepWithChats();
-      syncHandler.syncChatWithMessages();
-      changeStepId(step.id);
-      changeChats(step.points.stormPoint.chats);
-      changeChatId(chat.id);
-      changeMessages(chat.messages);
+      if (step.id !== stepId) {
+        syncHandler.syncBetweenSteps();
+        changeStepId(step.id);
+        changeChats(step.points.stormPoint.chats);
+        changeChatId(chat.id);
+        changeMessages(chat.messages);
+      } else {
+        syncHandler.syncWithinStep();
+        changeChatId(chat.id);
+        changeMessages(chat.messages);
+      }
     },
-    sendMessage: (message: string) => {
+    addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => {
+      if (step.id !== stepId) {
+        syncHandler.syncBetweenSteps();
+        changeStepId(step.id);
+        changeChats([...step.points.stormPoint.chats, chat]);
+        changeChatId(chat.id);
+        changeMessages(chat.messages);
+      } else {
+        syncHandler.syncWithinStep();
+        changeChats((prev) => [...prev, chat]);
+        changeChatId(chat.id);
+        changeMessages(chat.messages);
+      }
+    },
+    sendChatMessage: (message: string) => {
       changeMessages((prev) => [
         ...prev,
-        stormModel.points.point.chats.chat.messages.message.example,
+        {
+          ...stormModel.points.point.chats.chat.messages.message.example,
+          source: "You",
+          message: message,
+        },
       ]);
       changeMessages((prev) => [
         ...prev,
-        stormModel.points.point.chats.chat.messages.message.example,
+        {
+          ...stormModel.points.point.chats.chat.messages.message.example,
+          source: "gpt-4",
+          message: "Hello Back",
+        },
       ]);
-      alert(`Sent Message ${message}`);
-    },
-    addChat: (chat: StormChatObj, step: ProcessStepObj) => {
-      syncHandler.syncStepWithChats();
-      syncHandler.syncChatWithMessages();
-      changeStepId(step.id);
-      changeChats(step.points.stormPoint.chats);
-      changeChatId(chat.id);
-      changeMessages(chat.messages);
-      changeChats((prev) => [...prev, chat]);
     },
   };
 

@@ -33,8 +33,8 @@ interface StormViewProps {
   };
   chatHandler: {
     selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
-    sendMessage: (message: string) => void;
-    addChat: (chat: StormChatObj) => void;
+    sendChatMessage: (message: string) => void;
+    addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => void;
   };
 }
 
@@ -76,7 +76,7 @@ export function StormView({
             <StormMessageInputVoice />
             <StormMessageInputSend
               onClick={(e) => {
-                chatHandler.sendMessage(inputMessage);
+                chatHandler.sendChatMessage(inputMessage);
                 changeInputMessage("");
               }}
             />
@@ -90,11 +90,9 @@ export function StormView({
               selectChat={chatHandler.selectChat}
               step={step}
               chatId={chatId}
-              chats={
-                step.id === stepId ? chats : step.points.stormPoint.chats
-              }
+              chats={step.id === stepId ? chats : step.points.stormPoint.chats}
               active={step.id === stepId}
-              addChat={chatHandler.addChat}
+              addChat={chatHandler.addChatToChats}
             />
           ))}
           <div

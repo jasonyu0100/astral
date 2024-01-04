@@ -32,14 +32,11 @@ export default function Page() {
   );
 
   const stepHelper = {
-    getCurrentStep: () => {
-      for (let step of steps) {
-        if (step.id === stepId) return step;
-      }
-    },
-    syncStepWithStars: () => {
+    getCurrentStep: (steps: ProcessStepObj[]) =>
+      steps.filter((step) => step.id === stepId).at(0),
+    syncWithinSteps: () => {
       const currentStep: ProcessStepObj = JSON.parse(
-        JSON.stringify(stepHelper.getCurrentStep())
+        JSON.stringify(stepHelper.getCurrentStep(steps))
       );
       if (currentStep) {
         currentStep.points.draftPoint.constellation = stars;
@@ -52,13 +49,13 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
-      stepHelper.syncStepWithStars();
+      stepHelper.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeStars(step.points.draftPoint.constellation);
     },
     goToStep: (step: ProcessStepObj) => {
-      stepHelper.syncStepWithStars();
+      stepHelper.syncWithinSteps();
       changeStepId(step.id);
       changeStars(step.points.draftPoint.constellation);
     },

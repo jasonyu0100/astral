@@ -43,15 +43,12 @@ export default function Page() {
   );
 
   const syncHandler = {
-    getCurrentStep: () => {
-      for (let step of steps) {
-        if (step.id === stepId) return step;
-      }
-    },
-    syncStepWithMoments: () => {
+    getCurrentStep: (steps: ProcessStepObj[]) =>
+      steps.filter((step) => step.id === stepId).at(0),
+    syncWithinSteps: () => {
       const currentStep: ProcessStepObj = JSON.parse(
-        JSON.stringify(syncHandler.getCurrentStep())
-      );
+        JSON.stringify(syncHandler.getCurrentStep(steps)
+      ));
       if (currentStep) {
         currentStep.points.flowPoint.timeline = moments;
         const newStep = currentStep;
@@ -64,14 +61,14 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
-      syncHandler.syncStepWithMoments();
+      syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeMoments(step.points.flowPoint.timeline);
       changeMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
     },
     goToStep: (step: ProcessStepObj) => {
-      syncHandler.syncStepWithMoments();
+      syncHandler.syncWithinSteps();
       const index = steps.indexOf(step);
       changeStepId(step.id);
       changeMoments(step.points.flowPoint.timeline);
