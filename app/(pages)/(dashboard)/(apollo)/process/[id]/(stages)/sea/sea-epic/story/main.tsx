@@ -1,4 +1,4 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import p5 from "p5";
 import { FireworkSketch } from "./firework/sketch";
 
@@ -36,7 +36,7 @@ export function SeaStory() {
       }
     }
 
-    const newP5Instance = new p5((p: any) => {
+    const newP5Instance = new p5((p: p5) => {
       console.log(divHeight, divWidth)
       new FireworkSketch(p, 1080, 1920, renderRef)
     });
