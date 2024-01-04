@@ -4,7 +4,7 @@ export function SearchResults({
   children: React.ReactNode;
 }) {
   return (
-  <div className="w-full columns-3 gap-[2rem] py-[1rem] sm:columns-1 md:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
+  <div className="w-full columns-2 gap-[2rem] py-[1rem] sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6">
       {children}
     </div>
   );

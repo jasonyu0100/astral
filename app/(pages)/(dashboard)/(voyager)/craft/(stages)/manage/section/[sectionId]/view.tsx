@@ -37,7 +37,7 @@ export function DriveSectionView({
           <DriveBreadcrumbItem
             href={craftMap.craft.manage.section.id.link(section.id)}
           >
-            Section
+            {section.name}
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>

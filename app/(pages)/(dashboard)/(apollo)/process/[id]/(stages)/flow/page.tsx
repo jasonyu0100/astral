@@ -6,6 +6,7 @@ import { FlowView } from "./view";
 import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { FlowSnapshotObj } from "./model/context/snapshot/main";
+import { sync } from "framer-motion";
 
 interface FlowContextTypes {
   updateCurrentMoment: (moment: FlowMomentObj) => void;
@@ -43,12 +44,13 @@ export default function Page() {
   );
 
   const syncHandler = {
+    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
     getCurrentStep: (steps: ProcessStepObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
     syncWithinSteps: () => {
-      const currentStep: ProcessStepObj = JSON.parse(
-        JSON.stringify(syncHandler.getCurrentStep(steps)
-      ));
+      const currentStep: ProcessStepObj = syncHandler.serialize(
+        syncHandler.getCurrentStep(steps)
+      );
       if (currentStep) {
         currentStep.points.flowPoint.timeline = moments;
         const newStep = currentStep;

@@ -31,12 +31,13 @@ export default function Page() {
     draftModel.points.point.stars.example
   );
 
-  const stepHelper = {
+  const syncHandler = {
+    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
     getCurrentStep: (steps: ProcessStepObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
     syncWithinSteps: () => {
-      const currentStep: ProcessStepObj = JSON.parse(
-        JSON.stringify(stepHelper.getCurrentStep(steps))
+      const currentStep: ProcessStepObj = syncHandler.serialize(
+        syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
         currentStep.points.draftPoint.constellation = stars;
@@ -49,13 +50,13 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
-      stepHelper.syncWithinSteps();
+      syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeStars(step.points.draftPoint.constellation);
     },
     goToStep: (step: ProcessStepObj) => {
-      stepHelper.syncWithinSteps();
+      syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeStars(step.points.draftPoint.constellation);
     },

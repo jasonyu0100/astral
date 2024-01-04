@@ -20,21 +20,22 @@ export default function Page() {
     stormModel.points.point.chats.chat.messages.example
   );
 
-  const serialize = (obj: any) => JSON.parse(JSON.stringify(obj));
-
   const syncHandler = {
+    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
     getCurrentStep: (steps: ProcessStepObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
     getCurrentChat: (chats: StormChatObj[]) =>
       chats.filter((chat) => chat.id === chatId).at(0),
     syncBetweenSteps: () => {
-      const currentStep: ProcessStepObj = serialize(
+      const currentStep: ProcessStepObj = syncHandler.serialize(
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
-        const currentChat = serialize(syncHandler.getCurrentChat(chats));
+        const currentChat = syncHandler.serialize(
+          syncHandler.getCurrentChat(chats)
+        );
         if (currentChat) {
-          currentChat.messages = serialize(messages);
+          currentChat.messages = syncHandler.serialize(messages);
           currentStep.points.stormPoint.chats = chats.map((chat) =>
             chat.id === chatId ? currentChat : chat
           );
@@ -45,9 +46,9 @@ export default function Page() {
       }
     },
     syncWithinStep: () => {
-      const currentChat = serialize(syncHandler.getCurrentChat(chats));
+      const currentChat = syncHandler.serialize(syncHandler.getCurrentChat(chats));
       if (currentChat) {
-        currentChat.messages = serialize(messages);
+        currentChat.messages = syncHandler.serialize(messages);
         changeChats((prev) =>
           prev.map((chat) => (chat.id === chatId ? currentChat : chat))
         );
