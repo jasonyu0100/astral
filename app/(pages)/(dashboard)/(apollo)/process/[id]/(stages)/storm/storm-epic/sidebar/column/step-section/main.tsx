@@ -2,39 +2,67 @@ import { ProcessStepObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/mode
 import { StormSidePanelSectionAdd } from "./add/main";
 import { StormSidePanelChat } from "./chat/main";
 import { StormSidePanelSectionHeader } from "./header/main";
-import StormSidePanelSectionToggle from "./header/toggle/main";
+import StormSidePanelSectionIndicator from "./header/toggle/main";
 import { StormSidePanelSectionTitle } from "./title/main";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { StormChatObj } from "../../../../model/point/chat/main";
 import { stormModel } from "../../../../model/main";
 
 interface StormSidePanelSectionViewProps {
+  chats: StormChatObj[];
+  chatId: string;
   step: ProcessStepObj;
+  active: boolean;
+  addChat: (chat: StormChatObj, step: ProcessStepObj) => void;
+  selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
 }
 
 export function StormSidePanelStepSection({
   step,
+  chats,
+  chatId,
+  active,
+  addChat,
+  selectChat,
 }: StormSidePanelSectionViewProps) {
-  const [show, changeShow] = useState(false);
-  const [chats, changeChats] = useState(step.points.stormPoint.chats)
-  const addChat = () => changeChats(prev => [...prev, stormModel.points.point.chats.chat.example])
+  const [show, changeShow] = useState(active);
+
+  useEffect(() => {
+    if (active) {
+      changeShow(true);
+    }
+  }, [active]);
 
   return (
     <div className="flex flex-col space-y-[2rem]">
-      <StormSidePanelSectionHeader>
-        <StormSidePanelSectionTitle>{step.name} ({chats.length})</StormSidePanelSectionTitle>
-        <StormSidePanelSectionToggle
-          show={show}
-          toggleShow={() => changeShow(!show)}
-        />
-      </StormSidePanelSectionHeader>
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          changeShow(!show);
+        }}
+      >
+        <StormSidePanelSectionHeader>
+          <StormSidePanelSectionTitle>
+            {step.name} {(show) && `(${chats.length})`}
+          </StormSidePanelSectionTitle>
+          <StormSidePanelSectionIndicator show={active} />
+        </StormSidePanelSectionHeader>
+      </div>
       {show && (
         <>
           {chats.map((chat) => (
             <>
-              <StormSidePanelChat>{chat.title}</StormSidePanelChat>
+              <StormSidePanelChat
+                active={active && chat.id === chatId}
+                onClick={() => selectChat(chat, step)}
+              >
+                {chat.title}
+              </StormSidePanelChat>
             </>
           ))}
-          <StormSidePanelSectionAdd onClick={addChat}
+          <StormSidePanelSectionAdd
+            onClick={() => addChat({
+              ...stormModel.points.point.chats.chat.example, id: new Date().toISOString()}, step)}
           />
         </>
       )}

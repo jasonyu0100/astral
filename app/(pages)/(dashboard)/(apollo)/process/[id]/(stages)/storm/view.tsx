@@ -18,68 +18,99 @@ import { StormSidebarHeader } from "./storm-epic/sidebar/header/main";
 import { StormSidePanelStepSection } from "./storm-epic/sidebar/column/step-section/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
 import { StormMessageObj } from "./model/point/chat/message/main";
-import { StormSidePanelGeneralSection } from "./storm-epic/sidebar/column/general-section/main";
 import { ProcessStepObj } from "../../model/process/step/main";
-import { ProcessContextObj } from "../../model/process/context/main";
+import { StormChatObj } from "./model/point/chat/main";
+import { processModel } from "../../model/main";
 
 interface StormViewProps {
-  messages: StormMessageObj[];
   steps: ProcessStepObj[];
-  context: ProcessContextObj;
-  sendMessage: (message: string) => void;
+  stepId: string;
+  chats: StormChatObj[];
+  chatId: string;
+  messages: StormMessageObj[];
+  stepHandler: {
+    addStep: (step: ProcessStepObj) => void;
+    goToStep: (step: ProcessStepObj) => void;
+  };
+  chatHandler: {
+    selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
+    sendMessage: (message: string) => void;
+    addChat: (chat: StormChatObj) => void;
+  };
 }
 
 export function StormView({
-  messages,
-  sendMessage,
   steps,
-  context,
+  stepId,
+  chats,
+  chatId,
+  messages,
+  stepHandler,
+  chatHandler,
 }: StormViewProps) {
   const [inputMessage, changeInputMessage] = useState("");
 
   return (
-      <StormWrapper>
-        <StormControllerMain>
-          <StormChatBody>
-            <StormHeader />
-            <StormChatMessages>
-              {messages.map((message) =>
-                message.source === "You" ? (
-                  <StormYouChatMessage>{message.message}</StormYouChatMessage>
-                ) : (
-                  <StormPartnerChatMessage>
-                    {message.message}
-                  </StormPartnerChatMessage>
-                )
-              )}
-            </StormChatMessages>
-          </StormChatBody>
-          <StormMessageInput>
-            <StormMessageInputLeft />
-            <StormMessageInputText
-              onChange={(e) => changeInputMessage(e.target.value)}
-              value={inputMessage}
+    <StormWrapper>
+      <StormControllerMain>
+        <StormChatBody>
+          <StormHeader />
+          <StormChatMessages>
+            {messages.map((message) =>
+              message.source === "You" ? (
+                <StormYouChatMessage>{message.message}</StormYouChatMessage>
+              ) : (
+                <StormPartnerChatMessage>
+                  {message.message}
+                </StormPartnerChatMessage>
+              )
+            )}
+          </StormChatMessages>
+        </StormChatBody>
+        <StormMessageInput>
+          <StormMessageInputLeft />
+          <StormMessageInputText
+            onChange={(e) => changeInputMessage(e.target.value)}
+            value={inputMessage}
+          />
+          <StormMessageInputRight>
+            <StormMessageInputVoice />
+            <StormMessageInputSend
+              onClick={(e) => {
+                chatHandler.sendMessage(inputMessage);
+                changeInputMessage("");
+              }}
             />
-            <StormMessageInputRight>
-              <StormMessageInputVoice />
-              <StormMessageInputSend
-                onClick={(e) => {
-                  sendMessage(inputMessage);
-                  changeInputMessage("");
-                }}
-              />
-            </StormMessageInputRight>
-          </StormMessageInput>
-        </StormControllerMain>
-        <StormSidePanel>
-          <StormSidebarHeader />
-          <SidePanelColumn>
-            <StormSidePanelGeneralSection context={context} />
-            {steps.map((step) => (
-              <StormSidePanelStepSection step={step} />
-            ))}
-          </SidePanelColumn>
-        </StormSidePanel>
-      </StormWrapper>
+          </StormMessageInputRight>
+        </StormMessageInput>
+      </StormControllerMain>
+      <StormSidePanel>
+        <SidePanelColumn>
+          {steps.map((step) => (
+            <StormSidePanelStepSection
+              selectChat={chatHandler.selectChat}
+              step={step}
+              chatId={chatId}
+              chats={
+                step.id === stepId ? chats : step.points.stormPoint.chats
+              }
+              active={step.id === stepId}
+              addChat={chatHandler.addChat}
+            />
+          ))}
+          <div
+            className="w-full"
+            onClick={() =>
+              stepHandler.addStep({
+                ...processModel.process.steps.step.example,
+                id: new Date().toISOString(),
+              })
+            }
+          >
+            <p className="text-slate-500 font-extraBold text-xl">Add Step</p>
+          </div>
+        </SidePanelColumn>
+      </StormSidePanel>
+    </StormWrapper>
   );
 }

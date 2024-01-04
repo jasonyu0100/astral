@@ -44,7 +44,7 @@ export function StormSidePanelSectionAdd({
           </g>
         </svg>
       </Layer>
-      <p className="text-white font-bold text-lg">New Chat</p>
+      <p className="text-slate-500 font-bold text-lg">New Chat</p>
     </button>
   );
 }

@@ -31,32 +31,27 @@ export default function Page() {
   const [steps, changeSteps] = useState<ProcessStepObj[]>(
     processModel.process.steps.example
   );
-  const [stepId, changeStepId] = useState<string>(
-    steps.at(0)?.id || ""
-  );
+  const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
 
   const [moments, changeMoments] = useState<FlowMomentObj[]>(
     flowModel.points.point.moments.example
   );
-  const [momentId, changeMomentId] = useState<string>(
-    moments.at(0)?.id || ""
-  );
+  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
 
   const [gallerySnapshots, changeGallerySnapshots] = useState(
     flowModel.context.gallery.example
   );
 
-  const stepHelper = {
+  const syncHandler = {
     getCurrentStep: () => {
       for (let step of steps) {
-        if (step.id === stepId) {
-          return step;
-        }
+        if (step.id === stepId) return step;
       }
-      return null;
     },
-    syncStep: () => {
-      const currentStep = JSON.parse(JSON.stringify(stepHelper.getCurrentStep()));
+    syncStepWithMoments: () => {
+      const currentStep: ProcessStepObj = JSON.parse(
+        JSON.stringify(syncHandler.getCurrentStep())
+      );
       if (currentStep) {
         currentStep.points.flowPoint.timeline = moments;
         const newStep = currentStep;
@@ -69,14 +64,14 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
-      stepHelper.syncStep();
+      syncHandler.syncStepWithMoments();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeMoments(step.points.flowPoint.timeline);
       changeMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
     },
     goToStep: (step: ProcessStepObj) => {
-      stepHelper.syncStep();
+      syncHandler.syncStepWithMoments();
       const index = steps.indexOf(step);
       changeStepId(step.id);
       changeMoments(step.points.flowPoint.timeline);

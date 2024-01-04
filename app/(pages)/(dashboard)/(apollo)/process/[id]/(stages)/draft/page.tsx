@@ -34,19 +34,17 @@ export default function Page() {
   const stepHelper = {
     getCurrentStep: () => {
       for (let step of steps) {
-        if (step.id === stepId) {
-          return step;
-        }
+        if (step.id === stepId) return step;
       }
-      return null;
     },
-    syncStep: () => {
-      const currentStep = JSON.parse(JSON.stringify(stepHelper.getCurrentStep()));
+    syncStepWithStars: () => {
+      const currentStep: ProcessStepObj = JSON.parse(
+        JSON.stringify(stepHelper.getCurrentStep())
+      );
       if (currentStep) {
         currentStep.points.draftPoint.constellation = stars;
-        const newStep = currentStep;
         changeSteps((prev) =>
-          prev.map((step) => (step.id === stepId ? newStep : step))
+          prev.map((step) => (step.id === stepId ? currentStep : step))
         );
       }
     },
@@ -54,13 +52,13 @@ export default function Page() {
 
   const stepHandling = {
     addStep: (step: ProcessStepObj) => {
-      stepHelper.syncStep();
+      stepHelper.syncStepWithStars();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeStars(step.points.draftPoint.constellation);
     },
     goToStep: (step: ProcessStepObj) => {
-      stepHelper.syncStep();
+      stepHelper.syncStepWithStars();
       changeStepId(step.id);
       changeStars(step.points.draftPoint.constellation);
     },
@@ -86,10 +84,7 @@ export default function Page() {
       alert(`Spawned Star`);
     },
     addMedia: (draftMedia: DraftMediaObj) => {
-      changeMedia((prev) => [
-        ...prev,
-        draftMedia,
-      ]);
+      changeMedia((prev) => [...prev, draftMedia]);
       alert(`Added Media`);
     },
   };

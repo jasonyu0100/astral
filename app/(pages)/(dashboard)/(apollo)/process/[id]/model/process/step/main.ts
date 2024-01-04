@@ -31,4 +31,9 @@ export const exampleProcessStep = {
     }
 }
 
-export const exampleProcessSteps = [exampleProcessStep];
+export const exampleProcessSteps = [
+  {...exampleProcessStep, id: "0"},
+  {...exampleProcessStep, id: "1"},
+  {...exampleProcessStep, id: "2"},
+  {...exampleProcessStep, id: "3"},
+];
