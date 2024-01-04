@@ -1,7 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
