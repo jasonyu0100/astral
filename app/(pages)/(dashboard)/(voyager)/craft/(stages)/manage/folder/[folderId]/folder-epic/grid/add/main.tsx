@@ -1,0 +1,25 @@
+interface CraftFolderGridAdd extends React.ComponentPropsWithoutRef<"button"> {}
+
+export function CraftFolderGridAdd({ ...props }: CraftFolderGridAdd) {
+  return (
+    <button {...props}>
+      <div className="flex flex-row w-[400px] h-[150px] items-center space-x-[3rem]">
+        <div className="w-[150px] h-[150px] rounded-full bg-white flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <path
+              d="M8.52138 11.3434H0.0551758V8.52138H8.52138V0.0551758H11.3434V8.52138H19.8096V11.3434H11.3434V19.8096H8.52138V11.3434Z"
+              fill="#CBD5E1"
+            />
+          </svg>
+        </div>
+        <p className="text-white text-lg font-bold">Add File</p>
+      </div>
+    </button>
+  );
+}

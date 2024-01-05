@@ -1,17 +1,15 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export function ExploreWrapper({
+export function SearchWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <Layer
-      displayName={ExploreWrapper.name}
-      sizeStyle="w-full h-full"
-      containerStyle={containerStyles.row}
-    >
+    <Layer 
+      displayName={SearchWrapper.name}
+    sizeStyle="w-full h-full" containerStyle={containerStyles.row}>
       {children}
     </Layer>
   );

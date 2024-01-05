@@ -15,6 +15,12 @@ import {
   exampleCraftSection,
 } from "./drive/section/main";
 import {
+  CraftExploreElement,
+  exampleExploreElement,
+  exampleExploreElements,
+} from "./explore/element/main";
+import { CraftExplore, exampleCraftExplore } from "./explore/main";
+import {
   CraftSearch,
   exampleCraftSearch,
   exampleCraftSearchResults,
@@ -48,6 +54,15 @@ export const craftModel: {
     };
     example: CraftSearch;
   };
+  explore: {
+    results: {
+      example: CraftExploreElement[];
+      element: {
+        example: CraftExploreElement;
+      };
+    };
+    example: CraftExplore;
+  };
 } = {
   drive: {
     sections: {
@@ -75,5 +90,14 @@ export const craftModel: {
       example: exampleCraftSearchResults,
     },
     example: exampleCraftSearch,
+  },
+  explore: {
+    results: {
+      example: exampleExploreElements,
+      element: {
+        example: exampleExploreElement,
+      },
+    },
+    example: exampleCraftExplore,
   },
 };

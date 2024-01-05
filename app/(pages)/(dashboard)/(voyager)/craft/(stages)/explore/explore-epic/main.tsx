@@ -1,22 +1,21 @@
-import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import React from "react";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
-export function ExploreController({
+export function SearchController({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={ExploreController.name}
-      sizeStyle="flex-grow h-full"
-      containerStyle={containerStyles["col"]}
+      displayName={SearchController.name}
+      sizeStyle="h-full flex-grow"
+      containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="p-[3rem] space-y-[3rem] overflow-auto"
+      contentStyle="px-[3rem] pt-[1rem] space-y-[3rem] overflow-auto"
     >
       {children}
     </Layer>

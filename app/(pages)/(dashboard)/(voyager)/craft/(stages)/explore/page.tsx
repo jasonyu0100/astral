@@ -1,27 +1,36 @@
 "use client";
-
 import { useState } from "react";
-import { ExploreWrapper } from "./explore-epic/wrapper/main";
-import { ExploreBreadcrumb } from "./explore-epic/breadcrumb/main";
-import { ExploreBreadcrumbItem } from "./explore-epic/breadcrumb/item/main";
-import { ExploreBreadcrumbDivider } from "./explore-epic/breadcrumb/divider/main";
-import { ExploreController } from "./explore-epic/main";
-import { ExploreSection } from "./explore-epic/section/main";
-import { ExploreSectionCoverImage } from "./explore-epic/section/cover-image/main";
-import { ExploreSectionTitle } from "./explore-epic/section/title/main";
-import { ExploreSectionDescription } from "./explore-epic/section/description/main";
-import { CartSidebar } from "../../cart-sidebar-epic/main";
+import { craftModel } from "../../model/main";
+import { CraftExploreView } from "./view";
+import { CraftExploreElement } from "../../model/explore/element/main";
+
+interface SearchHandler {
+  searchQuery: (query: string) => void;
+  updateResult: (i: number, data: any) => void;
+}
+
+export interface CraftSearchViewProps {
+  searchHandler: SearchHandler;
+  results: CraftExploreElement[];
+}
 
 export default function Page() {
-  const [section, changeSection] = useState();
-  const [folder, changeFolder] = useState(null);
-  const [cartActive, changeCartActive] = useState(true);
+  const [results, changeResults] = useState(craftModel.explore.results.example);
 
-  return (
-    <ExploreWrapper>
-      <ExploreController>
-        <h1 className="text-white">EXPLORE</h1>
-      </ExploreController>
-    </ExploreWrapper>
-  );
+  const searchHandler : SearchHandler = {
+    searchQuery: (query: string) => {
+      if (query === "") {
+        changeResults(craftModel.explore.results.example);
+      } else {
+        changeResults([]);
+      }
+    },
+    updateResult: (i: number, data: any) => {
+      changeResults((prev: any[]) =>
+        prev.map((o: any, j: number) => (j === i ? { ...o, ...data } : o))
+      );
+    }
+  }
+
+  return <CraftExploreView results={results} searchHandler={searchHandler} />;
 }

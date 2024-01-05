@@ -14,15 +14,15 @@ import { DriveFolderSidebar } from "./folder-epic/sidebar/main";
 import { SidebarBody } from "./folder-epic/sidebar/body/main";
 import { SidebarCover } from "./folder-epic/sidebar/cover/main";
 import { SidebarInfo } from "./folder-epic/sidebar/info/main";
-
-interface DriveFolderViewProps {
-  section: CraftSection;
-  folder: CraftFolder;
-}
+import { CraftFolderGridAdd } from "./folder-epic/grid/add/main";
+import { DriveFolderViewProps } from "./page";
+import { craftModel } from "../../../../model/main";
 
 export default function DriveFolderView({
   section,
   folder,
+  files,
+  fileHandler,
 }: DriveFolderViewProps) {
   return (
     <DriveWrapper>
@@ -46,18 +46,24 @@ export default function DriveFolderView({
             {folder.name}
           </DriveBreadcrumbItem>
         </DriveBreadcrumbs>
-        {folder !== null && (
-          <CraftFolderGrid>
-            {folder.files.map((file) => (
-              <CraftFolderGridElement file={file} />
-            ))}
-          </CraftFolderGrid>
-        )}
+        <CraftFolderGrid>
+          <CraftFolderGridAdd
+            onClick={() =>
+              fileHandler.addFile(
+                craftModel.drive.sections.section.folders.folder.files.file
+                  .example
+              )
+            }
+          />
+          {files.map((file) => (
+            <CraftFolderGridElement file={file} />
+          ))}
+        </CraftFolderGrid>
       </DriveController>
       <DriveFolderSidebar>
         <SidebarBody>
-          <SidebarCover/>
-          <SidebarInfo/>
+          <SidebarCover />
+          <SidebarInfo />
         </SidebarBody>
       </DriveFolderSidebar>
     </DriveWrapper>
