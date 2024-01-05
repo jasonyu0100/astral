@@ -9,7 +9,7 @@ export function DriveSectionThumbnailWrapper({
 }: LibraryThumbnailWrapper) {
   return (
     <button {...props}>
-      <div className="h-[150px] w-[120px] bg-white flex flex-col items-center p-[10px]">
+      <div className="h-[120px] w-[120px] bg-white flex flex-col items-center p-[10px]">
         {children}
       </div>
     </button>

@@ -6,7 +6,7 @@ export function SectionCoverImage({ ...props }: SectionCoverImageProps) {
     <div className="w-full h-[250px] p-[10px] bg-black flex flex-col items-center">
       <div className="p-[20px] bg-white w-full h-full">
         <img
-          className="w-full h-full object-contain bg-white"
+          className="w-full h-full object-fill bg-white"
           {...props}
         />
       </div>

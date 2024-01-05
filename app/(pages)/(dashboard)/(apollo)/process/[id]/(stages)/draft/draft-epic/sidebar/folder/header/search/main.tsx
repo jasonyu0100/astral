@@ -1,7 +1,7 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
 
-interface LibraryHeaderSearch {}
+interface LibraryHeaderSearch extends React.ComponentPropsWithoutRef<"input"> {}
 
 export function LibraryHeaderSearch({ ...props }: LibraryHeaderSearch) {
   return (

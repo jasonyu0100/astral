@@ -18,14 +18,14 @@ import { DriveSectionInfo } from "./drive/section/info/main";
 import { DriveSectionElement } from "./drive/section/main";
 import { DriveSectionThumbanil } from "./drive/section/thumbnail/main";
 import { DriveSectionThumbnailWrapper } from "./drive/section/thumbnail/wrapper/main";
-import { LibraryElementInfo } from "./library/file/info/main";
-import { LibraryElement } from "./library/file/main";
-import { LibraryElementThumbnail } from "./library/file/thumbnail/main";
-import { LibraryElementThumbnailWrapper } from "./library/file/thumbnail/wrapper/main";
-import { LibraryHeader } from "./library/header/main";
-import { LibraryHeaderSearch } from "./library/header/search/main";
-import LibraryHeaderTools from "./library/header/tools/main";
-import { SidebarLibrary } from "./library/main";
+import { LibraryElementInfo } from "./folder/file/info/main";
+import { LibraryElement } from "./folder/file/main";
+import { LibraryElementThumbnail } from "./folder/file/thumbnail/main";
+import { LibraryElementThumbnailWrapper } from "./folder/file/thumbnail/wrapper/main";
+import { LibraryHeader } from "./folder/header/main";
+import { LibraryHeaderSearch } from "./folder/header/search/main";
+import LibraryHeaderTools from "./folder/header/tools/main";
+import { SidebarLibrary } from "./folder/main";
 import { FoldersElementInfo } from "./section/folder/info/main";
 import { FoldersElement } from "./section/folder/main";
 import { FoldersElementThumbnail } from "./section/folder/thumbnail/main";
@@ -35,7 +35,7 @@ import DraftSidebarDescription from "./section/header/description/main";
 import { DraftSidebarSectionHeader } from "./section/header/main";
 import { SidebarSectionFolders } from "./section/main";
 import { DraftSidebarViewProps, SidebarDriveView } from "./main";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DraftContext } from "../../page";
 
 export function DraftSidebarView({
@@ -49,6 +49,14 @@ export function DraftSidebarView({
   fileHandler,
 }: DraftSidebarViewProps) {
   const draftContext = useContext(DraftContext);
+  const folder = folders.filter((folder) => folder.id === folderId).at(0);
+  const section = sections.filter((section) => section.id === sectionId).at(0);
+  const [query, changeQuery] = useState("");
+
+  const filteredFiles = files.filter((file) => {
+    const regex = new RegExp(query, "i");
+    return regex.test(file.name);
+  });
 
   return (
     <Layer
@@ -67,19 +75,26 @@ export function DraftSidebarView({
             Drive
           </BreadcrumbsLink>
           <BreadcrumbsDivider />
-          <BreadcrumbsLink
-            active={sidebarView === SidebarDriveView.Section}
-            onClick={() => sidebarViewHandler.goToSectionView()}
-          >
-            {sectionId}
-          </BreadcrumbsLink>
-          <BreadcrumbsDivider />
-          <BreadcrumbsLink
-            active={sidebarView === SidebarDriveView.Folder}
-            onClick={() => sidebarViewHandler.goToFolderView()}
-          >
-            {folderId}
-          </BreadcrumbsLink>
+          {(sidebarView === SidebarDriveView.Section ||
+            sidebarView === SidebarDriveView.Folder) && (
+            <>
+              <BreadcrumbsLink
+                active={sidebarView === SidebarDriveView.Section}
+                onClick={() => sidebarViewHandler.goToSectionView()}
+              >
+                {section?.name}
+              </BreadcrumbsLink>
+              <BreadcrumbsDivider />
+            </>
+          )}
+          {sidebarView === SidebarDriveView.Folder && (
+            <BreadcrumbsLink
+              active={sidebarView === SidebarDriveView.Folder}
+              onClick={() => sidebarViewHandler.goToFolderView()}
+            >
+              {folder?.name}
+            </BreadcrumbsLink>
+          )}
         </>
       </DraftSidebarBreadcrumbs>
       <Divider />
@@ -91,7 +106,7 @@ export function DraftSidebarView({
                 <DriveSectionElement>
                   <DriveSectionThumbnailWrapper
                     onClick={() => {
-                        sidebarViewHandler.goToSection(section)
+                      sidebarViewHandler.goToSection(section);
                     }}
                   >
                     <DriveSectionThumbanil src={section.thumbnail.src} />
@@ -124,7 +139,7 @@ export function DraftSidebarView({
                 <FoldersElement>
                   <FoldersElementThumbnailWrapper
                     onClick={() => {
-                        sidebarViewHandler.goToFolder(folder)
+                      sidebarViewHandler.goToFolder(folder);
                     }}
                   >
                     <FoldersElementThumbnail folder={folder} />
@@ -144,7 +159,10 @@ export function DraftSidebarView({
           <>
             <SidebarLibrary>
               <LibraryHeader>
-                <LibraryHeaderSearch></LibraryHeaderSearch>
+                <LibraryHeaderSearch
+                  onChange={(e) => changeQuery(e.target.value)}
+                  value={query}
+                />
                 <LibraryHeaderTools>
                   <TopRowAddButton
                     onClick={() =>
@@ -156,10 +174,12 @@ export function DraftSidebarView({
                   <DraftLoomButton />
                 </LibraryHeaderTools>
               </LibraryHeader>
-              {files.map((draftMedia) => (
+              {filteredFiles.map((draftMedia) => (
                 <LibraryElement>
                   <LibraryElementThumbnailWrapper
-                    onClick={() => draftContext.starHandler.spawnStar(draftMedia)}
+                    onClick={() =>
+                      draftContext.starHandler.spawnStar(draftMedia)
+                    }
                   >
                     <LibraryElementThumbnail src={draftMedia.src} />
                   </LibraryElementThumbnailWrapper>

@@ -33,7 +33,7 @@ export interface DraftSidebarViewProps {
 }
 
 export function DraftSidebar() {
-  const [sidebarView, changeSidebarView] = useState(SidebarDriveView.Folder);
+  const [sidebarView, changeSidebarView] = useState(SidebarDriveView.Drive);
   const [sections, changeSections] = useState<CraftSection[]>(
     craftModel.drive.sections.example
   );
@@ -50,10 +50,10 @@ export function DraftSidebar() {
       changeSidebarView(SidebarDriveView.Drive);
     },
     goToSectionView: () => {
-      () => changeSidebarView(SidebarDriveView.Section);
+      changeSidebarView(SidebarDriveView.Section);
     },
     goToFolderView: () => {
-      () => changeSidebarView(SidebarDriveView.Folder);
+      changeSidebarView(SidebarDriveView.Folder);
     },
     goToSection: (section: CraftSection) => {
       changeSectionId(section.id);
