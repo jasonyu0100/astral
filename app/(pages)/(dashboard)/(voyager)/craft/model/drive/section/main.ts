@@ -9,7 +9,13 @@ export interface CraftSection {
   thumbnail: CraftFile;
 }
 
-export const exampleCraftFolders = [exampleCraftFolder];
+export const exampleCraftFolders = [
+  exampleCraftFolder,
+  exampleCraftFolder,
+  exampleCraftFolder,
+  exampleCraftFolder,
+  exampleCraftFolder,
+];
 const srcRoot = "/voyager/craft/themes";
 
 export const exampleCraftSection = {

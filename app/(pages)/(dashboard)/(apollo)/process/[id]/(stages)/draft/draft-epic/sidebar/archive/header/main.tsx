@@ -11,7 +11,7 @@ export function DraftSidebarHeader({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row items-center flex-shrink-0 w-full px-[1rem] justify-between">
+    <div className="flex flex-row items-center flex-shrink-0 w-full justify-between">
       {children}
     </div>
   );
