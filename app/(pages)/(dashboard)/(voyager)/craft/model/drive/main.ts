@@ -6,7 +6,7 @@ export interface CraftDrive {
   cart: CraftFile[];
 }
 
-export const exampleCraftSections = [
+export const exampleCraftSections: CraftSection[] = [
   exampleCraftSection,
   exampleCraftSection,
   exampleCraftSection,
@@ -20,7 +20,7 @@ export const exampleCraftSections = [
   exampleCraftSection,
 ];
 
-export const exampleCraftCart = [exampleCraftFile];
+export const exampleCraftCart: CraftFile[] = [exampleCraftFile];
 
 export const exampleCraftDrive = {
   sections: exampleCraftSections,

@@ -10,9 +10,9 @@ import { DriveSectionCoverImage } from "./section-epic/section/cover-image/main"
 import { DriveSectionTitle } from "./section-epic/section/title/main";
 import { DriveSectionDescription } from "./section-epic/section/description/main";
 import { craftModel } from "../../../../model/main";
-import { DriveSectionGrid } from "./section-epic/folders-grid/main";
-import { DriveSectionFolder } from "./section-epic/folders-grid/folder/main";
-import { DriveSectionFolderAdd } from "./section-epic/folders-grid/folder/add/main";
+import { DriveSectionGrid } from "./section-epic/grid/main";
+import { DriveSectionFolder } from "./section-epic/grid/folder/main";
+import { DriveSectionFolderAdd } from "./section-epic/grid/add/main";
 import { CraftFolder } from "../../../../model/drive/section/folder/main";
 import { CraftSection } from "../../../../model/drive/section/main";
 import { craftMap } from "../../../../map";
@@ -43,8 +43,10 @@ export function DriveSectionView({
         </DriveBreadcrumbs>
         <DriveSection>
           <DriveSectionCoverImage />
-          <DriveSectionTitle />
-          <DriveSectionDescription />
+          <div className="flex flex-col w-1/2 space-y-[1rem] min-w-[300px] max-w-[500px]">
+            <DriveSectionTitle />
+            <DriveSectionDescription />
+          </div>
         </DriveSection>
         {section !== null && (
           <DriveSectionGrid>

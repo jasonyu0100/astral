@@ -1,4 +1,4 @@
-import { DriveAddIcon } from "../../../../../../drive-epic/icons/add/main";
+import { DriveAddIcon } from "../../../../../drive-epic/icons/add/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
 

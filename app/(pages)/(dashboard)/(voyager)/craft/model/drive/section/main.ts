@@ -1,4 +1,4 @@
-import { CraftFile } from "./folder/file/main";
+import { CraftFile, CraftFileType } from "./folder/file/main";
 import { CraftFolder, exampleCraftFolder } from "./folder/main";
 
 export interface CraftSection {
@@ -28,5 +28,6 @@ export const exampleCraftSection = {
     name: "Passion",
     description: "",
     src: `${srcRoot}/symbols/land.png`,
+    type: CraftFileType.IMAGE
   },
 };

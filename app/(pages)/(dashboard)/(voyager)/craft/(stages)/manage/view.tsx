@@ -1,12 +1,12 @@
 "use client";
-import { DriveSection } from "./drive-epic/section-grid/section/main";
-import { DriveSectionAdd } from "./drive-epic/section-grid/section/add/main";
+import { DriveSection } from "./drive-epic/grid/section/main";
+import { DriveSectionAdd } from "./drive-epic/grid/add/main";
 import { DriveWrapper } from "./drive-epic/wrapper/main";
 import { DriveController } from "./drive-epic/main";
 import { DriveBreadcrumbs } from "./(common)/breadcrumb/main";
 import { DriveBreadcrumbItem } from "./(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "./(common)/breadcrumb/divider/main";
-import { DriveSectionGrid } from "./drive-epic/section-grid/main";
+import { DriveSectionGrid } from "./drive-epic/grid/main";
 import { CraftDrive } from "../../model/drive/main";
 import { CraftSection } from "../../model/drive/section/main";
 import { craftModel } from "../../model/main";
