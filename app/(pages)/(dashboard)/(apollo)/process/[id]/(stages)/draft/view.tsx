@@ -16,14 +16,14 @@ import { DraftWrapper } from "./draft-epic/wrapper/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { DraftStarObj } from "./model/point/star/main";
 import { processModel } from "../../model/main";
-import { StarHandling, StepHandling } from "./page";
+import { StarHandler, StepHandler } from "./page";
 
 interface DraftViewProps {
   stepId: string;
   steps: ProcessStepObj[];
   stars: DraftStarObj[];
-  starHandling: StarHandling;
-  stepHandling: StepHandling;
+  starHandling: StarHandler;
+  stepHandling: StepHandler;
 }
 
 export function DraftView({

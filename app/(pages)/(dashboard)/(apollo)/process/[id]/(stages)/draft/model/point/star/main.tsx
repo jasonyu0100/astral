@@ -1,10 +1,11 @@
-import { DraftMediaObj, exampleDraftMedia } from "../../context/media/main";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
+import { exampleDraftMedia } from "../../context/media/main";
 
 export interface DraftStarObj {
   id: string;
   x: number;
   y: number;
-  media: DraftMediaObj;
+  media: CraftFile;
 }
 
 export const exampleDraftStar: DraftStarObj = {

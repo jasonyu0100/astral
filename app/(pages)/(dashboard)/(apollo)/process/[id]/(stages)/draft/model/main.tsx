@@ -1,5 +1,6 @@
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 import { DraftContextObj, exampleDraftLibrary } from "./context/main";
-import { DraftMediaObj, exampleDraftMedia } from "./context/media/main";
+import { exampleDraftMedia } from "./context/media/main";
 import { DraftPointObj, exampleDraftPoint } from "./point/main";
 import {
   DraftStarObj,
@@ -11,9 +12,9 @@ export const draftModel: {
   context: {
     library: {
       media: {
-        example: DraftMediaObj;
+        example: CraftFile;
       };
-      example: DraftMediaObj[];
+      example: CraftFile[];
     };
     example: DraftContextObj;
   };

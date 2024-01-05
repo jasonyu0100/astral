@@ -1,4 +1,4 @@
-import { CraftFile } from "./file/main";
+import { CraftFile, CraftFileType } from "./file/main";
 
 export interface CraftFolder {
   id: string;
@@ -10,33 +10,117 @@ export interface CraftFolder {
 const srcRoot = "/voyager/craft/themes";
 
 export const exampleCraftFiles = [
-  { name: "Passion", description: "", src: `${srcRoot}/symbols/passion.png` },
-  { name: "Nature", description: "", src: `${srcRoot}/symbols/nature.png` },
-  { name: "Launch", description: "", src: `${srcRoot}/symbols/launch.png` },
-  { name: "Land", description: "", src: `${srcRoot}/symbols/land.png` },
-  { name: "Voyager", description: "", src: `${srcRoot}/symbols/voyager.png` },
   {
+    id: "0",
+    name: "Passion",
+    description: "",
+    src: `${srcRoot}/symbols/passion.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "1",
+    name: "Nature",
+    description: "",
+    src: `${srcRoot}/symbols/nature.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "2",
+    name: "Launch",
+    description: "",
+    src: `${srcRoot}/symbols/launch.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "3",
+    name: "Land",
+    description: "",
+    src: `${srcRoot}/symbols/land.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "4",
+    name: "Voyager",
+    description: "",
+    src: `${srcRoot}/symbols/voyager.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "4",
     name: "Supernova",
     description: "",
     src: `${srcRoot}/symbols/supernova.png`,
+    type: CraftFileType.IMAGE,
   },
-  { name: "Ocean", description: "", src: `${srcRoot}/symbols/ocean.png` },
-  { name: "Atmos", description: "", src: `${srcRoot}/symbols/atmos.png` },
-  { name: "Nebula", description: "", src: `${srcRoot}/symbols/nebula.png` },
-  { name: "Stars", description: "", src: `${srcRoot}/symbols/stars.png` },
-  { name: "Earth", description: "", src: `${srcRoot}/symbols/earth.png` },
-  { name: "Pillars", description: "", src: `${srcRoot}/symbols/pillars.png` },
   {
+    id: "5",
+    name: "Ocean",
+    description: "",
+    src: `${srcRoot}/symbols/ocean.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "6",
+    name: "Atmos",
+    description: "",
+    src: `${srcRoot}/symbols/atmos.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "7",
+    name: "Nebula",
+    description: "",
+    src: `${srcRoot}/symbols/nebula.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "8",
+    name: "Stars",
+    description: "",
+    src: `${srcRoot}/symbols/stars.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "9",
+    name: "Earth",
+    description: "",
+    src: `${srcRoot}/symbols/earth.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "11",
+    name: "Pillars",
+    description: "",
+    src: `${srcRoot}/symbols/pillars.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "12",
     name: "Big Bang",
     description: "",
     src: `${srcRoot}/symbols/bigbang.png`,
+    type: CraftFileType.IMAGE,
   },
-  { name: "Sky", description: "", src: `${srcRoot}/symbols/sky.png` },
-  { name: "Space", description: "", src: `${srcRoot}/symbols/space.png` },
   {
+    id: "13",
+    name: "Sky",
+    description: "",
+    src: `${srcRoot}/symbols/sky.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "14",
+    name: "Space",
+    description: "",
+    src: `${srcRoot}/symbols/space.png`,
+    type: CraftFileType.IMAGE,
+  },
+  {
+    id: "15",
     name: "Black Hole",
     description: "",
     src: `${srcRoot}/symbols/blackhole.png`,
+    type: CraftFileType.IMAGE,
   },
 ];
 
@@ -44,5 +128,5 @@ export const exampleCraftFolder: CraftFolder = {
   id: "0",
   sectionId: "0",
   name: "Symbols",
-  files: exampleCraftFiles
+  files: exampleCraftFiles,
 };

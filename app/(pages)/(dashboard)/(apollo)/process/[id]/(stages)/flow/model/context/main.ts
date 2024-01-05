@@ -1,5 +1,5 @@
-import { FlowSnapshotObj } from "./snapshot/main";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
 export interface FlowContextObj {
-  gallery: FlowSnapshotObj[];
+  gallery: CraftFile[];
 }

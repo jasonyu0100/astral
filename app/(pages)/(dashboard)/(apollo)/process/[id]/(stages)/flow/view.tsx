@@ -18,23 +18,10 @@ import { FlowHeader } from "./flow-epic/sidebar/header/main";
 import { FlowLoomButton } from "./flow-epic/sidebar/header/button-row/button/loom/main";
 import { FlowMoment } from "./flow-epic/center/timeline/moment/main";
 import { FlowTimeline } from "./flow-epic/center/timeline/main";
-import { FlowMomentObj } from "./model/point/moment/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { FlowSnapshotObj } from "./model/context/snapshot/main";
 import { FlowAddMoment } from "./flow-epic/center/timeline/add/main";
 import { flowModel } from "./model/main";
 import { processModel } from "../../model/main";
-import { MomentHandling, StepHandling } from "./page";
-
-interface FlowViewProps {
-  momentId: string;
-  stepId: string;
-  moments: FlowMomentObj[];
-  steps: ProcessStepObj[];
-  snapshots: FlowSnapshotObj[];
-  momentHandling: MomentHandling;
-  stepHandling: StepHandling;
-}
+import { FlowViewProps } from "./page";
 
 export function FlowView({
   momentId,
@@ -42,8 +29,8 @@ export function FlowView({
   moments,
   steps,
   snapshots,
-  momentHandling,
-  stepHandling,
+  momentHandler: momentHandling,
+  stepHandler: stepHandling,
 }: FlowViewProps) {
   return (
     <FlowWrapper>

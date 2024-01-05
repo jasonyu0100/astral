@@ -1,16 +1,11 @@
-export interface FlowSnapshotObj {
-  src: string;
-}
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
+import { exampleCraftFiles } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/main";
 
-export const exampleFlowSnapshot: FlowSnapshotObj = {
-  src: "/apollo/flow/snapshots/1.png",
+export const exampleFlowSnapshot: CraftFile = {
+  id: "0",
+  name: "Passion",
+  description: "",
+  src: `/voyager/craft/themes/symbols/passion.png`,
 };
 
-export const exampleFlowGallery: FlowSnapshotObj[] = [
-  { src: "/apollo/flow/snapshots/1.png" },
-  { src: "/apollo/flow/snapshots/2.png" },
-  { src: "/apollo/flow/snapshots/3.png" },
-  { src: "/apollo/flow/snapshots/4.png" },
-  { src: "/apollo/flow/snapshots/5.png" },
-  { src: "/apollo/flow/snapshots/6.png" },
-];
+export const exampleFlowGallery: CraftFile[] = exampleCraftFiles

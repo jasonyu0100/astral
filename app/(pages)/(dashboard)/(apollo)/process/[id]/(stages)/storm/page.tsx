@@ -7,6 +7,25 @@ import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { StormChatObj } from "./model/point/chat/main";
 
+export interface ChatHandler {
+  selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
+  sendChatMessage: (message: string) => void;
+  addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => void;
+}
+export interface StepHandler {
+  addStep: (step: ProcessStepObj) => void;
+  goToStep: (step: ProcessStepObj) => void;
+}
+export interface StormViewProps {
+  steps: ProcessStepObj[];
+  stepId: string;
+  chats: StormChatObj[];
+  chatId: string;
+  messages: StormMessageObj[];
+  stepHandler: StepHandler;
+  chatHandler: ChatHandler;
+}
+
 export default function Page() {
   const [steps, changeSteps] = useState<ProcessStepObj[]>(
     processModel.process.steps.example
@@ -46,7 +65,9 @@ export default function Page() {
       }
     },
     syncWithinStep: () => {
-      const currentChat = syncHandler.serialize(syncHandler.getCurrentChat(chats));
+      const currentChat = syncHandler.serialize(
+        syncHandler.getCurrentChat(chats)
+      );
       if (currentChat) {
         currentChat.messages = syncHandler.serialize(messages);
         changeChats((prev) =>
@@ -56,7 +77,7 @@ export default function Page() {
     },
   };
 
-  const stepHandler = {
+  const stepHandler: StepHandler = {
     addStep: (step: ProcessStepObj) => {
       syncHandler.syncBetweenSteps();
       changeSteps((prev) => [...prev, step]);
@@ -72,7 +93,7 @@ export default function Page() {
     },
   };
 
-  const chatHandler = {
+  const chatHandler: ChatHandler = {
     selectChat: (chat: StormChatObj, step: ProcessStepObj) => {
       if (step.id !== stepId) {
         syncHandler.syncBetweenSteps();

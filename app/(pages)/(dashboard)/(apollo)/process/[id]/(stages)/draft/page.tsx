@@ -4,23 +4,23 @@ import { createContext, useState } from "react";
 import { DraftView } from "./view";
 import { processModel } from "../../model/main";
 import { draftModel } from "./model/main";
-import { DraftMediaObj } from "./model/context/media/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { DraftStarObj } from "./model/point/star/main";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
-export interface StarHandling {
+export interface StarHandler {
   updateStar: (i: number, data: any) => void;
-  spawnStar: (draftMedia: DraftMediaObj) => void;
+  spawnStar: (draftMedia: CraftFile) => void;
 }
 
-export interface StepHandling {
+export interface StepHandler {
   addStep: (step: ProcessStepObj) => void;
   goToStep: (step: ProcessStepObj) => void;
 }
 
 export interface DraftContextObj {
-  starHandling: StarHandling;
-  stepHandling: StepHandling;
+  starHandler: StarHandler;
+  stepHandler: StepHandler;
 }
 
 export const DraftContext = createContext<DraftContextObj>({});
@@ -51,7 +51,7 @@ export default function Page() {
     },
   };
 
-  const stepHandling = {
+  const stepHandler: StepHandler = {
     addStep: (step: ProcessStepObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
@@ -65,14 +65,14 @@ export default function Page() {
     },
   };
 
-  const starHandling = {
+  const starHandler: StarHandler = {
     updateStar: (i: number, data: any) => {
       changeStars((prev: any[]) =>
         prev.map((o: any, j: number) => (j === i ? { ...o, ...data } : o))
       );
     },
 
-    spawnStar: (draftMedia: DraftMediaObj) => {
+    spawnStar: (draftMedia: CraftFile) => {
       changeStars((prev) => [
         ...prev,
         {
@@ -87,15 +87,17 @@ export default function Page() {
   };
 
   return (
-    <DraftContext.Provider value={{
-      starHandling: starHandling,
-      stepHandling: stepHandling
-    }}>
+    <DraftContext.Provider
+      value={{
+        starHandler: starHandler,
+        stepHandler: stepHandler,
+      }}
+    >
       <DraftView
         stepId={stepId}
         steps={steps}
-        starHandling={starHandling}
-        stepHandling={stepHandling}
+        starHandling={starHandler}
+        stepHandling={stepHandler}
         stars={stars}
       />
     </DraftContext.Provider>

@@ -1,12 +1,12 @@
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 import {
-  FlowSnapshotObj,
   exampleFlowSnapshot,
 } from "../../context/snapshot/main";
 
 export interface FlowMomentObj {
   id: string;
   date: string;
-  snapshots: FlowSnapshotObj[];
+  snapshots: CraftFile[];
 }
 
 export const exampleFlowMoment: FlowMomentObj = {

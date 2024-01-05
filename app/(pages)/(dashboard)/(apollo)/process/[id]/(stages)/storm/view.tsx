@@ -20,23 +20,8 @@ import { StormMessageObj } from "./model/point/chat/message/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { StormChatObj } from "./model/point/chat/main";
 import { processModel } from "../../model/main";
+import { StormViewProps } from "./page";
 
-interface StormViewProps {
-  steps: ProcessStepObj[];
-  stepId: string;
-  chats: StormChatObj[];
-  chatId: string;
-  messages: StormMessageObj[];
-  stepHandler: {
-    addStep: (step: ProcessStepObj) => void;
-    goToStep: (step: ProcessStepObj) => void;
-  };
-  chatHandler: {
-    selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
-    sendChatMessage: (message: string) => void;
-    addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => void;
-  };
-}
 
 export function StormView({
   steps,

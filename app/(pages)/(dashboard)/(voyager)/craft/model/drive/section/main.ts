@@ -24,6 +24,7 @@ export const exampleCraftSection = {
   description: "Example Section Description",
   folders: exampleCraftFolders,
   thumbnail: {
+    id: "0",
     name: "Passion",
     description: "",
     src: `${srcRoot}/symbols/land.png`,

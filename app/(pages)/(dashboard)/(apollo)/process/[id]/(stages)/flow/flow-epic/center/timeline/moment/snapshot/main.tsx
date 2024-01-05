@@ -1,14 +1,13 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import {
-  backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { FlowSnapshotObj } from "@/(pages)/(dashboard)/(apollo)/process/[id]/(stages)/flow/model/context/snapshot/main";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
 export function FlowMomentSnapshot({
   flowSnapshot: flowSnapshot,
 }: {
-  flowSnapshot: FlowSnapshotObj;
+  flowSnapshot: CraftFile;
 }) {
   return (
     <Layer

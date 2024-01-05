@@ -159,7 +159,7 @@ export function DraftSidebarView({
               {files.map((draftMedia) => (
                 <LibraryElement>
                   <LibraryElementThumbnailWrapper
-                    onClick={() => draftContext.starHandling.spawnStar(draftMedia)}
+                    onClick={() => draftContext.starHandler.spawnStar(draftMedia)}
                   >
                     <LibraryElementThumbnail src={draftMedia.src} />
                   </LibraryElementThumbnailWrapper>

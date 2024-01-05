@@ -5,8 +5,7 @@ import { FlowMomentObj } from "./model/point/moment/main";
 import { FlowView } from "./view";
 import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
-import { FlowSnapshotObj } from "./model/context/snapshot/main";
-import { sync } from "framer-motion";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
 interface FlowContextTypes {
   updateCurrentMoment: (moment: FlowMomentObj) => void;
@@ -16,16 +15,25 @@ export const FlowContext = createContext<FlowContextTypes>({
   updateCurrentMoment: () => {},
 });
 
-export interface MomentHandling {
+export interface MomentHandler {
   updateCurrentMoment: (moment: FlowMomentObj) => void;
   addMomentToStep: (moment: FlowMomentObj) => void;
-  addSnapshotToMoment: (snapshot: FlowSnapshotObj) => void;
-  addSnapshotToGallery: (snapshot: FlowSnapshotObj) => void;
+  addSnapshotToMoment: (snapshot: CraftFile) => void;
+  addSnapshotToGallery: (snapshot: CraftFile) => void;
 }
 
-export interface StepHandling {
+export interface StepHandler {
   addStep: (step: ProcessStepObj) => void;
   goToStep: (step: ProcessStepObj) => void;
+}
+export interface FlowViewProps {
+  momentId: string;
+  stepId: string;
+  moments: FlowMomentObj[];
+  steps: ProcessStepObj[];
+  snapshots: CraftFile[];
+  momentHandler: MomentHandler;
+  stepHandler: StepHandler;
 }
 
 export default function Page() {
@@ -39,7 +47,7 @@ export default function Page() {
   );
   const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
 
-  const [gallerySnapshots, changeGallerySnapshots] = useState(
+  const [gallerySnapshots, changeGallerySnapshots] = useState<CraftFile[]>(
     flowModel.context.gallery.example
   );
 
@@ -61,7 +69,7 @@ export default function Page() {
     },
   };
 
-  const stepHandling = {
+  const stepHandler : StepHandler = {
     addStep: (step: ProcessStepObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
@@ -97,7 +105,7 @@ export default function Page() {
     },
   };
 
-  const momentHandling: MomentHandling = {
+  const momentHandler: MomentHandler = {
     updateCurrentMoment: (moment: FlowMomentObj) => {
       changeMomentId(moment.id);
     },
@@ -107,7 +115,7 @@ export default function Page() {
       changeMoments((prev) => [...prev, moment]);
     },
 
-    addSnapshotToMoment: (snapshot: FlowSnapshotObj) => {
+    addSnapshotToMoment: (snapshot: CraftFile) => {
       const currentMoment = momentHelper.getCurrentMoment();
       if (currentMoment) {
         const newCurrentMoment = {
@@ -117,7 +125,7 @@ export default function Page() {
         momentHelper.updateMomentsWithCurrent(newCurrentMoment);
       }
     },
-    addSnapshotToGallery: (snapshot: FlowSnapshotObj) => {
+    addSnapshotToGallery: (snapshot: CraftFile) => {
       changeGallerySnapshots((prev) => [...prev, snapshot]);
     },
   };
@@ -125,7 +133,7 @@ export default function Page() {
   return (
     <FlowContext.Provider
       value={{
-        updateCurrentMoment: momentHandling.updateCurrentMoment,
+        updateCurrentMoment: momentHandler.updateCurrentMoment,
       }}
     >
       <FlowView
@@ -134,8 +142,8 @@ export default function Page() {
         moments={moments}
         steps={steps}
         snapshots={gallerySnapshots}
-        momentHandling={momentHandling}
-        stepHandling={stepHandling}
+        momentHandler={momentHandler}
+        stepHandler={stepHandler}
       />
     </FlowContext.Provider>
   );

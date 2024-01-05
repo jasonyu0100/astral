@@ -1,6 +1,5 @@
 import { FlowContextObj } from "./context/main";
 import {
-  FlowSnapshotObj,
   exampleFlowGallery,
   exampleFlowSnapshot,
 } from "./context/snapshot/main";
@@ -10,14 +9,15 @@ import {
   exampleFlowMoment,
 } from "./point/moment/main";
 import { FlowPointObj, exampleFlowPoint } from "./point/main";
+import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
 export const flowModel: {
   context: {
     gallery: {
       snapshot: {
-        example: FlowSnapshotObj;
+        example: CraftFile;
       };
-      example: FlowSnapshotObj[];
+      example: CraftFile[];
     };
     example: FlowContextObj;
   };
@@ -27,9 +27,9 @@ export const flowModel: {
         moment: {
           snapshots: {
             snapshot: {
-              example: FlowSnapshotObj;
+              example: CraftFile;
             };
-            example: FlowSnapshotObj[];
+            example: CraftFile[];
           };
           example: FlowMomentObj;
         };
