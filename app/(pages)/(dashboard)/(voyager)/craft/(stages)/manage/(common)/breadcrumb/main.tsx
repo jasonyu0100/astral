@@ -13,7 +13,7 @@ export function DriveBreadcrumbs({ children }: { children: React.ReactNode }) {
       borderStyle={borderStyles["border-b"]}
       contentStyle={"space-x-[1rem] "}
     >
-      <div className="flex flex-row space-x-[1rem]">{children}</div>
+      <div className="flex flex-row space-x-[1rem] items-center">{children}</div>
     </Layer>
   );
 }

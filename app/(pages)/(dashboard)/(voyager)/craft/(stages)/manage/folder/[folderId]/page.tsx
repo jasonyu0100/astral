@@ -11,5 +11,6 @@ export default function Page() {
   const [folder, changeFolder] = useState(
     craftModel.drive.sections.section.folders.folder.example
   );
+
   return <DriveFolderView section={section} folder={folder}/>;
 }

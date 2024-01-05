@@ -128,6 +128,7 @@ export function SidebarView({
                 />
                 <SectionHeaderDescription />
               </SectionHeader>
+              <Divider/>
               {folders.map((folder) => (
                 <SectionFolder>
                   <SectionFolderThumbnailWrapper

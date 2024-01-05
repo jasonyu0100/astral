@@ -1,6 +1,5 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import {
-  backgroundStyles,
   borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
@@ -15,9 +14,8 @@ export function SearchBar({ ...props }: SearchBarProps) {
       displayName={SearchBar.name}
       sizeStyle="w-full h-[4rem]"
       containerStyle={containerStyles["row-center"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
-      borderStyle={borderStyles["rounded-l"]}
-      contentStyle={"px-[3rem] space-x-[2rem]"}
+      borderStyle={borderStyles["border-b"]}
+      contentStyle={"px-[1rem] space-x-[1rem]"}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -15,7 +15,7 @@ export function SearchController({
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles.col}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="p-[3rem] space-y-[1rem] overflow-auto"
+      contentStyle="px-[3rem] pt-[1rem] space-y-[3rem] overflow-auto"
     >
       {children}
     </Layer>

@@ -16,7 +16,7 @@ export function DriveController({
       sizeStyle="flex-grow h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="px-[3rem] py-[1rem] space-y-[3rem] overflow-auto"
+      contentStyle="px-[3rem] pt-[1rem] space-y-[3rem] overflow-auto"
     >
       {children}
     </Layer>

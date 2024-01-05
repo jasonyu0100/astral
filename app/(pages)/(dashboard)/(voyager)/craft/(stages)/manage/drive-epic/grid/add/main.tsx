@@ -1,5 +1,4 @@
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { DriveAddIcon } from "../../icons/add/main";
 import { Layer } from "@/(pages)/(common)/layer/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
@@ -17,7 +16,18 @@ export function DriveSectionAdd({ ...props }: InputProps) {
             className="p-[10px] bg-white w-[150px] h-[150px] flex-shrink-0 flex items-center justify-center"
             {...props}
           >
-            <DriveAddIcon />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M8.52138 11.3434H0.0551758V8.52138H8.52138V0.0551758H11.3434V8.52138H19.8096V11.3434H11.3434V19.8096H8.52138V11.3434Z"
+                fill="#CBD5E1"
+              />
+            </svg>
           </button>
           <div className="flex flex-col space-y-[1rem] flex-grow h-full p-[1rem] justify-center "></div>
         </div>

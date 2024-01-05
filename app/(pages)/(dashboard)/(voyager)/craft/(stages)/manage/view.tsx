@@ -11,6 +11,10 @@ import { CraftDrive } from "../../model/drive/main";
 import { CraftSection } from "../../model/drive/section/main";
 import { craftModel } from "../../model/main";
 import { craftMap } from "../../map";
+import { SidebarBody } from "./drive-epic/sidebar/body/main";
+import { SidebarCover } from "./drive-epic/sidebar/cover/main";
+import { SidebarInfo } from "./drive-epic/sidebar/info/main";
+import { DriveManageSidebar } from "./drive-epic/sidebar/main";
 
 interface DriveViewProps {
   drive: CraftDrive;
@@ -22,18 +26,31 @@ export function DriveView({ drive, addSection }: DriveViewProps) {
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href={craftMap.craft.link}>Drive</DriveBreadcrumbItem>
+          <DriveBreadcrumbItem href={craftMap.craft.link} active={true}>
+            Drive
+          </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>
         <DriveSectionGrid>
           {drive.sections.map((section) => (
-            <DriveSection section={section} href={craftMap.craft.manage.section.id.link(section.id)}/>
+            <DriveSection
+              section={section}
+              href={craftMap.craft.manage.section.id.link(section.id)}
+            />
           ))}
-          <DriveSectionAdd onClick={() => {
-            addSection(craftModel.drive.sections.section.example)
-          }}/>
+          <DriveSectionAdd
+            onClick={() => {
+              addSection(craftModel.drive.sections.section.example);
+            }}
+          />
         </DriveSectionGrid>
       </DriveController>
+      <DriveManageSidebar>
+        <SidebarBody>
+          <SidebarCover/>
+          <SidebarInfo/>
+        </SidebarBody>
+      </DriveManageSidebar>
     </DriveWrapper>
   );
 }

@@ -1,4 +1,4 @@
-export function DriveSectionDescription() {
+export function SidebarInfo() {
   return (
     <div className="w-full text-white text-base font-normal leading-normal">
       Lorem ipsum dolor sit amet consectetur. Non viverra turpis proin molestie

@@ -1,26 +1,37 @@
-import { DriveAddIcon } from "../../../../../drive-epic/icons/add/main";
+import { backgroundStyles } from "@/(pages)/(common)/styles/data";
+import { Layer } from "@/(pages)/(common)/layer/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
 
-export function DriveSectionFolderAdd({ ...props }: InputProps) {
+export function DriveSectionAdd({ ...props }: InputProps) {
   return (
-    <div className="w-48 h-56 flex-col justify-center items-start gap-3 inline-flex">
-      <button {...props}>
-        <div className="w-48 h-32 inline-flex bg-slate-50 items-center justify-center">
-          <DriveAddIcon />
+    <div className="w-[400px] h-[150px]">
+      <Layer
+        displayName={DriveSectionAdd.name}
+        sizeStyle="flex-grow h-full"
+        backgroundStyle={backgroundStyles["glass-10"]}
+      >
+        <div className="flex flex-row items-center space-x-[1rem] w-full h-full">
+          <button
+            className="p-[10px] bg-white w-[150px] h-[150px] flex-shrink-0 flex items-center justify-center"
+            {...props}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+            >
+              <path
+                d="M8.52138 11.3434H0.0551758V8.52138H8.52138V0.0551758H11.3434V8.52138H19.8096V11.3434H11.3434V19.8096H8.52138V11.3434Z"
+                fill="#CBD5E1"
+              />
+            </svg>
+          </button>
+          <div className="flex flex-col space-y-[1rem] flex-grow h-full p-[1rem] justify-center "></div>
         </div>
-      </button>
-      <div className="w-48 h-20 flex-col justify-start items-start inline-flex">
-        {/* <div className="text-white text-xl font-bold font-['Creato Display'] leading-7">
-          New Folder
-        </div> */}
-        {/* <div className="text-white text-base font-normal font-['Creato Display'] leading-normal">
-          54 elements
-        </div>
-        <div className="text-white text-base font-normal font-['Creato Display'] leading-normal">
-          3443 views, 123 downloads
-        </div> */}
-      </div>
+      </Layer>
     </div>
   );
 }

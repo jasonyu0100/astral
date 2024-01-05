@@ -1,6 +1,6 @@
 export function SectionHeader({children}: { children: React.ReactNode}) {
   return (
-    <div className="flex flex-col space-y-[1rem]">
+    <div className="flex flex-col items-center space-y-[2rem]">
         {children}
     </div>
   );
