@@ -7,19 +7,17 @@ import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { CraftFile } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/folder/file/main";
 
-interface FlowContextTypes {
-  updateCurrentMoment: (moment: FlowMomentObj) => void;
+interface FlowContextObj {
+  momentHandler: MomentHandler;
+  stepHandler: StepHandler;
 }
 
-export const FlowContext = createContext<FlowContextTypes>({
-  updateCurrentMoment: () => {},
-});
+export const FlowContext = createContext<FlowContextObj>({});
 
 export interface MomentHandler {
   updateCurrentMoment: (moment: FlowMomentObj) => void;
   addMomentToStep: (moment: FlowMomentObj) => void;
   addSnapshotToMoment: (snapshot: CraftFile) => void;
-  addSnapshotToGallery: (snapshot: CraftFile) => void;
 }
 
 export interface StepHandler {
@@ -31,7 +29,6 @@ export interface FlowViewProps {
   stepId: string;
   moments: FlowMomentObj[];
   steps: ProcessStepObj[];
-  snapshots: CraftFile[];
   momentHandler: MomentHandler;
   stepHandler: StepHandler;
 }
@@ -46,10 +43,6 @@ export default function Page() {
     flowModel.points.point.moments.example
   );
   const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
-
-  const [gallerySnapshots, changeGallerySnapshots] = useState<CraftFile[]>(
-    flowModel.context.gallery.example
-  );
 
   const syncHandler = {
     serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
@@ -125,15 +118,13 @@ export default function Page() {
         momentHelper.updateMomentsWithCurrent(newCurrentMoment);
       }
     },
-    addSnapshotToGallery: (snapshot: CraftFile) => {
-      changeGallerySnapshots((prev) => [...prev, snapshot]);
-    },
   };
 
   return (
     <FlowContext.Provider
       value={{
-        updateCurrentMoment: momentHandler.updateCurrentMoment,
+        momentHandler,
+        stepHandler
       }}
     >
       <FlowView
@@ -141,7 +132,6 @@ export default function Page() {
         stepId={stepId}
         moments={moments}
         steps={steps}
-        snapshots={gallerySnapshots}
         momentHandler={momentHandler}
         stepHandler={stepHandler}
       />

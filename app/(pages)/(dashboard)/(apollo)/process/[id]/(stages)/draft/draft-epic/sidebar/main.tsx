@@ -3,9 +3,9 @@ import { CraftFolder } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/s
 import { CraftSection } from "@/(pages)/(dashboard)/(voyager)/craft/model/drive/section/main";
 import { craftModel } from "@/(pages)/(dashboard)/(voyager)/craft/model/main";
 import { useState } from "react";
-import { DraftSidebarView } from "./view";
+import { SidebarView } from "./view";
 
-export enum SidebarDriveView {
+export enum SidebarMode {
   Drive = "Drive",
   Section = "Section",
   Folder = "Folder",
@@ -21,8 +21,8 @@ interface SidebarViewHandler {
   goToSection: (section: CraftSection) => void;
   goToFolder: (section: CraftFolder) => void;
 }
-export interface DraftSidebarViewProps {
-  sidebarView: SidebarDriveView;
+export interface SidebarViewProps {
+  sidebarMode: SidebarMode;
   sections: CraftSection[];
   sectionId: string;
   folders: CraftFolder[];
@@ -32,8 +32,8 @@ export interface DraftSidebarViewProps {
   fileHandler: FileHandler;
 }
 
-export function DraftSidebar() {
-  const [sidebarView, changeSidebarView] = useState(SidebarDriveView.Drive);
+export function Sidebar() {
+  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Drive);
   const [sections, changeSections] = useState<CraftSection[]>(
     craftModel.drive.sections.example
   );
@@ -47,21 +47,21 @@ export function DraftSidebar() {
   );
   const sidebarViewHandler: SidebarViewHandler = {
     goToDriveView: () => {
-      changeSidebarView(SidebarDriveView.Drive);
+      changeSidebarMode(SidebarMode.Drive);
     },
     goToSectionView: () => {
-      changeSidebarView(SidebarDriveView.Section);
+      changeSidebarMode(SidebarMode.Section);
     },
     goToFolderView: () => {
-      changeSidebarView(SidebarDriveView.Folder);
+      changeSidebarMode(SidebarMode.Folder);
     },
     goToSection: (section: CraftSection) => {
       changeSectionId(section.id);
-      changeSidebarView(SidebarDriveView.Section);
+      changeSidebarMode(SidebarMode.Section);
     },
     goToFolder: (folder: CraftFolder) => {
       changeFolderId(folder.id);
-      changeSidebarView(SidebarDriveView.Folder);
+      changeSidebarMode(SidebarMode.Folder);
     },
   };
 
@@ -72,9 +72,9 @@ export function DraftSidebar() {
   };
 
   return (
-    <DraftSidebarView
+    <SidebarView
       sidebarViewHandler={sidebarViewHandler}
-      sidebarView={sidebarView}
+      sidebarMode={sidebarMode}
       sections={sections}
       sectionId={sectionId}
       folders={folders}

@@ -5,7 +5,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import { craftModel } from "@/(pages)/(dashboard)/(voyager)/craft/model/main";
-import { draftModel } from "../../model/main";
+import { flowModel } from "../../model/main";
 import { AddButton } from "./modes/folder/header/button-row/button/add/main";
 import { DraftLoomButton as LoomButton } from "./modes/folder/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";
@@ -35,7 +35,7 @@ import { SectionHeader } from "./modes/section/header/main";
 import { SectionInterface } from "./modes/section/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
-import { DraftContext } from "../../page";
+import { FlowContext } from "../../page";
 
 export function SidebarView({
   sidebarViewHandler,
@@ -47,7 +47,7 @@ export function SidebarView({
   files,
   fileHandler,
 }: SidebarViewProps) {
-  const { starHandler } = useContext(DraftContext);
+  const { momentHandler } = useContext(FlowContext);
   const folder = folders.filter((folder) => folder.id === folderId).at(0);
   const section = sections.filter((section) => section.id === sectionId).at(0);
   const [query, changeQuery] = useState("");
@@ -160,7 +160,7 @@ export function SidebarView({
                   <AddButton
                     onClick={() =>
                       fileHandler.addMedia(
-                        draftModel.context.library.media.example
+                        flowModel.context.gallery.snapshot.example
                       )
                     }
                   />
@@ -170,7 +170,7 @@ export function SidebarView({
               {filteredFiles.map((file) => (
                 <FolderFile>
                   <FolderFileThumbnailWrapper
-                    onClick={() => starHandler.spawnStar(file)}
+                    onClick={() => momentHandler.addSnapshotToMoment(file)}
                   >
                     <FolderFileThumbnail src={file.src} />
                   </FolderFileThumbnailWrapper>
