@@ -1,9 +1,9 @@
-import { HelloLanding } from "./(pages)/(portal)/reserve/page";
+import { ReserveView } from "./(pages)/(portal)/reserve/view";
 
 export default function Page() {
   return (
     <>
-      <HelloLanding />
+      <ReserveView />
     </>
   );
 }
