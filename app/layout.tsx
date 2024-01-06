@@ -3,7 +3,7 @@ import "./globals.css";
 import { fontVariables } from "./fonts";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const isDeveloperMode = process.env.NEXT_PUBLIC_DEVELOPER_MODE === "true";
+  const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
 
   return (
     <html lang="en">
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="referrer" content="origin" />
       </head>
       <body className={clsx([...fontVariables])}>
-        {isDeveloperMode ? <>{children}</> : <div>Under maintenance</div>}
+        {!isMaintenanceMode && <>{children}</>}
       </body>
     </html>
   );

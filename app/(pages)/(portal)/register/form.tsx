@@ -1,5 +1,5 @@
 "use client";
-import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
+import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
 import { useEffect, useState } from "react";
 
 export interface HelloFormProps {

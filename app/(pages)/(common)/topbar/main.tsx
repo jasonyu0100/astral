@@ -8,7 +8,7 @@ import { TopbarRightGroup } from "./container/right-group/main";
 import { SettingsIcon } from "./(common)/icons/settings/main";
 import { NotificationsIcon } from "./(common)/icons/notifications/main";
 import { CartIcon } from "./(common)/icons/cart/main";
-import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
+import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
 
 export function Topbar() {
   return (

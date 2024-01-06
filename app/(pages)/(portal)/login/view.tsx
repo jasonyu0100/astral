@@ -1,5 +1,5 @@
 "use client";
-import { worksMap } from "@/(pages)/(dashboard)/(voyager)/works/map";
+import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
 import { useEffect, useRef, useState } from "react";
 
 export function LoginView() {
@@ -70,7 +70,7 @@ export function LoginView() {
   }, [flipped]);
 
   return (
-    <div className="w-screen h-screen relative flex flex-col justify-center items-center bg-gradient-to-b from-violet-950 to-slate-950">
+    <>
       <div className="w-[650px] h-[770px] relative bg-gradient-to-b from-slate-950 to-violet-900 shadow-2xl flex flex-col justify-center items-center space-y-[75px]">
         <img src={`/brand/logo.png`} className="w-[500px] h-[500px]" />
         <div className="flex flex-col space-y-[25px]">
@@ -115,7 +115,7 @@ export function LoginView() {
           </a>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

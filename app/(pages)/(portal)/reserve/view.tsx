@@ -72,7 +72,7 @@ export function ReserveView() {
   }, [flipped]);
 
   return (
-    <div className="w-screen h-screen relative flex flex-col justify-center items-center bg-gradient-to-b from-violet-950 to-slate-950">
+    <>
       <div className="w-[650px] h-[770px] relative bg-stone-100 shadow-2xl">
         {!flipped ? (
           <div
@@ -111,7 +111,7 @@ export function ReserveView() {
       >
         FLIP ME
       </div>
-    </div>
+    </>
   );
 }
 
