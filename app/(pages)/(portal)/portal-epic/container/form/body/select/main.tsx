@@ -8,7 +8,7 @@ export function PortalFormSelect({
   ...props
 }: PortalFormSelectProps) {
   return (
-    <div className="w-full h-[50px] border-b border-slate-950 ">
+    <div className="w-full h-[50px] border-b-[1px] border-slate-500 ">
       <select
         title="position"
         className="w-full h-full appearance-none border-none outline-none text-slate-950 text-3xl font-extraBold leading-9"
