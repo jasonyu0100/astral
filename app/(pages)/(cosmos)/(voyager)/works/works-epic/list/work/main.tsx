@@ -13,7 +13,7 @@ interface WorksWorkProps extends React.ComponentPropsWithoutRef<"a"> {
 
 export function WorksWork({ work, ...props }: WorksWorkProps) {
   return (
-    <div className="flex flex-row w-full px-[2rem] py-[2rem]">
+    <div className="flex flex-row w-full px-[1rem] py-[1rem]">
       <WorkCount />
       <a {...props}>
         <WorkInfo />
