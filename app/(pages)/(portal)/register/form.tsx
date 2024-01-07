@@ -41,7 +41,7 @@ export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProp
   }, [categoryIndex])
 
   return (
-    <div className="flex flex-col items-center p-[50px] h-full w-full">
+    <div className="flex flex-col items-center p-[5%] h-full w-full">
       <div className="flex flex-col space-y-[30px] self-center">
         <div className="w-[550px] h-[50px] border-b border-slate-950">
           <input
@@ -91,7 +91,7 @@ export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProp
               changeRole(e.target.value);
               changeCategoryIndex(categories.indexOf(e.target.value));
             }}
-            className="w-full h-full appearance-none border-transparent focus:border-transparent focus:ring-0 text-slate-950 text-3xl font-extraBold leading-9"
+            className="w-full h-full appearance-none border-transparent focus:border-transparent text-slate-950 text-3xl font-extraBold leading-9"
           >
             {categories.map((category) => (
               <option value={category}>{category}</option>
@@ -100,7 +100,7 @@ export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProp
         </div>
         <div className="w-[550px] h-[50px] border-b border-slate-950">
           <input
-            className="w-full h-full appearance-none border-transparent focus:border-transparent focus:ring-0 text-slate-950 text-3xl font-extraBold leading-9"
+            className="w-full h-full appearance-none outline-none bg-transparent text-slate-950 text-3xl font-extraBold leading-9"
             type="password"
             title="password"
             value={password}
@@ -110,7 +110,7 @@ export function HelloForm({ categoryIndex, changeCategoryIndex } : HelloFormProp
         </div>
         <div className="w-[550px] h-[50px] border-b border-slate-950">
           <input
-            className="w-full h-full appearance-none border-transparent focus:border-transparent focus:ring-0 text-slate-950 text-3xl font-extraBold leading-9"
+            className="w-full h-full appearance-none outline-none bg-transparent focus:border-transparent text-slate-950 text-3xl font-extraBold leading-9"
             type="password"
             title="re-enter password"
             value={rePassword}
