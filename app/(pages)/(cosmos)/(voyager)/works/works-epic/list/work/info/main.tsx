@@ -1,8 +1,8 @@
-import { processMap } from "@/(pages)/(cosmos)/(apollo)/process/[id]/map";
+interface WorkInfoProps extends React.ComponentPropsWithoutRef<"a"> {}
 
-export function WorkInfo() {
+export function WorkInfo({ ...props }: WorkInfoProps) {
   return (
-    <a className="flex flex-row px-[2rem]">
+    <a className="flex flex-row px-[2rem]" {...props}>
       <div className="flex justify-end items-center">
         <img className="w-[50px] h-[50px]" src="/voyager/works/think.png" />
       </div>
@@ -13,4 +13,3 @@ export function WorkInfo() {
     </a>
   );
 }
-

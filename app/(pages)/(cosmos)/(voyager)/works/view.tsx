@@ -8,6 +8,11 @@ import { WorkTabStages } from "./tabs/main";
 import { Work } from "./model/work/main";
 import { worksModel } from "./model/main";
 import { processMap } from "../../(apollo)/process/[id]/map";
+import { WorkCount } from "./works-epic/list/work/count/main";
+import { WorkDate } from "./works-epic/list/work/date/main";
+import { WorkDay } from "./works-epic/list/work/day/main";
+import { WorkGenre } from "./works-epic/list/work/genre/main";
+import { WorkInfo } from "./works-epic/list/work/info/main";
 
 export interface WorkViewProps {
   type: WorkTabStages;
@@ -20,13 +25,21 @@ export function WorksView({ type, works, addWork }: WorkViewProps) {
     <WorksContainer>
       <WorksHeader>
         <WorksAlbumInfo heading={type} subHeading="Shared" />
-        <WorksHeaderAction onClick={() => {
-          addWork(worksModel.works.work.example)
-        }}/>
+        <WorksHeaderAction
+          onClick={() => {
+            addWork(worksModel.works.work.example);
+          }}
+        />
       </WorksHeader>
       <WorksList>
         {works.map((work) => (
-          <WorksWork work={work} href={processMap.process.id.storm.link(work.id)}/>
+          <WorksWork>
+            <WorkCount />
+            <WorkInfo href={processMap.process.id.storm.link(work.id)} />
+            <WorkGenre />
+            <WorkDay />
+            <WorkDate />
+          </WorksWork>
         ))}
       </WorksList>
     </WorksContainer>
