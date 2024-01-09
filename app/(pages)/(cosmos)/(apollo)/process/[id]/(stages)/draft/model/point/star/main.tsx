@@ -1,4 +1,4 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 import { exampleDraftMedia } from "../../context/media/main";
 
 export interface DraftStarObj {
@@ -15,7 +15,7 @@ export const exampleDraftStar: DraftStarObj = {
   media: exampleDraftMedia,
 };
 
-export const exampleDraftConstellation: DraftStarObj[] = [
+export const exampleDraftStars: DraftStarObj[] = [
   {
     id: "0",
     x: 120,

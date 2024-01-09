@@ -16,9 +16,6 @@ import { useState } from "react";
 import { SidePanelColumn } from "./storm-epic/sidebar/steps/main";
 import { StormSidePanelStepSection } from "./storm-epic/sidebar/steps/step/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
-import { StormMessageObj } from "./model/point/chat/message/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { StormChatObj } from "./model/point/chat/main";
 import { processModel } from "../../model/main";
 import { StormViewProps } from "./page";
 

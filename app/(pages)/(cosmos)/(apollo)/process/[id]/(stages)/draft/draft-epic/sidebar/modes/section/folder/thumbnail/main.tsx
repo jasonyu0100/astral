@@ -1,4 +1,4 @@
-import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/main";
+import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/type";
 
 interface LibraryElementThumbnailProps {
   folder: CraftFolder;

@@ -6,7 +6,7 @@ import { processModel } from "../../model/main";
 import { draftModel } from "./model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
 import { DraftStarObj } from "./model/point/star/main";
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 
 export interface StarHandler {
   updateStar: (i: number, data: any) => void;
@@ -43,7 +43,7 @@ export default function Page() {
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
-        currentStep.points.draftPoint.constellation = stars;
+        currentStep.points.draftPoint.stars = stars;
         changeSteps((prev) =>
           prev.map((step) => (step.id === stepId ? currentStep : step))
         );
@@ -56,12 +56,12 @@ export default function Page() {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
-      changeStars(step.points.draftPoint.constellation);
+      changeStars(step.points.draftPoint.stars);
     },
     goToStep: (step: ProcessStepObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
-      changeStars(step.points.draftPoint.constellation);
+      changeStars(step.points.draftPoint.stars);
     },
   };
 

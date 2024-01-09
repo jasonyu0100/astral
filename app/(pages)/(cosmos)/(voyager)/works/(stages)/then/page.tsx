@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { worksModel } from "../../model/main";
-import { Work } from "../../model/work/main";
+import { Work } from "../../model/work/type";
 import { WorkTabStages } from "../../tabs/main";
 import { WorksView } from "../../view";
 

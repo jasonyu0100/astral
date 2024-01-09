@@ -1,5 +1,5 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
-import { exampleCraftFiles } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/main";
+import { exampleCraftFiles } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/example";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 
 export interface DraftContextObj {
   library: CraftFile[];

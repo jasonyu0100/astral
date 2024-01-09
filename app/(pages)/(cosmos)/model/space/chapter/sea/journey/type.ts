@@ -1,0 +1,3 @@
+interface Journey {
+    momentIds: string[];
+}

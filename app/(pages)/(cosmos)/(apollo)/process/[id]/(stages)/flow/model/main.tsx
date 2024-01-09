@@ -9,7 +9,7 @@ import {
   exampleFlowMoment,
 } from "./point/moment/main";
 import { FlowPointObj, exampleFlowPoint } from "./point/main";
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 
 export const flowModel: {
   context: {

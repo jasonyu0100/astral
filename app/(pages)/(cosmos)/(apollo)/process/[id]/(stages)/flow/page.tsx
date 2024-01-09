@@ -5,7 +5,7 @@ import { FlowMomentObj } from "./model/point/moment/main";
 import { FlowView } from "./view";
 import { processModel } from "../../model/main";
 import { ProcessStepObj } from "../../model/process/step/main";
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 
 interface FlowContextObj {
   momentHandler: MomentHandler;
@@ -53,7 +53,7 @@ export default function Page() {
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
-        currentStep.points.flowPoint.timeline = moments;
+        currentStep.points.flowPoint.moments = moments;
         const newStep = currentStep;
         changeSteps((prev) =>
           prev.map((step) => (step.id === stepId ? newStep : step))
@@ -67,15 +67,15 @@ export default function Page() {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
-      changeMoments(step.points.flowPoint.timeline);
-      changeMomentId(step.points.flowPoint.timeline.at(-1)?.id || "");
+      changeMoments(step.points.flowPoint.moments);
+      changeMomentId(step.points.flowPoint.moments.at(-1)?.id || "");
     },
     goToStep: (step: ProcessStepObj) => {
       syncHandler.syncWithinSteps();
       const index = steps.indexOf(step);
       changeStepId(step.id);
-      changeMoments(step.points.flowPoint.timeline);
-      changeMomentId(step.points.flowPoint.timeline.at(index)?.id || "");
+      changeMoments(step.points.flowPoint.moments);
+      changeMomentId(step.points.flowPoint.moments.at(index)?.id || "");
     },
   };
 

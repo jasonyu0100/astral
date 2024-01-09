@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { craftModel } from "../../model/main";
 import { CraftSearchView } from "./view";
-import { CraftFile } from "../../model/drive/section/folder/file/main";
+import { CraftFile } from "../../model/drive/section/folder/file/type";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;

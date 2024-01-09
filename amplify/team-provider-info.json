@@ -1,0 +1,26 @@
+{
+  "cosmos": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cosmos-cosmos-94348-authRole",
+      "UnauthRoleArn": "arn:aws:iam::342135806803:role/amplify-cosmos-cosmos-94348-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::342135806803:role/amplify-cosmos-cosmos-94348-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-cosmos-cosmos-94348-deployment",
+      "UnauthRoleName": "amplify-cosmos-cosmos-94348-unauthRole",
+      "StackName": "amplify-cosmos-cosmos-94348",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:342135806803:stack/amplify-cosmos-cosmos-94348/6457c900-ae77-11ee-a91a-02be1921cbbb",
+      "AmplifyAppId": "dfe4gs1ppor2f"
+    },
+    "categories": {
+      "auth": {
+        "cosmos": {}
+      },
+      "storage": {
+        "s3cosmosstorage5b133c72": {}
+      },
+      "api": {
+        "cosmos": {}
+      }
+    }
+  }
+}

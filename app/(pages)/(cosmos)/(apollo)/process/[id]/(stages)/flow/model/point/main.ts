@@ -4,9 +4,9 @@ import {
 } from "./moment/main";
 
 export interface FlowPointObj {
-  timeline: FlowMomentObj[];
+  moments: FlowMomentObj[];
 }
 
-export const exampleFlowPoint = {
-  timeline: exampleFlowMoments,
+export const exampleFlowPoint: FlowPointObj = {
+  moments: exampleFlowMoments,
 };

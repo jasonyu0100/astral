@@ -1,42 +1,47 @@
 import {
   CraftDrive,
-  exampleCraftDrive,
-  exampleCraftSections,
-} from "./drive/main";
-import { CraftFile, exampleCraftFile } from "./drive/section/folder/file/main";
+} from "./drive/type";
+import { exampleCraftFiles, exampleCraftFolder } from "./drive/section/folder/example";
+import { exampleCraftFile } from "./drive/section/folder/file/example";
+import { CraftFile, craftFileGQL } from "./drive/section/folder/file/type";
 import {
-  CraftFolder,
-  exampleCraftFiles,
-  exampleCraftFolder,
-} from "./drive/section/folder/main";
+  CraftFolder, craftFolderGQL,
+} from "./drive/section/folder/type";
 import {
   CraftSection,
   exampleCraftFolders,
   exampleCraftSection,
-} from "./drive/section/main";
+} from "./drive/section/type";
 import {
   CraftExploreElement,
-  exampleExploreElement,
-  exampleExploreElements,
-} from "./explore/element/main";
-import { CraftExplore, exampleCraftExplore } from "./explore/main";
+} from "./explore/element/type";
+import { CraftExplore } from "./explore/type";
 import {
   CraftSearch,
   exampleCraftSearch,
   exampleCraftSearchResults,
-} from "./search/main";
+} from "./search/type";
+import { exampleCraftSections, exampleCraftDrive } from "./drive/example";
+import { exampleExploreElements, exampleExploreElement } from "./explore/element/example";
+import { exampleCraftExplore } from "./explore/example";
 
 export const craftModel: {
+  gql: {
+    file: {},
+    folder: {},
+    section: {},
+    drive: {},
+  },
   drive: {
     sections: {
       section: {
         folders: {
           folder: {
             files: {
-              example: CraftFile[];
               file: {
                 example: CraftFile;
               };
+              example: CraftFile[];
             };
             example: CraftFolder;
           };
@@ -64,6 +69,12 @@ export const craftModel: {
     example: CraftExplore;
   };
 } = {
+  gql: {
+    file: craftFileGQL,
+    folder: craftFolderGQL,
+    section: {},
+    drive: {}
+  },
   drive: {
     sections: {
       example: exampleCraftSections,

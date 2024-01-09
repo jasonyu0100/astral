@@ -1,16 +1,10 @@
-import { Work, exampleWork, exampleWorks } from "./work/main";
+import { exampleWork, exampleWorks } from "./work/example";
 
-export const worksModel: {
-  works: {
-    work: {
-      example: Work;
-    };
-    example: Work[];
-  };
-} = {
+export const worksModel = {
   works: {
     work: {
       example: exampleWork,
+      reducers: []
     },
     example: exampleWorks,
   },

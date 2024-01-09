@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/main";
+import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/type";
 
 export function ResultElement({
   constraintsRef,

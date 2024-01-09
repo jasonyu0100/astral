@@ -1,4 +1,4 @@
-import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/main";
+import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/type";
 import { motion } from "framer-motion";
 
 export function ElementLinks({ elements }: { elements: CraftExploreElement[] }) {

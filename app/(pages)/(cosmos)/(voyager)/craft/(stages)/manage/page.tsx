@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { craftModel } from "../../model/main";
 import { DriveView } from "./view";
-import { CraftSection } from "../../model/drive/section/main";
-import { CraftDrive } from "../../model/drive/main";
+import { CraftSection } from "../../model/drive/section/type";
+import { CraftDrive } from "../../model/drive/type";
 
 export default function Page() {
   const [drive, changeDrive] = useState<CraftDrive>(craftModel.drive.example);

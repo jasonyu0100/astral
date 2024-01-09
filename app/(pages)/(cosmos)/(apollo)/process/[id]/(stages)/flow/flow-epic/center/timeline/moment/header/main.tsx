@@ -15,7 +15,7 @@ export function FlowPointHeader({ active }: FlowPointHeaderProps) {
     month: "short",
     day: "numeric",
   };
-  const formattedDate = new Date(moment.date).toLocaleDateString("en-US", options);
+  const formattedDate = new Date(moment.time).toLocaleDateString("en-US", options);
 
   return (
     <button

@@ -5,7 +5,7 @@ import { WorksContainer } from "./works-epic/main";
 import { WorksHeaderAction } from "./works-epic/header/action/main";
 import { WorksAlbumInfo } from "./works-epic/header/album-info/main";
 import { WorkTabStages } from "./tabs/main";
-import { Work } from "./model/work/main";
+import { Work } from "./model/work/type";
 import { worksModel } from "./model/main";
 import { processMap } from "../../(apollo)/process/[id]/map";
 import { WorkCount } from "./works-epic/list/work/count/main";

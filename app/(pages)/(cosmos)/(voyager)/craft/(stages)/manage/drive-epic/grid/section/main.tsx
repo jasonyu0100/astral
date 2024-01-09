@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/main";
+import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/type";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
   section: CraftSection;

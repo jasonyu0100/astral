@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { CraftFolder } from "../../../../model/drive/section/folder/main";
-import { CraftSection } from "../../../../model/drive/section/main";
+import { CraftFolder } from "../../../../model/drive/section/folder/type";
+import { CraftSection } from "../../../../model/drive/section/type";
 import { craftModel } from "../../../../model/main";
 import { DriveSectionView } from "./view";
 

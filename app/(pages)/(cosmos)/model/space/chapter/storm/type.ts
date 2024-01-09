@@ -1,0 +1,3 @@
+interface Storm {
+    chatIds: string[];
+}

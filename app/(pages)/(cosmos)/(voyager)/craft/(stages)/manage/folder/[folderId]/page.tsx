@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { craftModel } from "../../../../model/main";
 import DriveFolderView from "./view";
-import { CraftSection } from "../../../../model/drive/section/main";
-import { CraftFile } from "../../../../model/drive/section/folder/file/main";
-import { CraftFolder } from "../../../../model/drive/section/folder/main";
+import { CraftSection } from "../../../../model/drive/section/type";
+import { CraftFile } from "../../../../model/drive/section/folder/file/type";
+import { CraftFolder } from "../../../../model/drive/section/folder/type";
 
 export interface DriveFolderViewProps {
   section: CraftSection;

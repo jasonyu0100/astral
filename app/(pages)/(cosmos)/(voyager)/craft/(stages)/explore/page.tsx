@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { craftModel } from "../../model/main";
 import { CraftExploreView } from "./view";
-import { CraftExploreElement } from "../../model/explore/element/main";
+import { CraftExploreElement } from "../../model/explore/element/type";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;

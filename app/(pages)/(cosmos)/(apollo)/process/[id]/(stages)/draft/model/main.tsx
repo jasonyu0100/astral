@@ -1,10 +1,10 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 import { DraftContextObj, exampleDraftLibrary } from "./context/main";
 import { exampleDraftMedia } from "./context/media/main";
 import { DraftPointObj, exampleDraftPoint } from "./point/main";
 import {
   DraftStarObj,
-  exampleDraftConstellation,
+  exampleDraftStars,
   exampleDraftStar,
 } from "./point/star/main";
 
@@ -48,7 +48,7 @@ export const draftModel: {
         star: {
           example: exampleDraftStar,
         },
-        example: exampleDraftConstellation,
+        example: exampleDraftStars,
       },
       example: exampleDraftPoint,
     },

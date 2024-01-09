@@ -1,13 +1,6 @@
-import { Piece, examplePiece, examplePieces } from "./piece/main";
+import { examplePiece, examplePieces } from "./piece/example";
 
-export const piecesModel: {
-  pieces: {
-    piece: {
-      example: Piece;
-    };
-    example: Piece[];
-  };
-} = {
+export const piecesModel = {
   pieces: {
     piece: {
       example: examplePiece,

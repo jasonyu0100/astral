@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/main";
+import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/type";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
   folder: CraftFolder;

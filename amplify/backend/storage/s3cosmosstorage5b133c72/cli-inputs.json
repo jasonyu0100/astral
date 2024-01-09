@@ -1,0 +1,13 @@
+{
+  "resourceName": "s3cosmosstorage5b133c72",
+  "bucketName": "cosmos-storage-5b133c72",
+  "policyUUID": "66fa811f",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ]
+}

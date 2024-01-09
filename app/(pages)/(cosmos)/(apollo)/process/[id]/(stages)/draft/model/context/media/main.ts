@@ -1,4 +1,4 @@
-import { CraftFile, CraftFileType } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
+import { CraftFile, CraftFileType } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
 
 export const exampleDraftMedia: CraftFile = {
   id: "0",

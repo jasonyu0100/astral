@@ -1,6 +1,6 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/main";
-import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/main";
-import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/main";
+import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
+import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/type";
+import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/type";
 import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
