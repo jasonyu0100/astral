@@ -9,6 +9,7 @@ import { generateClient } from "aws-amplify/api";
 import config from "./aws-exports.js";
 import { useEffect } from "react";
 import { createSpaceObj } from "./graphql/mutations";
+import { create } from "domain";
 
 Amplify.configure(config);
 
@@ -17,18 +18,23 @@ export const amplifyClient = generateClient();
 export default function Layout({ children }: { children: React.ReactNode }) {
   const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
 
-  useEffect(async () => {
-    const resp = await amplifyClient.graphql({
+  async function fetchProjects() {
+    let resp = await amplifyClient.graphql({
       query: createSpaceObj,
       variables: {
         input: {
           title: "Hello",
           description: "adsadsads",
-          chapters: []
+          chapters: [],
         },
       },
     });
-    console.log(resp);
+    return resp
+  };
+
+  useEffect(() => {
+    fetchProjects().then(resp => console.log(resp))
+    return () => {};
   }, []);
 
   return (

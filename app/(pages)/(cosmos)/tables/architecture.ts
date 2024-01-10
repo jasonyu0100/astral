@@ -14,14 +14,21 @@ export const dataArchitecture = {
   space: {
     table: spaceTable,
     chapter: {
+      table: spaceTable.chapter,
       storm: {
         table: stormTable,
+        chat: {
+          table: stormTable
+        }
       },
       draft: {
         table: draftTable,
       },
       flow: {
         table: flowTable,
+        session: {
+          table: flowTable.session
+        }
       },
       sea: {
         table: seaTable,
