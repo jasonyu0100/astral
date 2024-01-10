@@ -8,45 +8,53 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const getProcess = /* GraphQL */ `query GetProcess {
-  getProcess {
-    steps {
-      id
-      name
-      description
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetProcessQueryVariables,
-  APITypes.GetProcessQuery
->;
-export const getProcessStep = /* GraphQL */ `query GetProcessStep($id: ID!) {
-  getProcessStep(id: $id) {
+export const getChapter = /* GraphQL */ `query GetChapter {
+  getChapter {
     id
     name
     description
-    stormPoint {
+    stormId
+    draftId
+    flowId
+    seaId
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetChapterQueryVariables,
+  APITypes.GetChapterQuery
+>;
+export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: ID!) {
+  getSpaceObj(id: $id) {
+    id
+    title
+    description
+    chapters {
+      id
+      name
+      description
+      stormId
+      draftId
+      flowId
+      seaId
       __typename
     }
     __typename
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetProcessStepQueryVariables,
-  APITypes.GetProcessStepQuery
+  APITypes.GetSpaceObjQueryVariables,
+  APITypes.GetSpaceObjQuery
 >;
-export const listProcessSteps = /* GraphQL */ `query ListProcessSteps(
-  $filter: TableProcessStepFilterInput
+export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
+  $filter: TableSpaceObjFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listProcessSteps(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSpaceObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      title
       description
       __typename
     }
@@ -55,6 +63,114 @@ export const listProcessSteps = /* GraphQL */ `query ListProcessSteps(
   }
 }
 ` as GeneratedQuery<
-  APITypes.ListProcessStepsQueryVariables,
-  APITypes.ListProcessStepsQuery
+  APITypes.ListSpaceObjsQueryVariables,
+  APITypes.ListSpaceObjsQuery
+>;
+export const getChapterObj = /* GraphQL */ `query GetChapterObj($id: ID!) {
+  getChapterObj(id: $id) {
+    id
+    name
+    description
+    stormId
+    draftId
+    flowId
+    seaId
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetChapterObjQueryVariables,
+  APITypes.GetChapterObjQuery
+>;
+export const listChapterObjs = /* GraphQL */ `query ListChapterObjs(
+  $filter: TableChapterObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listChapterObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      description
+      stormId
+      draftId
+      flowId
+      seaId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListChapterObjsQueryVariables,
+  APITypes.ListChapterObjsQuery
+>;
+export const getStormObj = /* GraphQL */ `query GetStormObj($id: ID!) {
+  getStormObj(id: $id) {
+    id
+    chatIds
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetStormObjQueryVariables,
+  APITypes.GetStormObjQuery
+>;
+export const listStormObjs = /* GraphQL */ `query ListStormObjs(
+  $filter: TableStormObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listStormObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      chatIds
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListStormObjsQueryVariables,
+  APITypes.ListStormObjsQuery
+>;
+export const getChatObj = /* GraphQL */ `query GetChatObj($id: ID!) {
+  getChatObj(id: $id) {
+    id
+    title
+    summary
+    messages {
+      source
+      time
+      message
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetChatObjQueryVariables,
+  APITypes.GetChatObjQuery
+>;
+export const listChatObjs = /* GraphQL */ `query ListChatObjs(
+  $filter: TableChatObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listChatObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      summary
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListChatObjsQueryVariables,
+  APITypes.ListChatObjsQuery
 >;

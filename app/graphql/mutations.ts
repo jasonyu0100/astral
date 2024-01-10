@@ -8,48 +8,204 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createProcessStep = /* GraphQL */ `mutation CreateProcessStep($input: CreateProcessStepInput!) {
-  createProcessStep(input: $input) {
+export const createSpaceObj = /* GraphQL */ `mutation CreateSpaceObj($input: CreateSpaceObjInput!) {
+  createSpaceObj(input: $input) {
     id
-    name
+    title
     description
-    stormPoint {
+    chapters {
+      id
+      name
+      description
+      stormId
+      draftId
+      flowId
+      seaId
       __typename
     }
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.CreateProcessStepMutationVariables,
-  APITypes.CreateProcessStepMutation
+  APITypes.CreateSpaceObjMutationVariables,
+  APITypes.CreateSpaceObjMutation
 >;
-export const updateProcessStep = /* GraphQL */ `mutation UpdateProcessStep($input: UpdateProcessStepInput!) {
-  updateProcessStep(input: $input) {
+export const updateSpaceObj = /* GraphQL */ `mutation UpdateSpaceObj($input: UpdateSpaceObjInput!) {
+  updateSpaceObj(input: $input) {
     id
-    name
+    title
     description
-    stormPoint {
+    chapters {
+      id
+      name
+      description
+      stormId
+      draftId
+      flowId
+      seaId
       __typename
     }
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.UpdateProcessStepMutationVariables,
-  APITypes.UpdateProcessStepMutation
+  APITypes.UpdateSpaceObjMutationVariables,
+  APITypes.UpdateSpaceObjMutation
 >;
-export const deleteProcessStep = /* GraphQL */ `mutation DeleteProcessStep($input: DeleteProcessStepInput!) {
-  deleteProcessStep(input: $input) {
+export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: DeleteSpaceObjInput!) {
+  deleteSpaceObj(input: $input) {
     id
-    name
+    title
     description
-    stormPoint {
+    chapters {
+      id
+      name
+      description
+      stormId
+      draftId
+      flowId
+      seaId
       __typename
     }
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeleteProcessStepMutationVariables,
-  APITypes.DeleteProcessStepMutation
+  APITypes.DeleteSpaceObjMutationVariables,
+  APITypes.DeleteSpaceObjMutation
+>;
+export const createChapterObj = /* GraphQL */ `mutation CreateChapterObj($input: CreateChapterObjInput!) {
+  createChapterObj(input: $input) {
+    id
+    name
+    description
+    stormId
+    draftId
+    flowId
+    seaId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateChapterObjMutationVariables,
+  APITypes.CreateChapterObjMutation
+>;
+export const updateChapterObj = /* GraphQL */ `mutation UpdateChapterObj($input: UpdateChapterObjInput!) {
+  updateChapterObj(input: $input) {
+    id
+    name
+    description
+    stormId
+    draftId
+    flowId
+    seaId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateChapterObjMutationVariables,
+  APITypes.UpdateChapterObjMutation
+>;
+export const deleteChapterObj = /* GraphQL */ `mutation DeleteChapterObj($input: DeleteChapterObjInput!) {
+  deleteChapterObj(input: $input) {
+    id
+    name
+    description
+    stormId
+    draftId
+    flowId
+    seaId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteChapterObjMutationVariables,
+  APITypes.DeleteChapterObjMutation
+>;
+export const createStormObj = /* GraphQL */ `mutation CreateStormObj($input: CreateStormObjInput!) {
+  createStormObj(input: $input) {
+    id
+    chatIds
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateStormObjMutationVariables,
+  APITypes.CreateStormObjMutation
+>;
+export const updateStormObj = /* GraphQL */ `mutation UpdateStormObj($input: UpdateStormObjInput!) {
+  updateStormObj(input: $input) {
+    id
+    chatIds
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateStormObjMutationVariables,
+  APITypes.UpdateStormObjMutation
+>;
+export const deleteStormObj = /* GraphQL */ `mutation DeleteStormObj($input: DeleteStormObjInput!) {
+  deleteStormObj(input: $input) {
+    id
+    chatIds
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteStormObjMutationVariables,
+  APITypes.DeleteStormObjMutation
+>;
+export const createChatObj = /* GraphQL */ `mutation CreateChatObj($input: CreateChatObjInput!) {
+  createChatObj(input: $input) {
+    id
+    title
+    summary
+    messages {
+      source
+      time
+      message
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateChatObjMutationVariables,
+  APITypes.CreateChatObjMutation
+>;
+export const updateChatObj = /* GraphQL */ `mutation UpdateChatObj($input: UpdateChatObjInput!) {
+  updateChatObj(input: $input) {
+    id
+    title
+    summary
+    messages {
+      source
+      time
+      message
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateChatObjMutationVariables,
+  APITypes.UpdateChatObjMutation
+>;
+export const deleteChatObj = /* GraphQL */ `mutation DeleteChatObj($input: DeleteChatObjInput!) {
+  deleteChatObj(input: $input) {
+    id
+    title
+    summary
+    messages {
+      source
+      time
+      message
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteChatObjMutationVariables,
+  APITypes.DeleteChatObjMutation
 >;

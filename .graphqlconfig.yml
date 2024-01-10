@@ -1,15 +1,20 @@
 projects:
-  cosmos:
-    schemaPath: app/graphql/schema.json
+  Codegen Project:
+    schemaPath: schema.json
     includes:
       - app/graphql/**/*.ts
     excludes:
       - ./amplify/**
+      - app/API.ts
     extensions:
       amplify:
         codeGenTarget: typescript
         generatedFileName: app/API.ts
         docsFilePath: app/graphql
+        region: ap-southeast-2
+        apiId: np66kmimg5gwvf5rplh66ykgxi
+        frontend: javascript
+        framework: react
 extensions:
   amplify:
     version: 3
