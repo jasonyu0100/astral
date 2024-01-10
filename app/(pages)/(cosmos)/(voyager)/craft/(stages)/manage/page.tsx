@@ -1,22 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { craftModel } from "../../model/main";
-import { DriveView } from "./view";
-import { GalleryObj } from "../../../../tables/gallery/main";
-import { CraftDrive } from "../../model/drive/type";
+import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
+import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { ManageView } from "./view";
+
+
+export interface ManageViewProps {
+  gallerys: GalleryObj[];
+  addGallery: (section: GalleryObj) => void;
+}
 
 export default function Page() {
-  const [drive, changeDrive] = useState<CraftDrive>(craftModel.drive.example);
+  const [gallerys, changeGallerys] = useState<GalleryObj[]>(galleryTable.examples);
 
-  const addSection = (section: GalleryObj) => {
-    changeDrive((prev) => {
-      return {
-        ...prev,
-        sections: [...prev.sections, section],
-      };
+  const addGallery = (gallery: GalleryObj) => {
+    changeGallerys((prev) => {
+      return [...prev, gallery]
     });
   };
 
-  return <DriveView drive={drive} addSection={addSection} />;
+  return <ManageView gallerys={gallerys} addGallery={addGallery} />;
 }

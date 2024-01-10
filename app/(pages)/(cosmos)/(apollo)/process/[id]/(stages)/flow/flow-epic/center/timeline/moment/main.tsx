@@ -2,10 +2,7 @@ import { FlowMomentSnapshot } from "./snapshot/main";
 import { FlowPointHeader } from "./header/main";
 import { FlowPointColumm } from "./column/main";
 import { createContext } from "react";
-import {
-  SessionObj,
-  exampleSession,
-} from "../../../../../../../../../../../../model/point/minute/main";
+import { SessionObj, exampleSession } from "@/(pages)/(cosmos)/tables/flow/session/main";
 
 export const FlowMomentContext = createContext(exampleSession);
 
@@ -26,8 +23,8 @@ export function FlowMoment({
       <div className="flex flex-col w-[250px] h-full flex-shrink-0 items-center">
         <FlowPointHeader active={active}/>
         <FlowPointColumm index={index}>
-          {flowMoment.minutes.map((flowSnapshot) => (
-            <FlowMomentSnapshot flowSnapshot={flowSnapshot} />
+          {flowMoment.moments.map((moment) => (
+            <FlowMomentSnapshot flowSnapshot={moment.file} />
           ))}
         </FlowPointColumm>
       </div>

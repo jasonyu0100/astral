@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import { craftModel } from "../../model/main";
 import { CraftSearchView } from "./view";
 import { FileObj } from "../../../../tables/collection/file/main";
+import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
+import { resourceTable } from "@/(pages)/(cosmos)/tables/resource/table";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;
@@ -10,16 +11,16 @@ interface SearchHandler {
 
 export interface CraftSearchViewProps {
   searchHandler: SearchHandler;
-  results: FileObj[];
+  results: ResourceObj[];
 }
 
 export default function Page() {
-  const [results, changeResults] = useState(craftModel.search.results.example);
+  const [results, changeResults] = useState(resourceTable.search.example.results);
 
   const searchHandler : SearchHandler = {
     searchQuery: (query: string) => {
       if (query === "") {
-        changeResults(craftModel.search.results.example);
+        changeResults(resourceTable.search.example.results);
       } else {
         changeResults([]);
       }

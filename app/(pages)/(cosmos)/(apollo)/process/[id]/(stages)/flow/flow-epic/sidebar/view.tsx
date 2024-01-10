@@ -4,8 +4,6 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
-import { flowModel } from "../../../../../../../../../../model/main";
 import { AddButton } from "./modes/folder/header/button-row/button/add/main";
 import { DraftLoomButton as LoomButton } from "./modes/folder/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";
@@ -36,20 +34,21 @@ import { SectionInterface } from "./modes/section/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
 import { FlowContext } from "../../page";
+import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
 
 export function SidebarView({
   sidebarViewHandler,
-  sidebarMode: sidebarView,
-  sections,
+  sidebarMode,
+  gallerys,
   sectionId,
-  folders,
-  folderId,
+  collections,
+  collectionId,
   files,
   fileHandler,
 }: SidebarViewProps) {
-  const { sessionHandler: momentHandler } = useContext(FlowContext);
-  const folder = folders.filter((folder) => folder.id === folderId).at(0);
-  const section = sections.filter((section) => section.id === sectionId).at(0);
+  const { sessionHandler } = useContext(FlowContext);
+  const collection = collections.filter((folder) => folder.id === collectionId).at(0);
+  const gallery = gallerys.filter((section) => section.id === sectionId).at(0);
   const [query, changeQuery] = useState("");
 
   const filteredFiles = files.filter((file) => {
@@ -67,43 +66,43 @@ export function SidebarView({
     >
       <SidebarBreadcrumbs>
         <BreadcrumbsLink
-          active={sidebarView === SidebarMode.Drive}
-          onClick={() => sidebarViewHandler.goToDriveView()}
+          active={sidebarMode === SidebarMode.Drive}
+          onClick={() => sidebarViewHandler.goToDrvieView()}
         >
           Drive
         </BreadcrumbsLink>
         <BreadcrumbsDivider />
-        {(sidebarView === SidebarMode.Section ||
-          sidebarView === SidebarMode.Folder) && (
+        {(sidebarMode === SidebarMode.Gallery ||
+          sidebarMode === SidebarMode.Collection) && (
           <>
             <BreadcrumbsLink
-              active={sidebarView === SidebarMode.Section}
-              onClick={() => sidebarViewHandler.goToSectionView()}
+              active={sidebarMode === SidebarMode.Gallery}
+              onClick={() => sidebarViewHandler.goToGalleryView()}
             >
-              {section?.name}
+              {gallery?.name}
             </BreadcrumbsLink>
             <BreadcrumbsDivider />
           </>
         )}
-        {sidebarView === SidebarMode.Folder && (
+        {sidebarMode === SidebarMode.Collection && (
           <BreadcrumbsLink
-            active={sidebarView === SidebarMode.Folder}
-            onClick={() => sidebarViewHandler.goToFolderView()}
+            active={sidebarMode === SidebarMode.Collection}
+            onClick={() => sidebarViewHandler.goToCollectionView()}
           >
-            {folder?.name}
+            {collection?.name}
           </BreadcrumbsLink>
         )}
       </SidebarBreadcrumbs>
       <Divider />
       <SidebarBody>
-        {sidebarView === SidebarMode.Drive && (
+        {sidebarMode === SidebarMode.Drive && (
           <>
             <DriveInterface>
-              {sections.map((section) => (
+              {gallerys.map((section) => (
                 <DriveSectionElement>
                   <DriveSectionThumbnailWrapper
                     onClick={() => {
-                      sidebarViewHandler.goToSection(section);
+                      sidebarViewHandler.goToGallery(section);
                     }}
                   >
                     <DriveSectionThumbanil src={section.thumbnail.src} />
@@ -119,21 +118,21 @@ export function SidebarView({
             </DriveInterface>
           </>
         )}
-        {sidebarView === SidebarMode.Section && (
+        {sidebarMode === SidebarMode.Gallery && (
           <>
             <SectionInterface>
               <SectionHeader>
                 <SectionCoverImage
-                  src={craftModel.drive.sections.section.example.thumbnail.src}
+                  src={collectionTable.file.example.src}
                 />
                 <SectionHeaderDescription />
               </SectionHeader>
               <Divider/>
-              {folders.map((folder) => (
+              {collections.map((folder) => (
                 <SectionFolder>
                   <SectionFolderThumbnailWrapper
                     onClick={() => {
-                      sidebarViewHandler.goToFolder(folder);
+                      sidebarViewHandler.goToCollection(folder);
                     }}
                   >
                     <SectionFolderThumbnail folder={folder} />
@@ -149,7 +148,7 @@ export function SidebarView({
             </SectionInterface>
           </>
         )}
-        {sidebarView === SidebarMode.Folder && (
+        {sidebarMode === SidebarMode.Collection && (
           <>
             <FolderInterface>
               <FolderHeader>
@@ -160,8 +159,8 @@ export function SidebarView({
                 <FolderHeaderTools>
                   <AddButton
                     onClick={() =>
-                      fileHandler.addMedia(
-                        flowModel.context.gallery.snapshot.example
+                      fileHandler.addFile(
+                        collectionTable.file.example
                       )
                     }
                   />
@@ -171,7 +170,7 @@ export function SidebarView({
               {filteredFiles.map((file) => (
                 <FolderFile>
                   <FolderFileThumbnailWrapper
-                    onClick={() => momentHandler.addSnapshotToSession(file)}
+                    onClick={() => sessionHandler.addSnapshotToSession(file)}
                   >
                     <FolderFileThumbnail src={file.src} />
                   </FolderFileThumbnailWrapper>
@@ -195,3 +194,4 @@ export function SidebarView({
     </Layer>
   );
 }
+

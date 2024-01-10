@@ -5,10 +5,7 @@ import { DriveController } from "../../drive-epic/main";
 import { DriveBreadcrumbs } from "../../(common)/breadcrumb/main";
 import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
-import { craftModel } from "../../../../model/main";
 import { DriveSectionGrid } from "./section-epic/grid/main";
-import { CollectionModel } from "../../../../../../tables/collection/main";
-import { GalleryObj } from "../../../../../../tables/gallery/main";
 import { craftMap } from "../../../../map";
 import { DriveFolder } from "./section-epic/grid/section/main";
 import { DriveSectionAdd } from "./section-epic/grid/add/main";
@@ -16,15 +13,13 @@ import { DriveSectionSidebar } from "./section-epic/sidebar/main";
 import { SidebarBody } from "./section-epic/sidebar/body/main";
 import { SidebarCover } from "./section-epic/sidebar/cover/main";
 import { SidebarInfo } from "./section-epic/sidebar/info/main";
-
-interface DriveSectionViewProps {
-  section: GalleryObj;
-  addFolder: (folder: CollectionModel) => void;
-}
+import { DriveSectionViewProps } from "./page";
+import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
 
 export function DriveSectionView({
-  section,
-  addFolder,
+  gallery,
+  collections,
+  addCollection,
 }: DriveSectionViewProps) {
   return (
     <DriveWrapper>
@@ -36,24 +31,24 @@ export function DriveSectionView({
           <DriveBreadcrumbDivider />
           <DriveBreadcrumbItem
             active={true}
-            href={craftMap.craft.manage.section.id.link(section.id)}
+            href={craftMap.craft.manage.gallery.id.link(gallery.id)}
           >
-            {section.name}
+            {gallery.name}
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>
-        {section !== null && (
+        {gallery !== null && (
           <DriveSectionGrid>
-            {section.collections.map((folder) => (
+            {collections.map((collection) => (
               <DriveFolder
-                folder={folder}
-                href={craftMap.craft.manage.folder.id.link(folder.id)}
+                collection={collection}
+                href={craftMap.craft.manage.collection.id.link(collection.id)}
               />
             ))}
             <DriveSectionAdd
               onClick={() => {
-                addFolder(
-                  craftModel.drive.sections.section.folders.folder.example
+                addCollection(
+                  collectionTable.example
                 );
               }}
             />

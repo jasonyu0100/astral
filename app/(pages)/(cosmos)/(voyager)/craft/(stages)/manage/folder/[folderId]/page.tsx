@@ -1,40 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { craftModel } from "../../../../model/main";
 import DriveFolderView from "./view";
-import { GalleryObj } from "../../../../../../tables/gallery/main";
-import { FileObj } from "../../../../../../tables/collection/file/main";
-import { CollectionModel } from "../../../../../../tables/collection/main";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
+import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
+import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
+import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
 
 export interface DriveFolderViewProps {
-  section: GalleryObj;
-  folder: CollectionModel;
+  gallery: GalleryObj;
+  collection: CollectionObj;
   files: FileObj[];
   fileHandler: FileHandler;
 }
 interface FileHandler {
-    addFile: (file: FileObj) => void;
+  addFile: (file: FileObj) => void;
 }
 
 export default function Page() {
-  const [section, changeSection] = useState(
-    craftModel.drive.sections.section.example
+  const [gallery, changeGallery] = useState(
+    galleryTable.example
   );
-  const [folder, changeFolder] = useState(
-    craftModel.drive.sections.section.folders.folder.example
+  const [collection, changeCollection] = useState(
+    collectionTable.example
   );
   const [files, changeFiles] = useState(
-    craftModel.drive.sections.section.folders.folder.files.example
-  )
+    collectionTable.file.examples
+  );
 
   const fileHandler = {
     addFile: (file: FileObj) => {
-      changeFiles(prev => [file, ...prev])
-    }
-  }
+      changeFiles((prev) => [file, ...prev]);
+    },
+  };
 
-
-
-  return <DriveFolderView section={section} folder={folder} files={files} fileHandler={fileHandler}/>;
+  return (
+    <DriveFolderView
+      gallery={gallery}
+      collection={collection}
+      files={files}
+      fileHandler={fileHandler}
+    />
+  );
 }

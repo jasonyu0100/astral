@@ -16,8 +16,8 @@ export function CraftSearchView({
           onChange={(e) => searchHandler.searchQuery(e.target.value)}
         />
         <SearchResults>
-          {results.map((file) => (
-            <SearchResult src={file.src} />
+          {results.map((result) => (
+            <SearchResult src={result.file.src} />
           ))}
         </SearchResults>
       </SearchController>

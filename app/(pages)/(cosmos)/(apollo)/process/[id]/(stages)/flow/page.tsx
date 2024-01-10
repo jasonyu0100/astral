@@ -110,11 +110,14 @@ export default function Page() {
     },
 
     addSnapshotToSession: (snapshot: FileObj) => {
-      const currentMoment = sessionHelper.getCurrentSession();
-      if (currentMoment) {
+      const currentSession = sessionHelper.getCurrentSession();
+      if (currentSession) {
         const newSession = {
-          ...currentMoment,
-          snapshots: [...currentMoment.moments, snapshot],
+          ...currentSession,
+          moments: [...currentSession.moments, {
+            ...flowTable.session.moment.example,
+            file: snapshot
+          }],
         };
         sessionHelper.updateSessionsWithCurrent(newSession);
       }

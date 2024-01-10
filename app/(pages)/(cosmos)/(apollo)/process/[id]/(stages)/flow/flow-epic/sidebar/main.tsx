@@ -1,32 +1,33 @@
 import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { CollectionModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/gallery/collection/type";
 import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
-import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
+import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
+import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
 
 export enum SidebarMode {
   Drive = "Drive",
-  Section = "Section",
-  Folder = "Folder",
+  Gallery = "Gallery",
+  Collection = "Collection",
 }
 
 interface FileHandler {
-  addMedia: (media: FileObj) => void;
+  addFile: (media: FileObj) => void;
 }
 interface SidebarViewHandler {
-  goToDriveView: () => void;
-  goToSectionView: () => void;
-  goToFolderView: () => void;
-  goToSection: (section: GalleryObj) => void;
-  goToFolder: (section: CollectionModel) => void;
+  goToDrvieView: () => void;
+  goToGalleryView: () => void;
+  goToCollectionView: () => void;
+  goToGallery: (section: GalleryObj) => void;
+  goToCollection: (section: CollectionObj) => void;
 }
 export interface SidebarViewProps {
   sidebarMode: SidebarMode;
-  sections: GalleryObj[];
+  gallerys: GalleryObj[];
   sectionId: string;
-  folders: CollectionModel[];
-  folderId: string;
+  collections: CollectionObj[];
+  collectionId: string;
   files: FileObj[];
   sidebarViewHandler: SidebarViewHandler;
   fileHandler: FileHandler;
@@ -34,39 +35,39 @@ export interface SidebarViewProps {
 
 export function Sidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Drive);
-  const [sections, changeSections] = useState<GalleryObj[]>(
-    craftModel.drive.sections.example
+  const [gallerys, changeSections] = useState<GalleryObj[]>(
+    galleryTable.examples
   );
-  const [sectionId, changeSectionId] = useState<string>("");
-  const [folders, changeFolders] = useState<CollectionModel[]>(
-    craftModel.drive.sections.section.folders.example
+  const [galleryId, changeGalleryId] = useState<string>("");
+  const [collections, chnageCollections] = useState<CollectionObj[]>(
+    collectionTable.examples
   );
-  const [folderId, changeFolderId] = useState<string>("");
+  const [collectionId, changeCollectionId] = useState<string>("");
   const [files, changeFiles] = useState<FileObj[]>(
-    craftModel.drive.sections.section.folders.folder.files.example
+    collectionTable.file.examples
   );
   const sidebarViewHandler: SidebarViewHandler = {
-    goToDriveView: () => {
+    goToDrvieView: () => {
       changeSidebarMode(SidebarMode.Drive);
     },
-    goToSectionView: () => {
-      changeSidebarMode(SidebarMode.Section);
+    goToGalleryView: () => {
+      changeSidebarMode(SidebarMode.Gallery);
     },
-    goToFolderView: () => {
-      changeSidebarMode(SidebarMode.Folder);
+    goToCollectionView: () => {
+      changeSidebarMode(SidebarMode.Collection);
     },
-    goToSection: (section: GalleryObj) => {
-      changeSectionId(section.id);
-      changeSidebarMode(SidebarMode.Section);
+    goToGallery: (section: GalleryObj) => {
+      changeGalleryId(section.id);
+      changeSidebarMode(SidebarMode.Gallery);
     },
-    goToFolder: (folder: CollectionModel) => {
-      changeFolderId(folder.id);
-      changeSidebarMode(SidebarMode.Folder);
+    goToCollection: (folder: CollectionObj) => {
+      changeCollectionId(folder.id);
+      changeSidebarMode(SidebarMode.Collection);
     },
   };
 
   const fileHandler = {
-    addMedia: (media: FileObj) => {
+    addFile: (media: FileObj) => {
       changeFiles((prev) => [...prev, media]);
     },
   };
@@ -75,12 +76,13 @@ export function Sidebar() {
     <SidebarView
       sidebarViewHandler={sidebarViewHandler}
       sidebarMode={sidebarMode}
-      sections={sections}
-      sectionId={sectionId}
-      folders={folders}
-      folderId={folderId}
+      gallerys={gallerys}
+      sectionId={galleryId}
+      collections={collections}
+      collectionId={collectionId}
       files={files}
       fileHandler={fileHandler}
     />
   );
 }
+

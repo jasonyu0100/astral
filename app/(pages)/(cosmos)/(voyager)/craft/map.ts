@@ -5,14 +5,14 @@ export const craftMap = {
     },
     manage: {
       link: "/craft/manage",
-      section: {
+      gallery: {
         id: {
-          link: (id: string) => `/craft/manage/section/${id}`,
+          link: (id: string) => `/craft/manage/gallery/${id}`,
         },
       },
-      folder: {
+      collection: {
         id: {
-          link: (id: string) => `/craft/manage/folder/${id}`,
+          link: (id: string) => `/craft/manage/collection/${id}`,
         },
       },
     },

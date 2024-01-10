@@ -62,7 +62,7 @@ export function StormSidePanelStepSection({
           ))}
           <StormSidePanelSectionAdd
             onClick={() => addChat({
-              ...stormTable.points.point.chats.chat.example, id: new Date().toISOString()}, step)}
+              ...stormTable.chat.example, id: new Date().toISOString()}, step)}
           />
         </>
       )}

@@ -1,15 +1,7 @@
 import { FileObj, exampleFile } from "../collection/file/main";
-import { CollectionObj, exampleCollections } from "../collection/main";
+import { exampleCollections } from "../collection/main";
 
 export interface GalleryObj {
-  id: string;
-  name: string;
-  description: string;
-  thumbnail: FileObj;
-  collections: CollectionObj[];
-}
-
-export interface GalleryModel {
   id: string;
   name: string;
   description: string;
@@ -21,7 +13,7 @@ export const exampleGallery: GalleryObj = {
   id: "0",
   name: "Example Gallery",
   description: "Example Gallery Description",
-  collections: exampleCollections,
+  collectionIds: exampleCollections.map((collection) => collection.id),
   thumbnail: exampleFile,
 };
 
@@ -30,14 +22,14 @@ export const exampleGallerys: GalleryObj[] = [
     id: "0",
     name: "Example Gallery",
     description: "Example Gallery Description",
-    collections: exampleCollections,
+    collectionIds: exampleCollections.map((collection) => collection.id),
     thumbnail: exampleFile,
   },
   {
     id: "1",
     name: "Example Gallery",
     description: "Example Gallery Description",
-    collections: exampleCollections,
+    collectionIds: exampleCollections.map((collection) => collection.id),
     thumbnail: exampleFile,
   },
 ];

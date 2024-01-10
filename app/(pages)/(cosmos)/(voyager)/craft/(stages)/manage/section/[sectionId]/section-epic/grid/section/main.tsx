@@ -1,12 +1,12 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { CollectionModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/gallery/collection/type";
+import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
-  folder: CollectionModel;
+  collection: CollectionObj;
 }
 
-export function DriveFolder({ folder, ...props }: InputProps) {
+export function DriveFolder({ collection, ...props }: InputProps) {
   return (
     <div className="w-[400px] h-[150px]">
       <Layer
@@ -20,7 +20,7 @@ export function DriveFolder({ folder, ...props }: InputProps) {
             {...props}
           >
             <div className="flex flex-row flex-wrap">
-              {folder.files.slice(0, 4).map((file) => 
+              {collection.files.slice(0, 4).map((file) => 
                 <img
                   className="w-[75px] h-[75px]"
                   src="https://images.unsplash.com/photo-1513553404607-988bf2703777?q=80&w=2893&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

@@ -1,23 +1,33 @@
 "use client";
 import { useState } from "react";
-import { CollectionModel } from "../../../../../../tables/collection/main";
-import { GalleryObj } from "../../../../../../tables/gallery/main";
-import { craftModel } from "../../../../model/main";
 import { DriveSectionView } from "./view";
+import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
+import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
+import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+
+export interface DriveSectionViewProps {
+  gallery: GalleryObj;
+  collections: CollectionObj[];
+  addCollection: (folder: CollectionObj) => void;
+
+}
 
 export default function Page() {
-  const [section, changeSection] = useState<GalleryObj>(
-    craftModel.drive.sections.section.example
+  const [gallery, changeGallery] = useState<GalleryObj>(
+    galleryTable.example
   );
+  const [collections, changeCollections] = useState<CollectionObj[]>(collectionTable.examples)
 
-  const addFolder = (folder: CollectionModel) => {
-    changeSection((prev) => {
+  const addCollection = (collection: CollectionObj) => {
+    changeCollections((prev) => [...prev, collection])
+    changeGallery((prev) => {
       return {
         ...prev,
-        collections: [...prev.collections, folder],
+        collections: [...prev.collectionIds, collection.id],
       };
     });
   };
 
-  return <DriveSectionView section={section} addFolder={addFolder} />;
+  return <DriveSectionView gallery={gallery} collections={collections} addCollection={addCollection} />;
 }
