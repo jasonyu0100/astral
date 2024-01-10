@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { worksModel } from "../../model/main";
-import { Work } from "../../model/work/type";
+import { worksModel } from "../../../../tables/other/works/main";
+import { Work } from "../../../../tables/other/works/work/type";
 import { WorkTabStages } from "../../tabs/main";
 import { WorksView } from "../../view";
 

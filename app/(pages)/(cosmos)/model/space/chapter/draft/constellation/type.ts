@@ -1,3 +1,0 @@
-interface Constellation {
-    starIds: string[];
-}

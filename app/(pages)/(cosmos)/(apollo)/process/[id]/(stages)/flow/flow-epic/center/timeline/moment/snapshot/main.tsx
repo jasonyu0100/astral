@@ -1,9 +1,9 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 
 export function FlowMomentSnapshot({
   flowSnapshot: flowSnapshot,
 }: {
-  flowSnapshot: CraftFile;
+  flowSnapshot: FileObj;
 }) {
   return (
     <div className="h-[150px] aspect-[13/16] flex flex-col items-center bg-white p-[15px]">

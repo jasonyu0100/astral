@@ -5,7 +5,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
-import { draftModel } from "../../model/main";
+import { draftTable } from "../../../../../../../tables/draft/table";
 import { AddButton } from "./modes/folder/header/button-row/button/add/main";
 import { DraftLoomButton as LoomButton } from "./modes/folder/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";
@@ -161,7 +161,7 @@ export function SidebarView({
                   <AddButton
                     onClick={() =>
                       fileHandler.addMedia(
-                        draftModel.context.library.media.example
+                        draftTable.context.library.media.example
                       )
                     }
                   />

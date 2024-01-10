@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { craftModel } from "../../model/main";
 import { CraftSearchView } from "./view";
-import { CraftFile } from "../../model/drive/section/folder/file/type";
+import { FileObj } from "../../../../tables/collection/file/main";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;
@@ -10,7 +10,7 @@ interface SearchHandler {
 
 export interface CraftSearchViewProps {
   searchHandler: SearchHandler;
-  results: CraftFile[];
+  results: FileObj[];
 }
 
 export default function Page() {

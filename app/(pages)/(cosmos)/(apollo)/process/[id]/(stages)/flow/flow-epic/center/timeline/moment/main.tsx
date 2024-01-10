@@ -3,15 +3,15 @@ import { FlowPointHeader } from "./header/main";
 import { FlowPointColumm } from "./column/main";
 import { createContext } from "react";
 import {
-  FlowMomentObj,
-  exampleFlowMoment,
-} from "../../../../model/point/moment/main";
+  SessionObj,
+  exampleSession,
+} from "../../../../../../../../../../../../model/point/minute/main";
 
-export const FlowMomentContext = createContext(exampleFlowMoment);
+export const FlowMomentContext = createContext(exampleSession);
 
 export interface FlowMomentProps {
   active: boolean;
-  flowMoment: FlowMomentObj;
+  flowMoment: SessionObj;
   index: number;
 }
 
@@ -26,7 +26,7 @@ export function FlowMoment({
       <div className="flex flex-col w-[250px] h-full flex-shrink-0 items-center">
         <FlowPointHeader active={active}/>
         <FlowPointColumm index={index}>
-          {flowMoment.snapshots.map((flowSnapshot) => (
+          {flowMoment.minutes.map((flowSnapshot) => (
             <FlowMomentSnapshot flowSnapshot={flowSnapshot} />
           ))}
         </FlowPointColumm>

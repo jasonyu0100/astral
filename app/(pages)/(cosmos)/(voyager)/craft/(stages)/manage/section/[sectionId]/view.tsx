@@ -7,8 +7,8 @@ import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
 import { craftModel } from "../../../../model/main";
 import { DriveSectionGrid } from "./section-epic/grid/main";
-import { CraftFolder } from "../../../../model/drive/section/folder/type";
-import { CraftSection } from "../../../../model/drive/section/type";
+import { CollectionModel } from "../../../../../../tables/collection/main";
+import { GalleryObj } from "../../../../../../tables/gallery/main";
 import { craftMap } from "../../../../map";
 import { DriveFolder } from "./section-epic/grid/section/main";
 import { DriveSectionAdd } from "./section-epic/grid/add/main";
@@ -18,8 +18,8 @@ import { SidebarCover } from "./section-epic/sidebar/cover/main";
 import { SidebarInfo } from "./section-epic/sidebar/info/main";
 
 interface DriveSectionViewProps {
-  section: CraftSection;
-  addFolder: (folder: CraftFolder) => void;
+  section: GalleryObj;
+  addFolder: (folder: CollectionModel) => void;
 }
 
 export function DriveSectionView({
@@ -44,7 +44,7 @@ export function DriveSectionView({
         </DriveBreadcrumbs>
         {section !== null && (
           <DriveSectionGrid>
-            {section.folders.map((folder) => (
+            {section.collections.map((folder) => (
               <DriveFolder
                 folder={folder}
                 href={craftMap.craft.manage.folder.id.link(folder.id)}

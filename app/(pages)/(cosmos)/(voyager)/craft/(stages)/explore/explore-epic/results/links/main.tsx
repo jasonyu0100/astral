@@ -1,7 +1,7 @@
-import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/type";
+import { ExploreElementObj } from "@/(pages)/(cosmos)/model/gallery/explore/element/type";
 import { motion } from "framer-motion";
 
-export function ElementLinks({ elements }: { elements: CraftExploreElement[] }) {
+export function ElementLinks({ elements }: { elements: ExploreElementObj[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {elements.map((element, i) => (

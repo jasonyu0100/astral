@@ -1,20 +1,20 @@
-import { ProcessStepObj } from "@/(pages)/(cosmos)/(apollo)/process/[id]/model/process/step/main";
+import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 import { StormSidePanelSectionAdd } from "./chat/add/main";
 import { StormSidePanelChat } from "./chat/main";
 import { StormSidePanelSectionHeader } from "./header/main";
 import StormSidePanelSectionIndicator from "./header/indicator/main";
 import { StormSidePanelSectionTitle } from "./header/title/main";
 import { useEffect, useState } from "react";
-import { StormChatObj } from "../../../../model/point/chat/main";
-import { stormModel } from "../../../../model/main";
+import { ChatObj } from "../../../../../../../../../tables/storm/chat/main";
+import { stormTable } from "../../../../../../../../../tables/storm/table";
 
 interface StormSidePanelSectionViewProps {
-  chats: StormChatObj[];
+  chats: ChatObj[];
   chatId: string;
-  step: ProcessStepObj;
+  step: ChapterObj;
   active: boolean;
-  addChat: (chat: StormChatObj, step: ProcessStepObj) => void;
-  selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
+  addChat: (chat: ChatObj, step: ChapterObj) => void;
+  selectChat: (chat: ChatObj, step: ChapterObj) => void;
 }
 
 export function StormSidePanelStepSection({
@@ -62,7 +62,7 @@ export function StormSidePanelStepSection({
           ))}
           <StormSidePanelSectionAdd
             onClick={() => addChat({
-              ...stormModel.points.point.chats.chat.example, id: new Date().toISOString()}, step)}
+              ...stormTable.points.point.chats.chat.example, id: new Date().toISOString()}, step)}
           />
         </>
       )}

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { worksModel } from "../../model/main";
+import { worksModel } from "../../../../tables/other/works/main";
 import { WorkTabStages } from "../../tabs/main";
 import { WorksView } from "../../view";
-import { Work } from "../../model/work/type";
+import { Work } from "../../../../tables/other/works/work/type";
 
 export default function Page() {
   const [works, changeWorks] = useState<Work[]>(worksModel.works.example);

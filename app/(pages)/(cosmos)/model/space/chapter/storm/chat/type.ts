@@ -1,3 +1,0 @@
-interface Chat {
-    messageIds: string[];
-}

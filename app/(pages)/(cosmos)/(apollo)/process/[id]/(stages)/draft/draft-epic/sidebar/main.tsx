@@ -1,6 +1,6 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
-import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/type";
-import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/type";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
+import { CollectionModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/gallery/collection/type";
+import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
 import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
@@ -12,37 +12,37 @@ export enum SidebarMode {
 }
 
 interface FileHandler {
-  addMedia: (media: CraftFile) => void;
+  addMedia: (media: FileObj) => void;
 }
 interface SidebarViewHandler {
   goToDriveView: () => void;
   goToSectionView: () => void;
   goToFolderView: () => void;
-  goToSection: (section: CraftSection) => void;
-  goToFolder: (section: CraftFolder) => void;
+  goToSection: (section: GalleryObj) => void;
+  goToFolder: (section: CollectionModel) => void;
 }
 export interface SidebarViewProps {
   sidebarMode: SidebarMode;
-  sections: CraftSection[];
+  sections: GalleryObj[];
   sectionId: string;
-  folders: CraftFolder[];
+  folders: CollectionModel[];
   folderId: string;
-  files: CraftFile[];
+  files: FileObj[];
   sidebarViewHandler: SidebarViewHandler;
   fileHandler: FileHandler;
 }
 
 export function Sidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Drive);
-  const [sections, changeSections] = useState<CraftSection[]>(
+  const [sections, changeSections] = useState<GalleryObj[]>(
     craftModel.drive.sections.example
   );
   const [sectionId, changeSectionId] = useState<string>("");
-  const [folders, changeFolders] = useState<CraftFolder[]>(
+  const [folders, changeFolders] = useState<CollectionModel[]>(
     craftModel.drive.sections.section.folders.example
   );
   const [folderId, changeFolderId] = useState<string>("");
-  const [files, changeFiles] = useState<CraftFile[]>(
+  const [files, changeFiles] = useState<FileObj[]>(
     craftModel.drive.sections.section.folders.folder.files.example
   );
   const sidebarViewHandler: SidebarViewHandler = {
@@ -55,18 +55,18 @@ export function Sidebar() {
     goToFolderView: () => {
       changeSidebarMode(SidebarMode.Folder);
     },
-    goToSection: (section: CraftSection) => {
+    goToSection: (section: GalleryObj) => {
       changeSectionId(section.id);
       changeSidebarMode(SidebarMode.Section);
     },
-    goToFolder: (folder: CraftFolder) => {
+    goToFolder: (folder: CollectionModel) => {
       changeFolderId(folder.id);
       changeSidebarMode(SidebarMode.Folder);
     },
   };
 
   const fileHandler = {
-    addMedia: (media: CraftFile) => {
+    addMedia: (media: FileObj) => {
       changeFiles((prev) => [...prev, media]);
     },
   };

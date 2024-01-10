@@ -5,7 +5,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import { craftModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/main";
-import { flowModel } from "../../model/main";
+import { flowModel } from "../../../../../../../../../../model/main";
 import { AddButton } from "./modes/folder/header/button-row/button/add/main";
 import { DraftLoomButton as LoomButton } from "./modes/folder/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";

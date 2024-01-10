@@ -11,8 +11,8 @@ import { FlowWrapper } from "./flow-epic/wrapper/main";
 import { FlowMoment } from "./flow-epic/center/timeline/moment/main";
 import { FlowTimeline } from "./flow-epic/center/timeline/main";
 import { FlowAddMoment } from "./flow-epic/center/timeline/add/main";
-import { flowModel } from "./model/main";
-import { processModel } from "../../model/main";
+import { flowModel } from "../../../../../../../../model/main";
+import { processModel } from "../../../../../tables/model/main";
 import { FlowViewProps } from "./page";
 
 export function FlowView({

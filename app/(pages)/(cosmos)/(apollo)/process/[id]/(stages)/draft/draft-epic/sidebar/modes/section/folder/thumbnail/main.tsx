@@ -1,7 +1,7 @@
-import { CraftFolder } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/type";
+import { CollectionModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/gallery/collection/type";
 
 interface LibraryElementThumbnailProps {
-  folder: CraftFolder;
+  folder: CollectionModel;
 }
 
 export function SectionFolderThumbnail({

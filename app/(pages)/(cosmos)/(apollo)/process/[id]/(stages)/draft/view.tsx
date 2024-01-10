@@ -9,9 +9,9 @@ import { DraftControllerBottomRow } from "./draft-epic/bottom/main";
 import { DraftStepsAdd } from "./draft-epic/bottom/add/main";
 import { useRef, useState } from "react";
 import { DraftWrapper } from "./draft-epic/wrapper/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { DraftStarObj } from "./model/point/star/main";
-import { processModel } from "../../model/main";
+import { ChapterObj } from "../../../../../tables/space/chapter/main";
+import { StarObj } from "../../../../../tables/draft/star/main";
+import { processModel } from "../../../../../tables/model/main";
 import { StarHandler, StepHandler } from "./page";
 import { motion } from "framer-motion";
 import { DraftConstellationSection } from "./draft-epic/center/constellation/main";
@@ -20,8 +20,8 @@ import { ConstellationStar } from "./draft-epic/center/constellation/stars/star/
 
 interface DraftViewProps {
   stepId: string;
-  steps: ProcessStepObj[];
-  stars: DraftStarObj[];
+  steps: ChapterObj[];
+  stars: StarObj[];
   starHandling: StarHandler;
   stepHandling: StepHandler;
 }

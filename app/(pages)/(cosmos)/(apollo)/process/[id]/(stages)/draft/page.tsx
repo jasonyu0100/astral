@@ -2,20 +2,20 @@
 
 import { createContext, useState } from "react";
 import { DraftView } from "./view";
-import { processModel } from "../../model/main";
-import { draftModel } from "./model/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { DraftStarObj } from "./model/point/star/main";
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
+import { processModel } from "../../../../../tables/model/main";
+import { draftTable } from "../../../../../tables/draft/table";
+import { ChapterObj } from "../../../../../tables/space/chapter/main";
+import { StarObj } from "../../../../../tables/draft/star/main";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 
 export interface StarHandler {
   updateStar: (i: number, data: any) => void;
-  spawnStar: (draftMedia: CraftFile) => void;
+  spawnStar: (draftMedia: FileObj) => void;
 }
 
 export interface StepHandler {
-  addStep: (step: ProcessStepObj) => void;
-  goToStep: (step: ProcessStepObj) => void;
+  addStep: (step: ChapterObj) => void;
+  goToStep: (step: ChapterObj) => void;
 }
 
 export interface DraftContextObj {
@@ -26,20 +26,20 @@ export interface DraftContextObj {
 export const DraftContext = createContext<DraftContextObj>({});
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ProcessStepObj[]>(
+  const [steps, changeSteps] = useState<ChapterObj[]>(
     processModel.process.steps.example
   );
   const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
-  const [stars, changeStars] = useState<DraftStarObj[]>(
-    draftModel.points.point.stars.example
+  const [stars, changeStars] = useState<StarObj[]>(
+    draftTable.points.point.stars.example
   );
 
   const syncHandler = {
     serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ProcessStepObj[]) =>
+    getCurrentStep: (steps: ChapterObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
     syncWithinSteps: () => {
-      const currentStep: ProcessStepObj = syncHandler.serialize(
+      const currentStep: ChapterObj = syncHandler.serialize(
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
@@ -52,13 +52,13 @@ export default function Page() {
   };
 
   const stepHandler: StepHandler = {
-    addStep: (step: ProcessStepObj) => {
+    addStep: (step: ChapterObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeStars(step.points.draftPoint.stars);
     },
-    goToStep: (step: ProcessStepObj) => {
+    goToStep: (step: ChapterObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeStars(step.points.draftPoint.stars);
@@ -72,14 +72,14 @@ export default function Page() {
       );
     },
 
-    spawnStar: (draftMedia: CraftFile) => {
+    spawnStar: (draftMedia: FileObj) => {
       changeStars((prev) => [
         ...prev,
         {
           id: Date.now().toString(),
           x: Math.random() * 500,
           y: Math.random() * 500,
-          media: draftMedia,
+          file: draftMedia,
         },
       ]);
       alert(`Spawned Star`);

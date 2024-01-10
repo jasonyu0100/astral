@@ -3,11 +3,11 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { ProcessStepObj } from "@/(pages)/(cosmos)/(apollo)/process/[id]/model/process/step/main";
+import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 
 export interface DraftStepProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  step: ProcessStepObj;
+  step: ChapterObj;
   active: boolean;
 }
 

@@ -1,20 +1,20 @@
 "use client";
 import { useState } from "react";
-import { CraftFolder } from "../../../../model/drive/section/folder/type";
-import { CraftSection } from "../../../../model/drive/section/type";
+import { CollectionModel } from "../../../../../../tables/collection/main";
+import { GalleryObj } from "../../../../../../tables/gallery/main";
 import { craftModel } from "../../../../model/main";
 import { DriveSectionView } from "./view";
 
 export default function Page() {
-  const [section, changeSection] = useState<CraftSection>(
+  const [section, changeSection] = useState<GalleryObj>(
     craftModel.drive.sections.section.example
   );
 
-  const addFolder = (folder: CraftFolder) => {
+  const addFolder = (folder: CollectionModel) => {
     changeSection((prev) => {
       return {
         ...prev,
-        folders: [...prev.folders, folder],
+        collections: [...prev.collections, folder],
       };
     });
   };

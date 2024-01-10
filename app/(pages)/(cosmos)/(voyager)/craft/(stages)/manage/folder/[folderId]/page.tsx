@@ -3,18 +3,18 @@
 import { useState } from "react";
 import { craftModel } from "../../../../model/main";
 import DriveFolderView from "./view";
-import { CraftSection } from "../../../../model/drive/section/type";
-import { CraftFile } from "../../../../model/drive/section/folder/file/type";
-import { CraftFolder } from "../../../../model/drive/section/folder/type";
+import { GalleryObj } from "../../../../../../tables/gallery/main";
+import { FileObj } from "../../../../../../tables/collection/file/main";
+import { CollectionModel } from "../../../../../../tables/collection/main";
 
 export interface DriveFolderViewProps {
-  section: CraftSection;
-  folder: CraftFolder;
-  files: CraftFile[];
+  section: GalleryObj;
+  folder: CollectionModel;
+  files: FileObj[];
   fileHandler: FileHandler;
 }
 interface FileHandler {
-    addFile: (file: CraftFile) => void;
+    addFile: (file: FileObj) => void;
 }
 
 export default function Page() {
@@ -29,7 +29,7 @@ export default function Page() {
   )
 
   const fileHandler = {
-    addFile: (file: CraftFile) => {
+    addFile: (file: FileObj) => {
       changeFiles(prev => [file, ...prev])
     }
   }

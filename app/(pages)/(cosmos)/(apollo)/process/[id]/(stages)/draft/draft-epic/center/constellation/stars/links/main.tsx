@@ -1,7 +1,7 @@
-import { DraftStarObj } from "@/(pages)/(cosmos)/(apollo)/process/[id]/(stages)/draft/model/point/star/main";
+import { StarObj } from "@/(pages)/(cosmos)/tables/draft/star/main";
 import { motion } from "framer-motion";
 
-export function ConstellationLinks({ stars }: { stars: DraftStarObj[] }) {
+export function ConstellationLinks({ stars }: { stars: StarObj[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {stars.map((star, i) => (

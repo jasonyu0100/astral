@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { CraftExploreElement } from "@/(pages)/(cosmos)/(voyager)/craft/model/explore/element/type";
+import { ExploreElementObj } from "@/(pages)/(cosmos)/model/gallery/explore/element/type";
 
 export function ResultElement({
   constraintsRef,
@@ -8,7 +8,7 @@ export function ResultElement({
   updateStar,
 }: {
   constraintsRef: MutableRefObject<null>;
-  result: CraftExploreElement;
+  result: ExploreElementObj;
   updateStar: (star: Object) => void;
 }) {
   const x = useMotionValue(result.x);
@@ -47,11 +47,11 @@ export function ResultElement({
       <div className="w-[200px] h-[200px]">
         <img
           className="w-full h-full rounded-full flex-shrink-0 pointer-events-none opacity-80"
-          src={result.media.src}
+          src={result.file.src}
         />
       </div>
       <p className="w-full text-center text-white font-bold">
-        {result.media.name}
+        {result.file.name}
       </p>
     </motion.div>
   );

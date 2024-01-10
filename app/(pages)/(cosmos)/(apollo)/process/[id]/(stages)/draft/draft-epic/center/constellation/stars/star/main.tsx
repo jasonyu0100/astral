@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { DraftStarObj } from "@/(pages)/(cosmos)/(apollo)/process/[id]/(stages)/draft/model/point/star/main";
+import { StarObj } from "@/(pages)/(cosmos)/tables/draft/star/main";
 
 export function ConstellationStar({
   constraintsRef,
@@ -8,7 +8,7 @@ export function ConstellationStar({
   updateStar,
 }: {
   constraintsRef: MutableRefObject<null>;
-  star: DraftStarObj;
+  star: StarObj;
   updateStar: (star: Object) => void;
 }) {
   const x = useMotionValue(star.x);
@@ -47,11 +47,11 @@ export function ConstellationStar({
       <div className="w-[100px] h-[100px]">
         <img
           className="w-[100px] h-[100px] rounded-full shadow-md shadow-slate-300/50 flex-shrink-0 pointer-events-none opacity-80"
-          src={star.media.src}
+          src={star.file.src}
         />
       </div>
       <p className="w-full text-center text-white font-bold">
-        {star.media.name}
+        {star.file.name}
       </p>
     </motion.div>
   );

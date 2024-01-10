@@ -1,11 +1,11 @@
 "use client";
 import { createContext, useState } from "react";
-import { flowModel } from "./model/main";
-import { FlowMomentObj } from "./model/point/moment/main";
+import { flowModel } from "../../../../../../../../model/main";
+import { SessionObj } from "../../../../../../../../model/point/minute/main";
 import { FlowView } from "./view";
-import { processModel } from "../../model/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
+import { processModel } from "../../../../../tables/model/main";
+import { ChapterObj } from "../../../../../tables/space/chapter/main";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 
 interface FlowContextObj {
   momentHandler: MomentHandler;
@@ -15,41 +15,41 @@ interface FlowContextObj {
 export const FlowContext = createContext<FlowContextObj>({});
 
 export interface MomentHandler {
-  updateCurrentMoment: (moment: FlowMomentObj) => void;
-  addMomentToStep: (moment: FlowMomentObj) => void;
-  addSnapshotToMoment: (snapshot: CraftFile) => void;
+  updateCurrentMoment: (moment: SessionObj) => void;
+  addMomentToStep: (moment: SessionObj) => void;
+  addSnapshotToMoment: (snapshot: FileObj) => void;
 }
 
 export interface StepHandler {
-  addStep: (step: ProcessStepObj) => void;
-  goToStep: (step: ProcessStepObj) => void;
+  addStep: (step: ChapterObj) => void;
+  goToStep: (step: ChapterObj) => void;
 }
 export interface FlowViewProps {
   momentId: string;
   stepId: string;
-  moments: FlowMomentObj[];
-  steps: ProcessStepObj[];
+  moments: SessionObj[];
+  steps: ChapterObj[];
   momentHandler: MomentHandler;
   stepHandler: StepHandler;
 }
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ProcessStepObj[]>(
+  const [steps, changeSteps] = useState<ChapterObj[]>(
     processModel.process.steps.example
   );
   const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
 
-  const [moments, changeMoments] = useState<FlowMomentObj[]>(
+  const [moments, changeMoments] = useState<SessionObj[]>(
     flowModel.points.point.moments.example
   );
   const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
 
   const syncHandler = {
     serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ProcessStepObj[]) =>
+    getCurrentStep: (steps: ChapterObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
     syncWithinSteps: () => {
-      const currentStep: ProcessStepObj = syncHandler.serialize(
+      const currentStep: ChapterObj = syncHandler.serialize(
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
@@ -63,14 +63,14 @@ export default function Page() {
   };
 
   const stepHandler : StepHandler = {
-    addStep: (step: ProcessStepObj) => {
+    addStep: (step: ChapterObj) => {
       syncHandler.syncWithinSteps();
       changeStepId(step.id);
       changeSteps((prev) => [...prev, step]);
       changeMoments(step.points.flowPoint.moments);
       changeMomentId(step.points.flowPoint.moments.at(-1)?.id || "");
     },
-    goToStep: (step: ProcessStepObj) => {
+    goToStep: (step: ChapterObj) => {
       syncHandler.syncWithinSteps();
       const index = steps.indexOf(step);
       changeStepId(step.id);
@@ -80,7 +80,7 @@ export default function Page() {
   };
 
   const momentHelper = {
-    updateMomentsWithCurrent: (newCurrentMoment: FlowMomentObj) => {
+    updateMomentsWithCurrent: (newCurrentMoment: SessionObj) => {
       changeMoments((prev) =>
         prev.map((moment) =>
           moment.id === newCurrentMoment.id ? newCurrentMoment : moment
@@ -99,21 +99,21 @@ export default function Page() {
   };
 
   const momentHandler: MomentHandler = {
-    updateCurrentMoment: (moment: FlowMomentObj) => {
+    updateCurrentMoment: (moment: SessionObj) => {
       changeMomentId(moment.id);
     },
 
-    addMomentToStep: (moment: FlowMomentObj) => {
+    addMomentToStep: (moment: SessionObj) => {
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
     },
 
-    addSnapshotToMoment: (snapshot: CraftFile) => {
+    addSnapshotToMoment: (snapshot: FileObj) => {
       const currentMoment = momentHelper.getCurrentMoment();
       if (currentMoment) {
         const newCurrentMoment = {
           ...currentMoment,
-          snapshots: [...currentMoment.snapshots, snapshot],
+          snapshots: [...currentMoment.minutes, snapshot],
         };
         momentHelper.updateMomentsWithCurrent(newCurrentMoment);
       }

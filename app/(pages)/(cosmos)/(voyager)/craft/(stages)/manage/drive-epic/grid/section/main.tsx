@@ -1,9 +1,9 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { CraftSection } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/type";
+import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
-  section: CraftSection;
+  section: GalleryObj;
 }
 
 export function DriveSection({ section, ...props }: InputProps) {

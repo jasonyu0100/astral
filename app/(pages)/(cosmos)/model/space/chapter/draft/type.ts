@@ -1,3 +1,0 @@
-interface Draft {
-    constellationIds: string[];
-}

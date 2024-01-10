@@ -8,7 +8,7 @@ import { DriveBreadcrumbItem } from "./(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "./(common)/breadcrumb/divider/main";
 import { DriveSectionGrid } from "./drive-epic/grid/main";
 import { CraftDrive } from "../../model/drive/type";
-import { CraftSection } from "../../model/drive/section/type";
+import { GalleryObj } from "../../../../tables/gallery/main";
 import { craftModel } from "../../model/main";
 import { craftMap } from "../../map";
 import { SidebarBody } from "./drive-epic/sidebar/body/main";
@@ -18,7 +18,7 @@ import { DriveManageSidebar } from "./drive-epic/sidebar/main";
 
 interface DriveViewProps {
   drive: CraftDrive;
-  addSection: (section: CraftSection) => void;
+  addSection: (section: GalleryObj) => void;
 }
 
 export function DriveView({ drive, addSection }: DriveViewProps) {

@@ -1,6 +1,6 @@
-import { CraftFile } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/section/folder/file/type";
+import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 
-export function CraftFolderGridElement({ file }: { file: CraftFile }) {
+export function CraftFolderGridElement({ file }: { file: FileObj }) {
   return (
     <div className="flex flex-row w-[400px] h-[150px] items-center space-x-[3rem]">
       <img src={file.src} className="w-[150px] h-[150px] rounded-full" />

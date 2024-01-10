@@ -1,52 +1,52 @@
 "use client";
 import { useState } from "react";
 import { StormView } from "./view";
-import { StormMessageObj } from "./model/point/chat/message/main";
-import { stormModel } from "./model/main";
-import { processModel } from "../../model/main";
-import { ProcessStepObj } from "../../model/process/step/main";
-import { StormChatObj } from "./model/point/chat/main";
+import { MessageObj } from "../../../../../tables/storm/chat/message/main";
+import { stormTable } from "../../../../../tables/storm/table";
+import { processModel } from "../../../../../tables/model/main";
+import { ChapterObj } from "../../../../../tables/space/chapter/main";
+import { ChatObj } from "../../../../../tables/storm/chat/main";
 
 export interface ChatHandler {
-  selectChat: (chat: StormChatObj, step: ProcessStepObj) => void;
+  selectChat: (chat: ChatObj, step: ChapterObj) => void;
   sendChatMessage: (message: string) => void;
-  addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => void;
+  addChatToChats: (chat: ChatObj, step: ChapterObj) => void;
 }
 export interface StepHandler {
-  addStep: (step: ProcessStepObj) => void;
-  goToStep: (step: ProcessStepObj) => void;
+  addStep: (step: ChapterObj) => void;
+  goToStep: (step: ChapterObj) => void;
 }
 export interface StormViewProps {
-  steps: ProcessStepObj[];
+  steps: ChapterObj[];
   stepId: string;
-  chats: StormChatObj[];
+  chats: ChatObj[];
   chatId: string;
-  messages: StormMessageObj[];
+  messages: MessageObj[];
   stepHandler: StepHandler;
   chatHandler: ChatHandler;
 }
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ProcessStepObj[]>(
+  const [steps, changeSteps] = useState<ChapterObj[]>(
     processModel.process.steps.example
   );
   const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
-  const [chats, changeChats] = useState<StormChatObj[]>(
+  const [chats, changeChats] = useState<ChatObj[]>(
     steps.at(0)?.points.stormPoint.chats || []
   );
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || "");
-  const [messages, changeMessages] = useState<StormMessageObj[]>(
-    stormModel.points.point.chats.chat.messages.example
+  const [messages, changeMessages] = useState<MessageObj[]>(
+    stormTable.points.point.chats.chat.messages.example
   );
 
   const syncHandler = {
     serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ProcessStepObj[]) =>
+    getCurrentStep: (steps: ChapterObj[]) =>
       steps.filter((step) => step.id === stepId).at(0),
-    getCurrentChat: (chats: StormChatObj[]) =>
+    getCurrentChat: (chats: ChatObj[]) =>
       chats.filter((chat) => chat.id === chatId).at(0),
     syncBetweenSteps: () => {
-      const currentStep: ProcessStepObj = syncHandler.serialize(
+      const currentStep: ChapterObj = syncHandler.serialize(
         syncHandler.getCurrentStep(steps)
       );
       if (currentStep) {
@@ -78,14 +78,14 @@ export default function Page() {
   };
 
   const stepHandler: StepHandler = {
-    addStep: (step: ProcessStepObj) => {
+    addStep: (step: ChapterObj) => {
       syncHandler.syncBetweenSteps();
       changeSteps((prev) => [...prev, step]);
       changeStepId(step.id);
       changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
       changeMessages(step.points.stormPoint.chats.at(0)?.messages || []);
     },
-    goToStep: (step: ProcessStepObj) => {
+    goToStep: (step: ChapterObj) => {
       syncHandler.syncBetweenSteps();
       changeStepId(step.id);
       changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
@@ -94,7 +94,7 @@ export default function Page() {
   };
 
   const chatHandler: ChatHandler = {
-    selectChat: (chat: StormChatObj, step: ProcessStepObj) => {
+    selectChat: (chat: ChatObj, step: ChapterObj) => {
       if (step.id !== stepId) {
         syncHandler.syncBetweenSteps();
         changeStepId(step.id);
@@ -107,7 +107,7 @@ export default function Page() {
         changeMessages(chat.messages);
       }
     },
-    addChatToChats: (chat: StormChatObj, step: ProcessStepObj) => {
+    addChatToChats: (chat: ChatObj, step: ChapterObj) => {
       if (step.id !== stepId) {
         syncHandler.syncBetweenSteps();
         changeStepId(step.id);
@@ -125,7 +125,7 @@ export default function Page() {
       changeMessages((prev) => [
         ...prev,
         {
-          ...stormModel.points.point.chats.chat.messages.message.example,
+          ...stormTable.points.point.chats.chat.messages.message.example,
           source: "You",
           message: message,
         },
@@ -133,7 +133,7 @@ export default function Page() {
       changeMessages((prev) => [
         ...prev,
         {
-          ...stormModel.points.point.chats.chat.messages.message.example,
+          ...stormTable.points.point.chats.chat.messages.message.example,
           source: "gpt-4",
           message: "Hello Back",
         },
