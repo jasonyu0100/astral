@@ -47,7 +47,7 @@ export function SidebarView({
   files,
   fileHandler,
 }: SidebarViewProps) {
-  const { momentHandler } = useContext(FlowContext);
+  const { sessionHandler: momentHandler } = useContext(FlowContext);
   const folder = folders.filter((folder) => folder.id === folderId).at(0);
   const section = sections.filter((section) => section.id === sectionId).at(0);
   const [query, changeQuery] = useState("");

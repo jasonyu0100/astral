@@ -9,7 +9,7 @@ interface FlowPointHeaderProps {
 }
 
 export function FlowPointHeader({ active }: FlowPointHeaderProps) {
-  const { momentHandler } = useContext(FlowContext);
+  const { sessionHandler: momentHandler } = useContext(FlowContext);
   const moment = useContext(FlowMomentContext);
   const options: Intl.DateTimeFormatOptions = {
     month: "short",

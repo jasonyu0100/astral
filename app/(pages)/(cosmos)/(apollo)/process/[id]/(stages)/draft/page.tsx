@@ -2,66 +2,74 @@
 
 import { createContext, useState } from "react";
 import { DraftView } from "./view";
-import { processModel } from "../../../../../tables/model/main";
-import { draftTable } from "../../../../../tables/draft/table";
-import { ChapterObj } from "../../../../../tables/space/chapter/main";
-import { StarObj } from "../../../../../tables/draft/star/main";
 import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
+import { StarObj } from "@/(pages)/(cosmos)/tables/draft/star/main";
+import { draftTable } from "@/(pages)/(cosmos)/tables/draft/table";
+import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 
 export interface StarHandler {
   updateStar: (i: number, data: any) => void;
   spawnStar: (draftMedia: FileObj) => void;
 }
 
-export interface StepHandler {
-  addStep: (step: ChapterObj) => void;
-  goToStep: (step: ChapterObj) => void;
+export interface ChapterHandling {
+  addChapter: (step: ChapterObj) => void;
+  goToChapter: (step: ChapterObj) => void;
 }
 
 export interface DraftContextObj {
   starHandler: StarHandler;
-  stepHandler: StepHandler;
+  chapterHandling: ChapterHandling;
+}
+
+export interface DraftViewProps {
+  chapterId: string;
+  chapters: ChapterObj[];
+  stars: StarObj[];
+  starHandling: StarHandler;
+  chapterHandling: ChapterHandling;
 }
 
 export const DraftContext = createContext<DraftContextObj>({});
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ChapterObj[]>(
-    processModel.process.steps.example
+  const [chapters, changeChapters] = useState<ChapterObj[]>(
+    spaceTable.chapter.examples
   );
-  const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
+  const [chapterId, changeChapterId] = useState<string>(chapters.at(0)?.id || "");
   const [stars, changeStars] = useState<StarObj[]>(
-    draftTable.points.point.stars.example
+    draftTable.star.examples
   );
 
-  const syncHandler = {
-    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ChapterObj[]) =>
-      steps.filter((step) => step.id === stepId).at(0),
-    syncWithinSteps: () => {
-      const currentStep: ChapterObj = syncHandler.serialize(
-        syncHandler.getCurrentStep(steps)
-      );
-      if (currentStep) {
-        currentStep.points.draftPoint.stars = stars;
-        changeSteps((prev) =>
-          prev.map((step) => (step.id === stepId ? currentStep : step))
-        );
-      }
-    },
-  };
+  // const syncHandler = {
+  //   serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
+  //   getCurrentChapter: (chapters: ChapterObj[]) =>
+  //     chapters.filter((step) => step.id === chapterId).at(0),
+  //   syncWithinChapters: () => {
+  //     const currentChapter: ChapterObj = syncHandler.serialize(
+  //       syncHandler.getCurrentChapter(chapters)
+  //     );
+  //     if (currentChapter) {
+  //       currentChapter.points.draftPoint.stars = stars;
+  //       changeChapters((prev) =>
+  //         prev.map((step) => (step.id === chapterId ? currentChapter : step))
+  //       );
+  //     }
+  //   },
+  // };
 
-  const stepHandler: StepHandler = {
-    addStep: (step: ChapterObj) => {
-      syncHandler.syncWithinSteps();
-      changeStepId(step.id);
-      changeSteps((prev) => [...prev, step]);
-      changeStars(step.points.draftPoint.stars);
+  const stepHandler: ChapterHandling = {
+    addChapter: (chapter: ChapterObj) => {
+      // syncHandler.syncWithinChapters();
+      changeChapterId(chapter.id);
+      changeChapters((prev) => [...prev, chapter]);
+      changeStars(draftTable.star.examples);
     },
-    goToStep: (step: ChapterObj) => {
-      syncHandler.syncWithinSteps();
-      changeStepId(step.id);
-      changeStars(step.points.draftPoint.stars);
+    goToChapter: (step: ChapterObj) => {
+      // syncHandler.syncWithinChapters();
+      changeChapterId(step.id);
+      changeStars(draftTable.star.examples);
     },
   };
 
@@ -90,14 +98,14 @@ export default function Page() {
     <DraftContext.Provider
       value={{
         starHandler: starHandler,
-        stepHandler: stepHandler,
+        chapterHandling: stepHandler,
       }}
     >
       <DraftView
-        stepId={stepId}
-        steps={steps}
+        chapterId={chapterId}
+        chapters={chapters}
         starHandling={starHandler}
-        stepHandling={stepHandler}
+        chapterHandling={stepHandler}
         stars={stars}
       />
     </DraftContext.Provider>

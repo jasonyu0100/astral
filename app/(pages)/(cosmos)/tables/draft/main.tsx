@@ -1,16 +1,16 @@
 import { StarObj, exampleStars } from "./star/main";
 
-export interface DraftModel {
+export interface DraftObj {
   id: string;
   stars: StarObj[];
 }
 
-export const exampleDraft: DraftModel = {
+export const exampleDraft: DraftObj = {
   id: "0",
   stars: exampleStars,
 };
 
-export const exampleDrafts: DraftModel[] = [
+export const exampleDrafts: DraftObj[] = [
   {
     id: "0",
     stars: exampleStars,

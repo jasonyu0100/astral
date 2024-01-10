@@ -11,17 +11,17 @@ import { FlowWrapper } from "./flow-epic/wrapper/main";
 import { FlowMoment } from "./flow-epic/center/timeline/moment/main";
 import { FlowTimeline } from "./flow-epic/center/timeline/main";
 import { FlowAddMoment } from "./flow-epic/center/timeline/add/main";
-import { flowModel } from "../../../../../../../../model/main";
-import { processModel } from "../../../../../tables/model/main";
 import { FlowViewProps } from "./page";
+import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 
 export function FlowView({
-  momentId,
-  stepId,
-  moments,
-  steps,
-  momentHandler: momentHandling,
-  stepHandler: stepHandling,
+  sessionId: momentId,
+  chapterId: stepId,
+  sessions: moments,
+  chapters: steps,
+  sessionHandler: momentHandling,
+  chapterHandler: stepHandling,
 }: FlowViewProps) {
   return (
     <FlowWrapper>
@@ -38,7 +38,7 @@ export function FlowView({
             <FlowAddMoment
               onClick={() =>
                 momentHandling.addMomentToStep({
-                  ...flowModel.points.point.moments.moment.example,
+                  ...flowTable.session.example,
                   id: Date.now().toFixed().toString(),
                 })
               }
@@ -52,15 +52,15 @@ export function FlowView({
                 active={stepId === step.id}
                 step={step}
                 onClick={() => {
-                  stepHandling.goToStep(step);
+                  stepHandling.goToChapter(step);
                 }}
               />
             ))}
           </FlowControllerSteps>
           <FlowStepsAdd
             onClick={() => {
-              stepHandling.addStep({
-                ...processModel.process.steps.step.example,
+              stepHandling.addChapter({
+                ...spaceTable.chapter.example,
                 id: Date.now().toFixed().toString(),
               });
             }}

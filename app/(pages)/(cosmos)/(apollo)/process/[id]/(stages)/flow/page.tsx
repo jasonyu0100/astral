@@ -1,87 +1,88 @@
 "use client";
 import { createContext, useState } from "react";
-import { flowModel } from "../../../../../../../../model/main";
-import { SessionObj } from "../../../../../../../../model/point/minute/main";
 import { FlowView } from "./view";
-import { processModel } from "../../../../../tables/model/main";
 import { ChapterObj } from "../../../../../tables/space/chapter/main";
 import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
+import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
 
 interface FlowContextObj {
-  momentHandler: MomentHandler;
-  stepHandler: StepHandler;
+  sessionHandler: SessionHandler;
+  chapterHandler: ChapterHandler;
 }
 
 export const FlowContext = createContext<FlowContextObj>({});
 
-export interface MomentHandler {
+export interface SessionHandler {
   updateCurrentMoment: (moment: SessionObj) => void;
   addMomentToStep: (moment: SessionObj) => void;
   addSnapshotToMoment: (snapshot: FileObj) => void;
 }
 
-export interface StepHandler {
-  addStep: (step: ChapterObj) => void;
-  goToStep: (step: ChapterObj) => void;
+export interface ChapterHandler {
+  addChapter: (step: ChapterObj) => void;
+  goToChapter: (step: ChapterObj) => void;
 }
 export interface FlowViewProps {
-  momentId: string;
-  stepId: string;
-  moments: SessionObj[];
-  steps: ChapterObj[];
-  momentHandler: MomentHandler;
-  stepHandler: StepHandler;
+  sessionId: string;
+  chapterId: string;
+  sessions: SessionObj[];
+  chapters: ChapterObj[];
+  sessionHandler: SessionHandler;
+  chapterHandler: ChapterHandler;
 }
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ChapterObj[]>(
-    processModel.process.steps.example
+  const [chapters, changeChapters] = useState<ChapterObj[]>(
+    spaceTable.chapter.examples
   );
-  const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
+  const [stepId, changeStepId] = useState<string>(chapters.at(0)?.id || "");
 
-  const [moments, changeMoments] = useState<SessionObj[]>(
-    flowModel.points.point.moments.example
+  const [sessions, changeSessions] = useState<SessionObj[]>(
+    flowTable.session.examples
   );
-  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
+  const [sessionId, changeSessionId] = useState<string>(sessions.at(0)?.id || "");
 
-  const syncHandler = {
-    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ChapterObj[]) =>
-      steps.filter((step) => step.id === stepId).at(0),
-    syncWithinSteps: () => {
-      const currentStep: ChapterObj = syncHandler.serialize(
-        syncHandler.getCurrentStep(steps)
-      );
-      if (currentStep) {
-        currentStep.points.flowPoint.moments = moments;
-        const newStep = currentStep;
-        changeSteps((prev) =>
-          prev.map((step) => (step.id === stepId ? newStep : step))
-        );
-      }
-    },
-  };
+  // const syncHandler = {
+  //   serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
+  //   getCurrentStep: (steps: ChapterObj[]) =>
+  //     steps.filter((step) => step.id === stepId).at(0),
+  //   syncWithinSteps: () => {
+  //     const currentStep: ChapterObj = syncHandler.serialize(
+  //       syncHandler.getCurrentStep(chapters)
+  //     );
+  //     if (currentStep) {
+  //       currentStep.points.flowPoint.moments = sessions;
+  //       const newStep = currentStep;
+  //       changeChapters((prev) =>
+  //         prev.map((step) => (step.id === stepId ? newStep : step))
+  //       );
+  //     }
+  //   },
+  // };
 
-  const stepHandler : StepHandler = {
-    addStep: (step: ChapterObj) => {
-      syncHandler.syncWithinSteps();
-      changeStepId(step.id);
-      changeSteps((prev) => [...prev, step]);
-      changeMoments(step.points.flowPoint.moments);
-      changeMomentId(step.points.flowPoint.moments.at(-1)?.id || "");
+  const chapterHandler : ChapterHandler = {
+    addChapter: (chapter: ChapterObj) => {
+      // syncHandler.syncWithinSteps();
+      changeStepId(chapter.id);
+      changeChapters((prev) => [...prev, chapter]);
+      const chapterSessions = flowTable.session.examples;
+      changeSessions(chapterSessions);
+      changeSessionId(chapterSessions.at(-1)?.id || "");
     },
-    goToStep: (step: ChapterObj) => {
-      syncHandler.syncWithinSteps();
-      const index = steps.indexOf(step);
-      changeStepId(step.id);
-      changeMoments(step.points.flowPoint.moments);
-      changeMomentId(step.points.flowPoint.moments.at(index)?.id || "");
+    goToChapter: (chapter: ChapterObj) => {
+      // syncHandler.syncWithinSteps();
+      changeStepId(chapter.id);
+      const chapterSessions = flowTable.session.examples;
+      changeSessions(chapterSessions);
+      changeSessionId(chapterSessions.at(-1)?.id || "");
     },
   };
 
   const momentHelper = {
     updateMomentsWithCurrent: (newCurrentMoment: SessionObj) => {
-      changeMoments((prev) =>
+      changeSessions((prev) =>
         prev.map((moment) =>
           moment.id === newCurrentMoment.id ? newCurrentMoment : moment
         )
@@ -89,8 +90,8 @@ export default function Page() {
     },
 
     getCurrentMoment: () => {
-      for (let moment of moments) {
-        if (moment.id === momentId) {
+      for (let moment of sessions) {
+        if (moment.id === sessionId) {
           return moment;
         }
       }
@@ -98,14 +99,14 @@ export default function Page() {
     },
   };
 
-  const momentHandler: MomentHandler = {
+  const momentHandler: SessionHandler = {
     updateCurrentMoment: (moment: SessionObj) => {
-      changeMomentId(moment.id);
+      changeSessionId(moment.id);
     },
 
     addMomentToStep: (moment: SessionObj) => {
-      changeMomentId(moment.id);
-      changeMoments((prev) => [...prev, moment]);
+      changeSessionId(moment.id);
+      changeSessions((prev) => [...prev, moment]);
     },
 
     addSnapshotToMoment: (snapshot: FileObj) => {
@@ -123,17 +124,17 @@ export default function Page() {
   return (
     <FlowContext.Provider
       value={{
-        momentHandler,
-        stepHandler
+        sessionHandler: momentHandler,
+        chapterHandler: chapterHandler
       }}
     >
       <FlowView
-        momentId={momentId}
-        stepId={stepId}
-        moments={moments}
-        steps={steps}
-        momentHandler={momentHandler}
-        stepHandler={stepHandler}
+        sessionId={sessionId}
+        chapterId={stepId}
+        sessions={sessions}
+        chapters={chapters}
+        sessionHandler={momentHandler}
+        chapterHandler={chapterHandler}
       />
     </FlowContext.Provider>
   );
