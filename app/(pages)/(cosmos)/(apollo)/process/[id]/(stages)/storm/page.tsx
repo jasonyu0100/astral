@@ -1,121 +1,125 @@
 "use client";
 import { useState } from "react";
 import { StormView } from "./view";
-import { MessageObj } from "../../../../../tables/storm/chat/message/main";
-import { stormTable } from "../../../../../tables/storm/table";
-import { processModel } from "../../../../../tables/model/main";
-import { ChapterObj } from "../../../../../tables/space/chapter/main";
-import { ChatObj } from "../../../../../tables/storm/chat/main";
+import { ChatObj } from "@/(pages)/(cosmos)/tables/storm/chat/main";
+import { MessageObj } from "@/(pages)/(cosmos)/tables/storm/chat/message/main";
+import { stormTable } from "@/(pages)/(cosmos)/tables/storm/table";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 
 export interface ChatHandler {
   selectChat: (chat: ChatObj, step: ChapterObj) => void;
   sendChatMessage: (message: string) => void;
   addChatToChats: (chat: ChatObj, step: ChapterObj) => void;
 }
-export interface StepHandler {
-  addStep: (step: ChapterObj) => void;
-  goToStep: (step: ChapterObj) => void;
+export interface ChapterHandler {
+  addChapter: (step: ChapterObj) => void;
+  goToChapter: (step: ChapterObj) => void;
 }
 export interface StormViewProps {
-  steps: ChapterObj[];
-  stepId: string;
+  chapters: ChapterObj[];
+  chapterId: string;
   chats: ChatObj[];
   chatId: string;
   messages: MessageObj[];
-  stepHandler: StepHandler;
+  chapterHandler: ChapterHandler;
   chatHandler: ChatHandler;
 }
 
 export default function Page() {
-  const [steps, changeSteps] = useState<ChapterObj[]>(
-    processModel.process.steps.example
+  const [chapters, changeChapters] = useState<ChapterObj[]>(
+    spaceTable.chapter.examples
   );
-  const [stepId, changeStepId] = useState<string>(steps.at(0)?.id || "");
-  const [chats, changeChats] = useState<ChatObj[]>(
-    steps.at(0)?.points.stormPoint.chats || []
+  const [chapterId, changeChapterId] = useState<string>(
+    chapters.at(0)?.id || ""
   );
+  const [chats, changeChats] = useState<ChatObj[]>(stormTable.chat.examples);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || "");
   const [messages, changeMessages] = useState<MessageObj[]>(
-    stormTable.points.point.chats.chat.messages.example
+    chats?.at(0)?.messages || []
   );
 
-  const syncHandler = {
-    serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-    getCurrentStep: (steps: ChapterObj[]) =>
-      steps.filter((step) => step.id === stepId).at(0),
-    getCurrentChat: (chats: ChatObj[]) =>
-      chats.filter((chat) => chat.id === chatId).at(0),
-    syncBetweenSteps: () => {
-      const currentStep: ChapterObj = syncHandler.serialize(
-        syncHandler.getCurrentStep(steps)
-      );
-      if (currentStep) {
-        const currentChat = syncHandler.serialize(
-          syncHandler.getCurrentChat(chats)
-        );
-        if (currentChat) {
-          currentChat.messages = syncHandler.serialize(messages);
-          currentStep.points.stormPoint.chats = chats.map((chat) =>
-            chat.id === chatId ? currentChat : chat
-          );
-        }
-        changeSteps((prev) =>
-          prev.map((step) => (step.id === stepId ? currentStep : step))
-        );
-      }
-    },
-    syncWithinStep: () => {
-      const currentChat = syncHandler.serialize(
-        syncHandler.getCurrentChat(chats)
-      );
-      if (currentChat) {
-        currentChat.messages = syncHandler.serialize(messages);
-        changeChats((prev) =>
-          prev.map((chat) => (chat.id === chatId ? currentChat : chat))
-        );
-      }
-    },
-  };
+  // const syncHandler = {
+  //   serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
+  //   getCurrentStep: (steps: ChapterObj[]) =>
+  //     steps.filter((step) => step.id === chapterId).at(0),
+  //   getCurrentChat: (chats: ChatObj[]) =>
+  //     chats.filter((chat) => chat.id === chatId).at(0),
+  //   syncBetweenSteps: () => {
+  //     const currentStep: ChapterObj = syncHandler.serialize(
+  //       syncHandler.getCurrentStep(chapters)
+  //     );
+  //     if (currentStep) {
+  //       const currentChat = syncHandler.serialize(
+  //         syncHandler.getCurrentChat(chats)
+  //       );
+  //       if (currentChat) {
+  //         currentChat.messages = syncHandler.serialize(messages);
+  //         currentStep.points.stormPoint.chats = chats.map((chat) =>
+  //           chat.id === chatId ? currentChat : chat
+  //         );
+  //       }
+  //       changeChapters((prev) =>
+  //         prev.map((step) => (step.id === chapterId ? currentStep : step))
+  //       );
+  //     }
+  //   },
+  //   syncWithinStep: () => {
+  //     const currentChat = syncHandler.serialize(
+  //       syncHandler.getCurrentChat(chats)
+  //     );
+  //     if (currentChat) {
+  //       currentChat.messages = syncHandler.serialize(messages);
+  //       changeChats((prev) =>
+  //         prev.map((chat) => (chat.id === chatId ? currentChat : chat))
+  //       );
+  //     }
+  //   },
+  // };
 
-  const stepHandler: StepHandler = {
-    addStep: (step: ChapterObj) => {
-      syncHandler.syncBetweenSteps();
-      changeSteps((prev) => [...prev, step]);
-      changeStepId(step.id);
-      changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
-      changeMessages(step.points.stormPoint.chats.at(0)?.messages || []);
+  const stepHandler: ChapterHandler = {
+    addChapter: (step: ChapterObj) => {
+      // syncHandler.syncBetweenSteps();
+      changeChapters((prev) => [...prev, step]);
+      changeChapterId(step.id);
+      const chats = stormTable.chat.examples;
+      changeChatId(chats.at(0)?.id || "");
+      changeMessages(chats.at(0)?.messages || []);
     },
-    goToStep: (step: ChapterObj) => {
-      syncHandler.syncBetweenSteps();
-      changeStepId(step.id);
-      changeChatId(step.points.stormPoint.chats.at(0)?.id || "");
-      changeMessages(step.points.stormPoint.chats.at(0)?.messages || []);
+    goToChapter: (step: ChapterObj) => {
+      // syncHandler.syncBetweenSteps();
+      changeChapterId(step.id);
+      const chats = stormTable.chat.examples;
+      changeChatId(chats.at(0)?.id || "");
+      changeMessages(chats.at(0)?.messages || []);
     },
   };
 
   const chatHandler: ChatHandler = {
-    selectChat: (chat: ChatObj, step: ChapterObj) => {
-      if (step.id !== stepId) {
-        syncHandler.syncBetweenSteps();
-        changeStepId(step.id);
-        changeChats(step.points.stormPoint.chats);
+    selectChat: (chat: ChatObj, chapter: ChapterObj) => {
+      if (chapter.id !== chapterId) {
+        // syncHandler.syncBetweenSteps();
+        changeChapterId(chapter.id);
+        const chats = stormTable.chat.examples;
+        changeChats(chats);
         changeChatId(chat.id);
         changeMessages(chat.messages);
       } else {
-        syncHandler.syncWithinStep();
+        // syncHandler.syncWithinStep();
         changeChatId(chat.id);
         changeMessages(chat.messages);
       }
     },
     addChatToChats: (chat: ChatObj, step: ChapterObj) => {
-      if (step.id !== stepId) {
-        syncHandler.syncBetweenSteps();
-        changeStepId(step.id);
-        changeChats([...step.points.stormPoint.chats, chat]);
+      if (step.id !== chapterId) {
+        // syncHandler.syncBetweenSteps();
+        changeChapterId(step.id);
+        const chats = stormTable.chat.examples;
+        changeChats([...chats, chat]);
         changeChatId(chat.id);
         changeMessages(chat.messages);
       } else {
-        syncHandler.syncWithinStep();
+        // syncHandler.syncWithinStep();
         changeChats((prev) => [...prev, chat]);
         changeChatId(chat.id);
         changeMessages(chat.messages);
@@ -125,7 +129,7 @@ export default function Page() {
       changeMessages((prev) => [
         ...prev,
         {
-          ...stormTable.points.point.chats.chat.messages.message.example,
+          ...stormTable.message.example,
           source: "You",
           message: message,
         },
@@ -133,7 +137,7 @@ export default function Page() {
       changeMessages((prev) => [
         ...prev,
         {
-          ...stormTable.points.point.chats.chat.messages.message.example,
+          ...stormTable.message.example,
           source: "gpt-4",
           message: "Hello Back",
         },
@@ -143,12 +147,12 @@ export default function Page() {
 
   return (
     <StormView
-      steps={steps}
-      stepId={stepId}
+      chapters={chapters}
+      chapterId={chapterId}
       chats={chats}
       chatId={chatId}
       messages={messages}
-      stepHandler={stepHandler}
+      chapterHandler={stepHandler}
       chatHandler={chatHandler}
     />
   );

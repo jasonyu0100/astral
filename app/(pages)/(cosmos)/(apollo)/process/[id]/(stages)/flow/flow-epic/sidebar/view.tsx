@@ -171,7 +171,7 @@ export function SidebarView({
               {filteredFiles.map((file) => (
                 <FolderFile>
                   <FolderFileThumbnailWrapper
-                    onClick={() => momentHandler.addSnapshotToMoment(file)}
+                    onClick={() => momentHandler.addSnapshotToSession(file)}
                   >
                     <FolderFileThumbnail src={file.src} />
                   </FolderFileThumbnailWrapper>

@@ -16,8 +16,8 @@ export const FlowContext = createContext<FlowContextObj>({});
 
 export interface SessionHandler {
   updateCurrentMoment: (moment: SessionObj) => void;
-  addMomentToStep: (moment: SessionObj) => void;
-  addSnapshotToMoment: (snapshot: FileObj) => void;
+  addSessionToStep: (moment: SessionObj) => void;
+  addSnapshotToSession: (snapshot: FileObj) => void;
 }
 
 export interface ChapterHandler {
@@ -80,43 +80,43 @@ export default function Page() {
     },
   };
 
-  const momentHelper = {
-    updateMomentsWithCurrent: (newCurrentMoment: SessionObj) => {
+  const sessionHelper = {
+    updateSessionsWithCurrent: (newCurrentSession: SessionObj) => {
       changeSessions((prev) =>
         prev.map((moment) =>
-          moment.id === newCurrentMoment.id ? newCurrentMoment : moment
+          moment.id === newCurrentSession.id ? newCurrentSession : moment
         )
       );
     },
 
-    getCurrentMoment: () => {
-      for (let moment of sessions) {
-        if (moment.id === sessionId) {
-          return moment;
+    getCurrentSession: () => {
+      for (let session of sessions) {
+        if (session.id === sessionId) {
+          return session;
         }
       }
       return null;
     },
   };
 
-  const momentHandler: SessionHandler = {
-    updateCurrentMoment: (moment: SessionObj) => {
-      changeSessionId(moment.id);
+  const sessionHandler: SessionHandler = {
+    updateCurrentMoment: (session: SessionObj) => {
+      changeSessionId(session.id);
     },
 
-    addMomentToStep: (moment: SessionObj) => {
-      changeSessionId(moment.id);
-      changeSessions((prev) => [...prev, moment]);
+    addSessionToStep: (session: SessionObj) => {
+      changeSessionId(session.id);
+      changeSessions((prev) => [...prev, session]);
     },
 
-    addSnapshotToMoment: (snapshot: FileObj) => {
-      const currentMoment = momentHelper.getCurrentMoment();
+    addSnapshotToSession: (snapshot: FileObj) => {
+      const currentMoment = sessionHelper.getCurrentSession();
       if (currentMoment) {
-        const newCurrentMoment = {
+        const newSession = {
           ...currentMoment,
-          snapshots: [...currentMoment.minutes, snapshot],
+          snapshots: [...currentMoment.moments, snapshot],
         };
-        momentHelper.updateMomentsWithCurrent(newCurrentMoment);
+        sessionHelper.updateSessionsWithCurrent(newSession);
       }
     },
   };
@@ -124,7 +124,7 @@ export default function Page() {
   return (
     <FlowContext.Provider
       value={{
-        sessionHandler: momentHandler,
+        sessionHandler: sessionHandler,
         chapterHandler: chapterHandler
       }}
     >
@@ -133,7 +133,7 @@ export default function Page() {
         chapterId={stepId}
         sessions={sessions}
         chapters={chapters}
-        sessionHandler={momentHandler}
+        sessionHandler={sessionHandler}
         chapterHandler={chapterHandler}
       />
     </FlowContext.Provider>

@@ -1,17 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { worksModel } from "../../../../tables/other/works/main";
 import { WorkTabStages } from "../../tabs/main";
 import { WorksView } from "../../view";
-import { Work } from "../../../../tables/other/works/work/type";
+import { SpaceObj } from "@/(pages)/(cosmos)/tables/space/main";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+
+export interface WorkViewProps {
+  type: WorkTabStages;
+  spaces: SpaceObj[];
+  addSpace: (space: SpaceObj) => void
+}
 
 export default function Page() {
-  const [works, changeWorks] = useState<Work[]>(worksModel.works.example);
+  const [spaces, changeSpaces] = useState<SpaceObj[]>(spaceTable.examples);
 
-  const addWork = (work: Work) => {
-    changeWorks((prev) => [...prev, work]);
+  const addSpace = (space: SpaceObj) => {
+    changeSpaces((prev) => [...prev, space]);
   };
 
-  return <WorksView type={WorkTabStages.All} works={works} addWork={addWork}/>;
+  return <WorksView type={WorkTabStages.All} spaces={spaces} addSpace={addSpace}/>;
 }

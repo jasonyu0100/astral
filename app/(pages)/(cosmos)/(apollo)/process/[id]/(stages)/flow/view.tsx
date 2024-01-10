@@ -16,28 +16,28 @@ import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
 import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 
 export function FlowView({
-  sessionId: momentId,
-  chapterId: stepId,
-  sessions: moments,
-  chapters: steps,
-  sessionHandler: momentHandling,
-  chapterHandler: stepHandling,
+  sessionId,
+  chapterId,
+  sessions,
+  chapters,
+  sessionHandler,
+  chapterHandler,
 }: FlowViewProps) {
   return (
     <FlowWrapper>
       <FlowController>
         <FlowControllerCenter>
           <FlowTimeline>
-            {moments.map((flowMoment, index) => (
+            {sessions.map((flowMoment, index) => (
               <FlowMoment
                 flowMoment={flowMoment}
                 index={index}
-                active={flowMoment.id === momentId}
+                active={flowMoment.id === sessionId}
               />
             ))}
             <FlowAddMoment
               onClick={() =>
-                momentHandling.addMomentToStep({
+                sessionHandler.addSessionToStep({
                   ...flowTable.session.example,
                   id: Date.now().toFixed().toString(),
                 })
@@ -47,19 +47,19 @@ export function FlowView({
         </FlowControllerCenter>
         <FlowControllerBottomRow>
           <FlowControllerSteps>
-            {steps.map((step) => (
+            {chapters.map((step) => (
               <FlowStep
-                active={stepId === step.id}
+                active={chapterId === step.id}
                 step={step}
                 onClick={() => {
-                  stepHandling.goToChapter(step);
+                  chapterHandler.goToChapter(step);
                 }}
               />
             ))}
           </FlowControllerSteps>
           <FlowStepsAdd
             onClick={() => {
-              stepHandling.addChapter({
+              chapterHandler.addChapter({
                 ...spaceTable.chapter.example,
                 id: Date.now().toFixed().toString(),
               });

@@ -16,17 +16,18 @@ import { useState } from "react";
 import { SidePanelColumn } from "./storm-epic/sidebar/steps/main";
 import { StormSidePanelStepSection } from "./storm-epic/sidebar/steps/step/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
-import { processModel } from "../../../../../tables/model/main";
 import { StormViewProps } from "./page";
+import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { stormTable } from "@/(pages)/(cosmos)/tables/storm/table";
 
 
 export function StormView({
-  steps,
-  stepId,
+  chapters,
+  chapterId,
   chats,
   chatId,
   messages,
-  stepHandler,
+  chapterHandler,
   chatHandler,
 }: StormViewProps) {
   const [inputMessage, changeInputMessage] = useState("");
@@ -67,21 +68,21 @@ export function StormView({
       </StormControllerMain>
       <StormSidePanel>
         <SidePanelColumn>
-          {steps.map((step) => (
+          {chapters.map((chapter) => (
             <StormSidePanelStepSection
               selectChat={chatHandler.selectChat}
-              step={step}
+              step={chapter}
               chatId={chatId}
-              chats={step.id === stepId ? chats : step.points.stormPoint.chats}
-              active={step.id === stepId}
+              chats={chapter.id === chapterId ? chats : stormTable.chat.examples}
+              active={chapter.id === chapterId}
               addChat={chatHandler.addChatToChats}
             />
           ))}
           <div
             className="w-full"
             onClick={() =>
-              stepHandler.addStep({
-                ...processModel.process.steps.step.example,
+              chapterHandler.addChapter({
+                ...spaceTable.chapter.example,
                 id: new Date().toISOString(),
               })
             }
