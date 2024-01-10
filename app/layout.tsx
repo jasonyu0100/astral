@@ -33,7 +33,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    fetchProjects().then(resp => console.log(resp))
+    // fetchProjects().then(resp => console.log(resp))
     return () => {};
   }, []);
 

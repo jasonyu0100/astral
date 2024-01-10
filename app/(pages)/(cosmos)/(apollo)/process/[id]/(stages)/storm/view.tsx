@@ -20,7 +20,6 @@ import { StormViewProps } from "./page";
 import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 import { stormTable } from "@/(pages)/(cosmos)/tables/storm/table";
 
-
 export function StormView({
   chapters,
   chapterId,
@@ -31,24 +30,28 @@ export function StormView({
   chatHandler,
 }: StormViewProps) {
   const [inputMessage, changeInputMessage] = useState("");
+  const chat = chats.filter((chat) => chat.id === chatId).at(0);
+  const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
 
   return (
     <StormWrapper>
       <StormControllerMain>
-        <StormChatBody>
-          <StormHeader />
-          <StormChatMessages>
-            {messages.map((message) =>
-              message.source === "You" ? (
-                <StormYouChatMessage>{message.message}</StormYouChatMessage>
-              ) : (
-                <StormPartnerChatMessage>
-                  {message.message}
-                </StormPartnerChatMessage>
-              )
-            )}
-          </StormChatMessages>
-        </StormChatBody>
+        {chat && (
+          <StormChatBody>
+            <StormHeader chat={chat} />
+            <StormChatMessages>
+              {messages.map((message) =>
+                message.source === "You" ? (
+                  <StormYouChatMessage>{message.message}</StormYouChatMessage>
+                ) : (
+                  <StormPartnerChatMessage>
+                    {message.message}
+                  </StormPartnerChatMessage>
+                )
+              )}
+            </StormChatMessages>
+          </StormChatBody>
+        )}
         <StormMessageInput>
           <StormMessageInputLeft />
           <StormMessageInputText
@@ -73,7 +76,9 @@ export function StormView({
               selectChat={chatHandler.selectChat}
               chapter={chapter}
               chatId={chatId}
-              chats={chapter.id === chapterId ? chats : stormTable.chat.examples}
+              chats={
+                chapter.id === chapterId ? chats : stormTable.chat.examples
+              }
               active={chapter.id === chapterId}
               addChat={chatHandler.addChatToChats}
             />

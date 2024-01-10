@@ -14,10 +14,7 @@ export function DraftController({
     <Layer
       displayName={DraftController.name}
       sizeStyle="h-full flex-grow"
-      effectStyle={effectStyles["glow-md"]}
       containerStyle={containerStyles["col"]}
-      backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="p-[1rem]"
     >{children}</Layer>
   );
 }

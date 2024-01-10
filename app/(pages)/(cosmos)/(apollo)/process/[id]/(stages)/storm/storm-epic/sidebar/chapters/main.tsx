@@ -10,7 +10,7 @@ export function SidePanelColumn({
       <Layer
         displayName={SidePanelColumn.name}
         sizeStyle="h-full w-full"
-        contentStyle="flex flex-col p-[1rem] space-y-[2rem] overflow-auto"
+        contentStyle="flex flex-col space-y-[2rem] overflow-auto"
       >
         {children}
       </Layer>

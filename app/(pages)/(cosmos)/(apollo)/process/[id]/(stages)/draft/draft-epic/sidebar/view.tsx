@@ -62,7 +62,7 @@ export function SidebarView({
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle={"py-[2rem] px-[1rem] space-y-[1rem]"}
+      contentStyle={"p-[1rem] space-y-[1rem]"}
     >
       <SidebarBreadcrumbs>
         <BreadcrumbsLink
@@ -71,7 +71,6 @@ export function SidebarView({
         >
           Drive
         </BreadcrumbsLink>
-        <BreadcrumbsDivider />
         {(sidebarMode === SidebarMode.Gallery ||
           sidebarMode === SidebarMode.Collection) && (
           <>
@@ -93,7 +92,6 @@ export function SidebarView({
           </BreadcrumbsLink>
         )}
       </SidebarBreadcrumbs>
-      <Divider />
       <SidebarBody>
         {sidebarMode === SidebarMode.Drive && (
           <>

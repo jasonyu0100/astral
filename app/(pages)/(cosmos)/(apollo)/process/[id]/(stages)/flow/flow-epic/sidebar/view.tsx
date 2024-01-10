@@ -47,7 +47,9 @@ export function SidebarView({
   fileHandler,
 }: SidebarViewProps) {
   const { sessionHandler } = useContext(FlowContext);
-  const collection = collections.filter((folder) => folder.id === collectionId).at(0);
+  const collection = collections
+    .filter((folder) => folder.id === collectionId)
+    .at(0);
   const gallery = gallerys.filter((section) => section.id === galleryId).at(0);
   const [query, changeQuery] = useState("");
 
@@ -62,7 +64,7 @@ export function SidebarView({
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       containerStyle={containerStyles["col"]}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle={"py-[2rem] px-[1rem] space-y-[1rem]"}
+      contentStyle={"p-[1rem] space-y-[1rem]"}
     >
       <SidebarBreadcrumbs>
         <BreadcrumbsLink
@@ -93,7 +95,6 @@ export function SidebarView({
           </BreadcrumbsLink>
         )}
       </SidebarBreadcrumbs>
-      <Divider />
       <SidebarBody>
         {sidebarMode === SidebarMode.Drive && (
           <>
@@ -122,12 +123,10 @@ export function SidebarView({
           <>
             <GalleryInterface>
               <GalleryHeader>
-                <GalleryCoverImage
-                  src={collectionTable.file.example.src}
-                />
+                <GalleryCoverImage src={collectionTable.file.example.src} />
                 <GalleryHeaderDescription />
               </GalleryHeader>
-              <Divider/>
+              <Divider />
               {collections.map((collection) => (
                 <GalleryFolder>
                   <GalleryFolderThumbnailWrapper
@@ -138,7 +137,9 @@ export function SidebarView({
                     <GalleryFolderThumbnail collection={collection} />
                   </GalleryFolderThumbnailWrapper>
                   <GalleryFolderInfo>
-                    <p className="text-white font-extraBold">{collection.name}</p>
+                    <p className="text-white font-extraBold">
+                      {collection.name}
+                    </p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>
@@ -159,9 +160,7 @@ export function SidebarView({
                 <CollectionHeaderTools>
                   <AddButton
                     onClick={() =>
-                      fileHandler.addFile(
-                        collectionTable.file.example
-                      )
+                      fileHandler.addFile(collectionTable.file.example)
                     }
                   />
                   <LoomButton />
@@ -175,9 +174,7 @@ export function SidebarView({
                     <CollectionFileThumbnail src={file.src} />
                   </CollectionFileThumbnailWrapper>
                   <CollectionFileInfo>
-                    <p className="text-white font-extraBold">
-                      {file.name}
-                    </p>
+                    <p className="text-white font-extraBold">{file.name}</p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>
@@ -194,4 +191,3 @@ export function SidebarView({
     </Layer>
   );
 }
-

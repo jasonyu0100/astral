@@ -16,7 +16,7 @@ export function StormChatBody({
         displayName={StormChatBody.name}
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["col-center"]}
-        contentStyle="space-y-[30px] overflow-auto"
+        contentStyle="space-y-[30px] overflow-auto p-[1rem]"
       >
         {children}
       </Layer>

@@ -11,9 +11,9 @@ export function BreadcrumbsLink({
   return (
     <button {...props}>
       {active ? (
-        <div className="text-slate-400 font-bold">{children}</div>
+        <p className="text-slate-400 font-bold">{children}</p>
       ) : (
-        <div className="text-slate-500 font-bold">{children}</div>
+        <p className="text-slate-500 font-bold">{children}</p>
       )}
     </button>
   );
