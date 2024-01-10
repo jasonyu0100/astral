@@ -18,11 +18,14 @@ export const dataArchitecture = {
       storm: {
         table: stormTable,
         chat: {
-          table: stormTable
+          table: stormTable.chat
         }
       },
       draft: {
         table: draftTable,
+        constellation: {
+          table: draftTable.constellation
+        }
       },
       flow: {
         table: flowTable,

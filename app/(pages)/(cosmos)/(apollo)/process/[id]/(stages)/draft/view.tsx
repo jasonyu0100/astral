@@ -21,17 +21,23 @@ import { DraftChaptersRow } from "./draft-epic/chapters/row/main";
 import { DraftChaptersItem } from "./draft-epic/chapters/row/item/main";
 import DraftChaptersAdd from "./draft-epic/chapters/row/add/main";
 import { DraftChapters } from "./draft-epic/chapters/main";
+import { draftTable } from "@/(pages)/(cosmos)/tables/draft/table";
 
 export function DraftView({
+  constellations,
+  constellationId,
+  constellationHandler,
   chapterId,
   chapters,
   stars,
-  starHandling,
-  chapterHandling,
+  starHandler: starHandling,
+  chapterHandler: chapterHandling,
 }: DraftViewProps) {
   const constraintsRef = useRef(null);
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
-  // const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
+  const constellation = constellations
+    .filter((constellation) => constellation.id === constellationId)
+    .at(0);
 
   return (
     <DraftWrapper>
@@ -44,7 +50,14 @@ export function DraftView({
             <div className="flex flex-row justify-center w-1/3">
               <DraftHeaderTitle>Constellation</DraftHeaderTitle>
             </div>
-            <div className="flex flex-row justify-end w-1/3">
+            <div
+              className="flex flex-row justify-end w-1/3"
+              onClick={() => {
+                constellationHandler.addConstellationToStep(
+                  draftTable.constellation.example
+                );
+              }}
+            >
               <DraftHeaderAdd />
             </div>
           </DraftCenterHeader>
