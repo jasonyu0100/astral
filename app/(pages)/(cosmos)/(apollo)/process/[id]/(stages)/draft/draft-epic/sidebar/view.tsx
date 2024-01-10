@@ -15,22 +15,22 @@ import { DriveSectionInfo } from "./modes/drive/section/info/main";
 import { DriveSectionElement } from "./modes/drive/section/main";
 import { DriveSectionThumbanil } from "./modes/drive/section/thumbnail/main";
 import { DriveSectionThumbnailWrapper } from "./modes/drive/section/thumbnail/wrapper/main";
-import { FolderFileInfo } from "./modes/collection/file/info/main";
-import { FolderFile } from "./modes/collection/file/main";
-import { FolderFileThumbnail } from "./modes/collection/file/thumbnail/main";
-import { FolderFileThumbnailWrapper } from "./modes/collection/file/thumbnail/wrapper/main";
-import { FolderHeader } from "./modes/collection/header/main";
-import { FolderHeaderSearch } from "./modes/collection/header/search/main";
-import { FolderHeaderTools } from "./modes/collection/header/tools/main";
-import { FolderInterface } from "./modes/collection/main";
-import { SectionFolderInfo } from "./modes/gallery/folder/info/main";
-import { SectionFolder } from "./modes/gallery/folder/main";
-import { SectionFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
-import { SectionFolderThumbnailWrapper } from "./modes/gallery/folder/thumbnail/wrapper/main";
-import { SectionCoverImage } from "./modes/gallery/header/cover-image/main";
-import { SectionHeaderDescription } from "./modes/gallery/header/description/main";
-import { SectionHeader } from "./modes/gallery/header/main";
-import { SectionInterface } from "./modes/gallery/main";
+import { CollectionFileInfo } from "./modes/collection/file/info/main";
+import { CollectionFile } from "./modes/collection/file/main";
+import { CollectionFileThumbnail } from "./modes/collection/file/thumbnail/main";
+import { CollectionFileThumbnailWrapper } from "./modes/collection/file/thumbnail/wrapper/main";
+import { CollectionHeader } from "./modes/collection/header/main";
+import { CollectionHeaderSearch } from "./modes/collection/header/search/main";
+import { CollectionHeaderTools } from "./modes/collection/header/tools/main";
+import { CollectionInterface } from "./modes/collection/main";
+import { GalleryFolderInfo } from "./modes/gallery/folder/info/main";
+import { GalleryFolder } from "./modes/gallery/folder/main";
+import { GalleryFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
+import { GalleryFolderThumbnailWrapper } from "./modes/gallery/folder/thumbnail/wrapper/main";
+import { GalleryCoverImage } from "./modes/gallery/header/cover-image/main";
+import { GalleryHeaderDescription } from "./modes/gallery/header/description/main";
+import { GalleryHeader } from "./modes/gallery/header/main";
+import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
 import { DraftContext } from "../../page";
@@ -40,7 +40,7 @@ export function SidebarView({
   sidebarViewHandler,
   sidebarMode,
   gallerys,
-  sectionId,
+  galleryId,
   collections,
   collectionId,
   files,
@@ -48,7 +48,7 @@ export function SidebarView({
 }: SidebarViewProps) {
   const { starHandler } = useContext(DraftContext);
   const collection = collections.filter((folder) => folder.id === collectionId).at(0);
-  const gallery = gallerys.filter((section) => section.id === sectionId).at(0);
+  const gallery = gallerys.filter((gallery) => gallery.id === galleryId).at(0);
   const [query, changeQuery] = useState("");
 
   const filteredFiles = files.filter((file) => {
@@ -98,19 +98,19 @@ export function SidebarView({
         {sidebarMode === SidebarMode.Drive && (
           <>
             <DriveInterface>
-              {gallerys.map((section) => (
+              {gallerys.map((gallery) => (
                 <DriveSectionElement>
                   <DriveSectionThumbnailWrapper
                     onClick={() => {
-                      sidebarViewHandler.goToGallery(section);
+                      sidebarViewHandler.goToGallery(gallery);
                     }}
                   >
-                    <DriveSectionThumbanil src={section.thumbnail.src} />
+                    <DriveSectionThumbanil src={gallery.thumbnail.src} />
                   </DriveSectionThumbnailWrapper>
                   <DriveSectionInfo>
-                    <p className="text-white font-extraBold">{section.name}</p>
+                    <p className="text-white font-extraBold">{gallery.name}</p>
                     <p className="text-white font-bold">
-                      {section.description}
+                      {gallery.description}
                     </p>
                   </DriveSectionInfo>
                 </DriveSectionElement>
@@ -120,43 +120,43 @@ export function SidebarView({
         )}
         {sidebarMode === SidebarMode.Gallery && (
           <>
-            <SectionInterface>
-              <SectionHeader>
-                <SectionCoverImage
+            <GalleryInterface>
+              <GalleryHeader>
+                <GalleryCoverImage
                   src={collectionTable.file.example.src}
                 />
-                <SectionHeaderDescription />
-              </SectionHeader>
+                <GalleryHeaderDescription />
+              </GalleryHeader>
               <Divider/>
-              {collections.map((folder) => (
-                <SectionFolder>
-                  <SectionFolderThumbnailWrapper
+              {collections.map((collection) => (
+                <GalleryFolder>
+                  <GalleryFolderThumbnailWrapper
                     onClick={() => {
-                      sidebarViewHandler.goToCollection(folder);
+                      sidebarViewHandler.goToCollection(collection);
                     }}
                   >
-                    <SectionFolderThumbnail folder={folder} />
-                  </SectionFolderThumbnailWrapper>
-                  <SectionFolderInfo>
-                    <p className="text-white font-extraBold">{folder.name}</p>
+                    <GalleryFolderThumbnail collection={collection} />
+                  </GalleryFolderThumbnailWrapper>
+                  <GalleryFolderInfo>
+                    <p className="text-white font-extraBold">{collection.name}</p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>
-                  </SectionFolderInfo>
-                </SectionFolder>
+                  </GalleryFolderInfo>
+                </GalleryFolder>
               ))}
-            </SectionInterface>
+            </GalleryInterface>
           </>
         )}
         {sidebarMode === SidebarMode.Collection && (
           <>
-            <FolderInterface>
-              <FolderHeader>
-                <FolderHeaderSearch
+            <CollectionInterface>
+              <CollectionHeader>
+                <CollectionHeaderSearch
                   onChange={(e: any) => changeQuery(e.target.value)}
                   value={query}
                 />
-                <FolderHeaderTools>
+                <CollectionHeaderTools>
                   <AddButton
                     onClick={() =>
                       fileHandler.addFile(
@@ -165,16 +165,16 @@ export function SidebarView({
                     }
                   />
                   <LoomButton />
-                </FolderHeaderTools>
-              </FolderHeader>
+                </CollectionHeaderTools>
+              </CollectionHeader>
               {filteredFiles.map((file) => (
-                <FolderFile>
-                  <FolderFileThumbnailWrapper
+                <CollectionFile>
+                  <CollectionFileThumbnailWrapper
                     onClick={() => starHandler.spawnStar(file)}
                   >
-                    <FolderFileThumbnail src={file.src} />
-                  </FolderFileThumbnailWrapper>
-                  <FolderFileInfo>
+                    <CollectionFileThumbnail src={file.src} />
+                  </CollectionFileThumbnailWrapper>
+                  <CollectionFileInfo>
                     <p className="text-white font-extraBold">
                       {file.name}
                     </p>
@@ -184,10 +184,10 @@ export function SidebarView({
                     <p className="text-white font-regular">
                       {file.description}
                     </p>
-                  </FolderFileInfo>
-                </FolderFile>
+                  </CollectionFileInfo>
+                </CollectionFile>
               ))}
-            </FolderInterface>
+            </CollectionInterface>
           </>
         )}
       </SidebarBody>

@@ -4,5 +4,5 @@ interface LibraryElementThumbnailProps
 export function CollectionFileThumbnail({
   ...props
 }: LibraryElementThumbnailProps) {
-  return <img className="h-full w-full rounded-full" {...props} />;
+  return <img className="h-[100px] w-[100px]" {...props} />;
 }

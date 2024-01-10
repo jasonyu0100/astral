@@ -5,6 +5,7 @@
 
 .env.local
 .next/
+.next/types/
 
 # Node artifact files
 node_modules/

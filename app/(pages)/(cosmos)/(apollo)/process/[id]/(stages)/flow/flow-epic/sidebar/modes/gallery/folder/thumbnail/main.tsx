@@ -5,7 +5,7 @@ interface LibraryElementThumbnailProps {
 }
 
 export function GalleryFolderThumbnail({
-  collection,
+  collection: collection,
 }: LibraryElementThumbnailProps) {
   return (
     <>

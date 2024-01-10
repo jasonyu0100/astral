@@ -3,7 +3,7 @@ interface LibraryThumbnailWrapper
   children: React.ReactNode;
 }
 
-export function FolderFileThumbnailWrapper({
+export function CollectionFileThumbnailWrapper({
   children,
   ...props
 }: LibraryThumbnailWrapper) {

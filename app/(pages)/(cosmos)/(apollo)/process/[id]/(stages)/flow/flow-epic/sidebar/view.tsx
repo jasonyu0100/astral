@@ -4,8 +4,8 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { AddButton } from "./modes/folder/header/button-row/button/add/main";
-import { DraftLoomButton as LoomButton } from "./modes/folder/header/button-row/button/loom/main";
+import { AddButton } from "./modes/collection/header/button-row/button/add/main";
+import { DraftLoomButton as LoomButton } from "./modes/collection/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";
 import { BreadcrumbsLink } from "./header/breadcrumbs/breadcrumb/main";
 import { BreadcrumbsDivider } from "./header/breadcrumbs/divider/main";
@@ -15,22 +15,22 @@ import { DriveSectionInfo } from "./modes/drive/section/info/main";
 import { DriveSectionElement } from "./modes/drive/section/main";
 import { DriveSectionThumbanil } from "./modes/drive/section/thumbnail/main";
 import { DriveSectionThumbnailWrapper } from "./modes/drive/section/thumbnail/wrapper/main";
-import { FolderFileInfo } from "./modes/folder/file/info/main";
-import { FolderFile } from "./modes/folder/file/main";
-import { FolderFileThumbnail } from "./modes/folder/file/thumbnail/main";
-import { FolderFileThumbnailWrapper } from "./modes/folder/file/thumbnail/wrapper/main";
-import { FolderHeader } from "./modes/folder/header/main";
-import { FolderHeaderSearch } from "./modes/folder/header/search/main";
-import { FolderHeaderTools } from "./modes/folder/header/tools/main";
-import { FolderInterface } from "./modes/folder/main";
-import { SectionFolderInfo } from "./modes/section/folder/info/main";
-import { SectionFolder } from "./modes/section/folder/main";
-import { SectionFolderThumbnail } from "./modes/section/folder/thumbnail/main";
-import { SectionFolderThumbnailWrapper } from "./modes/section/folder/thumbnail/wrapper/main";
-import { SectionCoverImage } from "./modes/section/header/cover-image/main";
-import { SectionHeaderDescription } from "./modes/section/header/description/main";
-import { SectionHeader } from "./modes/section/header/main";
-import { SectionInterface } from "./modes/section/main";
+import { CollectionFileInfo } from "./modes/collection/file/info/main";
+import { CollectionFile } from "./modes/collection/file/main";
+import { CollectionFileThumbnail } from "./modes/collection/file/thumbnail/main";
+import { CollectionFileThumbnailWrapper } from "./modes/collection/file/thumbnail/wrapper/main";
+import { CollectionHeader } from "./modes/collection/header/main";
+import { CollectionHeaderSearch } from "./modes/collection/header/search/main";
+import { CollectionHeaderTools } from "./modes/collection/header/tools/main";
+import { CollectionInterface } from "./modes/collection/main";
+import { GalleryFolderInfo } from "./modes/gallery/folder/info/main";
+import { GalleryFolder } from "./modes/gallery/folder/main";
+import { GalleryFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
+import { GalleryFolderThumbnailWrapper } from "./modes/gallery/folder/thumbnail/wrapper/main";
+import { GalleryCoverImage } from "./modes/gallery/header/cover-image/main";
+import { GalleryHeaderDescription } from "./modes/gallery/header/description/main";
+import { GalleryHeader } from "./modes/gallery/header/main";
+import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
 import { FlowContext } from "../../page";
@@ -40,7 +40,7 @@ export function SidebarView({
   sidebarViewHandler,
   sidebarMode,
   gallerys,
-  sectionId,
+  galleryId,
   collections,
   collectionId,
   files,
@@ -48,7 +48,7 @@ export function SidebarView({
 }: SidebarViewProps) {
   const { sessionHandler } = useContext(FlowContext);
   const collection = collections.filter((folder) => folder.id === collectionId).at(0);
-  const gallery = gallerys.filter((section) => section.id === sectionId).at(0);
+  const gallery = gallerys.filter((section) => section.id === galleryId).at(0);
   const [query, changeQuery] = useState("");
 
   const filteredFiles = files.filter((file) => {
@@ -120,43 +120,43 @@ export function SidebarView({
         )}
         {sidebarMode === SidebarMode.Gallery && (
           <>
-            <SectionInterface>
-              <SectionHeader>
-                <SectionCoverImage
+            <GalleryInterface>
+              <GalleryHeader>
+                <GalleryCoverImage
                   src={collectionTable.file.example.src}
                 />
-                <SectionHeaderDescription />
-              </SectionHeader>
+                <GalleryHeaderDescription />
+              </GalleryHeader>
               <Divider/>
-              {collections.map((folder) => (
-                <SectionFolder>
-                  <SectionFolderThumbnailWrapper
+              {collections.map((collection) => (
+                <GalleryFolder>
+                  <GalleryFolderThumbnailWrapper
                     onClick={() => {
-                      sidebarViewHandler.goToCollection(folder);
+                      sidebarViewHandler.goToCollection(collection);
                     }}
                   >
-                    <SectionFolderThumbnail folder={folder} />
-                  </SectionFolderThumbnailWrapper>
-                  <SectionFolderInfo>
-                    <p className="text-white font-extraBold">{folder.name}</p>
+                    <GalleryFolderThumbnail collection={collection} />
+                  </GalleryFolderThumbnailWrapper>
+                  <GalleryFolderInfo>
+                    <p className="text-white font-extraBold">{collection.name}</p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>
-                  </SectionFolderInfo>
-                </SectionFolder>
+                  </GalleryFolderInfo>
+                </GalleryFolder>
               ))}
-            </SectionInterface>
+            </GalleryInterface>
           </>
         )}
         {sidebarMode === SidebarMode.Collection && (
           <>
-            <FolderInterface>
-              <FolderHeader>
-                <FolderHeaderSearch
+            <CollectionInterface>
+              <CollectionHeader>
+                <CollectionHeaderSearch
                   onChange={(e: any) => changeQuery(e.target.value)}
                   value={query}
                 />
-                <FolderHeaderTools>
+                <CollectionHeaderTools>
                   <AddButton
                     onClick={() =>
                       fileHandler.addFile(
@@ -165,16 +165,16 @@ export function SidebarView({
                     }
                   />
                   <LoomButton />
-                </FolderHeaderTools>
-              </FolderHeader>
+                </CollectionHeaderTools>
+              </CollectionHeader>
               {filteredFiles.map((file) => (
-                <FolderFile>
-                  <FolderFileThumbnailWrapper
+                <CollectionFile>
+                  <CollectionFileThumbnailWrapper
                     onClick={() => sessionHandler.addSnapshotToSession(file)}
                   >
-                    <FolderFileThumbnail src={file.src} />
-                  </FolderFileThumbnailWrapper>
-                  <FolderFileInfo>
+                    <CollectionFileThumbnail src={file.src} />
+                  </CollectionFileThumbnailWrapper>
+                  <CollectionFileInfo>
                     <p className="text-white font-extraBold">
                       {file.name}
                     </p>
@@ -184,10 +184,10 @@ export function SidebarView({
                     <p className="text-white font-regular">
                       {file.description}
                     </p>
-                  </FolderFileInfo>
-                </FolderFile>
+                  </CollectionFileInfo>
+                </CollectionFile>
               ))}
-            </FolderInterface>
+            </CollectionInterface>
           </>
         )}
       </SidebarBody>

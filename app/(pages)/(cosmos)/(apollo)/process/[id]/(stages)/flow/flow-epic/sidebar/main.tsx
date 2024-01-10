@@ -25,7 +25,7 @@ interface SidebarViewHandler {
 export interface SidebarViewProps {
   sidebarMode: SidebarMode;
   gallerys: GalleryObj[];
-  sectionId: string;
+  galleryId: string;
   collections: CollectionObj[];
   collectionId: string;
   files: FileObj[];
@@ -77,7 +77,7 @@ export function Sidebar() {
       sidebarViewHandler={sidebarViewHandler}
       sidebarMode={sidebarMode}
       gallerys={gallerys}
-      sectionId={galleryId}
+      galleryId={galleryId}
       collections={collections}
       collectionId={collectionId}
       files={files}
