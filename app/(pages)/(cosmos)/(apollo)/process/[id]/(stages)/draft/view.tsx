@@ -1,9 +1,9 @@
 "use client";
 
 import { DraftController } from "./draft-epic/main";
-import { DraftControllerCenterSection } from "./draft-epic/center/main";
-import { DraftStep } from "./draft-epic/bottom/steps/step/main";
-import { DraftControllerSteps } from "./draft-epic/bottom/steps/main";
+import { DraftCenter } from "./draft-epic/center/main";
+import { DraftChapter } from "./draft-epic/bottom/chapters/chapter/main";
+import { DraftChapters } from "./draft-epic/bottom/chapters/main";
 import { Sidebar } from "./draft-epic/sidebar/main";
 import { DraftControllerBottomRow } from "./draft-epic/bottom/main";
 import { DraftStepsAdd } from "./draft-epic/bottom/add/main";
@@ -11,14 +11,14 @@ import { useRef } from "react";
 import { DraftWrapper } from "./draft-epic/wrapper/main";
 import { DraftViewProps } from "./page";
 import { motion } from "framer-motion";
-import { DraftConstellationSection } from "./draft-epic/center/constellation/main";
-import { ConstellationLinks } from "./draft-epic/center/constellation/stars/links/main";
-import { ConstellationStar } from "./draft-epic/center/constellation/stars/star/main";
+import { DraftConstellation } from "./draft-epic/center/constellation/main";
+import { DraftLinks } from "./draft-epic/center/constellation/stars/links/main";
+import { DraftStar } from "./draft-epic/center/constellation/stars/star/main";
 import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 
 export function DraftView({
-  chapterId: stepId,
-  chapters: steps,
+  chapterId,
+  chapters,
   stars,
   starHandling,
   chapterHandling: stepHandling,
@@ -28,33 +28,33 @@ export function DraftView({
   return (
     <DraftWrapper>
       <DraftController>
-        <DraftControllerCenterSection>
-          <DraftConstellationSection>
-            <ConstellationLinks stars={stars} />
+        <DraftCenter>
+          <DraftConstellation>
+            <DraftLinks stars={stars} />
             <motion.div
               className="absolute top-0 left- 0 w-full h-full"
               ref={constraintsRef}
             >
               {stars.map((star, i) => (
-                <ConstellationStar
+                <DraftStar
                   star={star}
                   constraintsRef={constraintsRef}
                   updateStar={(data) => starHandling.updateStar(i, data)}
                 />
               ))}
             </motion.div>
-          </DraftConstellationSection>
-        </DraftControllerCenterSection>
+          </DraftConstellation>
+        </DraftCenter>
         <DraftControllerBottomRow>
-          <DraftControllerSteps>
-            {steps.map((step) => (
-              <DraftStep
-                step={step}
-                active={step.id === stepId}
-                onClick={() => stepHandling.goToChapter(step)}
+          <DraftChapters>
+            {chapters.map((chapter) => (
+              <DraftChapter
+                chapter={chapter}
+                active={chapter.id === chapterId}
+                onClick={() => stepHandling.goToChapter(chapter)}
               />
             ))}
-          </DraftControllerSteps>
+          </DraftChapters>
           <DraftStepsAdd
             onClick={() =>
               stepHandling.addChapter({

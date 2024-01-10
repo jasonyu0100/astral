@@ -1,4 +1,4 @@
-export function FlowTimeline({
+export function FlowSessions({
   children,
 }: {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-export function FlowControllerSteps({
+export function DraftChapters({
   children,
 }: {
   children: React.ReactNode;

@@ -13,8 +13,8 @@ import { StormMessageInputRight } from "./storm-epic/main/input/right/main";
 import { StormMessageInputSend } from "./storm-epic/main/input/right/send/main";
 import { StormMessageInputVoice } from "./storm-epic/main/input/right/voice/main";
 import { useState } from "react";
-import { SidePanelColumn } from "./storm-epic/sidebar/steps/main";
-import { StormSidePanelStepSection } from "./storm-epic/sidebar/steps/step/main";
+import { SidePanelColumn } from "./storm-epic/sidebar/chapters/main";
+import { StormSidePanelChapterSection } from "./storm-epic/sidebar/chapters/chapter/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
 import { StormViewProps } from "./page";
 import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
@@ -69,9 +69,9 @@ export function StormView({
       <StormSidePanel>
         <SidePanelColumn>
           {chapters.map((chapter) => (
-            <StormSidePanelStepSection
+            <StormSidePanelChapterSection
               selectChat={chatHandler.selectChat}
-              step={chapter}
+              chapter={chapter}
               chatId={chatId}
               chats={chapter.id === chapterId ? chats : stormTable.chat.examples}
               active={chapter.id === chapterId}

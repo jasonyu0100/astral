@@ -1,7 +1,7 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export function DraftControllerCenterSection({
+export function DraftCenter({
   children,
 }: {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ export function DraftControllerCenterSection({
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Layer
-        displayName={DraftControllerCenterSection.name}
+        displayName={DraftCenter.name}
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["row"]}
       >

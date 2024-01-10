@@ -2,7 +2,7 @@ import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { StarObj } from "@/(pages)/(cosmos)/tables/draft/star/main";
 
-export function ConstellationStar({
+export function DraftStar({
   constraintsRef,
   star,
   updateStar,

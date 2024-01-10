@@ -21,8 +21,8 @@ export interface SessionHandler {
 }
 
 export interface ChapterHandler {
-  addChapter: (step: ChapterObj) => void;
-  goToChapter: (step: ChapterObj) => void;
+  addChapter: (chapter: ChapterObj) => void;
+  goToChapter: (chapter: ChapterObj) => void;
 }
 export interface FlowViewProps {
   sessionId: string;

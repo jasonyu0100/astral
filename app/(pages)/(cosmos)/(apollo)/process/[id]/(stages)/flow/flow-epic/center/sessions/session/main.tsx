@@ -1,4 +1,4 @@
-import { FlowMomentSnapshot } from "./snapshot/main";
+import { FlowMoment } from "./column/moment/main";
 import { FlowPointHeader } from "./header/main";
 import { FlowPointColumm } from "./column/main";
 import { createContext } from "react";
@@ -8,23 +8,23 @@ export const FlowMomentContext = createContext(exampleSession);
 
 export interface FlowMomentProps {
   active: boolean;
-  flowMoment: SessionObj;
+  session: SessionObj;
   index: number;
 }
 
-export function FlowMoment({
+export function FlowSession({
   active=false,
-  flowMoment,
+  session,
   index,
   
 }: FlowMomentProps) {
   return (
-    <FlowMomentContext.Provider value={flowMoment}>
+    <FlowMomentContext.Provider value={session}>
       <div className="flex flex-col w-[250px] h-full flex-shrink-0 items-center">
         <FlowPointHeader active={active}/>
         <FlowPointColumm index={index}>
-          {flowMoment.moments.map((moment) => (
-            <FlowMomentSnapshot flowSnapshot={moment.file} />
+          {session.moments.map((moment) => (
+            <FlowMoment moment={moment} />
           ))}
         </FlowPointColumm>
       </div>

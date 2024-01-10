@@ -14,8 +14,8 @@ export interface StarHandler {
 }
 
 export interface ChapterHandling {
-  addChapter: (step: ChapterObj) => void;
-  goToChapter: (step: ChapterObj) => void;
+  addChapter: (chapter: ChapterObj) => void;
+  goToChapter: (chapter: ChapterObj) => void;
 }
 
 export interface DraftContextObj {
@@ -66,9 +66,9 @@ export default function Page() {
       changeChapters((prev) => [...prev, chapter]);
       changeStars(draftTable.star.examples);
     },
-    goToChapter: (step: ChapterObj) => {
+    goToChapter: (chapter: ChapterObj) => {
       // syncHandler.syncWithinChapters();
-      changeChapterId(step.id);
+      changeChapterId(chapter.id);
       changeStars(draftTable.star.examples);
     },
   };

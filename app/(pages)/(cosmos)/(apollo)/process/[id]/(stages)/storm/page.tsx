@@ -8,13 +8,13 @@ import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 
 export interface ChatHandler {
-  selectChat: (chat: ChatObj, step: ChapterObj) => void;
+  selectChat: (chat: ChatObj, chapter: ChapterObj) => void;
   sendChatMessage: (message: string) => void;
-  addChatToChats: (chat: ChatObj, step: ChapterObj) => void;
+  addChatToChats: (chat: ChatObj, chapter: ChapterObj) => void;
 }
 export interface ChapterHandler {
-  addChapter: (step: ChapterObj) => void;
-  goToChapter: (step: ChapterObj) => void;
+  addChapter: (chapter: ChapterObj) => void;
+  goToChapter: (chapter: ChapterObj) => void;
 }
 export interface StormViewProps {
   chapters: ChapterObj[];
@@ -77,18 +77,18 @@ export default function Page() {
   //   },
   // };
 
-  const stepHandler: ChapterHandler = {
-    addChapter: (step: ChapterObj) => {
+  const chapterHandler: ChapterHandler = {
+    addChapter: (chapter: ChapterObj) => {
       // syncHandler.syncBetweenSteps();
-      changeChapters((prev) => [...prev, step]);
-      changeChapterId(step.id);
+      changeChapters((prev) => [...prev, chapter]);
+      changeChapterId(chapter.id);
       const chats = stormTable.chat.examples;
       changeChatId(chats.at(0)?.id || "");
       changeMessages(chats.at(0)?.messages || []);
     },
-    goToChapter: (step: ChapterObj) => {
+    goToChapter: (chapter: ChapterObj) => {
       // syncHandler.syncBetweenSteps();
-      changeChapterId(step.id);
+      changeChapterId(chapter.id);
       const chats = stormTable.chat.examples;
       changeChatId(chats.at(0)?.id || "");
       changeMessages(chats.at(0)?.messages || []);
@@ -110,10 +110,10 @@ export default function Page() {
         changeMessages(chat.messages);
       }
     },
-    addChatToChats: (chat: ChatObj, step: ChapterObj) => {
-      if (step.id !== chapterId) {
+    addChatToChats: (chat: ChatObj, chapter: ChapterObj) => {
+      if (chapter.id !== chapterId) {
         // syncHandler.syncBetweenSteps();
-        changeChapterId(step.id);
+        changeChapterId(chapter.id);
         const chats = stormTable.chat.examples;
         changeChats([...chats, chat]);
         changeChatId(chat.id);
@@ -152,7 +152,7 @@ export default function Page() {
       chats={chats}
       chatId={chatId}
       messages={messages}
-      chapterHandler={stepHandler}
+      chapterHandler={chapterHandler}
       chatHandler={chatHandler}
     />
   );

@@ -1,11 +1,11 @@
-import { Moment, exampleMoments } from "./moment/main";
+import { MomentObj, exampleMoments } from "./moment/main";
 
 export interface SessionObj {
   id: string;
   title: string;
   description: string;
   time: string;
-  moments: Moment[];
+  moments: MomentObj[];
 }
 
 export const exampleSession: SessionObj = {

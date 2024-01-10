@@ -3,14 +3,14 @@
 import { FlowController } from "./flow-epic/main";
 import { FlowControllerCenter } from "./flow-epic/center/main";
 import { FlowControllerBottomRow } from "./flow-epic/bottom/main";
-import { FlowStep } from "./flow-epic/bottom/steps/step/main";
-import { FlowControllerSteps } from "./flow-epic/bottom/steps/main";
+import { FlowChapter } from "./flow-epic/bottom/chapters/chapter/main";
+import { FlowChapters } from "./flow-epic/bottom/chapters/main";
 import { Sidebar } from "./flow-epic/sidebar/main";
 import { FlowStepsAdd } from "./flow-epic/bottom/add/main";
 import { FlowWrapper } from "./flow-epic/wrapper/main";
-import { FlowMoment } from "./flow-epic/center/timeline/moment/main";
-import { FlowTimeline } from "./flow-epic/center/timeline/main";
-import { FlowAddMoment } from "./flow-epic/center/timeline/add/main";
+import { FlowSession } from "./flow-epic/center/sessions/session/main";
+import { FlowSessions } from "./flow-epic/center/sessions/main";
+import { FlowAddSession } from "./flow-epic/center/sessions/add/main";
 import { FlowViewProps } from "./page";
 import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
 import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
@@ -27,15 +27,15 @@ export function FlowView({
     <FlowWrapper>
       <FlowController>
         <FlowControllerCenter>
-          <FlowTimeline>
+          <FlowSessions>
             {sessions.map((flowMoment, index) => (
-              <FlowMoment
-                flowMoment={flowMoment}
+              <FlowSession
+                session={flowMoment}
                 index={index}
                 active={flowMoment.id === sessionId}
               />
             ))}
-            <FlowAddMoment
+            <FlowAddSession
               onClick={() =>
                 sessionHandler.addSessionToStep({
                   ...flowTable.session.example,
@@ -43,20 +43,20 @@ export function FlowView({
                 })
               }
             />
-          </FlowTimeline>
+          </FlowSessions>
         </FlowControllerCenter>
         <FlowControllerBottomRow>
-          <FlowControllerSteps>
-            {chapters.map((step) => (
-              <FlowStep
-                active={chapterId === step.id}
-                step={step}
+          <FlowChapters>
+            {chapters.map((chapter) => (
+              <FlowChapter
+                active={chapterId === chapter.id}
+                chapter={chapter}
                 onClick={() => {
-                  chapterHandler.goToChapter(step);
+                  chapterHandler.goToChapter(chapter);
                 }}
               />
             ))}
-          </FlowControllerSteps>
+          </FlowChapters>
           <FlowStepsAdd
             onClick={() => {
               chapterHandler.addChapter({

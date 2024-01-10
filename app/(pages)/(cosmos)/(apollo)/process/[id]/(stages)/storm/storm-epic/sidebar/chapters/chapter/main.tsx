@@ -11,14 +11,14 @@ import { stormTable } from "../../../../../../../../../tables/storm/table";
 interface StormSidePanelSectionViewProps {
   chats: ChatObj[];
   chatId: string;
-  step: ChapterObj;
+  chapter: ChapterObj;
   active: boolean;
-  addChat: (chat: ChatObj, step: ChapterObj) => void;
-  selectChat: (chat: ChatObj, step: ChapterObj) => void;
+  addChat: (chat: ChatObj, chapter: ChapterObj) => void;
+  selectChat: (chat: ChatObj, chapter: ChapterObj) => void;
 }
 
-export function StormSidePanelStepSection({
-  step,
+export function StormSidePanelChapterSection({
+  chapter: chapter,
   chats,
   chatId,
   active,
@@ -43,7 +43,7 @@ export function StormSidePanelStepSection({
       >
         <StormSidePanelSectionHeader>
           <StormSidePanelSectionTitle>
-            {step.name} {(show) && `(${chats.length})`}
+            {chapter.name} {(show) && `(${chats.length})`}
           </StormSidePanelSectionTitle>
           <StormSidePanelSectionIndicator show={active} />
         </StormSidePanelSectionHeader>
@@ -54,7 +54,7 @@ export function StormSidePanelStepSection({
             <>
               <StormSidePanelChat
                 active={active && chat.id === chatId}
-                onClick={() => selectChat(chat, step)}
+                onClick={() => selectChat(chat, chapter)}
               >
                 {chat.title}
               </StormSidePanelChat>
@@ -62,7 +62,7 @@ export function StormSidePanelStepSection({
           ))}
           <StormSidePanelSectionAdd
             onClick={() => addChat({
-              ...stormTable.chat.example, id: new Date().toISOString()}, step)}
+              ...stormTable.chat.example, id: new Date().toISOString()}, chapter)}
           />
         </>
       )}

@@ -4,7 +4,7 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export function DraftConstellationSection({
+export function DraftConstellation({
   children,
 }: {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ export function DraftConstellationSection({
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Layer
-        displayName={DraftConstellationSection.name}
+        displayName={DraftConstellation.name}
         sizeStyle="w-full h-full"
         containerStyle={containerStyles["row"]}
       >

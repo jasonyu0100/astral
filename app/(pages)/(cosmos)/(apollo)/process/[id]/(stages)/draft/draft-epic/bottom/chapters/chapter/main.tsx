@@ -5,26 +5,26 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 
-export interface FlowStepProps
+export interface DraftChapterProps
   extends React.ComponentPropsWithoutRef<"button"> {
-  step: ChapterObj;
+  chapter: ChapterObj;
   active: boolean;
 }
 
-export function FlowStep({ step, active, ...props }: FlowStepProps) {
+export function DraftChapter({ chapter: chapter, active, ...props }: DraftChapterProps) {
   return (
     <button {...props}>
       <Layer
-        displayName={FlowStep.name}
+        displayName={DraftChapter.name}
         sizeStyle="w-[80px] h-[100px]"
         backgroundStyle={backgroundStyles["glass-10"]}
         containerStyle={containerStyles["row-centered"]}
         contentStyle="flex-shrink-0"
       >
         {active ? (
-          <p className="font-bold text-white">{step.name}</p>
+          <p className="font-bold text-white">{chapter.name}</p>
         ) : (
-          <p className="font-bold text-slate-500">{step.name}</p>
+          <p className="font-bold text-slate-500">{chapter.name}</p>
         )}
       </Layer>
     </button>
