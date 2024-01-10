@@ -1,7 +1,7 @@
-import { CollectionModel } from "@/(pages)/(cosmos)/(voyager)/craft/model/drive/gallery/collection/type";
+import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
 
 interface LibraryElementThumbnailProps {
-  folder: CollectionModel;
+  folder: CollectionObj;
 }
 
 export function SectionFolderThumbnail({
