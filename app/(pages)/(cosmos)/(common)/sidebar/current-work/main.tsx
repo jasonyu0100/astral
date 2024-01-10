@@ -1,16 +1,19 @@
-import { processMap } from "@/(pages)/(cosmos)/(apollo)/process/[id]/map";
+interface SidebarCurrentWorkProps extends React.ComponentPropsWithoutRef<"a"> {
+  children: React.ReactNode;
+}
 
 export function SidebarCurrentWork({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  ...props
+}: SidebarCurrentWorkProps) {
   return (
     <a
-      href={processMap.process.id.storm.link("1")}
       className="self-stretch justify-start items-center gap-[1rem] inline-flex w-full h-[4rem]"
+      {...props}
     >
-      <div className="flex flex-row w-full h-full items-center space-x-[1rem]">{children}</div>
+      <div className="flex flex-row w-full h-full items-center space-x-[1rem]">
+        {children}
+      </div>
     </a>
   );
 }

@@ -4,8 +4,15 @@ import { ChatObj } from "@/(pages)/(cosmos)/tables/storm/chat/main";
 import { HeaderAdd } from "./add/main";
 import HeaderTitle from "./title/main";
 import { HeaderAgent } from "./agent/main";
+import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 
-export function StormHeader({ chat }: { chat: ChatObj }) {
+export function StormHeader({
+  chat,
+  chapter,
+}: {
+  chat: ChatObj;
+  chapter: ChapterObj;
+}) {
   return (
     <Layer
       displayName={StormHeader.name}
@@ -15,12 +22,12 @@ export function StormHeader({ chat }: { chat: ChatObj }) {
       contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
       <div className="flex flex-row w-1/3">
-        <HeaderAgent>
-          Chat GPT-3
-        </HeaderAgent>
+        <HeaderAgent>Chat GPT-3</HeaderAgent>
       </div>
       <div className="flex flex-row justify-center w-1/3">
-        <HeaderTitle>{chat.title}</HeaderTitle>
+        <HeaderTitle>
+          {chapter.title} - {chat.title}
+        </HeaderTitle>
       </div>
       <div className="flex flex-row justify-end w-1/3">
         <HeaderAdd />

@@ -8,6 +8,9 @@ import { IndicatorFour } from "./indicators/indicator-4/main";
 import { IndicatorFive } from "./indicators/indicator-5/main";
 import { SidebarCurrentWork } from "./current-work/main";
 import { SidebarWorkInfo } from "./current-work/info/main";
+import { processMap } from "../../(apollo)/process/[id]/map";
+import { SidebarBack } from "./back/main";
+import { worksMap } from "../../(voyager)/works/map";
 
 export enum SidebarIndicatorType {
   Works = "Works",
@@ -19,23 +22,40 @@ export enum SidebarIndicatorType {
 
 export interface SidebarProps {
   indicator?: string;
+  minimised?: boolean;
 }
 
-export function DashboardSidebar({ indicator }: SidebarProps) {
+export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
   return (
-    <div className="w-[16rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
-      <SidebarCurrentWork>
-        <SidebarWorkCover active={!indicator} />
-        <SidebarWorkInfo active={!indicator} />
-      </SidebarCurrentWork>
-      <div className="w-full h-[1rem] border-t border-slate-400 border-opacity-30"></div>
-      <SidebarIndicators>
-        <IndicatorOne indicator={indicator} />
-        <IndicatorTwo indicator={indicator} />
-        <IndicatorThree indicator={indicator} />
-        <IndicatorFour indicator={indicator} />
-        <IndicatorFive indicator={indicator} />
-      </SidebarIndicators>
-    </div>
+    <>
+      {minimised ? (
+        <div className="w-[6.5rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
+          <SidebarBack href={worksMap.works.now.link} />
+          <div className="w-full h-[1rem] border-t border-slate-300 border-opacity-30"></div>
+          <SidebarIndicators>
+            <IndicatorOne indicator={indicator} minimised />
+            <IndicatorTwo indicator={indicator} minimised />
+            <IndicatorThree indicator={indicator} minimised />
+            <IndicatorFour indicator={indicator} minimised />
+            <IndicatorFive indicator={indicator} minimised />
+          </SidebarIndicators>
+        </div>
+      ) : (
+        <div className="w-[16rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
+          <SidebarCurrentWork href={processMap.process.id.storm.link("1")}>
+            <SidebarWorkCover active={!indicator} />
+            <SidebarWorkInfo active={!indicator} />
+          </SidebarCurrentWork>
+          <div className="w-full h-[1rem] border-t border-slate-300 border-opacity-30"></div>
+          <SidebarIndicators>
+            <IndicatorOne indicator={indicator} minimised={minimised} />
+            <IndicatorTwo indicator={indicator} />
+            <IndicatorThree indicator={indicator} />
+            <IndicatorFour indicator={indicator} />
+            <IndicatorFive indicator={indicator} />
+          </SidebarIndicators>
+        </div>
+      )}
+    </>
   );
 }

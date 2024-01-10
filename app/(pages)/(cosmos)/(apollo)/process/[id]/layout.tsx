@@ -25,7 +25,7 @@ export default function Layout({
     <ProcessContext.Provider value={{ processId: params.id }}>
       <Topbar />
       <DashboardController>
-        <DashboardSidebar />
+        <DashboardSidebar minimised />
         {children}
       </DashboardController>
     </ProcessContext.Provider>

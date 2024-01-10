@@ -1,6 +1,6 @@
 export interface ChapterObj {
   id: string;
-  name: string;
+  title: string;
   description: string;
   stormId: string;
   draftId: string;
@@ -10,7 +10,7 @@ export interface ChapterObj {
 
 export const exampleChapter: ChapterObj = {
   id: "0",
-  name: "Melody",
+  title: "Melody",
   description: "This is a description",
   stormId: "0",
   draftId: "0",
@@ -21,7 +21,7 @@ export const exampleChapter: ChapterObj = {
 export const exampleChapters: ChapterObj[] = [
   {
     id: "0",
-    name: "Concept",
+    title: "Concept",
     description: "Concept Description",
     stormId: "0",
     draftId: "0",
@@ -30,7 +30,7 @@ export const exampleChapters: ChapterObj[] = [
   },
   {
     id: "1",
-    name: "Beat",
+    title: "Beat",
     description: "Beat Description",
     stormId: "0",
     draftId: "0",
@@ -39,7 +39,7 @@ export const exampleChapters: ChapterObj[] = [
   },
   {
     id: "2",
-    name: "Melody",
+    title: "Melody",
     description: "Melody Description",
     stormId: "0",
     draftId: "0",

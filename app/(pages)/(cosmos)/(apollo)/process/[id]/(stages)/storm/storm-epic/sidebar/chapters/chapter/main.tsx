@@ -43,7 +43,7 @@ export function StormSidePanelChapterSection({
       >
         <StormSidePanelSectionHeader>
           <StormSidePanelSectionTitle>
-            {chapter.name} {(show) && `(${chats.length})`}
+            {chapter.title} {(show) && `(${chats.length})`}
           </StormSidePanelSectionTitle>
           <StormSidePanelSectionIndicator show={active} />
         </StormSidePanelSectionHeader>

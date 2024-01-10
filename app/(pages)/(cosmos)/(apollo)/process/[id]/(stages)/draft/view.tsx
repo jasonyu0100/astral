@@ -42,41 +42,45 @@ export function DraftView({
   return (
     <DraftWrapper>
       <DraftController>
-        <DraftCenter>
-          <DraftCenterHeader>
-            <div className="flex flex-row w-1/3">
-              <DraftHeaderList />
-            </div>
-            <div className="flex flex-row justify-center w-1/3">
-              <DraftHeaderTitle>Constellation</DraftHeaderTitle>
-            </div>
-            <div
-              className="flex flex-row justify-end w-1/3"
-              onClick={() => {
-                constellationHandler.addConstellationToStep(
-                  draftTable.constellation.example
-                );
-              }}
-            >
-              <DraftHeaderAdd />
-            </div>
-          </DraftCenterHeader>
-          <DraftConstellation>
-            <DraftLinks stars={stars} />
-            <motion.div
-              className="absolute top-0 left- 0 w-full h-full"
-              ref={constraintsRef}
-            >
-              {stars.map((star, i) => (
-                <DraftStar
-                  star={star}
-                  constraintsRef={constraintsRef}
-                  updateStar={(data) => starHandling.updateStar(i, data)}
-                />
-              ))}
-            </motion.div>
-          </DraftConstellation>
-        </DraftCenter>
+        {chapter && constellation && (
+          <DraftCenter>
+            <DraftCenterHeader>
+              <div className="flex flex-row w-1/3">
+                <DraftHeaderList />
+              </div>
+              <div className="flex flex-row justify-center w-1/3">
+                <DraftHeaderTitle>
+                  {chapter.title} - {constellation.title}
+                </DraftHeaderTitle>
+              </div>
+              <div
+                className="flex flex-row justify-end w-1/3"
+                onClick={() => {
+                  constellationHandler.addConstellationToStep(
+                    draftTable.constellation.example
+                  );
+                }}
+              >
+                <DraftHeaderAdd />
+              </div>
+            </DraftCenterHeader>
+            <DraftConstellation>
+              <DraftLinks stars={stars} />
+              <motion.div
+                className="absolute top-0 left- 0 w-full h-full"
+                ref={constraintsRef}
+              >
+                {stars.map((star, i) => (
+                  <DraftStar
+                    star={star}
+                    constraintsRef={constraintsRef}
+                    updateStar={(data) => starHandling.updateStar(i, data)}
+                  />
+                ))}
+              </motion.div>
+            </DraftConstellation>
+          </DraftCenter>
+        )}
         <DraftChapters>
           <DraftChaptersLeft />
           <DraftChaptersRow>

@@ -3,6 +3,11 @@ export interface SidebarIndicatorProps
   children: React.ReactNode;
 }
 
+export interface IndicatorProps {
+  indicator?: string;
+  minimised?: boolean;
+}
+
 export function SidebarIndicator({
   children,
   ...props

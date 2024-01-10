@@ -3,5 +3,5 @@ export default function HeaderTitle({
 }: {
   children: React.ReactNode;
 }) {
-  return <p className="text-white text-md font-bold">{children}</p>;
+  return <p className="text-slate-300 text-md font-bold">{children}</p>;
 }

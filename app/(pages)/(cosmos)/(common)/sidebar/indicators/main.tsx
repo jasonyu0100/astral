@@ -4,7 +4,7 @@ export function SidebarIndicators({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex-col items-start gap-[2rem] inline-flex">
+    <div className="flex-col items-start space-y-[2rem] inline-flex">
       {children}
     </div>
   );

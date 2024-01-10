@@ -23,9 +23,9 @@ export function FlowChaptersItem({
       >
         <div className="w-full h-full justify-center flex items-center">
           {active ? (
-            <div className="text-white font-bold">{chapter.name}</div>
+            <div className="text-white font-bold">{chapter.title}</div>
           ) : (
-            <div className="text-slate-500 font-bold">{chapter.name}</div>
+            <div className="text-slate-500 font-bold">{chapter.title}</div>
           )}
         </div>
       </Layer>

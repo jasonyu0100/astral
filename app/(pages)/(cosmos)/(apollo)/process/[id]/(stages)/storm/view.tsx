@@ -36,9 +36,9 @@ export function StormView({
   return (
     <StormWrapper>
       <StormControllerMain>
-        {chat && (
+        {(chat && chapter) && (
           <StormChatBody>
-            <StormHeader chat={chat} />
+            <StormHeader chat={chat} chapter={chapter} />
             <StormChatMessages>
               {messages.map((message) =>
                 message.source === "You" ? (

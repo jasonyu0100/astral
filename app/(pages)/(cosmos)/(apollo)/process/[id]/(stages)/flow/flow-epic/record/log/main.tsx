@@ -3,12 +3,14 @@ import { RecordLogDivider } from "./divider/main";
 import { RecordLogMedia } from "./media/main";
 import { RecordLogInfo } from "./info/main";
 import { RecordLogDescription } from "./description/main";
+import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
 
-export function StoryRecordLog({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+interface FlowRecordLogProps {
+  session: SessionObj;
+  index: number;
+}
+
+export function FlowRecordLog({ session, index }: FlowRecordLogProps) {
   return (
     <div className="flex flex-col w-full space-y-[3rem] items-center py-[2rem]">
       <div className="w-full flex flex-row space-x-[100px] items-center justify-center">
