@@ -1,10 +1,10 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles, borderStyles } from "@/(pages)/(common)/styles/data";
 
-export function FlowCenterHeader({ children }: { children: React.ReactNode }) {
+export function FlowHeader({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={FlowCenterHeader.name}
+      displayName={FlowHeader.name}
       sizeStyle="h-[50px] w-full flex-shrink-0"
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}

@@ -33,7 +33,7 @@ export interface SidebarViewProps {
   fileHandler: FileHandler;
 }
 
-export function Sidebar() {
+export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Drive);
   const [gallerys, changeSections] = useState<GalleryObj[]>(
     galleryTable.examples

@@ -4,14 +4,14 @@ import {
 } from "@/(pages)/(common)/styles/data";
 import { Layer } from "@/(pages)/(common)/layer/main";
 
-export function SeaController({
+export function SeaMain({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={SeaController.name}
+      displayName={SeaMain.name}
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles["row-center"]}
     >

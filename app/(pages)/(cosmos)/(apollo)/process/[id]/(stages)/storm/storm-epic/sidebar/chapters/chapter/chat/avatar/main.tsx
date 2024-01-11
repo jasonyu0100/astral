@@ -1,4 +1,4 @@
-export function StormSidePanelAvatar() {
+export function StormChapterAvatar() {
   return (
     <div className="h-[50px] w-[50px] flex-shrink-0">
       <img 

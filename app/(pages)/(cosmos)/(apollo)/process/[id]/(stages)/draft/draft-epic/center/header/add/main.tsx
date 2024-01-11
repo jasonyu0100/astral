@@ -1,4 +1,4 @@
-export function DraftHeaderAdd() {
+export function DraftHeaderAddButton() {
   return (
     <div className="w-[30px] h-[30px]">
       <svg

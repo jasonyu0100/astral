@@ -4,10 +4,10 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export function StormSidePanel({ children }: { children: React.ReactNode }) {
+export function StormSidebar({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={StormSidePanel.name}
+      displayName={StormSidebar.name}
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       containerStyle={containerStyles["col-center"]}

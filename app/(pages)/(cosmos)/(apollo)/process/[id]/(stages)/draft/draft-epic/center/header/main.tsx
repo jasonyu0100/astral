@@ -1,10 +1,10 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles, borderStyles } from "@/(pages)/(common)/styles/data";
 
-export function DraftCenterHeader({ children }: { children: React.ReactNode }) {
+export function DraftHeader({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={DraftCenterHeader.name}
+      displayName={DraftHeader.name}
       sizeStyle="h-[50px] w-full flex-shrink-0"
       containerStyle={containerStyles["row-center"]}
       borderStyle={borderStyles["border-b"]}

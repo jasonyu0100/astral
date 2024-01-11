@@ -5,7 +5,7 @@ export interface StormSidePanelSectionAddProps
   extends React.ComponentPropsWithoutRef<"button"> {
 }
 
-export function StormSidePanelSectionAdd({
+export function StormChapterChatAdd({
   ...props
 }: StormSidePanelSectionAddProps) {
   return (
@@ -14,7 +14,7 @@ export function StormSidePanelSectionAdd({
       {...props}
     >
       <Layer
-        displayName={StormSidePanelSectionAdd.name}
+        displayName={StormChapterChatAdd.name}
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"
         backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
         containerStyle={containerStyles["col-centered"]}

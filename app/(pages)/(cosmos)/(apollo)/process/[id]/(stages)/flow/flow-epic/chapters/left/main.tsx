@@ -1,4 +1,4 @@
-export function FlowChaptersLeft() {
+export function FlowChaptersLeftButton() {
   return (
     <div className="w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full ">
       <svg

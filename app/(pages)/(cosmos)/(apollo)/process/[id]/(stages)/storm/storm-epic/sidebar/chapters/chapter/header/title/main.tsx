@@ -1,6 +1,6 @@
 import React from "react";
 
-export function StormSidePanelSectionTitle({
+export function StormChapterTitle({
   children,
 }: {
   children: React.ReactNode;

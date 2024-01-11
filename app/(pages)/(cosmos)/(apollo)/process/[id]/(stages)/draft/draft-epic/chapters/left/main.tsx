@@ -1,7 +1,7 @@
 interface DraftChaptersLeftProps
   extends React.ComponentPropsWithoutRef<"button"> {}
 
-export function DraftChaptersLeft({ ...props }: DraftChaptersLeftProps) {
+export function DraftChaptersLeftButton({ ...props }: DraftChaptersLeftProps) {
   return (
     <button
       className="w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full"

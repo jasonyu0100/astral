@@ -1,24 +1,23 @@
 "use client";
-import { StormHeader } from "./storm-epic/main/header/main";
-import { StormChatBody } from "./storm-epic/main/chat/main";
-import { StormMessageInput } from "./storm-epic/main/input/main";
-import { StormSidePanel } from "./storm-epic/sidebar/main";
+import { StormHeader } from "./storm-epic/center/header/main";
+import { StormChat } from "./storm-epic/center/chat/main";
+import { StormChatInput } from "./storm-epic/center/input/main";
+import { StormSidebar } from "./storm-epic/sidebar/main";
 import { StormWrapper } from "./storm-epic/main";
-import { StormControllerMain } from "./storm-epic/main/main";
-import { StormYouChatMessage } from "./storm-epic/main/chat/message/you/main";
-import { StormPartnerChatMessage } from "./storm-epic/main/chat/message/them/main";
-import { StormMessageInputLeft } from "./storm-epic/main/input/left/main";
-import { StormMessageInputText } from "./storm-epic/main/input/text/main";
-import { StormMessageInputRight } from "./storm-epic/main/input/right/main";
-import { StormMessageInputSend } from "./storm-epic/main/input/right/send/main";
-import { StormMessageInputVoice } from "./storm-epic/main/input/right/voice/main";
+import { StormMain } from "./storm-epic/center/main";
+import { StormYouChatMessage } from "./storm-epic/center/chat/messages/message/you/main";
+import { StormPartnerChatMessage } from "./storm-epic/center/chat/messages/message/them/main";
+import { StormChatInputLeft } from "./storm-epic/center/input/left/main";
+import { StormChatMessageInput } from "./storm-epic/center/input/text/main";
+import { StormChatInputRight } from "./storm-epic/center/input/right/main";
+import { StormMessageInputSend } from "./storm-epic/center/input/right/send/main";
+import { StormMessageInputVoice } from "./storm-epic/center/input/right/voice/main";
 import { useState } from "react";
-import { SidePanelColumn } from "./storm-epic/sidebar/chapters/main";
-import { StormSidePanelChapterSection } from "./storm-epic/sidebar/chapters/chapter/main";
-import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
+import { SidebarColumn } from "./storm-epic/sidebar/chapters/main";
+import { StormChapter } from "./storm-epic/sidebar/chapters/chapter/main";
+import { StormChatMessages } from "./storm-epic/center/chat/messages/main";
 import { StormViewProps } from "./page";
 import { spaceTable } from "@/tables/space/table";
-import { stormTable } from "@/tables/storm/table";
 
 export function StormView({
   chapters,
@@ -35,9 +34,9 @@ export function StormView({
 
   return (
     <StormWrapper>
-      <StormControllerMain>
+      <StormMain>
         {chat && chapter && (
-          <StormChatBody>
+          <StormChat>
             <StormHeader chat={chat} chapter={chapter} />
             <StormChatMessages>
               {messages.map((message) =>
@@ -50,15 +49,15 @@ export function StormView({
                 )
               )}
             </StormChatMessages>
-          </StormChatBody>
+          </StormChat>
         )}
-        <StormMessageInput>
-          <StormMessageInputLeft />
-          <StormMessageInputText
+        <StormChatInput>
+          <StormChatInputLeft />
+          <StormChatMessageInput
             onChange={(e) => changeInputMessage(e.target.value)}
             value={inputMessage}
           />
-          <StormMessageInputRight>
+          <StormChatInputRight>
             <StormMessageInputVoice />
             <StormMessageInputSend
               onClick={(e) => {
@@ -66,13 +65,13 @@ export function StormView({
                 changeInputMessage("");
               }}
             />
-          </StormMessageInputRight>
-        </StormMessageInput>
-      </StormControllerMain>
-      <StormSidePanel>
-        <SidePanelColumn>
+          </StormChatInputRight>
+        </StormChatInput>
+      </StormMain>
+      <StormSidebar>
+        <SidebarColumn>
           {chapters.map((chapter, index) => (
-            <StormSidePanelChapterSection
+            <StormChapter
               index={index}
               selectChat={chatHandler.selectChat}
               chapter={chapter}
@@ -93,8 +92,8 @@ export function StormView({
           >
             <p className="text-slate-500 font-extraBold text-xl">Add Step</p>
           </div>
-        </SidePanelColumn>
-      </StormSidePanel>
+        </SidebarColumn>
+      </StormSidebar>
     </StormWrapper>
   );
 }

@@ -1,4 +1,4 @@
-import { StormSidePanelAvatar } from "./avatar/main";
+import { StormChapterAvatar } from "./avatar/main";
 
 interface StormSidePanelChatProps
   extends React.ComponentPropsWithoutRef<"button"> {
@@ -6,7 +6,7 @@ interface StormSidePanelChatProps
   active: boolean;
 }
 
-export function StormSidePanelChat({
+export function StormChapterChat({
   children,
   active,
   ...props
@@ -14,7 +14,7 @@ export function StormSidePanelChat({
   return (
     <button {...props}>
       <div className="flex flex-row items-center space-x-[1rem]">
-        <StormSidePanelAvatar />
+        <StormChapterAvatar />
         {active ? (
           <p className="text-slate-300 font-bold text-lg">{children}</p>
         ) : (

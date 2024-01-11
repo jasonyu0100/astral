@@ -1,14 +1,14 @@
 import { ChapterObj } from "@/tables/space/chapter/main";
-import { StormSidePanelSectionAdd } from "./chat/add/main";
-import { StormSidePanelChat } from "./chat/main";
-import { StormSidePanelSectionHeader } from "./header/main";
-import StormSidePanelSectionIndicator from "./header/indicator/main";
-import { StormSidePanelSectionTitle } from "./header/title/main";
+import { StormChapterChatAdd } from "./chat/add/main";
+import { StormChapterChat } from "./chat/main";
+import { StormChapterHeader } from "./header/main";
+import StormChapterIndicator from "./header/indicator/main";
+import { StormChapterTitle } from "./header/title/main";
 import { useEffect, useState } from "react";
 import { ChatObj } from "@/tables/storm/chat/main";
 import { stormTable } from "@/tables/storm/table";
 
-interface StormSidePanelSectionViewProps {
+interface StormSidebarSectionViewProps {
   index: number;
   chats: ChatObj[];
   chatId: string;
@@ -18,14 +18,14 @@ interface StormSidePanelSectionViewProps {
   selectChat: (chat: ChatObj, chapter: ChapterObj) => void;
 }
 
-export function StormSidePanelChapterSection({
+export function StormChapter({
   chapter,
   chats,
   chatId,
   active,
   addChat,
   selectChat,
-}: StormSidePanelSectionViewProps) {
+}: StormSidebarSectionViewProps) {
   const [show, changeShow] = useState(active);
 
   useEffect(() => {
@@ -42,26 +42,26 @@ export function StormSidePanelChapterSection({
           changeShow(!show);
         }}
       >
-        <StormSidePanelSectionHeader>
-          <StormSidePanelSectionTitle>
+        <StormChapterHeader>
+          <StormChapterTitle>
             {chapter.title} {`(${chats.length})`}
-          </StormSidePanelSectionTitle>
-          <StormSidePanelSectionIndicator show={active} />
-        </StormSidePanelSectionHeader>
+          </StormChapterTitle>
+          <StormChapterIndicator show={active} />
+        </StormChapterHeader>
       </div>
       {show && (
         <>
           {chats.map((chat) => (
             <>
-              <StormSidePanelChat
+              <StormChapterChat
                 active={active && chat.id === chatId}
                 onClick={() => selectChat(chat, chapter)}
               >
                 {chat.title}
-              </StormSidePanelChat>
+              </StormChapterChat>
             </>
           ))}
-          <StormSidePanelSectionAdd
+          <StormChapterChatAdd
             onClick={() => addChat({
               ...stormTable.chat.example, id: new Date().toISOString()}, chapter)}
           />

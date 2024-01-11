@@ -1,8 +1,8 @@
 "use client";
 
-import { DraftController } from "./draft-epic/main";
+import { DraftMain } from "./draft-epic/main";
 import { DraftCenter } from "./draft-epic/center/main";
-import { Sidebar } from "./draft-epic/sidebar/main";
+import { DraftSidebar } from "./draft-epic/sidebar/main";
 import { useRef } from "react";
 import { DraftWrapper } from "./draft-epic/wrapper/main";
 import { DraftViewProps } from "./page";
@@ -11,12 +11,12 @@ import { DraftConstellation } from "./draft-epic/center/constellation/main";
 import { DraftLinks } from "./draft-epic/center/constellation/stars/links/main";
 import { DraftStar } from "./draft-epic/center/constellation/stars/star/main";
 import { spaceTable } from "@/tables/space/table";
-import { DraftCenterHeader } from "./draft-epic/center/header/main";
-import { DraftHeaderList } from "./draft-epic/center/header/list/main";
+import { DraftHeader } from "./draft-epic/center/header/main";
+import { DraftHeaderListButton } from "./draft-epic/center/header/list/main";
 import DraftHeaderTitle from "./draft-epic/center/header/title/main";
-import { DraftHeaderAdd } from "./draft-epic/center/header/add/main";
-import { DraftChaptersLeft } from "./draft-epic/chapters/left/main";
-import { DraftChaptersRight } from "./draft-epic/chapters/right/main";
+import { DraftHeaderAddButton } from "./draft-epic/center/header/add/main";
+import { DraftChaptersLeftButton } from "./draft-epic/chapters/left/main";
+import { DraftChaptersRightButton } from "./draft-epic/chapters/right/main";
 import { DraftChaptersRow } from "./draft-epic/chapters/row/main";
 import { DraftChaptersItem } from "./draft-epic/chapters/row/item/main";
 import DraftChaptersAdd from "./draft-epic/chapters/row/add/main";
@@ -42,11 +42,11 @@ export function DraftView({
 
   return (
     <DraftWrapper>
-      <DraftController>
+      <DraftMain>
           <DraftCenter>
-            <DraftCenterHeader>
+            <DraftHeader>
               <div className="flex flex-row w-1/3">
-                <DraftHeaderList />
+                <DraftHeaderListButton />
               </div>
               <div className="flex flex-row justify-center w-1/3">
                   <DraftHeaderTitle>
@@ -61,9 +61,9 @@ export function DraftView({
                   );
                 }}
               >
-                <DraftHeaderAdd />
+                <DraftHeaderAddButton />
               </div>
-            </DraftCenterHeader>
+            </DraftHeader>
             <DraftConstellation>
               <DraftLinks stars={stars} />
               <motion.div
@@ -81,7 +81,7 @@ export function DraftView({
             </DraftConstellation>
           </DraftCenter>
         <DraftChapters>
-          <DraftChaptersLeft onClick={() => chapterHandling.goToPrevChapter()}/>
+          <DraftChaptersLeftButton onClick={() => chapterHandling.goToPrevChapter()}/>
           <DraftChaptersRow>
             {chapters.map((chapter) => (
               <DraftChaptersItem
@@ -99,10 +99,10 @@ export function DraftView({
               }
             />
           </DraftChaptersRow>
-          <DraftChaptersRight onClick={() => chapterHandling.goToNextChapter()}/>
+          <DraftChaptersRightButton onClick={() => chapterHandling.goToNextChapter()}/>
         </DraftChapters>
-      </DraftController>
-      <Sidebar />
+      </DraftMain>
+      <DraftSidebar />
     </DraftWrapper>
   );
 }

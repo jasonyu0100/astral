@@ -1,22 +1,22 @@
 "use client";
 
-import { FlowController } from "./flow-epic/main";
-import { FlowControllerCenter } from "./flow-epic/center/main";
-import { Sidebar } from "./flow-epic/sidebar/main";
+import { FlowMain } from "./flow-epic/main";
+import { FlowCenter } from "./flow-epic/center/main";
+import { FlowSidebar } from "./flow-epic/sidebar/main";
 import { FlowWrapper } from "./flow-epic/wrapper/main";
 import { FlowViewProps } from "./page";
 import { spaceTable } from "@/tables/space/table";
-import { FlowRecord } from "./flow-epic/record/main";
-import { FlowRecordLog } from "./flow-epic/record/log/main";
+import { FlowSession } from "./flow-epic/center/session/main";
+import { FlowSessionMoment } from "./flow-epic/center/session/moment/main";
 import { FlowChapters } from "./flow-epic/chapters/main";
-import { FlowChaptersLeft } from "./flow-epic/chapters/left/main";
-import { FlowChaptersRight } from "./flow-epic/chapters/right/main";
+import { FlowChaptersLeftButton } from "./flow-epic/chapters/left/main";
+import { FlowChaptersRightButton } from "./flow-epic/chapters/right/main";
 import FlowChaptersAdd from "./flow-epic/chapters/row/add/main";
 import { FlowChaptersItem } from "./flow-epic/chapters/row/item/main";
 import { FlowChaptersRow } from "./flow-epic/chapters/row/main";
-import { FlowHeaderAdd } from "./flow-epic/center/header/add/main";
-import { FlowHeaderList } from "./flow-epic/center/header/list/main";
-import { FlowCenterHeader } from "./flow-epic/center/header/main";
+import { FlowHeaderAddButton } from "./flow-epic/center/header/add/main";
+import { FlowHeaderListButton } from "./flow-epic/center/header/list/main";
+import { FlowHeader } from "./flow-epic/center/header/main";
 import FlowHeaderTitle from "./flow-epic/center/header/title/main";
 import { flowTable } from "@/tables/flow/table";
 
@@ -37,11 +37,11 @@ export function FlowView({
 
   return (
     <FlowWrapper>
-      <FlowController>
-        <FlowControllerCenter>
-          <FlowCenterHeader>
+      <FlowMain>
+        <FlowCenter>
+          <FlowHeader>
             <div className="flex flex-row w-1/3">
-              <FlowHeaderList />
+              <FlowHeaderListButton />
             </div>
             <div className="flex flex-row justify-center w-1/3">
               <FlowHeaderTitle>{headerTitle}</FlowHeaderTitle>
@@ -55,17 +55,17 @@ export function FlowView({
                 })
               }
             >
-              <FlowHeaderAdd />
+              <FlowHeaderAddButton />
             </div>
-          </FlowCenterHeader>
-          <FlowRecord>
+          </FlowHeader>
+          <FlowSession>
             {moments.map((moment, index) => (
-              <FlowRecordLog moment={moment} index={index}></FlowRecordLog>
+              <FlowSessionMoment moment={moment} index={index}></FlowSessionMoment>
             ))}
-          </FlowRecord>
-        </FlowControllerCenter>
+          </FlowSession>
+        </FlowCenter>
         <FlowChapters>
-          <FlowChaptersLeft />
+          <FlowChaptersLeftButton />
           <FlowChaptersRow>
             {chapters.map((chapter) => (
               <FlowChaptersItem
@@ -83,10 +83,10 @@ export function FlowView({
               }
             />
           </FlowChaptersRow>
-          <FlowChaptersRight />
+          <FlowChaptersRightButton />
         </FlowChapters>
-      </FlowController>
-      <Sidebar />
+      </FlowMain>
+      <FlowSidebar />
     </FlowWrapper>
   );
 }

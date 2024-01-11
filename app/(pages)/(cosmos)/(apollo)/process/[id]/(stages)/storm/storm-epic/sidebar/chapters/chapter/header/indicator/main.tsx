@@ -2,7 +2,7 @@ interface StormSidePanelSectionToggleProps {
   show: boolean;
 }
 
-export default function StormSidePanelSectionIndicator({
+export default function StormChapterIndicator({
   show,
 }: StormSidePanelSectionToggleProps) {
   return (

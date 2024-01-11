@@ -3,14 +3,14 @@ import {
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 
-export function FlowController({
+export function FlowMain({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <Layer
-      displayName={FlowController.name}
+      displayName={FlowMain.name}
       sizeStyle="h-full flex-grow"
       containerStyle={containerStyles["col"]}
     >
