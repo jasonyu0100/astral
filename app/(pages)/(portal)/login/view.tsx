@@ -13,7 +13,7 @@ import { useSearchParams } from "next/navigation";
 export function LoginView() {
   const searchParams = useSearchParams();
   const categories = portalModel.categories.example;
-  const [flipped, changeFlipped] = useState(searchParams.get('flipped'));
+  const [flipped, changeFlipped] = useState(searchParams.get('flipped') || false);
   const [categoryIndex, changeCategoryIndex] = useState(0);
   const [variant, changeVariant] = useState("m");
   const [imageState, changeImageState] = useState("show");

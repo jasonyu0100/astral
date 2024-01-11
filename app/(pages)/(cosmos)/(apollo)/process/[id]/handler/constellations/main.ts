@@ -79,7 +79,7 @@ export const useConstellation = (): useConstellationInterface => {
           stars: [
             ...constellation.stars,
             {
-              ...draftTable.constellation.example,
+              ...draftTable.constellation.star.example,
               file: file,
             },
           ],

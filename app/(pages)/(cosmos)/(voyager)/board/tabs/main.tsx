@@ -4,7 +4,7 @@ import { TabThree } from "./tab-3/main";
 import { Tabs } from "../../../(common)/tabs/main";
 import { TabsRow } from "../../../(common)/tabs/tabs-row/main";
 import { TabsBackButton } from "@/(pages)/(cosmos)/(common)/tabs/tabs-row/back-button/main";
-import { worksMap } from "../../works/map";
+import { spacesMap } from "../../spaces/map";
 
 export enum BoardTabStage {
   View = "View",
@@ -18,7 +18,7 @@ interface BoardTabProps {
 export function BoardTabs({ tab } : BoardTabProps) {
   return (
     <Tabs>
-      <TabsBackButton href={worksMap.works.now.link} />
+      <TabsBackButton href={spacesMap.spaces.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
         <TabTwo tab={tab} />

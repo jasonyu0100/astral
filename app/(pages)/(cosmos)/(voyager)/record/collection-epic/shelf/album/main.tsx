@@ -1,13 +1,13 @@
 "use client";
 
-import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
+import { spacesMap } from "@/(pages)/(cosmos)/(voyager)/spaces/map";
 
 export function RecordAlbum() {
   return (
     <div className="flex flex-col items-center justify-center">
       <a
         className="flex flex-col space-y-[1rem] items-center"
-        href={worksMap.works.now.link}
+        href={spacesMap.spaces.now.link}
       >
         <div className="w-[150px] h-[150px] bg-white flex justify-center items-center  mt-[1rem]">
           <div className="w-[125px] h-[125px] bg-black">

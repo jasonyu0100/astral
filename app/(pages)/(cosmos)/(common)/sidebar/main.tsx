@@ -10,10 +10,10 @@ import { SidebarCurrentWork } from "./current-work/main";
 import { SidebarWorkInfo } from "./current-work/info/main";
 import { processMap } from "../../(apollo)/process/[id]/map";
 import { SidebarBack } from "./back/main";
-import { worksMap } from "../../(voyager)/works/map";
+import { spacesMap } from "../../(voyager)/spaces/map";
 
 export enum SidebarIndicatorType {
-  Works = "Works",
+  Spaces = "Spaces",
   Craft = "Craft",
   Board = "Board",
   Link = "Link",
@@ -30,7 +30,7 @@ export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
     <>
       {minimised ? (
         <div className="w-[4.5rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-slate-900">
-          <SidebarBack href={worksMap.works.now.link} />
+          <SidebarBack href={spacesMap.spaces.now.link} />
           <div className="w-full h-[1rem] mb-[2rem] border-b border-slate-500 border-opacity-30"></div>
           <SidebarIndicators>
             <IndicatorOne indicator={indicator} minimised />

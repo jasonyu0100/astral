@@ -1,4 +1,4 @@
-import { ExploreElementObj } from "@/(pages)/(cosmos)/model/gallery/explore/element/type";
+import { ExploreElementObj } from "@/tables/resource/explore/element/main";
 import { motion } from "framer-motion";
 
 export function ElementLinks({ elements }: { elements: ExploreElementObj[] }) {

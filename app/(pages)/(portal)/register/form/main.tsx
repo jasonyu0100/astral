@@ -1,4 +1,3 @@
-import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
 import { useState } from "react";
 import { PortalFormAction } from "../../portal-epic/container/form/action-container/action/main";
 import { PortalFormInput } from "../../portal-epic/container/form/body/input/main";
@@ -14,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/state/main";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { spacesMap } from "@/(pages)/(cosmos)/(voyager)/spaces/map";
 
 export function PortalRegisterForm() {
   const [state, actions] = useUser();
@@ -40,7 +40,7 @@ export function PortalRegisterForm() {
         .then((resp) => {
           const googleId = resp.data.id;
           actions.login(googleId, accessToken);
-          window.location.href = worksMap.works.now.link;
+          window.location.href = spacesMap.spaces.now.link;
         });
     },
     onError: (error) => {

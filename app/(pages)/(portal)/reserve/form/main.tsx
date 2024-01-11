@@ -1,4 +1,3 @@
-import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
 import { useState } from "react";
 import { PortalFormAction } from "../../portal-epic/container/form/action-container/action/main";
 import { PortalFormInput } from "../../portal-epic/container/form/body/input/main";
@@ -7,6 +6,7 @@ import { PortalFormSelect } from "../../portal-epic/container/form/body/select/m
 import { PortalForm } from "../../portal-epic/container/form/main";
 import { portalModel } from "../../model/main";
 import { PortalCosmosTextHeader } from "../../portal-epic/container/text-header/main";
+import { spacesMap } from "@/(pages)/(cosmos)/(voyager)/spaces/map";
 
 export function PortalReserveForm() {
   const categories = portalModel.categories.example
@@ -55,7 +55,7 @@ export function PortalReserveForm() {
           ))}
         </PortalFormSelect>
       </PortalFormBody>
-      <PortalFormAction href={worksMap.works.now.link}>
+      <PortalFormAction href={spacesMap.spaces.now.link}>
         RESERVE
       </PortalFormAction>
     </PortalForm>

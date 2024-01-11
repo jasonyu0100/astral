@@ -8,14 +8,14 @@ import { TopbarRightGroup } from "./container/right-group/main";
 import { SettingsIcon } from "./(common)/icons/settings/main";
 import { NotificationsIcon } from "./(common)/icons/notifications/main";
 import { CartIcon } from "./(common)/icons/cart/main";
-import { worksMap } from "@/(pages)/(cosmos)/(voyager)/works/map";
+import { spacesMap } from "@/(pages)/(cosmos)/(voyager)/spaces/map";
 
 export function Topbar() {
   return (
     <TopbarContainer>
-      <TopbarLogo href={worksMap.works.now.link}/>
+      <TopbarLogo href={spacesMap.spaces.now.link}/>
       <TopbarLeftGroup>
-        <TopbarLink href={worksMap.works.now.link}>HOME</TopbarLink>
+        <TopbarLink href={spacesMap.spaces.now.link}>HOME</TopbarLink>
         <TopbarLink href="/about">ABOUT</TopbarLink>
         <TopbarLink href="/learn">LEARN</TopbarLink>
         <TopbarLink href="/pricing">PRICING</TopbarLink>
