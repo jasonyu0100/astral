@@ -49,7 +49,7 @@ export default function Page() {
       return chapter;
     },
     goToNextChapter: () => {
-      const chapter = _chapterHandler.goToPrevChapter()
+      const chapter = _chapterHandler.goToNextChapter()
       // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },

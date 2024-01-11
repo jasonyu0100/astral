@@ -42,6 +42,7 @@ export const useChapters = (): useChaptersInterface => {
         (chapter) => chapter.id === chapterId
       );
       const previousIndex = currentIndex - 1;
+      console.log(previousIndex)
 
       if (previousIndex >= 0) {
         const previousChapter = chapters[previousIndex];
@@ -55,6 +56,7 @@ export const useChapters = (): useChaptersInterface => {
         (chapter) => chapter.id === chapterId
       );
       const nextIndex = currentIndex + 1;
+      console.log(nextIndex)
 
       if (nextIndex < chapters.length) {
         const nextChapter = chapters[nextIndex];
