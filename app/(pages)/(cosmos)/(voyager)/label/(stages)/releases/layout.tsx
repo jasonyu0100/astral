@@ -9,7 +9,7 @@ export default function Layout({
 }) {
   return (
     <>
-      <RecordTabs tab={RecordTabStage.Release} />
+      <RecordTabs tab={RecordTabStage.Releases} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

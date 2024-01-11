@@ -22,14 +22,15 @@ export enum SidebarIndicatorType {
 export interface SidebarProps {
   indicator?: string;
   minimised?: boolean;
+  backUrl?: string;
 }
 
-export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
+export function DashboardSidebar({ indicator, minimised, backUrl }: SidebarProps) {
   return (
     <>
       {minimised ? (
         <div className="w-[4.5rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-slate-900">
-          <SidebarBack href={spacesMap.spaces.now.link} />
+          <SidebarBack href={backUrl || spacesMap.spaces.now.link} />
           <div className="w-full h-[1rem] mb-[2rem] border-b border-slate-500 border-opacity-30"></div>
           <SidebarIndicators>
             <SpacesIndicator indicator={indicator} minimised />

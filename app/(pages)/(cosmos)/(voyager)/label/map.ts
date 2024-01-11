@@ -1,7 +1,7 @@
 export const labelMap = {
   label: {
-    release: {
-      link: "/label/release",
+    releases: {
+      link: "/label/releases",
     },
     moves: {
       link: "/label/moves",

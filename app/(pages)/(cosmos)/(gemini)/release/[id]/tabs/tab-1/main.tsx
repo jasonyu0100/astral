@@ -9,12 +9,12 @@ import { useContext } from "react";
 import { ReleaseTabStage } from "../main";
 
 export function TabOne({ tab }: { tab?: string }) {
-  const processContext = useContext(ReleaseContext);
+  const releaseContext = useContext(ReleaseContext);
   const tabText = ReleaseTabStage.One;
   const active = tab === tabText;
 
   return (
-    <Tab href={releaseMap.release.id.one.link(processContext.releaseId)}>
+    <Tab href={releaseMap.release.id.one.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

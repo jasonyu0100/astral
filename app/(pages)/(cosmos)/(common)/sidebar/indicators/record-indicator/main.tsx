@@ -11,11 +11,11 @@ export function RecordIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={labelMap.label.release.link}>
+        <SidebarIndicator href={labelMap.label.releases.link}>
           <IndicatorSilverJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={labelMap.label.release.link}>
+        <SidebarIndicator href={labelMap.label.releases.link}>
           <IndicatorSilverJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

@@ -5,11 +5,11 @@ import { labelMap } from "../../map";
 import { RecordTabStage } from "../main";
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = RecordTabStage.Release;
+  const tabText = RecordTabStage.Releases;
   const active = tab === tabText;
 
   return (
-    <Tab href={labelMap.label.release.link}>
+    <Tab href={labelMap.label.releases.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

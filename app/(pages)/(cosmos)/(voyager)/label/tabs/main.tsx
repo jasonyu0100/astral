@@ -7,7 +7,7 @@ import { TabsBackButton } from "@/(pages)/(cosmos)/(common)/tabs/tabs-row/back-b
 import { spacesMap } from "../../spaces/map";
 
 export enum RecordTabStage {
-  Release = "Release",
+  Releases = "Releases",
   Moves = "Moves",
   Trends = "Trends",
 }
