@@ -8,15 +8,15 @@ import { generateClient } from "aws-amplify/api";
 // import { useEffect } from "react";
 // import { createSpaceObj } from "./graphql/mutations";
 
-const config =  {
-    API: {
-        GraphQL: {
-          endpoint: process.env.GRAPHQL_ENDPOINT,
-          region: 'ap-southeast-2',
-          defaultAuthMode: 'apiKey',
-          apiKey: process.env.GRAPHQL_APIKEY
-        }
-    }
+const config = {
+  API: {
+    GraphQL: {
+      endpoint: process.env.GRAPHQL_ENDPOINT,
+      region: "ap-southeast-2",
+      defaultAuthMode: "apiKey",
+      apiKey: process.env.GRAPHQL_APIKEY,
+    },
+  },
 };
 
 Amplify.configure(config);
@@ -51,7 +51,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="referrer" content="origin" />
       </head>
       <body className={clsx([...fontVariables])}>
-        <GoogleOAuthProvider clientId="1030462157669-c6fsghjhc8pbrqotqhgm7elj5k9mbdof.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId={process.env.GOOGLE_AUTH_APIKEY || ""}>
           {!isMaintenanceMode && <>{children}</>}
         </GoogleOAuthProvider>
       </body>

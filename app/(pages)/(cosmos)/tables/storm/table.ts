@@ -8,9 +8,9 @@ export const stormTable = {
   chat: {
     example: exampleChat,
     examples: exampleChats,
-  },
-  message: {
-    example: exampleMessage,
-    examples: exampleMessages,
+    message: {
+      example: exampleMessage,
+      examples: exampleMessages,
+    },
   },
 };

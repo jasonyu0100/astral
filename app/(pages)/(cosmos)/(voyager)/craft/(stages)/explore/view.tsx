@@ -1,4 +1,4 @@
-import { SearchController } from "./explore-epic/main";
+import { ExploreController } from "./explore-epic/main";
 import { SearchBar } from "./explore-epic/search-bar/main";
 import { SearchWrapper } from "./explore-epic/wrapper/main";
 import { Layer } from "@/(pages)/(common)/layer/main";
@@ -17,7 +17,7 @@ export function CraftExploreView({
 
   return (
     <SearchWrapper>
-      <SearchController>
+      <ExploreController>
         <SearchBar
           onChange={(e) => searchHandler.searchQuery(e.target.value)}
         />
@@ -36,7 +36,7 @@ export function CraftExploreView({
             ))}
           </motion.div>
         </div>
-      </SearchController>
+      </ExploreController>
       <Layer
         backgroundStyle={backgroundStyles["glass-5"]}
         sizeStyle="w-[500px] h-full"

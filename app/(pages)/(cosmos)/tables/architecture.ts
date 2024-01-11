@@ -13,6 +13,7 @@ import { resourceTable } from "./resource/table";
 export const dataArchitecture = {
   space: {
     table: spaceTable,
+    schema: spaceSchema
     chapter: {
       table: spaceTable.chapter,
       storm: {
@@ -35,6 +36,9 @@ export const dataArchitecture = {
       },
       sea: {
         table: seaTable,
+        journey: {
+          table: seaTable.journey
+        }
       },
     },
   },

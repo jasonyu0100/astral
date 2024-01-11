@@ -8,10 +8,12 @@ import { PortalGalleryPiece } from "../portal-epic/container/gallery/piece/main"
 import { PortalGalleryTitle } from "../portal-epic/container/gallery/title/main";
 import { portalModel } from "../model/main";
 import { PortalLoginForm } from "./form/main";
+import { useSearchParams } from "next/navigation";
 
 export function LoginView() {
-  const categories = portalModel.categories.example
-  const [flipped, changeFlipped] = useState(false);
+  const searchParams = useSearchParams();
+  const categories = portalModel.categories.example;
+  const [flipped, changeFlipped] = useState(searchParams.get('flipped'));
   const [categoryIndex, changeCategoryIndex] = useState(0);
   const [variant, changeVariant] = useState("m");
   const [imageState, changeImageState] = useState("show");
@@ -21,7 +23,8 @@ export function LoginView() {
 
   function categoryIncrementCall() {
     changeCategoryIndex(
-      (categoryIndex) => (categoryIndex + 1) % portalModel.categories.example.length
+      (categoryIndex) =>
+        (categoryIndex + 1) % portalModel.categories.example.length
     );
     changeVariant((variant) => (variant === "m" ? "f" : "m"));
   }
@@ -64,7 +67,7 @@ export function LoginView() {
             <PortalGalleryTitle>{categories[categoryIndex]}</PortalGalleryTitle>
           </PortalGalleryView>
         ) : (
-          <PortalLoginForm/>
+          <PortalLoginForm />
         )}
       </PortalContainer>
       <PortalContainerFlip onClick={flipPolaroid}>FLIP ME</PortalContainerFlip>

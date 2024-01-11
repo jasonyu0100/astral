@@ -32,40 +32,38 @@ export function FlowView({
 }: FlowViewProps) {
   const session = sessions.filter((session) => session.id === sessionId).at(0);
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
+  const headerTitle =
+    chapter && session ? `${chapter.title} - ${session.title}` : "None";
 
   return (
     <FlowWrapper>
       <FlowController>
-        {session && chapter && (
-          <FlowControllerCenter>
-            <FlowCenterHeader>
-              <div className="flex flex-row w-1/3">
-                <FlowHeaderList />
-              </div>
-              <div className="flex flex-row justify-center w-1/3">
-                <FlowHeaderTitle>
-                  {chapter.title} - {session.title}
-                </FlowHeaderTitle>
-              </div>
-              <div
-                className="flex flex-row justify-end w-1/3"
-                onClick={() =>
-                  momentHandler.addMoment({
-                    ...flowTable.session.moment.example,
-                    id: Date.now().toFixed().toString(),
-                  })
-                }
-              >
-                <FlowHeaderAdd />
-              </div>
-            </FlowCenterHeader>
-            <FlowRecord>
-              {moments.map((moment, index) => (
-                <FlowRecordLog moment={moment} index={index}></FlowRecordLog>
-              ))}
-            </FlowRecord>
-          </FlowControllerCenter>
-        )}
+        <FlowControllerCenter>
+          <FlowCenterHeader>
+            <div className="flex flex-row w-1/3">
+              <FlowHeaderList />
+            </div>
+            <div className="flex flex-row justify-center w-1/3">
+              <FlowHeaderTitle>{headerTitle}</FlowHeaderTitle>
+            </div>
+            <div
+              className="flex flex-row justify-end w-1/3"
+              onClick={() =>
+                momentHandler.addMoment({
+                  ...flowTable.session.moment.example,
+                  id: Date.now().toFixed().toString(),
+                })
+              }
+            >
+              <FlowHeaderAdd />
+            </div>
+          </FlowCenterHeader>
+          <FlowRecord>
+            {moments.map((moment, index) => (
+              <FlowRecordLog moment={moment} index={index}></FlowRecordLog>
+            ))}
+          </FlowRecord>
+        </FlowControllerCenter>
         <FlowChapters>
           <FlowChaptersLeft />
           <FlowChaptersRow>

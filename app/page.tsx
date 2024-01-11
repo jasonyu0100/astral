@@ -1,9 +1,10 @@
-import { ReserveView } from "./(pages)/(portal)/reserve/view";
+import { PortalBackground } from "./(pages)/(common)/background/portal/main";
+import { LoginView } from "./(pages)/(portal)/login/view";
 
 export default function Page() {
   return (
-    <div className="w-screen h-screen relative flex flex-col justify-center items-center bg-gradient-to-b from-violet-950 to-slate-950">
-      <ReserveView />
-    </div>
+    <PortalBackground>
+      <LoginView />
+    </PortalBackground>
   );
 }

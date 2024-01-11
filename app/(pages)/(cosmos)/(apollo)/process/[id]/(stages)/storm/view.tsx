@@ -36,7 +36,7 @@ export function StormView({
   return (
     <StormWrapper>
       <StormControllerMain>
-        {(chat && chapter) && (
+        {chat && chapter && (
           <StormChatBody>
             <StormHeader chat={chat} chapter={chapter} />
             <StormChatMessages>
@@ -62,7 +62,7 @@ export function StormView({
             <StormMessageInputVoice />
             <StormMessageInputSend
               onClick={(e) => {
-                chatHandler.sendChatMessage(inputMessage);
+                chatHandler.sendMessage(inputMessage);
                 changeInputMessage("");
               }}
             />
@@ -71,16 +71,15 @@ export function StormView({
       </StormControllerMain>
       <StormSidePanel>
         <SidePanelColumn>
-          {chapters.map((chapter) => (
+          {chapters.map((chapter, index) => (
             <StormSidePanelChapterSection
+              index={index}
               selectChat={chatHandler.selectChat}
               chapter={chapter}
               chatId={chatId}
-              chats={
-                chapter.id === chapterId ? chats : stormTable.chat.examples
-              }
+              chats={chapter.id === chapterId ? chats : []}
               active={chapter.id === chapterId}
-              addChat={chatHandler.addChatToChats}
+              addChat={chatHandler.addChat}
             />
           ))}
           <div

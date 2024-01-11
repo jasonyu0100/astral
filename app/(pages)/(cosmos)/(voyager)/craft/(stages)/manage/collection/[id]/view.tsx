@@ -27,7 +27,7 @@ export default function DriveFolderView({
       <DriveController>
         <DriveBreadcrumbs>
           <DriveBreadcrumbItem href={craftMap.craft.manage.link} active={false}>
-            Drive
+            Home
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
           <DriveBreadcrumbItem

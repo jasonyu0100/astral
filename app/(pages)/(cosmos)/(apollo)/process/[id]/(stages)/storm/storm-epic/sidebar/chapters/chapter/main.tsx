@@ -9,6 +9,7 @@ import { ChatObj } from "../../../../../../../../../tables/storm/chat/main";
 import { stormTable } from "../../../../../../../../../tables/storm/table";
 
 interface StormSidePanelSectionViewProps {
+  index: number;
   chats: ChatObj[];
   chatId: string;
   chapter: ChapterObj;
@@ -18,7 +19,7 @@ interface StormSidePanelSectionViewProps {
 }
 
 export function StormSidePanelChapterSection({
-  chapter: chapter,
+  chapter,
   chats,
   chatId,
   active,
@@ -43,7 +44,7 @@ export function StormSidePanelChapterSection({
       >
         <StormSidePanelSectionHeader>
           <StormSidePanelSectionTitle>
-            {chapter.title} {(show) && `(${chats.length})`}
+            {chapter.title} {`(${chats.length})`}
           </StormSidePanelSectionTitle>
           <StormSidePanelSectionIndicator show={active} />
         </StormSidePanelSectionHeader>

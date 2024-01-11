@@ -1,6 +1,5 @@
 import {
   backgroundStyles,
-  borderStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
 import { Layer } from "@/(pages)/(common)/layer/main";
@@ -16,6 +15,7 @@ export function WorksHeader({
       displayName={WorksHeader.name}
       containerStyle={containerStyles["row-center"]}
       backgroundStyle={backgroundStyles["glass-5"]}
+      contentStyle="px-[2rem]"
     >
       {children}
     </Layer>

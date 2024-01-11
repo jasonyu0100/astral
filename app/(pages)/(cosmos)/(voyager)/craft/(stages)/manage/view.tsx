@@ -8,10 +8,6 @@ import { DriveBreadcrumbItem } from "./(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "./(common)/breadcrumb/divider/main";
 import { DriveSectionGrid } from "./drive-epic/grid/main";
 import { craftMap } from "../../map";
-import { SidebarBody } from "./drive-epic/sidebar/body/main";
-import { SidebarCover } from "./drive-epic/sidebar/cover/main";
-import { SidebarInfo } from "./drive-epic/sidebar/info/main";
-import { DriveManageSidebar } from "./drive-epic/sidebar/main";
 import { ManageViewProps } from "./page";
 import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
 
@@ -21,9 +17,8 @@ export function ManageView({ gallerys, addGallery }: ManageViewProps) {
       <DriveController>
         <DriveBreadcrumbs>
           <DriveBreadcrumbItem href={craftMap.craft.link} active={true}>
-            Drive
+            Home
           </DriveBreadcrumbItem>
-          <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>
         <DriveSectionGrid>
           {gallerys.map((gallery) => (
@@ -39,12 +34,6 @@ export function ManageView({ gallerys, addGallery }: ManageViewProps) {
           />
         </DriveSectionGrid>
       </DriveController>
-      <DriveManageSidebar>
-        <SidebarBody>
-          <SidebarCover />
-          <SidebarInfo />
-        </SidebarBody>
-      </DriveManageSidebar>
     </DriveWrapper>
   );
 }

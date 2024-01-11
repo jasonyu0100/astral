@@ -11,9 +11,9 @@ export const draftTable = {
   constellation: {
     example: exampleConstellation,
     examples: exampleConstellations,
-  },
-  star: {
-    example: exampleStar,
-    examples: exampleStars,
+    star: {
+      example: exampleStar,
+      examples: exampleStars,
+    },
   },
 };

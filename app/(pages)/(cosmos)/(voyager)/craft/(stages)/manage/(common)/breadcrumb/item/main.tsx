@@ -6,7 +6,7 @@ export interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
 export function DriveBreadcrumbItem({children, active, ...props} : InputProps) {
     return <>
       {active ?
-        <a className="text-slate-400 font-bold" {...props}>
+        <a className="text-slate-300 font-bold" {...props}>
           {children}
         </a>
         :

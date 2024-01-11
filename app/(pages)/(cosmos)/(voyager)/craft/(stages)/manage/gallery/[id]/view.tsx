@@ -26,7 +26,7 @@ export function DriveSectionView({
       <DriveController>
         <DriveBreadcrumbs>
           <DriveBreadcrumbItem href={craftMap.craft.manage.link} active={false}>
-            Drive
+            Home
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
           <DriveBreadcrumbItem
@@ -35,7 +35,6 @@ export function DriveSectionView({
           >
             {gallery.name}
           </DriveBreadcrumbItem>
-          <DriveBreadcrumbDivider />
         </DriveBreadcrumbs>
         {gallery !== null && (
           <DriveSectionGrid>
@@ -47,9 +46,7 @@ export function DriveSectionView({
             ))}
             <DriveSectionAdd
               onClick={() => {
-                addCollection(
-                  collectionTable.example
-                );
+                addCollection(collectionTable.example);
               }}
             />
           </DriveSectionGrid>
@@ -57,8 +54,8 @@ export function DriveSectionView({
       </DriveController>
       <DriveSectionSidebar>
         <SidebarBody>
-          <SidebarCover/>
-          <SidebarInfo/>
+          <SidebarCover />
+          <SidebarInfo />
         </SidebarBody>
       </DriveSectionSidebar>
     </DriveWrapper>

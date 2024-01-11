@@ -12,12 +12,22 @@ import { WorkGenre } from "./works-epic/list/work/genre/main";
 import { WorkInfo } from "./works-epic/list/work/info/main";
 import { WorkViewProps } from "./(stages)/all/page";
 import { spaceTable } from "../../tables/space/table";
+import { WorksHeaderCover } from "./works-epic/header/album-info/cover/main";
+import { WorksHeaderText } from "./works-epic/header/album-info/text/main";
+import { WorksHeaderTextMain } from "./works-epic/header/album-info/text/main/main";
+import { WorksHeaderTextSub } from "./works-epic/header/album-info/text/sub/main";
 
 export function WorksView({ type, spaces, addSpace }: WorkViewProps) {
   return (
     <WorksContainer>
       <WorksHeader>
-        <WorksAlbumInfo heading={type} subHeading="Shared" />
+        <WorksAlbumInfo>
+          <WorksHeaderCover />
+          <WorksHeaderText>
+            <WorksHeaderTextMain>{type}</WorksHeaderTextMain>
+            <WorksHeaderTextSub>Shared</WorksHeaderTextSub>
+          </WorksHeaderText>
+        </WorksAlbumInfo>
         <WorksHeaderAction
           onClick={() => {
             addSpace(spaceTable.example);

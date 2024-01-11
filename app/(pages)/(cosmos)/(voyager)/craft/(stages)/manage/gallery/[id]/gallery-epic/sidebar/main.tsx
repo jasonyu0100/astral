@@ -10,10 +10,9 @@ export function DriveSectionSidebar({
     <Layer
       displayName={DriveSectionSidebar.name}
       backgroundStyle={backgroundStyles["glass-5"]}
-      sizeStyle="w-[500px] h-full"
+      sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
     >
       {children}
     </Layer>
   );
 }
-

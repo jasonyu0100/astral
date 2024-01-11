@@ -64,7 +64,7 @@ export function RegisterView() {
             <PortalGalleryTitle>{categories[categoryIndex]}</PortalGalleryTitle>
           </PortalGalleryView>
         ) : (
-          <PortalRegisterForm/>
+          <PortalRegisterForm />
         )}
       </PortalContainer>
       <PortalContainerFlip onClick={flipPolaroid}>FLIP ME</PortalContainerFlip>

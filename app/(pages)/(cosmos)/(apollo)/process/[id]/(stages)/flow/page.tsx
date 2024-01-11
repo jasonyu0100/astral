@@ -33,22 +33,22 @@ export default function Page() {
   const chapterHandler: ChapterHandler = {
     addChapter: (chapter: ChapterObj) => {
       _chapterHandler.addChapter(chapter);
-      // SYNC NEW CHAPTER W/ SESSIONS
+      _sessionHandler.updateSessions([])
       return chapter;
     },
     goToChapter: (chapter: ChapterObj) => {
       _chapterHandler.goToChapter(chapter);
-      // SYNC NEW CHAPTER W/ SESSIONS
+      _sessionHandler.updateSessions([])
       return chapter;
     },
     goToPrevChapter: () => {
       const chapter = _chapterHandler.goToPrevChapter();
-      // SYNC NEW CHAPTER W/ SESSIONS
+      _sessionHandler.updateSessions([])
       return chapter;
     },
     goToNextChapter: () => {
       const chapter = _chapterHandler.goToNextChapter();
-      // SYNC NEW CHAPTER W/ SESSIONS
+      _sessionHandler.updateSessions([])
       return chapter;
     },
   };
