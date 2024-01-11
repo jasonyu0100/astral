@@ -6,7 +6,7 @@ export function DraftLinks({ stars }: { stars: StarObj[] }) {
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {stars.map((star, i) => (
         <line
-            className="stroke-slate-300 opacity-30"
+            className="stroke-slate-500 opacity-30"
           x1={star.x + 50}
           y1={star.y + 60}
           x2={stars[i === 0 ? stars.length - 1 : i - 1].x + 50}

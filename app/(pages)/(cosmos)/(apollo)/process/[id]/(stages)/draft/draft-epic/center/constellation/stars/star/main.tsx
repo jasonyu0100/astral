@@ -46,11 +46,11 @@ export function DraftStar({
     >
       <div className="w-[100px] h-[100px]">
         <img
-          className="w-[100px] h-[100px] rounded-full shadow-md shadow-slate-300/50 flex-shrink-0 pointer-events-none opacity-80"
+          className="w-[100px] h-[100px] rounded-full flex-shrink-0 pointer-events-none opacity-80"
           src={star.file.src}
         />
       </div>
-      <p className="w-full text-center text-white font-bold">
+      <p className="w-full text-center text-slate-500 font-bold">
         {star.file.name}
       </p>
     </motion.div>

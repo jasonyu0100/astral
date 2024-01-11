@@ -35,11 +35,11 @@ export const roundedStyles = {
 }
 
 export const borderStyles = {
-  "border-all": "border border-slate-200 border-opacity-30",
-  "border-t": "border-t border-slate-200 border-opacity-30",
-  "border-r": "border-r border-slate-200 border-opacity-30",
-  "border-b": "border-b border-slate-200 border-opacity-30",
-  "border-l": "border-l border-slate-200 border-opacity-30",
+  "border-all": "border border-slate-500 border-opacity-30",
+  "border-t": "border-t border-slate-500 border-opacity-30",
+  "border-r": "border-r border-slate-500 border-opacity-30",
+  "border-b": "border-b border-slate-500 border-opacity-30",
+  "border-l": "border-l border-slate-500 border-opacity-30",
   "rounded": "rounded-[1rem] overflow-hidden",
   "rounded-tl": "rounded-tl-[1rem] overflow-hidden",
   "rounded-tr": "rounded-tr-[1rem] overflow-hidden",
