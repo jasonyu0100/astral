@@ -8,7 +8,7 @@ export function Tab({
   ...props
 }: TabProps) {
   return (
-    <a {...props} className="flex flex-col items-start w-[9rem]">
+    <a {...props} className="flex flex-col items-start w-[9rem] pt-1">
       {children}
     </a>
   );
