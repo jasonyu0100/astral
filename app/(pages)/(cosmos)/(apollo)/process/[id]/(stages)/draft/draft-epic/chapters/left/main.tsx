@@ -1,6 +1,12 @@
-export function DraftChaptersLeft() {
+interface DraftChaptersLeftProps
+  extends React.ComponentPropsWithoutRef<"button"> {}
+
+export function DraftChaptersLeft({ ...props }: DraftChaptersLeftProps) {
   return (
-    <div className="w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full ">
+    <button
+      className="w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full"
+      {...props}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"
@@ -25,6 +31,6 @@ export function DraftChaptersLeft() {
           />
         </g>
       </svg>
-    </div>
+    </button>
   );
 }

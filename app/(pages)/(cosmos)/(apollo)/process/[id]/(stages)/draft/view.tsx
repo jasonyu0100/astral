@@ -56,7 +56,7 @@ export function DraftView({
               <div
                 className="flex flex-row justify-end w-1/3"
                 onClick={() => {
-                  constellationHandler.addConstellationToStep(
+                  constellationHandler.addConstellation(
                     draftTable.constellation.example
                   );
                 }}
@@ -70,11 +70,11 @@ export function DraftView({
                 className="absolute top-0 left- 0 w-full h-full"
                 ref={constraintsRef}
               >
-                {stars.map((star, i) => (
+                {stars.map((star) => (
                   <DraftStar
                     star={star}
                     constraintsRef={constraintsRef}
-                    updateStar={(data) => starHandling.updateStar(i, data)}
+                    updateStar={(data) => starHandling.updateStar(star.id, data)}
                   />
                 ))}
               </motion.div>
@@ -82,7 +82,7 @@ export function DraftView({
           </DraftCenter>
         )}
         <DraftChapters>
-          <DraftChaptersLeft />
+          <DraftChaptersLeft onClick={() => chapterHandling.goToPrevChapter()}/>
           <DraftChaptersRow>
             {chapters.map((chapter) => (
               <DraftChaptersItem
@@ -100,7 +100,7 @@ export function DraftView({
               }
             />
           </DraftChaptersRow>
-          <DraftChaptersRight />
+          <DraftChaptersRight onClick={() => chapterHandling.goToNextChapter()}/>
         </DraftChapters>
       </DraftController>
       <Sidebar />

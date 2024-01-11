@@ -10,7 +10,7 @@ export function TabText({
   return (
     <div
       className={clsx(
-        "w-[7rem] mt-1 text-slate-400 text-2xl font-extraBold leading-9",
+        "h-[2.5rem] w-[7rem] text-slate-400 text-xl font-extraBold leading-9",
         {
           "opacity-50": !active,
           "opacity-100": active,

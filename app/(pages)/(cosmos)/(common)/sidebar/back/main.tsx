@@ -4,7 +4,7 @@ interface SidebarBackProps extends React.ComponentPropsWithoutRef<"a"> {
 export function SidebarBack({...props}: SidebarBackProps) {
   return (
     <a
-      className="self-stretch justify-start items-center gap-[1rem] inline-flex w-full h-[4rem]"
+      className="self-stretch gap-[1rem] flex items-center w-full h-[3rem]"
       {...props}
     >
     <svg

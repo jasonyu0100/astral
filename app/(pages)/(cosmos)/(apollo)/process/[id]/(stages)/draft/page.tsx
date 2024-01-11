@@ -4,26 +4,10 @@ import { createContext, useState } from "react";
 import { DraftView } from "./view";
 import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 import { StarObj } from "@/(pages)/(cosmos)/tables/draft/constellation/star/main";
-import { draftTable } from "@/(pages)/(cosmos)/tables/draft/table";
 import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
 import { ConstellationObj } from "@/(pages)/(cosmos)/tables/draft/constellation/main";
-
-export interface StarHandler {
-  updateStar: (i: number, data: any) => void;
-  spawnStar: (draftMedia: FileObj) => void;
-}
-
-export interface ChapterHandler {
-  addChapter: (chapter: ChapterObj) => void;
-  goToChapter: (chapter: ChapterObj) => void;
-}
-
-export interface ConstellationHandler {
-  updateCurrentMoment: (constellation: ConstellationObj) => void;
-  addConstellationToStep: (constellation: ConstellationObj) => void;
-  addFileToConstellation: (file: FileObj) => void;
-}
+import { ChapterHandler, useChapters } from "../../handler/chapters/main";
+import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellation/main";
 
 export interface DraftContextObj {
   starHandler: StarHandler;
@@ -45,143 +29,75 @@ export interface DraftViewProps {
 export const DraftContext = createContext<DraftContextObj>({});
 
 export default function Page() {
-  const [chapters, changeChapters] = useState<ChapterObj[]>(
-    spaceTable.chapter.examples
-  );
-  const [chapterId, changeChapterId] = useState<string>(
-    chapters.at(0)?.id || ""
-  );
-  const [constellations, changeConstellations] = useState<ConstellationObj[]>(
-    draftTable.constellation.examples
-  );
-  const [constellationId, changeConstellationId] = useState<string>(
-    constellations.at(0)?.id || ""
-  );
-  const [stars, changeStars] = useState<StarObj[]>(draftTable.star.examples);
+  const { chapters, chapterId, _chapterHandler } = useChapters();
+  const { stars, _starHandler, constellations, constellationId, _constellationHandler } = useConstellation();
 
-  // const syncHandler = {
-  //   serialize: (obj: any) => JSON.parse(JSON.stringify(obj)),
-  //   getCurrentChapter: (chapters: ChapterObj[]) =>
-  //     chapters.filter((step) => step.id === chapterId).at(0),
-  //   syncWithinChapters: () => {
-  //     const currentChapter: ChapterObj = syncHandler.serialize(
-  //       syncHandler.getCurrentChapter(chapters)
-  //     );
-  //     if (currentChapter) {
-  //       currentChapter.points.draftPoint.stars = stars;
-  //       changeChapters((prev) =>
-  //         prev.map((step) => (step.id === chapterId ? currentChapter : step))
-  //       );
-  //     }
-  //   },
-  // };
-
-  const stepHandler: ChapterHandler = {
+  const chapterHandler: ChapterHandler = {
     addChapter: (chapter: ChapterObj) => {
-      // syncHandler.syncWithinChapters();
-      changeChapterId(chapter.id);
-      changeChapters((prev) => [...prev, chapter]);
-      changeStars(draftTable.star.examples);
+      _chapterHandler.addChapter(chapter);
+      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
+      return chapter;
     },
     goToChapter: (chapter: ChapterObj) => {
-      // syncHandler.syncWithinChapters();
-      changeChapterId(chapter.id);
-      changeStars(draftTable.star.examples);
+      _chapterHandler.goToChapter(chapter);
+      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
+      return chapter;
     },
-  };
-
-  const constellationHelper = {
-    updateConstellationsWithCurrent: (
-      newCurrentConstellation: ConstellationObj
-    ) => {
-      changeConstellations((prev) =>
-        prev.map((moment) =>
-          moment.id === newCurrentConstellation.id
-            ? newCurrentConstellation
-            : moment
-        )
-      );
+    goToPrevChapter: () => {
+      const chapter = _chapterHandler.goToPrevChapter()
+      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
+      return chapter;
     },
-
-    getCurrentConstellation: () => {
-      for (let constellation of constellations) {
-        if (constellation.id === constellationId) {
-          return constellation;
-        }
-      }
-      return null;
+    goToNextChapter: () => {
+      const chapter = _chapterHandler.goToPrevChapter()
+      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
+      return chapter;
     },
   };
 
   const constellationHandler: ConstellationHandler = {
-    updateCurrentMoment: (constellation: ConstellationObj) => {
-      changeConstellationId(constellation.id);
-      changeStars(constellation.stars);
+    goToConstellation: (constellation: ConstellationObj) => {
+      _constellationHandler.goToConstellation(constellation)
+      return constellation
     },
 
-    addConstellationToStep: (constellation: ConstellationObj) => {
-      changeConstellationId(constellation.id);
-      changeConstellations((prev) => [...prev, constellation]);
-      changeStars(constellation.stars);
+    addConstellation: (constellation: ConstellationObj) => {
+      _constellationHandler.addConstellation(constellation)
+      return constellation
     },
 
     addFileToConstellation: (file: FileObj) => {
-      const currentConstellation =
-        constellationHelper.getCurrentConstellation();
-      if (currentConstellation) {
-        const newConstellation = {
-          ...currentConstellation,
-          stars: [
-            ...currentConstellation.stars,
-            {
-              ...draftTable.star.example,
-              file: file,
-            },
-          ],
-        };
-        constellationHelper.updateConstellationsWithCurrent(newConstellation);
-      }
+      const constellation = _constellationHandler.addFileToConstellation(file)
+      return constellation
     },
   };
 
   const starHandler: StarHandler = {
-    updateStar: (i: number, data: any) => {
-      changeStars((prev: any[]) =>
-        prev.map((o: any, j: number) => (j === i ? { ...o, ...data } : o))
-      );
+    updateStar: (starId: string, data: any) => {
+      _starHandler.updateStar(starId, data)
     },
-
-    spawnStar: (draftMedia: FileObj) => {
-      changeStars((prev) => [
-        ...prev,
-        {
-          id: Date.now().toString(),
-          x: Math.random() * 500,
-          y: Math.random() * 500,
-          file: draftMedia,
-        },
-      ]);
-      alert(`Spawned Star`);
+    spawnStar: (file: FileObj) => {
+      return _starHandler.spawnStar(file)
     },
-  };
+  }
 
   return (
     <DraftContext.Provider
       value={{
         starHandler: starHandler,
-        chapterHandler: stepHandler,
+        chapterHandler: chapterHandler,
         constellationHandler: constellationHandler,
       }}
     >
       <DraftView
+        stars={stars}
         chapterId={chapterId}
         chapters={chapters}
         starHandler={starHandler}
-        chapterHandler={stepHandler}
+        chapterHandler={chapterHandler}
         constellationId={constellationId}
         constellations={constellations}
         constellationHandler={constellationHandler}
-        stars={stars}
       />
     </DraftContext.Provider>
   );

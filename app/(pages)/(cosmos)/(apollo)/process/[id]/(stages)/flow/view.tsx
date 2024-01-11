@@ -21,12 +21,14 @@ import FlowHeaderTitle from "./flow-epic/center/header/title/main";
 import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
 
 export function FlowView({
+  moments,
   sessionId,
   chapterId,
   sessions,
   chapters,
   sessionHandler,
   chapterHandler,
+  momentHandler,
 }: FlowViewProps) {
   const session = sessions.filter((session) => session.id === sessionId).at(0);
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
@@ -48,8 +50,8 @@ export function FlowView({
               <div
                 className="flex flex-row justify-end w-1/3"
                 onClick={() =>
-                  sessionHandler.addSessionToStep({
-                    ...flowTable.session.example,
+                  momentHandler.addMoment({
+                    ...flowTable.session.moment.example,
                     id: Date.now().toFixed().toString(),
                   })
                 }
@@ -58,8 +60,8 @@ export function FlowView({
               </div>
             </FlowCenterHeader>
             <FlowRecord>
-              {sessions.map((session, index) => (
-                <FlowRecordLog session={session} index={index}></FlowRecordLog>
+              {moments.map((moment, index) => (
+                <FlowRecordLog moment={moment} index={index}></FlowRecordLog>
               ))}
             </FlowRecord>
           </FlowControllerCenter>

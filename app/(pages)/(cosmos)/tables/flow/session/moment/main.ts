@@ -1,6 +1,7 @@
 import { FileObj, exampleFile } from "../../../collection/file/main";
 
 export interface MomentObj {
+  id: string;
   title: string;
   time: string;
   description: string;
@@ -8,6 +9,7 @@ export interface MomentObj {
 }
 
 export const exampleMoment: MomentObj = {
+  id: "0",
   title: "Moment Example",
   time: new Date("2023-12-19").toISOString(),
   description: "Moment Description Example",
@@ -15,16 +17,18 @@ export const exampleMoment: MomentObj = {
 };
 
 export const exampleMoments: MomentObj[] = [
-    {
-      title: "Moment Example 1",
-      time: new Date("2023-12-19").toISOString(),
-      description: "Moment Description Example",
-      file: exampleFile,
-    },
-    {
-      title: "Moment Example 2",
-      time: new Date("2023-12-19").toISOString(),
-      description: "Moment Description Example",
-      file: exampleFile,
-    },
+  {
+    id: "0",
+    title: "Moment Example 1",
+    time: new Date("2023-12-19").toISOString(),
+    description: "Moment Description Example",
+    file: exampleFile,
+  },
+  {
+    id: "1",
+    title: "Moment Example 2",
+    time: new Date("2023-12-19").toISOString(),
+    description: "Moment Description Example",
+    file: exampleFile,
+  },
 ];

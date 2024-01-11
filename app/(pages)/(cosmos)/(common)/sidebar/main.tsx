@@ -29,9 +29,9 @@ export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
   return (
     <>
       {minimised ? (
-        <div className="w-[6.5rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
+        <div className="w-[4.5rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
           <SidebarBack href={worksMap.works.now.link} />
-          <div className="w-full h-[1rem] border-t border-slate-300 border-opacity-30"></div>
+          <div className="w-full h-[1rem] mb-[2rem] border-b border-slate-300 border-opacity-30"></div>
           <SidebarIndicators>
             <IndicatorOne indicator={indicator} minimised />
             <IndicatorTwo indicator={indicator} minimised />
@@ -41,12 +41,12 @@ export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
           </SidebarIndicators>
         </div>
       ) : (
-        <div className="w-[16rem] h-full flex flex-col flex-shrink-0 space-y-[1rem] px-[2rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
+        <div className="w-[15rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-gradient-to-br from-slate-800 to-slate-900">
           <SidebarCurrentWork href={processMap.process.id.storm.link("1")}>
             <SidebarWorkCover active={!indicator} />
             <SidebarWorkInfo active={!indicator} />
           </SidebarCurrentWork>
-          <div className="w-full h-[1rem] border-t border-slate-300 border-opacity-30"></div>
+          <div className="w-full h-[1rem] mb-[2rem] border-b border-slate-300 border-opacity-30"></div>
           <SidebarIndicators>
             <IndicatorOne indicator={indicator} minimised={minimised} />
             <IndicatorTwo indicator={indicator} />

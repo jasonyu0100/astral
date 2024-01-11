@@ -169,7 +169,7 @@ export function SidebarView({
               {filteredFiles.map((file) => (
                 <CollectionFile>
                   <CollectionFileThumbnailWrapper
-                    onClick={() => sessionHandler.addSnapshotToSession(file)}
+                    onClick={() => sessionHandler.addFileToSession(file)}
                   >
                     <CollectionFileThumbnail src={file.src} />
                   </CollectionFileThumbnailWrapper>

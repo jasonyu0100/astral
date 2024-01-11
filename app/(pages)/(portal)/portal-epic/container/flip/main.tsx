@@ -9,7 +9,7 @@ export function PortalContainerFlip({
 }: PortalContainerFlipProps) {
   return (
     <button {...props}>
-      <div className="mt-12 text-center text-slate-500 text-xl font-bold leading-7 cursor-pointer">
+      <div className="mt-[3rem] text-center text-slate-500 text-xl font-bold leading-7 cursor-pointer">
         {children}
       </div>
     </button>
