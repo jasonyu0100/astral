@@ -1,12 +1,10 @@
 "use client";
 import { useEffect } from "react";
 import { redirect } from "next/navigation";
-import { isAuthenticated } from "./Auth";
-
 
 export default function isAuth(Component: any) {
   return function IsAuth(props: any) {
-    const auth = localStorage.user.googleId != "";
+    const auth = localStorage?.user?.googleId != null;
 
     useEffect(() => {
       if (!auth) {
