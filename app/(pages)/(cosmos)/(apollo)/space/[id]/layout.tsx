@@ -1,16 +1,16 @@
-"use client";
+"use client"
 
 import { Topbar } from "@/(pages)/(common)/topbar/main";
 import { DashboardController } from "@/(pages)/(cosmos)/(common)/controller/main";
 import { DashboardSidebar } from "../../../(common)/sidebar/main";
 import { createContext } from "react";
 
-export interface ReleaseContextObj {
-  releaseId: string;
+export interface SpaceContextObj {
+  spaceId: string;
 }
 
-export const ReleaseContext = createContext<ReleaseContextObj>({
-  releaseId: "",
+export const SpaceContext = createContext<SpaceContextObj>({
+  spaceId: "",
 });
 
 export default function Layout({
@@ -22,12 +22,12 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <ReleaseContext.Provider value={{ releaseId: params.id }}>
+    <SpaceContext.Provider value={{ spaceId: params.id }}>
       <Topbar />
       <DashboardController>
         <DashboardSidebar minimised />
         {children}
       </DashboardController>
-    </ReleaseContext.Provider>
+    </SpaceContext.Provider>
   );
 }

@@ -4,7 +4,7 @@ import { SpacesList } from "./spaces-epic/list/main";
 import { SpacesContainer } from "./spaces-epic/main";
 import { SpacesHeaderAction } from "./spaces-epic/header/action/main";
 import { SpacesAlbumInfo } from "./spaces-epic/header/album-info/main";
-import { processMap } from "../../(apollo)/process/[id]/map";
+import { spaceMap } from "../../(apollo)/space/[id]/map";
 import { SpaceCount } from "./spaces-epic/list/space/count/main";
 import { SpaceDate } from "./spaces-epic/list/space/date/main";
 import { SpaceDay } from "./spaces-epic/list/space/day/main";
@@ -38,7 +38,7 @@ export function SpacesView({ type, spaces, addSpace }: SpaceViewProps) {
         {spaces.map((space) => (
           <SpacesSpace>
             <SpaceCount />
-            <SpaceInfo href={processMap.process.id.storm.link(space.id)} />
+            <SpaceInfo href={spaceMap.space.id.storm.link(space.id)} />
             <SpaceGenre />
             <SpaceDay />
             <SpaceDate />

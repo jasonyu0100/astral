@@ -27,7 +27,7 @@
       "@models/*": ["(core)/models/*"]
     },
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(pages)/(cosmos)/(apollo)/process/[id]/(stages)/sea/sea-epic/story/firework/sketch.ts", "server.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(pages)/(cosmos)/(apollo)/space/[id]/(stages)/sea/sea-epic/story/firework/sketch.ts", "server.js"],
   "exclude": ["node_modules"],
   "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
 }

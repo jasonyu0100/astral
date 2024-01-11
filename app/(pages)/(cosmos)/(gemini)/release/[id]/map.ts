@@ -1,20 +1,20 @@
-export const processMap = {
-  process: {
+export const releaseMap = {
+  release: {
     id: {
-      storm: {
-        link: (id: string) => `/process/${id}/storm`,
+      one: {
+        link: (id: string) => `/release/${id}/one`,
       },
-      draft: {
-        link: (id: string) => `/process/${id}/draft`,
+      two: {
+        link: (id: string) => `/release/${id}/two`,
       },
-      flow: {
-        link: (id: string) => `/process/${id}/flow`,
+      three: {
+        link: (id: string) => `/release/${id}/three`,
       },
-      sea: {
-        link: (id: string) => `/process/${id}/sea`,
+      four: {
+        link: (id: string) => `/release/${id}/four`,
       },
-      link: (id: string) => `/process/${id}`,
+      link: (id: string) => `/release/${id}`,
     },
-    link: "/process"
+    link: "/release"
   },
 };

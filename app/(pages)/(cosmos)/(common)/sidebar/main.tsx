@@ -7,7 +7,7 @@ import { FeedIndicator } from "./indicators/feed-indicator/main";
 import { RecordIndicator } from "./indicators/record-indicator/main";
 import { SidebarCurrentWork } from "./current-work/main";
 import { SidebarWorkInfo } from "./current-work/info/main";
-import { processMap } from "../../(apollo)/process/[id]/map";
+import { spaceMap } from "../../(apollo)/space/[id]/map";
 import { SidebarBack } from "./back/main";
 import { spacesMap } from "../../(voyager)/spaces/map";
 
@@ -41,7 +41,7 @@ export function DashboardSidebar({ indicator, minimised }: SidebarProps) {
         </div>
       ) : (
         <div className="w-[15rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-slate-900">
-          <SidebarCurrentWork href={processMap.process.id.storm.link("1")}>
+          <SidebarCurrentWork href={spaceMap.space.id.storm.link("1")}>
             <SidebarWorkCover active={!indicator} />
             <SidebarWorkInfo active={!indicator} />
           </SidebarCurrentWork>
