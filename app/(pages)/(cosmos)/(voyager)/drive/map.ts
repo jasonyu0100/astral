@@ -3,16 +3,16 @@ export const driveMap = {
     search: {
       link: "/drive/search",
     },
-    collect: {
-      link: "/drive/collect",
+    explore: {
+      link: "/drive/explore",
       gallery: {
         id: {
-          link: (id: string) => `/drive/manage/gallery/${id}`,
+          link: (id: string) => `/drive/explore/gallery/${id}`,
         },
       },
       collection: {
         id: {
-          link: (id: string) => `/drive/manage/collection/${id}`,
+          link: (id: string) => `/drive/explore/collection/${id}`,
         },
       },
     },

@@ -23,7 +23,7 @@ export function ExploreView({ gallerys, addGallery }: ExploreViewProps) {
           {gallerys.map((gallery) => (
             <DriveSection
               section={gallery}
-              href={driveMap.drive.collect.gallery.id.link(gallery.id)}
+              href={driveMap.drive.explore.gallery.id.link(gallery.id)}
             />
           ))}
           <DriveSectionAdd

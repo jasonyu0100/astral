@@ -26,20 +26,20 @@ export default function DriveFolderView({
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href={driveMap.drive.collect.link} active={false}>
+          <DriveBreadcrumbItem href={driveMap.drive.explore.link} active={false}>
             Home
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
           <DriveBreadcrumbItem
             active={false}
-            href={driveMap.drive.collect.gallery.id.link(gallery.id)}
+            href={driveMap.drive.explore.gallery.id.link(gallery.id)}
           >
             {gallery.name}
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
           <DriveBreadcrumbItem
             active={true}
-            href={driveMap.drive.collect.collection.id.link(collection.id)}
+            href={driveMap.drive.explore.collection.id.link(collection.id)}
           >
             {collection.name}
           </DriveBreadcrumbItem>
