@@ -36,8 +36,8 @@ export function DashboardSidebar({ indicator, minimised, backUrl }: SidebarProps
             <SpacesIndicator indicator={indicator} minimised />
             <DriveIndicator indicator={indicator} minimised />
             <FeedIndicator indicator={indicator} minimised />
-            <BoardIndicator indicator={indicator} minimised />
-            <RecordIndicator indicator={indicator} minimised />
+            {/* <BoardIndicator indicator={indicator} minimised />
+            <RecordIndicator indicator={indicator} minimised /> */}
           </SidebarIndicators>
         </div>
       ) : (
@@ -51,8 +51,8 @@ export function DashboardSidebar({ indicator, minimised, backUrl }: SidebarProps
             <SpacesIndicator indicator={indicator} minimised={minimised} />
             <DriveIndicator indicator={indicator} />
             <FeedIndicator indicator={indicator} />
-            <BoardIndicator indicator={indicator} />
-            <RecordIndicator indicator={indicator} />
+          {/* <BoardIndicator indicator={indicator} />
+            <RecordIndicator indicator={indicator} /> */}
           </SidebarIndicators>
         </div>
       )}
