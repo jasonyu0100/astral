@@ -1,8 +1,8 @@
 "use client";
 import { StormView } from "./view";
-import { ChatObj } from "@/(pages)/(cosmos)/tables/storm/chat/main";
-import { MessageObj } from "@/(pages)/(cosmos)/tables/storm/chat/message/main";
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
+import { ChatObj } from "@/tables/storm/chat/main";
+import { MessageObj } from "@/tables/storm/chat/message/main";
+import { ChapterObj } from "@/tables/space/chapter/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ChatHandler, useChat } from "../../handler/chats/main";
 import isAuth from "@/utils/isAuth";

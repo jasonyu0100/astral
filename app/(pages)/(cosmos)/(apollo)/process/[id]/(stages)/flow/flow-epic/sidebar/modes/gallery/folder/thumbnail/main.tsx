@@ -1,4 +1,4 @@
-import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
+import { CollectionObj } from "@/tables/collection/main";
 
 interface LibraryElementThumbnailProps {
   collection: CollectionObj;

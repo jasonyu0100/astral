@@ -2,7 +2,7 @@ import { FlowMoment } from "./column/moment/main";
 import { FlowPointHeader } from "./header/main";
 import { FlowPointColumm } from "./column/main";
 import { createContext } from "react";
-import { SessionObj, exampleSession } from "@/(pages)/(cosmos)/tables/flow/session/main";
+import { SessionObj, exampleSession } from "@/tables/flow/session/main";
 
 export const FlowMomentContext = createContext(exampleSession);
 

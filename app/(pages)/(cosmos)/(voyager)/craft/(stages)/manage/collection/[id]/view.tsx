@@ -14,7 +14,7 @@ import { SidebarCover } from "./collection-epic/sidebar/cover/main";
 import { SidebarInfo } from "./collection-epic/sidebar/info/main";
 import { CraftFolderGridAdd } from "./collection-epic/grid/add/main";
 import { DriveFolderViewProps } from "./page";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { collectionTable } from "@/tables/collection/table";
 
 export default function DriveFolderView({
   gallery,

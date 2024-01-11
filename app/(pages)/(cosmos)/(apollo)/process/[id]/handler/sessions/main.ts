@@ -1,7 +1,7 @@
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
-import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
-import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
+import { FileObj } from "@/tables/collection/file/main";
+import { SessionObj } from "@/tables/flow/session/main";
+import { MomentObj } from "@/tables/flow/session/moment/main";
+import { flowTable } from "@/tables/flow/table";
 import { useState } from "react";
 
 export interface SessionHandler {

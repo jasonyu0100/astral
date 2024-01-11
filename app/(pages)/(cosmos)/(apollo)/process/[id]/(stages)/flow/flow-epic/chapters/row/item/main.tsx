@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
+import { ChapterObj } from "@/tables/space/chapter/main";
 
 interface FlowChaptersItemProps
   extends React.ComponentPropsWithoutRef<"button"> {

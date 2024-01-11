@@ -13,7 +13,7 @@ import { PortalFormActionContainer } from "../../portal-epic/container/form/acti
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/(pages)/(cosmos)/state/main";
+import { useUser } from "@/state/main";
 import { portalMap } from "../../map";
 
 export function PortalLoginForm() {

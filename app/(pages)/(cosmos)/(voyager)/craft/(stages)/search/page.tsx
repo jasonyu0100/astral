@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { CraftSearchView } from "./view";
-import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
-import { resourceTable } from "@/(pages)/(cosmos)/tables/resource/table";
+import { ResourceObj } from "@/tables/resource/main";
+import { resourceTable } from "@/tables/resource/table";
 import isAuth from "@/utils/isAuth";
 
 interface SearchHandler {

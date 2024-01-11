@@ -17,8 +17,8 @@ import { SidePanelColumn } from "./storm-epic/sidebar/chapters/main";
 import { StormSidePanelChapterSection } from "./storm-epic/sidebar/chapters/chapter/main";
 import { StormChatMessages } from "./storm-epic/main/chat/messages/main";
 import { StormViewProps } from "./page";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
-import { stormTable } from "@/(pages)/(cosmos)/tables/storm/table";
+import { spaceTable } from "@/tables/space/table";
+import { stormTable } from "@/tables/storm/table";
 
 export function StormView({
   chapters,

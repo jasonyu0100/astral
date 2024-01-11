@@ -1,13 +1,13 @@
 "use client";
 import { createContext } from "react";
 import { FlowView } from "./view";
-import { ChapterObj } from "../../../../../tables/space/chapter/main";
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
+import { FileObj } from "@/tables/collection/file/main";
+import { SessionObj } from "@/tables/flow/session/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { MomentHandler, SessionHandler, useSession } from "../../handler/sessions/main";
-import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
+import { MomentObj } from "@/tables/flow/session/moment/main";
 import isAuth from "@/utils/isAuth";
+import { ChapterObj } from "@/tables/space/chapter/main";
 
 interface FlowContextObj {
   sessionHandler: SessionHandler;

@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { CraftExploreView } from "./view";
-import { ExploreElementObj } from "../../../../tables/resource/explore/element/main";
-import { resourceTable } from "@/(pages)/(cosmos)/tables/resource/table";
-import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
+import { resourceTable } from "@/tables/resource/table";
+import { ResourceObj } from "@/tables/resource/main";
 import isAuth from "@/utils/isAuth";
+import { ExploreElementObj } from "@/tables/resource/explore/element/main";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;

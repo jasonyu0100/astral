@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import DriveFolderView from "./view";
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
-import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
-import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { FileObj } from "@/tables/collection/file/main";
+import { GalleryObj } from "@/tables/gallery/main";
+import { CollectionObj } from "@/tables/collection/main";
+import { galleryTable } from "@/tables/gallery/table";
+import { collectionTable } from "@/tables/collection/table";
 import isAuth from "@/utils/isAuth";
 
 export interface DriveFolderViewProps {

@@ -1,7 +1,7 @@
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { ConstellationObj } from "@/(pages)/(cosmos)/tables/draft/constellation/main";
-import { StarObj } from "@/(pages)/(cosmos)/tables/draft/constellation/star/main";
-import { draftTable } from "@/(pages)/(cosmos)/tables/draft/table";
+import { FileObj } from "@/tables/collection/file/main";
+import { ConstellationObj } from "@/tables/draft/constellation/main";
+import { StarObj } from "@/tables/draft/constellation/star/main";
+import { draftTable } from "@/tables/draft/table";
 import { useState } from "react";
 
 export interface ConstellationHandler {

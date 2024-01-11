@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { DraftConstellation } from "./draft-epic/center/constellation/main";
 import { DraftLinks } from "./draft-epic/center/constellation/stars/links/main";
 import { DraftStar } from "./draft-epic/center/constellation/stars/star/main";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { spaceTable } from "@/tables/space/table";
 import { DraftCenterHeader } from "./draft-epic/center/header/main";
 import { DraftHeaderList } from "./draft-epic/center/header/list/main";
 import DraftHeaderTitle from "./draft-epic/center/header/title/main";
@@ -21,7 +21,7 @@ import { DraftChaptersRow } from "./draft-epic/chapters/row/main";
 import { DraftChaptersItem } from "./draft-epic/chapters/row/item/main";
 import DraftChaptersAdd from "./draft-epic/chapters/row/add/main";
 import { DraftChapters } from "./draft-epic/chapters/main";
-import { draftTable } from "@/(pages)/(cosmos)/tables/draft/table";
+import { draftTable } from "@/tables/draft/table";
 
 export function DraftView({
   constellations,

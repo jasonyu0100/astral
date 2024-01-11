@@ -1,5 +1,5 @@
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { ChapterObj } from "@/tables/space/chapter/main";
+import { spaceTable } from "@/tables/space/table";
 import { useState } from "react";
 
 export interface ChapterHandler {

@@ -1,10 +1,10 @@
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import { Layer } from "@/(pages)/(common)/layer/main";
-import { ChatObj } from "@/(pages)/(cosmos)/tables/storm/chat/main";
+import { ChatObj } from "@/tables/storm/chat/main";
 import { HeaderAdd } from "./add/main";
 import HeaderTitle from "./title/main";
 import { HeaderAgent } from "./agent/main";
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
+import { ChapterObj } from "@/tables/space/chapter/main";
 
 export function StormHeader({
   chat,

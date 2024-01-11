@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
+import { CollectionObj } from "@/tables/collection/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
   collection: CollectionObj;

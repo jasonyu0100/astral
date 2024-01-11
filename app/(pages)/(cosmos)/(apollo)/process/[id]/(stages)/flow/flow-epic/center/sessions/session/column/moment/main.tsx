@@ -1,5 +1,5 @@
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
+import { FileObj } from "@/tables/collection/file/main";
+import { MomentObj } from "@/tables/flow/session/moment/main";
 
 export function FlowMoment({
   moment,

@@ -1,4 +1,4 @@
-import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
+import { ResourceObj } from "@/tables/resource/main";
 import clsx from "clsx";
 
 export function SearchResult({

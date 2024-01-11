@@ -1,12 +1,12 @@
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
+import { ChapterObj } from "@/tables/space/chapter/main";
 import { StormSidePanelSectionAdd } from "./chat/add/main";
 import { StormSidePanelChat } from "./chat/main";
 import { StormSidePanelSectionHeader } from "./header/main";
 import StormSidePanelSectionIndicator from "./header/indicator/main";
 import { StormSidePanelSectionTitle } from "./header/title/main";
 import { useEffect, useState } from "react";
-import { ChatObj } from "../../../../../../../../../tables/storm/chat/main";
-import { stormTable } from "../../../../../../../../../tables/storm/table";
+import { ChatObj } from "@/tables/storm/chat/main";
+import { stormTable } from "@/tables/storm/table";
 
 interface StormSidePanelSectionViewProps {
   index: number;

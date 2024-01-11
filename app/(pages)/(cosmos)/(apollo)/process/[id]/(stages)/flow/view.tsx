@@ -5,7 +5,7 @@ import { FlowControllerCenter } from "./flow-epic/center/main";
 import { Sidebar } from "./flow-epic/sidebar/main";
 import { FlowWrapper } from "./flow-epic/wrapper/main";
 import { FlowViewProps } from "./page";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { spaceTable } from "@/tables/space/table";
 import { FlowRecord } from "./flow-epic/record/main";
 import { FlowRecordLog } from "./flow-epic/record/log/main";
 import { FlowChapters } from "./flow-epic/chapters/main";
@@ -18,7 +18,7 @@ import { FlowHeaderAdd } from "./flow-epic/center/header/add/main";
 import { FlowHeaderList } from "./flow-epic/center/header/list/main";
 import { FlowCenterHeader } from "./flow-epic/center/header/main";
 import FlowHeaderTitle from "./flow-epic/center/header/title/main";
-import { flowTable } from "@/(pages)/(cosmos)/tables/flow/table";
+import { flowTable } from "@/tables/flow/table";
 
 export function FlowView({
   moments,

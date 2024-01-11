@@ -9,7 +9,7 @@ import { DriveBreadcrumbDivider } from "./(common)/breadcrumb/divider/main";
 import { DriveSectionGrid } from "./drive-epic/grid/main";
 import { craftMap } from "../../map";
 import { ManageViewProps } from "./page";
-import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { galleryTable } from "@/tables/gallery/table";
 
 export function ManageView({ gallerys, addGallery }: ManageViewProps) {
   return (

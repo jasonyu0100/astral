@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { WorkTabStages } from "../../tabs/main";
 import { WorksView } from "../../view";
-import { SpaceObj } from "@/(pages)/(cosmos)/tables/space/main";
-import { spaceTable } from "@/(pages)/(cosmos)/tables/space/table";
+import { SpaceObj } from "@/tables/space/main";
+import { spaceTable } from "@/tables/space/table";
 import isAuth from "@/utils/isAuth";
 
 export interface WorkViewProps {

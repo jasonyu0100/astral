@@ -2,10 +2,10 @@
 
 import { createContext, useState } from "react";
 import { DraftView } from "./view";
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { StarObj } from "@/(pages)/(cosmos)/tables/draft/constellation/star/main";
-import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
-import { ConstellationObj } from "@/(pages)/(cosmos)/tables/draft/constellation/main";
+import { FileObj } from "@/tables/collection/file/main";
+import { StarObj } from "@/tables/draft/constellation/star/main";
+import { ChapterObj } from "@/tables/space/chapter/main";
+import { ConstellationObj } from "@/tables/draft/constellation/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellations/main";
 import isAuth from "@/utils/isAuth";

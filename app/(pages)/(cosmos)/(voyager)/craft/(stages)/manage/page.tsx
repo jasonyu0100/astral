@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
-import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { GalleryObj } from "@/tables/gallery/main";
+import { galleryTable } from "@/tables/gallery/table";
 import { ManageView } from "./view";
 import isAuth from "@/utils/isAuth";
 

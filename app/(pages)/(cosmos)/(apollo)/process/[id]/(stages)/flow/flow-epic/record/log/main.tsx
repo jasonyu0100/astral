@@ -3,7 +3,7 @@ import { RecordLogDivider } from "./divider/main";
 import { RecordLogMedia } from "./media/main";
 import { RecordLogInfo } from "./info/main";
 import { RecordLogDescription } from "./description/main";
-import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
+import { MomentObj } from "@/tables/flow/session/moment/main";
 
 interface FlowRecordLogProps {
   moment: MomentObj;

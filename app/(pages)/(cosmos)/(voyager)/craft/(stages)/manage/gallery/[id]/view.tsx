@@ -14,7 +14,7 @@ import { SidebarBody } from "./gallery-epic/sidebar/body/main";
 import { SidebarCover } from "./gallery-epic/sidebar/cover/main";
 import { SidebarInfo } from "./gallery-epic/sidebar/info/main";
 import { DriveSectionViewProps } from "./page";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { collectionTable } from "@/tables/collection/table";
 
 export function DriveSectionView({
   gallery,

@@ -11,7 +11,7 @@ import { PortalFormActionContainer } from "../../portal-epic/container/form/acti
 import { PortalFormAltActionLink } from "../../portal-epic/container/form/action-container/alt-action/link/main";
 import { PortalFormAltAction } from "../../portal-epic/container/form/action-container/alt-action/main";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/(pages)/(cosmos)/state/main";
+import { useUser } from "@/state/main";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 

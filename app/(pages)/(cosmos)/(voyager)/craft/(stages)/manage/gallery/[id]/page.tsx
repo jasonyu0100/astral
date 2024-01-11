@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { DriveSectionView } from "./view";
-import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
-import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
-import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { GalleryObj } from "@/tables/gallery/main";
+import { CollectionObj } from "@/tables/collection/main";
+import { galleryTable } from "@/tables/gallery/table";
+import { collectionTable } from "@/tables/collection/table";
 import isAuth from "@/utils/isAuth";
 
 export interface DriveSectionViewProps {

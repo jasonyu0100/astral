@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { ExploreElementObj } from "@/(pages)/(cosmos)/tables/resource/explore/element/main";
+import { ExploreElementObj } from "@/tables/resource/explore/element/main";
 
 export function ResultElement({
   constraintsRef,

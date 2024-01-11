@@ -2,7 +2,7 @@
 import { LoginView } from "./view";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { useUser } from "@/(pages)/(cosmos)/state/main";
+import { useUser } from "@/state/main";
 import { useEffect } from "react";
 
 export default function Page() {

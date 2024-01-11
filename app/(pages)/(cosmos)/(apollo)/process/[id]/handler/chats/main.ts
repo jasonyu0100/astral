@@ -1,6 +1,6 @@
-import { ChatObj } from "@/(pages)/(cosmos)/tables/storm/chat/main";
-import { MessageObj } from "@/(pages)/(cosmos)/tables/storm/chat/message/main";
-import { stormTable } from "@/(pages)/(cosmos)/tables/storm/table";
+import { ChatObj } from "@/tables/storm/chat/main";
+import { MessageObj } from "@/tables/storm/chat/message/main";
+import { stormTable } from "@/tables/storm/table";
 import { useState } from "react";
 
 export interface ChatHandler {

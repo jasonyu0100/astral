@@ -1,4 +1,4 @@
-import { StarObj } from "@/(pages)/(cosmos)/tables/draft/constellation/star/main";
+import { StarObj } from "@/tables/draft/constellation/star/main";
 import { motion } from "framer-motion";
 
 export function DraftLinks({ stars }: { stars: StarObj[] }) {

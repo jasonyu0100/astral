@@ -1,4 +1,4 @@
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
+import { FileObj } from "@/tables/collection/file/main";
 
 export function CraftFolderGridElement({ file }: { file: FileObj }) {
   return (

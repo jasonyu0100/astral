@@ -1,10 +1,10 @@
-import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
-import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
+import { FileObj } from "@/tables/collection/file/main";
+import { GalleryObj } from "@/tables/gallery/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
-import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
-import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
+import { CollectionObj } from "@/tables/collection/main";
+import { collectionTable } from "@/tables/collection/table";
+import { galleryTable } from "@/tables/gallery/table";
 
 export enum SidebarMode {
   Drive = "Drive",

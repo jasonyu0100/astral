@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles } from "@/(pages)/(common)/styles/data";
-import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
+import { GalleryObj } from "@/tables/gallery/main";
 
 interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
   section: GalleryObj;

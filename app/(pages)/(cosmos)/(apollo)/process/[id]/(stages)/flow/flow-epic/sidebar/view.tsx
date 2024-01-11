@@ -34,7 +34,7 @@ import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
 import { FlowContext } from "../../page";
-import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import { collectionTable } from "@/tables/collection/table";
 
 export function SidebarView({
   sidebarViewHandler,
