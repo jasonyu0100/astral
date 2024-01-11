@@ -8,6 +8,7 @@ export interface SessionHandler {
   updateSession: (session: SessionObj) => SessionObj;
   addSession: (session: SessionObj) => SessionObj;
   addFileToSession: (file: FileObj) => SessionObj | undefined;
+  updateSessions: (sessions: SessionObj[]) => SessionObj[];
 }
 
 export interface MomentHandler {
@@ -41,12 +42,20 @@ export const useSession = () : useSessionInterface => {
   };
 
   const _sessionHandler: SessionHandler = {
+    updateSessions: (sessions: SessionObj[]) => {
+      changeSessions(sessions)
+      changeSessionId(sessions.at(0)?.id || "")
+      const session = sessions
+        .filter((session) => session.id === sessionId)
+        .at(0);
+      changeMoments(session?.moments || [])
+      return sessions;
+    },
     updateSession: (session: SessionObj) => {
       changeSessionId(session.id);
       changeMoments(session.moments);
       return session;
     },
-
     addSession: (session: SessionObj) => {
       changeSessionId(session.id);
       changeSessions((prev) => [...prev, session]);

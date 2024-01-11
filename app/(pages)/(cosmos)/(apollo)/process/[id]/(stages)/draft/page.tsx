@@ -7,7 +7,7 @@ import { StarObj } from "@/(pages)/(cosmos)/tables/draft/constellation/star/main
 import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 import { ConstellationObj } from "@/(pages)/(cosmos)/tables/draft/constellation/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
-import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellation/main";
+import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellations/main";
 
 export interface DraftContextObj {
   starHandler: StarHandler;
@@ -35,27 +35,39 @@ export default function Page() {
   const chapterHandler: ChapterHandler = {
     addChapter: (chapter: ChapterObj) => {
       _chapterHandler.addChapter(chapter);
+      _constellationHandler.updateConstellations([])
       // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToChapter: (chapter: ChapterObj) => {
       _chapterHandler.goToChapter(chapter);
+      _constellationHandler.updateConstellations([])
       // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToPrevChapter: () => {
       const chapter = _chapterHandler.goToPrevChapter()
+      _constellationHandler.updateConstellations([])
       // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToNextChapter: () => {
       const chapter = _chapterHandler.goToNextChapter()
+      _constellationHandler.updateConstellations([])
       // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
   };
 
   const constellationHandler: ConstellationHandler = {
+    updateConstellation: (constellation: ConstellationObj) => {
+      _constellationHandler.updateConstellation(constellation)
+      return constellation;
+    },
+    updateConstellations: (constellations: ConstellationObj[]) => {
+      _constellationHandler.updateConstellations(constellations);
+      return constellations;
+    },
     goToConstellation: (constellation: ConstellationObj) => {
       _constellationHandler.goToConstellation(constellation)
       return constellation

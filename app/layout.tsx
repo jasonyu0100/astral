@@ -1,5 +1,4 @@
 // @ts-nocheck
-"use client";
 import clsx from "clsx";
 import "./globals.css";
 import { fontVariables } from "./fonts";

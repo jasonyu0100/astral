@@ -5,7 +5,7 @@ import { ChapterObj } from "../../../../../tables/space/chapter/main";
 import { FileObj } from "@/(pages)/(cosmos)/tables/collection/file/main";
 import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
-import { MomentHandler, SessionHandler, useSession } from "../../handler/session/main";
+import { MomentHandler, SessionHandler, useSession } from "../../handler/sessions/main";
 import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
 
 interface FlowContextObj {
@@ -54,11 +54,14 @@ export default function Page() {
   };
 
   const sessionHandler: SessionHandler = {
+    updateSessions: (sessions: SessionObj[]) => {
+      _sessionHandler.updateSessions(sessions)
+      return sessions;
+    },
     updateSession: (session: SessionObj) => {
       _sessionHandler.updateSession(session);
       return session;
     },
-
     addSession: (session: SessionObj) => {
       _sessionHandler.addSession(session);
       return session;

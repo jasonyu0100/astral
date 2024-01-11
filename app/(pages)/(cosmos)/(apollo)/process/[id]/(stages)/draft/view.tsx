@@ -38,20 +38,20 @@ export function DraftView({
   const constellation = constellations
     .filter((constellation) => constellation.id === constellationId)
     .at(0);
+  const headerTitle = (chapter && constellation) ? `${chapter.title} - ${constellation.title}` : "None"
 
   return (
     <DraftWrapper>
       <DraftController>
-        {chapter && constellation && (
           <DraftCenter>
             <DraftCenterHeader>
               <div className="flex flex-row w-1/3">
                 <DraftHeaderList />
               </div>
               <div className="flex flex-row justify-center w-1/3">
-                <DraftHeaderTitle>
-                  {chapter.title} - {constellation.title}
-                </DraftHeaderTitle>
+                  <DraftHeaderTitle>
+                    {headerTitle}
+                  </DraftHeaderTitle>
               </div>
               <div
                 className="flex flex-row justify-end w-1/3"
@@ -80,7 +80,6 @@ export function DraftView({
               </motion.div>
             </DraftConstellation>
           </DraftCenter>
-        )}
         <DraftChapters>
           <DraftChaptersLeft onClick={() => chapterHandling.goToPrevChapter()}/>
           <DraftChaptersRow>

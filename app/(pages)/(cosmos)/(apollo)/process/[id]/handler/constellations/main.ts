@@ -8,6 +8,8 @@ export interface ConstellationHandler {
   goToConstellation: (constellation: ConstellationObj) => ConstellationObj;
   addConstellation: (constellation: ConstellationObj) => ConstellationObj;
   addFileToConstellation: (file: FileObj) => ConstellationObj | undefined;
+  updateConstellations: (constellations: ConstellationObj[]) => ConstellationObj[];
+  updateConstellation: (constellation: ConstellationObj) => ConstellationObj;
 }
 
 export interface StarHandler {
@@ -45,18 +47,31 @@ export const useConstellation = (): useConstellationInterface => {
   };
 
   const _constellationHandler: ConstellationHandler = {
+    updateConstellations: (constellations: ConstellationObj[]) => {
+      changeConstellations(constellations)
+      changeConstellationId(constellations.at(0)?.id || "")
+      const constellation = constellations
+        .filter((constellation) => constellation.id === constellationId)
+        .at(0);
+      changeStars(constellation?.stars || [])
+      return constellations;
+    },
+    updateConstellation: (constellation: ConstellationObj) => {
+      changeConstellationId(constellation.id);
+      changeStars(constellation.stars);
+      return constellation;
+    },
     goToConstellation: (constellation: ConstellationObj) => {
       changeConstellationId(constellation.id);
       changeStars(constellation.stars)
       return constellation;
     },
-
     addConstellation: (constellation: ConstellationObj) => {
       changeConstellationId(constellation.id);
       changeConstellations((prev) => [...prev, constellation]);
+      changeStars(constellation.stars)
       return constellation;
     },
-
     addFileToConstellation: (file: FileObj) => {
       if (constellation) {
         const newConstellation: ConstellationObj = {
