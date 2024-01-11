@@ -1,5 +1,3 @@
-"use client";
-
 import { DashboardController } from "@/(pages)/(cosmos)/(common)/controller/main";
 import {
   DashboardSidebar,

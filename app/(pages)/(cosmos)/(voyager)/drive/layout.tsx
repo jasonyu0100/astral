@@ -1,5 +1,3 @@
-"use client"
-
 import { DashboardController } from "@/(pages)/(cosmos)/(common)/controller/main";
 import { DashboardBody } from "@/(pages)/(cosmos)/(common)/controller/body/main";
 import { DashboardSidebar, SidebarIndicatorType } from "../../(common)/sidebar/main";
