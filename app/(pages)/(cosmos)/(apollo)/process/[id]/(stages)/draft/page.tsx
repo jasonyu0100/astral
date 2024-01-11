@@ -8,6 +8,7 @@ import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 import { ConstellationObj } from "@/(pages)/(cosmos)/tables/draft/constellation/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellations/main";
+import isAuth from "@/utils/isAuth";
 
 export interface DraftContextObj {
   starHandler: StarHandler;
@@ -28,7 +29,7 @@ export interface DraftViewProps {
 
 export const DraftContext = createContext<DraftContextObj>({});
 
-export default function Page() {
+function Page() {
   const { chapters, chapterId, _chapterHandler } = useChapters();
   const { stars, _starHandler, constellations, constellationId, _constellationHandler } = useConstellation();
 
@@ -114,3 +115,5 @@ export default function Page() {
     </DraftContext.Provider>
   );
 }
+
+export default isAuth(Page);

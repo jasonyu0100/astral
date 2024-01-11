@@ -11,8 +11,9 @@ import { ConstellationStar } from "../../board-epic/center/constellation/stars/s
 import { ConstellationLinks } from "../../board-epic/center/constellation/stars/links/main";
 import { BoardWrapper } from "../../board-epic/wrapper/main";
 import { BoardAuthorInfo } from "../../board-epic/author-info/main";
+import isAuth from "@/utils/isAuth";
 
-export default function Page() {
+function Page() {
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
   const [navigationActive, changeNavigation] = useState(true);
   const constraintsRef = useRef(null);
@@ -53,3 +54,5 @@ export default function Page() {
     </>
   );
 }
+
+export default isAuth(Page);

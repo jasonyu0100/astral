@@ -4,6 +4,7 @@ import { useState } from "react";
 import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
 import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
 import { ManageView } from "./view";
+import isAuth from "@/utils/isAuth";
 
 
 export interface ManageViewProps {
@@ -11,7 +12,7 @@ export interface ManageViewProps {
   addGallery: (section: GalleryObj) => void;
 }
 
-export default function Page() {
+function Page() {
   const [gallerys, changeGallerys] = useState<GalleryObj[]>(galleryTable.examples);
 
   const addGallery = (gallery: GalleryObj) => {
@@ -22,3 +23,5 @@ export default function Page() {
 
   return <ManageView gallerys={gallerys} addGallery={addGallery} />;
 }
+
+export default isAuth(Page);

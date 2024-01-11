@@ -1,14 +1,12 @@
 "use client";
 
-import { Layer } from "@/(pages)/(common)/layer/main";
-import {
-  backgroundStyles,
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
+import isAuth from "@/utils/isAuth";
 
-export default function Page() {
+function Page() {
   return (
     <>
     </>
   );
 }
+
+export default isAuth(Page);

@@ -22,8 +22,9 @@ import { BoardSidebarHeaderTitle } from "../../board-epic/sidebar/header/title/m
 import { TopRowSearchButton } from "../../board-epic/sidebar/header/button-row/button/search/main";
 import { BoardLoomButton } from "../../board-epic/sidebar/header/button-row/button/loom/main";
 import { TopRowAddButton } from "../../board-epic/sidebar/header/button-row/button/add/main";
+import isAuth from "@/utils/isAuth";
 
-export default function Page() {
+function Page() {
   const [boardElements, changeBoardElements] = useState(defaultBoardElements);
   const [boardStars, changeBoardStars] = useState(defaultBoardStars);
   const constraintsRef = useRef(null);
@@ -87,3 +88,5 @@ export default function Page() {
     </BoardWrapper>
   );
 }
+
+export default isAuth(Page);

@@ -1,10 +1,11 @@
 "use client";
 
+import isAuth from "@/utils/isAuth";
 import { RecordCollection } from "../../collection-epic/main";
 import { RecordAlbum } from "../../collection-epic/shelf/album/main";
 import { RecordShelf } from "../../collection-epic/shelf/main";
 
-export default function Page() {
+function Page() {
   return (
     <>
       <RecordCollection>
@@ -22,3 +23,5 @@ export default function Page() {
     </>
   );
 }
+
+export default isAuth(Page);

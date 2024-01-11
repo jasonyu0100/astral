@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CraftSearchView } from "./view";
 import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
 import { resourceTable } from "@/(pages)/(cosmos)/tables/resource/table";
+import isAuth from "@/utils/isAuth";
 
 interface SearchHandler {
   updateQuery: (query: string) => void;
@@ -14,7 +15,7 @@ export interface CraftSearchViewProps {
   results: ResourceObj[];
 }
 
-export default function Page() {
+function Page() {
   const [results, changeResults] = useState(
     resourceTable.search.example.results
   );
@@ -35,3 +36,5 @@ export default function Page() {
 
   return <CraftSearchView results={results} searchHandler={searchHandler} />;
 }
+
+export default isAuth(Page);

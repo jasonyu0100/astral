@@ -8,8 +8,9 @@ import { LinkFeedSidebarSection } from "../../feed-epic/sidebar/section/main";
 import { LinkFeedSidebarEntry } from "../../feed-epic/sidebar/section/entry/main";
 import { LinkFeedWrapper } from "../../feed-epic/wrapper/main";
 import { LinkRecord } from "../../feed-epic/sidebar/record/main";
+import isAuth from "@/utils/isAuth";
 
-export default function Page() {
+function Page() {
   const [sidebarActive, changeSidebarActive] = useState(true);
   return (
     <>
@@ -40,3 +41,5 @@ export default function Page() {
     </>
   );
 }
+
+export default isAuth(Page);

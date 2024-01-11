@@ -1,6 +1,8 @@
 "use client";
 
-export default function Page() {
+import isAuth from "@/utils/isAuth";
+
+function Page() {
   return (
     <>
 
@@ -8,3 +10,4 @@ export default function Page() {
   );
 }
 
+export default isAuth(Page);

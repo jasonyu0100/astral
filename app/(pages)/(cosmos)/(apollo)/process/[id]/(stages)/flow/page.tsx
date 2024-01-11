@@ -7,6 +7,7 @@ import { SessionObj } from "@/(pages)/(cosmos)/tables/flow/session/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { MomentHandler, SessionHandler, useSession } from "../../handler/sessions/main";
 import { MomentObj } from "@/(pages)/(cosmos)/tables/flow/session/moment/main";
+import isAuth from "@/utils/isAuth";
 
 interface FlowContextObj {
   sessionHandler: SessionHandler;
@@ -26,7 +27,7 @@ export interface FlowViewProps {
   momentHandler: MomentHandler;
 }
 
-export default function Page() {
+function Page() {
   const { chapters, chapterId, _chapterHandler } = useChapters();
   const { moments, _momentHandler, sessions, sessionId, _sessionHandler } = useSession();
 
@@ -101,3 +102,5 @@ export default function Page() {
     </FlowContext.Provider>
   );
 }
+
+export default isAuth(Page);

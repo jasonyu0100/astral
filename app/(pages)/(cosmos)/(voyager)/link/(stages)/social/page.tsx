@@ -1,9 +1,13 @@
 "use client";
 
-export default function Page() {
+import isAuth from "@/utils/isAuth";
+
+function Page() {
   return (
     <>
 
     </>
   );
 }
+
+export default isAuth(Page);

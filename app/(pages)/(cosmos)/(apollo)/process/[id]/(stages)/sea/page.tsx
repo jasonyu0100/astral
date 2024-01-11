@@ -1,6 +1,9 @@
 "use client";
+import isAuth from "@/utils/isAuth";
 import { SeaView } from "./view";
 
-export default function Page() {
+function Page() {
   return <SeaView />;
 }
+
+export default isAuth(Page);

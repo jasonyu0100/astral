@@ -5,6 +5,7 @@ import { MessageObj } from "@/(pages)/(cosmos)/tables/storm/chat/message/main";
 import { ChapterObj } from "@/(pages)/(cosmos)/tables/space/chapter/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ChatHandler, useChat } from "../../handler/chats/main";
+import isAuth from "@/utils/isAuth";
 
 export interface StormViewProps {
   chapters: ChapterObj[];
@@ -16,7 +17,7 @@ export interface StormViewProps {
   chatHandler: ChatHandler;
 }
 
-export default function Page() {
+function Page() {
   const { chapters, chapterId, _chapterHandler } = useChapters();
   const { chatId, chats, messages, _chatHandler } = useChat();
 
@@ -78,3 +79,5 @@ export default function Page() {
     />
   );
 }
+
+export default isAuth(Page);

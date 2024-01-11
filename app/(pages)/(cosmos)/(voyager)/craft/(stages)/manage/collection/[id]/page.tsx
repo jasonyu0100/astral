@@ -7,6 +7,7 @@ import { GalleryObj } from "@/(pages)/(cosmos)/tables/gallery/main";
 import { CollectionObj } from "@/(pages)/(cosmos)/tables/collection/main";
 import { galleryTable } from "@/(pages)/(cosmos)/tables/gallery/table";
 import { collectionTable } from "@/(pages)/(cosmos)/tables/collection/table";
+import isAuth from "@/utils/isAuth";
 
 export interface DriveFolderViewProps {
   gallery: GalleryObj;
@@ -18,7 +19,7 @@ interface FileHandler {
   addFile: (file: FileObj) => void;
 }
 
-export default function Page() {
+function Page() {
   const [gallery, changeGallery] = useState(
     galleryTable.example
   );
@@ -44,3 +45,5 @@ export default function Page() {
     />
   );
 }
+
+export default isAuth(Page);

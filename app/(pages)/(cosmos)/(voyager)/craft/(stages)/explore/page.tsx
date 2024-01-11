@@ -4,6 +4,7 @@ import { CraftExploreView } from "./view";
 import { ExploreElementObj } from "../../../../tables/resource/explore/element/main";
 import { resourceTable } from "@/(pages)/(cosmos)/tables/resource/table";
 import { ResourceObj } from "@/(pages)/(cosmos)/tables/resource/main";
+import isAuth from "@/utils/isAuth";
 
 interface SearchHandler {
   searchQuery: (query: string) => void;
@@ -14,7 +15,7 @@ export interface CraftSearchViewProps {
   results: ExploreElementObj[];
 }
 
-export default function Page() {
+function Page() {
   const [results, changeResults] = useState(resourceTable.explore.example.results);
 
   const searchHandler : SearchHandler = {
@@ -34,3 +35,5 @@ export default function Page() {
 
   return <CraftExploreView results={results} searchHandler={searchHandler} />;
 }
+
+export default isAuth(Page);
