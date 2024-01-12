@@ -1,14 +1,16 @@
-export interface InputProps extends React.ComponentPropsWithoutRef<"button"> {
+interface FormButton extends React.ComponentPropsWithoutRef<"button"> {
   children: React.ReactNode;
 }
 
-export function Button({ children, ...props }: InputProps) {
+export function FormButton({ children, ...props }: FormButton) {
   return (
     <button
-      className="w-full px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 sm:w-auto dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       {...props}
+      className={`w-full h-[60px] bg-slate-950 flex flex-col justify-center items-center ${props.className}`}
     >
-      {children}
+      <p className="text-center text-white text-3xl font-bold leading-9">
+        {children}
+      </p>
     </button>
   );
 }

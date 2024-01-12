@@ -3,7 +3,7 @@ interface PortalFormSelectProps
   children: React.ReactNode;
 }
 
-export function PortalFormSelect({
+export function FormSelect({
   children,
   ...props
 }: PortalFormSelectProps) {
@@ -11,7 +11,7 @@ export function PortalFormSelect({
     <div className="w-full h-[50px] border-b-[1px] border-slate-500 ">
       <select
         title="position"
-        className="w-full h-full appearance-none border-none outline-none text-slate-950 text-3xl font-extraBold leading-9 "
+        className="w-full h-full appearance-none border-none outline-none text-slate-950 text-xl font-bold leading-9 "
         {...props}
       >
         {children}

@@ -1,12 +1,14 @@
-export interface InputProps extends React.ComponentPropsWithoutRef<"input"> {
-  children: React.ReactNode;
+interface PortalFormInputProps extends React.ComponentPropsWithoutRef<"input"> {
 }
 
-export function FormInput({ children, ...props }: InputProps) {
+export function FormInput({title, ...props} : PortalFormInputProps) {
   return (
-    <input
-      className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-      {...props}
-    />
+    <div className="w-full h-[50px] border-b-[1px] border-slate-500">
+      <input
+        className="w-full h-full appearance-none bg-transparent outline-none border-none text-slate-950 text-xl font-bold"
+        name="tag"
+        {...props}
+      />
+    </div>
   );
 }

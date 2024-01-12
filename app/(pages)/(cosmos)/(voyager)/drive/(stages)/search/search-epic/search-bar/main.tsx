@@ -9,7 +9,7 @@ export function SearchBar({ children }: {children: React.ReactNode}) {
   return (
     <Layer
       displayName={SearchBar.name}
-      sizeStyle="flex-grow max-w-[700px] h-[4rem]"
+      sizeStyle="flex-grow max-w-[800px] h-[4rem]"
       containerStyle={containerStyles["row-center"]}
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["border-all"]} ${borderStyles.rounded}`}
