@@ -1,6 +1,5 @@
 import { boardTable } from "./board/table";
 import { draftTable } from "./draft/table";
-import { postTable } from "./posts/table";
 import { stormTable } from "./storm/table";
 import { galleryTable } from "./gallery/table";
 import { spaceTable } from "./space/table";
@@ -30,7 +29,13 @@ export const dataArchitecture = {
       flow: {
         table: flowTable,
         session: {
-          table: flowTable.session
+          table: flowTable.session,
+          moment: {
+            table: flowTable.session.moment,
+            comment: {
+              table: flowTable.session.moment.comment
+            }
+          }
         }
       },
       sea: {
@@ -55,8 +60,5 @@ export const dataArchitecture = {
   },
   board: {
     table: boardTable,
-  },
-  post: {
-    table: postTable,
   },
 };

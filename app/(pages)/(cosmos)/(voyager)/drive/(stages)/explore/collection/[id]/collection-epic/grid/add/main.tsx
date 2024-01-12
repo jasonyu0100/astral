@@ -1,13 +1,13 @@
 interface CraftFolderGridAdd extends React.ComponentPropsWithoutRef<"button"> {}
 
-export function CraftFolderGridAdd({ ...props }: CraftFolderGridAdd) {
+export function CollectionFileAdd({ ...props }: CraftFolderGridAdd) {
   return (
     <button {...props}>
-      <div className="flex flex-row w-[400px] h-[150px] items-center space-x-[3rem]">
-        <div className="w-[150px] h-[150px] rounded-full bg-slate-100 flex items-center justify-center">
+      <div className="flex flex-row h-[150px] aspect-[36/16] items-center space-x-[3rem]">
+        <div className="w-[150px] h-[150px] rounded-full bg-black flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-1/4 h-1/4"
+            className="w-1/6 h-1/6"
             viewBox="0 0 20 20"
             fill="none"
           >

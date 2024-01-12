@@ -1,34 +1,57 @@
 import { FileObj, exampleFile } from "../../../collection/file/main";
+import { MomentCommentObj, exampleComments } from "./comment/main";
 
+export enum MomentVisibility {
+  Journal = "Journal",
+  Social = "Social",
+  Explore = "Explore",
+  None = "None",
+}
 export interface MomentObj {
   id: string;
-  title: string;
+  spaceId: string;
+  sessionId: string;
+  userId: string;
   time: string;
-  description: string;
+  log: string;
   file: FileObj;
+  visibility: MomentVisibility;
+  comments: MomentCommentObj[];
 }
 
 export const exampleMoment: MomentObj = {
   id: "0",
-  title: "Moment Example",
   time: new Date("2023-12-19").toISOString(),
-  description: "Moment Description Example",
+  log: "Moment Description Example",
   file: exampleFile,
+  spaceId: "0",
+  sessionId: "0",
+  userId: "0",
+  visibility: MomentVisibility.Journal,
+  comments: exampleComments,
 };
 
 export const exampleMoments: MomentObj[] = [
   {
     id: "0",
-    title: "Moment Example 1",
     time: new Date("2023-12-19").toISOString(),
-    description: "Moment Description Example",
+    log: "Moment Description Example",
     file: exampleFile,
+    spaceId: "0",
+    sessionId: "0",
+    userId: "0",
+    visibility: MomentVisibility.Journal,
+    comments: exampleComments,
   },
   {
     id: "1",
-    title: "Moment Example 2",
     time: new Date("2023-12-19").toISOString(),
-    description: "Moment Description Example",
+    log: "Moment Description Example",
     file: exampleFile,
+    spaceId: "0",
+    sessionId: "0",
+    userId: "0",
+    visibility: MomentVisibility.Journal,
+    comments: exampleComments,
   },
 ];

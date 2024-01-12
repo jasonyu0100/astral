@@ -81,7 +81,7 @@ export function SidebarView({
               active={sidebarMode === SidebarMode.Gallery}
               onClick={() => sidebarViewHandler.goToGalleryView()}
             >
-              {gallery?.name}
+              {gallery?.title}
             </BreadcrumbsLink>
             <BreadcrumbsDivider />
           </>
@@ -109,7 +109,7 @@ export function SidebarView({
                     <DriveSectionThumbanil src={section.thumbnail.src} />
                   </DriveSectionThumbnailWrapper>
                   <DriveSectionInfo>
-                    <p className="text-white font-extraBold">{section.name}</p>
+                    <p className="text-white font-extraBold">{section.title}</p>
                     <p className="text-white font-bold">
                       {section.description}
                     </p>

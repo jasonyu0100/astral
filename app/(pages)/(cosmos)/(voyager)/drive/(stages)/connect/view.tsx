@@ -37,11 +37,6 @@ export function ExploreView({
           </motion.div>
         </div>
       </ExploreController>
-      <Layer
-        backgroundStyle={backgroundStyles["glass-5"]}
-        sizeStyle="w-[500px] h-full"
-      >
-      </Layer>
     </SearchWrapper>
   );
 }

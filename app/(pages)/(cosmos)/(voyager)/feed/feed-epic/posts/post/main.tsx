@@ -3,11 +3,14 @@ import { PostDivider } from "./divider/main";
 import { PostMedia } from "./media/main";
 import { PostInfo } from "./info/main";
 import { PostDescription } from "./description/main";
+import { MomentObj } from "@/tables/flow/session/moment/main";
 
 export function FeedPost({
+  moment,
   children,
 }: {
-  children?: React.ReactNode;
+  moment: MomentObj;
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col w-full space-y-[3rem] items-center py-[2rem]">

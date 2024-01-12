@@ -3,7 +3,7 @@ import { exampleCollections } from "../collection/main";
 
 export interface GalleryObj {
   id: string;
-  name: string;
+  title: string;
   description: string;
   thumbnail: FileObj;
   collectionIds: string[];
@@ -11,7 +11,7 @@ export interface GalleryObj {
 
 export const exampleGallery: GalleryObj = {
   id: "0",
-  name: "Example Gallery",
+  title: "Example Gallery",
   description: "Example Gallery Description",
   collectionIds: exampleCollections.map((collection) => collection.id),
   thumbnail: exampleFile,
@@ -20,14 +20,14 @@ export const exampleGallery: GalleryObj = {
 export const exampleGallerys: GalleryObj[] = [
   {
     id: "0",
-    name: "Example Gallery",
+    title: "Example Gallery",
     description: "Example Gallery Description",
     collectionIds: exampleCollections.map((collection) => collection.id),
     thumbnail: exampleFile,
   },
   {
     id: "1",
-    name: "Example Gallery",
+    title: "Example Gallery",
     description: "Example Gallery Description",
     collectionIds: exampleCollections.map((collection) => collection.id),
     thumbnail: exampleFile,

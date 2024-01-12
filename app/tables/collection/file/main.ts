@@ -2,6 +2,7 @@ export enum FileType {
   IMAGE="img",
   AUDIO="audio",
   VIDEO="video",
+  TEXT="text"
 }
 
 export interface FileObj {
@@ -9,6 +10,7 @@ export interface FileObj {
   description: string;
   src: string;
   type: FileType;
+  content?: string;
 }
 
 export const exampleFile : FileObj = {

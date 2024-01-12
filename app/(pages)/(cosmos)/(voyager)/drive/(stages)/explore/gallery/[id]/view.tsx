@@ -1,18 +1,14 @@
 "use client";
 
-import { DriveWrapper } from "../../drive-epic/wrapper/main";
-import { DriveController } from "../../drive-epic/main";
+import { DriveWrapper } from "../../home/home-epic/wrapper/main";
+import { DriveController } from "../../home/home-epic/main";
 import { DriveBreadcrumbs } from "../../(common)/breadcrumb/main";
 import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
-import { DriveSectionGrid } from "./gallery-epic/grid/main";
+import { GalleryCollectionGrid } from "./gallery-epic/grid/main";
 import { driveMap } from "../../../../map";
-import { DriveFolder } from "./gallery-epic/grid/section/main";
-import { DriveSectionAdd } from "./gallery-epic/grid/add/main";
-import { DriveSectionSidebar } from "./gallery-epic/sidebar/main";
-import { SidebarBody } from "./gallery-epic/sidebar/body/main";
-import { SidebarCover } from "./gallery-epic/sidebar/cover/main";
-import { SidebarInfo } from "./gallery-epic/sidebar/info/main";
+import { GalleryCollection } from "./gallery-epic/grid/collection/main";
+import { GalleryCollectionAdd } from "./gallery-epic/grid/add/main";
 import { DriveSectionViewProps } from "./page";
 import { collectionTable } from "@/tables/collection/table";
 
@@ -25,7 +21,10 @@ export function DriveSectionView({
     <DriveWrapper>
       <DriveController>
         <DriveBreadcrumbs>
-          <DriveBreadcrumbItem href={driveMap.drive.explore.link} active={false}>
+          <DriveBreadcrumbItem
+            href={driveMap.drive.explore.link}
+            active={false}
+          >
             Home
           </DriveBreadcrumbItem>
           <DriveBreadcrumbDivider />
@@ -33,31 +32,25 @@ export function DriveSectionView({
             active={true}
             href={driveMap.drive.explore.gallery.id.link(gallery.id)}
           >
-            {gallery.name}
+            {gallery.title}
           </DriveBreadcrumbItem>
         </DriveBreadcrumbs>
         {gallery !== null && (
-          <DriveSectionGrid>
+          <GalleryCollectionGrid>
             {collections.map((collection) => (
-              <DriveFolder
+              <GalleryCollection
                 collection={collection}
                 href={driveMap.drive.explore.collection.id.link(collection.id)}
               />
             ))}
-            <DriveSectionAdd
+            <GalleryCollectionAdd
               onClick={() => {
                 addCollection(collectionTable.example);
               }}
             />
-          </DriveSectionGrid>
+          </GalleryCollectionGrid>
         )}
       </DriveController>
-      <DriveSectionSidebar>
-        <SidebarBody>
-          <SidebarCover />
-          <SidebarInfo />
-        </SidebarBody>
-      </DriveSectionSidebar>
     </DriveWrapper>
   );
 }
