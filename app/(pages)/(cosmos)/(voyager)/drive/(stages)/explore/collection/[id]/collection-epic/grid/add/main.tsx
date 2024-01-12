@@ -4,11 +4,10 @@ export function CraftFolderGridAdd({ ...props }: CraftFolderGridAdd) {
   return (
     <button {...props}>
       <div className="flex flex-row w-[400px] h-[150px] items-center space-x-[3rem]">
-        <div className="w-[150px] h-[150px] rounded-full bg-white flex items-center justify-center">
+        <div className="w-[150px] h-[150px] rounded-full bg-slate-100 flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            className="w-1/4 h-1/4"
             viewBox="0 0 20 20"
             fill="none"
           >
