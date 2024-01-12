@@ -1,21 +1,20 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
-import { backgroundStyles } from "@/(pages)/(common)/styles/data";
+import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { SearchBarButton } from "./button/main";
+import SearchBarInput from "./input/main";
 
 interface LibraryHeaderSearch extends React.ComponentPropsWithoutRef<"input"> {}
 
 export function CollectionHeaderSearch({ ...props }: LibraryHeaderSearch) {
   return (
-    <div className="flex-grow h-[3rem] pr-[1rem]">
-      <Layer
-        displayName={CollectionHeaderSearch.name}
-        sizeStyle="flex-grow h-full"
-        backgroundStyle={backgroundStyles["glass-10"]}
-      >
-        <input
-          className="px-[1rem] text-slate-300 outline-none w-full h-full bg-transparent"
-          {...props}
-        />
-      </Layer>
-    </div>
+    <Layer
+      displayName={CollectionHeaderSearch.name}
+      sizeStyle="flex-grow h-[3rem]"
+      borderStyle={`${borderStyles["border-b"]}`}
+      containerStyle={containerStyles.row}
+    >
+      <SearchBarInput {...props}/>
+      <SearchBarButton/>
+    </Layer>
   );
 }

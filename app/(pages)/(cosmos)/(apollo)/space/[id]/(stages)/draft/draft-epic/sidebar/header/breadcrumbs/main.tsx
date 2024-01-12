@@ -1,5 +1,5 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
-import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
+import { backgroundStyles, borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import React from "react";
 
 export function SidebarBreadcrumbs({
@@ -11,9 +11,10 @@ export function SidebarBreadcrumbs({
     <Layer
       displayName={SidebarBreadcrumbs.name}
       sizeStyle="h-[50px] w-full"
-      borderStyle={borderStyles["border-b"]}
+      backgroundStyle={backgroundStyles["glass-10"]}
+      borderStyle={`${borderStyles["border-all"]} ${borderStyles.rounded}`}
       containerStyle={containerStyles["row-center"]}
-      contentStyle={"space-x-[1rem]"}
+      contentStyle={"space-x-[1rem] px-[1rem]"}
     >
       {children}
     </Layer>

@@ -10,11 +10,11 @@ import { SidebarBody } from "./modes/main";
 import { BreadcrumbsLink } from "./header/breadcrumbs/breadcrumb/main";
 import { BreadcrumbsDivider } from "./header/breadcrumbs/divider/main";
 import { SidebarBreadcrumbs } from "./header/breadcrumbs/main";
-import { DriveInterface } from "./modes/drive/main";
-import { DriveSectionInfo } from "./modes/drive/section/info/main";
-import { DriveSectionElement } from "./modes/drive/section/main";
-import { DriveSectionThumbanil } from "./modes/drive/section/thumbnail/main";
-import { DriveSectionThumbnailWrapper } from "./modes/drive/section/thumbnail/wrapper/main";
+import { DriveInterface } from "./modes/home/main";
+import { DriveSectionInfo } from "./modes/home/section/info/main";
+import { DriveSectionElement } from "./modes/home/section/main";
+import { DriveSectionThumbanil } from "./modes/home/section/thumbnail/main";
+import { DriveSectionThumbnailWrapper } from "./modes/home/section/thumbnail/wrapper/main";
 import { CollectionFileInfo } from "./modes/collection/file/info/main";
 import { CollectionFile } from "./modes/collection/file/main";
 import { CollectionFileThumbnail } from "./modes/collection/file/thumbnail/main";
@@ -47,7 +47,9 @@ export function SidebarView({
   fileHandler,
 }: SidebarViewProps) {
   const { starHandler } = useContext(DraftContext);
-  const collection = collections.filter((folder) => folder.id === collectionId).at(0);
+  const collection = collections
+    .filter((folder) => folder.id === collectionId)
+    .at(0);
   const gallery = gallerys.filter((gallery) => gallery.id === galleryId).at(0);
   const [query, changeQuery] = useState("");
 
@@ -69,27 +71,30 @@ export function SidebarView({
           active={sidebarMode === SidebarMode.Drive}
           onClick={() => sidebarViewHandler.goToDrvieView()}
         >
-          Drive
+          Home
         </BreadcrumbsLink>
         {(sidebarMode === SidebarMode.Gallery ||
           sidebarMode === SidebarMode.Collection) && (
           <>
+            <BreadcrumbsDivider />
             <BreadcrumbsLink
               active={sidebarMode === SidebarMode.Gallery}
               onClick={() => sidebarViewHandler.goToGalleryView()}
             >
               {gallery?.title}
             </BreadcrumbsLink>
-            <BreadcrumbsDivider />
           </>
         )}
         {sidebarMode === SidebarMode.Collection && (
-          <BreadcrumbsLink
-            active={sidebarMode === SidebarMode.Collection}
-            onClick={() => sidebarViewHandler.goToCollectionView()}
-          >
-            {collection?.name}
-          </BreadcrumbsLink>
+          <>
+            <BreadcrumbsDivider />
+            <BreadcrumbsLink
+              active={sidebarMode === SidebarMode.Collection}
+              onClick={() => sidebarViewHandler.goToCollectionView()}
+            >
+              {collection?.name}
+            </BreadcrumbsLink>
+          </>
         )}
       </SidebarBreadcrumbs>
       <SidebarBody>
@@ -120,12 +125,10 @@ export function SidebarView({
           <>
             <GalleryInterface>
               <GalleryHeader>
-                <GalleryCoverImage
-                  src={collectionTable.file.example.src}
-                />
+                <GalleryCoverImage src={collectionTable.file.example.src} />
                 <GalleryHeaderDescription />
               </GalleryHeader>
-              <Divider/>
+              <Divider />
               {collections.map((collection) => (
                 <GalleryFolder>
                   <GalleryFolderThumbnailWrapper
@@ -136,7 +139,9 @@ export function SidebarView({
                     <GalleryFolderThumbnail collection={collection} />
                   </GalleryFolderThumbnailWrapper>
                   <GalleryFolderInfo>
-                    <p className="text-white font-extraBold">{collection.name}</p>
+                    <p className="text-white font-extraBold">
+                      {collection.name}
+                    </p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>
@@ -154,16 +159,6 @@ export function SidebarView({
                   onChange={(e: any) => changeQuery(e.target.value)}
                   value={query}
                 />
-                <CollectionHeaderTools>
-                  <AddButton
-                    onClick={() =>
-                      fileHandler.addFile(
-                        collectionTable.file.example
-                      )
-                    }
-                  />
-                  <LoomButton />
-                </CollectionHeaderTools>
               </CollectionHeader>
               {filteredFiles.map((file) => (
                 <CollectionFile>
@@ -173,9 +168,7 @@ export function SidebarView({
                     <CollectionFileThumbnail src={file.src} />
                   </CollectionFileThumbnailWrapper>
                   <CollectionFileInfo>
-                    <p className="text-white font-extraBold">
-                      {file.name}
-                    </p>
+                    <p className="text-white font-extraBold">{file.name}</p>
                     <p className="text-white font-bold">
                       123 drafts - 3 weeks ago
                     </p>

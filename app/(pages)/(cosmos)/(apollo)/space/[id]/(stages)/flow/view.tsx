@@ -19,6 +19,9 @@ import { FlowHeaderListButton } from "./flow-epic/center/header/list/main";
 import { FlowHeader } from "./flow-epic/center/header/main";
 import FlowHeaderTitle from "./flow-epic/center/header/title/main";
 import { flowTable } from "@/tables/flow/table";
+import { FlowSidebarColumn } from "./flow-epic/sidebar/column/main";
+import { FlowSidebarEntry } from "./flow-epic/sidebar/column/section/entry/main";
+import { FlowSidebarSection } from "./flow-epic/sidebar/column/section/main";
 
 export function FlowView({
   moments,
@@ -60,7 +63,10 @@ export function FlowView({
           </FlowHeader>
           <FlowSession>
             {moments.map((moment, index) => (
-              <FlowSessionMoment moment={moment} index={index}></FlowSessionMoment>
+              <FlowSessionMoment
+                moment={moment}
+                index={index}
+              ></FlowSessionMoment>
             ))}
           </FlowSession>
         </FlowCenter>
@@ -86,7 +92,20 @@ export function FlowView({
           <FlowChaptersRightButton />
         </FlowChapters>
       </FlowMain>
-      <FlowSidebar />
+      <FlowSidebar>
+        <FlowSidebarColumn>
+          <FlowSidebarSection>
+            <FlowSidebarEntry />
+            <FlowSidebarEntry />
+            <FlowSidebarEntry />
+          </FlowSidebarSection>
+          <FlowSidebarSection>
+            <FlowSidebarEntry />
+            <FlowSidebarEntry />
+            <FlowSidebarEntry />
+          </FlowSidebarSection>
+        </FlowSidebarColumn>
+      </FlowSidebar>
     </FlowWrapper>
   );
 }
