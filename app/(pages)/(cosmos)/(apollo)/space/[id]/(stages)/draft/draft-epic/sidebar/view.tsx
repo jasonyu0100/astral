@@ -11,7 +11,6 @@ import { DriveInterface } from "./modes/home/main";
 import { DriveSectionInfo } from "./modes/home/section/info/main";
 import { DriveSectionElement } from "./modes/home/section/main";
 import { DriveSectionThumbanil } from "./modes/home/section/thumbnail/main";
-import { DriveSectionThumbnailWrapper } from "./modes/home/section/thumbnail/wrapper/main";
 import { CollectionFileInfo } from "./modes/collection/file/info/main";
 import { CollectionFile } from "./modes/collection/file/main";
 import { CollectionFileThumbnail } from "./modes/collection/file/thumbnail/main";
@@ -22,12 +21,10 @@ import { CollectionInterface } from "./modes/collection/main";
 import { GalleryFolderInfo } from "./modes/gallery/folder/info/main";
 import { GalleryFolder } from "./modes/gallery/folder/main";
 import { GalleryFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
-import { GalleryFolderThumbnailWrapper } from "./modes/gallery/folder/thumbnail/wrapper/main";
 import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
 import { DraftContext } from "../../page";
-import { collectionTable } from "@/tables/collection/table";
 
 export function SidebarView({
   sidebarViewHandler,
@@ -36,7 +33,7 @@ export function SidebarView({
   galleryId,
   collections,
   collectionId,
-  files,
+  resources,
   fileHandler,
 }: SidebarViewProps) {
   const { starHandler } = useContext(DraftContext);
@@ -46,9 +43,9 @@ export function SidebarView({
   const gallery = gallerys.filter((gallery) => gallery.id === galleryId).at(0);
   const [query, changeQuery] = useState("");
 
-  const filteredFiles = files.filter((file) => {
+  const filteredResources = resources.filter((resource) => {
     const regex = new RegExp(query, "i");
-    return regex.test(file.name);
+    return regex.test(resource.file.name);
   });
 
   return (
@@ -61,8 +58,8 @@ export function SidebarView({
     >
       <SidebarBreadcrumbs>
         <BreadcrumbsLink
-          active={sidebarMode === SidebarMode.Drive}
-          onClick={() => sidebarViewHandler.goToDrvieView()}
+          active={sidebarMode === SidebarMode.Home}
+          onClick={() => sidebarViewHandler.goToHomeView()}
         >
           Home
         </BreadcrumbsLink>
@@ -91,22 +88,20 @@ export function SidebarView({
         )}
       </SidebarBreadcrumbs>
       <SidebarBody>
-        {sidebarMode === SidebarMode.Drive && (
+        {sidebarMode === SidebarMode.Home && (
           <>
             <DriveInterface>
               {gallerys.map((gallery) => (
                 <DriveSectionElement>
-                  <DriveSectionThumbnailWrapper
+                  <DriveSectionThumbanil
+                    src={gallery.thumbnail.src}
                     onClick={() => {
                       sidebarViewHandler.goToGallery(gallery);
                     }}
-                  >
-                    <DriveSectionThumbanil src={gallery.thumbnail.src} />
-                  </DriveSectionThumbnailWrapper>
+                  />
                   <DriveSectionInfo>
-                    <p className="text-white font-extraBold">{gallery.title}</p>
-                    <p className="text-white font-bold">
-                      {gallery.description}
+                    <p className="text-slate-400 font-extraBold">
+                      {gallery.title}
                     </p>
                   </DriveSectionInfo>
                 </DriveSectionElement>
@@ -119,18 +114,17 @@ export function SidebarView({
             <GalleryInterface>
               {collections.map((collection) => (
                 <GalleryFolder>
-                  <GalleryFolderThumbnailWrapper
+                  <GalleryFolderThumbnail
+                    collection={collection}
                     onClick={() => {
                       sidebarViewHandler.goToCollection(collection);
                     }}
-                  >
-                    <GalleryFolderThumbnail collection={collection} />
-                  </GalleryFolderThumbnailWrapper>
+                  />
                   <GalleryFolderInfo>
-                    <p className="text-white font-extraBold">
+                    <p className="text-slate-400 font-extraBold">
                       {collection.name}
                     </p>
-                    <p className="text-white font-bold">
+                    <p className="text-slate-500 font-bold">
                       123 drafts - 3 weeks ago
                     </p>
                   </GalleryFolderInfo>
@@ -148,20 +142,22 @@ export function SidebarView({
                   value={query}
                 />
               </CollectionHeader>
-              {filteredFiles.map((file) => (
+              {filteredResources.map((resource) => (
                 <CollectionFile>
                   <CollectionFileThumbnailWrapper
-                    onClick={() => starHandler.spawnStar(file)}
+                    onClick={() => starHandler.spawnStar(resource)}
                   >
-                    <CollectionFileThumbnail src={file.src} />
+                    <CollectionFileThumbnail src={resource.file.src} />
                   </CollectionFileThumbnailWrapper>
                   <CollectionFileInfo>
-                    <p className="text-white font-extraBold">{file.name}</p>
-                    <p className="text-white font-bold">
+                    <p className="text-slate-400 font-extraBold">
+                      {resource.file.name}
+                    </p>
+                    <p className="text-slate-500 font-bold">
                       123 drafts - 3 weeks ago
                     </p>
-                    <p className="text-white font-regular">
-                      {file.description}
+                    <p className="text-slate-500 font-regular">
+                      {resource.file.description}
                     </p>
                   </CollectionFileInfo>
                 </CollectionFile>

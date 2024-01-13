@@ -9,13 +9,14 @@ import { CollectionFileGrid } from "./collection-epic/grid/main";
 import { CollectionFile } from "./collection-epic/grid/file/main";
 import { CollectionFileAdd } from "./collection-epic/grid/add/main";
 import { DriveFolderViewProps } from "./page";
-import { collectionTable } from "@/tables/collection/table";
+import { galleryTable } from "@/tables/gallery/table";
+import { resourceTable } from "@/tables/resource/table";
 
 export default function DriveFolderView({
   gallery,
   collection,
-  files,
-  fileHandler,
+  resources: files,
+  resourceHandler: fileHandler,
 }: DriveFolderViewProps) {
   return (
     <DriveController>
@@ -40,10 +41,10 @@ export default function DriveFolderView({
       </DriveBreadcrumbs>
       <CollectionFileGrid>
         <CollectionFileAdd
-          onClick={() => fileHandler.addFile(collectionTable.file.example)}
+          onClick={() => fileHandler.addResource(resourceTable.example)}
         />
         {files.map((file) => (
-          <CollectionFile file={file} />
+          <CollectionFile resource={file} />
         ))}
       </CollectionFileGrid>
     </DriveController>

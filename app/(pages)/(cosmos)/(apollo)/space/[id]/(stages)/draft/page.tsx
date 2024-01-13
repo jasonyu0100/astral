@@ -2,13 +2,14 @@
 
 import { createContext, useState } from "react";
 import { DraftView } from "./view";
-import { FileObj } from "@/tables/collection/file/main";
+import { FileObj } from "@/tables/file/main";
 import { StarObj } from "@/tables/draft/constellation/star/main";
 import { ChapterObj } from "@/tables/space/chapter/main";
 import { ConstellationObj } from "@/tables/draft/constellation/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ConstellationHandler, StarHandler, useConstellation } from "../../handler/constellations/main";
 import isAuth from "@/utils/isAuth";
+import { ResourceObj } from "@/tables/resource/main";
 
 export interface DraftContextObj {
   starHandler: StarHandler;
@@ -79,8 +80,8 @@ function Page() {
       return constellation
     },
 
-    addFileToConstellation: (file: FileObj) => {
-      const constellation = _constellationHandler.addFileToConstellation(file)
+    addStarToConstellation: (resource: ResourceObj) => {
+      const constellation = _constellationHandler.addStarToConstellation(resource)
       return constellation
     },
   };
@@ -89,8 +90,8 @@ function Page() {
     updateStar: (starId: string, data: any) => {
       _starHandler.updateStar(starId, data)
     },
-    spawnStar: (file: FileObj) => {
-      return _starHandler.spawnStar(file)
+    spawnStar: (resource: ResourceObj) => {
+      return _starHandler.spawnStar(resource)
     },
   }
 

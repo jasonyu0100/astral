@@ -1,22 +1,22 @@
-import { FileObj } from "@/tables/collection/file/main";
 import { GalleryObj } from "@/tables/gallery/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
-import { CollectionObj } from "@/tables/collection/main";
-import { collectionTable } from "@/tables/collection/table";
+import { CollectionObj } from "@/tables/gallery/collection/main";
 import { galleryTable } from "@/tables/gallery/table";
+import { ResourceObj } from "@/tables/resource/main";
+import { resourceTable } from "@/tables/resource/table";
 
 export enum SidebarMode {
-  Drive = "Drive",
+  Home = "Home",
   Gallery = "Gallery",
   Collection = "Collection",
 }
 
-interface FileHandler {
-  addFile: (media: FileObj) => void;
+interface ResourceHandler {
+  addResource: (resource: ResourceObj) => void;
 }
 interface SidebarViewHandler {
-  goToDrvieView: () => void;
+  goToHomeView: () => void;
   goToGalleryView: () => void;
   goToCollectionView: () => void;
   goToGallery: (section: GalleryObj) => void;
@@ -28,27 +28,27 @@ export interface SidebarViewProps {
   galleryId: string;
   collections: CollectionObj[];
   collectionId: string;
-  files: FileObj[];
+  resources: ResourceObj[];
   sidebarViewHandler: SidebarViewHandler;
-  fileHandler: FileHandler;
+  fileHandler: ResourceHandler;
 }
 
 export function DraftSidebar() {
-  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Drive);
+  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);
   const [gallerys, changeSections] = useState<GalleryObj[]>(
     galleryTable.examples
   );
   const [galleryId, changeGalleryId] = useState<string>("");
   const [collections, chnageCollections] = useState<CollectionObj[]>(
-    collectionTable.examples
+    galleryTable.collection.examples
   );
   const [collectionId, changeCollectionId] = useState<string>("");
-  const [files, changeFiles] = useState<FileObj[]>(
-    collectionTable.file.examples
+  const [resources, changeResources] = useState<ResourceObj[]>(
+    resourceTable.examples
   );
   const sidebarViewHandler: SidebarViewHandler = {
-    goToDrvieView: () => {
-      changeSidebarMode(SidebarMode.Drive);
+    goToHomeView: () => {
+      changeSidebarMode(SidebarMode.Home);
     },
     goToGalleryView: () => {
       changeSidebarMode(SidebarMode.Gallery);
@@ -66,9 +66,9 @@ export function DraftSidebar() {
     },
   };
 
-  const fileHandler = {
-    addFile: (media: FileObj) => {
-      changeFiles((prev) => [...prev, media]);
+  const fileHandler : ResourceHandler = {
+    addResource: (resource: ResourceObj) => {
+      changeResources((prev) => [...prev, resource]);
     },
   };
 
@@ -80,7 +80,7 @@ export function DraftSidebar() {
       galleryId={galleryId}
       collections={collections}
       collectionId={collectionId}
-      files={files}
+      resources={resources}
       fileHandler={fileHandler}
     />
   );

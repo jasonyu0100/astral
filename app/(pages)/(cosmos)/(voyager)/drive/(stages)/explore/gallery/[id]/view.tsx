@@ -10,7 +10,7 @@ import { driveMap } from "../../../../map";
 import { GalleryCollection } from "./gallery-epic/grid/collection/main";
 import { GalleryCollectionAdd } from "./gallery-epic/grid/add/main";
 import { DriveSectionViewProps } from "./page";
-import { collectionTable } from "@/tables/collection/table";
+import { galleryTable } from "@/tables/gallery/table";
 
 export function DriveSectionView({
   gallery,
@@ -45,7 +45,7 @@ export function DriveSectionView({
             ))}
             <GalleryCollectionAdd
               onClick={() => {
-                addCollection(collectionTable.example);
+                addCollection(galleryTable.collection.example);
               }}
             />
           </GalleryCollectionGrid>

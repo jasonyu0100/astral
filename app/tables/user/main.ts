@@ -1,3 +1,4 @@
+import { FileObj, exampleFile } from "../file/main";
 import { exampleGallerys } from "../gallery/main";
 import { exampleSpaces } from "../space/main";
 
@@ -7,6 +8,7 @@ export interface UserObj {
   email: string;
   googleId: string;
   accessToken: string;
+  profileImage: FileObj;
   spaceIds: string[];
   galleryIds: string[];
 }
@@ -19,6 +21,7 @@ export const exampleUser: UserObj = {
   email: "email@example.com",
   spaceIds: exampleSpaces.map((space) => space.id),
   galleryIds: exampleGallerys.map((gallery) => gallery.id),
+  profileImage: exampleFile,
 };
 
 export const exampleUsers: UserObj[] = [
@@ -30,6 +33,7 @@ export const exampleUsers: UserObj[] = [
     email: "john@example.com",
     spaceIds: exampleSpaces.map((space) => space.id),
     galleryIds: exampleGallerys.map((gallery) => gallery.id),
+    profileImage: exampleFile,
   },
   {
     id: "2",
@@ -39,5 +43,6 @@ export const exampleUsers: UserObj[] = [
     email: "jane@example.com",
     spaceIds: exampleSpaces.map((space) => space.id),
     galleryIds: exampleGallerys.map((gallery) => gallery.id),
+    profileImage: exampleFile,
   },
 ];

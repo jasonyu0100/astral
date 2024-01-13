@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "@/tables/collection/file/main";
+import { FileObj, exampleFile } from "@/tables/file/main";
 
 export interface StarObj {
   id: string;

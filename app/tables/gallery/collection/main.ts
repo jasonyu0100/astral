@@ -1,26 +1,27 @@
-import { FileObj, exampleFiles } from "./file/main";
+import { FileObj, exampleFiles } from "../../file/main";
+import { ResourceObj, exampleResources } from "../../resource/main";
 
 export interface CollectionObj {
   id: string;
   name: string;
-  files: FileObj[];
+  resources: ResourceObj[];
 }
 
 export const exampleCollection: CollectionObj = {
   id: "0",
   name: "Symbols",
-  files: exampleFiles
+  resources: exampleResources
 };
 
 export const exampleCollections: CollectionObj[] = [
   {
     id: "0",
     name: "Symbols",
-    files: exampleFiles
+    resources: exampleResources
   },{
     id: "1",
     name: "Symbols",
-    files: exampleFiles
+    resources: exampleResources
   }
 ]
 

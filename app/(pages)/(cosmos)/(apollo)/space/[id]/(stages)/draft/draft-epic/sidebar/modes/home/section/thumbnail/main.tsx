@@ -4,5 +4,7 @@ interface LibraryElementThumbnailProps
 export function DriveSectionThumbanil({
   ...props
 }: LibraryElementThumbnailProps) {
-  return <img className="w-full h-full" {...props} />;
+  return (
+      <img className="w-full aspect-square cursor-pointer" {...props} />
+  );
 }

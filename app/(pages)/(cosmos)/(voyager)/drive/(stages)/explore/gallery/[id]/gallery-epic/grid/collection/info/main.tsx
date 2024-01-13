@@ -1,4 +1,4 @@
-import { CollectionObj } from "@/tables/collection/main";
+import { CollectionObj } from "@/tables/gallery/collection/main";
 
 export function CollectionInfo({
   collection,
@@ -11,7 +11,7 @@ export function CollectionInfo({
         {collection.name}
       </div>
       <div className="text-slate-500 text-base font-lg">
-        {collection.files.length} files
+        {collection.resources.length} resources
       </div>
     </div>
   );

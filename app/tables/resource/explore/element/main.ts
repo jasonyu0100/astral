@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "../../../collection/file/main";
+import { FileObj, exampleFile } from "../../../file/main";
 
 export interface ExploreElementObj {
   id: string;

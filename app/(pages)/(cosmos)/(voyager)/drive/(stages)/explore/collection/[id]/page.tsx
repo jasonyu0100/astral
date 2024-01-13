@@ -2,21 +2,21 @@
 
 import { useState } from "react";
 import DriveFolderView from "./view";
-import { FileObj } from "@/tables/collection/file/main";
 import { GalleryObj } from "@/tables/gallery/main";
-import { CollectionObj } from "@/tables/collection/main";
+import { CollectionObj } from "@/tables/gallery/collection/main";
 import { galleryTable } from "@/tables/gallery/table";
-import { collectionTable } from "@/tables/collection/table";
 import isAuth from "@/utils/isAuth";
+import { ResourceObj } from "@/tables/resource/main";
+import { resourceTable } from "@/tables/resource/table";
 
 export interface DriveFolderViewProps {
   gallery: GalleryObj;
   collection: CollectionObj;
-  files: FileObj[];
-  fileHandler: FileHandler;
+  resources: ResourceObj[];
+  resourceHandler: ResourceHandler;
 }
-interface FileHandler {
-  addFile: (file: FileObj) => void;
+interface ResourceHandler {
+  addResource: (resource: ResourceObj) => void;
 }
 
 function Page() {
@@ -24,15 +24,15 @@ function Page() {
     galleryTable.example
   );
   const [collection, changeCollection] = useState(
-    collectionTable.example
+    galleryTable.collection.example
   );
-  const [files, changeFiles] = useState(
-    collectionTable.file.examples
+  const [resources, changeResources] = useState(
+    resourceTable.examples
   );
 
-  const fileHandler = {
-    addFile: (file: FileObj) => {
-      changeFiles((prev) => [file, ...prev]);
+  const resourceHandler: ResourceHandler = {
+    addResource: (resource: ResourceObj) => {
+      changeResources((prev) => [resource, ...prev]);
     },
   };
 
@@ -40,8 +40,8 @@ function Page() {
     <DriveFolderView
       gallery={gallery}
       collection={collection}
-      files={files}
-      fileHandler={fileHandler}
+      resources={resources}
+      resourceHandler={resourceHandler}
     />
   );
 }

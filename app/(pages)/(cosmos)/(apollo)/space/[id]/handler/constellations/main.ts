@@ -1,20 +1,20 @@
-import { FileObj } from "@/tables/collection/file/main";
 import { ConstellationObj } from "@/tables/draft/constellation/main";
 import { StarObj } from "@/tables/draft/constellation/star/main";
 import { draftTable } from "@/tables/draft/table";
+import { ResourceObj } from "@/tables/resource/main";
 import { useState } from "react";
 
 export interface ConstellationHandler {
   goToConstellation: (constellation: ConstellationObj) => ConstellationObj;
   addConstellation: (constellation: ConstellationObj) => ConstellationObj;
-  addFileToConstellation: (file: FileObj) => ConstellationObj | undefined;
+  addStarToConstellation: (resource: ResourceObj) => ConstellationObj | undefined;
   updateConstellations: (constellations: ConstellationObj[]) => ConstellationObj[];
   updateConstellation: (constellation: ConstellationObj) => ConstellationObj;
 }
 
 export interface StarHandler {
   updateStar: (starId: string, data: any) => void;
-  spawnStar: (draftMedia: FileObj) => StarObj;
+  spawnStar: (resource: ResourceObj) => StarObj;
 }
 
 interface useConstellationInterface {
@@ -72,7 +72,7 @@ export const useConstellation = (): useConstellationInterface => {
       changeStars(constellation.stars)
       return constellation;
     },
-    addFileToConstellation: (file: FileObj) => {
+    addStarToConstellation: (resource: ResourceObj) => {
       if (constellation) {
         const newConstellation: ConstellationObj = {
           ...constellation,
@@ -80,7 +80,7 @@ export const useConstellation = (): useConstellationInterface => {
             ...constellation.stars,
             {
               ...draftTable.constellation.star.example,
-              file: file,
+              file: resource.file,
             },
           ],
         };
@@ -96,12 +96,12 @@ export const useConstellation = (): useConstellationInterface => {
         star => star.id === starId ? {...star, ...data} : star
       ))
     },
-    spawnStar: (file: FileObj) => {
+    spawnStar: (resource: ResourceObj) => {
       const newStar: StarObj = {
         id: new Date().toISOString(),
         x: Math.random() * 500,
         y: Math.random() * 500,
-        file: file,
+        file: resource.file,
       };
       changeStars((prev) => [...prev, newStar]);
       return newStar;

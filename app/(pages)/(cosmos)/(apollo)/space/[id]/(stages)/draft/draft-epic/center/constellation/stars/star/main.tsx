@@ -44,9 +44,9 @@ export function DraftStar({
       className={`w-[100px] h-[150px] p-[10px] flex flex-col space-y-[1rem] items-center absolute top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className="w-[100px] h-[100px]">
+      <div className="w-[100px] h-[100px] flex-shrink-0">
         <img
-          className="w-full h-full rounded-full flex-shrink-0 pointer-events-none border-slate-300 border-[3px]"
+          className="w-full aspect-square rounded-full pointer-events-none border-slate-300 border-[2px]"
           src={star.file.src}
         />
       </div>

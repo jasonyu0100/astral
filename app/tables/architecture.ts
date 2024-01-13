@@ -1,4 +1,3 @@
-import { boardTable } from "./board/table";
 import { draftTable } from "./draft/table";
 import { stormTable } from "./storm/table";
 import { galleryTable } from "./gallery/table";
@@ -6,7 +5,6 @@ import { spaceTable } from "./space/table";
 import { userTable } from "./user/table";
 import { seaTable } from "./sea/table";
 import { flowTable } from "./flow/table";
-import { collectionTable } from "./collection/table";
 import { resourceTable } from "./resource/table";
 
 export const dataArchitecture = {
@@ -51,11 +49,8 @@ export const dataArchitecture = {
   },
   gallery: {
     table: galleryTable,
-  },
-  collection: {
-    table: collectionTable,
-  },
-  board: {
-    table: boardTable,
+    collection: {
+      table: galleryTable.collection,
+    },
   },
 };

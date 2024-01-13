@@ -7,10 +7,13 @@ import { FeedSidebarEntry } from "./feed-epic/sidebar/column/section/entry/main"
 import { FeedSidebarSection } from "./feed-epic/sidebar/column/section/main";
 import { FeedSidebar } from "./feed-epic/sidebar/main";
 import { FeedWrapper } from "./feed-epic/wrapper/main";
-import { flowTable } from "@/tables/flow/table";
+import { MomentObj } from "@/tables/flow/moment/main";
 
-export function FeedView() {
-  const [moments, changeMoments] = useState(flowTable.moment.examples);
+interface FeedViewProps {
+  moments: MomentObj[];
+}
+
+export function FeedView({ moments } : FeedViewProps) {
   return (
     <>
       <FeedWrapper>
@@ -24,14 +27,9 @@ export function FeedView() {
         <FeedSidebar>
           <FeedSidebarColumn>
             <FeedSidebarSection>
-              <FeedSidebarEntry />
-              <FeedSidebarEntry />
-              <FeedSidebarEntry />
-            </FeedSidebarSection>
-            <FeedSidebarSection>
-              <FeedSidebarEntry />
-              <FeedSidebarEntry />
-              <FeedSidebarEntry />
+              {moments.map((moment) => (
+                <FeedSidebarEntry moment={moment}/>
+              ))}
             </FeedSidebarSection>
           </FeedSidebarColumn>
         </FeedSidebar>

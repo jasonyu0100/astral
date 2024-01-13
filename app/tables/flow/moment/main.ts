@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "../../collection/file/main";
+import { FileObj, exampleFile } from "../../file/main";
 import { MomentCommentObj, exampleComments } from "./comment/main";
 
 export enum MomentVisibility {
@@ -10,7 +10,6 @@ export enum MomentVisibility {
 export interface MomentObj {
   id: string;
   spaceId: string;
-  sessionId: string;
   userId: string;
   time: string;
   title: string;
@@ -27,7 +26,6 @@ export const exampleMoment: MomentObj = {
   log: "Moment Description Example",
   file: exampleFile,
   spaceId: "0",
-  sessionId: "0",
   userId: "0",
   visibility: MomentVisibility.Journal,
   comments: exampleComments,
@@ -41,7 +39,6 @@ export const exampleMoments: MomentObj[] = [
     log: "Moment Description Example",
     file: exampleFile,
     spaceId: "0",
-    sessionId: "0",
     userId: "0",
     visibility: MomentVisibility.Journal,
     comments: exampleComments,
@@ -53,7 +50,6 @@ export const exampleMoments: MomentObj[] = [
     log: "Moment Description Example",
     file: exampleFile,
     spaceId: "0",
-    sessionId: "0",
     userId: "0",
     visibility: MomentVisibility.Journal,
     comments: exampleComments,

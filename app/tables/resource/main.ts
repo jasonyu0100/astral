@@ -1,4 +1,4 @@
-import { FileObj, exampleFile, exampleFiles } from "../collection/file/main";
+import { FileObj, exampleFile, exampleFiles } from "../file/main";
 
 // Create a file, create resource reference
 // Edit a file, edit resource reference
@@ -6,13 +6,11 @@ import { FileObj, exampleFile, exampleFiles } from "../collection/file/main";
 
 export interface ResourceObj {
   id: string;
-  collectionId: string;
   file: FileObj;
 }
 
 export const exampleResource: ResourceObj = {
   id: "0",
-  collectionId: "0",
   file: exampleFile,
 };
 
@@ -20,7 +18,6 @@ export const exampleResources: ResourceObj[] = [
   ...exampleFiles.map((file, i) => {
     return {
       id: i.toString(),
-      collectionId: "0",
       file: file,
     };
   }),

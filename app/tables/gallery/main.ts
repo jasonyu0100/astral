@@ -1,5 +1,5 @@
-import { FileObj, exampleFile } from "../collection/file/main";
-import { exampleCollections } from "../collection/main";
+import { FileObj, exampleFile } from "../file/main";
+import { exampleCollections } from "./collection/main";
 
 export interface GalleryObj {
   id: string;

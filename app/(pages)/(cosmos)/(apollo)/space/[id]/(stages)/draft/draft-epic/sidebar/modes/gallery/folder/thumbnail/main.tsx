@@ -1,19 +1,21 @@
-import { CollectionObj } from "@/tables/collection/main";
+import { CollectionObj } from "@/tables/gallery/collection/main";
 
-interface LibraryElementThumbnailProps {
+interface LibraryElementThumbnailProps
+  extends React.ComponentPropsWithoutRef<"div"> {
   collection: CollectionObj;
 }
 
 export function GalleryFolderThumbnail({
   collection,
+  ...props
 }: LibraryElementThumbnailProps) {
   return (
-    <>
-      <div className="flex flex-row flex-wrap">
-        {collection.files.slice(0, 4).map((file) => (
-          <img className="w-[60px] h-[60px] object-fill" src={file.src} />
+    <div className="h-full aspect-square bg-black" {...props}>
+      <div className="w-full h-full flex flex-row flex-wrap">
+        {collection.resources.slice(0, 4).map((resource) => (
+          <img className="h-1/2 aspect-square" src={resource.file.src} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

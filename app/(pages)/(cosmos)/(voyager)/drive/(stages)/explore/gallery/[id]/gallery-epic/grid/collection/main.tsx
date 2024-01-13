@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import { CollectionObj } from "@/tables/collection/main";
+import { CollectionObj } from "@/tables/gallery/collection/main";
 import { CollectionCover } from "./cover/main";
 import { CollectionInfo } from "./info/main";
 import { GalleryCollectionContainer } from "../container/main";
