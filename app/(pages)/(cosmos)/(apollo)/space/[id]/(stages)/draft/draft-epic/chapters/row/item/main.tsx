@@ -1,22 +1,17 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
 import { ChapterObj } from "@/tables/space/chapter/main";
+import { useContext } from "react";
+import { DraftContext } from "../../../../page";
 
-interface DraftChaptersItemProps
-  extends React.ComponentPropsWithoutRef<"button"> {
-  chapter: ChapterObj;
-  active: boolean;
-}
-
-export function DraftChaptersItem({
-  chapter,
-  active,
-  ...props
-}: DraftChaptersItemProps) {
+export function DraftChapter({chapter} : { chapter: ChapterObj }) {
+  const { chapterId, chapterHandler } = useContext(DraftContext);
+  const active = chapter.id === chapterId
+                
   return (
-    <button {...props}>
+    <button onClick={() => chapterHandler.goToChapter(chapter)}>
       <Layer
-        displayName={DraftChaptersItem.name}
+        displayName={DraftChapter.name}
         sizeStyle="w-[200px] h-[40px]"
         backgroundStyle={backgroundStyles["glass-5"]}
         borderStyle={borderStyles["rounded-full"]}

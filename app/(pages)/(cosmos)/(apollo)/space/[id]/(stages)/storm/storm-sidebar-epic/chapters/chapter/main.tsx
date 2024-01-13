@@ -4,28 +4,21 @@ import { StormChapterChat } from "./chat/main";
 import { StormChapterHeader } from "./header/main";
 import StormChapterIndicator from "./header/indicator/main";
 import { StormChapterTitle } from "./header/title/main";
-import { useEffect, useState } from "react";
-import { ChatObj } from "@/tables/storm/chat/main";
+import { useContext, useEffect, useState } from "react";
 import { chatTable, stormTable } from "@/tables/storm/table";
+import { StormContext } from "../../../page";
 
 interface StormSidebarSectionViewProps {
   index: number;
-  chats: ChatObj[];
-  chatId: string;
   chapter: ChapterObj;
-  active: boolean;
-  addChat: (chat: ChatObj, chapter: ChapterObj) => void;
-  selectChat: (chat: ChatObj, chapter: ChapterObj) => void;
 }
 
 export function StormChapter({
   chapter,
-  chats,
-  chatId,
-  active,
-  addChat,
-  selectChat,
+  index
 }: StormSidebarSectionViewProps) {
+  const { chatHandler, chapterId, chatId, chats } = useContext(StormContext);
+  const active = chapter.id === chapterId;
   const [show, changeShow] = useState(active);
 
   useEffect(() => {
@@ -55,14 +48,14 @@ export function StormChapter({
             <>
               <StormChapterChat
                 active={active && chat.id === chatId}
-                onClick={() => selectChat(chat, chapter)}
+                onClick={() => chatHandler.selectChat(chat, chapter)}
               >
                 {chat.title}
               </StormChapterChat>
             </>
           ))}
           <StormChapterChatAdd
-            onClick={() => addChat({
+            onClick={() => chatHandler.addChat({
               ...chatTable.example, id: new Date().toISOString()}, chapter)}
           />
         </>

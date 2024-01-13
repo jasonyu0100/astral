@@ -1,22 +1,17 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
 import { ChapterObj } from "@/tables/space/chapter/main";
+import { useContext } from "react";
+import { FlowContext } from "../../../../page";
 
-interface FlowChaptersItemProps
-  extends React.ComponentPropsWithoutRef<"button"> {
-  chapter: ChapterObj;
-  active: boolean;
-}
+export function FlowChapter({ chapter }: { chapter: ChapterObj }) {
+  const { chapterId, chapterHandler } = useContext(FlowContext);
+  const active = chapter.id === chapterId;
 
-export function FlowChaptersItem({
-  chapter,
-  active,
-  ...props
-}: FlowChaptersItemProps) {
   return (
-    <button {...props}>
+    <button onClick={() => chapterHandler.goToChapter(chapter)}>
       <Layer
-        displayName={FlowChaptersItem.name}
+        displayName={FlowChapter.name}
         sizeStyle="w-[200px] h-[40px]"
         backgroundStyle={backgroundStyles["glass-5"]}
         borderStyle={borderStyles["rounded-full"]}

@@ -9,23 +9,22 @@ export interface MomentHandler {
 }
 
 export interface useMomentInterface {
-    momentId: string;
-    moments: MomentObj[];
-    _momentHandler: MomentHandler;
+  moment: MomentObj | undefined;
+  momentId: string;
+  moments: MomentObj[];
+  _momentHandler: MomentHandler;
 }
 
-export const useMoment = () : useMomentInterface => {
-  const [moments, changeMoments] = useState<MomentObj[]>(
-    momentTable.examples
-  );
-  const [momentId, changeMomentId] = useState<string>(
-    moments.at(0)?.id || ""
-  );
+export const useMoment = (): useMomentInterface => {
+  const [moments, changeMoments] = useState<MomentObj[]>(momentTable.examples);
+  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
+
+  const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
   const _momentHandler: MomentHandler = {
     updateMoments: (moments: MomentObj[]) => {
       changeMoments(moments);
-      changeMomentId(moments.at(0)?.id || "")
+      changeMomentId(moments.at(0)?.id || "");
       return moments;
     },
     updateMoment: (moment: MomentObj) => {
@@ -40,6 +39,7 @@ export const useMoment = () : useMomentInterface => {
   };
 
   return {
+    moment,
     momentId,
     moments,
     _momentHandler,

@@ -1,7 +1,13 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import { FlowHeaderListButton } from "./left/list/main";
+import { FlowHeaderLeft } from "./left/main";
+import { FlowHeaderMiddle } from "./middle/main";
+import FlowHeaderTitle from "./middle/title/main";
+import { FlowHeaderAddButton } from "./right/add/main";
+import { FlowHeaderRight } from "./right/main";
 
-export function FlowHeader({ children }: { children: React.ReactNode }) {
+export function FlowHeader() {
   return (
     <Layer
       displayName={FlowHeader.name}
@@ -10,7 +16,15 @@ export function FlowHeader({ children }: { children: React.ReactNode }) {
       borderStyle={borderStyles["border-b"]}
       contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
-      {children}
+      <FlowHeaderLeft>
+        <FlowHeaderListButton />
+      </FlowHeaderLeft>
+      <FlowHeaderMiddle>
+        <FlowHeaderTitle />
+      </FlowHeaderMiddle>
+      <FlowHeaderRight>
+        <FlowHeaderAddButton />
+      </FlowHeaderRight>
     </Layer>
   );
 }

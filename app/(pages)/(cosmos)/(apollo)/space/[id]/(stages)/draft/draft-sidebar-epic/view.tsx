@@ -24,7 +24,7 @@ import { GalleryFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
 import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";
-import { DraftContext } from "../../page";
+import { DraftContext } from "../page";
 
 export function SidebarView({
   sidebarViewHandler,

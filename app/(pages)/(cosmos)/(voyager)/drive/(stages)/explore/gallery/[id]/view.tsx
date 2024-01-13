@@ -9,14 +9,14 @@ import { GalleryCollectionGrid } from "./gallery-epic/grid/main";
 import { driveMap } from "../../../../map";
 import { GalleryCollection } from "./gallery-epic/grid/collection/main";
 import { GalleryCollectionAdd } from "./gallery-epic/grid/add/main";
-import { DriveSectionViewProps } from "./page";
-import { collectionTable, galleryTable } from "@/tables/gallery/table";
+import { useContext } from "react";
+import { ExploreGalleryContext } from "./page";
 
-export function DriveSectionView({
-  gallery,
-  collections,
-  addCollection,
-}: DriveSectionViewProps) {
+export function DriveSectionView() {
+  const { gallery, collections } = useContext(
+    ExploreGalleryContext
+  );
+
   return (
     <DriveWrapper>
       <DriveController>
@@ -43,11 +43,7 @@ export function DriveSectionView({
                 href={driveMap.drive.explore.collection.id.link(collection.id)}
               />
             ))}
-            <GalleryCollectionAdd
-              onClick={() => {
-                addCollection(collectionTable.example);
-              }}
-            />
+            <GalleryCollectionAdd/>
           </GalleryCollectionGrid>
         )}
       </DriveController>

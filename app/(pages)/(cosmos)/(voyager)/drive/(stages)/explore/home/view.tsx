@@ -7,10 +7,13 @@ import { DriveBreadcrumbs } from "../(common)/breadcrumb/main";
 import { DriveBreadcrumbItem } from "../(common)/breadcrumb/item/main";
 import { HomeGalleryGrid } from "./home-epic/grid/main";
 import { driveMap } from "../../../map";
-import { ExploreViewProps } from "./page";
+import { ExploreHomeContext } from "./page";
 import { galleryTable } from "@/tables/gallery/table";
+import { useContext } from "react";
 
-export function ExploreView({ gallerys, addGallery }: ExploreViewProps) {
+export function ExploreView() {
+  const { gallerys, addGallery } = useContext(ExploreHomeContext);
+  
   return (
     <DriveWrapper>
       <DriveController>

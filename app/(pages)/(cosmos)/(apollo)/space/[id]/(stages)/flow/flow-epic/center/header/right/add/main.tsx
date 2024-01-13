@@ -1,6 +1,20 @@
+import { momentTable } from "@/tables/flow/table";
+import { FlowContext } from "../../../../../page";
+import { useContext } from "react";
+
 export function FlowHeaderAddButton() {
+  const { momentHandler } = useContext(FlowContext);
+  
   return (
-    <div className="w-[30px] h-[30px]">
+    <button
+      className="w-[30px] h-[30px]"
+      onClick={() =>
+        momentHandler.addMoment({
+          ...momentTable.example,
+          id: Date.now().toFixed().toString(),
+        })
+      }
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
@@ -25,6 +39,6 @@ export function FlowHeaderAddButton() {
           />
         </g>
       </svg>
-    </div>
+    </button>
   );
 }

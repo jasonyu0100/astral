@@ -1,14 +1,19 @@
-import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import { Layer } from "@/(pages)/(common)/layer/main";
+import { useContext } from "react";
+import { ExploreGalleryContext } from "../../../page";
 import { GalleryCollectionContainer } from "../container/main";
 import { CollectionAddCover } from "./cover/main";
 import { CollectionAddInfo } from "./info/main";
+import { collectionTable } from "@/tables/gallery/table";
 
-interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
+export function GalleryCollectionAdd() {
+  const { addCollection } = useContext(ExploreGalleryContext);
 
-export function GalleryCollectionAdd({ ...props }: InputProps) {
   return (
-    <button {...props}>
+    <button
+      onClick={() => {
+        addCollection(collectionTable.example);
+      }}
+    >
       <GalleryCollectionContainer>
         <CollectionAddCover />
         <CollectionAddInfo />

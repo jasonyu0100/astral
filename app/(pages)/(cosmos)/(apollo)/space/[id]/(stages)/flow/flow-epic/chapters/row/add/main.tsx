@@ -1,11 +1,21 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import { chapterTable } from "@/tables/space/table";
+import { useContext } from "react";
+import { FlowContext } from "../../../../page";
 
-interface FlowChaptersAddProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
-export default function FlowChaptersAdd({ ...props }: FlowChaptersAddProps) {
+export default function FlowChaptersAdd() {
+  const { chapterHandler } = useContext(FlowContext);
+
   return (
-    <button {...props}>
+    <button
+      onClick={() =>
+        chapterHandler.addChapter({
+          ...chapterTable.example,
+          id: Date.now().toFixed().toString(),
+        })
+      }
+    >
       <Layer
         displayName={FlowChaptersAdd.name}
         sizeStyle="w-[200px] h-[40px]"

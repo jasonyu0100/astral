@@ -1,12 +1,11 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import { useContext, useState } from "react";
+import { StormContext } from "../../../../page";
 
-interface StormMessageInputTextProps
-  extends React.ComponentPropsWithoutRef<"input"> {}
-
-export function StormChatMessageInput({
-  ...props
-}: StormMessageInputTextProps) {
+export function StormChatMessageInput() {
+  const { chatHandler } = useContext(StormContext);
+  const [inputMessage, changeInputMessage] = useState("");
   return (
     <Layer
       displayName={StormChatMessageInput.name}
@@ -16,7 +15,11 @@ export function StormChatMessageInput({
     >
       <input
         className="w-full h-full px-[2rem] text-white font-bold outline-none bg-transparent"
-        {...props}
+        onClick={(e) => {
+          chatHandler.sendMessage(inputMessage);
+          changeInputMessage("");
+        }}
+        value={inputMessage}
       />
     </Layer>
   );

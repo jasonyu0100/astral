@@ -6,20 +6,35 @@ import { ChapterObj } from "@/tables/space/chapter/main";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { ChatHandler, useChat } from "../../handler/chats/main";
 import isAuth from "@/utils/isAuth";
+import { createContext } from "react";
 
-export interface StormViewProps {
+export interface StormContextObj {
+  chapter: ChapterObj | undefined;
   chapters: ChapterObj[];
   chapterId: string;
+  chat: ChatObj | undefined;
   chats: ChatObj[];
   chatId: string;
   messages: MessageObj[];
-  chapterHandler: ChapterHandler;
-  chatHandler: ChatHandler;
+  chapterHandler: ChapterHandler | any;
+  chatHandler: ChatHandler | any;
 }
 
+export const StormContext = createContext<StormContextObj>({
+  chapters: [],
+  chapterId: "",
+  chats: [],
+  chatId: "",
+  messages: [],
+  chapterHandler: undefined,
+  chatHandler: undefined,
+  chapter: undefined,
+  chat: undefined,
+});
+
 function Page() {
-  const { chapters, chapterId, _chapterHandler } = useChapters();
-  const { chatId, chats, messages, _chatHandler } = useChat();
+  const { chapter, chapters, chapterId, _chapterHandler } = useChapters();
+  const { chat, chatId, chats, messages, _chatHandler } = useChat();
 
   const chapterHandler: ChapterHandler = {
     addChapter: (chapter: ChapterObj) => {
@@ -67,16 +82,22 @@ function Page() {
     },
   };
 
+  const context: StormContextObj = {
+    chapter,
+    chapters,
+    chapterId,
+    chat,
+    chats,
+    chatId,
+    messages,
+    chapterHandler,
+    chatHandler,
+  };
+
   return (
-    <StormView
-      chapters={chapters}
-      chapterId={chapterId}
-      chats={chats}
-      chatId={chatId}
-      messages={messages}
-      chapterHandler={chapterHandler}
-      chatHandler={chatHandler}
-    />
+    <StormContext.Provider value={context}>
+      <StormView />
+    </StormContext.Provider>
   );
 }
 

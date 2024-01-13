@@ -1,18 +1,13 @@
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import { Layer } from "@/(pages)/(common)/layer/main";
-import { ChatObj } from "@/tables/storm/chat/main";
 import { HeaderAdd } from "./add/main";
 import HeaderTitle from "./title/main";
 import { HeaderAgent } from "./agent/main";
-import { ChapterObj } from "@/tables/space/chapter/main";
+import { StormHeaderRight } from "./right/main";
+import { StormHeaderMiddle } from "./middle/main";
+import { StormHeaderLeft } from "./left/main";
 
-export function StormHeader({
-  chat,
-  chapter,
-}: {
-  chat: ChatObj;
-  chapter: ChapterObj;
-}) {
+export function StormHeader() {
   return (
     <Layer
       displayName={StormHeader.name}
@@ -21,17 +16,15 @@ export function StormHeader({
       borderStyle={borderStyles["border-b"]}
       contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
-      <div className="flex flex-row w-1/3">
+      <StormHeaderLeft>
         <HeaderAgent>Chat GPT-3</HeaderAgent>
-      </div>
-      <div className="flex flex-row justify-center w-1/3">
-        <HeaderTitle>
-          {chapter.title} - {chat.title}
-        </HeaderTitle>
-      </div>
-      <div className="flex flex-row justify-end w-1/3">
+      </StormHeaderLeft>
+      <StormHeaderMiddle>
+        <HeaderTitle/>
+      </StormHeaderMiddle>
+      <StormHeaderRight>
         <HeaderAdd />
-      </div>
+      </StormHeaderRight>
     </Layer>
   );
 }

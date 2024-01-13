@@ -1,11 +1,13 @@
-interface DraftChaptersLeftProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
+import { useContext } from "react";
+import { DraftContext } from "../../../page";
 
-export function DraftChaptersLeftButton({ ...props }: DraftChaptersLeftProps) {
+export function DraftChaptersLeftButton() {
+  const { chapterHandler } = useContext(DraftContext);
+
   return (
     <button
       className="w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full"
-      {...props}
+      onClick={() => chapterHandler.goToPrevChapter()}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

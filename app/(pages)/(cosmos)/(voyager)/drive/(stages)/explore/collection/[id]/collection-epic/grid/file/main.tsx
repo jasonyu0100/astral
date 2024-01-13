@@ -1,6 +1,6 @@
 import { ResourceObj } from "@/tables/resource/main";
 
-export function CollectionFile({ resource: resource }: { resource: ResourceObj }) {
+export function CollectionResource({ resource: resource }: { resource: ResourceObj }) {
   return (
     <div className="flex flex-row h-[150px] aspect-[36/16] items-center space-x-[3rem]">
       <img src={resource.file.src} className="w-[150px] h-[150px] rounded-full" />

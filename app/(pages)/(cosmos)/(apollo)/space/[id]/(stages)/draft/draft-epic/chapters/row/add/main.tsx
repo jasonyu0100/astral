@@ -1,11 +1,20 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { backgroundStyles, borderStyles } from "@/(pages)/(common)/styles/data";
+import { useContext } from "react";
+import { DraftContext } from "../../../../page";
+import { chapterTable } from "@/tables/space/table";
 
-interface DraftChaptersAddProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
-export default function DraftChaptersAdd({ ...props }: DraftChaptersAddProps) {
+export default function DraftChaptersAdd() {
+  const { chapterHandler } = useContext(DraftContext);
   return (
-    <button {...props}>
+    <button
+      onClick={() =>
+        chapterHandler.addChapter({
+          ...chapterTable.example,
+          id: Date.now().toFixed().toString(),
+        })
+      }
+    >
       <Layer
         displayName={DraftChaptersAdd.name}
         sizeStyle="w-[200px] h-[40px]"

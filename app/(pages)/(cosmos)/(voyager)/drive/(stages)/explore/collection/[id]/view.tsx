@@ -5,19 +5,18 @@ import { DriveBreadcrumbs } from "../../(common)/breadcrumb/main";
 import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
 import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
 import { driveMap } from "../../../../map";
-import { CollectionFileGrid } from "./collection-epic/grid/main";
-import { CollectionFile } from "./collection-epic/grid/file/main";
-import { CollectionFileAdd } from "./collection-epic/grid/add/main";
-import { DriveFolderViewProps } from "./page";
-import { galleryTable } from "@/tables/gallery/table";
+import { CollectionResourceGrid } from "./collection-epic/grid/main";
+import { CollectionResource } from "./collection-epic/grid/file/main";
+import { CollectionResourceAdd } from "./collection-epic/grid/add/main";
+import { ExploreCollectionContext } from "./page";
 import { resourceTable } from "@/tables/resource/table";
+import { useContext } from "react";
 
-export default function DriveFolderView({
-  gallery,
-  collection,
-  resources: files,
-  resourceHandler: fileHandler,
-}: DriveFolderViewProps) {
+export default function DriveFolderView() {
+  const { gallery, collection, resources, resourceHandler } = useContext(
+    ExploreCollectionContext
+  );
+  
   return (
     <DriveController>
       <DriveBreadcrumbs>
@@ -39,14 +38,14 @@ export default function DriveFolderView({
           {collection.name}
         </DriveBreadcrumbItem>
       </DriveBreadcrumbs>
-      <CollectionFileGrid>
-        <CollectionFileAdd
-          onClick={() => fileHandler.addResource(resourceTable.example)}
+      <CollectionResourceGrid>
+        <CollectionResourceAdd
+          onClick={() => resourceHandler.addResource(resourceTable.example)}
         />
-        {files.map((file) => (
-          <CollectionFile resource={file} />
+        {resources.map((resource) => (
+          <CollectionResource resource={resource} />
         ))}
-      </CollectionFileGrid>
+      </CollectionResourceGrid>
     </DriveController>
   );
 }

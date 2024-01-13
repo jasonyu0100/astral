@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { createContext } from "react";
 import { DraftView } from "./view";
 import { StarObj } from "@/tables/draft/constellation/star/main";
@@ -22,25 +21,23 @@ export interface DraftContextObj {
   constellations: ConstellationObj[];
   constellationId: string;
   stars: StarObj[];
-  starHandler: StarHandler;
-  chapterHandler: ChapterHandler;
-  constellationHandler: ConstellationHandler;
+  starHandler: StarHandler | any;
+  chapterHandler: ChapterHandler | any;
+  constellationHandler: ConstellationHandler | any;
 }
 
-export interface DraftViewProps {
-  chapterId: string;
-  chapter: ChapterObj | undefined;
-  chapters: ChapterObj[];
-  constellation: ConstellationObj | undefined;
-  constellations: ConstellationObj[];
-  constellationId: string;
-  stars: StarObj[];
-  starHandler: StarHandler;
-  chapterHandler: ChapterHandler;
-  constellationHandler: ConstellationHandler;
-}
-
-export const DraftContext = createContext<DraftContextObj>({});
+export const DraftContext = createContext<DraftContextObj>({
+  chapterId: "",
+  chapter: undefined,
+  chapters: [],
+  constellation: undefined,
+  constellations: [],
+  constellationId: "",
+  stars: [],
+  starHandler: undefined,
+  chapterHandler: undefined,
+  constellationHandler: undefined
+});
 
 function Page() {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters();

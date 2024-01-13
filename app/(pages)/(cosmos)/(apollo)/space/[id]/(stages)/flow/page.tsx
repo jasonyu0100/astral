@@ -8,23 +8,30 @@ import isAuth from "@/utils/isAuth";
 import { ChapterObj } from "@/tables/space/chapter/main";
 
 interface FlowContextObj {
-  chapterHandler: ChapterHandler;
-  momentHandler: MomentHandler;
-}
-
-export const FlowContext = createContext<FlowContextObj>({});
-export interface FlowViewProps {
+  chapter: ChapterObj | undefined;
+  moment: MomentObj | undefined;
   moments: MomentObj[];
   momentId: string;
   chapterId: string;
   chapters: ChapterObj[];
-  chapterHandler: ChapterHandler;
-  momentHandler: MomentHandler;
+  chapterHandler: ChapterHandler | any;
+  momentHandler: MomentHandler | any;
 }
 
+export const FlowContext = createContext<FlowContextObj>({
+  chapter: undefined,
+  moment: undefined,
+  moments: [],
+  momentId: "",
+  chapterId: "",
+  chapters: [],
+  chapterHandler: undefined,
+  momentHandler: undefined
+});
+
 function Page() {
-  const { chapters, chapterId, _chapterHandler } = useChapters();
-  const { moments, momentId, _momentHandler } = useMoment();
+  const { chapter, chapters, chapterId, _chapterHandler } = useChapters();
+  const { moment, moments, momentId, _momentHandler } = useMoment();
 
   const chapterHandler: ChapterHandler = {
     addChapter: (chapter: ChapterObj) => {
@@ -64,21 +71,20 @@ function Page() {
     },
   };
 
+  const context: FlowContextObj = {
+    chapter,
+    moment,
+    moments,
+    momentId,
+    chapterId,
+    chapters,
+    chapterHandler,
+    momentHandler,
+  };
+
   return (
-    <FlowContext.Provider
-      value={{
-        momentHandler: momentHandler,
-        chapterHandler: chapterHandler,
-      }}
-    >
-      <FlowView
-        momentId={momentId}
-        moments={moments}
-        chapterId={chapterId}
-        chapters={chapters}
-        chapterHandler={chapterHandler}
-        momentHandler={momentHandler}
-      />
+    <FlowContext.Provider value={context}>
+      <FlowView />
     </FlowContext.Provider>
   );
 }
