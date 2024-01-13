@@ -1,6 +1,9 @@
-export function DraftHeaderAddButton() {
+interface DraftHeaderAddProps
+  extends React.ComponentPropsWithoutRef<"button"> {}
+
+export function DraftHeaderAddButton({ ...props }: DraftHeaderAddProps) {
   return (
-    <div className="w-[30px] h-[30px]">
+    <button className="w-[30px] h-[30px]" {...props}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
@@ -25,6 +28,6 @@ export function DraftHeaderAddButton() {
           />
         </g>
       </svg>
-    </div>
+    </button>
   );
 }

@@ -20,6 +20,13 @@ export const exampleFile : FileObj = {
   type: FileType.IMAGE,
 };
 
+export const exampleProfileImageFile: FileObj = {
+  name: "Profile Image",
+  description: "",
+  src: `/brand/avatar.png`,
+  type: FileType.IMAGE,
+};
+
 export const exampleFiles: FileObj[] = [
   {
     name: "Passion",

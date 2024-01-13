@@ -1,27 +1,28 @@
-import { MomentBody } from "./body/main";
+import { MomentBody } from "./description/body/main";
 import { MomentDivider } from "./divider/main";
 import { MomentMedia } from "./media/main";
-import { MomentInfo } from "./info/main";
+import { MomentInfo } from "./description/info/main";
 import { MomentDescription } from "./description/main";
 import { MomentObj } from "@/tables/flow/moment/main";
+import { useState } from "react";
+import { userTable } from "@/tables/user/table";
 
-interface FlowRecordLogProps {
+interface FlowMomentProps {
   moment: MomentObj;
   index: number;
 }
 
-export function FlowSessionMoment({ moment, index }: FlowRecordLogProps) {
+export function FlowMoment({ moment, index }: FlowMomentProps) {
+  const [user, changeUser] = useState(userTable.example)
+  
   return (
     <div className="flex flex-col w-full space-y-[3rem] items-center py-[2rem]">
       <div className="w-full flex flex-row space-x-[100px] items-center justify-center">
-        <MomentMedia />
+        <MomentMedia moment={moment}/>
         <MomentDescription>
-          <MomentInfo />
+          <MomentInfo user={user}/>
           <MomentBody>
-            Lorem ipsum dolor sit amet consectetur. Risus aliquam id amet
-            laoreet velit. Fringilla etiam ac pharetra auctor sed sed aenean in
-            rhoncus. Quisque diam egestas eget facilisis scelerisque eleifend.
-            Elementum blandit venenatis sagittis enim mauris faucibus fringilla.
+            {moment.log}
           </MomentBody>
         </MomentDescription>
       </div>

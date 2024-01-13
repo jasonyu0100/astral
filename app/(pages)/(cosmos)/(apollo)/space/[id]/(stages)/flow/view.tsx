@@ -6,8 +6,8 @@ import { FlowSidebar } from "./flow-epic/sidebar/main";
 import { FlowWrapper } from "./flow-epic/wrapper/main";
 import { FlowViewProps } from "./page";
 import { spaceTable } from "@/tables/space/table";
-import { FlowSession } from "./flow-epic/center/session/main";
-import { FlowSessionMoment } from "./flow-epic/center/session/moment/main";
+import { FlowMoments } from "./flow-epic/center/moments/main";
+import { FlowMoment } from "./flow-epic/center/moments/moment/main";
 import { FlowChapters } from "./flow-epic/chapters/main";
 import { FlowChaptersLeftButton } from "./flow-epic/chapters/left/main";
 import { FlowChaptersRightButton } from "./flow-epic/chapters/right/main";
@@ -24,7 +24,7 @@ import { FlowSidebarEntry } from "./flow-epic/sidebar/column/section/entry/main"
 import { FlowSidebarSection } from "./flow-epic/sidebar/column/section/main";
 
 export function FlowView({
-  momentId, 
+  momentId,
   moments,
   chapterId,
   chapters,
@@ -59,14 +59,14 @@ export function FlowView({
               <FlowHeaderAddButton />
             </div>
           </FlowHeader>
-          <FlowSession>
+          <FlowMoments>
             {moments.map((moment, index) => (
-              <FlowSessionMoment
+              <FlowMoment
                 moment={moment}
                 index={index}
-              ></FlowSessionMoment>
+              ></FlowMoment>
             ))}
-          </FlowSession>
+          </FlowMoments>
         </FlowCenter>
         <FlowChapters>
           <FlowChaptersLeftButton />
@@ -93,14 +93,9 @@ export function FlowView({
       <FlowSidebar>
         <FlowSidebarColumn>
           <FlowSidebarSection>
-            <FlowSidebarEntry />
-            <FlowSidebarEntry />
-            <FlowSidebarEntry />
-          </FlowSidebarSection>
-          <FlowSidebarSection>
-            <FlowSidebarEntry />
-            <FlowSidebarEntry />
-            <FlowSidebarEntry />
+            {moments.map((moment) => (
+              <FlowSidebarEntry moment={moment} />
+            ))}
           </FlowSidebarSection>
         </FlowSidebarColumn>
       </FlowSidebar>
