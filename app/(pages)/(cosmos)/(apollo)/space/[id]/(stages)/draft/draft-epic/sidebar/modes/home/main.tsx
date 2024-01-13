@@ -1,3 +1,3 @@
 export function DriveInterface({ children }: { children: React.ReactNode }) {
-  return <div className="columns-2 gap-[1rem] h-full">{children}</div>;
+  return <div className="space-y-[4rem] h-full pr-[2rem]">{children}</div>;
 }

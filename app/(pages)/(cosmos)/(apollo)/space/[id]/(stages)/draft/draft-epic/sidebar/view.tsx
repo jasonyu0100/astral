@@ -103,6 +103,9 @@ export function SidebarView({
                     <p className="text-slate-400 font-extraBold">
                       {gallery.title}
                     </p>
+                    <p className="text-slate-500 font-bold">
+                      {gallery.description}
+                    </p>
                   </DriveSectionInfo>
                 </DriveSectionElement>
               ))}
