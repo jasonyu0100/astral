@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { ExploreElementObj } from "@/tables/resource/explore/element/main";
+import { ConnectElementObj } from "@/tables/resource/connect/element/main";
 
 export function ResultElement({
   constraintsRef,
@@ -8,7 +8,7 @@ export function ResultElement({
   updateStar,
 }: {
   constraintsRef: MutableRefObject<null>;
-  result: ExploreElementObj;
+  result: ConnectElementObj;
   updateStar: (star: Object) => void;
 }) {
   const x = useMotionValue(result.x);
@@ -47,11 +47,11 @@ export function ResultElement({
       <div className="w-[200px] h-[200px]">
         <img
           className="w-full h-full rounded-full flex-shrink-0 pointer-events-none opacity-80"
-          src={result.file.src}
+          src={result.resource.file.src}
         />
       </div>
       <p className="w-full text-center text-white font-bold">
-        {result.file.name}
+        {result.resource.label}
       </p>
     </motion.div>
   );

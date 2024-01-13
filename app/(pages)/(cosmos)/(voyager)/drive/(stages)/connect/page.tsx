@@ -1,27 +1,26 @@
 "use client";
 import { useState } from "react";
-import { ExploreView } from "./view";
-import { resourceTable } from "@/tables/resource/table";
-import { ResourceObj } from "@/tables/resource/main";
+import { ConnectView } from "./view";
+import { connectObject } from "@/tables/resource/table";
 import isAuth from "@/utils/isAuth";
-import { ExploreElementObj } from "@/tables/resource/explore/element/main";
+import { ConnectElementObj } from "@/tables/resource/connect/element/main";
 
-interface SearchHandler {
-  searchQuery: (query: string) => void;
+interface ConnectHandler {
+  connectQuery: (query: string) => void;
   updateResult: (i: number, data: any) => void;
 }
-export interface CraftSearchViewProps {
-  searchHandler: SearchHandler;
-  results: ExploreElementObj[];
+export interface ConnectViewProps {
+  searchHandler: ConnectHandler;
+  results: ConnectElementObj[];
 }
 
 function Page() {
-  const [results, changeResults] = useState(resourceTable.explore.example.results);
+  const [results, changeResults] = useState(connectObject.example.results);
 
-  const searchHandler : SearchHandler = {
-    searchQuery: (query: string) => {
+  const connectHandler : ConnectHandler = {
+    connectQuery: (query: string) => {
       if (query === "") {
-        changeResults(resourceTable.explore.example.results);
+        changeResults(connectObject.example.results);
       } else {
         changeResults([]);
       }
@@ -33,7 +32,7 @@ function Page() {
     }
   }
 
-  return <ExploreView results={results} searchHandler={searchHandler} />;
+  return <ConnectView results={results} searchHandler={connectHandler} />;
 }
 
 export default isAuth(Page);

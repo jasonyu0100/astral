@@ -4,7 +4,7 @@ import { useState } from "react";
 import DriveFolderView from "./view";
 import { GalleryObj } from "@/tables/gallery/main";
 import { CollectionObj } from "@/tables/gallery/collection/main";
-import { galleryTable } from "@/tables/gallery/table";
+import { collectionTable, galleryTable } from "@/tables/gallery/table";
 import isAuth from "@/utils/isAuth";
 import { ResourceObj } from "@/tables/resource/main";
 import { resourceTable } from "@/tables/resource/table";
@@ -24,7 +24,7 @@ function Page() {
     galleryTable.example
   );
   const [collection, changeCollection] = useState(
-    galleryTable.collection.example
+    collectionTable.example
   );
   const [resources, changeResources] = useState(
     resourceTable.examples

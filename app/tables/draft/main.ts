@@ -5,6 +5,13 @@ export interface DraftObj {
   constellationIds: string[];
 }
 
+export const draftSchema = `
+type DraftObj {
+  id: String!
+  constellationIds: [String!]!
+}
+`
+
 export const exampleDraft: DraftObj = {
   id: "0",
   constellationIds: exampleConstellations.map(

@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "../file/main";
+import { FileObj, exampleFile } from "../resource/file/main";
 import { exampleCollections } from "./collection/main";
 
 export interface GalleryObj {
@@ -8,6 +8,16 @@ export interface GalleryObj {
   thumbnail: FileObj;
   collectionIds: string[];
 }
+
+export const gallerySchema = `
+type GalleryObj {
+  id: String!
+  title: String!
+  description: String!
+  thumbnail: FileObj!
+  collectionIds: [String!]!
+}
+`
 
 export const exampleGallery: GalleryObj = {
   id: "0",

@@ -2,6 +2,11 @@ export interface JourneyObj {
   id: string;
 }
 
+export const journeySchema = `
+type JourneyObj {
+  id: String!
+}`
+
 export const exampleJourney = {
   id: "0",
 };

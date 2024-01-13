@@ -1,6 +1,6 @@
 import { ConstellationObj } from "@/tables/draft/constellation/main";
 import { StarObj } from "@/tables/draft/constellation/star/main";
-import { draftTable } from "@/tables/draft/table";
+import { constellationTable, draftTable, starObject } from "@/tables/draft/table";
 import { ResourceObj } from "@/tables/resource/main";
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ interface useConstellationInterface {
 
 export const useConstellation = (): useConstellationInterface => {
   const [constellations, changeConstellations] = useState<ConstellationObj[]>(
-    draftTable.constellation.examples
+    constellationTable.examples
   );
   const [constellationId, changeConstellationId] = useState<string>(
     constellations.at(0)?.id || ""
@@ -79,7 +79,7 @@ export const useConstellation = (): useConstellationInterface => {
           stars: [
             ...constellation.stars,
             {
-              ...draftTable.constellation.star.example,
+              ...starObject.example,
               file: resource.file,
             },
           ],
@@ -99,6 +99,7 @@ export const useConstellation = (): useConstellationInterface => {
     spawnStar: (resource: ResourceObj) => {
       const newStar: StarObj = {
         id: new Date().toISOString(),
+        name: "Star 1",
         x: Math.random() * 500,
         y: Math.random() * 500,
         file: resource.file,

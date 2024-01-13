@@ -7,15 +7,12 @@ export interface SpaceObj {
   chapters: ChapterObj[];
 }
 
-export const spaceObjSchema = `graphql 
-type ChapterObj {
-	id: ID!
-	name: String!
-	description: String!
-	stormId: ID!
-	draftId: ID!
-	flowId: ID!
-	seaId: ID!
+export const spaceSchema = `
+type SpaceObj {
+  id: String!
+  title: String!
+  description: String!
+  chapters: [ChapterObj!]!
 }
 `
 

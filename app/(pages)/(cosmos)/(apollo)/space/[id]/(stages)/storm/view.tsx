@@ -17,7 +17,7 @@ import { SidebarColumn } from "./storm-epic/sidebar/chapters/main";
 import { StormChapter } from "./storm-epic/sidebar/chapters/chapter/main";
 import { StormChatMessages } from "./storm-epic/center/chat/messages/main";
 import { StormViewProps } from "./page";
-import { spaceTable } from "@/tables/space/table";
+import { chapterTable, spaceTable } from "@/tables/space/table";
 
 export function StormView({
   chapters,
@@ -85,7 +85,7 @@ export function StormView({
             className="w-full"
             onClick={() =>
               chapterHandler.addChapter({
-                ...spaceTable.chapter.example,
+                ...chapterTable.example,
                 id: new Date().toISOString(),
               })
             }

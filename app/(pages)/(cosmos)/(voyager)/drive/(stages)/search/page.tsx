@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { SearchView } from "./view";
 import { ResourceObj } from "@/tables/resource/main";
-import { resourceTable } from "@/tables/resource/table";
+import { resourceTable, searchObject } from "@/tables/resource/table";
 import isAuth from "@/utils/isAuth";
 
 interface SearchHandler {
@@ -17,7 +17,7 @@ export interface SearchViewProps {
 
 function Page() {
   const [results, changeResults] = useState(
-    resourceTable.search.example.results
+    searchObject.example.results
   );
   const [query, changeQuery] = useState("");
 
@@ -27,7 +27,9 @@ function Page() {
     },
     searchQuery: () => {
       if (query === "") {
-        changeResults(resourceTable.search.example.results);
+        changeResults(
+          searchObject.example.results
+        );
       } else {
         changeResults([]);
       }

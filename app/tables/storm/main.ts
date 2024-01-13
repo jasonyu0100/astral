@@ -5,6 +5,13 @@ export interface StormObj {
   chatIds: string[];
 }
 
+export const stormSchema = `
+type StormObj {
+  id: String!
+  chatIds: [String!]!
+}
+`;
+
 export const exampleStorm: StormObj = {
   id: "0",
   chatIds: exampleChats.map((chat) => chat.id),

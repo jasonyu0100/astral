@@ -5,6 +5,12 @@ export interface FlowObj {
   momentIds: string[];
 }
 
+export const flowSchema = `
+type FlowObj {
+  id: String!
+  momentIds: [String!]!
+}`;
+
 export const exampleFlow: FlowObj = {
   id: "0",
   momentIds: exampleMoments.map((moment) => moment.id),

@@ -2,19 +2,43 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateSpaceObjInput = {
-  title: string,
-  description: string,
-  chapters: Array< CreateChapterObjInput >,
-};
-
 export type CreateChapterObjInput = {
-  name: string,
+  title: string,
   description: string,
   stormId: string,
   draftId: string,
   flowId: string,
   seaId: string,
+};
+
+export type ChapterObj = {
+  __typename: "ChapterObj",
+  id: string,
+  title: string,
+  description: string,
+  stormId: string,
+  draftId: string,
+  flowId: string,
+  seaId: string,
+};
+
+export type UpdateChapterObjInput = {
+  id: string,
+  title?: string | null,
+  description?: string | null,
+  stormId?: string | null,
+  draftId?: string | null,
+  flowId?: string | null,
+  seaId?: string | null,
+};
+
+export type DeleteChapterObjInput = {
+  id: string,
+};
+
+export type CreateSpaceObjInput = {
+  title: string,
+  description: string,
 };
 
 export type SpaceObj = {
@@ -23,17 +47,6 @@ export type SpaceObj = {
   title: string,
   description: string,
   chapters:  Array<ChapterObj >,
-};
-
-export type ChapterObj = {
-  __typename: "ChapterObj",
-  id: string,
-  name: string,
-  description: string,
-  stormId: string,
-  draftId: string,
-  flowId: string,
-  seaId: string,
 };
 
 export type UpdateSpaceObjInput = {
@@ -46,27 +59,313 @@ export type DeleteSpaceObjInput = {
   id: string,
 };
 
-export type UpdateChapterObjInput = {
+export type CreateStormObjInput = {
+  chatIds: Array< string >,
+};
+
+export type StormObj = {
+  __typename: "StormObj",
+  id: string,
+  chatIds: Array< string >,
+};
+
+export type UpdateStormObjInput = {
+  id: string,
+  chatIds?: Array< string > | null,
+};
+
+export type DeleteStormObjInput = {
+  id: string,
+};
+
+export type CreateChatObjInput = {
+  title: string,
+  summary: string,
+  time: string,
+};
+
+export type ChatObj = {
+  __typename: "ChatObj",
+  id: string,
+  title: string,
+  summary: string,
+  time: string,
+  messages:  Array<MessageObj >,
+};
+
+export type MessageObj = {
+  __typename: "MessageObj",
+  id: string,
+  source: string,
+  time: string,
+  message: string,
+};
+
+export type UpdateChatObjInput = {
+  id: string,
+  title?: string | null,
+  summary?: string | null,
+  time?: string | null,
+};
+
+export type DeleteChatObjInput = {
+  id: string,
+};
+
+export type CreateDraftObjInput = {
+  constellationIds: Array< string >,
+};
+
+export type DraftObj = {
+  __typename: "DraftObj",
+  id: string,
+  constellationIds: Array< string >,
+};
+
+export type UpdateDraftObjInput = {
+  id: string,
+  constellationIds?: Array< string > | null,
+};
+
+export type DeleteDraftObjInput = {
+  id: string,
+};
+
+export type CreateConstellationObjInput = {
+  title: string,
+  description: string,
+};
+
+export type ConstellationObj = {
+  __typename: "ConstellationObj",
+  id: string,
+  title: string,
+  description: string,
+  stars:  Array<StarObj >,
+};
+
+export type StarObj = {
+  __typename: "StarObj",
+  id: string,
+  name: string,
+  x: number,
+  y: number,
+  file: FileObj,
+};
+
+export type FileObj = {
+  __typename: "FileObj",
+  name: string,
+  src?: string | null,
+  content?: string | null,
+  url?: string | null,
+  type: FileType,
+};
+
+export enum FileType {
+  IMAGE = "IMAGE",
+  AUDIO = "AUDIO",
+  VIDEO = "VIDEO",
+  TEXT = "TEXT",
+}
+
+
+export type UpdateConstellationObjInput = {
+  id: string,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type DeleteConstellationObjInput = {
+  id: string,
+};
+
+export type CreateFlowObjInput = {
+  momentIds: Array< string >,
+};
+
+export type FlowObj = {
+  __typename: "FlowObj",
+  id: string,
+  momentIds: Array< string >,
+};
+
+export type UpdateFlowObjInput = {
+  id: string,
+  momentIds?: Array< string > | null,
+};
+
+export type DeleteFlowObjInput = {
+  id: string,
+};
+
+export type CreateMomentObjInput = {
+  spaceId: string,
+  userId: string,
+  time: string,
+  title: string,
+  log: string,
+};
+
+export type MomentObj = {
+  __typename: "MomentObj",
+  id: string,
+  spaceId: string,
+  userId: string,
+  time: string,
+  title: string,
+  log: string,
+  file?: FileObj | null,
+  visibility: MomentVisibility,
+  comments:  Array<CommentObj >,
+};
+
+export enum MomentVisibility {
+  JOURNAL = "JOURNAL",
+  SOCIAL = "SOCIAL",
+  EXPLORE = "EXPLORE",
+  NONE = "NONE",
+}
+
+
+export type CommentObj = {
+  __typename: "CommentObj",
+  id: string,
+  time: string,
+  content: string,
+  userId: string,
+};
+
+export type UpdateMomentObjInput = {
+  id: string,
+  spaceId?: string | null,
+  userId?: string | null,
+  time?: string | null,
+  title?: string | null,
+  log?: string | null,
+};
+
+export type DeleteMomentObjInput = {
+  id: string,
+};
+
+export type CreateResourceObjInput = {
+  label: string,
+  description: string,
+};
+
+export type ResourceObj = {
+  __typename: "ResourceObj",
+  id: string,
+  label: string,
+  description: string,
+  file: FileObj,
+};
+
+export type UpdateResourceObjInput = {
+  id: string,
+  label?: string | null,
+  description?: string | null,
+};
+
+export type DeleteResourceObjInput = {
+  id: string,
+};
+
+export type CreateCollectionObjInput = {
+  name: string,
+  resourceIds: Array< string >,
+};
+
+export type CollectionObj = {
+  __typename: "CollectionObj",
+  id: string,
+  name: string,
+  resourceIds: Array< string >,
+};
+
+export type UpdateCollectionObjInput = {
   id: string,
   name?: string | null,
-  description?: string | null,
-  stormId?: string | null,
-  draftId?: string | null,
-  flowId?: string | null,
-  seaId?: string | null,
+  resourceIds?: Array< string > | null,
 };
 
-export type DeleteChapterObjInput = {
+export type DeleteCollectionObjInput = {
   id: string,
 };
 
-export type TableSpaceObjFilterInput = {
-  id?: TableIDFilterInput | null,
-  title?: TableStringFilterInput | null,
-  description?: TableStringFilterInput | null,
+export type CreateGalleryObjInput = {
+  title: string,
+  description: string,
+  collectionIds: Array< string >,
 };
 
-export type TableIDFilterInput = {
+export type GalleryObj = {
+  __typename: "GalleryObj",
+  id: string,
+  title: string,
+  description: string,
+  thumbnail: FileObj,
+  collectionIds: Array< string >,
+};
+
+export type UpdateGalleryObjInput = {
+  id: string,
+  title?: string | null,
+  description?: string | null,
+  collectionIds?: Array< string > | null,
+};
+
+export type DeleteGalleryObjInput = {
+  id: string,
+};
+
+export type CreateUserObjInput = {
+  name: string,
+  email: string,
+  googleId: string,
+  accessToken: string,
+  spaceIds: Array< string >,
+  galleryIds: Array< string >,
+};
+
+export type UserObj = {
+  __typename: "UserObj",
+  id: string,
+  name: string,
+  email: string,
+  googleId: string,
+  accessToken: string,
+  profileImage?: FileObj | null,
+  spaceIds: Array< string >,
+  galleryIds: Array< string >,
+};
+
+export type UpdateUserObjInput = {
+  id: string,
+  name?: string | null,
+  email?: string | null,
+  googleId?: string | null,
+  accessToken?: string | null,
+  spaceIds?: Array< string > | null,
+  galleryIds?: Array< string > | null,
+};
+
+export type DeleteUserObjInput = {
+  id: string,
+};
+
+export type TableChapterObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+  stormId?: TableStringFilterInput | null,
+  draftId?: TableStringFilterInput | null,
+  flowId?: TableStringFilterInput | null,
+  seaId?: TableStringFilterInput | null,
+};
+
+export type TableStringFilterInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -91,19 +390,16 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type TableStringFilterInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  attributeExists?: boolean | null,
-  size?: ModelSizeInput | null,
+export type ChapterObjConnection = {
+  __typename: "ChapterObjConnection",
+  items?:  Array<ChapterObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableSpaceObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
 };
 
 export type SpaceObjConnection = {
@@ -112,20 +408,181 @@ export type SpaceObjConnection = {
   nextToken?: string | null,
 };
 
-export type TableChapterObjFilterInput = {
-  id?: TableIDFilterInput | null,
-  name?: TableStringFilterInput | null,
-  description?: TableStringFilterInput | null,
-  stormId?: TableIDFilterInput | null,
-  draftId?: TableIDFilterInput | null,
-  flowId?: TableIDFilterInput | null,
-  seaId?: TableIDFilterInput | null,
+export type TableStormObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  chatIds?: TableStringFilterInput | null,
 };
 
-export type ChapterObjConnection = {
-  __typename: "ChapterObjConnection",
-  items?:  Array<ChapterObj | null > | null,
+export type StormObjConnection = {
+  __typename: "StormObjConnection",
+  items?:  Array<StormObj | null > | null,
   nextToken?: string | null,
+};
+
+export type TableChatObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  summary?: TableStringFilterInput | null,
+  time?: TableStringFilterInput | null,
+};
+
+export type ChatObjConnection = {
+  __typename: "ChatObjConnection",
+  items?:  Array<ChatObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableDraftObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  constellationIds?: TableStringFilterInput | null,
+};
+
+export type DraftObjConnection = {
+  __typename: "DraftObjConnection",
+  items?:  Array<DraftObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableConstellationObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+};
+
+export type ConstellationObjConnection = {
+  __typename: "ConstellationObjConnection",
+  items?:  Array<ConstellationObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableFlowObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  momentIds?: TableStringFilterInput | null,
+};
+
+export type FlowObjConnection = {
+  __typename: "FlowObjConnection",
+  items?:  Array<FlowObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableMomentObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  spaceId?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
+  time?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  log?: TableStringFilterInput | null,
+};
+
+export type MomentObjConnection = {
+  __typename: "MomentObjConnection",
+  items?:  Array<MomentObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableResourceObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  label?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+};
+
+export type ResourceObjConnection = {
+  __typename: "ResourceObjConnection",
+  items?:  Array<ResourceObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableCollectionObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  name?: TableStringFilterInput | null,
+  resourceIds?: TableStringFilterInput | null,
+};
+
+export type CollectionObjConnection = {
+  __typename: "CollectionObjConnection",
+  items?:  Array<CollectionObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableGalleryObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+  collectionIds?: TableStringFilterInput | null,
+};
+
+export type GalleryObjConnection = {
+  __typename: "GalleryObjConnection",
+  items?:  Array<GalleryObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableUserObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  name?: TableStringFilterInput | null,
+  email?: TableStringFilterInput | null,
+  googleId?: TableStringFilterInput | null,
+  accessToken?: TableStringFilterInput | null,
+  spaceIds?: TableStringFilterInput | null,
+  galleryIds?: TableStringFilterInput | null,
+};
+
+export type UserObjConnection = {
+  __typename: "UserObjConnection",
+  items?:  Array<UserObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type CreateChapterObjMutationVariables = {
+  input: CreateChapterObjInput,
+};
+
+export type CreateChapterObjMutation = {
+  createChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
+    description: string,
+    stormId: string,
+    draftId: string,
+    flowId: string,
+    seaId: string,
+  } | null,
+};
+
+export type UpdateChapterObjMutationVariables = {
+  input: UpdateChapterObjInput,
+};
+
+export type UpdateChapterObjMutation = {
+  updateChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
+    description: string,
+    stormId: string,
+    draftId: string,
+    flowId: string,
+    seaId: string,
+  } | null,
+};
+
+export type DeleteChapterObjMutationVariables = {
+  input: DeleteChapterObjInput,
+};
+
+export type DeleteChapterObjMutation = {
+  deleteChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
+    description: string,
+    stormId: string,
+    draftId: string,
+    flowId: string,
+    seaId: string,
+  } | null,
 };
 
 export type CreateSpaceObjMutationVariables = {
@@ -141,7 +598,7 @@ export type CreateSpaceObjMutation = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -164,7 +621,7 @@ export type UpdateSpaceObjMutation = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -187,7 +644,7 @@ export type DeleteSpaceObjMutation = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -197,15 +654,607 @@ export type DeleteSpaceObjMutation = {
   } | null,
 };
 
-export type CreateChapterObjMutationVariables = {
-  input: CreateChapterObjInput,
+export type CreateStormObjMutationVariables = {
+  input: CreateStormObjInput,
 };
 
-export type CreateChapterObjMutation = {
-  createChapterObj?:  {
-    __typename: "ChapterObj",
+export type CreateStormObjMutation = {
+  createStormObj?:  {
+    __typename: "StormObj",
+    id: string,
+    chatIds: Array< string >,
+  } | null,
+};
+
+export type UpdateStormObjMutationVariables = {
+  input: UpdateStormObjInput,
+};
+
+export type UpdateStormObjMutation = {
+  updateStormObj?:  {
+    __typename: "StormObj",
+    id: string,
+    chatIds: Array< string >,
+  } | null,
+};
+
+export type DeleteStormObjMutationVariables = {
+  input: DeleteStormObjInput,
+};
+
+export type DeleteStormObjMutation = {
+  deleteStormObj?:  {
+    __typename: "StormObj",
+    id: string,
+    chatIds: Array< string >,
+  } | null,
+};
+
+export type CreateChatObjMutationVariables = {
+  input: CreateChatObjInput,
+};
+
+export type CreateChatObjMutation = {
+  createChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type UpdateChatObjMutationVariables = {
+  input: UpdateChatObjInput,
+};
+
+export type UpdateChatObjMutation = {
+  updateChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type DeleteChatObjMutationVariables = {
+  input: DeleteChatObjInput,
+};
+
+export type DeleteChatObjMutation = {
+  deleteChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type CreateDraftObjMutationVariables = {
+  input: CreateDraftObjInput,
+};
+
+export type CreateDraftObjMutation = {
+  createDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type UpdateDraftObjMutationVariables = {
+  input: UpdateDraftObjInput,
+};
+
+export type UpdateDraftObjMutation = {
+  updateDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type DeleteDraftObjMutationVariables = {
+  input: DeleteDraftObjInput,
+};
+
+export type DeleteDraftObjMutation = {
+  deleteDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type CreateConstellationObjMutationVariables = {
+  input: CreateConstellationObjInput,
+};
+
+export type CreateConstellationObjMutation = {
+  createConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type UpdateConstellationObjMutationVariables = {
+  input: UpdateConstellationObjInput,
+};
+
+export type UpdateConstellationObjMutation = {
+  updateConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type DeleteConstellationObjMutationVariables = {
+  input: DeleteConstellationObjInput,
+};
+
+export type DeleteConstellationObjMutation = {
+  deleteConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type CreateFlowObjMutationVariables = {
+  input: CreateFlowObjInput,
+};
+
+export type CreateFlowObjMutation = {
+  createFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type UpdateFlowObjMutationVariables = {
+  input: UpdateFlowObjInput,
+};
+
+export type UpdateFlowObjMutation = {
+  updateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type DeleteFlowObjMutationVariables = {
+  input: DeleteFlowObjInput,
+};
+
+export type DeleteFlowObjMutation = {
+  deleteFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type CreateMomentObjMutationVariables = {
+  input: CreateMomentObjInput,
+};
+
+export type CreateMomentObjMutation = {
+  createMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type UpdateMomentObjMutationVariables = {
+  input: UpdateMomentObjInput,
+};
+
+export type UpdateMomentObjMutation = {
+  updateMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type DeleteMomentObjMutationVariables = {
+  input: DeleteMomentObjInput,
+};
+
+export type DeleteMomentObjMutation = {
+  deleteMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type CreateResourceObjMutationVariables = {
+  input: CreateResourceObjInput,
+};
+
+export type CreateResourceObjMutation = {
+  createResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type UpdateResourceObjMutationVariables = {
+  input: UpdateResourceObjInput,
+};
+
+export type UpdateResourceObjMutation = {
+  updateResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type DeleteResourceObjMutationVariables = {
+  input: DeleteResourceObjInput,
+};
+
+export type DeleteResourceObjMutation = {
+  deleteResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type CreateCollectionObjMutationVariables = {
+  input: CreateCollectionObjInput,
+};
+
+export type CreateCollectionObjMutation = {
+  createCollectionObj?:  {
+    __typename: "CollectionObj",
     id: string,
     name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type UpdateCollectionObjMutationVariables = {
+  input: UpdateCollectionObjInput,
+};
+
+export type UpdateCollectionObjMutation = {
+  updateCollectionObj?:  {
+    __typename: "CollectionObj",
+    id: string,
+    name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type DeleteCollectionObjMutationVariables = {
+  input: DeleteCollectionObjInput,
+};
+
+export type DeleteCollectionObjMutation = {
+  deleteCollectionObj?:  {
+    __typename: "CollectionObj",
+    id: string,
+    name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type CreateGalleryObjMutationVariables = {
+  input: CreateGalleryObjInput,
+};
+
+export type CreateGalleryObjMutation = {
+  createGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type UpdateGalleryObjMutationVariables = {
+  input: UpdateGalleryObjInput,
+};
+
+export type UpdateGalleryObjMutation = {
+  updateGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type DeleteGalleryObjMutationVariables = {
+  input: DeleteGalleryObjInput,
+};
+
+export type DeleteGalleryObjMutation = {
+  deleteGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type CreateUserObjMutationVariables = {
+  input: CreateUserObjInput,
+};
+
+export type CreateUserObjMutation = {
+  createUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type UpdateUserObjMutationVariables = {
+  input: UpdateUserObjInput,
+};
+
+export type UpdateUserObjMutation = {
+  updateUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type DeleteUserObjMutationVariables = {
+  input: DeleteUserObjInput,
+};
+
+export type DeleteUserObjMutation = {
+  deleteUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type GetSpaceQueryVariables = {
+};
+
+export type GetSpaceQuery = {
+  getSpace?:  {
+    __typename: "SpaceObj",
+    id: string,
+    title: string,
+    description: string,
+    chapters:  Array< {
+      __typename: "ChapterObj",
+      id: string,
+      title: string,
+      description: string,
+      stormId: string,
+      draftId: string,
+      flowId: string,
+      seaId: string,
+    } >,
+  } | null,
+};
+
+export type GetChapterObjQueryVariables = {
+  id: string,
+};
+
+export type GetChapterObjQuery = {
+  getChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
     description: string,
     stormId: string,
     draftId: string,
@@ -214,53 +1263,26 @@ export type CreateChapterObjMutation = {
   } | null,
 };
 
-export type UpdateChapterObjMutationVariables = {
-  input: UpdateChapterObjInput,
+export type ListChapterObjsQueryVariables = {
+  filter?: TableChapterObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
 };
 
-export type UpdateChapterObjMutation = {
-  updateChapterObj?:  {
-    __typename: "ChapterObj",
-    id: string,
-    name: string,
-    description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
-  } | null,
-};
-
-export type DeleteChapterObjMutationVariables = {
-  input: DeleteChapterObjInput,
-};
-
-export type DeleteChapterObjMutation = {
-  deleteChapterObj?:  {
-    __typename: "ChapterObj",
-    id: string,
-    name: string,
-    description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
-  } | null,
-};
-
-export type GetChapterQueryVariables = {
-};
-
-export type GetChapterQuery = {
-  getChapter?:  {
-    __typename: "ChapterObj",
-    id: string,
-    name: string,
-    description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
+export type ListChapterObjsQuery = {
+  listChapterObjs?:  {
+    __typename: "ChapterObjConnection",
+    items?:  Array< {
+      __typename: "ChapterObj",
+      id: string,
+      title: string,
+      description: string,
+      stormId: string,
+      draftId: string,
+      flowId: string,
+      seaId: string,
+    } | null > | null,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -277,7 +1299,7 @@ export type GetSpaceObjQuery = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -306,15 +1328,406 @@ export type ListSpaceObjsQuery = {
   } | null,
 };
 
-export type GetChapterObjQueryVariables = {
+export type GetStormObjQueryVariables = {
   id: string,
 };
 
-export type GetChapterObjQuery = {
-  getChapterObj?:  {
-    __typename: "ChapterObj",
+export type GetStormObjQuery = {
+  getStormObj?:  {
+    __typename: "StormObj",
+    id: string,
+    chatIds: Array< string >,
+  } | null,
+};
+
+export type ListStormObjsQueryVariables = {
+  filter?: TableStormObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListStormObjsQuery = {
+  listStormObjs?:  {
+    __typename: "StormObjConnection",
+    items?:  Array< {
+      __typename: "StormObj",
+      id: string,
+      chatIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetChatObjQueryVariables = {
+  id: string,
+};
+
+export type GetChatObjQuery = {
+  getChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type ListChatObjsQueryVariables = {
+  filter?: TableChatObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListChatObjsQuery = {
+  listChatObjs?:  {
+    __typename: "ChatObjConnection",
+    items?:  Array< {
+      __typename: "ChatObj",
+      id: string,
+      title: string,
+      summary: string,
+      time: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetDraftObjQueryVariables = {
+  id: string,
+};
+
+export type GetDraftObjQuery = {
+  getDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type ListDraftObjsQueryVariables = {
+  filter?: TableDraftObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListDraftObjsQuery = {
+  listDraftObjs?:  {
+    __typename: "DraftObjConnection",
+    items?:  Array< {
+      __typename: "DraftObj",
+      id: string,
+      constellationIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetConstellationObjQueryVariables = {
+  id: string,
+};
+
+export type GetConstellationObjQuery = {
+  getConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type ListConstellationObjsQueryVariables = {
+  filter?: TableConstellationObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListConstellationObjsQuery = {
+  listConstellationObjs?:  {
+    __typename: "ConstellationObjConnection",
+    items?:  Array< {
+      __typename: "ConstellationObj",
+      id: string,
+      title: string,
+      description: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetFlowObjQueryVariables = {
+  id: string,
+};
+
+export type GetFlowObjQuery = {
+  getFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type ListFlowObjsQueryVariables = {
+  filter?: TableFlowObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListFlowObjsQuery = {
+  listFlowObjs?:  {
+    __typename: "FlowObjConnection",
+    items?:  Array< {
+      __typename: "FlowObj",
+      id: string,
+      momentIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetMomentObjQueryVariables = {
+  id: string,
+};
+
+export type GetMomentObjQuery = {
+  getMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type ListMomentObjsQueryVariables = {
+  filter?: TableMomentObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListMomentObjsQuery = {
+  listMomentObjs?:  {
+    __typename: "MomentObjConnection",
+    items?:  Array< {
+      __typename: "MomentObj",
+      id: string,
+      spaceId: string,
+      userId: string,
+      time: string,
+      title: string,
+      log: string,
+      visibility: MomentVisibility,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetResourceObjQueryVariables = {
+  id: string,
+};
+
+export type GetResourceObjQuery = {
+  getResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type ListResourceObjsQueryVariables = {
+  filter?: TableResourceObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListResourceObjsQuery = {
+  listResourceObjs?:  {
+    __typename: "ResourceObjConnection",
+    items?:  Array< {
+      __typename: "ResourceObj",
+      id: string,
+      label: string,
+      description: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetCollectionObjQueryVariables = {
+  id: string,
+};
+
+export type GetCollectionObjQuery = {
+  getCollectionObj?:  {
+    __typename: "CollectionObj",
     id: string,
     name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type ListCollectionObjsQueryVariables = {
+  filter?: TableCollectionObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCollectionObjsQuery = {
+  listCollectionObjs?:  {
+    __typename: "CollectionObjConnection",
+    items?:  Array< {
+      __typename: "CollectionObj",
+      id: string,
+      name: string,
+      resourceIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetGalleryObjQueryVariables = {
+  id: string,
+};
+
+export type GetGalleryObjQuery = {
+  getGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type ListGalleryObjsQueryVariables = {
+  filter?: TableGalleryObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListGalleryObjsQuery = {
+  listGalleryObjs?:  {
+    __typename: "GalleryObjConnection",
+    items?:  Array< {
+      __typename: "GalleryObj",
+      id: string,
+      title: string,
+      description: string,
+      collectionIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetUserObjQueryVariables = {
+  id: string,
+};
+
+export type GetUserObjQuery = {
+  getUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type ListUserObjsQueryVariables = {
+  filter?: TableUserObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListUserObjsQuery = {
+  listUserObjs?:  {
+    __typename: "UserObjConnection",
+    items?:  Array< {
+      __typename: "UserObj",
+      id: string,
+      name: string,
+      email: string,
+      googleId: string,
+      accessToken: string,
+      spaceIds: Array< string >,
+      galleryIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type OnCreateChapterObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  stormId?: string | null,
+  draftId?: string | null,
+};
+
+export type OnCreateChapterObjSubscription = {
+  onCreateChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
     description: string,
     stormId: string,
     draftId: string,
@@ -323,26 +1736,45 @@ export type GetChapterObjQuery = {
   } | null,
 };
 
-export type ListChapterObjsQueryVariables = {
-  filter?: TableChapterObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
+export type OnUpdateChapterObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  stormId?: string | null,
+  draftId?: string | null,
 };
 
-export type ListChapterObjsQuery = {
-  listChapterObjs?:  {
-    __typename: "ChapterObjConnection",
-    items?:  Array< {
-      __typename: "ChapterObj",
-      id: string,
-      name: string,
-      description: string,
-      stormId: string,
-      draftId: string,
-      flowId: string,
-      seaId: string,
-    } | null > | null,
-    nextToken?: string | null,
+export type OnUpdateChapterObjSubscription = {
+  onUpdateChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
+    description: string,
+    stormId: string,
+    draftId: string,
+    flowId: string,
+    seaId: string,
+  } | null,
+};
+
+export type OnDeleteChapterObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  stormId?: string | null,
+  draftId?: string | null,
+};
+
+export type OnDeleteChapterObjSubscription = {
+  onDeleteChapterObj?:  {
+    __typename: "ChapterObj",
+    id: string,
+    title: string,
+    description: string,
+    stormId: string,
+    draftId: string,
+    flowId: string,
+    seaId: string,
   } | null,
 };
 
@@ -361,7 +1793,7 @@ export type OnCreateSpaceObjSubscription = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -386,7 +1818,7 @@ export type OnUpdateSpaceObjSubscription = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -411,7 +1843,7 @@ export type OnDeleteSpaceObjSubscription = {
     chapters:  Array< {
       __typename: "ChapterObj",
       id: string,
-      name: string,
+      title: string,
       description: string,
       stormId: string,
       draftId: string,
@@ -421,65 +1853,641 @@ export type OnDeleteSpaceObjSubscription = {
   } | null,
 };
 
-export type OnCreateChapterObjSubscriptionVariables = {
+export type OnCreateStormObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
-  description?: string | null,
-  stormId?: string | null,
-  draftId?: string | null,
+  chatIds?: Array< string > | null,
 };
 
-export type OnCreateChapterObjSubscription = {
-  onCreateChapterObj?:  {
-    __typename: "ChapterObj",
+export type OnCreateStormObjSubscription = {
+  onCreateStormObj?:  {
+    __typename: "StormObj",
     id: string,
-    name: string,
-    description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
+    chatIds: Array< string >,
   } | null,
 };
 
-export type OnUpdateChapterObjSubscriptionVariables = {
+export type OnUpdateStormObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
-  description?: string | null,
-  stormId?: string | null,
-  draftId?: string | null,
+  chatIds?: Array< string > | null,
 };
 
-export type OnUpdateChapterObjSubscription = {
-  onUpdateChapterObj?:  {
-    __typename: "ChapterObj",
+export type OnUpdateStormObjSubscription = {
+  onUpdateStormObj?:  {
+    __typename: "StormObj",
     id: string,
-    name: string,
-    description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
+    chatIds: Array< string >,
   } | null,
 };
 
-export type OnDeleteChapterObjSubscriptionVariables = {
+export type OnDeleteStormObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
-  description?: string | null,
-  stormId?: string | null,
-  draftId?: string | null,
+  chatIds?: Array< string > | null,
 };
 
-export type OnDeleteChapterObjSubscription = {
-  onDeleteChapterObj?:  {
-    __typename: "ChapterObj",
+export type OnDeleteStormObjSubscription = {
+  onDeleteStormObj?:  {
+    __typename: "StormObj",
+    id: string,
+    chatIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateChatObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  summary?: string | null,
+  time?: string | null,
+};
+
+export type OnCreateChatObjSubscription = {
+  onCreateChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type OnUpdateChatObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  summary?: string | null,
+  time?: string | null,
+};
+
+export type OnUpdateChatObjSubscription = {
+  onUpdateChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type OnDeleteChatObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  summary?: string | null,
+  time?: string | null,
+};
+
+export type OnDeleteChatObjSubscription = {
+  onDeleteChatObj?:  {
+    __typename: "ChatObj",
+    id: string,
+    title: string,
+    summary: string,
+    time: string,
+    messages:  Array< {
+      __typename: "MessageObj",
+      id: string,
+      source: string,
+      time: string,
+      message: string,
+    } >,
+  } | null,
+};
+
+export type OnCreateDraftObjSubscriptionVariables = {
+  id?: string | null,
+  constellationIds?: Array< string > | null,
+};
+
+export type OnCreateDraftObjSubscription = {
+  onCreateDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type OnUpdateDraftObjSubscriptionVariables = {
+  id?: string | null,
+  constellationIds?: Array< string > | null,
+};
+
+export type OnUpdateDraftObjSubscription = {
+  onUpdateDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type OnDeleteDraftObjSubscriptionVariables = {
+  id?: string | null,
+  constellationIds?: Array< string > | null,
+};
+
+export type OnDeleteDraftObjSubscription = {
+  onDeleteDraftObj?:  {
+    __typename: "DraftObj",
+    id: string,
+    constellationIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateConstellationObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type OnCreateConstellationObjSubscription = {
+  onCreateConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type OnUpdateConstellationObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type OnUpdateConstellationObjSubscription = {
+  onUpdateConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type OnDeleteConstellationObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+};
+
+export type OnDeleteConstellationObjSubscription = {
+  onDeleteConstellationObj?:  {
+    __typename: "ConstellationObj",
+    id: string,
+    title: string,
+    description: string,
+    stars:  Array< {
+      __typename: "StarObj",
+      id: string,
+      name: string,
+      x: number,
+      y: number,
+    } >,
+  } | null,
+};
+
+export type OnCreateFlowObjSubscriptionVariables = {
+  id?: string | null,
+  momentIds?: Array< string > | null,
+};
+
+export type OnCreateFlowObjSubscription = {
+  onCreateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type OnUpdateFlowObjSubscriptionVariables = {
+  id?: string | null,
+  momentIds?: Array< string > | null,
+};
+
+export type OnUpdateFlowObjSubscription = {
+  onUpdateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type OnDeleteFlowObjSubscriptionVariables = {
+  id?: string | null,
+  momentIds?: Array< string > | null,
+};
+
+export type OnDeleteFlowObjSubscription = {
+  onDeleteFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    momentIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateMomentObjSubscriptionVariables = {
+  id?: string | null,
+  spaceId?: string | null,
+  userId?: string | null,
+  time?: string | null,
+  title?: string | null,
+};
+
+export type OnCreateMomentObjSubscription = {
+  onCreateMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type OnUpdateMomentObjSubscriptionVariables = {
+  id?: string | null,
+  spaceId?: string | null,
+  userId?: string | null,
+  time?: string | null,
+  title?: string | null,
+};
+
+export type OnUpdateMomentObjSubscription = {
+  onUpdateMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type OnDeleteMomentObjSubscriptionVariables = {
+  id?: string | null,
+  spaceId?: string | null,
+  userId?: string | null,
+  time?: string | null,
+  title?: string | null,
+};
+
+export type OnDeleteMomentObjSubscription = {
+  onDeleteMomentObj?:  {
+    __typename: "MomentObj",
+    id: string,
+    spaceId: string,
+    userId: string,
+    time: string,
+    title: string,
+    log: string,
+    file?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    visibility: MomentVisibility,
+    comments:  Array< {
+      __typename: "CommentObj",
+      id: string,
+      time: string,
+      content: string,
+      userId: string,
+    } >,
+  } | null,
+};
+
+export type OnCreateResourceObjSubscriptionVariables = {
+  id?: string | null,
+  label?: string | null,
+  description?: string | null,
+};
+
+export type OnCreateResourceObjSubscription = {
+  onCreateResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type OnUpdateResourceObjSubscriptionVariables = {
+  id?: string | null,
+  label?: string | null,
+  description?: string | null,
+};
+
+export type OnUpdateResourceObjSubscription = {
+  onUpdateResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type OnDeleteResourceObjSubscriptionVariables = {
+  id?: string | null,
+  label?: string | null,
+  description?: string | null,
+};
+
+export type OnDeleteResourceObjSubscription = {
+  onDeleteResourceObj?:  {
+    __typename: "ResourceObj",
+    id: string,
+    label: string,
+    description: string,
+    file:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+  } | null,
+};
+
+export type OnCreateCollectionObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  resourceIds?: Array< string > | null,
+};
+
+export type OnCreateCollectionObjSubscription = {
+  onCreateCollectionObj?:  {
+    __typename: "CollectionObj",
     id: string,
     name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type OnUpdateCollectionObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  resourceIds?: Array< string > | null,
+};
+
+export type OnUpdateCollectionObjSubscription = {
+  onUpdateCollectionObj?:  {
+    __typename: "CollectionObj",
+    id: string,
+    name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type OnDeleteCollectionObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  resourceIds?: Array< string > | null,
+};
+
+export type OnDeleteCollectionObjSubscription = {
+  onDeleteCollectionObj?:  {
+    __typename: "CollectionObj",
+    id: string,
+    name: string,
+    resourceIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateGalleryObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  collectionIds?: Array< string > | null,
+};
+
+export type OnCreateGalleryObjSubscription = {
+  onCreateGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
     description: string,
-    stormId: string,
-    draftId: string,
-    flowId: string,
-    seaId: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type OnUpdateGalleryObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  collectionIds?: Array< string > | null,
+};
+
+export type OnUpdateGalleryObjSubscription = {
+  onUpdateGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type OnDeleteGalleryObjSubscriptionVariables = {
+  id?: string | null,
+  title?: string | null,
+  description?: string | null,
+  collectionIds?: Array< string > | null,
+};
+
+export type OnDeleteGalleryObjSubscription = {
+  onDeleteGalleryObj?:  {
+    __typename: "GalleryObj",
+    id: string,
+    title: string,
+    description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    },
+    collectionIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateUserObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  email?: string | null,
+  googleId?: string | null,
+  accessToken?: string | null,
+};
+
+export type OnCreateUserObjSubscription = {
+  onCreateUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type OnUpdateUserObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  email?: string | null,
+  googleId?: string | null,
+  accessToken?: string | null,
+};
+
+export type OnUpdateUserObjSubscription = {
+  onUpdateUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
+  } | null,
+};
+
+export type OnDeleteUserObjSubscriptionVariables = {
+  id?: string | null,
+  name?: string | null,
+  email?: string | null,
+  googleId?: string | null,
+  accessToken?: string | null,
+};
+
+export type OnDeleteUserObjSubscription = {
+  onDeleteUserObj?:  {
+    __typename: "UserObj",
+    id: string,
+    name: string,
+    email: string,
+    googleId: string,
+    accessToken: string,
+    profileImage?:  {
+      __typename: "FileObj",
+      name: string,
+      src?: string | null,
+      content?: string | null,
+      url?: string | null,
+      type: FileType,
+    } | null,
+    spaceIds: Array< string >,
+    galleryIds: Array< string >,
   } | null,
 };

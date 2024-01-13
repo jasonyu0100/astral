@@ -7,6 +7,14 @@ export interface ConstellationObj {
   stars: StarObj[];
 }
 
+export const constellationSchema = `
+type ConstellationObj {
+  id: String!
+  title: String!
+  description: String!
+  stars: [StarObj!]!
+}`;
+
 export const exampleConstellation = {
   id: "0",
   title: "Idea Constellation",

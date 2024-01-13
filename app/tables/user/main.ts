@@ -1,4 +1,4 @@
-import { FileObj, exampleProfileImageFile } from "../file/main";
+import { FileObj, exampleProfileImageFile } from "../resource/file/main";
 import { exampleGallerys } from "../gallery/main";
 import { exampleSpaces } from "../space/main";
 
@@ -12,6 +12,18 @@ export interface UserObj {
   spaceIds: string[];
   galleryIds: string[];
 }
+
+export const userSchema = `
+type UserObj {
+  id: String!
+  name: String!
+  email: String!
+  googleId: String!
+  accessToken: String!
+  profileImage: FileObj
+  spaceIds: [String!]!
+  galleryIds: [String!]!
+}`;
 
 export const exampleUser: UserObj = {
   id: "0",

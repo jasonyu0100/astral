@@ -8,6 +8,18 @@ export interface ChapterObj {
   seaId: string;
 }
 
+export const chapterSchema = `
+type ChapterObj {
+  id: String!
+  title: String!
+  description: String!
+  stormId: String!
+  draftId: String!
+  flowId: String!
+  seaId: String!
+}
+`
+
 export const exampleChapter: ChapterObj = {
   id: "0",
   title: "Melody",

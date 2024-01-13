@@ -1,5 +1,5 @@
 import { MomentObj } from "@/tables/flow/moment/main";
-import { flowTable } from "@/tables/flow/table";
+import { flowTable, momentTable } from "@/tables/flow/table";
 import { useState } from "react";
 
 export interface MomentHandler {
@@ -16,7 +16,7 @@ export interface useMomentInterface {
 
 export const useMoment = () : useMomentInterface => {
   const [moments, changeMoments] = useState<MomentObj[]>(
-    flowTable.moment.examples
+    momentTable.examples
   );
   const [momentId, changeMomentId] = useState<string>(
     moments.at(0)?.id || ""

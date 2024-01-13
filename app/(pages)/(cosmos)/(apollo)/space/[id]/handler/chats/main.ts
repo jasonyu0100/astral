@@ -1,6 +1,6 @@
 import { ChatObj } from "@/tables/storm/chat/main";
 import { MessageObj } from "@/tables/storm/chat/message/main";
-import { stormTable } from "@/tables/storm/table";
+import { chatTable, stormTable } from "@/tables/storm/table";
 import { useState } from "react";
 
 export interface ChatHandler {
@@ -20,7 +20,7 @@ export interface useChatInterface {
 }
 
 export const useChat = (): useChatInterface => {
-  const [chats, changeChats] = useState<ChatObj[]>(stormTable.chat.examples);
+  const [chats, changeChats] = useState<ChatObj[]>(chatTable.examples);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || "");
   const [messages, changeMessages] = useState<MessageObj[]>(
     chats?.at(0)?.messages || []

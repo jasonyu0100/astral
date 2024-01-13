@@ -11,7 +11,7 @@ export function CollectionInfo({
         {collection.name}
       </div>
       <div className="text-slate-500 text-base font-lg">
-        {collection.resources.length} resources
+        {collection.resourceIds.length} resources
       </div>
     </div>
   );

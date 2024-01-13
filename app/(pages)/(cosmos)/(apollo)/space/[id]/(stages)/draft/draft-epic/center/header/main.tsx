@@ -1,6 +1,6 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles, borderStyles } from "@/(pages)/(common)/styles/data";
-import { draftTable } from "@/tables/draft/table";
+import { constellationTable, draftTable } from "@/tables/draft/table";
 import { DraftHeaderAddButton } from "./add/main";
 import { DraftHeaderListButton } from "./left/list/main";
 import DraftHeaderTitle from "./title/main";
@@ -35,7 +35,7 @@ export function DraftHeader() {
         <DraftHeaderAddButton
           onClick={() => {
             constellationHandler.addConstellation(
-              draftTable.constellation.example
+              constellationTable.example
             );
           }}
         />

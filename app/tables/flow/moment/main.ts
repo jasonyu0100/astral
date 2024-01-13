@@ -1,12 +1,32 @@
-import { FileObj, exampleFile } from "../../file/main";
-import { MomentCommentObj, exampleComments } from "./comment/main";
+import { FileObj, exampleFile } from "../../resource/file/main";
+import { CommentObj, exampleComments } from "./comment/main";
 
 export enum MomentVisibility {
-  Journal = "Journal",
-  Social = "Social",
-  Explore = "Explore",
-  None = "None",
+  JOURNAL = "Journal",
+  SOCIAL = "Social",
+  EXPLORE = "Explore",
+  NONE = "None",
 }
+
+export const momentSchema = `
+enum MomentVisibility {
+  JOURNAL
+  SOCIAL
+  EXPLORE
+  NONE
+}
+
+type MomentObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  time: String!
+  title: String!
+  log: String!
+  file: FileObj
+  visibility: MomentVisibility!
+  comments: [CommentObj!]!
+}`;
 export interface MomentObj {
   id: string;
   spaceId: string;
@@ -16,7 +36,7 @@ export interface MomentObj {
   log: string;
   file: FileObj;
   visibility: MomentVisibility;
-  comments: MomentCommentObj[];
+  comments: CommentObj[];
 }
 
 export const exampleMoment: MomentObj = {
@@ -27,7 +47,7 @@ export const exampleMoment: MomentObj = {
   file: exampleFile,
   spaceId: "0",
   userId: "0",
-  visibility: MomentVisibility.Journal,
+  visibility: MomentVisibility.JOURNAL,
   comments: exampleComments,
 };
 
@@ -40,7 +60,7 @@ export const exampleMoments: MomentObj[] = [
     file: exampleFile,
     spaceId: "0",
     userId: "0",
-    visibility: MomentVisibility.Journal,
+    visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },
   {
@@ -51,7 +71,7 @@ export const exampleMoments: MomentObj[] = [
     file: exampleFile,
     spaceId: "0",
     userId: "0",
-    visibility: MomentVisibility.Journal,
+    visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },
 ];

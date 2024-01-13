@@ -2,7 +2,7 @@ import { GalleryObj } from "@/tables/gallery/main";
 import { useState } from "react";
 import { SidebarView } from "./view";
 import { CollectionObj } from "@/tables/gallery/collection/main";
-import { galleryTable } from "@/tables/gallery/table";
+import { collectionTable, galleryTable } from "@/tables/gallery/table";
 import { ResourceObj } from "@/tables/resource/main";
 import { resourceTable } from "@/tables/resource/table";
 
@@ -40,7 +40,7 @@ export function DraftSidebar() {
   );
   const [galleryId, changeGalleryId] = useState<string>("");
   const [collections, chnageCollections] = useState<CollectionObj[]>(
-    galleryTable.collection.examples
+    collectionTable.examples
   );
   const [collectionId, changeCollectionId] = useState<string>("");
   const [resources, changeResources] = useState<ResourceObj[]>(

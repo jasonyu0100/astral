@@ -1,11 +1,19 @@
-import { exampleCollection, exampleCollections } from "./collection/main";
-import { exampleGallery, exampleGallerys } from "./main";
+import { TableDescriptor } from "../tables";
+import {
+  collectionSchema,
+  exampleCollection,
+  exampleCollections,
+} from "./collection/main";
+import { exampleGallery, exampleGallerys, gallerySchema } from "./main";
 
-export const galleryTable = {
+export const galleryTable: TableDescriptor = {
   example: exampleGallery,
   examples: exampleGallerys,
-  collection: {
-    example: exampleCollection,
-    examples: exampleCollections,
-  }
+  schema: gallerySchema,
+};
+
+export const collectionTable: TableDescriptor = {
+  example: exampleCollection,
+  examples: exampleCollections,
+  schema: collectionSchema,
 };

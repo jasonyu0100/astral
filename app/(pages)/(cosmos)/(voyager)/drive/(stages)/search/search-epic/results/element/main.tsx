@@ -24,7 +24,7 @@ export function SearchResult({
       <img className="w-full aspect-square bg-black" src={result.file.src} />
       <div className="h-full w-full flex flex-col items-center justify-center">
         <p className="text-center w-full text-black font-bold text-xl">
-          {result.file.name}
+          {result.label}
         </p>
       </div>
     </div>

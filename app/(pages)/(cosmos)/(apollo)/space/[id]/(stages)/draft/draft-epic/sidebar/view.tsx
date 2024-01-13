@@ -45,7 +45,7 @@ export function SidebarView({
 
   const filteredResources = resources.filter((resource) => {
     const regex = new RegExp(query, "i");
-    return regex.test(resource.file.name);
+    return regex.test(resource.label);
   });
 
   return (
@@ -154,13 +154,13 @@ export function SidebarView({
                   </CollectionFileThumbnailWrapper>
                   <CollectionFileInfo>
                     <p className="text-slate-400 font-extraBold">
-                      {resource.file.name}
+                      {resource.label}
                     </p>
                     <p className="text-slate-500 font-bold">
                       123 drafts - 3 weeks ago
                     </p>
                     <p className="text-slate-500 font-regular">
-                      {resource.file.description}
+                      {resource.description}
                     </p>
                   </CollectionFileInfo>
                 </CollectionFile>

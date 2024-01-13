@@ -1,27 +1,33 @@
-import { FileObj, exampleFiles } from "../../file/main";
-import { ResourceObj, exampleResources } from "../../resource/main";
+import { exampleResources } from "../../resource/main";
 
 export interface CollectionObj {
   id: string;
   name: string;
-  resources: ResourceObj[];
+  resourceIds: string[];
 }
+
+export const collectionSchema = `
+type CollectionObj {
+  id: String!
+  name: String!
+  resourceIds: [String!]!
+}`;
 
 export const exampleCollection: CollectionObj = {
   id: "0",
   name: "Symbols",
-  resources: exampleResources
+  resourceIds: exampleResources.map((resource) => resource.id),
 };
 
 export const exampleCollections: CollectionObj[] = [
   {
     id: "0",
     name: "Symbols",
-    resources: exampleResources
-  },{
+    resourceIds: exampleResources.map((resource) => resource.id),
+  },
+  {
     id: "1",
     name: "Symbols",
-    resources: exampleResources
-  }
-]
-
+    resourceIds: exampleResources.map((resource) => resource.id),
+  },
+];

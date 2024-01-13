@@ -1,17 +1,24 @@
-export interface MomentCommentObj {
+export interface CommentObj {
   id: string;
+  time: string;
   content: string;
-  postId: string;
-  authorId: string;
+  userId: string;
 }
 
-export const exampleComment: MomentCommentObj = {
-    id: "0",
-    postId: "0",
-    authorId: "0",
-    content: "Hello World"
+export const commentSchema = `
+type CommentObj {
+  id: String!
+  time: String!
+  content: String!
+  userId: String!
 }
+`;
 
-export const exampleComments: MomentCommentObj[] = [
-    exampleComment
-]
+export const exampleComment: CommentObj = {
+  id: "0",
+  time: new Date("2023-12-19").toISOString(),
+  content: "Hello World",
+  userId: "0",
+};
+
+export const exampleComments: CommentObj[] = [exampleComment];

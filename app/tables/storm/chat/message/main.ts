@@ -5,6 +5,14 @@ export interface MessageObj {
   message: string;
 }
 
+export const messageSchema = `
+type MessageObj {
+  id: String!
+  source: String!
+  time: String!
+  message: String!
+}`;
+
 export const exampleMessage: MessageObj = {
   id: "0",
   source: "You",

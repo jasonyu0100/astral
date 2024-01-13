@@ -1,5 +1,5 @@
 import { ChapterObj } from "@/tables/space/chapter/main";
-import { spaceTable } from "@/tables/space/table";
+import { chapterTable, spaceTable } from "@/tables/space/table";
 import { useState } from "react";
 
 export interface ChapterHandler {
@@ -18,7 +18,7 @@ export interface useChaptersInterface {
 
 export const useChapters = (): useChaptersInterface => {
   const [chapters, changeChapters] = useState<ChapterObj[]>(
-    spaceTable.chapter.examples
+    chapterTable.examples
   );
 
   const [chapterId, changeChapterId] = useState<string>(

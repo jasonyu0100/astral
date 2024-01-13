@@ -3,7 +3,7 @@ import { useState } from "react";
 import { DriveSectionView } from "./view";
 import { GalleryObj } from "@/tables/gallery/main";
 import { CollectionObj } from "@/tables/gallery/collection/main";
-import { galleryTable } from "@/tables/gallery/table";
+import { collectionTable, galleryTable } from "@/tables/gallery/table";
 import isAuth from "@/utils/isAuth";
 
 export interface DriveSectionViewProps {
@@ -17,7 +17,7 @@ function Page() {
   const [gallery, changeGallery] = useState<GalleryObj>(
     galleryTable.example
   );
-  const [collections, changeCollections] = useState<CollectionObj[]>(galleryTable.collection.examples)
+  const [collections, changeCollections] = useState<CollectionObj[]>(collectionTable.examples)
 
   const addCollection = (collection: CollectionObj) => {
     changeCollections((prev) => [...prev, collection])

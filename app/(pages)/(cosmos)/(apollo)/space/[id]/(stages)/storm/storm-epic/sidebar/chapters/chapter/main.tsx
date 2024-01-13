@@ -6,7 +6,7 @@ import StormChapterIndicator from "./header/indicator/main";
 import { StormChapterTitle } from "./header/title/main";
 import { useEffect, useState } from "react";
 import { ChatObj } from "@/tables/storm/chat/main";
-import { stormTable } from "@/tables/storm/table";
+import { chatTable, stormTable } from "@/tables/storm/table";
 
 interface StormSidebarSectionViewProps {
   index: number;
@@ -63,7 +63,7 @@ export function StormChapter({
           ))}
           <StormChapterChatAdd
             onClick={() => addChat({
-              ...stormTable.chat.example, id: new Date().toISOString()}, chapter)}
+              ...chatTable.example, id: new Date().toISOString()}, chapter)}
           />
         </>
       )}

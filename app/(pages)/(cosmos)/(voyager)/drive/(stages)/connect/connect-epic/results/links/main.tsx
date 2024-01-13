@@ -1,7 +1,7 @@
-import { ExploreElementObj } from "@/tables/resource/explore/element/main";
+import { ConnectElementObj } from "@/tables/resource/connect/element/main";
 import { motion } from "framer-motion";
 
-export function ElementLinks({ elements }: { elements: ExploreElementObj[] }) {
+export function ConnectLinks({ elements }: { elements: ConnectElementObj[] }) {
   return (
     <motion.svg className="absolute top-0 left-0 w-full h-full">
       {elements.map((element, i) => (
