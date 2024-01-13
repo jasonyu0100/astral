@@ -12,7 +12,7 @@ export interface ChatHandler {
 }
 
 export interface useChatInterface {
-  chat: ChatObj | undefined;
+  chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
   messages: MessageObj[];

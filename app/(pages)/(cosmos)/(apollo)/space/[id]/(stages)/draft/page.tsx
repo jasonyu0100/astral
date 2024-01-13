@@ -15,9 +15,9 @@ import { ResourceObj } from "@/tables/resource/main";
 
 export interface DraftContextObj {
   chapterId: string;
-  chapter: ChapterObj | undefined;
+  chapter?: ChapterObj;
   chapters: ChapterObj[];
-  constellation: ConstellationObj | undefined;
+  constellation?: ConstellationObj;
   constellations: ConstellationObj[];
   constellationId: string;
   stars: StarObj[];

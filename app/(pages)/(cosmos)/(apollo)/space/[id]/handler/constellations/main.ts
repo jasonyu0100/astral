@@ -19,7 +19,7 @@ export interface StarHandler {
 
 interface useConstellationInterface {
   stars: StarObj[];
-  constellation: ConstellationObj | undefined;
+  constellation?: ConstellationObj;
   constellations: ConstellationObj[];
   constellationId: string;
   _constellationHandler: ConstellationHandler;

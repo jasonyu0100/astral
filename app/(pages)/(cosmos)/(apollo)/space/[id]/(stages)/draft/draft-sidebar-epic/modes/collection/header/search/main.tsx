@@ -2,10 +2,13 @@ import { Layer } from "@/(pages)/(common)/layer/main";
 import { borderStyles, containerStyles } from "@/(pages)/(common)/styles/data";
 import { SearchBarButton } from "./button/main";
 import SearchBarInput from "./input/main";
+import { useContext, useState } from "react";
+import { DraftSidebarContext } from "../../../../main";
 
-interface LibraryHeaderSearch extends React.ComponentPropsWithoutRef<"input"> {}
+export function CollectionHeaderSearch() {
+  const { resourceHandler} = useContext(DraftSidebarContext);
+  const [query, changeQuery] = useState(""); 
 
-export function CollectionHeaderSearch({ ...props }: LibraryHeaderSearch) {
   return (
     <Layer
       displayName={CollectionHeaderSearch.name}
@@ -13,8 +16,18 @@ export function CollectionHeaderSearch({ ...props }: LibraryHeaderSearch) {
       borderStyle={`${borderStyles["border-b"]}`}
       containerStyle={containerStyles.row}
     >
-      <SearchBarInput {...props}/>
-      <SearchBarButton/>
+      <SearchBarInput
+        onChange={(e: any) => {
+          changeQuery(e.target.value)
+        }}
+        value={query}
+      />
+      <SearchBarButton onClick={
+        () => {
+          resourceHandler.queryResources(query)
+          changeQuery("")
+        }
+      }/>
     </Layer>
   );
 }

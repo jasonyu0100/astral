@@ -8,8 +8,8 @@ import isAuth from "@/utils/isAuth";
 import { ChapterObj } from "@/tables/space/chapter/main";
 
 interface FlowContextObj {
-  chapter: ChapterObj | undefined;
-  moment: MomentObj | undefined;
+  chapter?: ChapterObj;
+  moment?: MomentObj;
   moments: MomentObj[];
   momentId: string;
   chapterId: string;

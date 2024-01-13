@@ -10,7 +10,7 @@ export interface ChapterHandler {
 }
 
 export interface useChaptersInterface {
-  chapter: ChapterObj | undefined;
+  chapter?: ChapterObj;
   chapterId: string;
   chapters: ChapterObj[];
   _chapterHandler: ChapterHandler;

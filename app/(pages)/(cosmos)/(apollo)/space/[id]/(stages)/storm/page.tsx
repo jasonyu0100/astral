@@ -9,10 +9,10 @@ import isAuth from "@/utils/isAuth";
 import { createContext } from "react";
 
 export interface StormContextObj {
-  chapter: ChapterObj | undefined;
+  chapter?: ChapterObj;
   chapters: ChapterObj[];
   chapterId: string;
-  chat: ChatObj | undefined;
+  chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
   messages: MessageObj[];
