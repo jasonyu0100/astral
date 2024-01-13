@@ -106,6 +106,14 @@ export type UpdateChatObjInput = {
   title?: string | null,
   summary?: string | null,
   time?: string | null,
+  messages?: Array< UpdateMessageObjInput > | null,
+};
+
+export type UpdateMessageObjInput = {
+  id: string,
+  source?: string | null,
+  time?: string | null,
+  message?: string | null,
 };
 
 export type DeleteChatObjInput = {
@@ -155,7 +163,8 @@ export type StarObj = {
 
 export type FileObj = {
   __typename: "FileObj",
-  name: string,
+  id: string,
+  name?: string | null,
   src?: string | null,
   content?: string | null,
   url?: string | null,
@@ -243,6 +252,24 @@ export type UpdateMomentObjInput = {
   time?: string | null,
   title?: string | null,
   log?: string | null,
+  file?: UpdateFileObjInput | null,
+  comments?: Array< UpdateCommentObjInput > | null,
+};
+
+export type UpdateFileObjInput = {
+  id: string,
+  name?: string | null,
+  src?: string | null,
+  content?: string | null,
+  url?: string | null,
+  type?: FileType | null,
+};
+
+export type UpdateCommentObjInput = {
+  id: string,
+  time?: string | null,
+  content?: string | null,
+  userId?: string | null,
 };
 
 export type DeleteMomentObjInput = {
@@ -266,6 +293,7 @@ export type UpdateResourceObjInput = {
   id: string,
   label?: string | null,
   description?: string | null,
+  file?: UpdateFileObjInput | null,
 };
 
 export type DeleteResourceObjInput = {
@@ -312,6 +340,7 @@ export type GalleryObj = {
 export type UpdateGalleryObjInput = {
   id: string,
   title?: string | null,
+  thumbnail?: UpdateFileObjInput | null,
   description?: string | null,
   collectionIds?: Array< string > | null,
 };
@@ -900,7 +929,8 @@ export type CreateMomentObjMutation = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -932,7 +962,8 @@ export type UpdateMomentObjMutation = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -964,7 +995,8 @@ export type DeleteMomentObjMutation = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -993,7 +1025,8 @@ export type CreateResourceObjMutation = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1014,7 +1047,8 @@ export type UpdateResourceObjMutation = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1035,7 +1069,8 @@ export type DeleteResourceObjMutation = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1095,7 +1130,8 @@ export type CreateGalleryObjMutation = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1117,7 +1153,8 @@ export type UpdateGalleryObjMutation = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1139,7 +1176,8 @@ export type DeleteGalleryObjMutation = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1163,7 +1201,8 @@ export type CreateUserObjMutation = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1188,7 +1227,8 @@ export type UpdateUserObjMutation = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1213,7 +1253,8 @@ export type DeleteUserObjMutation = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1513,7 +1554,8 @@ export type GetMomentObjQuery = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1565,7 +1607,8 @@ export type GetResourceObjQuery = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1637,7 +1680,8 @@ export type GetGalleryObjQuery = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -1681,7 +1725,8 @@ export type GetUserObjQuery = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2127,7 +2172,8 @@ export type OnCreateMomentObjSubscription = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2163,7 +2209,8 @@ export type OnUpdateMomentObjSubscription = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2199,7 +2246,8 @@ export type OnDeleteMomentObjSubscription = {
     log: string,
     file?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2230,7 +2278,8 @@ export type OnCreateResourceObjSubscription = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2253,7 +2302,8 @@ export type OnUpdateResourceObjSubscription = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2276,7 +2326,8 @@ export type OnDeleteResourceObjSubscription = {
     description: string,
     file:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2345,7 +2396,8 @@ export type OnCreateGalleryObjSubscription = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2370,7 +2422,8 @@ export type OnUpdateGalleryObjSubscription = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2395,7 +2448,8 @@ export type OnDeleteGalleryObjSubscription = {
     description: string,
     thumbnail:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2423,7 +2477,8 @@ export type OnCreateUserObjSubscription = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2452,7 +2507,8 @@ export type OnUpdateUserObjSubscription = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,
@@ -2481,7 +2537,8 @@ export type OnDeleteUserObjSubscription = {
     accessToken: string,
     profileImage?:  {
       __typename: "FileObj",
-      name: string,
+      id: string,
+      name?: string | null,
       src?: string | null,
       content?: string | null,
       url?: string | null,

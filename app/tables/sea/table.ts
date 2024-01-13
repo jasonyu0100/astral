@@ -6,10 +6,12 @@ export const seaTable : TableDescriptor = {
   example: exampleSea,
   examples: exampleSeas,
   schema: seaSchema,
+  reducer: {}
 };
 
 export const journeyTable : TableDescriptor = {
   example: exampleJourney,
   examples: exampleJourneys,
   schema: journeySchema,
+  reducer: {}
 };

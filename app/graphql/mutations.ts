@@ -347,6 +347,7 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
     title
     log
     file {
+      id
       name
       src
       content
@@ -378,6 +379,7 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
     title
     log
     file {
+      id
       name
       src
       content
@@ -409,6 +411,7 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
     title
     log
     file {
+      id
       name
       src
       content
@@ -437,6 +440,7 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
     label
     description
     file {
+      id
       name
       src
       content
@@ -457,6 +461,7 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
     label
     description
     file {
+      id
       name
       src
       content
@@ -477,6 +482,7 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
     label
     description
     file {
+      id
       name
       src
       content
@@ -533,6 +539,7 @@ export const createGalleryObj = /* GraphQL */ `mutation CreateGalleryObj($input:
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -554,6 +561,7 @@ export const updateGalleryObj = /* GraphQL */ `mutation UpdateGalleryObj($input:
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -575,6 +583,7 @@ export const deleteGalleryObj = /* GraphQL */ `mutation DeleteGalleryObj($input:
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -598,6 +607,7 @@ export const createUserObj = /* GraphQL */ `mutation CreateUserObj($input: Creat
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content
@@ -622,6 +632,7 @@ export const updateUserObj = /* GraphQL */ `mutation UpdateUserObj($input: Updat
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content
@@ -646,6 +657,7 @@ export const deleteUserObj = /* GraphQL */ `mutation DeleteUserObj($input: Delet
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content

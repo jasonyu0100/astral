@@ -288,6 +288,7 @@ export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
     title
     log
     file {
+      id
       name
       src
       content
@@ -340,6 +341,7 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
     label
     description
     file {
+      id
       name
       src
       content
@@ -412,6 +414,7 @@ export const getGalleryObj = /* GraphQL */ `query GetGalleryObj($id: String!) {
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -456,6 +459,7 @@ export const getUserObj = /* GraphQL */ `query GetUserObj($id: String!) {
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content

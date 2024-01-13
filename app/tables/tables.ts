@@ -16,6 +16,7 @@ export interface TableDescriptor {
   example: any;
   examples: any[];
   schema: string;
+  reducer: any;
 }
 
 export interface TableObjectDescriptor {
@@ -81,7 +82,7 @@ const dataRegions = [
   [draftTable, constellationTable, starObject],
   [flowTable, momentTable, commentObject],
   [seaTable, journeyTable],
-  [fileObject, resourceTable],
+  [resourceTable, fileObject],
   [collectionTable, galleryTable],
   [userTable],
 ];

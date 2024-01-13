@@ -434,6 +434,7 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
     title
     log
     file {
+      id
       name
       src
       content
@@ -477,6 +478,7 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
     title
     log
     file {
+      id
       name
       src
       content
@@ -520,6 +522,7 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
     title
     log
     file {
+      id
       name
       src
       content
@@ -552,6 +555,7 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
     label
     description
     file {
+      id
       name
       src
       content
@@ -576,6 +580,7 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
     label
     description
     file {
+      id
       name
       src
       content
@@ -600,6 +605,7 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
     label
     description
     file {
+      id
       name
       src
       content
@@ -678,6 +684,7 @@ export const onCreateGalleryObj = /* GraphQL */ `subscription OnCreateGalleryObj
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -709,6 +716,7 @@ export const onUpdateGalleryObj = /* GraphQL */ `subscription OnUpdateGalleryObj
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -740,6 +748,7 @@ export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj
     title
     description
     thumbnail {
+      id
       name
       src
       content
@@ -775,6 +784,7 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content
@@ -811,6 +821,7 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content
@@ -847,6 +858,7 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
     googleId
     accessToken
     profileImage {
+      id
       name
       src
       content

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { DraftConstellation } from "./draft-epic/center/constellation/main";
 import { DraftLinks } from "./draft-epic/center/constellation/stars/links/main";
 import { DraftStar } from "./draft-epic/center/constellation/stars/star/main";
-import { spaceTable } from "@/tables/space/table";
+import { chapterTable, spaceTable } from "@/tables/space/table";
 import { DraftHeader } from "./draft-epic/center/header/main";
 import { DraftChaptersLeftButton } from "./draft-epic/chapters/left/main";
 import { DraftChaptersRightButton } from "./draft-epic/chapters/right/main";
@@ -66,7 +66,7 @@ export function DraftView() {
             <DraftChaptersAdd
               onClick={() =>
                 chapterHandling.addChapter({
-                  ...spaceTable.chapter.example,
+                  ...chapterTable.example,
                   id: Date.now().toFixed().toString(),
                 })
               }
