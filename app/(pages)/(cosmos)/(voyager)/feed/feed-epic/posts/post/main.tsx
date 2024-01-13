@@ -3,7 +3,7 @@ import { PostDivider } from "./divider/main";
 import { PostMedia } from "./media/main";
 import { PostInfo } from "./info/main";
 import { PostDescription } from "./description/main";
-import { MomentObj } from "@/tables/flow/session/moment/main";
+import { MomentObj } from "@/tables/flow/moment/main";
 
 export function FeedPost({
   moment,

@@ -51,7 +51,7 @@ export function FlowView({
               className="flex flex-row justify-end w-1/3"
               onClick={() =>
                 momentHandler.addMoment({
-                  ...flowTable.session.moment.example,
+                  ...flowTable.moment.example,
                   id: Date.now().toFixed().toString(),
                 })
               }

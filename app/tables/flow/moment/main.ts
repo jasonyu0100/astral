@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "../../../collection/file/main";
+import { FileObj, exampleFile } from "../../collection/file/main";
 import { MomentCommentObj, exampleComments } from "./comment/main";
 
 export enum MomentVisibility {

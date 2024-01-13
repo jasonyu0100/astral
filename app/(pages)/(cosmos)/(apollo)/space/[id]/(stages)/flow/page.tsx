@@ -3,7 +3,7 @@ import { createContext } from "react";
 import { FlowView } from "./view";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { MomentHandler, useMoment } from "../../handler/moments/main";
-import { MomentObj } from "@/tables/flow/session/moment/main";
+import { MomentObj } from "@/tables/flow/moment/main";
 import isAuth from "@/utils/isAuth";
 import { ChapterObj } from "@/tables/space/chapter/main";
 

@@ -10,7 +10,7 @@ import { FeedWrapper } from "./feed-epic/wrapper/main";
 import { flowTable } from "@/tables/flow/table";
 
 export function FeedView() {
-  const [moments, changeMoments] = useState(flowTable.session.moment.examples);
+  const [moments, changeMoments] = useState(flowTable.moment.examples);
   return (
     <>
       <FeedWrapper>

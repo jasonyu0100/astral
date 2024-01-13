@@ -1,11 +1,8 @@
-import { Divider } from "@/(pages)/(common)/divider/main";
 import { Layer } from "@/(pages)/(common)/layer/main";
 import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import { AddButton } from "./modes/collection/header/button-row/button/add/main";
-import { DraftLoomButton as LoomButton } from "./modes/collection/header/button-row/button/loom/main";
 import { SidebarBody } from "./modes/main";
 import { BreadcrumbsLink } from "./header/breadcrumbs/breadcrumb/main";
 import { BreadcrumbsDivider } from "./header/breadcrumbs/divider/main";
@@ -21,15 +18,11 @@ import { CollectionFileThumbnail } from "./modes/collection/file/thumbnail/main"
 import { CollectionFileThumbnailWrapper } from "./modes/collection/file/thumbnail/wrapper/main";
 import { CollectionHeader } from "./modes/collection/header/main";
 import { CollectionHeaderSearch } from "./modes/collection/header/search/main";
-import { CollectionHeaderTools } from "./modes/collection/header/tools/main";
 import { CollectionInterface } from "./modes/collection/main";
 import { GalleryFolderInfo } from "./modes/gallery/folder/info/main";
 import { GalleryFolder } from "./modes/gallery/folder/main";
 import { GalleryFolderThumbnail } from "./modes/gallery/folder/thumbnail/main";
 import { GalleryFolderThumbnailWrapper } from "./modes/gallery/folder/thumbnail/wrapper/main";
-import { GalleryCoverImage } from "./modes/gallery/header/cover-image/main";
-import { GalleryHeaderDescription } from "./modes/gallery/header/description/main";
-import { GalleryHeader } from "./modes/gallery/header/main";
 import { GalleryInterface } from "./modes/gallery/main";
 import { SidebarViewProps, SidebarMode } from "./main";
 import { useContext, useState } from "react";

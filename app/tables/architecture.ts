@@ -17,32 +17,29 @@ export const dataArchitecture = {
       storm: {
         table: stormTable,
         chat: {
-          table: stormTable.chat
-        }
+          table: stormTable.chat,
+        },
       },
       draft: {
         table: draftTable,
         constellation: {
-          table: draftTable.constellation
-        }
+          table: draftTable.constellation,
+        },
       },
       flow: {
         table: flowTable,
-        session: {
-          table: flowTable.session,
-          moment: {
-            table: flowTable.session.moment,
-            comment: {
-              table: flowTable.session.moment.comment
-            }
-          }
-        }
+        moment: {
+          table: flowTable.moment,
+          comment: {
+            table: flowTable.moment.comment,
+          },
+        },
       },
       sea: {
         table: seaTable,
         journey: {
-          table: seaTable.journey
-        }
+          table: seaTable.journey,
+        },
       },
     },
   },

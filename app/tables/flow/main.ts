@@ -1,22 +1,22 @@
-import { SessionObj, exampleSessions } from "./session/main";
+import { exampleMoments } from "./moment/main";
 
 export interface FlowObj {
   id: string;
-  sessions: SessionObj[];
+  momentIds: string[];
 }
 
 export const exampleFlow: FlowObj = {
   id: "0",
-  sessions: exampleSessions,
+  momentIds: exampleMoments.map((moment) => moment.id),
 };
 
 export const exampleFlows: FlowObj[] = [
   {
     id: "0",
-    sessions: exampleSessions,
+    momentIds: exampleMoments.map((moment) => moment.id),
   },
   {
     id: "1",
-    sessions: exampleSessions,
+    momentIds: exampleMoments.map((moment) => moment.id),
   },
 ];

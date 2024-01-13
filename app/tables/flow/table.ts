@@ -1,21 +1,16 @@
 import { exampleFlow, exampleFlows } from "./main";
-import { exampleSession, exampleSessions } from "./session/main";
-import { exampleComment, exampleComments } from "./session/moment/comment/main";
-import { exampleMoment, exampleMoments } from "./session/moment/main";
+import { exampleComment, exampleComments } from "./moment/comment/main";
+import { exampleMoment, exampleMoments } from "./moment/main";
 
 export const flowTable = {
   example: exampleFlow,
   examples: exampleFlows,
-  session: {
-    example: exampleSession,
-    examples: exampleSessions,
-    moment: {
-      example: exampleMoment,
-      examples: exampleMoments,
-      comment: {
-        example: exampleComment,
-        examples: exampleComments
-      }
+  moment: {
+    example: exampleMoment,
+    examples: exampleMoments,
+    comment: {
+      example: exampleComment,
+      examples: exampleComments,
     },
   },
 };

@@ -3,7 +3,7 @@ import { MomentDivider } from "./divider/main";
 import { MomentMedia } from "./media/main";
 import { MomentInfo } from "./info/main";
 import { MomentDescription } from "./description/main";
-import { MomentObj } from "@/tables/flow/session/moment/main";
+import { MomentObj } from "@/tables/flow/moment/main";
 
 interface FlowRecordLogProps {
   moment: MomentObj;
