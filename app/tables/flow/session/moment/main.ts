@@ -13,6 +13,7 @@ export interface MomentObj {
   sessionId: string;
   userId: string;
   time: string;
+  title: string;
   log: string;
   file: FileObj;
   visibility: MomentVisibility;
@@ -22,6 +23,7 @@ export interface MomentObj {
 export const exampleMoment: MomentObj = {
   id: "0",
   time: new Date("2023-12-19").toISOString(),
+  title: "Moment Title 0",
   log: "Moment Description Example",
   file: exampleFile,
   spaceId: "0",
@@ -35,6 +37,7 @@ export const exampleMoments: MomentObj[] = [
   {
     id: "0",
     time: new Date("2023-12-19").toISOString(),
+    title: "Moment Title 0",
     log: "Moment Description Example",
     file: exampleFile,
     spaceId: "0",
@@ -46,6 +49,7 @@ export const exampleMoments: MomentObj[] = [
   {
     id: "1",
     time: new Date("2023-12-19").toISOString(),
+    title: "Moment Title 1",
     log: "Moment Description Example",
     file: exampleFile,
     spaceId: "0",

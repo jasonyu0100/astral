@@ -24,19 +24,17 @@ import { FlowSidebarEntry } from "./flow-epic/sidebar/column/section/entry/main"
 import { FlowSidebarSection } from "./flow-epic/sidebar/column/section/main";
 
 export function FlowView({
+  momentId, 
   moments,
-  sessionId,
   chapterId,
-  sessions,
   chapters,
-  sessionHandler,
   chapterHandler,
   momentHandler,
 }: FlowViewProps) {
-  const session = sessions.filter((session) => session.id === sessionId).at(0);
+  const moment = moments.filter((moment) => moment.id === momentId).at(0);
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
   const headerTitle =
-    chapter && session ? `${chapter.title} - ${session.title}` : "None";
+    chapter && moment ? `${chapter.title} - ${moment.title}` : "None";
 
   return (
     <FlowWrapper>

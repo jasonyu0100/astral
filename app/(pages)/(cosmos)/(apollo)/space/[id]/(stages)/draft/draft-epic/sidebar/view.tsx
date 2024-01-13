@@ -124,11 +124,6 @@ export function SidebarView({
         {sidebarMode === SidebarMode.Gallery && (
           <>
             <GalleryInterface>
-              <GalleryHeader>
-                <GalleryCoverImage src={collectionTable.file.example.src} />
-                <GalleryHeaderDescription />
-              </GalleryHeader>
-              <Divider />
               {collections.map((collection) => (
                 <GalleryFolder>
                   <GalleryFolderThumbnailWrapper
