@@ -11,15 +11,12 @@ import { StormChatInputRight } from "./storm-epic/center/input/right/main";
 import { StormMessageInputSend } from "./storm-epic/center/input/right/send/main";
 import { StormMessageInputVoice } from "./storm-epic/center/input/right/voice/main";
 import { useContext } from "react";
-import { SidebarColumn } from "./storm-sidebar-epic/chapters/main";
-import { StormChapter } from "./storm-sidebar-epic/chapters/chapter/main";
 import { StormChatMessages } from "./storm-epic/center/chat/messages/main";
 import { StormContext } from "./page";
 import { StormMessage } from "./storm-epic/center/chat/messages/message/main";
-import { StormChapterAdd } from "./storm-sidebar-epic/chapters/chapter/add/main";
 
 export function StormView() {
-  const { chapters, messages } = useContext(StormContext);
+  const { messages } = useContext(StormContext);
 
   return (
     <StormWrapper>
@@ -41,14 +38,7 @@ export function StormView() {
           </StormChatInputRight>
         </StormChatInput>
       </StormMain>
-      <StormSidebar>
-        <SidebarColumn>
-          {chapters.map((chapter, index) => (
-            <StormChapter chapter={chapter} index={index} />
-          ))}
-          <StormChapterAdd/>
-        </SidebarColumn>
-      </StormSidebar>
+      <StormSidebar/>
     </StormWrapper>
   );
 }

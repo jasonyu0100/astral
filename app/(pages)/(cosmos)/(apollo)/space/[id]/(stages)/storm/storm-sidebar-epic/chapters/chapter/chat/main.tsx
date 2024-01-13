@@ -1,24 +1,19 @@
+import { useContext } from "react";
+import { StormContext } from "../../../../page";
 import { StormChapterAvatar } from "./avatar/main";
+import { ChatObj } from "@/tables/storm/chat/main";
 
-interface StormSidePanelChatProps
-  extends React.ComponentPropsWithoutRef<"button"> {
-  children: React.ReactNode;
-  active: boolean;
-}
-
-export function StormChapterChat({
-  children,
-  active,
-  ...props
-}: StormSidePanelChatProps) {
+export function StormChapterChat({ chat }: { chat: ChatObj }) {
+  const { chatId, chatHandler, chapter } = useContext(StormContext);
+  const active = chat.id === chatId;
   return (
-    <button {...props}>
+    <button onClick={() => chatHandler.selectChat(chat, chapter)}>
       <div className="flex flex-row items-center space-x-[1rem]">
         <StormChapterAvatar />
         {active ? (
-          <p className="text-slate-300 font-bold text-lg">{children}</p>
+          <p className="text-slate-300 font-bold text-lg">{chat.title}</p>
         ) : (
-          <p className="text-slate-500 font-bold text-lg">{children}</p>
+          <p className="text-slate-500 font-bold text-lg">{chat.title}</p>
         )}
       </div>
     </button>

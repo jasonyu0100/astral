@@ -1,17 +1,25 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
 import { containerStyles } from "@/(pages)/(common)/styles/data";
+import { chatTable } from "@/tables/storm/table";
+import { useContext } from "react";
+import { StormContext } from "../../../../../page";
 
-export interface StormSidePanelSectionAddProps
-  extends React.ComponentPropsWithoutRef<"button"> {
-}
 
-export function StormChapterChatAdd({
-  ...props
-}: StormSidePanelSectionAddProps) {
+export function StormChapterChatAdd() {
+  const { chatHandler, chapter } = useContext(StormContext);
+
   return (
     <button
       className="flex flex-row w-full items-center space-x-[1rem]"
-      {...props}
+      onClick={() =>
+        chatHandler.addChat(
+          {
+            ...chatTable.example,
+            id: new Date().toISOString(),
+          },
+          chapter
+        )
+      }
     >
       <Layer
         displayName={StormChapterChatAdd.name}
