@@ -3,13 +3,14 @@ import {
   backgroundStyles,
   containerStyles,
 } from "@/(pages)/(common)/styles/data";
-import React from "react";
+import React, { useContext } from "react";
+import { FlowContext } from "../page";
+import { FlowSidebarColumn } from "./column/main";
+import { FlowSidebarEntry } from "./column/section/entry/main";
+import { FlowSidebarSection } from "./column/section/main";
 
-export function FlowSidebar({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function FlowSidebar() {
+  const { moments } = useContext(FlowContext);
   return (
     <Layer
       displayName={FlowSidebar.name}
@@ -18,7 +19,13 @@ export function FlowSidebar({
       backgroundStyle={backgroundStyles["glass-10"]}
       contentStyle={"py-[1rem] px-[1rem]"}
     >
-      {children}
+      <FlowSidebarColumn>
+        <FlowSidebarSection>
+          {moments.map((moment) => (
+            <FlowSidebarEntry moment={moment} />
+          ))}
+        </FlowSidebarSection>
+      </FlowSidebarColumn>
     </Layer>
   );
 }

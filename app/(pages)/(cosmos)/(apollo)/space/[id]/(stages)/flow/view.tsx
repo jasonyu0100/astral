@@ -11,9 +11,6 @@ import { FlowChaptersRightButton } from "./flow-epic/chapters/right/main";
 import { FlowChapter } from "./flow-epic/chapters/row/item/main";
 import { FlowChaptersRow } from "./flow-epic/chapters/row/main";
 import { FlowHeader } from "./flow-epic/center/header/main";
-import { FlowSidebarColumn } from "./flow-sidebar-epic/column/main";
-import { FlowSidebarEntry } from "./flow-sidebar-epic/column/section/entry/main";
-import { FlowSidebarSection } from "./flow-sidebar-epic/column/section/main";
 import { useContext } from "react";
 import FlowChaptersAdd from "./flow-epic/chapters/row/add/main";
 
@@ -45,15 +42,7 @@ export function FlowView() {
           <FlowChaptersRightButton />
         </FlowChapters>
       </FlowMain>
-      <FlowSidebar>
-        <FlowSidebarColumn>
-          <FlowSidebarSection>
-            {moments.map((moment) => (
-              <FlowSidebarEntry moment={moment} />
-            ))}
-          </FlowSidebarSection>
-        </FlowSidebarColumn>
-      </FlowSidebar>
+      <FlowSidebar/>
     </FlowWrapper>
   );
 }

@@ -7,12 +7,10 @@ import { MomentObj } from "@/tables/flow/moment/main";
 import { useState } from "react";
 import { userTable } from "@/tables/user/table";
 
-export function FeedPost({
+export function FeedMoment({
   moment,
-  children,
 }: {
   moment: MomentObj;
-  children: React.ReactNode;
 }) {
   const [user, changeUser] = useState(userTable.example)
 

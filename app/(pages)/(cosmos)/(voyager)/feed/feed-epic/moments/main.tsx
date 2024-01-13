@@ -1,13 +1,7 @@
 import { Layer } from "@/(pages)/(common)/layer/main";
-import {
-  containerStyles,
-} from "@/(pages)/(common)/styles/data";
+import { containerStyles } from "@/(pages)/(common)/styles/data";
 
-export function FeedPosts({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function FeedPosts({ children }: { children: React.ReactNode }) {
   return (
     <Layer
       displayName={FeedPosts.name}
