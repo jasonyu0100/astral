@@ -50,7 +50,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta name="referrer" content="origin" />
       </head>
-      <body className={clsx([...fontVariables])}>
+      <body className={clsx("bg-black", [...fontVariables])}>
         <GoogleOAuthProvider clientId={process.env.GOOGLE_AUTH_APIKEY || ""}>
           {!isMaintenanceMode && <>{children}</>}
         </GoogleOAuthProvider>
