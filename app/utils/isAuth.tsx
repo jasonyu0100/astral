@@ -5,10 +5,12 @@ import { useEffect } from "react";
 export default function insideCosmos(Component: any) {
   return (props: any) => {
     const userCookie = Cookies.get("user");
-    const isAuthed = userCookie ? JSON.parse(userCookie).googleId != null : false;
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const isAuthed = userCookie
+      ? JSON.parse(userCookie).googleId != null
+      : false;
 
     useEffect(() => {
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent);
       if (isMobile) {
         window.location.href = "/";
       } else if (!isAuthed) {
@@ -16,7 +18,7 @@ export default function insideCosmos(Component: any) {
         return null;
       }
 
-      return () => {}
+      return () => {};
     }, []);
 
     return <Component {...props} />;
