@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { PortalFormAction } from "../../portal-epic/container/form/action-container/action/main";
-import { PortalFormInput } from "../../portal-epic/container/form/body/input/main";
-import { PortalFormBody } from "../../portal-epic/container/form/body/main";
-import { PortalForm } from "../../portal-epic/container/form/main";
-import { PortalFormGoogleAction } from "../../portal-epic/container/form/action-container/google-action/main";
-import { PortalFormOrDivider } from "../../portal-epic/container/or/main";
 import { portalMap } from "../../map";
-import { PortalFormActionContainer } from "../../portal-epic/container/form/action-container/main";
-import { PortalFormAltActionLink } from "../../portal-epic/container/form/action-container/alt-action/link/main";
-import { PortalFormAltAction } from "../../portal-epic/container/form/action-container/alt-action/main";
-import { useRouter } from "next/navigation";
 import { useUser } from "@/state/main";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
+import { PortalFormAction } from "@/(portal)/polaroid-epic/container/form/action-container/action/main";
+import { PortalFormAltActionLink } from "@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main";
+import { PortalFormAltAction } from "@/(portal)/polaroid-epic/container/form/action-container/alt-action/main";
+import { PortalFormGoogleAction } from "@/(portal)/polaroid-epic/container/form/action-container/google-action/main";
+import { PortalFormActionContainer } from "@/(portal)/polaroid-epic/container/form/action-container/main";
+import { PortalFormInput } from "@/(portal)/polaroid-epic/container/form/body/input/main";
+import { PortalFormBody } from "@/(portal)/polaroid-epic/container/form/body/main";
+import { PortalForm } from "@/(portal)/polaroid-epic/container/form/main";
+import { PortalFormOrDivider } from "@/(portal)/polaroid-epic/container/form/or/main";
 
 export function PortalRegisterForm() {
   const [state, actions] = useUser();
@@ -22,9 +21,8 @@ export function PortalRegisterForm() {
   const [email, changeEmail] = useState("");
   const [password, changePassword] = useState("");
   const [rePassword, changeRePassword] = useState("");
-  const router = useRouter();
 
-  const register = useGoogleLogin({
+  const attemptGoogleRegister = useGoogleLogin({
     onSuccess: (codeResponse) => {
       const accessToken = codeResponse.access_token;
       axios
@@ -39,8 +37,25 @@ export function PortalRegisterForm() {
         )
         .then((resp) => {
           const googleId = resp.data.id;
-          actions.login(googleId);
-          window.location.href = spacesMap.spaces.now.link;
+          fetch("/api/portal/register/google", {
+            method: "POST",
+            body: JSON.stringify({
+              fname,
+              lname,
+              email,
+              googleId,
+              accessToken,
+            }),
+          }).then((res) => {
+            if (res.status === 200) {
+              res.json().then((user) => {
+                actions.login(user.googleId);
+                window.location.href = spacesMap.spaces.now.link;
+              });
+            } else {
+              alert("Login Failed");
+            }
+          });
         });
     },
     onError: (error) => {
@@ -49,9 +64,30 @@ export function PortalRegisterForm() {
     },
   });
 
+  const attemptRegister = () => {
+    fetch("/api/portal/register", {
+      method: "POST",
+      body: JSON.stringify({
+        fname,
+        lname,
+        email,
+        password,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((user) => {
+          actions.login(user.googleId);
+          window.location.href = spacesMap.spaces.now.link;
+        });
+      } else {
+        alert("Login Failed");
+      }
+    });
+  };
+
   return (
     <PortalForm>
-      <PortalFormGoogleAction onClick={() => register()}>
+      <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
         Register with Google
       </PortalFormGoogleAction>
       <PortalFormOrDivider />
@@ -88,7 +124,9 @@ export function PortalRegisterForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction>REGISTER</PortalFormAction>
+        <PortalFormAction onClick={() => attemptRegister()}>
+          REGISTER
+        </PortalFormAction>
         <PortalFormAltAction>
           Already have an account?{" "}
           <PortalFormAltActionLink href={portalMap.portal.login.link}>

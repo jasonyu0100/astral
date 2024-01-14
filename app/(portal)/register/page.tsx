@@ -1,33 +1,23 @@
-"use client"
-
-import { useEffect } from "react";
+"use client";
 import { RegisterView } from "./view";
+import { usePolaroid, PolaroidContext } from "../polaroid-epic/handler/polaroid/main";
 
 export default function Page() {
-  useEffect(() => {
-    const fetchData = async () => {
-      fetch("/api/portal/register", {
-        method: "POST",
-        body: JSON.stringify({
-          fname: "John",
-          lname: "Smith",
-          email: "test@email.com",
-          password: "password",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(async (resp) => {
-          const data = await resp.json();
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+  const { categories, flipped, index, transition, variant, _polaroidHandler } =
+    usePolaroid();
 
-    fetchData();
-  }, []);
-  return <RegisterView />;
+  return (
+    <PolaroidContext.Provider
+      value={{
+        categories,
+        flipped,
+        index,
+        transition,
+        variant,
+        polaroidHandler: _polaroidHandler,
+      }}
+    >
+      <RegisterView />;
+    </PolaroidContext.Provider>
+  );
 }

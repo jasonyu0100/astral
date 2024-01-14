@@ -1,31 +1,25 @@
 "use client";
+import { usePolaroid, PolaroidContext } from "../polaroid-epic/handler/polaroid/main";
 import { LoginView } from "./view";
 import { useEffect } from "react";
 
 export default function Page() {
-  useEffect(() => {
-    const fetchData = async () => {
-      fetch("/api/portal/login", {
-        method: "POST",
-        body: JSON.stringify({
-          email: "test@email.com",
-          password: "password",
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(async (resp) => {
-          const data = await resp.json();
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+  const { categories, flipped, index, transition, variant, _polaroidHandler } =
+    usePolaroid();
 
-    fetchData();
-  }, []);
+  return (
+    <PolaroidContext.Provider
+      value={{
+        categories,
+        flipped,
+        index,
+        transition,
+        variant,
+        polaroidHandler: _polaroidHandler,
+      }}
+    >
+      <LoginView />;
+    </PolaroidContext.Provider>
+  );
 
-  return <LoginView />;
 }

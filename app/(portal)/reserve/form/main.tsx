@@ -1,31 +1,44 @@
 import { useState } from "react";
-import { PortalFormAction } from "../../portal-epic/container/form/action-container/action/main";
-import { PortalFormInput } from "../../portal-epic/container/form/body/input/main";
-import { PortalFormBody } from "../../portal-epic/container/form/body/main";
-import { PortalFormSelect } from "../../portal-epic/container/form/body/select/main";
-import { PortalForm } from "../../portal-epic/container/form/main";
-import { portalModel } from "../../model/main";
-import { PortalCosmosTextHeader } from "../../portal-epic/container/text-header/main";
 import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
+import { PortalFormAction } from "@/(portal)/polaroid-epic/container/form/action-container/action/main";
+import { PortalFormInput } from "@/(portal)/polaroid-epic/container/form/body/input/main";
+import { PortalFormBody } from "@/(portal)/polaroid-epic/container/form/body/main";
+import { PortalFormSelect } from "@/(portal)/polaroid-epic/container/form/body/select/main";
+import { PortalForm } from "@/(portal)/polaroid-epic/container/form/main";
+import { PortalCosmosTextHeader } from "@/(portal)/polaroid-epic/container/form/text-header/main";
+import { portalModel } from "@/(portal)/polaroid-epic/model/main";
 
 export function PortalReserveForm() {
   const categories = portalModel.categories.example
-  const [tag, changeTag] = useState("");
   const [fname, changeFname] = useState("");
   const [lname, changeLname] = useState("");
   const [email, changeEmail] = useState("");
   const [role, changeRole] = useState("");
 
+  const attemptReserve = () => {
+    fetch("/api/portal/reserve", {
+      method: "POST",
+      body: JSON.stringify({
+        fname,
+        lname,
+        email,
+        role,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        res.json().then((user) => {
+          window.location.href = spacesMap.spaces.now.link;
+        });
+      } else {
+        alert("Registration Failed");
+      }
+    });
+  }
+
   return (
     <PortalForm>
       <PortalCosmosTextHeader/>
       <PortalFormBody>
-        <PortalFormInput
-          onChange={(e) => changeTag(e.target.value)}
-          value={tag}
-          placeholder="J22"
-          type="text"
-        />
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
@@ -55,7 +68,7 @@ export function PortalReserveForm() {
           ))}
         </PortalFormSelect>
       </PortalFormBody>
-      <PortalFormAction href={spacesMap.spaces.now.link}>
+      <PortalFormAction onClick={() => attemptReserve()}>
         RESERVE
       </PortalFormAction>
     </PortalForm>

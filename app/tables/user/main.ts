@@ -4,7 +4,8 @@ import { exampleSpaces } from "../space/main";
 
 export interface UserObj {
   id: string;
-  name: string;
+  fname: string;
+  lname: string;
   email: string;
   passwordHash?: string;
   googleId?: string;
@@ -27,7 +28,8 @@ type UserObj {
 
 export const exampleUser: UserObj = {
   id: "0",
-  name: "John Smith",
+  fname: "John",
+  lname: "Smith",
   email: "email@example.com",
   spaceIds: exampleSpaces.map((space) => space.id),
   galleryIds: exampleGallerys.map((gallery) => gallery.id),
@@ -37,7 +39,8 @@ export const exampleUser: UserObj = {
 export const exampleUsers: UserObj[] = [
   {
     id: "1",
-    name: "John Smith",
+    fname: "John",
+    lname: "Smith",
     email: "john@example.com",
     spaceIds: exampleSpaces.map((space) => space.id),
     galleryIds: exampleGallerys.map((gallery) => gallery.id),
@@ -45,7 +48,8 @@ export const exampleUsers: UserObj[] = [
   },
   {
     id: "2",
-    name: "Jane Smith",
+    fname: "Jane",
+    lname: "Smith",
     email: "jane@example.com",
     spaceIds: exampleSpaces.map((space) => space.id),
     galleryIds: exampleGallerys.map((gallery) => gallery.id),
