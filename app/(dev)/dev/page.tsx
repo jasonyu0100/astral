@@ -1,6 +1,6 @@
 "use client";
 import { outputSchema } from "@/tables/tables";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 
 const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
   return (
@@ -23,4 +23,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

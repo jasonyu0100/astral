@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 import { GalleryObj } from "@/tables/gallery/main";
 import { galleryTable } from "@/tables/gallery/table";
 import { ExploreView } from "./view";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 
 export interface ExploreHomeContext {
   gallerys: GalleryObj[];
@@ -38,4 +38,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

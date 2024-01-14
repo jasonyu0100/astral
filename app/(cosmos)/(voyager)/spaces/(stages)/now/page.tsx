@@ -4,7 +4,7 @@ import { SpaceTabStages } from "../../tabs/main";
 import { SpacesView } from "../../view";
 import { SpaceObj } from "@/tables/space/main";
 import { spaceTable } from "@/tables/space/table";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 
 export interface SpaceViewProps {
   type: SpaceTabStages;
@@ -22,4 +22,4 @@ function Page() {
   return <SpacesView type={SpaceTabStages.Now} spaces={spaces} addSpace={addSpace}/>;
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

@@ -5,7 +5,7 @@ import DriveFolderView from "./view";
 import { GalleryObj } from "@/tables/gallery/main";
 import { CollectionObj } from "@/tables/gallery/collection/main";
 import { collectionTable, galleryTable } from "@/tables/gallery/table";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 import { ResourceObj } from "@/tables/resource/main";
 import { resourceTable } from "@/tables/resource/table";
 
@@ -52,4 +52,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

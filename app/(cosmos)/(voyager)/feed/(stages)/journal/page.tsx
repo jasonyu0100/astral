@@ -1,5 +1,5 @@
 "use client";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 import {
   MomentHandler,
   useMoment,
@@ -51,4 +51,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

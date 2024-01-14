@@ -1,10 +1,10 @@
 "use client"
 
 
-import isAuth from "@/utils/isAuth"
+import insideCosmos from "@/utils/isAuth"
 
 function Page() {
     return <></>
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

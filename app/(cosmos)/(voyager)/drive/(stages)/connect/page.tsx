@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { ConnectView } from "./view";
 import { connectObject } from "@/tables/resource/table";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 import { ConnectElementObj } from "@/tables/resource/connect/element/main";
 
 interface ConnectHandler {
@@ -35,4 +35,4 @@ function Page() {
   return <ConnectView results={results} searchHandler={connectHandler} />;
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

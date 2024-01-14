@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SearchView } from "./view";
 import { ResourceObj } from "@/tables/resource/main";
 import { searchObject } from "@/tables/resource/table";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 
 interface SearchHandler {
   updateQuery: (query: string) => void;
@@ -39,4 +39,4 @@ function Page() {
   return <SearchView results={results} searchHandler={searchHandler} />;
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

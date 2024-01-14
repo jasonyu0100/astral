@@ -4,7 +4,7 @@ import { FlowView } from "./view";
 import { ChapterHandler, useChapters } from "../../handler/chapters/main";
 import { MomentHandler, useMoment } from "../../handler/moments/main";
 import { MomentObj } from "@/tables/flow/moment/main";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 import { ChapterObj } from "@/tables/space/chapter/main";
 
 interface FlowContextObj {
@@ -89,4 +89,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

@@ -4,7 +4,7 @@ import { DriveSectionView } from "./view";
 import { GalleryObj } from "@/tables/gallery/main";
 import { CollectionObj } from "@/tables/gallery/collection/main";
 import { collectionTable, galleryTable } from "@/tables/gallery/table";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 
 export interface ExploreGalleryContextObj {
   gallery: GalleryObj;
@@ -47,4 +47,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);

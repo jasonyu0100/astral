@@ -10,7 +10,7 @@ import {
   StarHandler,
   useConstellation,
 } from "../../handler/constellations/main";
-import isAuth from "@/utils/isAuth";
+import insideCosmos from "@/utils/isAuth";
 import { ResourceObj } from "@/tables/resource/main";
 
 export interface DraftContextObj {
@@ -132,4 +132,4 @@ function Page() {
   );
 }
 
-export default isAuth(Page);
+export default insideCosmos(Page);
