@@ -8,6 +8,7 @@ import { exampleResourceConnect } from "./connect/main";
 import { exampleFile, exampleFiles, fileSchema } from "./file/main";
 import { exampleResource, exampleResources, resourceSchema } from "./main";
 import { deleteResourceObj, updateResourceObj } from "@/graphql/mutations";
+import { exampleResourceSearch } from "./search/main";
 
 export const resourceTable: TableDescriptor = {
   example: exampleResource,
@@ -28,7 +29,7 @@ export const fileObject: TableObjectDescriptor = {
 };
 
 export const searchObject: ObjectDescriptor = {
-  example: exampleFile,
+  example: exampleResourceSearch,
   examples: [],
 };
 

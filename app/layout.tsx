@@ -23,8 +23,6 @@ Amplify.configure(config);
 
 export const amplifyClient = generateClient();
 
-console.log("APIKEY", process.env.GRAPHQL_APIKEY)
-
 export default function Layout({ children }: { children: React.ReactNode }) {
   const isMaintenanceMode = process.env.MAINTENANCE_MODE === "true";
 

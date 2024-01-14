@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { SearchView } from "./view";
 import { ResourceObj } from "@/tables/resource/main";
-import { resourceTable, searchObject } from "@/tables/resource/table";
+import { searchObject } from "@/tables/resource/table";
 import isAuth from "@/utils/isAuth";
 
 interface SearchHandler {

@@ -6,7 +6,6 @@ export default function isAuth(Component: any) {
   return function IsAuth(props: any) {
     const userCookie = Cookies.get("user");
     const auth = userCookie ? JSON.parse(userCookie).googleId != null : false;
-    console.log("ATUH", auth);
 
     useEffect(() => {
       if (!auth) {
