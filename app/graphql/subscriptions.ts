@@ -766,23 +766,24 @@ export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj
 >;
 export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
   $id: String
-  $name: String
+  $fname: String
+  $lname: String
   $email: String
   $googleId: String
-  $accessToken: String
 ) {
   onCreateUserObj(
     id: $id
-    name: $name
+    fname: $fname
+    lname: $lname
     email: $email
     googleId: $googleId
-    accessToken: $accessToken
   ) {
     id
-    name
+    fname
+    lname
     email
+    passwordHash
     googleId
-    accessToken
     profileImage {
       id
       name
@@ -803,23 +804,24 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
 >;
 export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
   $id: String
-  $name: String
+  $fname: String
+  $lname: String
   $email: String
   $googleId: String
-  $accessToken: String
 ) {
   onUpdateUserObj(
     id: $id
-    name: $name
+    fname: $fname
+    lname: $lname
     email: $email
     googleId: $googleId
-    accessToken: $accessToken
   ) {
     id
-    name
+    fname
+    lname
     email
+    passwordHash
     googleId
-    accessToken
     profileImage {
       id
       name
@@ -840,23 +842,24 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
 >;
 export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
   $id: String
-  $name: String
+  $fname: String
+  $lname: String
   $email: String
   $googleId: String
-  $accessToken: String
 ) {
   onDeleteUserObj(
     id: $id
-    name: $name
+    fname: $fname
+    lname: $lname
     email: $email
     googleId: $googleId
-    accessToken: $accessToken
   ) {
     id
-    name
+    fname
+    lname
     email
+    passwordHash
     googleId
-    accessToken
     profileImage {
       id
       name
@@ -874,4 +877,58 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
 ` as GeneratedSubscription<
   APITypes.OnDeleteUserObjSubscriptionVariables,
   APITypes.OnDeleteUserObjSubscription
+>;
+export const onCreateReservationObj = /* GraphQL */ `subscription OnCreateReservationObj(
+  $id: String
+  $fname: String
+  $lname: String
+  $email: String
+) {
+  onCreateReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateReservationObjSubscriptionVariables,
+  APITypes.OnCreateReservationObjSubscription
+>;
+export const onUpdateReservationObj = /* GraphQL */ `subscription OnUpdateReservationObj(
+  $id: String
+  $fname: String
+  $lname: String
+  $email: String
+) {
+  onUpdateReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateReservationObjSubscriptionVariables,
+  APITypes.OnUpdateReservationObjSubscription
+>;
+export const onDeleteReservationObj = /* GraphQL */ `subscription OnDeleteReservationObj(
+  $id: String
+  $fname: String
+  $lname: String
+  $email: String
+) {
+  onDeleteReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteReservationObjSubscriptionVariables,
+  APITypes.OnDeleteReservationObjSubscription
 >;

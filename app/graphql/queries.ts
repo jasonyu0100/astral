@@ -454,10 +454,11 @@ export const listGalleryObjs = /* GraphQL */ `query ListGalleryObjs(
 export const getUserObj = /* GraphQL */ `query GetUserObj($id: String!) {
   getUserObj(id: $id) {
     id
-    name
+    fname
+    lname
     email
+    passwordHash
     googleId
-    accessToken
     profileImage {
       id
       name
@@ -484,10 +485,11 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
   listUserObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      fname
+      lname
       email
+      passwordHash
       googleId
-      accessToken
       spaceIds
       galleryIds
       __typename
@@ -499,4 +501,38 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
 ` as GeneratedQuery<
   APITypes.ListUserObjsQueryVariables,
   APITypes.ListUserObjsQuery
+>;
+export const getReservationObj = /* GraphQL */ `query GetReservationObj($id: String!) {
+  getReservationObj(id: $id) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetReservationObjQueryVariables,
+  APITypes.GetReservationObjQuery
+>;
+export const listReservationObjs = /* GraphQL */ `query ListReservationObjs(
+  $filter: TableReservationObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listReservationObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      fname
+      lname
+      email
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListReservationObjsQueryVariables,
+  APITypes.ListReservationObjsQuery
 >;

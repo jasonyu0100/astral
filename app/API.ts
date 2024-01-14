@@ -351,9 +351,9 @@ export type DeleteGalleryObjInput = {
 
 export type CreateUserObjInput = {
   name: string,
+  passwordHash?: string | null,
   email: string,
-  googleId: string,
-  accessToken: string,
+  googleId?: string | null,
   spaceIds: Array< string >,
   galleryIds: Array< string >,
 };
@@ -361,26 +361,54 @@ export type CreateUserObjInput = {
 export type UserObj = {
   __typename: "UserObj",
   id: string,
-  name: string,
+  fname: string,
+  lname: string,
   email: string,
-  googleId: string,
-  accessToken: string,
-  profileImage?: FileObj | null,
+  passwordHash?: string | null,
+  googleId?: string | null,
+  profileImage: FileObj,
   spaceIds: Array< string >,
   galleryIds: Array< string >,
 };
 
 export type UpdateUserObjInput = {
   id: string,
-  name?: string | null,
+  fname?: string | null,
+  lname?: string | null,
+  passwordHash?: string | null,
+  profileImage?: UpdateFileObjInput | null,
   email?: string | null,
   googleId?: string | null,
-  accessToken?: string | null,
   spaceIds?: Array< string > | null,
   galleryIds?: Array< string > | null,
 };
 
 export type DeleteUserObjInput = {
+  id: string,
+};
+
+export type CreateReservationObjInput = {
+  fname: string,
+  lname: string,
+  email: string,
+};
+
+export type ReservationObj = {
+  __typename: "ReservationObj",
+  id: string,
+  fname: string,
+  lname: string,
+  email: string,
+};
+
+export type UpdateReservationObjInput = {
+  id: string,
+  fname?: string | null,
+  lname?: string | null,
+  email?: string | null,
+};
+
+export type DeleteReservationObjInput = {
   id: string,
 };
 
@@ -549,10 +577,10 @@ export type GalleryObjConnection = {
 
 export type TableUserObjFilterInput = {
   id?: TableStringFilterInput | null,
-  name?: TableStringFilterInput | null,
+  fname?: TableStringFilterInput | null,
+  lname?: TableStringFilterInput | null,
   email?: TableStringFilterInput | null,
   googleId?: TableStringFilterInput | null,
-  accessToken?: TableStringFilterInput | null,
   spaceIds?: TableStringFilterInput | null,
   galleryIds?: TableStringFilterInput | null,
 };
@@ -560,6 +588,19 @@ export type TableUserObjFilterInput = {
 export type UserObjConnection = {
   __typename: "UserObjConnection",
   items?:  Array<UserObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableReservationObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  fname?: TableStringFilterInput | null,
+  lname?: TableStringFilterInput | null,
+  email?: TableStringFilterInput | null,
+};
+
+export type ReservationObjConnection = {
+  __typename: "ReservationObjConnection",
+  items?:  Array<ReservationObj | null > | null,
   nextToken?: string | null,
 };
 
@@ -1195,11 +1236,12 @@ export type CreateUserObjMutation = {
   createUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1207,7 +1249,7 @@ export type CreateUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1221,11 +1263,12 @@ export type UpdateUserObjMutation = {
   updateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1233,7 +1276,7 @@ export type UpdateUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1247,11 +1290,12 @@ export type DeleteUserObjMutation = {
   deleteUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1259,9 +1303,51 @@ export type DeleteUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
+  } | null,
+};
+
+export type CreateReservationObjMutationVariables = {
+  input: CreateReservationObjInput,
+};
+
+export type CreateReservationObjMutation = {
+  createReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
+  } | null,
+};
+
+export type UpdateReservationObjMutationVariables = {
+  input: UpdateReservationObjInput,
+};
+
+export type UpdateReservationObjMutation = {
+  updateReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
+  } | null,
+};
+
+export type DeleteReservationObjMutationVariables = {
+  input: DeleteReservationObjInput,
+};
+
+export type DeleteReservationObjMutation = {
+  deleteReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
   } | null,
 };
 
@@ -1719,11 +1805,12 @@ export type GetUserObjQuery = {
   getUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1731,7 +1818,7 @@ export type GetUserObjQuery = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1749,12 +1836,47 @@ export type ListUserObjsQuery = {
     items?:  Array< {
       __typename: "UserObj",
       id: string,
-      name: string,
+      fname: string,
+      lname: string,
       email: string,
-      googleId: string,
-      accessToken: string,
+      passwordHash?: string | null,
+      googleId?: string | null,
       spaceIds: Array< string >,
       galleryIds: Array< string >,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetReservationObjQueryVariables = {
+  id: string,
+};
+
+export type GetReservationObjQuery = {
+  getReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
+  } | null,
+};
+
+export type ListReservationObjsQueryVariables = {
+  filter?: TableReservationObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListReservationObjsQuery = {
+  listReservationObjs?:  {
+    __typename: "ReservationObjConnection",
+    items?:  Array< {
+      __typename: "ReservationObj",
+      id: string,
+      fname: string,
+      lname: string,
+      email: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2461,21 +2583,22 @@ export type OnDeleteGalleryObjSubscription = {
 
 export type OnCreateUserObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
+  fname?: string | null,
+  lname?: string | null,
   email?: string | null,
   googleId?: string | null,
-  accessToken?: string | null,
 };
 
 export type OnCreateUserObjSubscription = {
   onCreateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2483,7 +2606,7 @@ export type OnCreateUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -2491,21 +2614,22 @@ export type OnCreateUserObjSubscription = {
 
 export type OnUpdateUserObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
+  fname?: string | null,
+  lname?: string | null,
   email?: string | null,
   googleId?: string | null,
-  accessToken?: string | null,
 };
 
 export type OnUpdateUserObjSubscription = {
   onUpdateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2513,7 +2637,7 @@ export type OnUpdateUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -2521,21 +2645,22 @@ export type OnUpdateUserObjSubscription = {
 
 export type OnDeleteUserObjSubscriptionVariables = {
   id?: string | null,
-  name?: string | null,
+  fname?: string | null,
+  lname?: string | null,
   email?: string | null,
   googleId?: string | null,
-  accessToken?: string | null,
 };
 
 export type OnDeleteUserObjSubscription = {
   onDeleteUserObj?:  {
     __typename: "UserObj",
     id: string,
-    name: string,
+    fname: string,
+    lname: string,
     email: string,
-    googleId: string,
-    accessToken: string,
-    profileImage?:  {
+    passwordHash?: string | null,
+    googleId?: string | null,
+    profileImage:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2543,8 +2668,59 @@ export type OnDeleteUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    } | null,
+    },
     spaceIds: Array< string >,
     galleryIds: Array< string >,
+  } | null,
+};
+
+export type OnCreateReservationObjSubscriptionVariables = {
+  id?: string | null,
+  fname?: string | null,
+  lname?: string | null,
+  email?: string | null,
+};
+
+export type OnCreateReservationObjSubscription = {
+  onCreateReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
+  } | null,
+};
+
+export type OnUpdateReservationObjSubscriptionVariables = {
+  id?: string | null,
+  fname?: string | null,
+  lname?: string | null,
+  email?: string | null,
+};
+
+export type OnUpdateReservationObjSubscription = {
+  onUpdateReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
+  } | null,
+};
+
+export type OnDeleteReservationObjSubscriptionVariables = {
+  id?: string | null,
+  fname?: string | null,
+  lname?: string | null,
+  email?: string | null,
+};
+
+export type OnDeleteReservationObjSubscription = {
+  onDeleteReservationObj?:  {
+    __typename: "ReservationObj",
+    id: string,
+    fname: string,
+    lname: string,
+    email: string,
   } | null,
 };
