@@ -5,36 +5,33 @@ const Store = createStore({
   initialState: {
     user: {
       googleId: "",
-      accessToken: "",
     },
   },
   actions: {
     login:
-      (googleId: string, accessToken: string) =>
+      (googleId: string) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set('user', JSON.stringify({ googleId: googleId, accessToken: accessToken }));
+        Cookies.set('user', JSON.stringify({ googleId: googleId }));
         // Mutate state synchronously
         setState({
           user: {
             ...getState().user,
             googleId: googleId,
-            accessToken: accessToken,
           },
         });
       },
     register:
-      (googleId: string, accessToken: string) =>
+      (googleId: string) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set('user', JSON.stringify({ googleId: googleId, accessToken: accessToken }));
+        Cookies.set('user', JSON.stringify({ googleId: googleId }));
 
         // Mutate state synchronously
         setState({
           user: {
             ...getState().user,
             googleId: googleId,
-            accessToken: accessToken,
           },
         });
       },
@@ -48,7 +45,6 @@ const Store = createStore({
         setState({
           user: {
             googleId: "",
-            accessToken: "",
           },
         });
       },
