@@ -1,32 +1,31 @@
 "use client";
 import { LoginView } from "./view";
-import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { useUser } from "@/state/main";
 import { useEffect } from "react";
 
 export default function Page() {
+  useEffect(() => {
+    const fetchData = async () => {
+      fetch("/api/portal/login", {
+        method: "POST",
+        body: JSON.stringify({
+          email: "test@email.com",
+          password: "password",
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(async (resp) => {
+          const data = await resp.json();
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
-  // const [data, setData] = useState();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("/api/data");
-  //       console.log(response);
-  //       if (response.ok) {
-  //         const result = await response.json();
-  //         setData(result);
-  //       } else {
-  //         console.error("Failed to fetch data");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return <LoginView />;
 }
