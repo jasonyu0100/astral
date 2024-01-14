@@ -1,20 +1,19 @@
 "use client";
+import Cookies from "js-cookie";
 import { useEffect } from "react";
-import { redirect } from "next/navigation";
 
 export default function isAuth(Component: any) {
   return function IsAuth(props: any) {
-    const auth = JSON.parse(localStorage?.user || {}).googleId != undefined;
+    const userCookie = Cookies.get("user");
+    const auth = userCookie ? JSON.parse(userCookie).googleId != null : false;
+    console.log("ATUH", auth);
 
     useEffect(() => {
       if (!auth) {
-        return redirect("/");
+        window.location.href = "/";
+        return null;
       }
     }, []);
-
-    if (!auth) {
-      return null;
-    }
 
     return <Component {...props} />;
   };

@@ -1,4 +1,5 @@
 import { createStore, createHook } from "react-sweet-state";
+import Cookies from 'js-cookie';
 
 const Store = createStore({
   initialState: {
@@ -12,15 +13,7 @@ const Store = createStore({
       (googleId: string, accessToken: string) =>
       ({ setState, getState }) => {
         // Update local storage
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            ...getState().user,
-            googleId: googleId,
-            accessToken: accessToken,
-          })
-        );
-
+        Cookies.set('user', JSON.stringify({ googleId: googleId, accessToken: accessToken }));
         // Mutate state synchronously
         setState({
           user: {
@@ -34,14 +27,7 @@ const Store = createStore({
       (googleId: string, accessToken: string) =>
       ({ setState, getState }) => {
         // Update local storage
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            ...getState().user,
-            googleId: googleId,
-            accessToken: accessToken,
-          })
-        );
+        Cookies.set('user', JSON.stringify({ googleId: googleId, accessToken: accessToken }));
 
         // Mutate state synchronously
         setState({
@@ -56,7 +42,7 @@ const Store = createStore({
       () =>
       ({ setState }) => {
         // Clear local storage
-        localStorage.removeItem("user");
+        Cookies.remove('user');
 
         // Mutate state synchronously to clear user data
         setState({
