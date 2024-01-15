@@ -16,7 +16,6 @@ export interface TableDescriptor {
   example: any;
   examples: any[];
   schema: string;
-  reducer: any;
 }
 
 export interface TableObjectDescriptor {

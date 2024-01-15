@@ -262,7 +262,7 @@ export type UpdateFileObjInput = {
   src?: string | null,
   content?: string | null,
   url?: string | null,
-  type?: FileType | null,
+  type: FileType,
 };
 
 export type UpdateCommentObjInput = {
@@ -350,12 +350,23 @@ export type DeleteGalleryObjInput = {
 };
 
 export type CreateUserObjInput = {
-  name: string,
+  fname: string,
+  lname: string,
   passwordHash?: string | null,
+  profileImage?: CreateFileObjInput | null,
   email: string,
   googleId?: string | null,
   spaceIds: Array< string >,
   galleryIds: Array< string >,
+};
+
+export type CreateFileObjInput = {
+  id: string,
+  name?: string | null,
+  src?: string | null,
+  content?: string | null,
+  url?: string | null,
+  type: FileType,
 };
 
 export type UserObj = {
@@ -366,7 +377,7 @@ export type UserObj = {
   email: string,
   passwordHash?: string | null,
   googleId?: string | null,
-  profileImage: FileObj,
+  profileImage?: FileObj | null,
   spaceIds: Array< string >,
   galleryIds: Array< string >,
 };
@@ -1241,7 +1252,7 @@ export type CreateUserObjMutation = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1249,7 +1260,7 @@ export type CreateUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1268,7 +1279,7 @@ export type UpdateUserObjMutation = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1276,7 +1287,7 @@ export type UpdateUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1295,7 +1306,7 @@ export type DeleteUserObjMutation = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1303,7 +1314,7 @@ export type DeleteUserObjMutation = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -1810,7 +1821,7 @@ export type GetUserObjQuery = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -1818,7 +1829,7 @@ export type GetUserObjQuery = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -2598,7 +2609,7 @@ export type OnCreateUserObjSubscription = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2606,7 +2617,7 @@ export type OnCreateUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -2629,7 +2640,7 @@ export type OnUpdateUserObjSubscription = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2637,7 +2648,7 @@ export type OnUpdateUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,
@@ -2660,7 +2671,7 @@ export type OnDeleteUserObjSubscription = {
     email: string,
     passwordHash?: string | null,
     googleId?: string | null,
-    profileImage:  {
+    profileImage?:  {
       __typename: "FileObj",
       id: string,
       name?: string | null,
@@ -2668,7 +2679,7 @@ export type OnDeleteUserObjSubscription = {
       content?: string | null,
       url?: string | null,
       type: FileType,
-    },
+    } | null,
     spaceIds: Array< string >,
     galleryIds: Array< string >,
   } | null,

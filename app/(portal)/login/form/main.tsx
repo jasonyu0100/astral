@@ -34,18 +34,22 @@ export function PortalLoginForm() {
           }
         )
         .then((resp) => {
+          const email = resp.data.email;
           const googleId = resp.data.id;
           fetch("/api/portal/login/google", {
             method: "POST",
             body: JSON.stringify({
               email,
               googleId,
-              accessToken,
             }),
+            headers: {
+              "Content-Type": "application/json",
+            },
           }).then((res) => {
             if (res.status === 200) {
               res.json().then((user) => {
-                actions.login(user.googleId);
+                actions.login(user.data);
+                alert("Login Success");
                 window.location.href = spacesMap.spaces.now.link;
               });
             } else {
@@ -67,10 +71,15 @@ export function PortalLoginForm() {
         email,
         password,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((user) => {
-          actions.login(user.googleId);
+          console.log(user);
+          actions.login(user.data);
+          alert("Login Success");
           window.location.href = spacesMap.spaces.now.link;
         });
       } else {
@@ -101,7 +110,9 @@ export function PortalLoginForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction onClick={() => attemptLogin()}>LOGIN</PortalFormAction>
+        <PortalFormAction onClick={() => attemptLogin()}>
+          LOGIN
+        </PortalFormAction>
         <PortalFormAltAction>
           Don't have an account?{" "}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>

@@ -1,37 +1,35 @@
 import { createStore, createHook } from "react-sweet-state";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
+import { UserObj } from "@/tables/user/main";
 
 const Store = createStore({
   initialState: {
-    user: {
-      googleId: "",
-    },
+    user: {} as UserObj,
   },
   actions: {
     login:
-      (googleId: string) =>
+      (user: UserObj) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set('user', JSON.stringify({ googleId: googleId }));
+        Cookies.set("user", JSON.stringify({ user }));
         // Mutate state synchronously
         setState({
           user: {
             ...getState().user,
-            googleId: googleId,
+            ...user,
           },
         });
       },
     register:
-      (googleId: string) =>
+      (user: UserObj) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set('user', JSON.stringify({ googleId: googleId }));
-
+        Cookies.set("user", JSON.stringify({ user }));
         // Mutate state synchronously
         setState({
           user: {
             ...getState().user,
-            googleId: googleId,
+            ...user,
           },
         });
       },
@@ -39,13 +37,11 @@ const Store = createStore({
       () =>
       ({ setState }) => {
         // Clear local storage
-        Cookies.remove('user');
+        Cookies.remove("user");
 
         // Mutate state synchronously to clear user data
         setState({
-          user: {
-            googleId: "",
-          },
+          user: {} as UserObj,
         });
       },
   },

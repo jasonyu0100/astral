@@ -2,7 +2,6 @@ import { useState } from "react";
 import { portalMap } from "../../map";
 import { useUser } from "@/state/main";
 import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
 import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
 import { PortalFormAction } from "@/(portal)/polaroid-epic/container/form/action-container/action/main";
 import { PortalFormAltActionLink } from "@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main";
@@ -13,6 +12,7 @@ import { PortalFormInput } from "@/(portal)/polaroid-epic/container/form/body/in
 import { PortalFormBody } from "@/(portal)/polaroid-epic/container/form/body/main";
 import { PortalForm } from "@/(portal)/polaroid-epic/container/form/main";
 import { PortalFormOrDivider } from "@/(portal)/polaroid-epic/container/form/or/main";
+import axios from "axios";
 
 export function PortalRegisterForm() {
   const [state, actions] = useUser();
@@ -21,6 +21,7 @@ export function PortalRegisterForm() {
   const [email, changeEmail] = useState("");
   const [password, changePassword] = useState("");
   const [rePassword, changeRePassword] = useState("");
+  console.log("adsadsads");
 
   const attemptGoogleRegister = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -37,6 +38,10 @@ export function PortalRegisterForm() {
         )
         .then((resp) => {
           const googleId = resp.data.id;
+          const fname = resp.data.given_name;
+          const lname = resp.data.family_name;
+          const pfp = resp.data.picture;
+          const email = resp.data.email;
           fetch("/api/portal/register/google", {
             method: "POST",
             body: JSON.stringify({
@@ -44,23 +49,27 @@ export function PortalRegisterForm() {
               lname,
               email,
               googleId,
-              accessToken,
+              pfp,
             }),
+            headers: {
+              "Content-Type": "application/json",
+            },
           }).then((res) => {
             if (res.status === 200) {
               res.json().then((user) => {
-                actions.login(user.googleId);
+                actions.register(user.data);
+                alert("Register Success");
                 window.location.href = spacesMap.spaces.now.link;
               });
             } else {
-              alert("Login Failed");
+              alert("Register Failed");
             }
           });
         });
     },
     onError: (error) => {
-      alert("Login Failed");
-      console.log("Login Failed:", error);
+      alert("Register Failed");
+      console.log("Register Failed:", error);
     },
   });
 
@@ -73,14 +82,18 @@ export function PortalRegisterForm() {
         email,
         password,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((user) => {
-          actions.login(user.googleId);
+          actions.register(user.data);
+          alert("Register Success");
           window.location.href = spacesMap.spaces.now.link;
         });
       } else {
-        alert("Login Failed");
+        alert("Register Failed");
       }
     });
   };

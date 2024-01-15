@@ -11,25 +11,30 @@ loadEnvConfig("./", dev);
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 
-const config : any = {
-    API: {
-        GraphQL: {
-          endpoint: process.env.GRAPHQL_ENDPOINT || "",
-          region: 'ap-southeast-2',
-          defaultAuthMode: 'apiKey',
-          apiKey: process.env.GRAPHQL_APIKEY || ""
-        }
-    }
-}
+const config: any = {
+  API: {
+    GraphQL: {
+      endpoint: process.env.GRAPHQL_ENDPOINT || "",
+      region: "ap-southeast-2",
+      defaultAuthMode: "apiKey",
+      apiKey: process.env.GRAPHQL_APIKEY || "",
+    },
+  },
+};
 
 Amplify.configure(config);
 
-export const amplifyClient = generateClient({ authMode: "apiKey"});
+export const amplifyClient = generateClient({ authMode: "apiKey" });
 
 (async () => {
   try {
     await app.prepare();
     const server = express();
+
+    // server.use((req, res, next) => {
+    //   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    //   next();
+    // });
 
     server.use(express.json());
 
