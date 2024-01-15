@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import { amplifyClient } from "../..";
-// import { createReservationObj } from "@/graphql/mutations";
+import { createReservationObj } from "../../mutations";
 
 const reserveRouter = Router();
 
@@ -18,19 +18,19 @@ reserveRouter.post("/", async (req: Request, res: Response) => {
       email,
       role,
     };
-
-    // const gqlResp = await amplifyClient.graphql({
-    //   query: createReservationObj,
-    //   variables: {
-    //     input: {
-    //       fname: fname,
-    //       lname: lname,
-    //       email: email,
-    //     },
-    //   },
-    // });
-    // console.log(gqlResp)
     console.log(payload);
+
+    const gqlResp = await amplifyClient.graphql({
+      query: createReservationObj,
+      variables: {
+        input: {
+          fname: fname,
+          lname: lname,
+          email: email,
+        },
+      },
+    });
+    console.log(gqlResp)
 
     res.json({ data: "Reserve successful!" });
   } catch (error) {

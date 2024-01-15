@@ -11,12 +11,12 @@ export default function insideCosmos(Component: any) {
 
     useEffect(() => {
       const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-      if (isMobile) {
-        window.location.href = "/";
-      } else if (!isAuthed) {
-        window.location.href = "/";
-        return null;
-      }
+      // if (isMobile) {
+      //   window.location.href = "/";
+      // } else if (!isAuthed) {
+      //   window.location.href = "/";
+      //   return null;
+      // }
 
       return () => {};
     }, []);

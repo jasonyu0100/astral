@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
 import { PortalFormAction } from "@/(portal)/polaroid-epic/container/form/action-container/action/main";
 import { PortalFormInput } from "@/(portal)/polaroid-epic/container/form/body/input/main";
 import { PortalFormBody } from "@/(portal)/polaroid-epic/container/form/body/main";
@@ -9,7 +8,7 @@ import { PortalCosmosTextHeader } from "@/(portal)/polaroid-epic/container/form/
 import { portalModel } from "@/(portal)/polaroid-epic/model/main";
 
 export function PortalReserveForm() {
-  const categories = portalModel.categories.example
+  const categories = portalModel.categories.example;
   const [fname, changeFname] = useState("");
   const [lname, changeLname] = useState("");
   const [email, changeEmail] = useState("");
@@ -19,25 +18,28 @@ export function PortalReserveForm() {
     fetch("/api/portal/reserve", {
       method: "POST",
       body: JSON.stringify({
-        fname,
-        lname,
-        email,
-        role,
+        fname: fname,
+        lname: lname,
+        email: email,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((user) => {
-          window.location.href = spacesMap.spaces.now.link;
+          alert("Reserve Success");
+          window.location.href = "/";
         });
       } else {
-        alert("Registration Failed");
+        alert("Reserve Failed");
       }
     });
-  }
+  };
 
   return (
     <PortalForm>
-      <PortalCosmosTextHeader/>
+      <PortalCosmosTextHeader />
       <PortalFormBody>
         <PortalFormInput
           value={fname}

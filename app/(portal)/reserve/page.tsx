@@ -1,3 +1,4 @@
+"use client";
 import {
   PolaroidContext,
   usePolaroid,
@@ -7,6 +8,7 @@ import { ReserveView } from "./view";
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
     usePolaroid();
+
   return (
     <PolaroidContext.Provider
       value={{

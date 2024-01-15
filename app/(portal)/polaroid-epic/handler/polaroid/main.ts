@@ -1,21 +1,6 @@
 import { portalModel } from "@/(portal)/polaroid-epic/model/main";
 import { useState, useRef, useEffect, createContext } from "react";
 
-export interface PolaroidHandler {
-  tapPolaroid: () => void;
-  transitionPolaroid: () => void;
-  flipPolaroid: () => void;
-}
-
-export interface usePolaroidInterface {
-  categories: string[];
-  flipped: boolean;
-  index: number;
-  transition: string;
-  variant: string;
-  _polaroidHandler: PolaroidHandler;
-}
-
 export interface PolaroidContextObj {
   categories: string[];
   flipped: boolean;
@@ -34,7 +19,22 @@ export const PolaroidContext = createContext<PolaroidContextObj>({
   polaroidHandler: undefined,
 });
 
-export const usePolaroid = (): usePolaroidInterface => {
+export interface PolaroidHandler {
+  tapPolaroid: () => void;
+  transitionPolaroid: () => void;
+  flipPolaroid: () => void;
+}
+
+export interface usePolaroidInterface {
+  categories: string[];
+  flipped: boolean;
+  index: number;
+  transition: string;
+  variant: string;
+  _polaroidHandler: PolaroidHandler;
+}
+
+export const usePolaroid = () => {
   const categories = portalModel.categories.example;
   const [flipped, changeFlipped] = useState(false);
   const [index, changeIndex] = useState(0);

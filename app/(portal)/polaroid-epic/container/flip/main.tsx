@@ -1,5 +1,5 @@
-import { PolaroidContext } from "@/(portal)/polaroid-epic/handler/polaroid/main";
 import { useContext } from "react";
+import { PolaroidContext } from "../../handler/polaroid/main";
 
 export function PortalContainerFlip() {
   const { polaroidHandler } = useContext(PolaroidContext);

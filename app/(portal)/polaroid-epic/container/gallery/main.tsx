@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { PortalGalleryPiece } from "./piece/main";
 import { PortalGalleryTitle } from "./title/main";
-import { PolaroidContext } from "@/(portal)/polaroid-epic/handler/polaroid/main";
+import { PolaroidContext } from "../../handler/polaroid/main";
 
 export function PortalGalleryView() {
   const { transition, index, categories, variant, polaroidHandler } =

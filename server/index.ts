@@ -1,8 +1,6 @@
 import express, { Request, Response } from "express";
 import next from "next";
 import { portalRouter } from "./portal";
-import { Amplify } from "aws-amplify";
-import { generateClient } from "aws-amplify/api";
 import { loadEnvConfig } from "@next/env";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -10,21 +8,23 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 loadEnvConfig("./", dev);
+import { Amplify } from "aws-amplify";
+import { generateClient } from "aws-amplify/api";
 
-const config: any = {
-  API: {
-    GraphQL: {
-      endpoint: process.env.GRAPHQL_ENDPOINT,
-      region: "ap-southeast-2",
-      defaultAuthMode: "apiKey",
-      apiKey: process.env.GRAPHQL_APIKEY,
-    },
-  },
-};
+const config : any = {
+    API: {
+        GraphQL: {
+          endpoint: process.env.GRAPHQL_ENDPOINT || "",
+          region: 'ap-southeast-2',
+          defaultAuthMode: 'apiKey',
+          apiKey: process.env.GRAPHQL_APIKEY || ""
+        }
+    }
+}
 
 Amplify.configure(config);
 
-export const amplifyClient = generateClient();
+export const amplifyClient = generateClient({ authMode: "apiKey"});
 
 (async () => {
   try {
@@ -37,7 +37,7 @@ export const amplifyClient = generateClient();
 
     server.all("*", (req: Request, res: Response) => {
       try {
-        console.log("Request received:", req.method, req.url);
+        // console.log("Request received:", req.method, req.url);
         return handle(req, res);
       } catch {
         return res.status(500).send("Internal Server Error");

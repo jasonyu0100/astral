@@ -1,7 +1,6 @@
 "use client";
-import { usePolaroid, PolaroidContext } from "../polaroid-epic/handler/polaroid/main";
+import { PolaroidContext, usePolaroid } from "../polaroid-epic/handler/polaroid/main";
 import { LoginView } from "./view";
-import { useEffect } from "react";
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
