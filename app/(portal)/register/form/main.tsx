@@ -21,7 +21,6 @@ export function PortalRegisterForm() {
   const [email, changeEmail] = useState("");
   const [password, changePassword] = useState("");
   const [rePassword, changeRePassword] = useState("");
-  console.log("adsadsads");
 
   const attemptGoogleRegister = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -40,10 +39,11 @@ export function PortalRegisterForm() {
           const googleId = resp.data.id;
           const fname = resp.data.given_name;
           const lname = resp.data.family_name;
-          const profileImage = {
+          const profilePicture = {
             id: crypto.randomUUID(),
             src: resp.data.picture,
-            type: "image/*"
+            type: "image/*",
+            name: "profile picture"
           }
           const email = resp.data.email;
           fetch("/api/portal/register/google", {
@@ -53,7 +53,7 @@ export function PortalRegisterForm() {
               lname,
               email,
               googleId,
-              profileImage,
+              profilePicture,
             }),
             headers: {
               "Content-Type": "application/json",

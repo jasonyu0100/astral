@@ -1,11 +1,11 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
 import { GalleryObj } from "@/tables/gallery/main";
-import { galleryTable } from "@/tables/gallery/table";
 import { ExploreView } from "./view";
 import insideCosmos from "@/utils/isAuth";
-import { amplifyClient } from "@/graphql/main";
+import { amplifyClient } from "@/client";
 import { listGalleryObjs } from "@/graphql/queries";
+import { useUser } from "@/state/main";
 
 export interface ExploreHomeContext {
   gallerys: GalleryObj[];
@@ -18,26 +18,27 @@ export const ExploreHomeContext = createContext<ExploreHomeContext>({
 });
 
 function Page() {
+  const [state, actions] = useUser();
   const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
 
   useEffect(() => {
     getGallerys();
   }, []);
 
-  const getGallerys = async () : Promise<GalleryObj[]> => {
-    if (process.env.NEXT_PUBLIC_MOCKED === "true") {
-      const gallerys = galleryTable.examples;
-      changeGallerys(gallerys);
-      return gallerys
-    } else {
-      const payload = await amplifyClient.graphql({
-        query: listGalleryObjs,
-        variables: {},
-      });
-      const gallerys: GalleryObj[] = payload?.data?.listGalleryObjs?.items || [];
-      changeGallerys(gallerys);
-      return gallerys
-    }
+  const getGallerys = async () => {
+    const payload = await amplifyClient.graphql({
+      query: listGalleryObjs,
+      variables: {
+        filter: {
+          userId: {
+            eq: state.user.id,
+          },
+        },
+      },
+    });
+    const gallerys: GalleryObj[] = payload?.data?.listGalleryObjs?.items || [];
+    changeGallerys(gallerys);
+    return gallerys;
   };
 
   const addGallery = (gallery: GalleryObj) => {

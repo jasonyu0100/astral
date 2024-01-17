@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import { createUserObj } from "../../graphql/mutations";
-import { amplifyClient } from "../../graphql/main";
+import { amplifyClient } from "../../client";
 import bcrypt from "bcrypt";
 
 export const registerRouter = Router();
@@ -19,8 +19,6 @@ registerRouter.post("/", async (req: Request, res: Response) => {
     lname: lname,
     email: email,
     passwordHash: passwordHash,
-    spaceIds: [],
-    galleryIds: [],
   };
 
   try {
@@ -43,16 +41,14 @@ registerRouter.post("/google", async (req: Request, res: Response) => {
   const lname = data.lname;
   const email = data.email;
   const googleId = data.googleId;
-  const profileImage = data.profileImage;
+  const profilePicture = data.profilePicture;
 
   const inputPayload = {
     fname: fname,
     lname: lname,
     email: email,
     googleId: googleId,
-    profileImage: profileImage,
-    spaceIds: [],
-    galleryIds: [],
+    profilePicture: profilePicture,
   };
 
   try {

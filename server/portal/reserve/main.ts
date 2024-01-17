@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import { createReservationObj } from "../../graphql/mutations";
-import { amplifyClient } from "../../graphql/main";
+import { amplifyClient } from "../../client";
 
 const reserveRouter = Router();
 

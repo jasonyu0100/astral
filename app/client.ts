@@ -1,17 +1,14 @@
-import { loadEnvConfig } from "@next/env";
-const dev = process.env.NODE_ENV !== "production";
-loadEnvConfig("./", dev);
-
+"use client"
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 
 const config: any = {
   API: {
     GraphQL: {
-      endpoint: process.env.GRAPHQL_ENDPOINT || "",
+      endpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "",
       region: "ap-southeast-2",
       defaultAuthMode: "apiKey",
-      apiKey: process.env.GRAPHQL_APIKEY || "",
+    apiKey: process.env.NEXT_PUBLIC_GRAPHQL_APIKEY || "",
     },
   },
 };

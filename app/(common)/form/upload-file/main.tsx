@@ -1,4 +1,4 @@
-import { amplifyClient } from "@/graphql/main";
+import { amplifyClient } from "@/client";
 import { FileObj } from "@/tables/file/main";
 import React, { useState } from "react";
 import { createFileObj } from "../../../../server/graphql/mutations";

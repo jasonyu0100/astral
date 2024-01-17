@@ -8,6 +8,12 @@ import { collectionTable, galleryTable } from "@/tables/gallery/table";
 import insideCosmos from "@/utils/isAuth";
 import { ResourceObj } from "@/tables/resource/main";
 import { resourceTable } from "@/tables/resource/table";
+import {
+  getCollectionObj,
+  getGalleryObj,
+  listResourceObjs,
+} from "@/graphql/queries";
+import { amplifyClient } from "@/client";
 
 export interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -27,28 +33,60 @@ interface ResourceHandler {
   addResource: (resource: ResourceObj) => void;
 }
 
-function Page() {
+function Page({ params }: { params: { id: string } }) {
   const [gallery, changeGallery] = useState(galleryTable.example);
   const [collection, changeCollection] = useState(collectionTable.example);
   const [resources, changeResources] = useState(resourceTable.examples);
-  
-  useEffect(() => {
-    getCollections();
-  }, [])
 
-  const getCollections = async () => {
-    // if (process.env.NEXT_PUBLIC_MOCKED === "true") {
-    //   console.log(process.env.NEXT_PUBLIC_MOCKED)
-    //   const gallerys = galleryTable.examples;
-    //   changeCollections(gallerys);
-    // } else {
-    //   const payload = await amplifyClient.graphql({
-    //     query: listCollectionObjs,
-    //     variables: {},
-    //   });
-    //   const collections: CollectionObj[] = payload?.data?.listCollectionObjs?.items || [];
-    //   changeCollections(collections);
-    // }
+  useEffect(() => {
+    getCollection(params.id).then((collection) => {
+      getGallery(collection.galleryId);
+      getResources(collection.id);
+    });
+  }, []);
+
+  const getGallery = async (id: string) => {
+    const payload = await amplifyClient.graphql({
+      query: getGalleryObj,
+      variables: {
+        id: id,
+      },
+    });
+
+    const gallery: CollectionObj = payload?.data.getGalleryObj || {};
+    changeGallery(gallery);
+    return gallery;
+  };
+
+  const getCollection = async (id: string) => {
+    const payload = await amplifyClient.graphql({
+      query: getCollectionObj,
+      variables: {
+        id: id,
+      },
+    });
+
+    const collection: CollectionObj = payload?.data.getCollectionObj || {};
+    changeCollection(collection);
+    return collection;
+  };
+
+  const getResources = async (id: string) => {
+    const payload = await amplifyClient.graphql({
+      query: listResourceObjs,
+      variables: {
+        filter: {
+          collectionId: {
+            eq: id,
+          },
+        },
+      },
+    });
+
+    const resources: ResourceObj[] =
+      payload?.data.listResourceObjs?.items || {};
+    changeResources(resources);
+    return resources;
   };
 
   const resourceHandler: ResourceHandler = {
@@ -66,7 +104,7 @@ function Page() {
 
   return (
     <ExploreCollectionContext.Provider value={context}>
-      <DriveFolderView/>
+      <DriveFolderView />
     </ExploreCollectionContext.Provider>
   );
 }

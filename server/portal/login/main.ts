@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import bcrypt from "bcrypt";
 import { listUserObjs } from "../../graphql/queries";
-import { amplifyClient } from "../../graphql/main";
+import { amplifyClient } from "../../client";
 
 export const loginRouter = Router();
 

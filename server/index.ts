@@ -15,6 +15,11 @@ const port = process.env.PORT || 3000;
     await app.prepare();
     const server = express();
 
+    // server.use((req, res, next) => {
+    //   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    //   next();
+    // });
+
     server.use(express.json());
 
     server.use("/api/portal", portalRouter);

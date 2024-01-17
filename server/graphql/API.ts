@@ -6,12 +6,13 @@ export type CreateStarObjInput = {
   name: string,
   x: number,
   y: number,
-  file: CreateFileObjInput,
+  file: UpdateFileObjInput,
 };
 
-export type CreateFileObjInput = {
-  src: string,
-  type: string,
+export type UpdateFileObjInput = {
+  id: string,
+  src?: string | null,
+  type?: string | null,
   name?: string | null,
   size?: number | null,
 };
@@ -39,7 +40,7 @@ export type UpdateStarObjInput = {
   name?: string | null,
   x?: number | null,
   y?: number | null,
-  file?: CreateFileObjInput | null,
+  file?: UpdateFileObjInput | null,
 };
 
 export type DeleteStarObjInput = {
@@ -69,7 +70,7 @@ export type CreateResourceObjInput = {
   collectionId: string,
   name: string,
   description: string,
-  file: CreateFileObjInput,
+  file: UpdateFileObjInput,
 };
 
 export type ResourceObj = {
@@ -86,7 +87,7 @@ export type UpdateResourceObjInput = {
   collectionId?: string | null,
   name?: string | null,
   description?: string | null,
-  file?: CreateFileObjInput | null,
+  file?: UpdateFileObjInput | null,
 };
 
 export type DeleteResourceObjInput = {
@@ -122,7 +123,7 @@ export type CreateGalleryObjInput = {
   userId: string,
   title: string,
   description: string,
-  thumbnail?: CreateFileObjInput | null,
+  thumbnail?: UpdateFileObjInput | null,
 };
 
 export type GalleryObj = {
@@ -139,7 +140,7 @@ export type UpdateGalleryObjInput = {
   userId?: string | null,
   title?: string | null,
   description?: string | null,
-  thumbnail?: CreateFileObjInput | null,
+  thumbnail?: UpdateFileObjInput | null,
 };
 
 export type DeleteGalleryObjInput = {
@@ -152,7 +153,7 @@ export type CreateUserObjInput = {
   passwordHash?: string | null,
   email: string,
   googleId?: string | null,
-  profilePicture?: CreateFileObjInput | null,
+  profilePicture?: UpdateFileObjInput | null,
 };
 
 export type UserObj = {
@@ -163,7 +164,7 @@ export type UserObj = {
   passwordHash?: string | null,
   email: string,
   googleId?: string | null,
-  profilePicture: FileObj,
+  profilePicture?: FileObj | null,
 };
 
 export type UpdateUserObjInput = {
@@ -173,7 +174,7 @@ export type UpdateUserObjInput = {
   passwordHash?: string | null,
   email?: string | null,
   googleId?: string | null,
-  profilePicture?: CreateFileObjInput | null,
+  profilePicture?: UpdateFileObjInput | null,
 };
 
 export type DeleteUserObjInput = {
@@ -305,7 +306,7 @@ export type CreateMomentObjInput = {
   title: string,
   log: string,
   visibility: string,
-  file: CreateFileObjInput,
+  file: UpdateFileObjInput,
 };
 
 export type MomentObj = {
@@ -332,7 +333,7 @@ export type UpdateMomentObjInput = {
   title?: string | null,
   log?: string | null,
   visibility?: string | null,
-  file?: CreateFileObjInput | null,
+  file?: UpdateFileObjInput | null,
 };
 
 export type DeleteMomentObjInput = {
@@ -361,10 +362,9 @@ export type DeleteCollectionObjInput = {
   id: string,
 };
 
-export type UpdateFileObjInput = {
-  id: string,
-  src?: string | null,
-  type?: string | null,
+export type CreateFileObjInput = {
+  src: string,
+  type: string,
   name?: string | null,
   size?: number | null,
 };
@@ -1074,14 +1074,14 @@ export type CreateUserObjMutation = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -1098,14 +1098,14 @@ export type UpdateUserObjMutation = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -1122,14 +1122,14 @@ export type DeleteUserObjMutation = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -1919,14 +1919,14 @@ export type GetUserObjQuery = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -2734,14 +2734,14 @@ export type OnCreateUserObjSubscription = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -2762,14 +2762,14 @@ export type OnUpdateUserObjSubscription = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
@@ -2790,14 +2790,14 @@ export type OnDeleteUserObjSubscription = {
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
-    profilePicture:  {
+    profilePicture?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
   } | null,
 };
 
