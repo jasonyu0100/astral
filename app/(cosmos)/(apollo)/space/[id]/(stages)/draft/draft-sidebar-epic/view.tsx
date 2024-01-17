@@ -1,8 +1,5 @@
 import { Layer } from "@/(common)/layer/main";
-import {
-  backgroundStyles,
-  containerStyles,
-} from "@/(common)/styles/data";
+import { backgroundStyles, containerStyles } from "@/(common)/styles/data";
 import { SidebarBody } from "./modes/main";
 import { HomeInterface } from "./modes/home/main";
 import { HomeGallery } from "./modes/home/gallery/main";
@@ -24,9 +21,8 @@ export function DraftSidebarView() {
     <Layer
       displayName={DraftSidebarView.name}
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]} p-[1rem] space-y-[1rem]`}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle={"p-[1rem] space-y-[1rem]"}
     >
       <DraftSidebarHeader />
       <SidebarBody>
@@ -47,11 +43,10 @@ export function DraftSidebarView() {
         {sidebarMode === SidebarMode.Collection && (
           <CollectionInterface>
             <CollectionHeader>
-              <CollectionHeaderSearch
-              />
+              <CollectionHeaderSearch />
             </CollectionHeader>
             {searchResults.map((resource) => (
-              <CollectionResource resource={resource}/>
+              <CollectionResource resource={resource} />
             ))}
           </CollectionInterface>
         )}

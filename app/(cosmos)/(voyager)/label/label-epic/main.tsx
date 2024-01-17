@@ -11,7 +11,7 @@ export function RecordCollection({
       displayName={RecordCollection.name}
       sizeStyle="h-full flex-grow"
       backgroundStyle={backgroundStyles["glass-5"]}
-      containerStyle={containerStyles["col-center"]}
+      className={`${containerStyles["col-center"]}`}
     >
       {children}
     </Layer>

@@ -10,7 +10,7 @@ export function DriveWrapper({
     <Layer
       displayName={DriveWrapper.name}
       sizeStyle="w-full h-full"
-      containerStyle={containerStyles.row}
+      className={`${containerStyles.row}`}
     >
       {children}
     </Layer>

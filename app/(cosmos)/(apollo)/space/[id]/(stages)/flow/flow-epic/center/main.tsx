@@ -11,8 +11,7 @@ export function FlowCenter({
       <Layer
         displayName={FlowCenter.name}
         sizeStyle="w-full h-full"
-        containerStyle={containerStyles["col"]}
-        contentStyle="p-[1rem]"
+        className={`${containerStyles["col"]} p-[1rem]`}
       >
         {children}
       </Layer>

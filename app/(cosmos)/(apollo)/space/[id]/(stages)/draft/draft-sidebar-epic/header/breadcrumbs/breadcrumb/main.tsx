@@ -1,4 +1,6 @@
-interface BreadcrumbsLink extends React.ComponentPropsWithoutRef<"button"> {
+import { ButtonInputProps } from "@/(common)/types/main";
+
+interface InputProps extends ButtonInputProps {
   children: React.ReactNode;
   active: boolean;
 }
@@ -7,7 +9,7 @@ export function BreadcrumbsLink({
   children,
   active,
   ...props
-}: BreadcrumbsLink) {
+}: InputProps) {
   return (
     <button {...props}>
       {active ? (

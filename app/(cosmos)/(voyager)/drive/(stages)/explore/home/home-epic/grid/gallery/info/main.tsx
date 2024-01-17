@@ -7,9 +7,6 @@ export function GalleryInfo({ gallery }: { gallery: GalleryObj }) {
         {gallery.title}
       </div>
       <div className="font-normal text-slate-500">
-        {gallery.collectionIds.length} collections
-      </div>
-      <div className="font-normal text-slate-500">
         {gallery.description}
       </div>
     </div>

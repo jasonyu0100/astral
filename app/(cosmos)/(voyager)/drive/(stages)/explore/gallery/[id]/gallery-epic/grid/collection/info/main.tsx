@@ -10,9 +10,6 @@ export function CollectionInfo({
       <div className="text-slate-400 text-xl font-bold">
         {collection.name}
       </div>
-      <div className="text-slate-500 text-base font-lg">
-        {collection.resourceIds.length} resources
-      </div>
     </div>
   );
 }

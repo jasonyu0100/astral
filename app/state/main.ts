@@ -4,7 +4,7 @@ import { UserObj } from "@/tables/user/main";
 
 const Store = createStore({
   initialState: {
-    user: {} as UserObj,
+    user: JSON.parse(Cookies.get("user") || ""),
   },
   actions: {
     login:

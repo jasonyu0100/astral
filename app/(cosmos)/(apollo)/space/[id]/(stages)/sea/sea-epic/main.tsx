@@ -13,7 +13,7 @@ export function SeaMain({
     <Layer
       displayName={SeaMain.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row-center"]}
+      className={`${containerStyles["row-center"]}`}
     >
       {children}
     </Layer>

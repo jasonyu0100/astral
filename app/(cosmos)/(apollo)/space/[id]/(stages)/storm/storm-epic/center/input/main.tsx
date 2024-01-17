@@ -13,9 +13,8 @@ export function StormChatInput({
     <Layer
       displayName={StormChatInput.name}
       sizeStyle="h-[80px] w-full"
-      contentStyle="px-[1rem]"
       backgroundStyle={backgroundStyles["glass-5"]}
-      containerStyle={containerStyles["row-centered"]}
+      className={`${containerStyles["row-centered"]} px-[1rem]`}
     >
       {children}
     </Layer>

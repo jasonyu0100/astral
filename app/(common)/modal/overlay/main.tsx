@@ -10,7 +10,7 @@ export function ModalOverlay({
   return (
     <div
       className={clsx(
-        "fixed inset-0 flex justify-center items-center p-[3rem]",
+        "fixed inset-0 flex justify-center items-center p-[3rem] z-50",
         {
           hidden: !isOpen,
         }

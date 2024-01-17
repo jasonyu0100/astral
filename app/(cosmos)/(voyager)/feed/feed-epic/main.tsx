@@ -9,7 +9,7 @@ export function FeedMain({
   return (
     <Layer
       displayName={FeedMain.name}
-      containerStyle={containerStyles.row}
+      className={`${containerStyles.row}`}
       backgroundStyle={backgroundStyles["glass-5"]}
       sizeStyle="flex-grow h-full"
     >

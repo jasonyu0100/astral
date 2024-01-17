@@ -1,7 +1,6 @@
-export interface TopRowAddButtonProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
+import { ButtonInputProps } from "@/(common)/types/main";
 
-export function AddButton({ ...props }: TopRowAddButtonProps) {
+export function AddButton({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <svg

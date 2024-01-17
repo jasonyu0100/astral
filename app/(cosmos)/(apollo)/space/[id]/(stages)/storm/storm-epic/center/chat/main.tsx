@@ -13,8 +13,7 @@ export function StormChat({
       <Layer
         displayName={StormChat.name}
         sizeStyle="w-full h-full"
-        containerStyle={containerStyles["col-center"]}
-        contentStyle="space-y-[30px] overflow-auto p-[1rem]"
+        className={`${containerStyles["col-center"]} space-y-[30px] overflow-auto p-[1rem]`}
       >
         {children}
       </Layer>

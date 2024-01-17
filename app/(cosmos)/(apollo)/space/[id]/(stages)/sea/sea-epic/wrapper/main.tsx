@@ -13,7 +13,7 @@ export function SeaWrapper({
     <Layer
       displayName={SeaWrapper.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row"]}
+      className={`${containerStyles["row"]}`}
       backgroundStyle={backgroundStyles["glass-5"]}
     >
       {children}

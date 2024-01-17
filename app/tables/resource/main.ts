@@ -3,7 +3,7 @@ import { FileObj, exampleFile, exampleFiles } from "../file/main";
 export interface ResourceObj {
   id: string;
   collectionId: string;
-  label: string;
+  name: string;
   description: string;
   file: FileObj;
 }

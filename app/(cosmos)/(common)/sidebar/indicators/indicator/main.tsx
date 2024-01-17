@@ -1,17 +1,13 @@
-export interface SidebarIndicatorProps
-  extends React.ComponentPropsWithoutRef<"a"> {
-  children: React.ReactNode;
-}
+import { LinkInputProps } from "@/(common)/types/main";
 
-export interface IndicatorProps {
-  indicator?: string;
-  minimised?: boolean;
+interface InputProps extends LinkInputProps {
+  children: React.ReactNode;
 }
 
 export function SidebarIndicator({
   children,
   ...props
-}: SidebarIndicatorProps) {
+}: InputProps) {
   return (
     <a
       {...props}

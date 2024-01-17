@@ -1,10 +1,10 @@
-interface PortalFormGoogleActionProps
-  extends React.ComponentPropsWithoutRef<"button"> {
-    children: React.ReactNode
+import { ButtonInputProps } from "@/(common)/types/main";
 
-  }
+interface InputProps extends ButtonInputProps {
+  children: React.ReactNode;
+}
 
-export function PortalFormGoogleAction({ children, ...props }: PortalFormGoogleActionProps) {
+export function PortalFormGoogleAction({ children, ...props }: InputProps) {
   return (
     <button
       className="w-full h-[60px] flex-shrink-0 border-blue-700 border-[3px] flex flex-col justify-center items-center mb-[1rem]"

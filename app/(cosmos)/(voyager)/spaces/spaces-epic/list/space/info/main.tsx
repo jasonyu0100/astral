@@ -1,6 +1,6 @@
-interface SpaceInfoProps extends React.ComponentPropsWithoutRef<"a"> {}
+import { LinkInputProps } from "@/(common)/types/main";
 
-export function SpaceInfo({ ...props }: SpaceInfoProps) {
+export function SpaceInfo({ ...props }: LinkInputProps) {
   return (
     <a {...props}>
       <div className="flex flex-row space-x-[2rem]">

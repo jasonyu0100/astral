@@ -5,17 +5,16 @@ import {
   containerStyles,
 } from "@/(common)/styles/data";
 import { TableIcon } from "../../../icons/table/main";
+import { ButtonInputProps } from "@/(common)/types/main";
 
-interface InputProps extends React.ComponentPropsWithoutRef<"button"> {}
-
-export function TableButton({ ...props }: InputProps) {
+export function TableButton({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <Layer
         displayName={TableButton.name}
         sizeStyle="w-[36px] h-[36px]"
         backgroundStyle={backgroundStyles["glass-10"]}
-        containerStyle={containerStyles["row-centered"]}
+        className={`${containerStyles["row-centered"]}`}
         borderStyle={borderStyles.rounded}
       >
         <TableIcon />

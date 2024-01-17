@@ -14,7 +14,7 @@ export function CollectionHeaderSearch() {
       displayName={CollectionHeaderSearch.name}
       sizeStyle="flex-grow h-[3rem]"
       borderStyle={`${borderStyles["border-b"]}`}
-      containerStyle={containerStyles.row}
+      className={`${containerStyles.row}`}
     >
       <SearchBarInput
         onChange={(e: any) => {

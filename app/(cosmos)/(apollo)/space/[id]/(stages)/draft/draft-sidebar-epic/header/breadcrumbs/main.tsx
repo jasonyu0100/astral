@@ -13,8 +13,7 @@ export function SidebarBreadcrumbs({
       sizeStyle="h-[50px] w-full"
       backgroundStyle={backgroundStyles["glass-10"]}
       borderStyle={`${borderStyles["border-all"]} ${borderStyles.rounded}`}
-      containerStyle={containerStyles["row-center"]}
-      contentStyle={"space-x-[1rem] px-[1rem]"}
+      className={`${containerStyles["row-center"]} space-x-[1rem] px-[1rem]`}
     >
       {children}
     </Layer>

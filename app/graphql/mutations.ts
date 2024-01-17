@@ -272,7 +272,8 @@ export const deleteGalleryObj = /* GraphQL */ `mutation DeleteGalleryObj($input:
 export const createUserObj = /* GraphQL */ `mutation CreateUserObj($input: CreateUserObjInput!) {
   createUserObj(input: $input) {
     id
-    name
+    fname
+    lname
     passwordHash
     email
     googleId
@@ -294,7 +295,8 @@ export const createUserObj = /* GraphQL */ `mutation CreateUserObj($input: Creat
 export const updateUserObj = /* GraphQL */ `mutation UpdateUserObj($input: UpdateUserObjInput!) {
   updateUserObj(input: $input) {
     id
-    name
+    fname
+    lname
     passwordHash
     email
     googleId
@@ -316,7 +318,8 @@ export const updateUserObj = /* GraphQL */ `mutation UpdateUserObj($input: Updat
 export const deleteUserObj = /* GraphQL */ `mutation DeleteUserObj($input: DeleteUserObjInput!) {
   deleteUserObj(input: $input) {
     id
-    name
+    fname
+    lname
     passwordHash
     email
     googleId
@@ -826,4 +829,43 @@ export const deleteChatObj = /* GraphQL */ `mutation DeleteChatObj($input: Delet
 ` as GeneratedMutation<
   APITypes.DeleteChatObjMutationVariables,
   APITypes.DeleteChatObjMutation
+>;
+export const createReservationObj = /* GraphQL */ `mutation CreateReservationObj($input: CreateReservationObjInput!) {
+  createReservationObj(input: $input) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateReservationObjMutationVariables,
+  APITypes.CreateReservationObjMutation
+>;
+export const updateReservationObj = /* GraphQL */ `mutation UpdateReservationObj($input: UpdateReservationObjInput!) {
+  updateReservationObj(input: $input) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateReservationObjMutationVariables,
+  APITypes.UpdateReservationObjMutation
+>;
+export const deleteReservationObj = /* GraphQL */ `mutation DeleteReservationObj($input: DeleteReservationObjInput!) {
+  deleteReservationObj(input: $input) {
+    id
+    fname
+    lname
+    email
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteReservationObjMutationVariables,
+  APITypes.DeleteReservationObjMutation
 >;

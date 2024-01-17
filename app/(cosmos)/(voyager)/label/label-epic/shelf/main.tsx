@@ -11,9 +11,8 @@ export function RecordShelf({
     <Layer
       displayName={RecordShelf.name}
       sizeStyle="h-[250px] w-full"
-      containerStyle={containerStyles.row}
       borderStyle={borderStyles["border-b"]}
-      contentStyle="px-[40px] space-x-[100px]"
+      className={`px-[40px] space-x-[100px] ${containerStyles}`}
     >
       {children}
     </Layer>

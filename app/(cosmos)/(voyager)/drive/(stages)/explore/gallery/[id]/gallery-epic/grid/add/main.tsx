@@ -3,17 +3,12 @@ import { ExploreGalleryContext } from "../../../page";
 import { GalleryCollectionContainer } from "../container/main";
 import { CollectionAddCover } from "./cover/main";
 import { CollectionAddInfo } from "./info/main";
-import { collectionTable } from "@/tables/gallery/table";
+import { ButtonInputProps } from "@/(common)/types/main";
 
-export function GalleryCollectionAdd() {
-  const { addCollection } = useContext(ExploreGalleryContext);
+export function GalleryCollectionAdd({ ...props} : ButtonInputProps) {
 
   return (
-    <button
-      onClick={() => {
-        addCollection(collectionTable.example);
-      }}
-    >
+    <button {...props}>
       <GalleryCollectionContainer>
         <CollectionAddCover />
         <CollectionAddInfo />

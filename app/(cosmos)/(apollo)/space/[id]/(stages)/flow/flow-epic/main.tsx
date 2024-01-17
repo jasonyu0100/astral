@@ -12,7 +12,7 @@ export function FlowMain({
     <Layer
       displayName={FlowMain.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]}`}
     >
       {children}
     </Layer>

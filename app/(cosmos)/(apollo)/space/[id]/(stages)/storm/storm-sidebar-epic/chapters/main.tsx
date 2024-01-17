@@ -10,7 +10,7 @@ export function SidebarColumn({
       <Layer
         displayName={SidebarColumn.name}
         sizeStyle="h-full w-full"
-        contentStyle="flex flex-col space-y-[2rem] overflow-auto"
+        className="flex flex-col space-y-[2rem] overflow-auto"
       >
         {children}
       </Layer>

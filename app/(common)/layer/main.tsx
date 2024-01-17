@@ -1,34 +1,30 @@
-import { backgroundStyles, borderStyles, containerStyles, effectStyles } from "../styles/data";
+import { DivInputProps } from "../types/main";
 
-export interface TextureContentProps {
-  containerStyle?: string;
+export interface LayerContentProps extends DivInputProps {
   contentStyle?: string;
   children: React.ReactNode;
 }
 
-function TextureContent({
-  containerStyle,
-  contentStyle,
-  children,
-}: TextureContentProps) {
+function LayerContent({ children, ...props }: LayerContentProps) {
   return (
     <div
-      className={`absolute top-0 w-full h-full ${containerStyle} ${contentStyle}`}
+      {...props}
+      className={`absolute top-0 w-full h-full ${props.className || ""}`}
     >
       {children}
     </div>
   );
 }
 
-export interface TextureBackgroundProps {
+export interface LayerBackgroundProps {
   backgroundStyle?: string;
   effectStyle?: string;
 }
 
-function TextureBackground({
+function LayerBackground({
   backgroundStyle,
   effectStyle,
-}: TextureBackgroundProps) {
+}: LayerBackgroundProps) {
   return (
     <div
       className={`w-full h-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
@@ -36,10 +32,9 @@ function TextureBackground({
   );
 }
 
-export interface LayerProps {
+interface LayerProps extends DivInputProps {
   displayName: string;
   sizeStyle?: string;
-  containerStyle?: string;
   contentStyle?: string;
   backgroundStyle?: string;
   effectStyle?: string;
@@ -50,29 +45,24 @@ export interface LayerProps {
 export function Layer({
   displayName,
   sizeStyle,
-  containerStyle,
-  contentStyle,
   backgroundStyle,
   effectStyle,
   borderStyle,
   children,
+  ...props
 }: LayerProps) {
   return (
-    <div id={displayName} className={`relative flex-shrink-0 ${sizeStyle ? sizeStyle : "w-full h-full"} ${borderStyle ? borderStyle : borderStyles["none"]}`}>
-      <TextureBackground
-        backgroundStyle={
-          backgroundStyle ? backgroundStyle : backgroundStyles["none"]
-        }
-        effectStyle={effectStyle ? effectStyle: effectStyles["none"]}
+    <div
+      id={displayName}
+      className={`relative flex-shrink-0 ${sizeStyle || "w-full h-full"} ${
+        borderStyle || ""
+      }`}
+    >
+      <LayerBackground
+        backgroundStyle={backgroundStyle || ""}
+        effectStyle={effectStyle || ""}
       />
-      <TextureContent
-        containerStyle={
-          containerStyle ? containerStyle : containerStyles["col"]
-        }
-        contentStyle={contentStyle ? contentStyle : ""}
-      >
-        {children}
-      </TextureContent>
+      <LayerContent {...props}>{children}</LayerContent>
     </div>
   );
 }

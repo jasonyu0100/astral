@@ -11,8 +11,7 @@ export function DraftCenter({
       <Layer
         displayName={DraftCenter.name}
         sizeStyle="w-full h-full"
-        containerStyle={containerStyles["col"]}
-        contentStyle="p-[1rem]"
+        className={`${containerStyles["col"]}`}
       >
         {children}
       </Layer>

@@ -6,7 +6,7 @@ export function SeaPoint({ children }: { children: React.ReactNode }) {
     <Layer
       displayName={SeaPoint.name}
       sizeStyle="w-full h-[150px]"
-      contentStyle="p-[2rem] text-white"
+      className="p-[2rem] text-white"
     >
       {children}
     </Layer>

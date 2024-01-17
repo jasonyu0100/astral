@@ -1,9 +1,7 @@
 import { CircleLeftIcon } from "@/(common)/icons/global/circle-left/main";
+import { LinkInputProps } from "@/(common)/types/main";
 
-export interface BackTabProps extends React.ComponentPropsWithoutRef<"a"> {
-}
-
-export function TabsBackButton({ ...props }: BackTabProps) {
+export function TabsBackButton({ ...props }: LinkInputProps) {
   return (
     <a
       {...props}

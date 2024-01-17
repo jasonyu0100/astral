@@ -50,6 +50,14 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
       name
       x
       y
+      file {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       __typename
     }
     nextToken
@@ -122,6 +130,14 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
       collectionId
       name
       description
+      file {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       __typename
     }
     nextToken
@@ -198,6 +214,14 @@ export const listGalleryObjs = /* GraphQL */ `query ListGalleryObjs(
       userId
       title
       description
+      thumbnail {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       __typename
     }
     nextToken
@@ -244,6 +268,14 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
       passwordHash
       email
       googleId
+      profilePicture {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       __typename
     }
     nextToken
@@ -456,6 +488,14 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
       time
       title
       log
+      file {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       visibility
       __typename
     }

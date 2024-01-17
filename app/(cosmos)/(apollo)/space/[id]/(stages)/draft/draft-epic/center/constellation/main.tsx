@@ -14,7 +14,7 @@ export function DraftConstellation({
       <Layer
         displayName={DraftConstellation.name}
         sizeStyle="w-full h-full"
-        containerStyle={containerStyles["row"]}
+        className={`${containerStyles["row"]}`}
       >
         <div className="w-full h-full relative">{children}</div>
       </Layer>

@@ -12,7 +12,7 @@ export function DraftMain({
     <Layer
       displayName={DraftMain.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]}`}
     >{children}</Layer>
   );
 }

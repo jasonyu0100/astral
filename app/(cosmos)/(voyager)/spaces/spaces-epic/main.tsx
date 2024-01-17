@@ -16,8 +16,7 @@ export function SpacesContainer({
         displayName={SpacesContainer.name}
         sizeStyle="h-full flex-grow"
         backgroundStyle={backgroundStyles["glass-5"]}
-        containerStyle={containerStyles.col}
-        contentStyle="overflow-auto"
+        className={`overflow-auto ${containerStyles.col}`}
       >
         {children}
       </Layer>

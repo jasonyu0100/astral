@@ -1,6 +1,6 @@
-interface CraftFolderGridAdd extends React.ComponentPropsWithoutRef<"button"> {}
+import { ButtonInputProps } from "@/(common)/types/main";
 
-export function CollectionResourceAdd({ ...props }: CraftFolderGridAdd) {
+export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <div className="flex flex-row h-[150px] aspect-[36/16] items-center space-x-[3rem]">

@@ -13,9 +13,8 @@ export function SpacesHeader({
     <Layer
       sizeStyle="w-full h-[250px]"
       displayName={SpacesHeader.name}
-      containerStyle={containerStyles["row-center"]}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="px-[2rem]"
+      className={`px-[2rem] ${containerStyles["row-center"]}`} 
     >
       {children}
     </Layer>

@@ -25,7 +25,7 @@ export function StormChapterChatAdd() {
         displayName={StormChapterChatAdd.name}
         sizeStyle="w-[50px] h-[50px] rounded-[25px] overflow-hidden"
         backgroundStyle="bg-gradient-to-r from-slate-100 to-slate-500 opacity-10"
-        containerStyle={containerStyles["col-centered"]}
+        className={`${containerStyles["col-centered"]}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

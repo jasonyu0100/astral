@@ -2,8 +2,9 @@ import { GalleryObj } from "@/tables/gallery/main";
 import { GalleryCover } from "./cover/main";
 import { GalleryInfo } from "./info/main";
 import { HomeGridContainer } from "../container/main";
+import { LinkInputProps } from "@/(common)/types/main";
 
-interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
+interface InputProps extends LinkInputProps {
   gallery: GalleryObj;
 }
 

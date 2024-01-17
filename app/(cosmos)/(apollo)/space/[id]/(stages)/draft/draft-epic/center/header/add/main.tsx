@@ -1,7 +1,6 @@
-interface DraftHeaderAddProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
+import { ButtonInputProps } from "@/(common)/types/main";
 
-export function DraftHeaderAddButton({ ...props }: DraftHeaderAddProps) {
+export function DraftHeaderAddButton({ ...props }: ButtonInputProps) {
   return (
     <button className="w-[30px] h-[30px]" {...props}>
       <svg

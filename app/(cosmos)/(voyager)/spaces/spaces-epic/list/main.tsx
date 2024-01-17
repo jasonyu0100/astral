@@ -8,8 +8,7 @@ export function SpacesList({ children }: { children: React.ReactNode }) {
       <Layer
         sizeStyle="w-full"
         displayName={SpacesList.name}
-        containerStyle={containerStyles["col-center"]}
-        contentStyle="divide-y-[1px] divide-slate-500 divide-opacity-30 p-[2rem]"
+        className={`divide-y-[1px] divide-slate-500 divide-opacity-30 p-[2rem] ${containerStyles["col-center"]}`}
       >
         {children}
       </Layer>

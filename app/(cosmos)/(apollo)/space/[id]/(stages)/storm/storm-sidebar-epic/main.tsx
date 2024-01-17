@@ -17,8 +17,7 @@ export function StormSidebar() {
       displayName={StormSidebar.name}
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
       backgroundStyle={backgroundStyles["glass-10"]}
-      containerStyle={containerStyles["col-center"]}
-      contentStyle={"p-[1rem]"}
+      className={`${containerStyles["col-center"]} p-[1rem]`}
     >
         <SidebarColumn>
           {chapters.map((chapter) => (

@@ -1,14 +1,12 @@
-import { useState } from "react";
 
 interface PortalFormInputProps
   extends React.ComponentPropsWithoutRef<"input"> {}
 
 export function FormInput({ title, ...props }: PortalFormInputProps) {
-  const [value, changeValue] = useState("");
 
   return (
     <div className="flex flex-col w-full">
-      {value !== "" && (
+      {props.value !== "" && (
         <label className="mb-1 text-xs font-bold text-slate-400">{title}</label>
       )}
       <div className="flex flex-col w-full border-b-[1px] border-slate-500 h-[40px]">
@@ -19,10 +17,6 @@ export function FormInput({ title, ...props }: PortalFormInputProps) {
           "
           name="tag"
           {...props}
-          value={props.value || value}
-          onChange={(e) =>
-            props.onChange ? e.target.value : changeValue(e.target.value)
-          }
         />
       </div>
     </div>

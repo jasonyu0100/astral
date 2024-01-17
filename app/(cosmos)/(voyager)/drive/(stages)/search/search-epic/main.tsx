@@ -10,8 +10,7 @@ export function SearchController({ children }: { children: React.ReactNode }) {
       displayName={SearchController.name}
       sizeStyle="h-full flex-grow"
       backgroundStyle={backgroundStyles["glass-5"]}
-      containerStyle={containerStyles["col"]}
-      contentStyle="space-y-[2rem] p-[2rem]"
+      className={`${containerStyles["col"]} space-y-[2rem] p-[2rem]`}
     >
       {children}
     </Layer>

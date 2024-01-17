@@ -14,9 +14,8 @@ export function DriveController({
     <Layer
       displayName={DriveController.name}
       sizeStyle="flex-grow h-full"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]} p-[2rem] space-y-[3rem] overflow-auto`}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="p-[2rem] space-y-[3rem] overflow-auto"
     >
       {children}
     </Layer>

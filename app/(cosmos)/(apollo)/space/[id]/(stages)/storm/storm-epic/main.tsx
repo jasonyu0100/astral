@@ -14,7 +14,7 @@ export function StormWrapper({
       displayName={StormWrapper.name}
       sizeStyle="h-full flex-grow"
       backgroundStyle={backgroundStyles["glass-5"]}
-      containerStyle={containerStyles["row"]}
+      className={`${containerStyles["row"]}`}
     >
       {children}
     </Layer>

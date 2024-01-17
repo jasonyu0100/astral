@@ -16,9 +16,8 @@ export function FeedSidebar() {
     <Layer
       displayName={FeedSidebar.name}
       sizeStyle="max-w-[500px] min-w-[250px] w-1/4 h-full"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]} py-[1rem] px-[1rem]`}
       backgroundStyle={backgroundStyles["glass-10"]}
-      contentStyle={"py-[1rem] px-[1rem]"}
     >
       <FeedSidebarColumn>
         <FeedSidebarSection>

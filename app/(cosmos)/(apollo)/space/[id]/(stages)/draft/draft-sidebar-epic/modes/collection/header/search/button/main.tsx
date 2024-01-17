@@ -1,7 +1,6 @@
-interface SearchBarButtonProps
-  extends React.ComponentPropsWithoutRef<"button"> {}
+import { ButtonInputProps } from "@/(common)/types/main";
 
-export function SearchBarButton({ ...props }: SearchBarButtonProps) {
+export function SearchBarButton({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <svg

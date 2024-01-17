@@ -10,7 +10,7 @@ export function StormMain({
     <Layer
       displayName={StormMain.name}
       sizeStyle="flex-grow h-full"
-      containerStyle={containerStyles["col"]}
+      className={`${containerStyles["col"]}`}
     >
       {children}
     </Layer>

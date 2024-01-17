@@ -6,7 +6,7 @@ export function FlowWrapper({children} : { children: React.ReactNode}) {
     return <Layer
     displayName={FlowWrapper.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row"]}
+      className={`${containerStyles["row"]}`}
       backgroundStyle={backgroundStyles["glass-5"]}
     >{children}</Layer>
 }

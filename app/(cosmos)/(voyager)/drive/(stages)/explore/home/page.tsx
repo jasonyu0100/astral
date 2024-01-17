@@ -4,17 +4,25 @@ import { GalleryObj } from "@/tables/gallery/main";
 import { ExploreView } from "./view";
 import insideCosmos from "@/utils/isAuth";
 import { amplifyClient } from "@/client";
-import { listGalleryObjs } from "@/graphql/queries";
+import { getGalleryObj, listGalleryObjs } from "@/graphql/queries";
 import { useUser } from "@/state/main";
+import { createGalleryObj } from "@/graphql/mutations";
+import { FileObj } from "@/tables/file/main";
 
 export interface ExploreHomeContext {
   gallerys: GalleryObj[];
-  addGallery: (section: GalleryObj) => void;
+  addGallery: (
+    title: string,
+    description: string,
+    thumbnail: FileObj
+  ) => Promise<void>;
 }
 
 export const ExploreHomeContext = createContext<ExploreHomeContext>({
   gallerys: [],
-  addGallery: () => {},
+  addGallery: function (title: string, description: string, thumbnail: FileObj): Promise<void> {
+    throw new Error("Function not implemented.");
+  }
 });
 
 function Page() {
@@ -31,17 +39,37 @@ function Page() {
       variables: {
         filter: {
           userId: {
-            eq: state.user.id,
+            eq: state.user.user.id,
           },
         },
       },
     });
+    console.log(payload);
     const gallerys: GalleryObj[] = payload?.data?.listGalleryObjs?.items || [];
+    console.log(gallerys);
     changeGallerys(gallerys);
     return gallerys;
   };
 
-  const addGallery = (gallery: GalleryObj) => {
+  const addGallery = async (
+    title: string,
+    description: string,
+    thumbnail: FileObj
+  ) => {
+    const payload = await amplifyClient.graphql({
+      query: createGalleryObj,
+      variables: {
+        input: {
+          title,
+          description,
+          userId: state.user.user.id,
+          thumbnail: thumbnail,
+        },
+      },
+    });
+
+    const gallery: GalleryObj = payload?.data?.createGalleryObj || {};
+    console.log(gallery);
     changeGallerys((prev) => {
       return [...prev, gallery];
     });

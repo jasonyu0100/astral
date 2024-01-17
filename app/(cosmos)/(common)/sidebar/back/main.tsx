@@ -1,7 +1,6 @@
-interface SidebarBackProps extends React.ComponentPropsWithoutRef<"a"> {
-}
+import { LinkInputProps } from "@/(common)/types/main";
 
-export function SidebarBack({...props}: SidebarBackProps) {
+export function SidebarBack({...props}: LinkInputProps) {
   return (
     <a
       className="self-stretch gap-[1rem] flex items-center w-full h-[3rem]"

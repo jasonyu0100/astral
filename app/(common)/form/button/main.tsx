@@ -1,8 +1,10 @@
-interface FormButton extends React.ComponentPropsWithoutRef<"button"> {
+import { ButtonInputProps } from "@/(common)/types/main";
+
+interface InputProps extends ButtonInputProps {
   children: React.ReactNode;
 }
 
-export function FormButton({ children, ...props }: FormButton) {
+export function FormButton({ children, ...props }: InputProps) {
   return (
     <button
       {...props}

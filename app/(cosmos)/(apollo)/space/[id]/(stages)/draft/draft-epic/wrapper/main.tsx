@@ -13,7 +13,7 @@ export function DraftWrapper({
     <Layer
       displayName={DraftWrapper.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles["row"]}
+      className={`${containerStyles["row"]}`}
       backgroundStyle={backgroundStyles["glass-5"]}
     >
       {children}

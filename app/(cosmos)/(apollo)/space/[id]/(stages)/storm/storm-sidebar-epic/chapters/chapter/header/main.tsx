@@ -17,8 +17,7 @@ export function StormChapterHeader({
       <Layer
         displayName={StormChapterHeader.name}
         sizeStyle="w-full h-[50px]"
-        containerStyle={containerStyles["row-center"]}
-        contentStyle="justify-between"
+        className={`${containerStyles["row-center"]} justify-between`}
       >
         {children}
       </Layer>

@@ -21,9 +21,8 @@ export function DraftHeader() {
     <Layer
       displayName={DraftHeader.name}
       sizeStyle="h-[50px] w-full flex-shrink-0"
-      containerStyle={containerStyles["row-center"]}
+      className={`${containerStyles["row-center"]} px-[1rem] space-x-[1rem] justify-between`}
       borderStyle={borderStyles["border-b"]}
-      contentStyle="px-[1rem] space-x-[1rem] justify-between"
     >
       <DraftHeaderLeft>
         <DraftHeaderListButton />

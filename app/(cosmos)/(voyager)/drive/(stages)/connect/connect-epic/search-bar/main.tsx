@@ -1,21 +1,16 @@
 import { Layer } from "@/(common)/layer/main";
-import {
-  borderStyles,
-  containerStyles,
-} from "@/(common)/styles/data";
+import { borderStyles, containerStyles } from "@/(common)/styles/data";
 
 export interface SearchBarProps
-  extends React.ComponentPropsWithoutRef<"input"> {
-}
+  extends React.ComponentPropsWithoutRef<"input"> {}
 
 export function SearchBar({ ...props }: SearchBarProps) {
   return (
     <Layer
       displayName={SearchBar.name}
       sizeStyle="w-full h-[4rem]"
-      containerStyle={containerStyles["row-center"]}
+      className={`${containerStyles["row-center"]} px-[1rem] space-x-[1rem]`}
       borderStyle={borderStyles["border-b"]}
-      contentStyle={"px-[1rem] space-x-[1rem]"}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

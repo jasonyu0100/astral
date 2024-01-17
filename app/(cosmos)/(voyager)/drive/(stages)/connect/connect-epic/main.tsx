@@ -13,9 +13,8 @@ export function ExploreController({
     <Layer
       displayName={ExploreController.name}
       sizeStyle="h-full flex-grow"
-      containerStyle={containerStyles.col}
+      className={`${containerStyles.col} p-[2rem] space-y-[2rem] overflow-auto`}
       backgroundStyle={backgroundStyles["glass-5"]}
-      contentStyle="p-[2rem] space-y-[2rem] overflow-auto"
     >
       {children}
     </Layer>

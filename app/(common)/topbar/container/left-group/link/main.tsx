@@ -1,4 +1,6 @@
-export interface InputProps extends React.ComponentPropsWithoutRef<"a"> {
+import { LinkInputProps } from "@/(common)/types/main";
+
+export interface InputProps extends LinkInputProps {
   children: React.ReactNode;
 }
 
