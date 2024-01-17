@@ -40,7 +40,11 @@ export function PortalRegisterForm() {
           const googleId = resp.data.id;
           const fname = resp.data.given_name;
           const lname = resp.data.family_name;
-          const pfp = resp.data.picture;
+          const profileImage = {
+            id: crypto.randomUUID(),
+            src: resp.data.picture,
+            type: "image/*"
+          }
           const email = resp.data.email;
           fetch("/api/portal/register/google", {
             method: "POST",
@@ -49,7 +53,7 @@ export function PortalRegisterForm() {
               lname,
               email,
               googleId,
-              pfp,
+              profileImage,
             }),
             headers: {
               "Content-Type": "application/json",

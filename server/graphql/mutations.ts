@@ -350,9 +350,8 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -382,9 +381,8 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -414,9 +412,8 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -443,9 +440,8 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -464,9 +460,8 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -485,9 +480,8 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -542,9 +536,8 @@ export const createGalleryObj = /* GraphQL */ `mutation CreateGalleryObj($input:
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -564,9 +557,8 @@ export const updateGalleryObj = /* GraphQL */ `mutation UpdateGalleryObj($input:
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -586,9 +578,8 @@ export const deleteGalleryObj = /* GraphQL */ `mutation DeleteGalleryObj($input:
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -611,9 +602,8 @@ export const createUserObj = /* GraphQL */ `mutation CreateUserObj($input: Creat
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds
@@ -637,9 +627,8 @@ export const updateUserObj = /* GraphQL */ `mutation UpdateUserObj($input: Updat
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds
@@ -663,9 +652,8 @@ export const deleteUserObj = /* GraphQL */ `mutation DeleteUserObj($input: Delet
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds

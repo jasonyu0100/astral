@@ -2,10 +2,10 @@ import { FileObj, exampleFile } from "../../resource/file/main";
 import { CommentObj, exampleComments } from "./comment/main";
 
 export enum MomentVisibility {
-  JOURNAL = "Journal",
-  SOCIAL = "Social",
-  EXPLORE = "Explore",
-  NONE = "None",
+  JOURNAL = "JOURNAL",
+  SOCIAL = "SOCIAL",
+  EXPLORE = "EXPLORE",
+  NONE = "NONE",
 }
 
 export const momentSchema = `

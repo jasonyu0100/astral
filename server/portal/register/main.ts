@@ -1,8 +1,7 @@
 import { Request, Response, Router } from "express";
-import bcrypt from "bcrypt";
-import { amplifyClient } from "../..";
 import { createUserObj } from "../../graphql/mutations";
-import { FileType } from "../../graphql/API";
+import { amplifyClient } from "../../graphql/main";
+import bcrypt from "bcrypt";
 
 const registerRouter = Router();
 
@@ -41,7 +40,7 @@ registerRouter.post("/google", async (req: Request, res: Response) => {
   const lname = data.lname;
   const email = data.email;
   const googleId = data.googleId;
-  const pfp = data.pfp
+  const profileImage = data.profileImage
 
   try {
     const payload = await amplifyClient.graphql({
@@ -52,11 +51,7 @@ registerRouter.post("/google", async (req: Request, res: Response) => {
           lname,
           email,
           googleId,
-          profileImage: {
-            id: crypto.randomUUID(),
-            src: pfp,
-            type: FileType.IMAGE
-          },
+          profileImage,
           spaceIds: [],
           galleryIds: [],
         },

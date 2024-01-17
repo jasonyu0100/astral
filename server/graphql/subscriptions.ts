@@ -437,9 +437,8 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -481,9 +480,8 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -525,9 +523,8 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -558,9 +555,8 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -583,9 +579,8 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -608,9 +603,8 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -687,9 +681,8 @@ export const onCreateGalleryObj = /* GraphQL */ `subscription OnCreateGalleryObj
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -719,9 +712,8 @@ export const onUpdateGalleryObj = /* GraphQL */ `subscription OnUpdateGalleryObj
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -751,9 +743,8 @@ export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -788,9 +779,8 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds
@@ -826,9 +816,8 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds
@@ -864,9 +853,8 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds

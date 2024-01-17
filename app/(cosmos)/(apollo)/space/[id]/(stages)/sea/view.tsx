@@ -5,9 +5,13 @@ import { FormButton } from "@/(common)/form/button/main";
 import { FormTextArea } from "@/(common)/form/area/main";
 import { FormSelect } from "@/(common)/form/select/main";
 import { FormInput } from "@/(common)/form/input/main";
+import { UploadFileInput } from "@/(common)/form/upload-file/main";
+import { FileObj } from "@/tables/resource/file/main";
+import { UploadFilesInput } from "@/(common)/form/upload-files/main";
 
 export function SeaView() {
   const [showTestModal, changeShowTestModal] = useState(true);
+
   return (
     <SeaWrapper>
       <button
@@ -18,41 +22,26 @@ export function SeaView() {
       </button>
       <Modal isOpen={showTestModal} onClose={() => changeShowTestModal(false)}>
         <div className="flex flex-col items-center w-full h-full space-y-[2rem]">
-          <h2 className="text-3xl font-bold mb-4">Modal Title</h2>
-          <div className="w-full">
-            <p className="mb-4">Modal content goes here.</p>
-          </div>
-          <div
-            className="w-full flex flex-col space-y-[2rem] overflow-auto py-[2rem]"
-            style={{ height: "100%" }}
-          >
-            <FormSelect>
+          <h2 className="text-4xl font-extraBold mb-4">Modal Title</h2>
+          <div className="w-full flex flex-col space-y-[2rem] overflow-auto py-[1rem] pr-[1rem]">
+            <div className="w-full">
+              <p className="font-bold px-[1rem] pb-[2rem]">
+                Modal content goes here. Modal content goes here. Modal content
+                goes here. Modal content goes here. Modal content goes here.
+                Modal content goes here.
+              </p>
+            </div>
+            <FormSelect title={"Categories"}>
               <option value={"Hello"}>Hello</option>
               <option value={"dsaads"}>dasdas</option>
               <option value={"gfdaafds"}>adsdsaads</option>
             </FormSelect>
-            <FormInput placeholder="Title" title="title" />
+            <FormInput placeholder="Title" title="Title" />
             <FormInput placeholder="Description" title="Description" />
             <FormInput placeholder="Name" title="Name" />
-            <FormTextArea
-              placeholder="Stuff"
-              rows={5}
-              style={{ resize: "none" }}
-            />
-            <div className="flex flex-col">
-              <label
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                for="multiple_files"
-              >
-                Upload multiple files
-              </label>
-              <input
-                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                id="multiple_files"
-                type="file"
-                multiple
-              ></input>
-            </div>
+            <FormTextArea title="Stuff" rows={5} style={{ resize: "none" }} />
+            <UploadFileInput onChange={(file: FileObj) => {}} />
+            <UploadFilesInput onChange={(file: FileObj) => {}} />
           </div>
           <div className="flex flex-col w-full mt-auto">
             <FormButton onClick={() => alert("Submit Idea")}>

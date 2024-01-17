@@ -291,9 +291,8 @@ export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     visibility
@@ -344,9 +343,8 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     __typename
@@ -417,9 +415,8 @@ export const getGalleryObj = /* GraphQL */ `query GetGalleryObj($id: String!) {
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     collectionIds
@@ -463,9 +460,8 @@ export const getUserObj = /* GraphQL */ `query GetUserObj($id: String!) {
       id
       name
       src
-      content
-      url
       type
+      size
       __typename
     }
     spaceIds

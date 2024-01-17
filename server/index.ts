@@ -2,29 +2,13 @@ import express, { Request, Response } from "express";
 import next from "next";
 import { portalRouter } from "./portal";
 import { loadEnvConfig } from "@next/env";
-
+import { generateUploadURL } from "./s3/main";
 const dev = process.env.NODE_ENV !== "production";
+loadEnvConfig("./", dev);
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
-loadEnvConfig("./", dev);
-import { Amplify } from "aws-amplify";
-import { generateClient } from "aws-amplify/api";
-
-const config: any = {
-  API: {
-    GraphQL: {
-      endpoint: process.env.GRAPHQL_ENDPOINT || "",
-      region: "ap-southeast-2",
-      defaultAuthMode: "apiKey",
-      apiKey: process.env.GRAPHQL_APIKEY || "",
-    },
-  },
-};
-
-Amplify.configure(config);
-
-export const amplifyClient = generateClient({ authMode: "apiKey" });
 
 (async () => {
   try {
@@ -39,6 +23,11 @@ export const amplifyClient = generateClient({ authMode: "apiKey" });
     server.use(express.json());
 
     server.use("/api/portal", portalRouter);
+
+    server.get("/s3Url", async (req, res) => {
+      const url = await generateUploadURL();
+      res.send({ url });
+    });
 
     server.all("*", (req: Request, res: Response) => {
       try {

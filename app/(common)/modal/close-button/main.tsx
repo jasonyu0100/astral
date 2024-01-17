@@ -9,7 +9,7 @@ export function ModalCloseButton({
 }: ModalCloseButtonProps) {
   return (
     <button {...props}>
-      <div className="mt-[3rem] text-center text-slate-500 text-xl font-bold leading-7">
+      <div className="mt-[3rem] animate-pulse text-center text-slate-500 text-xl font-bold leading-7">
         {children}
       </div>
     </button>
