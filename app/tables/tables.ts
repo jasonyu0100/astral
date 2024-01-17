@@ -48,12 +48,18 @@ export const architecture = {
         table: stormTable,
         chat: {
           table: chatTable,
+          message: {
+            object: messageObject,
+          },
         },
       },
       draft: {
         table: draftTable,
         constellation: {
           table: constellationTable,
+          star: {
+            object: starObject,
+          },
         },
       },
       flow: {

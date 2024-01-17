@@ -10,35 +10,39 @@ loginRouter.post("/", async (req: Request, res: Response) => {
   const password = data.password;
   const email = data.email;
 
-  const payload = await amplifyClient.graphql({
-    query: listUserObjs,
-    variables: {
-      filter: {
-        email: {
-          eq: email,
+  try {
+    const payload = await amplifyClient.graphql({
+      query: listUserObjs,
+      variables: {
+        filter: {
+          email: {
+            eq: email,
+          },
         },
       },
-    },
-  });
-
-  const users = payload?.data?.listUserObjs?.items || [];
-  if (users.length === 0) {
-    res.status(401).json({ error: "Invalid Email" });
-  } else {
-    const user = users[0];
-    const userHashedPassword = user?.passwordHash || "";
-    try {
-      const match = await bcrypt.compare(password, userHashedPassword);
-      if (match) {
-        user?.passwordHash && delete user.passwordHash;
-        res.json({ data: user });
-      } else {
-        res.status(401).json({ error: "Invalid credentials" });
+    });
+    const users = payload?.data?.listUserObjs?.items || [];
+    if (users.length === 0) {
+      res.status(401).json({ error: "Invalid Email" });
+    } else {
+      const user = users[0];
+      const userHashedPassword = user?.passwordHash || "";
+      try {
+        const match = await bcrypt.compare(password, userHashedPassword);
+        if (match) {
+          user?.passwordHash && delete user.passwordHash;
+          res.json({ data: user });
+        } else {
+          res.status(401).json({ error: "Invalid credentials" });
+        }
+      } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).json({ error: "Internal Server Error" });
       }
-    } catch (error) {
-      console.error("Error during login:", error);
-      res.status(500).json({ error: "Internal Server Error" });
     }
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -47,24 +51,27 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
   const googleId = data.googleId;
   const email = data.email;
 
-  const payload = await amplifyClient.graphql({
-    query: listUserObjs,
-    variables: {
-      filter: {
-        googleId: { eq: googleId },
-        email: { eq: email },
+  try {
+    const payload = await amplifyClient.graphql({
+      query: listUserObjs,
+      variables: {
+        filter: {
+          googleId: { eq: googleId },
+          email: { eq: email },
+        },
       },
-    },
-  });
-  console.log(payload)
-
-  const users = payload?.data?.listUserObjs?.items || [];
-  if (users.length === 0) {
-    res.status(401).json({ error: "Invalid Google Id" });
-  } else {
-    const user = users[0];
-    user?.passwordHash && delete user.passwordHash;
-    res.json({ data: user });
+    });
+    const users = payload?.data?.listUserObjs?.items || [];
+    if (users.length === 0) {
+      res.status(401).json({ error: "Invalid Google Id" });
+    } else {
+      const user = users[0];
+      user?.passwordHash && delete user.passwordHash;
+      res.json({ data: user });
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

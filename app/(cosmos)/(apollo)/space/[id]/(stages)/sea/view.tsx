@@ -41,7 +41,7 @@ export function SeaView() {
             <FormInput placeholder="Name" title="Name" />
             <FormTextArea title="Stuff" rows={5} style={{ resize: "none" }} />
             <UploadFileInput onChange={(file: FileObj) => {}} />
-            <UploadFilesInput onChange={(file: FileObj) => {}} />
+            <UploadFilesInput onChange={(files: FileObj[]) => {}} />
           </div>
           <div className="flex flex-col w-full mt-auto">
             <FormButton onClick={() => alert("Submit Idea")}>

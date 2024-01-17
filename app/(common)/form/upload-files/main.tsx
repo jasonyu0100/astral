@@ -4,14 +4,14 @@ import React, { useState } from "react";
 export function UploadFilesInput({
   onChange,
 }: {
-  onChange: (file: FileObj) => void;
+  onChange: (files: FileObj[]) => void;
 }) {
   const [uploadedFileObjs, changeUploadedFileObjs] = useState<FileObj[]>([]);
 
   const handleFileChange = async (event: any) => {
     // get file attributes
     const files = Array.from(event.target.files);
-
+    const payload: FileObj[] = [];
     for (let file of files) {
       const name = file.name;
       const type = file.type;
@@ -31,7 +31,7 @@ export function UploadFilesInput({
       const fileSrc = url.split("?")[0];
 
       // post request to my server to store any extra data
-      const payload: FileObj = {
+      const filePayload: FileObj = {
         id: crypto.randomUUID(),
         src: fileSrc,
         name: name,
@@ -39,9 +39,10 @@ export function UploadFilesInput({
         size: size,
       };
 
-      onChange(payload);
-        changeUploadedFileObjs(prev => [...prev, payload])
+      changeUploadedFileObjs((prev) => [...prev, filePayload]);
+      payload.push(filePayload);
     }
+    onChange(payload);
   };
   return (
     <div className="flex flex-col bg-white space-y-2 pb-[2rem] border-b-[1px] border-slate-500">
@@ -106,7 +107,9 @@ export function UploadFilesInput({
             <button
               className="w-[30px] h-[30px] bg-red-300 rounded-full"
               onClick={() => {
-                changeUploadedFileObjs((prev) => prev.filter((_, index) => index !== i));
+                changeUploadedFileObjs((prev) =>
+                  prev.filter((_, index) => index !== i)
+                );
               }}
             >
               <svg

@@ -4,10 +4,8 @@ import { registerRouter } from "./register/main";
 import { reserveRouter } from "./reserve/main";
 
 
-const portalRouter = Router();
+export const portalRouter = Router();
 
 portalRouter.use("/reserve", reserveRouter);
 portalRouter.use("/register", registerRouter);
 portalRouter.use("/login", loginRouter);
-
-export { portalRouter };
