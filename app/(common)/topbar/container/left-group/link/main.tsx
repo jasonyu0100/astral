@@ -1,6 +1,6 @@
 import { LinkInputProps } from "@/(common)/types/main";
 
-export interface InputProps extends LinkInputProps {
+interface InputProps extends LinkInputProps {
   children: React.ReactNode;
 }
 

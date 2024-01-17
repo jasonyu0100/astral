@@ -1,6 +1,6 @@
 import { DivInputProps } from "../types/main";
 
-export interface LayerContentProps extends DivInputProps {
+interface LayerContentProps extends DivInputProps {
   contentStyle?: string;
   children: React.ReactNode;
 }
@@ -16,7 +16,7 @@ function LayerContent({ children, ...props }: LayerContentProps) {
   );
 }
 
-export interface LayerBackgroundProps {
+interface LayerBackgroundProps {
   backgroundStyle?: string;
   effectStyle?: string;
 }

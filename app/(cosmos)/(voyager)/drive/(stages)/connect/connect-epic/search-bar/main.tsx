@@ -1,10 +1,8 @@
 import { Layer } from "@/(common)/layer/main";
 import { borderStyles, containerStyles } from "@/(common)/styles/data";
+import { FormInputProps } from "@/(common)/types/main";
 
-export interface SearchBarProps
-  extends React.ComponentPropsWithoutRef<"input"> {}
-
-export function SearchBar({ ...props }: SearchBarProps) {
+export function SearchBar({ ...props }: FormInputProps) {
   return (
     <Layer
       displayName={SearchBar.name}

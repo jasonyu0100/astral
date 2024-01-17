@@ -11,3 +11,8 @@ export interface LinkInputProps extends React.ComponentPropsWithoutRef<"a"> {
 export interface DivInputProps extends React.ComponentPropsWithoutRef<"div"> {
 
 }
+
+
+export interface FormInputProps extends React.ComponentPropsWithoutRef<"input"> {
+
+}

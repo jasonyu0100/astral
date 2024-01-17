@@ -6,12 +6,6 @@ import { SpaceObj } from "@/tables/space/main";
 import { spaceTable } from "@/tables/space/table";
 import insideCosmos from "@/utils/isAuth";
 
-export interface SpaceViewProps {
-  type: SpaceTabStages;
-  spaces: SpaceObj[];
-  addSpace: (space: SpaceObj) => void
-}
-
 function Page() {
   const [spaces, changeSpaces] = useState<SpaceObj[]>(spaceTable.examples);
 
