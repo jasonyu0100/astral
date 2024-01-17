@@ -1,4 +1,6 @@
-import { FileObj } from "@/tables/resource/file/main";
+import { amplifyClient } from "@/graphql/main";
+import { createFileObj } from "@/graphql/mutations";
+import { FileObj } from "@/tables/file/main";
 import React, { useState } from "react";
 
 export function UploadFilesInput({
@@ -38,6 +40,18 @@ export function UploadFilesInput({
         type: type,
         size: size,
       };
+
+      await amplifyClient.graphql({
+        query: createFileObj,
+        variables: {
+          input: {
+            name: filePayload.name,
+            src: filePayload.src,
+            type: filePayload.type,
+            size: filePayload.size,
+          },
+        },
+      });
 
       changeUploadedFileObjs((prev) => [...prev, filePayload]);
       payload.push(filePayload);

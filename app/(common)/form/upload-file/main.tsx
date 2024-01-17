@@ -1,5 +1,7 @@
-import { FileObj } from "@/tables/resource/file/main";
+import { amplifyClient } from "@/graphql/main";
+import { FileObj } from "@/tables/file/main";
 import React, { useState } from "react";
+import { createFileObj } from "../../../../server/graphql/mutations";
 
 export function UploadFileInput({
   onChange,
@@ -25,17 +27,29 @@ export function UploadFileInput({
     });
     const fileSrc = url.split("?")[0];
 
-    const payload: FileObj = {
+    const filePayload: FileObj = {
       id: crypto.randomUUID(),
       src: fileSrc,
       name: name,
       type: type,
       size: size,
     };
+    
+    await amplifyClient.graphql({
+      query: createFileObj,
+      variables: {
+        input: {
+          name: filePayload.name,
+          src: filePayload.src,
+          type: filePayload.type,
+          size: filePayload.size,
+        },
+      }
+    })
 
-    changeUploadedFileObj(payload);
+    changeUploadedFileObj(filePayload);
 
-    onChange(payload);
+    onChange(filePayload);
   };
   return (
     <div className="flex flex-col bg-white space-y-[1rem] pb-[2rem] border-b-[1px] border-slate-500">

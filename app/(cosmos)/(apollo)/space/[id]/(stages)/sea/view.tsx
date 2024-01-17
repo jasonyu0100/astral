@@ -6,7 +6,7 @@ import { FormTextArea } from "@/(common)/form/area/main";
 import { FormSelect } from "@/(common)/form/select/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { UploadFileInput } from "@/(common)/form/upload-file/main";
-import { FileObj } from "@/tables/resource/file/main";
+import { FileObj } from "@/tables/file/main";
 import { UploadFilesInput } from "@/(common)/form/upload-files/main";
 
 export function SeaView() {

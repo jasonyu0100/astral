@@ -23,7 +23,7 @@ export const constellationTable: TableDescriptor = {
   schema: constellationSchema,
 };
 
-export const starObject: TableObjectDescriptor = {
+export const starTable: TableDescriptor = {
   example: exampleStar,
   examples: exampleStars,
   schema: starSchema,

@@ -19,7 +19,7 @@ export const momentTable: TableDescriptor = {
   schema: momentSchema,
 };
 
-export const commentObject: TableObjectDescriptor = {
+export const commentTable: TableDescriptor = {
   example: exampleComment,
   examples: exampleComments,
   schema: commentSchema,

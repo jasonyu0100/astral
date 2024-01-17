@@ -51,7 +51,7 @@ export function ResultElement({
         />
       </div>
       <p className="w-full text-center text-white font-bold">
-        {result.resource.label}
+        {result.resource.name}
       </p>
     </motion.div>
   );

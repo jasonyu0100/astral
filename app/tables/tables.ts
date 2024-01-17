@@ -1,11 +1,12 @@
-import { constellationTable, draftTable, starObject } from "./draft/table";
-import { chatTable, messageObject, stormTable } from "./storm/table";
+import { constellationTable, draftTable, starTable } from "./draft/table";
+import { chatTable, messageTable, stormTable } from "./storm/table";
 import { collectionTable, galleryTable } from "./gallery/table";
 import { chapterTable, spaceTable } from "./space/table";
 import { userTable } from "./user/table";
 import { journeyTable, seaTable } from "./sea/table";
-import { commentObject, flowTable, momentTable } from "./flow/table";
-import { fileObject, resourceTable } from "./resource/table";
+import { commentTable, flowTable, momentTable } from "./flow/table";
+import { fileTable, resourceTable } from "./resource/table";
+import { Profiler } from "react";
 
 export interface ObjectDescriptor {
   example: any;
@@ -31,7 +32,7 @@ export const architecture = {
   resource: {
     table: resourceTable,
     file: {
-      object: fileObject,
+      table: fileTable,
     },
   },
   gallery: {
@@ -49,7 +50,7 @@ export const architecture = {
         chat: {
           table: chatTable,
           message: {
-            object: messageObject,
+            table: messageTable,
           },
         },
       },
@@ -58,7 +59,7 @@ export const architecture = {
         constellation: {
           table: constellationTable,
           star: {
-            object: starObject,
+            table: starTable,
           },
         },
       },
@@ -67,7 +68,7 @@ export const architecture = {
         moment: {
           table: momentTable,
           comment: {
-            object: commentObject,
+            table: commentTable,
           },
         },
       },
@@ -83,11 +84,11 @@ export const architecture = {
 
 const dataRegions = [
   [chapterTable, spaceTable],
-  [stormTable, chatTable, messageObject],
-  [draftTable, constellationTable, starObject],
-  [flowTable, momentTable, commentObject],
+  [stormTable, chatTable, messageTable],
+  [draftTable, constellationTable, starTable],
+  [flowTable, momentTable, commentTable],
   [seaTable, journeyTable],
-  [resourceTable, fileObject],
+  [resourceTable, fileTable],
   [collectionTable, galleryTable],
   [userTable],
 ];

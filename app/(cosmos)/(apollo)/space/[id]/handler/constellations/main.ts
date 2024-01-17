@@ -1,6 +1,6 @@
 import { ConstellationObj } from "@/tables/draft/constellation/main";
 import { StarObj } from "@/tables/draft/constellation/star/main";
-import { constellationTable, draftTable, starObject } from "@/tables/draft/table";
+import { constellationTable, draftTable, starTable } from "@/tables/draft/table";
 import { ResourceObj } from "@/tables/resource/main";
 import { useState } from "react";
 
@@ -79,7 +79,7 @@ export const useConstellation = (): useConstellationInterface => {
           stars: [
             ...constellation.stars,
             {
-              ...starObject.example,
+              ...starTable.example,
               file: resource.file,
             },
           ],

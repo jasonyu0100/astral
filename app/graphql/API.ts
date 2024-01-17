@@ -147,8 +147,7 @@ export type DeleteGalleryObjInput = {
 };
 
 export type CreateUserObjInput = {
-  fname: string,
-  lname: string,
+  name: string,
   passwordHash?: string | null,
   email: string,
   googleId?: string | null,
@@ -158,8 +157,7 @@ export type CreateUserObjInput = {
 export type UserObj = {
   __typename: "UserObj",
   id: string,
-  fname: string,
-  lname: string,
+  name: string,
   passwordHash?: string | null,
   email: string,
   googleId?: string | null,
@@ -168,8 +166,7 @@ export type UserObj = {
 
 export type UpdateUserObjInput = {
   id: string,
-  fname?: string | null,
-  lname?: string | null,
+  name?: string | null,
   passwordHash?: string | null,
   email?: string | null,
   googleId?: string | null,
@@ -467,31 +464,6 @@ export type DeleteChatObjInput = {
   id: string,
 };
 
-export type CreateReservationObjInput = {
-  fname: string,
-  lname: string,
-  email: string,
-};
-
-export type ReservationObj = {
-  __typename: "ReservationObj",
-  id: string,
-  fname: string,
-  lname: string,
-  email: string,
-};
-
-export type UpdateReservationObjInput = {
-  id: string,
-  fname?: string | null,
-  lname?: string | null,
-  email?: string | null,
-};
-
-export type DeleteReservationObjInput = {
-  id: string,
-};
-
 export type TableStarObjFilterInput = {
   id?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
@@ -769,19 +741,6 @@ export type TableChatObjFilterInput = {
 export type ChatObjConnection = {
   __typename: "ChatObjConnection",
   items?:  Array<ChatObj | null > | null,
-  nextToken?: string | null,
-};
-
-export type TableReservationObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  fname?: TableStringFilterInput | null,
-  lname?: TableStringFilterInput | null,
-  email?: TableStringFilterInput | null,
-};
-
-export type ReservationObjConnection = {
-  __typename: "ReservationObjConnection",
-  items?:  Array<ReservationObj | null > | null,
   nextToken?: string | null,
 };
 
@@ -1069,8 +1028,7 @@ export type CreateUserObjMutation = {
   createUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -1093,8 +1051,7 @@ export type UpdateUserObjMutation = {
   updateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -1117,8 +1074,7 @@ export type DeleteUserObjMutation = {
   deleteUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -1661,48 +1617,6 @@ export type DeleteChatObjMutation = {
   } | null,
 };
 
-export type CreateReservationObjMutationVariables = {
-  input: CreateReservationObjInput,
-};
-
-export type CreateReservationObjMutation = {
-  createReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
-export type UpdateReservationObjMutationVariables = {
-  input: UpdateReservationObjInput,
-};
-
-export type UpdateReservationObjMutation = {
-  updateReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
-export type DeleteReservationObjMutationVariables = {
-  input: DeleteReservationObjInput,
-};
-
-export type DeleteReservationObjMutation = {
-  deleteReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
 export type GetSpaceQueryVariables = {
 };
 
@@ -1914,8 +1828,7 @@ export type GetUserObjQuery = {
   getUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -1942,8 +1855,7 @@ export type ListUserObjsQuery = {
     items?:  Array< {
       __typename: "UserObj",
       id: string,
-      fname: string,
-      lname: string,
+      name: string,
       passwordHash?: string | null,
       email: string,
       googleId?: string | null,
@@ -2368,40 +2280,6 @@ export type ListChatObjsQuery = {
   } | null,
 };
 
-export type GetReservationObjQueryVariables = {
-  id: string,
-};
-
-export type GetReservationObjQuery = {
-  getReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
-export type ListReservationObjsQueryVariables = {
-  filter?: TableReservationObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListReservationObjsQuery = {
-  listReservationObjs?:  {
-    __typename: "ReservationObjConnection",
-    items?:  Array< {
-      __typename: "ReservationObj",
-      id: string,
-      fname: string,
-      lname: string,
-      email: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type OnCreateStarObjSubscriptionVariables = {
   id?: string | null,
   name?: string | null,
@@ -2719,7 +2597,7 @@ export type OnDeleteGalleryObjSubscription = {
 
 export type OnCreateUserObjSubscriptionVariables = {
   id?: string | null,
-  fname?: string | null,
+  name?: string | null,
   passwordHash?: string | null,
   email?: string | null,
   googleId?: string | null,
@@ -2729,8 +2607,7 @@ export type OnCreateUserObjSubscription = {
   onCreateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -2747,7 +2624,7 @@ export type OnCreateUserObjSubscription = {
 
 export type OnUpdateUserObjSubscriptionVariables = {
   id?: string | null,
-  fname?: string | null,
+  name?: string | null,
   passwordHash?: string | null,
   email?: string | null,
   googleId?: string | null,
@@ -2757,8 +2634,7 @@ export type OnUpdateUserObjSubscription = {
   onUpdateUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -2785,8 +2661,7 @@ export type OnDeleteUserObjSubscription = {
   onDeleteUserObj?:  {
     __typename: "UserObj",
     id: string,
-    fname: string,
-    lname: string,
+    name: string,
     passwordHash?: string | null,
     email: string,
     googleId?: string | null,
@@ -3422,56 +3297,5 @@ export type OnDeleteChatObjSubscription = {
     title: string,
     summary: string,
     time: string,
-  } | null,
-};
-
-export type OnCreateReservationObjSubscriptionVariables = {
-  id?: string | null,
-  fname?: string | null,
-  lname?: string | null,
-  email?: string | null,
-};
-
-export type OnCreateReservationObjSubscription = {
-  onCreateReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
-export type OnUpdateReservationObjSubscriptionVariables = {
-  id?: string | null,
-  fname?: string | null,
-  lname?: string | null,
-  email?: string | null,
-};
-
-export type OnUpdateReservationObjSubscription = {
-  onUpdateReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
-  } | null,
-};
-
-export type OnDeleteReservationObjSubscriptionVariables = {
-  id?: string | null,
-  fname?: string | null,
-  lname?: string | null,
-  email?: string | null,
-};
-
-export type OnDeleteReservationObjSubscription = {
-  onDeleteReservationObj?:  {
-    __typename: "ReservationObj",
-    id: string,
-    fname: string,
-    lname: string,
-    email: string,
   } | null,
 };

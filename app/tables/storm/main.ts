@@ -1,29 +1,27 @@
-import { exampleChats } from "./chat/main";
-
 export interface StormObj {
   id: string;
-  chatIds: string[];
+  chapterId: string;
 }
 
 export const stormSchema = `
 type StormObj {
   id: String!
-  chatIds: [String!]!
+  chapterId: String!
 }
 `;
 
 export const exampleStorm: StormObj = {
   id: "0",
-  chatIds: exampleChats.map((chat) => chat.id),
+  chapterId: "0",
 };
 
 export const exampleStorms: StormObj[] = [
   {
     id: "0",
-    chatIds: exampleChats.map((chat) => chat.id),
+    chapterId: "0",
   },
   {
     id: "1",
-    chatIds: exampleChats.map((chat) => chat.id),
+    chapterId: "0",
   },
 ];

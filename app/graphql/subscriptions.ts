@@ -361,21 +361,20 @@ export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj
 >;
 export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
   $id: String
-  $fname: String
+  $name: String
   $passwordHash: String
   $email: String
   $googleId: String
 ) {
   onCreateUserObj(
     id: $id
-    fname: $fname
+    name: $name
     passwordHash: $passwordHash
     email: $email
     googleId: $googleId
   ) {
     id
-    fname
-    lname
+    name
     passwordHash
     email
     googleId
@@ -396,21 +395,20 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
 >;
 export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
   $id: String
-  $fname: String
+  $name: String
   $passwordHash: String
   $email: String
   $googleId: String
 ) {
   onUpdateUserObj(
     id: $id
-    fname: $fname
+    name: $name
     passwordHash: $passwordHash
     email: $email
     googleId: $googleId
   ) {
     id
-    fname
-    lname
+    name
     passwordHash
     email
     googleId
@@ -444,8 +442,7 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
     googleId: $googleId
   ) {
     id
-    fname
-    lname
+    name
     passwordHash
     email
     googleId
@@ -1189,58 +1186,4 @@ export const onDeleteChatObj = /* GraphQL */ `subscription OnDeleteChatObj(
 ` as GeneratedSubscription<
   APITypes.OnDeleteChatObjSubscriptionVariables,
   APITypes.OnDeleteChatObjSubscription
->;
-export const onCreateReservationObj = /* GraphQL */ `subscription OnCreateReservationObj(
-  $id: String
-  $fname: String
-  $lname: String
-  $email: String
-) {
-  onCreateReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
-    id
-    fname
-    lname
-    email
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnCreateReservationObjSubscriptionVariables,
-  APITypes.OnCreateReservationObjSubscription
->;
-export const onUpdateReservationObj = /* GraphQL */ `subscription OnUpdateReservationObj(
-  $id: String
-  $fname: String
-  $lname: String
-  $email: String
-) {
-  onUpdateReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
-    id
-    fname
-    lname
-    email
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnUpdateReservationObjSubscriptionVariables,
-  APITypes.OnUpdateReservationObjSubscription
->;
-export const onDeleteReservationObj = /* GraphQL */ `subscription OnDeleteReservationObj(
-  $id: String
-  $fname: String
-  $lname: String
-  $email: String
-) {
-  onDeleteReservationObj(id: $id, fname: $fname, lname: $lname, email: $email) {
-    id
-    fname
-    lname
-    email
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnDeleteReservationObjSubscriptionVariables,
-  APITypes.OnDeleteReservationObjSubscription
 >;

@@ -102,7 +102,7 @@ export function DraftSidebar() {
       }
       const results = resources.filter((resource) => {
         const regex = new RegExp(query, "i");
-        return regex.test(resource.label);
+        return regex.test(resource.name);
       });
       changeSearchResults(results);
       return results

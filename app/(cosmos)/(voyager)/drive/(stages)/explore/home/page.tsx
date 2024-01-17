@@ -1,9 +1,11 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { GalleryObj } from "@/tables/gallery/main";
 import { galleryTable } from "@/tables/gallery/table";
 import { ExploreView } from "./view";
 import insideCosmos from "@/utils/isAuth";
+import { amplifyClient } from "@/graphql/main";
+import { listGalleryObjs } from "@/graphql/queries";
 
 export interface ExploreHomeContext {
   gallerys: GalleryObj[];
@@ -16,9 +18,27 @@ export const ExploreHomeContext = createContext<ExploreHomeContext>({
 });
 
 function Page() {
-  const [gallerys, changeGallerys] = useState<GalleryObj[]>(
-    galleryTable.examples
-  );
+  const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
+
+  useEffect(() => {
+    getGallerys();
+  }, []);
+
+  const getGallerys = async () : Promise<GalleryObj[]> => {
+    if (process.env.NEXT_PUBLIC_MOCKED === "true") {
+      const gallerys = galleryTable.examples;
+      changeGallerys(gallerys);
+      return gallerys
+    } else {
+      const payload = await amplifyClient.graphql({
+        query: listGalleryObjs,
+        variables: {},
+      });
+      const gallerys: GalleryObj[] = payload?.data?.listGalleryObjs?.items || [];
+      changeGallerys(gallerys);
+      return gallerys
+    }
+  };
 
   const addGallery = (gallery: GalleryObj) => {
     changeGallerys((prev) => {

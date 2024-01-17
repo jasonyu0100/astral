@@ -19,7 +19,7 @@ export const stormTable: TableDescriptor = {
   schema: stormSchema,
 };
 
-export const messageObject: TableObjectDescriptor = {
+export const messageTable: TableDescriptor = {
   example: exampleMessage,
   examples: exampleMessages,
   schema: messageSchema,

@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import next from "next";
 import { portalRouter } from "./portal";
-import { cosmosRouter } from "./cosmos";
 import { loadEnvConfig } from "@next/env";
 import { generateUploadURL } from "./s3/main";
 const dev = process.env.NODE_ENV !== "production";
@@ -16,15 +15,9 @@ const port = process.env.PORT || 3000;
     await app.prepare();
     const server = express();
 
-    // server.use((req, res, next) => {
-    //   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-    //   next();
-    // });
-
     server.use(express.json());
 
     server.use("/api/portal", portalRouter);
-    server.use("/api/cosmos", cosmosRouter);
 
     server.get("/s3Url", async (req, res) => {
       const url = await generateUploadURL();

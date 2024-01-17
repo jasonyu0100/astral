@@ -1,35 +1,27 @@
-import { exampleConstellations } from "./constellation/main";
-
 export interface DraftObj {
   id: string;
-  constellationIds: string[];
+  chapterId: string;
 }
 
 export const draftSchema = `
 type DraftObj {
   id: String!
-  constellationIds: [String!]!
+  chapterId : String!
 }
-`
+`;
 
 export const exampleDraft: DraftObj = {
   id: "0",
-  constellationIds: exampleConstellations.map(
-    (constellation) => constellation.id
-  ),
+  chapterId: "0",
 };
 
 export const exampleDrafts: DraftObj[] = [
   {
     id: "0",
-    constellationIds: exampleConstellations.map(
-      (constellation) => constellation.id
-    ),
+    chapterId: "0",
   },
   {
     id: "0",
-    constellationIds: exampleConstellations.map(
-      (constellation) => constellation.id
-    ),
+    chapterId: "0",
   },
 ];

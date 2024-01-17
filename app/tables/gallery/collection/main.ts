@@ -1,33 +1,31 @@
-import { exampleResources } from "../../resource/main";
-
 export interface CollectionObj {
   id: string;
+  galleryId: string;
   name: string;
-  resourceIds: string[];
 }
 
 export const collectionSchema = `
 type CollectionObj {
   id: String!
+  galleryId: String!
   name: String!
-  resourceIds: [String!]!
 }`;
 
 export const exampleCollection: CollectionObj = {
   id: "0",
+  galleryId: "0",
   name: "Symbols",
-  resourceIds: exampleResources.map((resource) => resource.id),
 };
 
 export const exampleCollections: CollectionObj[] = [
   {
     id: "0",
+    galleryId: "0",
     name: "Symbols",
-    resourceIds: exampleResources.map((resource) => resource.id),
   },
   {
     id: "1",
+    galleryId: "0",
     name: "Symbols",
-    resourceIds: exampleResources.map((resource) => resource.id),
   },
 ];
