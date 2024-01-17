@@ -93,10 +93,10 @@ chapterRouter.post("/update", async (req: Request, res: Response) => {
 });
 
 chapterRouter.post("/list", async (req: Request, res: Response) => {
-  const id = req.body.id;
+  const title = req.body.title;
   const filterPayload = {
-    id: {
-      eq: id,
+    title: {
+      contains: title,
     },
   };
 

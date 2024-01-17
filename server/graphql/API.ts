@@ -205,6 +205,7 @@ export type CreateMomentObjInput = {
   time: string,
   title: string,
   log: string,
+  visibility: string,
 };
 
 export type MomentObj = {
@@ -216,17 +217,9 @@ export type MomentObj = {
   title: string,
   log: string,
   file?: FileObj | null,
-  visibility: MomentVisibility,
+  visibility: string,
   comments:  Array<CommentObj >,
 };
-
-export enum MomentVisibility {
-  JOURNAL = "JOURNAL",
-  SOCIAL = "SOCIAL",
-  EXPLORE = "EXPLORE",
-  NONE = "NONE",
-}
-
 
 export type CommentObj = {
   __typename: "CommentObj",
@@ -530,6 +523,7 @@ export type TableMomentObjFilterInput = {
   time?: TableStringFilterInput | null,
   title?: TableStringFilterInput | null,
   log?: TableStringFilterInput | null,
+  visibility?: TableStringFilterInput | null,
 };
 
 export type MomentObjConnection = {
@@ -976,7 +970,7 @@ export type CreateMomentObjMutation = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -1008,7 +1002,7 @@ export type UpdateMomentObjMutation = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -1040,7 +1034,7 @@ export type DeleteMomentObjMutation = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -1634,7 +1628,7 @@ export type GetMomentObjQuery = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -1662,7 +1656,7 @@ export type ListMomentObjsQuery = {
       time: string,
       title: string,
       log: string,
-      visibility: MomentVisibility,
+      visibility: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2284,7 +2278,7 @@ export type OnCreateMomentObjSubscription = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -2320,7 +2314,7 @@ export type OnUpdateMomentObjSubscription = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,
@@ -2356,7 +2350,7 @@ export type OnDeleteMomentObjSubscription = {
       type: string,
       size?: number | null,
     } | null,
-    visibility: MomentVisibility,
+    visibility: string,
     comments:  Array< {
       __typename: "CommentObj",
       id: string,

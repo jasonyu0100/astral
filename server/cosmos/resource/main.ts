@@ -81,8 +81,8 @@ resourceRouter.post("/update", async (req: Request, res: Response) => {
 resourceRouter.post("/list", async (req: Request, res: Response) => {
   const id = req.body.id;
   const filterPayload = {
-    id: {
-      eq: id,
+    label: {
+      contains: id,
     },
   };
 

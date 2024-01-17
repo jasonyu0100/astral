@@ -9,13 +9,6 @@ export enum MomentVisibility {
 }
 
 export const momentSchema = `
-enum MomentVisibility {
-  JOURNAL
-  SOCIAL
-  EXPLORE
-  NONE
-}
-
 type MomentObj {
   id: String!
   spaceId: String!
@@ -24,7 +17,7 @@ type MomentObj {
   title: String!
   log: String!
   file: FileObj
-  visibility: MomentVisibility!
+  visibility: String!
   comments: [CommentObj!]!
 }`;
 export interface MomentObj {
@@ -35,7 +28,7 @@ export interface MomentObj {
   title: string;
   log: string;
   file: FileObj;
-  visibility: MomentVisibility;
+  visibility: string;
   comments: CommentObj[];
 }
 

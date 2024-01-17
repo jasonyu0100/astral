@@ -48,10 +48,10 @@ stormRouter.post("/update", async (req: Request, res: Response) => {
   const id = req.body.id;
   const chatIds = req.body.chatIds;
 
-  const inputPayload = {
+  const inputPayload : any = {
     id: id,
-    chatIds: chatIds,
   };
+  if (chatIds) inputPayload.chatIds = chatIds;
 
   try {
     const payload = await amplifyClient.graphql({

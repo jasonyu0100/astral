@@ -81,7 +81,7 @@ spaceRouter.post("/list", async (req: Request, res: Response) => {
 
   let filterPayload: any = {
     title: {
-      eq: title,
+      contains: title,
     },
   };
 
@@ -95,7 +95,7 @@ spaceRouter.post("/list", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during update space:", error);
+    console.error("Error during list space:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

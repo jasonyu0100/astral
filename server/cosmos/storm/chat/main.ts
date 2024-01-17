@@ -28,7 +28,7 @@ chatRouter.post("/create", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during create storm:", error);
+    console.error("Error during create chat:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -47,19 +47,23 @@ chatRouter.post("/get", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during get storm:", error);
+    console.error("Error during get chat:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 chatRouter.post("/update", async (req: Request, res: Response) => {
   const id = req.body.id;
+  const title = req.body.title;
+  const summary = req.body.summary;
   const chatIds = req.body.chatIds;
 
-  const inputPayload = {
+  const inputPayload: any = {
     id: id,
-    chatIds: chatIds,
   };
+  if (title) inputPayload.title = title;
+  if (summary) inputPayload.summary = summary;
+  if (chatIds) inputPayload.chatIds = chatIds;
 
   try {
     const payload = await amplifyClient.graphql({
@@ -71,16 +75,16 @@ chatRouter.post("/update", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during update storm:", error);
+    console.error("Error during update chat:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
 chatRouter.post("/list", async (req: Request, res: Response) => {
-  const id = req.body.id;
+  const title = req.body.id;
   const filterPayload = {
     id: {
-      eq: id,
+      eq: title,
     },
   };
 
