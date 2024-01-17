@@ -6,11 +6,17 @@ import { getDraftObj, listDraftObjs } from "../../graphql/queries";
 export const draftRouter = Router();
 
 draftRouter.post("/create", async (req: Request, res: Response) => {
-  const constellationIds = req.body.constellationIds;
+  const gql = req.body.gql;
+  let inputPayload;
+  if (!gql) {
+    const constellationIds = req.body.constellationIds;
 
-  const inputPayload = {
-    constellationIds: constellationIds,
-  };
+    inputPayload = {
+      constellationIds: constellationIds,
+    };
+  } else {
+    inputPayload = gql;
+  }
 
   try {
     const payload = await amplifyClient.graphql({
@@ -48,14 +54,18 @@ draftRouter.post("/get", async (req: Request, res: Response) => {
 });
 
 draftRouter.post("/update", async (req: Request, res: Response) => {
-  const id = req.body.id;
-  const constellationIds = req.body.constellationIds;
+  const gql = req.body.gql;
+  let inputPayload;
+  if (!gql) {
+    const id = req.body.id;
+    const constellationIds = req.body.constellationIds;
 
-  const inputPayload: any = {
-    id: id,
-  };
-  if (constellationIds) {
-    inputPayload.constellationIds = constellationIds;
+    inputPayload = {
+      id: id,
+      constellationIds: constellationIds,
+    };
+  } else {
+    inputPayload = gql;
   }
 
   try {
@@ -74,20 +84,25 @@ draftRouter.post("/update", async (req: Request, res: Response) => {
 });
 
 draftRouter.post("/list", async (req: Request, res: Response) => {
-  const id = req.body.id;
-
-  const filterPayload = {
-    id: {
-      eq: id,
-    },
-  };
+  const gql = req.body.gql;
+  let inputPayload;
+  if (!gql) {
+    inputPayload = {};
+  } else {
+    const id = req.body.id;
+    inputPayload = {
+      filter: {
+        id: {
+          eq: id,
+        },
+      },
+    };
+  }
 
   try {
     const payload = await amplifyClient.graphql({
       query: listDraftObjs,
-      variables: {
-        filter: filterPayload,
-      },
+      variables: inputPayload,
     });
 
     return res.json({ data: payload });

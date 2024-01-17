@@ -12,15 +12,21 @@ import {
 export const constellationRouter = Router();
 
 constellationRouter.post("/create", async (req: Request, res: Response) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const stars = req.body.stars;
+  const gql = req.body.gql;
+  let inputPayload;
+  if (!gql) {
+    const title = req.body.title;
+    const description = req.body.description;
+    const stars = req.body.stars;
 
-  const inputPayload = {
-    title: title,
-    description: description,
-    stars: stars,
-  };
+    inputPayload = {
+      title: title,
+      description: description,
+      stars: stars,
+    };
+  } else {
+    inputPayload = gql;
+  }
 
   try {
     const payload = await amplifyClient.graphql({
@@ -57,15 +63,21 @@ constellationRouter.post("/get", async (req: Request, res: Response) => {
 });
 
 constellationRouter.post("/update", async (req: Request, res: Response) => {
-  const id = req.body.id;
-  const title = req.body.title;
-  const stars = req.body.stars;
+  const gql = req.body.gql;
+  let inputPayload: any;
+  if (!gql) {
+    const id = req.body.id;
+    const title = req.body.title;
+    const stars = req.body.stars;
 
-  const inputPayload: any = {
-    id: id,
-  };
-  if (title) inputPayload.title = title;
-  if (stars) inputPayload.stars = stars;
+    inputPayload = {
+      id: id,
+    };
+    if (title) inputPayload.title = title;
+    if (stars) inputPayload.stars = stars;
+  } else {
+    inputPayload = gql;
+  }
 
   try {
     const payload = await amplifyClient.graphql({
@@ -83,20 +95,25 @@ constellationRouter.post("/update", async (req: Request, res: Response) => {
 });
 
 constellationRouter.post("/list", async (req: Request, res: Response) => {
-  const title = req.body.title;
-
-  const filterPayload: any = {
-    title: {
-      contains: title,
-    },
-  };
+  const gql = req.body.gql;
+  let inputPayload: any;
+  if (!gql) {
+    const title = req.body.title;
+    inputPayload = {
+      filter: {
+        title: {
+          contains: title,
+        },
+      },
+    };
+  } else {
+    inputPayload = gql;
+  }
 
   try {
     const payload = await amplifyClient.graphql({
       query: listConstellationObjs,
-      variables: {
-        filter: filterPayload,
-      },
+      variables: inputPayload
     });
 
     return res.json({ data: payload });
