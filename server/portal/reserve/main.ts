@@ -10,15 +10,17 @@ reserveRouter.post("/", async (req: Request, res: Response) => {
   const lname = data.lname;
   const email = data.email;
 
+  const inputPayload = {
+    fname: fname,
+    lname: lname,
+    email: email,
+  };
+
   try {
     const payload = await amplifyClient.graphql({
       query: createReservationObj,
       variables: {
-        input: {
-          fname: fname,
-          lname: lname,
-          email: email,
-        },
+        input: inputPayload,
       },
     });
     res.json({ data: payload });

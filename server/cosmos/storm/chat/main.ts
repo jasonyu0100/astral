@@ -1,24 +1,26 @@
 import { Request, Response, Router } from "express";
-import { amplifyClient } from "../../graphql/main";
-import { createResourceObj, updateResourceObj } from "../../graphql/mutations";
-import { getResourceObj, listResourceObjs } from "../../graphql/queries";
+import { amplifyClient } from "../../../graphql/main";
+import { createChatObj, updateStormObj } from "../../../graphql/mutations";
+import { getStormObj, listStormObjs } from "../../../graphql/queries";
 
-export const resourceRouter = Router();
+export const chatRouter = Router();
 
-resourceRouter.post("/create", async (req: Request, res: Response) => {
-  const label = req.body.label;
-  const description = req.body.description;
-  const file = req.body.file;
+chatRouter.post("/create", async (req: Request, res: Response) => {
+  const id = req.body.id;
+  const title = req.body.title;
+  const summary = req.body.summary;
+  const time = req.body.time;
 
   const inputPayload = {
-    label,
-    description,
-    file,
+    id,
+    title,
+    summary,
+    time,
   };
 
   try {
     const payload = await amplifyClient.graphql({
-      query: createResourceObj,
+      query: createChatObj,
       variables: {
         input: inputPayload,
       },
@@ -26,12 +28,12 @@ resourceRouter.post("/create", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during create resource:", error);
+    console.error("Error during create storm:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-resourceRouter.post("/get", async (req: Request, res: Response) => {
+chatRouter.post("/get", async (req: Request, res: Response) => {
   const id = req.body.id;
   const variablePayload = {
     id: id,
@@ -39,33 +41,29 @@ resourceRouter.post("/get", async (req: Request, res: Response) => {
 
   try {
     const payload = await amplifyClient.graphql({
-      query: getResourceObj,
+      query: getStormObj,
       variables: variablePayload,
     });
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during get resource:", error);
+    console.error("Error during get storm:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-resourceRouter.post("/update", async (req: Request, res: Response) => {
+chatRouter.post("/update", async (req: Request, res: Response) => {
   const id = req.body.id;
-  const label = req.body.label;
-  const description = req.body.description;
-  const file = req.body.file;
+  const chatIds = req.body.chatIds;
 
-  const inputPayload: any = {
+  const inputPayload = {
     id: id,
+    chatIds: chatIds,
   };
-  if (label) inputPayload.label = label;
-  if (description) inputPayload.description = description;
-  if (file) inputPayload.file = file;
 
   try {
     const payload = await amplifyClient.graphql({
-      query: updateResourceObj,
+      query: updateStormObj,
       variables: {
         input: inputPayload,
       },
@@ -73,12 +71,12 @@ resourceRouter.post("/update", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during update chapter:", error);
+    console.error("Error during update storm:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-resourceRouter.post("/list", async (req: Request, res: Response) => {
+chatRouter.post("/list", async (req: Request, res: Response) => {
   const id = req.body.id;
   const filterPayload = {
     id: {
@@ -88,7 +86,7 @@ resourceRouter.post("/list", async (req: Request, res: Response) => {
 
   try {
     const payload = await amplifyClient.graphql({
-      query: listResourceObjs,
+      query: listStormObjs,
       variables: {
         filter: filterPayload,
       },
@@ -96,7 +94,7 @@ resourceRouter.post("/list", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during list chapter:", error);
+    console.error("Error during list storm:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

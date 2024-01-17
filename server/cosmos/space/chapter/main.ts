@@ -1,24 +1,32 @@
 import { Request, Response, Router } from "express";
-import { amplifyClient } from "../../graphql/main";
-import { createResourceObj, updateResourceObj } from "../../graphql/mutations";
-import { getResourceObj, listResourceObjs } from "../../graphql/queries";
+import { amplifyClient } from "../../../graphql/main";
+import { createChapterObj, updateChapterObj } from "../../../graphql/mutations";
+import { getChapterObj, listChapterObjs } from "../../../graphql/queries";
 
-export const resourceRouter = Router();
+export const chapterRouter = Router();
 
-resourceRouter.post("/create", async (req: Request, res: Response) => {
-  const label = req.body.label;
+chapterRouter.post("/create", async (req: Request, res: Response) => {
+  const id = req.body.id;
+  const title = req.body.title;
   const description = req.body.description;
-  const file = req.body.file;
+  const stormId = req.body.stormId;
+  const draftId = req.body.draftId;
+  const flowId = req.body.flowId;
+  const seaId = req.body.seaId;
 
   const inputPayload = {
-    label,
+    id,
+    title,
     description,
-    file,
+    stormId,
+    draftId,
+    flowId,
+    seaId,
   };
 
   try {
     const payload = await amplifyClient.graphql({
-      query: createResourceObj,
+      query: createChapterObj,
       variables: {
         input: inputPayload,
       },
@@ -26,12 +34,12 @@ resourceRouter.post("/create", async (req: Request, res: Response) => {
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during create resource:", error);
+    console.error("Error during create chapter:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-resourceRouter.post("/get", async (req: Request, res: Response) => {
+chapterRouter.post("/get", async (req: Request, res: Response) => {
   const id = req.body.id;
   const variablePayload = {
     id: id,
@@ -39,33 +47,39 @@ resourceRouter.post("/get", async (req: Request, res: Response) => {
 
   try {
     const payload = await amplifyClient.graphql({
-      query: getResourceObj,
+      query: getChapterObj,
       variables: variablePayload,
     });
 
     return res.json({ data: payload });
   } catch (error) {
-    console.error("Error during get resource:", error);
+    console.error("Error during get chapter:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-resourceRouter.post("/update", async (req: Request, res: Response) => {
+chapterRouter.post("/update", async (req: Request, res: Response) => {
   const id = req.body.id;
-  const label = req.body.label;
+  const title = req.body.title;
   const description = req.body.description;
-  const file = req.body.file;
+  const stormId = req.body.stormId;
+  const draftId = req.body.draftId;
+  const flowId = req.body.flowId;
+  const seaId = req.body.seaId;
 
-  const inputPayload: any = {
-    id: id,
+  const inputPayload = {
+    id,
+    title,
+    description,
+    stormId,
+    draftId,
+    flowId,
+    seaId,
   };
-  if (label) inputPayload.label = label;
-  if (description) inputPayload.description = description;
-  if (file) inputPayload.file = file;
 
   try {
     const payload = await amplifyClient.graphql({
-      query: updateResourceObj,
+      query: updateChapterObj,
       variables: {
         input: inputPayload,
       },
@@ -78,7 +92,7 @@ resourceRouter.post("/update", async (req: Request, res: Response) => {
   }
 });
 
-resourceRouter.post("/list", async (req: Request, res: Response) => {
+chapterRouter.post("/list", async (req: Request, res: Response) => {
   const id = req.body.id;
   const filterPayload = {
     id: {
@@ -88,7 +102,7 @@ resourceRouter.post("/list", async (req: Request, res: Response) => {
 
   try {
     const payload = await amplifyClient.graphql({
-      query: listResourceObjs,
+      query: listChapterObjs,
       variables: {
         filter: filterPayload,
       },

@@ -3,6 +3,22 @@ import { amplifyClient } from "../../graphql/main";
 
 export const galleryRouter = Router();
 
-galleryRouter.post("/", async (req: Request, res: Response) => {
+galleryRouter.post("/create", async (req: Request, res: Response) => {
+    
+
+});
+
+
+galleryRouter.post("/get", async (req: Request, res: Response) => {
+
+});
+
+
+galleryRouter.post("/update", async (req: Request, res: Response) => {
+
+});
+
+
+galleryRouter.post("/list", async (req: Request, res: Response) => {
 
 });

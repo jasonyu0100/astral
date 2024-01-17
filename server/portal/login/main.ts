@@ -3,22 +3,24 @@ import bcrypt from "bcrypt";
 import { listUserObjs } from "../../graphql/queries";
 import { amplifyClient } from "../../graphql/main";
 
-const loginRouter = Router();
+export const loginRouter = Router();
 
 loginRouter.post("/", async (req: Request, res: Response) => {
   const data = req.body;
   const password = data.password;
   const email = data.email;
 
+  const filterPayload = {
+    email: {
+      eq: email,
+    },
+  };
+
   try {
     const payload = await amplifyClient.graphql({
       query: listUserObjs,
       variables: {
-        filter: {
-          email: {
-            eq: email,
-          },
-        },
+        filter: filterPayload,
       },
     });
     const users = payload?.data?.listUserObjs?.items || [];
@@ -51,14 +53,20 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
   const googleId = data.googleId;
   const email = data.email;
 
+  const filterPayload = {
+    googleId: {
+      eq: googleId,
+    },
+    email: {
+      eq: email,
+    },
+  };
+
   try {
     const payload = await amplifyClient.graphql({
       query: listUserObjs,
       variables: {
-        filter: {
-          googleId: { eq: googleId },
-          email: { eq: email },
-        },
+        filter: filterPayload,
       },
     });
     const users = payload?.data?.listUserObjs?.items || [];
@@ -74,5 +82,3 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-export { loginRouter };
