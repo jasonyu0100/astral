@@ -1,11 +1,11 @@
-import { TableDescriptor, TableObjectDescriptor } from "../tables";
-import { exampleFlow, exampleFlows, flowSchema } from "./main";
+import { TableDescriptor, TableObjectDescriptor } from '../tables';
+import { exampleFlow, exampleFlows, flowSchema } from './main';
 import {
   commentSchema,
   exampleComment,
   exampleComments,
-} from "./moment/comment/main";
-import { exampleMoment, exampleMoments, momentSchema } from "./moment/main";
+} from './moment/comment/main';
+import { exampleMoment, exampleMoments, momentSchema } from './moment/main';
 
 export const flowTable: TableDescriptor = {
   example: exampleFlow,

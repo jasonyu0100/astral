@@ -1,6 +1,6 @@
-import { MutableRefObject, useEffect } from "react";
-import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { StarObj } from "@/tables/draft/constellation/star/main";
+import { MutableRefObject, useEffect } from 'react';
+import { motion, useMotionValue, useMotionValueEvent } from 'framer-motion';
+import { StarObj } from '@/tables/draft/constellation/star/main';
 
 export function DraftStar({
   constraintsRef,
@@ -15,26 +15,26 @@ export function DraftStar({
   const y = useMotionValue(star.y);
 
   useEffect(() => {
-    x.set(star.x)
-    y.set(star.y)
-  }, [star])
+    x.set(star.x);
+    y.set(star.y);
+  }, [star]);
 
-  useMotionValueEvent(x, "animationStart", () => {
-    console.log("animation started on x");
+  useMotionValueEvent(x, 'animationStart', () => {
+    console.log('animation started on x');
   });
 
-  useMotionValueEvent(x, "change", (latest) => {
+  useMotionValueEvent(x, 'change', (latest) => {
     updateStar({ x: latest });
-    console.log("x changed to", latest);
+    console.log('x changed to', latest);
   });
 
-  useMotionValueEvent(y, "animationStart", () => {
-    console.log("animation started on y");
+  useMotionValueEvent(y, 'animationStart', () => {
+    console.log('animation started on y');
   });
 
-  useMotionValueEvent(y, "change", (latest) => {
+  useMotionValueEvent(y, 'change', (latest) => {
     updateStar({ y: latest });
-    console.log("y changed to", latest);
+    console.log('y changed to', latest);
   });
 
   return (
@@ -44,15 +44,13 @@ export function DraftStar({
       className={`w-[100px] h-[150px] p-[10px] flex flex-col space-y-[1rem] items-center absolute top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className="w-[100px] h-[100px] flex-shrink-0">
+      <div className='w-[100px] h-[100px] flex-shrink-0'>
         <img
-          className="w-full aspect-square rounded-full pointer-events-none border-slate-300 border-[2px]"
+          className='w-full aspect-square rounded-full pointer-events-none border-slate-300 border-[2px]'
           src={star.file.src}
         />
       </div>
-      <p className="w-full text-center text-slate-300 font-bold">
-        {star.name}
-      </p>
+      <p className='w-full text-center text-slate-300 font-bold'>{star.name}</p>
     </motion.div>
   );
 }

@@ -17,26 +17,26 @@ type ChatObj {
 `;
 
 export const exampleChat: ChatObj = {
-  id: "0",
-  stormId: "0",
-  title: "The Idea",
+  id: '0',
+  stormId: '0',
+  title: 'The Idea',
   summary: "What's the Idea",
-  time: new Date("2023-12-19").toISOString(),
+  time: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleChats: ChatObj[] = [
   {
-    id: "0",
-    stormId: "0",
-    title: "The Idea",
+    id: '0',
+    stormId: '0',
+    title: 'The Idea',
     summary: "What's the Idea",
-    time: new Date("2023-12-19").toISOString(),
+    time: new Date('2023-12-19').toISOString(),
   },
   {
-    id: "1",
-    stormId: "0",
-    title: "The Meaning",
+    id: '1',
+    stormId: '0',
+    title: 'The Meaning',
     summary: "What's the meaning?",
-    time: new Date("2023-12-19").toISOString(),
+    time: new Date('2023-12-19').toISOString(),
   },
 ];

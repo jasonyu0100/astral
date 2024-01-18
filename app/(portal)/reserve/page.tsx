@@ -1,9 +1,9 @@
-"use client";
+'use client';
 import {
   PolaroidContext,
   usePolaroid,
-} from "../polaroid-epic/handler/polaroid/main";
-import { ReserveView } from "./view";
+} from '../polaroid-epic/handler/polaroid/main';
+import { ReserveView } from './view';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =

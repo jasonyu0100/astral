@@ -1,4 +1,4 @@
-import { FileObj, exampleFile, exampleFiles } from "../file/main";
+import { FileObj, exampleFile, exampleFiles } from '../file/main';
 
 export interface ResourceObj {
   id: string;
@@ -18,10 +18,10 @@ type ResourceObj {
 }`;
 
 export const exampleResource: ResourceObj = {
-  id: "0",
-  collectionId: "0",
-  name: "Example Resource",
-  description: "Example Resource Description",
+  id: '0',
+  collectionId: '0',
+  name: 'Example Resource',
+  description: 'Example Resource Description',
   file: exampleFile,
 };
 
@@ -29,7 +29,7 @@ export const exampleResources: ResourceObj[] = [
   ...exampleFiles.map((file, i) => {
     return {
       id: i.toString(),
-      collectionId: "0",
+      collectionId: '0',
       name: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       file: file,

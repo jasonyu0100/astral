@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { createContext, useEffect, useState } from "react";
-import DriveFolderView from "./view";
-import { GalleryObj } from "@/tables/gallery/main";
-import { CollectionObj } from "@/tables/gallery/collection/main";
-import insideCosmos from "@/utils/isAuth";
-import { ResourceObj } from "@/tables/resource/main";
+import { createContext, useEffect, useState } from 'react';
+import DriveFolderView from './view';
+import { GalleryObj } from '@/tables/gallery/main';
+import { CollectionObj } from '@/tables/gallery/collection/main';
+import insideCosmos from '@/utils/isAuth';
+import { ResourceObj } from '@/tables/resource/main';
 import {
   getCollectionObj,
   getGalleryObj,
   listResourceObjs,
-} from "@/graphql/queries";
-import { amplifyClient } from "@/client";
-import { FileObj } from "@/tables/file/main";
-import { createResourceObj } from "@/graphql/mutations";
+} from '@/graphql/queries';
+import { amplifyClient } from '@/client';
+import { FileObj } from '@/tables/file/main';
+import { createResourceObj } from '@/graphql/mutations';
 
 export interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -30,7 +30,11 @@ export const ExploreCollectionContext =
     resourceHandler: undefined,
   });
 interface ResourceHandler {
-  addResource: (name: string, description: string, file: FileObj) => Promise<void>
+  addResource: (
+    name: string,
+    description: string,
+    file: FileObj,
+  ) => Promise<void>;
 }
 
 function Page({ params }: { params: { id: string } }) {
@@ -102,10 +106,10 @@ function Page({ params }: { params: { id: string } }) {
           },
         },
       });
-      console.log(payload)
+      console.log(payload);
       const resource: ResourceObj = payload?.data?.createResourceObj || {};
 
-      console.log(resource)
+      console.log(resource);
       changeResources((prev) => [resource, ...prev]);
     },
   };

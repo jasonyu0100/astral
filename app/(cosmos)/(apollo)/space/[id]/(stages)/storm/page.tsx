@@ -1,12 +1,12 @@
-"use client";
-import { StormView } from "./view";
-import { ChatObj } from "@/tables/storm/chat/main";
-import { MessageObj } from "@/tables/storm/chat/message/main";
-import { ChapterObj } from "@/tables/space/chapter/main";
-import { ChapterHandler, useChapters } from "../../handler/chapters/main";
-import { ChatHandler, useChat } from "../../handler/chats/main";
-import insideCosmos from "@/utils/isAuth";
-import { createContext } from "react";
+'use client';
+import { StormView } from './view';
+import { ChatObj } from '@/tables/storm/chat/main';
+import { MessageObj } from '@/tables/storm/chat/message/main';
+import { ChapterObj } from '@/tables/space/chapter/main';
+import { ChapterHandler, useChapters } from '../../handler/chapters/main';
+import { ChatHandler, useChat } from '../../handler/chats/main';
+import insideCosmos from '@/utils/isAuth';
+import { createContext } from 'react';
 
 export interface StormContextObj {
   chapter?: ChapterObj;
@@ -22,9 +22,9 @@ export interface StormContextObj {
 
 export const StormContext = createContext<StormContextObj>({
   chapters: [],
-  chapterId: "",
+  chapterId: '',
   chats: [],
-  chatId: "",
+  chatId: '',
   messages: [],
   chapterHandler: undefined,
   chatHandler: undefined,

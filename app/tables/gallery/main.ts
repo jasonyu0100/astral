@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "../file/main";
+import { FileObj, exampleFile } from '../file/main';
 export interface GalleryObj {
   id: string;
   userId: string;
@@ -18,26 +18,26 @@ type GalleryObj {
 `;
 
 export const exampleGallery: GalleryObj = {
-  id: "0",
-  userId: "0",
-  title: "Example Gallery",
-  description: "Example Gallery Description",
+  id: '0',
+  userId: '0',
+  title: 'Example Gallery',
+  description: 'Example Gallery Description',
   thumbnail: exampleFile,
 };
 
 export const exampleGallerys: GalleryObj[] = [
   {
-    id: "0",
-    userId: "0",
-    title: "Example Gallery",
-    description: "Example Gallery Description",
+    id: '0',
+    userId: '0',
+    title: 'Example Gallery',
+    description: 'Example Gallery Description',
     thumbnail: exampleFile,
   },
   {
-    id: "1",
-    userId: "0",
-    title: "Example Gallery",
-    description: "Example Gallery Description",
+    id: '1',
+    userId: '0',
+    title: 'Example Gallery',
+    description: 'Example Gallery Description',
     thumbnail: exampleFile,
   },
 ];

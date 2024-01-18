@@ -1,4 +1,4 @@
-import { ConnectElementObj, exampleExploreElements } from "./element/main";
+import { ConnectElementObj, exampleExploreElements } from './element/main';
 
 export interface ResourceConnect {
   query: string;
@@ -6,6 +6,6 @@ export interface ResourceConnect {
 }
 
 export const exampleResourceConnect: ResourceConnect = {
-  query: "test",
-  results: exampleExploreElements
+  query: 'test',
+  results: exampleExploreElements,
 };

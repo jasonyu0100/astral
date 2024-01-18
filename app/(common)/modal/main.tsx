@@ -1,7 +1,7 @@
-import { ModalCloseButton } from "./close-button/main";
-import { ModalOverlay } from "./overlay/main";
-import { ModalContainer } from "./container/main";
-import { ModalContainerWrapper } from "./wrapper/main";
+import { ModalCloseButton } from './close-button/main';
+import { ModalOverlay } from './overlay/main';
+import { ModalContainer } from './container/main';
+import { ModalContainerWrapper } from './wrapper/main';
 
 interface ModalProps {
   isOpen: boolean;

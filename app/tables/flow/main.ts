@@ -10,17 +10,17 @@ type FlowObj {
 }`;
 
 export const exampleFlow: FlowObj = {
-  id: "0",
-  chapterId: "0",
+  id: '0',
+  chapterId: '0',
 };
 
 export const exampleFlows: FlowObj[] = [
   {
-    id: "0",
-    chapterId: "0",
+    id: '0',
+    chapterId: '0',
   },
   {
-    id: "1",
-    chapterId: "0",
+    id: '1',
+    chapterId: '0',
   },
 ];

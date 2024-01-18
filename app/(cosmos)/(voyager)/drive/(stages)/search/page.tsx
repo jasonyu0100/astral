@@ -1,9 +1,9 @@
-"use client";
-import { useState } from "react";
-import { SearchView } from "./view";
-import { ResourceObj } from "@/tables/resource/main";
-import { searchObject } from "@/tables/resource/table";
-import insideCosmos from "@/utils/isAuth";
+'use client';
+import { useState } from 'react';
+import { SearchView } from './view';
+import { ResourceObj } from '@/tables/resource/main';
+import { searchObject } from '@/tables/resource/table';
+import insideCosmos from '@/utils/isAuth';
 
 interface SearchHandler {
   updateQuery: (query: string) => void;
@@ -16,20 +16,16 @@ export interface SearchViewProps {
 }
 
 function Page() {
-  const [results, changeResults] = useState(
-    searchObject.example.results
-  );
-  const [query, changeQuery] = useState("");
+  const [results, changeResults] = useState(searchObject.example.results);
+  const [query, changeQuery] = useState('');
 
   const searchHandler: SearchHandler = {
     updateQuery: (query: string) => {
       changeQuery(query);
     },
     searchQuery: () => {
-      if (query === "") {
-        changeResults(
-          searchObject.example.results
-        );
+      if (query === '') {
+        changeResults(searchObject.example.results);
       } else {
         changeResults([]);
       }

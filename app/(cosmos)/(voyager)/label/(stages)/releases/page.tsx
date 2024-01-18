@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import insideCosmos from "@/utils/isAuth";
-import { RecordCollection } from "../../label-epic/main";
-import { RecordAlbum } from "../../label-epic/shelf/album/main";
-import { RecordShelf } from "../../label-epic/shelf/main";
+import insideCosmos from '@/utils/isAuth';
+import { RecordCollection } from '../../label-epic/main';
+import { RecordAlbum } from '../../label-epic/shelf/album/main';
+import { RecordShelf } from '../../label-epic/shelf/main';
 
 function Page() {
   return (

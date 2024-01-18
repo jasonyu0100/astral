@@ -10,17 +10,17 @@ type SeaObj {
 }`;
 
 export const exampleSea: SeaObj = {
-  id: "0",
-  chapterId: "0",
+  id: '0',
+  chapterId: '0',
 };
 
 export const exampleSeas: SeaObj[] = [
   {
-    id: "0",
-    chapterId: "0",
+    id: '0',
+    chapterId: '0',
   },
   {
-    id: "1",
-    chapterId: "0",
+    id: '1',
+    chapterId: '0',
   },
 ];

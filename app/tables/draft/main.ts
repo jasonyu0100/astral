@@ -11,17 +11,17 @@ type DraftObj {
 `;
 
 export const exampleDraft: DraftObj = {
-  id: "0",
-  chapterId: "0",
+  id: '0',
+  chapterId: '0',
 };
 
 export const exampleDrafts: DraftObj[] = [
   {
-    id: "0",
-    chapterId: "0",
+    id: '0',
+    chapterId: '0',
   },
   {
-    id: "0",
-    chapterId: "0",
+    id: '0',
+    chapterId: '0',
   },
 ];

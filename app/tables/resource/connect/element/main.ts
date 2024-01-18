@@ -1,4 +1,4 @@
-import { ResourceObj, exampleResource } from "../../main";
+import { ResourceObj, exampleResource } from '../../main';
 
 export interface ConnectElementObj {
   id: string;
@@ -8,7 +8,7 @@ export interface ConnectElementObj {
 }
 
 export const exampleExploreElement: ConnectElementObj = {
-  id: "0",
+  id: '0',
   x: 120,
   y: 120,
   resource: exampleResource,
@@ -16,19 +16,19 @@ export const exampleExploreElement: ConnectElementObj = {
 
 export const exampleExploreElements: ConnectElementObj[] = [
   {
-    id: "0",
+    id: '0',
     x: 120,
     y: 120,
     resource: exampleResource,
   },
   {
-    id: "1",
+    id: '1',
     x: 240,
     y: 120,
     resource: exampleResource,
   },
   {
-    id: "2",
+    id: '2',
     x: 360,
     y: 120,
     resource: exampleResource,

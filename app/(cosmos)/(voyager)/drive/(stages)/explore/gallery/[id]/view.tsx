@@ -1,33 +1,33 @@
-"use client";
+'use client';
 
-import { DriveWrapper } from "../../home/home-epic/wrapper/main";
-import { DriveController } from "../../home/home-epic/main";
-import { DriveBreadcrumbs } from "../../(common)/breadcrumb/main";
-import { DriveBreadcrumbItem } from "../../(common)/breadcrumb/item/main";
-import { DriveBreadcrumbDivider } from "../../(common)/breadcrumb/divider/main";
-import { GalleryCollectionGrid } from "./gallery-epic/grid/main";
-import { driveMap } from "../../../../map";
-import { GalleryCollection } from "./gallery-epic/grid/collection/main";
-import { GalleryCollectionAdd } from "./gallery-epic/grid/add/main";
-import { useContext, useState } from "react";
-import { ExploreGalleryContext } from "./page";
-import { FileObj } from "@/tables/file/main";
-import { Modal } from "@/(common)/modal/main";
-import { FormInput } from "@/(common)/form/input/main";
-import { FormUploadFiles } from "@/(common)/form/upload-files/main";
-import { FormButton } from "@/(common)/form/button/main";
-import { FormContainer } from "@/(common)/form/main";
-import { FormTitle } from "@/(common)/form/title/main";
-import { FormBody } from "@/(common)/form/body/main";
-import { FormFooter } from "@/(common)/form/footer/main";
-import { FormDescription } from "@/(common)/form/description/main";
+import { DriveWrapper } from '../../home/home-epic/wrapper/main';
+import { DriveController } from '../../home/home-epic/main';
+import { DriveBreadcrumbs } from '../../(common)/breadcrumb/main';
+import { DriveBreadcrumbItem } from '../../(common)/breadcrumb/item/main';
+import { DriveBreadcrumbDivider } from '../../(common)/breadcrumb/divider/main';
+import { GalleryCollectionGrid } from './gallery-epic/grid/main';
+import { driveMap } from '../../../../map';
+import { GalleryCollection } from './gallery-epic/grid/collection/main';
+import { GalleryCollectionAdd } from './gallery-epic/grid/add/main';
+import { useContext, useState } from 'react';
+import { ExploreGalleryContext } from './page';
+import { FileObj } from '@/tables/file/main';
+import { Modal } from '@/(common)/modal/main';
+import { FormInput } from '@/(common)/form/input/main';
+import { FormUploadFiles } from '@/(common)/form/upload-files/main';
+import { FormButton } from '@/(common)/form/button/main';
+import { FormContainer } from '@/(common)/form/main';
+import { FormTitle } from '@/(common)/form/title/main';
+import { FormBody } from '@/(common)/form/body/main';
+import { FormFooter } from '@/(common)/form/footer/main';
+import { FormDescription } from '@/(common)/form/description/main';
 
 export function DriveSectionView() {
   const { gallery, collections, addCollection } = useContext(
-    ExploreGalleryContext
+    ExploreGalleryContext,
   );
   const [showModal, changeShowModal] = useState(false);
-  const [name, changeName] = useState("");
+  const [name, changeName] = useState('');
   const [files, changeFiles] = useState([] as FileObj[]);
 
   return (
@@ -38,8 +38,8 @@ export function DriveSectionView() {
           <FormBody>
             <FormDescription>Create your collection here</FormDescription>
             <FormInput
-              placeholder="Name"
-              title="Name"
+              placeholder='Name'
+              title='Name'
               value={name}
               onChange={(e) => changeName(e.target.value)}
             />
@@ -50,7 +50,7 @@ export function DriveSectionView() {
               onClick={() => {
                 addCollection(name, files);
                 changeShowModal(false);
-                alert("Submit Idea");
+                alert('Submit Idea');
               }}
             >
               Submit Idea

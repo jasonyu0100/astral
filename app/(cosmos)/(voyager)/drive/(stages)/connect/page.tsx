@@ -1,9 +1,9 @@
-"use client";
-import { useState } from "react";
-import { ConnectView } from "./view";
-import { connectObject } from "@/tables/resource/table";
-import insideCosmos from "@/utils/isAuth";
-import { ConnectElementObj } from "@/tables/resource/connect/element/main";
+'use client';
+import { useState } from 'react';
+import { ConnectView } from './view';
+import { connectObject } from '@/tables/resource/table';
+import insideCosmos from '@/utils/isAuth';
+import { ConnectElementObj } from '@/tables/resource/connect/element/main';
 
 interface ConnectHandler {
   connectQuery: (query: string) => void;
@@ -17,9 +17,9 @@ export interface ConnectViewProps {
 function Page() {
   const [results, changeResults] = useState(connectObject.example.results);
 
-  const connectHandler : ConnectHandler = {
+  const connectHandler: ConnectHandler = {
     connectQuery: (query: string) => {
-      if (query === "") {
+      if (query === '') {
         changeResults(connectObject.example.results);
       } else {
         changeResults([]);
@@ -27,10 +27,10 @@ function Page() {
     },
     updateResult: (i: number, data: any) => {
       changeResults((prev: any[]) =>
-        prev.map((o: any, j: number) => (j === i ? { ...o, ...data } : o))
+        prev.map((o: any, j: number) => (j === i ? { ...o, ...data } : o)),
       );
-    }
-  }
+    },
+  };
 
   return <ConnectView results={results} searchHandler={connectHandler} />;
 }

@@ -1,11 +1,11 @@
-"use client";
-import { createContext } from "react";
-import { FlowView } from "./view";
-import { ChapterHandler, useChapters } from "../../handler/chapters/main";
-import { MomentHandler, useMoment } from "../../handler/moments/main";
-import { MomentObj } from "@/tables/flow/moment/main";
-import insideCosmos from "@/utils/isAuth";
-import { ChapterObj } from "@/tables/space/chapter/main";
+'use client';
+import { createContext } from 'react';
+import { FlowView } from './view';
+import { ChapterHandler, useChapters } from '../../handler/chapters/main';
+import { MomentHandler, useMoment } from '../../handler/moments/main';
+import { MomentObj } from '@/tables/flow/moment/main';
+import insideCosmos from '@/utils/isAuth';
+import { ChapterObj } from '@/tables/space/chapter/main';
 
 interface FlowContextObj {
   chapter?: ChapterObj;
@@ -22,11 +22,11 @@ export const FlowContext = createContext<FlowContextObj>({
   chapter: undefined,
   moment: undefined,
   moments: [],
-  momentId: "",
-  chapterId: "",
+  momentId: '',
+  chapterId: '',
   chapters: [],
   chapterHandler: undefined,
-  momentHandler: undefined
+  momentHandler: undefined,
 });
 
 function Page() {

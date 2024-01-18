@@ -1,12 +1,12 @@
-import { constellationTable, draftTable, starTable } from "./draft/table";
-import { chatTable, messageTable, stormTable } from "./storm/table";
-import { collectionTable, galleryTable } from "./gallery/table";
-import { chapterTable, spaceTable } from "./space/table";
-import { userTable } from "./user/table";
-import { journeyTable, seaTable } from "./sea/table";
-import { commentTable, flowTable, momentTable } from "./flow/table";
-import { fileTable, resourceTable } from "./resource/table";
-import { Profiler } from "react";
+import { constellationTable, draftTable, starTable } from './draft/table';
+import { chatTable, messageTable, stormTable } from './storm/table';
+import { collectionTable, galleryTable } from './gallery/table';
+import { chapterTable, spaceTable } from './space/table';
+import { userTable } from './user/table';
+import { journeyTable, seaTable } from './sea/table';
+import { commentTable, flowTable, momentTable } from './flow/table';
+import { fileTable, resourceTable } from './resource/table';
+import { Profiler } from 'react';
 
 export interface ObjectDescriptor {
   example: any;
@@ -94,4 +94,6 @@ const dataRegions = [
 ];
 
 export const outputSchema = () =>
-  dataRegions.map((region) => region.map(table => table.schema).join("\n")).join("\n");
+  dataRegions
+    .map((region) => region.map((table) => table.schema).join('\n'))
+    .join('\n');

@@ -1,17 +1,17 @@
-"use client"
-import { createContext } from "react";
-import { DraftView } from "./view";
-import { StarObj } from "@/tables/draft/constellation/star/main";
-import { ChapterObj } from "@/tables/space/chapter/main";
-import { ConstellationObj } from "@/tables/draft/constellation/main";
-import { ChapterHandler, useChapters } from "../../handler/chapters/main";
+'use client';
+import { createContext } from 'react';
+import { DraftView } from './view';
+import { StarObj } from '@/tables/draft/constellation/star/main';
+import { ChapterObj } from '@/tables/space/chapter/main';
+import { ConstellationObj } from '@/tables/draft/constellation/main';
+import { ChapterHandler, useChapters } from '../../handler/chapters/main';
 import {
   ConstellationHandler,
   StarHandler,
   useConstellation,
-} from "../../handler/constellations/main";
-import insideCosmos from "@/utils/isAuth";
-import { ResourceObj } from "@/tables/resource/main";
+} from '../../handler/constellations/main';
+import insideCosmos from '@/utils/isAuth';
+import { ResourceObj } from '@/tables/resource/main';
 
 export interface DraftContextObj {
   chapterId: string;
@@ -27,16 +27,16 @@ export interface DraftContextObj {
 }
 
 export const DraftContext = createContext<DraftContextObj>({
-  chapterId: "",
+  chapterId: '',
   chapter: undefined,
   chapters: [],
   constellation: undefined,
   constellations: [],
-  constellationId: "",
+  constellationId: '',
   stars: [],
   starHandler: undefined,
   chapterHandler: undefined,
-  constellationHandler: undefined
+  constellationHandler: undefined,
 });
 
 function Page() {
@@ -112,7 +112,7 @@ function Page() {
     },
   };
 
-  const context : DraftContextObj = {
+  const context: DraftContextObj = {
     chapter: chapter,
     constellation: constellation,
     stars: stars,
@@ -127,7 +127,7 @@ function Page() {
 
   return (
     <DraftContext.Provider value={context}>
-      <DraftView/>
+      <DraftView />
     </DraftContext.Provider>
   );
 }

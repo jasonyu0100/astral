@@ -1,5 +1,5 @@
-import { portalModel } from "@/(portal)/polaroid-epic/model/main";
-import { useState, useRef, useEffect, createContext } from "react";
+import { portalModel } from '@/(portal)/polaroid-epic/model/main';
+import { useState, useRef, useEffect, createContext } from 'react';
 
 export interface PolaroidContextObj {
   categories: string[];
@@ -14,8 +14,8 @@ export const PolaroidContext = createContext<PolaroidContextObj>({
   categories: [],
   flipped: false,
   index: 0,
-  variant: "",
-  transition: "",
+  variant: '',
+  transition: '',
   polaroidHandler: undefined,
 });
 
@@ -38,27 +38,27 @@ export const usePolaroid = () => {
   const categories = portalModel.categories.example;
   const [flipped, changeFlipped] = useState(false);
   const [index, changeIndex] = useState(0);
-  const [variant, changeVariant] = useState("m");
-  const [transition, changeTransition] = useState("show");
+  const [variant, changeVariant] = useState('m');
+  const [transition, changeTransition] = useState('show');
 
   const duration = 5000;
   const interval = useRef(0);
 
   const _polaroidHandler: PolaroidHandler = {
     tapPolaroid: () => {
-      changeTransition("flash");
+      changeTransition('flash');
       changeIndex((categoryIndex) => (categoryIndex + 1) % categories.length);
       setTimeout(() => {
-        changeTransition("show");
+        changeTransition('show');
       }, 300);
       clearInterval(interval.current);
     },
     transitionPolaroid: () => {
       changeIndex(
         (categoryIndex) =>
-          (categoryIndex + 1) % portalModel.categories.example.length
+          (categoryIndex + 1) % portalModel.categories.example.length,
       );
-      changeVariant((variant) => (variant === "m" ? "f" : "m"));
+      changeVariant((variant) => (variant === 'm' ? 'f' : 'm'));
     },
     flipPolaroid: () => {
       if (!flipped) {
@@ -72,7 +72,7 @@ export const usePolaroid = () => {
     if (!flipped) {
       let temp = window.setInterval(
         _polaroidHandler.transitionPolaroid,
-        duration
+        duration,
       );
       interval.current = temp;
       return () => clearInterval(interval.current);

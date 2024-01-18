@@ -1,7 +1,6 @@
-import { TableDescriptor } from "../tables";
-import { chapterSchema, exampleChapter, exampleChapters } from "./chapter/main";
-import { exampleSpace, exampleSpaces, spaceSchema } from "./main";
-
+import { TableDescriptor } from '../tables';
+import { chapterSchema, exampleChapter, exampleChapters } from './chapter/main';
+import { exampleSpace, exampleSpaces, spaceSchema } from './main';
 
 export const spaceTable: TableDescriptor = {
   example: exampleSpace,

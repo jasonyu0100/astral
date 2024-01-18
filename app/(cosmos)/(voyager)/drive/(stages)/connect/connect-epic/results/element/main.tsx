@@ -1,6 +1,6 @@
-import { MutableRefObject, useEffect } from "react";
-import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { ConnectElementObj } from "@/tables/resource/connect/element/main";
+import { MutableRefObject, useEffect } from 'react';
+import { motion, useMotionValue, useMotionValueEvent } from 'framer-motion';
+import { ConnectElementObj } from '@/tables/resource/connect/element/main';
 
 export function ResultElement({
   constraintsRef,
@@ -15,26 +15,26 @@ export function ResultElement({
   const y = useMotionValue(result.y);
 
   useEffect(() => {
-    x.set(result.x)
-    y.set(result.y)
-  }, [result])
+    x.set(result.x);
+    y.set(result.y);
+  }, [result]);
 
-  useMotionValueEvent(x, "animationStart", () => {
-    console.log("animation started on x");
+  useMotionValueEvent(x, 'animationStart', () => {
+    console.log('animation started on x');
   });
 
-  useMotionValueEvent(x, "change", (latest) => {
+  useMotionValueEvent(x, 'change', (latest) => {
     updateStar({ x: latest });
-    console.log("x changed to", latest);
+    console.log('x changed to', latest);
   });
 
-  useMotionValueEvent(y, "animationStart", () => {
-    console.log("animation started on y");
+  useMotionValueEvent(y, 'animationStart', () => {
+    console.log('animation started on y');
   });
 
-  useMotionValueEvent(y, "change", (latest) => {
+  useMotionValueEvent(y, 'change', (latest) => {
     updateStar({ y: latest });
-    console.log("y changed to", latest);
+    console.log('y changed to', latest);
   });
 
   return (
@@ -44,16 +44,15 @@ export function ResultElement({
       className={`w-[200px] h-[200px] flex flex-col space-y-[1rem] items-center absolute top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className="w-[200px] h-[200px]">
+      <div className='w-[200px] h-[200px]'>
         <img
-          className="w-full h-full rounded-full flex-shrink-0 pointer-events-none opacity-80"
+          className='w-full h-full rounded-full flex-shrink-0 pointer-events-none opacity-80'
           src={result.resource.file.src}
         />
       </div>
-      <p className="w-full text-center text-white font-bold">
+      <p className='w-full text-center text-white font-bold'>
         {result.resource.name}
       </p>
     </motion.div>
   );
 }
-

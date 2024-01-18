@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { useGoogleLogin } from "@react-oauth/google";
-import axios from "axios";
-import { useUser } from "@/state/main";
-import { portalMap } from "../../map";
-import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
-import { PortalFormAction } from "@/(portal)/polaroid-epic/container/form/action-container/action/main";
-import { PortalFormAltActionLink } from "@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main";
-import { PortalFormAltAction } from "@/(portal)/polaroid-epic/container/form/action-container/alt-action/main";
-import { PortalFormGoogleAction } from "@/(portal)/polaroid-epic/container/form/action-container/google-action/main";
-import { PortalFormActionContainer } from "@/(portal)/polaroid-epic/container/form/action-container/main";
-import { PortalFormInput } from "@/(portal)/polaroid-epic/container/form/body/input/main";
-import { PortalFormBody } from "@/(portal)/polaroid-epic/container/form/body/main";
-import { PortalForm } from "@/(portal)/polaroid-epic/container/form/main";
-import { PortalFormOrDivider } from "@/(portal)/polaroid-epic/container/form/or/main";
-import { PortalCosmosTextHeader } from "@/(portal)/polaroid-epic/container/form/text-header/main";
+import { useState } from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
+import { useUser } from '@/state/main';
+import { portalMap } from '../../map';
+import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
+import { PortalFormAction } from '@/(portal)/polaroid-epic/container/form/action-container/action/main';
+import { PortalFormAltActionLink } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/main';
+import { PortalFormGoogleAction } from '@/(portal)/polaroid-epic/container/form/action-container/google-action/main';
+import { PortalFormActionContainer } from '@/(portal)/polaroid-epic/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/polaroid-epic/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/main';
+import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
+import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/main';
+import { PortalCosmosTextHeader } from '@/(portal)/polaroid-epic/container/form/text-header/main';
 
 export function PortalLoginForm() {
   const [state, actions] = useUser();
-  const [email, changeEmail] = useState("");
-  const [password, changePassword] = useState("");
+  const [email, changeEmail] = useState('');
+  const [password, changePassword] = useState('');
 
   const attempGoogleLogin = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -29,61 +29,61 @@ export function PortalLoginForm() {
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
-              Accept: "application/json",
+              Accept: 'application/json',
             },
-          }
+          },
         )
         .then((resp) => {
           const email = resp.data.email;
           const googleId = resp.data.id;
-          fetch("/api/portal/login/google", {
-            method: "POST",
+          fetch('/api/portal/login/google', {
+            method: 'POST',
             body: JSON.stringify({
               email,
               googleId,
             }),
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }).then((res) => {
             if (res.status === 200) {
               res.json().then((user) => {
                 actions.login(user.data);
-                alert("Login Success");
+                alert('Login Success');
                 window.location.href = spacesMap.spaces.now.link;
               });
             } else {
-              alert("Login Failed");
+              alert('Login Failed');
             }
           });
         });
     },
     onError: (error) => {
-      alert("Login Failed");
-      console.log("Login Failed:", error);
+      alert('Login Failed');
+      console.log('Login Failed:', error);
     },
   });
 
   const attemptLogin = () => {
-    fetch("/api/portal/login", {
-      method: "POST",
+    fetch('/api/portal/login', {
+      method: 'POST',
       body: JSON.stringify({
         email,
         password,
       }),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((user) => {
           console.log(user);
           actions.login(user.data);
-          alert("Login Success");
+          alert('Login Success');
           window.location.href = spacesMap.spaces.now.link;
         });
       } else {
-        alert("Login Failed");
+        alert('Login Failed');
       }
     });
   };
@@ -99,14 +99,14 @@ export function PortalLoginForm() {
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder="example@email.com"
-          type="text"
+          placeholder='example@email.com'
+          type='text'
         />
         <PortalFormInput
           value={password}
           onChange={(e) => changePassword(e.target.value)}
-          placeholder="Password"
-          type="password"
+          placeholder='Password'
+          type='password'
         />
       </PortalFormBody>
       <PortalFormActionContainer>
@@ -114,7 +114,7 @@ export function PortalLoginForm() {
           LOGIN
         </PortalFormAction>
         <PortalFormAltAction>
-          Don't have an account?{" "}
+          Don't have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>
             Register
           </PortalFormAltActionLink>

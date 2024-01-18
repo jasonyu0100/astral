@@ -1,8 +1,8 @@
-import { SidebarIndicatorType } from "../../main";
-import { IndicatorBlueJewel } from "../indicator/jewel/blue/main";
-import { IndicatorProps, SidebarIndicator } from "../indicator/main";
-import { IndicatorText } from "../indicator/text/main";
-import { spacesMap } from "@/(cosmos)/(voyager)/spaces/map";
+import { SidebarIndicatorType } from '../../main';
+import { IndicatorBlueJewel } from '../indicator/jewel/blue/main';
+import { IndicatorProps, SidebarIndicator } from '../indicator/main';
+import { IndicatorText } from '../indicator/text/main';
+import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
 
 export function SpacesIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Spaces;

@@ -1,7 +1,7 @@
-import { ChatObj } from "@/tables/storm/chat/main";
-import { MessageObj } from "@/tables/storm/chat/message/main";
-import { chatTable, stormTable } from "@/tables/storm/table";
-import { useState } from "react";
+import { ChatObj } from '@/tables/storm/chat/main';
+import { MessageObj } from '@/tables/storm/chat/message/main';
+import { chatTable, stormTable } from '@/tables/storm/table';
+import { useState } from 'react';
 
 export interface ChatHandler {
   updateChats: (chats: ChatObj[]) => ChatObj[];
@@ -21,21 +21,19 @@ export interface useChatInterface {
 
 export const useChat = (): useChatInterface => {
   const [chats, changeChats] = useState<ChatObj[]>(chatTable.examples);
-  const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || "");
+  const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
   const [messages, changeMessages] = useState<MessageObj[]>(
-    chats?.at(0)?.messages || []
+    chats?.at(0)?.messages || [],
   );
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
   const _chatHandler: ChatHandler = {
     updateChats: (chats: ChatObj[]) => {
-      changeChats(chats)
-      changeChatId(chats.at(0)?.id || "")
-      const chat = chats
-        .filter((chat) => chat.id === chatId)
-        .at(0);
-      changeMessages(chat?.messages || [])
+      changeChats(chats);
+      changeChatId(chats.at(0)?.id || '');
+      const chat = chats.filter((chat) => chat.id === chatId).at(0);
+      changeMessages(chat?.messages || []);
       return chats;
     },
     updateChat: (chat: ChatObj) => {
@@ -57,15 +55,15 @@ export const useChat = (): useChatInterface => {
     sendMessage: (text: string) => {
       const sentMessage: MessageObj = {
         id: crypto.randomUUID(),
-        source: "gpt-4",
-        time: new Date("2023-12-19").toISOString(),
+        source: 'gpt-4',
+        time: new Date('2023-12-19').toISOString(),
         message: text,
       };
       const replyMessage: MessageObj = {
         id: crypto.randomUUID(),
-        source: "gpt-4",
-        time: new Date("2023-12-19").toISOString(),
-        message: "Hello Back",
+        source: 'gpt-4',
+        time: new Date('2023-12-19').toISOString(),
+        message: 'Hello Back',
       };
 
       changeMessages((prev) => [...prev, sentMessage]);

@@ -1,24 +1,19 @@
-import { SearchController } from "./search-epic/main";
-import { SearchBar } from "./search-epic/search-bar/main";
-import { SearchViewProps } from "./page";
-import { SearchResults } from "./search-epic/results/main";
-import { SearchResult } from "./search-epic/results/element/main";
-import SearchBarInput from "./search-epic/search-bar/input/main";
-import { SearchBarButton } from "./search-epic/search-bar/button/main";
+import { SearchController } from './search-epic/main';
+import { SearchBar } from './search-epic/search-bar/main';
+import { SearchViewProps } from './page';
+import { SearchResults } from './search-epic/results/main';
+import { SearchResult } from './search-epic/results/element/main';
+import SearchBarInput from './search-epic/search-bar/input/main';
+import { SearchBarButton } from './search-epic/search-bar/button/main';
 
-export function SearchView({
-  results,
-  searchHandler,
-}: SearchViewProps) {
+export function SearchView({ results, searchHandler }: SearchViewProps) {
   return (
     <SearchController>
       <SearchBar>
         <SearchBarInput
           onChange={(e) => searchHandler.updateQuery(e.target.value)}
         />
-        <SearchBarButton
-          onClick={() => searchHandler.searchQuery()}
-        />
+        <SearchBarButton onClick={() => searchHandler.searchQuery()} />
       </SearchBar>
       <SearchResults>
         {results.map((result, index) => (

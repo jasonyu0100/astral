@@ -1,11 +1,11 @@
-import { TableDescriptor, TableObjectDescriptor } from "../tables";
-import { chatSchema, exampleChat, exampleChats } from "./chat/main";
+import { TableDescriptor, TableObjectDescriptor } from '../tables';
+import { chatSchema, exampleChat, exampleChats } from './chat/main';
 import {
   exampleMessage,
   exampleMessages,
   messageSchema,
-} from "./chat/message/main";
-import { exampleStorm, exampleStorms, stormSchema } from "./main";
+} from './chat/message/main';
+import { exampleStorm, exampleStorms, stormSchema } from './main';
 
 export const chatTable: TableDescriptor = {
   example: exampleChat,

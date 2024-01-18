@@ -1,8 +1,8 @@
-import { Layer } from "@/(common)/layer/main";
-import { containerStyles } from "@/(common)/styles/data";
-import { useContext } from "react";
-import { StormContext } from "../../../../page";
-import { ChapterObj } from "@/tables/space/chapter/main";
+import { Layer } from '@/(common)/layer/main';
+import { containerStyles } from '@/(common)/styles/data';
+import { useContext } from 'react';
+import { StormContext } from '../../../../page';
+import { ChapterObj } from '@/tables/space/chapter/main';
 
 export function StormChapterHeader({
   chapter,
@@ -16,8 +16,8 @@ export function StormChapterHeader({
     <button onClick={() => chapterHandler.goToChapter(chapter)}>
       <Layer
         displayName={StormChapterHeader.name}
-        sizeStyle="w-full h-[50px]"
-        className={`${containerStyles["row-center"]} justify-between`}
+        sizeStyle='w-full h-[50px]'
+        className={`${containerStyles['row-center']} justify-between`}
       >
         {children}
       </Layer>

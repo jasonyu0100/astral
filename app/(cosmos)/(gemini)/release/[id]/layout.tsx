@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { Topbar } from "@/(common)/topbar/main";
-import { DashboardController } from "@/(cosmos)/(common)/controller/main";
-import { DashboardSidebar } from "../../../(common)/sidebar/main";
-import { createContext } from "react";
-import { labelMap } from "@/(cosmos)/(voyager)/label/map";
+import { Topbar } from '@/(common)/topbar/main';
+import { DashboardController } from '@/(cosmos)/(common)/controller/main';
+import { DashboardSidebar } from '../../../(common)/sidebar/main';
+import { createContext } from 'react';
+import { labelMap } from '@/(cosmos)/(voyager)/label/map';
 
 export interface ReleaseContextObj {
   releaseId: string;
 }
 
 export const ReleaseContext = createContext<ReleaseContextObj>({
-  releaseId: "",
+  releaseId: '',
 });
 
 export default function Layout({

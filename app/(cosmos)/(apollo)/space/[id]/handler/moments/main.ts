@@ -1,6 +1,6 @@
-import { MomentObj } from "@/tables/flow/moment/main";
-import { momentTable } from "@/tables/flow/table";
-import { useState } from "react";
+import { MomentObj } from '@/tables/flow/moment/main';
+import { momentTable } from '@/tables/flow/table';
+import { useState } from 'react';
 
 export interface MomentHandler {
   updateMoment: (moment: MomentObj) => MomentObj;
@@ -17,14 +17,14 @@ export interface useMomentInterface {
 
 export const useMoment = (): useMomentInterface => {
   const [moments, changeMoments] = useState<MomentObj[]>(momentTable.examples);
-  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || "");
+  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || '');
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
   const _momentHandler: MomentHandler = {
     updateMoments: (moments: MomentObj[]) => {
       changeMoments(moments);
-      changeMomentId(moments.at(0)?.id || "");
+      changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
     updateMoment: (moment: MomentObj) => {

@@ -1,15 +1,15 @@
-import { draftSchema, exampleDraft, exampleDrafts } from "./main";
+import { draftSchema, exampleDraft, exampleDrafts } from './main';
 import {
   exampleStars,
   exampleStar,
   starSchema,
-} from "./constellation/star/main";
+} from './constellation/star/main';
 import {
   constellationSchema,
   exampleConstellation,
   exampleConstellations,
-} from "./constellation/main";
-import { TableDescriptor, TableObjectDescriptor } from "../tables";
+} from './constellation/main';
+import { TableDescriptor, TableObjectDescriptor } from '../tables';
 
 export const draftTable: TableDescriptor = {
   example: exampleDraft,

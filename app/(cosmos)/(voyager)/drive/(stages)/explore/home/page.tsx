@@ -1,28 +1,32 @@
-"use client";
-import { createContext, useEffect, useState } from "react";
-import { GalleryObj } from "@/tables/gallery/main";
-import { ExploreView } from "./view";
-import insideCosmos from "@/utils/isAuth";
-import { amplifyClient } from "@/client";
-import { listGalleryObjs } from "@/graphql/queries";
-import { useUser } from "@/state/main";
-import { createGalleryObj } from "@/graphql/mutations";
-import { FileObj } from "@/tables/file/main";
+'use client';
+import { createContext, useEffect, useState } from 'react';
+import { GalleryObj } from '@/tables/gallery/main';
+import { ExploreView } from './view';
+import insideCosmos from '@/utils/isAuth';
+import { amplifyClient } from '@/client';
+import { listGalleryObjs } from '@/graphql/queries';
+import { useUser } from '@/state/main';
+import { createGalleryObj } from '@/graphql/mutations';
+import { FileObj } from '@/tables/file/main';
 
 export interface ExploreHomeContext {
   gallerys: GalleryObj[];
   addGallery: (
     title: string,
     description: string,
-    thumbnail: FileObj
+    thumbnail: FileObj,
   ) => Promise<void>;
 }
 
 export const ExploreHomeContext = createContext<ExploreHomeContext>({
   gallerys: [],
-  addGallery: function (title: string, description: string, thumbnail: FileObj): Promise<void> {
-    throw new Error("Function not implemented.");
-  }
+  addGallery: function (
+    title: string,
+    description: string,
+    thumbnail: FileObj,
+  ): Promise<void> {
+    throw new Error('Function not implemented.');
+  },
 });
 
 function Page() {
@@ -54,7 +58,7 @@ function Page() {
   const addGallery = async (
     title: string,
     description: string,
-    thumbnail: FileObj
+    thumbnail: FileObj,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createGalleryObj,

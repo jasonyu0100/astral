@@ -15,6 +15,6 @@ export const spaceMap = {
       },
       link: (id: string) => `/space/${id}`,
     },
-    link: "/space"
+    link: '/space',
   },
 };

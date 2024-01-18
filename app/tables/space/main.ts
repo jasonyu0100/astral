@@ -15,23 +15,23 @@ type SpaceObj {
 `;
 
 export const exampleSpace: SpaceObj = {
-  id: "0",
-  userId: "0",
-  title: "Space Example",
-  description: "Space Description",
+  id: '0',
+  userId: '0',
+  title: 'Space Example',
+  description: 'Space Description',
 };
 
 export const exampleSpaces: SpaceObj[] = [
   {
-    id: "0",
-    userId: "0",
-    title: "Space Example",
-    description: "Space Description",
+    id: '0',
+    userId: '0',
+    title: 'Space Example',
+    description: 'Space Description',
   },
   {
-    id: "1",
-    userId: "0",
-    title: "Space Example",
-    description: "Space Description",
+    id: '1',
+    userId: '0',
+    title: 'Space Example',
+    description: 'Space Description',
   },
 ];

@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { PortalGalleryPiece } from "./piece/main";
-import { PortalGalleryTitle } from "./title/main";
-import { PolaroidContext } from "../../handler/polaroid/main";
+import { useContext } from 'react';
+import { PortalGalleryPiece } from './piece/main';
+import { PortalGalleryTitle } from './title/main';
+import { PolaroidContext } from '../../handler/polaroid/main';
 
 export function PortalGalleryView() {
   const { transition, index, categories, variant, polaroidHandler } =
@@ -9,7 +9,7 @@ export function PortalGalleryView() {
 
   return (
     <div
-      className="flex flex-col items-center p-[3rem] pb-0 h-full w-full cursor-pointer"
+      className='flex flex-col items-center p-[3rem] pb-0 h-full w-full cursor-pointer'
       onClick={() => polaroidHandler.tapPolaroid()}
     >
       <PortalGalleryPiece

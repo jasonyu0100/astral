@@ -17,11 +17,11 @@ type CommentObj {
 `;
 
 export const exampleComment: CommentObj = {
-  id: "0",
-  momentId: "0",
-  time: new Date("2023-12-19").toISOString(),
-  content: "Hello World",
-  userId: "0",
+  id: '0',
+  momentId: '0',
+  time: new Date('2023-12-19').toISOString(),
+  content: 'Hello World',
+  userId: '0',
 };
 
 export const exampleComments: CommentObj[] = [exampleComment];

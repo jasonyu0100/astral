@@ -1,8 +1,8 @@
-import { driveMap } from "@/(cosmos)/(voyager)/drive/map";
-import { IndicatorOrangeJewel } from "../indicator/jewel/orange/main";
-import { IndicatorProps, SidebarIndicator } from "../indicator/main";
-import { IndicatorText } from "../indicator/text/main";
-import { SidebarIndicatorType } from "../../main";
+import { driveMap } from '@/(cosmos)/(voyager)/drive/map';
+import { IndicatorOrangeJewel } from '../indicator/jewel/orange/main';
+import { IndicatorProps, SidebarIndicator } from '../indicator/main';
+import { IndicatorText } from '../indicator/text/main';
+import { SidebarIndicatorType } from '../../main';
 
 export function DriveIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Drive;

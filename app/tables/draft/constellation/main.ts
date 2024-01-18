@@ -14,29 +14,29 @@ type ConstellationObj {
 }`;
 
 export const exampleConstellation = {
-  id: "0",
-  draftId: "0",
-  title: "Idea Constellation",
-  description: "Constellation Description",
+  id: '0',
+  draftId: '0',
+  title: 'Idea Constellation',
+  description: 'Constellation Description',
 };
 
 export const exampleConstellations = [
   {
-    id: "0",
-    draftId: "0",
-    title: "Idea Constellation 1",
-    description: "Constellation Description",
+    id: '0',
+    draftId: '0',
+    title: 'Idea Constellation 1',
+    description: 'Constellation Description',
   },
   {
-    id: "1",
-    draftId: "0",
-    title: "Idea Constellation 2",
-    description: "Constellation Description",
+    id: '1',
+    draftId: '0',
+    title: 'Idea Constellation 2',
+    description: 'Constellation Description',
   },
   {
-    id: "2",
-    draftId: "0",
-    title: "Idea Constellation 3",
-    description: "Constellation Description",
+    id: '2',
+    draftId: '0',
+    title: 'Idea Constellation 3',
+    description: 'Constellation Description',
   },
 ];

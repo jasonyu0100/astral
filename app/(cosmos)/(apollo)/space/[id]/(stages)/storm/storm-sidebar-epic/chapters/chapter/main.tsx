@@ -1,18 +1,18 @@
-import { ChapterObj } from "@/tables/space/chapter/main";
-import { StormChapterChatAdd } from "./chat/add/main";
-import { StormChapterChat } from "./chat/main";
-import { StormChapterHeader } from "./header/main";
-import StormChapterIndicator from "./header/indicator/main";
-import { StormChapterTitle } from "./header/title/main";
-import { useContext } from "react";
-import { StormContext } from "../../../page";
+import { ChapterObj } from '@/tables/space/chapter/main';
+import { StormChapterChatAdd } from './chat/add/main';
+import { StormChapterChat } from './chat/main';
+import { StormChapterHeader } from './header/main';
+import StormChapterIndicator from './header/indicator/main';
+import { StormChapterTitle } from './header/title/main';
+import { useContext } from 'react';
+import { StormContext } from '../../../page';
 
 export function StormChapter({ chapter }: { chapter: ChapterObj }) {
   const { chats, chapterId } = useContext(StormContext);
   const active = chapter.id === chapterId;
 
   return (
-    <div className="flex flex-col space-y-[2rem]">
+    <div className='flex flex-col space-y-[2rem]'>
       {active ? (
         <>
           <StormChapterHeader chapter={chapter}>
@@ -29,9 +29,7 @@ export function StormChapter({ chapter }: { chapter: ChapterObj }) {
       ) : (
         <>
           <StormChapterHeader chapter={chapter}>
-            <StormChapterTitle>
-              {chapter.title}
-            </StormChapterTitle>
+            <StormChapterTitle>{chapter.title}</StormChapterTitle>
           </StormChapterHeader>
         </>
       )}

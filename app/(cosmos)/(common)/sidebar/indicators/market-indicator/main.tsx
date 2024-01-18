@@ -1,8 +1,8 @@
-import { marketMap } from "@/(cosmos)/(voyager)/market/map";
-import { IndicatorProps, SidebarIndicator } from "../indicator/main";
-import { IndicatorText } from "../indicator/text/main";
-import { SidebarIndicatorType } from "../../main";
-import { IndicatorPurpleJewel } from "../indicator/jewel/purple/main";
+import { marketMap } from '@/(cosmos)/(voyager)/market/map';
+import { IndicatorProps, SidebarIndicator } from '../indicator/main';
+import { IndicatorText } from '../indicator/text/main';
+import { SidebarIndicatorType } from '../../main';
+import { IndicatorPurpleJewel } from '../indicator/jewel/purple/main';
 
 export function BoardIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Market;

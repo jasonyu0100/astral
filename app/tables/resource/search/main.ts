@@ -1,4 +1,4 @@
-import { ResourceObj, exampleResources } from "../main";
+import { ResourceObj, exampleResources } from '../main';
 
 export interface FileSearch {
   query: string;
@@ -6,6 +6,6 @@ export interface FileSearch {
 }
 
 export const exampleResourceSearch = {
-  query: "test",
-  results: exampleResources
+  query: 'test',
+  results: exampleResources,
 };

@@ -3,5 +3,5 @@ export function SpacesHeaderTextMain({
 }: {
   children: React.ReactNode;
 }) {
-  return <p className="text-white text-5xl font-black uppercase">{children}</p>;
+  return <p className='text-white text-5xl font-black uppercase'>{children}</p>;
 }

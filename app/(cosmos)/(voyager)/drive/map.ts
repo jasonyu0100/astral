@@ -1,10 +1,10 @@
 export const driveMap = {
   drive: {
     search: {
-      link: "/drive/search",
+      link: '/drive/search',
     },
     explore: {
-      link: "/drive/explore/home",
+      link: '/drive/explore/home',
       gallery: {
         id: {
           link: (id: string) => `/drive/explore/gallery/${id}`,
@@ -17,8 +17,8 @@ export const driveMap = {
       },
     },
     connect: {
-      link: "/drive/connect",
+      link: '/drive/connect',
     },
-    link: "/drive",
+    link: '/drive',
   },
 };

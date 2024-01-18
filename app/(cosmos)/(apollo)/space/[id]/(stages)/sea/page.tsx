@@ -1,6 +1,6 @@
-"use client";
-import insideCosmos from "@/utils/isAuth";
-import { SeaView } from "./view";
+'use client';
+import insideCosmos from '@/utils/isAuth';
+import { SeaView } from './view';
 
 function Page() {
   return <SeaView />;

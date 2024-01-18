@@ -1,6 +1,6 @@
-import { ChapterObj } from "@/tables/space/chapter/main";
-import { chapterTable, spaceTable } from "@/tables/space/table";
-import { useState } from "react";
+import { ChapterObj } from '@/tables/space/chapter/main';
+import { chapterTable, spaceTable } from '@/tables/space/table';
+import { useState } from 'react';
 
 export interface ChapterHandler {
   addChapter: (chapter: ChapterObj) => ChapterObj;
@@ -18,11 +18,11 @@ export interface useChaptersInterface {
 
 export const useChapters = (): useChaptersInterface => {
   const [chapters, changeChapters] = useState<ChapterObj[]>(
-    chapterTable.examples
+    chapterTable.examples,
   );
 
   const [chapterId, changeChapterId] = useState<string>(
-    chapters.at(0)?.id || ""
+    chapters.at(0)?.id || '',
   );
 
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
@@ -39,10 +39,10 @@ export const useChapters = (): useChaptersInterface => {
     },
     goToPrevChapter: () => {
       const currentIndex = chapters.findIndex(
-        (chapter) => chapter.id === chapterId
+        (chapter) => chapter.id === chapterId,
       );
       const previousIndex = currentIndex - 1;
-      console.log(previousIndex)
+      console.log(previousIndex);
 
       if (previousIndex >= 0) {
         const previousChapter = chapters[previousIndex];
@@ -53,10 +53,10 @@ export const useChapters = (): useChaptersInterface => {
     },
     goToNextChapter: () => {
       const currentIndex = chapters.findIndex(
-        (chapter) => chapter.id === chapterId
+        (chapter) => chapter.id === chapterId,
       );
       const nextIndex = currentIndex + 1;
-      console.log(nextIndex)
+      console.log(nextIndex);
 
       if (nextIndex < chapters.length) {
         const nextChapter = chapters[nextIndex];

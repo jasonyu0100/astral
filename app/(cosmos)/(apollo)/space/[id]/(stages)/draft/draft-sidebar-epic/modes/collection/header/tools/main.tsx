@@ -1,7 +1,11 @@
-import React from "react"
+import React from 'react';
 
-export function CollectionHeaderTools({ children} : { children: React.ReactNode}) {
-    return <div className="flex flex-row flex-shrink-0 space-x-[1rem]">
-        {children}
-    </div>
+export function CollectionHeaderTools({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className='flex flex-row flex-shrink-0 space-x-[1rem]'>{children}</div>
+  );
 }

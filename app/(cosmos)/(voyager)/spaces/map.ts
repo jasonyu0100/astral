@@ -1,14 +1,14 @@
 export const spacesMap = {
   spaces: {
     now: {
-      link: "/spaces/now",
+      link: '/spaces/now',
     },
     then: {
-      link: "/spaces/then",
+      link: '/spaces/then',
     },
     all: {
-      link: "/spaces/all",
+      link: '/spaces/all',
     },
-    link: "/spaces",
+    link: '/spaces',
   },
 };

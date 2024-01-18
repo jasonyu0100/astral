@@ -4,7 +4,7 @@ export function PortalFormActionContainer({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col space-y-[1rem] w-full mt-auto">
+    <div className='flex flex-col space-y-[1rem] w-full mt-auto'>
       {children}
     </div>
   );

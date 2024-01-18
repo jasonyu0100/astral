@@ -1,7 +1,7 @@
-import { CollectionObj } from "@/tables/gallery/collection/main";
-import { resourceTable } from "@/tables/resource/table";
-import { useContext, useState } from "react";
-import { DraftSidebarContext } from "../../../../main";
+import { CollectionObj } from '@/tables/gallery/collection/main';
+import { resourceTable } from '@/tables/resource/table';
+import { useContext, useState } from 'react';
+import { DraftSidebarContext } from '../../../../main';
 
 export function GalleryCollectionThumbnail({
   collection,
@@ -13,14 +13,14 @@ export function GalleryCollectionThumbnail({
 
   return (
     <div
-      className="h-full aspect-square bg-black"
+      className='h-full aspect-square bg-black'
       onClick={() => {
         sidebarHandler.goToCollection(collection);
       }}
     >
-      <div className="w-full h-full flex flex-row flex-wrap">
+      <div className='w-full h-full flex flex-row flex-wrap'>
         {resource.slice(0, 4).map((resource) => (
-          <img className="h-1/2 aspect-square" src={resource.file.src} />
+          <img className='h-1/2 aspect-square' src={resource.file.src} />
         ))}
       </div>
     </div>

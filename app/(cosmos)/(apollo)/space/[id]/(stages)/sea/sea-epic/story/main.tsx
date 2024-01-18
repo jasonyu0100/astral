@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import p5 from "p5";
-import { FireworkSketch } from "./firework/sketch";
+import { useEffect, useRef, useState } from 'react';
+import p5 from 'p5';
+import { FireworkSketch } from './firework/sketch';
 
 export function SeaStory() {
   const layerRef = useRef<HTMLDivElement>(null);
@@ -21,10 +21,10 @@ export function SeaStory() {
 
     updateDimensions();
 
-    window.addEventListener("resize", updateDimensions);
+    window.addEventListener('resize', updateDimensions);
 
     return () => {
-      window.removeEventListener("resize", updateDimensions);
+      window.removeEventListener('resize', updateDimensions);
     };
   }, [layerRef.current]);
 
@@ -37,8 +37,8 @@ export function SeaStory() {
     }
 
     const newP5Instance = new p5((p: p5) => {
-      console.log(divHeight, divWidth)
-      new FireworkSketch(p, 1080, 1920, renderRef)
+      console.log(divHeight, divWidth);
+      new FireworkSketch(p, 1080, 1920, renderRef);
     });
 
     return () => {
@@ -48,12 +48,12 @@ export function SeaStory() {
 
   return (
     <div
-      className="h-full flex items-center justify-center overflow-hidden rounded-[1rem]"
+      className='h-full flex items-center justify-center overflow-hidden rounded-[1rem]'
       ref={layerRef}
       style={{ width: divWidth }}
     >
       <div
-        className="overflow-hidden rounded-[1rem]"
+        className='overflow-hidden rounded-[1rem]'
         style={{ zoom: zoom * 0.9 }}
         ref={renderRef}
       ></div>

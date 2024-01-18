@@ -1,13 +1,13 @@
 export const portalMap = {
   portal: {
     reserve: {
-      link: "/reserve",
+      link: '/reserve',
     },
     register: {
-      link: "/register",
+      link: '/register',
     },
     login: {
-      link: "/login",
+      link: '/login',
     },
   },
 };

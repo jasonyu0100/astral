@@ -1,4 +1,4 @@
-import { DivInputProps } from "../types/main";
+import { DivInputProps } from '../types/main';
 
 interface LayerContentProps extends DivInputProps {
   contentStyle?: string;
@@ -9,7 +9,7 @@ function LayerContent({ children, ...props }: LayerContentProps) {
   return (
     <div
       {...props}
-      className={`absolute top-0 w-full h-full ${props.className || ""}`}
+      className={`absolute top-0 w-full h-full ${props.className || ''}`}
     >
       {children}
     </div>
@@ -54,13 +54,13 @@ export function Layer({
   return (
     <div
       id={displayName}
-      className={`relative flex-shrink-0 ${sizeStyle || "w-full h-full"} ${
-        borderStyle || ""
+      className={`relative flex-shrink-0 ${sizeStyle || 'w-full h-full'} ${
+        borderStyle || ''
       }`}
     >
       <LayerBackground
-        backgroundStyle={backgroundStyle || ""}
-        effectStyle={effectStyle || ""}
+        backgroundStyle={backgroundStyle || ''}
+        effectStyle={effectStyle || ''}
       />
       <LayerContent {...props}>{children}</LayerContent>
     </div>

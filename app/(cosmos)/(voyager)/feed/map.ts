@@ -1,14 +1,14 @@
 export const feedMap = {
   feed: {
     journal: {
-      link: "/feed/journal",
+      link: '/feed/journal',
     },
     social: {
-      link: "/feed/social",
+      link: '/feed/social',
     },
     explore: {
-      link: "/feed/explore",
+      link: '/feed/explore',
     },
-    link: "/link",
+    link: '/link',
   },
 };

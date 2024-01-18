@@ -1,16 +1,16 @@
-"use client"
+'use client';
 
-import { Topbar } from "@/(common)/topbar/main";
-import { DashboardController } from "@/(cosmos)/(common)/controller/main";
-import { DashboardSidebar } from "../../../(common)/sidebar/main";
-import { createContext } from "react";
+import { Topbar } from '@/(common)/topbar/main';
+import { DashboardController } from '@/(cosmos)/(common)/controller/main';
+import { DashboardSidebar } from '../../../(common)/sidebar/main';
+import { createContext } from 'react';
 
 export interface SpaceContextObj {
   spaceId: string;
 }
 
 export const SpaceContext = createContext<SpaceContextObj>({
-  spaceId: "",
+  spaceId: '',
 });
 
 export default function Layout({

@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import { Tab } from "@/(cosmos)/(common)/tabs/tabs-row/tab/main";
-import { TabGreenShard } from "@/(cosmos)/(common)/tabs/tabs-row/tab/shard/green/main";
-import { TabText } from "@/(cosmos)/(common)/tabs/tabs-row/tab/text/main"
-import { useContext } from "react";
-import { ReleaseContext } from "../../layout";
-import { releaseMap } from "../../map";
-import { ReleaseTabStage } from "../main";
+import { Tab } from '@/(cosmos)/(common)/tabs/tabs-row/tab/main';
+import { TabGreenShard } from '@/(cosmos)/(common)/tabs/tabs-row/tab/shard/green/main';
+import { TabText } from '@/(cosmos)/(common)/tabs/tabs-row/tab/text/main';
+import { useContext } from 'react';
+import { ReleaseContext } from '../../layout';
+import { releaseMap } from '../../map';
+import { ReleaseTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);

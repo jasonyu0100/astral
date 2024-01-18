@@ -1,6 +1,6 @@
-import { RefObject } from "react";
-import { Firework } from "./firework";
-import p5 from "p5";
+import { RefObject } from 'react';
+import { Firework } from './firework';
+import p5 from 'p5';
 
 export class FireworkSketch {
   private fireworks: any[] = [];
@@ -13,7 +13,7 @@ export class FireworkSketch {
     p: p5,
     width: number,
     height: number,
-    parent: RefObject<HTMLDivElement>
+    parent: RefObject<HTMLDivElement>,
   ) {
     this.width = width;
     this.height = height;

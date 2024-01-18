@@ -1,5 +1,5 @@
-"use client";
-import insideCosmos from "@/utils/isAuth";
+'use client';
+import insideCosmos from '@/utils/isAuth';
 
 function Page() {
   return <></>;

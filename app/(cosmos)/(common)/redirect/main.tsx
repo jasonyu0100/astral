@@ -32,7 +32,6 @@
 
 // export default withAuth;
 
-
 //     // <PortalBackground>
 //     //   <div className="flex flex-col w-full h-full justify-center items-center p-[3rem]">
 //     //     <div className="h-full aspect-[13/16] p-[50px] bg-stone-100 shadow-2xl flex flex-col">

@@ -1,4 +1,4 @@
-import { LinkInputProps } from "@/(common)/types/main";
+import { LinkInputProps } from '@/(common)/types/main';
 
 interface InputProps extends LinkInputProps {
   children: React.ReactNode;
@@ -13,11 +13,11 @@ export function DriveBreadcrumbItem({
   return (
     <>
       {active ? (
-        <a className="text-slate-300 font-bold" {...props}>
+        <a className='text-slate-300 font-bold' {...props}>
           {children}
         </a>
       ) : (
-        <a className="text-slate-500 font-bold" {...props}>
+        <a className='text-slate-500 font-bold' {...props}>
           {children}
         </a>
       )}

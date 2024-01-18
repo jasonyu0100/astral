@@ -2,11 +2,11 @@ import {
   ObjectDescriptor,
   TableDescriptor,
   TableObjectDescriptor,
-} from "../tables";
-import { exampleResourceConnect } from "./connect/main";
-import { exampleFile, exampleFiles, fileSchema } from "../file/main";
-import { exampleResource, exampleResources, resourceSchema } from "./main";
-import { exampleResourceSearch } from "./search/main";
+} from '../tables';
+import { exampleResourceConnect } from './connect/main';
+import { exampleFile, exampleFiles, fileSchema } from '../file/main';
+import { exampleResource, exampleResources, resourceSchema } from './main';
+import { exampleResourceSearch } from './search/main';
 
 export const resourceTable: TableDescriptor = {
   example: exampleResource,

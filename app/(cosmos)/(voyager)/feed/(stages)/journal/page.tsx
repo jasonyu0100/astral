@@ -1,12 +1,12 @@
-"use client";
-import insideCosmos from "@/utils/isAuth";
+'use client';
+import insideCosmos from '@/utils/isAuth';
 import {
   MomentHandler,
   useMoment,
-} from "@/(cosmos)/(apollo)/space/[id]/handler/moments/main";
-import { FeedJournalView } from "./view";
-import { createContext } from "react";
-import { MomentObj } from "@/tables/flow/moment/main";
+} from '@/(cosmos)/(apollo)/space/[id]/handler/moments/main';
+import { FeedJournalView } from './view';
+import { createContext } from 'react';
+import { MomentObj } from '@/tables/flow/moment/main';
 
 interface FeedJournalContextObj {
   momentId: string;
@@ -15,7 +15,7 @@ interface FeedJournalContextObj {
 }
 
 export const FeedJournalContext = createContext<FeedJournalContextObj>({
-  momentId: "",
+  momentId: '',
   moments: [],
   momentHandler: undefined,
 });

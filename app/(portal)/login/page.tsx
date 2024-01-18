@@ -1,6 +1,9 @@
-"use client";
-import { PolaroidContext, usePolaroid } from "../polaroid-epic/handler/polaroid/main";
-import { LoginView } from "./view";
+'use client';
+import {
+  PolaroidContext,
+  usePolaroid,
+} from '../polaroid-epic/handler/polaroid/main';
+import { LoginView } from './view';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
@@ -20,5 +23,4 @@ export default function Page() {
       <LoginView />;
     </PolaroidContext.Provider>
   );
-
 }

@@ -1,18 +1,15 @@
-"use client";
-import { createContext, useEffect, useState } from "react";
-import { DriveSectionView } from "./view";
-import { GalleryObj } from "@/tables/gallery/main";
-import { CollectionObj } from "@/tables/gallery/collection/main";
-import { galleryTable } from "@/tables/gallery/table";
-import insideCosmos from "@/utils/isAuth";
-import { amplifyClient } from "@/client";
-import { getGalleryObj, listCollectionObjs } from "@/graphql/queries";
-import { FileObj } from "@/tables/file/main";
-import {
-  createCollectionObj,
-  createResourceObj,
-} from "@/graphql/mutations";
-import { ResourceObj } from "@/tables/resource/main";
+'use client';
+import { createContext, useEffect, useState } from 'react';
+import { DriveSectionView } from './view';
+import { GalleryObj } from '@/tables/gallery/main';
+import { CollectionObj } from '@/tables/gallery/collection/main';
+import { galleryTable } from '@/tables/gallery/table';
+import insideCosmos from '@/utils/isAuth';
+import { amplifyClient } from '@/client';
+import { getGalleryObj, listCollectionObjs } from '@/graphql/queries';
+import { FileObj } from '@/tables/file/main';
+import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
+import { ResourceObj } from '@/tables/resource/main';
 
 export interface ExploreGalleryContextObj {
   gallery: GalleryObj;
@@ -24,8 +21,8 @@ export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>({
   gallery: {} as GalleryObj,
   collections: [],
   addCollection: function (name: string, files: FileObj[]): void {
-    throw new Error("Function not implemented.");
-  }
+    throw new Error('Function not implemented.');
+  },
 });
 
 function Page({ params }: { params: { id: string } }) {
@@ -80,23 +77,23 @@ function Page({ params }: { params: { id: string } }) {
   };
 
   const addResources = async (collection: CollectionObj, files: FileObj[]) => {
-    const resources = []
+    const resources = [];
     for (let file of files) {
       const payload = await amplifyClient.graphql({
         query: createResourceObj,
         variables: {
           input: {
-            name: file.name || "",
-            description: file.name || "",
+            name: file.name || '',
+            description: file.name || '',
             collectionId: collection.id,
             file: file,
           },
         },
       });
       const resource: ResourceObj = payload?.data?.createResourceObj || {};
-      resources.push(resource)
+      resources.push(resource);
     }
-    return resources
+    return resources;
   };
 
   const context: ExploreGalleryContextObj = {

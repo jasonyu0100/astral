@@ -1,11 +1,11 @@
-import { FileObj, exampleFile } from "../../file/main";
-import { CommentObj, exampleComments } from "./comment/main";
+import { FileObj, exampleFile } from '../../file/main';
+import { CommentObj, exampleComments } from './comment/main';
 
 export enum MomentVisibility {
-  JOURNAL = "JOURNAL",
-  SOCIAL = "SOCIAL",
-  EXPLORE = "EXPLORE",
-  NONE = "NONE",
+  JOURNAL = 'JOURNAL',
+  SOCIAL = 'SOCIAL',
+  EXPLORE = 'EXPLORE',
+  NONE = 'NONE',
 }
 
 export const momentSchema = `
@@ -36,43 +36,43 @@ export interface MomentObj {
 }
 
 export const exampleMoment: MomentObj = {
-  id: "0",
-  time: new Date("2023-12-19").toISOString(),
-  title: "Moment Title 0",
-  log: "Moment Description Example",
+  id: '0',
+  time: new Date('2023-12-19').toISOString(),
+  title: 'Moment Title 0',
+  log: 'Moment Description Example',
   file: exampleFile,
-  spaceId: "0",
-  userId: "0",
-  chapterId: "0",
-  flowId: "0",
+  spaceId: '0',
+  userId: '0',
+  chapterId: '0',
+  flowId: '0',
   visibility: MomentVisibility.JOURNAL,
   comments: exampleComments,
 };
 
 export const exampleMoments: MomentObj[] = [
   {
-    id: "0",
-    time: new Date("2023-12-19").toISOString(),
-    title: "Moment Title 0",
-    log: "Moment Description Example",
+    id: '0',
+    time: new Date('2023-12-19').toISOString(),
+    title: 'Moment Title 0',
+    log: 'Moment Description Example',
     file: exampleFile,
-    spaceId: "0",
-    userId: "0",
-    chapterId: "0",
-    flowId: "0",
+    spaceId: '0',
+    userId: '0',
+    chapterId: '0',
+    flowId: '0',
     visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },
   {
-    id: "1",
-    time: new Date("2023-12-19").toISOString(),
-    title: "Moment Title 1",
-    log: "Moment Description Example",
+    id: '1',
+    time: new Date('2023-12-19').toISOString(),
+    title: 'Moment Title 1',
+    log: 'Moment Description Example',
     file: exampleFile,
-    spaceId: "0",
-    userId: "0",
-    chapterId: "0",
-    flowId: "0",
+    spaceId: '0',
+    userId: '0',
+    chapterId: '0',
+    flowId: '0',
     visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },

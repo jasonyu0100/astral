@@ -1,4 +1,4 @@
-import { FileObj, exampleFile } from "@/tables/file/main";
+import { FileObj, exampleFile } from '@/tables/file/main';
 
 export interface StarObj {
   id: string;
@@ -20,9 +20,9 @@ type StarObj {
 `;
 
 export const exampleStar: StarObj = {
-  id: "0",
-  constellationId: "0",
-  name: "Star 1",
+  id: '0',
+  constellationId: '0',
+  name: 'Star 1',
   x: 120,
   y: 120,
   file: exampleFile,
@@ -30,25 +30,25 @@ export const exampleStar: StarObj = {
 
 export const exampleStars: StarObj[] = [
   {
-    id: "0",
-    constellationId: "0",
-    name: "Star 0",
+    id: '0',
+    constellationId: '0',
+    name: 'Star 0',
     x: 120,
     y: 120,
     file: exampleFile,
   },
   {
-    id: "1",
-    constellationId: "0",
-    name: "Star 1",
+    id: '1',
+    constellationId: '0',
+    name: 'Star 1',
     x: 240,
     y: 120,
     file: exampleFile,
   },
   {
-    id: "2",
-    constellationId: "0",
-    name: "Star 2",
+    id: '2',
+    constellationId: '0',
+    name: 'Star 2',
     x: 360,
     y: 120,
     file: exampleFile,

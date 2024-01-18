@@ -12,20 +12,20 @@ type CollectionObj {
 }`;
 
 export const exampleCollection: CollectionObj = {
-  id: "0",
-  galleryId: "0",
-  name: "Symbols",
+  id: '0',
+  galleryId: '0',
+  name: 'Symbols',
 };
 
 export const exampleCollections: CollectionObj[] = [
   {
-    id: "0",
-    galleryId: "0",
-    name: "Symbols",
+    id: '0',
+    galleryId: '0',
+    name: 'Symbols',
   },
   {
-    id: "1",
-    galleryId: "0",
-    name: "Symbols",
+    id: '1',
+    galleryId: '0',
+    name: 'Symbols',
   },
 ];

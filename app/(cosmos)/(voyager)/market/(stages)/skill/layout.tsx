@@ -1,12 +1,8 @@
-import { BoardTabStage, BoardTabs } from "../../tabs/main";
+import { BoardTabStage, BoardTabs } from '../../tabs/main';
 
-import { DashboardContent } from "@/(cosmos)/(common)/content/main";
+import { DashboardContent } from '@/(cosmos)/(common)/content/main';
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <BoardTabs tab={BoardTabStage.Skill} />
