@@ -692,6 +692,7 @@ export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -715,6 +716,7 @@ export const onUpdateSpaceObj = /* GraphQL */ `subscription OnUpdateSpaceObj(
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -738,6 +740,7 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
     id
     userId
     title
+    time
     description
     __typename
   }

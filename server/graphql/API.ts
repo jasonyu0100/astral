@@ -276,6 +276,7 @@ export type CreateSpaceObjInput = {
   userId: string,
   title: string,
   description: string,
+  time: string,
 };
 
 export type SpaceObj = {
@@ -283,6 +284,7 @@ export type SpaceObj = {
   id: string,
   userId: string,
   title: string,
+  time: string,
   description: string,
 };
 
@@ -291,6 +293,7 @@ export type UpdateSpaceObjInput = {
   userId?: string | null,
   title?: string | null,
   description?: string | null,
+  time?: string | null,
 };
 
 export type DeleteSpaceObjInput = {
@@ -1302,6 +1305,7 @@ export type CreateSpaceObjMutation = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -1316,6 +1320,7 @@ export type UpdateSpaceObjMutation = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -1330,6 +1335,7 @@ export type DeleteSpaceObjMutation = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -1712,6 +1718,7 @@ export type GetSpaceQuery = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -2124,6 +2131,7 @@ export type GetSpaceObjQuery = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -2142,6 +2150,7 @@ export type ListSpaceObjsQuery = {
       id: string,
       userId: string,
       title: string,
+      time: string,
       description: string,
     } | null > | null,
     nextToken?: string | null,
@@ -3040,6 +3049,7 @@ export type OnCreateSpaceObjSubscription = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -3057,6 +3067,7 @@ export type OnUpdateSpaceObjSubscription = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };
@@ -3074,6 +3085,7 @@ export type OnDeleteSpaceObjSubscription = {
     id: string,
     userId: string,
     title: string,
+    time: string,
     description: string,
   } | null,
 };

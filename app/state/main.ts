@@ -11,7 +11,7 @@ const Store = createStore({
       (user: UserObj) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set("user", JSON.stringify({ user }));
+        Cookies.set("user", JSON.stringify(user));
         // Mutate state synchronously
         setState({
           user: {
@@ -24,7 +24,7 @@ const Store = createStore({
       (user: UserObj) =>
       ({ setState, getState }) => {
         // Update local storage
-        Cookies.set("user", JSON.stringify({ user }));
+        Cookies.set("user", JSON.stringify(user));
         // Mutate state synchronously
         setState({
           user: {

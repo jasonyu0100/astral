@@ -6,7 +6,7 @@ export default function insideCosmos(Component: any) {
   return (props: any) => {
     const userCookie = Cookies.get("user") || "";
     const isAuthed = userCookie
-      ? JSON.parse(userCookie)?.user?.id != null
+      ? JSON.parse(userCookie)?.id != null
       : false;
 
     useEffect(() => {

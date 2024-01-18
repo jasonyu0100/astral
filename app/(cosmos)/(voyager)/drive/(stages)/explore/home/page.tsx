@@ -4,7 +4,7 @@ import { GalleryObj } from "@/tables/gallery/main";
 import { ExploreView } from "./view";
 import insideCosmos from "@/utils/isAuth";
 import { amplifyClient } from "@/client";
-import { getGalleryObj, listGalleryObjs } from "@/graphql/queries";
+import { listGalleryObjs } from "@/graphql/queries";
 import { useUser } from "@/state/main";
 import { createGalleryObj } from "@/graphql/mutations";
 import { FileObj } from "@/tables/file/main";
@@ -39,7 +39,7 @@ function Page() {
       variables: {
         filter: {
           userId: {
-            eq: state.user.user.id,
+            eq: state.user.id,
           },
         },
       },

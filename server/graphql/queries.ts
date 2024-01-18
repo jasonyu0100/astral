@@ -13,6 +13,7 @@ export const getSpace = /* GraphQL */ `query GetSpace {
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -418,6 +419,7 @@ export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: String!) {
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -436,6 +438,7 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
       id
       userId
       title
+      time
       description
       __typename
     }

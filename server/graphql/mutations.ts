@@ -490,6 +490,7 @@ export const createSpaceObj = /* GraphQL */ `mutation CreateSpaceObj($input: Cre
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -503,6 +504,7 @@ export const updateSpaceObj = /* GraphQL */ `mutation UpdateSpaceObj($input: Upd
     id
     userId
     title
+    time
     description
     __typename
   }
@@ -516,6 +518,7 @@ export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: Del
     id
     userId
     title
+    time
     description
     __typename
   }
