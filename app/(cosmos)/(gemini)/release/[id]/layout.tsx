@@ -6,13 +6,12 @@ import { DashboardSidebar } from '../../../(common)/sidebar/main';
 import { createContext } from 'react';
 import { labelMap } from '@/(cosmos)/(voyager)/label/map';
 
-export interface ReleaseContextObj {
+interface ReleaseContextObj {
   releaseId: string;
 }
 
 export const ReleaseContext = createContext<ReleaseContextObj>({
-  releaseId: '',
-});
+} as ReleaseContextObj);
 
 export default function Layout({
   children,

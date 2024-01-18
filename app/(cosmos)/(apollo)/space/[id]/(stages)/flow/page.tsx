@@ -19,15 +19,7 @@ interface FlowContextObj {
 }
 
 export const FlowContext = createContext<FlowContextObj>({
-  chapter: undefined,
-  moment: undefined,
-  moments: [],
-  momentId: '',
-  chapterId: '',
-  chapters: [],
-  chapterHandler: undefined,
-  momentHandler: undefined,
-});
+} as FlowContextObj);
 
 function Page() {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters();

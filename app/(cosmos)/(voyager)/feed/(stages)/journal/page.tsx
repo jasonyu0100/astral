@@ -15,10 +15,7 @@ interface FeedJournalContextObj {
 }
 
 export const FeedJournalContext = createContext<FeedJournalContextObj>({
-  momentId: '',
-  moments: [],
-  momentHandler: undefined,
-});
+} as FeedJournalContextObj);
 
 function Page() {
   const { momentId, moments, _momentHandler } = useMoment();

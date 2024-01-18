@@ -8,7 +8,7 @@ import { ChatHandler, useChat } from '../../handler/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext } from 'react';
 
-export interface StormContextObj {
+interface StormContextObj {
   chapter?: ChapterObj;
   chapters: ChapterObj[];
   chapterId: string;
@@ -20,17 +20,9 @@ export interface StormContextObj {
   chatHandler: ChatHandler | any;
 }
 
-export const StormContext = createContext<StormContextObj>({
-  chapters: [],
-  chapterId: '',
-  chats: [],
-  chatId: '',
-  messages: [],
-  chapterHandler: undefined,
-  chatHandler: undefined,
-  chapter: undefined,
-  chat: undefined,
-});
+export const StormContext = createContext<StormContextObj>(
+  {} as StormContextObj,
+);
 
 function Page() {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters();

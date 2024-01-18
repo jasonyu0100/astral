@@ -9,17 +9,13 @@ import { createSpaceObj } from '@/graphql/mutations';
 import { useUser } from '@/state/main';
 import { listSpaceObjs } from '@/graphql/queries';
 
-export interface SpaceContextObj {
+interface SpaceContextObj {
   spaces: SpaceObj[];
   addSpace: (title: string, description: string) => Promise<void>;
 }
 
 export const SpaceContext = createContext<SpaceContextObj>({
-  spaces: [],
-  addSpace: function (title: string, description: string): Promise<void> {
-    throw new Error('Function not implemented.');
-  },
-});
+} as SpaceContextObj);
 export interface SpaceViewProps {
   type: SpaceTabStages;
 }

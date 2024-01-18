@@ -15,7 +15,7 @@ import { amplifyClient } from '@/client';
 import { FileObj } from '@/tables/file/main';
 import { createResourceObj } from '@/graphql/mutations';
 
-export interface ExploreCollectionContextObj {
+interface ExploreCollectionContextObj {
   gallery: GalleryObj;
   collection: CollectionObj;
   resources: ResourceObj[];
@@ -23,12 +23,7 @@ export interface ExploreCollectionContextObj {
 }
 
 export const ExploreCollectionContext =
-  createContext<ExploreCollectionContextObj>({
-    gallery: {} as GalleryObj,
-    collection: {} as CollectionObj,
-    resources: [],
-    resourceHandler: undefined,
-  });
+  createContext<ExploreCollectionContextObj>({} as ExploreCollectionContextObj);
 interface ResourceHandler {
   addResource: (
     name: string,

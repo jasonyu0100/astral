@@ -13,7 +13,7 @@ import {
 import insideCosmos from '@/utils/isAuth';
 import { ResourceObj } from '@/tables/resource/main';
 
-export interface DraftContextObj {
+interface DraftContextObj {
   chapterId: string;
   chapter?: ChapterObj;
   chapters: ChapterObj[];
@@ -26,18 +26,9 @@ export interface DraftContextObj {
   constellationHandler: ConstellationHandler | any;
 }
 
-export const DraftContext = createContext<DraftContextObj>({
-  chapterId: '',
-  chapter: undefined,
-  chapters: [],
-  constellation: undefined,
-  constellations: [],
-  constellationId: '',
-  stars: [],
-  starHandler: undefined,
-  chapterHandler: undefined,
-  constellationHandler: undefined,
-});
+export const DraftContext = createContext<DraftContextObj>(
+  {} as DraftContextObj,
+);
 
 function Page() {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters();

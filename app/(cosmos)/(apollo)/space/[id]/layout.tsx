@@ -5,13 +5,13 @@ import { DashboardController } from '@/(cosmos)/(common)/controller/main';
 import { DashboardSidebar } from '../../../(common)/sidebar/main';
 import { createContext } from 'react';
 
-export interface SpaceContextObj {
+interface SpaceContextObj {
   spaceId: string;
 }
 
-export const SpaceContext = createContext<SpaceContextObj>({
-  spaceId: '',
-});
+export const SpaceContext = createContext<SpaceContextObj>(
+  {} as SpaceContextObj,
+);
 
 export default function Layout({
   children,

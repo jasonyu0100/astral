@@ -11,19 +11,14 @@ import { FileObj } from '@/tables/file/main';
 import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
 import { ResourceObj } from '@/tables/resource/main';
 
-export interface ExploreGalleryContextObj {
+interface ExploreGalleryContextObj {
   gallery: GalleryObj;
   collections: CollectionObj[];
   addCollection: (name: string, files: FileObj[]) => void;
 }
 
 export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>({
-  gallery: {} as GalleryObj,
-  collections: [],
-  addCollection: function (name: string, files: FileObj[]): void {
-    throw new Error('Function not implemented.');
-  },
-});
+} as ExploreGalleryContextObj);
 
 function Page({ params }: { params: { id: string } }) {
   const [gallery, changeGallery] = useState<GalleryObj>(galleryTable.example);

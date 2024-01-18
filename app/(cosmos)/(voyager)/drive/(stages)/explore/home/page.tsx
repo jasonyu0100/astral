@@ -9,7 +9,7 @@ import { useUser } from '@/state/main';
 import { createGalleryObj } from '@/graphql/mutations';
 import { FileObj } from '@/tables/file/main';
 
-export interface ExploreHomeContext {
+interface ExploreHomeContextObj {
   gallerys: GalleryObj[];
   addGallery: (
     title: string,
@@ -18,16 +18,8 @@ export interface ExploreHomeContext {
   ) => Promise<void>;
 }
 
-export const ExploreHomeContext = createContext<ExploreHomeContext>({
-  gallerys: [],
-  addGallery: function (
-    title: string,
-    description: string,
-    thumbnail: FileObj,
-  ): Promise<void> {
-    throw new Error('Function not implemented.');
-  },
-});
+export const ExploreHomeContext = createContext<ExploreHomeContextObj>({
+} as ExploreHomeContextObj);
 
 function Page() {
   const [state, actions] = useUser();

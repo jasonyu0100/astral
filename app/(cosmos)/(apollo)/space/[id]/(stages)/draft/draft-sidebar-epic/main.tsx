@@ -38,16 +38,7 @@ export interface DraftSidebarContextObject {
 }
 
 export const DraftSidebarContext = createContext<DraftSidebarContextObject>({
-  sidebarMode: SidebarMode.Home,
-  gallerys: [],
-  galleryId: '',
-  collections: [],
-  collectionId: '',
-  searchResults: [],
-  resources: [],
-  sidebarHandler: undefined,
-  resourceHandler: undefined,
-});
+} as DraftSidebarContextObject);
 
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);

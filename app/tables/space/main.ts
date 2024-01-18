@@ -3,6 +3,7 @@ export interface SpaceObj {
   userId: string;
   title: string;
   description: string;
+  time: string;
 }
 
 export const spaceSchema = `
@@ -19,6 +20,7 @@ export const exampleSpace: SpaceObj = {
   userId: '0',
   title: 'Space Example',
   description: 'Space Description',
+  time: new Date().toISOString(),
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -27,11 +29,13 @@ export const exampleSpaces: SpaceObj[] = [
     userId: '0',
     title: 'Space Example',
     description: 'Space Description',
+    time: new Date().toISOString(),
   },
   {
     id: '1',
     userId: '0',
     title: 'Space Example',
     description: 'Space Description',
+    time: new Date().toISOString(),
   },
 ];

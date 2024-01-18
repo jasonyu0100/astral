@@ -85,8 +85,8 @@ export function SpacesView({ type }: SpaceViewProps) {
           />
         </SpacesHeader>
         <SpacesList>
-          {spaces.map((space) => (
-            <SpacesSpace space={space} />
+          {spaces.map((space, index) => (
+            <SpacesSpace space={space} index={index}/>
           ))}
         </SpacesList>
       </SpacesContainer>

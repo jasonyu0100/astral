@@ -10,14 +10,9 @@ export interface PolaroidContextObj {
   polaroidHandler: PolaroidHandler | any;
 }
 
-export const PolaroidContext = createContext<PolaroidContextObj>({
-  categories: [],
-  flipped: false,
-  index: 0,
-  variant: '',
-  transition: '',
-  polaroidHandler: undefined,
-});
+export const PolaroidContext = createContext<PolaroidContextObj>(
+  {} as PolaroidContextObj,
+);
 
 export interface PolaroidHandler {
   tapPolaroid: () => void;
