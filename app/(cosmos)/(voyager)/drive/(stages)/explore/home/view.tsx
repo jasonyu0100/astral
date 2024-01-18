@@ -12,31 +12,29 @@ import { useContext, useState } from "react";
 import { FormTextArea } from "@/(common)/form/area/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { Modal } from "@/(common)/modal/main";
-import { UploadFileInput } from "@/(common)/form/upload-file/main";
+import { FormUploadFile } from "@/(common)/form/upload-file/main";
 import { FileObj } from "@/tables/file/main";
 import { FormButton } from "@/(common)/form/button/main";
+import { FormTitle } from "@/(common)/form/title/main";
+import { FormDescription } from "@/(common)/form/description/main";
+import { FormBody } from "@/(common)/form/body/main";
+import { FormFooter } from "@/(common)/form/footer/main";
+import { FormContainer } from "@/(common)/form/main";
 
 export function ExploreView() {
   const { gallerys, addGallery } = useContext(ExploreHomeContext);
   const [showModal, changeShowModal] = useState(false);
   const [title, changeTitle] = useState("");
   const [description, changeDescription] = useState("");
-  const [thumbnail, changeThumbnail] = useState({} as FileObj)
+  const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
     <DriveWrapper>
       <Modal isOpen={showModal} onClose={() => changeShowModal(false)}>
-        <div className="flex flex-col items-center w-full h-full space-y-[2rem]">
-          <h2 className="text-4xl font-extraBold mb-4">Create Gallery</h2>
-          <div
-            className="w-full flex flex-col space-y-[2rem] overflow-auto py-[1rem] pr-[1rem]"
-            style={{ height: "100%" }}
-          >
-            <div className="w-full">
-              <p className="font-bold px-[1rem] pb-[2rem]">
-                Create your gallery here!
-              </p>
-            </div>
+        <FormContainer>
+          <FormTitle>Create Gallery</FormTitle>
+          <FormBody>
+            <FormDescription>Create your gallery here!</FormDescription>
             <FormInput
               placeholder="Title"
               title="Title"
@@ -50,20 +48,20 @@ export function ExploreView() {
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: "none" }}
             />
-            <UploadFileInput onChange={(file) => changeThumbnail(file)} />
-          </div>
-          <div className="flex flex-col w-full mt-auto">
+            <FormUploadFile onChange={(file) => changeThumbnail(file)} />
+          </FormBody>
+          <FormFooter>
             <FormButton
               onClick={() => {
                 addGallery(title, description, thumbnail);
-                changeShowModal(false)
+                changeShowModal(false);
                 alert("Submit Idea");
               }}
             >
               Submit Idea
             </FormButton>
-          </div>
-        </div>
+          </FormFooter>
+        </FormContainer>
       </Modal>
       <DriveController>
         <DriveBreadcrumbs>

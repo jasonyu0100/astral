@@ -9,15 +9,19 @@ import { CollectionResourceGrid } from "./collection-epic/grid/main";
 import { CollectionResource } from "./collection-epic/grid/file/main";
 import { CollectionResourceAdd } from "./collection-epic/grid/add/main";
 import { ExploreCollectionContext } from "./page";
-import { resourceTable } from "@/tables/resource/table";
 import { useContext, useState } from "react";
 import { FormButton } from "@/(common)/form/button/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { Modal } from "@/(common)/modal/main";
-import { UploadFileInput } from "@/(common)/form/upload-file/main";
+import { FormUploadFile } from "@/(common)/form/upload-file/main";
 import { FormTextArea } from "@/(common)/form/area/main";
 import { FileObj } from "@/tables/file/main";
 import { DriveWrapper } from "../../home/home-epic/wrapper/main";
+import { FormContainer } from "@/(common)/form/main";
+import { FormFooter } from "@/(common)/form/footer/main";
+import { FormDescription } from "@/(common)/form/description/main";
+import { FormBody } from "@/(common)/form/body/main";
+import { FormTitle } from "@/(common)/form/title/main";
 
 export default function DriveFolderView() {
   const { gallery, collection, resources, resourceHandler } = useContext(
@@ -31,17 +35,10 @@ export default function DriveFolderView() {
   return (
     <DriveWrapper>
       <Modal isOpen={showModal} onClose={() => changeShowModal(false)}>
-        <div className="flex flex-col items-center w-full h-full space-y-[2rem]">
-          <h2 className="text-4xl font-extraBold mb-4">Upload File</h2>
-          <div
-            className="w-full flex flex-col space-y-[2rem] overflow-auto py-[1rem] pr-[1rem]"
-            style={{ height: "100%" }}
-          >
-            <div className="w-full">
-              <p className="font-bold px-[1rem] pb-[2rem]">
-                Upload your file here
-              </p>
-            </div>
+        <FormContainer>
+          <FormTitle>Upload File</FormTitle>
+          <FormBody>
+            <FormDescription>Upload your file here</FormDescription>
             <FormInput
               placeholder="Name"
               title="Name"
@@ -55,9 +52,9 @@ export default function DriveFolderView() {
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: "none" }}
             />
-            <UploadFileInput onChange={(file) => changeFile(file)} />
-          </div>
-          <div className="flex flex-col w-full mt-auto">
+            <FormUploadFile onChange={(file) => changeFile(file)} />
+          </FormBody>
+          <FormFooter>
             <FormButton
               onClick={() => {
                 resourceHandler.addResource(name, description, file);
@@ -67,8 +64,8 @@ export default function DriveFolderView() {
             >
               Submit Idea
             </FormButton>
-          </div>
-        </div>
+          </FormFooter>
+        </FormContainer>
       </Modal>
       <DriveController>
         <DriveBreadcrumbs>

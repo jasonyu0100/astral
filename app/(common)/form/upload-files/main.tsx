@@ -3,7 +3,7 @@ import { createFileObj } from "@/graphql/mutations";
 import { FileObj } from "@/tables/file/main";
 import React, { useState } from "react";
 
-export function UploadFilesInput({
+export function FormUploadFiles({
   onChange,
 }: {
   onChange: (files: FileObj[]) => void;

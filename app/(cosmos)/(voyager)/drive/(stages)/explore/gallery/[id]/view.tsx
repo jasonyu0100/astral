@@ -14,8 +14,13 @@ import { ExploreGalleryContext } from "./page";
 import { FileObj } from "@/tables/file/main";
 import { Modal } from "@/(common)/modal/main";
 import { FormInput } from "@/(common)/form/input/main";
-import { UploadFilesInput } from "@/(common)/form/upload-files/main";
+import { FormUploadFiles } from "@/(common)/form/upload-files/main";
 import { FormButton } from "@/(common)/form/button/main";
+import { FormContainer } from "@/(common)/form/main";
+import { FormTitle } from "@/(common)/form/title/main";
+import { FormBody } from "@/(common)/form/body/main";
+import { FormFooter } from "@/(common)/form/footer/main";
+import { FormDescription } from "@/(common)/form/description/main";
 
 export function DriveSectionView() {
   const { gallery, collections, addCollection } = useContext(
@@ -28,26 +33,19 @@ export function DriveSectionView() {
   return (
     <DriveWrapper>
       <Modal isOpen={showModal} onClose={() => changeShowModal(false)}>
-        <div className="flex flex-col items-center w-full h-full space-y-[2rem]">
-          <h2 className="text-4xl font-extraBold mb-4">Create Collection</h2>
-          <div
-            className="w-full flex flex-col space-y-[2rem] overflow-auto py-[1rem] pr-[1rem]"
-            style={{ height: "100%" }}
-          >
-            <div className="w-full">
-              <p className="font-bold px-[1rem] pb-[2rem]">
-                Create your collection here
-              </p>
-            </div>
+        <FormContainer>
+          <FormTitle>Create Collection</FormTitle>
+          <FormBody>
+            <FormDescription>Create your collection here</FormDescription>
             <FormInput
               placeholder="Name"
               title="Name"
               value={name}
               onChange={(e) => changeName(e.target.value)}
             />
-            <UploadFilesInput onChange={(files) => changeFiles(files)} />
-          </div>
-          <div className="flex flex-col w-full mt-auto">
+            <FormUploadFiles onChange={(files) => changeFiles(files)} />
+          </FormBody>
+          <FormFooter>
             <FormButton
               onClick={() => {
                 addCollection(name, files);
@@ -57,8 +55,8 @@ export function DriveSectionView() {
             >
               Submit Idea
             </FormButton>
-          </div>
-        </div>
+          </FormFooter>
+        </FormContainer>
       </Modal>
       <DriveController>
         <DriveBreadcrumbs>
@@ -84,7 +82,7 @@ export function DriveSectionView() {
                 href={driveMap.drive.explore.collection.id.link(collection.id)}
               />
             ))}
-            <GalleryCollectionAdd onClick={() => changeShowModal(true)}/>
+            <GalleryCollectionAdd onClick={() => changeShowModal(true)} />
           </GalleryCollectionGrid>
         )}
       </DriveController>
