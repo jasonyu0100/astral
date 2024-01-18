@@ -1,7 +1,15 @@
+import { useContext } from "react";
+import { SpaceContext } from "../main";
+
 export function SpaceDay() {
+  const { space } = useContext(SpaceContext)
+  const timeDiff = new Date().getTime() - new Date(space.time).getTime();
+  const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+
   return (
     <div className='flex items-center'>
-      <p className='font-bold text-lg text-white'>D32</p>
+      <p className='font-bold text-lg text-white'>Day {daysDifference}</p>
     </div>
   );
 }

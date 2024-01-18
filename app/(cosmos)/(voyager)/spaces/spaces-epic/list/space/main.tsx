@@ -7,7 +7,9 @@ import { SpaceDay } from './day/main';
 import { SpaceGenre } from './genre/main';
 import { SpaceInfo } from './info/main';
 import { SpaceObj } from '@/tables/space/main';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
+import { Layer } from '@/(common)/layer/main';
+import { backgroundStyles } from '@/(common)/styles/data';
 
 interface SpacesSpaceProps {
   space: SpaceObj;
@@ -17,6 +19,7 @@ interface SpacesSpaceProps {
 interface SpaceContextObj {
   space: SpaceObj;
   index: number;
+  hover: boolean;
 }
 
 export const SpaceContext = createContext<SpaceContextObj>(
@@ -24,15 +27,24 @@ export const SpaceContext = createContext<SpaceContextObj>(
 );
 
 export function SpacesSpace({ space, index }: SpacesSpaceProps) {
+  const [hover, changeHover] = useState(false);
+
   return (
-    <SpaceContext.Provider value={{ space, index }}>
-      <div className='flex flex-row w-full space-x-[3rem] px-[1rem] py-[1rem]'>
+    <SpaceContext.Provider value={{ space, index, hover }}>
+      <Layer
+        displayName={SpacesSpace.name}
+        sizeStyle='w-full h-[100px]'
+        backgroundStyle={`${hover && backgroundStyles['glass-5']}`}
+        className={`flex flex-row items-center w-full px-[3rem] py-[1rem] justify-between max-w-[1000px] h-[100px]`}
+        onMouseOver={() => changeHover(true)}
+        onMouseOut={() => changeHover(false)}
+      >
         <SpaceCount />
-        <SpaceInfo href={spaceMap.space.id.storm.link(space.id)} />
+        <SpaceInfo />
         <SpaceGenre />
         <SpaceDay />
         <SpaceDate />
-      </div>
+      </Layer>
     </SpaceContext.Provider>
   );
 }
