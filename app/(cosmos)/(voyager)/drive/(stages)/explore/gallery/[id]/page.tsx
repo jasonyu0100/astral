@@ -10,7 +10,6 @@ import { getGalleryObj, listCollectionObjs } from "@/graphql/queries";
 import { FileObj } from "@/tables/file/main";
 import {
   createCollectionObj,
-  createReservationObj,
   createResourceObj,
 } from "@/graphql/mutations";
 import { ResourceObj } from "@/tables/resource/main";
@@ -77,6 +76,7 @@ function Page({ params }: { params: { id: string } }) {
     });
     const collection: CollectionObj = payload?.data?.createCollectionObj || {};
     changeCollections((prev) => [...prev, collection]);
+    addResources(collection, files);
   };
 
   const addResources = async (collection: CollectionObj, files: FileObj[]) => {

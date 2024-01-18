@@ -20,7 +20,7 @@ type ResourceObj {
 export const exampleResource: ResourceObj = {
   id: "0",
   collectionId: "0",
-  label: "Example Resource",
+  name: "Example Resource",
   description: "Example Resource Description",
   file: exampleFile,
 };
@@ -30,7 +30,7 @@ export const exampleResources: ResourceObj[] = [
     return {
       id: i.toString(),
       collectionId: "0",
-      label: `Example Resource ${i}`,
+      name: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       file: file,
     };

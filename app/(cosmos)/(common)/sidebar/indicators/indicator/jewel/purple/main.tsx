@@ -12,7 +12,7 @@ export function IndicatorPurpleJewel({
       className={clsx(
         "w-[2.5rem] h-[2.5rem] bg-gradient-to-br from-fuchsia-700 to-fuchsia-900 rounded-full",
         {
-          [effectStyles["glow-lg"]]: active,
+          [`${effectStyles["glow-lg"]} animate-activate`]: active,
           ["opacity-50"]: !active,
         }
       )}

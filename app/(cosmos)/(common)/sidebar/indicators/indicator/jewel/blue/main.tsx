@@ -12,7 +12,7 @@ export function IndicatorBlueJewel({
       className={clsx(
         "w-[2.5rem] h-[2.5rem] bg-gradient-to-br from-cyan-500 to-violet-500 rounded-full",
         {
-          [effectStyles["glow-lg"]]: active,
+          [`${effectStyles["glow-lg"]} animate-activate`]: active,
           ["opacity-50"]: !active,
         }
       )}

@@ -10,15 +10,15 @@ import { driveMap } from "../../../map";
 import { ExploreHomeContext } from "./page";
 import { useContext, useState } from "react";
 import { FormTextArea } from "@/(common)/form/area/main";
-import { InputProps } from "@/(common)/form/button/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { Modal } from "@/(common)/modal/main";
 import { UploadFileInput } from "@/(common)/form/upload-file/main";
 import { FileObj } from "@/tables/file/main";
+import { FormButton } from "@/(common)/form/button/main";
 
 export function ExploreView() {
   const { gallerys, addGallery } = useContext(ExploreHomeContext);
-  const [showModal, changeShowModal] = useState(true);
+  const [showModal, changeShowModal] = useState(false);
   const [title, changeTitle] = useState("");
   const [description, changeDescription] = useState("");
   const [thumbnail, changeThumbnail] = useState({} as FileObj)

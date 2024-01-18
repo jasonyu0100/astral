@@ -9,7 +9,7 @@ export function PortalGalleryView() {
 
   return (
     <div
-      className="flex flex-col items-center p-[5%] h-full w-full cursor-pointer"
+      className="flex flex-col items-center p-[3rem] pb-0 h-full w-full cursor-pointer"
       onClick={() => polaroidHandler.tapPolaroid()}
     >
       <PortalGalleryPiece

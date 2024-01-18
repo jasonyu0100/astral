@@ -11,7 +11,7 @@ export function SearchResult({
   return (
     <div
       className={clsx(
-        "h-[200px] aspect-[13/16] p-[20px] flex items-center flex-col bg-stone-100 mb-[20px] flex-shrink-0",
+        "h-[200px] aspect-[13/16] p-[20px] pb-[0px] flex items-center flex-col bg-stone-100 mb-[20px] flex-shrink-0",
         {
           "mt-[20px]": index % 2 === 0,
           "ml-[25px]": index % 2 === 1,

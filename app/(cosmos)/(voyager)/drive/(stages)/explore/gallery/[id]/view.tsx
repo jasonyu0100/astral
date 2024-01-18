@@ -13,15 +13,15 @@ import { useContext, useState } from "react";
 import { ExploreGalleryContext } from "./page";
 import { FileObj } from "@/tables/file/main";
 import { Modal } from "@/(common)/modal/main";
-import { InputProps } from "@/(common)/form/button/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { UploadFilesInput } from "@/(common)/form/upload-files/main";
+import { FormButton } from "@/(common)/form/button/main";
 
 export function DriveSectionView() {
   const { gallery, collections, addCollection } = useContext(
     ExploreGalleryContext
   );
-  const [showModal, changeShowModal] = useState(true);
+  const [showModal, changeShowModal] = useState(false);
   const [name, changeName] = useState("");
   const [files, changeFiles] = useState([] as FileObj[]);
 

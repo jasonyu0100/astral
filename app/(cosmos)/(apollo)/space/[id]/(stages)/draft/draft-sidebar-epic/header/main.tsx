@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { DraftSidebarContext, SidebarMode } from "../main";
-import { InputProps } from "./breadcrumbs/breadcrumb/main";
+import { BreadcrumbsLink  } from "./breadcrumbs/breadcrumb/main";
 import { BreadcrumbsDivider } from "./breadcrumbs/divider/main";
 import { SidebarBreadcrumbs } from "./breadcrumbs/main";
 

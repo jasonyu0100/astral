@@ -9,8 +9,8 @@ export function DriveBreadcrumbs({ children }: { children: React.ReactNode }) {
   return (
     <Layer
       displayName={DriveBreadcrumbs.name}
-      sizeStyle="max-w-[800px] w-full h-[4rem]"
-      backgroundStyle={backgroundStyles["glass-10"]}
+      sizeStyle="max-w-[800px] w-full h-[4rem] mt-0"
+      backgroundStyle={backgroundStyles["gradient-900"]}
       borderStyle={`${borderStyles["border-all"]} ${borderStyles.rounded}`}
       className={`${containerStyles["row-center"]} px-[2rem]`}
     >

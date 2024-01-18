@@ -16,6 +16,8 @@ export const backgroundStyles = {
   "slate-200": "bg-slate-200",
   "slate-100": "bg-slate-100",
   "slate-50": "bg-slate-50",
+  "gradient-950": "bg-gradient-to-r to-slate-950 from-slate-900 opacity-10",
+  "gradient-900": "bg-gradient-to-r to-slate-900 from-slate-800 opacity-10",
   "none": "",
 }
 

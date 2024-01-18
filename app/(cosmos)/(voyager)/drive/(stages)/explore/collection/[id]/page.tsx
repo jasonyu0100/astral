@@ -4,16 +4,16 @@ import { createContext, useEffect, useState } from "react";
 import DriveFolderView from "./view";
 import { GalleryObj } from "@/tables/gallery/main";
 import { CollectionObj } from "@/tables/gallery/collection/main";
-import { collectionTable, galleryTable } from "@/tables/gallery/table";
 import insideCosmos from "@/utils/isAuth";
 import { ResourceObj } from "@/tables/resource/main";
-import { resourceTable } from "@/tables/resource/table";
 import {
   getCollectionObj,
   getGalleryObj,
   listResourceObjs,
 } from "@/graphql/queries";
 import { amplifyClient } from "@/client";
+import { FileObj } from "@/tables/file/main";
+import { createResourceObj } from "@/graphql/mutations";
 
 export interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -30,13 +30,13 @@ export const ExploreCollectionContext =
     resourceHandler: undefined,
   });
 interface ResourceHandler {
-  addResource: (resource: ResourceObj) => void;
+  addResource: (name: string, description: string, file: FileObj) => Promise<void>
 }
 
 function Page({ params }: { params: { id: string } }) {
-  const [gallery, changeGallery] = useState(galleryTable.example);
-  const [collection, changeCollection] = useState(collectionTable.example);
-  const [resources, changeResources] = useState(resourceTable.examples);
+  const [gallery, changeGallery] = useState({} as GalleryObj);
+  const [collection, changeCollection] = useState({} as CollectionObj);
+  const [resources, changeResources] = useState<ResourceObj[]>([]);
 
   useEffect(() => {
     getCollection(params.id).then((collection) => {
@@ -90,7 +90,22 @@ function Page({ params }: { params: { id: string } }) {
   };
 
   const resourceHandler: ResourceHandler = {
-    addResource: (resource: ResourceObj) => {
+    addResource: async (name: string, description: string, file: FileObj) => {
+      const payload = await amplifyClient.graphql({
+        query: createResourceObj,
+        variables: {
+          input: {
+            name,
+            description,
+            collectionId: collection.id,
+            file,
+          },
+        },
+      });
+      console.log(payload)
+      const resource: ResourceObj = payload?.data?.createResourceObj || {};
+
+      console.log(resource)
       changeResources((prev) => [resource, ...prev]);
     },
   };
