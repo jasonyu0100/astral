@@ -1,9 +1,16 @@
-import { CollectionObj } from '@/tables/gallery/collection/main';
-import { resourceTable } from '@/tables/resource/table';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { GalleryCollectionContext } from '../main';
+import { ExploreGalleryContext } from '../../../../page';
+import { ResourceObj } from '@/tables/resource/main';
 
-export function CollectionCover({ collection }: { collection: CollectionObj }) {
-  const [resources, changeResources] = useState(resourceTable.examples);
+export function CollectionCover() {
+  const { getResources } = useContext(ExploreGalleryContext);
+  const { collection } = useContext(GalleryCollectionContext);
+  const [resources, changeResources] = useState<ResourceObj[]>([]);
+
+  useEffect(() => {
+    getResources(collection).then((resources) => changeResources(resources));
+  }, [])
 
   return (
     <div className='h-full aspect-square bg-black'>

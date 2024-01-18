@@ -6,7 +6,11 @@ import { CollectionObj } from '@/tables/gallery/collection/main';
 import { galleryTable } from '@/tables/gallery/table';
 import insideCosmos from '@/utils/isAuth';
 import { amplifyClient } from '@/client';
-import { getGalleryObj, listCollectionObjs } from '@/graphql/queries';
+import {
+  getGalleryObj,
+  listCollectionObjs,
+  listResourceObjs,
+} from '@/graphql/queries';
 import { FileObj } from '@/tables/file/main';
 import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
 import { ResourceObj } from '@/tables/resource/main';
@@ -14,11 +18,13 @@ import { ResourceObj } from '@/tables/resource/main';
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;
   collections: CollectionObj[];
-  addCollection: (name: string, files: FileObj[]) => void;
+  addCollection: (name: string, files: FileObj[]) => Promise<void>;
+  getResources: (collection: CollectionObj) => Promise<ResourceObj[]>;
 }
 
-export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>({
-} as ExploreGalleryContextObj);
+export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>(
+  {} as ExploreGalleryContextObj,
+);
 
 function Page({ params }: { params: { id: string } }) {
   const [gallery, changeGallery] = useState<GalleryObj>(galleryTable.example);
@@ -91,10 +97,27 @@ function Page({ params }: { params: { id: string } }) {
     return resources;
   };
 
+  const getResources = async (collection: CollectionObj) => {
+    const payload = await amplifyClient.graphql({
+      query: listResourceObjs,
+      variables: {
+        filter: {
+          collectionId: {
+            eq: collection.id,
+          },
+        },
+      },
+    });
+    const resources: ResourceObj[] =
+      payload?.data?.listResourceObjs?.items || [];
+    return resources;
+  };
+
   const context: ExploreGalleryContextObj = {
     gallery,
     collections,
     addCollection,
+    getResources,
   };
 
   return (

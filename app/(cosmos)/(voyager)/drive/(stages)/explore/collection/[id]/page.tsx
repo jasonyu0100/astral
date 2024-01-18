@@ -101,10 +101,8 @@ function Page({ params }: { params: { id: string } }) {
           },
         },
       });
-      console.log(payload);
       const resource: ResourceObj = payload?.data?.createResourceObj || {};
 
-      console.log(resource);
       changeResources((prev) => [resource, ...prev]);
     },
   };

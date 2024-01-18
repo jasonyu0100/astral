@@ -76,11 +76,8 @@ export function DriveSectionView() {
         </DriveBreadcrumbs>
         {gallery !== null && (
           <GalleryCollectionGrid>
-            {collections.map((collection) => (
-              <GalleryCollection
-                collection={collection}
-                href={driveMap.drive.explore.collection.id.link(collection.id)}
-              />
+            {collections.map((collection, index) => (
+              <GalleryCollection collection={collection} index={index}/>
             ))}
             <GalleryCollectionAdd onClick={() => changeShowModal(true)} />
           </GalleryCollectionGrid>
