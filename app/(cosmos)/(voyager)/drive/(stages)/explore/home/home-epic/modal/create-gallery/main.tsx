@@ -21,7 +21,7 @@ export function CreateGalleryModal() {
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={createGalleryModal.showModal} onClose={() => createGalleryModal.closeModal()}>
+    <Modal isOpen={createGalleryModal.opened} onClose={() => createGalleryModal.close()}>
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
@@ -45,7 +45,7 @@ export function CreateGalleryModal() {
           <FormButton
             onClick={() => {
               galleryHandler.queryCreateGallery(title, description, thumbnail);
-              createGalleryModal.closeModal();
+              createGalleryModal.close();
               alert('Submit Idea');
             }}
           >

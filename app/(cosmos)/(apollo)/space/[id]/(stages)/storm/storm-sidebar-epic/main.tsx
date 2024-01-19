@@ -23,7 +23,7 @@ export function StormSidebar() {
           {chapters.map((chapter) => (
             <StormChapter chapter={chapter} />
           ))}
-          <StormChapterAdd onClick={() => addChapter.openModal()}/>
+          <StormChapterAdd onClick={() => addChapter.open()}/>
         </SidebarColumn>
       </Layer>
     </>

@@ -1,24 +1,27 @@
-import { FormTextArea } from '@/(common)/form/area/main';
-import { FormBody } from '@/(common)/form/body/main';
-import { FormButton } from '@/(common)/form/button/main';
-import { FormDescription } from '@/(common)/form/description/main';
-import { FormFooter } from '@/(common)/form/footer/main';
-import { FormInput } from '@/(common)/form/input/main';
-import { FormContainer } from '@/(common)/form/main';
-import { FormTitle } from '@/(common)/form/title/main';
-import { Modal } from '@/(common)/modal/main';
-import { useContext, useState } from 'react';
-import { StormContext } from '../../../page';
-import { StormModalContext } from '../main';
+import { FormTextArea } from "@/(common)/form/area/main";
+import { FormBody } from "@/(common)/form/body/main";
+import { FormButton } from "@/(common)/form/button/main";
+import { FormDescription } from "@/(common)/form/description/main";
+import { FormFooter } from "@/(common)/form/footer/main";
+import { FormInput } from "@/(common)/form/input/main";
+import { FormContainer } from "@/(common)/form/main";
+import { FormTitle } from "@/(common)/form/title/main";
+import { Modal } from "@/(common)/modal/main";
+import { useContext, useState } from "react";
+import { DraftContext } from "../../../page";
+import { DraftModalContext } from "../main";
 
-export function StormAddChapterModal() {
-  const { chapterHandler } = useContext(StormContext);
-  const { addChapter } = useContext(StormModalContext);
+export function DraftAddChapterModal() {
+  const { chapterHandler } = useContext(DraftContext);
+  const { addChapter } = useContext(DraftModalContext)
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={addChapter.opened} onClose={() => addChapter.close()}>
+    <Modal
+      isOpen={addChapter.opened}
+      onClose={() => addChapter.close()}
+    >
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
@@ -52,4 +55,3 @@ export function StormAddChapterModal() {
     </Modal>
   );
 }
-

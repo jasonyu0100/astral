@@ -33,7 +33,7 @@ export function ExploreHomeView() {
             />
           ))}
           <HomeGalleryAdd
-            onClick={() => createGalleryModal.openModal()}
+            onClick={() => createGalleryModal.open()}
           />
         </HomeGalleryGrid>
       </CollectionController>

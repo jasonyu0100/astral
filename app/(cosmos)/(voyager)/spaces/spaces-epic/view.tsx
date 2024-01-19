@@ -32,7 +32,7 @@ export function SpacesView({ type }: SpaceViewProps) {
           </SpacesAlbumInfo>
           <SpacesHeaderAction
             onClick={() => {
-              createSpaceModal.openModal();
+              createSpaceModal.open();
             }}
           />
         </SpacesHeader>

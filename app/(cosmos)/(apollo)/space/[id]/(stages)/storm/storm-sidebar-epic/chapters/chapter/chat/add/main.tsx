@@ -10,7 +10,7 @@ export function StormChapterChatAdd() {
     <>
       <button
         className='flex flex-row w-full items-center space-x-[1rem]'
-        onClick={() => newChat.openModal()}
+        onClick={() => newChat.open()}
       >
         <Layer
           displayName={StormChapterChatAdd.name}

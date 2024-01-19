@@ -47,7 +47,7 @@ export default function ExploreCollectionView() {
           </CollectionBreadcrumbItem>
         </CollectionBreadcrumbs>
         <CollectionResourceGrid>
-          <CollectionResourceAdd onClick={() => addFileModal.openModal()} />
+          <CollectionResourceAdd onClick={() => addFileModal.open()} />
           {resources.map((resource) => (
             <CollectionResource resource={resource} />
           ))}

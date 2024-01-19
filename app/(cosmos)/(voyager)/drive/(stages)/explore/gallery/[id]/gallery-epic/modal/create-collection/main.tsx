@@ -21,7 +21,7 @@ export function CreateCollectionModal() {
   const [files, changeFiles] = useState([] as FileObj[]);
   
   return (
-    <Modal isOpen={createCollectionModal.showModal} onClose={() => createCollectionModal.closeModal()}>
+    <Modal isOpen={createCollectionModal.opened} onClose={() => createCollectionModal.close()}>
       <FormContainer>
         <FormTitle>Create Collection</FormTitle>
         <FormBody>
@@ -38,7 +38,7 @@ export function CreateCollectionModal() {
           <FormButton
             onClick={() => {
               collectionHandler.queryCreateCollection(name, files);
-              createCollectionModal.closeModal();
+              createCollectionModal.close();
               alert('Submit Idea');
             }}
           >

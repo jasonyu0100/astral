@@ -18,7 +18,7 @@ export function StormNewChatModal() {
   const [summary, changeSummary] = useState('');
 
   return (
-    <Modal isOpen={newChat.showModal} onClose={() => newChat.closeModal()}>
+    <Modal isOpen={newChat.opened} onClose={() => newChat.close()}>
       <FormContainer>
         <FormTitle>Add Chat</FormTitle>
         <FormBody>
@@ -41,7 +41,7 @@ export function StormNewChatModal() {
           <FormButton
             onClick={() => {
               chatHandler.queryCreateChat(title, summary);
-              newChat.closeModal();
+              newChat.close();
               alert('Add Chat');
             }}
           >

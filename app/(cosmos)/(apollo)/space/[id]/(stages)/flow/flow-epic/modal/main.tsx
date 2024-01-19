@@ -1,21 +1,21 @@
 import { createContext, useState } from 'react';
 
-export interface StormModalsContextObj {
+export interface FlowModalsContextObj {
   addChapter: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  newChat: {
+  addMoment: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const StormModalContext = createContext({} as StormModalsContextObj);
+export const FlowModalContext = createContext({} as FlowModalsContextObj);
 
-export const useStormModalContext = (): StormModalsContextObj => {
+export const useFlowModalContext = (): FlowModalsContextObj => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
 
@@ -25,7 +25,7 @@ export const useStormModalContext = (): StormModalsContextObj => {
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    newChat: {
+    addMoment: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),

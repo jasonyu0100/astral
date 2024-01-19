@@ -11,6 +11,10 @@ import {
 } from '@/(cosmos)/handler/constellations/main';
 import insideCosmos from '@/utils/isAuth';
 import { StarHandler, useStars } from '@/(cosmos)/handler/stars/main';
+import {
+  DraftModalContext,
+  useDraftModalContext,
+} from './draft-epic/modal/main';
 
 interface DraftContextObj {
   chapterId: string;
@@ -39,10 +43,7 @@ function Page({ params }: { params: { id: string } }) {
     constellationId,
     _constellationHandler,
   } = useConstellations(chapterId);
-  const {
-    stars,
-    _starHandler,
-  } = useStars(constellationId)
+  const { stars, _starHandler } = useStars(constellationId);
 
   const context: DraftContextObj = {
     chapter: chapter,
@@ -57,9 +58,13 @@ function Page({ params }: { params: { id: string } }) {
     constellationHandler: _constellationHandler,
   };
 
+  const modalContext = useDraftModalContext();
+
   return (
     <DraftContext.Provider value={context}>
-      <DraftView />
+      <DraftModalContext.Provider value={modalContext}>
+        <DraftView />
+      </DraftModalContext.Provider>
     </DraftContext.Provider>
   );
 }

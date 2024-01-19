@@ -11,58 +11,18 @@ import { FlowChaptersRightButton } from './flow-epic/chapters/right/main';
 import { FlowChapter } from './flow-epic/chapters/row/item/main';
 import { FlowChaptersRow } from './flow-epic/chapters/row/main';
 import { FlowHeader } from './flow-epic/center/header/main';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import FlowChaptersAdd from './flow-epic/chapters/row/add/main';
-import { FormTextArea } from '@/(common)/form/area/main';
-import { FormBody } from '@/(common)/form/body/main';
-import { FormButton } from '@/(common)/form/button/main';
-import { FormDescription } from '@/(common)/form/description/main';
-import { FormFooter } from '@/(common)/form/footer/main';
-import { FormInput } from '@/(common)/form/input/main';
-import { FormContainer } from '@/(common)/form/main';
-import { FormTitle } from '@/(common)/form/title/main';
-import { Modal } from '@/(common)/modal/main';
+import { FlowModalsView } from './flow-epic/modal/view';
+import { FlowModalContext } from './flow-epic/modal/main';
 
 export function FlowView() {
-  const { moments, chapters, chapterHandler } = useContext(FlowContext);
-  const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
-  const [showCreateChapterModal, changeShowCreateChapterModal] = useState(false);
+  const { moments, chapters } = useContext(FlowContext);
+  const { addChapter } = useContext(FlowModalContext); 
 
   return (
     <FlowWrapper> 
-           <Modal isOpen={showCreateChapterModal} onClose={() => changeShowCreateChapterModal(false)}>
-        <FormContainer>
-          <FormTitle>Add Chapter</FormTitle>
-          <FormBody>
-            <FormDescription>Add your chapter here</FormDescription>
-            <FormInput
-              placeholder='Name'
-              title='Name'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Description'
-              rows={5}
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              onClick={() => {
-                chapterHandler.queryCreateChapter(title, description)
-                changeShowCreateChapterModal(false);
-                alert('Add Chapter');
-              }}
-            >
-              Add Chapter
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </Modal>
+      <FlowModalsView/>
       <FlowMain>
         <FlowCenter>
           <FlowHeader />
@@ -80,7 +40,7 @@ export function FlowView() {
             ))}
             <FlowChaptersAdd 
               onClick={() =>
-                changeShowCreateChapterModal(true)
+                addChapter.open()
               }
             />
           </FlowChaptersRow>

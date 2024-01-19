@@ -2,9 +2,9 @@ import { createContext, useState } from 'react';
 
 export interface GalleryModalsContextObj {
   createCollectionModal: {
-    showModal: boolean;
-    openModal: () => void;
-    closeModal: () => void;
+    opened: boolean;
+    open: () => void;
+    close: () => void;
   };
 }
 
@@ -16,9 +16,9 @@ export const useGalleryModalContext = (): GalleryModalsContextObj => {
 
   return {
     createCollectionModal: {
-      showModal: showCreateGalleryModal,
-      openModal: () => changeShowCreateGalleryModal(true),
-      closeModal: () => changeShowCreateGalleryModal(false),
+      opened: showCreateGalleryModal,
+      open: () => changeShowCreateGalleryModal(true),
+      close: () => changeShowCreateGalleryModal(false),
     },
   };
 };

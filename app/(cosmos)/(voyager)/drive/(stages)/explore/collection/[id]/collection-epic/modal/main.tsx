@@ -2,9 +2,9 @@ import { createContext, useState } from 'react';
 
 export interface CollectionModalsContextObj {
   addFile: {
-    showModal: boolean;
-    openModal: () => void;
-    closeModal: () => void;
+    opened: boolean;
+    open: () => void;
+    close: () => void;
   };
 }
 
@@ -16,9 +16,9 @@ export const useCollectionModalContext = (): CollectionModalsContextObj => {
 
   return {
     addFile: {
-      showModal: showOne,
-      openModal: () => changeShowOne(true),
-      closeModal: () => changeShowOne(false),
+      opened: showOne,
+      open: () => changeShowOne(true),
+      close: () => changeShowOne(false),
     },
   };
 };

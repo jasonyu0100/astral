@@ -2,9 +2,9 @@ import { createContext, useState } from 'react';
 
 export interface SpacesModalsContextObj {
   createSpace: {
-    showModal: boolean;
-    openModal: () => void;
-    closeModal: () => void;
+    opened: boolean;
+    open: () => void;
+    closed: () => void;
   };
 }
 
@@ -16,9 +16,9 @@ export const useSpacesModalContext = (): SpacesModalsContextObj => {
 
   return {
     createSpace: {
-      showModal: showOne,
-      openModal: () => changeTwo(true),
-      closeModal: () => changeTwo(false),
+      opened: showOne,
+      open: () => changeTwo(true),
+      closed: () => changeTwo(false),
     },
   };
 };

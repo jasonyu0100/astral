@@ -44,7 +44,7 @@ export function ExploreGalleryView() {
             {collections.map((collection, index) => (
               <GalleryCollection collection={collection} index={index}/>
             ))}
-            <GalleryCollectionAdd onClick={() => createCollectionModal.openModal()} />
+            <GalleryCollectionAdd onClick={() => createCollectionModal.open()} />
           </GalleryCollectionGrid>
         )}
       </CollectionController>

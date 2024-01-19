@@ -2,9 +2,9 @@ import { createContext, useState } from 'react';
 
 export interface HomeModalsContextObj {
   createGallery: {
-    showModal: boolean;
-    openModal: () => void;
-    closeModal: () => void;
+    opened: boolean;
+    open: () => void;
+    close: () => void;
   };
 }
 
@@ -16,9 +16,9 @@ export const useHomeModalContext = (): HomeModalsContextObj => {
 
   return {
     createGallery: {
-      showModal: showOne,
-      openModal: () => changeShowTwo(true),
-      closeModal: () => changeShowTwo(false),
+      opened: showOne,
+      open: () => changeShowTwo(true),
+      close: () => changeShowTwo(false),
     },
   };
 };
