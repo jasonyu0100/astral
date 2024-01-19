@@ -1,4 +1,3 @@
-import { draftSchema, exampleDraft, exampleDrafts } from './main';
 import {
   exampleStars,
   exampleStar,
@@ -9,13 +8,7 @@ import {
   exampleConstellation,
   exampleConstellations,
 } from './constellation/main';
-import { TableDescriptor, TableObjectDescriptor } from '../tables';
-
-export const draftTable: TableDescriptor = {
-  example: exampleDraft,
-  examples: exampleDrafts,
-  schema: draftSchema,
-};
+import { TableDescriptor } from '../tables';
 
 export const constellationTable: TableDescriptor = {
   example: exampleConstellation,

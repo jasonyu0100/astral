@@ -21,17 +21,19 @@ interface DraftContextObj {
   constellations: ConstellationObj[];
   constellationId: string;
   stars: StarObj[];
-  starHandler: StarHandler | any;
-  chapterHandler: ChapterHandler | any;
-  constellationHandler: ConstellationHandler | any;
+  starHandler: StarHandler;
+  chapterHandler: ChapterHandler;
+  constellationHandler: ConstellationHandler;
 }
 
 export const DraftContext = createContext<DraftContextObj>(
   {} as DraftContextObj,
 );
 
-function Page() {
-  const { chapter, chapters, chapterId, _chapterHandler } = useChapters();
+function Page({ params }: { params: { id: string } }) {
+  const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
+    params.id,
+  );
   const {
     stars,
     _starHandler,
@@ -42,28 +44,30 @@ function Page() {
   } = useConstellation();
 
   const chapterHandler: ChapterHandler = {
+    queryListChapters: async () => {
+      return _chapterHandler.queryListChapters();
+    },
+    queryCreateChapter: async (title: string, description: string) => {
+      return _chapterHandler.queryCreateChapter(title, description);
+    },
     addChapter: (chapter: ChapterObj) => {
       _chapterHandler.addChapter(chapter);
       _constellationHandler.updateConstellations([]);
-      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToChapter: (chapter: ChapterObj) => {
       _chapterHandler.goToChapter(chapter);
       _constellationHandler.updateConstellations([]);
-      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToPrevChapter: () => {
       const chapter = _chapterHandler.goToPrevChapter();
       _constellationHandler.updateConstellations([]);
-      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
     goToNextChapter: () => {
       const chapter = _chapterHandler.goToNextChapter();
       _constellationHandler.updateConstellations([]);
-      // SYNC NEW CHAPTER W/ CONSTELLATIONS AND STARS
       return chapter;
     },
   };

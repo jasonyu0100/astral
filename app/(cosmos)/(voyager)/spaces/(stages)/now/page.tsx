@@ -39,7 +39,7 @@ function Page() {
         },
       },
     });
-    const spaces: SpaceObj[] = payload?.data?.listSpaceObjs?.items || {};
+    const spaces = payload?.data?.listSpaceObjs?.items as SpaceObj[];
     changeSpaces(spaces);
   };
 
@@ -55,7 +55,7 @@ function Page() {
         },
       },
     });
-    const space = payload?.data?.createSpaceObj || {};
+    const space = payload?.data?.createSpaceObj as SpaceObj;
     changeSpaces((prev) => [...prev, space]);
   };
 

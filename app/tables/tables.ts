@@ -6,7 +6,6 @@ import { userTable } from './user/table';
 import { journeyTable, seaTable } from './sea/table';
 import { commentTable, flowTable, momentTable } from './flow/table';
 import { fileTable, resourceTable } from './resource/table';
-import { Profiler } from 'react';
 
 export interface ObjectDescriptor {
   example: any;
@@ -46,7 +45,6 @@ export const architecture = {
     chapter: {
       table: chapterTable,
       storm: {
-        table: stormTable,
         chat: {
           table: chatTable,
           message: {
@@ -55,7 +53,6 @@ export const architecture = {
         },
       },
       draft: {
-        table: draftTable,
         constellation: {
           table: constellationTable,
           star: {
@@ -64,7 +61,6 @@ export const architecture = {
         },
       },
       flow: {
-        table: flowTable,
         moment: {
           table: momentTable,
           comment: {
@@ -73,7 +69,6 @@ export const architecture = {
         },
       },
       sea: {
-        table: seaTable,
         journey: {
           table: journeyTable,
         },
@@ -84,10 +79,10 @@ export const architecture = {
 
 const dataRegions = [
   [chapterTable, spaceTable],
-  [stormTable, chatTable, messageTable],
-  [draftTable, constellationTable, starTable],
-  [flowTable, momentTable, commentTable],
-  [seaTable, journeyTable],
+  [chatTable, messageTable],
+  [constellationTable, starTable],
+  [momentTable, commentTable],
+  [journeyTable],
   [resourceTable, fileTable],
   [collectionTable, galleryTable],
   [userTable],

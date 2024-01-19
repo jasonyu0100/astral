@@ -2,6 +2,7 @@ import { Request, Response, Router } from "express";
 import bcrypt from "bcrypt";
 import { listUserObjs } from "../../graphql/queries";
 import { amplifyClient } from "../../client";
+import { UserObj } from "../../graphql/API";
 
 export const loginRouter = Router();
 
@@ -23,7 +24,8 @@ loginRouter.post("/", async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items || [];
+    const users = payload?.data?.listUserObjs?.items as unknown as UserObj[];
+
     if (users.length === 0) {
       res.status(401).json({ error: "Invalid Email" });
     } else {
@@ -69,7 +71,7 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items || [];
+    const users = payload?.data?.listUserObjs?.items as unknown as UserObj[];
     if (users.length === 0) {
       res.status(401).json({ error: "Invalid Google Id" });
     } else {

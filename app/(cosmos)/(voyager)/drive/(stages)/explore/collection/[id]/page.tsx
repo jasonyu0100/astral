@@ -19,7 +19,7 @@ interface ExploreCollectionContextObj {
   gallery: GalleryObj;
   collection: CollectionObj;
   resources: ResourceObj[];
-  resourceHandler: ResourceHandler | any;
+  resourceHandler: ResourceHandler;
 }
 
 export const ExploreCollectionContext =
@@ -101,7 +101,7 @@ function Page({ params }: { params: { id: string } }) {
           },
         },
       });
-      const resource: ResourceObj = payload?.data?.createResourceObj || {};
+      const resource = payload?.data?.createResourceObj as ResourceObj;
 
       changeResources((prev) => [resource, ...prev]);
     },

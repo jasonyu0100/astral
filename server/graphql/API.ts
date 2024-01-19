@@ -47,25 +47,6 @@ export type DeleteStarObjInput = {
   id: string,
 };
 
-export type CreateFlowObjInput = {
-  chapterId: string,
-};
-
-export type FlowObj = {
-  __typename: "FlowObj",
-  id: string,
-  chapterId: string,
-};
-
-export type UpdateFlowObjInput = {
-  id: string,
-  chapterId?: string | null,
-};
-
-export type DeleteFlowObjInput = {
-  id: string,
-};
-
 export type CreateResourceObjInput = {
   collectionId: string,
   name: string,
@@ -95,7 +76,7 @@ export type DeleteResourceObjInput = {
 };
 
 export type CreateConstellationObjInput = {
-  draftId: string,
+  chapterId: string,
   title: string,
   description: string,
 };
@@ -103,14 +84,14 @@ export type CreateConstellationObjInput = {
 export type ConstellationObj = {
   __typename: "ConstellationObj",
   id: string,
-  draftId: string,
+  chapterId: string,
   title: string,
   description: string,
 };
 
 export type UpdateConstellationObjInput = {
   id: string,
-  draftId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   description?: string | null,
 };
@@ -181,25 +162,6 @@ export type DeleteUserObjInput = {
   id: string,
 };
 
-export type CreateSeaObjInput = {
-  chapterId: string,
-};
-
-export type SeaObj = {
-  __typename: "SeaObj",
-  id: string,
-  chapterId: string,
-};
-
-export type UpdateSeaObjInput = {
-  id: string,
-  chapterId?: string | null,
-};
-
-export type DeleteSeaObjInput = {
-  id: string,
-};
-
 export type CreateChapterObjInput = {
   spaceId: string,
   title: string,
@@ -225,30 +187,12 @@ export type DeleteChapterObjInput = {
   id: string,
 };
 
-export type CreateStormObjInput = {
-  chapterId: string,
-};
-
-export type StormObj = {
-  __typename: "StormObj",
-  id: string,
-  chapterId: string,
-};
-
-export type UpdateStormObjInput = {
-  id: string,
-  chapterId?: string | null,
-};
-
-export type DeleteStormObjInput = {
-  id: string,
-};
-
 export type CreateMessageObjInput = {
   chatId: string,
   source: string,
   time: string,
   message: string,
+  userId?: string | null,
 };
 
 export type MessageObj = {
@@ -258,6 +202,7 @@ export type MessageObj = {
   source: string,
   time: string,
   message: string,
+  userId?: string | null,
 };
 
 export type UpdateMessageObjInput = {
@@ -266,6 +211,7 @@ export type UpdateMessageObjInput = {
   source?: string | null,
   time?: string | null,
   message?: string | null,
+  userId?: string | null,
 };
 
 export type DeleteMessageObjInput = {
@@ -301,7 +247,6 @@ export type DeleteSpaceObjInput = {
 };
 
 export type CreateMomentObjInput = {
-  flowId: string,
   chapterId: string,
   spaceId: string,
   userId: string,
@@ -315,7 +260,6 @@ export type CreateMomentObjInput = {
 export type MomentObj = {
   __typename: "MomentObj",
   id: string,
-  flowId: string,
   chapterId: string,
   spaceId: string,
   userId: string,
@@ -328,7 +272,6 @@ export type MomentObj = {
 
 export type UpdateMomentObjInput = {
   id: string,
-  flowId?: string | null,
   chapterId?: string | null,
   spaceId?: string | null,
   userId?: string | null,
@@ -376,38 +319,19 @@ export type DeleteFileObjInput = {
   id: string,
 };
 
-export type CreateDraftObjInput = {
-  chapterId: string,
-};
-
-export type DraftObj = {
-  __typename: "DraftObj",
-  id: string,
-  chapterId: string,
-};
-
-export type UpdateDraftObjInput = {
-  id: string,
-  chapterId?: string | null,
-};
-
-export type DeleteDraftObjInput = {
-  id: string,
-};
-
 export type CreateJourneyObjInput = {
-  seaId: string,
+  chapterId: string,
 };
 
 export type JourneyObj = {
   __typename: "JourneyObj",
   id: string,
-  seaId: string,
+  chapterId: string,
 };
 
 export type UpdateJourneyObjInput = {
   id: string,
-  seaId?: string | null,
+  chapterId?: string | null,
 };
 
 export type DeleteJourneyObjInput = {
@@ -443,7 +367,7 @@ export type DeleteCommentObjInput = {
 };
 
 export type CreateChatObjInput = {
-  stormId: string,
+  chapterId: string,
   title: string,
   summary: string,
   time: string,
@@ -452,7 +376,7 @@ export type CreateChatObjInput = {
 export type ChatObj = {
   __typename: "ChatObj",
   id: string,
-  stormId: string,
+  chapterId: string,
   title: string,
   summary: string,
   time: string,
@@ -460,7 +384,7 @@ export type ChatObj = {
 
 export type UpdateChatObjInput = {
   id: string,
-  stormId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   summary?: string | null,
   time?: string | null,
@@ -544,17 +468,6 @@ export type StarObjConnection = {
   nextToken?: string | null,
 };
 
-export type TableFlowObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  chapterId?: TableStringFilterInput | null,
-};
-
-export type FlowObjConnection = {
-  __typename: "FlowObjConnection",
-  items?:  Array<FlowObj | null > | null,
-  nextToken?: string | null,
-};
-
 export type TableResourceObjFilterInput = {
   id?: TableStringFilterInput | null,
   collectionId?: TableStringFilterInput | null,
@@ -570,7 +483,7 @@ export type ResourceObjConnection = {
 
 export type TableConstellationObjFilterInput = {
   id?: TableStringFilterInput | null,
-  draftId?: TableStringFilterInput | null,
+  chapterId?: TableStringFilterInput | null,
   title?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
 };
@@ -608,17 +521,6 @@ export type UserObjConnection = {
   nextToken?: string | null,
 };
 
-export type TableSeaObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  chapterId?: TableStringFilterInput | null,
-};
-
-export type SeaObjConnection = {
-  __typename: "SeaObjConnection",
-  items?:  Array<SeaObj | null > | null,
-  nextToken?: string | null,
-};
-
 export type TableChapterObjFilterInput = {
   id?: TableStringFilterInput | null,
   spaceId?: TableStringFilterInput | null,
@@ -632,23 +534,13 @@ export type ChapterObjConnection = {
   nextToken?: string | null,
 };
 
-export type TableStormObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  chapterId?: TableStringFilterInput | null,
-};
-
-export type StormObjConnection = {
-  __typename: "StormObjConnection",
-  items?:  Array<StormObj | null > | null,
-  nextToken?: string | null,
-};
-
 export type TableMessageObjFilterInput = {
   id?: TableStringFilterInput | null,
   chatId?: TableStringFilterInput | null,
   source?: TableStringFilterInput | null,
   time?: TableStringFilterInput | null,
   message?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
 };
 
 export type MessageObjConnection = {
@@ -672,7 +564,6 @@ export type SpaceObjConnection = {
 
 export type TableMomentObjFilterInput = {
   id?: TableStringFilterInput | null,
-  flowId?: TableStringFilterInput | null,
   chapterId?: TableStringFilterInput | null,
   spaceId?: TableStringFilterInput | null,
   userId?: TableStringFilterInput | null,
@@ -725,20 +616,9 @@ export type FileObjConnection = {
   nextToken?: string | null,
 };
 
-export type TableDraftObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  chapterId?: TableStringFilterInput | null,
-};
-
-export type DraftObjConnection = {
-  __typename: "DraftObjConnection",
-  items?:  Array<DraftObj | null > | null,
-  nextToken?: string | null,
-};
-
 export type TableJourneyObjFilterInput = {
   id?: TableStringFilterInput | null,
-  seaId?: TableStringFilterInput | null,
+  chapterId?: TableStringFilterInput | null,
 };
 
 export type JourneyObjConnection = {
@@ -763,7 +643,7 @@ export type CommentObjConnection = {
 
 export type TableChatObjFilterInput = {
   id?: TableStringFilterInput | null,
-  stormId?: TableStringFilterInput | null,
+  chapterId?: TableStringFilterInput | null,
   title?: TableStringFilterInput | null,
   summary?: TableStringFilterInput | null,
   time?: TableStringFilterInput | null,
@@ -854,42 +734,6 @@ export type DeleteStarObjMutation = {
   } | null,
 };
 
-export type CreateFlowObjMutationVariables = {
-  input: CreateFlowObjInput,
-};
-
-export type CreateFlowObjMutation = {
-  createFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type UpdateFlowObjMutationVariables = {
-  input: UpdateFlowObjInput,
-};
-
-export type UpdateFlowObjMutation = {
-  updateFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type DeleteFlowObjMutationVariables = {
-  input: DeleteFlowObjInput,
-};
-
-export type DeleteFlowObjMutation = {
-  deleteFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type CreateResourceObjMutationVariables = {
   input: CreateResourceObjInput,
 };
@@ -964,7 +808,7 @@ export type CreateConstellationObjMutation = {
   createConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -978,7 +822,7 @@ export type UpdateConstellationObjMutation = {
   updateConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -992,7 +836,7 @@ export type DeleteConstellationObjMutation = {
   deleteConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -1136,42 +980,6 @@ export type DeleteUserObjMutation = {
   } | null,
 };
 
-export type CreateSeaObjMutationVariables = {
-  input: CreateSeaObjInput,
-};
-
-export type CreateSeaObjMutation = {
-  createSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type UpdateSeaObjMutationVariables = {
-  input: UpdateSeaObjInput,
-};
-
-export type UpdateSeaObjMutation = {
-  updateSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type DeleteSeaObjMutationVariables = {
-  input: DeleteSeaObjInput,
-};
-
-export type DeleteSeaObjMutation = {
-  deleteSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type CreateChapterObjMutationVariables = {
   input: CreateChapterObjInput,
 };
@@ -1214,42 +1022,6 @@ export type DeleteChapterObjMutation = {
   } | null,
 };
 
-export type CreateStormObjMutationVariables = {
-  input: CreateStormObjInput,
-};
-
-export type CreateStormObjMutation = {
-  createStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type UpdateStormObjMutationVariables = {
-  input: UpdateStormObjInput,
-};
-
-export type UpdateStormObjMutation = {
-  updateStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type DeleteStormObjMutationVariables = {
-  input: DeleteStormObjInput,
-};
-
-export type DeleteStormObjMutation = {
-  deleteStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type CreateMessageObjMutationVariables = {
   input: CreateMessageObjInput,
 };
@@ -1262,6 +1034,7 @@ export type CreateMessageObjMutation = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -1277,6 +1050,7 @@ export type UpdateMessageObjMutation = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -1292,6 +1066,7 @@ export type DeleteMessageObjMutation = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -1348,7 +1123,6 @@ export type CreateMomentObjMutation = {
   createMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -1375,7 +1149,6 @@ export type UpdateMomentObjMutation = {
   updateMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -1402,7 +1175,6 @@ export type DeleteMomentObjMutation = {
   deleteMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -1505,42 +1277,6 @@ export type DeleteFileObjMutation = {
   } | null,
 };
 
-export type CreateDraftObjMutationVariables = {
-  input: CreateDraftObjInput,
-};
-
-export type CreateDraftObjMutation = {
-  createDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type UpdateDraftObjMutationVariables = {
-  input: UpdateDraftObjInput,
-};
-
-export type UpdateDraftObjMutation = {
-  updateDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type DeleteDraftObjMutationVariables = {
-  input: DeleteDraftObjInput,
-};
-
-export type DeleteDraftObjMutation = {
-  deleteDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type CreateJourneyObjMutationVariables = {
   input: CreateJourneyObjInput,
 };
@@ -1549,7 +1285,7 @@ export type CreateJourneyObjMutation = {
   createJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
@@ -1561,7 +1297,7 @@ export type UpdateJourneyObjMutation = {
   updateJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
@@ -1573,7 +1309,7 @@ export type DeleteJourneyObjMutation = {
   deleteJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
@@ -1630,7 +1366,7 @@ export type CreateChatObjMutation = {
   createChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -1645,7 +1381,7 @@ export type UpdateChatObjMutation = {
   updateChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -1660,7 +1396,7 @@ export type DeleteChatObjMutation = {
   deleteChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -1773,36 +1509,6 @@ export type ListStarObjsQuery = {
   } | null,
 };
 
-export type GetFlowObjQueryVariables = {
-  id: string,
-};
-
-export type GetFlowObjQuery = {
-  getFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type ListFlowObjsQueryVariables = {
-  filter?: TableFlowObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListFlowObjsQuery = {
-  listFlowObjs?:  {
-    __typename: "FlowObjConnection",
-    items?:  Array< {
-      __typename: "FlowObj",
-      id: string,
-      chapterId: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type GetResourceObjQueryVariables = {
   id: string,
 };
@@ -1861,7 +1567,7 @@ export type GetConstellationObjQuery = {
   getConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -1879,7 +1585,7 @@ export type ListConstellationObjsQuery = {
     items?:  Array< {
       __typename: "ConstellationObj",
       id: string,
-      draftId: string,
+      chapterId: string,
       title: string,
       description: string,
     } | null > | null,
@@ -1991,36 +1697,6 @@ export type ListUserObjsQuery = {
   } | null,
 };
 
-export type GetSeaObjQueryVariables = {
-  id: string,
-};
-
-export type GetSeaObjQuery = {
-  getSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type ListSeaObjsQueryVariables = {
-  filter?: TableSeaObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListSeaObjsQuery = {
-  listSeaObjs?:  {
-    __typename: "SeaObjConnection",
-    items?:  Array< {
-      __typename: "SeaObj",
-      id: string,
-      chapterId: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type GetChapterObjQueryVariables = {
   id: string,
 };
@@ -2055,36 +1731,6 @@ export type ListChapterObjsQuery = {
   } | null,
 };
 
-export type GetStormObjQueryVariables = {
-  id: string,
-};
-
-export type GetStormObjQuery = {
-  getStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type ListStormObjsQueryVariables = {
-  filter?: TableStormObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListStormObjsQuery = {
-  listStormObjs?:  {
-    __typename: "StormObjConnection",
-    items?:  Array< {
-      __typename: "StormObj",
-      id: string,
-      chapterId: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type GetMessageObjQueryVariables = {
   id: string,
 };
@@ -2097,6 +1743,7 @@ export type GetMessageObjQuery = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -2116,6 +1763,7 @@ export type ListMessageObjsQuery = {
       source: string,
       time: string,
       message: string,
+      userId?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2165,7 +1813,6 @@ export type GetMomentObjQuery = {
   getMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -2196,7 +1843,6 @@ export type ListMomentObjsQuery = {
     items?:  Array< {
       __typename: "MomentObj",
       id: string,
-      flowId: string,
       chapterId: string,
       spaceId: string,
       userId: string,
@@ -2285,36 +1931,6 @@ export type ListFileObjsQuery = {
   } | null,
 };
 
-export type GetDraftObjQueryVariables = {
-  id: string,
-};
-
-export type GetDraftObjQuery = {
-  getDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type ListDraftObjsQueryVariables = {
-  filter?: TableDraftObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListDraftObjsQuery = {
-  listDraftObjs?:  {
-    __typename: "DraftObjConnection",
-    items?:  Array< {
-      __typename: "DraftObj",
-      id: string,
-      chapterId: string,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type GetJourneyObjQueryVariables = {
   id: string,
 };
@@ -2323,7 +1939,7 @@ export type GetJourneyObjQuery = {
   getJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
@@ -2339,7 +1955,7 @@ export type ListJourneyObjsQuery = {
     items?:  Array< {
       __typename: "JourneyObj",
       id: string,
-      seaId: string,
+      chapterId: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2389,7 +2005,7 @@ export type GetChatObjQuery = {
   getChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -2408,7 +2024,7 @@ export type ListChatObjsQuery = {
     items?:  Array< {
       __typename: "ChatObj",
       id: string,
-      stormId: string,
+      chapterId: string,
       title: string,
       summary: string,
       time: string,
@@ -2526,45 +2142,6 @@ export type OnDeleteStarObjSubscription = {
   } | null,
 };
 
-export type OnCreateFlowObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnCreateFlowObjSubscription = {
-  onCreateFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnUpdateFlowObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnUpdateFlowObjSubscription = {
-  onUpdateFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnDeleteFlowObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnDeleteFlowObjSubscription = {
-  onDeleteFlowObj?:  {
-    __typename: "FlowObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type OnCreateResourceObjSubscriptionVariables = {
   id?: string | null,
   collectionId?: string | null,
@@ -2642,7 +2219,7 @@ export type OnDeleteResourceObjSubscription = {
 
 export type OnCreateConstellationObjSubscriptionVariables = {
   id?: string | null,
-  draftId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   description?: string | null,
 };
@@ -2651,7 +2228,7 @@ export type OnCreateConstellationObjSubscription = {
   onCreateConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -2659,7 +2236,7 @@ export type OnCreateConstellationObjSubscription = {
 
 export type OnUpdateConstellationObjSubscriptionVariables = {
   id?: string | null,
-  draftId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   description?: string | null,
 };
@@ -2668,7 +2245,7 @@ export type OnUpdateConstellationObjSubscription = {
   onUpdateConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -2676,7 +2253,7 @@ export type OnUpdateConstellationObjSubscription = {
 
 export type OnDeleteConstellationObjSubscriptionVariables = {
   id?: string | null,
-  draftId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   description?: string | null,
 };
@@ -2685,7 +2262,7 @@ export type OnDeleteConstellationObjSubscription = {
   onDeleteConstellationObj?:  {
     __typename: "ConstellationObj",
     id: string,
-    draftId: string,
+    chapterId: string,
     title: string,
     description: string,
   } | null,
@@ -2850,45 +2427,6 @@ export type OnDeleteUserObjSubscription = {
   } | null,
 };
 
-export type OnCreateSeaObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnCreateSeaObjSubscription = {
-  onCreateSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnUpdateSeaObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnUpdateSeaObjSubscription = {
-  onUpdateSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnDeleteSeaObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnDeleteSeaObjSubscription = {
-  onDeleteSeaObj?:  {
-    __typename: "SeaObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type OnCreateChapterObjSubscriptionVariables = {
   id?: string | null,
   spaceId?: string | null,
@@ -2940,45 +2478,6 @@ export type OnDeleteChapterObjSubscription = {
   } | null,
 };
 
-export type OnCreateStormObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnCreateStormObjSubscription = {
-  onCreateStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnUpdateStormObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnUpdateStormObjSubscription = {
-  onUpdateStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnDeleteStormObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnDeleteStormObjSubscription = {
-  onDeleteStormObj?:  {
-    __typename: "StormObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type OnCreateMessageObjSubscriptionVariables = {
   id?: string | null,
   chatId?: string | null,
@@ -2995,6 +2494,7 @@ export type OnCreateMessageObjSubscription = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -3014,6 +2514,7 @@ export type OnUpdateMessageObjSubscription = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -3033,6 +2534,7 @@ export type OnDeleteMessageObjSubscription = {
     source: string,
     time: string,
     message: string,
+    userId?: string | null,
   } | null,
 };
 
@@ -3092,7 +2594,6 @@ export type OnDeleteSpaceObjSubscription = {
 
 export type OnCreateMomentObjSubscriptionVariables = {
   id?: string | null,
-  flowId?: string | null,
   chapterId?: string | null,
   spaceId?: string | null,
   userId?: string | null,
@@ -3102,7 +2603,6 @@ export type OnCreateMomentObjSubscription = {
   onCreateMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -3123,7 +2623,6 @@ export type OnCreateMomentObjSubscription = {
 
 export type OnUpdateMomentObjSubscriptionVariables = {
   id?: string | null,
-  flowId?: string | null,
   chapterId?: string | null,
   spaceId?: string | null,
   userId?: string | null,
@@ -3133,7 +2632,6 @@ export type OnUpdateMomentObjSubscription = {
   onUpdateMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -3154,7 +2652,6 @@ export type OnUpdateMomentObjSubscription = {
 
 export type OnDeleteMomentObjSubscriptionVariables = {
   id?: string | null,
-  flowId?: string | null,
   chapterId?: string | null,
   spaceId?: string | null,
   userId?: string | null,
@@ -3164,7 +2661,6 @@ export type OnDeleteMomentObjSubscription = {
   onDeleteMomentObj?:  {
     __typename: "MomentObj",
     id: string,
-    flowId: string,
     chapterId: string,
     spaceId: string,
     userId: string,
@@ -3285,81 +2781,42 @@ export type OnDeleteFileObjSubscription = {
   } | null,
 };
 
-export type OnCreateDraftObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnCreateDraftObjSubscription = {
-  onCreateDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnUpdateDraftObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnUpdateDraftObjSubscription = {
-  onUpdateDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
-export type OnDeleteDraftObjSubscriptionVariables = {
-  id?: string | null,
-  chapterId?: string | null,
-};
-
-export type OnDeleteDraftObjSubscription = {
-  onDeleteDraftObj?:  {
-    __typename: "DraftObj",
-    id: string,
-    chapterId: string,
-  } | null,
-};
-
 export type OnCreateJourneyObjSubscriptionVariables = {
   id?: string | null,
-  seaId?: string | null,
+  chapterId?: string | null,
 };
 
 export type OnCreateJourneyObjSubscription = {
   onCreateJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
 export type OnUpdateJourneyObjSubscriptionVariables = {
   id?: string | null,
-  seaId?: string | null,
+  chapterId?: string | null,
 };
 
 export type OnUpdateJourneyObjSubscription = {
   onUpdateJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
 export type OnDeleteJourneyObjSubscriptionVariables = {
   id?: string | null,
-  seaId?: string | null,
+  chapterId?: string | null,
 };
 
 export type OnDeleteJourneyObjSubscription = {
   onDeleteJourneyObj?:  {
     __typename: "JourneyObj",
     id: string,
-    seaId: string,
+    chapterId: string,
   } | null,
 };
 
@@ -3422,7 +2879,7 @@ export type OnDeleteCommentObjSubscription = {
 
 export type OnCreateChatObjSubscriptionVariables = {
   id?: string | null,
-  stormId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   summary?: string | null,
   time?: string | null,
@@ -3432,7 +2889,7 @@ export type OnCreateChatObjSubscription = {
   onCreateChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -3441,7 +2898,7 @@ export type OnCreateChatObjSubscription = {
 
 export type OnUpdateChatObjSubscriptionVariables = {
   id?: string | null,
-  stormId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   summary?: string | null,
   time?: string | null,
@@ -3451,7 +2908,7 @@ export type OnUpdateChatObjSubscription = {
   onUpdateChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,
@@ -3460,7 +2917,7 @@ export type OnUpdateChatObjSubscription = {
 
 export type OnDeleteChatObjSubscriptionVariables = {
   id?: string | null,
-  stormId?: string | null,
+  chapterId?: string | null,
   title?: string | null,
   summary?: string | null,
   time?: string | null,
@@ -3470,7 +2927,7 @@ export type OnDeleteChatObjSubscription = {
   onDeleteChatObj?:  {
     __typename: "ChatObj",
     id: string,
-    stormId: string,
+    chapterId: string,
     title: string,
     summary: string,
     time: string,

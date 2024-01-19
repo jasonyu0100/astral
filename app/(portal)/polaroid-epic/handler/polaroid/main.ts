@@ -7,7 +7,7 @@ export interface PolaroidContextObj {
   index: number;
   variant: string;
   transition: string;
-  polaroidHandler: PolaroidHandler | any;
+  polaroidHandler: PolaroidHandler;
 }
 
 export const PolaroidContext = createContext<PolaroidContextObj>(

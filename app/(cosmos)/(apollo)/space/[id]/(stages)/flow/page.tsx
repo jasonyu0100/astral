@@ -14,18 +14,24 @@ interface FlowContextObj {
   momentId: string;
   chapterId: string;
   chapters: ChapterObj[];
-  chapterHandler: ChapterHandler | any;
-  momentHandler: MomentHandler | any;
+  chapterHandler: ChapterHandler;
+  momentHandler: MomentHandler;
 }
 
 export const FlowContext = createContext<FlowContextObj>({
 } as FlowContextObj);
 
-function Page() {
-  const { chapter, chapters, chapterId, _chapterHandler } = useChapters();
+function Page({ params }: { params: { id: string }}) {
+  const { chapter, chapters, chapterId, _chapterHandler } = useChapters(params.id);
   const { moment, moments, momentId, _momentHandler } = useMoment();
 
   const chapterHandler: ChapterHandler = {
+    queryListChapters: async () => {
+      return _chapterHandler.queryListChapters();
+    },
+    queryCreateChapter: async (title: string, description: string) => {
+      return _chapterHandler.queryCreateChapter(title, description);
+    },
     addChapter: (chapter: ChapterObj) => {
       _chapterHandler.addChapter(chapter);
       _momentHandler.updateMoments([]);

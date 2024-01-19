@@ -1,21 +1,9 @@
-import { chapterTable } from '@/tables/space/table';
-import { useContext } from 'react';
-import { StormContext } from '../../../../page';
+import { ButtonInputProps } from '@/(common)/types/main';
 
-export function StormChapterAdd() {
-  const { chapterHandler } = useContext(StormContext);
-
+export function StormChapterAdd({ ...props }: ButtonInputProps) {
   return (
-    <div
-      className='w-full'
-      onClick={() =>
-        chapterHandler.addChapter({
-          ...chapterTable.example,
-          id: new Date().toISOString(),
-        })
-      }
-    >
-      <p className='text-slate-500 font-extraBold text-xl'>Add Step</p>
-    </div>
+    <button className='flex w-full' {...props}>
+      <p className='text-slate-500 font-extraBold text-xl'>Add Chapter</p>
+    </button>
   );
 }

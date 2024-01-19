@@ -7,6 +7,7 @@ import { ChapterHandler, useChapters } from '../../handler/chapters/main';
 import { ChatHandler, useChat } from '../../handler/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext } from 'react';
+import { MessageHandler, useMessages } from '../../handler/messages/main';
 
 interface StormContextObj {
   chapter?: ChapterObj;
@@ -16,63 +17,21 @@ interface StormContextObj {
   chats: ChatObj[];
   chatId: string;
   messages: MessageObj[];
-  chapterHandler: ChapterHandler | any;
-  chatHandler: ChatHandler | any;
+  chapterHandler: ChapterHandler;
+  chatHandler: ChatHandler;
+  messageHandler: MessageHandler
 }
 
 export const StormContext = createContext<StormContextObj>(
   {} as StormContextObj,
 );
 
-function Page() {
-  const { chapter, chapters, chapterId, _chapterHandler } = useChapters();
-  const { chat, chatId, chats, messages, _chatHandler } = useChat();
-
-  const chapterHandler: ChapterHandler = {
-    addChapter: (chapter: ChapterObj) => {
-      _chapterHandler.addChapter(chapter);
-      _chatHandler.updateChats([]);
-      return chapter;
-    },
-    goToChapter: (chapter: ChapterObj) => {
-      _chapterHandler.goToChapter(chapter);
-      _chatHandler.updateChats([]);
-      return chapter;
-    },
-    goToPrevChapter: () => {
-      const chapter = _chapterHandler.goToPrevChapter();
-      _chatHandler.updateChats([]);
-      return chapter;
-    },
-    goToNextChapter: () => {
-      const chapter = _chapterHandler.goToNextChapter();
-      _chatHandler.updateChats([]);
-      return chapter;
-    },
-  };
-
-  const chatHandler: ChatHandler = {
-    updateChats: (chats: ChatObj[]) => {
-      _chatHandler.updateChats(chats);
-      return chats;
-    },
-    updateChat: (chat: ChatObj) => {
-      _chatHandler.updateChat(chat);
-      return chat;
-    },
-    selectChat: (chat: ChatObj) => {
-      _chatHandler.selectChat(chat);
-      return chat;
-    },
-    addChat: (chat: ChatObj) => {
-      _chatHandler.addChat(chat);
-      return chat;
-    },
-    sendMessage: (text: string) => {
-      const message = _chatHandler.sendMessage(text);
-      return message;
-    },
-  };
+function Page({ params }: { params: { id: string } }) {
+  const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
+    params.id,
+  );
+  const { chat, chatId, chats, _chatHandler } = useChat(chapterId);
+  const { messages, _messageHandler } = useMessages(chatId);
 
   const context: StormContextObj = {
     chapter,
@@ -82,8 +41,9 @@ function Page() {
     chats,
     chatId,
     messages,
-    chapterHandler,
-    chatHandler,
+    chapterHandler: _chapterHandler,
+    chatHandler: _chatHandler,
+    messageHandler: _messageHandler
   };
 
   return (

@@ -33,8 +33,8 @@ export interface DraftSidebarContextObject {
   collectionId: string;
   resources: ResourceObj[];
   searchResults: ResourceObj[];
-  sidebarHandler: SidebarHandler | any;
-  resourceHandler: ResourceHandler | any;
+  sidebarHandler: SidebarHandler;
+  resourceHandler: ResourceHandler;
 }
 
 export const DraftSidebarContext = createContext<DraftSidebarContextObject>({

@@ -57,8 +57,8 @@ function Page({ params }: { params: { id: string } }) {
         },
       },
     });
-    const collections: CollectionObj[] =
-      payload?.data?.listCollectionObjs?.items || [];
+    const collections = payload?.data?.listCollectionObjs
+      ?.items as CollectionObj[];
     changeCollections(collections);
   };
 
@@ -72,7 +72,7 @@ function Page({ params }: { params: { id: string } }) {
         },
       },
     });
-    const collection: CollectionObj = payload?.data?.createCollectionObj || {};
+    const collection = payload?.data?.createCollectionObj as CollectionObj;
     changeCollections((prev) => [...prev, collection]);
     addResources(collection, files);
   };
@@ -91,7 +91,7 @@ function Page({ params }: { params: { id: string } }) {
           },
         },
       });
-      const resource: ResourceObj = payload?.data?.createResourceObj || {};
+      const resource = payload?.data?.createResourceObj as ResourceObj;
       resources.push(resource);
     }
     return resources;
@@ -108,8 +108,7 @@ function Page({ params }: { params: { id: string } }) {
         },
       },
     });
-    const resources: ResourceObj[] =
-      payload?.data?.listResourceObjs?.items || [];
+    const resources = payload?.data?.listResourceObjs?.items as ResourceObj[];
     return resources;
   };
 

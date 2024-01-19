@@ -1,26 +1,26 @@
 export interface JourneyObj {
   id: string;
-  seaId: string;
+  chapterId: string;
 }
 
 export const journeySchema = `
 type JourneyObj {
   id: String!
-  seaId: String!
+  chapterId: String!
 }`;
 
 export const exampleJourney = {
   id: '0',
-  seaId: '0',
+  chapterId: '0',
 };
 
 export const exampleJourneys = [
   {
     id: '0',
-    seaId: '0',
+    chapterId: '0',
   },
   {
     id: '1',
-    seaId: '0',
+    chapterId: '0',
   },
 ];

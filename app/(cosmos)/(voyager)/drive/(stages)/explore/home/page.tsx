@@ -40,9 +40,7 @@ function Page() {
         },
       },
     });
-    console.log(payload);
-    const gallerys: GalleryObj[] = payload?.data?.listGalleryObjs?.items || [];
-    console.log(gallerys);
+    const gallerys = payload?.data?.listGalleryObjs?.items as GalleryObj[];
     changeGallerys(gallerys);
     return gallerys;
   };
@@ -64,8 +62,7 @@ function Page() {
       },
     });
 
-    const gallery: GalleryObj = payload?.data?.createGalleryObj || {};
-    console.log(gallery);
+    const gallery = payload?.data?.createGalleryObj as GalleryObj;
     changeGallerys((prev) => {
       return [...prev, gallery];
     });

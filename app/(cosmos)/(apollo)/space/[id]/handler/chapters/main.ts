@@ -1,12 +1,16 @@
+import { amplifyClient } from '@/client';
+import { createChapterObj } from '@/graphql/mutations';
+import { listChapterObjs } from '@/graphql/queries';
 import { ChapterObj } from '@/tables/space/chapter/main';
-import { chapterTable, spaceTable } from '@/tables/space/table';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface ChapterHandler {
   addChapter: (chapter: ChapterObj) => ChapterObj;
   goToChapter: (chapter: ChapterObj) => ChapterObj;
   goToPrevChapter: () => ChapterObj | undefined;
   goToNextChapter: () => ChapterObj | undefined;
+  queryListChapters: () => Promise<void>;
+  queryCreateChapter: (title: string, description: string) => Promise<ChapterObj>;
 }
 
 export interface useChaptersInterface {
@@ -16,10 +20,8 @@ export interface useChaptersInterface {
   _chapterHandler: ChapterHandler;
 }
 
-export const useChapters = (): useChaptersInterface => {
-  const [chapters, changeChapters] = useState<ChapterObj[]>(
-    chapterTable.examples,
-  );
+export const useChapters = (spaceId: string): useChaptersInterface => {
+  const [chapters, changeChapters] = useState<ChapterObj[]>([]);
 
   const [chapterId, changeChapterId] = useState<string>(
     chapters.at(0)?.id || '',
@@ -27,7 +29,40 @@ export const useChapters = (): useChaptersInterface => {
 
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
 
+  useEffect(() => {
+    _chapterHandler.queryListChapters();
+  }, [spaceId]);
+
   const _chapterHandler: ChapterHandler = {
+    queryListChapters: async () => {
+      const payload = await amplifyClient.graphql({
+        query: listChapterObjs,
+        variables: {
+          filter: {
+            spaceId: {
+              eq: spaceId,
+            },
+          },
+        },
+      });
+      const chapters = payload.data?.listChapterObjs?.items as ChapterObj[];
+      changeChapters(chapters);
+      changeChapterId(chapters.at(0)?.id || '');
+    },
+    queryCreateChapter: async (title: string, description: string) => {
+      const payload = await amplifyClient.graphql({
+        query: createChapterObj,
+        variables: {
+          input: {
+            title,
+            description,
+            spaceId,
+          },
+        },
+      });
+      const chapter = payload.data?.createChapterObj as ChapterObj;
+      return chapter;
+    },
     addChapter: (chapter: ChapterObj) => {
       changeChapterId(chapter.id);
       changeChapters((prev) => [...prev, chapter]);
@@ -56,7 +91,6 @@ export const useChapters = (): useChaptersInterface => {
         (chapter) => chapter.id === chapterId,
       );
       const nextIndex = currentIndex + 1;
-      console.log(nextIndex);
 
       if (nextIndex < chapters.length) {
         const nextChapter = chapters[nextIndex];

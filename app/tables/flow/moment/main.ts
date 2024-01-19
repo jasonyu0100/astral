@@ -11,7 +11,6 @@ export enum MomentVisibility {
 export const momentSchema = `
 type MomentObj {
   id: String!
-  flowId: String!
   chapterId: String!
   spaceId: String!
   userId: String!
@@ -23,7 +22,6 @@ type MomentObj {
 }`;
 export interface MomentObj {
   id: string;
-  flowId: string;
   chapterId: string;
   spaceId: string;
   userId: string;
@@ -44,7 +42,6 @@ export const exampleMoment: MomentObj = {
   spaceId: '0',
   userId: '0',
   chapterId: '0',
-  flowId: '0',
   visibility: MomentVisibility.JOURNAL,
   comments: exampleComments,
 };
@@ -59,7 +56,6 @@ export const exampleMoments: MomentObj[] = [
     spaceId: '0',
     userId: '0',
     chapterId: '0',
-    flowId: '0',
     visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },
@@ -72,7 +68,6 @@ export const exampleMoments: MomentObj[] = [
     spaceId: '0',
     userId: '0',
     chapterId: '0',
-    flowId: '0',
     visibility: MomentVisibility.JOURNAL,
     comments: exampleComments,
   },

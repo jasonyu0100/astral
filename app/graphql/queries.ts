@@ -2,7 +2,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import * as APITypes from './API';
+import * as APITypes from "./API";
 type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryInput: InputType;
   __generatedQueryOutput: OutputType;
@@ -69,38 +69,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
   APITypes.ListStarObjsQueryVariables,
   APITypes.ListStarObjsQuery
 >;
-export const getFlowObj = /* GraphQL */ `query GetFlowObj($id: String!) {
-  getFlowObj(id: $id) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetFlowObjQueryVariables,
-  APITypes.GetFlowObjQuery
->;
-export const listFlowObjs = /* GraphQL */ `query ListFlowObjs(
-  $filter: TableFlowObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listFlowObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      chapterId
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListFlowObjsQueryVariables,
-  APITypes.ListFlowObjsQuery
->;
-export const getResourceObj =
-  /* GraphQL */ `query GetResourceObj($id: String!) {
+export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) {
   getResourceObj(id: $id) {
     id
     collectionId
@@ -118,9 +87,9 @@ export const getResourceObj =
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetResourceObjQueryVariables,
-    APITypes.GetResourceObjQuery
-  >;
+  APITypes.GetResourceObjQueryVariables,
+  APITypes.GetResourceObjQuery
+>;
 export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   $filter: TableResourceObjFilterInput
   $limit: Int
@@ -150,20 +119,19 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   APITypes.ListResourceObjsQueryVariables,
   APITypes.ListResourceObjsQuery
 >;
-export const getConstellationObj =
-  /* GraphQL */ `query GetConstellationObj($id: String!) {
+export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id: String!) {
   getConstellationObj(id: $id) {
     id
-    draftId
+    chapterId
     title
     description
     __typename
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetConstellationObjQueryVariables,
-    APITypes.GetConstellationObjQuery
-  >;
+  APITypes.GetConstellationObjQueryVariables,
+  APITypes.GetConstellationObjQuery
+>;
 export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
   $filter: TableConstellationObjFilterInput
   $limit: Int
@@ -172,7 +140,7 @@ export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
   listConstellationObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      draftId
+      chapterId
       title
       description
       __typename
@@ -289,33 +257,6 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
   APITypes.ListUserObjsQueryVariables,
   APITypes.ListUserObjsQuery
 >;
-export const getSeaObj = /* GraphQL */ `query GetSeaObj($id: String!) {
-  getSeaObj(id: $id) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedQuery<APITypes.GetSeaObjQueryVariables, APITypes.GetSeaObjQuery>;
-export const listSeaObjs = /* GraphQL */ `query ListSeaObjs(
-  $filter: TableSeaObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listSeaObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      chapterId
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListSeaObjsQueryVariables,
-  APITypes.ListSeaObjsQuery
->;
 export const getChapterObj = /* GraphQL */ `query GetChapterObj($id: String!) {
   getChapterObj(id: $id) {
     id
@@ -350,36 +291,6 @@ export const listChapterObjs = /* GraphQL */ `query ListChapterObjs(
   APITypes.ListChapterObjsQueryVariables,
   APITypes.ListChapterObjsQuery
 >;
-export const getStormObj = /* GraphQL */ `query GetStormObj($id: String!) {
-  getStormObj(id: $id) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetStormObjQueryVariables,
-  APITypes.GetStormObjQuery
->;
-export const listStormObjs = /* GraphQL */ `query ListStormObjs(
-  $filter: TableStormObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listStormObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      chapterId
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListStormObjsQueryVariables,
-  APITypes.ListStormObjsQuery
->;
 export const getMessageObj = /* GraphQL */ `query GetMessageObj($id: String!) {
   getMessageObj(id: $id) {
     id
@@ -387,6 +298,7 @@ export const getMessageObj = /* GraphQL */ `query GetMessageObj($id: String!) {
     source
     time
     message
+    userId
     __typename
   }
 }
@@ -406,6 +318,7 @@ export const listMessageObjs = /* GraphQL */ `query ListMessageObjs(
       source
       time
       message
+      userId
       __typename
     }
     nextToken
@@ -455,7 +368,6 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
 export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
   getMomentObj(id: $id) {
     id
-    flowId
     chapterId
     spaceId
     userId
@@ -486,7 +398,6 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
   listMomentObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      flowId
       chapterId
       spaceId
       userId
@@ -512,8 +423,7 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
   APITypes.ListMomentObjsQueryVariables,
   APITypes.ListMomentObjsQuery
 >;
-export const getCollectionObj =
-  /* GraphQL */ `query GetCollectionObj($id: String!) {
+export const getCollectionObj = /* GraphQL */ `query GetCollectionObj($id: String!) {
   getCollectionObj(id: $id) {
     id
     galleryId
@@ -522,9 +432,9 @@ export const getCollectionObj =
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetCollectionObjQueryVariables,
-    APITypes.GetCollectionObjQuery
-  >;
+  APITypes.GetCollectionObjQueryVariables,
+  APITypes.GetCollectionObjQuery
+>;
 export const listCollectionObjs = /* GraphQL */ `query ListCollectionObjs(
   $filter: TableCollectionObjFilterInput
   $limit: Int
@@ -581,40 +491,10 @@ export const listFileObjs = /* GraphQL */ `query ListFileObjs(
   APITypes.ListFileObjsQueryVariables,
   APITypes.ListFileObjsQuery
 >;
-export const getDraftObj = /* GraphQL */ `query GetDraftObj($id: String!) {
-  getDraftObj(id: $id) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetDraftObjQueryVariables,
-  APITypes.GetDraftObjQuery
->;
-export const listDraftObjs = /* GraphQL */ `query ListDraftObjs(
-  $filter: TableDraftObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listDraftObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      chapterId
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListDraftObjsQueryVariables,
-  APITypes.ListDraftObjsQuery
->;
 export const getJourneyObj = /* GraphQL */ `query GetJourneyObj($id: String!) {
   getJourneyObj(id: $id) {
     id
-    seaId
+    chapterId
     __typename
   }
 }
@@ -630,7 +510,7 @@ export const listJourneyObjs = /* GraphQL */ `query ListJourneyObjs(
   listJourneyObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      seaId
+      chapterId
       __typename
     }
     nextToken
@@ -680,7 +560,7 @@ export const listCommentObjs = /* GraphQL */ `query ListCommentObjs(
 export const getChatObj = /* GraphQL */ `query GetChatObj($id: String!) {
   getChatObj(id: $id) {
     id
-    stormId
+    chapterId
     title
     summary
     time
@@ -699,7 +579,7 @@ export const listChatObjs = /* GraphQL */ `query ListChatObjs(
   listChatObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      stormId
+      chapterId
       title
       summary
       time
@@ -713,8 +593,7 @@ export const listChatObjs = /* GraphQL */ `query ListChatObjs(
   APITypes.ListChatObjsQueryVariables,
   APITypes.ListChatObjsQuery
 >;
-export const getReservationObj =
-  /* GraphQL */ `query GetReservationObj($id: String!) {
+export const getReservationObj = /* GraphQL */ `query GetReservationObj($id: String!) {
   getReservationObj(id: $id) {
     id
     fname
@@ -724,9 +603,9 @@ export const getReservationObj =
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetReservationObjQueryVariables,
-    APITypes.GetReservationObjQuery
-  >;
+  APITypes.GetReservationObjQueryVariables,
+  APITypes.GetReservationObjQuery
+>;
 export const listReservationObjs = /* GraphQL */ `query ListReservationObjs(
   $filter: TableReservationObjFilterInput
   $limit: Int

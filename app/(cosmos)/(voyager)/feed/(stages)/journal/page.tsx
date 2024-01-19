@@ -11,7 +11,7 @@ import { MomentObj } from '@/tables/flow/moment/main';
 interface FeedJournalContextObj {
   momentId: string;
   moments: MomentObj[];
-  momentHandler: MomentHandler | any;
+  momentHandler: MomentHandler;
 }
 
 export const FeedJournalContext = createContext<FeedJournalContextObj>({

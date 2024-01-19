@@ -1,74 +1,88 @@
+import { amplifyClient } from '@/client';
+import { createChatObj } from '@/graphql/mutations';
+import { listChatObjs } from '@/graphql/queries';
 import { ChatObj } from '@/tables/storm/chat/main';
-import { MessageObj } from '@/tables/storm/chat/message/main';
-import { chatTable, stormTable } from '@/tables/storm/table';
-import { useState } from 'react';
+import { chatTable } from '@/tables/storm/table';
+import { useEffect, useState } from 'react';
 
 export interface ChatHandler {
   updateChats: (chats: ChatObj[]) => ChatObj[];
   updateChat: (chat: ChatObj) => ChatObj;
   selectChat: (chat: ChatObj) => ChatObj;
   addChat: (chat: ChatObj) => ChatObj;
-  sendMessage: (message: string) => MessageObj;
+  queryListChats: () => Promise<ChatObj[]>;
+  queryCreateChat: (title: string, summary: string) => Promise<ChatObj>;
 }
 
 export interface useChatInterface {
   chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
-  messages: MessageObj[];
   _chatHandler: ChatHandler;
 }
 
-export const useChat = (): useChatInterface => {
+export const useChat = (chapterId: string): useChatInterface => {
   const [chats, changeChats] = useState<ChatObj[]>(chatTable.examples);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
-  const [messages, changeMessages] = useState<MessageObj[]>(
-    chats?.at(0)?.messages || [],
-  );
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
+  useEffect(() => {
+    _chatHandler.queryListChats().then((chats) => {
+      changeChats(chats);
+      const chatId = chats.at(0)?.id || '';
+      changeChatId(chatId);
+    });
+  }, [chapterId]);
+
   const _chatHandler: ChatHandler = {
+    queryListChats: async () => {
+      const payload = await amplifyClient.graphql({
+        query: listChatObjs,
+        variables: {
+          filter: {
+            chapterId: {
+              eq: chapterId,
+            },
+          },
+        },
+      });
+      const chats = payload.data?.listChatObjs?.items as ChatObj[];
+      return chats;
+    },
+    queryCreateChat: async (title: string, summary: string) => {
+      const payload = await amplifyClient.graphql({
+        query: createChatObj,
+        variables: {
+          input: {
+            title: title,
+            summary: summary,
+            chapterId: chapterId,
+            time: new Date().toISOString(),
+          },
+        },
+      });
+      const chat = payload.data?.createChatObj as ChatObj;
+      return chat;
+    },
     updateChats: (chats: ChatObj[]) => {
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       const chat = chats.filter((chat) => chat.id === chatId).at(0);
-      changeMessages(chat?.messages || []);
       return chats;
     },
     updateChat: (chat: ChatObj) => {
       changeChatId(chat.id);
-      changeMessages(chat.messages);
       return chat;
     },
     selectChat: (chat: ChatObj) => {
       changeChatId(chat.id);
-      changeMessages(chat.messages);
       return chat;
     },
     addChat: (chat: ChatObj) => {
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
-      changeMessages(chat.messages);
       return chat;
-    },
-    sendMessage: (text: string) => {
-      const sentMessage: MessageObj = {
-        id: crypto.randomUUID(),
-        source: 'gpt-4',
-        time: new Date('2023-12-19').toISOString(),
-        message: text,
-      };
-      const replyMessage: MessageObj = {
-        id: crypto.randomUUID(),
-        source: 'gpt-4',
-        time: new Date('2023-12-19').toISOString(),
-        message: 'Hello Back',
-      };
-
-      changeMessages((prev) => [...prev, sentMessage]);
-      changeMessages((prev) => [...prev, replyMessage]);
-      return sentMessage;
     },
   };
 
@@ -76,7 +90,6 @@ export const useChat = (): useChatInterface => {
     chat,
     chats,
     chatId,
-    messages,
     _chatHandler,
   };
 };

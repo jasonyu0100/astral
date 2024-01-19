@@ -10,13 +10,14 @@ import { StormChatMessageInput } from './storm-epic/center/input/text/main';
 import { StormChatInputRight } from './storm-epic/center/input/right/main';
 import { StormMessageInputSend } from './storm-epic/center/input/right/send/main';
 import { StormMessageInputVoice } from './storm-epic/center/input/right/voice/main';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { StormChatMessages } from './storm-epic/center/chat/messages/main';
 import { StormContext } from './page';
 import { StormMessage } from './storm-epic/center/chat/messages/message/main';
 
 export function StormView() {
-  const { messages } = useContext(StormContext);
+  const { messages, messageHandler } = useContext(StormContext);
+  const [inputMessage, changeInputMessage] = useState('');
 
   return (
     <StormWrapper>
@@ -31,10 +32,28 @@ export function StormView() {
         </StormChat>
         <StormChatInput>
           <StormChatInputLeft />
-          <StormChatMessageInput />
+          <StormChatMessageInput
+            onChange={(e) => changeInputMessage(e.target.value)}
+            value={inputMessage}
+          />
           <StormChatInputRight>
             <StormMessageInputVoice />
-            <StormMessageInputSend />
+            <StormMessageInputSend
+              onClick={(e) => {
+                messageHandler
+                  .queryCreateUserMessage(inputMessage)
+                  .then((userMessage: any) =>
+                    messageHandler.addUserMessage(userMessage),
+                  )
+                  .then((agentInputMessage) =>
+                    messageHandler.queryCreateAgentMessage(agentInputMessage),
+                  )
+                  .then((agentMessage: any) =>
+                    messageHandler.addAgentMessage(agentMessage),
+                  );
+                changeInputMessage('');
+              }}
+            />
           </StormChatInputRight>
         </StormChatInput>
       </StormMain>

@@ -71,39 +71,6 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
   APITypes.DeleteStarObjMutationVariables,
   APITypes.DeleteStarObjMutation
 >;
-export const createFlowObj = /* GraphQL */ `mutation CreateFlowObj($input: CreateFlowObjInput!) {
-  createFlowObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateFlowObjMutationVariables,
-  APITypes.CreateFlowObjMutation
->;
-export const updateFlowObj = /* GraphQL */ `mutation UpdateFlowObj($input: UpdateFlowObjInput!) {
-  updateFlowObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateFlowObjMutationVariables,
-  APITypes.UpdateFlowObjMutation
->;
-export const deleteFlowObj = /* GraphQL */ `mutation DeleteFlowObj($input: DeleteFlowObjInput!) {
-  deleteFlowObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteFlowObjMutationVariables,
-  APITypes.DeleteFlowObjMutation
->;
 export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($input: CreateResourceObjInput!) {
   createResourceObj(input: $input) {
     id
@@ -170,7 +137,7 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
 export const createConstellationObj = /* GraphQL */ `mutation CreateConstellationObj($input: CreateConstellationObjInput!) {
   createConstellationObj(input: $input) {
     id
-    draftId
+    chapterId
     title
     description
     __typename
@@ -183,7 +150,7 @@ export const createConstellationObj = /* GraphQL */ `mutation CreateConstellatio
 export const updateConstellationObj = /* GraphQL */ `mutation UpdateConstellationObj($input: UpdateConstellationObjInput!) {
   updateConstellationObj(input: $input) {
     id
-    draftId
+    chapterId
     title
     description
     __typename
@@ -196,7 +163,7 @@ export const updateConstellationObj = /* GraphQL */ `mutation UpdateConstellatio
 export const deleteConstellationObj = /* GraphQL */ `mutation DeleteConstellationObj($input: DeleteConstellationObjInput!) {
   deleteConstellationObj(input: $input) {
     id
-    draftId
+    chapterId
     title
     description
     __typename
@@ -338,39 +305,6 @@ export const deleteUserObj = /* GraphQL */ `mutation DeleteUserObj($input: Delet
   APITypes.DeleteUserObjMutationVariables,
   APITypes.DeleteUserObjMutation
 >;
-export const createSeaObj = /* GraphQL */ `mutation CreateSeaObj($input: CreateSeaObjInput!) {
-  createSeaObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateSeaObjMutationVariables,
-  APITypes.CreateSeaObjMutation
->;
-export const updateSeaObj = /* GraphQL */ `mutation UpdateSeaObj($input: UpdateSeaObjInput!) {
-  updateSeaObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateSeaObjMutationVariables,
-  APITypes.UpdateSeaObjMutation
->;
-export const deleteSeaObj = /* GraphQL */ `mutation DeleteSeaObj($input: DeleteSeaObjInput!) {
-  deleteSeaObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteSeaObjMutationVariables,
-  APITypes.DeleteSeaObjMutation
->;
 export const createChapterObj = /* GraphQL */ `mutation CreateChapterObj($input: CreateChapterObjInput!) {
   createChapterObj(input: $input) {
     id
@@ -410,39 +344,6 @@ export const deleteChapterObj = /* GraphQL */ `mutation DeleteChapterObj($input:
   APITypes.DeleteChapterObjMutationVariables,
   APITypes.DeleteChapterObjMutation
 >;
-export const createStormObj = /* GraphQL */ `mutation CreateStormObj($input: CreateStormObjInput!) {
-  createStormObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateStormObjMutationVariables,
-  APITypes.CreateStormObjMutation
->;
-export const updateStormObj = /* GraphQL */ `mutation UpdateStormObj($input: UpdateStormObjInput!) {
-  updateStormObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateStormObjMutationVariables,
-  APITypes.UpdateStormObjMutation
->;
-export const deleteStormObj = /* GraphQL */ `mutation DeleteStormObj($input: DeleteStormObjInput!) {
-  deleteStormObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteStormObjMutationVariables,
-  APITypes.DeleteStormObjMutation
->;
 export const createMessageObj = /* GraphQL */ `mutation CreateMessageObj($input: CreateMessageObjInput!) {
   createMessageObj(input: $input) {
     id
@@ -450,6 +351,7 @@ export const createMessageObj = /* GraphQL */ `mutation CreateMessageObj($input:
     source
     time
     message
+    userId
     __typename
   }
 }
@@ -464,6 +366,7 @@ export const updateMessageObj = /* GraphQL */ `mutation UpdateMessageObj($input:
     source
     time
     message
+    userId
     __typename
   }
 }
@@ -478,6 +381,7 @@ export const deleteMessageObj = /* GraphQL */ `mutation DeleteMessageObj($input:
     source
     time
     message
+    userId
     __typename
   }
 }
@@ -530,7 +434,6 @@ export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: Del
 export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: CreateMomentObjInput!) {
   createMomentObj(input: $input) {
     id
-    flowId
     chapterId
     spaceId
     userId
@@ -556,7 +459,6 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
 export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: UpdateMomentObjInput!) {
   updateMomentObj(input: $input) {
     id
-    flowId
     chapterId
     spaceId
     userId
@@ -582,7 +484,6 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
 export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: DeleteMomentObjInput!) {
   deleteMomentObj(input: $input) {
     id
-    flowId
     chapterId
     spaceId
     userId
@@ -683,43 +584,10 @@ export const deleteFileObj = /* GraphQL */ `mutation DeleteFileObj($input: Delet
   APITypes.DeleteFileObjMutationVariables,
   APITypes.DeleteFileObjMutation
 >;
-export const createDraftObj = /* GraphQL */ `mutation CreateDraftObj($input: CreateDraftObjInput!) {
-  createDraftObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateDraftObjMutationVariables,
-  APITypes.CreateDraftObjMutation
->;
-export const updateDraftObj = /* GraphQL */ `mutation UpdateDraftObj($input: UpdateDraftObjInput!) {
-  updateDraftObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateDraftObjMutationVariables,
-  APITypes.UpdateDraftObjMutation
->;
-export const deleteDraftObj = /* GraphQL */ `mutation DeleteDraftObj($input: DeleteDraftObjInput!) {
-  deleteDraftObj(input: $input) {
-    id
-    chapterId
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteDraftObjMutationVariables,
-  APITypes.DeleteDraftObjMutation
->;
 export const createJourneyObj = /* GraphQL */ `mutation CreateJourneyObj($input: CreateJourneyObjInput!) {
   createJourneyObj(input: $input) {
     id
-    seaId
+    chapterId
     __typename
   }
 }
@@ -730,7 +598,7 @@ export const createJourneyObj = /* GraphQL */ `mutation CreateJourneyObj($input:
 export const updateJourneyObj = /* GraphQL */ `mutation UpdateJourneyObj($input: UpdateJourneyObjInput!) {
   updateJourneyObj(input: $input) {
     id
-    seaId
+    chapterId
     __typename
   }
 }
@@ -741,7 +609,7 @@ export const updateJourneyObj = /* GraphQL */ `mutation UpdateJourneyObj($input:
 export const deleteJourneyObj = /* GraphQL */ `mutation DeleteJourneyObj($input: DeleteJourneyObjInput!) {
   deleteJourneyObj(input: $input) {
     id
-    seaId
+    chapterId
     __typename
   }
 }
@@ -794,7 +662,7 @@ export const deleteCommentObj = /* GraphQL */ `mutation DeleteCommentObj($input:
 export const createChatObj = /* GraphQL */ `mutation CreateChatObj($input: CreateChatObjInput!) {
   createChatObj(input: $input) {
     id
-    stormId
+    chapterId
     title
     summary
     time
@@ -808,7 +676,7 @@ export const createChatObj = /* GraphQL */ `mutation CreateChatObj($input: Creat
 export const updateChatObj = /* GraphQL */ `mutation UpdateChatObj($input: UpdateChatObjInput!) {
   updateChatObj(input: $input) {
     id
-    stormId
+    chapterId
     title
     summary
     time
@@ -822,7 +690,7 @@ export const updateChatObj = /* GraphQL */ `mutation UpdateChatObj($input: Updat
 export const deleteChatObj = /* GraphQL */ `mutation DeleteChatObj($input: DeleteChatObjInput!) {
   deleteChatObj(input: $input) {
     id
-    stormId
+    chapterId
     title
     summary
     time
