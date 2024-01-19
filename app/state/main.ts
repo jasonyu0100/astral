@@ -2,9 +2,17 @@ import { createStore, createHook } from 'react-sweet-state';
 import Cookies from 'js-cookie';
 import { UserObj } from '@/tables/user/main';
 
+const getUserCookie = () => {
+  const cookie = Cookies.get('user');
+  if (cookie === 'undefined') return {} as UserObj;
+  else {
+    return JSON.parse(cookie || '{}') as UserObj;
+  }
+};
+
 const Store = createStore({
   initialState: {
-    user: JSON.parse(Cookies.get('user') || '{}'),
+    user: getUserCookie(),
   },
   actions: {
     login:
@@ -48,4 +56,4 @@ const Store = createStore({
   name: 'user',
 });
 
-export const useUser = createHook(Store);
+export const useGlobalUser = createHook(Store);

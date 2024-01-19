@@ -1,7 +1,12 @@
-import { effectStyles } from '@/(common)/styles/data';
+'use client';
+import { useGlobalUser } from '@/state/main';
+import { useGlobalSpace } from '@/state/space/main';
 import clsx from 'clsx';
 
 export function SidebarWorkInfo({ active }: { active: boolean }) {
+  const [userState, _] = useGlobalUser();
+  const [state, __] = useGlobalSpace();
+
   return (
     <div
       id={SidebarWorkInfo.name}
@@ -18,14 +23,14 @@ export function SidebarWorkInfo({ active }: { active: boolean }) {
           "h-[25px] text-slate-300 text-xl font-bold font-['Creato Display'] leading-7",
         )}
       >
-        Cosmos
+        {state.space?.title || 'Untitled'}
       </p>
       <p
         className={clsx(
           "h-[25px] text-slate-300 text-base font-normal font-['Creato Display'] leading-normal",
         )}
       >
-        J22
+        {userState?.user?.fname || ''} {userState?.user?.lname || ''}
       </p>
     </div>
   );

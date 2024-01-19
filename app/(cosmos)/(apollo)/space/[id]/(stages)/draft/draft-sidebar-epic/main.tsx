@@ -4,7 +4,7 @@ import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';
 import { useGallerys } from '@/(cosmos)/handler/gallerys/main';
-import { useUser } from '@/state/main';
+import { useGlobalUser } from '@/state/main';
 import { useCollections } from '@/(cosmos)/handler/collections/main';
 import { ResourceHandler, useResources } from '@/(cosmos)/handler/resources/main';
 
@@ -39,7 +39,7 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>({
 
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);
-  const [state, actions] = useUser();
+  const [state, actions] = useGlobalUser();
   const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(state.user.id)
   const { collections, collection, collectionId, _collectionHandler } = useCollections(galleryId)
   const { resources, resource, resourceId, searchResults, _resourceHandler } = useResources(collectionId)

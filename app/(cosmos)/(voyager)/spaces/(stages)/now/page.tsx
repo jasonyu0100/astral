@@ -4,7 +4,7 @@ import { SpaceTabStages } from '../../tabs/main';
 import { SpacesView } from '../../spaces-epic/view';
 import { SpaceObj } from '@/tables/space/main';
 import insideCosmos from '@/utils/isAuth';
-import { useUser } from '@/state/main';
+import { useGlobalUser } from '@/state/main';
 import { SpacesModalContext, useSpacesModalContext } from '../../spaces-epic/modal/main';
 import { SpacesHandler, useSpaces } from '@/(cosmos)/handler/spaces/main';
 
@@ -20,7 +20,7 @@ export interface SpaceViewProps {
 }
 
 function Page() {
-  const [state, actions] = useUser();
+  const [state, actions] = useGlobalUser();
   const {spaces, _spacesHandler} = useSpaces(state.user.id)
 
   const modalContext = useSpacesModalContext();

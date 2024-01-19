@@ -1,7 +1,7 @@
 import { amplifyClient } from '@/client';
 import { createMessageObj } from '@/graphql/mutations';
 import { listMessageObjs } from '@/graphql/queries';
-import { useUser } from '@/state/main';
+import { useGlobalUser } from '@/state/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
 import { useEffect, useState } from 'react';
 
@@ -19,7 +19,7 @@ export interface useMessageInterface {
 }
 
 export const useMessages = (chatId: string): useMessageInterface => {
-  const [state, actions] = useUser();
+  const [state, actions] = useGlobalUser();
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
   useEffect(() => {

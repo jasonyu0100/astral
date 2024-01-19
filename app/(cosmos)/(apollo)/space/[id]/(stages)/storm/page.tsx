@@ -6,8 +6,10 @@ import { ChapterObj } from '@/tables/space/chapter/main';
 import { ChapterHandler, useChapters } from '@/(cosmos)/handler/chapters/main';
 import { ChatHandler, useChats } from '@/(cosmos)/handler/chats/main';
 import insideCosmos from '@/utils/isAuth';
-import { createContext } from 'react';
+import { createContext, useEffect } from 'react';
 import { MessageHandler, useMessages } from '@/(cosmos)/handler/messages/main';
+import { useGlobalSpace } from '@/state/space/main';
+import { useSpace } from '@/(cosmos)/handler/space/main';
 
 interface StormContextObj {
   chapter?: ChapterObj;
@@ -19,7 +21,7 @@ interface StormContextObj {
   messages: MessageObj[];
   chapterHandler: ChapterHandler;
   chatHandler: ChatHandler;
-  messageHandler: MessageHandler
+  messageHandler: MessageHandler;
 }
 
 export const StormContext = createContext<StormContextObj>(
@@ -27,11 +29,19 @@ export const StormContext = createContext<StormContextObj>(
 );
 
 function Page({ params }: { params: { id: string } }) {
+  const [state, actions] = useGlobalSpace();
+  const { space } = useSpace(params.id);
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
     params.id,
   );
   const { chat, chatId, chats, _chatHandler } = useChats(chapterId);
   const { messages, _messageHandler } = useMessages(chatId);
+
+  useEffect(() => {
+    if (space.id) {
+      actions.setSpace(space);
+    }
+  }, [space]);
 
   const context: StormContextObj = {
     chapter,
@@ -43,7 +53,7 @@ function Page({ params }: { params: { id: string } }) {
     messages,
     chapterHandler: _chapterHandler,
     chatHandler: _chatHandler,
-    messageHandler: _messageHandler
+    messageHandler: _messageHandler,
   };
 
   return (

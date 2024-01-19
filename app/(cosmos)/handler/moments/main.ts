@@ -1,7 +1,7 @@
 import { amplifyClient } from '@/client';
 import { createMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
-import { useUser } from '@/state/main';
+import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
 import { useEffect, useState } from 'react';
@@ -30,7 +30,7 @@ export const useMoments = (
   chapterId: string,
   spaceId: string,
 ): useMomentInterface => {
-  const [state, actions] = useUser();
+  const [state, actions] = useGlobalUser();
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
 

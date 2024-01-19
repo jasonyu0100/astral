@@ -3,7 +3,7 @@ import { createContext } from 'react';
 import { GalleryObj } from '@/tables/gallery/main';
 import { ExploreHomeView } from './view';
 import insideCosmos from '@/utils/isAuth';
-import { useUser } from '@/state/main';
+import { useGlobalUser } from '@/state/main';
 import { HomeModalContext, useHomeModalContext } from './home-epic/modal/main';
 import { GalleryHandler, useGallerys } from '@/(cosmos)/handler/gallerys/main';
 
@@ -17,7 +17,7 @@ export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
 );
 
 function Page() {
-  const [state, actions] = useUser();
+  const [state, actions] = useGlobalUser();
   const { gallerys, _galleryHandler: galleryHandler } = useGallerys(
     state.user.id,
   );
