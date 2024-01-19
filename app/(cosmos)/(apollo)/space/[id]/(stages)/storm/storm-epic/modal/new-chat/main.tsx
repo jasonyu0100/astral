@@ -8,44 +8,44 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext, useState } from 'react';
-import { SpacesContext } from '../../../(stages)/now/page';
-import { SpacesModalContext } from '../main';
+import { StormContext } from '../../../page';
+import { StormModalContext } from '../main';
 
-export function CreateSpaceModal() {
-  const { spacesHandler } = useContext(SpacesContext);
-  const { createSpace: createSpaceModal } = useContext(SpacesModalContext);
+export function StormNewChatModal() {
+  const { newChat } = useContext(StormModalContext);
+  const { chatHandler } = useContext(StormContext);
   const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
+  const [summary, changeSummary] = useState('');
 
   return (
-    <Modal isOpen={createSpaceModal.showModal} onClose={() => createSpaceModal.openModal()}>
+    <Modal isOpen={newChat.showModal} onClose={() => newChat.closeModal()}>
       <FormContainer>
-        <FormTitle>Create Space</FormTitle>
+        <FormTitle>Add Chat</FormTitle>
         <FormBody>
-          <FormDescription>Create your space here</FormDescription>
+          <FormDescription>Add your chat here</FormDescription>
           <FormInput
-            placeholder='Name'
-            title='Name'
+            placeholder='Title'
+            title='Title'
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
           <FormTextArea
-            title='Description'
+            title='Summary'
             rows={5}
-            value={description}
-            onChange={(e) => changeDescription(e.target.value)}
+            value={summary}
+            onChange={(e) => changeSummary(e.target.value)}
             style={{ resize: 'none' }}
           />
         </FormBody>
         <FormFooter>
           <FormButton
             onClick={() => {
-              spacesHandler.queryCreateSpace(title, description);
-              createSpaceModal.closeModal();
-              alert('Submit Idea');
+              chatHandler.queryCreateChat(title, summary);
+              newChat.closeModal();
+              alert('Add Chat');
             }}
           >
-            Submit Idea
+            Add Chat
           </FormButton>
         </FormFooter>
       </FormContainer>

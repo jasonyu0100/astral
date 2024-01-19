@@ -14,7 +14,7 @@ import { HomeModalsView } from './home-epic/modal/view';
 
 export function ExploreHomeView() {
   const { gallerys } = useContext(ExploreHomeContext);
-  const { createGalleryModal } = useContext(HomeModalContext);
+  const { createGallery: createGalleryModal } = useContext(HomeModalContext);
 
   return (
     <CollectionWrapper>

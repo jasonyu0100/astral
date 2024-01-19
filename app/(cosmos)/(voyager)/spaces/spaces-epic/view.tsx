@@ -16,7 +16,7 @@ import { SpacesModalContext } from './modal/main';
 
 export function SpacesView({ type }: SpaceViewProps) {
   const { spaces } = useContext(SpacesContext);
-  const { createSpaceModal } = useContext(SpacesModalContext);
+  const { createSpace: createSpaceModal } = useContext(SpacesModalContext);
 
   return (
     <SpaceWrapper>

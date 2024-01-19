@@ -14,7 +14,7 @@ import { ExploreHomeContext } from '../../../page';
 import { HomeModalContext } from '../main';
 
 export function CreateGalleryModal() {
-  const { createGalleryModal } = useContext(HomeModalContext);
+  const { createGallery: createGalleryModal } = useContext(HomeModalContext);
   const { galleryHandler } = useContext(ExploreHomeContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

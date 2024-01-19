@@ -8,21 +8,21 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext, useState } from 'react';
-import { SpacesContext } from '../../../(stages)/now/page';
-import { SpacesModalContext } from '../main';
+import { StormContext } from '../../../page';
+import { StormModalContext } from '../main';
 
-export function CreateSpaceModal() {
-  const { spacesHandler } = useContext(SpacesContext);
-  const { createSpace: createSpaceModal } = useContext(SpacesModalContext);
+export function StormAddChapterModal() {
+  const { chapterHandler } = useContext(StormContext);
+  const { addChapter } = useContext(StormModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={createSpaceModal.showModal} onClose={() => createSpaceModal.openModal()}>
+    <Modal isOpen={addChapter.showModal} onClose={() => addChapter.closeModal()}>
       <FormContainer>
-        <FormTitle>Create Space</FormTitle>
+        <FormTitle>Add Chapter</FormTitle>
         <FormBody>
-          <FormDescription>Create your space here</FormDescription>
+          <FormDescription>Add your chapter here</FormDescription>
           <FormInput
             placeholder='Name'
             title='Name'
@@ -40,15 +40,16 @@ export function CreateSpaceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              spacesHandler.queryCreateSpace(title, description);
-              createSpaceModal.closeModal();
-              alert('Submit Idea');
+              chapterHandler.queryCreateChapter(title, description);
+              addChapter.closeModal();
+              alert('Add Chapter');
             }}
           >
-            Submit Idea
+            Add Chapter
           </FormButton>
         </FormFooter>
       </FormContainer>
     </Modal>
   );
 }
+

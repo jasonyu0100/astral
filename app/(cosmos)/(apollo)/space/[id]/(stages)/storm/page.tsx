@@ -10,6 +10,10 @@ import { createContext, useEffect } from 'react';
 import { MessageHandler, useMessages } from '@/(cosmos)/handler/messages/main';
 import { useGlobalSpace } from '@/state/space/main';
 import { useSpace } from '@/(cosmos)/handler/space/main';
+import {
+  StormModalContext,
+  useStormModalContext,
+} from './storm-epic/modal/main';
 
 interface StormContextObj {
   chapter?: ChapterObj;
@@ -38,8 +42,10 @@ function Page({ params }: { params: { id: string } }) {
   const { messages, _messageHandler } = useMessages(chatId);
 
   useEffect(() => {
-    if (space.id) {
-      actions.setSpace(space);
+    if (space) {
+      if (space.id) {
+        actions.setSpace(space);
+      }
     }
   }, [space]);
 
@@ -56,10 +62,14 @@ function Page({ params }: { params: { id: string } }) {
     messageHandler: _messageHandler,
   };
 
+  const modalContext = useStormModalContext();
+
   return (
-    <StormContext.Provider value={context}>
-      <StormView />
-    </StormContext.Provider>
+    <StormModalContext.Provider value={modalContext}>
+      <StormContext.Provider value={context}>
+        <StormView />
+      </StormContext.Provider>
+    </StormModalContext.Provider>
   );
 }
 

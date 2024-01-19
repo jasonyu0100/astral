@@ -24,7 +24,6 @@ export interface useFeedMomentInterface {
 export const useFeedMoments = (
     userId: string, visibility: string
 ): useFeedMomentInterface => {
-  const [state, actions] = useGlobalUser();
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
 
@@ -44,7 +43,7 @@ export const useFeedMoments = (
         query: listMomentObjs,
         variables: {
           filter: {
-            chapterId: {
+            userId: {
               eq: userId,
             },
             visibility: {

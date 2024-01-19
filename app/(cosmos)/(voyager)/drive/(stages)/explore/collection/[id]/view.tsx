@@ -18,7 +18,7 @@ export default function ExploreCollectionView() {
   const { gallery, collection, resources } = useContext(
     ExploreCollectionContext,
   );
-  const { addFileModal } = useContext(CollectionModalContext)
+  const { addFile: addFileModal } = useContext(CollectionModalContext)
 
   return (
     <CollectionWrapper>

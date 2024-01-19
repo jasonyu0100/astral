@@ -5,11 +5,11 @@ import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
 import { useGlobalSpace } from '@/state/space/main';
 import { useEffect, useState } from 'react';
 
-interface SidebarCurrentWorkProps extends LinkInputProps {
+interface InputProps extends LinkInputProps {
   children: React.ReactNode;
 }
 
-export function SidebarCurrentWork({ children }: SidebarCurrentWorkProps) {
+export function SidebarCurrentSpace({ children }: InputProps) {
   const [spaceState, __] = useGlobalSpace();
   const [url, changeUrl] = useState(spacesMap.spaces.now.link);
   useEffect(() => {

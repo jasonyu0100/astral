@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 export interface HomeModalsContextObj {
-  createGalleryModal: {
+  createGallery: {
     showModal: boolean;
     openModal: () => void;
     closeModal: () => void;
@@ -11,14 +11,14 @@ export interface HomeModalsContextObj {
 export const HomeModalContext = createContext({} as HomeModalsContextObj);
 
 export const useHomeModalContext = (): HomeModalsContextObj => {
-  const [showCreateGalleryModal, changeShowCreateGalleryModal] =
+  const [showOne, changeShowTwo] =
     useState(false);
 
   return {
-    createGalleryModal: {
-      showModal: showCreateGalleryModal,
-      openModal: () => changeShowCreateGalleryModal(true),
-      closeModal: () => changeShowCreateGalleryModal(false),
+    createGallery: {
+      showModal: showOne,
+      openModal: () => changeShowTwo(true),
+      closeModal: () => changeShowTwo(false),
     },
   };
 };

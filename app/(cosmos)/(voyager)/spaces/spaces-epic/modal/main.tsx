@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 export interface SpacesModalsContextObj {
-  createSpaceModal: {
+  createSpace: {
     showModal: boolean;
     openModal: () => void;
     closeModal: () => void;
@@ -11,14 +11,14 @@ export interface SpacesModalsContextObj {
 export const SpacesModalContext = createContext({} as SpacesModalsContextObj);
 
 export const useSpacesModalContext = (): SpacesModalsContextObj => {
-  const [showCreateGalleryModal, changeShowCreateGalleryModal] =
+  const [showOne, changeTwo] =
     useState(false);
 
   return {
-    createSpaceModal: {
-      showModal: showCreateGalleryModal,
-      openModal: () => changeShowCreateGalleryModal(true),
-      closeModal: () => changeShowCreateGalleryModal(false),
+    createSpace: {
+      showModal: showOne,
+      openModal: () => changeTwo(true),
+      closeModal: () => changeTwo(false),
     },
   };
 };

@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 export interface CollectionModalsContextObj {
-  addFileModal: {
+  addFile: {
     showModal: boolean;
     openModal: () => void;
     closeModal: () => void;
@@ -11,14 +11,14 @@ export interface CollectionModalsContextObj {
 export const CollectionModalContext = createContext({} as CollectionModalsContextObj);
 
 export const useCollectionModalContext = (): CollectionModalsContextObj => {
-  const [showCreateGalleryModal, changeShowCreateGalleryModal] =
+  const [showOne, changeShowOne] =
     useState(false);
 
   return {
-    addFileModal: {
-      showModal: showCreateGalleryModal,
-      openModal: () => changeShowCreateGalleryModal(true),
-      closeModal: () => changeShowCreateGalleryModal(false),
+    addFile: {
+      showModal: showOne,
+      openModal: () => changeShowOne(true),
+      closeModal: () => changeShowOne(false),
     },
   };
 };
