@@ -12,7 +12,7 @@ import { SpacesContext } from '../../../(stages)/now/page';
 import { SpacesModalContext } from '../main';
 
 export function CreateSpaceModal() {
-  const { addSpace } = useContext(SpacesContext);
+  const { spacesHandler } = useContext(SpacesContext);
   const { createSpaceModal } = useContext(SpacesModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -40,7 +40,7 @@ export function CreateSpaceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              addSpace(title, description);
+              spacesHandler.queryCreateSpace(title, description);
               createSpaceModal.closeModal();
               alert('Submit Idea');
             }}
