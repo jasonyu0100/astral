@@ -9,13 +9,13 @@ import { createSpaceObj } from '@/graphql/mutations';
 import { useUser } from '@/state/main';
 import { listSpaceObjs } from '@/graphql/queries';
 
-interface SpaceContextObj {
+interface SpacesContextObj {
   spaces: SpaceObj[];
   addSpace: (title: string, description: string) => Promise<void>;
 }
 
-export const SpaceContext = createContext<SpaceContextObj>({
-} as SpaceContextObj);
+export const SpacesContext = createContext<SpacesContextObj>({
+} as SpacesContextObj);
 export interface SpaceViewProps {
   type: SpaceTabStages;
 }
@@ -65,9 +65,9 @@ function Page() {
   };
 
   return (
-    <SpaceContext.Provider value={context}>
+    <SpacesContext.Provider value={context}>
       <SpacesView type={SpaceTabStages.Now} />
-    </SpaceContext.Provider>
+    </SpacesContext.Provider>
   );
 }
 

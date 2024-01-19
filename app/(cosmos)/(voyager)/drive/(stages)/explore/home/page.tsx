@@ -4,11 +4,8 @@ import { GalleryObj } from '@/tables/gallery/main';
 import { ExploreHomeView } from './view';
 import insideCosmos from '@/utils/isAuth';
 import { useUser } from '@/state/main';
-import {
-  GalleryHandler,
-  useGallerys,
-} from '@/(cosmos)/(apollo)/space/[id]/handler/gallerys/main';
 import { HomeModalContext, useHomeModalContext } from './home-epic/modal/main';
+import { GalleryHandler, useGallerys } from '@/(cosmos)/handler/gallerys/main';
 
 interface ExploreHomeContextObj {
   gallerys: GalleryObj[];

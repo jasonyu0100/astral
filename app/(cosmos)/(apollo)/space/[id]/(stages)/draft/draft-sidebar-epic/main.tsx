@@ -3,10 +3,10 @@ import { createContext, useEffect, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';
-import { useGallerys } from '../../../handler/gallerys/main';
+import { useGallerys } from '@/(cosmos)/handler/gallerys/main';
 import { useUser } from '@/state/main';
-import { useCollections } from '../../../handler/collections/main';
-import { ResourceHandler, useResources } from '../../../handler/resources/main';
+import { useCollections } from '@/(cosmos)/handler/collections/main';
+import { ResourceHandler, useResources } from '@/(cosmos)/handler/resources/main';
 
 export enum SidebarMode {
   Home = 'Home',

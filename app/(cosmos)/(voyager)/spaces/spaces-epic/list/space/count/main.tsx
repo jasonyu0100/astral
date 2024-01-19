@@ -1,11 +1,11 @@
 'use client';
 
 import { useContext } from 'react';
-import { SpaceContext } from '../main';
+import { CreativeSpaceContext } from '../main';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 
 export function SpaceCount() {
-  const { hover, index, space } = useContext(SpaceContext);
+  const { hover, index, space } = useContext(CreativeSpaceContext);
   return (
     <div className='flex items-center justify-center w-[50px]'>
       {hover ? (

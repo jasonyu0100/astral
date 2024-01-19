@@ -42,7 +42,6 @@ export const exampleMoment: MomentObj = {
   userId: '0',
   chapterId: '0',
   visibility: MomentVisibility.JOURNAL,
-  comments: exampleComments,
 };
 
 export const exampleMoments: MomentObj[] = [
@@ -56,7 +55,6 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
-    comments: exampleComments,
   },
   {
     id: '1',
@@ -68,6 +66,5 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
-    comments: exampleComments,
   },
 ];

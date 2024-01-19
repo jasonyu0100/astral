@@ -4,13 +4,13 @@ import { DraftView } from './view';
 import { StarObj } from '@/tables/draft/constellation/star/main';
 import { ChapterObj } from '@/tables/space/chapter/main';
 import { ConstellationObj } from '@/tables/draft/constellation/main';
-import { ChapterHandler, useChapters } from '../../handler/chapters/main';
+import { ChapterHandler, useChapters } from '@/(cosmos)/handler/chapters/main';
 import {
   ConstellationHandler,
   useConstellations,
-} from '../../handler/constellations/main';
+} from '@/(cosmos)/handler/constellations/main';
 import insideCosmos from '@/utils/isAuth';
-import { StarHandler, useStars } from '../../handler/stars/main';
+import { StarHandler, useStars } from '@/(cosmos)/handler/stars/main';
 
 interface DraftContextObj {
   chapterId: string;

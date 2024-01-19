@@ -11,26 +11,26 @@ import { createContext, useState } from 'react';
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
 
-interface SpacesSpaceProps {
+interface CreativeSpaceProps {
   space: SpaceObj;
   index: number;
 }
 
-interface SpaceContextObj {
+interface CreativeSpaceContextObj {
   space: SpaceObj;
   index: number;
   hover: boolean;
 }
 
-export const SpaceContext = createContext<SpaceContextObj>(
-  {} as SpaceContextObj,
+export const CreativeSpaceContext = createContext<CreativeSpaceContextObj>(
+  {} as CreativeSpaceContextObj,
 );
 
-export function SpacesSpace({ space, index }: SpacesSpaceProps) {
+export function SpacesSpace({ space, index }: CreativeSpaceProps) {
   const [hover, changeHover] = useState(false);
 
   return (
-    <SpaceContext.Provider value={{ space, index, hover }}>
+    <CreativeSpaceContext.Provider value={{ space, index, hover }}>
       <Layer
         displayName={SpacesSpace.name}
         sizeStyle='w-full h-[100px]'
@@ -45,6 +45,6 @@ export function SpacesSpace({ space, index }: SpacesSpaceProps) {
         <SpaceDay />
         <SpaceDate />
       </Layer>
-    </SpaceContext.Provider>
+    </CreativeSpaceContext.Provider>
   );
 }

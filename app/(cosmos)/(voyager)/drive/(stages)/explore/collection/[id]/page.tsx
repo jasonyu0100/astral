@@ -6,15 +6,12 @@ import { CollectionObj } from '@/tables/gallery/collection/main';
 import insideCosmos from '@/utils/isAuth';
 import { ResourceObj } from '@/tables/resource/main';
 import {
-  ResourceHandler,
-  useResources,
-} from '@/(cosmos)/(apollo)/space/[id]/handler/resources/main';
-import { useCollection } from '@/(cosmos)/(apollo)/space/[id]/handler/collection/main';
-import { useGallery } from '@/(cosmos)/(apollo)/space/[id]/handler/gallery/main';
-import {
   CollectionModalContext,
   useCollectionModalContext,
 } from './collection-epic/modal/main';
+import { ResourceHandler, useResources } from '@/(cosmos)/handler/resources/main';
+import { useCollection } from '@/(cosmos)/handler/collection/main';
+import { useGallery } from '@/(cosmos)/handler/gallery/main';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;

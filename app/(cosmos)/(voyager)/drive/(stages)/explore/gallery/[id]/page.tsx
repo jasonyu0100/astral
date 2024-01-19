@@ -4,15 +4,12 @@ import { ExploreGalleryView } from './view';
 import { GalleryObj } from '@/tables/gallery/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import insideCosmos from '@/utils/isAuth';
-import { useGallery } from '@/(cosmos)/(apollo)/space/[id]/handler/gallery/main';
-import {
-  CollectionHandler,
-  useCollections,
-} from '@/(cosmos)/(apollo)/space/[id]/handler/collections/main';
 import {
   GalleryModalContext,
   useGalleryModalContext,
 } from './gallery-epic/modal/main';
+import { useGallery } from '@/(cosmos)/handler/gallery/main';
+import { CollectionHandler, useCollections } from '@/(cosmos)/handler/collections/main';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;

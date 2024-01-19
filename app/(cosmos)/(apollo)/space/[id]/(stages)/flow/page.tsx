@@ -1,8 +1,8 @@
 'use client';
 import { createContext } from 'react';
 import { FlowView } from './view';
-import { ChapterHandler, useChapters } from '../../handler/chapters/main';
-import { MomentHandler, useMoments } from '../../handler/moments/main';
+import { ChapterHandler, useChapters } from '@/(cosmos)/handler/chapters/main';
+import { MomentHandler, useMoments } from '@/(cosmos)/handler/moments/main';
 import { MomentObj } from '@/tables/flow/moment/main';
 import insideCosmos from '@/utils/isAuth';
 import { ChapterObj } from '@/tables/space/chapter/main';

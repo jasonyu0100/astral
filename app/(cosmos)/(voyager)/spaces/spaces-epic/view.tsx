@@ -26,11 +26,10 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext, useState } from 'react';
-import { FileObj } from '@/tables/file/main';
-import { SpaceContext, SpaceViewProps } from '../(stages)/now/page';
+import { SpacesContext, SpaceViewProps } from '../(stages)/now/page';
 
 export function SpacesView({ type }: SpaceViewProps) {
-  const { spaces, addSpace } = useContext(SpaceContext);
+  const { spaces, addSpace } = useContext(SpacesContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [showModal, changeShowModal] = useState(false);

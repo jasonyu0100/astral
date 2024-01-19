@@ -1,3 +1,5 @@
+import { GalleryObj } from "@/tables/gallery/main";
+
 export function HomeGalleryInfo({ gallery }: { gallery: GalleryObj }) {
   return (
     <div className='flex flex-col flex-grow p-[1rem]'>

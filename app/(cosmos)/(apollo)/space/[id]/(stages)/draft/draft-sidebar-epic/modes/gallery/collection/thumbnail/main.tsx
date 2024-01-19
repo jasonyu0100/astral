@@ -1,8 +1,7 @@
 import { CollectionObj } from '@/tables/gallery/collection/main';
-import { resourceTable } from '@/tables/resource/table';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { DraftSidebarContext } from '../../../../main';
-import { useResources } from '@/(cosmos)/(apollo)/space/[id]/handler/resources/main';
+import { useResources } from '@/(cosmos)/handler/resources/main';
 
 export function GalleryCollectionThumbnail({
   collection,

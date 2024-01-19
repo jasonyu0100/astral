@@ -4,10 +4,10 @@ import { Layer } from '@/(common)/layer/main';
 export function SpacesHeader({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      sizeStyle='w-full h-[250px]'
+      sizeStyle='w-full h-[360px]'
       displayName={SpacesHeader.name}
       backgroundStyle={backgroundStyles['glass-5']}
-      className={`px-[2rem] ${containerStyles['row-center']}`}
+      className={`p-[4rem] ${containerStyles['row-center']}`}
     >
       {children}
     </Layer>

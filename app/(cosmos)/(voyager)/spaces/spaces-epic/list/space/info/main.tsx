@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { SpaceContext } from '../main';
+import { CreativeSpaceContext } from '../main';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 
 export function SpaceInfo() {
-  const { space } = useContext(SpaceContext)
+  const { space } = useContext(CreativeSpaceContext)
   return (
     <a href={spaceMap.space.id.storm.link(space.id)}>
       <div className='flex flex-row space-x-[2rem]'>

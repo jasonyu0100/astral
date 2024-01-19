@@ -4,10 +4,10 @@ import { StormChapterAvatar } from './avatar/main';
 import { ChatObj } from '@/tables/storm/chat/main';
 
 export function StormChapterChat({ chat }: { chat: ChatObj }) {
-  const { chatId, chatHandler, chapter } = useContext(StormContext);
+  const { chatId, chatHandler } = useContext(StormContext);
   const active = chat.id === chatId;
   return (
-    <button onClick={() => chatHandler.selectChat(chat, chapter)}>
+    <button onClick={() => chatHandler.selectChat(chat)}>
       <div className='flex flex-row items-center space-x-[1rem]'>
         <StormChapterAvatar />
         {active ? (

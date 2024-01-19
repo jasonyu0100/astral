@@ -12,7 +12,7 @@ export function FormUploadFiles({
 
   const handleFileChange = async (event: any) => {
     // get file attributes
-    const files = Array.from(event.target.files);
+    const files : any[] = Array.from(event.target.files);
     const payload: FileObj[] = [];
     for (let file of files) {
       const name = file.name;

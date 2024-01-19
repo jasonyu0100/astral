@@ -1,10 +1,10 @@
-import { constellationTable, draftTable, starTable } from './draft/table';
-import { chatTable, messageTable, stormTable } from './storm/table';
+import { constellationTable, starTable } from './draft/table';
+import { chatTable, messageTable } from './storm/table';
 import { collectionTable, galleryTable } from './gallery/table';
 import { chapterTable, spaceTable } from './space/table';
 import { userTable } from './user/table';
-import { journeyTable, seaTable } from './sea/table';
-import { commentTable, flowTable, momentTable } from './flow/table';
+import { journeyTable } from './sea/table';
+import { commentTable, momentTable } from './flow/table';
 import { fileTable, resourceTable } from './resource/table';
 
 export interface ObjectDescriptor {
