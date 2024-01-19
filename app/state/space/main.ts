@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 
 const getSpaceCookie = () => {
   const cookie = Cookies.get('space')
-  if (cookie === "undefined") return {}
+  if (cookie === "undefined") return {} as SpaceObj
   else {
     return JSON.parse(cookie || '{}') as SpaceObj
   }

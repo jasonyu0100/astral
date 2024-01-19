@@ -2,7 +2,7 @@ import { feedMap } from '@/(cosmos)/(voyager)/feed/map';
 import { IndicatorGreenJewel } from '../indicator/jewel/green/main';
 import { IndicatorProps, SidebarIndicator } from '../indicator/main';
 import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from '../../main';
+import { SidebarIndicatorType } from "../indicator/main";
 
 export function FeedIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Feed;

@@ -1,7 +1,7 @@
 import { marketMap } from '@/(cosmos)/(voyager)/market/map';
 import { IndicatorProps, SidebarIndicator } from '../indicator/main';
 import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from '../../main';
+import { SidebarIndicatorType } from "../indicator/main";
 import { IndicatorPurpleJewel } from '../indicator/jewel/purple/main';
 
 export function BoardIndicator({ indicator, minimised }: IndicatorProps) {
