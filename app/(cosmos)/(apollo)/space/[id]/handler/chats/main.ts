@@ -21,7 +21,7 @@ export interface useChatInterface {
   _chatHandler: ChatHandler;
 }
 
-export const useChat = (chapterId: string): useChatInterface => {
+export const useChats = (chapterId: string): useChatInterface => {
   const [chats, changeChats] = useState<ChatObj[]>(chatTable.examples);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
 

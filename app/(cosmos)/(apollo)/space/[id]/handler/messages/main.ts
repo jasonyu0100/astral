@@ -23,9 +23,8 @@ export const useMessages = (chatId: string): useMessageInterface => {
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
   useEffect(() => {
-    _messageHandler
-      .queryListMessages(chatId)
-      .then((messages) => changeMessages(messages));
+    if (!chatId) return;
+    _messageHandler.queryListMessages(chatId)
   }, [chatId]);
 
   const _messageHandler = {
@@ -57,6 +56,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
         },
       });
       const messages = payload.data?.listMessageObjs?.items as MessageObj[];
+      changeMessages(messages)
       return messages;
     },
     queryCreateAgentMessage: async (userMessage: MessageObj) => {

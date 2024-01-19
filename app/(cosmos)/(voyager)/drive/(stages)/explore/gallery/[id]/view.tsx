@@ -23,7 +23,7 @@ import { FormFooter } from '@/(common)/form/footer/main';
 import { FormDescription } from '@/(common)/form/description/main';
 
 export function DriveSectionView() {
-  const { gallery, collections, addCollection } = useContext(
+  const { gallery, collections, collectionHandler } = useContext(
     ExploreGalleryContext,
   );
   const [showModal, changeShowModal] = useState(false);
@@ -48,7 +48,7 @@ export function DriveSectionView() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                addCollection(name, files);
+                collectionHandler.queryCreateCollection(name, files);
                 changeShowModal(false);
                 alert('Submit Idea');
               }}

@@ -22,7 +22,7 @@ import { FormFooter } from '@/(common)/form/footer/main';
 import { FormContainer } from '@/(common)/form/main';
 
 export function ExploreView() {
-  const { gallerys, addGallery } = useContext(ExploreHomeContext);
+  const { gallerys, galleryHandler } = useContext(ExploreHomeContext);
   const [showModal, changeShowModal] = useState(false);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -53,7 +53,7 @@ export function ExploreView() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                addGallery(title, description, thumbnail);
+                galleryHandler.queryCreateGallery(title, description, thumbnail);
                 changeShowModal(false);
                 alert('Submit Idea');
               }}

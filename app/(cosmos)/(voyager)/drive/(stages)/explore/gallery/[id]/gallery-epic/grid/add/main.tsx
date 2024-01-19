@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { ExploreGalleryContext } from '../../../page';
 import { GalleryCollectionContainer } from '../container/main';
 import { CollectionAddCover } from './cover/main';
 import { CollectionAddInfo } from './info/main';

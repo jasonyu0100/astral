@@ -1,16 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { GalleryCollectionContext } from '../main';
-import { ExploreGalleryContext } from '../../../../page';
-import { ResourceObj } from '@/tables/resource/main';
+import { useResources } from '@/(cosmos)/(apollo)/space/[id]/handler/resources/main';
 
 export function CollectionCover() {
-  const { getResources } = useContext(ExploreGalleryContext);
   const { collection } = useContext(GalleryCollectionContext);
-  const [resources, changeResources] = useState<ResourceObj[]>([]);
-
-  useEffect(() => {
-    getResources(collection).then((resources) => changeResources(resources));
-  }, [])
+  const { resources } = useResources(collection.id);
 
   return (
     <div className='h-full aspect-square bg-black'>

@@ -15,7 +15,7 @@ export interface useMomentInterface {
   _momentHandler: MomentHandler;
 }
 
-export const useMoment = (): useMomentInterface => {
+export const useMoments = (): useMomentInterface => {
   const [moments, changeMoments] = useState<MomentObj[]>(momentTable.examples);
   const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || '');
 

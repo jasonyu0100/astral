@@ -2,7 +2,7 @@
 import insideCosmos from '@/utils/isAuth';
 import {
   MomentHandler,
-  useMoment,
+  useMoments,
 } from '@/(cosmos)/(apollo)/space/[id]/handler/moments/main';
 import { FeedJournalView } from './view';
 import { createContext } from 'react';
@@ -18,7 +18,7 @@ export const FeedJournalContext = createContext<FeedJournalContextObj>({
 } as FeedJournalContextObj);
 
 function Page() {
-  const { momentId, moments, _momentHandler } = useMoment();
+  const { momentId, moments, _momentHandler } = useMoments();
 
   const momentHandler: MomentHandler = {
     updateMoments: (moments: MomentObj[]) => {

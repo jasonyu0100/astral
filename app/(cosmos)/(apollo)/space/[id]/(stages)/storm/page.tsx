@@ -4,7 +4,7 @@ import { ChatObj } from '@/tables/storm/chat/main';
 import { MessageObj } from '@/tables/storm/chat/message/main';
 import { ChapterObj } from '@/tables/space/chapter/main';
 import { ChapterHandler, useChapters } from '../../handler/chapters/main';
-import { ChatHandler, useChat } from '../../handler/chats/main';
+import { ChatHandler, useChats } from '../../handler/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext } from 'react';
 import { MessageHandler, useMessages } from '../../handler/messages/main';
@@ -30,7 +30,7 @@ function Page({ params }: { params: { id: string } }) {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
     params.id,
   );
-  const { chat, chatId, chats, _chatHandler } = useChat(chapterId);
+  const { chat, chatId, chats, _chatHandler } = useChats(chapterId);
   const { messages, _messageHandler } = useMessages(chatId);
 
   const context: StormContextObj = {
