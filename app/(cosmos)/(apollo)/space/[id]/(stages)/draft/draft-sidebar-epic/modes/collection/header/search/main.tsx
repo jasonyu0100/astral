@@ -24,7 +24,7 @@ export function CollectionHeaderSearch() {
       />
       <SearchBarButton
         onClick={() => {
-          resourceHandler.queryResources(query);
+          resourceHandler.searchResources(query);
           changeQuery('');
         }}
       />

@@ -6,8 +6,10 @@ import { GalleryObj } from '@/tables/gallery/main';
 import { useEffect, useState } from 'react';
 
 export interface useGallerysInterface {
+  gallery: GalleryObj | undefined;
+  galleryId: string;
   gallerys: GalleryObj[];
-  galleryHandler: GalleryHandler;
+  _galleryHandler: GalleryHandler;
 }
 
 export interface GalleryHandler {
@@ -17,10 +19,13 @@ export interface GalleryHandler {
     description: string,
     thumbnail: FileObj,
   ) => Promise<void>;
+  goToGallery: (gallery: GalleryObj) => void;
 }
 
 export const useGallerys = (userId: string): useGallerysInterface => {
   const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
+  const [galleryId, changeGalleryId] = useState<string>('');
+  const gallery = gallerys.find((gallery) => gallery.id === galleryId);
 
   useEffect(() => {
     if (!userId) return;
@@ -28,6 +33,9 @@ export const useGallerys = (userId: string): useGallerysInterface => {
   }, [userId]);
 
   const _galleryHandler: GalleryHandler = {
+    goToGallery: (gallery: GalleryObj) => {
+      changeGalleryId(gallery.id)
+    },
     queryListGallerys: async () => {
       const payload = await amplifyClient.graphql({
         query: listGalleryObjs,
@@ -41,9 +49,9 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       });
       const gallerys = payload?.data?.listGalleryObjs?.items as GalleryObj[];
       changeGallerys(gallerys);
+      changeGalleryId(gallerys[0]?.id || '')
       return gallerys;
     },
-
     queryCreateGallery: async (
       title: string,
       description: string,
@@ -65,11 +73,14 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       changeGallerys((prev) => {
         return [...prev, gallery];
       });
+      changeGalleryId(gallery.id)
     },
   };
 
   return {
+    gallery, 
+    galleryId,
     gallerys,
-    galleryHandler: _galleryHandler,
+    _galleryHandler,
   };
 };

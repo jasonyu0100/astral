@@ -17,7 +17,7 @@ export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
 
 function Page() {
   const [state, actions] = useUser();
-  const { gallerys, galleryHandler } = useGallerys(state.user.id);
+  const { gallerys, _galleryHandler: galleryHandler } = useGallerys(state.user.id);
 
   const context: ExploreHomeContextObj = {
     gallerys,

@@ -1,20 +1,17 @@
 import { GalleryObj } from '@/tables/gallery/main';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
-import { collectionTable, galleryTable } from '@/tables/gallery/table';
 import { ResourceObj } from '@/tables/resource/main';
-import { resourceTable } from '@/tables/resource/table';
+import { useGallerys } from '../../../handler/gallerys/main';
+import { useUser } from '@/state/main';
+import { useCollections } from '../../../handler/collections/main';
+import { ResourceHandler, useResources } from '../../../handler/resources/main';
 
 export enum SidebarMode {
   Home = 'Home',
   Gallery = 'Gallery',
   Collection = 'Collection',
-}
-
-interface ResourceHandler {
-  addResource: (resource: ResourceObj) => void;
-  queryResources: (query: string) => ResourceObj[];
 }
 interface SidebarHandler {
   goToHomeView: () => void;
@@ -42,24 +39,10 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>({
 
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);
-  const [gallerys, changeSections] = useState<GalleryObj[]>(
-    galleryTable.examples,
-  );
-  const [galleryId, changeGalleryId] = useState<string>('');
-  const [collections, chnageCollections] = useState<CollectionObj[]>(
-    collectionTable.examples,
-  );
-  const [collectionId, changeCollectionId] = useState<string>('');
-  const [resources, changeResources] = useState<ResourceObj[]>(
-    resourceTable.examples,
-  );
-
-  const gallery = gallerys.find((gallery) => gallery.id === galleryId);
-  const collection = collections.find(
-    (collection) => collection.id === collectionId,
-  );
-
-  const [searchResults, changeSearchResults] = useState(resources);
+  const [state, actions] = useUser();
+  const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(state.user.id)
+  const { collections, collection, collectionId, _collectionHandler } = useCollections(galleryId)
+  const { resources, resource, resourceId, searchResults, _resourceHandler } = useResources(collectionId)
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {
@@ -71,31 +54,13 @@ export function DraftSidebar() {
     goToCollectionView: () => {
       changeSidebarMode(SidebarMode.Collection);
     },
-    goToGallery: (section: GalleryObj) => {
-      changeGalleryId(section.id);
+    goToGallery: (gallery: GalleryObj) => {
+      _galleryHandler.goToGallery(gallery);
       changeSidebarMode(SidebarMode.Gallery);
     },
-    goToCollection: (folder: CollectionObj) => {
-      changeCollectionId(folder.id);
+    goToCollection: (collection: CollectionObj) => {
+      _collectionHandler.goToCollection(collection)
       changeSidebarMode(SidebarMode.Collection);
-    },
-  };
-
-  const resourceHandler: ResourceHandler = {
-    addResource: (resource: ResourceObj) => {
-      changeResources((prev) => [...prev, resource]);
-    },
-    queryResources: (query: string) => {
-      if (query === '') {
-        changeSearchResults(resources);
-        return resources;
-      }
-      const results = resources.filter((resource) => {
-        const regex = new RegExp(query, 'i');
-        return regex.test(resource.name);
-      });
-      changeSearchResults(results);
-      return results;
     },
   };
 
@@ -110,7 +75,7 @@ export function DraftSidebar() {
     resources,
     searchResults,
     sidebarHandler,
-    resourceHandler,
+    resourceHandler: _resourceHandler,
   };
 
   return (

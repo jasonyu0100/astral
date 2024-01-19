@@ -5,15 +5,23 @@ import { FileObj } from '@/tables/file/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
-
+export interface useCOllectionsInterface {
+    collectionId: string;
+    collection: CollectionObj | undefined;
+    collections: CollectionObj[];
+    _collectionHandler: CollectionHandler;
+}
 export interface CollectionHandler {
   queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
   queryListCollections: (galleryId: string) => Promise<void>;
   queryCreateCollection: (name: string, files: FileObj[]) => Promise<void>;
+  goToCollection: (collection: CollectionObj) => void;
 }
 
 export const useCollections = (galleryId: string) => {
   const [collections, changeCollections] = useState<CollectionObj[]>([]);
+  const [collectionId, changeCollectionId] = useState<string>('');
+  const collection = collections.find((collection) => collection.id === collectionId);
 
   useEffect(() => {
     if (!galleryId) return;
@@ -21,6 +29,10 @@ export const useCollections = (galleryId: string) => {
   }, [galleryId]);
 
   const _collectionHandler: CollectionHandler = {
+    goToCollection: (collection: CollectionObj) => {
+      console.log(collection.id)
+      changeCollectionId(collection.id);
+    },
     queryCollectionResources: async (collectionId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
@@ -49,6 +61,7 @@ export const useCollections = (galleryId: string) => {
       const collections = payload?.data?.listCollectionObjs
         ?.items as CollectionObj[];
       changeCollections(collections);
+      changeCollectionId(collections[0]?.id || '');
     },
 
     queryCreateCollection: async (name: string, files: FileObj[]) => {
@@ -63,6 +76,7 @@ export const useCollections = (galleryId: string) => {
       });
       const collection = payload?.data?.createCollectionObj as CollectionObj;
       changeCollections((prev) => [...prev, collection]);
+      changeCollectionId(collection.id);
       queryCreateCollectionResources(collection, files);
     },
   };
@@ -91,6 +105,8 @@ export const useCollections = (galleryId: string) => {
   };
 
   return {
+    collectionId,
+    collection,
     collections,
     _collectionHandler,
   };
