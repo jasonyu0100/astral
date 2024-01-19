@@ -14,7 +14,9 @@ interface SpacesContextObj {
 }
 
 export const SpacesContext = createContext<SpacesContextObj>({
-} as SpacesContextObj);
+  spaces: [],
+  spacesHandler: undefined
+} as unknown as SpacesContextObj);
 export interface SpaceViewProps {
   type: SpaceTabStages;
 }
