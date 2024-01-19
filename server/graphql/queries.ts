@@ -85,6 +85,8 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -111,6 +113,8 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
         size
         __typename
       }
+      loom
+      resourceType
       __typename
     }
     nextToken
@@ -385,6 +389,8 @@ export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }
@@ -415,6 +421,8 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
         __typename
       }
       visibility
+      loom
+      resourceType
       __typename
     }
     nextToken

@@ -21,7 +21,7 @@ export function DraftAddConstellationModal() {
   return (
     <Modal isOpen={addConstellation.opened} onClose={() => addConstellation.close()}>
       <FormContainer>
-        <FormTitle>Create Constellation</FormTitle>
+        <FormTitle>Add Constellation</FormTitle>
         <FormBody>
           <FormDescription>Add your constellation here</FormDescription>
           <FormInput
@@ -47,10 +47,9 @@ export function DraftAddConstellationModal() {
                   constellationHandler.addConstellation(constellation),
                 );
               addConstellation.open();
-              alert('Add Chapter');
             }}
           >
-            Add Chapter
+            Add
           </FormButton>
         </FormFooter>
       </FormContainer>

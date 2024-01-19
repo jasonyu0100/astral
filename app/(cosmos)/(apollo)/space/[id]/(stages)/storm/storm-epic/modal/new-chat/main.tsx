@@ -11,7 +11,7 @@ import { useContext, useState } from 'react';
 import { StormContext } from '../../../page';
 import { StormModalContext } from '../main';
 
-export function StormNewChatModal() {
+export function StormAddChatModal() {
   const { newChat } = useContext(StormModalContext);
   const { chatHandler } = useContext(StormContext);
   const [title, changeTitle] = useState('');
@@ -42,10 +42,9 @@ export function StormNewChatModal() {
             onClick={() => {
               chatHandler.queryCreateChat(title, summary);
               newChat.close();
-              alert('Add Chat');
             }}
           >
-            Add Chat
+            Add
           </FormButton>
         </FormFooter>
       </FormContainer>

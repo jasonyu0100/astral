@@ -1,17 +1,17 @@
 import { amplifyClient } from '@/client';
 import { createMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
-import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
+import { ResourceType } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 
 export interface FeedMomentHandler {
-  queryListMoments: () => Promise<MomentObj[]>;
-  queryCreateMoment: (title: string, log: string, file: FileObj, visibility: string) => Promise<MomentObj>;
-  updateMoments: (moments: MomentObj[]) => MomentObj[];
-  updateMoment: (moment: MomentObj) => MomentObj;
-  addMoment: (moment: MomentObj) => MomentObj;
+    queryListMoments: () => Promise<MomentObj[]>;
+    queryCreateMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
+    updateMoments: (moments: MomentObj[]) => MomentObj[];
+    updateMoment: (moment: MomentObj) => MomentObj;
+    addMoment: (moment: MomentObj) => MomentObj;
 }
 
 export interface useFeedMomentInterface {
@@ -37,7 +37,7 @@ export const useFeedMoments = (
     _momentHandler.queryListMoments();
   }, [userId]);
 
-  const _momentHandler: FeedMomentHandler = {
+  const _momentHandler = {
     queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,
@@ -57,7 +57,7 @@ export const useFeedMoments = (
       changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
-    queryCreateMoment: async (
+    queryCreateFileMoment: async (
       title: string,
       log: string,
       file: FileObj,
@@ -76,6 +76,7 @@ export const useFeedMoments = (
             log: log,
             file: file,
             visibility: visibility,
+            resourceType: ResourceType.FILE,
           },
         },
       });

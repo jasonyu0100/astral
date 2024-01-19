@@ -88,6 +88,8 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -109,6 +111,8 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -130,6 +134,8 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -452,6 +458,8 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }
@@ -477,6 +485,8 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }
@@ -502,6 +512,8 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }

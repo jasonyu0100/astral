@@ -39,10 +39,9 @@ export function CreateCollectionModal() {
             onClick={() => {
               collectionHandler.queryCreateCollection(name, files);
               createCollectionModal.close();
-              alert('Submit Idea');
             }}
           >
-            Submit Idea
+            Create
           </FormButton>
         </FormFooter>
       </FormContainer>

@@ -46,10 +46,9 @@ export function CreateGalleryModal() {
             onClick={() => {
               galleryHandler.queryCreateGallery(title, description, thumbnail);
               createGalleryModal.close();
-              alert('Submit Idea');
             }}
           >
-            Submit Idea
+            Create
           </FormButton>
         </FormFooter>
       </FormContainer>

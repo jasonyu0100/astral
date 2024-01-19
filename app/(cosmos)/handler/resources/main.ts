@@ -2,7 +2,7 @@ import { amplifyClient } from '@/client';
 import { createResourceObj } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
 import { FileObj } from '@/tables/file/main';
-import { ResourceObj } from '@/tables/resource/main';
+import { ResourceObj, ResourceType } from '@/tables/resource/main';
 import { useState, useEffect } from 'react';
 
 interface useResourcesInterface {
@@ -15,7 +15,7 @@ interface useResourcesInterface {
 
 export interface ResourceHandler {
   queryListResources: (id: string) => Promise<ResourceObj[]>;
-  addResource: (
+  queryCreateFileResource: (
     name: string,
     description: string,
     file: FileObj,
@@ -59,7 +59,7 @@ export const useResources = (collectionId: string): useResourcesInterface => {
       changeResourceId(resources[0]?.id || '')
       return resources;
     },
-    addResource: async (name: string, description: string, file: FileObj) => {
+    queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
       const payload = await amplifyClient.graphql({
         query: createResourceObj,
         variables: {
@@ -68,6 +68,7 @@ export const useResources = (collectionId: string): useResourcesInterface => {
             description,
             collectionId,
             file,
+            resourceType: ResourceType.FILE
           },
         },
       });

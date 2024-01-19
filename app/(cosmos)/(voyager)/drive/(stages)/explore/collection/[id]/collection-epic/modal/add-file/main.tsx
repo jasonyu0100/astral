@@ -43,12 +43,11 @@ export function AddFileModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              resourceHandler.addResource(name, description, file);
+              resourceHandler.queryCreateFileResource(name, description, file);
               changeShowModal(false);
-              alert('Submit Idea');
             }}
           >
-            Submit Idea
+            Upload
           </FormButton>
         </FormFooter>
       </FormContainer>

@@ -1,11 +1,18 @@
 import { FileObj, exampleFile, exampleFiles } from '../file/main';
 
+export enum ResourceType {
+  FILE = 'FILE',
+  LOOM = 'LOOM',
+}
+
 export interface ResourceObj {
   id: string;
   collectionId: string;
   name: string;
   description: string;
-  file: FileObj;
+  file?: FileObj;
+  loom?: string;
+  resourceType: string;
 }
 
 export const resourceSchema = `
@@ -14,7 +21,9 @@ type ResourceObj {
   collectionId: String!
   name: String!
   description: String!
-  file: FileObj!
+  file: FileObj
+  loom: String
+  resourceType: String!
 }`;
 
 export const exampleResource: ResourceObj = {
@@ -23,6 +32,7 @@ export const exampleResource: ResourceObj = {
   name: 'Example Resource',
   description: 'Example Resource Description',
   file: exampleFile,
+  resourceType: ResourceType.FILE,
 };
 
 export const exampleResources: ResourceObj[] = [
@@ -33,6 +43,7 @@ export const exampleResources: ResourceObj[] = [
       name: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       file: file,
+      resourceType: ResourceType.FILE,
     };
   }),
 ];

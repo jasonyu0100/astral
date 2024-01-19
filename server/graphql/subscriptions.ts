@@ -98,6 +98,8 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -129,6 +131,8 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -160,6 +164,8 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
       size
       __typename
     }
+    loom
+    resourceType
     __typename
   }
 }
@@ -684,6 +690,8 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }
@@ -719,6 +727,8 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }
@@ -754,6 +764,8 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
       __typename
     }
     visibility
+    loom
+    resourceType
     __typename
   }
 }

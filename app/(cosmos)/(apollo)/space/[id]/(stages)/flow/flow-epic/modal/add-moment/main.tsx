@@ -31,9 +31,9 @@ export function FlowAddMomentModal() {
       onClose={() => addMoment.close()}
     >
       <FormContainer>
-        <FormTitle>Add Chapter</FormTitle>
+        <FormTitle>Add Moment</FormTitle>
         <FormBody>
-          <FormDescription>Add your chapter here</FormDescription>
+          <FormDescription>Add your moment here</FormDescription>
           <FormInput
             placeholder='Name'
             title='Name'
@@ -71,11 +71,10 @@ export function FlowAddMomentModal() {
           <FormButton
             onClick={() => {
               addMoment.close();
-              momentHandler.queryCreateMoment(title, log, file, visibility);
-              alert('Add Moment');
+              momentHandler.queryCreateFileMoment(title, log, file, visibility);
             }}
           >
-            Add Chapter
+            Add
           </FormButton>
         </FormFooter>
       </FormContainer>

@@ -42,10 +42,9 @@ export function StormAddChapterModal() {
             onClick={() => {
               chapterHandler.queryCreateChapter(title, description);
               addChapter.close();
-              alert('Add Chapter');
             }}
           >
-            Add Chapter
+            Add 
           </FormButton>
         </FormFooter>
       </FormContainer>

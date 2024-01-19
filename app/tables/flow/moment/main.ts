@@ -1,3 +1,4 @@
+import { ResourceType } from '@/tables/resource/main';
 import { FileObj, exampleFile } from '../../file/main';
 import { CommentObj, exampleComments } from './comment/main';
 
@@ -18,6 +19,8 @@ type MomentObj {
   title: String!
   log: String!
   file: FileObj
+  loom: String
+  resourceType: String!
   visibility: String!
 }`;
 export interface MomentObj {
@@ -28,7 +31,9 @@ export interface MomentObj {
   time: string;
   title: string;
   log: string;
-  file: FileObj;
+  file?: FileObj;
+  loom?: string;
+  resourceType: string;
   visibility: string;
 }
 
@@ -42,6 +47,7 @@ export const exampleMoment: MomentObj = {
   userId: '0',
   chapterId: '0',
   visibility: MomentVisibility.JOURNAL,
+  resourceType: ResourceType.FILE,
 };
 
 export const exampleMoments: MomentObj[] = [
@@ -55,6 +61,7 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
+    resourceType: ResourceType.FILE,
   },
   {
     id: '1',
@@ -66,5 +73,6 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
+    resourceType: ResourceType.FILE,
   },
 ];

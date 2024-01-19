@@ -54,7 +54,9 @@ export type CreateResourceObjInput = {
   collectionId: string,
   name: string,
   description: string,
-  file: UpdateFileObjInput,
+  file?: UpdateFileObjInput | null,
+  loom?: string | null,
+  resourceType: string,
 };
 
 export type ResourceObj = {
@@ -63,7 +65,9 @@ export type ResourceObj = {
   collectionId: string,
   name: string,
   description: string,
-  file: FileObj,
+  file?: FileObj | null,
+  loom?: string | null,
+  resourceType: string,
 };
 
 export type UpdateResourceObjInput = {
@@ -72,6 +76,8 @@ export type UpdateResourceObjInput = {
   name?: string | null,
   description?: string | null,
   file?: UpdateFileObjInput | null,
+  loom?: string | null,
+  resourceType?: string | null,
 };
 
 export type DeleteResourceObjInput = {
@@ -257,7 +263,9 @@ export type CreateMomentObjInput = {
   title: string,
   log: string,
   visibility: string,
-  file: UpdateFileObjInput,
+  file?: UpdateFileObjInput | null,
+  loom?: string | null,
+  resourceType: string,
 };
 
 export type MomentObj = {
@@ -269,8 +277,10 @@ export type MomentObj = {
   time: string,
   title: string,
   log: string,
-  file: FileObj,
+  file?: FileObj | null,
   visibility: string,
+  loom?: string | null,
+  resourceType: string,
 };
 
 export type UpdateMomentObjInput = {
@@ -283,6 +293,8 @@ export type UpdateMomentObjInput = {
   log?: string | null,
   visibility?: string | null,
   file?: UpdateFileObjInput | null,
+  loom?: string | null,
+  resourceType?: string | null,
 };
 
 export type DeleteMomentObjInput = {
@@ -477,6 +489,8 @@ export type TableResourceObjFilterInput = {
   collectionId?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
+  loom?: TableStringFilterInput | null,
+  resourceType?: TableStringFilterInput | null,
 };
 
 export type ResourceObjConnection = {
@@ -575,6 +589,8 @@ export type TableMomentObjFilterInput = {
   title?: TableStringFilterInput | null,
   log?: TableStringFilterInput | null,
   visibility?: TableStringFilterInput | null,
+  loom?: TableStringFilterInput | null,
+  resourceType?: TableStringFilterInput | null,
 };
 
 export type MomentObjConnection = {
@@ -752,14 +768,16 @@ export type CreateResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -774,14 +792,16 @@ export type UpdateResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -796,14 +816,16 @@ export type DeleteResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1136,15 +1158,17 @@ export type CreateMomentObjMutation = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1162,15 +1186,17 @@ export type UpdateMomentObjMutation = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1188,15 +1214,17 @@ export type DeleteMomentObjMutation = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1529,14 +1557,16 @@ export type GetResourceObjQuery = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1555,14 +1585,16 @@ export type ListResourceObjsQuery = {
       collectionId: string,
       name: string,
       description: string,
-      file:  {
+      file?:  {
         __typename: "FileObj",
         id: string,
         src: string,
         type: string,
         name?: string | null,
         size?: number | null,
-      },
+      } | null,
+      loom?: string | null,
+      resourceType: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -1828,15 +1860,17 @@ export type GetMomentObjQuery = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1858,15 +1892,17 @@ export type ListMomentObjsQuery = {
       time: string,
       title: string,
       log: string,
-      file:  {
+      file?:  {
         __typename: "FileObj",
         id: string,
         src: string,
         type: string,
         name?: string | null,
         size?: number | null,
-      },
+      } | null,
       visibility: string,
+      loom?: string | null,
+      resourceType: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2168,14 +2204,16 @@ export type OnCreateResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2193,14 +2231,16 @@ export type OnUpdateResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2218,14 +2258,16 @@ export type OnDeleteResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2621,15 +2663,17 @@ export type OnCreateMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2650,15 +2694,17 @@ export type OnUpdateMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2679,15 +2725,17 @@ export type OnDeleteMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
     visibility: string,
+    loom?: string | null,
+    resourceType: string,
   } | null,
 };
 

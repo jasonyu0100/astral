@@ -4,11 +4,12 @@ import { listMomentObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
+import { ResourceType } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 
 export interface MomentHandler {
   queryListMoments: () => Promise<MomentObj[]>;
-  queryCreateMoment: (
+  queryCreateFileMoment: (
     title: string,
     log: string,
     file: FileObj,
@@ -61,7 +62,7 @@ export const useMoments = (
       changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
-    queryCreateMoment: async (
+    queryCreateFileMoment: async (
       title: string,
       log: string,
       file: FileObj,
@@ -79,6 +80,7 @@ export const useMoments = (
             log: log,
             file: file,
             visibility: visibility,
+            resourceType: ResourceType.LOOM
           },
         },
       });
