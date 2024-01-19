@@ -17,6 +17,7 @@ import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
+import { DraftLoomButton } from '../../../draft-sidebar-epic/modes/collection/header/button-row/button/loom/main';
 
 export function DraftHeader() {
   const { chapter, constellation, constellationHandler } =

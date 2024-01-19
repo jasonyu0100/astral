@@ -5,7 +5,7 @@ interface InputProps extends LinkInputProps {
   active: boolean;
 }
 
-export function DriveBreadcrumbItem({
+export function CollectionBreadcrumbItem({
   children,
   active,
   ...props

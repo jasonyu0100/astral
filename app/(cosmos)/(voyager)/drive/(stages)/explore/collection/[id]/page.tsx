@@ -1,13 +1,20 @@
 'use client';
 import { createContext } from 'react';
-import DriveFolderView from './view';
+import ExploreCollectionView from './view';
 import { GalleryObj } from '@/tables/gallery/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import insideCosmos from '@/utils/isAuth';
 import { ResourceObj } from '@/tables/resource/main';
-import { ResourceHandler, useResources } from '@/(cosmos)/(apollo)/space/[id]/handler/resources/main';
+import {
+  ResourceHandler,
+  useResources,
+} from '@/(cosmos)/(apollo)/space/[id]/handler/resources/main';
 import { useCollection } from '@/(cosmos)/(apollo)/space/[id]/handler/collection/main';
 import { useGallery } from '@/(cosmos)/(apollo)/space/[id]/handler/gallery/main';
+import {
+  CollectionModalContext,
+  useCollectionModalContext,
+} from './collection-epic/modal/main';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -23,6 +30,7 @@ function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollection(params.id);
   const { gallery } = useGallery(collection.galleryId);
   const { resources, _resourceHandler } = useResources(params.id);
+  const modalContext = useCollectionModalContext();
 
   const context = {
     gallery,
@@ -33,7 +41,9 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ExploreCollectionContext.Provider value={context}>
-      <DriveFolderView />
+      <CollectionModalContext.Provider value={modalContext}>
+        <ExploreCollectionView />
+      </CollectionModalContext.Provider>
     </ExploreCollectionContext.Provider>
   );
 }

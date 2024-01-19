@@ -10,7 +10,7 @@ export function HomeGallery({ gallery }: { gallery: GalleryObj }) {
   return (
     <Layer
       displayName={HomeGridContainer.name}
-      sizeStyle='flex-grow aspect-[11/16]'
+      sizeStyle='w-full aspect-[11/16]'
       backgroundStyle={backgroundStyles['glass-10']}
     >
       <div className='flex flex-col w-full h-full'>

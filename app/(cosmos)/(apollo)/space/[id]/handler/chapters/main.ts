@@ -65,6 +65,8 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
         },
       });
       const chapter = payload.data?.createChapterObj as ChapterObj;
+      changeChapters((prev) => [...prev, chapter]);
+      changeChapterId(chapter.id);
       return chapter;
     },
     addChapter: (chapter: ChapterObj) => {

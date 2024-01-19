@@ -1,11 +1,18 @@
 'use client';
 import { createContext } from 'react';
-import { DriveSectionView } from './view';
+import { ExploreGalleryView } from './view';
 import { GalleryObj } from '@/tables/gallery/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import insideCosmos from '@/utils/isAuth';
 import { useGallery } from '@/(cosmos)/(apollo)/space/[id]/handler/gallery/main';
-import { CollectionHandler, useCollections } from '@/(cosmos)/(apollo)/space/[id]/handler/collections/main';
+import {
+  CollectionHandler,
+  useCollections,
+} from '@/(cosmos)/(apollo)/space/[id]/handler/collections/main';
+import {
+  GalleryModalContext,
+  useGalleryModalContext,
+} from './gallery-epic/modal/main';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;
@@ -20,6 +27,7 @@ export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>(
 function Page({ params }: { params: { id: string } }) {
   const { gallery } = useGallery(params.id);
   const { collections, _collectionHandler } = useCollections(gallery.id);
+  const modalContext = useGalleryModalContext();
 
   const context: ExploreGalleryContextObj = {
     gallery,
@@ -29,7 +37,9 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ExploreGalleryContext.Provider value={context}>
-      <DriveSectionView />
+      <GalleryModalContext.Provider value={modalContext}>
+        <ExploreGalleryView />
+      </GalleryModalContext.Provider>
     </ExploreGalleryContext.Provider>
   );
 }

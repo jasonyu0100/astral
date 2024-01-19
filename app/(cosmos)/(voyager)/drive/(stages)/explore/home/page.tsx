@@ -1,14 +1,18 @@
 'use client';
 import { createContext } from 'react';
 import { GalleryObj } from '@/tables/gallery/main';
-import { ExploreView } from './view';
+import { ExploreHomeView } from './view';
 import insideCosmos from '@/utils/isAuth';
 import { useUser } from '@/state/main';
-import { GalleryHandler, useGallerys } from '@/(cosmos)/(apollo)/space/[id]/handler/gallerys/main';
+import {
+  GalleryHandler,
+  useGallerys,
+} from '@/(cosmos)/(apollo)/space/[id]/handler/gallerys/main';
+import { HomeModalContext, useHomeModalContext } from './home-epic/modal/main';
 
 interface ExploreHomeContextObj {
   gallerys: GalleryObj[];
-  galleryHandler: GalleryHandler
+  galleryHandler: GalleryHandler;
 }
 
 export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
@@ -17,7 +21,10 @@ export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
 
 function Page() {
   const [state, actions] = useUser();
-  const { gallerys, _galleryHandler: galleryHandler } = useGallerys(state.user.id);
+  const { gallerys, _galleryHandler: galleryHandler } = useGallerys(
+    state.user.id,
+  );
+  const modalContext = useHomeModalContext();
 
   const context: ExploreHomeContextObj = {
     gallerys,
@@ -26,7 +33,9 @@ function Page() {
 
   return (
     <ExploreHomeContext.Provider value={context}>
-      <ExploreView />
+      <HomeModalContext.Provider value={modalContext}>
+        <ExploreHomeView />
+      </HomeModalContext.Provider>
     </ExploreHomeContext.Provider>
   );
 }

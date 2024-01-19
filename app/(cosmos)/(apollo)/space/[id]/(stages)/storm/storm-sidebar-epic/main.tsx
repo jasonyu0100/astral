@@ -45,7 +45,7 @@ export function StormSidebar() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                chapterHandler.queryCreateChapter(title, description).then((chapter: any) => chapterHandler.addChapter(chapter))
+                chapterHandler.queryCreateChapter(title, description)
                 changeShowModal(false);
                 alert('Add Chapter');
               }}

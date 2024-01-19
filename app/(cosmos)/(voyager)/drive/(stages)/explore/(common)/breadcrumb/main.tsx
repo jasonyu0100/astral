@@ -5,10 +5,10 @@ import {
   containerStyles,
 } from '@/(common)/styles/data';
 
-export function DriveBreadcrumbs({ children }: { children: React.ReactNode }) {
+export function CollectionBreadcrumbs({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={DriveBreadcrumbs.name}
+      displayName={CollectionBreadcrumbs.name}
       sizeStyle='max-w-[800px] w-full h-[4rem] mt-0'
       backgroundStyle={backgroundStyles['gradient-900']}
       borderStyle={`${borderStyles['border-all']} ${borderStyles.rounded}`}

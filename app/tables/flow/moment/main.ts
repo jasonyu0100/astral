@@ -30,7 +30,6 @@ export interface MomentObj {
   log: string;
   file: FileObj;
   visibility: string;
-  comments: CommentObj[];
 }
 
 export const exampleMoment: MomentObj = {

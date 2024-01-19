@@ -54,7 +54,7 @@ export function DraftView() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                chapterHandler.queryCreateChapter(title, description).then((chapter: any) => chapterHandler.addChapter(chapter))
+                chapterHandler.queryCreateChapter(title, description)
                 changeShowCreateChapterModal(false);
                 alert('Add Chapter');
               }}

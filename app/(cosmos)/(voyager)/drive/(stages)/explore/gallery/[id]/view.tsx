@@ -1,88 +1,53 @@
 'use client';
 
-import { DriveWrapper } from '../../home/home-epic/wrapper/main';
-import { DriveController } from '../../home/home-epic/main';
-import { DriveBreadcrumbs } from '../../(common)/breadcrumb/main';
-import { DriveBreadcrumbItem } from '../../(common)/breadcrumb/item/main';
-import { DriveBreadcrumbDivider } from '../../(common)/breadcrumb/divider/main';
+import { CollectionWrapper } from '../../home/home-epic/wrapper/main';
+import { CollectionController } from '../../home/home-epic/main';
+import { CollectionBreadcrumbs } from '../../(common)/breadcrumb/main';
+import { CollectionBreadcrumbItem } from '../../(common)/breadcrumb/item/main';
+import { CollectionBreadcrumbDivider } from '../../(common)/breadcrumb/divider/main';
 import { GalleryCollectionGrid } from './gallery-epic/grid/main';
 import { driveMap } from '../../../../map';
 import { GalleryCollection } from './gallery-epic/grid/collection/main';
 import { GalleryCollectionAdd } from './gallery-epic/grid/add/main';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { ExploreGalleryContext } from './page';
-import { FileObj } from '@/tables/file/main';
-import { Modal } from '@/(common)/modal/main';
-import { FormInput } from '@/(common)/form/input/main';
-import { FormUploadFiles } from '@/(common)/form/upload-files/main';
-import { FormButton } from '@/(common)/form/button/main';
-import { FormContainer } from '@/(common)/form/main';
-import { FormTitle } from '@/(common)/form/title/main';
-import { FormBody } from '@/(common)/form/body/main';
-import { FormFooter } from '@/(common)/form/footer/main';
-import { FormDescription } from '@/(common)/form/description/main';
+import { GalleryModalsView } from './gallery-epic/modal/view';
+import { GalleryModalContext } from './gallery-epic/modal/main';
 
-export function DriveSectionView() {
-  const { gallery, collections, collectionHandler } = useContext(
+export function ExploreGalleryView() {
+  const { gallery, collections } = useContext(
     ExploreGalleryContext,
   );
-  const [showModal, changeShowModal] = useState(false);
-  const [name, changeName] = useState('');
-  const [files, changeFiles] = useState([] as FileObj[]);
+  const { createCollectionModal } = useContext(GalleryModalContext)
 
   return (
-    <DriveWrapper>
-      <Modal isOpen={showModal} onClose={() => changeShowModal(false)}>
-        <FormContainer>
-          <FormTitle>Create Collection</FormTitle>
-          <FormBody>
-            <FormDescription>Create your collection here</FormDescription>
-            <FormInput
-              placeholder='Name'
-              title='Name'
-              value={name}
-              onChange={(e) => changeName(e.target.value)}
-            />
-            <FormUploadFiles onChange={(files) => changeFiles(files)} />
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              onClick={() => {
-                collectionHandler.queryCreateCollection(name, files);
-                changeShowModal(false);
-                alert('Submit Idea');
-              }}
-            >
-              Submit Idea
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </Modal>
-      <DriveController>
-        <DriveBreadcrumbs>
-          <DriveBreadcrumbItem
+    <CollectionWrapper>
+      <GalleryModalsView/>
+      <CollectionController>
+        <CollectionBreadcrumbs>
+          <CollectionBreadcrumbItem
             href={driveMap.drive.explore.link}
             active={false}
           >
             Home
-          </DriveBreadcrumbItem>
-          <DriveBreadcrumbDivider />
-          <DriveBreadcrumbItem
+          </CollectionBreadcrumbItem>
+          <CollectionBreadcrumbDivider />
+          <CollectionBreadcrumbItem
             active={true}
             href={driveMap.drive.explore.gallery.id.link(gallery.id)}
           >
             {gallery.title}
-          </DriveBreadcrumbItem>
-        </DriveBreadcrumbs>
+          </CollectionBreadcrumbItem>
+        </CollectionBreadcrumbs>
         {gallery !== null && (
           <GalleryCollectionGrid>
             {collections.map((collection, index) => (
               <GalleryCollection collection={collection} index={index}/>
             ))}
-            <GalleryCollectionAdd onClick={() => changeShowModal(true)} />
+            <GalleryCollectionAdd onClick={() => createCollectionModal.openModal()} />
           </GalleryCollectionGrid>
         )}
-      </DriveController>
-    </DriveWrapper>
+      </CollectionController>
+    </CollectionWrapper>
   );
 }

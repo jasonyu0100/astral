@@ -1,11 +1,22 @@
+import { amplifyClient } from '@/client';
+import { createMomentObj } from '@/graphql/mutations';
+import { listMomentObjs } from '@/graphql/queries';
+import { useUser } from '@/state/main';
+import { FileObj } from '@/tables/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
-import { momentTable } from '@/tables/flow/table';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface MomentHandler {
+  queryListMoments: () => Promise<MomentObj[]>;
+  queryCreateMoment: (
+    title: string,
+    log: string,
+    file: FileObj,
+    visibility: string,
+  ) => Promise<MomentObj>;
+  updateMoments: (moments: MomentObj[]) => MomentObj[];
   updateMoment: (moment: MomentObj) => MomentObj;
   addMoment: (moment: MomentObj) => MomentObj;
-  updateMoments: (moments: MomentObj[]) => MomentObj[];
 }
 
 export interface useMomentInterface {
@@ -15,13 +26,67 @@ export interface useMomentInterface {
   _momentHandler: MomentHandler;
 }
 
-export const useMoments = (): useMomentInterface => {
-  const [moments, changeMoments] = useState<MomentObj[]>(momentTable.examples);
-  const [momentId, changeMomentId] = useState<string>(moments.at(0)?.id || '');
+export const useMoments = (
+  chapterId: string,
+  spaceId: string,
+): useMomentInterface => {
+  const [state, actions] = useUser();
+  const [moments, changeMoments] = useState<MomentObj[]>([]);
+  const [momentId, changeMomentId] = useState<string>('');
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
+  useEffect(() => {
+    if (!chapterId) {
+      changeMoments([]);
+      return;
+    }
+    _momentHandler.queryListMoments();
+  }, [chapterId]);
+
   const _momentHandler: MomentHandler = {
+    queryListMoments: async () => {
+      const payload = await amplifyClient.graphql({
+        query: listMomentObjs,
+        variables: {
+          filter: {
+            chapterId: {
+              eq: chapterId,
+            },
+          },
+        },
+      });
+      const moments = payload.data?.listMomentObjs?.items as MomentObj[];
+      changeMoments(moments);
+      changeMomentId(moments.at(0)?.id || '');
+      return moments;
+    },
+    queryCreateMoment: async (
+      title: string,
+      log: string,
+      file: FileObj,
+      visibility: string,
+    ) => {
+      const payload = await amplifyClient.graphql({
+        query: createMomentObj,
+        variables: {
+          input: {
+            chapterId: chapterId,
+            spaceId: spaceId,
+            userId: state.user.id,
+            time: new Date().toISOString(),
+            title: title,
+            log: log,
+            file: file,
+            visibility: visibility,
+          },
+        },
+      });
+      const moment = payload.data?.createMomentObj as MomentObj;
+      changeMomentId(moment.id);
+      changeMoments((prev) => [...prev, moment])
+      return moment;
+    },
     updateMoments: (moments: MomentObj[]) => {
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
