@@ -14,7 +14,7 @@ export function GalleryCollectionThumbnail({
 
   return (
     <div
-      className='h-full aspect-square bg-black'
+      className='h-full aspect-square bg-black cursor-pointer'
       onClick={() => {
         sidebarHandler.goToCollection(collection);
       }}

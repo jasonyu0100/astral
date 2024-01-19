@@ -7,7 +7,10 @@ export const useGallery = (galleryId: string) => {
   const [gallery, changeGallery] = useState({} as GalleryObj);
 
   useEffect(() => {
-    if (!galleryId) return;
+    if (!galleryId) {
+      changeGallery({} as GalleryObj);
+      return;
+    }
     queryGetGallery(galleryId);
   }, [galleryId]);
 

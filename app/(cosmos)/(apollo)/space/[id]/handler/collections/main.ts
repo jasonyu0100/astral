@@ -24,13 +24,15 @@ export const useCollections = (galleryId: string) => {
   const collection = collections.find((collection) => collection.id === collectionId);
 
   useEffect(() => {
-    if (!galleryId) return;
+    if (!galleryId) {
+      changeCollections([])
+      return
+    }
     _collectionHandler.queryListCollections(galleryId);
   }, [galleryId]);
 
   const _collectionHandler: CollectionHandler = {
     goToCollection: (collection: CollectionObj) => {
-      console.log(collection.id)
       changeCollectionId(collection.id);
     },
     queryCollectionResources: async (collectionId: string) => {

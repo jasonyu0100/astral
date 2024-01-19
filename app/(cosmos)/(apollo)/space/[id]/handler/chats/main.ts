@@ -9,7 +9,6 @@ export interface ChatHandler {
   updateChats: (chats: ChatObj[]) => ChatObj[];
   updateChat: (chat: ChatObj) => ChatObj;
   selectChat: (chat: ChatObj) => ChatObj;
-  addChat: (chat: ChatObj) => ChatObj;
   queryListChats: () => Promise<ChatObj[]>;
   queryCreateChat: (title: string, summary: string) => Promise<ChatObj>;
 }
@@ -28,11 +27,11 @@ export const useChats = (chapterId: string): useChatInterface => {
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
   useEffect(() => {
-    _chatHandler.queryListChats().then((chats) => {
-      changeChats(chats);
-      const chatId = chats.at(0)?.id || '';
-      changeChatId(chatId);
-    });
+    if (!chapterId) {
+      changeChats([]);
+      return;
+    }
+    _chatHandler.queryListChats()
   }, [chapterId]);
 
   const _chatHandler: ChatHandler = {
@@ -48,6 +47,8 @@ export const useChats = (chapterId: string): useChatInterface => {
         },
       });
       const chats = payload.data?.listChatObjs?.items as ChatObj[];
+      changeChats(chats);
+      changeChatId(chats.at(0)?.id || '');
       return chats;
     },
     queryCreateChat: async (title: string, summary: string) => {
@@ -63,12 +64,13 @@ export const useChats = (chapterId: string): useChatInterface => {
         },
       });
       const chat = payload.data?.createChatObj as ChatObj;
+      changeChats((prev) => [...prev, chat]);
+      changeChatId(chat.id);
       return chat;
     },
     updateChats: (chats: ChatObj[]) => {
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
-      const chat = chats.filter((chat) => chat.id === chatId).at(0);
       return chats;
     },
     updateChat: (chat: ChatObj) => {
@@ -76,11 +78,6 @@ export const useChats = (chapterId: string): useChatInterface => {
       return chat;
     },
     selectChat: (chat: ChatObj) => {
-      changeChatId(chat.id);
-      return chat;
-    },
-    addChat: (chat: ChatObj) => {
-      changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
       return chat;
     },

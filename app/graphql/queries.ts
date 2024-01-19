@@ -22,6 +22,7 @@ export const getSpace = /* GraphQL */ `query GetSpace {
 export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
   getStarObj(id: $id) {
     id
+    constellationId
     name
     x
     y
@@ -48,6 +49,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
   listStarObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      constellationId
       name
       x
       y

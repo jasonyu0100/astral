@@ -12,6 +12,7 @@ export interface StarObj {
 export const starSchema = `
 type StarObj {
   id: String!
+  constellationId: String!
   name: String!
   x: Float!
   y: Float!

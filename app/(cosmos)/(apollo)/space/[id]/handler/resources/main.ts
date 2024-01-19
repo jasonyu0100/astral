@@ -30,7 +30,10 @@ export const useResources = (collectionId: string): useResourcesInterface => {
   const resource = resources.find((resource) => resource.id === resourceId);
 
   useEffect(() => {
-    if (!collectionId) return;
+    if (!collectionId) {
+      changeResources([])
+      return
+    };
     _resourceHandler.queryListResources(collectionId);
   }, [collectionId]);
 

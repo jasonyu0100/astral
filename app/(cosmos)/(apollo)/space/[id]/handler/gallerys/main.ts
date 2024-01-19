@@ -28,7 +28,10 @@ export const useGallerys = (userId: string): useGallerysInterface => {
   const gallery = gallerys.find((gallery) => gallery.id === galleryId);
 
   useEffect(() => {
-    if (!userId) return;
+    if (!userId) {
+      changeGallerys([])
+      return
+    };
     _galleryHandler.queryListGallerys();
   }, [userId]);
 

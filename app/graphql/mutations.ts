@@ -11,6 +11,7 @@ type GeneratedMutation<InputType, OutputType> = string & {
 export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: CreateStarObjInput!) {
   createStarObj(input: $input) {
     id
+    constellationId
     name
     x
     y
@@ -32,6 +33,7 @@ export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: Creat
 export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: UpdateStarObjInput!) {
   updateStarObj(input: $input) {
     id
+    constellationId
     name
     x
     y
@@ -53,6 +55,7 @@ export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: Updat
 export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: DeleteStarObjInput!) {
   deleteStarObj(input: $input) {
     id
+    constellationId
     name
     x
     y

@@ -11,6 +11,7 @@ type GeneratedSubscription<InputType, OutputType> = string & {
 export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: String, $name: String, $x: Float, $y: Float) {
   onCreateStarObj(id: $id, name: $name, x: $x, y: $y) {
     id
+    constellationId
     name
     x
     y
@@ -32,6 +33,7 @@ export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: 
 export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: String, $name: String, $x: Float, $y: Float) {
   onUpdateStarObj(id: $id, name: $name, x: $x, y: $y) {
     id
+    constellationId
     name
     x
     y
@@ -53,6 +55,7 @@ export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: 
 export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj($id: String, $name: String, $x: Float, $y: Float) {
   onDeleteStarObj(id: $id, name: $name, x: $x, y: $y) {
     id
+    constellationId
     name
     x
     y

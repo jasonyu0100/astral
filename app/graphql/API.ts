@@ -4,6 +4,7 @@
 
 export type CreateStarObjInput = {
   name: string,
+  constellationId: string,
   x: number,
   y: number,
   file: UpdateFileObjInput,
@@ -20,6 +21,7 @@ export type UpdateFileObjInput = {
 export type StarObj = {
   __typename: "StarObj",
   id: string,
+  constellationId: string,
   name: string,
   x: number,
   y: number,
@@ -37,6 +39,7 @@ export type FileObj = {
 
 export type UpdateStarObjInput = {
   id: string,
+  constellationId?: string | null,
   name?: string | null,
   x?: number | null,
   y?: number | null,
@@ -421,6 +424,7 @@ export type DeleteReservationObjInput = {
 
 export type TableStarObjFilterInput = {
   id?: TableStringFilterInput | null,
+  constellationId?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
   x?: TableFloatFilterInput | null,
   y?: TableFloatFilterInput | null,
@@ -676,6 +680,7 @@ export type CreateStarObjMutation = {
   createStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -698,6 +703,7 @@ export type UpdateStarObjMutation = {
   updateStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -720,6 +726,7 @@ export type DeleteStarObjMutation = {
   deleteStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -1467,6 +1474,7 @@ export type GetStarObjQuery = {
   getStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -1493,6 +1501,7 @@ export type ListStarObjsQuery = {
     items?:  Array< {
       __typename: "StarObj",
       id: string,
+      constellationId: string,
       name: string,
       x: number,
       y: number,
@@ -2078,6 +2087,7 @@ export type OnCreateStarObjSubscription = {
   onCreateStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -2103,6 +2113,7 @@ export type OnUpdateStarObjSubscription = {
   onUpdateStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,
@@ -2128,6 +2139,7 @@ export type OnDeleteStarObjSubscription = {
   onDeleteStarObj?:  {
     __typename: "StarObj",
     id: string,
+    constellationId: string,
     name: string,
     x: number,
     y: number,

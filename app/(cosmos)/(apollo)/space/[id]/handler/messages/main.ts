@@ -23,7 +23,10 @@ export const useMessages = (chatId: string): useMessageInterface => {
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
   useEffect(() => {
-    if (!chatId) return;
+    if (!chatId) {
+      changeMessages([])
+      return
+    };
     _messageHandler.queryListMessages(chatId)
   }, [chatId]);
 

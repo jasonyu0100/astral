@@ -42,7 +42,7 @@ export function StormChapterChatAdd() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                chatHandler.queryCreateChat(title, summary).then((chat: any) => chatHandler.addChat(chat))
+                chatHandler.queryCreateChat(title, summary)
                 changeShowModal(false);
                 alert('Add Chat');
               }}

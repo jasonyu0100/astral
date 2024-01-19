@@ -30,6 +30,10 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
 
   useEffect(() => {
+    if (!spaceId) {
+      changeChapters([]);
+      return;
+    }
     _chapterHandler.queryListChapters();
   }, [spaceId]);
 

@@ -7,12 +7,10 @@ import { ConstellationObj } from '@/tables/draft/constellation/main';
 import { ChapterHandler, useChapters } from '../../handler/chapters/main';
 import {
   ConstellationHandler,
-  StarHandler,
   useConstellations,
 } from '../../handler/constellations/main';
 import insideCosmos from '@/utils/isAuth';
-import { ResourceObj } from '@/tables/resource/main';
-import { useStars } from '../../handler/stars/main';
+import { StarHandler, useStars } from '../../handler/stars/main';
 
 interface DraftContextObj {
   chapterId: string;

@@ -7,7 +7,10 @@ export const useCollection = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as CollectionObj);
 
   useEffect(() => {
-    if (!collectionId) return;
+    if (!collectionId) {
+      changeCollection({} as CollectionObj);
+      return;
+    }
     queryGetCollection(collectionId);
   }, [collectionId]);
   
