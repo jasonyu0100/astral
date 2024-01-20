@@ -1,6 +1,6 @@
 'use client';
 
-import { setup, isSupported } from '@loomhq/record-sdk';
+import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { oembed } from '@loomhq/loom-embed';
 import { useEffect, useState } from 'react';
 import { ButtonInputProps } from '@/(common)/types/main';
@@ -31,7 +31,7 @@ export function DraftLoomButton({ ...props }: ButtonInputProps) {
 
       const sdkButton = configureButton({ element: button });
 
-      sdkButton.on('insert-click', async (video) => {
+      sdkButton.on('insert-click', async (video : LoomVideo) => {
         const { html } = await oembed(video.sharedUrl, { width: 400 });
         setVideoHTML(html);
       });

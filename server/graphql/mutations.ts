@@ -80,6 +80,7 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -88,8 +89,27 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -103,6 +123,7 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -111,8 +132,27 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -126,6 +166,7 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -134,8 +175,27 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -449,6 +509,8 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -457,9 +519,27 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -476,6 +556,8 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -484,9 +566,27 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -503,6 +603,8 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -511,9 +613,27 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -754,4 +874,103 @@ export const deleteReservationObj = /* GraphQL */ `mutation DeleteReservationObj
 ` as GeneratedMutation<
   APITypes.DeleteReservationObjMutationVariables,
   APITypes.DeleteReservationObjMutation
+>;
+export const createLoomObj = /* GraphQL */ `mutation CreateLoomObj($input: CreateLoomObjInput!) {
+  createLoomObj(input: $input) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateLoomObjMutationVariables,
+  APITypes.CreateLoomObjMutation
+>;
+export const updateLoomObj = /* GraphQL */ `mutation UpdateLoomObj($input: UpdateLoomObjInput!) {
+  updateLoomObj(input: $input) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateLoomObjMutationVariables,
+  APITypes.UpdateLoomObjMutation
+>;
+export const deleteLoomObj = /* GraphQL */ `mutation DeleteLoomObj($input: DeleteLoomObjInput!) {
+  deleteLoomObj(input: $input) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteLoomObjMutationVariables,
+  APITypes.DeleteLoomObjMutation
+>;
+export const createStickyObj = /* GraphQL */ `mutation CreateStickyObj($input: CreateStickyObjInput!) {
+  createStickyObj(input: $input) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateStickyObjMutationVariables,
+  APITypes.CreateStickyObjMutation
+>;
+export const updateStickyObj = /* GraphQL */ `mutation UpdateStickyObj($input: UpdateStickyObjInput!) {
+  updateStickyObj(input: $input) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateStickyObjMutationVariables,
+  APITypes.UpdateStickyObjMutation
+>;
+export const deleteStickyObj = /* GraphQL */ `mutation DeleteStickyObj($input: DeleteStickyObjInput!) {
+  deleteStickyObj(input: $input) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteStickyObjMutationVariables,
+  APITypes.DeleteStickyObjMutation
 >;

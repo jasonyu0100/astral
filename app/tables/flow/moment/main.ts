@@ -1,6 +1,7 @@
 import { ResourceType } from '@/tables/resource/main';
 import { FileObj, exampleFile } from '../../file/main';
-import { CommentObj, exampleComments } from './comment/main';
+import { LoomObj } from '@/tables/resource/loom/main';
+import { StickyObj } from '@/tables/resource/sticky/main';
 
 export enum MomentVisibility {
   JOURNAL = 'JOURNAL',
@@ -18,11 +19,13 @@ type MomentObj {
   time: String!
   title: String!
   log: String!
-  file: FileObj
-  loom: String
-  resourceType: String!
   visibility: String!
+  resourceType: String!
+  file: FileObj
+  loom: LoomObj
+  sticky: StickyObj
 }`;
+
 export interface MomentObj {
   id: string;
   chapterId: string;
@@ -31,10 +34,11 @@ export interface MomentObj {
   time: string;
   title: string;
   log: string;
-  file?: FileObj;
-  loom?: string;
-  resourceType: string;
   visibility: string;
+  resourceType: string;
+  file?: FileObj;
+  loom?: LoomObj;
+  sticky?: StickyObj;
 }
 
 export const exampleMoment: MomentObj = {

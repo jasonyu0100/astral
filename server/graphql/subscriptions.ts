@@ -90,6 +90,7 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -98,8 +99,27 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -123,6 +143,7 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -131,8 +152,27 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -156,6 +196,7 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
     collectionId
     name
     description
+    resourceType
     file {
       id
       src
@@ -164,8 +205,27 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
       size
       __typename
     }
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -681,6 +741,8 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -689,9 +751,27 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -718,6 +798,8 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -726,9 +808,27 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -755,6 +855,8 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
     time
     title
     log
+    visibility
+    resourceType
     file {
       id
       src
@@ -763,9 +865,27 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
       size
       __typename
     }
-    visibility
-    loom
-    resourceType
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
     __typename
   }
 }
@@ -1123,4 +1243,154 @@ export const onDeleteReservationObj = /* GraphQL */ `subscription OnDeleteReserv
 ` as GeneratedSubscription<
   APITypes.OnDeleteReservationObjSubscriptionVariables,
   APITypes.OnDeleteReservationObjSubscription
+>;
+export const onCreateLoomObj = /* GraphQL */ `subscription OnCreateLoomObj(
+  $id: String
+  $loomId: String
+  $height: Float
+  $width: Float
+  $sharedUrl: String
+) {
+  onCreateLoomObj(
+    id: $id
+    loomId: $loomId
+    height: $height
+    width: $width
+    sharedUrl: $sharedUrl
+  ) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateLoomObjSubscriptionVariables,
+  APITypes.OnCreateLoomObjSubscription
+>;
+export const onUpdateLoomObj = /* GraphQL */ `subscription OnUpdateLoomObj(
+  $id: String
+  $loomId: String
+  $height: Float
+  $width: Float
+  $sharedUrl: String
+) {
+  onUpdateLoomObj(
+    id: $id
+    loomId: $loomId
+    height: $height
+    width: $width
+    sharedUrl: $sharedUrl
+  ) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateLoomObjSubscriptionVariables,
+  APITypes.OnUpdateLoomObjSubscription
+>;
+export const onDeleteLoomObj = /* GraphQL */ `subscription OnDeleteLoomObj(
+  $id: String
+  $loomId: String
+  $height: Float
+  $width: Float
+  $sharedUrl: String
+) {
+  onDeleteLoomObj(
+    id: $id
+    loomId: $loomId
+    height: $height
+    width: $width
+    sharedUrl: $sharedUrl
+  ) {
+    id
+    loomId
+    height
+    width
+    sharedUrl
+    embedUrl
+    thumbnailHeight
+    thumbnailWidth
+    thumbnailUrl
+    duration
+    providerUrl
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteLoomObjSubscriptionVariables,
+  APITypes.OnDeleteLoomObjSubscription
+>;
+export const onCreateStickyObj = /* GraphQL */ `subscription OnCreateStickyObj(
+  $id: String
+  $color: String
+  $name: String
+  $content: String
+) {
+  onCreateStickyObj(id: $id, color: $color, name: $name, content: $content) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateStickyObjSubscriptionVariables,
+  APITypes.OnCreateStickyObjSubscription
+>;
+export const onUpdateStickyObj = /* GraphQL */ `subscription OnUpdateStickyObj(
+  $id: String
+  $color: String
+  $name: String
+  $content: String
+) {
+  onUpdateStickyObj(id: $id, color: $color, name: $name, content: $content) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateStickyObjSubscriptionVariables,
+  APITypes.OnUpdateStickyObjSubscription
+>;
+export const onDeleteStickyObj = /* GraphQL */ `subscription OnDeleteStickyObj(
+  $id: String
+  $color: String
+  $name: String
+  $content: String
+) {
+  onDeleteStickyObj(id: $id, color: $color, name: $name, content: $content) {
+    id
+    color
+    name
+    content
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteStickyObjSubscriptionVariables,
+  APITypes.OnDeleteStickyObjSubscription
 >;

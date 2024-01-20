@@ -54,9 +54,31 @@ export type CreateResourceObjInput = {
   collectionId: string,
   name: string,
   description: string,
-  file?: UpdateFileObjInput | null,
-  loom?: string | null,
   resourceType: string,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
+};
+
+export type UpdateLoomObjInput = {
+  id: string,
+  loomId?: string | null,
+  height?: number | null,
+  width?: number | null,
+  sharedUrl?: string | null,
+  embedUrl?: string | null,
+  thumbnailHeight?: number | null,
+  thumbnailWidth?: number | null,
+  thumbnailUrl?: string | null,
+  duration?: string | null,
+  providerUrl?: string | null,
+};
+
+export type UpdateStickyObjInput = {
+  id: string,
+  color?: string | null,
+  name?: string | null,
+  content?: string | null,
 };
 
 export type ResourceObj = {
@@ -65,9 +87,33 @@ export type ResourceObj = {
   collectionId: string,
   name: string,
   description: string,
-  file?: FileObj | null,
-  loom?: string | null,
   resourceType: string,
+  file?: FileObj | null,
+  loom?: LoomObj | null,
+  sticky?: StickyObj | null,
+};
+
+export type LoomObj = {
+  __typename: "LoomObj",
+  id: string,
+  loomId: string,
+  height: number,
+  width: number,
+  sharedUrl: string,
+  embedUrl: string,
+  thumbnailHeight: number,
+  thumbnailWidth: number,
+  thumbnailUrl: string,
+  duration: string,
+  providerUrl: string,
+};
+
+export type StickyObj = {
+  __typename: "StickyObj",
+  id: string,
+  color: string,
+  name: string,
+  content: string,
 };
 
 export type UpdateResourceObjInput = {
@@ -75,9 +121,10 @@ export type UpdateResourceObjInput = {
   collectionId?: string | null,
   name?: string | null,
   description?: string | null,
-  file?: UpdateFileObjInput | null,
-  loom?: string | null,
   resourceType?: string | null,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
 };
 
 export type DeleteResourceObjInput = {
@@ -263,9 +310,10 @@ export type CreateMomentObjInput = {
   title: string,
   log: string,
   visibility: string,
-  file?: UpdateFileObjInput | null,
-  loom?: string | null,
   resourceType: string,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
 };
 
 export type MomentObj = {
@@ -277,10 +325,11 @@ export type MomentObj = {
   time: string,
   title: string,
   log: string,
-  file?: FileObj | null,
   visibility: string,
-  loom?: string | null,
   resourceType: string,
+  file?: FileObj | null,
+  loom?: LoomObj | null,
+  sticky?: StickyObj | null,
 };
 
 export type UpdateMomentObjInput = {
@@ -293,7 +342,8 @@ export type UpdateMomentObjInput = {
   log?: string | null,
   visibility?: string | null,
   file?: UpdateFileObjInput | null,
-  loom?: string | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
   resourceType?: string | null,
 };
 
@@ -434,6 +484,33 @@ export type DeleteReservationObjInput = {
   id: string,
 };
 
+export type CreateLoomObjInput = {
+  loomId: string,
+  height: number,
+  width: number,
+  sharedUrl: string,
+  embedUrl: string,
+  thumbnailHeight: number,
+  thumbnailWidth: number,
+  thumbnailUrl: string,
+  duration: string,
+  providerUrl: string,
+};
+
+export type DeleteLoomObjInput = {
+  id: string,
+};
+
+export type CreateStickyObjInput = {
+  color: string,
+  name: string,
+  content: string,
+};
+
+export type DeleteStickyObjInput = {
+  id: string,
+};
+
 export type TableStarObjFilterInput = {
   id?: TableStringFilterInput | null,
   constellationId?: TableStringFilterInput | null,
@@ -489,7 +566,6 @@ export type TableResourceObjFilterInput = {
   collectionId?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
-  loom?: TableStringFilterInput | null,
   resourceType?: TableStringFilterInput | null,
 };
 
@@ -589,7 +665,6 @@ export type TableMomentObjFilterInput = {
   title?: TableStringFilterInput | null,
   log?: TableStringFilterInput | null,
   visibility?: TableStringFilterInput | null,
-  loom?: TableStringFilterInput | null,
   resourceType?: TableStringFilterInput | null,
 };
 
@@ -688,6 +763,39 @@ export type ReservationObjConnection = {
   nextToken?: string | null,
 };
 
+export type TableLoomObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  loomId?: TableStringFilterInput | null,
+  height?: TableFloatFilterInput | null,
+  width?: TableFloatFilterInput | null,
+  sharedUrl?: TableStringFilterInput | null,
+  embedUrl?: TableStringFilterInput | null,
+  thumbnailHeight?: TableFloatFilterInput | null,
+  thumbnailWidth?: TableFloatFilterInput | null,
+  thumbnailUrl?: TableStringFilterInput | null,
+  duration?: TableStringFilterInput | null,
+  providerUrl?: TableStringFilterInput | null,
+};
+
+export type LoomObjConnection = {
+  __typename: "LoomObjConnection",
+  items?:  Array<LoomObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableStickyObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  color?: TableStringFilterInput | null,
+  name?: TableStringFilterInput | null,
+  content?: TableStringFilterInput | null,
+};
+
+export type StickyObjConnection = {
+  __typename: "StickyObjConnection",
+  items?:  Array<StickyObj | null > | null,
+  nextToken?: string | null,
+};
+
 export type CreateStarObjMutationVariables = {
   input: CreateStarObjInput,
 };
@@ -768,6 +876,7 @@ export type CreateResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -776,8 +885,27 @@ export type CreateResourceObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -792,6 +920,7 @@ export type UpdateResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -800,8 +929,27 @@ export type UpdateResourceObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -816,6 +964,7 @@ export type DeleteResourceObjMutation = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -824,8 +973,27 @@ export type DeleteResourceObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1158,6 +1326,8 @@ export type CreateMomentObjMutation = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -1166,9 +1336,27 @@ export type CreateMomentObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1186,6 +1374,8 @@ export type UpdateMomentObjMutation = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -1194,9 +1384,27 @@ export type UpdateMomentObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1214,6 +1422,8 @@ export type DeleteMomentObjMutation = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -1222,9 +1432,27 @@ export type DeleteMomentObjMutation = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1480,6 +1708,111 @@ export type DeleteReservationObjMutation = {
   } | null,
 };
 
+export type CreateLoomObjMutationVariables = {
+  input: CreateLoomObjInput,
+};
+
+export type CreateLoomObjMutation = {
+  createLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type UpdateLoomObjMutationVariables = {
+  input: UpdateLoomObjInput,
+};
+
+export type UpdateLoomObjMutation = {
+  updateLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type DeleteLoomObjMutationVariables = {
+  input: DeleteLoomObjInput,
+};
+
+export type DeleteLoomObjMutation = {
+  deleteLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type CreateStickyObjMutationVariables = {
+  input: CreateStickyObjInput,
+};
+
+export type CreateStickyObjMutation = {
+  createStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
+export type UpdateStickyObjMutationVariables = {
+  input: UpdateStickyObjInput,
+};
+
+export type UpdateStickyObjMutation = {
+  updateStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
+export type DeleteStickyObjMutationVariables = {
+  input: DeleteStickyObjInput,
+};
+
+export type DeleteStickyObjMutation = {
+  deleteStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
 export type GetSpaceQueryVariables = {
 };
 
@@ -1557,6 +1890,7 @@ export type GetResourceObjQuery = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -1565,8 +1899,27 @@ export type GetResourceObjQuery = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1585,6 +1938,7 @@ export type ListResourceObjsQuery = {
       collectionId: string,
       name: string,
       description: string,
+      resourceType: string,
       file?:  {
         __typename: "FileObj",
         id: string,
@@ -1593,8 +1947,27 @@ export type ListResourceObjsQuery = {
         name?: string | null,
         size?: number | null,
       } | null,
-      loom?: string | null,
-      resourceType: string,
+      loom?:  {
+        __typename: "LoomObj",
+        id: string,
+        loomId: string,
+        height: number,
+        width: number,
+        sharedUrl: string,
+        embedUrl: string,
+        thumbnailHeight: number,
+        thumbnailWidth: number,
+        thumbnailUrl: string,
+        duration: string,
+        providerUrl: string,
+      } | null,
+      sticky?:  {
+        __typename: "StickyObj",
+        id: string,
+        color: string,
+        name: string,
+        content: string,
+      } | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -1860,6 +2233,8 @@ export type GetMomentObjQuery = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -1868,9 +2243,27 @@ export type GetMomentObjQuery = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -1892,6 +2285,8 @@ export type ListMomentObjsQuery = {
       time: string,
       title: string,
       log: string,
+      visibility: string,
+      resourceType: string,
       file?:  {
         __typename: "FileObj",
         id: string,
@@ -1900,9 +2295,27 @@ export type ListMomentObjsQuery = {
         name?: string | null,
         size?: number | null,
       } | null,
-      visibility: string,
-      loom?: string | null,
-      resourceType: string,
+      loom?:  {
+        __typename: "LoomObj",
+        id: string,
+        loomId: string,
+        height: number,
+        width: number,
+        sharedUrl: string,
+        embedUrl: string,
+        thumbnailHeight: number,
+        thumbnailWidth: number,
+        thumbnailUrl: string,
+        duration: string,
+        providerUrl: string,
+      } | null,
+      sticky?:  {
+        __typename: "StickyObj",
+        id: string,
+        color: string,
+        name: string,
+        content: string,
+      } | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2112,6 +2525,88 @@ export type ListReservationObjsQuery = {
   } | null,
 };
 
+export type GetLoomObjQueryVariables = {
+  id: string,
+};
+
+export type GetLoomObjQuery = {
+  getLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type ListLoomObjsQueryVariables = {
+  filter?: TableLoomObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListLoomObjsQuery = {
+  listLoomObjs?:  {
+    __typename: "LoomObjConnection",
+    items?:  Array< {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetStickyObjQueryVariables = {
+  id: string,
+};
+
+export type GetStickyObjQuery = {
+  getStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
+export type ListStickyObjsQueryVariables = {
+  filter?: TableStickyObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListStickyObjsQuery = {
+  listStickyObjs?:  {
+    __typename: "StickyObjConnection",
+    items?:  Array< {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateStarObjSubscriptionVariables = {
   id?: string | null,
   name?: string | null,
@@ -2204,6 +2699,7 @@ export type OnCreateResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2212,8 +2708,27 @@ export type OnCreateResourceObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -2231,6 +2746,7 @@ export type OnUpdateResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2239,8 +2755,27 @@ export type OnUpdateResourceObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -2258,6 +2793,7 @@ export type OnDeleteResourceObjSubscription = {
     collectionId: string,
     name: string,
     description: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2266,8 +2802,27 @@ export type OnDeleteResourceObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -2663,6 +3218,8 @@ export type OnCreateMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2671,9 +3228,27 @@ export type OnCreateMomentObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -2694,6 +3269,8 @@ export type OnUpdateMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2702,9 +3279,27 @@ export type OnUpdateMomentObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -2725,6 +3320,8 @@ export type OnDeleteMomentObjSubscription = {
     time: string,
     title: string,
     log: string,
+    visibility: string,
+    resourceType: string,
     file?:  {
       __typename: "FileObj",
       id: string,
@@ -2733,9 +3330,27 @@ export type OnDeleteMomentObjSubscription = {
       name?: string | null,
       size?: number | null,
     } | null,
-    visibility: string,
-    loom?: string | null,
-    resourceType: string,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
   } | null,
 };
 
@@ -3042,5 +3657,131 @@ export type OnDeleteReservationObjSubscription = {
     fname: string,
     lname: string,
     email: string,
+  } | null,
+};
+
+export type OnCreateLoomObjSubscriptionVariables = {
+  id?: string | null,
+  loomId?: string | null,
+  height?: number | null,
+  width?: number | null,
+  sharedUrl?: string | null,
+};
+
+export type OnCreateLoomObjSubscription = {
+  onCreateLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type OnUpdateLoomObjSubscriptionVariables = {
+  id?: string | null,
+  loomId?: string | null,
+  height?: number | null,
+  width?: number | null,
+  sharedUrl?: string | null,
+};
+
+export type OnUpdateLoomObjSubscription = {
+  onUpdateLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type OnDeleteLoomObjSubscriptionVariables = {
+  id?: string | null,
+  loomId?: string | null,
+  height?: number | null,
+  width?: number | null,
+  sharedUrl?: string | null,
+};
+
+export type OnDeleteLoomObjSubscription = {
+  onDeleteLoomObj?:  {
+    __typename: "LoomObj",
+    id: string,
+    loomId: string,
+    height: number,
+    width: number,
+    sharedUrl: string,
+    embedUrl: string,
+    thumbnailHeight: number,
+    thumbnailWidth: number,
+    thumbnailUrl: string,
+    duration: string,
+    providerUrl: string,
+  } | null,
+};
+
+export type OnCreateStickyObjSubscriptionVariables = {
+  id?: string | null,
+  color?: string | null,
+  name?: string | null,
+  content?: string | null,
+};
+
+export type OnCreateStickyObjSubscription = {
+  onCreateStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
+export type OnUpdateStickyObjSubscriptionVariables = {
+  id?: string | null,
+  color?: string | null,
+  name?: string | null,
+  content?: string | null,
+};
+
+export type OnUpdateStickyObjSubscription = {
+  onUpdateStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
+  } | null,
+};
+
+export type OnDeleteStickyObjSubscriptionVariables = {
+  id?: string | null,
+  color?: string | null,
+  name?: string | null,
+  content?: string | null,
+};
+
+export type OnDeleteStickyObjSubscription = {
+  onDeleteStickyObj?:  {
+    __typename: "StickyObj",
+    id: string,
+    color: string,
+    name: string,
+    content: string,
   } | null,
 };
