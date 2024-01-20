@@ -11,11 +11,11 @@ export function DriveIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={driveMap.drive.search.link}>
+        <SidebarIndicator href={driveMap.drive.explore.link}>
           <IndicatorOrangeJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={driveMap.drive.search.link}>
+        <SidebarIndicator href={driveMap.drive.explore.link}>
           <IndicatorOrangeJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>
