@@ -7,7 +7,7 @@ export function StormChat({ children }: { children: React.ReactNode }) {
       <Layer
         displayName={StormChat.name}
         sizeStyle='w-full h-full'
-        className={`${containerStyles['col-center']} space-y-[30px] overflow-auto p-[1rem]`}
+        className={`${containerStyles['col-center']} space-y-[30px] overflow-auto`}
       >
         {children}
       </Layer>

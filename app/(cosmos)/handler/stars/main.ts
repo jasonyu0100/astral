@@ -1,13 +1,21 @@
 import { amplifyClient } from '@/client';
-import { createStarObj } from '@/graphql/mutations';
+import { createStarObj, updateStarObj } from '@/graphql/mutations';
 import { listStarObjs } from '@/graphql/queries';
-import { StarObj } from '@/tables/draft/constellation/star/main';
+import { FileStarObj, LoomStarObj, StarObj, StickyStarObj } from '@/tables/draft/constellation/star/main';
 import { FileObj } from '@/tables/file/main';
+import { ResourceType } from '@/tables/resource/main';
+import { removeTypename, removeEmpty } from '@/utils/clean';
 import { useEffect, useState } from 'react';
 export interface StarHandler {
-    queryListStars: () => Promise<StarObj[]>;
-    queryCreateStar: (name: string, x: number, y: number, file: FileObj) => Promise<StarObj>;
-    updateStar: (starId: string, data: any) => void;
+  queryListStars: () => Promise<StarObj[]>;
+  queryCreateFileStar: (
+    name: string,
+    x: number,
+    y: number,
+    file: FileObj,
+  ) => Promise<StarObj>;
+  updateStar: (starId: string, data: any) => void;
+  queryUpdateStars: () => Promise<StarObj[]>
 }
 
 interface useStarInterface {
@@ -24,14 +32,14 @@ export const useStars = (constellationId: string): useStarInterface => {
   const star = stars.filter((star) => star.id === starId).at(0);
 
   useEffect(() => {
-    if (constellationId == "") {
-      changeStars([])
+    if (constellationId == '') {
+      changeStars([]);
       return;
     }
     _starHandler.queryListStars();
-  }, [constellationId])
+  }, [constellationId]);
 
-  const _starHandler : StarHandler = {
+  const _starHandler: StarHandler = {
     queryListStars: async () => {
       const payload = await amplifyClient.graphql({
         query: listStarObjs,
@@ -48,11 +56,16 @@ export const useStars = (constellationId: string): useStarInterface => {
       changeStarId(stars[0]?.id || '');
       return stars;
     },
-    queryCreateStar: async (name: string, x: number, y: number, file: FileObj) => {
+    queryCreateFileStar: async (
+      name: string,
+      x: number,
+      y: number,
+      file: FileObj,
+    ) => {
       if (constellationId === '') {
-        alert("No Constellation Active")
-        return {} as StarObj
-      } 
+        alert('No Constellation Active');
+        return {} as StarObj;
+      }
       const payload = await amplifyClient.graphql({
         query: createStarObj,
         variables: {
@@ -64,10 +77,11 @@ export const useStars = (constellationId: string): useStarInterface => {
             file: {
               id: file.id,
               src: file.src,
-              name: file.name || "",
+              name: file.name || '',
               size: file.size || undefined,
-              type: file.type || "",
+              type: file.type || '',
             },
+            resourceType: ResourceType.FILE,
           },
         },
       });
@@ -75,9 +89,26 @@ export const useStars = (constellationId: string): useStarInterface => {
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
+    },    
+    queryUpdateStars: async () => {
+      const updatedStars = await Promise.all(
+        stars.map(async (star) => {
+          let input = removeTypename(removeEmpty(star))
+          const payload = await amplifyClient.graphql({
+            query: updateStarObj,
+            variables: {
+              input: input
+            },
+          });
+          const updatedStar = payload.data?.updateStarObj as StarObj;
+          return updatedStar;
+        }),
+      );
+      return updatedStars
     },
     updateStar: (starId: string, data: any) => {
-      changeStars((prev) => prev.map((star) => (star.id === starId ? { ...star, ...data } : star))
+      changeStars((prev) =>
+        prev.map((star) => (star.id === starId ? { ...star, ...data } : star)),
       );
     },
   };

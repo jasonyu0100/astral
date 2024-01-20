@@ -1,5 +1,5 @@
 import { Layer } from '@/(common)/layer/main';
-import { containerStyles, borderStyles } from '@/(common)/styles/data';
+import { containerStyles, borderStyles, backgroundStyles } from '@/(common)/styles/data';
 import { FlowHeaderListButton } from './left/list/main';
 import { FlowHeaderLeft } from './left/main';
 import { FlowHeaderMiddle } from './middle/main';
@@ -16,8 +16,9 @@ export function FlowHeader() {
   return (
     <Layer
       displayName={FlowHeader.name}
-      sizeStyle='h-[50px] w-full flex-shrink-0'
-      className={`${containerStyles['row-center']} px-[1rem] space-x-[1rem] justify-between`}
+      sizeStyle='h-[60px] w-full flex-shrink-0'
+      backgroundStyle={backgroundStyles['glass-5']}
+      className={`${containerStyles['row-center']} space-x-[1rem] justify-between`}
       borderStyle={borderStyles['border-b']}
     >
       <FlowHeaderLeft>

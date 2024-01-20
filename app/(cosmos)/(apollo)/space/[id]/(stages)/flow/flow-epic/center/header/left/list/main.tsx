@@ -1,6 +1,8 @@
-export function FlowHeaderListButton() {
+import { ButtonInputProps } from "@/(common)/types/main";
+
+export function FlowHeaderListButton({ ...props }: ButtonInputProps) {
   return (
-    <div className='w-[30px] h-[30px]'>
+    <button className='w-[60px] h-[60px] flex items-center justify-center hover:bg-slate-950' {...props}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='31'
@@ -31,6 +33,6 @@ export function FlowHeaderListButton() {
           />
         </g>
       </svg>
-    </div>
+    </button>
   );
 }

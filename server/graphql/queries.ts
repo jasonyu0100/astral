@@ -34,6 +34,28 @@ export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }
@@ -61,6 +83,28 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
         size
         __typename
       }
+      loom {
+        id
+        loomId
+        height
+        width
+        sharedUrl
+        embedUrl
+        thumbnailHeight
+        thumbnailWidth
+        thumbnailUrl
+        duration
+        providerUrl
+        __typename
+      }
+      sticky {
+        id
+        color
+        name
+        content
+        __typename
+      }
+      resourceType
       __typename
     }
     nextToken

@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/client';
-import { createMomentObj } from '@/graphql/mutations';
+import { createMomentObj, updateMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
@@ -45,7 +45,7 @@ export const useMoments = (
     _momentHandler.queryListMoments();
   }, [chapterId]);
 
-  const _momentHandler: MomentHandler = {
+  const _momentHandler = {
     queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,
@@ -80,13 +80,13 @@ export const useMoments = (
             log: log,
             file: file,
             visibility: visibility,
-            resourceType: ResourceType.LOOM
+            resourceType: ResourceType.LOOM,
           },
         },
       });
       const moment = payload.data?.createMomentObj as MomentObj;
       changeMomentId(moment.id);
-      changeMoments((prev) => [...prev, moment])
+      changeMoments((prev) => [...prev, moment]);
       return moment;
     },
     updateMoments: (moments: MomentObj[]) => {

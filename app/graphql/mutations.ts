@@ -23,6 +23,28 @@ export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: Creat
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }
@@ -45,6 +67,28 @@ export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: Updat
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }
@@ -67,6 +111,28 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }

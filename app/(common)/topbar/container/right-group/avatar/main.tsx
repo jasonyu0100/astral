@@ -1,3 +1,4 @@
+"use client";
 import { LinkInputProps } from '@/(common)/types/main';
 import { useGlobalUser } from '@/state/main';
 import { UserObj } from '@/tables/user/main';

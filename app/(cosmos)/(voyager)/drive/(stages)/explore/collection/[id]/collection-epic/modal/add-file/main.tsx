@@ -11,16 +11,17 @@ import { Modal } from '@/(common)/modal/main';
 import { FileObj } from '@/tables/file/main';
 import { useContext, useState } from 'react';
 import { ExploreCollectionContext } from '../../../page';
+import { CollectionModalContext } from '../main';
 
 export function AddFileModal() {
   const { resourceHandler } = useContext(ExploreCollectionContext);
+  const { addFile } = useContext(CollectionModalContext);
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileObj);
-  const [showModal, changeShowModal] = useState(false);
 
   return (
-    <Modal isOpen={showModal} onClose={() => changeShowModal(false)}>
+    <Modal isOpen={addFile.opened} onClose={() => addFile.close()}>
       <FormContainer>
         <FormTitle>Upload File</FormTitle>
         <FormBody>
@@ -44,7 +45,7 @@ export function AddFileModal() {
           <FormButton
             onClick={() => {
               resourceHandler.queryCreateFileResource(name, description, file);
-              changeShowModal(false);
+              addFile.close();
             }}
           >
             Upload

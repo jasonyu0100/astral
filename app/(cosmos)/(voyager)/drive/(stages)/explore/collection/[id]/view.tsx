@@ -18,7 +18,7 @@ export default function ExploreCollectionView() {
   const { gallery, collection, resources } = useContext(
     ExploreCollectionContext,
   );
-  const { addFile: addFileModal } = useContext(CollectionModalContext)
+  const { addFile } = useContext(CollectionModalContext)
 
   return (
     <CollectionWrapper>
@@ -47,7 +47,7 @@ export default function ExploreCollectionView() {
           </CollectionBreadcrumbItem>
         </CollectionBreadcrumbs>
         <CollectionResourceGrid>
-          <CollectionResourceAdd onClick={() => addFileModal.open()} />
+          <CollectionResourceAdd onClick={() => addFile.open()} />
           {resources.map((resource) => (
             <CollectionResource resource={resource} />
           ))}

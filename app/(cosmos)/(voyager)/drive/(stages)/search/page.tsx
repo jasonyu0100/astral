@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/tables/resource/main';

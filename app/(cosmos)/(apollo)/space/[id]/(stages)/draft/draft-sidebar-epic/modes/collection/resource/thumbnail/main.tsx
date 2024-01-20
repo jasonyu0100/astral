@@ -12,7 +12,7 @@ export function CollectionResourceThumbnail({
     <img
       className='h-[120px] w-[120px] rounded-full cursor-pointer'
       src={resource.file.src}
-      onClick={() => starHandler.queryCreateStar(resource.name, Math.random() * 500, Math.random() * 500, resource.file)}
+      onClick={() => starHandler.queryCreateFileStar(resource.name, Math.random() * 500, Math.random() * 500, resource.file)}
     />
   );
 }

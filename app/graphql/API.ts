@@ -7,7 +7,10 @@ export type CreateStarObjInput = {
   constellationId: string,
   x: number,
   y: number,
-  file: UpdateFileObjInput,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
+  resourceType: string,
 };
 
 export type UpdateFileObjInput = {
@@ -16,48 +19,6 @@ export type UpdateFileObjInput = {
   type?: string | null,
   name?: string | null,
   size?: number | null,
-};
-
-export type StarObj = {
-  __typename: "StarObj",
-  id: string,
-  constellationId: string,
-  name: string,
-  x: number,
-  y: number,
-  file: FileObj,
-};
-
-export type FileObj = {
-  __typename: "FileObj",
-  id: string,
-  src: string,
-  type: string,
-  name?: string | null,
-  size?: number | null,
-};
-
-export type UpdateStarObjInput = {
-  id: string,
-  constellationId?: string | null,
-  name?: string | null,
-  x?: number | null,
-  y?: number | null,
-  file?: UpdateFileObjInput | null,
-};
-
-export type DeleteStarObjInput = {
-  id: string,
-};
-
-export type CreateResourceObjInput = {
-  collectionId: string,
-  name: string,
-  description: string,
-  resourceType: string,
-  file?: UpdateFileObjInput | null,
-  loom?: UpdateLoomObjInput | null,
-  sticky?: UpdateStickyObjInput | null,
 };
 
 export type UpdateLoomObjInput = {
@@ -81,16 +42,26 @@ export type UpdateStickyObjInput = {
   content?: string | null,
 };
 
-export type ResourceObj = {
-  __typename: "ResourceObj",
+export type StarObj = {
+  __typename: "StarObj",
   id: string,
-  collectionId: string,
+  constellationId: string,
   name: string,
-  description: string,
-  resourceType: string,
+  x: number,
+  y: number,
   file?: FileObj | null,
   loom?: LoomObj | null,
   sticky?: StickyObj | null,
+  resourceType: string,
+};
+
+export type FileObj = {
+  __typename: "FileObj",
+  id: string,
+  src: string,
+  type: string,
+  name?: string | null,
+  size?: number | null,
 };
 
 export type LoomObj = {
@@ -114,6 +85,44 @@ export type StickyObj = {
   color: string,
   name: string,
   content: string,
+};
+
+export type UpdateStarObjInput = {
+  id: string,
+  constellationId?: string | null,
+  name?: string | null,
+  x?: number | null,
+  y?: number | null,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
+  resourceType?: string | null,
+};
+
+export type DeleteStarObjInput = {
+  id: string,
+};
+
+export type CreateResourceObjInput = {
+  collectionId: string,
+  name: string,
+  description: string,
+  resourceType: string,
+  file?: UpdateFileObjInput | null,
+  loom?: UpdateLoomObjInput | null,
+  sticky?: UpdateStickyObjInput | null,
+};
+
+export type ResourceObj = {
+  __typename: "ResourceObj",
+  id: string,
+  collectionId: string,
+  name: string,
+  description: string,
+  resourceType: string,
+  file?: FileObj | null,
+  loom?: LoomObj | null,
+  sticky?: StickyObj | null,
 };
 
 export type UpdateResourceObjInput = {
@@ -517,6 +526,7 @@ export type TableStarObjFilterInput = {
   name?: TableStringFilterInput | null,
   x?: TableFloatFilterInput | null,
   y?: TableFloatFilterInput | null,
+  resourceType?: TableStringFilterInput | null,
 };
 
 export type TableStringFilterInput = {
@@ -808,14 +818,36 @@ export type CreateStarObjMutation = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -831,14 +863,36 @@ export type UpdateStarObjMutation = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -854,14 +908,36 @@ export type DeleteStarObjMutation = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1839,14 +1915,36 @@ export type GetStarObjQuery = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -1866,14 +1964,36 @@ export type ListStarObjsQuery = {
       name: string,
       x: number,
       y: number,
-      file:  {
+      file?:  {
         __typename: "FileObj",
         id: string,
         src: string,
         type: string,
         name?: string | null,
         size?: number | null,
-      },
+      } | null,
+      loom?:  {
+        __typename: "LoomObj",
+        id: string,
+        loomId: string,
+        height: number,
+        width: number,
+        sharedUrl: string,
+        embedUrl: string,
+        thumbnailHeight: number,
+        thumbnailWidth: number,
+        thumbnailUrl: string,
+        duration: string,
+        providerUrl: string,
+      } | null,
+      sticky?:  {
+        __typename: "StickyObj",
+        id: string,
+        color: string,
+        name: string,
+        content: string,
+      } | null,
+      resourceType: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2622,14 +2742,36 @@ export type OnCreateStarObjSubscription = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2648,14 +2790,36 @@ export type OnUpdateStarObjSubscription = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 
@@ -2674,14 +2838,36 @@ export type OnDeleteStarObjSubscription = {
     name: string,
     x: number,
     y: number,
-    file:  {
+    file?:  {
       __typename: "FileObj",
       id: string,
       src: string,
       type: string,
       name?: string | null,
       size?: number | null,
-    },
+    } | null,
+    loom?:  {
+      __typename: "LoomObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight: number,
+      thumbnailWidth: number,
+      thumbnailUrl: string,
+      duration: string,
+      providerUrl: string,
+    } | null,
+    sticky?:  {
+      __typename: "StickyObj",
+      id: string,
+      color: string,
+      name: string,
+      content: string,
+    } | null,
+    resourceType: string,
   } | null,
 };
 

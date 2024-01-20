@@ -21,7 +21,7 @@ export function DraftSidebarView() {
     <Layer
       displayName={DraftSidebarView.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
-      className={`${containerStyles['col']} p-[1rem] space-y-[1rem]`}
+      className={`${containerStyles['col']} px-[1rem] space-y-[1rem]`}
       backgroundStyle={backgroundStyles['glass-10']}
     >
       <DraftSidebarHeader />

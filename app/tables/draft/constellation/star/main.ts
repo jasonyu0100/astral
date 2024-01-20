@@ -1,4 +1,6 @@
 import { FileObj, exampleFile } from '@/tables/file/main';
+import { LoomObj } from '@/tables/resource/loom/main';
+import { StickyObj } from '@/tables/resource/sticky/main';
 
 export interface StarObj {
   id: string;
@@ -6,7 +8,40 @@ export interface StarObj {
   name: string;
   x: number;
   y: number;
+  file?: FileObj;
+  loom?: LoomObj;
+  sticky?: StickyObj
+  resourceType: string;
+}
+
+export interface FileStarObj {
+  id: string;
+  constellationId: string;
+  name: string;
+  x: number;
+  y: number;
   file: FileObj;
+  resourceType: string;
+}
+
+export interface LoomStarObj {
+  id: string;
+  constellationId: string;
+  name: string;
+  x: number;
+  y: number;
+  loom: LoomObj;
+  resourceType: string;
+}
+
+export interface StickyStarObj {
+  id: string;
+  constellationId: string;
+  name: string;
+  x: number;
+  y: number;
+  sticky: StickyObj;
+  resourceType: string;
 }
 
 export const starSchema = `

@@ -14,10 +14,9 @@ export function SidebarBreadcrumbs({
   return (
     <Layer
       displayName={SidebarBreadcrumbs.name}
-      sizeStyle='h-[50px] w-full'
-      backgroundStyle={backgroundStyles['glass-10']}
-      borderStyle={`${borderStyles['border-all']} ${borderStyles.rounded}`}
-      className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
+      sizeStyle='h-[60px] w-full'
+      borderStyle={`${borderStyles['border-b']}`}
+      className={`${containerStyles['row-center']} space-x-[1rem]`}
     >
       {children}
     </Layer>

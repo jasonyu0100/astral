@@ -23,6 +23,28 @@ export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: 
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }
@@ -45,6 +67,28 @@ export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: 
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }
@@ -67,6 +111,28 @@ export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj($id: 
       size
       __typename
     }
+    loom {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    sticky {
+      id
+      color
+      name
+      content
+      __typename
+    }
+    resourceType
     __typename
   }
 }

@@ -7,7 +7,7 @@ export function FlowCenter({ children }: { children: React.ReactNode }) {
       <Layer
         displayName={FlowCenter.name}
         sizeStyle='w-full h-full'
-        className={`${containerStyles['col']} p-[1rem]`}
+        className={`${containerStyles['col']}`}
       >
         {children}
       </Layer>

@@ -1,13 +1,10 @@
-import { momentTable } from '@/tables/flow/table';
-import { FlowContext } from '../../../../../page';
-import { useContext } from 'react';
 import { ButtonInputProps } from '@/(common)/types/main';
 
-export function FlowHeaderAddButton({...props}: ButtonInputProps) {
-
+export function FlowHeaderAddButton({ ...props }: ButtonInputProps) {
   return (
     <button
-      className='w-[30px] h-[30px]'
+      className='w-[60px] h-[60px] flex items-center justify-center hover:bg-slate-950'
+      {...props}
       {...props}
     >
       <svg
