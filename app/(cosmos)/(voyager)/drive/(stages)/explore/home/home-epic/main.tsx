@@ -7,7 +7,7 @@ export function CollectionController({ children }: { children: React.ReactNode }
     <Layer
       displayName={CollectionController.name}
       sizeStyle='flex-grow h-full'
-      className={`${containerStyles['col']} p-[2rem] space-y-[3rem] overflow-auto`}
+      className={`${containerStyles['col']} px-[2rem] py-[2rem] space-y-[3rem] overflow-auto`}
       backgroundStyle={backgroundStyles['glass-5']}
     >
       {children}

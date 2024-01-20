@@ -14,15 +14,15 @@ export function Topbar() {
   return (
     <TopbarContainer>
       <TopbarLogo href={spacesMap.spaces.now.link} />
-      <TopbarLeftGroup>
+      {/* <TopbarLeftGroup>
         <TopbarLink href={spacesMap.spaces.now.link}>HOME</TopbarLink>
         <TopbarLink href='/about'>ABOUT</TopbarLink>
         <TopbarLink href='/learn'>LEARN</TopbarLink>
         <TopbarLink href='/pricing'>PRICING</TopbarLink>
         <TopbarLink href='/dev/layer'>DEV</TopbarLink>
-      </TopbarLeftGroup>
+      </TopbarLeftGroup> */}
       <TopbarRightGroup>
-        <TopbarIconLink href='/notifications'>
+        {/* <TopbarIconLink href='/notifications'>
           <NotificationsIcon />
         </TopbarIconLink>
         <TopbarIconLink href='/cart'>
@@ -30,9 +30,9 @@ export function Topbar() {
         </TopbarIconLink>
         <TopbarIconLink href='/settings'>
           <SettingsIcon />
-        </TopbarIconLink>
+        </TopbarIconLink> */}
+        <TopbarAvatar href='/profile' />
       </TopbarRightGroup>
-      <TopbarAvatar href='/profile' />
     </TopbarContainer>
   );
 }

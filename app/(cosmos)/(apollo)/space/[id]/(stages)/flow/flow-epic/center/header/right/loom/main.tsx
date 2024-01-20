@@ -3,11 +3,10 @@
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useEffect } from 'react';
 import { FlowModalContext } from '../../../../modal/main';
-const PUBLIC_APP_ID = '6d3d3c5b-1703-480a-9f11-183bd647c09c';
-const BUTTON_ID = 'loom-record-sdk-button';
 
 export function FlowLoomButton() {
   const { addLoom } = useContext(FlowModalContext);
+  const BUTTON_ID = 'loom-record-sdk-button';
 
   useEffect(() => {
     async function setupLoom() {
@@ -25,7 +24,7 @@ export function FlowLoomButton() {
       }
 
       const { configureButton } = await setup({
-        publicAppId: PUBLIC_APP_ID,
+        publicAppId: process.env.NEXT_PUBLIC_LOOM_APIKEY,
       });
 
       const sdkButton = configureButton({ element: button });

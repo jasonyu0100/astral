@@ -19,7 +19,6 @@ const Store = createStore({
       (space: SpaceObj) =>
       ({ setState, getState }) => {
         Cookies.set('space', JSON.stringify(space));
-        console.log(Cookies.get('space'))
         // Mutate state synchronously
         setState({
           space: {
