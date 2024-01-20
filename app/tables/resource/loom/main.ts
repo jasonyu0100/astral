@@ -5,10 +5,10 @@ export interface LoomObj {
   width: number;
   sharedUrl: string;
   embedUrl: string;
-  thumbnailHeight: number;
-  thumbnailWidth: number;
-  thumbnailUrl: string;
-  duration: string;
+  thumbnailHeight?: number;
+  thumbnailWidth?: number;
+  thumbnailUrl?: string;
+  duration?: number;
   providerUrl: string;
 }
 
@@ -20,10 +20,10 @@ type LoomObj {
     width: Float!
     sharedUrl: String!
     embedUrl: String!
-    thumbnailHeight: Float!
-    thumbnailWidth: Float!
-    thumbnailUrl: String!
-    duration: String!
+    thumbnailHeight: Float
+    thumbnailWidth: Float
+    thumbnailUrl: String
+    duration: Float
     providerUrl: String!
 }
 `;
@@ -38,7 +38,7 @@ export const exampleLoom: LoomObj = {
   thumbnailHeight: 120,
   thumbnailWidth: 120,
   thumbnailUrl: 'https://www.loom.com/thumbnail/0',
-  duration: '0',
+  duration: 0,
   providerUrl: 'https://www.loom.com',
 };
 
@@ -53,7 +53,7 @@ export const exampleLooms: LoomObj[] = [
     thumbnailHeight: 120,
     thumbnailWidth: 120,
     thumbnailUrl: 'https://www.loom.com/thumbnail/0',
-    duration: '0',
+    duration: 0,
     providerUrl: 'https://www.loom.com',
   },
   {
@@ -66,7 +66,7 @@ export const exampleLooms: LoomObj[] = [
     thumbnailHeight: 120,
     thumbnailWidth: 120,
     thumbnailUrl: 'https://www.loom.com/thumbnail/0',
-    duration: '0',
+    duration: 0,
     providerUrl: 'https://www.loom.com',
   },
   {
@@ -79,7 +79,7 @@ export const exampleLooms: LoomObj[] = [
     thumbnailHeight: 120,
     thumbnailWidth: 120,
     thumbnailUrl: 'https://www.loom.com/thumbnail/0',
-    duration: '0',
+    duration: 0,
     providerUrl: 'https://www.loom.com',
   },
 ];

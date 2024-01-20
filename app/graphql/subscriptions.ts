@@ -28,6 +28,7 @@ export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: 
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -72,6 +73,7 @@ export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: 
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -116,6 +118,7 @@ export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj($id: 
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -170,6 +173,7 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -223,6 +227,7 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -276,6 +281,7 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -822,6 +828,7 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -879,6 +886,7 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -936,6 +944,7 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -1328,6 +1337,7 @@ export const onCreateLoomObj = /* GraphQL */ `subscription OnCreateLoomObj(
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -1360,6 +1370,7 @@ export const onUpdateLoomObj = /* GraphQL */ `subscription OnUpdateLoomObj(
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -1392,6 +1403,7 @@ export const onDeleteLoomObj = /* GraphQL */ `subscription OnDeleteLoomObj(
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight

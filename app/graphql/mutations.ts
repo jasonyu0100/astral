@@ -28,6 +28,7 @@ export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: Creat
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -72,6 +73,7 @@ export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: Updat
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -116,6 +118,7 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -160,6 +163,7 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -203,6 +207,7 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -246,6 +251,7 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -590,6 +596,7 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -637,6 +644,7 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -684,6 +692,7 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -947,6 +956,7 @@ export const createLoomObj = /* GraphQL */ `mutation CreateLoomObj($input: Creat
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -967,6 +977,7 @@ export const updateLoomObj = /* GraphQL */ `mutation UpdateLoomObj($input: Updat
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -987,6 +998,7 @@ export const deleteLoomObj = /* GraphQL */ `mutation DeleteLoomObj($input: Delet
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight

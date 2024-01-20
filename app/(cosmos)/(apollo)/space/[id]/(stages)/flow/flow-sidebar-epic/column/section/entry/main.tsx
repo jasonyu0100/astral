@@ -7,7 +7,7 @@ export function FlowSidebarEntry({ moment }: { moment: MomentObj }) {
         <img
           className='w-full h-full rounded-full'
           alt='test'
-          src={moment.file.src}
+          // src={moment.file.src}
         />
       </div>
       <p className='text-white font-bold text-lg'>{moment.title}</p>

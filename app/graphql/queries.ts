@@ -39,6 +39,7 @@ export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -88,6 +89,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
         loomId
         height
         width
+        title
         sharedUrl
         embedUrl
         thumbnailHeight
@@ -135,6 +137,7 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -183,6 +186,7 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
         loomId
         height
         width
+        title
         sharedUrl
         embedUrl
         thumbnailHeight
@@ -479,6 +483,7 @@ export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -531,6 +536,7 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
         loomId
         height
         width
+        title
         sharedUrl
         embedUrl
         thumbnailHeight
@@ -767,6 +773,7 @@ export const getLoomObj = /* GraphQL */ `query GetLoomObj($id: String!) {
     loomId
     height
     width
+    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -792,6 +799,7 @@ export const listLoomObjs = /* GraphQL */ `query ListLoomObjs(
       loomId
       height
       width
+      title
       sharedUrl
       embedUrl
       thumbnailHeight

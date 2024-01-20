@@ -6,9 +6,9 @@ import { FlowHeaderMiddle } from './middle/main';
 import FlowHeaderTitle from './middle/title/main';
 import { FlowHeaderAddButton } from './right/add/main';
 import { FlowHeaderRight } from './right/main';
-import { DraftLoomButton } from '../../../../draft/draft-sidebar-epic/modes/collection/header/button-row/button/loom/main';
 import { useContext } from 'react';
 import { FlowModalContext } from '../../modal/main';
+import { FlowLoomButton } from './right/loom/main';
 
 export function FlowHeader() {
   const { addMoment } = useContext(FlowModalContext);
@@ -28,7 +28,7 @@ export function FlowHeader() {
         <FlowHeaderTitle />
       </FlowHeaderMiddle>
       <FlowHeaderRight>
-        <DraftLoomButton />
+        <FlowLoomButton/>
         <FlowHeaderAddButton onClick={() => addMoment.open()} />
       </FlowHeaderRight>
     </Layer>
