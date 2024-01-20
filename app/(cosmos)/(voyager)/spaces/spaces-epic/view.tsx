@@ -9,14 +9,18 @@ import { SpacesHeaderText } from './header/album-info/text/main';
 import { SpacesHeaderTextMain } from './header/album-info/text/main/main';
 import { SpacesHeaderTextSub } from './header/album-info/text/sub/main';
 import { SpaceWrapper } from './wrapper/main';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SpacesContext, SpaceViewProps } from '../(stages)/now/page';
 import { SpacesModalsView } from './modal/view';
 import { SpacesModalContext } from './modal/main';
 
 export function SpacesView({ type }: SpaceViewProps) {
   const { spaces } = useContext(SpacesContext);
-  const { createSpace: createSpaceModal } = useContext(SpacesModalContext);
+  const { createSpace } = useContext(SpacesModalContext);
+  useEffect(() => {
+    console.log("USE EFFECT", spaces)
+  }, [spaces])
+  console.log("VIEW" ,spaces)
 
   return (
     <SpaceWrapper>
@@ -32,7 +36,7 @@ export function SpacesView({ type }: SpaceViewProps) {
           </SpacesAlbumInfo>
           <SpacesHeaderAction
             onClick={() => {
-              createSpaceModal.open();
+              createSpace.open();
             }}
           />
         </SpacesHeader>

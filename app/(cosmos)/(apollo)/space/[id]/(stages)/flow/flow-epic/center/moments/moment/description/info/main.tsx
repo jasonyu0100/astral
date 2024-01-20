@@ -1,6 +1,10 @@
+import { useGlobalUser } from '@/state/main';
 import { UserObj } from '@/tables/user/main';
 
-export function MomentInfo({ user }: { user: UserObj }) {
+export function MomentInfo() {
+  const [state, actions] = useGlobalUser();
+  const user: UserObj = state.user;
+  
   return (
     <div className='h-[40px] w-full flex flex-row items-center space-x-[2rem]'>
       <img

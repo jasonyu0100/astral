@@ -13,14 +13,12 @@ interface FlowMomentProps {
 }
 
 export function FlowMoment({ moment, index }: FlowMomentProps) {
-  const [user, changeUser] = useState(userTable.example);
-
   return (
     <div className='flex flex-col w-full space-y-[3rem] items-center py-[2rem]'>
       <div className='w-full flex flex-row space-x-[100px] items-center justify-center'>
         <MomentMedia moment={moment} />
         <MomentDescription>
-          <MomentInfo user={user} />
+          <MomentInfo />
           <MomentBody>{moment.log}</MomentBody>
         </MomentDescription>
       </div>
