@@ -1,9 +1,10 @@
 import { amplifyClient } from '@/client';
 import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
 import { listCollectionObjs, listResourceObjs } from '@/graphql/queries';
+import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
-import { ResourceObj } from '@/tables/resource/main';
+import { ResourceObj, ResourceType } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 export interface useCOllectionsInterface {
     collectionId: string;
@@ -19,6 +20,7 @@ export interface CollectionHandler {
 }
 
 export const useCollections = (galleryId: string) => {
+  const [state, actions] = useGlobalUser()
   const [collections, changeCollections] = useState<CollectionObj[]>([]);
   const [collectionId, changeCollectionId] = useState<string>('');
   const collection = collections.find((collection) => collection.id === collectionId);
@@ -79,7 +81,7 @@ export const useCollections = (galleryId: string) => {
       const collection = payload?.data?.createCollectionObj as CollectionObj;
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);
-      queryCreateCollectionResources(collection, files);
+      await queryCreateCollectionResources(collection, files);
     },
   };
 
@@ -97,6 +99,7 @@ export const useCollections = (galleryId: string) => {
             description: file.name || '',
             collectionId: collection.id,
             file: file,
+            resourceType: ResourceType.FILE
           },
         },
       });

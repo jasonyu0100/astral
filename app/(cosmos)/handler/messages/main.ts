@@ -65,7 +65,6 @@ export const useMessages = (chatId: string): useMessageInterface => {
       return messages;
     },
     queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      console.log(process.env.NEXT_PUBLIC_OPEN_AI_APIKEY)
       const handleGenerate = async (prompt: string) => {
         const openai = new OpenAI({
           apiKey: process.env.NEXT_PUBLIC_OPEN_AI_APIKEY,
@@ -80,11 +79,14 @@ export const useMessages = (chatId: string): useMessageInterface => {
             { role: 'user', content: prompt },
           ],
           model: 'gpt-3.5-turbo-1106',
-          response_format: { type: 'json_object' },
         });
+        console.log(completion);
         return completion.choices[0].message.content;
       };
-      const text = await handleGenerate(userMessage.message);
+      const jsonString = await handleGenerate(userMessage.message);
+      // const jsonObject = JSON.parse(jsonString);
+      // const resultString = jsonObject.response;
+      // console.log(resultString);
       const payload = await amplifyClient.graphql({
         query: createMessageObj,
         variables: {
@@ -92,7 +94,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
             chatId: chatId,
             source: MessageSource.AGENT,
             time: new Date().toISOString(),
-            message: text,
+            message: jsonString,
           },
         },
       });

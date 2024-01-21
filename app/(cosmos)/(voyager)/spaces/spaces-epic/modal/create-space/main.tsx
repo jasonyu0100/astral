@@ -42,10 +42,9 @@ export function CreateSpaceModal() {
             onClick={() => {
               spacesHandler.queryCreateSpace(title, description);
               createSpaceModal.closed();
-              alert('Submit Idea');
             }}
           >
-            Submit Idea
+            Create
           </FormButton>
         </FormFooter>
       </FormContainer>
