@@ -12,6 +12,8 @@ import { FileObj } from '@/tables/file/main';
 import { useContext, useEffect, useState } from 'react';
 import { ExploreHomeContext } from '../../../page';
 import { HomeModalContext } from '../main';
+import { useOpenAI } from '@/(cosmos)/handler/openai/main';
+import { MessageObj } from '@/tables/storm/chat/message/main';
 
 export function CreateGalleryModal() {
   const { createGallery: createGalleryModal } = useContext(HomeModalContext);
@@ -19,6 +21,16 @@ export function CreateGalleryModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
+
+  const [test, changeTest] = useState("");
+  const {  getImageResponse } = useOpenAI()
+
+  useEffect(() => {
+    getImageResponse("cat playing tennis").then(resp => {
+      console.log(resp)
+      changeTest(resp[0].url)
+  })
+  }, [])
 
   return (
     <Modal
@@ -42,6 +54,7 @@ export function CreateGalleryModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
+          <img src={test} className='flex-shrink-0 rounded-full animate-spin' />
           <FormUploadFile onChange={(file) => changeThumbnail(file)} />
         </FormBody>
         <FormFooter>
