@@ -4,8 +4,7 @@ import { listMessageObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
 import { useEffect, useState } from 'react';
-import OpenAI from 'openai';
-import axios from 'axios';
+import { useOpenAI } from '../openai/main';
 
 export interface MessageHandler {
   queryCreateUserMessage: (text: string) => Promise<MessageObj>;
@@ -21,6 +20,7 @@ export interface useMessageInterface {
 }
 
 export const useMessages = (chatId: string): useMessageInterface => {
+  const { getMessageResponse } = useOpenAI();
   const [state, actions] = useGlobalUser();
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
@@ -65,28 +65,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
       return messages;
     },
     queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      const handleGenerate = async (prompt: string) => {
-        const openai = new OpenAI({
-          apiKey: process.env.NEXT_PUBLIC_OPEN_AI_APIKEY,
-          dangerouslyAllowBrowser: true,
-        });
-        const completion = await openai.chat.completions.create({
-          messages: [
-            {
-              role: 'system',
-              content: 'You are a helpful assistant designed to output JSON.',
-            },
-            { role: 'user', content: prompt },
-          ],
-          model: 'gpt-3.5-turbo-1106',
-        });
-        console.log(completion);
-        return completion.choices[0].message.content;
-      };
-      const jsonString = await handleGenerate(userMessage.message);
-      // const jsonObject = JSON.parse(jsonString);
-      // const resultString = jsonObject.response;
-      // console.log(resultString);
+      const response = await getMessageResponse(userMessage);
       const payload = await amplifyClient.graphql({
         query: createMessageObj,
         variables: {
@@ -94,7 +73,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
             chatId: chatId,
             source: MessageSource.AGENT,
             time: new Date().toISOString(),
-            message: jsonString,
+            message: response,
           },
         },
       });

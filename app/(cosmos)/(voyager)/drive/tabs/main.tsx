@@ -21,7 +21,7 @@ export function CraftTabs({ tab }: CraftTabs) {
       <TabsBackButton href={spacesMap.spaces.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} /> */}
+        <TabTwo tab={tab} />
         {/* <TabThree tab={tab} /> */}
       </TabsRow>
     </Tabs>
