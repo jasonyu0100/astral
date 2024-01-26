@@ -3,6 +3,8 @@ import next from "next";
 import { portalRouter } from "./portal";
 import { loadEnvConfig } from "@next/env";
 import { generateUploadURL } from "./s3/main";
+import cors from 'cors';
+
 const dev = process.env.NODE_ENV !== "production";
 loadEnvConfig("./", dev);
 
@@ -14,6 +16,7 @@ const port = process.env.PORT || 3000;
   try {
     await app.prepare();
     const server = express();
+    server.use(cors());
 
     // server.use((req, res, next) => {
     //   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
