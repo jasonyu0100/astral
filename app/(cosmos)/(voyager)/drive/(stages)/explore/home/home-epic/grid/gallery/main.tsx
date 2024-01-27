@@ -1,7 +1,7 @@
 import { GalleryObj } from '@/tables/gallery/main';
 import { GalleryCover } from './cover/main';
 import { GalleryInfo } from './info/main';
-import { HomeGridContainer } from '../container/main';
+import { GalleryContainer } from '../container/main';
 import { LinkInputProps } from '@/(common)/types/main';
 
 interface InputProps extends LinkInputProps {
@@ -11,10 +11,10 @@ interface InputProps extends LinkInputProps {
 export function HomeGallery({ gallery, ...props }: InputProps) {
   return (
     <a {...props}>
-      <HomeGridContainer>
+      <GalleryContainer>
         <GalleryCover gallery={gallery} />
         <GalleryInfo gallery={gallery} />
-      </HomeGridContainer>
+      </GalleryContainer>
     </a>
   );
 }

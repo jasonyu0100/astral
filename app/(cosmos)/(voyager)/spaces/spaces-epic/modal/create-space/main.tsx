@@ -18,7 +18,7 @@ export function CreateSpaceModal() {
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={createSpaceModal.opened} onClose={() => createSpaceModal.open()}>
+    <Modal isOpen={createSpaceModal.opened} onClose={() => createSpaceModal.close()}>
       <FormContainer>
         <FormTitle>Create Space</FormTitle>
         <FormBody>
@@ -41,7 +41,7 @@ export function CreateSpaceModal() {
           <FormButton
             onClick={() => {
               spacesHandler.queryCreateSpace(title, description);
-              createSpaceModal.closed();
+              createSpaceModal.close();
             }}
           >
             Create

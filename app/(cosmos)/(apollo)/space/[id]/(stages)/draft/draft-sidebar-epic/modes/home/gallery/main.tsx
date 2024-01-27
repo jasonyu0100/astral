@@ -1,6 +1,5 @@
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
-import { HomeGridContainer } from '@/(cosmos)/(voyager)/drive/(stages)/explore/home/home-epic/grid/container/main';
 import React from 'react';
 import { HomeGalleryInfo } from './info/main';
 import { HomeGalleryThumbnail } from './thumbnail/main';
@@ -9,7 +8,7 @@ import { GalleryObj } from '@/tables/gallery/main';
 export function HomeGallery({ gallery }: { gallery: GalleryObj }) {
   return (
     <Layer
-      displayName={HomeGridContainer.name}
+      displayName={HomeGallery.name}
       sizeStyle='w-full aspect-[11/16]'
       backgroundStyle={backgroundStyles['glass-10']}
     >

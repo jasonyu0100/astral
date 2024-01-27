@@ -4,7 +4,7 @@ export interface SpacesModalsContextObj {
   createSpace: {
     opened: boolean;
     open: () => void;
-    closed: () => void;
+    close: () => void;
   };
 }
 
@@ -18,7 +18,7 @@ export const useSpacesModalContext = (): SpacesModalsContextObj => {
     createSpace: {
       opened: showOne,
       open: () => changeTwo(true),
-      closed: () => changeTwo(false),
+      close: () => changeTwo(false),
     },
   };
 };

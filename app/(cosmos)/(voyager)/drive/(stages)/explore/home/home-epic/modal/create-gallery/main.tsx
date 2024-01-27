@@ -22,15 +22,15 @@ export function CreateGalleryModal() {
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
-  const [test, changeTest] = useState("");
-  const {  getImageResponse } = useOpenAI()
+  // const [test, changeTest] = useState("");
+  // const {  getImageResponse } = useOpenAI()
 
-  useEffect(() => {
-    getImageResponse("cat playing tennis").then(resp => {
-      console.log(resp)
-      changeTest(resp[0].url)
-  })
-  }, [])
+  // useEffect(() => {
+  //   getImageResponse("cat playing tennis").then(resp => {
+  //     console.log(resp)
+  //     changeTest(resp[0].url)
+  // })
+  // }, [])
 
   return (
     <Modal
@@ -54,7 +54,6 @@ export function CreateGalleryModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <img src={test} className='flex-shrink-0 rounded-full animate-spin' />
           <FormUploadFile onChange={(file) => changeThumbnail(file)} />
         </FormBody>
         <FormFooter>

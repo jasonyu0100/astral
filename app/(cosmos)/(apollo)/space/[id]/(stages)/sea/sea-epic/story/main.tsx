@@ -10,6 +10,18 @@ export function SeaStory() {
 
   const divWidth = (divHeight * 9) / 16;
 
+  function record() {
+    let stream = document.querySelector('canvas').captureStream(30);
+    let recorder = new MediaRecorder(stream);
+    recorder.ondataavailable = (e) => {
+      console.log(e.data);
+      let video = document.createElement('video');
+      video.src = URL.createObjectURL(e.data);
+      video.autoplay = true;
+      document.body.appendChild(video);
+    }
+  }
+
   useEffect(() => {
     const updateDimensions = () => {
       if (layerRef.current) {
@@ -52,6 +64,7 @@ export function SeaStory() {
       ref={layerRef}
       style={{ width: divWidth }}
     >
+      <button className="w-[100px] h-[100px] bg-white">RECORD ME</button>
       <div
         className='overflow-hidden rounded-[1rem]'
         style={{ zoom: zoom * 0.9 }}
