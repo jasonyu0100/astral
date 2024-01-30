@@ -5,10 +5,10 @@ import { DriveIndicator } from './indicators/drive-indicator/main';
 import { FeedIndicator } from './indicators/feed-indicator/main';
 import { SidebarCurrentSpace } from './current-work/main';
 import { SidebarWorkInfo } from './current-work/info/main';
-import { spaceMap } from '../../(apollo)/space/[id]/map';
 import { SidebarBack } from './back/main';
 import { spacesMap } from '../../(voyager)/spaces/map';
-import { useGlobalSpace } from '@/state/space/main';
+import { BoardIndicator } from './indicators/market-indicator/main';
+import { RecordIndicator } from './indicators/record-indicator/main';
 
 export interface SidebarProps {
   indicator?: string;
@@ -32,8 +32,8 @@ export function DashboardSidebar({
             <SpacesIndicator indicator={indicator} minimised />
             <DriveIndicator indicator={indicator} minimised />
             <FeedIndicator indicator={indicator} minimised />
-            {/* <BoardIndicator indicator={indicator} minimised />
-            <RecordIndicator indicator={indicator} minimised /> */}
+            <BoardIndicator indicator={indicator} minimised />
+            <RecordIndicator indicator={indicator} minimised />
           </SidebarIndicators>
         </div>
       ) : (
@@ -47,8 +47,8 @@ export function DashboardSidebar({
             <SpacesIndicator indicator={indicator} />
             <DriveIndicator indicator={indicator} />
             <FeedIndicator indicator={indicator} />
-            {/* <BoardIndicator indicator={indicator} />
-            <RecordIndicator indicator={indicator} /> */}
+            <BoardIndicator indicator={indicator} />
+            <RecordIndicator indicator={indicator} />
           </SidebarIndicators>
         </div>
       )}

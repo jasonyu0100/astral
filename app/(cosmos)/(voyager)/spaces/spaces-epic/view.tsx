@@ -17,10 +17,6 @@ import { SpacesModalContext } from './modal/main';
 export function SpacesView({ type }: SpaceViewProps) {
   const { spaces } = useContext(SpacesContext);
   const { createSpace } = useContext(SpacesModalContext);
-  useEffect(() => {
-    console.log("USE EFFECT", spaces)
-  }, [spaces])
-  console.log("VIEW" ,spaces)
 
   return (
     <SpaceWrapper>

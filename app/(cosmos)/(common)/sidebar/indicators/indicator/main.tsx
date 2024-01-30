@@ -19,9 +19,9 @@ export function SidebarIndicator({ children, ...props }: InputProps) {
   );
 }export enum SidebarIndicatorType {
   Spaces = 'Spaces',
-  Drive = 'Drive',
-  Market = 'Market',
-  Feed = 'Feed',
-  Label = 'Label'
+  Vault = 'Vault',
+  Journal = 'Journal',
+  Square = 'Square',
+  Board = 'Board'
 }
 

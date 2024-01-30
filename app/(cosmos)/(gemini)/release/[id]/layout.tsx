@@ -4,7 +4,7 @@ import { Topbar } from '@/(common)/topbar/main';
 import { DashboardController } from '@/(cosmos)/(common)/controller/main';
 import { DashboardSidebar } from '../../../(common)/sidebar/main';
 import { createContext } from 'react';
-import { labelMap } from '@/(cosmos)/(voyager)/label/map';
+import { labelMap } from '@/(cosmos)/(voyager)/board/map';
 
 interface ReleaseContextObj {
   releaseId: string;
