@@ -16,6 +16,7 @@ import { useUnsplash } from '@/(cosmos)/handler/unsplash/main';
 import { Layer } from '@/(common)/layer/main';
 import { borderStyles, containerStyles } from '@/(common)/styles/data';
 import { FormInputProps } from '@/(common)/types/main';
+import SearchModal from '@/(common)/search/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (
@@ -65,32 +66,10 @@ export function CreateSpaceModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [testOpen, changeTestOpen] = useState(false)
-  const [images, changeImages] = useState([])
-  const [query, changeQuery] = useState("")
-  const { searchImage } = useUnsplash()
-
-
-  useEffect(() => {
-    searchImage('space').then((res) => {
-      console.log(res)
-      changeImages(res)
-    })
-  }, [])
 
   return (
     <Modal isOpen={createSpaceModal.opened} onClose={() => createSpaceModal.close()}>
-      <Modal isOpen={testOpen} onClose={() => changeTestOpen(false)} stacked={true}>
-        <FormContainer>
-          <FormTitle>Search</FormTitle>
-          <SearchBar />
-          <button className="bg-slate-800 rounded-full w-[100px] h-[100px]"></button>
-          <FormBody>
-            <div className="flex flex-row overflow-auto flex-wrap" style={{height: '100%'}}>
-              {images.map(image => <img src={image?.src} className="w-1/2 aspect-square"/>)}
-            </div>
-          </FormBody>
-        </FormContainer>
-      </Modal>
+      <SearchModal isOpen={testOpen} onClose={() => changeTestOpen(false)}/>
       <FormContainer>
         <button className="bg-red-500" onClick={() => changeTestOpen(true)}>Open</button>
         <FormTitle>Create Space</FormTitle>

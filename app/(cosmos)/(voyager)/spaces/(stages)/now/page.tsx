@@ -24,7 +24,6 @@ export interface SpaceViewProps {
 function Page() {
   const [state, actions] = useGlobalUser();
   const {spaces, _spacesHandler} = useSpaces(state.user.id)
-  console.log("PAGE", spaces)
 
   const modalContext = useSpacesModalContext();
 

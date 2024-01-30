@@ -7,10 +7,9 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
-  stacked?: boolean;
 }
 
-export function Modal({ children, isOpen, onClose, stacked }: ModalProps) {
+export function Modal({ children, isOpen, onClose }: ModalProps) {
   return (
     <ModalOverlay isOpen={isOpen}>
       <ModalContainerWrapper>
