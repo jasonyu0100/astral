@@ -20,8 +20,8 @@ export function FlowAddMomentModal() {
   const { addMoment } = useContext(FlowModalContext);
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
-  const [visibility, changeVisibility] = useState<string>(
-    MomentVisibility.JOURNAL,
+  const [visibility, changeVisibility] = useState(
+    MomentVisibility.JOURNAL as string
   );
   const [file, changeFile] = useState({} as FileObj);
 

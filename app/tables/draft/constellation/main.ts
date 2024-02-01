@@ -1,3 +1,10 @@
+export enum ConstellationType {
+  VISUAL = 'VISUAL',
+  SOUND = 'SOUND',
+  TEXT = 'TEXT',
+  MIXED = 'MIXED',
+}
+
 export interface ConstellationObj {
   id: string;
   chapterId: string;

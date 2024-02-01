@@ -16,9 +16,14 @@ import { DraftChapters } from './draft-epic/chapters/main';
 import { DraftConstellationStars } from './draft-epic/center/constellation/stars/main';
 import { DraftModalContext } from './draft-epic/modal/main';
 import { DraftModalsView } from './draft-epic/modal/view';
+import { borderStyles } from '@/(common)/styles/data';
+import { Layer } from '@/(common)/layer/main';
+import { DraftBody } from './draft-epic/center/body/main';
+import { DraftPanel } from './draft-epic/center/panel/main';
+import clsx from 'clsx';
 
 export function DraftView() {
-  const { chapters } = useContext(DraftContext);
+  const { constellations, chapters, constellationId, constellationHandler} = useContext(DraftContext);
   const { addChapter } = useContext(DraftModalContext);
 
   return (
@@ -27,10 +32,22 @@ export function DraftView() {
       <DraftMain>
         <DraftCenter>
           <DraftHeader></DraftHeader>
-          <DraftConstellation>
-            <DraftLinks />
-            <DraftConstellationStars />
-          </DraftConstellation>
+            <DraftBody>
+              <DraftPanel>
+                {constellations.map((constellation, index) =>
+                  <div onClick={() => constellationHandler.updateConstellation(constellation)} className="cursor-pointer">
+                    <p className={clsx(`font-extraBold text-xl`, {
+                      'text-slate-300': constellation.id === constellationId,
+                      'text-slate-500': constellation.id !== constellationId
+                    })}>{index+1}. {constellation.title}</p>
+                  </div>
+                )}
+              </DraftPanel>
+              <DraftConstellation>
+                <DraftLinks />
+                <DraftConstellationStars />
+              </DraftConstellation>
+            </DraftBody>
         </DraftCenter>
         <DraftChapters>
           <DraftChaptersLeftButton />

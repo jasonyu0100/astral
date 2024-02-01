@@ -20,8 +20,8 @@ export function FlowAddLoomModal() {
   const { loom } = addLoom;
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
-  const [visibility, changeVisibility] = useState<string>(
-    MomentVisibility.JOURNAL,
+  const [visibility, changeVisibility] = useState(
+    MomentVisibility.JOURNAL as string
   );
   const [videoHTML, setVideoHTML] = useState('');
 

@@ -3,6 +3,7 @@ import { borderStyles } from "@/(common)/styles/data";
 
 export function FeedSidebarHeader() {
     return <Layer
+      displayName={FeedSidebarHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className='flex flex-row items-center'
       borderStyle={borderStyles['border-b']}
