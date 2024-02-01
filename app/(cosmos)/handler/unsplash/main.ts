@@ -6,7 +6,6 @@ export const useUnsplash = () => {
     fetch(
       `https://api.unsplash.com/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_APIKEY}`,
     ).then((resp) => {
-      console.log('AUTH SUCCESS', resp);
     });
   };
   const getRandomImage = async () => {

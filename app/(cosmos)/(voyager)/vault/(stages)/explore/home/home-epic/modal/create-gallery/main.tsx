@@ -14,6 +14,7 @@ import { ExploreHomeContext } from '../../../page';
 import { HomeModalContext } from '../main';
 import { useOpenAI } from '@/(cosmos)/handler/openai/main';
 import { MessageObj } from '@/tables/storm/chat/message/main';
+import { SelectedImage } from '@/(common)/form/selected-image/main';
 
 export function CreateGalleryModal() {
   const { createGallery: createGalleryModal } = useContext(HomeModalContext);
@@ -21,16 +22,6 @@ export function CreateGalleryModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
-
-  // const [test, changeTest] = useState("");
-  // const {  getImageResponse } = useOpenAI()
-
-  // useEffect(() => {
-  //   getImageResponse("cat playing tennis").then(resp => {
-  //     console.log(resp)
-  //     changeTest(resp[0].url)
-  // })
-  // }, [])
 
   return (
     <Modal
@@ -40,9 +31,8 @@ export function CreateGalleryModal() {
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
-          <FormDescription>Create your gallery here!</FormDescription>
+          <SelectedImage selected={thumbnail}/>
           <FormInput
-            placeholder='Title'
             title='Title'
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
@@ -54,7 +44,7 @@ export function CreateGalleryModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormUploadFile onChange={(file) => changeThumbnail(file)} />
+          <FormUploadFile onChange={(file) => changeThumbnail(file)} label={"Profile"}/>
         </FormBody>
         <FormFooter>
           <FormButton

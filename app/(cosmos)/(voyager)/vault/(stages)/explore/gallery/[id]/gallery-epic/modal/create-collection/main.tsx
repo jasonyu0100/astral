@@ -25,14 +25,13 @@ export function CreateCollectionModal() {
       <FormContainer>
         <FormTitle>Create Collection</FormTitle>
         <FormBody>
-          <FormDescription>Create your collection here</FormDescription>
           <FormInput
             placeholder='Name'
             title='Name'
             value={name}
             onChange={(e) => changeName(e.target.value)}
           />
-          <FormUploadFiles onChange={(files) => changeFiles(files)} />
+          <FormUploadFiles onChange={(files) => changeFiles(files)} label={"Files"}/>
         </FormBody>
         <FormFooter>
           <FormButton

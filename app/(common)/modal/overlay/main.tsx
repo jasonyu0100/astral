@@ -10,11 +10,12 @@ export function ModalOverlay({
   return (
     <div
       className={clsx(
-        'fixed inset-0 flex justify-center items-center p-[3rem] z-50',
+        'fixed inset-0 flex justify-center items-center z-50',
         {
           hidden: !isOpen,
         },
       )}
+      style={{marginTop: '0px', marginBottom: '0px'}}
     >
       <div className='fixed inset-0 bg-slate-950 opacity-50'></div>
       {children}

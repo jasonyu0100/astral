@@ -7,3 +7,5 @@ export interface DivInputProps extends React.ComponentPropsWithoutRef<'div'> {}
 
 export interface FormInputProps
   extends React.ComponentPropsWithoutRef<'input'> {}
+
+export interface ImageInputProps extends React.ComponentPropsWithRef<"img">{}

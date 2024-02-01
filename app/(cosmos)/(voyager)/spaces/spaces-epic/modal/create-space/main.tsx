@@ -7,16 +7,18 @@ import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { SpacesContext } from '../../../(stages)/now/page';
 import { SpacesModalContext } from '../main';
-import { useUnsplash } from '@/(cosmos)/handler/unsplash/main';
 
 
 import { Layer } from '@/(common)/layer/main';
 import { borderStyles, containerStyles } from '@/(common)/styles/data';
 import { FormInputProps } from '@/(common)/types/main';
-import SearchModal from '@/(common)/search/main';
+import SearchModal from '@/(common)/form/search-image/search-modal/main';
+import { FormSearchImage } from '@/(common)/form/search-image/main';
+import { FileObj } from '@/tables/file/main';
+import { SelectedImage } from '@/(common)/form/selected-image/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (
@@ -51,7 +53,7 @@ export function SearchBar({ ...props }: FormInputProps) {
         </g>
       </svg>
       <input
-        className="  text-white text-2xl font-regular font-['Creato Display'] leading-7 h-[3rem] bg-transparent outline-none"
+        className="  text-slate-900 text-2xl font-regular font-['Creato Display'] leading-7 h-[3rem] bg-transparent outline-none"
         placeholder='enter search...'
         {...props}
       />
@@ -65,18 +67,15 @@ export function CreateSpaceModal() {
   const { createSpace: createSpaceModal } = useContext(SpacesModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [testOpen, changeTestOpen] = useState(false)
+  const [profile, changeProfile] = useState({} as FileObj);
 
   return (
     <Modal isOpen={createSpaceModal.opened} onClose={() => createSpaceModal.close()}>
-      <SearchModal isOpen={testOpen} onClose={() => changeTestOpen(false)}/>
       <FormContainer>
-        <button className="bg-red-500" onClick={() => changeTestOpen(true)}>Open</button>
         <FormTitle>Create Space</FormTitle>
         <FormBody>
-          <FormDescription>Create your space here</FormDescription>
+          <SelectedImage selected={profile}/>
           <FormInput
-            placeholder='Name'
             title='Name'
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
@@ -88,6 +87,7 @@ export function CreateSpaceModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
+          <FormSearchImage onChange={(file) => changeProfile(file)} label="Profile"/>
         </FormBody>
         <FormFooter>
           <FormButton
