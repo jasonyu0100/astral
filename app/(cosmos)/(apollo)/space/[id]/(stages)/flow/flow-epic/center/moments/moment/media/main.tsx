@@ -15,7 +15,8 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
   }, []);
 
   const embedLoom = async () => {
-    const { html } = await oembed(moment?.loom?.sharedUrl, { width: 427.5 });
+    const sharedUrl = moment?.loom?.sharedUrl || "";
+    const { html } = await oembed(sharedUrl, { width: 427.5 });
     setVideoHTML(html);
   };
 
@@ -27,7 +28,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
             'w-full aspect-square flex-shrink-0 object-contain bg-black',
             borderStyles['border-all'],
           )}
-          src={moment.file.src}
+          src={moment?.file?.src}
         />
       )}
       {moment.resourceType === ResourceType.LOOM && (

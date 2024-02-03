@@ -1,5 +1,6 @@
 import { FileObj, exampleFile } from '@/tables/file/main';
 import { LoomObj } from '@/tables/resource/loom/main';
+import { ResourceType } from '@/tables/resource/main';
 import { StickyObj } from '@/tables/resource/sticky/main';
 
 export interface StarObj {
@@ -10,7 +11,7 @@ export interface StarObj {
   y: number;
   file?: FileObj;
   loom?: LoomObj;
-  sticky?: StickyObj
+  sticky?: StickyObj;
   resourceType: string;
 }
 
@@ -62,6 +63,7 @@ export const exampleStar: StarObj = {
   x: 120,
   y: 120,
   file: exampleFile,
+  resourceType: ResourceType.FILE,
 };
 
 export const exampleStars: StarObj[] = [
@@ -72,6 +74,7 @@ export const exampleStars: StarObj[] = [
     x: 120,
     y: 120,
     file: exampleFile,
+    resourceType: ResourceType.FILE,
   },
   {
     id: '1',
@@ -80,6 +83,7 @@ export const exampleStars: StarObj[] = [
     x: 240,
     y: 120,
     file: exampleFile,
+    resourceType: ResourceType.FILE,
   },
   {
     id: '2',
@@ -88,5 +92,6 @@ export const exampleStars: StarObj[] = [
     x: 360,
     y: 120,
     file: exampleFile,
+    resourceType: ResourceType.FILE,
   },
 ];

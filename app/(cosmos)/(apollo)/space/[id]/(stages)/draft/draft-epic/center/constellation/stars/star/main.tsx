@@ -47,7 +47,7 @@ export function DraftStar({
       <div className='w-[100px] h-[100px] flex-shrink-0'>
         <img
           className='w-full aspect-square rounded-full pointer-events-none border-slate-300 border-[2px]'
-          src={star.file.src}
+          src={star?.file?.src}
         />
       </div>
       <p className='w-full text-center text-slate-300 font-bold'>{star.name}</p>

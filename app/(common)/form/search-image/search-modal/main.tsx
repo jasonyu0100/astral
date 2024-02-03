@@ -1,4 +1,3 @@
-import { SearchBar } from '@/(cosmos)/(voyager)/spaces/spaces-epic/modal/create-space/main';
 import { FormBody } from '../../body/main';
 import { FormContainer } from '../../main';
 import { Modal } from '../../../modal/main';
@@ -7,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { FileObj } from '@/tables/file/main';
 import clsx from 'clsx';
 import { ImageInputProps } from '../../../types/main';
+import { SearchBar } from '@/(common)/search-bar/main';
 
 export default function SearchModal({
   isOpen,
@@ -17,7 +17,7 @@ export default function SearchModal({
   onClose: () => void;
   onChange: (file: FileObj) => void;
 }) {
-  const [images, changeImages] = useState([]);
+  const [images, changeImages] = useState<FileObj[]>([]);
   const [query, changeQuery] = useState('');
   const [selected, changeSelected] = useState({} as FileObj);
   const { searchImage } = useUnsplash();

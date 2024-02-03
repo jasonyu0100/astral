@@ -2,7 +2,7 @@ import { LinkInputProps } from '@/(common)/types/main';
 
 export interface IndicatorProps {
   indicator: string | undefined;
-  minimised: boolean;
+  minimised?: boolean;
 }
 interface InputProps extends LinkInputProps {
   children: React.ReactNode;

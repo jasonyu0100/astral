@@ -146,6 +146,7 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
 export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($input: CreateResourceObjInput!) {
   createResourceObj(input: $input) {
     id
+    userId
     collectionId
     name
     description
@@ -190,6 +191,7 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
 export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($input: UpdateResourceObjInput!) {
   updateResourceObj(input: $input) {
     id
+    userId
     collectionId
     name
     description
@@ -234,6 +236,7 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
 export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($input: DeleteResourceObjInput!) {
   deleteResourceObj(input: $input) {
     id
+    userId
     collectionId
     name
     description
@@ -281,6 +284,7 @@ export const createConstellationObj = /* GraphQL */ `mutation CreateConstellatio
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -294,6 +298,7 @@ export const updateConstellationObj = /* GraphQL */ `mutation UpdateConstellatio
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -307,6 +312,7 @@ export const deleteConstellationObj = /* GraphQL */ `mutation DeleteConstellatio
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -537,6 +543,14 @@ export const createSpaceObj = /* GraphQL */ `mutation CreateSpaceObj($input: Cre
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -551,6 +565,14 @@ export const updateSpaceObj = /* GraphQL */ `mutation UpdateSpaceObj($input: Upd
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -565,6 +587,14 @@ export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: Del
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }

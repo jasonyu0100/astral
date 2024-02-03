@@ -106,6 +106,7 @@ export type DeleteStarObjInput = {
 };
 
 export type CreateResourceObjInput = {
+  userId: string,
   collectionId: string,
   name: string,
   description: string,
@@ -118,6 +119,7 @@ export type CreateResourceObjInput = {
 export type ResourceObj = {
   __typename: "ResourceObj",
   id: string,
+  userId: string,
   collectionId: string,
   name: string,
   description: string,
@@ -129,6 +131,7 @@ export type ResourceObj = {
 
 export type UpdateResourceObjInput = {
   id: string,
+  userId?: string | null,
   collectionId?: string | null,
   name?: string | null,
   description?: string | null,
@@ -146,6 +149,7 @@ export type CreateConstellationObjInput = {
   chapterId: string,
   title: string,
   description: string,
+  type: string,
 };
 
 export type ConstellationObj = {
@@ -154,6 +158,7 @@ export type ConstellationObj = {
   chapterId: string,
   title: string,
   description: string,
+  type: string,
 };
 
 export type UpdateConstellationObjInput = {
@@ -161,6 +166,7 @@ export type UpdateConstellationObjInput = {
   chapterId?: string | null,
   title?: string | null,
   description?: string | null,
+  type?: string | null,
 };
 
 export type DeleteConstellationObjInput = {
@@ -290,6 +296,7 @@ export type CreateSpaceObjInput = {
   title: string,
   description: string,
   time: string,
+  thumbnail: UpdateFileObjInput,
 };
 
 export type SpaceObj = {
@@ -299,6 +306,7 @@ export type SpaceObj = {
   title: string,
   time: string,
   description: string,
+  thumbnail: FileObj,
 };
 
 export type UpdateSpaceObjInput = {
@@ -307,6 +315,7 @@ export type UpdateSpaceObjInput = {
   title?: string | null,
   description?: string | null,
   time?: string | null,
+  thumbnail?: UpdateFileObjInput | null,
 };
 
 export type DeleteSpaceObjInput = {
@@ -576,6 +585,7 @@ export type StarObjConnection = {
 
 export type TableResourceObjFilterInput = {
   id?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
   collectionId?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
@@ -593,6 +603,7 @@ export type TableConstellationObjFilterInput = {
   chapterId?: TableStringFilterInput | null,
   title?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
+  type?: TableStringFilterInput | null,
 };
 
 export type ConstellationObjConnection = {
@@ -956,6 +967,7 @@ export type CreateResourceObjMutation = {
   createResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -1001,6 +1013,7 @@ export type UpdateResourceObjMutation = {
   updateResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -1046,6 +1059,7 @@ export type DeleteResourceObjMutation = {
   deleteResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -1094,6 +1108,7 @@ export type CreateConstellationObjMutation = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -1108,6 +1123,7 @@ export type UpdateConstellationObjMutation = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -1122,6 +1138,7 @@ export type DeleteConstellationObjMutation = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -1365,6 +1382,14 @@ export type CreateSpaceObjMutation = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -1380,6 +1405,14 @@ export type UpdateSpaceObjMutation = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -1395,6 +1428,14 @@ export type DeleteSpaceObjMutation = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -1916,6 +1957,14 @@ export type GetSpaceQuery = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -2025,6 +2074,7 @@ export type GetResourceObjQuery = {
   getResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -2074,6 +2124,7 @@ export type ListResourceObjsQuery = {
     items?:  Array< {
       __typename: "ResourceObj",
       id: string,
+      userId: string,
       collectionId: string,
       name: string,
       description: string,
@@ -2124,6 +2175,7 @@ export type GetConstellationObjQuery = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -2142,6 +2194,7 @@ export type ListConstellationObjsQuery = {
       chapterId: string,
       title: string,
       description: string,
+      type: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2335,6 +2388,14 @@ export type GetSpaceObjQuery = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -2354,6 +2415,14 @@ export type ListSpaceObjsQuery = {
       title: string,
       time: string,
       description: string,
+      thumbnail:  {
+        __typename: "FileObj",
+        id: string,
+        src: string,
+        type: string,
+        name?: string | null,
+        size?: number | null,
+      },
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -2909,6 +2978,7 @@ export type OnCreateResourceObjSubscription = {
   onCreateResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -2957,6 +3027,7 @@ export type OnUpdateResourceObjSubscription = {
   onUpdateResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -3005,6 +3076,7 @@ export type OnDeleteResourceObjSubscription = {
   onDeleteResourceObj?:  {
     __typename: "ResourceObj",
     id: string,
+    userId: string,
     collectionId: string,
     name: string,
     description: string,
@@ -3056,6 +3128,7 @@ export type OnCreateConstellationObjSubscription = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -3073,6 +3146,7 @@ export type OnUpdateConstellationObjSubscription = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -3090,6 +3164,7 @@ export type OnDeleteConstellationObjSubscription = {
     chapterId: string,
     title: string,
     description: string,
+    type: string,
   } | null,
 };
 
@@ -3378,6 +3453,14 @@ export type OnCreateSpaceObjSubscription = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -3396,6 +3479,14 @@ export type OnUpdateSpaceObjSubscription = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 
@@ -3414,6 +3505,14 @@ export type OnDeleteSpaceObjSubscription = {
     title: string,
     time: string,
     description: string,
+    thumbnail:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      type: string,
+      name?: string | null,
+      size?: number | null,
+    },
   } | null,
 };
 

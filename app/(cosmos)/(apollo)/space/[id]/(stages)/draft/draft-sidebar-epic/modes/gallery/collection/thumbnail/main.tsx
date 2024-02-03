@@ -20,7 +20,7 @@ export function GalleryCollectionThumbnail({
     >
       <div className='w-full h-full flex flex-row flex-wrap'>
         {resources.slice(0, 4).map((resource) => (
-          <img className='h-1/2 aspect-square' src={resource.file.src} />
+          <img className='h-1/2 aspect-square' src={resource?.file?.src} />
         ))}
       </div>
     </div>

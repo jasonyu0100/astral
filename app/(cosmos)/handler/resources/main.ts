@@ -54,7 +54,7 @@ export const useResources = (collectionId: string): useResourcesInterface => {
         },
       });
 
-      const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
+      const resources = payload?.data.listResourceObjs?.items as unknown as ResourceObj[];
       changeResources(resources);
       changeResourceId(resources[0]?.id || '')
       return resources;
@@ -72,7 +72,7 @@ export const useResources = (collectionId: string): useResourcesInterface => {
           },
         },
       });
-      const resource = payload?.data?.createResourceObj as ResourceObj;
+      const resource = payload?.data?.createResourceObj as unknown as ResourceObj;
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);
     },

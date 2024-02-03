@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 export interface FeedMomentHandler {
     queryListMoments: () => Promise<MomentObj[]>;
     queryCreateMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
+    queryCreateFileMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
     updateMoments: (moments: MomentObj[]) => MomentObj[];
     updateMoment: (moment: MomentObj) => MomentObj;
     addMoment: (moment: MomentObj) => MomentObj;
@@ -37,7 +38,7 @@ export const useFeedMoments = (
     _momentHandler.queryListMoments();
   }, [userId]);
 
-  const _momentHandler = {
+  const _momentHandler: FeedMomentHandler = {
     queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,

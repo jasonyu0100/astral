@@ -156,6 +156,7 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
     description: $description
   ) {
     id
+    userId
     collectionId
     name
     description
@@ -210,6 +211,7 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
     description: $description
   ) {
     id
+    userId
     collectionId
     name
     description
@@ -264,6 +266,7 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
     description: $description
   ) {
     id
+    userId
     collectionId
     name
     description
@@ -321,6 +324,7 @@ export const onCreateConstellationObj = /* GraphQL */ `subscription OnCreateCons
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -344,6 +348,7 @@ export const onUpdateConstellationObj = /* GraphQL */ `subscription OnUpdateCons
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -367,6 +372,7 @@ export const onDeleteConstellationObj = /* GraphQL */ `subscription OnDeleteCons
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -739,6 +745,14 @@ export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -763,6 +777,14 @@ export const onUpdateSpaceObj = /* GraphQL */ `subscription OnUpdateSpaceObj(
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -787,6 +809,14 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }

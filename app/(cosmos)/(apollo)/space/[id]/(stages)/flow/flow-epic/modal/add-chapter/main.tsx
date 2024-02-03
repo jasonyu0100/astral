@@ -22,7 +22,6 @@ export function FlowAddChapterModal() {
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
-          <FormDescription>Add your chapter here</FormDescription>
           <FormInput
             placeholder='Name'
             title='Name'

@@ -12,7 +12,7 @@ export function HomeGallery({ gallery }: { gallery: GalleryObj }) {
       sizeStyle='w-full aspect-[11/16]'
       backgroundStyle={backgroundStyles['glass-10']}
     >
-      <div className='flex flex-col w-full h-full'>
+      <div className='flex flex-col w-full h-full flex-shrink-0'>
         <HomeGalleryThumbnail gallery={gallery} />
         <HomeGalleryInfo gallery={gallery} />
       </div>

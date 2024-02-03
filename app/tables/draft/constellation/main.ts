@@ -10,6 +10,7 @@ export interface ConstellationObj {
   chapterId: string;
   title: string;
   description: string;
+  type: string;
 }
 
 export const constellationSchema = `
@@ -18,6 +19,7 @@ type ConstellationObj {
   chapterId: String!
   title: String!
   description: String!
+  type: String!
 }`;
 
 export const exampleConstellation = {

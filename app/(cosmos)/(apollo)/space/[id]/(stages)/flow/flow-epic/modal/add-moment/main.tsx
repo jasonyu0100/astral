@@ -65,7 +65,7 @@ export function FlowAddMomentModal() {
             onChange={(e) => changeLog(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormUploadFile onChange={(file) => changeFile(file)} />
+          <FormUploadFile onChange={(file) => changeFile(file)} label="File"/>
         </FormBody>
         <FormFooter>
           <FormButton

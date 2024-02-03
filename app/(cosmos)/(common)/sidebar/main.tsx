@@ -44,7 +44,7 @@ export function DashboardSidebar({
           </SidebarCurrentSpace>
           <div className='w-full h-[1rem] mb-[2rem] border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
-            <SpacesIndicator indicator={indicator} />
+            <SpacesIndicator indicator={indicator}/>
             <DriveIndicator indicator={indicator} />
             <FeedIndicator indicator={indicator} />
             <BoardIndicator indicator={indicator} />

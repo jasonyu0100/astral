@@ -3,10 +3,11 @@ import { SpaceObj } from '@/tables/space/main';
 import { amplifyClient } from '@/client';
 import { listSpaceObjs } from '@/graphql/queries';
 import { createSpaceObj } from '@/graphql/mutations';
+import { FileObj } from '@/tables/file/main';
 
 export interface SpacesHandler {
   queryListSpaces: () => Promise<void>;
-  queryCreateSpace: (title: string, description: string) => Promise<void>;
+  queryCreateSpace: (title: string, description: string, thumbnail: FileObj) => Promise<void>;
 }
 
 interface useSpacesInterface {
@@ -46,7 +47,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },
-    queryCreateSpace: async (title: string, description: string) => {
+    queryCreateSpace: async (title: string, description: string, thumbnail: FileObj) => {
       const payload = await amplifyClient.graphql({
         query: createSpaceObj,
         variables: {
@@ -55,6 +56,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
             title,
             description,
             time: new Date().toISOString(),
+            thumbnail
           },
         },
       });

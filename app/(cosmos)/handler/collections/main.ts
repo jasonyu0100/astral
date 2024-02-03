@@ -103,7 +103,7 @@ export const useCollections = (galleryId: string) => {
           },
         },
       });
-      const resource = payload?.data?.createResourceObj as ResourceObj;
+      const resource = payload?.data?.createResourceObj as unknown as ResourceObj;
       resources.push(resource);
     }
     return resources;

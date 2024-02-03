@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export interface ConstellationHandler {
     queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
-    queryCreateConstellation: (title: string, description: string) => Promise<ConstellationObj>;
+    queryCreateConstellation: (title: string, description: string, type: string) => Promise<ConstellationObj>;
     updateConstellations: (constellations: ConstellationObj[]) => ConstellationObj[];
     updateConstellation: (constellation: ConstellationObj) => ConstellationObj;
     goToConstellation: (constellation: ConstellationObj) => ConstellationObj;
@@ -52,7 +52,7 @@ export const useConstellations = (chapterId: string): useConstellationInterface 
       changeConstellationId(constellations[0]?.id || '');
       return constellations;
     },
-    queryCreateConstellation: async (title: string, description: string) => {
+    queryCreateConstellation: async (title: string, description: string, type: string) => {
       const payload = await amplifyClient.graphql({
         query: createConstellationObj,
         variables: {
@@ -60,6 +60,7 @@ export const useConstellations = (chapterId: string): useConstellationInterface 
             chapterId,
             title,
             description,
+            type
           }
         },
       });

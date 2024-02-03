@@ -15,6 +15,14 @@ export const getSpace = /* GraphQL */ `query GetSpace {
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -120,6 +128,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
 export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) {
   getResourceObj(id: $id) {
     id
+    userId
     collectionId
     name
     description
@@ -169,6 +178,7 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   listResourceObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      userId
       collectionId
       name
       description
@@ -219,6 +229,7 @@ export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id:
     chapterId
     title
     description
+    type
     __typename
   }
 }
@@ -237,6 +248,7 @@ export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
       chapterId
       title
       description
+      type
       __typename
     }
     nextToken
@@ -430,6 +442,14 @@ export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: String!) {
     title
     time
     description
+    thumbnail {
+      id
+      src
+      type
+      name
+      size
+      __typename
+    }
     __typename
   }
 }
@@ -449,6 +469,14 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
       title
       time
       description
+      thumbnail {
+        id
+        src
+        type
+        name
+        size
+        __typename
+      }
       __typename
     }
     nextToken

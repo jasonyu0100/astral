@@ -65,7 +65,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
       return messages;
     },
     queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      const response = await getMessageResponse(userMessage.message);
+      const response = await getMessageResponse(userMessage.message) || "";
       const payload = await amplifyClient.graphql({
         query: createMessageObj,
         variables: {

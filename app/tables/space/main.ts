@@ -1,9 +1,12 @@
+import { FileObj, exampleFile } from "../file/main";
+
 export interface SpaceObj {
   id: string;
   userId: string;
   title: string;
   description: string;
   time: string;
+  thumbnail: FileObj
 }
 
 export const spaceSchema = `
@@ -12,6 +15,7 @@ type SpaceObj {
   userId: String!
   title: String!
   description: String!
+  thumbnail: FileObj!
 }
 `;
 
@@ -21,6 +25,7 @@ export const exampleSpace: SpaceObj = {
   title: 'Space Example',
   description: 'Space Description',
   time: new Date().toISOString(),
+  thumbnail: exampleFile,
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -30,6 +35,7 @@ export const exampleSpaces: SpaceObj[] = [
     title: 'Space Example',
     description: 'Space Description',
     time: new Date().toISOString(),
+    thumbnail: exampleFile,
   },
   {
     id: '1',
@@ -37,5 +43,6 @@ export const exampleSpaces: SpaceObj[] = [
     title: 'Space Example',
     description: 'Space Description',
     time: new Date().toISOString(),
+    thumbnail: exampleFile,
   },
 ];
