@@ -27,7 +27,7 @@ export function SidebarWorkInfo({ active }: { active: boolean }) {
     >
       <p
         className={clsx(
-          "h-[25px] text-slate-300 text-xl font-bold font-['Creato Display'] leading-7",
+          "h-[25px] text-slate-300 text-xl font-bold font-['Creato Display'] leading-7 overflow-ellipsis overflow-hidden",
         )}
       >
         {title}

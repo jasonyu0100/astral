@@ -9,7 +9,7 @@ export function SidebarWorkCover({
   minimised?: boolean;
 }) {
   return (
-    <div className='relative'>
+    <div className='relative flex-shrink-0'>
       {minimised ? (
         <svg
           className='w-full h-full'
