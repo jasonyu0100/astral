@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/client';
 import { FileObj } from '@/tables/file/main';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createFileObj } from '../../../../server/graphql/mutations';
 
 export function FormUploadFile({
@@ -10,7 +10,11 @@ export function FormUploadFile({
   onChange: (file: FileObj) => void;
   label: string;
 }) {
-  const [uploadedFileObj, changeUploadedFileObj] = useState({} as FileObj);
+  const [file, changeFile] = useState({} as FileObj);
+
+  useEffect(() => {
+    onChange(file)
+  }, [file])
 
   const handleFileChange = async (event: any) => {
     const file = event.target.files[0];
@@ -49,9 +53,7 @@ export function FormUploadFile({
       },
     });
 
-    changeUploadedFileObj(filePayload);
-
-    onChange(filePayload);
+    changeFile(filePayload);
   };
   return (
     <div className='flex flex-col bg-white'>
@@ -61,7 +63,7 @@ export function FormUploadFile({
       >
         {label}
       </label>
-      {uploadedFileObj.id === undefined && (
+      {file.id === undefined && (
         <div className='relative p-4 border-black border-b bg-slate-50 mb-3 h-[100px]'>
           <input
             type='file'
@@ -99,26 +101,26 @@ export function FormUploadFile({
           </div>
         </div>
       )}
-      {uploadedFileObj.id !== undefined && (
+      {file.id !== undefined && (
         <div className='flex flex-row w-full space-x-[2rem] items-center justify-between pr-[2rem] bg-slate-50 border-b border-black'>
           <div className='flex flex-row space-x-[2rem] items-center'>
             <img
-              src={uploadedFileObj.src}
-              alt={uploadedFileObj.name}
+              src={file.src}
+              alt={file.name}
               className='bg-black h-[100px] aspect-square shadow-md'
             />
             <div className='flex flex-col'>
-              <p className='text-lg font-bold'>{uploadedFileObj.name}</p>
-              <p className='text-sm text-slate-500'>{uploadedFileObj.type}</p>
+              <p className='text-lg font-bold'>{file.name}</p>
+              <p className='text-sm text-slate-500'>{file.type}</p>
               <p className='text-md text-slate-500'>
-                {uploadedFileObj.size} bytes
+                {file.size} bytes
               </p>
             </div>
           </div>
           <button
             className='w-[30px] h-[30px] bg-red-500 rounded-full'
             onClick={() => {
-              changeUploadedFileObj({} as FileObj);
+              changeFile({} as FileObj);
             }}
           >
             <svg

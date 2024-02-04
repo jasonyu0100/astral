@@ -1,4 +1,11 @@
-import { FileObj, exampleFile } from "../file/main";
+import { FileObj, exampleFile } from '../file/main';
+
+export enum SpaceType {
+  MIX = 'MIX',
+  SONG = 'SONG',
+  BAR = 'BAR',
+  CUSTOM = 'CUSTOM',
+}
 
 export interface SpaceObj {
   id: string;
@@ -6,7 +13,8 @@ export interface SpaceObj {
   title: string;
   description: string;
   time: string;
-  thumbnail: FileObj
+  thumbnail: FileObj;
+  type: string;
 }
 
 export const spaceSchema = `
@@ -16,6 +24,7 @@ type SpaceObj {
   title: String!
   description: String!
   thumbnail: FileObj!
+  string: String!
 }
 `;
 
@@ -26,6 +35,7 @@ export const exampleSpace: SpaceObj = {
   description: 'Space Description',
   time: new Date().toISOString(),
   thumbnail: exampleFile,
+  type: SpaceType.CUSTOM,
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -36,6 +46,7 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Description',
     time: new Date().toISOString(),
     thumbnail: exampleFile,
+    type: SpaceType.CUSTOM,
   },
   {
     id: '1',
@@ -44,5 +55,6 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Description',
     time: new Date().toISOString(),
     thumbnail: exampleFile,
+    type: SpaceType.CUSTOM,
   },
 ];

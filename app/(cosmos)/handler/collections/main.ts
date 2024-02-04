@@ -42,7 +42,7 @@ export const useCollections = (galleryId: string) => {
         query: listResourceObjs,
         variables: {
           filter: {
-            collectionId: {
+            userId: {
               eq: collectionId,
             },
           },
@@ -99,7 +99,8 @@ export const useCollections = (galleryId: string) => {
             description: file.name || '',
             collectionId: collection.id,
             file: file,
-            resourceType: ResourceType.FILE
+            resourceType: ResourceType.FILE,
+            userId: state.user?.id,
           },
         },
       });

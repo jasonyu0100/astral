@@ -9,7 +9,7 @@ import {
   CollectionModalContext,
   useCollectionModalContext,
 } from './collection-epic/modal/main';
-import { ResourceHandler, useResources } from '@/(cosmos)/handler/resources/main';
+import { CollectionResourcesHandler, useCollectionResources } from '@/(cosmos)/handler/resources/main';
 import { useCollection } from '@/(cosmos)/handler/collection/main';
 import { useGallery } from '@/(cosmos)/handler/gallery/main';
 
@@ -17,7 +17,7 @@ interface ExploreCollectionContextObj {
   gallery: GalleryObj;
   collection: CollectionObj;
   resources: ResourceObj[];
-  resourceHandler: ResourceHandler;
+  resourceHandler: CollectionResourcesHandler;
 }
 
 export const ExploreCollectionContext =
@@ -26,7 +26,7 @@ export const ExploreCollectionContext =
 function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollection(params.id);
   const { gallery } = useGallery(collection.galleryId);
-  const { resources, _resourceHandler } = useResources(params.id);
+  const { resources, _resourceHandler } = useCollectionResources(params.id);
   const modalContext = useCollectionModalContext();
 
   const context = {

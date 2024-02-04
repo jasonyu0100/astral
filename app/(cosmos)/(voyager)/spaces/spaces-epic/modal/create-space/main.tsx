@@ -12,6 +12,8 @@ import { SpacesModalContext } from '../main';
 import { FormSearchImage } from '@/(common)/form/search-image/main';
 import { FileObj } from '@/tables/file/main';
 import { SelectedImage } from '@/(common)/form/selected-image/main';
+import { FormSelect } from '@/(common)/form/select/main';
+import { SpaceType } from '@/tables/space/main';
 
 export function CreateSpaceModal() {
   const { spacesHandler } = useContext(SpacesContext);
@@ -19,6 +21,7 @@ export function CreateSpaceModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
+  const [type, changeType] = useState(SpaceType.SONG as String)
 
   return (
     <Modal isOpen={createSpace.opened} onClose={() => createSpace.close()}>
@@ -26,6 +29,7 @@ export function CreateSpaceModal() {
         <FormTitle>Create Space</FormTitle>
         <FormBody>
           <SelectedImage selected={thumbnail}/>
+          <FormSearchImage onChange={(file) => changeThumbnail(file)} label="Profile"/>
           <FormInput
             title='Name'
             value={title}
@@ -38,7 +42,24 @@ export function CreateSpaceModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormSearchImage onChange={(file) => changeThumbnail(file)} label="Profile"/>
+          <FormSelect
+            title='Type'
+            value={type}
+            onChange={(e) => changeType(e.target.value)}
+          >
+            <option value={SpaceType.BAR}>
+              {SpaceType.BAR}
+            </option>
+            <option value={SpaceType.MIX}>
+              {SpaceType.MIX}
+            </option>
+            <option value={SpaceType.SONG}>
+              {SpaceType.SONG}
+            </option>
+            <option value={SpaceType.CUSTOM}>
+              {SpaceType.CUSTOM}
+            </option>
+          </FormSelect>
         </FormBody>
         <FormFooter>
           <FormButton

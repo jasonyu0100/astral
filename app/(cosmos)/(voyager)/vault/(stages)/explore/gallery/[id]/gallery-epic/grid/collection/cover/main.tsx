@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { GalleryCollectionContext } from '../main';
-import { useResources } from '@/(cosmos)/handler/resources/main';
+import { useCollectionResources } from '@/(cosmos)/handler/resources/main';
 
 export function CollectionCover() {
   const { collection } = useContext(GalleryCollectionContext);
-  const { resources } = useResources(collection.id);
+  const { resources } = useCollectionResources(collection.id);
 
   return (
     <div className='h-full aspect-square bg-black'>

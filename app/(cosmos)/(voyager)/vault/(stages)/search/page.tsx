@@ -1,38 +1,38 @@
-"use client";
-import { useState } from 'react';
+'use client';
+import { createContext } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/tables/resource/main';
-import { searchObject } from '@/tables/resource/table';
 import insideCosmos from '@/utils/isAuth';
-
-interface SearchHandler {
-  updateQuery: (query: string) => void;
-  searchQuery: () => void;
-}
+import { SearchResourceHandler, useSearchResource } from '@/(cosmos)/handler/search-resources/main';
+import { useGlobalUser } from '@/state/main';
 
 export interface SearchViewProps {
-  searchHandler: SearchHandler;
-  results: ResourceObj[];
+  searchResults: ResourceObj[];
+  resources: ResourceObj[];
+  searchResourceHandler: SearchResourceHandler;
 }
 
-function Page() {
-  const [results, changeResults] = useState(searchObject.example.results);
-  const [query, changeQuery] = useState('');
+export const SearchContextObj = createContext({} as SearchViewProps);
 
-  const searchHandler: SearchHandler = {
-    updateQuery: (query: string) => {
-      changeQuery(query);
-    },
-    searchQuery: () => {
-      if (query === '') {
-        changeResults(searchObject.example.results);
-      } else {
-        changeResults([]);
-      }
-    },
+function Page() {
+  const [state, actions] = useGlobalUser();
+  const {
+    searchResults,
+    resources,
+    _searchResourceHandler,
+  } = useSearchResource(state.user.id);
+
+  const context = {
+    searchResults,
+    resources,
+    searchResourceHandler: _searchResourceHandler,
   };
 
-  return <SearchView results={results} searchHandler={searchHandler} />;
+  return (
+    <SearchContextObj.Provider value={context}>
+      <SearchView />
+    </SearchContextObj.Provider>
+  );
 }
 
 export default insideCosmos(Page);

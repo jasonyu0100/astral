@@ -6,7 +6,7 @@ import { ResourceObj } from '@/tables/resource/main';
 import { useGallerys } from '@/(cosmos)/handler/gallerys/main';
 import { useGlobalUser } from '@/state/main';
 import { useCollections } from '@/(cosmos)/handler/collections/main';
-import { ResourceHandler, useResources } from '@/(cosmos)/handler/resources/main';
+import { CollectionResourcesHandler, useCollectionResources } from '@/(cosmos)/handler/resources/main';
 
 export enum SidebarMode {
   Home = 'Home',
@@ -31,7 +31,7 @@ export interface DraftSidebarContextObject {
   resources: ResourceObj[];
   searchResults: ResourceObj[];
   sidebarHandler: SidebarHandler;
-  resourceHandler: ResourceHandler;
+  resourceHandler: CollectionResourcesHandler;
 }
 
 export const DraftSidebarContext = createContext<DraftSidebarContextObject>({
@@ -42,7 +42,7 @@ export function DraftSidebar() {
   const [state, actions] = useGlobalUser();
   const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(state.user.id)
   const { collections, collection, collectionId, _collectionHandler } = useCollections(galleryId)
-  const { resources, resource, resourceId, searchResults, _resourceHandler } = useResources(collectionId)
+  const { resources, resource, resourceId, searchResults, _resourceHandler } = useCollectionResources(collectionId)
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {

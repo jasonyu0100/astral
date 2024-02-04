@@ -1,7 +1,7 @@
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { useContext } from 'react';
 import { DraftSidebarContext } from '../../../../main';
-import { useResources } from '@/(cosmos)/handler/resources/main';
+import { useCollectionResources } from '@/(cosmos)/handler/resources/main';
 
 export function GalleryCollectionThumbnail({
   collection,
@@ -9,7 +9,7 @@ export function GalleryCollectionThumbnail({
   collection: CollectionObj;
 }) {
   const { sidebarHandler } = useContext(DraftSidebarContext);
-  const { resources } = useResources(collection.id);
+  const { resources } = useCollectionResources(collection.id);
 
   return (
     <div

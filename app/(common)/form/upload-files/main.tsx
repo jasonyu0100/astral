@@ -1,7 +1,7 @@
 import { amplifyClient } from '@/client';
 import { createFileObj } from '@/graphql/mutations';
 import { FileObj } from '@/tables/file/main';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export function FormUploadFiles({
   onChange,
@@ -12,7 +12,9 @@ export function FormUploadFiles({
 }) {
   const [files, changeFiles] = useState<FileObj[]>([]);
 
-  console.log(files)
+  useEffect(() => {
+    onChange(files)
+  }, [files])
 
   const handleFileChange = async (event: any) => {
     // get file attributes
@@ -61,8 +63,8 @@ export function FormUploadFiles({
       changeFiles((prev) => [...prev, filePayload]);
       payload.push(filePayload);
     }
-    onChange(payload);
   };
+
   return (
     <div className='flex flex-col bg-white'>
       <label

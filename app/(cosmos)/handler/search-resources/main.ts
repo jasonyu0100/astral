@@ -1,49 +1,42 @@
 import { amplifyClient } from '@/client';
-import { createResourceObj } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { useGlobalUser } from '@/state/main';
-import { FileObj } from '@/tables/file/main';
-import { ResourceObj, ResourceType } from '@/tables/resource/main';
+import { ResourceObj } from '@/tables/resource/main';
 import { useState, useEffect } from 'react';
 
-interface useCollectionResourcesInterface {
+interface useSearchResourcesInterface {
   resourceId: string;
   resource: ResourceObj | undefined;
   resources: ResourceObj[];
   searchResults: ResourceObj[];
-  _resourceHandler: CollectionResourcesHandler;
+  _searchResourceHandler: SearchResourceHandler;
 }
 
-export interface CollectionResourcesHandler {
+export interface SearchResourceHandler {
   queryListResources: (id: string) => Promise<ResourceObj[]>;
-  queryCreateFileResource: (
-    name: string,
-    description: string,
-    file: FileObj,
-  ) => Promise<void>;
-  searchResources: (query: string) => ResourceObj[]
+  updateQuery: (query: string) => void;
+  searchQuery: () => ResourceObj[];
 }
 
-export const useCollectionResources = (collectionId: string): useCollectionResourcesInterface => {
-  const [state, actions] = useGlobalUser()
+export const useSearchResource = (userId: string): useSearchResourcesInterface => {
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
+  const [query, changeQuery] = useState("")
   const resource = resources.find((resource) => resource.id === resourceId);
 
   useEffect(() => {
-    if (!collectionId) {
+    if (!userId) {
       changeResources([])
       return
     };
-    _resourceHandler.queryListResources(collectionId);
-  }, [collectionId]);
+    _searchResourceHandler.queryListResources(userId);
+  }, [userId]);
 
   useEffect(() => {
     changeSearchResults(resources);
   }, [resources])
 
-  const _resourceHandler: CollectionResourcesHandler = {
+  const _searchResourceHandler: SearchResourceHandler = {
     queryListResources: async (id: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
@@ -61,25 +54,10 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
       changeResourceId(resources[0]?.id || '')
       return resources;
     },
-    queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
-      const payload = await amplifyClient.graphql({
-        query: createResourceObj,
-        variables: {
-          input: {
-            name,
-            description,
-            collectionId,
-            file,
-            resourceType: ResourceType.FILE,
-            userId: state.user?.id,
-          },
-        },
-      });
-      const resource = payload?.data?.createResourceObj as unknown as ResourceObj;
-      changeResources((prev) => [resource, ...prev]);
-      changeResourceId(resource.id);
+    updateQuery: (query: string) => {
+        changeQuery(query)
     },
-    searchResources: (query: string) => {
+    searchQuery: () => {
       if (query === '') {
         changeSearchResults(resources);
         return resources;
@@ -98,6 +76,6 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
     resourceId,
     searchResults,
     resources,
-    _resourceHandler,
+    _searchResourceHandler,
   };
 };

@@ -586,7 +586,7 @@ export type StarObjConnection = {
 export type TableResourceObjFilterInput = {
   id?: TableStringFilterInput | null,
   userId?: TableStringFilterInput | null,
-  collectionId?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
   name?: TableStringFilterInput | null,
   description?: TableStringFilterInput | null,
   resourceType?: TableStringFilterInput | null,
