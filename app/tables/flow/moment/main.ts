@@ -1,13 +1,18 @@
-import { ResourceType } from '@/tables/resource/main';
 import { FileObj, exampleFile } from '../../file/main';
 import { LoomObj } from '@/tables/resource/loom/main';
-import { StickyObj } from '@/tables/resource/sticky/main';
+import { NoteObj } from '@/tables/resource/note/main';
 
 export enum MomentVisibility {
   JOURNAL = 'JOURNAL',
   SOCIAL = 'SOCIAL',
   EXPLORE = 'EXPLORE',
   NONE = 'NONE',
+}
+
+export enum MomentVariant {
+  FILE = 'FILE',
+  LOOM = 'LOOM',
+  STICKY = 'STICKY',
 }
 
 export const momentSchema = `
@@ -20,7 +25,7 @@ type MomentObj {
   title: String!
   log: String!
   visibility: String!
-  resourceType: String!
+  variant: String!
   file: FileObj
   loom: LoomObj
   sticky: StickyObj
@@ -35,10 +40,10 @@ export interface MomentObj {
   title: string;
   log: string;
   visibility: string;
-  resourceType: string;
+  variant: string;
   file?: FileObj;
   loom?: LoomObj;
-  sticky?: StickyObj;
+  sticky?: NoteObj;
 }
 
 export const exampleMoment: MomentObj = {
@@ -51,7 +56,7 @@ export const exampleMoment: MomentObj = {
   userId: '0',
   chapterId: '0',
   visibility: MomentVisibility.JOURNAL,
-  resourceType: ResourceType.FILE,
+  variant: MomentVariant.FILE,
 };
 
 export const exampleMoments: MomentObj[] = [
@@ -65,7 +70,7 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
-    resourceType: ResourceType.FILE,
+    variant: MomentVariant.FILE,
   },
   {
     id: '1',
@@ -77,6 +82,6 @@ export const exampleMoments: MomentObj[] = [
     userId: '0',
     chapterId: '0',
     visibility: MomentVisibility.JOURNAL,
-    resourceType: ResourceType.FILE,
+    variant: MomentVariant.FILE,
   },
 ];

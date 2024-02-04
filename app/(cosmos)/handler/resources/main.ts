@@ -3,7 +3,7 @@ import { createResourceObj } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
-import { ResourceObj, ResourceType } from '@/tables/resource/main';
+import { ResourceObj, ResourceVariant } from '@/tables/resource/main';
 import { useState, useEffect } from 'react';
 
 interface useCollectionResourcesInterface {
@@ -56,7 +56,7 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
         },
       });
 
-      const resources = payload?.data.listResourceObjs?.items as unknown as ResourceObj[];
+      const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
       changeResources(resources);
       changeResourceId(resources[0]?.id || '')
       return resources;
@@ -70,12 +70,12 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
             description,
             collectionId,
             file,
-            resourceType: ResourceType.FILE,
+            variant: ResourceVariant.FILE,
             userId: state.user?.id,
           },
         },
       });
-      const resource = payload?.data?.createResourceObj as unknown as ResourceObj;
+      const resource = payload?.data?.createResourceObj as ResourceObj;
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);
     },

@@ -18,11 +18,12 @@ export const getSpace = /* GraphQL */ `query GetSpace {
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -37,7 +38,7 @@ export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -64,7 +65,7 @@ export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -87,7 +88,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
       file {
         id
         src
-        type
+        fileType
         name
         size
         __typename
@@ -114,7 +115,7 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
         content
         __typename
       }
-      resourceType
+      variant
       __typename
     }
     nextToken
@@ -132,11 +133,11 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -182,11 +183,11 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
       collectionId
       name
       description
-      resourceType
+      variant
       file {
         id
         src
-        type
+        fileType
         name
         size
         __typename
@@ -229,7 +230,7 @@ export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id:
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -248,7 +249,7 @@ export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
       chapterId
       title
       description
-      type
+      variant
       __typename
     }
     nextToken
@@ -268,7 +269,7 @@ export const getGalleryObj = /* GraphQL */ `query GetGalleryObj($id: String!) {
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -294,7 +295,7 @@ export const listGalleryObjs = /* GraphQL */ `query ListGalleryObjs(
       thumbnail {
         id
         src
-        type
+        fileType
         name
         size
         __typename
@@ -320,7 +321,7 @@ export const getUserObj = /* GraphQL */ `query GetUserObj($id: String!) {
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -348,7 +349,7 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
       profilePicture {
         id
         src
-        type
+        fileType
         name
         size
         __typename
@@ -445,11 +446,12 @@ export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: String!) {
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -472,11 +474,12 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
       thumbnail {
         id
         src
-        type
+        fileType
         name
         size
         __typename
       }
+      variant
       __typename
     }
     nextToken
@@ -497,11 +500,11 @@ export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -550,11 +553,11 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
       title
       log
       visibility
-      resourceType
+      variant
       file {
         id
         src
-        type
+        fileType
         name
         size
         __typename
@@ -627,7 +630,7 @@ export const getFileObj = /* GraphQL */ `query GetFileObj($id: String!) {
   getFileObj(id: $id) {
     id
     src
-    type
+    fileType
     name
     size
     __typename
@@ -646,7 +649,7 @@ export const listFileObjs = /* GraphQL */ `query ListFileObjs(
     items {
       id
       src
-      type
+      fileType
       name
       size
       __typename

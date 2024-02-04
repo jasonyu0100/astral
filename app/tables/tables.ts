@@ -15,7 +15,6 @@ export interface ObjectDescriptor {
 export interface TableDescriptor {
   example: any;
   examples: any[];
-  schema: string;
 }
 
 export interface TableObjectDescriptor {
@@ -82,19 +81,3 @@ export const architecture = {
     },
   },
 };
-
-const dataRegions = [
-  [chapterTable, spaceTable],
-  [chatTable, messageTable],
-  [constellationTable, starTable],
-  [momentTable, commentTable],
-  [journeyTable],
-  [resourceTable, fileTable],
-  [collectionTable, galleryTable],
-  [userTable],
-];
-
-export const outputSchema = () =>
-  dataRegions
-    .map((region) => region.map((table) => table.schema).join('\n'))
-    .join('\n');

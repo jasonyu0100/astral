@@ -19,7 +19,7 @@ export function FormUploadFile({
   const handleFileChange = async (event: any) => {
     const file = event.target.files[0];
     const name = file.name;
-    const type = file.type;
+    const fileType = file.type;
     const size = file.size;
 
     const { url } = await fetch('/s3Url').then((res) => res.json());
@@ -37,7 +37,7 @@ export function FormUploadFile({
       id: crypto.randomUUID(),
       src: fileSrc,
       name: name,
-      type: type,
+      fileType: fileType,
       size: size,
     };
 
@@ -47,7 +47,7 @@ export function FormUploadFile({
         input: {
           name: filePayload.name,
           src: filePayload.src,
-          type: filePayload.type,
+          fileType: filePayload.fileType,
           size: filePayload.size,
         },
       },
@@ -111,7 +111,7 @@ export function FormUploadFile({
             />
             <div className='flex flex-col'>
               <p className='text-lg font-bold'>{file.name}</p>
-              <p className='text-sm text-slate-500'>{file.type}</p>
+              <p className='text-sm text-slate-500'>{file.fileType}</p>
               <p className='text-md text-slate-500'>
                 {file.size} bytes
               </p>

@@ -18,7 +18,7 @@ export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: Creat
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -45,7 +45,7 @@ export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: Creat
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -63,7 +63,7 @@ export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: Updat
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -90,7 +90,7 @@ export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: Updat
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -108,7 +108,7 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -135,7 +135,7 @@ export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: Delet
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -150,11 +150,11 @@ export const createResourceObj = /* GraphQL */ `mutation CreateResourceObj($inpu
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -195,11 +195,11 @@ export const updateResourceObj = /* GraphQL */ `mutation UpdateResourceObj($inpu
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -240,11 +240,11 @@ export const deleteResourceObj = /* GraphQL */ `mutation DeleteResourceObj($inpu
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -284,7 +284,7 @@ export const createConstellationObj = /* GraphQL */ `mutation CreateConstellatio
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -298,7 +298,7 @@ export const updateConstellationObj = /* GraphQL */ `mutation UpdateConstellatio
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -312,7 +312,7 @@ export const deleteConstellationObj = /* GraphQL */ `mutation DeleteConstellatio
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -329,7 +329,7 @@ export const createGalleryObj = /* GraphQL */ `mutation CreateGalleryObj($input:
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -350,7 +350,7 @@ export const updateGalleryObj = /* GraphQL */ `mutation UpdateGalleryObj($input:
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -371,7 +371,7 @@ export const deleteGalleryObj = /* GraphQL */ `mutation DeleteGalleryObj($input:
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -394,7 +394,7 @@ export const createUserObj = /* GraphQL */ `mutation CreateUserObj($input: Creat
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -417,7 +417,7 @@ export const updateUserObj = /* GraphQL */ `mutation UpdateUserObj($input: Updat
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -440,7 +440,7 @@ export const deleteUserObj = /* GraphQL */ `mutation DeleteUserObj($input: Delet
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -546,11 +546,12 @@ export const createSpaceObj = /* GraphQL */ `mutation CreateSpaceObj($input: Cre
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -568,11 +569,12 @@ export const updateSpaceObj = /* GraphQL */ `mutation UpdateSpaceObj($input: Upd
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -590,11 +592,12 @@ export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: Del
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -612,11 +615,11 @@ export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: C
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -660,11 +663,11 @@ export const updateMomentObj = /* GraphQL */ `mutation UpdateMomentObj($input: U
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -708,11 +711,11 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -786,7 +789,7 @@ export const createFileObj = /* GraphQL */ `mutation CreateFileObj($input: Creat
   createFileObj(input: $input) {
     id
     src
-    type
+    fileType
     name
     size
     __typename
@@ -800,7 +803,7 @@ export const updateFileObj = /* GraphQL */ `mutation UpdateFileObj($input: Updat
   updateFileObj(input: $input) {
     id
     src
-    type
+    fileType
     name
     size
     __typename
@@ -814,7 +817,7 @@ export const deleteFileObj = /* GraphQL */ `mutation DeleteFileObj($input: Delet
   deleteFileObj(input: $input) {
     id
     src
-    type
+    fileType
     name
     size
     __typename

@@ -3,12 +3,6 @@ export interface JourneyObj {
   chapterId: string;
 }
 
-export const journeySchema = `
-type JourneyObj {
-  id: String!
-  chapterId: String!
-}`;
-
 export const exampleJourney = {
   id: '0',
   chapterId: '0',

@@ -49,7 +49,7 @@ export const useSearchResource = (userId: string): useSearchResourcesInterface =
         },
       });
 
-      const resources = payload?.data.listResourceObjs?.items as unknown as ResourceObj[];
+      const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
       changeResources(resources);
       changeResourceId(resources[0]?.id || '')
       return resources;

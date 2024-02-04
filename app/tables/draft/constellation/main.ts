@@ -1,4 +1,4 @@
-export enum ConstellationType {
+export enum ConstellationVariant {
   VISUAL = 'VISUAL',
   SOUND = 'SOUND',
   TEXT = 'TEXT',
@@ -10,42 +10,37 @@ export interface ConstellationObj {
   chapterId: string;
   title: string;
   description: string;
-  type: string;
+  variant: string;
 }
 
-export const constellationSchema = `
-type ConstellationObj {
-  id: String!
-  chapterId: String!
-  title: String!
-  description: String!
-  type: String!
-}`;
-
-export const exampleConstellation = {
+export const exampleConstellation : ConstellationObj = {
   id: '0',
   chapterId: '0',
   title: 'Idea Constellation',
   description: 'Constellation Description',
+  variant: ConstellationVariant.VISUAL,
 };
 
-export const exampleConstellations = [
+export const exampleConstellations: ConstellationObj[] = [
   {
     id: '0',
     chapterId: '0',
     title: 'Idea Constellation 1',
     description: 'Constellation Description',
+    variant: ConstellationVariant.VISUAL,
   },
   {
     id: '1',
     chapterId: '0',
     title: 'Idea Constellation 2',
     description: 'Constellation Description',
+    variant: ConstellationVariant.VISUAL,
   },
   {
     id: '2',
     chapterId: '0',
     title: 'Idea Constellation 3',
     description: 'Constellation Description',
+    variant: ConstellationVariant.VISUAL,
   },
 ];

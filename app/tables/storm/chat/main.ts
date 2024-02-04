@@ -6,16 +6,6 @@ export interface ChatObj {
   time: string;
 }
 
-export const chatSchema = `
-type ChatObj {
-  id: String!
-  chapterId: String!
-  title: String!
-  summary: String!
-  time: String!
-}
-`;
-
 export const exampleChat: ChatObj = {
   id: '0',
   chapterId: '0',

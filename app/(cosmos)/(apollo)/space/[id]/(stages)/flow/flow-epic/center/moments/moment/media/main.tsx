@@ -1,6 +1,6 @@
 import { borderStyles } from '@/(common)/styles/data';
 import { MomentObj } from '@/tables/flow/moment/main';
-import { ResourceType } from '@/tables/resource/main';
+import { ResourceVariant } from '@/tables/resource/main';
 import { oembed } from '@loomhq/loom-embed';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
   const [videoHTML, setVideoHTML] = useState('');
 
   useEffect(() => {
-    if (moment.resourceType == ResourceType.LOOM) {
+    if (moment.variant == ResourceVariant.LOOM) {
       embedLoom();
     }
   }, []);
@@ -22,7 +22,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
 
   return (
     <div className='h-[600px] p-[30px] aspect-[13/16] bg-white flex-shrink-0 flex flex-col items-center'>
-      {moment.resourceType === ResourceType.FILE && (
+      {moment.variant === ResourceVariant.FILE && (
         <img
           className={clsx(
             'w-full aspect-square flex-shrink-0 object-contain bg-black',
@@ -31,7 +31,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
           src={moment?.file?.src}
         />
       )}
-      {moment.resourceType === ResourceType.LOOM && (
+      {moment.variant === ResourceVariant.LOOM && (
         <div
           className='w-full aspect-square flex-shrink-0 flex flex-col items-center justify-center bg-black'
           dangerouslySetInnerHTML={{ __html: videoHTML }}

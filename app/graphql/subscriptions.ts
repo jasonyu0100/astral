@@ -18,7 +18,7 @@ export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: 
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -45,7 +45,7 @@ export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj($id: 
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -63,7 +63,7 @@ export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: 
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -90,7 +90,7 @@ export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj($id: 
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -108,7 +108,7 @@ export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj($id: 
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -135,7 +135,7 @@ export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj($id: 
       content
       __typename
     }
-    resourceType
+    variant
     __typename
   }
 }
@@ -160,11 +160,11 @@ export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceO
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -215,11 +215,11 @@ export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceO
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -270,11 +270,11 @@ export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceO
     collectionId
     name
     description
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -324,7 +324,7 @@ export const onCreateConstellationObj = /* GraphQL */ `subscription OnCreateCons
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -348,7 +348,7 @@ export const onUpdateConstellationObj = /* GraphQL */ `subscription OnUpdateCons
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -372,7 +372,7 @@ export const onDeleteConstellationObj = /* GraphQL */ `subscription OnDeleteCons
     chapterId
     title
     description
-    type
+    variant
     __typename
   }
 }
@@ -399,7 +399,7 @@ export const onCreateGalleryObj = /* GraphQL */ `subscription OnCreateGalleryObj
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -430,7 +430,7 @@ export const onUpdateGalleryObj = /* GraphQL */ `subscription OnUpdateGalleryObj
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -461,7 +461,7 @@ export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -496,7 +496,7 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -531,7 +531,7 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -566,7 +566,7 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
     profilePicture {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -748,11 +748,12 @@ export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -780,11 +781,12 @@ export const onUpdateSpaceObj = /* GraphQL */ `subscription OnUpdateSpaceObj(
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -812,11 +814,12 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
     thumbnail {
       id
       src
-      type
+      fileType
       name
       size
       __typename
     }
+    variant
     __typename
   }
 }
@@ -844,11 +847,11 @@ export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -902,11 +905,11 @@ export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -960,11 +963,11 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
     title
     log
     visibility
-    resourceType
+    variant
     file {
       id
       src
-      type
+      fileType
       name
       size
       __typename
@@ -1049,14 +1052,20 @@ export const onDeleteCollectionObj = /* GraphQL */ `subscription OnDeleteCollect
 export const onCreateFileObj = /* GraphQL */ `subscription OnCreateFileObj(
   $id: String
   $src: String
-  $type: String
+  $variant: String
   $name: String
   $size: Int
 ) {
-  onCreateFileObj(id: $id, src: $src, type: $type, name: $name, size: $size) {
+  onCreateFileObj(
+    id: $id
+    src: $src
+    variant: $variant
+    name: $name
+    size: $size
+  ) {
     id
     src
-    type
+    fileType
     name
     size
     __typename
@@ -1069,14 +1078,20 @@ export const onCreateFileObj = /* GraphQL */ `subscription OnCreateFileObj(
 export const onUpdateFileObj = /* GraphQL */ `subscription OnUpdateFileObj(
   $id: String
   $src: String
-  $type: String
+  $variant: String
   $name: String
   $size: Int
 ) {
-  onUpdateFileObj(id: $id, src: $src, type: $type, name: $name, size: $size) {
+  onUpdateFileObj(
+    id: $id
+    src: $src
+    variant: $variant
+    name: $name
+    size: $size
+  ) {
     id
     src
-    type
+    fileType
     name
     size
     __typename
@@ -1089,14 +1104,20 @@ export const onUpdateFileObj = /* GraphQL */ `subscription OnUpdateFileObj(
 export const onDeleteFileObj = /* GraphQL */ `subscription OnDeleteFileObj(
   $id: String
   $src: String
-  $type: String
+  $variant: String
   $name: String
   $size: Int
 ) {
-  onDeleteFileObj(id: $id, src: $src, type: $type, name: $name, size: $size) {
+  onDeleteFileObj(
+    id: $id
+    src: $src
+    variant: $variant
+    name: $name
+    size: $size
+  ) {
     id
     src
-    type
+    fileType
     name
     size
     __typename

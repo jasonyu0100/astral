@@ -13,7 +13,7 @@ export function CollectionResource({
       />
       <div className='flex flex-col'>
         <p className='text-slate-300 text-xl font-bold'>{resource.name}</p>
-        <p className='text-slate-400 text-lg font-bold'>{resource?.file?.type}</p>
+        <p className='text-slate-400 text-lg font-bold'>{resource?.file?.fileType}</p>
         <p className='text-slate-400 text-lg font-bold'>
           {resource.description}
         </p>

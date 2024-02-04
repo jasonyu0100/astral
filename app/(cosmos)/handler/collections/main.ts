@@ -4,7 +4,7 @@ import { listCollectionObjs, listResourceObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
-import { ResourceObj, ResourceType } from '@/tables/resource/main';
+import { ResourceObj, ResourceVariant } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 export interface useCOllectionsInterface {
     collectionId: string;
@@ -99,12 +99,12 @@ export const useCollections = (galleryId: string) => {
             description: file.name || '',
             collectionId: collection.id,
             file: file,
-            resourceType: ResourceType.FILE,
+            variant: ResourceVariant.FILE,
             userId: state.user?.id,
           },
         },
       });
-      const resource = payload?.data?.createResourceObj as unknown as ResourceObj;
+      const resource = payload?.data?.createResourceObj as ResourceObj;
       resources.push(resource);
     }
     return resources;

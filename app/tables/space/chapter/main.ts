@@ -5,15 +5,6 @@ export interface ChapterObj {
   description: string;
 }
 
-export const chapterSchema = `
-type ChapterObj {
-  id: String!
-  spaceId: String!
-  title: String!
-  description: String!
-}
-`;
-
 export const exampleChapter: ChapterObj = {
   id: '0',
   spaceId: '0',

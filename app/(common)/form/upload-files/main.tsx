@@ -22,7 +22,7 @@ export function FormUploadFiles({
     const payload: FileObj[] = [];
     for (let file of files) {
       const name = file.name;
-      const type = file.type;
+      const fileType = file.type;
       const size = file.size;
 
       // get secure url from our server
@@ -43,7 +43,7 @@ export function FormUploadFiles({
         id: crypto.randomUUID(),
         src: fileSrc,
         name: name,
-        type: type,
+        fileType: fileType,
         size: size,
       };
 
@@ -53,7 +53,7 @@ export function FormUploadFiles({
           input: {
             name: filePayload.name,
             src: filePayload.src,
-            type: filePayload.type,
+            fileType: filePayload.fileType,
             size: filePayload.size,
           },
         },
@@ -124,7 +124,7 @@ export function FormUploadFiles({
               />
               <div className='flex flex-col'>
                 <p className='text-lg font-bold'>{uploadedFileObj.name}</p>
-                <p className='text-sm text-slate-500'>{uploadedFileObj.type}</p>
+                <p className='text-sm text-slate-500'>{uploadedFileObj.fileType}</p>
                 <p className='text-md text-slate-500'>
                   {uploadedFileObj.size} bytes
                 </p>

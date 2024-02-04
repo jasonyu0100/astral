@@ -13,7 +13,7 @@ import { FormSearchImage } from '@/(common)/form/search-image/main';
 import { FileObj } from '@/tables/file/main';
 import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FormSelect } from '@/(common)/form/select/main';
-import { SpaceType } from '@/tables/space/main';
+import { SpaceVariant } from '@/tables/space/main';
 
 export function CreateSpaceModal() {
   const { spacesHandler } = useContext(SpacesContext);
@@ -21,7 +21,7 @@ export function CreateSpaceModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
-  const [type, changeType] = useState(SpaceType.SONG as String)
+  const [variant, changeVariant] = useState<string>(SpaceVariant.SONG)
 
   return (
     <Modal isOpen={createSpace.opened} onClose={() => createSpace.close()}>
@@ -44,27 +44,27 @@ export function CreateSpaceModal() {
           />
           <FormSelect
             title='Type'
-            value={type}
-            onChange={(e) => changeType(e.target.value)}
+            value={variant}
+            onChange={(e) => changeVariant(e.target.value)}
           >
-            <option value={SpaceType.BAR}>
-              {SpaceType.BAR}
+            <option value={SpaceVariant.BAR}>
+              {SpaceVariant.BAR}
             </option>
-            <option value={SpaceType.MIX}>
-              {SpaceType.MIX}
+            <option value={SpaceVariant.MIX}>
+              {SpaceVariant.MIX}
             </option>
-            <option value={SpaceType.SONG}>
-              {SpaceType.SONG}
+            <option value={SpaceVariant.SONG}>
+              {SpaceVariant.SONG}
             </option>
-            <option value={SpaceType.CUSTOM}>
-              {SpaceType.CUSTOM}
+            <option value={SpaceVariant.CUSTOM}>
+              {SpaceVariant.CUSTOM}
             </option>
           </FormSelect>
         </FormBody>
         <FormFooter>
           <FormButton
             onClick={() => {
-              spacesHandler.queryCreateSpace(title, description, thumbnail);
+              spacesHandler.queryCreateSpace(title, description, thumbnail, variant);
               createSpace.close();
             }}
           >

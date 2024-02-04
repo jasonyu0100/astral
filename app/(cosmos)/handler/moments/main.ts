@@ -3,10 +3,10 @@ import { createMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/file/main';
-import { MomentObj } from '@/tables/flow/moment/main';
+import { MomentObj, MomentVariant } from '@/tables/flow/moment/main';
 import { LoomObj } from '@/tables/resource/loom/main';
-import { ResourceType } from '@/tables/resource/main';
-import { StickyObj } from '@/tables/resource/sticky/main';
+import { ResourceVariant } from '@/tables/resource/main';
+import { NoteObj } from '@/tables/resource/note/main';
 import { useEffect, useState } from 'react';
 
 export interface MomentHandler {
@@ -26,7 +26,7 @@ export interface MomentHandler {
   queryCreateStickyMoment: (
     title: string,
     log: string,
-    sticky: StickyObj,
+    sticky: NoteObj,
     visibility: string,
   ) => Promise<MomentObj>;
   updateMoments: (moments: MomentObj[]) => MomentObj[];
@@ -94,7 +94,7 @@ export const useMoments = (
             log: log,
             file: file,
             visibility: visibility,
-            resourceType: ResourceType.FILE,
+            variant: MomentVariant.FILE,
           },
         },
       });
@@ -122,7 +122,7 @@ export const useMoments = (
             log: log,
             loom: loom,
             visibility: visibility,
-            resourceType: ResourceType.LOOM,
+            variant: MomentVariant.LOOM,
           },
         },
       });
@@ -134,7 +134,7 @@ export const useMoments = (
     queryCreateStickyMoment: async (
       title: string,
       log: string,
-      sticky: StickyObj,
+      sticky: NoteObj,
       visibility: string,
     ) => {
       const payload = await amplifyClient.graphql({
@@ -149,7 +149,7 @@ export const useMoments = (
             log: log,
             sticky: sticky,
             visibility: visibility,
-            resourceType: ResourceType.STICKY,
+            variant: MomentVariant.STICKY,
           },
         },
       });

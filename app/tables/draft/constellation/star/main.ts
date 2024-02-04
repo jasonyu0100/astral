@@ -1,8 +1,13 @@
 import { FileObj, exampleFile } from '@/tables/file/main';
 import { LoomObj } from '@/tables/resource/loom/main';
-import { ResourceType } from '@/tables/resource/main';
-import { StickyObj } from '@/tables/resource/sticky/main';
+import { ResourceVariant } from '@/tables/resource/main';
+import { NoteObj } from '@/tables/resource/note/main';
 
+export enum StarVariant {
+  FILE = 'FILE',
+  LOOM = 'LOOM',
+  STICKY = 'STICKY',
+}
 export interface StarObj {
   id: string;
   constellationId: string;
@@ -11,50 +16,9 @@ export interface StarObj {
   y: number;
   file?: FileObj;
   loom?: LoomObj;
-  sticky?: StickyObj;
-  resourceType: string;
+  sticky?: NoteObj;
+  variant: string;
 }
-
-export interface FileStarObj {
-  id: string;
-  constellationId: string;
-  name: string;
-  x: number;
-  y: number;
-  file: FileObj;
-  resourceType: string;
-}
-
-export interface LoomStarObj {
-  id: string;
-  constellationId: string;
-  name: string;
-  x: number;
-  y: number;
-  loom: LoomObj;
-  resourceType: string;
-}
-
-export interface StickyStarObj {
-  id: string;
-  constellationId: string;
-  name: string;
-  x: number;
-  y: number;
-  sticky: StickyObj;
-  resourceType: string;
-}
-
-export const starSchema = `
-type StarObj {
-  id: String!
-  constellationId: String!
-  name: String!
-  x: Float!
-  y: Float!
-  file: FileObj!
-}
-`;
 
 export const exampleStar: StarObj = {
   id: '0',
@@ -63,7 +27,7 @@ export const exampleStar: StarObj = {
   x: 120,
   y: 120,
   file: exampleFile,
-  resourceType: ResourceType.FILE,
+  variant: ResourceVariant.FILE,
 };
 
 export const exampleStars: StarObj[] = [
@@ -74,7 +38,7 @@ export const exampleStars: StarObj[] = [
     x: 120,
     y: 120,
     file: exampleFile,
-    resourceType: ResourceType.FILE,
+    variant: ResourceVariant.FILE,
   },
   {
     id: '1',
@@ -83,7 +47,7 @@ export const exampleStars: StarObj[] = [
     x: 240,
     y: 120,
     file: exampleFile,
-    resourceType: ResourceType.FILE,
+    variant: ResourceVariant.FILE,
   },
   {
     id: '2',
@@ -92,6 +56,6 @@ export const exampleStars: StarObj[] = [
     x: 360,
     y: 120,
     file: exampleFile,
-    resourceType: ResourceType.FILE,
+    variant: ResourceVariant.FILE,
   },
 ];

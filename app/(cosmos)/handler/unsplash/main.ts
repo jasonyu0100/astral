@@ -41,7 +41,7 @@ export const useUnsplash = () => {
         return {
             id: crypto.randomUUID(),
             src: result.urls.raw,
-            type: "image/*",
+            fileType: "image/*",
             name: result.alt_description,
             size: 0,
         } as FileObj

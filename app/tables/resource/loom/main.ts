@@ -12,22 +12,6 @@ export interface LoomObj {
   providerUrl: string;
 }
 
-export const loomSchema = `
-type LoomObj {
-    id: String!
-    loomId: String!
-    height: Float!
-    width: Float!
-    sharedUrl: String!
-    embedUrl: String!
-    thumbnailHeight: Float
-    thumbnailWidth: Float
-    thumbnailUrl: String
-    duration: Float
-    providerUrl: String!
-}
-`;
-
 export const exampleLoom: LoomObj = {
   id: '0',
   loomId: '0',

@@ -77,7 +77,7 @@ export function FormSearchImage({
                     />
                     <div className='flex flex-col'>
                         <p className='text-lg font-bold'>{selectedImage.name}</p>
-                        <p className='text-sm text-slate-500'>{selectedImage.type}</p>
+                        <p className='text-sm text-slate-500'>{selectedImage.fileType}</p>
                         <p className='text-md text-slate-500'>
                         {selectedImage.size} bytes
                         </p>

@@ -1,9 +1,9 @@
 import { amplifyClient } from '@/client';
 import { createStarObj, updateStarObj } from '@/graphql/mutations';
 import { listStarObjs } from '@/graphql/queries';
-import { FileStarObj, LoomStarObj, StarObj, StickyStarObj } from '@/tables/draft/constellation/star/main';
+import { StarObj } from '@/tables/draft/constellation/star/main';
 import { FileObj } from '@/tables/file/main';
-import { ResourceType } from '@/tables/resource/main';
+import { ResourceVariant } from '@/tables/resource/main';
 import { removeTypename, removeEmpty } from '@/utils/clean';
 import { useEffect, useState } from 'react';
 export interface StarHandler {
@@ -79,9 +79,9 @@ export const useStars = (constellationId: string): useStarInterface => {
               src: file.src,
               name: file.name || '',
               size: file.size || undefined,
-              type: file.type || '',
+              variant: file.fileType || '',
             },
-            resourceType: ResourceType.FILE,
+            variant: ResourceVariant.FILE,
           },
         },
       });

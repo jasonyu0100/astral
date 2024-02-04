@@ -1,5 +1,4 @@
 'use client';
-import { outputSchema } from '@/tables/tables';
 import insideCosmos from '@/utils/isAuth';
 
 const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
@@ -13,11 +12,10 @@ const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
 };
 
 function Page() {
-  const text = outputSchema();
   return (
     <div className='w-full h-full flex flex-col items-center justify-center p-[3rem]'>
       <div className='aspect-[13/16] h-full overflow-auto p-[50px] bg-slate-950'>
-        <CodeBlock code={text} />
+        <CodeBlock code={"<p>Hello World</p>"} />
       </div>
     </div>
   );

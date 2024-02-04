@@ -2,7 +2,6 @@ export enum MessageSource {
   USER = 'You',
   AGENT = 'Agent',
 }
-
 export interface MessageObj {
   id: string;
   userId?: string;
@@ -11,16 +10,6 @@ export interface MessageObj {
   time: string;
   message: string;
 }
-
-export const messageSchema = `
-type MessageObj {
-  id: String!
-  chatId: String!
-  source: String!
-  time: String!
-  message: String!
-  userId: String
-}`;
 
 export const exampleMessage: MessageObj = {
   id: '0',

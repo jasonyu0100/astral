@@ -3,7 +3,7 @@ import { createMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
 import { FileObj } from '@/tables/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
-import { ResourceType } from '@/tables/resource/main';
+import { ResourceVariant } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 
 export interface FeedMomentHandler {
@@ -77,7 +77,7 @@ export const useFeedMoments = (
             log: log,
             file: file,
             visibility: visibility,
-            resourceType: ResourceType.FILE,
+            variant: ResourceVariant.FILE,
           },
         },
       });

@@ -7,7 +7,7 @@ import { FileObj } from '@/tables/file/main';
 
 export interface SpacesHandler {
   queryListSpaces: () => Promise<void>;
-  queryCreateSpace: (title: string, description: string, thumbnail: FileObj) => Promise<void>;
+  queryCreateSpace: (title: string, description: string, thumbnail: FileObj, variant: string) => Promise<void>;
 }
 
 interface useSpacesInterface {
@@ -47,7 +47,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },
-    queryCreateSpace: async (title: string, description: string, thumbnail: FileObj) => {
+    queryCreateSpace: async (title: string, description: string, thumbnail: FileObj, variant: string) => {
       const payload = await amplifyClient.graphql({
         query: createSpaceObj,
         variables: {
@@ -56,7 +56,8 @@ export const useSpaces = (userId: string): useSpacesInterface => {
             title,
             description,
             time: new Date().toISOString(),
-            thumbnail
+            thumbnail,
+            variant: variant
           },
         },
       });

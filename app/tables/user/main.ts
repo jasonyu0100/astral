@@ -10,17 +10,6 @@ export interface UserObj {
   profilePicture: FileObj;
 }
 
-export const userSchema = `
-type UserObj {
-  id: String!
-  lname: String!
-  fname: String!
-  passwordHash: String!
-  email: String!
-  googleId: String!
-  profileImage: FileObj!
-}`;
-
 export const exampleUser: UserObj = {
   id: '0',
   fname: 'John',

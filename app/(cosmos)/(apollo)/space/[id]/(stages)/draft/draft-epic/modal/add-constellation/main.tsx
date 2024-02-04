@@ -10,14 +10,14 @@ import { useContext, useState } from "react";
 import { DraftContext } from "../../../page";
 import { DraftModalContext } from "../main";
 import { FormSelect } from "@/(common)/form/select/main";
-import { ConstellationType } from "@/tables/draft/constellation/main";
+import { ConstellationVariant } from "@/tables/draft/constellation/main";
 
 export function DraftAddConstellationModal() {
   const { constellationHandler } =
     useContext(DraftContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [type, changeType] = useState(ConstellationType.VISUAL as string);
+  const [variant, changeVariant] = useState(ConstellationVariant.VISUAL as string);
   const { addConstellation } = useContext(DraftModalContext)
 
   return (
@@ -26,21 +26,21 @@ export function DraftAddConstellationModal() {
         <FormTitle>Add Constellation</FormTitle>
         <FormBody>
           <FormSelect
-            title='Type'
-            value={type}
-            onChange={(e) => changeType(e.target.value)}
+            title='Variant'
+            value={variant}
+            onChange={(e) => changeVariant(e.target.value)}
           >
-            <option value={ConstellationType.VISUAL}>
-              {ConstellationType.VISUAL}
+            <option value={ConstellationVariant.VISUAL}>
+              {ConstellationVariant.VISUAL}
             </option>
-            <option value={ConstellationType.TEXT}>
-              {ConstellationType.TEXT}
+            <option value={ConstellationVariant.TEXT}>
+              {ConstellationVariant.TEXT}
             </option>
-            <option value={ConstellationType.SOUND}>
-              {ConstellationType.SOUND}
+            <option value={ConstellationVariant.SOUND}>
+              {ConstellationVariant.SOUND}
             </option>
-            <option value={ConstellationType.MIXED}>
-              {ConstellationType.MIXED}
+            <option value={ConstellationVariant.MIXED}>
+              {ConstellationVariant.MIXED}
             </option>
           </FormSelect>
           <FormInput
@@ -59,7 +59,7 @@ export function DraftAddConstellationModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              constellationHandler.queryCreateConstellation(title, description, type)
+              constellationHandler.queryCreateConstellation(title, description, variant)
               addConstellation.close();
             }}
           >

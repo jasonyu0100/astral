@@ -7,16 +7,6 @@ export interface GalleryObj {
   thumbnail: FileObj;
 }
 
-export const gallerySchema = `
-type GalleryObj {
-  id: String!
-  userId: String!
-  title: String!
-  description: String!
-  thumbnail: FileObj!
-}
-`;
-
 export const exampleGallery: GalleryObj = {
   id: '0',
   userId: '0',

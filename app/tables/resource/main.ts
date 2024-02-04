@@ -1,11 +1,11 @@
 import { FileObj, exampleFile, exampleFiles } from '../file/main';
 import { LoomObj } from './loom/main';
-import { StickyObj } from './sticky/main';
+import { NoteObj } from './note/main';
 
-export enum ResourceType {
+export enum ResourceVariant {
   FILE = 'FILE',
   LOOM = 'LOOM',
-  STICKY = 'STICKY',
+  NOTE = 'NOTE',
 }
 
 export interface ResourceObj {
@@ -15,23 +15,10 @@ export interface ResourceObj {
   name: string;
   description: string;
   file?: FileObj;
-  sticky?: StickyObj;
+  sticky?: NoteObj;
   loom?: LoomObj;
-  resourceType: string;
+  variant: string;
 }
-
-export const resourceSchema = `
-type ResourceObj {
-  id: String!
-  userId: String!
-  collectionId: String!
-  name: String!
-  description: String!
-  file: FileObj
-  sticky: StickyObj
-  loom: LoomObj
-  resourceType: String!
-}`;
 
 export const exampleResource: ResourceObj = {
   id: '0',
@@ -40,7 +27,7 @@ export const exampleResource: ResourceObj = {
   name: 'Example Resource',
   description: 'Example Resource Description',
   file: exampleFile,
-  resourceType: ResourceType.FILE,
+  variant: ResourceVariant.FILE,
 };
 
 export const exampleResources: ResourceObj[] = [
@@ -52,7 +39,7 @@ export const exampleResources: ResourceObj[] = [
       name: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       file: file,
-      resourceType: ResourceType.FILE,
+      variant: ResourceVariant.FILE,
     };
   }),
 ];

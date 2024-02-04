@@ -24,7 +24,7 @@ loginRouter.post("/", async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items as unknown as UserObj[];
+    const users = payload?.data?.listUserObjs?.items as UserObj[];
 
     if (users.length === 0) {
       res.status(401).json({ error: "Invalid Email" });
@@ -71,7 +71,7 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items as unknown as UserObj[];
+    const users = payload?.data?.listUserObjs?.items as UserObj[];
     if (users.length === 0) {
       res.status(401).json({ error: "Invalid Google Id" });
     } else {
