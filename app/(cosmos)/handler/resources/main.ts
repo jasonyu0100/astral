@@ -44,13 +44,13 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
   }, [resources])
 
   const _resourceHandler: CollectionResourcesHandler = {
-    queryListResources: async (id: string) => {
+    queryListResources: async (collectionId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
         variables: {
           filter: {
-            userId: {
-              eq: id,
+            collectionId: {
+              eq: collectionId,
             },
           },
         },

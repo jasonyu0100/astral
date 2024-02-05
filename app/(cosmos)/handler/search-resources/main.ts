@@ -37,13 +37,13 @@ export const useSearchResource = (userId: string): useSearchResourcesInterface =
   }, [resources])
 
   const _searchResourceHandler: SearchResourceHandler = {
-    queryListResources: async (id: string) => {
+    queryListResources: async (userId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
         variables: {
           filter: {
             userId: {
-              eq: id,
+              eq: userId,
             },
           },
         },

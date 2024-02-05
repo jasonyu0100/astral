@@ -11,7 +11,6 @@ export function FormSelect({
   children,
   ...props
 }: PortalFormSelectProps) {
-  const [value, changeValue] = useState('');
 
   return (
     <div className='flex flex-col w-full'>
@@ -22,10 +21,8 @@ export function FormSelect({
           className='w-full h-full appearance-none border-none outline-none text-slate-500 text-xl font-bold leading-9
           px-[0.5rem]'
           {...props}
-          value={props.value || value}
-          onChange={(e) =>
-            props.onChange ? e.target.value : changeValue(e.target.value)
-          }
+          value={props.value}
+          onChange={props.onChange}
         >
           {children}
         </select>

@@ -4,6 +4,7 @@ export enum SpaceVariant {
   MIX = 'MIX',
   SONG = 'SONG',
   BAR = 'BAR',
+  IDEA = 'IDEA',
   CUSTOM = 'CUSTOM',
 }
 
