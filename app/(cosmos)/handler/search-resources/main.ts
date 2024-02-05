@@ -36,7 +36,7 @@ export const useSearchResource = (userId: string): useSearchResourcesInterface =
     changeSearchResults(resources);
   }, [resources])
 
-  const _searchResourceHandler: SearchResourceHandler = {
+  const gqlHelper = {
     queryListResources: async (userId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
@@ -50,6 +50,13 @@ export const useSearchResource = (userId: string): useSearchResourcesInterface =
       });
 
       const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
+      return resources;
+    },
+  }
+
+  const _searchResourceHandler: SearchResourceHandler = {
+    queryListResources: async (userId: string) => {
+      const resources = await gqlHelper.queryListResources(userId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '')
       return resources;

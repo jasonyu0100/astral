@@ -20,7 +20,7 @@ export interface CollectionResourcesHandler {
     name: string,
     description: string,
     file: FileObj,
-  ) => Promise<void>;
+  ) => Promise<ResourceObj>;
   searchResources: (query: string) => ResourceObj[]
 }
 
@@ -43,7 +43,7 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
     changeSearchResults(resources);
   }, [resources])
 
-  const _resourceHandler: CollectionResourcesHandler = {
+  const gqlHelper = {
     queryListResources: async (collectionId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
@@ -57,8 +57,6 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
       });
 
       const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
-      changeResources(resources);
-      changeResourceId(resources[0]?.id || '')
       return resources;
     },
     queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
@@ -76,8 +74,22 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
         },
       });
       const resource = payload?.data?.createResourceObj as ResourceObj;
+      return resource
+    },
+  }
+
+  const _resourceHandler: CollectionResourcesHandler = {
+    queryListResources: async (collectionId: string) => {
+      const resources = await gqlHelper.queryListResources(collectionId);
+      changeResources(resources);
+      changeResourceId(resources[0]?.id || '')
+      return resources;
+    },
+    queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
+      const resource = await gqlHelper.queryCreateFileResource(name, description, file);
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);
+      return resource
     },
     searchResources: (query: string) => {
       if (query === '') {

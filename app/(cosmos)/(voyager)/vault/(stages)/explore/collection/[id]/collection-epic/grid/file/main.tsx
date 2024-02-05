@@ -5,6 +5,8 @@ export function CollectionResource({
 }: {
   resource: ResourceObj;
 }) {
+
+  
   return (
     <div className='flex flex-row h-[150px] aspect-[36/16] items-center space-x-[3rem]'>
       <img

@@ -59,7 +59,7 @@ export const useMoments = (
     _momentHandler.queryListMoments();
   }, [chapterId]);
 
-  const _momentHandler : MomentHandler = {
+  const gqlHelper = {
     queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,
@@ -72,8 +72,6 @@ export const useMoments = (
         },
       });
       const moments = payload.data?.listMomentObjs?.items as MomentObj[];
-      changeMoments(moments);
-      changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
     queryCreateFileMoment: async (
@@ -99,8 +97,6 @@ export const useMoments = (
         },
       });
       const moment = payload.data?.createMomentObj as MomentObj;
-      changeMomentId(moment.id);
-      changeMoments((prev) => [...prev, moment]);
       return moment;
     },
     queryCreateLoomMoment: async (
@@ -127,8 +123,6 @@ export const useMoments = (
         },
       });
       const moment = payload.data?.createMomentObj as MomentObj;
-      changeMomentId(moment.id);
-      changeMoments((prev) => [...prev, moment]);
       return moment;
     },
     queryCreateStickyMoment: async (
@@ -154,6 +148,46 @@ export const useMoments = (
         },
       });
       const moment = payload.data?.createMomentObj as MomentObj;
+      return moment;
+    },
+  }
+
+  const _momentHandler : MomentHandler = {
+    queryListMoments: async () => {
+      const moments = await gqlHelper.queryListMoments();
+      changeMoments(moments);
+      changeMomentId(moments.at(0)?.id || '');
+      return moments;
+    },
+    queryCreateFileMoment: async (
+      title: string,
+      log: string,
+      file: FileObj,
+      visibility: string,
+    ) => {
+      const moment = await gqlHelper.queryCreateFileMoment(title, log, file, visibility);
+      changeMomentId(moment.id);
+      changeMoments((prev) => [...prev, moment]);
+      return moment;
+    },
+    queryCreateLoomMoment: async (
+      title: string,
+      log: string,
+      loom: LoomObj,
+      visibility: string,
+    ) => {
+      const moment = await gqlHelper.queryCreateLoomMoment(title, log, loom, visibility);
+      changeMomentId(moment.id);
+      changeMoments((prev) => [...prev, moment]);
+      return moment;
+    },
+    queryCreateStickyMoment: async (
+      title: string,
+      log: string,
+      sticky: NoteObj,
+      visibility: string,
+    ) => {
+      const moment = await gqlHelper.queryCreateStickyMoment(title, log, sticky, visibility);
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
       return moment;

@@ -32,7 +32,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
     _messageHandler.queryListMessages(chatId);
   }, [chatId]);
 
-  const _messageHandler = {
+  const gqlHelper = {
     queryCreateUserMessage: async (text: string) => {
       const payload = await amplifyClient.graphql({
         query: createMessageObj,
@@ -61,11 +61,9 @@ export const useMessages = (chatId: string): useMessageInterface => {
         },
       });
       const messages = payload.data?.listMessageObjs?.items as MessageObj[];
-      changeMessages(messages);
       return messages;
     },
-    queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      const response = await getMessageResponse(userMessage.message) || "";
+    queryCreateAgentMessage: async (text: string) => {
       const payload = await amplifyClient.graphql({
         query: createMessageObj,
         variables: {
@@ -73,12 +71,29 @@ export const useMessages = (chatId: string): useMessageInterface => {
             chatId: chatId,
             source: MessageSource.AGENT,
             time: new Date().toISOString(),
-            message: response,
+            message: text,
           },
         },
       });
-      const replyMessage = payload.data?.createMessageObj as MessageObj;
-      return replyMessage;
+      const message = payload.data?.createMessageObj as MessageObj;
+      return message;
+    },
+  }
+
+  const _messageHandler = {
+    queryCreateUserMessage: async (text: string) => {
+      const message = await gqlHelper.queryCreateUserMessage(text);
+      return message;
+    },
+    queryListMessages: async (chatId: string) => {
+      const messages = await gqlHelper.queryListMessages(chatId);
+      changeMessages(messages);
+      return messages;
+    },
+    queryCreateAgentMessage: async (userMessage: MessageObj) => {
+      const agentResponse = await getMessageResponse(userMessage.message) || "";
+      const agentMessage = await gqlHelper.queryCreateAgentMessage(agentResponse);
+      return agentMessage;
     },
     addUserMessage: (message: MessageObj) => {
       changeMessages((prev) => [...prev, message]);

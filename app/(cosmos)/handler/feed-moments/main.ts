@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 export interface FeedMomentHandler {
     queryListMoments: () => Promise<MomentObj[]>;
-    queryCreateMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
     queryCreateFileMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
     updateMoments: (moments: MomentObj[]) => MomentObj[];
     updateMoment: (moment: MomentObj) => MomentObj;
@@ -38,8 +37,8 @@ export const useFeedMoments = (
     _momentHandler.queryListMoments();
   }, [userId]);
 
-  const _momentHandler: FeedMomentHandler = {
-    queryListMoments: async () => {
+  const gqlHelper = {
+        queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,
         variables: {
@@ -54,8 +53,6 @@ export const useFeedMoments = (
         },
       });
       const moments = payload.data?.listMomentObjs?.items as MomentObj[];
-      changeMoments(moments);
-      changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
     queryCreateFileMoment: async (
@@ -82,6 +79,25 @@ export const useFeedMoments = (
         },
       });
       const moment = payload.data?.createMomentObj as MomentObj;
+      return moment;
+    },
+  }
+
+  const _momentHandler: FeedMomentHandler = {
+    queryListMoments: async () => {
+      const moments = await gqlHelper.queryListMoments();
+      changeMoments(moments);
+      changeMomentId(moments.at(0)?.id || '');
+      return moments;
+    },
+    queryCreateFileMoment: async (
+      title: string,
+      log: string,
+      file: FileObj,
+      chapterId: string,
+      spaceId: string,
+    ) => {
+      const moment = await gqlHelper.queryCreateFileMoment(title, log, file, chapterId, spaceId);
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment])
       return moment;

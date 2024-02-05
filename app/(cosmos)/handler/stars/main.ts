@@ -39,7 +39,7 @@ export const useStars = (constellationId: string): useStarInterface => {
     _starHandler.queryListStars();
   }, [constellationId]);
 
-  const _starHandler: StarHandler = {
+  const gqlHelper = {
     queryListStars: async () => {
       const payload = await amplifyClient.graphql({
         query: listStarObjs,
@@ -52,9 +52,7 @@ export const useStars = (constellationId: string): useStarInterface => {
         },
       });
       const stars = payload?.data.listStarObjs?.items as StarObj[];
-      changeStars(stars);
-      changeStarId(stars[0]?.id || '');
-      return stars;
+      return stars
     },
     queryCreateFileStar: async (
       name: string,
@@ -62,10 +60,6 @@ export const useStars = (constellationId: string): useStarInterface => {
       y: number,
       file: FileObj,
     ) => {
-      if (constellationId === '') {
-        alert('No Constellation Active');
-        return {} as StarObj;
-      }
       const payload = await amplifyClient.graphql({
         query: createStarObj,
         variables: {
@@ -86,8 +80,6 @@ export const useStars = (constellationId: string): useStarInterface => {
         },
       });
       const star = payload?.data.createStarObj as StarObj;
-      changeStars((prev) => [...prev, star]);
-      changeStarId(star.id);
       return star;
     },    
     queryUpdateStars: async () => {
@@ -105,6 +97,34 @@ export const useStars = (constellationId: string): useStarInterface => {
         }),
       );
       return updatedStars
+    },
+  }
+
+  const _starHandler: StarHandler = {
+    queryListStars: async () => {
+      const stars = await gqlHelper.queryListStars();
+      changeStars(stars);
+      changeStarId(stars[0]?.id || '');
+      return stars;
+    },
+    queryCreateFileStar: async (
+      name: string,
+      x: number,
+      y: number,
+      file: FileObj,
+    ) => {
+      if (constellationId === '') {
+        alert('No Constellation Active');
+        return {} as StarObj;
+      }
+      const star = await gqlHelper.queryCreateFileStar(name, x, y, file);
+      changeStars((prev) => [...prev, star]);
+      changeStarId(star.id);
+      return star;
+    },    
+    queryUpdateStars: async () => {
+      const updatedStars = await gqlHelper.queryUpdateStars();
+      return updatedStars;
     },
     updateStar: (starId: string, data: any) => {
       changeStars((prev) =>

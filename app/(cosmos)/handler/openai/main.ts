@@ -1,4 +1,3 @@
-import { MessageObj } from '@/tables/storm/chat/message/main';
 import OpenAI from 'openai';
 
 export const useOpenAI = () => {

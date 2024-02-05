@@ -14,9 +14,9 @@ export interface useCOllectionsInterface {
 }
 export interface CollectionHandler {
   queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
-  queryListCollections: (galleryId: string) => Promise<void>;
-  queryCreateCollection: (name: string, files: FileObj[]) => Promise<void>;
-  goToCollection: (collection: CollectionObj) => void;
+  queryListCollections: (galleryId: string) => Promise<CollectionObj[]>;
+  queryCreateCollection: (name: string, files: FileObj[]) => Promise<CollectionObj>;
+  goToCollection: (collection: CollectionObj) => CollectionObj;
 }
 
 export const useCollections = (galleryId: string) => {
@@ -33,10 +33,7 @@ export const useCollections = (galleryId: string) => {
     _collectionHandler.queryListCollections(galleryId);
   }, [galleryId]);
 
-  const _collectionHandler: CollectionHandler = {
-    goToCollection: (collection: CollectionObj) => {
-      changeCollectionId(collection.id);
-    },
+  const gqlHelper = {
     queryCollectionResources: async (collectionId: string) => {
       const payload = await amplifyClient.graphql({
         query: listResourceObjs,
@@ -64,10 +61,8 @@ export const useCollections = (galleryId: string) => {
       });
       const collections = payload?.data?.listCollectionObjs
         ?.items as CollectionObj[];
-      changeCollections(collections);
-      changeCollectionId(collections[0]?.id || '');
+      return collections
     },
-
     queryCreateCollection: async (name: string, files: FileObj[]) => {
       const payload = await amplifyClient.graphql({
         query: createCollectionObj,
@@ -79,35 +74,56 @@ export const useCollections = (galleryId: string) => {
         },
       });
       const collection = payload?.data?.createCollectionObj as CollectionObj;
+      return collection
+    },
+    queryCreateCollectionResources: async (
+      collection: CollectionObj,
+      files: FileObj[],
+    ) => {
+      const resources = [];
+      for (let file of files) {
+        const payload = await amplifyClient.graphql({
+          query: createResourceObj,
+          variables: {
+            input: {
+              name: file.name || '',
+              description: file.name || '',
+              collectionId: collection.id,
+              file: file,
+              variant: ResourceVariant.FILE,
+              userId: state.user?.id,
+            },
+          },
+        });
+        const resource = payload?.data?.createResourceObj as ResourceObj;
+        resources.push(resource);
+      }
+      return resources;
+    }
+  }
+
+  const _collectionHandler: CollectionHandler = {
+    goToCollection: (collection: CollectionObj) => {
+      changeCollectionId(collection.id);
+      return collection;
+    },
+    queryCollectionResources: async (collectionId: string) => {
+      const resources = await gqlHelper.queryCollectionResources(collectionId);
+      return resources;
+    },
+    queryListCollections: async (galleryId: string) => {
+      const collections = await gqlHelper.queryListCollections(galleryId);
+      changeCollections(collections);
+      changeCollectionId(collections[0]?.id || '');
+      return collections
+    },
+    queryCreateCollection: async (name: string, files: FileObj[]) => {
+      const collection = await gqlHelper.queryCreateCollection(name, files);
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);
-      await queryCreateCollectionResources(collection, files);
+      const resources = await gqlHelper.queryCreateCollectionResources(collection, files);
+      return collection
     },
-  };
-
-  const queryCreateCollectionResources = async (
-    collection: CollectionObj,
-    files: FileObj[],
-  ) => {
-    const resources = [];
-    for (let file of files) {
-      const payload = await amplifyClient.graphql({
-        query: createResourceObj,
-        variables: {
-          input: {
-            name: file.name || '',
-            description: file.name || '',
-            collectionId: collection.id,
-            file: file,
-            variant: ResourceVariant.FILE,
-            userId: state.user?.id,
-          },
-        },
-      });
-      const resource = payload?.data?.createResourceObj as ResourceObj;
-      resources.push(resource);
-    }
-    return resources;
   };
 
   return {

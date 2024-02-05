@@ -18,8 +18,8 @@ export interface GalleryHandler {
     title: string,
     description: string,
     thumbnail: FileObj,
-  ) => Promise<void>;
-  goToGallery: (gallery: GalleryObj) => void;
+  ) => Promise<GalleryObj>;
+  goToGallery: (gallery: GalleryObj) => GalleryObj;
 }
 
 export const useGallerys = (userId: string): useGallerysInterface => {
@@ -35,10 +35,7 @@ export const useGallerys = (userId: string): useGallerysInterface => {
     _galleryHandler.queryListGallerys();
   }, [userId]);
 
-  const _galleryHandler: GalleryHandler = {
-    goToGallery: (gallery: GalleryObj) => {
-      changeGalleryId(gallery.id)
-    },
+  const gqlHelper = {
     queryListGallerys: async () => {
       const payload = await amplifyClient.graphql({
         query: listGalleryObjs,
@@ -51,8 +48,6 @@ export const useGallerys = (userId: string): useGallerysInterface => {
         },
       });
       const gallerys = payload?.data?.listGalleryObjs?.items as GalleryObj[];
-      changeGallerys(gallerys);
-      changeGalleryId(gallerys[0]?.id || '')
       return gallerys;
     },
     queryCreateGallery: async (
@@ -73,10 +68,30 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       });
 
       const gallery = payload?.data?.createGalleryObj as GalleryObj;
-      changeGallerys((prev) => {
-        return [...prev, gallery];
-      });
+      return gallery
+    },
+  }
+
+  const _galleryHandler: GalleryHandler = {
+    goToGallery: (gallery: GalleryObj) => {
       changeGalleryId(gallery.id)
+      return gallery
+    },
+    queryListGallerys: async () => {
+      const gallerys = await gqlHelper.queryListGallerys();
+      changeGallerys(gallerys);
+      changeGalleryId(gallerys[0]?.id || '')
+      return gallerys;
+    },
+    queryCreateGallery: async (
+      title: string,
+      description: string,
+      thumbnail: FileObj,
+    ) => {
+      const gallery = await gqlHelper.queryCreateGallery(title, description, thumbnail);
+      changeGallerys((prev) => [...prev, gallery]);
+      changeGalleryId(gallery.id)
+      return gallery;
     },
   };
 

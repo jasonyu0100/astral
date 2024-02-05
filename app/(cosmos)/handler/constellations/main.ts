@@ -34,9 +34,8 @@ export const useConstellations = (chapterId: string): useConstellationInterface 
     _constellationHandler.queryListConstellations(chapterId);
   }, [chapterId])
 
-
-  const _constellationHandler = {
-    queryListConstellations: async (id: string) => {
+  const gqlHelper = {
+    queryListConstellations: async (chapterId: string) => {
       const payload = await amplifyClient.graphql({
         query: listConstellationObjs,
         variables: {
@@ -48,8 +47,6 @@ export const useConstellations = (chapterId: string): useConstellationInterface 
         },
       });
       const constellations = payload?.data.listConstellationObjs?.items as ConstellationObj[];
-      changeConstellations(constellations);
-      changeConstellationId(constellations[0]?.id || '');
       return constellations;
     },
     queryCreateConstellation: async (title: string, description: string, variant: string) => {
@@ -65,6 +62,19 @@ export const useConstellations = (chapterId: string): useConstellationInterface 
         },
       });
       const constellation = payload?.data.createConstellationObj as ConstellationObj;
+      return constellation;
+    },
+  }
+
+  const _constellationHandler: ConstellationHandler = {
+    queryListConstellations: async (chapterId: string) => {
+      const constellations = await gqlHelper.queryListConstellations(chapterId);
+      changeConstellations(constellations);
+      changeConstellationId(constellations[0]?.id || '');
+      return constellations;
+    },
+    queryCreateConstellation: async (title: string, description: string, variant: string) => {
+      const constellation = await gqlHelper.queryCreateConstellation(title, description, variant);
       changeConstellationId(constellation.id);
       changeConstellations((prev) => [...prev, constellation]);
       return constellation;

@@ -34,7 +34,7 @@ export const useChats = (chapterId: string): useChatInterface => {
     _chatHandler.queryListChats()
   }, [chapterId]);
 
-  const _chatHandler: ChatHandler = {
+  const gqlHelper = {
     queryListChats: async () => {
       const payload = await amplifyClient.graphql({
         query: listChatObjs,
@@ -47,8 +47,6 @@ export const useChats = (chapterId: string): useChatInterface => {
         },
       });
       const chats = payload.data?.listChatObjs?.items as ChatObj[];
-      changeChats(chats);
-      changeChatId(chats.at(0)?.id || '');
       return chats;
     },
     queryCreateChat: async (title: string, summary: string) => {
@@ -64,6 +62,19 @@ export const useChats = (chapterId: string): useChatInterface => {
         },
       });
       const chat = payload.data?.createChatObj as ChatObj;
+      return chat;
+    },
+  }
+
+  const _chatHandler: ChatHandler = {
+    queryListChats: async () => {
+      const chats = await gqlHelper.queryListChats();
+      changeChats(chats);
+      changeChatId(chats.at(0)?.id || '');
+      return chats;
+    },
+    queryCreateChat: async (title: string, summary: string) => {
+      const chat = await gqlHelper.queryCreateChat(title, summary);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
       return chat;
