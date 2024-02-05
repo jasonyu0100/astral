@@ -6,7 +6,7 @@ import { FormFooter } from '@/(common)/form/footer/main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
-import { FormUploadFile } from '@/(common)/form/upload-file/main';
+import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
 import { Modal } from '@/(common)/modal/main';
 import { FileObj } from '@/tables/file/main';
 import { useContext, useState } from 'react';

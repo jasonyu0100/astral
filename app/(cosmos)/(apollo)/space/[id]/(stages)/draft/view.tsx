@@ -16,8 +16,6 @@ import { DraftChapters } from './draft-epic/chapters/main';
 import { DraftConstellationStars } from './draft-epic/center/constellation/stars/main';
 import { DraftModalContext } from './draft-epic/modal/main';
 import { DraftModalsView } from './draft-epic/modal/view';
-import { borderStyles } from '@/(common)/styles/data';
-import { Layer } from '@/(common)/layer/main';
 import { DraftBody } from './draft-epic/center/body/main';
 import { DraftPanel } from './draft-epic/center/panel/main';
 import clsx from 'clsx';

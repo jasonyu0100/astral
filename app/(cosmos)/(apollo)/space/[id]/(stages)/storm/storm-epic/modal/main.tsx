@@ -6,7 +6,7 @@ export interface StormModalsContextObj {
     open: () => void;
     close: () => void;
   };
-  newChat: {
+  addChat: {
     opened: boolean;
     open: () => void;
     close: () => void;
@@ -25,7 +25,7 @@ export const useStormModalContext = (): StormModalsContextObj => {
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    newChat: {
+    addChat: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),

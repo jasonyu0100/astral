@@ -9,7 +9,7 @@ import { SpacesHeaderText } from './header/album-info/text/main';
 import { SpacesHeaderTextMain } from './header/album-info/text/main/main';
 import { SpacesHeaderTextSub } from './header/album-info/text/sub/main';
 import { SpaceWrapper } from './wrapper/main';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { SpacesContext, SpaceViewProps } from '../(stages)/now/page';
 import { SpacesModalsView } from './modal/view';
 import { SpacesModalContext } from './modal/main';

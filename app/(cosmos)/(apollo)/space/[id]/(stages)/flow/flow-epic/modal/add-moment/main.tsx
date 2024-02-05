@@ -7,7 +7,7 @@ import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormSelect } from '@/(common)/form/select/main';
 import { FormTitle } from '@/(common)/form/title/main';
-import { FormUploadFile } from '@/(common)/form/upload-file/main';
+import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
 import { Modal } from '@/(common)/modal/main';
 import { MomentVisibility } from '@/tables/flow/moment/main';
 import { useContext, useState } from 'react';

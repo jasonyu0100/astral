@@ -24,11 +24,11 @@ export function Topbar() {
       <TopbarRightGroup>
         {/* <TopbarIconLink href='/notifications'>
           <NotificationsIcon />
-        </TopbarIconLink>
+        </TopbarIconLink> */}
         <TopbarIconLink href='/cart'>
           <CartIcon />
         </TopbarIconLink>
-        <TopbarIconLink href='/settings'>
+        {/* <TopbarIconLink href='/settings'>
           <SettingsIcon />
         </TopbarIconLink> */}
         <TopbarAvatar href='/profile' />

@@ -1,13 +1,16 @@
-import { Layer } from '@/(common)/layer/main';
-import { backgroundStyles } from '@/(common)/styles/data';
+"use client"
+import { CartModalContext, useCartModalContext } from './modal/main';
+import { CartModalsView } from './modal/view';
 
 export default function Page() {
+  const modalContext = useCartModalContext()
+  
   return (
-    <div className='p-[4rem] w-full h-full'>
-      {/* <Layer
-        sizeStyle="w-full h-full"
-        backgroundStyle={backgroundStyles["glass-10"]}
-      ></Layer> */}
-    </div>
+    <CartModalContext.Provider value={modalContext}>
+      <div className='p-[4rem] w-full h-full'>
+        <button className="bg-blue-500" onClick={() => modalContext.editCart.open()}>CLICK ME</button>
+        <CartModalsView/>
+      </div>
+    </CartModalContext.Provider>
   );
 }

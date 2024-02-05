@@ -18,7 +18,7 @@ export function ExploreGalleryView() {
   const { gallery, collections } = useContext(
     ExploreGalleryContext,
   );
-  const { createCollectionModal } = useContext(GalleryModalContext)
+  const { createCollection: createCollectionModal } = useContext(GalleryModalContext)
 
   return (
     <CollectionWrapper>

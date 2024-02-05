@@ -91,7 +91,7 @@ export function CreateSpaceModal() {
               createSpace.updatePage(0)
             }}
           >
-            Previous
+            Prev
           </FormButton>
           <FormButton
             onClick={() => {

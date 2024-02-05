@@ -1,13 +1,15 @@
-import { Layer } from '@/(common)/layer/main';
-import { backgroundStyles } from '@/(common)/styles/data';
+"use client"
+import { ProfileModalsView } from './modal/view';
+import { ProfileModalContext, useProfileModalContext } from './modal/main';
 
 export default function Page() {
+  const modalContext = useProfileModalContext()
   return (
-    <div className='p-[4rem] w-full h-full'>
-      {/* <Layer
-        sizeStyle="w-full h-full"
-        backgroundStyle={backgroundStyles["glass-10"]}
-      ></Layer> */}
-    </div>
+    <ProfileModalContext.Provider value={modalContext}>
+      <div className='p-[4rem] w-full h-full'>
+        <button className="bg-blue-500" onClick={() => modalContext.editProfile.open()}>CLICK ME</button>
+        <ProfileModalsView/>
+      </div>
+    </ProfileModalContext.Provider>
   );
 }

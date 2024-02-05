@@ -11,7 +11,7 @@ import { CollectionResourceAdd } from './collection-epic/grid/add/main';
 import { ExploreCollectionContext } from './page';
 import { useContext } from 'react';
 import { CollectionWrapper } from '../../home/home-epic/wrapper/main';
-import { CollectionsModalsView } from './collection-epic/modal/view';
+import { CollectionModalsView } from './collection-epic/modal/view';
 import { CollectionModalContext } from './collection-epic/modal/main';
 
 export default function ExploreCollectionView() {
@@ -22,7 +22,7 @@ export default function ExploreCollectionView() {
 
   return (
     <CollectionWrapper>
-      <CollectionsModalsView/>
+      <CollectionModalsView/>
       <CollectionController>
         <CollectionBreadcrumbs>
           <CollectionBreadcrumbItem

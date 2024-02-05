@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { StormModalContext } from '../../../../../storm-epic/modal/main';
 
 export function StormChapterChatAdd() {
-  const { newChat } = useContext(StormModalContext);
+  const { addChat: newChat } = useContext(StormModalContext);
 
   return (
     <>

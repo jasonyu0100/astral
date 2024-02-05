@@ -5,7 +5,7 @@ import { FormFooter } from "@/(common)/form/footer/main";
 import { FormInput } from "@/(common)/form/input/main";
 import { FormContainer } from "@/(common)/form/main";
 import { FormTitle } from "@/(common)/form/title/main";
-import { FormUploadFiles } from "@/(common)/form/upload-files/main";
+import { FormUploadFiles } from "@/(common)/form/upload/upload-files/main";
 import { Modal } from "@/(common)/modal/main";
 import { FileObj } from "@/tables/file/main";
 import { useContext, useState } from "react";
@@ -16,7 +16,7 @@ export function CreateCollectionModal() {
   const { collectionHandler } = useContext(
     ExploreGalleryContext,
   );
-  const { createCollectionModal } = useContext(GalleryModalContext)
+  const { createCollection: createCollectionModal } = useContext(GalleryModalContext)
   const [name, changeName] = useState('');
   const [files, changeFiles] = useState([] as FileObj[]);
   

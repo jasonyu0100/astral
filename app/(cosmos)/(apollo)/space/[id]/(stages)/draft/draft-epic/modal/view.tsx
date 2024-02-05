@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { DraftAddChapterModal } from "./add-chapter/main";
 import { DraftAddConstellationModal } from "./add-constellation/main";
+import { DraftModalContext } from "./main";
 
 export function DraftModalsView() {
+    const { addChapter, addConstellation } = useContext(DraftModalContext);
+    
     return <>
-        <DraftAddChapterModal/>
-        <DraftAddConstellationModal/>
+        { addChapter.opened && <DraftAddChapterModal />}
+        { addConstellation.opened && <DraftAddConstellationModal />}
     </>
 }

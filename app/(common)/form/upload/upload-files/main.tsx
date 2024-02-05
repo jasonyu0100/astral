@@ -1,7 +1,11 @@
+import { effectStyles } from '@/(common)/styles/data';
 import { amplifyClient } from '@/client';
 import { createFileObj } from '@/graphql/mutations';
 import { FileObj } from '@/tables/file/main';
 import React, { useEffect, useState } from 'react';
+import { UploadedFileInfo } from '../upload-file/uploaded-file/info/main';
+import { UploadedFile } from '../upload-file/uploaded-file/main';
+import { UploadedFileRemove } from '../upload-file/uploaded-file/remove/main';
 
 export function FormUploadFiles({
   onChange,
@@ -73,7 +77,7 @@ export function FormUploadFiles({
       >
         {label}
       </label>
-      <div className='relative border-black border-b bg-slate-50 h-[100px]'>
+      <div className="relative border-black border-b bg-slate-50 h-[200px]">
         <input
           type='file'
           id='fileInput'
@@ -114,56 +118,18 @@ export function FormUploadFiles({
         </div>
       </div>
       {files.length > 0 && <>
-      <div className="flex flex-col w-full divide-slate-300 divide-y-[1px]">
-        {files.map((uploadedFileObj, i) => (
-          <div className='flex flex-row w-full space-x-[2rem] items-center justify-between pr-[2rem] bg-slate-50'>
-            <div className='flex flex-row space-x-[2rem] items-center'>
-              <img
-                src={uploadedFileObj.src}
-                alt={uploadedFileObj.name}
-                className='bg-black h-[100px] aspect-square shadow-md'
-              />
-              <div className='flex flex-col'>
-                <p className='text-lg font-bold'>{uploadedFileObj.name}</p>
-                <p className='text-sm text-slate-500'>{uploadedFileObj.fileType}</p>
-                <p className='text-md text-slate-500'>
-                  {uploadedFileObj.size} bytes
-                </p>
-              </div>
-            </div>
-            <button
-              className='w-[30px] h-[30px] bg-red-500 rounded-full'
+      <div className="flex flex-col w-full divide-slate-300 divide-y-[1px] mt-[1rem]">
+        {files.map((file, i) => (
+          <UploadedFile>
+            <UploadedFileInfo file={file} />
+            <UploadedFileRemove
               onClick={() => {
                 changeFiles((prev) =>
                   prev.filter((_, index) => index !== i),
                 );
               }}
-            >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='w-full h-full'
-              viewBox='0 0 24 24'
-              fill='none'
-            >
-              <mask
-                id='mask0_2962_7'
-                maskUnits='userSpaceOnUse'
-                x='0'
-                y='0'
-                width='24'
-                height='24'
-              >
-                <rect width='24' height='24' className='fill-slate-50' />
-              </mask>
-              <g mask='url(#mask0_2962_7)'>
-                <path
-                  d='M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z'
-                  className='fill-slate-100'
-                />
-              </g>
-            </svg>
-            </button>
-          </div>
+            />
+          </UploadedFile>
         ))}
       </div>
       </>}
