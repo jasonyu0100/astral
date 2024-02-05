@@ -5,7 +5,6 @@ import { FormFooter } from '@/(common)/form/footer/main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
-import { FormUploadFile } from '@/(common)/form/upload-file/main';
 import { Modal } from '@/(common)/modal/main';
 import { FileObj } from '@/tables/file/main';
 import { useContext, useState } from 'react';
@@ -22,14 +21,16 @@ export function CreateGalleryModal() {
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
-    <Modal
-      isOpen={createGallery.opened}
-      onClose={() => createGallery.close()}
-    >
+    <Modal isOpen={createGallery.opened} onClose={() => createGallery.close()}>
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
-          <SelectedImage selected={thumbnail}/>
+          <SelectedImage selected={thumbnail} />
+          <FormSearchImage
+            value={thumbnail}
+            onChange={(file) => changeThumbnail(file)}
+            label='Profile'
+          />
           <FormInput
             title='Title'
             value={title}
@@ -42,7 +43,6 @@ export function CreateGalleryModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormSearchImage onChange={(file) => changeThumbnail(file)} label="Profile"/>
         </FormBody>
         <FormFooter>
           <FormButton

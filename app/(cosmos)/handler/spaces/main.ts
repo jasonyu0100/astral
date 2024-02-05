@@ -4,10 +4,11 @@ import { amplifyClient } from '@/client';
 import { listSpaceObjs } from '@/graphql/queries';
 import { createSpaceObj } from '@/graphql/mutations';
 import { FileObj } from '@/tables/file/main';
+import { ChapterTemplate } from '@/tables/space/templates/main';
 
 export interface SpacesHandler {
   queryListSpaces: () => Promise<void>;
-  queryCreateSpace: (title: string, description: string, thumbnail: FileObj, variant: string) => Promise<void>;
+  queryCreateSpace: (title: string, description: string, thumbnail: FileObj, variant: string, chapterTemplates: ChapterTemplate[]) => Promise<SpaceObj>;
 }
 
 interface useSpacesInterface {
@@ -31,22 +32,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
     _spacesHandler.queryListSpaces();
   }, [userId]);
 
-  const _spacesHandler: SpacesHandler = {
-    queryListSpaces: async () => {
-      const payload = await amplifyClient.graphql({
-        query: listSpaceObjs,
-        variables: {
-          filter: {
-            userId: {
-              eq: userId,
-            },
-          },
-        },
-      });
-      const spaces = payload?.data?.listSpaceObjs?.items as SpaceObj[];
-      changeSpaces(spaces);
-      changeSpaceId(spaces[0]?.id || '');
-    },
+  const gqlHelper = {
     queryCreateSpace: async (title: string, description: string, thumbnail: FileObj, variant: string) => {
       const payload = await amplifyClient.graphql({
         query: createSpaceObj,
@@ -62,8 +48,35 @@ export const useSpaces = (userId: string): useSpacesInterface => {
         },
       });
       const space = payload?.data?.createSpaceObj as SpaceObj;
+      return space
+    },
+    queryListSpaces: async () => {
+      const payload = await amplifyClient.graphql({
+        query: listSpaceObjs,
+        variables: {
+          filter: {
+            userId: {
+              eq: userId,
+            },
+          },
+        },
+      });
+      const spaces = payload?.data?.listSpaceObjs?.items as SpaceObj[];
+      return spaces
+    },
+  }
+
+  const _spacesHandler: SpacesHandler = {
+    queryListSpaces: async () => {
+      const spaces = await gqlHelper.queryListSpaces();
+      changeSpaces(spaces);
+      changeSpaceId(spaces[0]?.id || '');
+    },
+    queryCreateSpace: async (title: string, description: string, thumbnail: FileObj, variant: string, chapterTemplates: ChapterTemplate[]) => {
+      const space = await gqlHelper.queryCreateSpace(title, description, thumbnail, variant);
       changeSpaces((prev) => [...prev, space]);
       changeSpaceId(space.id);
+      return space
     },
   };
 

@@ -25,10 +25,8 @@ export function AddFileModal() {
       <FormContainer>
         <FormTitle>Upload File</FormTitle>
         <FormBody>
-          <FormDescription>Upload your file here</FormDescription>
           <FormInput
-            placeholder='Name'
-            title='Name'
+            title='Label'
             value={name}
             onChange={(e) => changeName(e.target.value)}
           />

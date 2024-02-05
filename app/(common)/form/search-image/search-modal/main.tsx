@@ -62,7 +62,6 @@ export default function SearchModal({
           </div>
           <button className='w-full h-[100px] bg-black text-white text-xl font-bold'
             onClick={() => {
-              console.log(selected)
               onChange(selected)
               onClose();
             }}

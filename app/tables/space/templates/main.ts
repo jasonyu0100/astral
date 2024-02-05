@@ -1,5 +1,6 @@
 import { SpaceVariant } from '../main';
 import { barTemplate } from './bar';
+import { customTemplate } from './custom';
 import { ideaTemplate } from './idea';
 import { songMixTemplate } from './mix';
 import { songSpaceTemplate } from './song';
@@ -14,5 +15,5 @@ export const spaceTemplates = {
   [SpaceVariant.SONG]: songSpaceTemplate,
   [SpaceVariant.BAR]: barTemplate,
   [SpaceVariant.IDEA]: ideaTemplate,
-  [SpaceVariant.CUSTOM]: [],
+  [SpaceVariant.CUSTOM]: customTemplate,
 };

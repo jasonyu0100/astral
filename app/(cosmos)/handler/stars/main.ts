@@ -79,7 +79,7 @@ export const useStars = (constellationId: string): useStarInterface => {
               src: file.src,
               name: file.name || '',
               size: file.size || undefined,
-              variant: file.fileType || '',
+              fileType: file.fileType || '',
             },
             variant: ResourceVariant.FILE,
           },

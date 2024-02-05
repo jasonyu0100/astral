@@ -14,6 +14,7 @@ export function SidebarWorkInfo({ active }: { active: boolean }) {
     changeTitle(spaceState.space?.title || 'Untitled');
     changeName(`${userState?.user?.fname || ''} ${userState?.user?.lname || ''}`);
   }, [spaceState, userState]);
+  
   return (
     <div
       id={SidebarWorkInfo.name}
