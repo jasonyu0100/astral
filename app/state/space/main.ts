@@ -18,7 +18,7 @@ const Store = createStore({
     setSpace:
       (space: SpaceObj) =>
       ({ setState, getState }) => {
-        Cookies.set('space', JSON.stringify(space));
+        Cookies.set('space', JSON.stringify(space), { httpOnly: true, secure: true, sameSite: 'strict' });
         // Mutate state synchronously
         setState({
           space: {
