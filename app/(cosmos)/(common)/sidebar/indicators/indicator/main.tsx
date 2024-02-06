@@ -1,4 +1,5 @@
 import { LinkInputProps } from '@/(common)/types/main';
+import Link from 'next/link';
 
 export interface IndicatorProps {
   indicator: string | undefined;
@@ -10,12 +11,12 @@ interface InputProps extends LinkInputProps {
 
 export function SidebarIndicator({ children, ...props }: InputProps) {
   return (
-    <a
+    <Link
       {...props}
       className='inline-flex h-[3rem] items-center justify-start gap-[1rem] self-stretch'
     >
       {children}
-    </a>
+    </Link>
   );
 }
 export enum SidebarIndicatorType {

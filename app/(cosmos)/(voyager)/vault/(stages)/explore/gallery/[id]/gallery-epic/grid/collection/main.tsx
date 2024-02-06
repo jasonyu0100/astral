@@ -5,6 +5,7 @@ import { GalleryCollectionContainer } from '../container/main';
 import { LinkInputProps } from '@/(common)/types/main';
 import { vaultMap } from '@/(cosmos)/(voyager)/vault/map';
 import { createContext } from 'react';
+import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {
   collection: CollectionObj;
@@ -22,12 +23,12 @@ export const GalleryCollectionContext =
 export function GalleryCollection({ collection, index }: InputProps) {
   return (
     <GalleryCollectionContext.Provider value={{ collection, index }}>
-      <a href={vaultMap.vault.explore.collection.id.link(collection.id)}>
+      <Link href={vaultMap.vault.explore.collection.id.link(collection.id)}>
         <GalleryCollectionContainer>
           <CollectionCover />
           <CollectionInfo />
         </GalleryCollectionContainer>
-      </a>
+      </Link>
     </GalleryCollectionContext.Provider>
   );
 }

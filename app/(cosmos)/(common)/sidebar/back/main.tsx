@@ -1,8 +1,9 @@
 import { LinkInputProps } from '@/(common)/types/main';
+import Link from 'next/link';
 
 export function SidebarBack({ ...props }: LinkInputProps) {
   return (
-    <a
+    <Link
       className='flex h-[3rem] w-full items-center gap-[1rem] self-stretch'
       {...props}
     >
@@ -32,6 +33,6 @@ export function SidebarBack({ ...props }: LinkInputProps) {
           />
         </g>
       </svg>
-    </a>
+    </Link>
   );
 }

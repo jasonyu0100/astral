@@ -1,4 +1,5 @@
 import { LinkInputProps } from '@/(common)/types/main';
+import Link from 'next/link';
 
 interface AltActionLinkProps extends LinkInputProps {
   children: React.ReactNode;
@@ -9,8 +10,8 @@ export function PortalFormAltActionLink({
   ...props
 }: AltActionLinkProps) {
   return (
-    <a className='font-extraBold text-blue-500' {...props}>
+    <Link className='font-extraBold text-blue-500' {...props}>
       {children}
-    </a>
+    </Link>
   );
 }

@@ -3,13 +3,14 @@
 import { useContext } from 'react';
 import { CreativeSpaceContext } from '../main';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
+import Link from 'next/link';
 
 export function SpaceCount() {
   const { hover, index, space } = useContext(CreativeSpaceContext);
   return (
     <div className='flex w-[50px] items-center justify-center'>
       {hover ? (
-        <a href={spaceMap.space.id.storm.link(space.id)}>
+        <Link href={spaceMap.space.id.storm.link(space.id)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-[30px] w-[30px]'
@@ -30,7 +31,7 @@ export function SpaceCount() {
               <path d='M8 19V5L19 12L8 19Z' fill='#CBD5E1' />
             </g>
           </svg>
-        </a>
+        </Link>
       ) : (
         <p className='font-extraBold text-xl text-white'>#{index + 1}</p>
       )}

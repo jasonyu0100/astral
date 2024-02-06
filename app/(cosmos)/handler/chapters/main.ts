@@ -9,7 +9,7 @@ export interface ChapterHandler {
   goToChapter: (chapter: ChapterObj) => ChapterObj;
   goToPrevChapter: () => ChapterObj | undefined;
   goToNextChapter: () => ChapterObj | undefined;
-  queryListChapters: () => Promise<CollectionObj[]>;
+  queryListChapters: () => Promise<ChapterObj[]>;
   queryCreateChapter: (
     title: string,
     description: string,

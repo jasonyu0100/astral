@@ -1,9 +1,11 @@
 'use client';
 
+import Link from "next/link";
+
 export function RecordCollectionAdd() {
   return (
     <div className='flex h-[250px] w-[200px] flex-col items-center justify-center'>
-      <a
+      <Link
         className='flex flex-col items-center space-y-[1rem]'
         href='/collection/now'
       >
@@ -15,7 +17,7 @@ export function RecordCollectionAdd() {
         <p className='font-creato-bold text-xl font-bold text-slate-50'>
           Personal
         </p>
-      </a>
+      </Link>
     </div>
   );
 }

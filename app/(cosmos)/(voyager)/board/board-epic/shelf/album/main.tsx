@@ -1,12 +1,11 @@
 'use client';
-
 import { releaseMap } from '@/(cosmos)/(gemini)/release/[id]/map';
-import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
+import Link from 'next/link';
 
 export function RecordAlbum() {
   return (
     <div className='flex flex-col items-center justify-center'>
-      <a
+      <Link
         className='flex flex-col items-center space-y-[1rem]'
         href={releaseMap.release.id.one.link('0')}
       >
@@ -18,7 +17,7 @@ export function RecordAlbum() {
         <p className='font-creato-bold text-xl font-bold text-slate-50'>
           Personal
         </p>
-      </a>
+      </Link>
     </div>
   );
 }

@@ -4,9 +4,8 @@ import { PostMedia } from './media/main';
 import { PostInfo } from './info/main';
 import { PostDescription } from './description/main';
 import { MomentObj } from '@/tables/flow/moment/main';
-import { useState } from 'react';
-import { userTable } from '@/tables/user/table';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
+import Link from 'next/link';
 
 export function FeedMoment({ moment }: { moment: MomentObj }) {
   return (
@@ -17,12 +16,12 @@ export function FeedMoment({ moment }: { moment: MomentObj }) {
           <PostInfo />
           <PostBody>{moment.log}</PostBody>
           <div className='flex flex-row items-center space-x-[1rem]'>
-            <a
+            <Link
               className='font-extraBold text-blue-500'
               href={spaceMap.space.id.storm.link(moment.spaceId)}
             >
               Go to Space
-            </a>
+            </Link>
           </div>
         </PostDescription>
       </div>

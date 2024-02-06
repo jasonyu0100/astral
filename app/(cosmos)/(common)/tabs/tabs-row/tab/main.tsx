@@ -1,4 +1,5 @@
 import { LinkInputProps } from '@/(common)/types/main';
+import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {
   children: React.ReactNode;
@@ -6,8 +7,8 @@ interface InputProps extends LinkInputProps {
 
 export function Tab({ children, ...props }: InputProps) {
   return (
-    <a {...props} className='flex w-[9rem] flex-col items-start pt-1'>
+    <Link {...props} className='flex w-[9rem] flex-col items-start pt-1'>
       {children}
-    </a>
+    </Link>
   );
 }

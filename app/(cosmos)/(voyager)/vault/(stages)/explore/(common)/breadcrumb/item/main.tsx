@@ -1,4 +1,5 @@
 import { LinkInputProps } from '@/(common)/types/main';
+import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {
   children: React.ReactNode;
@@ -13,13 +14,13 @@ export function CollectionBreadcrumbItem({
   return (
     <>
       {active ? (
-        <a className='font-bold text-slate-300' {...props}>
+        <Link className='font-bold text-slate-300' {...props}>
           {children}
-        </a>
+        </Link>
       ) : (
-        <a className='font-bold text-slate-500' {...props}>
+        <Link className='font-bold text-slate-500' {...props}>
           {children}
-        </a>
+        </Link>
       )}
     </>
   );
