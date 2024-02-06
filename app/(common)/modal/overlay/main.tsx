@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/utils/cn';
 
 export function ModalOverlay({
   children,
@@ -9,13 +9,10 @@ export function ModalOverlay({
 }) {
   return (
     <div
-      className={clsx(
-        'fixed inset-0 flex justify-center items-center z-50',
-        {
-          hidden: !isOpen,
-        },
-      )}
-      style={{marginTop: '0px', marginBottom: '0px'}}
+      className={cn('fixed inset-0 z-50 flex items-center justify-center', {
+        hidden: !isOpen,
+      })}
+      style={{ marginTop: '0px', marginBottom: '0px' }}
     >
       <div className='fixed inset-0 bg-slate-950 opacity-50'></div>
       {children}

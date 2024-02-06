@@ -12,16 +12,16 @@ export function SidebarIndicator({ children, ...props }: InputProps) {
   return (
     <a
       {...props}
-      className='self-stretch justify-start items-center gap-[1rem] inline-flex h-[3rem]'
+      className='inline-flex h-[3rem] items-center justify-start gap-[1rem] self-stretch'
     >
       {children}
     </a>
   );
-}export enum SidebarIndicatorType {
+}
+export enum SidebarIndicatorType {
   Spaces = 'Spaces',
   Vault = 'Vault',
   Journal = 'Journal',
   Square = 'Square',
-  Board = 'Board'
+  Board = 'Board',
 }
-

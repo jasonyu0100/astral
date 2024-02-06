@@ -11,8 +11,7 @@ export interface ProfileContextObj {
 export const ProfileModalContext = createContext({} as ProfileContextObj);
 
 export const useProfileModalContext = (): ProfileContextObj => {
-  const [showProfile, changeShowProfile] =
-    useState(false);
+  const [showProfile, changeShowProfile] = useState(false);
 
   return {
     editProfile: {

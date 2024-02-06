@@ -3,7 +3,7 @@ import insideCosmos from '@/utils/isAuth';
 
 const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
   return (
-    <code className='text-white break-all space-y-[1rem]'>
+    <code className='space-y-[1rem] break-all text-white'>
       {code.split('\n').map((line, index) => (
         <div key={index}>{line}</div>
       ))}
@@ -13,9 +13,9 @@ const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
 
 function Page() {
   return (
-    <div className='w-full h-full flex flex-col items-center justify-center p-[3rem]'>
-      <div className='aspect-[13/16] h-full overflow-auto p-[50px] bg-slate-950'>
-        <CodeBlock code={"<p>Hello World</p>"} />
+    <div className='flex h-full w-full flex-col items-center justify-center p-[3rem]'>
+      <div className='aspect-[13/16] h-full overflow-auto bg-slate-950 p-[50px]'>
+        <CodeBlock code={'<p>Hello World</p>'} />
       </div>
     </div>
   );

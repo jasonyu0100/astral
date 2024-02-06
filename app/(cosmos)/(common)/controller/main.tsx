@@ -5,7 +5,7 @@ export function DashboardController({
 }) {
   return (
     <div
-      className='w-full relative flex flex-row bg-gradient-to-br from-slate-950 to-[#1F052D] from-50% to-90%'
+      className='relative flex w-full flex-row bg-gradient-to-br from-slate-950 from-50% to-[#1F052D] to-90%'
       style={{ height: 'calc(100% - 4rem)' }}
     >
       {children}

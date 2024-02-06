@@ -13,13 +13,12 @@ export interface SpacesModalsContextObj {
 export const SpacesModalContext = createContext({} as SpacesModalsContextObj);
 
 export const useSpacesModalContext = (): SpacesModalsContextObj => {
-  const [showOne, changeOne] =
-    useState(false);
-  const [page, changePage] = useState(0)
+  const [showOne, changeOne] = useState(false);
+  const [page, changePage] = useState(0);
 
   useEffect(() => {
-    changePage(0)
-  }, [showOne])
+    changePage(0);
+  }, [showOne]);
 
   return {
     createSpace: {

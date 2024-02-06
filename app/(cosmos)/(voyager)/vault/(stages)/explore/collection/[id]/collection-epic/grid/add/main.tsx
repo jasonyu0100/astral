@@ -3,11 +3,11 @@ import { ButtonInputProps } from '@/(common)/types/main';
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <div className='flex flex-row h-[150px] aspect-[36/16] items-center space-x-[3rem]'>
-        <div className='w-[150px] h-[150px] rounded-full bg-black flex items-center justify-center'>
+      <div className='flex aspect-[36/16] h-[150px] flex-row items-center space-x-[3rem]'>
+        <div className='flex h-[150px] w-[150px] items-center justify-center rounded-full bg-black'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='w-1/6 h-1/6'
+            className='h-1/6 w-1/6'
             viewBox='0 0 20 20'
             fill='none'
           >
@@ -17,7 +17,7 @@ export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
             />
           </svg>
         </div>
-        <p className='text-white text-lg font-bold'>Add File</p>
+        <p className='text-lg font-bold text-white'>Add File</p>
       </div>
     </button>
   );

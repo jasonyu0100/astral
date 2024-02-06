@@ -19,33 +19,44 @@ import { DraftModalsView } from './draft-epic/modal/view';
 import { DraftBody } from './draft-epic/center/body/main';
 import { DraftPanel } from './draft-epic/center/panel/main';
 import clsx from 'clsx';
+import { cn } from '@/utils/cn';
 
 export function DraftView() {
-  const { constellations, chapters, constellationId, constellationHandler} = useContext(DraftContext);
+  const { constellations, chapters, constellationId, constellationHandler } =
+    useContext(DraftContext);
   const { addChapter } = useContext(DraftModalContext);
 
   return (
     <DraftWrapper>
-      <DraftModalsView/>
+      <DraftModalsView />
       <DraftMain>
         <DraftCenter>
           <DraftHeader></DraftHeader>
-            <DraftBody>
-              <DraftPanel>
-                {constellations.map((constellation, index) =>
-                  <div onClick={() => constellationHandler.updateConstellation(constellation)} className="cursor-pointer">
-                    <p className={clsx(`font-extraBold text-xl`, {
+          <DraftBody>
+            <DraftPanel>
+              {constellations.map((constellation, index) => (
+                <div
+                  onClick={() =>
+                    constellationHandler.updateConstellation(constellation)
+                  }
+                  className='cursor-pointer'
+                >
+                  <p
+                    className={cn(`font-extraBold text-xl`, {
                       'text-slate-300': constellation.id === constellationId,
-                      'text-slate-500': constellation.id !== constellationId
-                    })}>{index+1}. {constellation.title}</p>
-                  </div>
-                )}
-              </DraftPanel>
-              <DraftConstellation>
-                <DraftLinks />
-                <DraftConstellationStars />
-              </DraftConstellation>
-            </DraftBody>
+                      'text-slate-500': constellation.id !== constellationId,
+                    })}
+                  >
+                    {index + 1}. {constellation.title}
+                  </p>
+                </div>
+              ))}
+            </DraftPanel>
+            <DraftConstellation>
+              <DraftLinks />
+              <DraftConstellationStars />
+            </DraftConstellation>
+          </DraftBody>
         </DraftCenter>
         <DraftChapters>
           <DraftChaptersLeftButton />

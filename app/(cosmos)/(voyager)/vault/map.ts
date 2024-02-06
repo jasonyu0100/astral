@@ -1,4 +1,4 @@
-const baseUrl = `/vault`
+const baseUrl = `/vault`;
 
 export const vaultMap = {
   vault: {

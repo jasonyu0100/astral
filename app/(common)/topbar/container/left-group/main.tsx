@@ -1,7 +1,7 @@
 export function TopbarLeftGroup({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className='flex flex-row h-full items-center space-x-[3rem] ml-[2rem]'
+      className='ml-[2rem] flex h-full flex-row items-center space-x-[3rem]'
       id='navbar-default'
     >
       {children}

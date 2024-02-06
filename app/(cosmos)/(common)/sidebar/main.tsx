@@ -21,13 +21,12 @@ export function DashboardSidebar({
   minimised,
   backUrl,
 }: SidebarProps) {
-
   return (
     <>
       {minimised ? (
-        <div className='w-[4.5rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-slate-900'>
+        <div className='relative flex h-full w-[4.5rem] flex-shrink-0 flex-col overflow-y-auto bg-slate-900 px-[1rem] py-[1rem]'>
           <SidebarBack href={backUrl || spacesMap.spaces.now.link} />
-          <div className='w-full h-[1rem] mb-[2rem] border-b border-slate-500 border-opacity-30'></div>
+          <div className='mb-[2rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpacesIndicator indicator={indicator} minimised />
             <DriveIndicator indicator={indicator} minimised />
@@ -37,14 +36,14 @@ export function DashboardSidebar({
           </SidebarIndicators>
         </div>
       ) : (
-        <div className='w-[15rem] h-full flex flex-col flex-shrink-0 px-[1rem] py-[1rem] overflow-y-auto relative bg-slate-900'>
+        <div className='relative flex h-full w-[15rem] flex-shrink-0 flex-col overflow-y-auto bg-slate-900 px-[1rem] py-[1rem]'>
           <SidebarCurrentSpace>
             <SidebarWorkCover active={!indicator} />
             <SidebarWorkInfo active={!indicator} />
           </SidebarCurrentSpace>
-          <div className='w-full h-[1rem] mb-[2rem] border-b border-slate-500 border-opacity-30'></div>
+          <div className='mb-[2rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
-            <SpacesIndicator indicator={indicator}/>
+            <SpacesIndicator indicator={indicator} />
             <DriveIndicator indicator={indicator} />
             <FeedIndicator indicator={indicator} />
             <BoardIndicator indicator={indicator} />

@@ -10,7 +10,10 @@ export interface ChapterHandler {
   goToPrevChapter: () => ChapterObj | undefined;
   goToNextChapter: () => ChapterObj | undefined;
   queryListChapters: () => Promise<CollectionObj[]>;
-  queryCreateChapter: (title: string, description: string) => Promise<ChapterObj>;
+  queryCreateChapter: (
+    title: string,
+    description: string,
+  ) => Promise<ChapterObj>;
 }
 
 export interface useChaptersInterface {
@@ -38,7 +41,7 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
   }, [spaceId]);
 
   const gqlHelper = {
-     queryListChapters: async () => {
+    queryListChapters: async () => {
       const payload = await amplifyClient.graphql({
         query: listChapterObjs,
         variables: {
@@ -50,7 +53,7 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
         },
       });
       const chapters = payload.data?.listChapterObjs?.items as ChapterObj[];
-      return chapters
+      return chapters;
     },
     queryCreateChapter: async (title: string, description: string) => {
       const payload = await amplifyClient.graphql({
@@ -65,15 +68,15 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
       });
       const chapter = payload.data?.createChapterObj as ChapterObj;
       return chapter;
-    },   
-  }
+    },
+  };
 
   const _chapterHandler: ChapterHandler = {
     queryListChapters: async () => {
       const chapters = await gqlHelper.queryListChapters();
       changeChapters(chapters);
       changeChapterId(chapters.at(0)?.id || '');
-      return chapters
+      return chapters;
     },
     queryCreateChapter: async (title: string, description: string) => {
       const chapter = await gqlHelper.queryCreateChapter(title, description);

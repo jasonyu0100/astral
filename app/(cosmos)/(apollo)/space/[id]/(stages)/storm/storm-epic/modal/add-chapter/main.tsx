@@ -43,11 +43,10 @@ export function StormAddChapterModal() {
               addChapter.close();
             }}
           >
-            Add 
+            Add
           </FormButton>
         </FormFooter>
       </FormContainer>
     </Modal>
   );
 }
-

@@ -2,7 +2,10 @@ import { ButtonInputProps } from '@/(common)/types/main';
 
 export function DraftHeaderAddButton({ ...props }: ButtonInputProps) {
   return (
-    <button className='w-[60px] h-[60px] flex items-center justify-center hover:bg-slate-950' {...props}>
+    <button
+      className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
+      {...props}
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='30'

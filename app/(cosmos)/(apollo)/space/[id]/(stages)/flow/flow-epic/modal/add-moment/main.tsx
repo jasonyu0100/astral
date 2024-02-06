@@ -21,15 +21,12 @@ export function FlowAddMomentModal() {
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
   const [visibility, changeVisibility] = useState(
-    MomentVisibility.JOURNAL as string
+    MomentVisibility.JOURNAL as string,
   );
   const [file, changeFile] = useState({} as FileObj);
 
   return (
-    <Modal
-      isOpen={addMoment.opened}
-      onClose={() => addMoment.close()}
-    >
+    <Modal isOpen={addMoment.opened} onClose={() => addMoment.close()}>
       <FormContainer>
         <FormTitle>Add Moment</FormTitle>
         <FormBody>
@@ -65,7 +62,7 @@ export function FlowAddMomentModal() {
             onChange={(e) => changeLog(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormUploadFile onChange={(file) => changeFile(file)} label="File"/>
+          <FormUploadFile onChange={(file) => changeFile(file)} label='File' />
         </FormBody>
         <FormFooter>
           <FormButton

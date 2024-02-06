@@ -1,6 +1,6 @@
 export function HeaderAdd() {
   return (
-    <div className='w-[30px] h-[30px]'>
+    <div className='h-[30px] w-[30px]'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='30'

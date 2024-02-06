@@ -6,7 +6,7 @@ export function FeedPosts({ children }: { children: React.ReactNode }) {
     <Layer
       displayName={FeedPosts.name}
       sizeStyle='flex-grow h-full'
-      className={`${containerStyles['col-center']} p-[3rem] overflow-auto`}
+      className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
     >
       {children}
     </Layer>

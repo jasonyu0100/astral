@@ -17,24 +17,26 @@ export interface SearchResourceHandler {
   searchQuery: () => ResourceObj[];
 }
 
-export const useSearchResource = (userId: string): useSearchResourcesInterface => {
+export const useSearchResource = (
+  userId: string,
+): useSearchResourcesInterface => {
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
-  const [query, changeQuery] = useState("")
+  const [query, changeQuery] = useState('');
   const resource = resources.find((resource) => resource.id === resourceId);
 
   useEffect(() => {
     if (!userId) {
-      changeResources([])
-      return
-    };
+      changeResources([]);
+      return;
+    }
     _searchResourceHandler.queryListResources(userId);
   }, [userId]);
 
   useEffect(() => {
     changeSearchResults(resources);
-  }, [resources])
+  }, [resources]);
 
   const gqlHelper = {
     queryListResources: async (userId: string) => {
@@ -52,17 +54,17 @@ export const useSearchResource = (userId: string): useSearchResourcesInterface =
       const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
       return resources;
     },
-  }
+  };
 
   const _searchResourceHandler: SearchResourceHandler = {
     queryListResources: async (userId: string) => {
       const resources = await gqlHelper.queryListResources(userId);
       changeResources(resources);
-      changeResourceId(resources[0]?.id || '')
+      changeResourceId(resources[0]?.id || '');
       return resources;
     },
     updateQuery: (query: string) => {
-        changeQuery(query)
+      changeQuery(query);
     },
     searchQuery: () => {
       if (query === '') {

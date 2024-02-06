@@ -41,16 +41,16 @@ export function DraftStar({
     <motion.div
       drag
       dragConstraints={constraintsRef}
-      className={`w-[100px] h-[150px] p-[10px] flex flex-col space-y-[1rem] items-center absolute top-[${x}] left-[${y}]`}
+      className={`absolute flex h-[150px] w-[100px] flex-col items-center space-y-[1rem] p-[10px] top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className='w-[100px] h-[100px] flex-shrink-0'>
+      <div className='h-[100px] w-[100px] flex-shrink-0'>
         <img
-          className='w-full aspect-square rounded-full pointer-events-none border-slate-300 border-[2px]'
+          className='pointer-events-none aspect-square w-full rounded-full border-[2px] border-slate-300'
           src={star?.file?.src}
         />
       </div>
-      <p className='w-full text-center text-slate-300 font-bold'>{star.name}</p>
+      <p className='w-full text-center font-bold text-slate-300'>{star.name}</p>
     </motion.div>
   );
 }

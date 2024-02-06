@@ -3,7 +3,7 @@ import { ButtonInputProps } from '@/(common)/types/main';
 export function FlowHeaderAddButton({ ...props }: ButtonInputProps) {
   return (
     <button
-      className='w-[60px] h-[60px] flex items-center justify-center hover:bg-slate-950'
+      className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
       {...props}
       {...props}
     >

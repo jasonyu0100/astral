@@ -6,11 +6,11 @@ export function IndicatorText({
   active: boolean;
 }) {
   return active ? (
-    <div className='text-center text-white text-xl font-bold leading-9'>
+    <div className='text-center text-xl font-bold leading-9 text-white'>
       {children}
     </div>
   ) : (
-    <div className='text-center text-slate-500 text-xl font-bold leading-9'>
+    <div className='text-center text-xl font-bold leading-9 text-slate-500'>
       {children}
     </div>
   );

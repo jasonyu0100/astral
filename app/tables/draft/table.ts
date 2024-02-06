@@ -1,7 +1,4 @@
-import {
-  exampleStars,
-  exampleStar,
-} from './constellation/star/main';
+import { exampleStars, exampleStar } from './constellation/star/main';
 import {
   exampleConstellation,
   exampleConstellations,

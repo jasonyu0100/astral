@@ -19,7 +19,7 @@ export function SeaStory() {
       video.src = URL.createObjectURL(e.data);
       video.autoplay = true;
       document.body.appendChild(video);
-    }
+    };
   }
 
   useEffect(() => {
@@ -60,11 +60,11 @@ export function SeaStory() {
 
   return (
     <div
-      className='h-full flex items-center justify-center overflow-hidden rounded-[1rem]'
+      className='flex h-full items-center justify-center overflow-hidden rounded-[1rem]'
       ref={layerRef}
       style={{ width: divWidth }}
     >
-      <button className="w-[100px] h-[100px] bg-white">RECORD ME</button>
+      <button className='h-[100px] w-[100px] bg-white'>RECORD ME</button>
       <div
         className='overflow-hidden rounded-[1rem]'
         style={{ zoom: zoom * 0.9 }}

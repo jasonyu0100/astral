@@ -1,6 +1,6 @@
 export function SidebarIndicators({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex-col items-start space-y-[2rem] inline-flex'>
+    <div className='inline-flex flex-col items-start space-y-[2rem]'>
       {children}
     </div>
   );

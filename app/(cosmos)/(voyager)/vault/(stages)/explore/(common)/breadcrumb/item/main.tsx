@@ -13,11 +13,11 @@ export function CollectionBreadcrumbItem({
   return (
     <>
       {active ? (
-        <a className='text-slate-300 font-bold' {...props}>
+        <a className='font-bold text-slate-300' {...props}>
           {children}
         </a>
       ) : (
-        <a className='text-slate-500 font-bold' {...props}>
+        <a className='font-bold text-slate-500' {...props}>
           {children}
         </a>
       )}

@@ -6,7 +6,7 @@ export function SpacesList({ children }: { children: React.ReactNode }) {
     <Layer
       sizeStyle='w-full'
       displayName={SpacesList.name}
-      className={`divide-y-[1px] divide-slate-500 divide-opacity-30 flex-col`}
+      className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
     >
       {children}
     </Layer>

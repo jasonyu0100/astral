@@ -1,7 +1,4 @@
-import {
-  ObjectDescriptor,
-  TableDescriptor,
-} from '../tables';
+import { ObjectDescriptor, TableDescriptor } from '../tables';
 import { exampleFile, exampleFiles } from '../file/main';
 import { exampleResource, exampleResources } from './main';
 import { exampleResourceSearch } from './search/main';
@@ -18,7 +15,7 @@ export const fileTable: TableDescriptor = {
   examples: exampleFiles,
 };
 
-export const stickyTable:  TableDescriptor = {
+export const stickyTable: TableDescriptor = {
   example: exampleNote,
   examples: exampleNotes,
 };

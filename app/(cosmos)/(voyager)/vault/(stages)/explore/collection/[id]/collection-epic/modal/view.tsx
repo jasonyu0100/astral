@@ -1,11 +1,9 @@
-import { useContext } from "react";
-import { AddFileModal } from "./add-file/main";
-import { CollectionModalContext } from "./main";
+import { useContext } from 'react';
+import { AddFileModal } from './add-file/main';
+import { CollectionModalContext } from './main';
 
 export function CollectionModalsView() {
-    const { addFile } = useContext(CollectionModalContext);
+  const { addFile } = useContext(CollectionModalContext);
 
-    return <>
-        { addFile.opened && <AddFileModal/>}
-    </>
+  return <>{addFile.opened && <AddFileModal />}</>;
 }

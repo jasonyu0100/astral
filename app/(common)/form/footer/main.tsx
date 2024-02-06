@@ -1,3 +1,7 @@
 export function FormFooter({ children }: { children: React.ReactNode }) {
-  return <div className='flex flex-col w-full mt-auto space-y-[1rem]'>{children}</div>;
+  return (
+    <div className='mt-auto flex w-full flex-col space-y-[1rem]'>
+      {children}
+    </div>
+  );
 }

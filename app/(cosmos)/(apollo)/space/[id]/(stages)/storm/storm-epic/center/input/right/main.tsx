@@ -4,7 +4,7 @@ export function StormChatInputRight({
   children: React.ReactNode;
 }) {
   return (
-    <div className='w-[150px] h-[50px] flex flex-row justify-evenly items-center flex-shrink-0'>
+    <div className='flex h-[50px] w-[150px] flex-shrink-0 flex-row items-center justify-evenly'>
       {children}
     </div>
   );

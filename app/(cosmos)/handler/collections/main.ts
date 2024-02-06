@@ -7,28 +7,33 @@ import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj, ResourceVariant } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 export interface useCOllectionsInterface {
-    collectionId: string;
-    collection: CollectionObj | undefined;
-    collections: CollectionObj[];
-    _collectionHandler: CollectionHandler;
+  collectionId: string;
+  collection: CollectionObj | undefined;
+  collections: CollectionObj[];
+  _collectionHandler: CollectionHandler;
 }
 export interface CollectionHandler {
   queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
   queryListCollections: (galleryId: string) => Promise<CollectionObj[]>;
-  queryCreateCollection: (name: string, files: FileObj[]) => Promise<CollectionObj>;
+  queryCreateCollection: (
+    name: string,
+    files: FileObj[],
+  ) => Promise<CollectionObj>;
   goToCollection: (collection: CollectionObj) => CollectionObj;
 }
 
 export const useCollections = (galleryId: string) => {
-  const [state, actions] = useGlobalUser()
+  const [state, actions] = useGlobalUser();
   const [collections, changeCollections] = useState<CollectionObj[]>([]);
   const [collectionId, changeCollectionId] = useState<string>('');
-  const collection = collections.find((collection) => collection.id === collectionId);
+  const collection = collections.find(
+    (collection) => collection.id === collectionId,
+  );
 
   useEffect(() => {
     if (!galleryId) {
-      changeCollections([])
-      return
+      changeCollections([]);
+      return;
     }
     _collectionHandler.queryListCollections(galleryId);
   }, [galleryId]);
@@ -61,7 +66,7 @@ export const useCollections = (galleryId: string) => {
       });
       const collections = payload?.data?.listCollectionObjs
         ?.items as CollectionObj[];
-      return collections
+      return collections;
     },
     queryCreateCollection: async (name: string, files: FileObj[]) => {
       const payload = await amplifyClient.graphql({
@@ -74,7 +79,7 @@ export const useCollections = (galleryId: string) => {
         },
       });
       const collection = payload?.data?.createCollectionObj as CollectionObj;
-      return collection
+      return collection;
     },
     queryCreateCollectionResources: async (
       collection: CollectionObj,
@@ -99,8 +104,8 @@ export const useCollections = (galleryId: string) => {
         resources.push(resource);
       }
       return resources;
-    }
-  }
+    },
+  };
 
   const _collectionHandler: CollectionHandler = {
     goToCollection: (collection: CollectionObj) => {
@@ -115,14 +120,17 @@ export const useCollections = (galleryId: string) => {
       const collections = await gqlHelper.queryListCollections(galleryId);
       changeCollections(collections);
       changeCollectionId(collections[0]?.id || '');
-      return collections
+      return collections;
     },
     queryCreateCollection: async (name: string, files: FileObj[]) => {
       const collection = await gqlHelper.queryCreateCollection(name, files);
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);
-      const resources = await gqlHelper.queryCreateCollectionResources(collection, files);
-      return collection
+      const resources = await gqlHelper.queryCreateCollectionResources(
+        collection,
+        files,
+      );
+      return collection;
     },
   };
 

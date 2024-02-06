@@ -13,7 +13,7 @@ export interface ConstellationObj {
   variant: string;
 }
 
-export const exampleConstellation : ConstellationObj = {
+export const exampleConstellation: ConstellationObj = {
   id: '0',
   chapterId: '0',
   title: 'Idea Constellation',

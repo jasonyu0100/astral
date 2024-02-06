@@ -32,7 +32,7 @@
   border-radius: 7px;
 }
 
-input[type="text"],
+input[type='text'],
 select {
   border: none;
   outline: none;

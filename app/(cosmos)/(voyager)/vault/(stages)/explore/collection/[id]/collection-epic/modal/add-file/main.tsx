@@ -37,7 +37,7 @@ export function AddFileModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <FormUploadFile onChange={(file) => changeFile(file)} label="File"/>
+          <FormUploadFile onChange={(file) => changeFile(file)} label='File' />
         </FormBody>
         <FormFooter>
           <FormButton

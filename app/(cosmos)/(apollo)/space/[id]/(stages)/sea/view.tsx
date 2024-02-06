@@ -15,8 +15,8 @@ export function SeaView() {
       </SeaMain>
       <SeaSidebar>
         <div
-          className="flex flex-col w-full overflow-auto"
-          style={{ height: "100%" }}
+          className='flex w-full flex-col overflow-auto'
+          style={{ height: '100%' }}
         >
           <SeaPoint>Test</SeaPoint>
           <SeaPoint>Test</SeaPoint>

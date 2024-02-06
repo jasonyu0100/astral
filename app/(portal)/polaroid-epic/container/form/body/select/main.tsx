@@ -8,17 +8,17 @@ export function PortalFormSelect({
   ...props
 }: PortalFormSelectProps) {
   return (
-    <div className='relative w-full h-[50px] border-b-[1px] border-slate-500 flex flex-row items-center'>
+    <div className='relative flex h-[50px] w-full flex-row items-center border-b-[1px] border-slate-500'>
       <select
         title='position'
-        className='w-full h-full appearance-none border-none outline-none text-slate-500 text-3xl font-extraBold leading-9 '
+        className='h-full w-full appearance-none border-none font-extraBold text-3xl leading-9 text-slate-500 outline-none '
         {...props}
       >
         {children}
       </select>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className='w-[50px] h-[50px] absolute right-[0px]'
+        className='absolute right-[0px] h-[50px] w-[50px]'
         viewBox='0 0 24 24'
         fill='none'
       >

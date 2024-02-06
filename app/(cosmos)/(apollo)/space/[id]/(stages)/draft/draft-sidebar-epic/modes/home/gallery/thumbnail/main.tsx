@@ -7,7 +7,7 @@ export function HomeGalleryThumbnail({ gallery }: { gallery: GalleryObj }) {
 
   return (
     <img
-      className='w-full aspect-square cursor-pointer'
+      className='aspect-square w-full cursor-pointer'
       src={gallery?.thumbnail?.src}
       onClick={() => {
         sidebarHandler.goToGallery(gallery);

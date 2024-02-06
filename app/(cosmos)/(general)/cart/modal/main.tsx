@@ -11,8 +11,7 @@ export interface CartContextObj {
 export const CartModalContext = createContext({} as CartContextObj);
 
 export const useCartModalContext = (): CartContextObj => {
-  const [showEditCart, changeShowEditCart] =
-    useState(false);
+  const [showEditCart, changeShowEditCart] = useState(false);
 
   return {
     editCart: {

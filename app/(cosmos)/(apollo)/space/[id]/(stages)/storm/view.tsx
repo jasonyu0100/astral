@@ -22,7 +22,7 @@ export function StormView() {
 
   return (
     <StormWrapper>
-      <StormModalsView/>
+      <StormModalsView />
       <StormMain>
         <StormChat>
           <StormHeader />

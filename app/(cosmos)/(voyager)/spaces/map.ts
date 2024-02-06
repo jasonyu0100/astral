@@ -1,4 +1,4 @@
-const baseUrl = `/spaces`
+const baseUrl = `/spaces`;
 
 export const spacesMap = {
   spaces: {

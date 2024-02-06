@@ -1,4 +1,4 @@
-const baseUrl = `/square`
+const baseUrl = `/square`;
 
 export const squareMap = {
   square: {

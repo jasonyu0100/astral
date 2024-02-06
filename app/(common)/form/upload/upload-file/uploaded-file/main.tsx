@@ -1,5 +1,7 @@
-export function UploadedFile({ children } : { children: React.ReactNode}) {
-    return  <div className='flex flex-row w-full space-x-[2rem] items-center justify-between pr-[2rem] bg-slate-50 border-b border-black'>
+export function UploadedFile({ children }: { children: React.ReactNode }) {
+  return (
+    <div className='flex w-full flex-row items-center justify-between space-x-[2rem] border-b border-black bg-slate-50 pr-[2rem]'>
       {children}
     </div>
+  );
 }

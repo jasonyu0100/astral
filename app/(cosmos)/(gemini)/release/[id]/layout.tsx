@@ -10,8 +10,9 @@ interface ReleaseContextObj {
   releaseId: string;
 }
 
-export const ReleaseContext = createContext<ReleaseContextObj>({
-} as ReleaseContextObj);
+export const ReleaseContext = createContext<ReleaseContextObj>(
+  {} as ReleaseContextObj,
+);
 
 export default function Layout({
   children,

@@ -4,8 +4,8 @@ export function PortalFormAltAction({
   children: React.ReactNode;
 }) {
   return (
-    <div className='w-full flex flex-col justify-center items-center mt-auto'>
-      <div className='text-center text-black text-xl font leading-9'>
+    <div className='mt-auto flex w-full flex-col items-center justify-center'>
+      <div className='font text-center text-xl leading-9 text-black'>
         {children}
       </div>
     </div>

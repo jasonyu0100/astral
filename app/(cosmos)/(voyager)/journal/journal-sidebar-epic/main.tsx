@@ -14,10 +14,10 @@ export function FeedSidebar() {
     <Layer
       displayName={FeedSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
-      className={`${containerStyles['col']} px-[1rem] space-y-[1rem]`}
+      className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
       backgroundStyle={backgroundStyles['glass-10']}
     >
-      <FeedSidebarHeader/>
+      <FeedSidebarHeader />
       <FeedSidebarColumn>
         <FeedSidebarSection>
           {moments.map((moment) => (

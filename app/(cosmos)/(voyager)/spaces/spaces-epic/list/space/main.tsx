@@ -35,7 +35,7 @@ export function SpacesSpace({ space, index }: CreativeSpaceProps) {
         displayName={SpacesSpace.name}
         sizeStyle='w-full h-[100px]'
         backgroundStyle={`${hover && backgroundStyles['glass-5']}`}
-        className={`flex flex-row items-center w-full px-[3rem] py-[1rem] justify-between max-w-[1000px] h-[100px]`}
+        className={`flex h-[100px] w-full max-w-[1000px] flex-row items-center justify-between px-[3rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}
       >

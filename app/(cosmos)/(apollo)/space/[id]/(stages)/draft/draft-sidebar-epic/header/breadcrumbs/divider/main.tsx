@@ -1,3 +1,3 @@
 export function BreadcrumbsDivider() {
-  return <div className='text-slate-500 font-extraBold'>/</div>;
+  return <div className='font-extraBold text-slate-500'>/</div>;
 }

@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import { StormContext } from '../../../../page';
 import { FormInputProps } from '@/(common)/types/main';
 
-export function StormChatMessageInput({ ...props}: FormInputProps) {
+export function StormChatMessageInput({ ...props }: FormInputProps) {
   return (
     <Layer
       displayName={StormChatMessageInput.name}
@@ -13,7 +13,7 @@ export function StormChatMessageInput({ ...props}: FormInputProps) {
       borderStyle={borderStyles['rounded-full']}
     >
       <input
-        className='w-full h-full px-[2rem] text-white font-bold outline-none bg-transparent'
+        className='h-full w-full bg-transparent px-[2rem] font-bold text-white outline-none'
         {...props}
       />
     </Layer>

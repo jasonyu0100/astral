@@ -8,7 +8,7 @@ export function RecordShelf({ children }: { children: React.ReactNode }) {
       displayName={RecordShelf.name}
       sizeStyle='h-[250px] w-full'
       borderStyle={borderStyles['border-b']}
-      className={`px-[40px] space-x-[100px] ${containerStyles.row}`}
+      className={`space-x-[100px] px-[40px] ${containerStyles.row}`}
     >
       {children}
     </Layer>

@@ -9,7 +9,10 @@ import {
   CollectionModalContext,
   useCollectionModalContext,
 } from './collection-epic/modal/main';
-import { CollectionResourcesHandler, useCollectionResources } from '@/(cosmos)/handler/resources/main';
+import {
+  CollectionResourcesHandler,
+  useCollectionResources,
+} from '@/(cosmos)/handler/resources/main';
 import { useCollection } from '@/(cosmos)/handler/collection/main';
 import { useGallery } from '@/(cosmos)/handler/gallery/main';
 

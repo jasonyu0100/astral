@@ -16,9 +16,8 @@ interface GalleryCollectionContextObj {
   index: number;
 }
 
-export const GalleryCollectionContext = createContext<GalleryCollectionContextObj>(
-  {} as GalleryCollectionContextObj,
-);
+export const GalleryCollectionContext =
+  createContext<GalleryCollectionContextObj>({} as GalleryCollectionContextObj);
 
 export function GalleryCollection({ collection, index }: InputProps) {
   return (

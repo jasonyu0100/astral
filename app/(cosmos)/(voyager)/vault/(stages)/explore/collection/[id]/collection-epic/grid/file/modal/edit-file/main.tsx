@@ -5,22 +5,28 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
-import { CartModalContext } from '../main';
+import { FileModalContext } from '../main';
+import { SelectedImage } from '@/(common)/form/selected-image/main';
+import { FileContext } from '../../main';
 
-export function EditProfileModal() {
-  const { editCart: editProfile } = useContext(CartModalContext);
+export function EditFileModal() {
+  const { editFile } = useContext(FileModalContext);
+  const resource = useContext(FileContext);
 
   return (
-    <Modal isOpen={editProfile.opened} onClose={() => editProfile.close()}>
+    <Modal isOpen={editFile.opened} onClose={() => editFile.close()}>
       <FormContainer>
-        <FormTitle>Edit Cart</FormTitle>
+        <FormTitle>Edit File</FormTitle>
         <FormBody>
-          <h1>EDIT Cart</h1>
+          <h1>EDIT File</h1>
+          {resource.description}
+          {resource.name}
+          <img src={resource?.file?.src} />
         </FormBody>
         <FormFooter>
           <FormButton
             onClick={() => {
-              editProfile.close();
+              editFile.close();
             }}
           >
             Create

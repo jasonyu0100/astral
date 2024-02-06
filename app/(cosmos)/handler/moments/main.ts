@@ -105,7 +105,7 @@ export const useMoments = (
       loom: LoomObj,
       visibility: string,
     ) => {
-      console.log(loom)
+      console.log(loom);
       const payload = await amplifyClient.graphql({
         query: createMomentObj,
         variables: {
@@ -150,9 +150,9 @@ export const useMoments = (
       const moment = payload.data?.createMomentObj as MomentObj;
       return moment;
     },
-  }
+  };
 
-  const _momentHandler : MomentHandler = {
+  const _momentHandler: MomentHandler = {
     queryListMoments: async () => {
       const moments = await gqlHelper.queryListMoments();
       changeMoments(moments);
@@ -165,7 +165,12 @@ export const useMoments = (
       file: FileObj,
       visibility: string,
     ) => {
-      const moment = await gqlHelper.queryCreateFileMoment(title, log, file, visibility);
+      const moment = await gqlHelper.queryCreateFileMoment(
+        title,
+        log,
+        file,
+        visibility,
+      );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
       return moment;
@@ -176,7 +181,12 @@ export const useMoments = (
       loom: LoomObj,
       visibility: string,
     ) => {
-      const moment = await gqlHelper.queryCreateLoomMoment(title, log, loom, visibility);
+      const moment = await gqlHelper.queryCreateLoomMoment(
+        title,
+        log,
+        loom,
+        visibility,
+      );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
       return moment;
@@ -187,7 +197,12 @@ export const useMoments = (
       sticky: NoteObj,
       visibility: string,
     ) => {
-      const moment = await gqlHelper.queryCreateStickyMoment(title, log, sticky, visibility);
+      const moment = await gqlHelper.queryCreateStickyMoment(
+        title,
+        log,
+        sticky,
+        visibility,
+      );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
       return moment;

@@ -78,7 +78,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
       const message = payload.data?.createMessageObj as MessageObj;
       return message;
     },
-  }
+  };
 
   const _messageHandler = {
     queryCreateUserMessage: async (text: string) => {
@@ -91,8 +91,10 @@ export const useMessages = (chatId: string): useMessageInterface => {
       return messages;
     },
     queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      const agentResponse = await getMessageResponse(userMessage.message) || "";
-      const agentMessage = await gqlHelper.queryCreateAgentMessage(agentResponse);
+      const agentResponse =
+        (await getMessageResponse(userMessage.message)) || '';
+      const agentMessage =
+        await gqlHelper.queryCreateAgentMessage(agentResponse);
       return agentMessage;
     },
     addUserMessage: (message: MessageObj) => {

@@ -1,12 +1,12 @@
-import { Request, Response, Router } from "express";
-import bcrypt from "bcrypt";
-import { listUserObjs } from "../../graphql/queries";
-import { amplifyClient } from "../../client";
-import { UserObj } from "../../graphql/API";
+import { Request, Response, Router } from 'express';
+import bcrypt from 'bcrypt';
+import { listUserObjs } from '../../graphql/queries';
+import { amplifyClient } from '../../client';
+import { UserObj } from '../../graphql/API';
 
 export const loginRouter = Router();
 
-loginRouter.post("/", async (req: Request, res: Response) => {
+loginRouter.post('/', async (req: Request, res: Response) => {
   const data = req.body;
   const password = data.password;
   const email = data.email;
@@ -27,30 +27,30 @@ loginRouter.post("/", async (req: Request, res: Response) => {
     const users = payload?.data?.listUserObjs?.items as UserObj[];
 
     if (users.length === 0) {
-      res.status(401).json({ error: "Invalid Email" });
+      res.status(401).json({ error: 'Invalid Email' });
     } else {
       const user = users[0];
-      const userHashedPassword = user?.passwordHash || "";
+      const userHashedPassword = user?.passwordHash || '';
       try {
         const match = await bcrypt.compare(password, userHashedPassword);
         if (match) {
           user?.passwordHash && delete user.passwordHash;
           res.json({ data: user });
         } else {
-          res.status(401).json({ error: "Invalid credentials" });
+          res.status(401).json({ error: 'Invalid credentials' });
         }
       } catch (error) {
-        console.error("Error during login:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        console.error('Error during login:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
       }
     }
   } catch (error) {
-    console.error("Error during login:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error('Error during login:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-loginRouter.post("/google", async (req: Request, res: Response) => {
+loginRouter.post('/google', async (req: Request, res: Response) => {
   const data = req.body;
   const googleId = data.googleId;
   const email = data.email;
@@ -73,14 +73,14 @@ loginRouter.post("/google", async (req: Request, res: Response) => {
     });
     const users = payload?.data?.listUserObjs?.items as UserObj[];
     if (users.length === 0) {
-      res.status(401).json({ error: "Invalid Google Id" });
+      res.status(401).json({ error: 'Invalid Google Id' });
     } else {
       const user = users[0];
       user?.passwordHash && delete user.passwordHash;
       res.json({ data: user });
     }
   } catch (error) {
-    console.error("Error during login:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error('Error during login:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });

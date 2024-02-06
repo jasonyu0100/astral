@@ -18,11 +18,11 @@ export default function ExploreCollectionView() {
   const { gallery, collection, resources } = useContext(
     ExploreCollectionContext,
   );
-  const { addFile } = useContext(CollectionModalContext)
+  const { addFile } = useContext(CollectionModalContext);
 
   return (
     <CollectionWrapper>
-      <CollectionModalsView/>
+      <CollectionModalsView />
       <CollectionController>
         <CollectionBreadcrumbs>
           <CollectionBreadcrumbItem

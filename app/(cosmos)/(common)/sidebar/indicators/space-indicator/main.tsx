@@ -1,4 +1,4 @@
-import { SidebarIndicatorType } from "../indicator/main";
+import { SidebarIndicatorType } from '../indicator/main';
 import { IndicatorBlueJewel } from '../indicator/jewel/blue/main';
 import { IndicatorProps, SidebarIndicator } from '../indicator/main';
 import { IndicatorText } from '../indicator/text/main';

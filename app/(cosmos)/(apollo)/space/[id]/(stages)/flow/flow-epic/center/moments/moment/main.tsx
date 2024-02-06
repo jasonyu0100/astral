@@ -14,8 +14,8 @@ interface FlowMomentProps {
 
 export function FlowMoment({ moment, index }: FlowMomentProps) {
   return (
-    <div className='flex flex-col w-full space-y-[3rem] items-center py-[2rem]'>
-      <div className='w-full flex flex-row space-x-[100px] items-center justify-center'>
+    <div className='flex w-full flex-col items-center space-y-[3rem] py-[2rem]'>
+      <div className='flex w-full flex-row items-center justify-center space-x-[100px]'>
         <MomentMedia moment={moment} />
         <MomentDescription>
           <MomentInfo />

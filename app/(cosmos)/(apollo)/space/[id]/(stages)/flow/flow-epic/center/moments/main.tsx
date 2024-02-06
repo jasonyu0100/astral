@@ -7,7 +7,7 @@ export function FlowMoments({ children }: { children: React.ReactNode }) {
       <Layer
         displayName={FlowMoments.name}
         sizeStyle='w-full h-full'
-        className={`${containerStyles['col-center']} p-[3rem] overflow-auto`}
+        className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
       >
         {children}
       </Layer>

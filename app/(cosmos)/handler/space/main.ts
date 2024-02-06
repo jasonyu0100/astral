@@ -27,7 +27,5 @@ export const useSpace = (spaceId: string) => {
     return space;
   };
 
-
   return { space };
 };
-

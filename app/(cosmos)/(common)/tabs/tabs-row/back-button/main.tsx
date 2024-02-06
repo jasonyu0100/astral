@@ -5,7 +5,7 @@ export function TabsBackButton({ ...props }: LinkInputProps) {
   return (
     <a
       {...props}
-      className='flex flex-col justify-center items-start w-[2rem] h-[3rem] mr-[3rem]'
+      className='mr-[3rem] flex h-[3rem] w-[2rem] flex-col items-start justify-center'
     >
       <CircleLeftIcon />
     </a>

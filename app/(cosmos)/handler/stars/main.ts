@@ -15,7 +15,7 @@ export interface StarHandler {
     file: FileObj,
   ) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
-  queryUpdateStars: () => Promise<StarObj[]>
+  queryUpdateStars: () => Promise<StarObj[]>;
 }
 
 interface useStarInterface {
@@ -52,7 +52,7 @@ export const useStars = (constellationId: string): useStarInterface => {
         },
       });
       const stars = payload?.data.listStarObjs?.items as StarObj[];
-      return stars
+      return stars;
     },
     queryCreateFileStar: async (
       name: string,
@@ -81,24 +81,24 @@ export const useStars = (constellationId: string): useStarInterface => {
       });
       const star = payload?.data.createStarObj as StarObj;
       return star;
-    },    
+    },
     queryUpdateStars: async () => {
       const updatedStars = await Promise.all(
         stars.map(async (star) => {
-          let input = removeTypename(removeEmpty(star))
+          let input = removeTypename(removeEmpty(star));
           const payload = await amplifyClient.graphql({
             query: updateStarObj,
             variables: {
-              input: input
+              input: input,
             },
           });
           const updatedStar = payload.data?.updateStarObj as StarObj;
           return updatedStar;
         }),
       );
-      return updatedStars
+      return updatedStars;
     },
-  }
+  };
 
   const _starHandler: StarHandler = {
     queryListStars: async () => {
@@ -121,7 +121,7 @@ export const useStars = (constellationId: string): useStarInterface => {
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
-    },    
+    },
     queryUpdateStars: async () => {
       const updatedStars = await gqlHelper.queryUpdateStars();
       return updatedStars;

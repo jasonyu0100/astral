@@ -10,16 +10,19 @@ import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 
 export function FeedMoment({ moment }: { moment: MomentObj }) {
   return (
-    <div className='flex flex-col w-full space-y-[3rem] items-center py-[2rem]'>
-      <div className='w-full flex flex-row space-x-[100px] items-center justify-center'>
+    <div className='flex w-full flex-col items-center space-y-[3rem] py-[2rem]'>
+      <div className='flex w-full flex-row items-center justify-center space-x-[100px]'>
         <PostMedia moment={moment} />
         <PostDescription>
           <PostInfo />
-          <PostBody>
-            {moment.log}
-          </PostBody>
-          <div className="flex flex-row space-x-[1rem] items-center">
-            <a className="text-blue-500 font-extraBold" href={spaceMap.space.id.storm.link(moment.spaceId)}>Go to Space</a>
+          <PostBody>{moment.log}</PostBody>
+          <div className='flex flex-row items-center space-x-[1rem]'>
+            <a
+              className='font-extraBold text-blue-500'
+              href={spaceMap.space.id.storm.link(moment.spaceId)}
+            >
+              Go to Space
+            </a>
           </div>
         </PostDescription>
       </div>

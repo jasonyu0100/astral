@@ -8,7 +8,7 @@ export function GalleryContainer({ children }: { children: React.ReactNode }) {
       sizeStyle='h-[500px] aspect-[11/16]'
       backgroundStyle={backgroundStyles['glass-10']}
     >
-      <div className='flex flex-col w-full h-full'>{children}</div>
+      <div className='flex h-full w-full flex-col'>{children}</div>
     </Layer>
   );
 }

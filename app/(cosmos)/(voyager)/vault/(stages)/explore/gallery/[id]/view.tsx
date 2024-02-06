@@ -15,14 +15,13 @@ import { GalleryModalsView } from './gallery-epic/modal/view';
 import { GalleryModalContext } from './gallery-epic/modal/main';
 
 export function ExploreGalleryView() {
-  const { gallery, collections } = useContext(
-    ExploreGalleryContext,
-  );
-  const { createCollection: createCollectionModal } = useContext(GalleryModalContext)
+  const { gallery, collections } = useContext(ExploreGalleryContext);
+  const { createCollection: createCollectionModal } =
+    useContext(GalleryModalContext);
 
   return (
     <CollectionWrapper>
-      <GalleryModalsView/>
+      <GalleryModalsView />
       <CollectionController>
         <CollectionBreadcrumbs>
           <CollectionBreadcrumbItem
@@ -42,9 +41,11 @@ export function ExploreGalleryView() {
         {gallery !== null && (
           <GalleryCollectionGrid>
             {collections.map((collection, index) => (
-              <GalleryCollection collection={collection} index={index}/>
+              <GalleryCollection collection={collection} index={index} />
             ))}
-            <GalleryCollectionAdd onClick={() => createCollectionModal.open()} />
+            <GalleryCollectionAdd
+              onClick={() => createCollectionModal.open()}
+            />
           </GalleryCollectionGrid>
         )}
       </CollectionController>

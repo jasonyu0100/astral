@@ -16,11 +16,11 @@ export function FlowChapter({ chapter }: { chapter: ChapterObj }) {
         backgroundStyle={backgroundStyles['glass-5']}
         borderStyle={borderStyles['rounded-full']}
       >
-        <div className='w-full h-full justify-center flex items-center'>
+        <div className='flex h-full w-full items-center justify-center'>
           {active ? (
-            <div className='text-white font-bold'>{chapter.title}</div>
+            <div className='font-bold text-white'>{chapter.title}</div>
           ) : (
-            <div className='text-slate-500 font-bold'>{chapter.title}</div>
+            <div className='font-bold text-slate-500'>{chapter.title}</div>
           )}
         </div>
       </Layer>

@@ -1,6 +1,6 @@
 export function FlowChaptersRightButton() {
   return (
-    <div className='w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full'>
+    <div className='flex h-[30px] w-[30px] flex-shrink-0 items-center justify-center rounded-full'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='40'

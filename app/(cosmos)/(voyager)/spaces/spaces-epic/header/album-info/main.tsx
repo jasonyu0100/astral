@@ -2,7 +2,7 @@
 
 export function SpacesAlbumInfo({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-row space-x-[2rem] h-full items-center'>
+    <div className='flex h-full flex-row items-center space-x-[2rem]'>
       {children}
     </div>
   );

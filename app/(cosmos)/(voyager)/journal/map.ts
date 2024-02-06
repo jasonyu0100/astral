@@ -1,4 +1,4 @@
-export const baseUrl = `/journal`
+export const baseUrl = `/journal`;
 
 export const journalMap = {
   journal: {

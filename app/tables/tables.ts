@@ -5,7 +5,12 @@ import { chapterTable, spaceTable } from './space/table';
 import { userTable } from './user/table';
 import { journeyTable } from './sea/table';
 import { commentTable, momentTable } from './flow/table';
-import { fileTable, loomTable, resourceTable, stickyTable } from './resource/table';
+import {
+  fileTable,
+  loomTable,
+  resourceTable,
+  stickyTable,
+} from './resource/table';
 
 export interface ObjectDescriptor {
   example: any;
@@ -30,10 +35,10 @@ export const architecture = {
   resource: {
     table: resourceTable,
     loom: {
-      table: loomTable
+      table: loomTable,
     },
     sticky: {
-      table: stickyTable
+      table: stickyTable,
     },
     file: {
       table: fileTable,

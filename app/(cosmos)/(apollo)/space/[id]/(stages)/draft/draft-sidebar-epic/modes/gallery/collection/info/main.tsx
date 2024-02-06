@@ -6,8 +6,8 @@ export function GalleryCollectionInfo({
   collection: CollectionObj;
 }) {
   return (
-    <div className='flex flex-col space-y-[1rem] flex-grow h-full p-[1rem] items-center justify-center'>
-      <p className='text-slate-400 font-extraBold'>{collection.name}</p>
+    <div className='flex h-full flex-grow flex-col items-center justify-center space-y-[1rem] p-[1rem]'>
+      <p className='font-extraBold text-slate-400'>{collection.name}</p>
     </div>
   );
 }

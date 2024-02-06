@@ -45,12 +45,12 @@ export function FlowLoomButton() {
 
   return (
     <button
-      className='w-[60px] h-[60px] flex items-center justify-center hover:bg-slate-950'
+      className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
       id={BUTTON_ID}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className='w-[24px] h-[24px]'
+        className='h-[24px] w-[24px]'
         viewBox='0 0 19 20'
         fill='none'
       >

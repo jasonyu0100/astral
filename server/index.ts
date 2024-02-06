@@ -1,12 +1,12 @@
-import express, { Request, Response } from "express";
-import next from "next";
-import { portalRouter } from "./portal";
-import { loadEnvConfig } from "@next/env";
-import { generateUploadURL } from "./s3/main";
+import express, { Request, Response } from 'express';
+import next from 'next';
+import { portalRouter } from './portal';
+import { loadEnvConfig } from '@next/env';
+import { generateUploadURL } from './s3/main';
 import cors from 'cors';
 
-const dev = process.env.NODE_ENV !== "production";
-loadEnvConfig("./", dev);
+const dev = process.env.NODE_ENV !== 'production';
+loadEnvConfig('./', dev);
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -25,19 +25,19 @@ const port = process.env.PORT || 3000;
 
     server.use(express.json());
 
-    server.use("/api/portal", portalRouter);
+    server.use('/api/portal', portalRouter);
 
-    server.get("/s3Url", async (req, res) => {
+    server.get('/s3Url', async (req, res) => {
       const url = await generateUploadURL();
       res.send({ url });
     });
 
-    server.all("*", (req: Request, res: Response) => {
+    server.all('*', (req: Request, res: Response) => {
       try {
         // console.log("Request received:", req.method, req.url);
         return handle(req, res);
       } catch {
-        return res.status(500).send("Internal Server Error");
+        return res.status(500).send('Internal Server Error');
       }
     });
 

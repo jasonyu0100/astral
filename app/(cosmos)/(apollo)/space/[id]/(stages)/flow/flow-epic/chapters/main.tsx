@@ -8,7 +8,7 @@ export function FlowChapters({ children }: { children: React.ReactNode }) {
       sizeStyle='w-full h-[80px]'
       backgroundStyle={backgroundStyles['glass-5']}
     >
-      <div className='flex flex-row items-center justify-center h-full w-full space-x-[1rem] px-[1rem]'>
+      <div className='flex h-full w-full flex-row items-center justify-center space-x-[1rem] px-[1rem]'>
         {children}
       </div>
     </Layer>

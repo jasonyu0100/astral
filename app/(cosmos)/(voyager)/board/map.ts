@@ -1,4 +1,4 @@
-const baseUrl = `/board`
+const baseUrl = `/board`;
 
 export const labelMap = {
   label: {

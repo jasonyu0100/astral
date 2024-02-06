@@ -2,7 +2,7 @@ import { journalMap } from '@/(cosmos)/(voyager)/journal/map';
 import { IndicatorGreenJewel } from '../indicator/jewel/green/main';
 import { IndicatorProps, SidebarIndicator } from '../indicator/main';
 import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from "../indicator/main";
+import { SidebarIndicatorType } from '../indicator/main';
 
 export function FeedIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Journal;

@@ -1,4 +1,8 @@
-import { backgroundStyles, borderStyles, containerStyles } from '@/(common)/styles/data';
+import {
+  backgroundStyles,
+  borderStyles,
+  containerStyles,
+} from '@/(common)/styles/data';
 import { Layer } from '@/(common)/layer/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';
@@ -13,7 +17,7 @@ export function StormHeader() {
       displayName={StormHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       backgroundStyle={backgroundStyles['glass-5']}
-      className={`${containerStyles['row-center']} px-[1rem] space-x-[1rem] justify-between`}
+      className={`${containerStyles['row-center']} justify-between space-x-[1rem] px-[1rem]`}
       borderStyle={borderStyles['border-b']}
     >
       <StormHeaderLeft>
@@ -22,9 +26,7 @@ export function StormHeader() {
       <StormHeaderMiddle>
         <HeaderTitle />
       </StormHeaderMiddle>
-      <StormHeaderRight>
-        {/* <HeaderAdd /> */}
-      </StormHeaderRight>
+      <StormHeaderRight>{/* <HeaderAdd /> */}</StormHeaderRight>
     </Layer>
   );
 }

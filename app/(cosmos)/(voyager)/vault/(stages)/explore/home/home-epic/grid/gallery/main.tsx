@@ -12,8 +12,8 @@ export function HomeGallery({ gallery, ...props }: InputProps) {
   return (
     <a {...props}>
       <GalleryContainer>
-          <GalleryCover gallery={gallery} />
-          <GalleryInfo gallery={gallery} />
+        <GalleryCover gallery={gallery} />
+        <GalleryInfo gallery={gallery} />
       </GalleryContainer>
     </a>
   );

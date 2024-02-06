@@ -7,11 +7,17 @@ import { ResourceVariant } from '@/tables/resource/main';
 import { useEffect, useState } from 'react';
 
 export interface FeedMomentHandler {
-    queryListMoments: () => Promise<MomentObj[]>;
-    queryCreateFileMoment: (title: string, log: string, file: FileObj, chapterId: string, spaceId: string) => Promise<MomentObj>;
-    updateMoments: (moments: MomentObj[]) => MomentObj[];
-    updateMoment: (moment: MomentObj) => MomentObj;
-    addMoment: (moment: MomentObj) => MomentObj;
+  queryListMoments: () => Promise<MomentObj[]>;
+  queryCreateFileMoment: (
+    title: string,
+    log: string,
+    file: FileObj,
+    chapterId: string,
+    spaceId: string,
+  ) => Promise<MomentObj>;
+  updateMoments: (moments: MomentObj[]) => MomentObj[];
+  updateMoment: (moment: MomentObj) => MomentObj;
+  addMoment: (moment: MomentObj) => MomentObj;
 }
 
 export interface useFeedMomentInterface {
@@ -22,7 +28,8 @@ export interface useFeedMomentInterface {
 }
 
 export const useFeedMoments = (
-    userId: string, visibility: string
+  userId: string,
+  visibility: string,
 ): useFeedMomentInterface => {
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
@@ -38,7 +45,7 @@ export const useFeedMoments = (
   }, [userId]);
 
   const gqlHelper = {
-        queryListMoments: async () => {
+    queryListMoments: async () => {
       const payload = await amplifyClient.graphql({
         query: listMomentObjs,
         variables: {
@@ -47,8 +54,8 @@ export const useFeedMoments = (
               eq: userId,
             },
             visibility: {
-                eq: visibility,
-            }
+              eq: visibility,
+            },
           },
         },
       });
@@ -81,7 +88,7 @@ export const useFeedMoments = (
       const moment = payload.data?.createMomentObj as MomentObj;
       return moment;
     },
-  }
+  };
 
   const _momentHandler: FeedMomentHandler = {
     queryListMoments: async () => {
@@ -97,9 +104,15 @@ export const useFeedMoments = (
       chapterId: string,
       spaceId: string,
     ) => {
-      const moment = await gqlHelper.queryCreateFileMoment(title, log, file, chapterId, spaceId);
+      const moment = await gqlHelper.queryCreateFileMoment(
+        title,
+        log,
+        file,
+        chapterId,
+        spaceId,
+      );
       changeMomentId(moment.id);
-      changeMoments((prev) => [...prev, moment])
+      changeMoments((prev) => [...prev, moment]);
       return moment;
     },
     updateMoments: (moments: MomentObj[]) => {
@@ -125,4 +138,3 @@ export const useFeedMoments = (
     _momentHandler,
   };
 };
-

@@ -1,5 +1,5 @@
-import { Layer } from "@/(common)/layer/main";
-import { borderStyles } from "@/(common)/styles/data";
+import { Layer } from '@/(common)/layer/main';
+import { borderStyles } from '@/(common)/styles/data';
 
 export function StormSidebarHeader() {
   return (
@@ -8,7 +8,7 @@ export function StormSidebarHeader() {
       className='flex flex-row items-center'
       borderStyle={borderStyles['border-b']}
     >
-      <p className='text-slate-400  text-xl font-extraBold'>Chapters</p>
+      <p className='font-extraBold  text-xl text-slate-400'>Chapters</p>
     </Layer>
   );
 }

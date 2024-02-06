@@ -69,9 +69,14 @@ const deleteItemField = async (itemId, fieldToDelete) => {
 
   try {
     await dynamodb.update(updateParams).promise();
-    console.log(`Field '${fieldToDelete}' deleted successfully from item ${itemId}.`);
+    console.log(
+      `Field '${fieldToDelete}' deleted successfully from item ${itemId}.`,
+    );
   } catch (error) {
-    console.error(`Error deleting field '${fieldToDelete}' from item ${itemId}:`, error);
+    console.error(
+      `Error deleting field '${fieldToDelete}' from item ${itemId}:`,
+      error,
+    );
   }
 };
 
@@ -88,11 +93,11 @@ const updateAllItems = async () => {
     for (const item of scanResult.Items) {
       const itemId = item.id;
       const jsonItem = JSON.parse(JSON.stringify(item));
-      jsonItem["fileType"] = jsonItem["type"]
-      delete jsonItem["type"]
-      console.log(jsonItem)
-      await deleteItem(itemId)
-      await insertItem(jsonItem)
+      jsonItem['fileType'] = jsonItem['type'];
+      delete jsonItem['type'];
+      console.log(jsonItem);
+      await deleteItem(itemId);
+      await insertItem(jsonItem);
       // await updateItem(itemId);
       // await deleteItemField(itemId, 'type');
     }

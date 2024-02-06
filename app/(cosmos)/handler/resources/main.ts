@@ -21,11 +21,13 @@ export interface CollectionResourcesHandler {
     description: string,
     file: FileObj,
   ) => Promise<ResourceObj>;
-  searchResources: (query: string) => ResourceObj[]
+  searchResources: (query: string) => ResourceObj[];
 }
 
-export const useCollectionResources = (collectionId: string): useCollectionResourcesInterface => {
-  const [state, actions] = useGlobalUser()
+export const useCollectionResources = (
+  collectionId: string,
+): useCollectionResourcesInterface => {
+  const [state, actions] = useGlobalUser();
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -33,15 +35,15 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
 
   useEffect(() => {
     if (!collectionId) {
-      changeResources([])
-      return
-    };
+      changeResources([]);
+      return;
+    }
     _resourceHandler.queryListResources(collectionId);
   }, [collectionId]);
 
   useEffect(() => {
     changeSearchResults(resources);
-  }, [resources])
+  }, [resources]);
 
   const gqlHelper = {
     queryListResources: async (collectionId: string) => {
@@ -59,7 +61,11 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
       const resources = payload?.data.listResourceObjs?.items as ResourceObj[];
       return resources;
     },
-    queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
+    queryCreateFileResource: async (
+      name: string,
+      description: string,
+      file: FileObj,
+    ) => {
       const payload = await amplifyClient.graphql({
         query: createResourceObj,
         variables: {
@@ -74,22 +80,30 @@ export const useCollectionResources = (collectionId: string): useCollectionResou
         },
       });
       const resource = payload?.data?.createResourceObj as ResourceObj;
-      return resource
+      return resource;
     },
-  }
+  };
 
   const _resourceHandler: CollectionResourcesHandler = {
     queryListResources: async (collectionId: string) => {
       const resources = await gqlHelper.queryListResources(collectionId);
       changeResources(resources);
-      changeResourceId(resources[0]?.id || '')
+      changeResourceId(resources[0]?.id || '');
       return resources;
     },
-    queryCreateFileResource: async (name: string, description: string, file: FileObj) => {
-      const resource = await gqlHelper.queryCreateFileResource(name, description, file);
+    queryCreateFileResource: async (
+      name: string,
+      description: string,
+      file: FileObj,
+    ) => {
+      const resource = await gqlHelper.queryCreateFileResource(
+        name,
+        description,
+        file,
+      );
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);
-      return resource
+      return resource;
     },
     searchResources: (query: string) => {
       if (query === '') {

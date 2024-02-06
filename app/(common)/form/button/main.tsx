@@ -1,9 +1,10 @@
 import { ButtonInputProps } from '@/(common)/types/main';
+import { cn } from '@/utils/cn';
 import clsx from 'clsx';
 
 export enum ButtonVariant {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 
 interface InputProps extends ButtonInputProps {
@@ -15,15 +16,23 @@ export function FormButton({ children, variant, ...props }: InputProps) {
   return (
     <button
       {...props}
-      className={clsx(`w-full h-[60px] bg-slate-950 flex flex-col justify-center items-center ${props.className}`, {
-        "bg-black": variant === ButtonVariant.PRIMARY || variant === undefined,
-        "bg-white border-[3px] border-black": variant === ButtonVariant.SECONDARY,
-      })}
+      className={cn(
+        `flex h-[60px] w-full flex-col items-center justify-center bg-slate-950 ${props.className}`,
+        {
+          'bg-black':
+            variant === ButtonVariant.PRIMARY || variant === undefined,
+          'border-[3px] border-black bg-white':
+            variant === ButtonVariant.SECONDARY,
+        },
+      )}
     >
-      <p className={clsx('text-center text-3xl font-bold leading-9', {
-        "text-white": variant === ButtonVariant.PRIMARY || variant === undefined,
-        "text-black": variant === ButtonVariant.SECONDARY,
-      })}>
+      <p
+        className={cn('text-center text-3xl font-bold leading-9', {
+          'text-white':
+            variant === ButtonVariant.PRIMARY || variant === undefined,
+          'text-black': variant === ButtonVariant.SECONDARY,
+        })}
+      >
         {children}
       </p>
     </button>

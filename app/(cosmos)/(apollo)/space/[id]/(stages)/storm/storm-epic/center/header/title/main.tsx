@@ -5,5 +5,5 @@ export default function HeaderTitle() {
   const { chapter, chat } = useContext(StormContext);
   const headerTitle =
     chapter && chat ? `${chapter.title} - ${chat.title}` : 'None';
-  return <p className='text-slate-300 text-md font-bold'>{headerTitle}</p>;
+  return <p className='text-md font-bold text-slate-300'>{headerTitle}</p>;
 }

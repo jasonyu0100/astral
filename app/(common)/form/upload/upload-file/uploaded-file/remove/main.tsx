@@ -2,10 +2,10 @@ import { ButtonInputProps } from '@/(common)/types/main';
 
 export function UploadedFileRemove({ ...props }: ButtonInputProps) {
   return (
-    <button className='w-[30px] h-[30px] rounded-full flex-shrink-0' {...props}>
+    <button className='h-[30px] w-[30px] flex-shrink-0 rounded-full' {...props}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className='w-full h-full'
+        className='h-full w-full'
         viewBox='0 0 24 24'
         fill='none'
       >

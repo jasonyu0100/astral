@@ -15,11 +15,11 @@ export function PortalGalleryPiece({
         flash: { opacity: 0.75 },
         show: { opacity: 1 },
       }}
-      className='w-full aspect-square'
+      className='aspect-square w-full'
       initial='flash'
       animate={imageState}
     >
-      <img {...props} className='w-full h-full' />
+      <img {...props} className='h-full w-full' />
     </motion.div>
   );
 }

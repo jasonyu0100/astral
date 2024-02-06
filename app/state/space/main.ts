@@ -3,12 +3,12 @@ import { SpaceObj } from '@/tables/space/main';
 import Cookies from 'js-cookie';
 
 const getSpaceCookie = () => {
-  const cookie = Cookies.get('space')
-  if (cookie === "undefined") return {} as SpaceObj
+  const cookie = Cookies.get('space');
+  if (cookie === 'undefined') return {} as SpaceObj;
   else {
-    return JSON.parse(cookie || '{}') as SpaceObj
+    return JSON.parse(cookie || '{}') as SpaceObj;
   }
-}
+};
 
 const Store = createStore({
   initialState: {

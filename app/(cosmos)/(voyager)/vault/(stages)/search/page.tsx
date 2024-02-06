@@ -3,7 +3,10 @@ import { createContext } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/tables/resource/main';
 import insideCosmos from '@/utils/isAuth';
-import { SearchResourceHandler, useSearchResource } from '@/(cosmos)/handler/search-resources/main';
+import {
+  SearchResourceHandler,
+  useSearchResource,
+} from '@/(cosmos)/handler/search-resources/main';
 import { useGlobalUser } from '@/state/main';
 
 export interface SearchViewProps {
@@ -16,11 +19,8 @@ export const SearchContextObj = createContext({} as SearchViewProps);
 
 function Page() {
   const [state, actions] = useGlobalUser();
-  const {
-    searchResults,
-    resources,
-    _searchResourceHandler,
-  } = useSearchResource(state.user.id);
+  const { searchResults, resources, _searchResourceHandler } =
+    useSearchResource(state.user.id);
 
   const context = {
     searchResults,

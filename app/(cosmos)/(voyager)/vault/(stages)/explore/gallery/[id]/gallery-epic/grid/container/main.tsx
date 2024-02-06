@@ -14,7 +14,7 @@ export function GalleryCollectionContainer({
       backgroundStyle={backgroundStyles['glass-10']}
       borderStyle={`${borderStyles.rounded} ${borderStyles['border-all']}`}
     >
-      <div className='flex flex-row items-center w-full h-full'>{children}</div>
+      <div className='flex h-full w-full flex-row items-center'>{children}</div>
     </Layer>
   );
 }

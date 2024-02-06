@@ -1,5 +1,5 @@
 export function cleanGql(obj: any) {
-    return removeEmpty(removeTypename(obj))
+  return removeEmpty(removeTypename(obj));
 }
 
 export function removeEmpty(obj: any) {

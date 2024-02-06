@@ -41,7 +41,7 @@ export function DraftHeader() {
         <DraftHeaderTitle>{headerTitle}</DraftHeaderTitle>
       </DraftHeaderCenter>
       <DraftHeaderRight>
-        <DraftHeaderSaveButton onClick={() => starHandler.queryUpdateStars()}/>
+        <DraftHeaderSaveButton onClick={() => starHandler.queryUpdateStars()} />
       </DraftHeaderRight>
     </Layer>
   );

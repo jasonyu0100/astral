@@ -8,11 +8,12 @@ export interface CollectionModalsContextObj {
   };
 }
 
-export const CollectionModalContext = createContext({} as CollectionModalsContextObj);
+export const CollectionModalContext = createContext(
+  {} as CollectionModalsContextObj,
+);
 
 export const useCollectionModalContext = (): CollectionModalsContextObj => {
-  const [showOne, changeShowOne] =
-    useState(false);
+  const [showOne, changeShowOne] = useState(false);
 
   return {
     addFile: {

@@ -5,7 +5,11 @@ import {
   containerStyles,
 } from '@/(common)/styles/data';
 
-export function CollectionBreadcrumbs({ children }: { children: React.ReactNode }) {
+export function CollectionBreadcrumbs({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <Layer
       displayName={CollectionBreadcrumbs.name}
@@ -13,7 +17,7 @@ export function CollectionBreadcrumbs({ children }: { children: React.ReactNode 
       borderStyle={`${borderStyles['border-b']}`}
       className={`${containerStyles['row-center']} px-[2rem]`}
     >
-      <div className='flex flex-row space-x-[1rem] items-center'>
+      <div className='flex flex-row items-center space-x-[1rem]'>
         {children}
       </div>
     </Layer>

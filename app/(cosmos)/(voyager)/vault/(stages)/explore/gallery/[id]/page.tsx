@@ -9,7 +9,10 @@ import {
   useGalleryModalContext,
 } from './gallery-epic/modal/main';
 import { useGallery } from '@/(cosmos)/handler/gallery/main';
-import { CollectionHandler, useCollections } from '@/(cosmos)/handler/collections/main';
+import {
+  CollectionHandler,
+  useCollections,
+} from '@/(cosmos)/handler/collections/main';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;

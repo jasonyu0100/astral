@@ -4,6 +4,6 @@ export function DraftSidebarButtonRow({
   children: React.ReactNode;
 }) {
   return (
-    <div className='flex flex-row space-x-[1rem] items-center'>{children}</div>
+    <div className='flex flex-row items-center space-x-[1rem]'>{children}</div>
   );
 }

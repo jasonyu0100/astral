@@ -7,7 +7,7 @@ interface InputProps extends ButtonInputProps {
 export function ModalCloseButton({ children, ...props }: InputProps) {
   return (
     <button {...props}>
-      <div className='mt-[3rem] animate-pulse text-center text-slate-500 text-xl font-bold leading-7'>
+      <div className='mt-[3rem] animate-pulse text-center text-xl font-bold leading-7 text-slate-500'>
         {children}
       </div>
     </button>

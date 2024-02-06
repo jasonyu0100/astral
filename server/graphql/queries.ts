@@ -2,7 +2,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import * as APITypes from "./API";
+import * as APITypes from './API';
 type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryInput: InputType;
   __generatedQueryOutput: OutputType;
@@ -126,7 +126,8 @@ export const listStarObjs = /* GraphQL */ `query ListStarObjs(
   APITypes.ListStarObjsQueryVariables,
   APITypes.ListStarObjsQuery
 >;
-export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) {
+export const getResourceObj =
+  /* GraphQL */ `query GetResourceObj($id: String!) {
   getResourceObj(id: $id) {
     id
     userId
@@ -168,9 +169,9 @@ export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) 
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetResourceObjQueryVariables,
-  APITypes.GetResourceObjQuery
->;
+    APITypes.GetResourceObjQueryVariables,
+    APITypes.GetResourceObjQuery
+  >;
 export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   $filter: TableResourceObjFilterInput
   $limit: Int
@@ -224,7 +225,8 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   APITypes.ListResourceObjsQueryVariables,
   APITypes.ListResourceObjsQuery
 >;
-export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id: String!) {
+export const getConstellationObj =
+  /* GraphQL */ `query GetConstellationObj($id: String!) {
   getConstellationObj(id: $id) {
     id
     chapterId
@@ -235,9 +237,9 @@ export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id:
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetConstellationObjQueryVariables,
-  APITypes.GetConstellationObjQuery
->;
+    APITypes.GetConstellationObjQueryVariables,
+    APITypes.GetConstellationObjQuery
+  >;
 export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
   $filter: TableConstellationObjFilterInput
   $limit: Int
@@ -594,7 +596,8 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
   APITypes.ListMomentObjsQueryVariables,
   APITypes.ListMomentObjsQuery
 >;
-export const getCollectionObj = /* GraphQL */ `query GetCollectionObj($id: String!) {
+export const getCollectionObj =
+  /* GraphQL */ `query GetCollectionObj($id: String!) {
   getCollectionObj(id: $id) {
     id
     galleryId
@@ -603,9 +606,9 @@ export const getCollectionObj = /* GraphQL */ `query GetCollectionObj($id: Strin
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetCollectionObjQueryVariables,
-  APITypes.GetCollectionObjQuery
->;
+    APITypes.GetCollectionObjQueryVariables,
+    APITypes.GetCollectionObjQuery
+  >;
 export const listCollectionObjs = /* GraphQL */ `query ListCollectionObjs(
   $filter: TableCollectionObjFilterInput
   $limit: Int
@@ -764,7 +767,8 @@ export const listChatObjs = /* GraphQL */ `query ListChatObjs(
   APITypes.ListChatObjsQueryVariables,
   APITypes.ListChatObjsQuery
 >;
-export const getReservationObj = /* GraphQL */ `query GetReservationObj($id: String!) {
+export const getReservationObj =
+  /* GraphQL */ `query GetReservationObj($id: String!) {
   getReservationObj(id: $id) {
     id
     fname
@@ -774,9 +778,9 @@ export const getReservationObj = /* GraphQL */ `query GetReservationObj($id: Str
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetReservationObjQueryVariables,
-  APITypes.GetReservationObjQuery
->;
+    APITypes.GetReservationObjQueryVariables,
+    APITypes.GetReservationObjQuery
+  >;
 export const listReservationObjs = /* GraphQL */ `query ListReservationObjs(
   $filter: TableReservationObjFilterInput
   $limit: Int

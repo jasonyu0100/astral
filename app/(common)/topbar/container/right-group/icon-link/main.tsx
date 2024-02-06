@@ -7,7 +7,7 @@ interface InputProps extends LinkInputProps {
 export function TopbarIconLink({ children, ...props }: InputProps) {
   return (
     <a
-      className='text-gray-600 hover:text-white font-medium rounded-full text-sm p-2 text-center inline-flex items-center'
+      className='inline-flex items-center rounded-full p-2 text-center text-sm font-medium text-gray-600 hover:text-white'
       {...props}
     >
       {children}

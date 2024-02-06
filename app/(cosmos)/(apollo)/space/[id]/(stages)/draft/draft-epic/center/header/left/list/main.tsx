@@ -1,11 +1,14 @@
-import { ButtonInputProps } from "@/(common)/types/main";
+import { ButtonInputProps } from '@/(common)/types/main';
 
-export function DraftHeaderSaveButton({ ...props}: ButtonInputProps) {
+export function DraftHeaderSaveButton({ ...props }: ButtonInputProps) {
   return (
-    <button className='w-[60px] h-[60px] flex flex-col items-center justify-center hover:bg-slate-950' {...props}>
+    <button
+      className='flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950'
+      {...props}
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className="w-[30px] h-[30px]"
+        className='h-[30px] w-[30px]'
         viewBox='0 0 25 25'
         fill='none'
       >

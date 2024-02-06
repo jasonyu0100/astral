@@ -1,3 +1,3 @@
 export function DraftHeaderCenter({ children }: { children: React.ReactNode }) {
-  return <div className='flex flex-row justify-center w-1/3'>{children}</div>;
+  return <div className='flex w-1/3 flex-row justify-center'>{children}</div>;
 }

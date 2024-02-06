@@ -37,7 +37,7 @@ export const useOpenAI = () => {
       n: 1,
       size: '1024x1024',
     });
-    return response.data
+    return response.data;
   };
 
   return {

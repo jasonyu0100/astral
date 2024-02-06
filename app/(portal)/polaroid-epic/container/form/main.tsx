@@ -1,6 +1,6 @@
 export function PortalForm({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-col items-center p-[30px] h-full w-full overflow-auto'>
+    <div className='flex h-full w-full flex-col items-center overflow-auto p-[30px]'>
       {children}
     </div>
   );

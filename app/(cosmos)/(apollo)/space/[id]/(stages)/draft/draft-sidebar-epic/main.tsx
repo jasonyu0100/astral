@@ -6,7 +6,10 @@ import { ResourceObj } from '@/tables/resource/main';
 import { useGallerys } from '@/(cosmos)/handler/gallerys/main';
 import { useGlobalUser } from '@/state/main';
 import { useCollections } from '@/(cosmos)/handler/collections/main';
-import { CollectionResourcesHandler, useCollectionResources } from '@/(cosmos)/handler/resources/main';
+import {
+  CollectionResourcesHandler,
+  useCollectionResources,
+} from '@/(cosmos)/handler/resources/main';
 
 export enum SidebarMode {
   Home = 'Home',
@@ -34,15 +37,20 @@ export interface DraftSidebarContextObject {
   resourceHandler: CollectionResourcesHandler;
 }
 
-export const DraftSidebarContext = createContext<DraftSidebarContextObject>({
-} as DraftSidebarContextObject);
+export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
+  {} as DraftSidebarContextObject,
+);
 
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);
   const [state, actions] = useGlobalUser();
-  const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(state.user.id)
-  const { collections, collection, collectionId, _collectionHandler } = useCollections(galleryId)
-  const { resources, resource, resourceId, searchResults, _resourceHandler } = useCollectionResources(collectionId)
+  const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(
+    state.user.id,
+  );
+  const { collections, collection, collectionId, _collectionHandler } =
+    useCollections(galleryId);
+  const { resources, resource, resourceId, searchResults, _resourceHandler } =
+    useCollectionResources(collectionId);
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {
@@ -59,7 +67,7 @@ export function DraftSidebar() {
       changeSidebarMode(SidebarMode.Gallery);
     },
     goToCollection: (collection: CollectionObj) => {
-      _collectionHandler.goToCollection(collection)
+      _collectionHandler.goToCollection(collection);
       changeSidebarMode(SidebarMode.Collection);
     },
   };

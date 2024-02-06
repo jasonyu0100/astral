@@ -4,7 +4,7 @@ import { StormSendIcon } from '../../../../icons/send/main';
 export function StormMessageInputSend({ ...props }: ButtonInputProps) {
   return (
     <button
-      className='w-[40px] h-[40px] flex items-center bg-blue-500 justify-center rounded-[2rem]'
+      className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem] bg-blue-500'
       {...props}
     >
       <StormSendIcon />

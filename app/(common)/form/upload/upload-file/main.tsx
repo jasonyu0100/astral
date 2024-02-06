@@ -62,22 +62,22 @@ export function FormUploadFile({
     <div className='flex flex-col bg-white'>
       <label
         htmlFor='fileInput'
-        className='w-full text-slate-400 text-xs font-bold mb-1'
+        className='mb-1 w-full text-xs font-bold text-slate-400'
       >
         {label}
       </label>
       {file.id === undefined && (
-        <div className='relative p-4 border-black border-b bg-slate-50 mb-3 h-[100px]'>
+        <div className='relative mb-3 h-[100px] border-b border-black bg-slate-50 p-4'>
           <input
             type='file'
             id='fileInput'
-            className='absolute inset-0 w-full h-full opacity-0 cursor-pointer'
+            className='absolute inset-0 h-full w-full cursor-pointer opacity-0'
             onChange={(e) => handleFileChange(e)}
           />
-          <div className='flex flex-row w-full items-center space-x-[1rem] h-full'>
+          <div className='flex h-full w-full flex-row items-center space-x-[1rem]'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='w-[3rem] h-[3rem]'
+              className='h-[3rem] w-[3rem]'
               viewBox='0 0 24 24'
               fill='none'
             >
@@ -98,7 +98,7 @@ export function FormUploadFile({
                 />
               </g>
             </svg>
-            <p className='mt-1 text-lg text-slate-500 font-bold'>
+            <p className='mt-1 text-lg font-bold text-slate-500'>
               Upload your file here
             </p>
           </div>

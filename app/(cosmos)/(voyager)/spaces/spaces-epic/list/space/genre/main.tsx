@@ -3,7 +3,7 @@
 export function SpaceGenre() {
   return (
     <div className='flex items-center'>
-      <p className='font-bold text-lg text-white'>Music</p>
+      <p className='text-lg font-bold text-white'>Music</p>
     </div>
   );
 }

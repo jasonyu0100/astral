@@ -24,31 +24,34 @@ export function PageTwo() {
         <option value={SpaceVariant.CUSTOM}>{SpaceVariant.CUSTOM}</option>
       </FormSelect>
       {variant === SpaceVariant.CUSTOM ? (
-        <div className='w-full flex flex-col'>
+        <div className='flex w-full flex-col'>
           {chapterTemplates.map((chapter, index) => (
-            <div className='w-full flex flex-col space-y-[0.5rem]'>
+            <div className='flex w-full flex-col space-y-[0.5rem]'>
               <div className='flex flex-row items-center'>
-                <p className='font-bold text-md mr-2'>{index + 1}.</p>
+                <p className='text-md mr-2 font-bold'>{index + 1}.</p>
                 <input
                   placeholder='Enter your title...'
-                  className='font-bold text-md outline-none w-auto px-1 rounded'
+                  className='text-md w-auto rounded px-1 font-bold outline-none'
                   value={chapter.title}
                   onChange={(e) =>
-                    updateChapterTemplates(chapterTemplates.map((c, i) =>
+                    updateChapterTemplates(
+                      chapterTemplates.map((c, i) =>
                         i === index ? { ...c, title: e.target.value } : c,
-                      )
+                      ),
                     )
                   }
                 />
                 <button
-                  className='ml-auto w-[30px] h-[30px] rounded-full'
+                  className='ml-auto h-[30px] w-[30px] rounded-full'
                   onClick={() =>
-                    updateChapterTemplates(chapterTemplates.filter((_, i) => i !== index))
+                    updateChapterTemplates(
+                      chapterTemplates.filter((_, i) => i !== index),
+                    )
                   }
                 >
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='w-full h-full'
+                    className='h-full w-full'
                     viewBox='0 0 24 24'
                     fill='none'
                   >
@@ -74,19 +77,21 @@ export function PageTwo() {
               <textarea
                 value={chapter.description}
                 placeholder='Enter your description...'
-                className='outline-none bg-transparent flex flex-grow font-light w-full  appearance-none resize-none'
+                className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
                 onChange={(e) =>
-                  updateChapterTemplates(chapterTemplates.map((c, i) =>
+                  updateChapterTemplates(
+                    chapterTemplates.map((c, i) =>
                       i === index ? { ...c, description: e.target.value } : c,
-                  ))
+                    ),
+                  )
                 }
               />
             </div>
           ))}
-          <div className='w-full flex flex-row h-[50px]'>
+          <div className='flex h-[50px] w-full flex-row'>
             <div className='flex flex-grow items-center justify-center'>
               <button
-                className='w-[30px] h-[30px] rounded-full'
+                className='h-[30px] w-[30px] rounded-full'
                 onClick={() =>
                   updateChapterTemplates([
                     ...chapterTemplates,
@@ -99,7 +104,7 @@ export function PageTwo() {
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                    className='w-full h-full'
+                  className='h-full w-full'
                   viewBox='0 0 24 24'
                   fill='none'
                 >
@@ -111,14 +116,17 @@ export function PageTwo() {
                     width='24'
                     height='24'
                   >
-                    <rect width='24' height='24' fill='#D9D9D9' 
-                      className="fill-slate-500"
+                    <rect
+                      width='24'
+                      height='24'
+                      fill='#D9D9D9'
+                      className='fill-slate-500'
                     />
                   </mask>
                   <g mask='url(#mask0_3100_7)'>
                     <path
                       d='M11 13H5V11H11V5H13V11H19V13H13V19H11V13Z'
-                      className="fill-slate-500"
+                      className='fill-slate-500'
                     />
                   </g>
                 </svg>
@@ -128,9 +136,9 @@ export function PageTwo() {
           </div>
         </div>
       ) : (
-        <div className='bg-slate-50 w-full p-2 flex flex-col space-y-[1rem]'>
+        <div className='flex w-full flex-col space-y-[1rem] bg-slate-50 p-2'>
           {chapterTemplates.map((template, index) => (
-            <p className='font-bold text-md overflow-hidden'>
+            <p className='text-md overflow-hidden font-bold'>
               {index + 1}. {template.title} -{' '}
               <span className='font-light'>{template.description}</span>
             </p>

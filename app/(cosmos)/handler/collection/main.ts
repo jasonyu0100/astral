@@ -13,7 +13,7 @@ export const useCollection = (collectionId: string) => {
     }
     queryGetCollection(collectionId);
   }, [collectionId]);
-  
+
   const queryGetCollection = async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getCollectionObj,
@@ -29,5 +29,5 @@ export const useCollection = (collectionId: string) => {
 
   return {
     collection,
-  }
+  };
 };

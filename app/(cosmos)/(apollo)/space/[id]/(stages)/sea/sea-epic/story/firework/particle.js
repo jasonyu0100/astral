@@ -1,6 +1,6 @@
 export class Particle {
   constructor(p, x, y, hu, firework) {
-    this.p = p;  // Accept p as an argument and store it in the class property
+    this.p = p; // Accept p as an argument and store it in the class property
     this.pos = this.p.createVector(x, y);
     this.firework = firework;
     this.lifespan = 255;
@@ -9,8 +9,11 @@ export class Particle {
     if (this.firework) {
       this.vel = this.p.createVector(0, this.p.random(-12, -8));
     } else {
-      this.vel = this.p.createVector(this.p.random(-2, 2), this.p.random(-2, 2));
-      this.vel.mult(10)
+      this.vel = this.p.createVector(
+        this.p.random(-2, 2),
+        this.p.random(-2, 2),
+      );
+      this.vel.mult(10);
     }
 
     this.acc = this.p.createVector(0, 0);

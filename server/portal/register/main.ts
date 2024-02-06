@@ -1,11 +1,11 @@
-import { Request, Response, Router } from "express";
-import { createUserObj } from "../../graphql/mutations";
-import { amplifyClient } from "../../client";
-import bcrypt from "bcrypt";
+import { Request, Response, Router } from 'express';
+import { createUserObj } from '../../graphql/mutations';
+import { amplifyClient } from '../../client';
+import bcrypt from 'bcrypt';
 
 export const registerRouter = Router();
 
-registerRouter.post("/", async (req: Request, res: Response) => {
+registerRouter.post('/', async (req: Request, res: Response) => {
   const data = req.body;
   const fname = data.fname;
   const lname = data.lname;
@@ -30,12 +30,12 @@ registerRouter.post("/", async (req: Request, res: Response) => {
     });
     res.json({ data: payload.data.createUserObj });
   } catch (error) {
-    console.error("Error during registration:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error('Error during registration:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-registerRouter.post("/google", async (req: Request, res: Response) => {
+registerRouter.post('/google', async (req: Request, res: Response) => {
   const data = req.body;
   const fname = data.fname;
   const lname = data.lname;
@@ -60,7 +60,7 @@ registerRouter.post("/google", async (req: Request, res: Response) => {
     });
     res.json({ data: payload.data.createUserObj });
   } catch (error) {
-    console.error("Error during registration:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error('Error during registration:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });

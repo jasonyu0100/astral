@@ -1,13 +1,13 @@
-import { Layer } from "../layer/main";
-import { containerStyles, borderStyles } from "../styles/data";
-import { FormInputProps } from "../types/main";
+import { Layer } from '../layer/main';
+import { containerStyles, borderStyles } from '../styles/data';
+import { FormInputProps } from '../types/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (
     <Layer
       displayName={SearchBar.name}
       sizeStyle='w-full h-[4rem]'
-      className={`${containerStyles['row-center']} px-[1rem] space-x-[1rem]`}
+      className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
       borderStyle={borderStyles['border-b']}
     >
       <svg
@@ -35,12 +35,10 @@ export function SearchBar({ ...props }: FormInputProps) {
         </g>
       </svg>
       <input
-        className="  text-slate-900 text-2xl font-regular font-['Creato Display'] leading-7 h-[3rem] bg-transparent outline-none"
+        className="  font-['Creato Display'] h-[3rem] bg-transparent font-regular text-2xl leading-7 text-slate-900 outline-none"
         placeholder='enter search...'
         {...props}
       />
     </Layer>
   );
 }
-
-

@@ -6,9 +6,9 @@ export function CollectionResourceInfo({
   resource: ResourceObj;
 }) {
   return (
-    <div className='flex flex-col flex-grow'>
-      <p className='text-slate-400 font-extraBold'>{resource.name}</p>
-      <p className='text-slate-500 font-regular'>{resource.description}</p>
+    <div className='flex flex-grow flex-col'>
+      <p className='font-extraBold text-slate-400'>{resource.name}</p>
+      <p className='font-regular text-slate-500'>{resource.description}</p>
     </div>
   );
 }

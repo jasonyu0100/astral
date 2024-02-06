@@ -13,14 +13,14 @@ export function GalleryCollectionThumbnail({
 
   return (
     <div
-      className='h-full aspect-square bg-black cursor-pointer'
+      className='aspect-square h-full cursor-pointer bg-black'
       onClick={() => {
         sidebarHandler.goToCollection(collection);
       }}
     >
-      <div className='w-full h-full flex flex-row flex-wrap'>
+      <div className='flex h-full w-full flex-row flex-wrap'>
         {resources.slice(0, 4).map((resource) => (
-          <img className='h-1/2 aspect-square' src={resource?.file?.src} />
+          <img className='aspect-square h-1/2' src={resource?.file?.src} />
         ))}
       </div>
     </div>

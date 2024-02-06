@@ -11,8 +11,7 @@ export interface HomeModalsContextObj {
 export const HomeModalContext = createContext({} as HomeModalsContextObj);
 
 export const useHomeModalContext = (): HomeModalsContextObj => {
-  const [showOne, changeShowTwo] =
-    useState(false);
+  const [showOne, changeShowTwo] = useState(false);
 
   return {
     createGallery: {

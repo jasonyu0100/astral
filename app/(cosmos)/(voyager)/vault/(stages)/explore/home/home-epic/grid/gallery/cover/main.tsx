@@ -1,5 +1,10 @@
 import { GalleryObj } from '@/tables/gallery/main';
 
 export function GalleryCover({ gallery }: { gallery: GalleryObj }) {
-  return <img className='w-full aspect-square object-contain bg-black' src={gallery.thumbnail.src} />;
+  return (
+    <img
+      className='aspect-square w-full bg-black object-contain'
+      src={gallery.thumbnail.src}
+    />
+  );
 }

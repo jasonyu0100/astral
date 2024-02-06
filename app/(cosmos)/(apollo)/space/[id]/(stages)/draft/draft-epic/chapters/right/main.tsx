@@ -5,7 +5,7 @@ export function DraftChaptersRightButton() {
   const { chapterHandler } = useContext(DraftContext);
   return (
     <button
-      className='w-[30px] h-[30px] flex-shrink-0 flex items-center justify-center rounded-full'
+      className='flex h-[30px] w-[30px] flex-shrink-0 items-center justify-center rounded-full'
       onClick={() => chapterHandler.goToNextChapter()}
     >
       <svg

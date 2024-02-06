@@ -9,7 +9,7 @@ function LayerContent({ children, ...props }: LayerContentProps) {
   return (
     <div
       {...props}
-      className={`absolute top-0 w-full h-full ${props.className || ''}`}
+      className={`absolute top-0 h-full w-full ${props.className || ''}`}
     >
       {children}
     </div>
@@ -27,7 +27,7 @@ function LayerBackground({
 }: LayerBackgroundProps) {
   return (
     <div
-      className={`w-full h-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
+      className={`h-full w-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
     ></div>
   );
 }
@@ -54,7 +54,7 @@ export function Layer({
   return (
     <div
       id={displayName}
-      className={`relative flex-shrink-0 ${sizeStyle || 'w-full h-full'} ${
+      className={`relative flex-shrink-0 ${sizeStyle || 'h-full w-full'} ${
         borderStyle || ''
       }`}
     >

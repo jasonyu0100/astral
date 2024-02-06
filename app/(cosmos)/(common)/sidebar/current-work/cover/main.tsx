@@ -1,7 +1,7 @@
-"use client"
+'use client';
 import { effectStyles } from '@/(common)/styles/data';
 import { useGlobalSpace } from '@/state/space/main';
-import clsx from 'clsx';
+import { cn } from '@/utils/cn';
 import { useState, useEffect } from 'react';
 
 export function SidebarWorkCover({
@@ -12,17 +12,17 @@ export function SidebarWorkCover({
   minimised?: boolean;
 }) {
   const [spaceState, __] = useGlobalSpace();
-  const [thumbnailSrc, changeThumbnailSrc] = useState(null)
+  const [thumbnailSrc, changeThumbnailSrc] = useState(null);
 
   useEffect(() => {
-    changeThumbnailSrc(spaceState?.space?.thumbnail?.src || null)
-  }, [spaceState])
+    changeThumbnailSrc(spaceState?.space?.thumbnail?.src || null);
+  }, [spaceState]);
 
   return (
     <div className='relative flex-shrink-0'>
       {minimised ? (
         <svg
-          className='w-full h-full'
+          className='h-full w-full'
           xmlns='http://www.w3.org/2000/svg'
           width='2.5rem'
           height='2.5rem'
@@ -50,12 +50,9 @@ export function SidebarWorkCover({
       ) : (
         <img
           src={thumbnailSrc}
-          className={clsx(
-            'w-[2.5rem] h-[2.5rem] rounded-full',
-            {
-              [effectStyles['glow-lg']]: active,
-            },
-          )}
+          className={cn('h-[2.5rem] w-[2.5rem] rounded-full', {
+            [effectStyles['glow-lg']]: active,
+          })}
         />
       )}
     </div>

@@ -1,6 +1,6 @@
 export function CollectionHeader({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-row items-center flex-shrink-0 w-full justify-between'>
+    <div className='flex w-full flex-shrink-0 flex-row items-center justify-between'>
       {children}
     </div>
   );

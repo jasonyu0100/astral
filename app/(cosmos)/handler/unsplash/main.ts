@@ -5,8 +5,7 @@ export const useUnsplash = () => {
   const authNextJs = async () => {
     fetch(
       `https://api.unsplash.com/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_APIKEY}`,
-    ).then((resp) => {
-    });
+    ).then((resp) => {});
   };
   const getRandomImage = async () => {
     const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_APIKEY;
@@ -19,7 +18,7 @@ export const useUnsplash = () => {
         },
       });
       const data = await resp.json();
-      
+
       return data.urls.raw;
     } catch (e) {
       console.error('Error fetching data from Unsplash:', e);
@@ -29,28 +28,30 @@ export const useUnsplash = () => {
   const searchImage = async (query: string) => {
     const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_APIKEY;
     try {
-      const resp = await fetch(`https://api.unsplash.com/search/photos?query=${query}`, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Client-ID ${accessKey}`,
+      const resp = await fetch(
+        `https://api.unsplash.com/search/photos?query=${query}`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Client-ID ${accessKey}`,
+          },
         },
-      });
+      );
       const data = await resp.json();
       return data.results.map((result: any) => {
         return {
-            id: crypto.randomUUID(),
-            src: result.urls.raw,
-            fileType: "image/*",
-            name: result.alt_description,
-            size: 0,
-        } as FileObj
-      })
+          id: crypto.randomUUID(),
+          src: result.urls.raw,
+          fileType: 'image/*',
+          name: result.alt_description,
+          size: 0,
+        } as FileObj;
+      });
     } catch (e) {
       console.error('Error fetching data from Unsplash:', e);
     }
-
-  }
+  };
 
   useEffect(() => {
     authNextJs();
@@ -58,6 +59,6 @@ export const useUnsplash = () => {
 
   return {
     getRandomImage,
-    searchImage
+    searchImage,
   };
 };

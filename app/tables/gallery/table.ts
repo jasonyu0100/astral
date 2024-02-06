@@ -1,8 +1,5 @@
 import { TableDescriptor } from '../tables';
-import {
-  exampleCollection,
-  exampleCollections,
-} from './collection/main';
+import { exampleCollection, exampleCollections } from './collection/main';
 import { exampleGallery, exampleGallerys } from './main';
 
 export const galleryTable: TableDescriptor = {

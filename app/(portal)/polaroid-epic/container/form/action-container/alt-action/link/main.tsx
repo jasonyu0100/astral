@@ -9,7 +9,7 @@ export function PortalFormAltActionLink({
   ...props
 }: AltActionLinkProps) {
   return (
-    <a className='text-blue-500 font-extraBold' {...props}>
+    <a className='font-extraBold text-blue-500' {...props}>
       {children}
     </a>
   );

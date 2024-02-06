@@ -1,6 +1,6 @@
 export function SpacesHeaderText({ children }: { children: React.ReactNode }) {
   return (
-    <div className='flex flex-col justify-center h-[200px] px-[40px] py-[40px] space-y-[1rem]'>
+    <div className='flex h-[200px] flex-col justify-center space-y-[1rem] px-[40px] py-[40px]'>
       {children}
     </div>
   );

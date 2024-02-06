@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { LinkInputProps } from '@/(common)/types/main';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
@@ -21,8 +21,8 @@ export function SidebarCurrentSpace({ children }: InputProps) {
   }, [spaceState]);
 
   return (
-    <a className='w-full h-[3rem]' href={url}>
-      <div className='flex flex-row w-full h-full items-center space-x-[1rem]'>
+    <a className='h-[3rem] w-full' href={url}>
+      <div className='flex h-full w-full flex-row items-center space-x-[1rem]'>
         {children}
       </div>
     </a>

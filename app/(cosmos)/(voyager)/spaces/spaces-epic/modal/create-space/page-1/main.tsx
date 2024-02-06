@@ -7,14 +7,15 @@ import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 
 export function PageOne() {
+  const { pageOne } = useContext(CreateSpaceModalContext);
   const {
-    pageOne
-  } = useContext(CreateSpaceModalContext);
-  const {
-    title, updateTitle,
-    description, updateDescription,
-    thumbnail, updateThumbnail,
-  } = pageOne
+    title,
+    updateTitle,
+    description,
+    updateDescription,
+    thumbnail,
+    updateThumbnail,
+  } = pageOne;
 
   return (
     <FormBody>

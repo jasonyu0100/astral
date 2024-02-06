@@ -20,7 +20,7 @@ export function SpacesView({ type }: SpaceViewProps) {
 
   return (
     <SpaceWrapper>
-      <SpacesModalsView/>
+      <SpacesModalsView />
       <SpacesContainer>
         <SpacesHeader>
           <SpacesAlbumInfo>
@@ -38,7 +38,7 @@ export function SpacesView({ type }: SpaceViewProps) {
         </SpacesHeader>
         <SpacesList>
           {spaces.map((space, index) => (
-            <SpacesSpace space={space} index={index}/>
+            <SpacesSpace space={space} index={index} />
           ))}
         </SpacesList>
       </SpacesContainer>

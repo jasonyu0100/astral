@@ -1,11 +1,17 @@
-import { Particle } from "./particle";
+import { Particle } from './particle';
 
 export class Firework {
   constructor(p, sketch) {
-    this.p = p;  // Accept p as an argument and store it in the class property
+    this.p = p; // Accept p as an argument and store it in the class property
     this.sketch = sketch;
     this.hu = this.p.random(255);
-    this.firework = new Particle(this.p, this.p.random(this.p.width), this.p.height, this.hu, true);
+    this.firework = new Particle(
+      this.p,
+      this.p.random(this.p.width),
+      this.p.height,
+      this.hu,
+      true,
+    );
     this.exploded = false;
     this.particles = [];
   }
@@ -41,7 +47,13 @@ export class Firework {
 
   explode() {
     for (let i = 0; i < 100; i++) {
-      const p = new Particle(this.p, this.firework.pos.x, this.firework.pos.y, this.hu, false);
+      const p = new Particle(
+        this.p,
+        this.firework.pos.x,
+        this.firework.pos.y,
+        this.hu,
+        false,
+      );
       this.particles.push(p);
     }
   }

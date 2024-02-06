@@ -2,16 +2,16 @@ import { useGlobalUser } from '@/state/main';
 import { UserObj } from '@/tables/user/main';
 
 export function PostInfo() {
-  const [state, actions] = useGlobalUser()
-  const user: UserObj = state.user
+  const [state, actions] = useGlobalUser();
+  const user: UserObj = state.user;
 
   return (
-    <div className='h-[40px] w-full flex flex-row items-center space-x-[2rem]'>
+    <div className='flex h-[40px] w-full flex-row items-center space-x-[2rem]'>
       <img
         src={user.profilePicture?.src}
         className='h-[40px] w-[40px] rounded-full'
       />
-      <span className='text-white text-md font-extraBold'>
+      <span className='text-md font-extraBold text-white'>
         {user.fname} {user.lname}
       </span>
     </div>

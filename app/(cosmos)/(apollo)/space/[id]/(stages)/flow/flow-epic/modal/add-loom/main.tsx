@@ -21,7 +21,7 @@ export function FlowAddLoomModal() {
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
   const [visibility, changeVisibility] = useState(
-    MomentVisibility.JOURNAL as string
+    MomentVisibility.JOURNAL as string,
   );
   const [videoHTML, setVideoHTML] = useState('');
 
@@ -33,7 +33,7 @@ export function FlowAddLoomModal() {
   }, [loom]);
 
   const embedLoom = async () => {
-    const { html } = await oembed(addLoom?.loom?.sharedUrl, { width: 600});
+    const { html } = await oembed(addLoom?.loom?.sharedUrl, { width: 600 });
     setVideoHTML(html);
   };
 
@@ -74,7 +74,7 @@ export function FlowAddLoomModal() {
             onChange={(e) => changeLog(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <div className='flex flex-col items-center w-full'>
+          <div className='flex w-full flex-col items-center'>
             <div dangerouslySetInnerHTML={{ __html: videoHTML }}></div>
           </div>
         </FormBody>

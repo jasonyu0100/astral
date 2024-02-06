@@ -14,16 +14,19 @@ export const exampleComment: CommentObj = {
   userId: '0',
 };
 
-export const exampleComments: CommentObj[] = [{
-  id: '0',
-  momentId: '0',
-  time: new Date('2023-12-19').toISOString(),
-  content: 'Hello World',
-  userId: '0',
-}, {
-  id: '1',
-  momentId: '0',
-  time: new Date('2023-12-19').toISOString(),
-  content: 'Hello World',
-  userId: '0',
-}];
+export const exampleComments: CommentObj[] = [
+  {
+    id: '0',
+    momentId: '0',
+    time: new Date('2023-12-19').toISOString(),
+    content: 'Hello World',
+    userId: '0',
+  },
+  {
+    id: '1',
+    momentId: '0',
+    time: new Date('2023-12-19').toISOString(),
+    content: 'Hello World',
+    userId: '0',
+  },
+];

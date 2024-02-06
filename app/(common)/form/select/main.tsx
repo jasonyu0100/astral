@@ -11,15 +11,14 @@ export function FormSelect({
   children,
   ...props
 }: PortalFormSelectProps) {
-
   return (
-    <div className='flex flex-col w-full'>
+    <div className='flex w-full flex-col'>
       <label className='mb-1 text-xs font-bold text-slate-400'>{title}</label>
-      <div className='relative flex flex-col w-full items-center border-b-[1px] border-slate-500 bg-slate-50 h-[60px]'>
+      <div className='relative flex h-[60px] w-full flex-col items-center border-b-[1px] border-slate-500 bg-slate-50'>
         <select
           title='position'
-          className='w-full h-full appearance-none border-none outline-none text-slate-500 text-xl font-bold leading-9
-          px-[0.5rem]'
+          className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500
+          outline-none'
           {...props}
           value={props.value}
           onChange={props.onChange}
@@ -28,7 +27,7 @@ export function FormSelect({
         </select>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='w-[60px] h-[60px] absolute right-[0px]'
+          className='absolute right-[0px] h-[60px] w-[60px]'
           viewBox='0 0 24 24'
           fill='none'
         >

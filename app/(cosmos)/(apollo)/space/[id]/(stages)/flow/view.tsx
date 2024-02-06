@@ -18,11 +18,11 @@ import { FlowModalContext } from './flow-epic/modal/main';
 
 export function FlowView() {
   const { moments, chapters } = useContext(FlowContext);
-  const { addChapter } = useContext(FlowModalContext); 
+  const { addChapter } = useContext(FlowModalContext);
 
   return (
-    <FlowWrapper> 
-      <FlowModalsView/>
+    <FlowWrapper>
+      <FlowModalsView />
       <FlowMain>
         <FlowCenter>
           <FlowHeader />
@@ -38,11 +38,7 @@ export function FlowView() {
             {chapters.map((chapter) => (
               <FlowChapter chapter={chapter} />
             ))}
-            <FlowChaptersAdd 
-              onClick={() =>
-                addChapter.open()
-              }
-            />
+            <FlowChaptersAdd onClick={() => addChapter.open()} />
           </FlowChaptersRow>
           <FlowChaptersRightButton />
         </FlowChapters>

@@ -32,9 +32,7 @@ export function ExploreHomeView() {
               href={vaultMap.vault.explore.gallery.id.link(gallery.id)}
             />
           ))}
-          <HomeGalleryAdd
-            onClick={() => createGalleryModal.open()}
-          />
+          <HomeGalleryAdd onClick={() => createGalleryModal.open()} />
         </HomeGalleryGrid>
       </CollectionController>
     </CollectionWrapper>

@@ -7,12 +7,12 @@ import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 export function SpaceCount() {
   const { hover, index, space } = useContext(CreativeSpaceContext);
   return (
-    <div className='flex items-center justify-center w-[50px]'>
+    <div className='flex w-[50px] items-center justify-center'>
       {hover ? (
         <a href={spaceMap.space.id.storm.link(space.id)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='w-[30px] h-[30px]'
+            className='h-[30px] w-[30px]'
             viewBox='0 0 24 24'
             fill='none'
           >
@@ -32,7 +32,7 @@ export function SpaceCount() {
           </svg>
         </a>
       ) : (
-        <p className='text-white font-extraBold text-xl'>#{index + 1}</p>
+        <p className='font-extraBold text-xl text-white'>#{index + 1}</p>
       )}
     </div>
   );

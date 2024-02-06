@@ -29,9 +29,9 @@ export const useGallerys = (userId: string): useGallerysInterface => {
 
   useEffect(() => {
     if (!userId) {
-      changeGallerys([])
-      return
-    };
+      changeGallerys([]);
+      return;
+    }
     _galleryHandler.queryListGallerys();
   }, [userId]);
 
@@ -68,19 +68,19 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       });
 
       const gallery = payload?.data?.createGalleryObj as GalleryObj;
-      return gallery
+      return gallery;
     },
-  }
+  };
 
   const _galleryHandler: GalleryHandler = {
     goToGallery: (gallery: GalleryObj) => {
-      changeGalleryId(gallery.id)
-      return gallery
+      changeGalleryId(gallery.id);
+      return gallery;
     },
     queryListGallerys: async () => {
       const gallerys = await gqlHelper.queryListGallerys();
       changeGallerys(gallerys);
-      changeGalleryId(gallerys[0]?.id || '')
+      changeGalleryId(gallerys[0]?.id || '');
       return gallerys;
     },
     queryCreateGallery: async (
@@ -88,15 +88,19 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       description: string,
       thumbnail: FileObj,
     ) => {
-      const gallery = await gqlHelper.queryCreateGallery(title, description, thumbnail);
+      const gallery = await gqlHelper.queryCreateGallery(
+        title,
+        description,
+        thumbnail,
+      );
       changeGallerys((prev) => [...prev, gallery]);
-      changeGalleryId(gallery.id)
+      changeGalleryId(gallery.id);
       return gallery;
     },
   };
 
   return {
-    gallery, 
+    gallery,
     galleryId,
     gallerys,
     _galleryHandler,

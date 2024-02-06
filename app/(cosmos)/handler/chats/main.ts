@@ -31,7 +31,7 @@ export const useChats = (chapterId: string): useChatInterface => {
       changeChats([]);
       return;
     }
-    _chatHandler.queryListChats()
+    _chatHandler.queryListChats();
   }, [chapterId]);
 
   const gqlHelper = {
@@ -64,7 +64,7 @@ export const useChats = (chapterId: string): useChatInterface => {
       const chat = payload.data?.createChatObj as ChatObj;
       return chat;
     },
-  }
+  };
 
   const _chatHandler: ChatHandler = {
     queryListChats: async () => {

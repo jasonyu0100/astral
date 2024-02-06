@@ -1,16 +1,16 @@
 export function StoryAuthorAbout() {
   return (
     <div className='absolute bottom-[20px]'>
-      <div className='px-[2rem] h-[50px] flex flex-row w-full items-center space-x-[2rem] relative'>
-        <div className='w-[50px] h-[50px] bg-white rounded-[25px] overflow-hidden'>
+      <div className='relative flex h-[50px] w-full flex-row items-center space-x-[2rem] px-[2rem]'>
+        <div className='h-[50px] w-[50px] overflow-hidden rounded-[25px] bg-white'>
           <img
-            className='w-full h-full'
+            className='h-full w-full'
             alt='test'
             src={`/apollo/sea/avatar.png`}
           />
         </div>
-        <p className='text-white font-bold'>Jason</p>
-        <p className='text-white font-regular'>21 hours ago</p>
+        <p className='font-bold text-white'>Jason</p>
+        <p className='font-regular text-white'>21 hours ago</p>
       </div>
     </div>
   );

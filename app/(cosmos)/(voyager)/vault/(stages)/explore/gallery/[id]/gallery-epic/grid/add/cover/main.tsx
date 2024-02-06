@@ -1,9 +1,9 @@
 export function CollectionAddCover() {
   return (
-    <div className='aspect-square h-full bg-black flex items-center justify-center'>
+    <div className='flex aspect-square h-full items-center justify-center bg-black'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className='w-1/6 h-1/6'
+        className='h-1/6 w-1/6'
         viewBox='0 0 20 20'
         fill='none'
       >

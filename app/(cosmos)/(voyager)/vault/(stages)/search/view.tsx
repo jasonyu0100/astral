@@ -8,8 +8,8 @@ import { SearchBarButton } from './search-epic/search-bar/button/main';
 import { useContext } from 'react';
 
 export function SearchView() {
-  const { searchResults, searchResourceHandler } = useContext(SearchContextObj)
-  
+  const { searchResults, searchResourceHandler } = useContext(SearchContextObj);
+
   return (
     <SearchController>
       <SearchBar>

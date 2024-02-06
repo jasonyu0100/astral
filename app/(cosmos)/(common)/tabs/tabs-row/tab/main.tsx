@@ -6,7 +6,7 @@ interface InputProps extends LinkInputProps {
 
 export function Tab({ children, ...props }: InputProps) {
   return (
-    <a {...props} className='flex flex-col items-start w-[9rem] pt-1'>
+    <a {...props} className='flex w-[9rem] flex-col items-start pt-1'>
       {children}
     </a>
   );

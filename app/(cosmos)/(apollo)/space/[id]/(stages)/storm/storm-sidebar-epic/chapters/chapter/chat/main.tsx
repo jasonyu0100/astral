@@ -11,9 +11,9 @@ export function StormChapterChat({ chat }: { chat: ChatObj }) {
       <div className='flex flex-row items-center space-x-[1rem]'>
         <StormChapterAvatar />
         {active ? (
-          <p className='text-slate-300 font-bold text-lg'>{chat.title}</p>
+          <p className='text-lg font-bold text-slate-300'>{chat.title}</p>
         ) : (
-          <p className='text-slate-500 font-bold text-lg'>{chat.title}</p>
+          <p className='text-lg font-bold text-slate-500'>{chat.title}</p>
         )}
       </div>
     </button>

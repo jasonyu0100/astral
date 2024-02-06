@@ -1,4 +1,5 @@
 import { ResourceObj } from '@/tables/resource/main';
+import { cn } from '@/utils/cn';
 import clsx from 'clsx';
 
 export function SearchResult({
@@ -10,8 +11,8 @@ export function SearchResult({
 }) {
   return (
     <div
-      className={clsx(
-        'h-[200px] aspect-[13/16] p-[20px] pb-[0px] flex items-center flex-col bg-stone-100 mb-[20px] flex-shrink-0',
+      className={cn(
+        'mb-[20px] flex aspect-[13/16] h-[200px] flex-shrink-0 flex-col items-center bg-stone-100 p-[20px] pb-[0px]',
         {
           'mt-[20px]': index % 2 === 0,
           'ml-[25px]': index % 2 === 1,
@@ -21,9 +22,9 @@ export function SearchResult({
         },
       )}
     >
-      <img className='w-full aspect-square bg-black' src={result?.file?.src} />
-      <div className='h-full w-full flex flex-col items-center justify-center'>
-        <p className='text-center w-full text-black font-bold text-xl'>
+      <img className='aspect-square w-full bg-black' src={result?.file?.src} />
+      <div className='flex h-full w-full flex-col items-center justify-center'>
+        <p className='w-full text-center text-xl font-bold text-black'>
           {result.name}
         </p>
       </div>

@@ -9,7 +9,7 @@ export function StormChapterChatAdd() {
   return (
     <>
       <button
-        className='flex flex-row w-full items-center space-x-[1rem]'
+        className='flex w-full flex-row items-center space-x-[1rem]'
         onClick={() => newChat.open()}
       >
         <Layer
@@ -43,7 +43,7 @@ export function StormChapterChatAdd() {
             </g>
           </svg>
         </Layer>
-        <p className='text-slate-500 font-bold text-lg'>New Chat</p>
+        <p className='text-lg font-bold text-slate-500'>New Chat</p>
       </button>
     </>
   );
