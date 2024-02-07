@@ -1,20 +1,20 @@
 import { createContext, useState } from 'react';
 
-export interface CartContextObj {
-  editCart: {
+export interface CartModalController {
+  editCartModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const CartModalContext = createContext({} as CartContextObj);
+export const CartModalContext = createContext({} as CartModalController);
 
-export const useCartModalContext = (): CartContextObj => {
+export const useCartModal = (): CartModalController => {
   const [showEditCart, changeShowEditCart] = useState(false);
 
   return {
-    editCart: {
+    editCartModal: {
       opened: showEditCart,
       open: () => changeShowEditCart(true),
       close: () => changeShowEditCart(false),

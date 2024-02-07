@@ -16,7 +16,7 @@ import { GalleryModalContext } from './gallery-epic/modal/main';
 
 export function ExploreGalleryView() {
   const { gallery, collections } = useContext(ExploreGalleryContext);
-  const { createCollection: createCollectionModal } =
+  const { createCollectionModal: createCollectionModal } =
     useContext(GalleryModalContext);
 
   return (

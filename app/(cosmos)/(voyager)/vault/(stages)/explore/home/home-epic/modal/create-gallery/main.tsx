@@ -6,7 +6,7 @@ import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { useContext, useState } from 'react';
 import { ExploreHomeContext } from '../../../page';
 import { HomeModalContext } from '../main';
@@ -14,7 +14,7 @@ import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FormSearchImage } from '@/(common)/form/search-image/main';
 
 export function CreateGalleryModal() {
-  const { createGallery } = useContext(HomeModalContext);
+  const { createGalleryModal: createGallery } = useContext(HomeModalContext);
   const { galleryHandler } = useContext(ExploreHomeContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

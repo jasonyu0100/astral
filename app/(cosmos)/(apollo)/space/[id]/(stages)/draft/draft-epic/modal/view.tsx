@@ -4,7 +4,7 @@ import { DraftAddConstellationModal } from './add-constellation/main';
 import { DraftModalContext } from './main';
 
 export function DraftModalsView() {
-  const { addChapter, addConstellation } = useContext(DraftModalContext);
+  const { addChapterModal: addChapter, addConstellationModal: addConstellation } = useContext(DraftModalContext);
 
   return (
     <>

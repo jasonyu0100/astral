@@ -20,7 +20,7 @@ export function DraftHeader() {
     constellation && chapter
       ? `${constellation.title} - ${chapter.title}`
       : 'None';
-  const { addConstellation } = useContext(DraftModalContext);
+  const { addConstellationModal: addConstellation } = useContext(DraftModalContext);
 
   return (
     <Layer

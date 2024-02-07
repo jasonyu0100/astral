@@ -1,9 +1,9 @@
 import { FormBody } from '../../body/main';
 import { FormContainer } from '../../main';
 import { Modal } from '../../../modal/main';
-import { useUnsplash } from '@/(cosmos)/handler/unsplash/main';
+import { useUnsplash } from '@/handler/unsplash/main';
 import { useEffect, useState } from 'react';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { ImageInputProps } from '../../../types/main';
 import { SearchBar } from '@/(common)/search-bar/main';
 import { cn } from '@/utils/cn';
@@ -87,7 +87,7 @@ function SearchImage({ image, active, ...props }: SearchImageProps) {
     >
       <img
         src={image?.src}
-        alt={image.name}
+        alt={image.title}
         className={cn(`aspect-square  w-full shadow-slate-300/30`)}
         {...props}
       />

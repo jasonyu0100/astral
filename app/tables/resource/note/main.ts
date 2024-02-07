@@ -1,34 +1,41 @@
+export enum NoteVariant {
+  STICKY = 'STICKY',
+  PROMPT = 'PROMPT',
+  CODE = 'CODE',
+  QUOTE = 'QUOTE',
+}
+
 export interface NoteObj {
   id: string;
-  color: string;
-  name: string;
-  content: string;
+  title: string;
+  text: string;
+  variant: string;
 }
 
 export const exampleNote: NoteObj = {
   id: '0',
-  color: 'yellow-500',
-  content: 'How do I write poetry?',
-  name: 'Example Sticky',
+  title: 'Example Sticky',
+  text: 'How do I write poetry?',
+  variant: NoteVariant.STICKY,
 };
 
 export const exampleNotes: NoteObj[] = [
   {
     id: '0',
-    color: 'yellow-500',
-    content: 'How do I write poetry?',
-    name: 'Example Sticky',
+    text: 'How do I write poetry?',
+    title: 'Example Sticky',
+    variant: NoteVariant.STICKY,
   },
   {
     id: '0',
-    color: 'yellow-500',
-    content: 'How do I write poetry?',
-    name: 'Example Sticky',
+    text: 'How do I write poetry?',
+    title: 'Example Sticky',
+    variant: NoteVariant.STICKY,
   },
   {
     id: '0',
-    color: 'yellow-500',
-    content: 'How do I write poetry?',
-    name: 'Example Sticky',
+    text: 'How do I write poetry?',
+    title: 'Example Sticky',
+    variant: NoteVariant.STICKY,
   },
 ];

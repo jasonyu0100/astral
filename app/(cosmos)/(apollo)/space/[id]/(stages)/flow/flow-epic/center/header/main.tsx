@@ -15,7 +15,7 @@ import { FlowModalContext } from '../../modal/main';
 import { FlowLoomButton } from './right/loom/main';
 
 export function FlowHeader() {
-  const { addMoment } = useContext(FlowModalContext);
+  const { addMomentModal: addMoment } = useContext(FlowModalContext);
 
   return (
     <Layer

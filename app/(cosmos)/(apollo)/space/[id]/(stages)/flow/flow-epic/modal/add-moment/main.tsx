@@ -12,12 +12,12 @@ import { Modal } from '@/(common)/modal/main';
 import { MomentVisibility } from '@/tables/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowContext } from '../../../page';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { FlowModalContext } from '../main';
 
 export function FlowAddMomentModal() {
   const { momentHandler } = useContext(FlowContext);
-  const { addMoment } = useContext(FlowModalContext);
+  const { addMomentModal: addMoment } = useContext(FlowModalContext);
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
   const [visibility, changeVisibility] = useState(

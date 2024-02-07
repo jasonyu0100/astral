@@ -1,51 +1,51 @@
-import { LoomObj } from '@/tables/resource/loom/main';
+import { LogObj } from '@/tables/resource/log/main';
 import { createContext, useState } from 'react';
 
-export interface FlowModalsContextObj {
-  addChapter: {
+export interface FlowModalController {
+  addChapterModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  addMoment: {
+  addMomentModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  addLoom: {
+  addLoomModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
-    loom: LoomObj;
-    updateLoom: (loomObj: LoomObj) => void;
+    loom: LogObj;
+    updateLoom: (loomObj: LogObj) => void;
   };
 }
 
-export const FlowModalContext = createContext({} as FlowModalsContextObj);
+export const FlowModalContext = createContext({} as FlowModalController);
 
-export const useFlowModalContext = (): FlowModalsContextObj => {
+export const useFlowModal = (): FlowModalController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
-  const [loom, changeLoom] = useState({} as LoomObj);
+  const [loom, changeLoom] = useState({} as LogObj);
 
   return {
-    addChapter: {
+    addChapterModal: {
       opened: showOne,
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    addMoment: {
+    addMomentModal: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),
     },
-    addLoom: {
+    addLoomModal: {
       opened: showThree,
       open: () => changeShowThree(true),
       close: () => changeShowThree(false),
       loom: loom,
-      updateLoom: (loomObj: LoomObj) => changeLoom(loomObj),
+      updateLoom: (loomObj: LogObj) => changeLoom(loomObj),
     },
   };
 };

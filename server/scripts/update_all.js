@@ -9,16 +9,16 @@ AWS.config.update({
 
 // Create a DynamoDB Document Client and define the table name
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = 'FileObjTable';
+const tableName = 'ChapterObjTable';
 
 // Function to update a single item by ID
-const updateItem = async (itemId) => {
+const updateItem = async (itemId, key, value) => {
   const updateParams = {
     TableName: tableName,
     Key: { id: itemId },
-    UpdateExpression: 'SET variant = :variant',
+    UpdateExpression: `SET ${key} = :value`,
     ExpressionAttributeValues: {
-      ':variant': 'VISUAL',
+      ':value': value,
     },
   };
 
@@ -90,15 +90,16 @@ const updateAllItems = async () => {
     const scanResult = await dynamodb.scan(scanParams).promise();
 
     // Update each item in the result set
-    for (const item of scanResult.Items) {
+    for (const [index, item] of scanResult.Items.entries()) {
       const itemId = item.id;
       const jsonItem = JSON.parse(JSON.stringify(item));
-      jsonItem['fileType'] = jsonItem['type'];
-      delete jsonItem['type'];
-      console.log(jsonItem);
-      await deleteItem(itemId);
-      await insertItem(jsonItem);
-      // await updateItem(itemId);
+      console.log(jsonItem)
+      // jsonItem['fileType'] = jsonItem['type'];
+      // delete jsonItem['type'];
+      // console.log(jsonItem);
+      // await deleteItem(itemId);
+      // await insertItem(jsonItem);
+      await updateItem(itemId, "idx", index);
       // await deleteItemField(itemId, 'type');
     }
 

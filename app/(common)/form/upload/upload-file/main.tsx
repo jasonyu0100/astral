@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/client';
-import { FileObj } from '@/tables/file/main';
+import { FileObj, FileVariant, getFileVariantFromMimeType } from '@/tables/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { createFileObj } from '../../../../../server/graphql/mutations';
 import { UploadedFile } from './uploaded-file/main';
@@ -21,9 +21,9 @@ export function FormUploadFile({
 
   const handleFileChange = async (event: any) => {
     const file = event.target.files[0];
-    const name = file.name;
+    const fileName = file.name;
     const fileType = file.type;
-    const size = file.size;
+    const fileSize = file.size;
 
     const { url } = await fetch('/s3Url').then((res) => res.json());
 
@@ -39,19 +39,21 @@ export function FormUploadFile({
     const filePayload: FileObj = {
       id: crypto.randomUUID(),
       src: fileSrc,
-      name: name,
+      title: fileName,
       fileType: fileType,
-      size: size,
+      size: fileSize,
+      variant: getFileVariantFromMimeType(fileType)
     };
 
     await amplifyClient.graphql({
       query: createFileObj,
       variables: {
         input: {
-          name: filePayload.name,
+          title: filePayload.title,
           src: filePayload.src,
           fileType: filePayload.fileType,
           size: filePayload.size,
+          variant: filePayload.variant,
         },
       },
     });

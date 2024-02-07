@@ -1,31 +1,31 @@
 import { createContext, useState } from 'react';
 
-export interface StormModalsContextObj {
-  addChapter: {
+export interface StormModalController {
+  addChapterModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  addChat: {
+  addChatModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const StormModalContext = createContext({} as StormModalsContextObj);
+export const StormModalContext = createContext({} as StormModalController);
 
-export const useStormModalContext = (): StormModalsContextObj => {
+export const useStormModal = (): StormModalController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
 
   return {
-    addChapter: {
+    addChapterModal: {
       opened: showOne,
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    addChat: {
+    addChatModal: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),

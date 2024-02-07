@@ -3,16 +3,16 @@ import { StormView } from './view';
 import { ChatObj } from '@/tables/storm/chat/main';
 import { MessageObj } from '@/tables/storm/chat/message/main';
 import { ChapterObj } from '@/tables/space/chapter/main';
-import { ChapterHandler, useChapters } from '@/(cosmos)/handler/chapters/main';
-import { ChatHandler, useChats } from '@/(cosmos)/handler/chats/main';
+import { ChapterHandler, useChapters } from '@/handler/chapters/main';
+import { ChatHandler, useChats } from '@/handler/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext, useEffect } from 'react';
-import { MessageHandler, useMessages } from '@/(cosmos)/handler/messages/main';
+import { MessageHandler, useMessages } from '@/handler/messages/main';
 import { useGlobalSpace } from '@/state/space/main';
-import { useSpace } from '@/(cosmos)/handler/space/main';
+import { useSpace } from '@/handler/space/main';
 import {
   StormModalContext,
-  useStormModalContext,
+  useStormModal,
 } from './storm-epic/modal/main';
 
 interface StormContextObj {
@@ -62,7 +62,7 @@ function Page({ params }: { params: { id: string } }) {
     messageHandler: _messageHandler,
   };
 
-  const modalContext = useStormModalContext();
+  const modalContext = useStormModal();
 
   return (
     <StormModalContext.Provider value={modalContext}>

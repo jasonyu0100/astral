@@ -6,13 +6,13 @@ import { CollectionObj } from '@/tables/gallery/collection/main';
 import insideCosmos from '@/utils/isAuth';
 import {
   GalleryModalContext,
-  useGalleryModalContext,
+  useGalleryModal,
 } from './gallery-epic/modal/main';
-import { useGallery } from '@/(cosmos)/handler/gallery/main';
+import { useGallery } from '@/handler/gallery/main';
 import {
   CollectionHandler,
   useCollections,
-} from '@/(cosmos)/handler/collections/main';
+} from '@/handler/collections/main';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;
@@ -27,7 +27,7 @@ export const ExploreGalleryContext = createContext<ExploreGalleryContextObj>(
 function Page({ params }: { params: { id: string } }) {
   const { gallery } = useGallery(params.id);
   const { collections, _collectionHandler } = useCollections(gallery.id);
-  const modalContext = useGalleryModalContext();
+  const modalContext = useGalleryModal();
 
   const context: ExploreGalleryContextObj = {
     gallery,

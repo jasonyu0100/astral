@@ -1,5 +1,5 @@
-import { FileObj, exampleFile } from '../../file/main';
-import { LoomObj } from '@/tables/resource/loom/main';
+import { FileObj, exampleFile } from '../../resource/file/main';
+import { LogObj } from '@/tables/resource/log/main';
 import { NoteObj } from '@/tables/resource/note/main';
 
 export enum MomentVisibility {
@@ -11,26 +11,10 @@ export enum MomentVisibility {
 
 export enum MomentVariant {
   FILE = 'FILE',
-  LOOM = 'LOOM',
-  STICKY = 'STICKY',
+  LOG = 'LOG',
+  NOTE = 'NOTE',
+  LINK = 'LINK',
 }
-
-export const momentSchema = `
-type MomentObj {
-  id: String!
-  chapterId: String!
-  spaceId: String!
-  userId: String!
-  time: String!
-  title: String!
-  log: String!
-  visibility: String!
-  variant: String!
-  file: FileObj
-  loom: LoomObj
-  sticky: StickyObj
-}`;
-
 export interface MomentObj {
   id: string;
   chapterId: string;
@@ -38,11 +22,11 @@ export interface MomentObj {
   userId: string;
   time: string;
   title: string;
-  log: string;
+  description: string;
   visibility: string;
   variant: string;
   file?: FileObj;
-  loom?: LoomObj;
+  loom?: LogObj;
   sticky?: NoteObj;
 }
 
@@ -50,7 +34,7 @@ export const exampleMoment: MomentObj = {
   id: '0',
   time: new Date('2023-12-19').toISOString(),
   title: 'Moment Title 0',
-  log: 'Moment Description Example',
+  description: 'Moment Description Example',
   file: exampleFile,
   spaceId: '0',
   userId: '0',
@@ -64,7 +48,7 @@ export const exampleMoments: MomentObj[] = [
     id: '0',
     time: new Date('2023-12-19').toISOString(),
     title: 'Moment Title 0',
-    log: 'Moment Description Example',
+    description: 'Moment Description Example',
     file: exampleFile,
     spaceId: '0',
     userId: '0',
@@ -76,7 +60,7 @@ export const exampleMoments: MomentObj[] = [
     id: '1',
     time: new Date('2023-12-19').toISOString(),
     title: 'Moment Title 1',
-    log: 'Moment Description Example',
+    description: 'Moment Description Example',
     file: exampleFile,
     spaceId: '0',
     userId: '0',

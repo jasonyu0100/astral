@@ -1,6 +1,4 @@
 'use client';
-
-import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 import { SpaceCount } from './count/main';
 import { SpaceDate } from './date/main';
 import { SpaceDay } from './day/main';

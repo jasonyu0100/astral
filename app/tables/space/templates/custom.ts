@@ -1,6 +1,6 @@
-import { ChapterTemplate } from './main';
+import { ChapterTemplateObj } from './main';
 
-export const customTemplate: ChapterTemplate[] = [
+export const customTemplate: ChapterTemplateObj[] = [
   {
     title: 'Chapter One [edit me]',
     description: 'The first chapter of the story.',

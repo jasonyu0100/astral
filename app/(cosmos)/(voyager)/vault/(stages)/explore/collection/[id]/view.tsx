@@ -18,7 +18,7 @@ export default function ExploreCollectionView() {
   const { gallery, collection, resources } = useContext(
     ExploreCollectionContext,
   );
-  const { addFile } = useContext(CollectionModalContext);
+  const { addFileModal: addFile } = useContext(CollectionModalContext);
 
   return (
     <CollectionWrapper>
@@ -43,7 +43,7 @@ export default function ExploreCollectionView() {
             active={true}
             href={vaultMap.vault.explore.collection.id.link(collection.id)}
           >
-            {collection.name}
+            {collection.title}
           </CollectionBreadcrumbItem>
         </CollectionBreadcrumbs>
         <CollectionResourceGrid>

@@ -1,21 +1,21 @@
 import { createContext, useState } from 'react';
 
-export interface GalleryModalsContextObj {
-  createCollection: {
+export interface GalleryModalController {
+  createCollectionModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const GalleryModalContext = createContext({} as GalleryModalsContextObj);
+export const GalleryModalContext = createContext({} as GalleryModalController);
 
-export const useGalleryModalContext = (): GalleryModalsContextObj => {
+export const useGalleryModal = (): GalleryModalController => {
   const [showCreateGalleryModal, changeShowCreateGalleryModal] =
     useState(false);
 
   return {
-    createCollection: {
+    createCollectionModal: {
       opened: showCreateGalleryModal,
       open: () => changeShowCreateGalleryModal(true),
       close: () => changeShowCreateGalleryModal(false),

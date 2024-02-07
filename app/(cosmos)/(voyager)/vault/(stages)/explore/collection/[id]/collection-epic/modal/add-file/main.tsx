@@ -8,14 +8,14 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { useContext, useState } from 'react';
 import { ExploreCollectionContext } from '../../../page';
 import { CollectionModalContext } from '../main';
 
 export function AddFileModal() {
   const { resourceHandler } = useContext(ExploreCollectionContext);
-  const { addFile } = useContext(CollectionModalContext);
+  const { addFileModal: addFile } = useContext(CollectionModalContext);
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileObj);

@@ -18,7 +18,7 @@ import { FlowModalContext } from './flow-epic/modal/main';
 
 export function FlowView() {
   const { moments, chapters } = useContext(FlowContext);
-  const { addChapter } = useContext(FlowModalContext);
+  const { addChapterModal: addChapter } = useContext(FlowModalContext);
 
   return (
     <FlowWrapper>

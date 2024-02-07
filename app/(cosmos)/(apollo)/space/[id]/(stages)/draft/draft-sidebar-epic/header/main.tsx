@@ -34,7 +34,7 @@ export function DraftSidebarHeader() {
             active={sidebarMode === SidebarMode.Collection}
             onClick={() => sidebarHandler.goToCollectionView()}
           >
-            {collection?.name}
+            {collection?.title}
           </BreadcrumbsLink>
         </>
       )}

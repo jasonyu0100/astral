@@ -2,7 +2,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import * as APITypes from './API';
+import * as APITypes from "./API";
 type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryInput: InputType;
   __generatedQueryOutput: OutputType;
@@ -19,8 +19,9 @@ export const getSpace = /* GraphQL */ `query GetSpace {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     variant
@@ -28,127 +29,28 @@ export const getSpace = /* GraphQL */ `query GetSpace {
   }
 }
 ` as GeneratedQuery<APITypes.GetSpaceQueryVariables, APITypes.GetSpaceQuery>;
-export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
-  getStarObj(id: $id) {
-    id
-    constellationId
-    name
-    x
-    y
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    variant
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetStarObjQueryVariables,
-  APITypes.GetStarObjQuery
->;
-export const listStarObjs = /* GraphQL */ `query ListStarObjs(
-  $filter: TableStarObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listStarObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      constellationId
-      name
-      x
-      y
-      file {
-        id
-        src
-        fileType
-        name
-        size
-        __typename
-      }
-      loom {
-        id
-        loomId
-        height
-        width
-        title
-        sharedUrl
-        embedUrl
-        thumbnailHeight
-        thumbnailWidth
-        thumbnailUrl
-        duration
-        providerUrl
-        __typename
-      }
-      sticky {
-        id
-        color
-        name
-        content
-        __typename
-      }
-      variant
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListStarObjsQueryVariables,
-  APITypes.ListStarObjsQuery
->;
-export const getResourceObj =
-  /* GraphQL */ `query GetResourceObj($id: String!) {
+export const getResourceObj = /* GraphQL */ `query GetResourceObj($id: String!) {
   getResourceObj(id: $id) {
     id
     userId
     collectionId
-    name
+    title
     description
     variant
     file {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
-    loom {
+    log {
       id
       loomId
       height
       width
-      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -158,20 +60,27 @@ export const getResourceObj =
       providerUrl
       __typename
     }
-    sticky {
+    link {
       id
-      color
-      name
-      content
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetResourceObjQueryVariables,
-    APITypes.GetResourceObjQuery
-  >;
+  APITypes.GetResourceObjQueryVariables,
+  APITypes.GetResourceObjQuery
+>;
 export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   $filter: TableResourceObjFilterInput
   $limit: Int
@@ -182,23 +91,23 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
       id
       userId
       collectionId
-      name
+      title
       description
       variant
       file {
         id
         src
         fileType
-        name
+        title
         size
+        variant
         __typename
       }
-      loom {
+      log {
         id
         loomId
         height
         width
-        title
         sharedUrl
         embedUrl
         thumbnailHeight
@@ -208,11 +117,18 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
         providerUrl
         __typename
       }
-      sticky {
+      link {
         id
-        color
-        name
-        content
+        url
+        title
+        variant
+        __typename
+      }
+      note {
+        id
+        title
+        text
+        variant
         __typename
       }
       __typename
@@ -225,8 +141,7 @@ export const listResourceObjs = /* GraphQL */ `query ListResourceObjs(
   APITypes.ListResourceObjsQueryVariables,
   APITypes.ListResourceObjsQuery
 >;
-export const getConstellationObj =
-  /* GraphQL */ `query GetConstellationObj($id: String!) {
+export const getConstellationObj = /* GraphQL */ `query GetConstellationObj($id: String!) {
   getConstellationObj(id: $id) {
     id
     chapterId
@@ -237,9 +152,9 @@ export const getConstellationObj =
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetConstellationObjQueryVariables,
-    APITypes.GetConstellationObjQuery
-  >;
+  APITypes.GetConstellationObjQueryVariables,
+  APITypes.GetConstellationObjQuery
+>;
 export const listConstellationObjs = /* GraphQL */ `query ListConstellationObjs(
   $filter: TableConstellationObjFilterInput
   $limit: Int
@@ -272,8 +187,9 @@ export const getGalleryObj = /* GraphQL */ `query GetGalleryObj($id: String!) {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
@@ -298,8 +214,9 @@ export const listGalleryObjs = /* GraphQL */ `query ListGalleryObjs(
         id
         src
         fileType
-        name
+        title
         size
+        variant
         __typename
       }
       __typename
@@ -324,8 +241,9 @@ export const getUserObj = /* GraphQL */ `query GetUserObj($id: String!) {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
@@ -352,8 +270,9 @@ export const listUserObjs = /* GraphQL */ `query ListUserObjs(
         id
         src
         fileType
-        name
+        title
         size
+        variant
         __typename
       }
       __typename
@@ -372,6 +291,7 @@ export const getChapterObj = /* GraphQL */ `query GetChapterObj($id: String!) {
     spaceId
     title
     description
+    idx
     __typename
   }
 }
@@ -390,6 +310,7 @@ export const listChapterObjs = /* GraphQL */ `query ListChapterObjs(
       spaceId
       title
       description
+      idx
       __typename
     }
     nextToken
@@ -449,8 +370,9 @@ export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: String!) {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     variant
@@ -477,8 +399,9 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
         id
         src
         fileType
-        name
+        title
         size
+        variant
         __typename
       }
       variant
@@ -492,123 +415,18 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
   APITypes.ListSpaceObjsQueryVariables,
   APITypes.ListSpaceObjsQuery
 >;
-export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
-  getMomentObj(id: $id) {
-    id
-    chapterId
-    spaceId
-    userId
-    time
-    title
-    log
-    visibility
-    variant
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetMomentObjQueryVariables,
-  APITypes.GetMomentObjQuery
->;
-export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
-  $filter: TableMomentObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listMomentObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      chapterId
-      spaceId
-      userId
-      time
-      title
-      log
-      visibility
-      variant
-      file {
-        id
-        src
-        fileType
-        name
-        size
-        __typename
-      }
-      loom {
-        id
-        loomId
-        height
-        width
-        title
-        sharedUrl
-        embedUrl
-        thumbnailHeight
-        thumbnailWidth
-        thumbnailUrl
-        duration
-        providerUrl
-        __typename
-      }
-      sticky {
-        id
-        color
-        name
-        content
-        __typename
-      }
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListMomentObjsQueryVariables,
-  APITypes.ListMomentObjsQuery
->;
-export const getCollectionObj =
-  /* GraphQL */ `query GetCollectionObj($id: String!) {
+export const getCollectionObj = /* GraphQL */ `query GetCollectionObj($id: String!) {
   getCollectionObj(id: $id) {
     id
     galleryId
-    name
+    title
     __typename
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetCollectionObjQueryVariables,
-    APITypes.GetCollectionObjQuery
-  >;
+  APITypes.GetCollectionObjQueryVariables,
+  APITypes.GetCollectionObjQuery
+>;
 export const listCollectionObjs = /* GraphQL */ `query ListCollectionObjs(
   $filter: TableCollectionObjFilterInput
   $limit: Int
@@ -618,7 +436,7 @@ export const listCollectionObjs = /* GraphQL */ `query ListCollectionObjs(
     items {
       id
       galleryId
-      name
+      title
       __typename
     }
     nextToken
@@ -634,8 +452,9 @@ export const getFileObj = /* GraphQL */ `query GetFileObj($id: String!) {
     id
     src
     fileType
-    name
+    title
     size
+    variant
     __typename
   }
 }
@@ -653,8 +472,9 @@ export const listFileObjs = /* GraphQL */ `query ListFileObjs(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     nextToken
@@ -767,8 +587,7 @@ export const listChatObjs = /* GraphQL */ `query ListChatObjs(
   APITypes.ListChatObjsQueryVariables,
   APITypes.ListChatObjsQuery
 >;
-export const getReservationObj =
-  /* GraphQL */ `query GetReservationObj($id: String!) {
+export const getReservationObj = /* GraphQL */ `query GetReservationObj($id: String!) {
   getReservationObj(id: $id) {
     id
     fname
@@ -778,9 +597,9 @@ export const getReservationObj =
   }
 }
 ` as GeneratedQuery<
-    APITypes.GetReservationObjQueryVariables,
-    APITypes.GetReservationObjQuery
-  >;
+  APITypes.GetReservationObjQueryVariables,
+  APITypes.GetReservationObjQuery
+>;
 export const listReservationObjs = /* GraphQL */ `query ListReservationObjs(
   $filter: TableReservationObjFilterInput
   $limit: Int
@@ -802,13 +621,46 @@ export const listReservationObjs = /* GraphQL */ `query ListReservationObjs(
   APITypes.ListReservationObjsQueryVariables,
   APITypes.ListReservationObjsQuery
 >;
-export const getLoomObj = /* GraphQL */ `query GetLoomObj($id: String!) {
-  getLoomObj(id: $id) {
+export const getNoteObj = /* GraphQL */ `query GetNoteObj($id: String!) {
+  getNoteObj(id: $id) {
+    id
+    title
+    text
+    variant
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetNoteObjQueryVariables,
+  APITypes.GetNoteObjQuery
+>;
+export const listNoteObjs = /* GraphQL */ `query ListNoteObjs(
+  $filter: TableNoteObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listNoteObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListNoteObjsQueryVariables,
+  APITypes.ListNoteObjsQuery
+>;
+export const getLogObj = /* GraphQL */ `query GetLogObj($id: String!) {
+  getLogObj(id: $id) {
     id
     loomId
     height
     width
-    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -819,22 +671,18 @@ export const getLoomObj = /* GraphQL */ `query GetLoomObj($id: String!) {
     __typename
   }
 }
-` as GeneratedQuery<
-  APITypes.GetLoomObjQueryVariables,
-  APITypes.GetLoomObjQuery
->;
-export const listLoomObjs = /* GraphQL */ `query ListLoomObjs(
-  $filter: TableLoomObjFilterInput
+` as GeneratedQuery<APITypes.GetLogObjQueryVariables, APITypes.GetLogObjQuery>;
+export const listLogObjs = /* GraphQL */ `query ListLogObjs(
+  $filter: TableLogObjFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listLoomObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listLogObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       loomId
       height
       width
-      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -849,33 +697,33 @@ export const listLoomObjs = /* GraphQL */ `query ListLoomObjs(
   }
 }
 ` as GeneratedQuery<
-  APITypes.ListLoomObjsQueryVariables,
-  APITypes.ListLoomObjsQuery
+  APITypes.ListLogObjsQueryVariables,
+  APITypes.ListLogObjsQuery
 >;
-export const getStickyObj = /* GraphQL */ `query GetStickyObj($id: String!) {
-  getStickyObj(id: $id) {
+export const getLinkObj = /* GraphQL */ `query GetLinkObj($id: String!) {
+  getLinkObj(id: $id) {
     id
-    color
-    name
-    content
+    url
+    title
+    variant
     __typename
   }
 }
 ` as GeneratedQuery<
-  APITypes.GetStickyObjQueryVariables,
-  APITypes.GetStickyObjQuery
+  APITypes.GetLinkObjQueryVariables,
+  APITypes.GetLinkObjQuery
 >;
-export const listStickyObjs = /* GraphQL */ `query ListStickyObjs(
-  $filter: TableStickyObjFilterInput
+export const listLinkObjs = /* GraphQL */ `query ListLinkObjs(
+  $filter: TableLinkObjFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listStickyObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listLinkObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      color
-      name
-      content
+      url
+      title
+      variant
       __typename
     }
     nextToken
@@ -883,6 +731,238 @@ export const listStickyObjs = /* GraphQL */ `query ListStickyObjs(
   }
 }
 ` as GeneratedQuery<
-  APITypes.ListStickyObjsQueryVariables,
-  APITypes.ListStickyObjsQuery
+  APITypes.ListLinkObjsQueryVariables,
+  APITypes.ListLinkObjsQuery
+>;
+export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
+  getStarObj(id: $id) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetStarObjQueryVariables,
+  APITypes.GetStarObjQuery
+>;
+export const listStarObjs = /* GraphQL */ `query ListStarObjs(
+  $filter: TableStarObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listStarObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      constellationId
+      title
+      description
+      x
+      y
+      variant
+      file {
+        id
+        src
+        fileType
+        title
+        size
+        variant
+        __typename
+      }
+      log {
+        id
+        loomId
+        height
+        width
+        sharedUrl
+        embedUrl
+        thumbnailHeight
+        thumbnailWidth
+        thumbnailUrl
+        duration
+        providerUrl
+        __typename
+      }
+      note {
+        id
+        title
+        text
+        variant
+        __typename
+      }
+      link {
+        id
+        url
+        title
+        variant
+        __typename
+      }
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListStarObjsQueryVariables,
+  APITypes.ListStarObjsQuery
+>;
+export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
+  getMomentObj(id: $id) {
+    id
+    chapterId
+    spaceId
+    userId
+    time
+    title
+    description
+    visibility
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetMomentObjQueryVariables,
+  APITypes.GetMomentObjQuery
+>;
+export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
+  $filter: TableMomentObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMomentObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      chapterId
+      spaceId
+      userId
+      time
+      title
+      description
+      visibility
+      variant
+      file {
+        id
+        src
+        fileType
+        title
+        size
+        variant
+        __typename
+      }
+      log {
+        id
+        loomId
+        height
+        width
+        sharedUrl
+        embedUrl
+        thumbnailHeight
+        thumbnailWidth
+        thumbnailUrl
+        duration
+        providerUrl
+        __typename
+      }
+      link {
+        id
+        url
+        title
+        variant
+        __typename
+      }
+      note {
+        id
+        title
+        text
+        variant
+        __typename
+      }
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListMomentObjsQueryVariables,
+  APITypes.ListMomentObjsQuery
 >;

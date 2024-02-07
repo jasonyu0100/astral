@@ -12,7 +12,7 @@ export function StormChapter({ chapter }: { chapter: ChapterObj }) {
   const active = chapter.id === chapterId;
 
   return (
-    <div className='flex flex-col space-y-[2rem]'>
+    <div className='flex flex-col py-[1rem] mr-[1rem] space-y-[1rem]'>
       {active ? (
         <>
           <StormChapterHeader chapter={chapter}>
@@ -21,10 +21,12 @@ export function StormChapter({ chapter }: { chapter: ChapterObj }) {
             </StormChapterTitle>
             <StormChapterIndicator />
           </StormChapterHeader>
-          {chats.map((chat) => (
-            <StormChapterChat chat={chat} />
-          ))}
-          <StormChapterChatAdd />
+          <div className="flex flex-col w-full space-y-[1rem]">
+            {chats.map((chat) => (
+              <StormChapterChat chat={chat} />
+            ))}
+            <StormChapterChatAdd />
+          </div>
         </>
       ) : (
         <>

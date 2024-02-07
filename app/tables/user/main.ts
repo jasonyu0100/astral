@@ -1,4 +1,4 @@
-import { FileObj, exampleProfileImageFile } from '../file/main';
+import { FileObj, exampleProfileImageFile } from '../resource/file/main';
 
 export interface UserObj {
   id: string;

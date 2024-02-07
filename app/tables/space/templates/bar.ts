@@ -1,10 +1,20 @@
-import { ChapterTemplate } from './main';
+import { ConstellationVariant } from '@/tables/draft/constellation/main';
+import { ChapterTemplateObj } from './main';
 
-export const barTemplate: ChapterTemplate[] = [
+export const barTemplate: ChapterTemplateObj[] = [
   {
     title: 'Drums',
     description:
       "The 'Drums' section is the rhythmic backbone of the composition. It includes percussive elements such as kick, snare, hi-hats, and other drum elements. Drums contribute to the overall groove, energy, and feel of the musical piece.",
+    chatTemplate: {
+      title: 'Drums Chat',
+      description: 'Chat about the drum section.',
+    },
+    constellationTemplate: {
+      title: 'Drums Constellation',
+      description: 'Explore the drum section.',
+      variant: ConstellationVariant.VISUAL,
+    }
   },
   {
     title: 'Bass',

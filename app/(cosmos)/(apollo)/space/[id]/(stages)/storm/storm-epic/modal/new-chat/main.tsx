@@ -12,7 +12,7 @@ import { StormContext } from '../../../page';
 import { StormModalContext } from '../main';
 
 export function StormAddChatModal() {
-  const { addChat: newChat } = useContext(StormModalContext);
+  const { addChatModal: newChat } = useContext(StormModalContext);
   const { chatHandler } = useContext(StormContext);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');

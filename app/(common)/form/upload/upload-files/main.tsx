@@ -1,7 +1,7 @@
 import { effectStyles } from '@/(common)/styles/data';
 import { amplifyClient } from '@/client';
 import { createFileObj } from '@/graphql/mutations';
-import { FileObj } from '@/tables/file/main';
+import { FileObj, getFileVariantFromMimeType } from '@/tables/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { UploadedFileInfo } from '../upload-file/uploaded-file/info/main';
 import { UploadedFile } from '../upload-file/uploaded-file/main';
@@ -25,9 +25,9 @@ export function FormUploadFiles({
     const files: any[] = Array.from(event.target.files);
     const payload: FileObj[] = [];
     for (let file of files) {
-      const name = file.name;
+      const fileName = file.name;
       const fileType = file.type;
-      const size = file.size;
+      const fileSize = file.size;
 
       // get secure url from our server
       const { url } = await fetch('/s3Url').then((res) => res.json());
@@ -46,19 +46,21 @@ export function FormUploadFiles({
       const filePayload: FileObj = {
         id: crypto.randomUUID(),
         src: fileSrc,
-        name: name,
+        title: fileName,
         fileType: fileType,
-        size: size,
+        size: fileSize,
+        variant: getFileVariantFromMimeType(fileType),
       };
 
       await amplifyClient.graphql({
         query: createFileObj,
         variables: {
           input: {
-            name: filePayload.name,
+            title: filePayload.title,
             src: filePayload.src,
             fileType: filePayload.fileType,
             size: filePayload.size,
+            variant: filePayload.variant,
           },
         },
       });

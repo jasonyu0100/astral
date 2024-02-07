@@ -14,7 +14,7 @@ export function FeedMoment({ moment }: { moment: MomentObj }) {
         <PostMedia moment={moment} />
         <PostDescription>
           <PostInfo />
-          <PostBody>{moment.log}</PostBody>
+          <PostBody>{moment.description}</PostBody>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <Link
               className='font-extraBold text-blue-500'

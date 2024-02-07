@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { StormModalContext } from '../../../../../storm-epic/modal/main';
 
 export function StormChapterChatAdd() {
-  const { addChat: newChat } = useContext(StormModalContext);
+  const { addChatModal: newChat } = useContext(StormModalContext);
 
   return (
     <>
@@ -14,7 +14,7 @@ export function StormChapterChatAdd() {
       >
         <Layer
           displayName={StormChapterChatAdd.name}
-          sizeStyle='w-[50px] h-[50px] rounded-[25px] overflow-hidden'
+          sizeStyle='w-[50px] h-[50px] rounded-full overflow-hidden'
           backgroundStyle='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
           className={`${containerStyles['col-centered']}`}
         >
@@ -22,6 +22,7 @@ export function StormChapterChatAdd() {
             xmlns='http://www.w3.org/2000/svg'
             width='32'
             height='32'
+            className="w-1/2 h-1/2"
             viewBox='0 0 32 32'
             fill='none'
           >

@@ -19,7 +19,7 @@ export function FlowMoment({ moment, index }: FlowMomentProps) {
         <MomentMedia moment={moment} />
         <MomentDescription>
           <MomentInfo />
-          <MomentBody>{moment.log}</MomentBody>
+          <MomentBody>{moment.description}</MomentBody>
         </MomentDescription>
       </div>
       <MomentDivider />

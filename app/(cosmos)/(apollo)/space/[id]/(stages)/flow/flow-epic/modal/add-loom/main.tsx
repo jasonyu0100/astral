@@ -16,7 +16,7 @@ import { oembed } from '@loomhq/loom-embed';
 
 export function FlowAddLoomModal() {
   const { momentHandler } = useContext(FlowContext);
-  const { addLoom } = useContext(FlowModalContext);
+  const { addLoomModal: addLoom } = useContext(FlowModalContext);
   const { loom } = addLoom;
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');

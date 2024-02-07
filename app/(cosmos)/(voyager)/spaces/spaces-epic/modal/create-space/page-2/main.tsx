@@ -42,7 +42,7 @@ export function PageTwo() {
                   }
                 />
                 <button
-                  className='ml-auto h-[30px] w-[30px] rounded-full'
+                  className='h-[30px] w-[30px] rounded-full border-slate-300 border-[1px] ml-auto mr-[15px]'
                   onClick={() =>
                     updateChapterTemplates(
                       chapterTemplates.filter((_, i) => i !== index),
@@ -63,12 +63,12 @@ export function PageTwo() {
                       width='24'
                       height='24'
                     >
-                      <rect width='24' height='24' className='fill-slate-500' />
+                      <rect width='24' height='24' className='fill-slate-300' />
                     </mask>
                     <g mask='url(#mask0_2962_7)'>
                       <path
                         d='M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z'
-                        className='fill-slate-500'
+                        className='fill-slate-300'
                       />
                     </g>
                   </svg>
@@ -91,7 +91,7 @@ export function PageTwo() {
           <div className='flex h-[50px] w-full flex-row'>
             <div className='flex flex-grow items-center justify-center'>
               <button
-                className='h-[30px] w-[30px] rounded-full'
+                className='h-[30px] w-[30px] rounded-full border-slate-300 border-[1px]'
                 onClick={() =>
                   updateChapterTemplates([
                     ...chapterTemplates,
@@ -120,19 +120,18 @@ export function PageTwo() {
                       width='24'
                       height='24'
                       fill='#D9D9D9'
-                      className='fill-slate-500'
+                      className='fill-slate-300'
                     />
                   </mask>
                   <g mask='url(#mask0_3100_7)'>
                     <path
                       d='M11 13H5V11H11V5H13V11H19V13H13V19H11V13Z'
-                      className='fill-slate-500'
+                      className='fill-slate-300'
                     />
                   </g>
                 </svg>
               </button>
             </div>
-            <div className='w-[50px] flex-shrink-0' />
           </div>
         </div>
       ) : (

@@ -10,7 +10,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
   const [videoHTML, setVideoHTML] = useState('');
 
   useEffect(() => {
-    if (moment.variant == ResourceVariant.LOOM) {
+    if (moment.variant == ResourceVariant.LOG) {
       embedLoom();
     }
   }, []);
@@ -32,7 +32,7 @@ export function MomentMedia({ moment }: { moment: MomentObj }) {
           src={moment?.file?.src}
         />
       )}
-      {moment.variant === ResourceVariant.LOOM && (
+      {moment.variant === ResourceVariant.LOG && (
         <div
           className='flex aspect-square w-full flex-shrink-0 flex-col items-center justify-center bg-black'
           dangerouslySetInnerHTML={{ __html: videoHTML }}

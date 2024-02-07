@@ -10,7 +10,7 @@ export function StormSidebarChapters({
       <Layer
         displayName={StormSidebarChapters.name}
         sizeStyle='h-full w-full'
-        className='flex flex-col space-y-[2rem] overflow-auto'
+        className='flex flex-col overflow-auto divide-slate-700 divide-y-[1px]'
       >
         {children}
       </Layer>

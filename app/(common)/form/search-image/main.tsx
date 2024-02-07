@@ -1,4 +1,4 @@
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import React, { useState } from 'react';
 import SearchModal from '@/(common)/form/search-image/search-modal/main';
 
@@ -60,7 +60,7 @@ export function FormSearchImage({
                 </g>
               </svg>
               <p className='mt-1 text-lg font-bold text-slate-500'>
-                {value.name === undefined ? 'No image selected' : value.name}
+                {value.title === undefined ? 'No image selected' : value.title}
               </p>
             </div>
           </button>
@@ -70,17 +70,17 @@ export function FormSearchImage({
             <div className='flex flex-row items-center space-x-[2rem]'>
               <img
                 src={value.src}
-                alt={value.name}
+                alt={value.title}
                 className='aspect-square h-[100px] bg-black shadow-md'
               />
               <div className='flex flex-col'>
-                <p className='text-lg font-bold'>{value.name}</p>
+                <p className='text-lg font-bold'>{value.title}</p>
                 <p className='text-sm text-slate-500'>{value.fileType}</p>
                 <p className='text-md text-slate-500'>{value.size} bytes</p>
               </div>
             </div>
             <button
-              className='h-[30px] w-[30px] rounded-full bg-red-500'
+              className='h-[30px] w-[30px] rounded-full'
               onClick={() => {
                 onChange({} as FileObj);
               }}
@@ -99,12 +99,12 @@ export function FormSearchImage({
                   width='24'
                   height='24'
                 >
-                  <rect width='24' height='24' className='fill-slate-50' />
+                  <rect width='24' height='24' className='fill-slate-500' />
                 </mask>
                 <g mask='url(#mask0_2962_7)'>
                   <path
                     d='M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z'
-                    className='fill-slate-100'
+                    className='fill-slate-500'
                   />
                 </g>
               </svg>

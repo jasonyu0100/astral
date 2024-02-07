@@ -1,7 +1,6 @@
 import { FormTextArea } from '@/(common)/form/area/main';
 import { FormBody } from '@/(common)/form/body/main';
 import { FormButton } from '@/(common)/form/button/main';
-import { FormDescription } from '@/(common)/form/description/main';
 import { FormFooter } from '@/(common)/form/footer/main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
@@ -12,8 +11,8 @@ import { FlowContext } from '../../../page';
 import { FlowModalContext } from '../main';
 
 export function FlowAddChapterModal() {
-  const { chapterHandler } = useContext(FlowContext);
-  const { addChapter } = useContext(FlowModalContext);
+  const { chapters, chapterHandler } = useContext(FlowContext);
+  const { addChapterModal: addChapter } = useContext(FlowModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
@@ -39,7 +38,7 @@ export function FlowAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description);
+              chapterHandler.queryCreateChapter(title, description, chapters.length);
               addChapter.close();
             }}
           >

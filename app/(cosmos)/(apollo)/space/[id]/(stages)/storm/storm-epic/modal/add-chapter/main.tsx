@@ -12,8 +12,8 @@ import { StormContext } from '../../../page';
 import { StormModalContext } from '../main';
 
 export function StormAddChapterModal() {
-  const { chapterHandler } = useContext(StormContext);
-  const { addChapter } = useContext(StormModalContext);
+  const { chapters, chapterHandler } = useContext(StormContext);
+  const { addChapterModal: addChapter } = useContext(StormModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
@@ -39,7 +39,7 @@ export function StormAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description);
+              chapterHandler.queryCreateChapter(title, description, chapters.length);
               addChapter.close();
             }}
           >

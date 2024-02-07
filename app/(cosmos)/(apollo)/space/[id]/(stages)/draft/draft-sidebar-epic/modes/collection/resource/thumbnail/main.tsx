@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { DraftContext } from '../../../../../page';
 import { ResourceObj } from '@/tables/resource/main';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 
 export function CollectionResourceThumbnail({
   resource,
@@ -15,7 +15,7 @@ export function CollectionResourceThumbnail({
       src={resource?.file?.src}
       onClick={() =>
         starHandler.queryCreateFileStar(
-          resource.name,
+          resource.title,
           Math.random() * 500,
           Math.random() * 500,
           resource?.file || ({} as FileObj),

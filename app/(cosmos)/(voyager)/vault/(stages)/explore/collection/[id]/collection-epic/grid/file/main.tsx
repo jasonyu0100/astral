@@ -1,5 +1,5 @@
 import { ResourceObj } from '@/tables/resource/main';
-import { FileModalContext, useFileModalContext } from './modal/main';
+import { FileModalContext, useFileModal } from './modal/main';
 import { FileModalsView } from './modal/view';
 import { createContext } from 'react';
 
@@ -10,7 +10,7 @@ export function CollectionResource({
 }: {
   resource: ResourceObj;
 }) {
-  const modalContext = useFileModalContext();
+  const modalContext = useFileModal();
 
   return (
     <FileContext.Provider value={resource}>
@@ -20,10 +20,10 @@ export function CollectionResource({
           <img
             src={resource?.file?.src}
             className='h-[150px] w-[150px] cursor-pointer rounded-full'
-            onClick={() => modalContext.editFile.open()}
+            onClick={() => modalContext.editFileModal.open()}
           />
           <div className='flex flex-col'>
-            <p className='text-xl font-bold text-slate-300'>{resource.name}</p>
+            <p className='text-xl font-bold text-slate-300'>{resource.title}</p>
             <p className='text-lg font-bold text-slate-400'>
               {resource?.file?.fileType}
             </p>

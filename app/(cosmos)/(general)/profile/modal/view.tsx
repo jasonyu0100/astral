@@ -3,7 +3,7 @@ import { EditProfileModal } from './edit-profile/main';
 import { ProfileModalContext } from './main';
 
 export function ProfileModalsView() {
-  const { editProfile } = useContext(ProfileModalContext);
+  const { editProfileModal: editProfile } = useContext(ProfileModalContext);
 
   return <>{editProfile.opened && <EditProfileModal />}</>;
 }

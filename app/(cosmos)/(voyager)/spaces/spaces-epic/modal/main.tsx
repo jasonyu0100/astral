@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 
-export interface SpacesModalsContextObj {
-  createSpace: {
+export interface SpacesModalController {
+  createSpaceModal: {
     page: number;
     opened: boolean;
     open: () => void;
@@ -10,9 +10,9 @@ export interface SpacesModalsContextObj {
   };
 }
 
-export const SpacesModalContext = createContext({} as SpacesModalsContextObj);
+export const SpacesModalContext = createContext({} as SpacesModalController);
 
-export const useSpacesModalContext = (): SpacesModalsContextObj => {
+export const useSpacesModal = (): SpacesModalController => {
   const [showOne, changeOne] = useState(false);
   const [page, changePage] = useState(0);
 
@@ -21,7 +21,7 @@ export const useSpacesModalContext = (): SpacesModalsContextObj => {
   }, [showOne]);
 
   return {
-    createSpace: {
+    createSpaceModal: {
       page,
       opened: showOne,
       open: () => changeOne(true),

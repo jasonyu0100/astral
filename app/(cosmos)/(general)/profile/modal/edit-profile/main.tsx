@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
 
 export function EditProfileModal() {
-  const { editProfile } = useContext(ProfileModalContext);
+  const { editProfileModal: editProfile } = useContext(ProfileModalContext);
 
   return (
     <Modal isOpen={editProfile.opened} onClose={() => editProfile.close()}>

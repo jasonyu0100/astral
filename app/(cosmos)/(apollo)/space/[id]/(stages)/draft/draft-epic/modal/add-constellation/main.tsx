@@ -19,7 +19,7 @@ export function DraftAddConstellationModal() {
   const [variant, changeVariant] = useState(
     ConstellationVariant.VISUAL as string,
   );
-  const { addConstellation } = useContext(DraftModalContext);
+  const { addConstellationModal: addConstellation } = useContext(DraftModalContext);
 
   return (
     <Modal
@@ -37,14 +37,14 @@ export function DraftAddConstellationModal() {
             <option value={ConstellationVariant.VISUAL}>
               {ConstellationVariant.VISUAL}
             </option>
-            <option value={ConstellationVariant.TEXT}>
-              {ConstellationVariant.TEXT}
+            <option value={ConstellationVariant.LINK}>
+              {ConstellationVariant.LINK}
             </option>
-            <option value={ConstellationVariant.SOUND}>
-              {ConstellationVariant.SOUND}
+            <option value={ConstellationVariant.AUDIO}>
+              {ConstellationVariant.AUDIO}
             </option>
-            <option value={ConstellationVariant.MIXED}>
-              {ConstellationVariant.MIXED}
+            <option value={ConstellationVariant.MEMO}>
+              {ConstellationVariant.MEMO}
             </option>
           </FormSelect>
           <FormInput

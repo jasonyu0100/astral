@@ -18,13 +18,12 @@ import { DraftModalContext } from './draft-epic/modal/main';
 import { DraftModalsView } from './draft-epic/modal/view';
 import { DraftBody } from './draft-epic/center/body/main';
 import { DraftPanel } from './draft-epic/center/panel/main';
-import clsx from 'clsx';
 import { cn } from '@/utils/cn';
 
 export function DraftView() {
   const { constellations, chapters, constellationId, constellationHandler } =
     useContext(DraftContext);
-  const { addChapter } = useContext(DraftModalContext);
+  const { addChapterModal } = useContext(DraftModalContext);
 
   return (
     <DraftWrapper>
@@ -64,7 +63,7 @@ export function DraftView() {
             {chapters.map((chapter) => (
               <DraftChapter chapter={chapter} />
             ))}
-            <DraftChaptersAdd onClick={() => addChapter.open()} />
+            <DraftChaptersAdd onClick={() => addChapterModal.open()} />
           </DraftChaptersRow>
           <DraftChaptersRightButton />
         </DraftChapters>

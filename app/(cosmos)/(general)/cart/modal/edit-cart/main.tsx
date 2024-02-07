@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { CartModalContext } from '../main';
 
 export function EditProfileModal() {
-  const { editCart: editProfile } = useContext(CartModalContext);
+  const { editCartModal: editProfile } = useContext(CartModalContext);
 
   return (
     <Modal isOpen={editProfile.opened} onClose={() => editProfile.close()}>

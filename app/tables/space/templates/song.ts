@@ -1,6 +1,6 @@
-import { ChapterTemplate } from './main';
+import { ChapterTemplateObj } from './main';
 
-export const songSpaceTemplate: ChapterTemplate[] = [
+export const songSpaceTemplate: ChapterTemplateObj[] = [
   {
     title: 'Introduction (Intro)',
     description:

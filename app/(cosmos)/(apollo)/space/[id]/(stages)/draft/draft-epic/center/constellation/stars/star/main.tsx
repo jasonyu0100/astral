@@ -50,7 +50,7 @@ export function DraftStar({
           src={star?.file?.src}
         />
       </div>
-      <p className='w-full text-center font-bold text-slate-300'>{star.name}</p>
+      <p className='w-full text-center font-bold text-slate-300'>{star.title}</p>
     </motion.div>
   );
 }

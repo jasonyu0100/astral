@@ -1,20 +1,20 @@
 import { createContext, useState } from 'react';
 
-export interface FileContextObj {
-  editFile: {
+export interface FileModalController {
+  editFileModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const FileModalContext = createContext({} as FileContextObj);
+export const FileModalContext = createContext({} as FileModalController);
 
-export const useFileModalContext = (): FileContextObj => {
+export const useFileModal = (): FileModalController => {
   const [showEditFile, changeShowEditFile] = useState(false);
 
   return {
-    editFile: {
+    editFileModal: {
       opened: showEditFile,
       open: () => changeShowEditFile(true),
       close: () => changeShowEditFile(false),

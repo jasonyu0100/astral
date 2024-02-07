@@ -14,7 +14,7 @@ import { StormSidebarHeader } from './header/main';
 
 export function StormSidebar() {
   const { chapters } = useContext(StormContext);
-  const { addChapter } = useContext(StormModalContext);
+  const { addChapterModal: addChapter } = useContext(StormModalContext);
 
   return (
     <>
@@ -22,7 +22,7 @@ export function StormSidebar() {
         displayName={StormSidebar.name}
         sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
         backgroundStyle={backgroundStyles['glass-10']}
-        className={`${containerStyles['col-center']} space-y-[1rem] px-[1rem]`}
+        className={`${containerStyles['col-center']} space-y-[0.5rem] px-[1rem]`}
       >
         <StormSidebarHeader />
         <StormSidebarChapters>

@@ -6,9 +6,9 @@ import { Modal } from '@/(common)/modal/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesContext } from '../../../(stages)/now/page';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { SpaceVariant } from '@/tables/space/main';
-import { ChapterTemplate, spaceTemplates } from '@/tables/space/templates/main';
+import { ChapterTemplateObj, spaceTemplates } from '@/tables/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
 
@@ -29,8 +29,8 @@ export interface PageOneProps {
 export interface PageTwoProps {
   variant: string;
   updateVariant: (variant: string) => void;
-  chapterTemplates: ChapterTemplate[];
-  updateChapterTemplates: (templates: ChapterTemplate[]) => void;
+  chapterTemplates: ChapterTemplateObj[];
+  updateChapterTemplates: (templates: ChapterTemplateObj[]) => void;
 }
 
 export const CreateSpaceModalContext = createContext(
@@ -48,13 +48,13 @@ function Pages({ page }: { page: number }) {
 
 export function CreateSpaceModal() {
   const { spacesHandler } = useContext(SpacesContext);
-  const { createSpace } = useContext(SpacesModalContext);
+  const { createSpaceModal: createSpace } = useContext(SpacesModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
   const [variant, changeVariant] = useState<string>(SpaceVariant.SONG);
   const [chapterTemplates, changeChapterTemplates] = useState(
-    [] as ChapterTemplate[],
+    [] as ChapterTemplateObj[],
   );
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export function CreateSpaceModal() {
     variant,
     updateVariant: (variant: string) => changeVariant(variant),
     chapterTemplates,
-    updateChapterTemplates: (templates: ChapterTemplate[]) =>
+    updateChapterTemplates: (templates: ChapterTemplateObj[]) =>
       changeChapterTemplates(templates),
   };
 

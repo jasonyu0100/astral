@@ -5,7 +5,7 @@ import { useContext, useEffect } from 'react';
 import { FlowModalContext } from '../../../../modal/main';
 
 export function FlowLoomButton() {
-  const { addLoom } = useContext(FlowModalContext);
+  const { addLoomModal: addLoom } = useContext(FlowModalContext);
   const BUTTON_ID = 'loom-record-sdk-button';
 
   useEffect(() => {

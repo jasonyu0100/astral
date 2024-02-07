@@ -7,14 +7,14 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { FormUploadFiles } from '@/(common)/form/upload/upload-files/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 import { useContext, useState } from 'react';
 import { ExploreGalleryContext } from '../../../page';
 import { GalleryModalContext } from '../main';
 
 export function CreateCollectionModal() {
   const { collectionHandler } = useContext(ExploreGalleryContext);
-  const { createCollection: createCollectionModal } =
+  const { createCollectionModal: createCollectionModal } =
     useContext(GalleryModalContext);
   const [name, changeName] = useState('');
   const [files, changeFiles] = useState([] as FileObj[]);

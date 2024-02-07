@@ -7,14 +7,14 @@ import insideCosmos from '@/utils/isAuth';
 import { ResourceObj } from '@/tables/resource/main';
 import {
   CollectionModalContext,
-  useCollectionModalContext,
+  useCollectionModal,
 } from './collection-epic/modal/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
-} from '@/(cosmos)/handler/resources/main';
-import { useCollection } from '@/(cosmos)/handler/collection/main';
-import { useGallery } from '@/(cosmos)/handler/gallery/main';
+} from '@/handler/resources/main';
+import { useCollection } from '@/handler/collection/main';
+import { useGallery } from '@/handler/gallery/main';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -30,7 +30,7 @@ function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollection(params.id);
   const { gallery } = useGallery(collection.galleryId);
   const { resources, _resourceHandler } = useCollectionResources(params.id);
-  const modalContext = useCollectionModalContext();
+  const modalContext = useCollectionModal();
 
   const context = {
     gallery,

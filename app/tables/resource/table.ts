@@ -1,9 +1,8 @@
-import { ObjectDescriptor, TableDescriptor } from '../tables';
-import { exampleFile, exampleFiles } from '../file/main';
+import { TableDescriptor } from '../tables';
+import { exampleFile, exampleFiles } from './file/main';
 import { exampleResource, exampleResources } from './main';
-import { exampleResourceSearch } from './search/main';
 import { exampleNote, exampleNotes } from './note/main';
-import { exampleLoom, exampleLooms } from './loom/main';
+import { exampleLoom, exampleLooms } from './log/main';
 
 export const resourceTable: TableDescriptor = {
   example: exampleResource,
@@ -23,9 +22,4 @@ export const stickyTable: TableDescriptor = {
 export const loomTable: TableDescriptor = {
   example: exampleLoom,
   examples: exampleLooms,
-};
-
-export const searchObject: ObjectDescriptor = {
-  example: exampleResourceSearch,
-  examples: [],
 };

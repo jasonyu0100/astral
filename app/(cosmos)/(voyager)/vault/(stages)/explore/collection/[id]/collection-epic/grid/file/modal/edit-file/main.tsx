@@ -10,7 +10,7 @@ import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FileContext } from '../../main';
 
 export function EditFileModal() {
-  const { editFile } = useContext(FileModalContext);
+  const { editFileModal: editFile } = useContext(FileModalContext);
   const resource = useContext(FileContext);
 
   return (
@@ -20,7 +20,7 @@ export function EditFileModal() {
         <FormBody>
           <h1>EDIT File</h1>
           {resource.description}
-          {resource.name}
+          {resource.title}
           <img src={resource?.file?.src} />
         </FormBody>
         <FormFooter>

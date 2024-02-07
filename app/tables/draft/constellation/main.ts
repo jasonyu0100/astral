@@ -1,8 +1,8 @@
 export enum ConstellationVariant {
   VISUAL = 'VISUAL',
-  SOUND = 'SOUND',
-  TEXT = 'TEXT',
-  MIXED = 'MIXED',
+  AUDIO = 'AUDIO',
+  MEMO = 'MEMO',
+  LINK = 'LINK',
 }
 
 export interface ConstellationObj {

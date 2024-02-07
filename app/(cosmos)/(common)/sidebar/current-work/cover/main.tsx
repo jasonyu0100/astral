@@ -12,10 +12,10 @@ export function SidebarWorkCover({
   minimised?: boolean;
 }) {
   const [spaceState, __] = useGlobalSpace();
-  const [thumbnailSrc, changeThumbnailSrc] = useState(null);
+  const [thumbnailSrc, changeThumbnailSrc] = useState("/brand/space.png");
 
   useEffect(() => {
-    changeThumbnailSrc(spaceState?.space?.thumbnail?.src || null);
+    changeThumbnailSrc(spaceState?.space?.thumbnail?.src || "/brand/avatar.png");
   }, [spaceState]);
 
   return (

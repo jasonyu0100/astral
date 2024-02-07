@@ -1,6 +1,6 @@
-import { ChapterTemplate } from './main';
+import { ChapterTemplateObj } from './main';
 
-export const ideaTemplate: ChapterTemplate[] = [
+export const ideaTemplate: ChapterTemplateObj[] = [
   {
     title: 'Preparation',
     description:

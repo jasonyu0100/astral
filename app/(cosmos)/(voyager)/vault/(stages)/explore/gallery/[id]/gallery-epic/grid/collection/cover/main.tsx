@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { GalleryCollectionContext } from '../main';
-import { useCollectionResources } from '@/(cosmos)/handler/resources/main';
+import { useCollectionResources } from '@/handler/resources/main';
 
 export function CollectionCover() {
   const { collection } = useContext(GalleryCollectionContext);

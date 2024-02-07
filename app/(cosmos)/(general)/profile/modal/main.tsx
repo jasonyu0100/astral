@@ -1,20 +1,20 @@
 import { createContext, useState } from 'react';
 
-export interface ProfileContextObj {
-  editProfile: {
+export interface ProfileController {
+  editProfileModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const ProfileModalContext = createContext({} as ProfileContextObj);
+export const ProfileModalContext = createContext({} as ProfileController);
 
-export const useProfileModalContext = (): ProfileContextObj => {
+export const useProfileModal = (): ProfileController => {
   const [showProfile, changeShowProfile] = useState(false);
 
   return {
-    editProfile: {
+    editProfileModal: {
       opened: showProfile,
       open: () => changeShowProfile(true),
       close: () => changeShowProfile(false),

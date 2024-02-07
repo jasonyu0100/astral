@@ -3,6 +3,7 @@ export interface ChapterObj {
   spaceId: string;
   title: string;
   description: string;
+  idx: number;
 }
 
 export const exampleChapter: ChapterObj = {
@@ -10,6 +11,7 @@ export const exampleChapter: ChapterObj = {
   spaceId: '0',
   title: 'Melody',
   description: 'This is a description',
+  idx: 0,
 };
 
 export const exampleChapters: ChapterObj[] = [
@@ -18,17 +20,20 @@ export const exampleChapters: ChapterObj[] = [
     title: 'Concept',
     description: 'Concept Description',
     spaceId: '0',
+    idx: 0,
   },
   {
     id: '1',
     title: 'Beat',
     description: 'Beat Description',
     spaceId: '0',
+    idx: 1,
   },
   {
     id: '2',
     title: 'Melody',
     description: 'Melody Description',
     spaceId: '0',
+    idx: 2,
   },
 ];

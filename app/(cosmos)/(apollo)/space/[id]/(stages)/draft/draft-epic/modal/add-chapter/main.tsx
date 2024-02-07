@@ -1,7 +1,6 @@
 import { FormTextArea } from '@/(common)/form/area/main';
 import { FormBody } from '@/(common)/form/body/main';
 import { FormButton } from '@/(common)/form/button/main';
-import { FormDescription } from '@/(common)/form/description/main';
 import { FormFooter } from '@/(common)/form/footer/main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
@@ -12,13 +11,13 @@ import { DraftContext } from '../../../page';
 import { DraftModalContext } from '../main';
 
 export function DraftAddChapterModal() {
-  const { chapterHandler } = useContext(DraftContext);
-  const { addChapter } = useContext(DraftModalContext);
+  const { chapters, chapterHandler } = useContext(DraftContext);
+  const { addChapterModal } = useContext(DraftModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={addChapter.opened} onClose={() => addChapter.close()}>
+    <Modal isOpen={addChapterModal.opened} onClose={() => addChapterModal.close()}>
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
@@ -39,8 +38,8 @@ export function DraftAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description);
-              addChapter.close();
+              chapterHandler.queryCreateChapter(title, description, chapters.length);
+              addChapterModal.close();
             }}
           >
             Add

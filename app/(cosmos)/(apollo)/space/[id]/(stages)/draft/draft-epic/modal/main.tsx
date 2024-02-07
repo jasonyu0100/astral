@@ -1,34 +1,34 @@
 import { createContext, useState } from 'react';
 
-export interface DraftModalsContextObj {
-  addChapter: {
+export interface DraftModalController {
+  addChapterModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  addConstellation: {
+  addConstellationModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const DraftModalContext = createContext({} as DraftModalsContextObj);
+export const DraftModalContext = createContext({} as DraftModalController);
 
-export const useDraftModalContext = (): DraftModalsContextObj => {
-  const [showOne, changeShowOne] = useState(false);
-  const [showTwo, changeShowTwo] = useState(false);
+export const useDraftModal = (): DraftModalController => {
+  const [showAddChapter, changeShowAddChapter] = useState(false);
+  const [showAddConstellation, changeShowAddConstellation] = useState(false);
 
   return {
-    addChapter: {
-      opened: showOne,
-      open: () => changeShowOne(true),
-      close: () => changeShowOne(false),
+    addChapterModal: {
+      opened: showAddChapter,
+      open: () => changeShowAddChapter(true),
+      close: () => changeShowAddChapter(false),
     },
-    addConstellation: {
-      opened: showTwo,
-      open: () => changeShowTwo(true),
-      close: () => changeShowTwo(false),
+    addConstellationModal: {
+      opened: showAddConstellation,
+      open: () => changeShowAddConstellation(true),
+      close: () => changeShowAddConstellation(false),
     },
   };
 };

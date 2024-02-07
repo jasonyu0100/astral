@@ -4,8 +4,8 @@ import { GalleryObj } from '@/tables/gallery/main';
 import { ExploreHomeView } from './view';
 import insideCosmos from '@/utils/isAuth';
 import { useGlobalUser } from '@/state/main';
-import { HomeModalContext, useHomeModalContext } from './home-epic/modal/main';
-import { GalleryHandler, useGallerys } from '@/(cosmos)/handler/gallerys/main';
+import { HomeModalContext, useHomeModal } from './home-epic/modal/main';
+import { GalleryHandler, useGallerys } from '@/handler/gallerys/main';
 
 interface ExploreHomeContextObj {
   gallerys: GalleryObj[];
@@ -21,7 +21,7 @@ function Page() {
   const { gallerys, _galleryHandler: galleryHandler } = useGallerys(
     state.user.id,
   );
-  const modalContext = useHomeModalContext();
+  const modalContext = useHomeModal();
 
   const context: ExploreHomeContextObj = {
     gallerys,

@@ -2,183 +2,44 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import * as APITypes from './API';
+import * as APITypes from "./API";
 type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionInput: InputType;
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateStarObj =
-  /* GraphQL */ `subscription OnCreateStarObj($id: String, $name: String, $x: Float, $y: Float) {
-  onCreateStarObj(id: $id, name: $name, x: $x, y: $y) {
-    id
-    constellationId
-    name
-    x
-    y
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    variant
-    __typename
-  }
-}
-` as GeneratedSubscription<
-    APITypes.OnCreateStarObjSubscriptionVariables,
-    APITypes.OnCreateStarObjSubscription
-  >;
-export const onUpdateStarObj =
-  /* GraphQL */ `subscription OnUpdateStarObj($id: String, $name: String, $x: Float, $y: Float) {
-  onUpdateStarObj(id: $id, name: $name, x: $x, y: $y) {
-    id
-    constellationId
-    name
-    x
-    y
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    variant
-    __typename
-  }
-}
-` as GeneratedSubscription<
-    APITypes.OnUpdateStarObjSubscriptionVariables,
-    APITypes.OnUpdateStarObjSubscription
-  >;
-export const onDeleteStarObj =
-  /* GraphQL */ `subscription OnDeleteStarObj($id: String, $name: String, $x: Float, $y: Float) {
-  onDeleteStarObj(id: $id, name: $name, x: $x, y: $y) {
-    id
-    constellationId
-    name
-    x
-    y
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    variant
-    __typename
-  }
-}
-` as GeneratedSubscription<
-    APITypes.OnDeleteStarObjSubscriptionVariables,
-    APITypes.OnDeleteStarObjSubscription
-  >;
-export const onCreateResourceObj =
-  /* GraphQL */ `subscription OnCreateResourceObj(
+export const onCreateResourceObj = /* GraphQL */ `subscription OnCreateResourceObj(
   $id: String
   $collectionId: String
-  $name: String
+  $title: String
   $description: String
 ) {
   onCreateResourceObj(
     id: $id
     collectionId: $collectionId
-    name: $name
+    title: $title
     description: $description
   ) {
     id
     userId
     collectionId
-    name
+    title
     description
     variant
     file {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
-    loom {
+    log {
       id
       loomId
       height
       width
-      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -188,53 +49,59 @@ export const onCreateResourceObj =
       providerUrl
       __typename
     }
-    sticky {
+    link {
       id
-      color
-      name
-      content
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateResourceObjSubscriptionVariables,
-    APITypes.OnCreateResourceObjSubscription
-  >;
-export const onUpdateResourceObj =
-  /* GraphQL */ `subscription OnUpdateResourceObj(
+  APITypes.OnCreateResourceObjSubscriptionVariables,
+  APITypes.OnCreateResourceObjSubscription
+>;
+export const onUpdateResourceObj = /* GraphQL */ `subscription OnUpdateResourceObj(
   $id: String
   $collectionId: String
-  $name: String
+  $title: String
   $description: String
 ) {
   onUpdateResourceObj(
     id: $id
     collectionId: $collectionId
-    name: $name
+    title: $title
     description: $description
   ) {
     id
     userId
     collectionId
-    name
+    title
     description
     variant
     file {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
-    loom {
+    log {
       id
       loomId
       height
       width
-      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -244,53 +111,59 @@ export const onUpdateResourceObj =
       providerUrl
       __typename
     }
-    sticky {
+    link {
       id
-      color
-      name
-      content
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateResourceObjSubscriptionVariables,
-    APITypes.OnUpdateResourceObjSubscription
-  >;
-export const onDeleteResourceObj =
-  /* GraphQL */ `subscription OnDeleteResourceObj(
+  APITypes.OnUpdateResourceObjSubscriptionVariables,
+  APITypes.OnUpdateResourceObjSubscription
+>;
+export const onDeleteResourceObj = /* GraphQL */ `subscription OnDeleteResourceObj(
   $id: String
   $collectionId: String
-  $name: String
+  $title: String
   $description: String
 ) {
   onDeleteResourceObj(
     id: $id
     collectionId: $collectionId
-    name: $name
+    title: $title
     description: $description
   ) {
     id
     userId
     collectionId
-    name
+    title
     description
     variant
     file {
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
-    loom {
+    log {
       id
       loomId
       height
       width
-      title
       sharedUrl
       embedUrl
       thumbnailHeight
@@ -300,22 +173,28 @@ export const onDeleteResourceObj =
       providerUrl
       __typename
     }
-    sticky {
+    link {
       id
-      color
-      name
-      content
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteResourceObjSubscriptionVariables,
-    APITypes.OnDeleteResourceObjSubscription
-  >;
-export const onCreateConstellationObj =
-  /* GraphQL */ `subscription OnCreateConstellationObj(
+  APITypes.OnDeleteResourceObjSubscriptionVariables,
+  APITypes.OnDeleteResourceObjSubscription
+>;
+export const onCreateConstellationObj = /* GraphQL */ `subscription OnCreateConstellationObj(
   $id: String
   $chapterId: String
   $title: String
@@ -336,11 +215,10 @@ export const onCreateConstellationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateConstellationObjSubscriptionVariables,
-    APITypes.OnCreateConstellationObjSubscription
-  >;
-export const onUpdateConstellationObj =
-  /* GraphQL */ `subscription OnUpdateConstellationObj(
+  APITypes.OnCreateConstellationObjSubscriptionVariables,
+  APITypes.OnCreateConstellationObjSubscription
+>;
+export const onUpdateConstellationObj = /* GraphQL */ `subscription OnUpdateConstellationObj(
   $id: String
   $chapterId: String
   $title: String
@@ -361,11 +239,10 @@ export const onUpdateConstellationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateConstellationObjSubscriptionVariables,
-    APITypes.OnUpdateConstellationObjSubscription
-  >;
-export const onDeleteConstellationObj =
-  /* GraphQL */ `subscription OnDeleteConstellationObj(
+  APITypes.OnUpdateConstellationObjSubscriptionVariables,
+  APITypes.OnUpdateConstellationObjSubscription
+>;
+export const onDeleteConstellationObj = /* GraphQL */ `subscription OnDeleteConstellationObj(
   $id: String
   $chapterId: String
   $title: String
@@ -386,11 +263,10 @@ export const onDeleteConstellationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteConstellationObjSubscriptionVariables,
-    APITypes.OnDeleteConstellationObjSubscription
-  >;
-export const onCreateGalleryObj =
-  /* GraphQL */ `subscription OnCreateGalleryObj(
+  APITypes.OnDeleteConstellationObjSubscriptionVariables,
+  APITypes.OnDeleteConstellationObjSubscription
+>;
+export const onCreateGalleryObj = /* GraphQL */ `subscription OnCreateGalleryObj(
   $id: String
   $userId: String
   $title: String
@@ -410,19 +286,19 @@ export const onCreateGalleryObj =
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateGalleryObjSubscriptionVariables,
-    APITypes.OnCreateGalleryObjSubscription
-  >;
-export const onUpdateGalleryObj =
-  /* GraphQL */ `subscription OnUpdateGalleryObj(
+  APITypes.OnCreateGalleryObjSubscriptionVariables,
+  APITypes.OnCreateGalleryObjSubscription
+>;
+export const onUpdateGalleryObj = /* GraphQL */ `subscription OnUpdateGalleryObj(
   $id: String
   $userId: String
   $title: String
@@ -442,19 +318,19 @@ export const onUpdateGalleryObj =
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateGalleryObjSubscriptionVariables,
-    APITypes.OnUpdateGalleryObjSubscription
-  >;
-export const onDeleteGalleryObj =
-  /* GraphQL */ `subscription OnDeleteGalleryObj(
+  APITypes.OnUpdateGalleryObjSubscriptionVariables,
+  APITypes.OnUpdateGalleryObjSubscription
+>;
+export const onDeleteGalleryObj = /* GraphQL */ `subscription OnDeleteGalleryObj(
   $id: String
   $userId: String
   $title: String
@@ -474,17 +350,18 @@ export const onDeleteGalleryObj =
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteGalleryObjSubscriptionVariables,
-    APITypes.OnDeleteGalleryObjSubscription
-  >;
+  APITypes.OnDeleteGalleryObjSubscriptionVariables,
+  APITypes.OnDeleteGalleryObjSubscription
+>;
 export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
   $id: String
   $fname: String
@@ -509,8 +386,9 @@ export const onCreateUserObj = /* GraphQL */ `subscription OnCreateUserObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
@@ -544,8 +422,9 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
@@ -557,14 +436,14 @@ export const onUpdateUserObj = /* GraphQL */ `subscription OnUpdateUserObj(
 >;
 export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
   $id: String
-  $name: String
+  $title: String
   $passwordHash: String
   $email: String
   $googleId: String
 ) {
   onDeleteUserObj(
     id: $id
-    name: $name
+    title: $title
     passwordHash: $passwordHash
     email: $email
     googleId: $googleId
@@ -579,8 +458,9 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     __typename
@@ -590,8 +470,7 @@ export const onDeleteUserObj = /* GraphQL */ `subscription OnDeleteUserObj(
   APITypes.OnDeleteUserObjSubscriptionVariables,
   APITypes.OnDeleteUserObjSubscription
 >;
-export const onCreateChapterObj =
-  /* GraphQL */ `subscription OnCreateChapterObj(
+export const onCreateChapterObj = /* GraphQL */ `subscription OnCreateChapterObj(
   $id: String
   $spaceId: String
   $title: String
@@ -607,15 +486,15 @@ export const onCreateChapterObj =
     spaceId
     title
     description
+    idx
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateChapterObjSubscriptionVariables,
-    APITypes.OnCreateChapterObjSubscription
-  >;
-export const onUpdateChapterObj =
-  /* GraphQL */ `subscription OnUpdateChapterObj(
+  APITypes.OnCreateChapterObjSubscriptionVariables,
+  APITypes.OnCreateChapterObjSubscription
+>;
+export const onUpdateChapterObj = /* GraphQL */ `subscription OnUpdateChapterObj(
   $id: String
   $spaceId: String
   $title: String
@@ -631,15 +510,15 @@ export const onUpdateChapterObj =
     spaceId
     title
     description
+    idx
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateChapterObjSubscriptionVariables,
-    APITypes.OnUpdateChapterObjSubscription
-  >;
-export const onDeleteChapterObj =
-  /* GraphQL */ `subscription OnDeleteChapterObj(
+  APITypes.OnUpdateChapterObjSubscriptionVariables,
+  APITypes.OnUpdateChapterObjSubscription
+>;
+export const onDeleteChapterObj = /* GraphQL */ `subscription OnDeleteChapterObj(
   $id: String
   $spaceId: String
   $title: String
@@ -655,15 +534,15 @@ export const onDeleteChapterObj =
     spaceId
     title
     description
+    idx
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteChapterObjSubscriptionVariables,
-    APITypes.OnDeleteChapterObjSubscription
-  >;
-export const onCreateMessageObj =
-  /* GraphQL */ `subscription OnCreateMessageObj(
+  APITypes.OnDeleteChapterObjSubscriptionVariables,
+  APITypes.OnDeleteChapterObjSubscription
+>;
+export const onCreateMessageObj = /* GraphQL */ `subscription OnCreateMessageObj(
   $id: String
   $chatId: String
   $source: String
@@ -687,11 +566,10 @@ export const onCreateMessageObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateMessageObjSubscriptionVariables,
-    APITypes.OnCreateMessageObjSubscription
-  >;
-export const onUpdateMessageObj =
-  /* GraphQL */ `subscription OnUpdateMessageObj(
+  APITypes.OnCreateMessageObjSubscriptionVariables,
+  APITypes.OnCreateMessageObjSubscription
+>;
+export const onUpdateMessageObj = /* GraphQL */ `subscription OnUpdateMessageObj(
   $id: String
   $chatId: String
   $source: String
@@ -715,11 +593,10 @@ export const onUpdateMessageObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateMessageObjSubscriptionVariables,
-    APITypes.OnUpdateMessageObjSubscription
-  >;
-export const onDeleteMessageObj =
-  /* GraphQL */ `subscription OnDeleteMessageObj(
+  APITypes.OnUpdateMessageObjSubscriptionVariables,
+  APITypes.OnUpdateMessageObjSubscription
+>;
+export const onDeleteMessageObj = /* GraphQL */ `subscription OnDeleteMessageObj(
   $id: String
   $chatId: String
   $source: String
@@ -743,9 +620,9 @@ export const onDeleteMessageObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteMessageObjSubscriptionVariables,
-    APITypes.OnDeleteMessageObjSubscription
-  >;
+  APITypes.OnDeleteMessageObjSubscriptionVariables,
+  APITypes.OnDeleteMessageObjSubscription
+>;
 export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
   $id: String
   $userId: String
@@ -767,8 +644,9 @@ export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     variant
@@ -800,8 +678,9 @@ export const onUpdateSpaceObj = /* GraphQL */ `subscription OnUpdateSpaceObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     variant
@@ -833,8 +712,9 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
       id
       src
       fileType
-      name
+      title
       size
+      variant
       __typename
     }
     variant
@@ -845,250 +725,74 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
   APITypes.OnDeleteSpaceObjSubscriptionVariables,
   APITypes.OnDeleteSpaceObjSubscription
 >;
-export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
-  $id: String
-  $chapterId: String
-  $spaceId: String
-  $userId: String
-) {
-  onCreateMomentObj(
-    id: $id
-    chapterId: $chapterId
-    spaceId: $spaceId
-    userId: $userId
-  ) {
-    id
-    chapterId
-    spaceId
-    userId
-    time
-    title
-    log
-    visibility
-    variant
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnCreateMomentObjSubscriptionVariables,
-  APITypes.OnCreateMomentObjSubscription
->;
-export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
-  $id: String
-  $chapterId: String
-  $spaceId: String
-  $userId: String
-) {
-  onUpdateMomentObj(
-    id: $id
-    chapterId: $chapterId
-    spaceId: $spaceId
-    userId: $userId
-  ) {
-    id
-    chapterId
-    spaceId
-    userId
-    time
-    title
-    log
-    visibility
-    variant
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnUpdateMomentObjSubscriptionVariables,
-  APITypes.OnUpdateMomentObjSubscription
->;
-export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
-  $id: String
-  $chapterId: String
-  $spaceId: String
-  $userId: String
-) {
-  onDeleteMomentObj(
-    id: $id
-    chapterId: $chapterId
-    spaceId: $spaceId
-    userId: $userId
-  ) {
-    id
-    chapterId
-    spaceId
-    userId
-    time
-    title
-    log
-    visibility
-    variant
-    file {
-      id
-      src
-      fileType
-      name
-      size
-      __typename
-    }
-    loom {
-      id
-      loomId
-      height
-      width
-      title
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    sticky {
-      id
-      color
-      name
-      content
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnDeleteMomentObjSubscriptionVariables,
-  APITypes.OnDeleteMomentObjSubscription
->;
-export const onCreateCollectionObj =
-  /* GraphQL */ `subscription OnCreateCollectionObj(
+export const onCreateCollectionObj = /* GraphQL */ `subscription OnCreateCollectionObj(
   $id: String
   $galleryId: String
-  $name: String
+  $title: String
 ) {
-  onCreateCollectionObj(id: $id, galleryId: $galleryId, name: $name) {
+  onCreateCollectionObj(id: $id, galleryId: $galleryId, title: $title) {
     id
     galleryId
-    name
+    title
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateCollectionObjSubscriptionVariables,
-    APITypes.OnCreateCollectionObjSubscription
-  >;
-export const onUpdateCollectionObj =
-  /* GraphQL */ `subscription OnUpdateCollectionObj(
+  APITypes.OnCreateCollectionObjSubscriptionVariables,
+  APITypes.OnCreateCollectionObjSubscription
+>;
+export const onUpdateCollectionObj = /* GraphQL */ `subscription OnUpdateCollectionObj(
   $id: String
   $galleryId: String
-  $name: String
+  $title: String
 ) {
-  onUpdateCollectionObj(id: $id, galleryId: $galleryId, name: $name) {
+  onUpdateCollectionObj(id: $id, galleryId: $galleryId, title: $title) {
     id
     galleryId
-    name
+    title
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateCollectionObjSubscriptionVariables,
-    APITypes.OnUpdateCollectionObjSubscription
-  >;
-export const onDeleteCollectionObj =
-  /* GraphQL */ `subscription OnDeleteCollectionObj(
+  APITypes.OnUpdateCollectionObjSubscriptionVariables,
+  APITypes.OnUpdateCollectionObjSubscription
+>;
+export const onDeleteCollectionObj = /* GraphQL */ `subscription OnDeleteCollectionObj(
   $id: String
   $galleryId: String
-  $name: String
+  $title: String
 ) {
-  onDeleteCollectionObj(id: $id, galleryId: $galleryId, name: $name) {
+  onDeleteCollectionObj(id: $id, galleryId: $galleryId, title: $title) {
     id
     galleryId
-    name
+    title
     __typename
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteCollectionObjSubscriptionVariables,
-    APITypes.OnDeleteCollectionObjSubscription
-  >;
+  APITypes.OnDeleteCollectionObjSubscriptionVariables,
+  APITypes.OnDeleteCollectionObjSubscription
+>;
 export const onCreateFileObj = /* GraphQL */ `subscription OnCreateFileObj(
   $id: String
   $src: String
   $variant: String
-  $name: String
+  $title: String
   $size: Int
 ) {
   onCreateFileObj(
     id: $id
     src: $src
     variant: $variant
-    name: $name
+    title: $title
     size: $size
   ) {
     id
     src
     fileType
-    name
+    title
     size
+    variant
     __typename
   }
 }
@@ -1100,21 +804,22 @@ export const onUpdateFileObj = /* GraphQL */ `subscription OnUpdateFileObj(
   $id: String
   $src: String
   $variant: String
-  $name: String
+  $title: String
   $size: Int
 ) {
   onUpdateFileObj(
     id: $id
     src: $src
     variant: $variant
-    name: $name
+    title: $title
     size: $size
   ) {
     id
     src
     fileType
-    name
+    title
     size
+    variant
     __typename
   }
 }
@@ -1126,21 +831,22 @@ export const onDeleteFileObj = /* GraphQL */ `subscription OnDeleteFileObj(
   $id: String
   $src: String
   $variant: String
-  $name: String
+  $title: String
   $size: Int
 ) {
   onDeleteFileObj(
     id: $id
     src: $src
     variant: $variant
-    name: $name
+    title: $title
     size: $size
   ) {
     id
     src
     fileType
-    name
+    title
     size
+    variant
     __typename
   }
 }
@@ -1148,8 +854,7 @@ export const onDeleteFileObj = /* GraphQL */ `subscription OnDeleteFileObj(
   APITypes.OnDeleteFileObjSubscriptionVariables,
   APITypes.OnDeleteFileObjSubscription
 >;
-export const onCreateJourneyObj =
-  /* GraphQL */ `subscription OnCreateJourneyObj($id: String, $chapterId: String) {
+export const onCreateJourneyObj = /* GraphQL */ `subscription OnCreateJourneyObj($id: String, $chapterId: String) {
   onCreateJourneyObj(id: $id, chapterId: $chapterId) {
     id
     chapterId
@@ -1157,11 +862,10 @@ export const onCreateJourneyObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateJourneyObjSubscriptionVariables,
-    APITypes.OnCreateJourneyObjSubscription
-  >;
-export const onUpdateJourneyObj =
-  /* GraphQL */ `subscription OnUpdateJourneyObj($id: String, $chapterId: String) {
+  APITypes.OnCreateJourneyObjSubscriptionVariables,
+  APITypes.OnCreateJourneyObjSubscription
+>;
+export const onUpdateJourneyObj = /* GraphQL */ `subscription OnUpdateJourneyObj($id: String, $chapterId: String) {
   onUpdateJourneyObj(id: $id, chapterId: $chapterId) {
     id
     chapterId
@@ -1169,11 +873,10 @@ export const onUpdateJourneyObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateJourneyObjSubscriptionVariables,
-    APITypes.OnUpdateJourneyObjSubscription
-  >;
-export const onDeleteJourneyObj =
-  /* GraphQL */ `subscription OnDeleteJourneyObj($id: String, $chapterId: String) {
+  APITypes.OnUpdateJourneyObjSubscriptionVariables,
+  APITypes.OnUpdateJourneyObjSubscription
+>;
+export const onDeleteJourneyObj = /* GraphQL */ `subscription OnDeleteJourneyObj($id: String, $chapterId: String) {
   onDeleteJourneyObj(id: $id, chapterId: $chapterId) {
     id
     chapterId
@@ -1181,11 +884,10 @@ export const onDeleteJourneyObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteJourneyObjSubscriptionVariables,
-    APITypes.OnDeleteJourneyObjSubscription
-  >;
-export const onCreateCommentObj =
-  /* GraphQL */ `subscription OnCreateCommentObj(
+  APITypes.OnDeleteJourneyObjSubscriptionVariables,
+  APITypes.OnDeleteJourneyObjSubscription
+>;
+export const onCreateCommentObj = /* GraphQL */ `subscription OnCreateCommentObj(
   $id: String
   $momentId: String
   $time: String
@@ -1208,11 +910,10 @@ export const onCreateCommentObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateCommentObjSubscriptionVariables,
-    APITypes.OnCreateCommentObjSubscription
-  >;
-export const onUpdateCommentObj =
-  /* GraphQL */ `subscription OnUpdateCommentObj(
+  APITypes.OnCreateCommentObjSubscriptionVariables,
+  APITypes.OnCreateCommentObjSubscription
+>;
+export const onUpdateCommentObj = /* GraphQL */ `subscription OnUpdateCommentObj(
   $id: String
   $momentId: String
   $time: String
@@ -1235,11 +936,10 @@ export const onUpdateCommentObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateCommentObjSubscriptionVariables,
-    APITypes.OnUpdateCommentObjSubscription
-  >;
-export const onDeleteCommentObj =
-  /* GraphQL */ `subscription OnDeleteCommentObj(
+  APITypes.OnUpdateCommentObjSubscriptionVariables,
+  APITypes.OnUpdateCommentObjSubscription
+>;
+export const onDeleteCommentObj = /* GraphQL */ `subscription OnDeleteCommentObj(
   $id: String
   $momentId: String
   $time: String
@@ -1262,9 +962,9 @@ export const onDeleteCommentObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteCommentObjSubscriptionVariables,
-    APITypes.OnDeleteCommentObjSubscription
-  >;
+  APITypes.OnDeleteCommentObjSubscriptionVariables,
+  APITypes.OnDeleteCommentObjSubscription
+>;
 export const onCreateChatObj = /* GraphQL */ `subscription OnCreateChatObj(
   $id: String
   $chapterId: String
@@ -1343,8 +1043,7 @@ export const onDeleteChatObj = /* GraphQL */ `subscription OnDeleteChatObj(
   APITypes.OnDeleteChatObjSubscriptionVariables,
   APITypes.OnDeleteChatObjSubscription
 >;
-export const onCreateReservationObj =
-  /* GraphQL */ `subscription OnCreateReservationObj(
+export const onCreateReservationObj = /* GraphQL */ `subscription OnCreateReservationObj(
   $id: String
   $fname: String
   $lname: String
@@ -1359,11 +1058,10 @@ export const onCreateReservationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnCreateReservationObjSubscriptionVariables,
-    APITypes.OnCreateReservationObjSubscription
-  >;
-export const onUpdateReservationObj =
-  /* GraphQL */ `subscription OnUpdateReservationObj(
+  APITypes.OnCreateReservationObjSubscriptionVariables,
+  APITypes.OnCreateReservationObjSubscription
+>;
+export const onUpdateReservationObj = /* GraphQL */ `subscription OnUpdateReservationObj(
   $id: String
   $fname: String
   $lname: String
@@ -1378,11 +1076,10 @@ export const onUpdateReservationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnUpdateReservationObjSubscriptionVariables,
-    APITypes.OnUpdateReservationObjSubscription
-  >;
-export const onDeleteReservationObj =
-  /* GraphQL */ `subscription OnDeleteReservationObj(
+  APITypes.OnUpdateReservationObjSubscriptionVariables,
+  APITypes.OnUpdateReservationObjSubscription
+>;
+export const onDeleteReservationObj = /* GraphQL */ `subscription OnDeleteReservationObj(
   $id: String
   $fname: String
   $lname: String
@@ -1397,17 +1094,71 @@ export const onDeleteReservationObj =
   }
 }
 ` as GeneratedSubscription<
-    APITypes.OnDeleteReservationObjSubscriptionVariables,
-    APITypes.OnDeleteReservationObjSubscription
-  >;
-export const onCreateLoomObj = /* GraphQL */ `subscription OnCreateLoomObj(
+  APITypes.OnDeleteReservationObjSubscriptionVariables,
+  APITypes.OnDeleteReservationObjSubscription
+>;
+export const onCreateNoteObj = /* GraphQL */ `subscription OnCreateNoteObj(
+  $id: String
+  $title: String
+  $text: String
+  $variant: String
+) {
+  onCreateNoteObj(id: $id, title: $title, text: $text, variant: $variant) {
+    id
+    title
+    text
+    variant
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateNoteObjSubscriptionVariables,
+  APITypes.OnCreateNoteObjSubscription
+>;
+export const onUpdateNoteObj = /* GraphQL */ `subscription OnUpdateNoteObj(
+  $id: String
+  $title: String
+  $text: String
+  $variant: String
+) {
+  onUpdateNoteObj(id: $id, title: $title, text: $text, variant: $variant) {
+    id
+    title
+    text
+    variant
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateNoteObjSubscriptionVariables,
+  APITypes.OnUpdateNoteObjSubscription
+>;
+export const onDeleteNoteObj = /* GraphQL */ `subscription OnDeleteNoteObj(
+  $id: String
+  $title: String
+  $text: String
+  $variant: String
+) {
+  onDeleteNoteObj(id: $id, title: $title, text: $text, variant: $variant) {
+    id
+    title
+    text
+    variant
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteNoteObjSubscriptionVariables,
+  APITypes.OnDeleteNoteObjSubscription
+>;
+export const onCreateLogObj = /* GraphQL */ `subscription OnCreateLogObj(
   $id: String
   $loomId: String
-  $height: Float
-  $width: Float
+  $height: Int
+  $width: Int
   $sharedUrl: String
 ) {
-  onCreateLoomObj(
+  onCreateLogObj(
     id: $id
     loomId: $loomId
     height: $height
@@ -1418,7 +1169,6 @@ export const onCreateLoomObj = /* GraphQL */ `subscription OnCreateLoomObj(
     loomId
     height
     width
-    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -1430,17 +1180,17 @@ export const onCreateLoomObj = /* GraphQL */ `subscription OnCreateLoomObj(
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateLoomObjSubscriptionVariables,
-  APITypes.OnCreateLoomObjSubscription
+  APITypes.OnCreateLogObjSubscriptionVariables,
+  APITypes.OnCreateLogObjSubscription
 >;
-export const onUpdateLoomObj = /* GraphQL */ `subscription OnUpdateLoomObj(
+export const onUpdateLogObj = /* GraphQL */ `subscription OnUpdateLogObj(
   $id: String
   $loomId: String
-  $height: Float
-  $width: Float
+  $height: Int
+  $width: Int
   $sharedUrl: String
 ) {
-  onUpdateLoomObj(
+  onUpdateLogObj(
     id: $id
     loomId: $loomId
     height: $height
@@ -1451,7 +1201,6 @@ export const onUpdateLoomObj = /* GraphQL */ `subscription OnUpdateLoomObj(
     loomId
     height
     width
-    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -1463,17 +1212,17 @@ export const onUpdateLoomObj = /* GraphQL */ `subscription OnUpdateLoomObj(
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateLoomObjSubscriptionVariables,
-  APITypes.OnUpdateLoomObjSubscription
+  APITypes.OnUpdateLogObjSubscriptionVariables,
+  APITypes.OnUpdateLogObjSubscription
 >;
-export const onDeleteLoomObj = /* GraphQL */ `subscription OnDeleteLoomObj(
+export const onDeleteLogObj = /* GraphQL */ `subscription OnDeleteLogObj(
   $id: String
   $loomId: String
-  $height: Float
-  $width: Float
+  $height: Int
+  $width: Int
   $sharedUrl: String
 ) {
-  onDeleteLoomObj(
+  onDeleteLogObj(
     id: $id
     loomId: $loomId
     height: $height
@@ -1484,7 +1233,6 @@ export const onDeleteLoomObj = /* GraphQL */ `subscription OnDeleteLoomObj(
     loomId
     height
     width
-    title
     sharedUrl
     embedUrl
     thumbnailHeight
@@ -1496,60 +1244,456 @@ export const onDeleteLoomObj = /* GraphQL */ `subscription OnDeleteLoomObj(
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteLoomObjSubscriptionVariables,
-  APITypes.OnDeleteLoomObjSubscription
+  APITypes.OnDeleteLogObjSubscriptionVariables,
+  APITypes.OnDeleteLogObjSubscription
 >;
-export const onCreateStickyObj = /* GraphQL */ `subscription OnCreateStickyObj(
+export const onCreateLinkObj = /* GraphQL */ `subscription OnCreateLinkObj(
   $id: String
-  $color: String
-  $name: String
-  $content: String
+  $url: String
+  $title: String
+  $variant: String
 ) {
-  onCreateStickyObj(id: $id, color: $color, name: $name, content: $content) {
+  onCreateLinkObj(id: $id, url: $url, title: $title, variant: $variant) {
     id
-    color
-    name
-    content
+    url
+    title
+    variant
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateStickyObjSubscriptionVariables,
-  APITypes.OnCreateStickyObjSubscription
+  APITypes.OnCreateLinkObjSubscriptionVariables,
+  APITypes.OnCreateLinkObjSubscription
 >;
-export const onUpdateStickyObj = /* GraphQL */ `subscription OnUpdateStickyObj(
+export const onUpdateLinkObj = /* GraphQL */ `subscription OnUpdateLinkObj(
   $id: String
-  $color: String
-  $name: String
-  $content: String
+  $url: String
+  $title: String
+  $variant: String
 ) {
-  onUpdateStickyObj(id: $id, color: $color, name: $name, content: $content) {
+  onUpdateLinkObj(id: $id, url: $url, title: $title, variant: $variant) {
     id
-    color
-    name
-    content
+    url
+    title
+    variant
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateStickyObjSubscriptionVariables,
-  APITypes.OnUpdateStickyObjSubscription
+  APITypes.OnUpdateLinkObjSubscriptionVariables,
+  APITypes.OnUpdateLinkObjSubscription
 >;
-export const onDeleteStickyObj = /* GraphQL */ `subscription OnDeleteStickyObj(
+export const onDeleteLinkObj = /* GraphQL */ `subscription OnDeleteLinkObj(
   $id: String
-  $color: String
-  $name: String
-  $content: String
+  $url: String
+  $title: String
+  $variant: String
 ) {
-  onDeleteStickyObj(id: $id, color: $color, name: $name, content: $content) {
+  onDeleteLinkObj(id: $id, url: $url, title: $title, variant: $variant) {
     id
-    color
-    name
-    content
+    url
+    title
+    variant
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteStickyObjSubscriptionVariables,
-  APITypes.OnDeleteStickyObjSubscription
+  APITypes.OnDeleteLinkObjSubscriptionVariables,
+  APITypes.OnDeleteLinkObjSubscription
+>;
+export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onCreateStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateStarObjSubscriptionVariables,
+  APITypes.OnCreateStarObjSubscription
+>;
+export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onUpdateStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateStarObjSubscriptionVariables,
+  APITypes.OnUpdateStarObjSubscription
+>;
+export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onDeleteStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteStarObjSubscriptionVariables,
+  APITypes.OnDeleteStarObjSubscription
+>;
+export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
+  $id: String
+  $chapterId: String
+  $spaceId: String
+  $userId: String
+  $time: String
+) {
+  onCreateMomentObj(
+    id: $id
+    chapterId: $chapterId
+    spaceId: $spaceId
+    userId: $userId
+    time: $time
+  ) {
+    id
+    chapterId
+    spaceId
+    userId
+    time
+    title
+    description
+    visibility
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateMomentObjSubscriptionVariables,
+  APITypes.OnCreateMomentObjSubscription
+>;
+export const onUpdateMomentObj = /* GraphQL */ `subscription OnUpdateMomentObj(
+  $id: String
+  $chapterId: String
+  $spaceId: String
+  $userId: String
+  $time: String
+) {
+  onUpdateMomentObj(
+    id: $id
+    chapterId: $chapterId
+    spaceId: $spaceId
+    userId: $userId
+    time: $time
+  ) {
+    id
+    chapterId
+    spaceId
+    userId
+    time
+    title
+    description
+    visibility
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateMomentObjSubscriptionVariables,
+  APITypes.OnUpdateMomentObjSubscription
+>;
+export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
+  $id: String
+  $chapterId: String
+  $spaceId: String
+  $userId: String
+  $time: String
+) {
+  onDeleteMomentObj(
+    id: $id
+    chapterId: $chapterId
+    spaceId: $spaceId
+    userId: $userId
+    time: $time
+  ) {
+    id
+    chapterId
+    spaceId
+    userId
+    time
+    title
+    description
+    visibility
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteMomentObjSubscriptionVariables,
+  APITypes.OnDeleteMomentObjSubscription
 >;

@@ -1,4 +1,4 @@
-import { FileObj } from '@/tables/file/main';
+import { FileObj } from '@/tables/resource/file/main';
 
 export function SelectedImage({ selected }: { selected: FileObj }) {
   return (

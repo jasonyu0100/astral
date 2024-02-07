@@ -8,7 +8,7 @@ export function SpaceDay() {
 
   return (
     <div className='flex items-center'>
-      <p className='text-lg font-bold text-white'>Day {daysDifference}</p>
+      <p className='text-lg font-bold text-white'>Day {daysDifference+1}</p>
     </div>
   );
 }
