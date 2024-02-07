@@ -24,7 +24,7 @@ export interface StarObj {
   link?: LinkObj;
 }
 
-export type StarTemplateObj = Exclude<StarObj, 'id' | 'constellationId'>;
+export type StarTemplateObj = Omit<StarObj, 'id' | 'constellationId'>;
 
 export const exampleStar: StarObj = {
   id: '0',

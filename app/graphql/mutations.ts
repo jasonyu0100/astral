@@ -878,165 +878,6 @@ export const deleteLinkObj = /* GraphQL */ `mutation DeleteLinkObj($input: Delet
   APITypes.DeleteLinkObjMutationVariables,
   APITypes.DeleteLinkObjMutation
 >;
-export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: CreateStarObjInput!) {
-  createStarObj(input: $input) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.CreateStarObjMutationVariables,
-  APITypes.CreateStarObjMutation
->;
-export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: UpdateStarObjInput!) {
-  updateStarObj(input: $input) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.UpdateStarObjMutationVariables,
-  APITypes.UpdateStarObjMutation
->;
-export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: DeleteStarObjInput!) {
-  deleteStarObj(input: $input) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedMutation<
-  APITypes.DeleteStarObjMutationVariables,
-  APITypes.DeleteStarObjMutation
->;
 export const createMomentObj = /* GraphQL */ `mutation CreateMomentObj($input: CreateMomentObjInput!) {
   createMomentObj(input: $input) {
     id
@@ -1201,4 +1042,163 @@ export const deleteMomentObj = /* GraphQL */ `mutation DeleteMomentObj($input: D
 ` as GeneratedMutation<
   APITypes.DeleteMomentObjMutationVariables,
   APITypes.DeleteMomentObjMutation
+>;
+export const createStarObj = /* GraphQL */ `mutation CreateStarObj($input: CreateStarObjInput!) {
+  createStarObj(input: $input) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateStarObjMutationVariables,
+  APITypes.CreateStarObjMutation
+>;
+export const updateStarObj = /* GraphQL */ `mutation UpdateStarObj($input: UpdateStarObjInput!) {
+  updateStarObj(input: $input) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateStarObjMutationVariables,
+  APITypes.UpdateStarObjMutation
+>;
+export const deleteStarObj = /* GraphQL */ `mutation DeleteStarObj($input: DeleteStarObjInput!) {
+  deleteStarObj(input: $input) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteStarObjMutationVariables,
+  APITypes.DeleteStarObjMutation
 >;

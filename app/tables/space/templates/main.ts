@@ -5,6 +5,7 @@ import { customTemplate } from './custom';
 import { ideaTemplate } from './idea';
 import { songMixTemplate } from './mix';
 import { songSpaceTemplate } from './song';
+import { MessageTemplateObj } from '@/tables/storm/chat/message/main';
 
 export interface ChapterTemplateObj {
   title: string;
@@ -16,7 +17,7 @@ export interface ChapterTemplateObj {
 export interface ChatTemplateObj {
   title: string;
   description: string;
-  messages?: string[];
+  messages?: MessageTemplateObj[];
 }
 
 export interface ConstellationTemplateObj {
@@ -27,8 +28,8 @@ export interface ConstellationTemplateObj {
 }
 
 export const spaceTemplates = {
-  [SpaceVariant.MIX]: songMixTemplate,
   [SpaceVariant.SONG]: songSpaceTemplate,
+  [SpaceVariant.MIX]: songMixTemplate,
   [SpaceVariant.BAR]: barTemplate,
   [SpaceVariant.IDEA]: ideaTemplate,
   [SpaceVariant.CUSTOM]: customTemplate,

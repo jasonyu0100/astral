@@ -11,6 +11,8 @@ export interface MessageObj {
   message: string;
 }
 
+export type MessageTemplateObj = Omit<MessageObj, 'id' | 'userId' | 'chatId' | 'time'>;
+
 export const exampleMessage: MessageObj = {
   id: '0',
   chatId: '0',

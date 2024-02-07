@@ -1,10 +1,59 @@
+import { ConstellationVariant } from '@/tables/draft/constellation/main';
 import { ChapterTemplateObj } from './main';
+import { exampleFile, exampleFiles } from '@/tables/resource/file/main';
+import { ResourceVariant } from '@/tables/resource/main';
+import { MessageSource } from '@/tables/storm/chat/message/main';
 
 export const songSpaceTemplate: ChapterTemplateObj[] = [
   {
     title: 'Introduction (Intro)',
     description:
       'Establishes the mood with atmospheric sounds, synths, or an introductory beat. It can be a gradual build-up or a sudden start.',
+    chatTemplate: {
+      title: 'Introduction',
+      description: 'Chat about intro.',
+      messages: [
+        {
+          source: MessageSource.AGENT,
+          message: 'Lets talk about your intro.',
+        },
+        {
+          source: MessageSource.AGENT,
+          message: 'How can I help?',
+        },
+      ],
+    },
+    constellationTemplate: {
+      title: 'Vision',
+      description: 'My vision board',
+      variant: ConstellationVariant.VISUAL,
+      stars: [
+        {
+          title: 'Star 0',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 120,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 1',
+          description: 'Twinkle twinkle little star',
+          x: 240,
+          y: 240,
+          file: exampleFiles[1],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 3',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 240,
+          file: exampleFiles[2],
+          variant: ResourceVariant.FILE,
+        },
+      ],
+    },
   },
   {
     title: 'Build-up',

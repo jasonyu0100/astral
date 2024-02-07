@@ -60,11 +60,12 @@ export const useStars = (constellationId: string): useStarInterface => {
       y: number,
       file: FileObj,
     ) => {
+      console.log(file, constellationId, title)
       const payload = await amplifyClient.graphql({
         query: createStarObj,
         variables: {
           input: {
-            constellationId,
+            constellationId: constellationId,
             title: title,
             description: "",
             x,
@@ -75,11 +76,13 @@ export const useStars = (constellationId: string): useStarInterface => {
               title: file.title,
               size: file.size,
               fileType: file.fileType,
+              variant: file.variant,
             },
             variant: ResourceVariant.FILE,
           },
         },
       });
+      console.log(payload)
       const star = payload?.data.createStarObj as StarObj;
       return star;
     },
@@ -119,6 +122,7 @@ export const useStars = (constellationId: string): useStarInterface => {
         return {} as StarObj;
       }
       const star = await gqlHelper.queryCreateFileStar(name, x, y, file);
+      console.log(star)
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;

@@ -2,13 +2,27 @@ import { useState, useEffect } from 'react';
 import { SpaceObj } from '@/tables/space/main';
 import { amplifyClient } from '@/client';
 import { listSpaceObjs } from '@/graphql/queries';
-import { createChapterObj, createChatObj, createConstellationObj, createSpaceObj } from '@/graphql/mutations';
+import {
+  createChapterObj,
+  createChatObj,
+  createConstellationObj,
+  createMessageObj,
+  createSpaceObj,
+  createStarObj,
+} from '@/graphql/mutations';
 import { FileObj } from '@/tables/resource/file/main';
 import { ChapterTemplateObj } from '@/tables/space/templates/main';
 import { ChapterObj } from '@/tables/space/chapter/main';
 import { toast } from 'sonner';
 import { ChatObj } from '@/tables/storm/chat/main';
-import { ConstellationObj, ConstellationVariant } from '@/tables/draft/constellation/main';
+import {
+  ConstellationObj,
+  ConstellationVariant,
+} from '@/tables/draft/constellation/main';
+import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
+import { ResourceVariant } from '@/tables/resource/main';
+import { StarObj } from '@/tables/draft/constellation/star/main';
+import { StarObj } from '@/tables/draft/constellation/star/main';
 
 export interface SpacesHandler {
   queryListSpaces: () => Promise<void>;
@@ -76,7 +90,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
           },
         },
       });
-      const spaces = payload?.data?.listSpaceObjs?.items as SpaceObj[] || [];
+      const spaces = (payload?.data?.listSpaceObjs?.items as SpaceObj[]) || [];
       return spaces;
     },
     queryCreateChapterWithinSpace: async (
@@ -99,7 +113,11 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       const chapter = payload.data?.createChapterObj as ChapterObj;
       return chapter;
     },
-    queryCreateChatWithinChapter: async (title: string, summary: string, chapterId: string) => {
+    queryCreateChatWithinChapter: async (
+      title: string,
+      summary: string,
+      chapterId: string,
+    ) => {
       const payload = await amplifyClient.graphql({
         query: createChatObj,
         variables: {
@@ -118,7 +136,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       title: string,
       description: string,
       variant: string,
-      chapterId: string
+      chapterId: string,
     ) => {
       const payload = await amplifyClient.graphql({
         query: createConstellationObj,
@@ -134,6 +152,54 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       const constellation = payload?.data
         .createConstellationObj as ConstellationObj;
       return constellation;
+    },
+    queryCreateAgentMessageWithinChat: async (text: string, chatId: string) => {
+      const payload = await amplifyClient.graphql({
+        query: createMessageObj,
+        variables: {
+          input: {
+            chatId: chatId,
+            source: MessageSource.AGENT,
+            time: new Date().toISOString(),
+            message: text,
+          },
+        },
+      });
+      const message = payload.data?.createMessageObj as MessageObj;
+      return message;
+    },
+    queryCreateFileStarWithinConstellation: async (
+      title: string,
+      x: number,
+      y: number,
+      file: FileObj,
+      constellationId: string,
+    ) => {
+      const payload = await amplifyClient.graphql({
+        query: createStarObj,
+        variables: {
+          input: {
+            constellationId: constellationId,
+            title: title,
+            description: '',
+            x,
+            y,
+            file: {
+              id: file.id,
+              src: file.src,
+              title: file.title,
+              size: file.size,
+              fileType: file.fileType,
+              variant: file.variant,
+            },
+            variant: ResourceVariant.FILE,
+          },
+        },
+      });
+      console.log(payload)
+      const star = payload?.data.createStarObj as StarObj;
+      console.log(star);
+      return star;
     },
   };
 
@@ -160,24 +226,63 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       changeSpaceId(space.id);
       const _ = await Promise.all(
         chapterTemplates.map(async (template, idx) => {
-
           const chapter = await gqlHelper.queryCreateChapterWithinSpace(
             template.title,
             template.description,
             idx,
             space.id,
-          )
-          const chat = await gqlHelper.queryCreateChatWithinChapter(
-            "CHAT TITLE",
-            "SUMMARY",
-            chapter.id,
-          )
-          const constellation = await gqlHelper.queryCreateConstellationWithinChapter(
-            "CONSTELLATION TITLE",
-            "CONSTELLATION DESCRIPTION",
-            ConstellationVariant.VISUAL,
-            chapter.id,
-          )
+          );
+
+          if (template.chatTemplate) {
+            const chat = await gqlHelper
+              .queryCreateChatWithinChapter(
+                template.chatTemplate.title,
+                template.chatTemplate?.description,
+                chapter.id,
+              )
+              .then(async (chat) => {
+                if (template?.chatTemplate?.messages) {
+                  const messageTemplates = template.chatTemplate.messages;
+                  await Promise.all(
+                    messageTemplates.map(async (message) => {
+                      return gqlHelper.queryCreateAgentMessageWithinChat(
+                        message.message,
+                        chat.id,
+                      );
+                    }),
+                  );
+                }
+                return chat;
+              });
+          }
+
+          if (template.constellationTemplate) {
+            const constellation = await gqlHelper
+              .queryCreateConstellationWithinChapter(
+                template.constellationTemplate.title,
+                template.constellationTemplate.description,
+                template.constellationTemplate.variant,
+                chapter.id,
+              )
+              .then(async (constellation) => {
+                if (template?.constellationTemplate?.stars) {
+                  const starTemplates = template.constellationTemplate.stars;
+                  console.log(starTemplates);
+                  await Promise.all(
+                    starTemplates.map((star) => {
+                      return gqlHelper.queryCreateFileStarWithinConstellation(
+                        star.title,
+                        star.x,
+                        star.y,
+                        star.file || ({} as FileObj),
+                        constellation.id,
+                      );
+                    }),
+                  );
+                }
+                return constellation;
+              });
+          }
         }),
       );
       toast('Space has been created.');

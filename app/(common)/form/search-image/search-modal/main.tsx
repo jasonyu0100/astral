@@ -49,7 +49,7 @@ export default function SearchModal({
             className='flex flex-row flex-wrap overflow-auto'
             style={{ height: '100%' }}
           >
-            {images.map((image) => (
+            {images?.map((image) => (
               <SearchImage
                 active={selected.id == image.id}
                 image={image}

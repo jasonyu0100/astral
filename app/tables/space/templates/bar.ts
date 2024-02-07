@@ -1,5 +1,8 @@
 import { ConstellationVariant } from '@/tables/draft/constellation/main';
 import { ChapterTemplateObj } from './main';
+import { exampleFiles } from '@/tables/resource/file/main';
+import { ResourceVariant } from '@/tables/resource/main';
+import { MessageSource } from '@/tables/storm/chat/message/main';
 
 export const barTemplate: ChapterTemplateObj[] = [
   {
@@ -9,12 +12,48 @@ export const barTemplate: ChapterTemplateObj[] = [
     chatTemplate: {
       title: 'Drums Chat',
       description: 'Chat about the drum section.',
+      messages: [
+        {
+          source: MessageSource.AGENT,
+          message: 'Lets talk about your drums',
+        },
+        {
+          source: MessageSource.AGENT,
+          message: 'How can I help?',
+        },
+      ],
     },
     constellationTemplate: {
-      title: 'Drums Constellation',
-      description: 'Explore the drum section.',
+      title: 'Vision',
+      description: 'My vision board',
       variant: ConstellationVariant.VISUAL,
-    }
+      stars: [
+        {
+          title: 'Star 0',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 120,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 1',
+          description: 'Twinkle twinkle little star',
+          x: 240,
+          y: 240,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 3',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 240,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+      ],
+    },
   },
   {
     title: 'Bass',

@@ -734,120 +734,6 @@ export const listLinkObjs = /* GraphQL */ `query ListLinkObjs(
   APITypes.ListLinkObjsQueryVariables,
   APITypes.ListLinkObjsQuery
 >;
-export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
-  getStarObj(id: $id) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.GetStarObjQueryVariables,
-  APITypes.GetStarObjQuery
->;
-export const listStarObjs = /* GraphQL */ `query ListStarObjs(
-  $filter: TableStarObjFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listStarObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      constellationId
-      title
-      description
-      x
-      y
-      variant
-      file {
-        id
-        src
-        fileType
-        title
-        size
-        variant
-        __typename
-      }
-      log {
-        id
-        loomId
-        height
-        width
-        sharedUrl
-        embedUrl
-        thumbnailHeight
-        thumbnailWidth
-        thumbnailUrl
-        duration
-        providerUrl
-        __typename
-      }
-      note {
-        id
-        title
-        text
-        variant
-        __typename
-      }
-      link {
-        id
-        url
-        title
-        variant
-        __typename
-      }
-      __typename
-    }
-    nextToken
-    __typename
-  }
-}
-` as GeneratedQuery<
-  APITypes.ListStarObjsQueryVariables,
-  APITypes.ListStarObjsQuery
->;
 export const getMomentObj = /* GraphQL */ `query GetMomentObj($id: String!) {
   getMomentObj(id: $id) {
     id
@@ -965,4 +851,118 @@ export const listMomentObjs = /* GraphQL */ `query ListMomentObjs(
 ` as GeneratedQuery<
   APITypes.ListMomentObjsQueryVariables,
   APITypes.ListMomentObjsQuery
+>;
+export const getStarObj = /* GraphQL */ `query GetStarObj($id: String!) {
+  getStarObj(id: $id) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetStarObjQueryVariables,
+  APITypes.GetStarObjQuery
+>;
+export const listStarObjs = /* GraphQL */ `query ListStarObjs(
+  $filter: TableStarObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listStarObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      constellationId
+      title
+      description
+      x
+      y
+      variant
+      file {
+        id
+        src
+        fileType
+        title
+        size
+        variant
+        __typename
+      }
+      log {
+        id
+        loomId
+        height
+        width
+        sharedUrl
+        embedUrl
+        thumbnailHeight
+        thumbnailWidth
+        thumbnailUrl
+        duration
+        providerUrl
+        __typename
+      }
+      note {
+        id
+        title
+        text
+        variant
+        __typename
+      }
+      link {
+        id
+        url
+        title
+        variant
+        __typename
+      }
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListStarObjsQueryVariables,
+  APITypes.ListStarObjsQuery
 >;

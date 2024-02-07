@@ -1,10 +1,59 @@
+import { ConstellationVariant } from '@/tables/draft/constellation/main';
+import { exampleFiles } from '@/tables/resource/file/main';
+import { ResourceVariant } from '@/tables/resource/main';
 import { ChapterTemplateObj } from './main';
+import { MessageSource } from '@/tables/storm/chat/message/main';
 
 export const ideaTemplate: ChapterTemplateObj[] = [
   {
     title: 'Preparation',
     description:
       'In this stage, the focus is on defining the problem or opportunity clearly. Gather relevant information about the context to inform the ideation process. It sets the groundwork for generating ideas with a deep understanding of the subject.',
+    chatTemplate: {
+      title: 'Preperation',
+      description: 'Chat about preparation.',
+      messages: [
+        {
+          source: MessageSource.AGENT,
+          message: 'Lets talk about your preparation.',
+        },
+        {
+          source: MessageSource.AGENT,
+          message: 'How can I help?',
+        },
+      ],
+    },
+    constellationTemplate: {
+      title: 'Vision',
+      description: 'My vision board',
+      variant: ConstellationVariant.VISUAL,
+      stars: [
+        {
+          title: 'Star 0',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 120,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 1',
+          description: 'Twinkle twinkle little star',
+          x: 240,
+          y: 240,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+        {
+          title: 'Star 3',
+          description: 'Twinkle twinkle little star',
+          x: 120,
+          y: 240,
+          file: exampleFiles[0],
+          variant: ResourceVariant.FILE,
+        },
+      ],
+    },
   },
   {
     title: 'Incubation',

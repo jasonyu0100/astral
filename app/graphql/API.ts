@@ -477,52 +477,6 @@ export type DeleteLinkObjInput = {
   id: string,
 };
 
-export type CreateStarObjInput = {
-  constellationId: string,
-  title: string,
-  description: string,
-  x: number,
-  y: number,
-  variant: string,
-  file?: UpdateFileObjInput | null,
-  log?: UpdateLogObjInput | null,
-  link?: UpdateLinkObjInput | null,
-  note?: UpdateNoteObjInput | null,
-};
-
-export type StarObj = {
-  __typename: "StarObj",
-  id: string,
-  constellationId: string,
-  title: string,
-  description: string,
-  x: number,
-  y: number,
-  variant: string,
-  file?: FileObj | null,
-  log?: LogObj | null,
-  note?: NoteObj | null,
-  link?: LinkObj | null,
-};
-
-export type UpdateStarObjInput = {
-  id: string,
-  constellationId?: string | null,
-  title?: string | null,
-  description?: string | null,
-  x?: number | null,
-  y?: number | null,
-  variant?: string | null,
-  file?: UpdateFileObjInput | null,
-  log?: UpdateLogObjInput | null,
-  link?: UpdateLinkObjInput | null,
-  note?: UpdateNoteObjInput | null,
-};
-
-export type DeleteStarObjInput = {
-  id: string,
-};
-
 export type CreateMomentObjInput = {
   chapterId: string,
   spaceId: string,
@@ -572,6 +526,52 @@ export type UpdateMomentObjInput = {
 };
 
 export type DeleteMomentObjInput = {
+  id: string,
+};
+
+export type CreateStarObjInput = {
+  constellationId: string,
+  title: string,
+  description: string,
+  x: number,
+  y: number,
+  variant: string,
+  file?: UpdateFileObjInput | null,
+  log?: UpdateLogObjInput | null,
+  link?: UpdateLinkObjInput | null,
+  note?: UpdateNoteObjInput | null,
+};
+
+export type StarObj = {
+  __typename: "StarObj",
+  id: string,
+  constellationId: string,
+  title: string,
+  description: string,
+  x: number,
+  y: number,
+  variant: string,
+  file?: FileObj | null,
+  log?: LogObj | null,
+  note?: NoteObj | null,
+  link?: LinkObj | null,
+};
+
+export type UpdateStarObjInput = {
+  id: string,
+  constellationId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  x?: number | null,
+  y?: number | null,
+  variant?: string | null,
+  file?: UpdateFileObjInput | null,
+  log?: UpdateLogObjInput | null,
+  link?: UpdateLinkObjInput | null,
+  note?: UpdateNoteObjInput | null,
+};
+
+export type DeleteStarObjInput = {
   id: string,
 };
 
@@ -835,6 +835,24 @@ export type LinkObjConnection = {
   nextToken?: string | null,
 };
 
+export type TableMomentObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  chapterId?: TableStringFilterInput | null,
+  spaceId?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
+  time?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+  visibility?: TableStringFilterInput | null,
+  variant?: TableStringFilterInput | null,
+};
+
+export type MomentObjConnection = {
+  __typename: "MomentObjConnection",
+  items?:  Array<MomentObj | null > | null,
+  nextToken?: string | null,
+};
+
 export type TableStarObjFilterInput = {
   id?: TableStringFilterInput | null,
   constellationId?: TableStringFilterInput | null,
@@ -859,24 +877,6 @@ export type TableFloatFilterInput = {
 export type StarObjConnection = {
   __typename: "StarObjConnection",
   items?:  Array<StarObj | null > | null,
-  nextToken?: string | null,
-};
-
-export type TableMomentObjFilterInput = {
-  id?: TableStringFilterInput | null,
-  chapterId?: TableStringFilterInput | null,
-  spaceId?: TableStringFilterInput | null,
-  userId?: TableStringFilterInput | null,
-  time?: TableStringFilterInput | null,
-  title?: TableStringFilterInput | null,
-  description?: TableStringFilterInput | null,
-  visibility?: TableStringFilterInput | null,
-  variant?: TableStringFilterInput | null,
-};
-
-export type MomentObjConnection = {
-  __typename: "MomentObjConnection",
-  items?:  Array<MomentObj | null > | null,
   nextToken?: string | null,
 };
 
@@ -1798,168 +1798,6 @@ export type DeleteLinkObjMutation = {
   } | null,
 };
 
-export type CreateStarObjMutationVariables = {
-  input: CreateStarObjInput,
-};
-
-export type CreateStarObjMutation = {
-  createStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
-export type UpdateStarObjMutationVariables = {
-  input: UpdateStarObjInput,
-};
-
-export type UpdateStarObjMutation = {
-  updateStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
-export type DeleteStarObjMutationVariables = {
-  input: DeleteStarObjInput,
-};
-
-export type DeleteStarObjMutation = {
-  deleteStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
 export type CreateMomentObjMutationVariables = {
   input: CreateMomentObjInput,
 };
@@ -2123,6 +1961,168 @@ export type DeleteMomentObjMutation = {
       id: string,
       title: string,
       text: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type CreateStarObjMutationVariables = {
+  input: CreateStarObjInput,
+};
+
+export type CreateStarObjMutation = {
+  createStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type UpdateStarObjMutationVariables = {
+  input: UpdateStarObjInput,
+};
+
+export type UpdateStarObjMutation = {
+  updateStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type DeleteStarObjMutationVariables = {
+  input: DeleteStarObjInput,
+};
+
+export type DeleteStarObjMutation = {
+  deleteStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
       variant: string,
     } | null,
   } | null,
@@ -2860,120 +2860,6 @@ export type ListLinkObjsQuery = {
   } | null,
 };
 
-export type GetStarObjQueryVariables = {
-  id: string,
-};
-
-export type GetStarObjQuery = {
-  getStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
-export type ListStarObjsQueryVariables = {
-  filter?: TableStarObjFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListStarObjsQuery = {
-  listStarObjs?:  {
-    __typename: "StarObjConnection",
-    items?:  Array< {
-      __typename: "StarObj",
-      id: string,
-      constellationId: string,
-      title: string,
-      description: string,
-      x: number,
-      y: number,
-      variant: string,
-      file?:  {
-        __typename: "FileObj",
-        id: string,
-        src: string,
-        fileType: string,
-        title: string,
-        size: number,
-        variant: string,
-      } | null,
-      log?:  {
-        __typename: "LogObj",
-        id: string,
-        loomId: string,
-        height: number,
-        width: number,
-        sharedUrl: string,
-        embedUrl: string,
-        thumbnailHeight?: number | null,
-        thumbnailWidth?: number | null,
-        thumbnailUrl?: string | null,
-        duration?: number | null,
-        providerUrl: string,
-      } | null,
-      note?:  {
-        __typename: "NoteObj",
-        id: string,
-        title: string,
-        text: string,
-        variant: string,
-      } | null,
-      link?:  {
-        __typename: "LinkObj",
-        id: string,
-        url: string,
-        title: string,
-        variant: string,
-      } | null,
-    } | null > | null,
-    nextToken?: string | null,
-  } | null,
-};
-
 export type GetMomentObjQueryVariables = {
   id: string,
 };
@@ -3085,6 +2971,120 @@ export type ListMomentObjsQuery = {
         id: string,
         title: string,
         text: string,
+        variant: string,
+      } | null,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetStarObjQueryVariables = {
+  id: string,
+};
+
+export type GetStarObjQuery = {
+  getStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type ListStarObjsQueryVariables = {
+  filter?: TableStarObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListStarObjsQuery = {
+  listStarObjs?:  {
+    __typename: "StarObjConnection",
+    items?:  Array< {
+      __typename: "StarObj",
+      id: string,
+      constellationId: string,
+      title: string,
+      description: string,
+      x: number,
+      y: number,
+      variant: string,
+      file?:  {
+        __typename: "FileObj",
+        id: string,
+        src: string,
+        fileType: string,
+        title: string,
+        size: number,
+        variant: string,
+      } | null,
+      log?:  {
+        __typename: "LogObj",
+        id: string,
+        loomId: string,
+        height: number,
+        width: number,
+        sharedUrl: string,
+        embedUrl: string,
+        thumbnailHeight?: number | null,
+        thumbnailWidth?: number | null,
+        thumbnailUrl?: string | null,
+        duration?: number | null,
+        providerUrl: string,
+      } | null,
+      note?:  {
+        __typename: "NoteObj",
+        id: string,
+        title: string,
+        text: string,
+        variant: string,
+      } | null,
+      link?:  {
+        __typename: "LinkObj",
+        id: string,
+        url: string,
+        title: string,
         variant: string,
       } | null,
     } | null > | null,
@@ -4163,180 +4163,6 @@ export type OnDeleteLinkObjSubscription = {
   } | null,
 };
 
-export type OnCreateStarObjSubscriptionVariables = {
-  id?: string | null,
-  constellationId?: string | null,
-  title?: string | null,
-  description?: string | null,
-  x?: number | null,
-};
-
-export type OnCreateStarObjSubscription = {
-  onCreateStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
-export type OnUpdateStarObjSubscriptionVariables = {
-  id?: string | null,
-  constellationId?: string | null,
-  title?: string | null,
-  description?: string | null,
-  x?: number | null,
-};
-
-export type OnUpdateStarObjSubscription = {
-  onUpdateStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
-export type OnDeleteStarObjSubscriptionVariables = {
-  id?: string | null,
-  constellationId?: string | null,
-  title?: string | null,
-  description?: string | null,
-  x?: number | null,
-};
-
-export type OnDeleteStarObjSubscription = {
-  onDeleteStarObj?:  {
-    __typename: "StarObj",
-    id: string,
-    constellationId: string,
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    variant: string,
-    file?:  {
-      __typename: "FileObj",
-      id: string,
-      src: string,
-      fileType: string,
-      title: string,
-      size: number,
-      variant: string,
-    } | null,
-    log?:  {
-      __typename: "LogObj",
-      id: string,
-      loomId: string,
-      height: number,
-      width: number,
-      sharedUrl: string,
-      embedUrl: string,
-      thumbnailHeight?: number | null,
-      thumbnailWidth?: number | null,
-      thumbnailUrl?: string | null,
-      duration?: number | null,
-      providerUrl: string,
-    } | null,
-    note?:  {
-      __typename: "NoteObj",
-      id: string,
-      title: string,
-      text: string,
-      variant: string,
-    } | null,
-    link?:  {
-      __typename: "LinkObj",
-      id: string,
-      url: string,
-      title: string,
-      variant: string,
-    } | null,
-  } | null,
-};
-
 export type OnCreateMomentObjSubscriptionVariables = {
   id?: string | null,
   chapterId?: string | null,
@@ -4512,6 +4338,180 @@ export type OnDeleteMomentObjSubscription = {
       id: string,
       title: string,
       text: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type OnCreateStarObjSubscriptionVariables = {
+  id?: string | null,
+  constellationId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  x?: number | null,
+};
+
+export type OnCreateStarObjSubscription = {
+  onCreateStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type OnUpdateStarObjSubscriptionVariables = {
+  id?: string | null,
+  constellationId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  x?: number | null,
+};
+
+export type OnUpdateStarObjSubscription = {
+  onUpdateStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
+      variant: string,
+    } | null,
+  } | null,
+};
+
+export type OnDeleteStarObjSubscriptionVariables = {
+  id?: string | null,
+  constellationId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  x?: number | null,
+};
+
+export type OnDeleteStarObjSubscription = {
+  onDeleteStarObj?:  {
+    __typename: "StarObj",
+    id: string,
+    constellationId: string,
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    variant: string,
+    file?:  {
+      __typename: "FileObj",
+      id: string,
+      src: string,
+      fileType: string,
+      title: string,
+      size: number,
+      variant: string,
+    } | null,
+    log?:  {
+      __typename: "LogObj",
+      id: string,
+      loomId: string,
+      height: number,
+      width: number,
+      sharedUrl: string,
+      embedUrl: string,
+      thumbnailHeight?: number | null,
+      thumbnailWidth?: number | null,
+      thumbnailUrl?: string | null,
+      duration?: number | null,
+      providerUrl: string,
+    } | null,
+    note?:  {
+      __typename: "NoteObj",
+      id: string,
+      title: string,
+      text: string,
+      variant: string,
+    } | null,
+    link?:  {
+      __typename: "LinkObj",
+      id: string,
+      url: string,
+      title: string,
       variant: string,
     } | null,
   } | null,

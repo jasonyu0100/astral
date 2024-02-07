@@ -1301,201 +1301,6 @@ export const onDeleteLinkObj = /* GraphQL */ `subscription OnDeleteLinkObj(
   APITypes.OnDeleteLinkObjSubscriptionVariables,
   APITypes.OnDeleteLinkObjSubscription
 >;
-export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj(
-  $id: String
-  $constellationId: String
-  $title: String
-  $description: String
-  $x: Float
-) {
-  onCreateStarObj(
-    id: $id
-    constellationId: $constellationId
-    title: $title
-    description: $description
-    x: $x
-  ) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnCreateStarObjSubscriptionVariables,
-  APITypes.OnCreateStarObjSubscription
->;
-export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj(
-  $id: String
-  $constellationId: String
-  $title: String
-  $description: String
-  $x: Float
-) {
-  onUpdateStarObj(
-    id: $id
-    constellationId: $constellationId
-    title: $title
-    description: $description
-    x: $x
-  ) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnUpdateStarObjSubscriptionVariables,
-  APITypes.OnUpdateStarObjSubscription
->;
-export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj(
-  $id: String
-  $constellationId: String
-  $title: String
-  $description: String
-  $x: Float
-) {
-  onDeleteStarObj(
-    id: $id
-    constellationId: $constellationId
-    title: $title
-    description: $description
-    x: $x
-  ) {
-    id
-    constellationId
-    title
-    description
-    x
-    y
-    variant
-    file {
-      id
-      src
-      fileType
-      title
-      size
-      variant
-      __typename
-    }
-    log {
-      id
-      loomId
-      height
-      width
-      sharedUrl
-      embedUrl
-      thumbnailHeight
-      thumbnailWidth
-      thumbnailUrl
-      duration
-      providerUrl
-      __typename
-    }
-    note {
-      id
-      title
-      text
-      variant
-      __typename
-    }
-    link {
-      id
-      url
-      title
-      variant
-      __typename
-    }
-    __typename
-  }
-}
-` as GeneratedSubscription<
-  APITypes.OnDeleteStarObjSubscriptionVariables,
-  APITypes.OnDeleteStarObjSubscription
->;
 export const onCreateMomentObj = /* GraphQL */ `subscription OnCreateMomentObj(
   $id: String
   $chapterId: String
@@ -1696,4 +1501,199 @@ export const onDeleteMomentObj = /* GraphQL */ `subscription OnDeleteMomentObj(
 ` as GeneratedSubscription<
   APITypes.OnDeleteMomentObjSubscriptionVariables,
   APITypes.OnDeleteMomentObjSubscription
+>;
+export const onCreateStarObj = /* GraphQL */ `subscription OnCreateStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onCreateStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateStarObjSubscriptionVariables,
+  APITypes.OnCreateStarObjSubscription
+>;
+export const onUpdateStarObj = /* GraphQL */ `subscription OnUpdateStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onUpdateStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateStarObjSubscriptionVariables,
+  APITypes.OnUpdateStarObjSubscription
+>;
+export const onDeleteStarObj = /* GraphQL */ `subscription OnDeleteStarObj(
+  $id: String
+  $constellationId: String
+  $title: String
+  $description: String
+  $x: Float
+) {
+  onDeleteStarObj(
+    id: $id
+    constellationId: $constellationId
+    title: $title
+    description: $description
+    x: $x
+  ) {
+    id
+    constellationId
+    title
+    description
+    x
+    y
+    variant
+    file {
+      id
+      src
+      fileType
+      title
+      size
+      variant
+      __typename
+    }
+    log {
+      id
+      loomId
+      height
+      width
+      sharedUrl
+      embedUrl
+      thumbnailHeight
+      thumbnailWidth
+      thumbnailUrl
+      duration
+      providerUrl
+      __typename
+    }
+    note {
+      id
+      title
+      text
+      variant
+      __typename
+    }
+    link {
+      id
+      url
+      title
+      variant
+      __typename
+    }
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteStarObjSubscriptionVariables,
+  APITypes.OnDeleteStarObjSubscription
 >;
