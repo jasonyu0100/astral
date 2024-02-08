@@ -7,7 +7,7 @@ import { CollectionBreadcrumbDivider } from '../../(common)/breadcrumb/divider/m
 import { vaultMap } from '../../../../map';
 import { CollectionResourceGrid } from './collection-epic/grid/main';
 import { CollectionResource } from './collection-epic/grid/file/main';
-import { CollectionResourceAdd } from './collection-epic/grid/add/main';
+import { CollectionResourceAdd } from './collection-epic/grid/file/add/main';
 import { ExploreCollectionContext } from './page';
 import { useContext } from 'react';
 import { CollectionWrapper } from '../../home/home-epic/wrapper/main';

@@ -12,9 +12,11 @@ import { GalleryInterface } from './modes/gallery/main';
 import { DraftSidebarContext, SidebarMode } from './main';
 import { useContext } from 'react';
 import { DraftSidebarHeader } from './header/main';
+import { CollectionResourceAdd } from './modes/collection/add/main';
+import { GalleryCollectionAdd } from './modes/gallery/add/main';
 
 export function DraftSidebarView() {
-  const { sidebarMode, gallerys, collections, searchResults } =
+  const { sidebarMode, gallerys, collections, searchResults, resourceHandler } =
     useContext(DraftSidebarContext);
 
   return (
@@ -31,6 +33,7 @@ export function DraftSidebarView() {
             {gallerys.map((gallery) => (
               <HomeGallery gallery={gallery} />
             ))}
+            
           </HomeInterface>
         )}
         {sidebarMode === SidebarMode.Gallery && (
@@ -38,6 +41,11 @@ export function DraftSidebarView() {
             {collections.map((collection) => (
               <GalleryCollection collection={collection} />
             ))}
+            <GalleryCollectionAdd
+              onClick={() => {
+                alert('NOT IMPLEMENTED');
+              }}
+            />
           </GalleryInterface>
         )}
         {sidebarMode === SidebarMode.Collection && (
@@ -48,6 +56,11 @@ export function DraftSidebarView() {
             {searchResults.map((resource) => (
               <CollectionResource resource={resource} />
             ))}
+            <CollectionResourceAdd
+              onClick={() => {
+                alert('NOT IMPLEMENTED');
+              }}
+            />
           </CollectionInterface>
         )}
       </SidebarBody>

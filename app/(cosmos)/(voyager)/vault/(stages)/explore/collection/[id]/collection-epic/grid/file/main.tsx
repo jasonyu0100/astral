@@ -2,6 +2,9 @@ import { ResourceObj } from '@/tables/resource/main';
 import { FileModalContext, useFileModal } from './modal/main';
 import { FileModalsView } from './modal/view';
 import { createContext } from 'react';
+import { ResourceImage } from './image/main';
+import { Aspect } from '@/(common)/aspect/main';
+import { ResourceInfo } from './info/main';
 
 export const FileContext = createContext({} as ResourceObj);
 
@@ -16,22 +19,14 @@ export function CollectionResource({
     <FileContext.Provider value={resource}>
       <FileModalContext.Provider value={modalContext}>
         <FileModalsView />
-        <div className='flex aspect-[36/16] h-[150px] flex-row items-center space-x-[3rem]'>
-          <img
+        <Aspect x={36} y={16} className='flex h-[150px] flex-row items-center space-x-[3rem]'>
+          <ResourceImage 
             src={resource?.file?.src}
-            className='h-[150px] w-[150px] cursor-pointer rounded-full'
             onClick={() => modalContext.editFileModal.open()}
+            className='h-[150px] w-[150px] cursor-pointer rounded-full'
           />
-          <div className='flex flex-col'>
-            <p className='text-xl font-bold text-slate-300'>{resource.title}</p>
-            <p className='text-lg font-bold text-slate-400'>
-              {resource?.file?.fileType}
-            </p>
-            <p className='text-lg font-bold text-slate-400'>
-              {resource.description}
-            </p>
-          </div>
-        </div>
+          <ResourceInfo resource={resource} />
+        </Aspect>
       </FileModalContext.Provider>
     </FileContext.Provider>
   );
