@@ -4,7 +4,7 @@ import { listMomentObjs } from '@/graphql/queries';
 import { FileObj } from '@/tables/resource/file/main';
 import { MomentObj } from '@/tables/flow/moment/main';
 import { ResourceVariant } from '@/tables/resource/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface FeedMomentHandler {
   queryListMoments: () => Promise<MomentObj[]>;
@@ -36,13 +36,6 @@ export const useFeedMoments = (
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
-  useEffect(() => {
-    if (!userId) {
-      changeMoments([]);
-      return;
-    }
-    _momentHandler.queryListMoments();
-  }, [userId]);
 
   const gqlHelper = {
     queryListMoments: async () => {
@@ -130,6 +123,14 @@ export const useFeedMoments = (
       return moment;
     },
   };
+  
+  useMemo(() => {
+    if (!userId) {
+      changeMoments([]);
+      return;
+    }
+    _momentHandler.queryListMoments();
+  }, [userId]);
 
   return {
     moment,

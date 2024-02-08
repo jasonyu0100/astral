@@ -2,7 +2,7 @@ import { amplifyClient } from '@/client';
 import { createConstellationObj } from '@/graphql/mutations';
 import { listConstellationObjs } from '@/graphql/queries';
 import { ConstellationObj } from '@/tables/draft/constellation/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface ConstellationHandler {
   queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
@@ -40,13 +40,6 @@ export const useConstellations = (
     (constellation) => constellation.id === constellationId,
   );
 
-  useEffect(() => {
-    if (!chapterId) {
-      changeConstellations([]);
-      return;
-    }
-    _constellationHandler.queryListConstellations(chapterId);
-  }, [chapterId]);
 
   const gqlHelper = {
     queryListConstellations: async (chapterId: string) => {
@@ -126,6 +119,13 @@ export const useConstellations = (
       return constellation;
     },
   };
+  useMemo(() => {
+    if (!chapterId) {
+      changeConstellations([]);
+      return;
+    }
+    _constellationHandler.queryListConstellations(chapterId);
+  }, [chapterId]);
 
   return {
     constellation,

@@ -1,14 +1,14 @@
 'use client';
 
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
-import { useContext, useEffect } from 'react';
+import { useContext, useMemo } from 'react';
 import { FlowModalContext } from '../../../../modal/main';
 
 export function FlowLoomButton() {
   const { addLoomModal: addLoom } = useContext(FlowModalContext);
   const BUTTON_ID = 'loom-record-sdk-button';
 
-  useEffect(() => {
+  useMemo(() => {
     async function setupLoom() {
       const { supported, error } = await isSupported();
 

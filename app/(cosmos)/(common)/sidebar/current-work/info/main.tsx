@@ -2,7 +2,6 @@
 import { useGlobalUser } from '@/state/main';
 import { useGlobalSpace } from '@/state/space/main';
 import { cn } from '@/utils/cn';
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
 export function SidebarWorkInfo({ active }: { active: boolean }) {

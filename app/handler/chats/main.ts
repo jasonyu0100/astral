@@ -3,7 +3,7 @@ import { createChatObj } from '@/graphql/mutations';
 import { listChatObjs } from '@/graphql/queries';
 import { ChatObj } from '@/tables/storm/chat/main';
 import { chatTable } from '@/tables/storm/table';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface ChatHandler {
   updateChats: (chats: ChatObj[]) => ChatObj[];
@@ -25,14 +25,6 @@ export const useChats = (chapterId: string): useChatInterface => {
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
-
-  useEffect(() => {
-    if (!chapterId) {
-      changeChats([]);
-      return;
-    }
-    _chatHandler.queryListChats();
-  }, [chapterId]);
 
   const gqlHelper = {
     queryListChats: async () => {
@@ -93,6 +85,14 @@ export const useChats = (chapterId: string): useChatInterface => {
       return chat;
     },
   };
+
+  useMemo(() => {
+    if (!chapterId) {
+      changeChats([]);
+      return;
+    }
+    _chatHandler.queryListChats();
+  }, [chapterId]);
 
   return {
     chat,

@@ -3,7 +3,7 @@ import { createGalleryObj } from '@/graphql/mutations';
 import { listGalleryObjs } from '@/graphql/queries';
 import { FileObj } from '@/tables/resource/file/main';
 import { GalleryObj } from '@/tables/gallery/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface useGallerysInterface {
   gallery: GalleryObj | undefined;
@@ -26,14 +26,6 @@ export const useGallerys = (userId: string): useGallerysInterface => {
   const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
   const [galleryId, changeGalleryId] = useState<string>('');
   const gallery = gallerys.find((gallery) => gallery.id === galleryId);
-
-  useEffect(() => {
-    if (!userId) {
-      changeGallerys([]);
-      return;
-    }
-    _galleryHandler.queryListGallerys();
-  }, [userId]);
 
   const gqlHelper = {
     queryListGallerys: async () => {
@@ -98,6 +90,14 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       return gallery;
     },
   };
+
+  useMemo(() => {
+    if (!userId) {
+      changeGallerys([]);
+      return;
+    }
+    _galleryHandler.queryListGallerys();
+  }, [userId]);
 
   return {
     gallery,

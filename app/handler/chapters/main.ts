@@ -2,7 +2,7 @@ import { amplifyClient } from '@/client';
 import { createChapterObj } from '@/graphql/mutations';
 import { listChapterObjs } from '@/graphql/queries';
 import { ChapterObj } from '@/tables/space/chapter/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export interface ChapterHandler {
   addChapter: (chapter: ChapterObj) => ChapterObj;
@@ -32,14 +32,6 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
   );
 
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
-
-  useEffect(() => {
-    if (!spaceId) {
-      changeChapters([]);
-      return;
-    }
-    _chapterHandler.queryListChapters();
-  }, [spaceId]);
 
   const gqlHelper = {
     queryListChapters: async () => {
@@ -124,6 +116,15 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
       return undefined;
     },
   };
+
+  useMemo(() => {
+    if (!spaceId) {
+      changeChapters([]);
+      return;
+    }
+    _chapterHandler.queryListChapters();
+  }, [spaceId]);
+  
   return {
     chapter,
     chapterId,

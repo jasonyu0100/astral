@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { SpaceObj } from '@/tables/space/main';
 import { amplifyClient } from '@/client';
 import { listSpaceObjs } from '@/graphql/queries';
@@ -21,7 +21,6 @@ import {
 } from '@/tables/draft/constellation/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
 import { ResourceVariant } from '@/tables/resource/main';
-import { StarObj } from '@/tables/draft/constellation/star/main';
 import { StarObj } from '@/tables/draft/constellation/star/main';
 
 export interface SpacesHandler {
@@ -47,14 +46,6 @@ export const useSpaces = (userId: string): useSpacesInterface => {
   const [spaceId, changeSpaceId] = useState('');
 
   const space = spaces.find((space) => space.id === spaceId);
-
-  useEffect(() => {
-    if (!userId) {
-      changeSpaces([]);
-      return;
-    }
-    _spacesHandler.queryListSpaces();
-  }, [userId]);
 
   const gqlHelper = {
     queryCreateSpace: async (
@@ -289,6 +280,14 @@ export const useSpaces = (userId: string): useSpacesInterface => {
       return space;
     },
   };
+
+  useMemo(() => {
+    if (!userId) {
+      changeSpaces([]);
+      return;
+    }
+    _spacesHandler.queryListSpaces();
+  }, [userId]);
 
   return {
     space,

@@ -3,7 +3,6 @@ import { MomentObj } from '@/tables/flow/moment/main';
 import { ResourceVariant } from '@/tables/resource/main';
 import { cn } from '@/utils/cn';
 import { oembed } from '@loomhq/loom-embed';
-import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
 export function PostMedia({ moment }: { moment: MomentObj }) {

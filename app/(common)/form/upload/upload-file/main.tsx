@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/client';
-import { FileObj, FileVariant, getFileVariantFromMimeType } from '@/tables/resource/file/main';
+import { FileObj, getFileVariantFromMimeType } from '@/tables/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { createFileObj } from '../../../../../server/graphql/mutations';
 import { UploadedFile } from './uploaded-file/main';

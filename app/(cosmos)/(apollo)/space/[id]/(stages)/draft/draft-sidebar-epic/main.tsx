@@ -1,5 +1,5 @@
 import { GalleryObj } from '@/tables/gallery/main';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';

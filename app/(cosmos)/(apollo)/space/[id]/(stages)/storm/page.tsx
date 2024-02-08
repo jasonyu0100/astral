@@ -42,10 +42,8 @@ function Page({ params }: { params: { id: string } }) {
   const { messages, _messageHandler } = useMessages(chatId);
 
   useEffect(() => {
-    if (space) {
-      if (space.id) {
-        actions.setSpace(space);
-      }
+    if (space && space?.id) {
+      actions.setSpace(space);
     }
   }, [space]);
 

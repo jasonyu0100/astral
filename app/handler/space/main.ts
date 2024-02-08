@@ -1,18 +1,10 @@
 import { amplifyClient } from '@/client';
 import { getSpaceObj } from '@/graphql/queries';
 import { SpaceObj } from '@/tables/space/main';
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 export const useSpace = (spaceId: string) => {
   const [space, changeSpace] = useState({} as SpaceObj);
-
-  useEffect(() => {
-    if (!spaceId) {
-      changeSpace({} as SpaceObj);
-      return;
-    }
-    queryGetSpace(spaceId);
-  }, [spaceId]);
 
   const queryGetSpace = async (id: string) => {
     const payload = await amplifyClient.graphql({
@@ -26,6 +18,14 @@ export const useSpace = (spaceId: string) => {
     changeSpace(space);
     return space;
   };
+
+  useMemo(() => {
+    if (!spaceId) {
+      changeSpace({} as SpaceObj);
+      return;
+    }
+    queryGetSpace(spaceId);
+  }, [spaceId]);
 
   return { space };
 };

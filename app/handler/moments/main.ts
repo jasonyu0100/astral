@@ -6,7 +6,7 @@ import { FileObj } from '@/tables/resource/file/main';
 import { MomentObj, MomentVariant } from '@/tables/flow/moment/main';
 import { LogObj } from '@/tables/resource/log/main';
 import { NoteObj } from '@/tables/resource/note/main';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export interface MomentHandler {
   queryListMoments: () => Promise<MomentObj[]>;
@@ -49,14 +49,6 @@ export const useMoments = (
   const [momentId, changeMomentId] = useState<string>('');
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
-
-  useEffect(() => {
-    if (!chapterId) {
-      changeMoments([]);
-      return;
-    }
-    _momentHandler.queryListMoments();
-  }, [chapterId]);
 
   const gqlHelper = {
     queryListMoments: async () => {
@@ -220,6 +212,14 @@ export const useMoments = (
       return moment;
     },
   };
+
+  useMemo(() => {
+    if (!chapterId) {
+      changeMoments([]);
+      return;
+    }
+    _momentHandler.queryListMoments();
+  }, [chapterId]);
 
   return {
     moment,

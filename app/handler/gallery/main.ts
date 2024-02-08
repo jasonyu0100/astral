@@ -1,18 +1,10 @@
 import { amplifyClient } from '@/client';
 import { getGalleryObj } from '@/graphql/queries';
 import { GalleryObj } from '@/tables/gallery/main';
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 export const useGallery = (galleryId: string) => {
   const [gallery, changeGallery] = useState({} as GalleryObj);
-
-  useEffect(() => {
-    if (!galleryId) {
-      changeGallery({} as GalleryObj);
-      return;
-    }
-    queryGetGallery(galleryId);
-  }, [galleryId]);
 
   const queryGetGallery = async (id: string) => {
     const payload = await amplifyClient.graphql({
@@ -26,6 +18,14 @@ export const useGallery = (galleryId: string) => {
     changeGallery(gallery);
     return gallery;
   };
+
+  useMemo(() => {
+    if (!galleryId) {
+      changeGallery({} as GalleryObj);
+      return;
+    }
+    queryGetGallery(galleryId);
+  }, [galleryId]);
 
   return { gallery };
 };

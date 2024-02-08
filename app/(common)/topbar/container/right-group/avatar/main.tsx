@@ -7,9 +7,10 @@ import { useState, useEffect } from 'react';
 export function TopbarAvatar({ ...props }: LinkInputProps) {
   const [state, actions] = useGlobalUser();
   const [profilePictureSrc, changeProfilePictureSrc] = useState("/brand/avatar.png");
+
   useEffect(() => {
     changeProfilePictureSrc(state?.user?.profilePicture?.src || "/brand/avatar.png");
-  }, [profilePictureSrc]);
+  }, [profilePictureSrc, state]);
 
   return (
     <Link className='ml-[2rem] flex h-full items-center' {...props}>

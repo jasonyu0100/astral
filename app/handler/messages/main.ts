@@ -3,7 +3,7 @@ import { createMessageObj } from '@/graphql/mutations';
 import { listMessageObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useOpenAI } from '../openai/main';
 
 export interface MessageHandler {
@@ -23,14 +23,6 @@ export const useMessages = (chatId: string): useMessageInterface => {
   const { getMessageResponse } = useOpenAI();
   const [state, actions] = useGlobalUser();
   const [messages, changeMessages] = useState<MessageObj[]>([]);
-
-  useEffect(() => {
-    if (!chatId) {
-      changeMessages([]);
-      return;
-    }
-    _messageHandler.queryListMessages(chatId);
-  }, [chatId]);
 
   const gqlHelper = {
     queryCreateUserMessage: async (text: string) => {
@@ -106,6 +98,14 @@ export const useMessages = (chatId: string): useMessageInterface => {
       return message;
     },
   };
+
+  useMemo(() => {
+    if (!chatId) {
+      changeMessages([]);
+      return;
+    }
+    _messageHandler.queryListMessages(chatId);
+  }, [chatId]);
 
   return {
     messages,

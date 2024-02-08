@@ -5,7 +5,7 @@ import { useGlobalUser } from '@/state/main';
 import { FileObj } from '@/tables/resource/file/main';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj, ResourceVariant } from '@/tables/resource/main';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 export interface useCOllectionsInterface {
   collectionId: string;
   collection: CollectionObj | undefined;
@@ -30,13 +30,6 @@ export const useCollections = (galleryId: string) => {
     (collection) => collection.id === collectionId,
   );
 
-  useEffect(() => {
-    if (!galleryId) {
-      changeCollections([]);
-      return;
-    }
-    _collectionHandler.queryListCollections(galleryId);
-  }, [galleryId]);
 
   const gqlHelper = {
     queryCollectionResources: async (collectionId: string) => {
@@ -133,6 +126,14 @@ export const useCollections = (galleryId: string) => {
       return collection;
     },
   };
+  
+  useMemo(() => {
+    if (!galleryId) {
+      changeCollections([]);
+      return;
+    }
+    _collectionHandler.queryListCollections(galleryId);
+  }, [galleryId]);
 
   return {
     collectionId,

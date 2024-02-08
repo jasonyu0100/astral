@@ -5,7 +5,7 @@ import { StarObj } from '@/tables/draft/constellation/star/main';
 import { FileObj } from '@/tables/resource/file/main';
 import { ResourceVariant } from '@/tables/resource/main';
 import { removeTypename, removeEmpty } from '@/utils/clean';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 export interface StarHandler {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
@@ -30,14 +30,6 @@ export const useStars = (constellationId: string): useStarInterface => {
   const [starId, changeStarId] = useState<string>('');
 
   const star = stars.filter((star) => star.id === starId).at(0);
-
-  useEffect(() => {
-    if (constellationId == '') {
-      changeStars([]);
-      return;
-    }
-    _starHandler.queryListStars();
-  }, [constellationId]);
 
   const gqlHelper = {
     queryListStars: async () => {
@@ -137,6 +129,14 @@ export const useStars = (constellationId: string): useStarInterface => {
       );
     },
   };
+
+  useMemo(() => {
+    if (constellationId == '') {
+      changeStars([]);
+      return;
+    }
+    _starHandler.queryListStars();
+  }, [constellationId]);
 
   return {
     star,
