@@ -8,7 +8,7 @@ export function DraftConstellationStars() {
   const constraintsRef = useRef(null);
   return (
     <motion.div
-      className='left- 0 absolute top-0 h-full w-full'
+      className='left-0 absolute top-0 h-full w-full'
       ref={constraintsRef}
     >
       {stars.map((star) => (

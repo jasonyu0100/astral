@@ -9,7 +9,7 @@ export function DraftConstellation({
   return (
     <Layer
       displayName={DraftConstellation.name}
-      sizeStyle='w-full h-full'
+      sizeStyle='flex-grow h-full'
       className={`${containerStyles['row']}`}
     >
       {children}

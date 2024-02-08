@@ -1,7 +1,6 @@
 import { FormTextArea } from '@/(common)/form/area/main';
 import { FormBody } from '@/(common)/form/body/main';
 import { FormButton } from '@/(common)/form/button/main';
-import { FormDescription } from '@/(common)/form/description/main';
 import { FormFooter } from '@/(common)/form/footer/main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
