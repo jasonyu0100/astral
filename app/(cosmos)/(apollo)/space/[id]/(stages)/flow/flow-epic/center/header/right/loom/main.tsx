@@ -2,7 +2,7 @@
 
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useMemo } from 'react';
-import { FlowModalContext } from '../../../../modal/main';
+import { FlowModalContext } from '../../../../../../../../../../(modals)/flow-modal/main';
 
 export function FlowLoomButton() {
   const { addLoomModal: addLoom } = useContext(FlowModalContext);

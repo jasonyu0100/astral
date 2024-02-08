@@ -13,7 +13,7 @@ import { useSpace } from '@/handler/space/main';
 import {
   StormModalContext,
   useStormModal,
-} from './storm-epic/modal/main';
+} from '../../../../../(modals)/storm-modal/main';
 
 interface StormContextObj {
   chapter?: ChapterObj;

@@ -1,6 +1,6 @@
 'use client';
-import { CartModalContext, useCartModal } from './modal/main';
-import { CartModalsView } from './modal/view';
+import { CartModalContext, useCartModal } from '../../(modals)/cart-modal/main';
+import { CartModalsView } from '../../(modals)/cart-modal/view';
 
 export default function Page() {
   const modalContext = useCartModal();

@@ -14,7 +14,7 @@ import { StarHandler, useStars } from '@/handler/stars/main';
 import {
   DraftModalContext,
   useDraftModal,
-} from './draft-epic/modal/main';
+} from '../../../../../(modals)/draft-modal/main';
 
 interface DraftContextObj {
   chapterId: string;

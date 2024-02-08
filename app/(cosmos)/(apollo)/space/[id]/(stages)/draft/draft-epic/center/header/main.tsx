@@ -11,7 +11,7 @@ import { DraftHeaderLeft } from './left/main';
 import { DraftHeaderRight } from './right/main';
 import { useContext } from 'react';
 import { DraftContext } from '../../../page';
-import { DraftModalContext } from '../../modal/main';
+import { DraftModalContext } from '../../../../../../../../(modals)/draft-modal/main';
 import { DraftHeaderCenter } from './center/main';
 
 export function DraftHeader() {

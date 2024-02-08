@@ -8,7 +8,7 @@ import { useGlobalUser } from '@/state/main';
 import {
   SpacesModalContext,
   useSpacesModal,
-} from '../../spaces-epic/modal/main';
+} from '../../../../(modals)/space-modal/main';
 import { SpacesHandler, useSpaces } from '@/handler/spaces/main';
 
 interface SpacesContextObj {

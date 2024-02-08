@@ -7,7 +7,7 @@ import { spacesMap } from '../../spaces/map';
 
 export enum CraftTabStage {
   Search = 'Search',
-  Explore = 'Explore',
+  Explorer = 'Explorer',
 }
 interface CraftTabs {
   tab?: string;

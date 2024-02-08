@@ -11,8 +11,8 @@ import { SpacesHeaderTextSub } from './header/album-info/text/sub/main';
 import { SpaceWrapper } from './wrapper/main';
 import { useContext } from 'react';
 import { SpacesContext, SpaceViewProps } from '../(stages)/now/page';
-import { SpacesModalsView } from './modal/view';
-import { SpacesModalContext } from './modal/main';
+import { SpacesModalsView } from '../../../(modals)/space-modal/view';
+import { SpacesModalContext } from '../../../(modals)/space-modal/main';
 
 export function SpacesView({ type }: SpaceViewProps) {
   const { spaces } = useContext(SpacesContext);

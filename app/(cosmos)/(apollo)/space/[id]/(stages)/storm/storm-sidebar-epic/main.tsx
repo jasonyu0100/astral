@@ -9,7 +9,7 @@ import { StormChapter } from './chapters/chapter/main';
 import { StormSidebarChapters } from './chapters/main';
 import { useContext, useState } from 'react';
 import { StormContext } from '../page';
-import { StormModalContext } from '../storm-epic/modal/main';
+import { StormModalContext } from '../../../../../../(modals)/storm-modal/main';
 import { StormSidebarHeader } from './header/main';
 
 export function StormSidebar() {

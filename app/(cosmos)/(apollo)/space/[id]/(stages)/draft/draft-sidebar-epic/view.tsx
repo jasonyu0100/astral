@@ -1,19 +1,20 @@
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { SidebarBody } from './modes/main';
-import { HomeInterface } from './modes/home/main';
-import { HomeGallery } from './modes/home/gallery/main';
-import { CollectionResource } from './modes/collection/resource/main';
-import { CollectionHeader } from './modes/collection/header/main';
-import { CollectionHeaderSearch } from './modes/collection/header/search/main';
-import { CollectionInterface } from './modes/collection/main';
-import { GalleryCollection } from './modes/gallery/collection/main';
-import { GalleryInterface } from './modes/gallery/main';
+import { HomeInterface } from './modes/home-view/main';
+import { HomeGallery } from './modes/home-view/gallery/main';
+import { CollectionResource } from './modes/collection-view/resource/main';
+import { CollectionHeader } from './modes/collection-view/header/main';
+import { CollectionHeaderSearch } from './modes/collection-view/header/search/main';
+import { CollectionInterface } from './modes/collection-view/main';
+import { GalleryCollection } from './modes/gallery-view/collection/main';
+import { GalleryInterface } from './modes/gallery-view/main';
 import { DraftSidebarContext, SidebarMode } from './main';
 import { useContext } from 'react';
 import { DraftSidebarHeader } from './header/main';
-import { CollectionResourceAdd } from './modes/collection/add/main';
-import { GalleryCollectionAdd } from './modes/gallery/add/main';
+import { CollectionResourceAdd } from './modes/collection-view/add-resource/main';
+import { GalleryCollectionAdd } from './modes/gallery-view/add-collection/main';
+import { HomeGalleryAdd } from './modes/home-view/add-gallery/main';
 
 export function DraftSidebarView() {
   const { sidebarMode, gallerys, collections, searchResults, resourceHandler } =
@@ -33,7 +34,7 @@ export function DraftSidebarView() {
             {gallerys.map((gallery) => (
               <HomeGallery gallery={gallery} />
             ))}
-            
+            <HomeGalleryAdd onClick={() => alert('Not implemented')} />
           </HomeInterface>
         )}
         {sidebarMode === SidebarMode.Gallery && (
@@ -50,17 +51,19 @@ export function DraftSidebarView() {
         )}
         {sidebarMode === SidebarMode.Collection && (
           <CollectionInterface>
+            <div className='h-full flex-col space-y-[1rem] w-full'>
+              <CollectionResourceAdd
+                onClick={() => {
+                  alert('NOT IMPLEMENTED');
+                }}
+              />
+              {searchResults.map((resource) => (
+                <CollectionResource resource={resource} />
+              ))}
+            </div>
             <CollectionHeader>
               <CollectionHeaderSearch />
             </CollectionHeader>
-            {searchResults.map((resource) => (
-              <CollectionResource resource={resource} />
-            ))}
-            <CollectionResourceAdd
-              onClick={() => {
-                alert('NOT IMPLEMENTED');
-              }}
-            />
           </CollectionInterface>
         )}
       </SidebarBody>

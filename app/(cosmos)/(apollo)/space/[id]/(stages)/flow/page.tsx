@@ -6,7 +6,7 @@ import { MomentHandler, useMoments } from '@/handler/moments/main';
 import { MomentObj } from '@/tables/flow/moment/main';
 import insideCosmos from '@/utils/isAuth';
 import { ChapterObj } from '@/tables/space/chapter/main';
-import { FlowModalContext, useFlowModal } from './flow-epic/modal/main';
+import { FlowModalContext, useFlowModal } from '../../../../../(modals)/flow-modal/main';
 
 interface FlowContextObj {
   chapter?: ChapterObj;

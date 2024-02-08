@@ -5,16 +5,16 @@ export const vaultMap = {
     search: {
       link: `${baseUrl}/search`,
     },
-    explore: {
-      link: `${baseUrl}/explore/home`,
+    explorer: {
+      link: `${baseUrl}/explorer/home-view`,
       gallery: {
         id: {
-          link: (id: string) => `${baseUrl}/explore/gallery/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/gallery-view/${id}`,
         },
       },
       collection: {
         id: {
-          link: (id: string) => `${baseUrl}/explore/collection/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/collection-view/${id}`,
         },
       },
     },

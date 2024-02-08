@@ -1,6 +1,6 @@
 'use client';
-import { ProfileModalsView } from './modal/view';
-import { ProfileModalContext, useProfileModal } from './modal/main';
+import { ProfileModalsView } from '../../(modals)/profile-modal/view';
+import { ProfileModalContext, useProfileModal } from '../../(modals)/profile-modal/main';
 
 export default function Page() {
   const modalContext = useProfileModal();

@@ -11,7 +11,7 @@ import FlowHeaderTitle from './middle/title/main';
 import { FlowHeaderAddButton } from './right/add/main';
 import { FlowHeaderRight } from './right/main';
 import { useContext } from 'react';
-import { FlowModalContext } from '../../modal/main';
+import { FlowModalContext } from '../../../../../../../../(modals)/flow-modal/main';
 import { FlowLoomButton } from './right/loom/main';
 
 export function FlowHeader() {

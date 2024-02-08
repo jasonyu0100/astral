@@ -11,11 +11,11 @@ export function DriveIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={vaultMap.vault.explore.link}>
+        <SidebarIndicator href={vaultMap.vault.explorer.link}>
           <IndicatorOrangeJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={vaultMap.vault.explore.link}>
+        <SidebarIndicator href={vaultMap.vault.explorer.link}>
           <IndicatorOrangeJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>
