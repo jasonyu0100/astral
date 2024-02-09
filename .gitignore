@@ -6,6 +6,8 @@
 .env.local
 .next/
 .next/types/
+app/graphql/*.ts
+server/graphql/*.ts
 
 # Node artifact files
 node_modules/
