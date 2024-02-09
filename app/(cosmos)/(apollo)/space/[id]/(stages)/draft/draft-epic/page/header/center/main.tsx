@@ -1,3 +1,19 @@
-export function DraftHeaderCenter({ children }: { children: React.ReactNode }) {
-  return <div className='flex w-1/3 flex-row justify-center'>{children}</div>;
+import { useContext } from 'react';
+import { DraftContext } from '../../../../page';
+import DraftHeaderTitle from '../title/main';
+
+export function DraftHeaderCenter() {
+  const draftContext = useContext(DraftContext);
+  const constellation = draftContext.constellation;
+  const chapter = draftContext.chapter;
+  const headerTitle =
+    draftContext.constellation && draftContext.chapter
+      ? `${constellation?.title} - ${chapter?.title}`
+      : 'None';
+
+  return (
+    <div className='flex w-1/3 flex-row justify-center'>
+      <DraftHeaderTitle>{headerTitle}</DraftHeaderTitle>
+    </div>
+  );
 }

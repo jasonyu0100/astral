@@ -3,10 +3,10 @@ import { Layer } from '@/(common)/layer/main';
 import { StormChat } from './chat/main';
 import { StormChatInput } from './input/main';
 
-export function StormMain() {
+export function StormBody() {
   return (
     <Layer
-      displayName={StormMain.name}
+      displayName={StormBody.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col']}`}
     >
