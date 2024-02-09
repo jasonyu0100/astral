@@ -1,5 +1,5 @@
 'use client';
-import { ProfileModalsView } from '../../(modals)/profile-modal/view';
+import { ProfileModalView } from '../../(modals)/profile-modal/view';
 import { ProfileModalContext, useProfileModal } from '../../(modals)/profile-modal/main';
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
         >
           CLICK ME
         </button>
-        <ProfileModalsView />
+        <ProfileModalView />
       </div>
     </ProfileModalContext.Provider>
   );

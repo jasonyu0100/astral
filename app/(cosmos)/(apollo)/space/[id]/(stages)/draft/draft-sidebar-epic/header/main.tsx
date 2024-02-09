@@ -10,28 +10,28 @@ export function DraftSidebarHeader() {
   return (
     <SidebarBreadcrumbs>
       <BreadcrumbsLink
-        active={sidebarMode === SidebarMode.Home}
+        active={sidebarMode === SidebarMode.Gallerys}
         onClick={() => sidebarHandler.goToHomeView()}
       >
         Home
       </BreadcrumbsLink>
-      {(sidebarMode === SidebarMode.Gallery ||
-        sidebarMode === SidebarMode.Collection) && (
+      {(sidebarMode === SidebarMode.Collections ||
+        sidebarMode === SidebarMode.Resources) && (
         <>
           <BreadcrumbsDivider />
           <BreadcrumbsLink
-            active={sidebarMode === SidebarMode.Gallery}
+            active={sidebarMode === SidebarMode.Collections}
             onClick={() => sidebarHandler.goToGalleryView()}
           >
             {gallery?.title}
           </BreadcrumbsLink>
         </>
       )}
-      {sidebarMode === SidebarMode.Collection && (
+      {sidebarMode === SidebarMode.Resources && (
         <>
           <BreadcrumbsDivider />
           <BreadcrumbsLink
-            active={sidebarMode === SidebarMode.Collection}
+            active={sidebarMode === SidebarMode.Resources}
             onClick={() => sidebarHandler.goToCollectionView()}
           >
             {collection?.title}

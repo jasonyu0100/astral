@@ -1,9 +1,0 @@
-import { useContext } from 'react';
-import { CreateGalleryModal } from './create-gallery/main';
-import { HomeModalContext } from './main';
-
-export function HomeModalsView() {
-  const { createGalleryModal: createGallery } = useContext(HomeModalContext);
-
-  return <>{createGallery.opened && <CreateGalleryModal />}</>;
-}

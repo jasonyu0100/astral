@@ -6,15 +6,15 @@ export const vaultMap = {
       link: `${baseUrl}/search`,
     },
     explorer: {
-      link: `${baseUrl}/explorer/home-view`,
-      gallery: {
+      link: `${baseUrl}/explorer/gallerys-view`,
+      collections: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/gallery-view/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/collections-view/${id}`,
         },
       },
-      collection: {
+      resources: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/collection-view/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/resources-view/${id}`,
         },
       },
     },

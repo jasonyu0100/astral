@@ -4,7 +4,7 @@ import { FlowAddLoomModal } from './add-loom/main';
 import { FlowAddMomentModal } from './add-moment/main';
 import { FlowModalContext } from './main';
 
-export function FlowModalsView() {
+export function FlowModalView() {
   const { addChapterModal: addChapter, addMomentModal: addMoment, addLoomModal: addLoom } = useContext(FlowModalContext);
 
   return (

@@ -11,7 +11,7 @@ import { SpacesHeaderTextSub } from './header/album-info/text/sub/main';
 import { SpaceWrapper } from './wrapper/main';
 import { useContext } from 'react';
 import { SpacesContext, SpaceViewProps } from '../(stages)/now/page';
-import { SpacesModalsView } from '../../../(modals)/space-modal/view';
+import { SpacesModalView } from '../../../(modals)/space-modal/view';
 import { SpacesModalContext } from '../../../(modals)/space-modal/main';
 
 export function SpacesView({ type }: SpaceViewProps) {
@@ -20,7 +20,7 @@ export function SpacesView({ type }: SpaceViewProps) {
 
   return (
     <SpaceWrapper>
-      <SpacesModalsView />
+      <SpacesModalView />
       <SpacesContainer>
         <SpacesHeader>
           <SpacesAlbumInfo>

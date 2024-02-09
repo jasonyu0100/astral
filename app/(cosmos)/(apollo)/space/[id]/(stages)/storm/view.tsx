@@ -14,7 +14,7 @@ import { useContext, useState } from 'react';
 import { StormChatMessages } from './storm-epic/center/chat/messages/main';
 import { StormContext } from './page';
 import { StormMessage } from './storm-epic/center/chat/messages/message/main';
-import { StormModalsView } from '../../../../../(modals)/storm-modal/view';
+import { StormModalView } from '../../../../../(modals)/storm-modal/view';
 
 export function StormView() {
   const { messages, messageHandler } = useContext(StormContext);
@@ -22,7 +22,7 @@ export function StormView() {
 
   return (
     <StormWrapper>
-      <StormModalsView />
+      <StormModalView />
       <StormMain>
         <StormChat>
           <StormHeader />

@@ -3,18 +3,18 @@ import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';
-import { useGallerys } from '@/handler/gallerys/main';
+import { GalleryHandler, useGallerys } from '@/handler/gallerys/main';
 import { useGlobalUser } from '@/state/main';
-import { useCollections } from '@/handler/collections/main';
+import { CollectionHandler, useCollections } from '@/handler/collections/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
 } from '@/handler/resources/main';
 
 export enum SidebarMode {
-  Home = 'Home',
-  Gallery = 'Gallery',
-  Collection = 'Collection',
+  Gallerys = 'Gallerys',
+  Collections = 'Collections',
+  Resources = 'Resources',
 }
 interface SidebarHandler {
   goToHomeView: () => void;
@@ -27,6 +27,8 @@ export interface DraftSidebarContextObject {
   gallery?: GalleryObj;
   collection?: CollectionObj;
   sidebarMode: SidebarMode;
+  galleryHandler: GalleryHandler;
+  collectionHandler: CollectionHandler;
   gallerys: GalleryObj[];
   galleryId: string;
   collections: CollectionObj[];
@@ -42,7 +44,7 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
 );
 
 export function DraftSidebar() {
-  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Home);
+  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
   const [state, actions] = useGlobalUser();
   const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(
     state.user.id,
@@ -54,21 +56,21 @@ export function DraftSidebar() {
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {
-      changeSidebarMode(SidebarMode.Home);
+      changeSidebarMode(SidebarMode.Gallerys);
     },
     goToGalleryView: () => {
-      changeSidebarMode(SidebarMode.Gallery);
+      changeSidebarMode(SidebarMode.Collections);
     },
     goToCollectionView: () => {
-      changeSidebarMode(SidebarMode.Collection);
+      changeSidebarMode(SidebarMode.Resources);
     },
     goToGallery: (gallery: GalleryObj) => {
       _galleryHandler.goToGallery(gallery);
-      changeSidebarMode(SidebarMode.Gallery);
+      changeSidebarMode(SidebarMode.Collections);
     },
     goToCollection: (collection: CollectionObj) => {
       _collectionHandler.goToCollection(collection);
-      changeSidebarMode(SidebarMode.Collection);
+      changeSidebarMode(SidebarMode.Resources);
     },
   };
 
@@ -78,8 +80,10 @@ export function DraftSidebar() {
     sidebarMode,
     gallerys,
     galleryId,
+    galleryHandler: _galleryHandler,
     collections,
     collectionId,
+    collectionHandler: _collectionHandler,
     resources,
     searchResults,
     sidebarHandler,

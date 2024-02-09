@@ -25,7 +25,6 @@ export function DraftStar({
 
   useMotionValueEvent(x, 'change', (latest) => {
     updateStar({ x: latest });
-    console.log('x changed to', latest);
   });
 
   useMotionValueEvent(y, 'animationStart', () => {
@@ -34,7 +33,6 @@ export function DraftStar({
 
   useMotionValueEvent(y, 'change', (latest) => {
     updateStar({ y: latest });
-    console.log('y changed to', latest);
   });
 
   return (

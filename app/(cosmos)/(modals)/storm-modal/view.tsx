@@ -3,7 +3,7 @@ import { StormAddChapterModal } from './add-chapter/main';
 import { StormModalContext } from './main';
 import { StormAddChatModal } from './new-chat/main';
 
-export function StormModalsView() {
+export function StormModalView() {
   const { addChapterModal: addChapter, addChatModal: addChat } = useContext(StormModalContext);
   return (
     <>

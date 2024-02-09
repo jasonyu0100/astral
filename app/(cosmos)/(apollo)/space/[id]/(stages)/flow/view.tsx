@@ -13,7 +13,7 @@ import { FlowChaptersRow } from './flow-epic/chapters/row/main';
 import { FlowHeader } from './flow-epic/center/header/main';
 import { useContext } from 'react';
 import FlowChaptersAdd from './flow-epic/chapters/row/add/main';
-import { FlowModalsView } from '../../../../../(modals)/flow-modal/view';
+import { FlowModalView } from '../../../../../(modals)/flow-modal/view';
 import { FlowModalContext } from '../../../../../(modals)/flow-modal/main';
 
 export function FlowView() {
@@ -22,7 +22,7 @@ export function FlowView() {
 
   return (
     <FlowWrapper>
-      <FlowModalsView />
+      <FlowModalView />
       <FlowMain>
         <FlowCenter>
           <FlowHeader />

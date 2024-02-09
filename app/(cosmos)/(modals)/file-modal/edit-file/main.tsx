@@ -7,7 +7,7 @@ import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { FileModalContext } from '../main';
 import { SelectedImage } from '@/(common)/form/selected-image/main';
-import { FileContext } from '../../../(voyager)/vault/(stages)/explorer/collection-view/[id]/collection-epic/resource/main';
+import { FileContext } from '../../../(voyager)/vault/(stages)/explorer/resources-view/[id]/resources-epic/resource/main';
 
 export function EditFileModal() {
   const { editFileModal: editFile } = useContext(FileModalContext);

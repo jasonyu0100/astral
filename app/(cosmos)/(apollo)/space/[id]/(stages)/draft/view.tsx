@@ -15,7 +15,7 @@ import DraftChaptersAdd from './draft-epic/chapters/row/add/main';
 import { DraftChapters } from './draft-epic/chapters/main';
 import { DraftConstellationStars } from './draft-epic/center/constellation/stars/main';
 import { DraftModalContext } from '../../../../../(modals)/draft-modal/main';
-import { DraftModalsView } from '../../../../../(modals)/draft-modal/view';
+import { DraftModalView } from '../../../../../(modals)/draft-modal/view';
 import { DraftBody } from './draft-epic/center/body/main';
 import { DraftPanel } from './draft-epic/center/panel/main';
 import { cn } from '@/utils/cn';
@@ -27,7 +27,7 @@ export function DraftView() {
 
   return (
     <DraftWrapper>
-      <DraftModalsView />
+      <DraftModalView />
       <DraftMain>
         <DraftCenter>
           <DraftHeader></DraftHeader>
