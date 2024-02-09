@@ -1,92 +1,26 @@
 import { DraftMain } from './draft-epic/main';
-import { DraftCenter } from './draft-epic/center/main';
-import { DraftSidebar } from './draft-sidebar-epic/main';
-import { useContext, useState } from 'react';
-import { DraftWrapper } from './draft-epic/wrapper/main';
-import { DraftContext } from './page';
-import { DraftConstellation } from './draft-epic/center/constellation/main';
-import { DraftLinks } from './draft-epic/center/constellation/links/main';
-import { DraftHeader } from './draft-epic/center/header/main';
-import { DraftChaptersLeftButton } from './draft-epic/chapters/left/main';
-import { DraftChaptersRightButton } from './draft-epic/chapters/right/main';
-import { DraftChaptersRow } from './draft-epic/chapters/row/main';
-import { DraftChapter } from './draft-epic/chapters/row/item/main';
-import DraftChaptersAdd from './draft-epic/chapters/row/add/main';
+import { DraftPage } from './draft-epic/page/main';
+import { DraftSidebar } from './draft-epic/sidebar/main';
+import { DraftContainer } from './draft-epic/container/main';
+import { DraftHeader } from './draft-epic/page/header/main';
 import { DraftChapters } from './draft-epic/chapters/main';
-import { DraftConstellationStars } from './draft-epic/center/constellation/stars/main';
-import { DraftModalContext } from '../../../../../(modals)/draft-modal/main';
 import { DraftModalView } from '../../../../../(modals)/draft-modal/view';
-import { DraftBody } from './draft-epic/center/body/main';
-import { DraftPanel } from './draft-epic/center/panel/main';
-import { cn } from '@/utils/cn';
-import { DraftHeaderAddButton } from './draft-epic/center/header/left/add/main';
-import { Layer } from '@/(common)/layer/main';
-import { backgroundStyles } from '@/(common)/styles/data';
+import { DraftBody } from './draft-epic/page/body/main';
+import { StarModalView } from '@/(cosmos)/(modals)/star-modal/view';
 
 export function DraftView() {
-  const { constellations, chapters, constellationId, constellationHandler } =
-    useContext(DraftContext);
-  const { addChapterModal } = useContext(DraftModalContext);
-  const { addConstellationModal: addConstellation } =
-    useContext(DraftModalContext);
-
   return (
-    <DraftWrapper>
+    <DraftContainer>
+      <StarModalView />
       <DraftModalView />
       <DraftMain>
-        <DraftCenter>
-          <DraftHeader/>
-          <DraftBody>
-            <DraftPanel>
-              <Layer
-                sizeStyle='w-full h-[60px]'
-                className="flex flex-row items-center justify-between"
-              >
-                <p className="font-extraBold ml-[1rem] text-xl text-slate-300">Pages</p>
-                <DraftHeaderAddButton
-                  onClick={() => {
-                    addConstellation.open();
-                  }}
-                />
-              </Layer>
-              <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
-                {constellations.map((constellation, index) => (
-                  <div
-                    onClick={() =>
-                      constellationHandler.updateConstellation(constellation)
-                    }
-                    className='cursor-pointer'
-                  >
-                    <p
-                      className={cn(`font-bold text-xl`, {
-                        'text-slate-300': constellation.id === constellationId,
-                        'text-slate-500': constellation.id !== constellationId,
-                      })}
-                    >
-                      {index + 1}. {constellation.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </DraftPanel>
-            <DraftConstellation>
-              <DraftLinks />
-              <DraftConstellationStars />
-            </DraftConstellation>
-          </DraftBody>
-        </DraftCenter>
-        <DraftChapters>
-          <DraftChaptersLeftButton />
-          <DraftChaptersRow>
-            {chapters.map((chapter) => (
-              <DraftChapter chapter={chapter} />
-            ))}
-            <DraftChaptersAdd onClick={() => addChapterModal.open()} />
-          </DraftChaptersRow>
-          <DraftChaptersRightButton />
-        </DraftChapters>
+        <DraftPage>
+          <DraftHeader />
+          <DraftBody/>
+        </DraftPage>
+        <DraftChapters/>
       </DraftMain>
       <DraftSidebar />
-    </DraftWrapper>
+    </DraftContainer>
   );
 }

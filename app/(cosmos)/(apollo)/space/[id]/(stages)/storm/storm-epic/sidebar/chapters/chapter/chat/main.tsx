@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { StormContext } from '../../../../page';
+import { StormContext } from '../../../../../page';
 import { StormChapterAvatar } from './avatar/main';
 import { ChatObj } from '@/tables/storm/chat/main';
 

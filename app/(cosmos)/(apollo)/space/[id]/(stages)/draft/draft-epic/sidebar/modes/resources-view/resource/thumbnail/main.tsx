@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DraftContext } from '../../../../../page';
+import { DraftContext } from '../../../../../../page';
 import { ResourceObj } from '@/tables/resource/main';
 import { FileObj } from '@/tables/resource/file/main';
 

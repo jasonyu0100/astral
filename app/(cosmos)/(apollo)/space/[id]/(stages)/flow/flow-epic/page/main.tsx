@@ -1,11 +1,11 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 
-export function FlowCenter({ children }: { children: React.ReactNode }) {
+export function FlowPage({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <Layer
-        displayName={FlowCenter.name}
+        displayName={FlowPage.name}
         sizeStyle='w-full h-full'
         className={`${containerStyles['col']}`}
       >

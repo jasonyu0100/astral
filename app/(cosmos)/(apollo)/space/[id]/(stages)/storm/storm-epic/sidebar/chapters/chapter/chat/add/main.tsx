@@ -1,7 +1,7 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
-import { StormModalContext } from '../../../../../../../../../../(modals)/storm-modal/main';
+import { StormModalContext } from '../../../../../../../../../../../(modals)/storm-modal/main';
 
 export function StormChapterChatAdd() {
   const { addChatModal: newChat } = useContext(StormModalContext);

@@ -11,7 +11,7 @@ import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
 import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FormSearchImage } from '@/(common)/form/search-image/main';
-import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-sidebar-epic/main';
+import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-epic/sidebar/main';
 
 export function DraftCreateGalleryModal() {
   const modalContext = useContext(GallerysModalContext);

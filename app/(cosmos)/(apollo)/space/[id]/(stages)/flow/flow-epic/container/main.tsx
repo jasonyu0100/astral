@@ -1,10 +1,11 @@
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
+import React from 'react';
 
-export function DraftWrapper({ children }: { children: React.ReactNode }) {
+export function FlowContainer({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={DraftWrapper.name}
+      displayName={FlowContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
       backgroundStyle={backgroundStyles['glass-5']}

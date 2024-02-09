@@ -9,7 +9,7 @@ import { Modal } from '@/(common)/modal/main';
 import { FileObj } from '@/tables/resource/file/main';
 import { useContext, useState } from 'react';
 import { CollectionsModalContext } from '../main';
-import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-sidebar-epic/main';
+import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-epic/sidebar/main';
 
 export function DraftCreateCollectionModal() {
   const { collectionHandler } = useContext(DraftSidebarContext);

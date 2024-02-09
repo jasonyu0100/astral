@@ -15,6 +15,10 @@ import {
   DraftModalContext,
   useDraftModal,
 } from '../../../../../(modals)/draft-modal/main';
+import {
+  StarModalContext,
+  useStarModal,
+} from '@/(cosmos)/(modals)/star-modal/main';
 
 interface DraftContextObj {
   chapterId: string;
@@ -58,12 +62,15 @@ function Page({ params }: { params: { id: string } }) {
     constellationHandler: _constellationHandler,
   };
 
-  const modalContext = useDraftModal();
+  const draftModalContext = useDraftModal();
+  const starModalContext = useStarModal();
 
   return (
     <DraftContext.Provider value={context}>
-      <DraftModalContext.Provider value={modalContext}>
-        <DraftView />
+      <DraftModalContext.Provider value={draftModalContext}>
+        <StarModalContext.Provider value={starModalContext}>
+          <DraftView />
+        </StarModalContext.Provider>
       </DraftModalContext.Provider>
     </DraftContext.Provider>
   );

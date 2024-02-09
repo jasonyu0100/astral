@@ -5,7 +5,7 @@ import { StormChapterHeader } from './header/main';
 import StormChapterIndicator from './header/indicator/main';
 import { StormChapterTitle } from './header/title/main';
 import { useContext } from 'react';
-import { StormContext } from '../../../page';
+import { StormContext } from '../../../../page';
 
 export function StormChapter({ chapter }: { chapter: ChapterObj }) {
   const { chats, chapterId } = useContext(StormContext);

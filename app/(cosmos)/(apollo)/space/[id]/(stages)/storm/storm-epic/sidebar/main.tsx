@@ -8,8 +8,8 @@ import { StormChapterAdd } from './chapters/chapter/add/main';
 import { StormChapter } from './chapters/chapter/main';
 import { StormSidebarChapters } from './chapters/main';
 import { useContext, useState } from 'react';
-import { StormContext } from '../page';
-import { StormModalContext } from '../../../../../../(modals)/storm-modal/main';
+import { StormContext } from '../../page';
+import { StormModalContext } from '../../../../../../../(modals)/storm-modal/main';
 import { StormSidebarHeader } from './header/main';
 
 export function StormSidebar() {
