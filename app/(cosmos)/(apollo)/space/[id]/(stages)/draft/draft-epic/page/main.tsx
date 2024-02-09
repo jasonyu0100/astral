@@ -1,7 +1,9 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
+import { DraftBody } from './body/main';
+import { DraftHeader } from './header/main';
 
-export function DraftPage({ children }: { children: React.ReactNode }) {
+export function DraftPage() {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <Layer
@@ -9,7 +11,8 @@ export function DraftPage({ children }: { children: React.ReactNode }) {
         sizeStyle='w-full h-full'
         className={`${containerStyles['col']}`}
       >
-        {children}
+        <DraftHeader />
+        <DraftBody />
       </Layer>
     </div>
   );
