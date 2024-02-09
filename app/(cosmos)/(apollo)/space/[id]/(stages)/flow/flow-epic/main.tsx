@@ -3,10 +3,10 @@ import { containerStyles } from '@/(common)/styles/data';
 import { FlowChapters } from './chapters/main';
 import { FlowPage } from './page/main';
 
-export function FlowMain() {
+export function FlowBody() {
   return (
     <Layer
-      displayName={FlowMain.name}
+      displayName={FlowBody.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['col']}`}
     >
