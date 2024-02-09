@@ -9,3 +9,5 @@ npm install -g @aws-amplify/cli
 amplify codegen
 
 amplify pull --appId dfe4gs1ppor2f --envName cosmos
+
+npx @aws-amplify/cli codegen
