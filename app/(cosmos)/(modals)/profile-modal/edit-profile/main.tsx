@@ -8,10 +8,11 @@ import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
 
 export function EditProfileModal() {
-  const { editProfileModal: editProfile } = useContext(ProfileModalContext);
+  const modalContext = useContext(ProfileModalContext);
+  const { opened, close } = modalContext.editProfileModal;
 
   return (
-    <Modal isOpen={editProfile.opened} onClose={() => editProfile.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Edit Profile</FormTitle>
         <FormBody>
@@ -20,7 +21,7 @@ export function EditProfileModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              editProfile.close();
+              close();
             }}
           >
             Create

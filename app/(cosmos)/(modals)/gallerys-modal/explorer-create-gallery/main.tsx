@@ -14,14 +14,15 @@ import { FormSearchImage } from '@/(common)/form/search-image/main';
 import { ExploreHomeContext } from '@/(cosmos)/(voyager)/vault/(stages)/explorer/gallerys-view/page';
 
 export function ExplorerCreateGalleryModal() {
-  const { explorerCreateGalleryModal } = useContext(GallerysModalContext);
+  const modalContext = useContext(GallerysModalContext);
+  const { opened, close } = modalContext.explorerCreateGalleryModal;
   const { galleryHandler } = useContext(ExploreHomeContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={explorerCreateGalleryModal.opened} onClose={() => explorerCreateGalleryModal.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
@@ -48,7 +49,7 @@ export function ExplorerCreateGalleryModal() {
           <FormButton
             onClick={() => {
               galleryHandler.queryCreateGallery(title, description, thumbnail);
-              explorerCreateGalleryModal.close();
+              close();
             }}
           >
             Create

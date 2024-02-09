@@ -19,12 +19,13 @@ export function DraftAddConstellationModal() {
   const [variant, changeVariant] = useState(
     ConstellationVariant.VISUAL as string,
   );
-  const { addConstellationModal: addConstellation } = useContext(DraftModalContext);
+  const modalContext = useContext(DraftModalContext);
+  const { opened, close } = modalContext.addConstellationModal;
 
   return (
     <Modal
-      isOpen={addConstellation.opened}
-      onClose={() => addConstellation.close()}
+      isOpen={opened}
+      onClose={() => close()}
     >
       <FormContainer>
         <FormTitle>Add Constellation</FormTitle>
@@ -68,7 +69,7 @@ export function DraftAddConstellationModal() {
                 description,
                 variant,
               );
-              addConstellation.close();
+              close();
             }}
           >
             Add

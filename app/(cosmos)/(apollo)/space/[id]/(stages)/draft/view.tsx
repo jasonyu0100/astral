@@ -19,37 +19,55 @@ import { DraftModalView } from '../../../../../(modals)/draft-modal/view';
 import { DraftBody } from './draft-epic/center/body/main';
 import { DraftPanel } from './draft-epic/center/panel/main';
 import { cn } from '@/utils/cn';
+import { DraftHeaderAddButton } from './draft-epic/center/header/left/add/main';
+import { Layer } from '@/(common)/layer/main';
+import { backgroundStyles } from '@/(common)/styles/data';
 
 export function DraftView() {
   const { constellations, chapters, constellationId, constellationHandler } =
     useContext(DraftContext);
   const { addChapterModal } = useContext(DraftModalContext);
+  const { addConstellationModal: addConstellation } =
+    useContext(DraftModalContext);
 
   return (
     <DraftWrapper>
       <DraftModalView />
       <DraftMain>
         <DraftCenter>
-          <DraftHeader></DraftHeader>
+          <DraftHeader/>
           <DraftBody>
             <DraftPanel>
-              {constellations.map((constellation, index) => (
-                <div
-                  onClick={() =>
-                    constellationHandler.updateConstellation(constellation)
-                  }
-                  className='cursor-pointer'
-                >
-                  <p
-                    className={cn(`font-extraBold text-xl`, {
-                      'text-slate-300': constellation.id === constellationId,
-                      'text-slate-500': constellation.id !== constellationId,
-                    })}
+              <Layer
+                sizeStyle='w-full h-[60px]'
+                className="flex flex-row items-center justify-between"
+              >
+                <p className="font-extraBold ml-[1rem] text-xl text-slate-300">Pages</p>
+                <DraftHeaderAddButton
+                  onClick={() => {
+                    addConstellation.open();
+                  }}
+                />
+              </Layer>
+              <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
+                {constellations.map((constellation, index) => (
+                  <div
+                    onClick={() =>
+                      constellationHandler.updateConstellation(constellation)
+                    }
+                    className='cursor-pointer'
                   >
-                    {index + 1}. {constellation.title}
-                  </p>
-                </div>
-              ))}
+                    <p
+                      className={cn(`font-bold text-xl`, {
+                        'text-slate-300': constellation.id === constellationId,
+                        'text-slate-500': constellation.id !== constellationId,
+                      })}
+                    >
+                      {index + 1}. {constellation.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </DraftPanel>
             <DraftConstellation>
               <DraftLinks />

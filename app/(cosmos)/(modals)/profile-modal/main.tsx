@@ -11,13 +11,13 @@ export interface ProfileController {
 export const ProfileModalContext = createContext({} as ProfileController);
 
 export const useProfileModal = (): ProfileController => {
-  const [showProfile, changeShowProfile] = useState(false);
+  const [showOne, changeShowOne] = useState(false);
 
   return {
     editProfileModal: {
-      opened: showProfile,
-      open: () => changeShowProfile(true),
-      close: () => changeShowProfile(false),
+      opened: showOne,
+      open: () => changeShowOne(true),
+      close: () => changeShowOne(false),
     },
   };
 };

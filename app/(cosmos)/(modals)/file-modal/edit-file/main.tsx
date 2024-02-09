@@ -6,15 +6,15 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { FileModalContext } from '../main';
-import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FileContext } from '../../../(voyager)/vault/(stages)/explorer/resources-view/[id]/resources-epic/resource/main';
 
 export function EditFileModal() {
-  const { editFileModal: editFile } = useContext(FileModalContext);
+  const modalContext = useContext(FileModalContext);
+  const { opened, close } = modalContext.editFileModal;
   const resource = useContext(FileContext);
 
   return (
-    <Modal isOpen={editFile.opened} onClose={() => editFile.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Edit File</FormTitle>
         <FormBody>
@@ -26,7 +26,7 @@ export function EditFileModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              editFile.close();
+              close();
             }}
           >
             Create

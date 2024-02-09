@@ -13,15 +13,15 @@ import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/dra
 
 export function DraftCreateCollectionModal() {
   const { collectionHandler } = useContext(DraftSidebarContext);
-  const { draftCreateCollectionModal } =
-    useContext(CollectionsModalContext);
+  const modalContext = useContext(CollectionsModalContext);
+  const { opened, close } = modalContext.draftCreateCollectionModal;
   const [name, changeName] = useState('');
   const [files, changeFiles] = useState([] as FileObj[]);
 
   return (
     <Modal
-      isOpen={draftCreateCollectionModal.opened}
-      onClose={() => draftCreateCollectionModal.close()}
+      isOpen={opened}
+      onClose={() => close()}
     >
       <FormContainer>
         <FormTitle>Create Collection</FormTitle>
@@ -41,7 +41,7 @@ export function DraftCreateCollectionModal() {
           <FormButton
             onClick={() => {
               collectionHandler.queryCreateCollection(name, files);
-              draftCreateCollectionModal.close();
+              close();
             }}
           >
             Create

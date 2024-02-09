@@ -74,7 +74,99 @@ export const useStars = (constellationId: string): useStarInterface => {
           },
         },
       });
-      console.log(payload)
+      const star = payload?.data.createStarObj as StarObj;
+      return star;
+    },
+    queryCreateLinkStar: async (
+      title: string,
+      x: number,
+      y: number,
+      file: FileObj,
+    ) => {
+      console.log(file, constellationId, title)
+      const payload = await amplifyClient.graphql({
+        query: createStarObj,
+        variables: {
+          input: {
+            constellationId: constellationId,
+            title: title,
+            description: "",
+            x,
+            y,
+            file: {
+              id: file.id,
+              src: file.src,
+              title: file.title,
+              size: file.size,
+              fileType: file.fileType,
+              variant: file.variant,
+            },
+            variant: ResourceVariant.FILE,
+          },
+        },
+      });
+      const star = payload?.data.createStarObj as StarObj;
+      return star;
+    },
+    queryCreateNoteStar: async (
+      title: string,
+      x: number,
+      y: number,
+      file: FileObj,
+    ) => {
+      console.log(file, constellationId, title)
+      const payload = await amplifyClient.graphql({
+        query: createStarObj,
+        variables: {
+          input: {
+            constellationId: constellationId,
+            title: title,
+            description: "",
+            x,
+            y,
+            file: {
+              id: file.id,
+              src: file.src,
+              title: file.title,
+              size: file.size,
+              fileType: file.fileType,
+              variant: file.variant,
+            },
+            variant: ResourceVariant.FILE,
+          },
+        },
+      });
+      const star = payload?.data.createStarObj as StarObj;
+      return star;
+    },    
+    queryCreateLogStar: async (
+      title: string,
+      x: number,
+      y: number,
+      file: FileObj,
+    ) => {
+      console.log(file, constellationId, title)
+      const payload = await amplifyClient.graphql({
+        query: createStarObj,
+        variables: {
+          input: {
+            constellationId: constellationId,
+            title: title,
+            description: "",
+            x,
+            y,
+            file: {
+              id: file.id,
+              src: file.src,
+              title: file.title,
+              size: file.size,
+              fileType: file.fileType,
+              variant: file.variant,
+            },
+            variant: ResourceVariant.FILE,
+          },
+        },
+      });
       const star = payload?.data.createStarObj as StarObj;
       return star;
     },

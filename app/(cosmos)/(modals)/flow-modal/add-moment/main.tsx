@@ -17,7 +17,8 @@ import { FlowModalContext } from '../main';
 
 export function FlowAddMomentModal() {
   const { momentHandler } = useContext(FlowContext);
-  const { addMomentModal: addMoment } = useContext(FlowModalContext);
+  const modalContext = useContext(FlowModalContext);
+  const { opened, close } = modalContext.addFileMomentModal;
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
   const [visibility, changeVisibility] = useState(
@@ -26,7 +27,7 @@ export function FlowAddMomentModal() {
   const [file, changeFile] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={addMoment.opened} onClose={() => addMoment.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Add Moment</FormTitle>
         <FormBody>
@@ -67,7 +68,7 @@ export function FlowAddMomentModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              addMoment.close();
+              close();
               momentHandler.queryCreateFileMoment(title, log, file, visibility);
             }}
           >

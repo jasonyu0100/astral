@@ -7,17 +7,17 @@ export interface FlowModalController {
     open: () => void;
     close: () => void;
   };
-  addMomentModal: {
+  addFileMomentModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  addLoomModal: {
+  addLogMomentModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
-    loom: LogObj;
-    updateLoom: (loomObj: LogObj) => void;
+    log: LogObj;
+    updateLogObj: (logObj: LogObj) => void;
   };
 }
 
@@ -27,7 +27,7 @@ export const useFlowModal = (): FlowModalController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
-  const [loom, changeLoom] = useState({} as LogObj);
+  const [log, changeLog] = useState({} as LogObj);
 
   return {
     addChapterModal: {
@@ -35,17 +35,17 @@ export const useFlowModal = (): FlowModalController => {
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    addMomentModal: {
+    addFileMomentModal: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),
     },
-    addLoomModal: {
+    addLogMomentModal: {
       opened: showThree,
       open: () => changeShowThree(true),
       close: () => changeShowThree(false),
-      loom: loom,
-      updateLoom: (loomObj: LogObj) => changeLoom(loomObj),
+      log: log,
+      updateLogObj: (logObj: LogObj) => changeLog(logObj),
     },
   };
 };

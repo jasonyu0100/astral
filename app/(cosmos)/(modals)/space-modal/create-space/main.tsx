@@ -48,7 +48,8 @@ function Pages({ page }: { page: number }) {
 
 export function CreateSpaceModal() {
   const { spacesHandler } = useContext(SpacesContext);
-  const { createSpaceModal: createSpace } = useContext(SpacesModalContext);
+  const modalContext = useContext(SpacesModalContext);
+  const { opened, close, page, updatePage} = modalContext.createSpaceModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
@@ -81,13 +82,13 @@ export function CreateSpaceModal() {
   };
 
   function ModalFooter() {
-    switch (createSpace.page) {
+    switch (page) {
       case 0:
         return (
           <FormFooter>
             <FormButton
               onClick={() => {
-                createSpace.updatePage(1);
+                updatePage(1);
               }}
             >
               Next
@@ -100,7 +101,7 @@ export function CreateSpaceModal() {
             <FormButton
               variant={ButtonVariant.SECONDARY}
               onClick={() => {
-                createSpace.updatePage(0);
+                updatePage(0);
               }}
             >
               Prev
@@ -114,7 +115,7 @@ export function CreateSpaceModal() {
                   variant,
                   chapterTemplates,
                 );
-                createSpace.close();
+                close();
               }}
             >
               Create
@@ -131,10 +132,10 @@ export function CreateSpaceModal() {
 
   return (
     <CreateSpaceModalContext.Provider value={context}>
-      <Modal isOpen={createSpace.opened} onClose={() => createSpace.close()}>
+      <Modal isOpen={opened} onClose={() => close()}>
         <FormContainer>
           <FormTitle>Create Space</FormTitle>
-          <Pages page={createSpace.page} />
+          <Pages page={page} />
           <ModalFooter />
         </FormContainer>
       </Modal>

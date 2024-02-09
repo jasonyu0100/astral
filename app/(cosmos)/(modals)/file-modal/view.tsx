@@ -3,7 +3,7 @@ import { EditFileModal } from './edit-file/main';
 import { FileModalContext } from './main';
 
 export function FileModalView() {
-  const { editFileModal: editProfile } = useContext(FileModalContext);
+  const modalContext = useContext(FileModalContext);
 
-  return <>{editProfile.opened && <EditFileModal />}</>;
+  return <>{modalContext.editFileModal.opened && <EditFileModal />}</>;
 }

@@ -12,12 +12,13 @@ import { DraftModalContext } from '../main';
 
 export function DraftAddChapterModal() {
   const { chapters, chapterHandler } = useContext(DraftContext);
-  const { addChapterModal } = useContext(DraftModalContext);
+  const modalContext = useContext(DraftModalContext);
+  const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={addChapterModal.opened} onClose={() => addChapterModal.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
@@ -39,7 +40,7 @@ export function DraftAddChapterModal() {
           <FormButton
             onClick={() => {
               chapterHandler.queryCreateChapter(title, description, chapters.length);
-              addChapterModal.close();
+              close();
             }}
           >
             Add

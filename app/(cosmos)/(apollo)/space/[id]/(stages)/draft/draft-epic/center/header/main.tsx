@@ -4,15 +4,19 @@ import {
   borderStyles,
   backgroundStyles,
 } from '@/(common)/styles/data';
-import { DraftHeaderAddButton } from './add/main';
-import { DraftHeaderSaveButton } from './left/list/main';
+import { DraftHeaderSaveButton } from './right/save/main';
 import DraftHeaderTitle from './title/main';
 import { DraftHeaderLeft } from './left/main';
 import { DraftHeaderRight } from './right/main';
 import { useContext } from 'react';
 import { DraftContext } from '../../../page';
-import { DraftModalContext } from '../../../../../../../../(modals)/draft-modal/main';
 import { DraftHeaderCenter } from './center/main';
+import { DraftHeaderFileButton } from './left/file/main';
+import { DraftHeaderLinkButton } from './left/link/main';
+import { DraftHeaderLogButton } from './left/log/main';
+import { DraftHeaderNoteButton } from './left/note/main';
+import { DraftModalContext } from '@/(cosmos)/(modals)/draft-modal/main';
+import { DraftHeaderStackButton } from './left/stack/main';
 
 export function DraftHeader() {
   const { chapter, constellation, starHandler } = useContext(DraftContext);
@@ -31,11 +35,11 @@ export function DraftHeader() {
       backgroundStyle={backgroundStyles['glass-5']}
     >
       <DraftHeaderLeft>
-        <DraftHeaderAddButton
-          onClick={() => {
-            addConstellation.open();
-          }}
-        />
+        <DraftHeaderStackButton/>
+        <DraftHeaderNoteButton/>
+        <DraftHeaderLogButton/>
+        <DraftHeaderLinkButton/>
+        <DraftHeaderFileButton/>
       </DraftHeaderLeft>
       <DraftHeaderCenter>
         <DraftHeaderTitle>{headerTitle}</DraftHeaderTitle>

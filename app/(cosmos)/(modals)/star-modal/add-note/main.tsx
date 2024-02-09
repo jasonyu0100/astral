@@ -5,18 +5,17 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
-import { CartModalContext } from '../main';
+import { StarModalContext } from '../main';
 
-export function EditProfileModal() {
-  const modalContext = useContext(CartModalContext);
-  const { opened, close } = modalContext.editCartModal;
+export function AddNoteStarModal() {
+  const modalContext = useContext(StarModalContext);
+  const { opened, close } = modalContext.addNoteStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Edit Cart</FormTitle>
+        <FormTitle>Add Note</FormTitle>
         <FormBody>
-          <h1>EDIT Cart</h1>
         </FormBody>
         <FormFooter>
           <FormButton
@@ -24,7 +23,7 @@ export function EditProfileModal() {
               close();
             }}
           >
-            Create
+            Add
           </FormButton>
         </FormFooter>
       </FormContainer>

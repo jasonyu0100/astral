@@ -7,7 +7,7 @@ import { TopbarLogo } from './container/left-group/logo/main';
 import { TopbarRightGroup } from './container/right-group/main';
 import { SettingsIcon } from './(common)/icons/settings/main';
 import { NotificationsIcon } from './(common)/icons/notifications/main';
-import { CartIcon } from './(common)/icons/cart/main';
+import { StackIcon } from './(common)/icons/cart/main';
 import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
 
 export function Topbar() {
@@ -26,7 +26,7 @@ export function Topbar() {
           <NotificationsIcon />
         </TopbarIconLink> */}
         <TopbarIconLink href='/cart'>
-          <CartIcon />
+          <StackIcon />
         </TopbarIconLink>
         {/* <TopbarIconLink href='/settings'>
           <SettingsIcon />

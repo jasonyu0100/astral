@@ -3,6 +3,6 @@ import { CreateSpaceModal } from './create-space/main';
 import { SpacesModalContext } from './main';
 
 export function SpacesModalView() {
-  const { createSpaceModal: createSpace } = useContext(SpacesModalContext);
-  return <>{createSpace.opened && <CreateSpaceModal />}</>;
+  const modalContext = useContext(SpacesModalContext);
+  return <>{modalContext.createSpaceModal.opened && <CreateSpaceModal />}</>;
 }

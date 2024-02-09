@@ -14,14 +14,15 @@ import { FormSearchImage } from '@/(common)/form/search-image/main';
 import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-sidebar-epic/main';
 
 export function DraftCreateGalleryModal() {
-  const { draftCreateGalleryModal } = useContext(GallerysModalContext);
+  const modalContext = useContext(GallerysModalContext);
+  const { opened, close } = modalContext.draftCreateGalleryModal
   const { galleryHandler } = useContext(DraftSidebarContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={draftCreateGalleryModal.opened} onClose={() => draftCreateGalleryModal.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
@@ -48,7 +49,7 @@ export function DraftCreateGalleryModal() {
           <FormButton
             onClick={() => {
               galleryHandler.queryCreateGallery(title, description, thumbnail);
-              draftCreateGalleryModal.close();
+              close();
             }}
           >
             Create

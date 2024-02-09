@@ -3,7 +3,7 @@ import { EditProfileModal } from './edit-cart/main';
 import { CartModalContext } from './main';
 
 export function CartModalView() {
-  const { editCartModal: editProfile } = useContext(CartModalContext);
+  const modalContext = useContext(CartModalContext);
 
-  return <>{editProfile.opened && <EditProfileModal />}</>;
+  return <>{modalContext.editCartModal.opened && <EditProfileModal />}</>;
 }

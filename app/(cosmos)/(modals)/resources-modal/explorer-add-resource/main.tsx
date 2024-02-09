@@ -14,13 +14,14 @@ import { ResourcesModalContext } from '../main';
 
 export function ExplorerAddResourceModal() {
   const { resourceHandler } = useContext(ExploreCollectionContext);
-  const { explorerAddResourceModal: addFile } = useContext(ResourcesModalContext);
+  const modalContext = useContext(ResourcesModalContext);
+  const { opened, close } = modalContext.explorerAddResourceModal;
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={addFile.opened} onClose={() => addFile.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Upload File</FormTitle>
         <FormBody>
@@ -42,7 +43,7 @@ export function ExplorerAddResourceModal() {
           <FormButton
             onClick={() => {
               resourceHandler.queryCreateFileResource(name, description, file);
-              addFile.close();
+              close();
             }}
           >
             Upload

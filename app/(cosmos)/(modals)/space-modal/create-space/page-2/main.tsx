@@ -5,9 +5,9 @@ import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 
 export function PageTwo() {
-  const { pageTwo } = useContext(CreateSpaceModalContext);
+  const modalContext = useContext(CreateSpaceModalContext);
   const { variant, updateVariant, chapterTemplates, updateChapterTemplates } =
-    pageTwo;
+    modalContext.pageTwo;
 
   return (
     <FormBody>
@@ -42,7 +42,7 @@ export function PageTwo() {
                   }
                 />
                 <button
-                  className='h-[30px] w-[30px] rounded-full border-slate-300 border-[1px] ml-auto mr-[15px]'
+                  className='ml-auto mr-[15px] h-[30px] w-[30px] rounded-full border-[1px] border-slate-300'
                   onClick={() =>
                     updateChapterTemplates(
                       chapterTemplates.filter((_, i) => i !== index),
@@ -91,7 +91,7 @@ export function PageTwo() {
           <div className='flex h-[50px] w-full flex-row'>
             <div className='flex flex-grow items-center justify-center'>
               <button
-                className='h-[30px] w-[30px] rounded-full border-slate-300 border-[1px]'
+                className='h-[30px] w-[30px] rounded-full border-[1px] border-slate-300'
                 onClick={() =>
                   updateChapterTemplates([
                     ...chapterTemplates,

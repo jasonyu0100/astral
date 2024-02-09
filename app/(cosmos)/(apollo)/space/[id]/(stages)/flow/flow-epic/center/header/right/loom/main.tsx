@@ -5,7 +5,7 @@ import { useContext, useMemo } from 'react';
 import { FlowModalContext } from '../../../../../../../../../../(modals)/flow-modal/main';
 
 export function FlowLoomButton() {
-  const { addLoomModal: addLoom } = useContext(FlowModalContext);
+  const { addLogMomentModal: addLoom } = useContext(FlowModalContext);
   const BUTTON_ID = 'loom-record-sdk-button';
 
   useMemo(() => {
@@ -35,7 +35,7 @@ export function FlowLoomButton() {
           id: crypto.randomUUID(),
           loomId: video.id,
         };
-        addLoom.updateLoom(loomObj);
+        addLoom.updateLogObj(loomObj);
         addLoom.open();
       });
     }

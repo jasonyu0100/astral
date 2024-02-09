@@ -16,29 +16,29 @@ import { oembed } from '@loomhq/loom-embed';
 
 export function FlowAddLoomModal() {
   const { momentHandler } = useContext(FlowContext);
-  const { addLoomModal: addLoom } = useContext(FlowModalContext);
-  const { loom } = addLoom;
+  const modalContext = useContext(FlowModalContext);
+  const { opened, close, log } = modalContext.addLogMomentModal;
   const [title, changeTitle] = useState('');
-  const [log, changeLog] = useState('');
+  const [description, changeDescription] = useState('');
   const [visibility, changeVisibility] = useState(
     MomentVisibility.JOURNAL as string,
   );
   const [videoHTML, setVideoHTML] = useState('');
 
   useEffect(() => {
-    if (!loom.loomId) {
+    if (!log.loomId) {
       return;
     }
     embedLoom();
-  }, [loom]);
+  }, [log]);
 
   const embedLoom = async () => {
-    const { html } = await oembed(addLoom?.loom?.sharedUrl, { width: 600 });
+    const { html } = await oembed(log?.sharedUrl, { width: 600 });
     setVideoHTML(html);
   };
 
   return (
-    <Modal isOpen={addLoom.opened} onClose={() => addLoom.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Add Moment</FormTitle>
         <FormBody>
@@ -68,10 +68,10 @@ export function FlowAddLoomModal() {
             </option>
           </FormSelect>
           <FormTextArea
-            title='Log'
+            title='Description'
             rows={5}
-            value={log}
-            onChange={(e) => changeLog(e.target.value)}
+            value={description}
+            onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
           <div className='flex w-full flex-col items-center'>
@@ -81,8 +81,8 @@ export function FlowAddLoomModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              addLoom.close();
-              momentHandler.queryCreateLoomMoment(title, log, loom, visibility);
+              close();
+              momentHandler.queryCreateLoomMoment(title, description, log, visibility);
             }}
           >
             Add

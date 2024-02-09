@@ -4,13 +4,16 @@ import { GallerysModalContext } from './main';
 import { DraftCreateGalleryModal } from './draft-create-gallery/main';
 
 export function GallerysModalView() {
-  const { explorerCreateGalleryModal, draftCreateGalleryModal } =
-    useContext(GallerysModalContext);
+  const modalContext = useContext(GallerysModalContext);
 
   return (
     <>
-      {explorerCreateGalleryModal.opened && <ExplorerCreateGalleryModal />}
-      {draftCreateGalleryModal.opened && <DraftCreateGalleryModal />}
+      {modalContext.explorerCreateGalleryModal.opened && (
+        <ExplorerCreateGalleryModal />
+      )}
+      {modalContext.draftCreateGalleryModal.opened && (
+        <DraftCreateGalleryModal />
+      )}
     </>
   );
 }

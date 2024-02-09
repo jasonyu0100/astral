@@ -14,13 +14,14 @@ import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/dra
 
 export function DraftAddResourceModal() {
   const { resourceHandler } = useContext(DraftSidebarContext);
-  const { draftAddResourceModal } = useContext(ResourcesModalContext);
+  const modalContext = useContext(ResourcesModalContext);
+  const { opened, close } = modalContext.draftAddResourceModal;
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={draftAddResourceModal.opened} onClose={() => draftAddResourceModal.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Upload File</FormTitle>
         <FormBody>
@@ -42,7 +43,7 @@ export function DraftAddResourceModal() {
           <FormButton
             onClick={() => {
               resourceHandler.queryCreateFileResource(name, description, file);
-              draftAddResourceModal.close();
+              close();
             }}
           >
             Upload

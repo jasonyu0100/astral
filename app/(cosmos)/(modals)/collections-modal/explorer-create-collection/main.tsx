@@ -13,16 +13,13 @@ import { CollectionsModalContext } from '../main';
 
 export function ExplorerCreateCollectionModal() {
   const { collectionHandler } = useContext(ExploreGalleryContext);
-  const { explorerCreateCollectionModal } =
-    useContext(CollectionsModalContext);
+  const modalContext = useContext(CollectionsModalContext);
+  const { opened, close } = modalContext.explorerCreateCollectionModal;
   const [name, changeName] = useState('');
   const [files, changeFiles] = useState([] as FileObj[]);
 
   return (
-    <Modal
-      isOpen={explorerCreateCollectionModal.opened}
-      onClose={() => explorerCreateCollectionModal.close()}
-    >
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Create Collection</FormTitle>
         <FormBody>
@@ -41,7 +38,7 @@ export function ExplorerCreateCollectionModal() {
           <FormButton
             onClick={() => {
               collectionHandler.queryCreateCollection(name, files);
-              explorerCreateCollectionModal.close();
+              close();
             }}
           >
             Create

@@ -12,12 +12,13 @@ import { FlowModalContext } from '../main';
 
 export function FlowAddChapterModal() {
   const { chapters, chapterHandler } = useContext(FlowContext);
-  const { addChapterModal: addChapter } = useContext(FlowModalContext);
+  const modalContext = useContext(FlowModalContext);
+  const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={addChapter.opened} onClose={() => addChapter.close()}>
+    <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
@@ -38,8 +39,12 @@ export function FlowAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description, chapters.length);
-              addChapter.close();
+              chapterHandler.queryCreateChapter(
+                title,
+                description,
+                chapters.length,
+              );
+              close();
             }}
           >
             Add
