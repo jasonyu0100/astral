@@ -9,6 +9,8 @@ import { AddStackStarModal } from './add-stack/main';
 export function StarModalView() {
   const modalContext = useContext(StarModalContext);
 
+  console.log(modalContext.addStackStarModal)
+
   return (
     <>
       {modalContext.addNoteStarModal.opened && <AddNoteStarModal />}

@@ -15,8 +15,8 @@ import { DraftHeaderFileButton } from './left/file/main';
 import { DraftHeaderLinkButton } from './left/link/main';
 import { DraftHeaderLogButton } from './left/log/main';
 import { DraftHeaderNoteButton } from './left/note/main';
-import { DraftModalContext } from '@/(cosmos)/(modals)/draft-modal/main';
 import { DraftHeaderStackButton } from './left/stack/main';
+import { useStarModal } from '@/(cosmos)/(modals)/star-modal/main';
 
 export function DraftHeader() {
   const { chapter, constellation, starHandler } = useContext(DraftContext);
@@ -24,7 +24,8 @@ export function DraftHeader() {
     constellation && chapter
       ? `${constellation.title} - ${chapter.title}`
       : 'None';
-  const { addConstellationModal: addConstellation } = useContext(DraftModalContext);
+
+  const modalContext = useStarModal();
 
   return (
     <Layer
@@ -35,11 +36,24 @@ export function DraftHeader() {
       backgroundStyle={backgroundStyles['glass-5']}
     >
       <DraftHeaderLeft>
-        <DraftHeaderStackButton/>
-        <DraftHeaderNoteButton/>
-        <DraftHeaderLogButton/>
-        <DraftHeaderLinkButton/>
-        <DraftHeaderFileButton/>
+        <DraftHeaderStackButton
+          onClick={() => {
+            modalContext.addStackStarModal.open()
+            alert('afdsafsd')
+          }}
+        />
+        <DraftHeaderNoteButton
+          onClick={() => modalContext.addNoteStarModal.open()}
+        />
+        <DraftHeaderLogButton
+          onClick={() => modalContext.addLogStarModal.open()}
+        />
+        <DraftHeaderLinkButton
+          onClick={() => modalContext.addLinkStarModal.open()}
+        />
+        <DraftHeaderFileButton
+          onClick={() => modalContext.addFileStarModal.open()}
+        />
       </DraftHeaderLeft>
       <DraftHeaderCenter>
         <DraftHeaderTitle>{headerTitle}</DraftHeaderTitle>

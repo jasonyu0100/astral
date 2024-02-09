@@ -60,7 +60,10 @@ export const useStarModal = (): StarModalController => {
     },
     addStackStarModal: {
       opened: showFive,
-      open: () => changeShowFive(true),
+      open: () => {
+        changeShowFive(true)
+        alert('dasadsadsadsadsadsads')
+      },
       close: () => changeShowFive(false),
     },
   };
