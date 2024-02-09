@@ -1,26 +1,12 @@
 import { FeedMain } from '../../journal-epic/main';
-import { FeedPosts } from '../../journal-epic/moments/main';
-import { FeedMoment } from '../../journal-epic/moments/moment/main';
-import { FeedSidebar } from '../../journal-sidebar-epic/main';
-import { FeedWrapper } from '../../journal-epic/wrapper/main';
-import { useContext } from 'react';
-import { FeedJournalContext } from './page';
+import { FeedSidebar } from '../../sidebar/main';
+import { FeedContainer } from '../../journal-epic/container/main';
 
 export function FeedJournalView() {
-  const { moments } = useContext(FeedJournalContext);
-
   return (
-    <>
-      <FeedWrapper>
-        <FeedMain>
-          <FeedPosts>
-            {moments.map((moment) => (
-              <FeedMoment moment={moment} />
-            ))}
-          </FeedPosts>
-        </FeedMain>
+      <FeedContainer>
+        <FeedMain />
         <FeedSidebar />
-      </FeedWrapper>
-    </>
+      </FeedContainer>
   );
 }

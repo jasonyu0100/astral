@@ -1,10 +1,10 @@
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { Layer } from '@/(common)/layer/main';
 
-export function FeedWrapper({ children }: { children: React.ReactNode }) {
+export function FeedContainer({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={FeedWrapper.name}
+      displayName={FeedContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
       backgroundStyle={backgroundStyles['glass-5']}

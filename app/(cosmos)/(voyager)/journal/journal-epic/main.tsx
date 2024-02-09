@@ -1,11 +1,8 @@
-import {
-  backgroundStyles,
-  borderStyles,
-  containerStyles,
-} from '@/(common)/styles/data';
+import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { Layer } from '@/(common)/layer/main';
+import { FeedPosts } from './moments/main';
 
-export function FeedMain({ children }: { children: React.ReactNode }) {
+export function FeedMain() {
   return (
     <Layer
       displayName={FeedMain.name}
@@ -13,7 +10,7 @@ export function FeedMain({ children }: { children: React.ReactNode }) {
       backgroundStyle={backgroundStyles['glass-5']}
       sizeStyle='flex-grow h-full'
     >
-      {children}
+      <FeedPosts />
     </Layer>
   );
 }
