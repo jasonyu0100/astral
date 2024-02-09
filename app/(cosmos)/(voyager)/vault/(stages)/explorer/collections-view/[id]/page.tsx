@@ -8,11 +8,11 @@ import {
   CollectionsModalContext,
   useCollectionsModal,
 } from '../../../../../../(modals)/collections-modal/main';
-import { useGallery } from '@/handler/gallery/main';
+import { useGallery } from '@/handler/explorer/gallery/main';
 import {
   CollectionHandler,
   useCollections,
-} from '@/handler/collections/main';
+} from '@/handler/explorer/collections/main';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;

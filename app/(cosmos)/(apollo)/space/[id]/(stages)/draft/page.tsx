@@ -8,9 +8,9 @@ import { ChapterHandler, useChapters } from '@/handler/chapters/main';
 import {
   ConstellationHandler,
   useConstellations,
-} from '@/handler/constellations/main';
+} from '@/handler/draft/constellations/main';
 import insideCosmos from '@/utils/isAuth';
-import { StarHandler, useStars } from '@/handler/stars/main';
+import { StarHandler, useStars } from '@/handler/draft/stars/main';
 import {
   DraftModalContext,
   useDraftModal,

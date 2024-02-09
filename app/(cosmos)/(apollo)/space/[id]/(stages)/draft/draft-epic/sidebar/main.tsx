@@ -3,13 +3,13 @@ import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { ResourceObj } from '@/tables/resource/main';
-import { GalleryHandler, useGallerys } from '@/handler/gallerys/main';
+import { GalleryHandler, useGallerys } from '@/handler/explorer/gallerys/main';
 import { useGlobalUser } from '@/state/main';
-import { CollectionHandler, useCollections } from '@/handler/collections/main';
+import { CollectionHandler, useCollections } from '@/handler/explorer/collections/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
-} from '@/handler/resources/main';
+} from '@/handler/explorer/resources/main';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',

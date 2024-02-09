@@ -6,7 +6,7 @@ import { MomentObj, MomentVisibility } from '@/tables/flow/moment/main';
 import {
   FeedMomentHandler,
   useFeedMoments,
-} from '@/handler/feed-moments/main';
+} from '@/handler/journal/main';
 import { useGlobalUser } from '@/state/main';
 
 interface FeedJournalContextObj {

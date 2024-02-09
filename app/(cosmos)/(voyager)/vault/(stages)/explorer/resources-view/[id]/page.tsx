@@ -12,9 +12,9 @@ import {
 import {
   CollectionResourcesHandler,
   useCollectionResources,
-} from '@/handler/resources/main';
-import { useCollection } from '@/handler/collection/main';
-import { useGallery } from '@/handler/gallery/main';
+} from '@/handler/explorer/resources/main';
+import { useCollection } from '@/handler/explorer/collection/main';
+import { useGallery } from '@/handler/explorer/gallery/main';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;

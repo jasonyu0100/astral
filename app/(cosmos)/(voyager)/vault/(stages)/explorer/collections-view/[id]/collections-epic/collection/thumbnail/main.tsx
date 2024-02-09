@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { GalleryCollectionContext } from '../main';
-import { useCollectionResources } from '@/handler/resources/main';
+import { useCollectionResources } from '@/handler/explorer/resources/main';
 
 export function CollectionThumbnail() {
   const { collection } = useContext(GalleryCollectionContext);

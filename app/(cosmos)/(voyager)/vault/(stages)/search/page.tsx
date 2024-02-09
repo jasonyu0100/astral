@@ -6,7 +6,7 @@ import insideCosmos from '@/utils/isAuth';
 import {
   SearchResourceHandler,
   useSearchResource,
-} from '@/handler/search-resources/main';
+} from '@/handler/explorer/search-resources/main';
 import { useGlobalUser } from '@/state/main';
 
 export interface SearchViewProps {

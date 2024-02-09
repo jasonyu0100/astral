@@ -4,7 +4,7 @@ import { listMessageObjs } from '@/graphql/queries';
 import { useGlobalUser } from '@/state/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
 import { useMemo, useState } from 'react';
-import { useOpenAI } from '../openai/main';
+import { useOpenAI } from '../../external/openai/main';
 
 export interface MessageHandler {
   queryCreateUserMessage: (text: string) => Promise<MessageObj>;

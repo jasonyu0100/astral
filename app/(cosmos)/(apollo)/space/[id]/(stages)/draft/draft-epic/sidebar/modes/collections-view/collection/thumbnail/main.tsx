@@ -1,7 +1,7 @@
 import { CollectionObj } from '@/tables/gallery/collection/main';
 import { useContext } from 'react';
 import { DraftSidebarContext } from '../../../../main';
-import { useCollectionResources } from '@/handler/resources/main';
+import { useCollectionResources } from '@/handler/explorer/resources/main';
 
 export function GalleryCollectionThumbnail({
   collection,

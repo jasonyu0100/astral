@@ -5,7 +5,7 @@ import { ExploreGallerysView } from './view';
 import insideCosmos from '@/utils/isAuth';
 import { useGlobalUser } from '@/state/main';
 import { GallerysModalContext, useGallerysModal } from '../../../../../(modals)/gallerys-modal/main';
-import { GalleryHandler, useGallerys } from '@/handler/gallerys/main';
+import { GalleryHandler, useGallerys } from '@/handler/explorer/gallerys/main';
 
 interface ExploreHomeContextObj {
   gallerys: GalleryObj[];
