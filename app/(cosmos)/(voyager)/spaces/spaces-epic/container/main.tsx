@@ -1,10 +1,10 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 
-export function SpaceWrapper({ children }: { children: React.ReactNode }) {
+export function SpaceContainer({ children }: { children: React.ReactNode }) {
   return (
     <Layer
-      displayName={SpaceWrapper.name}
+      displayName={SpaceContainer.name}
       sizeStyle='w-full h-full'
       className={`${containerStyles.row}`}
     >

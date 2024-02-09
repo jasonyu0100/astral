@@ -11,17 +11,15 @@ import {
 } from '../../../../(modals)/space-modal/main';
 import { SpacesHandler, useSpaces } from '@/handler/spaces/main';
 
-interface SpacesContextObj {
+export interface SpacesContextObj {
   spaces: SpaceObj[];
   spacesHandler: SpacesHandler;
+  type: SpaceTabStages;
 }
 
 export const SpacesContext = createContext<SpacesContextObj>(
   {} as SpacesContextObj,
 );
-export interface SpaceViewProps {
-  type: SpaceTabStages;
-}
 
 function Page() {
   const [state, actions] = useGlobalUser();
@@ -29,15 +27,16 @@ function Page() {
 
   const modalContext = useSpacesModal();
 
-  const context = {
+  const context: SpacesContextObj = {
     spaces,
     spacesHandler: _spacesHandler,
+    type: SpaceTabStages.All,
   };
 
   return (
     <SpacesContext.Provider value={context}>
       <SpacesModalContext.Provider value={modalContext}>
-        <SpacesView type={SpaceTabStages.All} />
+        <SpacesView />
       </SpacesModalContext.Provider>
     </SpacesContext.Provider>
   );

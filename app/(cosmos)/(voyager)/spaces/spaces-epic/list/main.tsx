@@ -1,14 +1,19 @@
-import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { Layer } from '@/(common)/layer/main';
+import { useContext } from 'react';
+import { SpacesContext } from '../../(stages)/all/page';
+import { SpacesSpace } from './space/main';
 
-export function SpacesList({ children }: { children: React.ReactNode }) {
+export function SpacesList() {
+  const { spaces } = useContext(SpacesContext);
   return (
     <Layer
       sizeStyle='w-full'
       displayName={SpacesList.name}
       className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
     >
-      {children}
+      {spaces.map((space, index) => (
+        <SpacesSpace space={space} index={index} />
+      ))}
     </Layer>
   );
 }

@@ -2,26 +2,18 @@
 import { createContext } from 'react';
 import { SpaceTabStages } from '../../tabs/main';
 import { SpacesView } from '../../spaces-epic/view';
-import { SpaceObj } from '@/tables/space/main';
 import insideCosmos from '@/utils/isAuth';
 import { useGlobalUser } from '@/state/main';
 import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../../(modals)/space-modal/main';
-import { SpacesHandler, useSpaces } from '@/handler/spaces/main';
-
-interface SpacesContextObj {
-  spaces: SpaceObj[];
-  spacesHandler: SpacesHandler;
-}
+import { useSpaces } from '@/handler/spaces/main';
+import { SpacesContextObj } from '../all/page';
 
 export const SpacesContext = createContext<SpacesContextObj>(
   {} as SpacesContextObj,
 );
-export interface SpaceViewProps {
-  type: SpaceTabStages;
-}
 
 function Page() {
   const [state, actions] = useGlobalUser();
@@ -32,12 +24,13 @@ function Page() {
   const context = {
     spaces,
     spacesHandler: _spacesHandler,
+    type: SpaceTabStages.Now,
   };
 
   return (
     <SpacesContext.Provider value={context}>
       <SpacesModalContext.Provider value={modalContext}>
-        <SpacesView type={SpaceTabStages.Then} />
+        <SpacesView />
       </SpacesModalContext.Provider>
     </SpacesContext.Provider>
   );

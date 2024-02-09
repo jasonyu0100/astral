@@ -2,8 +2,10 @@
 
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { Layer } from '@/(common)/layer/main';
+import { SpacesHeader } from './header/main';
+import { SpacesList } from './list/main';
 
-export function SpacesContainer({ children }: { children: React.ReactNode }) {
+export function SpacesContainer() {
   return (
     <Layer
       displayName={SpacesContainer.name}
@@ -11,7 +13,8 @@ export function SpacesContainer({ children }: { children: React.ReactNode }) {
       backgroundStyle={backgroundStyles['glass-5']}
       className={`overflow-auto ${containerStyles.col}`}
     >
-      {children}
+      <SpacesHeader />
+      <SpacesList />
     </Layer>
   );
 }
