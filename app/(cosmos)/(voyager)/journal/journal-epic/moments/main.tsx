@@ -1,7 +1,7 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
-import { FeedJournalContext } from '../../(stages)/journal/page';
+import { FeedJournalContext } from '../../(stages)/feed/page';
 import { FeedMoment } from './moment/main';
 
 export function FeedPosts() {

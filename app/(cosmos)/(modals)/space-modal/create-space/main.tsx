@@ -4,7 +4,7 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { SpacesContext } from '../../../(voyager)/spaces/(stages)/now/page';
+import { SpacesContext } from '../../../(voyager)/studio/(stages)/now/page';
 import { SpacesModalContext } from '../main';
 import { FileObj } from '@/tables/resource/file/main';
 import { SpaceVariant } from '@/tables/space/main';

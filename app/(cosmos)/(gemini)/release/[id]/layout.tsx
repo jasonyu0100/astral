@@ -2,9 +2,9 @@
 
 import { Topbar } from '@/(common)/topbar/main';
 import { DashboardController } from '@/(cosmos)/(common)/controller/main';
-import { DashboardSidebar } from '../../../(common)/sidebar/main';
 import { createContext } from 'react';
-import { labelMap } from '@/(cosmos)/(voyager)/board/map';
+import { tracksMap } from '@/(cosmos)/(voyager)/tracks/map';
+import { DashboardSidebar } from '@/(cosmos)/(sidebar)/main';
 
 interface ReleaseContextObj {
   releaseId: string;
@@ -26,7 +26,7 @@ export default function Layout({
     <ReleaseContext.Provider value={{ releaseId: params.id }}>
       <Topbar />
       <DashboardController>
-        <DashboardSidebar minimised backUrl={labelMap.label.releases.link} />
+        <DashboardSidebar minimised backUrl={tracksMap.tracks.releases.link} />
         {children}
       </DashboardController>
     </ReleaseContext.Provider>

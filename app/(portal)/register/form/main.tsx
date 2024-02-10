@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { portalMap } from '../../map';
 import { useGlobalUser } from '@/state/main';
 import { useGoogleLogin } from '@react-oauth/google';
-import { spacesMap } from '@/(cosmos)/(voyager)/spaces/map';
+import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
 import { PortalFormAction } from '@/(portal)/polaroid-epic/container/form/action-container/action/main';
 import { PortalFormAltActionLink } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main';
 import { PortalFormAltAction } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/main';
@@ -63,7 +63,7 @@ export function PortalRegisterForm() {
               res.json().then((user) => {
                 register(user.data);
                 alert('Register Success');
-                window.location.href = spacesMap.spaces.now.link;
+                window.location.href = studioMap.studio.now.link;
               });
             } else {
               alert('Register Failed');
@@ -94,7 +94,7 @@ export function PortalRegisterForm() {
         res.json().then((user) => {
           register(user.data);
           alert('Register Success');
-          window.location.href = spacesMap.spaces.now.link;
+          window.location.href = studioMap.studio.now.link;
         });
       } else {
         alert('Register Failed');

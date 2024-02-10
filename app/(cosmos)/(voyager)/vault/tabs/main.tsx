@@ -3,7 +3,7 @@ import { TabOne } from './tab-2/main';
 import { Tabs } from '../../../(common)/tabs/main';
 import { TabsRow } from '../../../(common)/tabs/tabs-row/main';
 import { TabsBackButton } from '@/(cosmos)/(common)/tabs/tabs-row/back-button/main';
-import { spacesMap } from '../../spaces/map';
+import { studioMap } from '../../studio/map';
 
 export enum CraftTabStage {
   Search = 'Search',
@@ -16,7 +16,7 @@ interface CraftTabs {
 export function CraftTabs({ tab }: CraftTabs) {
   return (
     <Tabs>
-      <TabsBackButton href={spacesMap.spaces.now.link} />
+      <TabsBackButton href={studioMap.studio.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} /> */}
