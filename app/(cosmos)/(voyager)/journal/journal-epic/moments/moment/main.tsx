@@ -1,6 +1,6 @@
 import { PostBody } from './body/main';
 import { PostDivider } from './divider/main';
-import { PostMedia } from './media/main';
+import { MomentResource } from './resource/main';
 import { PostInfo } from './info/main';
 import { PostDescription } from './description/main';
 import { MomentObj } from '@/tables/flow/moment/main';
@@ -11,7 +11,7 @@ export function FeedMoment({ moment }: { moment: MomentObj }) {
   return (
     <div className='flex w-full flex-col items-center space-y-[3rem] py-[2rem]'>
       <div className='flex w-full flex-row items-center justify-center space-x-[100px]'>
-        <PostMedia moment={moment} />
+        <MomentResource moment={moment} />
         <PostDescription>
           <PostInfo />
           <PostBody>{moment.description}</PostBody>

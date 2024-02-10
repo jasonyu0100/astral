@@ -7,7 +7,7 @@ import { journeyTable } from './sea/table';
 import { commentTable, momentTable } from './flow/table';
 import {
   fileTable,
-  loomTable,
+  logTable as logTable,
   resourceTable,
   stickyTable,
 } from './resource/table';
@@ -34,8 +34,8 @@ export const architecture = {
   },
   resource: {
     table: resourceTable,
-    loom: {
-      table: loomTable,
+    log: {
+      table: logTable,
     },
     sticky: {
       table: stickyTable,

@@ -9,12 +9,11 @@ import { FormSelect } from '@/(common)/form/select/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { MomentVisibility } from '@/tables/flow/moment/main';
-import { useContext, useEffect, useState } from 'react';
-import { FlowContext } from '../../../(apollo)/space/[id]/(stages)/flow/page';
+import { useContext, useState } from 'react';
 import { FlowModalContext } from '../main';
-import { oembed } from '@loomhq/loom-embed';
+import { FlowContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/flow/page';
 
-export function FlowAddLoomModal() {
+export function FlowAddLogModal() {
   const { momentHandler } = useContext(FlowContext);
   const modalContext = useContext(FlowModalContext);
   const { opened, close, log } = modalContext.addLogMomentModal;
@@ -23,19 +22,6 @@ export function FlowAddLoomModal() {
   const [visibility, changeVisibility] = useState(
     MomentVisibility.JOURNAL as string,
   );
-  const [videoHTML, setVideoHTML] = useState('');
-
-  useEffect(() => {
-    if (!log.loomId) {
-      return;
-    }
-    embedLoom();
-  }, [log]);
-
-  const embedLoom = async () => {
-    const { html } = await oembed(log?.sharedUrl, { width: 600 });
-    setVideoHTML(html);
-  };
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -74,15 +60,12 @@ export function FlowAddLoomModal() {
             onChange={(e) => changeDescription(e.target.value)}
             style={{ resize: 'none' }}
           />
-          <div className='flex w-full flex-col items-center'>
-            <div dangerouslySetInnerHTML={{ __html: videoHTML }}></div>
-          </div>
         </FormBody>
         <FormFooter>
           <FormButton
             onClick={() => {
               close();
-              momentHandler.queryCreateLoomMoment(title, description, log, visibility);
+              momentHandler.queryCreateLogMoment(title, description, log, visibility);
             }}
           >
             Add

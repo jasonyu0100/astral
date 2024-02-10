@@ -26,7 +26,7 @@ export interface MomentObj {
   visibility: string;
   variant: string;
   file?: FileObj;
-  loom?: LogObj;
+  log?: LogObj;
   sticky?: NoteObj;
 }
 

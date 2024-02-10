@@ -16,10 +16,10 @@ export interface MomentHandler {
     file: FileObj,
     visibility: string,
   ) => Promise<MomentObj>;
-  queryCreateLoomMoment: (
+  queryCreateLogMoment: (
     title: string,
     log: string,
-    loom: LogObj,
+    log: LogObj,
     visibility: string,
   ) => Promise<MomentObj>;
   queryCreateStickyMoment: (
@@ -165,16 +165,16 @@ export const useMoments = (
       changeMoments((prev) => [...prev, moment]);
       return moment;
     },
-    queryCreateLoomMoment: async (
+    queryCreateLogMoment: async (
       title: string,
-      log: string,
-      loom: LogObj,
+      description: string,
+      log: LogObj,
       visibility: string,
     ) => {
       const moment = await gqlHelper.queryCreateLogMoment(
         title,
+        description,
         log,
-        loom,
         visibility,
       );
       changeMomentId(moment.id);
