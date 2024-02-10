@@ -43,6 +43,7 @@ export const usePolaroid = () => {
     tapPolaroid: () => {
       changeTransition('flash');
       changeIndex((categoryIndex) => (categoryIndex + 1) % categories.length);
+      changeVariant((variant) => (variant === 'm' ? 'f' : 'm'));
       setTimeout(() => {
         changeTransition('show');
       }, 300);

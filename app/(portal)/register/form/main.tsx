@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { portalMap } from '../../map';
 import { useGlobalUser } from '@/state/main';
 import { useGoogleLogin } from '@react-oauth/google';
@@ -13,9 +13,11 @@ import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/mai
 import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
 import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/main';
 import axios from 'axios';
+import { PolaroidContext } from '@/(portal)/polaroid-epic/handler/polaroid/main';
 
 export function PortalRegisterForm() {
-  const register = useGlobalUser((state) => state.register);;
+  const { variant } = useContext(PolaroidContext);
+  const register = useGlobalUser((state) => state.register);
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
@@ -112,19 +114,19 @@ export function PortalRegisterForm() {
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
-          placeholder='Jason'
+          placeholder={variant === 'm' ? 'John' : 'Taylor'}
           type='text'
         />
         <PortalFormInput
           value={lname}
           onChange={(e) => changeLname(e.target.value)}
-          placeholder='Yu'
+          placeholder={variant === 'm' ? 'Mayer' : 'Swift'}
           type='text'
         />
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='example@email.com'
+          placeholder='email'
           type='text'
         />
         <PortalFormInput
