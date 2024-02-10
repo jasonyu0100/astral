@@ -4,7 +4,6 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { SpacesContext } from '../../../(voyager)/studio/(stages)/now/page';
 import { SpacesModalContext } from '../main';
 import { FileObj } from '@/tables/resource/file/main';
 import { SpaceVariant } from '@/tables/space/main';
@@ -14,6 +13,7 @@ import {
 } from '@/tables/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
+import { SpacesContext } from '@/(cosmos)/(voyager)/studio/(stages)/all/page';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;

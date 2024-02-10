@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { SeaWrapper } from './sea-epic/wrapper/main';
 import { SeaMain } from './sea-epic/main';
 import { SeaStory } from './sea-epic/story/main';
-import { SeaSidebar } from './sea-sidebar-epic/main';
-import { SeaPoint } from './sea-sidebar-epic/point/main';
+import { SeaSidebar } from './sidebar/main';
+import { SeaPoint } from './sidebar/point/main';
 
 export function SeaView() {
   const [showTestModal, changeShowTestModal] = useState(true);
