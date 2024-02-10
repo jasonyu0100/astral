@@ -10,7 +10,7 @@ export function MomentResource({ moment }: { moment: MomentObj }) {
         <>
           <img
             className={cn(
-              'aspect-square w-full flex-shrink-0 bg-black object-contain',
+              'aspect-square w-full flex-shrink-0 bg-black object-cover',
               borderStyles['border-all'],
             )}
             src={moment?.file?.src}

@@ -6,7 +6,7 @@ export function UploadedFileInfo({ file }: { file: FileObj }) {
       <img
         src={file.src}
         alt={file.title}
-        className='aspect-square h-[100px] bg-black object-contain shadow-md'
+        className='aspect-square h-[100px] bg-black object-cover shadow-md'
       />
       <div className='flex flex-col'>
         <p className='text-lg font-bold'>{file.title}</p>
