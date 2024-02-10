@@ -20,9 +20,9 @@ export const FeedJournalContext = createContext<FeedJournalContextObj>(
 );
 
 function Page() {
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const { momentId, moments, _momentHandler } = useFeedMoments(
-    state.user.id,
+    user.id,
     MomentVisibility.JOURNAL,
   );
 

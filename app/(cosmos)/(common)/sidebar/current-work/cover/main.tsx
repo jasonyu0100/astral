@@ -11,12 +11,12 @@ export function SidebarWorkCover({
   active: boolean;
   minimised?: boolean;
 }) {
-  const [spaceState, __] = useGlobalSpace();
+  const space = useGlobalSpace(state => state.space);
   const [thumbnailSrc, changeThumbnailSrc] = useState("/brand/space.png");
 
   useEffect(() => {
-    changeThumbnailSrc(spaceState?.space?.thumbnail?.src || "/brand/avatar.png");
-  }, [spaceState]);
+    changeThumbnailSrc(space?.thumbnail?.src || "/brand/avatar.png");
+  }, [space]);
 
   return (
     <div className='relative flex-shrink-0'>

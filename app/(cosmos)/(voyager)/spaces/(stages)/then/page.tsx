@@ -9,15 +9,11 @@ import {
   useSpacesModal,
 } from '../../../../(modals)/space-modal/main';
 import { useSpaces } from '@/handler/spaces/main';
-import { SpacesContextObj } from '../all/page';
-
-export const SpacesContext = createContext<SpacesContextObj>(
-  {} as SpacesContextObj,
-);
+import { SpacesContext, SpacesContextObj } from '../all/page';
 
 function Page() {
-  const [state, actions] = useGlobalUser();
-  const { spaces, _spacesHandler } = useSpaces(state.user.id);
+    const user = useGlobalUser((state) => state.user);
+  const { spaces, _spacesHandler } = useSpaces(user.id);
 
   const modalContext = useSpacesModal();
 

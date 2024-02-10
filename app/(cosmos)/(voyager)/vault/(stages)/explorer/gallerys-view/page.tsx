@@ -17,9 +17,9 @@ export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
 );
 
 function Page() {
-  const [state, actions] = useGlobalUser();
+    const user = useGlobalUser((state) => state.user);
   const { gallerys, _galleryHandler: galleryHandler } = useGallerys(
-    state.user.id,
+    user.id,
   );
   const modalContext = useGallerysModal();
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { SpaceObj } from '@/tables/space/main';
 import { amplifyClient } from '@/client';
 import { listSpaceObjs } from '@/graphql/queries';
@@ -17,7 +17,6 @@ import { toast } from 'sonner';
 import { ChatObj } from '@/tables/storm/chat/main';
 import {
   ConstellationObj,
-  ConstellationVariant,
 } from '@/tables/draft/constellation/main';
 import { MessageObj, MessageSource } from '@/tables/storm/chat/message/main';
 import { ResourceVariant } from '@/tables/resource/main';

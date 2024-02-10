@@ -21,7 +21,7 @@ export interface useMessageInterface {
 
 export const useMessages = (chatId: string): useMessageInterface => {
   const { getMessageResponse } = useOpenAI();
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
   const gqlHelper = {
@@ -34,7 +34,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
             source: MessageSource.USER,
             time: new Date().toISOString(),
             message: text,
-            userId: state.user?.id,
+            userId: user?.id,
           },
         },
       });

@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export function TopbarAvatar({ ...props }: LinkInputProps) {
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const [profilePictureSrc, changeProfilePictureSrc] = useState("/brand/avatar.png");
 
   useEffect(() => {
-    changeProfilePictureSrc(state?.user?.profilePicture?.src || "/brand/avatar.png");
-  }, [profilePictureSrc, state]);
+    changeProfilePictureSrc(user?.profilePicture?.src || "/brand/avatar.png");
+  }, [profilePictureSrc, user]);
 
   return (
     <Link className='ml-[2rem] flex h-full items-center' {...props}>

@@ -33,7 +33,7 @@ export const StormContext = createContext<StormContextObj>(
 );
 
 function Page({ params }: { params: { id: string } }) {
-  const [state, actions] = useGlobalSpace();
+  const setSpace = useGlobalSpace(state => state.setSpace);
   const { space } = useSpace(params.id);
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
     params.id,
@@ -43,7 +43,7 @@ function Page({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     if (space && space?.id) {
-      actions.setSpace(space);
+      setSpace(space);
     }
   }, [space]);
 

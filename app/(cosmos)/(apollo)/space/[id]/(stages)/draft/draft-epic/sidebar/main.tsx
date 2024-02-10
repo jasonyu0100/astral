@@ -45,9 +45,9 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
 
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(
-    state.user.id,
+    user.id,
   );
   const { collections, collection, collectionId, _collectionHandler } =
     useCollections(galleryId);

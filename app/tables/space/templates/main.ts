@@ -27,10 +27,18 @@ export interface ConstellationTemplateObj {
   stars?: StarTemplateObj[];
 }
 
-export const spaceTemplates = {
-  [SpaceVariant.SONG]: songSpaceTemplate,
-  [SpaceVariant.MIX]: songMixTemplate,
-  [SpaceVariant.BAR]: barTemplate,
-  [SpaceVariant.IDEA]: ideaTemplate,
-  [SpaceVariant.CUSTOM]: customTemplate,
-};
+export function getSpaceTemplate(variant: SpaceVariant): ChapterTemplateObj[] {
+  switch (variant) {
+    case SpaceVariant.SONG:
+      return songSpaceTemplate;
+    case SpaceVariant.MIX:
+      return songMixTemplate;
+    case SpaceVariant.BAR:
+      return barTemplate;
+    case SpaceVariant.IDEA:
+      return ideaTemplate;
+    case SpaceVariant.CUSTOM:
+      return customTemplate;
+  }
+  return customTemplate;
+}

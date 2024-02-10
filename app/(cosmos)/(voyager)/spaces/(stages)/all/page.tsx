@@ -22,8 +22,8 @@ export const SpacesContext = createContext<SpacesContextObj>(
 );
 
 function Page() {
-  const [state, actions] = useGlobalUser();
-  const { spaces, _spacesHandler } = useSpaces(state.user.id);
+  const user = useGlobalUser((state) => state.user);
+  const { spaces, _spacesHandler } = useSpaces(user.id);
 
   const modalContext = useSpacesModal();
 

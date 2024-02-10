@@ -8,7 +8,10 @@ import { SpacesContext } from '../../../(voyager)/spaces/(stages)/now/page';
 import { SpacesModalContext } from '../main';
 import { FileObj } from '@/tables/resource/file/main';
 import { SpaceVariant } from '@/tables/space/main';
-import { ChapterTemplateObj, spaceTemplates } from '@/tables/space/templates/main';
+import {
+  ChapterTemplateObj,
+  getSpaceTemplate,
+} from '@/tables/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
 
@@ -49,19 +52,17 @@ function Pages({ page }: { page: number }) {
 export function CreateSpaceModal() {
   const { spacesHandler } = useContext(SpacesContext);
   const modalContext = useContext(SpacesModalContext);
-  const { opened, close, page, updatePage} = modalContext.createSpaceModal;
+  const { opened, close, page, updatePage } = modalContext.createSpaceModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
-  const [variant, changeVariant] = useState<string>(SpaceVariant.SONG);
+  const [variant, changeVariant] = useState(SpaceVariant.SONG);
   const [chapterTemplates, changeChapterTemplates] = useState(
     [] as ChapterTemplateObj[],
   );
 
   useEffect(() => {
-    if (variant in spaceTemplates) {
-      changeChapterTemplates(spaceTemplates[variant]);
-    }
+    getSpaceTemplate(variant);
   }, [variant]);
 
   const pageOne: PageOneProps = {
@@ -75,7 +76,7 @@ export function CreateSpaceModal() {
 
   const pageTwo: PageTwoProps = {
     variant,
-    updateVariant: (variant: string) => changeVariant(variant),
+    updateVariant: (variant: string) => changeVariant(variant as SpaceVariant),
     chapterTemplates,
     updateChapterTemplates: (templates: ChapterTemplateObj[]) =>
       changeChapterTemplates(templates),

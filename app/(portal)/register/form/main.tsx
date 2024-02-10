@@ -15,7 +15,7 @@ import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/
 import axios from 'axios';
 
 export function PortalRegisterForm() {
-  const [state, actions] = useGlobalUser();
+  const register = useGlobalUser((state) => state.register);;
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
@@ -61,7 +61,7 @@ export function PortalRegisterForm() {
           }).then((res) => {
             if (res.status === 200) {
               res.json().then((user) => {
-                actions.register(user.data);
+                register(user.data);
                 alert('Register Success');
                 window.location.href = spacesMap.spaces.now.link;
               });
@@ -92,7 +92,7 @@ export function PortalRegisterForm() {
     }).then((res) => {
       if (res.status === 200) {
         res.json().then((user) => {
-          actions.register(user.data);
+          register(user.data);
           alert('Register Success');
           window.location.href = spacesMap.spaces.now.link;
         });

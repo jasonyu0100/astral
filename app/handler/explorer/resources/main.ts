@@ -27,7 +27,7 @@ export interface CollectionResourcesHandler {
 export const useCollectionResources = (
   collectionId: string,
 ): useCollectionResourcesInterface => {
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -75,7 +75,7 @@ export const useCollectionResources = (
             collectionId,
             file,
             variant: ResourceVariant.FILE,
-            userId: state.user?.id,
+            userId: user?.id,
           },
         },
       });

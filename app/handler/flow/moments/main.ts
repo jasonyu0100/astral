@@ -44,7 +44,7 @@ export const useMoments = (
   chapterId: string,
   spaceId: string,
 ): useMomentInterface => {
-  const [state, actions] = useGlobalUser();
+  const user = useGlobalUser((state) => state.user);
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
 
@@ -77,7 +77,7 @@ export const useMoments = (
           input: {
             chapterId: chapterId,
             spaceId: spaceId,
-            userId: state.user.id,
+            userId: user.id,
             time: new Date().toISOString(),
             title: title,
             description: description,
@@ -102,7 +102,7 @@ export const useMoments = (
           input: {
             chapterId: chapterId,
             spaceId: spaceId,
-            userId: state.user.id,
+            userId: user.id,
             time: new Date().toISOString(),
             title: title,
             description: description,
@@ -127,7 +127,7 @@ export const useMoments = (
           input: {
             chapterId: chapterId,
             spaceId: spaceId,
-            userId: state.user.id,
+            userId: user.id,
             time: new Date().toISOString(),
             title: title,
             description: description,

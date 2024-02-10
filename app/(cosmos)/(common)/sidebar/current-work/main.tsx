@@ -11,15 +11,15 @@ interface InputProps extends LinkInputProps {
 }
 
 export function SidebarCurrentSpace({ children }: InputProps) {
-  const [spaceState, __] = useGlobalSpace();
+  const space = useGlobalSpace(state => state.space);
   const [url, changeUrl] = useState(spacesMap.spaces.now.link);
   useEffect(() => {
     changeUrl(
-      spaceState.space.id
-        ? spaceMap.space.id.storm.link(spaceState.space.id)
+      space.id
+        ? spaceMap.space.id.storm.link(space.id)
         : spacesMap.spaces.now.link,
     );
-  }, [spaceState]);
+  }, [space]);
 
   return (
     <Link className='h-[3rem] w-full' href={url}>

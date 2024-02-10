@@ -18,9 +18,9 @@ export interface SearchViewProps {
 export const SearchContextObj = createContext({} as SearchViewProps);
 
 function Page() {
-  const [state, actions] = useGlobalUser();
+    const user = useGlobalUser((state) => state.user);
   const { searchResults, resources, _searchResourceHandler } =
-    useSearchResource(state.user.id);
+    useSearchResource(user.id);
 
   const context = {
     searchResults,

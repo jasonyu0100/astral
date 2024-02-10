@@ -23,7 +23,7 @@ export interface CollectionHandler {
 }
 
 export const useCollections = (galleryId: string) => {
-  const [state, actions] = useGlobalUser();
+    const user = useGlobalUser((state) => state.user);
   const [collections, changeCollections] = useState<CollectionObj[]>([]);
   const [collectionId, changeCollectionId] = useState<string>('');
   const collection = collections.find(
@@ -89,7 +89,7 @@ export const useCollections = (galleryId: string) => {
               collectionId: collection.id,
               file: file,
               variant: ResourceVariant.FILE,
-              userId: state.user?.id,
+              userId: user?.id,
             },
           },
         });

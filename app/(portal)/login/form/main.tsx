@@ -16,7 +16,8 @@ import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/
 import { PortalCosmosTextHeader } from '@/(portal)/polaroid-epic/container/form/text-header/main';
 
 export function PortalLoginForm() {
-  const [state, actions] = useGlobalUser();
+    const user = useGlobalUser((state) => state.user);
+    const login = useGlobalUser((state) => state.login);
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
 
@@ -48,7 +49,7 @@ export function PortalLoginForm() {
           }).then((res) => {
             if (res.status === 200) {
               res.json().then((user) => {
-                actions.login(user.data);
+                login(user.data);
                 alert('Login Success');
                 window.location.href = spacesMap.spaces.now.link;
               });
@@ -78,7 +79,7 @@ export function PortalLoginForm() {
       if (res.status === 200) {
         res.json().then((user) => {
           console.log(user);
-          actions.login(user.data);
+          login(user.data);
           alert('Login Success');
           window.location.href = spacesMap.spaces.now.link;
         });

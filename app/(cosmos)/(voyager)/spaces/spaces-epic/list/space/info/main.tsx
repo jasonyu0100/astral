@@ -3,7 +3,7 @@ import { CreativeSpaceContext } from '../main';
 import { useGlobalUser } from '@/state/main';
 
 export function SpaceInfo() {
-  const [state, actions] = useGlobalUser();
+    const user = useGlobalUser((state) => state.user);
   const { space } = useContext(CreativeSpaceContext);
   return (
     <div className='flex w-[250px] flex-row space-x-[2rem]'>
@@ -13,7 +13,7 @@ export function SpaceInfo() {
       />
       <div className='flex flex-col justify-center'>
         <p className='text-lg font-bold text-white'>
-          {state.user.fname} {state.user.lname}
+          {user.fname} {user.lname}
         </p>
         <p className='font-regular text-white'>{space.title}</p>
       </div>

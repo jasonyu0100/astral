@@ -5,17 +5,17 @@ import { cn } from '@/utils/cn';
 import { useEffect, useState } from 'react';
 
 export function SidebarWorkInfo({ active }: { active: boolean }) {
-  const [userState, _] = useGlobalUser();
-  const [spaceState, __] = useGlobalSpace();
+  const user = useGlobalUser(state => state.user);
+  const space = useGlobalSpace(state => state.space);
   const [title, changeTitle] = useState('Untitled');
   const [name, changeName] = useState('No Author');
 
   useEffect(() => {
-    changeTitle(spaceState.space?.title || 'Untitled');
+    changeTitle(space?.title || 'Untitled');
     changeName(
-      `${userState?.user?.fname || ''} ${userState?.user?.lname || ''}`,
+      `${user?.fname || ''} ${user?.lname || ''}`,
     );
-  }, [spaceState, userState]);
+  }, [space, user]);
 
   return (
     <div
