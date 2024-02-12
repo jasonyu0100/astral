@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "ts-node --project tsconfig.server.json server/index.ts",
-    "dev": "nodemon --exec ts-node --project tsconfig.server.json server/index.ts",
+    "start": "next",
+    "dev": "next",
     "preinstall": "node scripts/create-npmrc & node scripts/create-aws",
     "prebuild": "sh run_codegen.sh",
     "build": "next build",
