@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ts-node --project tsconfig.server.json server/index.ts",
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server/index.ts",
-    "prebuild": "node scripts/create-npmrc & node scripts/create-aws & npm install",
+    "preinstall": "node scripts/create-npmrc & node scripts/create-aws",
     "build": "sh run_codegen.sh & next build",
     "lint": "next lint",
     "format": "prettier --write ."
