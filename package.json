@@ -5,11 +5,15 @@
   "scripts": {
     "start": "ts-node --project tsconfig.server.json server/index.ts",
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server/index.ts",
-    "build": "sh run_codegen.sh & next build",
+    "prebuild": "node scripts/create-npmrc & node scripts/create-aws",
+    "build": " next build",
+    "postbuild": "sh scripts/run_codegen.sh ",
     "lint": "next lint",
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@aws-amplify/cli": "^12.10.1",
+    "@cosmos-dev/example-package": "^1.0.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -34,6 +38,8 @@
     "@types/p5": "^1.7.6",
     "@types/react": "18.2.13",
     "@types/react-dom": "18.2.6",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "10.4.14",
     "aws-amplify": "^6.0.10",
     "aws-sdk": "^2.1536.0",
