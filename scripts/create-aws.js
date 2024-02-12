@@ -35,4 +35,4 @@ if (!fs.existsSync(path.join(homeDir, '.aws'))) {
 // Write content to the file
 fs.writeFileSync(awsCredentialsPath, awsContent);
 
-console.log('Content written to ~/.aws/credentials');
+console.log('~/.aws/credentials file created successfully');
