@@ -73,36 +73,30 @@ stripeRouter.post('/checkout-session', async (req: Request, res: Response) => {
   res.send({ clientSecret: portalSession.client_secret });
 });
 
-stripeRouter.post(
-  '/existing-billing',
-  async (req: Request, res: Response) => {
-    const data = req.body;
-    const customerId = data.customerId;
-    const customer = await stripe.customers.retrieve(customerId);
-    const billingSession = await stripe.billingPortal.sessions.create({
-      return_url: `${req.headers.origin}/stripe/billing/updated`,
-      customer: customer.id,
-    });
+stripeRouter.post('/existing-billing', async (req: Request, res: Response) => {
+  const data = req.body;
+  const customerId = data.customerId;
+  const customer = await stripe.customers.retrieve(customerId);
+  const billingSession = await stripe.billingPortal.sessions.create({
+    return_url: `${req.headers.origin}/stripe/billing/updated`,
+    customer: customer.id,
+  });
 
-    res.send({ billingSession: billingSession });
-  },
-);
+  res.send({ billingSession: billingSession });
+});
 
-stripeRouter.post(
-  '/new-billing',
-  async (req: Request, res: Response) => {
-    const data = req.body;
-    const sessionId = data.sessionId;
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-    const customer = await stripe.customers.retrieve(session.customer);
-    const billingSession = await stripe.billingPortal.sessions.create({
-      return_url: `${req.headers.origin}/stripe/billing/new?session_id=${sessionId}`,
-      customer: customer.id,
-    });
+stripeRouter.post('/new-billing', async (req: Request, res: Response) => {
+  const data = req.body;
+  const sessionId = data.sessionId;
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+  const customer = await stripe.customers.retrieve(session.customer);
+  const billingSession = await stripe.billingPortal.sessions.create({
+    return_url: `${req.headers.origin}/stripe/billing/new?session_id=${sessionId}`,
+    customer: customer.id,
+  });
 
-    res.send({ billingSession: billingSession });
-  },
-);
+  res.send({ billingSession: billingSession });
+});
 
 stripeRouter.post(
   '/process-subscription',
@@ -112,7 +106,9 @@ stripeRouter.post(
     const userId = data.userId;
 
     const session = await stripe.checkout.sessions.retrieve(sessionId);
-    const subscription = await stripe.subscriptions.retrieve(session.subscription)
+    const subscription = await stripe.subscriptions.retrieve(
+      session.subscription,
+    );
     const payload = await amplifyClient.graphql({
       query: updateUserObj,
       variables: {
