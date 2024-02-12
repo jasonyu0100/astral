@@ -9,7 +9,7 @@ import { useSearchParams } from 'next/navigation';
 import { useGlobalUser } from '@/state/main';
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '',
+  process.env.STRIPE_PUBLISHABLE_KEY || '',
 );
 
 export default function Page() {

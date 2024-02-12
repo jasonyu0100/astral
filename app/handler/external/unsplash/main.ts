@@ -4,11 +4,11 @@ import { useEffect } from 'react';
 export const useUnsplash = () => {
   const authNextJs = async () => {
     fetch(
-      `https://api.unsplash.com/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_APIKEY}`,
+      `https://api.unsplash.com/photos/?client_id=${process.env.UNSPLASH_APIKEY}`,
     ).then((resp) => {});
   };
   const getRandomImage = async () => {
-    const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_APIKEY;
+    const accessKey = process.env.UNSPLASH_APIKEY;
     try {
       const resp = await fetch('https://api.unsplash.com/photos/random', {
         method: 'GET',
@@ -26,7 +26,7 @@ export const useUnsplash = () => {
   };
 
   const searchImage = async (query: string) => {
-    const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_APIKEY;
+    const accessKey = process.env.UNSPLASH_APIKEY;
     try {
       const resp = await fetch(
         `https://api.unsplash.com/search/photos?query=${query}`,

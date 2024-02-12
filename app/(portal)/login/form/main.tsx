@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
 import { useGlobalUser } from '@/state/main';
 import { portalMap } from '../../map';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
@@ -14,10 +13,10 @@ import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/mai
 import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
 import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/main';
 import { PortalCosmosTextHeader } from '@/(portal)/polaroid-epic/container/form/text-header/main';
+import axios from 'axios';
 
 export function PortalLoginForm() {
-    const user = useGlobalUser((state) => state.user);
-    const login = useGlobalUser((state) => state.login);
+  const login = useGlobalUser((state) => state.login);
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
 

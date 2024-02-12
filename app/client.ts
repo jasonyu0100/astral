@@ -5,10 +5,10 @@ import { generateClient } from 'aws-amplify/api';
 const config: any = {
   API: {
     GraphQL: {
-      endpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || '',
+      endpoint: process.env.GRAPHQL_ENDPOINT || '',
       region: 'ap-southeast-2',
       defaultAuthMode: 'apiKey',
-      apiKey: process.env.NEXT_PUBLIC_GRAPHQL_APIKEY || '',
+      apiKey: process.env.GRAPHQL_APIKEY || '',
     },
   },
 };

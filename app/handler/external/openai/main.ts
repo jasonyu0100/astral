@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 export const useOpenAI = () => {
   const getOpenAiClient = () => {
     const openai = new OpenAI({
-      apiKey: process.env.NEXT_PUBLIC_OPEN_AI_APIKEY,
+      apiKey: process.env.OPEN_AI_APIKEY,
       dangerouslyAllowBrowser: true,
     });
     return openai;
