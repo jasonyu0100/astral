@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import next from 'next';
 import { portalRouter } from './portal';
+import { stripeRouter } from './stripe';
 import { loadEnvConfig } from '@next/env';
 import { generateUploadURL } from './s3/main';
 import cors from 'cors';
@@ -26,8 +27,9 @@ const port = process.env.PORT || 3000;
     server.use(express.json());
 
     server.use('/api/portal', portalRouter);
+    server.use('/api/stripe', stripeRouter);
 
-    server.get('/s3Url', async (req, res) => {
+    server.get('/s3Url', async (req: Request, res: Response) => {
       const url = await generateUploadURL();
       res.send({ url });
     });

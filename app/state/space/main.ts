@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import Cookies from 'js-cookie';
 import { SpaceObj } from '@/tables/space/main';
