@@ -18,31 +18,17 @@ const port = process.env.PORT || 3000;
     await app.prepare();
     const server = express();
     server.use(cors());
-
-    // server.use((req, res, next) => {
-    //   res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-    //   next();
-    // });
-
     server.use(express.json());
-
     server.use('/api/portal', portalRouter);
     server.use('/api/stripe', stripeRouter);
-
     server.get('/s3Url', async (req: Request, res: Response) => {
       const url = await generateUploadURL();
       res.send({ url });
     });
-
     server.all('*', (req: Request, res: Response) => {
-      try {
-        console.log("Request received:", req.method, req.url);
-        return handle(req, res);
-      } catch {
-        return res.status(500).send('Internal Server Error');
-      }
+      let nextRequestHandler = app.getRequestHandler();
+      return nextRequestHandler(req, res);
     });
-
     server.listen(port, (err?: any) => {
       if (err) throw err;
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`);
