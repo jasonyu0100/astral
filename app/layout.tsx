@@ -3,9 +3,12 @@ import { fontVariables } from './fonts';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { cn } from './utils/cn';
 import { Toaster } from './components/ui/sonner';
+import { test } from "@cosmos-dev/example-package"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
+  
+  test()
 
   return (
     <html lang='en'>

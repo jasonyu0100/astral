@@ -4,6 +4,8 @@
 app/graphql/
 server/graphql/
 
+.npmrc
+
 # Node artifact files
 node_modules/
 dist/
