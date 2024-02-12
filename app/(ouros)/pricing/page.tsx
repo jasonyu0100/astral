@@ -46,7 +46,7 @@ export function getPlanPrice(priceId: string) {
 }
 
 export default function Page() {
-  const [activeTab, setActiveTab] = useState('monthly');
+  const [activeTab, setActiveTab] = useState('yearly');
 
   function triggerCheckout(priceId: string) {
     window.location.href = `/stripe/checkout?priceId=${priceId}`;
@@ -55,20 +55,11 @@ export default function Page() {
   return (
     <div className='flex flex-col space-y-[2rem]'>
       <Tabs
-        defaultValue='monthly'
+        defaultValue='yearly'
         className='flex w-full flex-col items-center'
         value={activeTab}
       >
         <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
-          <TabsTrigger
-            value='monthly'
-            className={cn('h-full w-1/2 rounded font-bold text-white', {
-              'bg-slate-950': activeTab === 'monthly',
-            })}
-            onClick={() => setActiveTab('monthly')}
-          >
-            Monthly
-          </TabsTrigger>
           <TabsTrigger
             value='yearly'
             className={cn('h-full w-1/2 rounded font-bold text-white', {
@@ -78,53 +69,104 @@ export default function Page() {
           >
             Yearly
           </TabsTrigger>
+          <TabsTrigger
+            value='monthly'
+            className={cn('h-full w-1/2 rounded font-bold text-white', {
+              'bg-slate-950': activeTab === 'monthly',
+            })}
+            onClick={() => setActiveTab('monthly')}
+          >
+            Monthly
+          </TabsTrigger>
         </TabsList>
-        <TabsContent value='monthly' className='mt-[2rem]'>
-          <div className='flex flex-row space-x-[2rem]'>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
+        <TabsContent value='yearly' className='mt-[2rem]'>
+          <div className='flex h-[500px] flex-row space-x-[2rem]'>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
               onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
             >
-              $20 / Month
-            </button>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
+              <img
+                src='/landing/producer-f.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Standard</p>
+                <p className='text-lg font-bold'>180 / year</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
             >
-              $50 / Month
-            </button>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
-              onClick={() => {
-                window.location.href = 'mailto:business@ouros.media';
-              }}
+              <img
+                src='/landing/producer-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Pro</p>
+                <p className='text-lg font-bold'>480 / year</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() =>
+                (window.location.href = 'mailto:business@ouros.media')
+              }
             >
-              Community Edition
-            </button>
+              <img
+                src='/landing/personality-f.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Pulsar</p>
+                <p className='text-lg font-bold'>Invite Only</p>
+              </div>
+            </div>
           </div>
         </TabsContent>
-        <TabsContent value='yearly' className='mt-[2rem]'>
-          <div className='flex flex-row space-x-[2rem]'>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
+        <TabsContent value='monthly' className='mt-[2rem]'>
+          <div className='flex h-[500px] flex-row space-x-[2rem]'>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
               onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
             >
-              $180 / Year
-            </button>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
+              <img
+                src='/landing/performer-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Standard</p>
+                <p className='text-lg font-bold'>20 / mo</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
             >
-              $480 / Year
-            </button>
-            <button
-              className='aspect-[13/16] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
-              onClick={() => {
-                window.location.href = 'mailto:business@ouros.media';
-              }}
+              <img
+                src='/landing/performer-f.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Pro</p>
+                <p className='text-lg font-bold'>50 / mo</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() =>
+                (window.location.href = 'mailto:business@ouros.media')
+              }
             >
-              Community Edition
-            </button>
+              <img
+                src='/landing/personality-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Pulsar</p>
+                <p className='text-lg font-bold'>Invite Only</p>
+              </div>
+            </div>
           </div>
         </TabsContent>
       </Tabs>
