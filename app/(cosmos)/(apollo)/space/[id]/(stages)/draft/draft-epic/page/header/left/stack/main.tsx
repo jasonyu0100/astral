@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(common)/types/main';
 
-export function DraftHeaderStackButton({ ...props }: ButtonInputProps) {
+export function DraftHeaderElementsButton({ ...props }: ButtonInputProps) {
   return (
     <button
       className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
@@ -13,7 +13,7 @@ export function DraftHeaderStackButton({ ...props }: ButtonInputProps) {
         fill='none'
       >
         <mask
-          id='mask0_3108_135'
+          id='mask0_3123_7'
           maskUnits='userSpaceOnUse'
           x='0'
           y='0'
@@ -22,9 +22,9 @@ export function DraftHeaderStackButton({ ...props }: ButtonInputProps) {
         >
           <rect width='24' height='24' fill='#D9D9D9' />
         </mask>
-        <g mask='url(#mask0_3108_135)'>
+        <g mask='url(#mask0_3123_7)'>
           <path
-            d='M12 21.05L3 14.05L4.65 12.8L12 18.5L19.35 12.8L21 14.05L12 21.05ZM12 16L3 9L12 2L21 9L12 16ZM12 13.45L17.75 9L12 4.55L6.25 9L12 13.45Z'
+            d='M9 19V17H21V19H9ZM9 13V11H21V13H9ZM9 7V5H21V7H9ZM5 20C4.45 20 3.97917 19.8042 3.5875 19.4125C3.19583 19.0208 3 18.55 3 18C3 17.45 3.19583 16.9792 3.5875 16.5875C3.97917 16.1958 4.45 16 5 16C5.55 16 6.02083 16.1958 6.4125 16.5875C6.80417 16.9792 7 17.45 7 18C7 18.55 6.80417 19.0208 6.4125 19.4125C6.02083 19.8042 5.55 20 5 20ZM5 14C4.45 14 3.97917 13.8042 3.5875 13.4125C3.19583 13.0208 3 12.55 3 12C3 11.45 3.19583 10.9792 3.5875 10.5875C3.97917 10.1958 4.45 10 5 10C5.55 10 6.02083 10.1958 6.4125 10.5875C6.80417 10.9792 7 11.45 7 12C7 12.55 6.80417 13.0208 6.4125 13.4125C6.02083 13.8042 5.55 14 5 14ZM5 8C4.45 8 3.97917 7.80417 3.5875 7.4125C3.19583 7.02083 3 6.55 3 6C3 5.45 3.19583 4.97917 3.5875 4.5875C3.97917 4.19583 4.45 4 5 4C5.55 4 6.02083 4.19583 6.4125 4.5875C6.80417 4.97917 7 5.45 7 6C7 6.55 6.80417 7.02083 6.4125 7.4125C6.02083 7.80417 5.55 8 5 8Z'
             fill='#CBD5E1'
           />
         </g>

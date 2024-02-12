@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { listUserObjs } from '../../graphql/queries';
 import { amplifyClient } from '../../client';
 import { UserObj } from '../../graphql/API';
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export const loginRouter = Router();
 
@@ -24,7 +25,7 @@ loginRouter.post('/', async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items as UserObj[] || [];
+    const users = (payload?.data?.listUserObjs?.items as UserObj[]) || [];
 
     if (users.length === 0) {
       res.status(401).json({ error: 'Invalid Email' });
@@ -35,7 +36,22 @@ loginRouter.post('/', async (req: Request, res: Response) => {
         const match = await bcrypt.compare(password, userHashedPassword);
         if (match) {
           user?.passwordHash && delete user.passwordHash;
-          res.json({ data: user });
+          if (user.subscriptionId === null) {
+            const timeDiff =
+              new Date().getTime() - new Date(user.created).getTime();
+            const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            if (0 < daysDifference && daysDifference < 14) {
+              res.status(401).json({ error: 'Account trial is over' });
+            }
+          } else {
+            const subscription = await stripe.subscriptions.retrieve(
+              user.subscriptionId,
+            );
+            if (subscription.plan.active !== true) {
+              res.status(401).json({ error: 'Subscription not active' });
+            }
+          }
+          return res.json({ data: user });
         } else {
           res.status(401).json({ error: 'Invalid credentials' });
         }
@@ -71,13 +87,28 @@ loginRouter.post('/google', async (req: Request, res: Response) => {
         filter: filterPayload,
       },
     });
-    const users = payload?.data?.listUserObjs?.items as UserObj[] || [];
+    const users = (payload?.data?.listUserObjs?.items as UserObj[]) || [];
     if (users.length === 0) {
       res.status(401).json({ error: 'Invalid Google Id' });
     } else {
       const user = users[0];
       user?.passwordHash && delete user.passwordHash;
-      res.json({ data: user });
+      if (user.subscriptionId === null) {
+        const timeDiff =
+          new Date().getTime() - new Date(user.created).getTime();
+        const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        if (0 < daysDifference && daysDifference < 14) {
+          res.status(401).json({ error: 'Account trial is over' });
+        }
+      } else {
+        const subscription = await stripe.subscriptions.retrieve(
+          user.subscriptionId,
+        );
+        if (subscription.plan.active !== true) {
+          res.status(401).json({ error: 'Subscription not active' });
+        }
+      }
+      return res.json({ data: user });
     }
   } catch (error) {
     console.error('Error during login:', error);

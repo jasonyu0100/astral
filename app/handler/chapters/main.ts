@@ -93,7 +93,6 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
         (chapter) => chapter.id === chapterId,
       );
       const previousIndex = currentIndex - 1;
-      console.log(previousIndex);
 
       if (previousIndex >= 0) {
         const previousChapter = chapters[previousIndex];

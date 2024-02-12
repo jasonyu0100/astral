@@ -1,6 +1,6 @@
 'use client';
 
-import { Topbar } from '@/(common)/topbar/main';
+import { Topbar } from '@/(cosmos)/(topbar)/main';
 import { DashboardController } from '@/(cosmos)/(common)/controller/main';
 import { createContext } from 'react';
 import { tracksMap } from '@/(cosmos)/(voyager)/tracks/map';

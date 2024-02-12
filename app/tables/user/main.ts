@@ -5,6 +5,9 @@ export interface UserObj {
   fname: string;
   lname: string;
   email: string;
+  customerId?: string;
+  subscriptionId?: string;
+  priceId?: string;
   passwordHash?: string;
   googleId?: string;
   profilePicture: FileObj;

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { EditProfileModal } from './edit-cart/main';
-import { CartModalContext } from './main';
+import { EditElementsModal } from './edit-elements/main';
+import { ElementsModalContext } from './main';
 
 export function CartModalView() {
-  const modalContext = useContext(CartModalContext);
+  const modalContext = useContext(ElementsModalContext);
 
-  return <>{modalContext.editCartModal.opened && <EditProfileModal />}</>;
+  return <>{modalContext.elementsModal.opened && <EditElementsModal />}</>;
 }

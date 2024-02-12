@@ -36,7 +36,7 @@ const port = process.env.PORT || 3000;
 
     server.all('*', (req: Request, res: Response) => {
       try {
-        // console.log("Request received:", req.method, req.url);
+        console.log("Request received:", req.method, req.url);
         return handle(req, res);
       } catch {
         return res.status(500).send('Internal Server Error');

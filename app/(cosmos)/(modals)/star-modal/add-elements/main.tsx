@@ -7,14 +7,14 @@ import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { StarModalContext } from '../main';
 
-export function AddStackStarModal() {
+export function AddElementsStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addNoteStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Stack</FormTitle>
+        <FormTitle>Add Elements</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

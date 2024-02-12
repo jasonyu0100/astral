@@ -3,15 +3,15 @@ import { DraftHeaderFileButton } from './file/main';
 import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';
 import { DraftHeaderNoteButton } from './note/main';
-import { DraftHeaderStackButton } from './stack/main';
+import { DraftHeaderElementsButton } from './stack/main';
 
 export function DraftHeaderLeft() {
   const modalContext = useStarModal();
   return (
     <div className='flex w-1/3 flex-row'>
-      <DraftHeaderStackButton
+      <DraftHeaderElementsButton
         onClick={() => {
-          modalContext.addStackStarModal.open();
+          modalContext.addElementsStaModal.open();
           alert('afdsafsd');
         }}
       />

@@ -7,6 +7,7 @@ interface UserStore {
   user: UserObj;
   login: (user: UserObj) => void;
   register: (user: UserObj) => void;
+  update (user: UserObj): void;
   logout: () => void;
 }
 
@@ -24,9 +25,8 @@ const useUserStore = create<UserStore>()(
     login: (user: any) => {
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
-        httpOnly: true,
-        secure: true,
         sameSite: 'strict',
+        expires: 7,
       });
       // Mutate state synchronously
       set((state: { user: any }) => ({
@@ -39,11 +39,23 @@ const useUserStore = create<UserStore>()(
     register: (user: any) => {
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
-        httpOnly: true,
-        secure: true,
         sameSite: 'strict',
+        expires: 7,
       });
       // Mutate state synchronously
+      set((state: { user: any }) => ({
+        user: {
+          ...state.user,
+          ...user,
+        },
+      }));
+    },
+    update: (user: any) => {
+      // Update local storage
+      Cookies.set('user', JSON.stringify(user), {
+        sameSite: 'strict',
+        expires: 7,
+      });
       set((state: { user: any }) => ({
         user: {
           ...state.user,

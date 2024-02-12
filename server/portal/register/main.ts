@@ -19,6 +19,7 @@ registerRouter.post('/', async (req: Request, res: Response) => {
     lname: lname,
     email: email,
     passwordHash: passwordHash,
+    created: new Date().toISOString(),
   };
 
   try {
@@ -49,6 +50,7 @@ registerRouter.post('/google', async (req: Request, res: Response) => {
     email: email,
     googleId: googleId,
     profilePicture: profilePicture,
+    created: new Date().toISOString(),
   };
 
   try {

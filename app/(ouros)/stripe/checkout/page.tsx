@@ -6,6 +6,7 @@ import {
   EmbeddedCheckout,
 } from '@stripe/react-stripe-js';
 import { useSearchParams } from 'next/navigation';
+import { useGlobalUser } from '@/state/main';
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '',
@@ -13,6 +14,7 @@ const stripePromise = loadStripe(
 
 export default function Page() {
   const searchParams = useSearchParams();
+  const user = useGlobalUser(state => state.user);
   const [clientSecret, changeClientSecret] = useState('');
 
   useEffect(() => {
@@ -21,6 +23,7 @@ export default function Page() {
       method: 'POST',
       body: JSON.stringify({
         priceId,
+        userId: user.id,
       }),
       headers: {
         'Content-Type': 'application/json',

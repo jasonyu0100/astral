@@ -22,7 +22,6 @@ export const useOpenAI = () => {
         ],
         model: 'gpt-3.5-turbo-1106',
       });
-      console.log(completion);
       return completion.choices[0].message.content;
     };
     const response = await handleGenerate(message);

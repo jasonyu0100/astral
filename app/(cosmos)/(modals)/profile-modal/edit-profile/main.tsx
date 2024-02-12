@@ -6,25 +6,32 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
+import { useGlobalUser } from '@/state/main';
+import { SelectedImage } from '@/(common)/form/selected-image/main';
 
 export function EditProfileModal() {
+  const user = useGlobalUser((state) => state.user)
+  const logout = useGlobalUser((state) => state.logout);
   const modalContext = useContext(ProfileModalContext);
   const { opened, close } = modalContext.editProfileModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Edit Profile</FormTitle>
+        <FormTitle>Profile</FormTitle>
         <FormBody>
-          <h1>EDIT PROFILE</h1>
+          <SelectedImage selected={user.profilePicture} />
+          <h1 className="font-bold">First Name: {user.fname}</h1>
+          <h1 className="font-bold">Last Name: {user.lname}</h1>
+          <h1 className="font-bold">Email: {user.email}</h1>
         </FormBody>
         <FormFooter>
           <FormButton
             onClick={() => {
-              close();
+              logout();
             }}
           >
-            Create
+            Logout
           </FormButton>
         </FormFooter>
       </FormContainer>

@@ -186,9 +186,7 @@ export const useSpaces = (userId: string): useSpacesInterface => {
           },
         },
       });
-      console.log(payload)
       const star = payload?.data.createStarObj as StarObj;
-      console.log(star);
       return star;
     },
   };
@@ -257,7 +255,6 @@ export const useSpaces = (userId: string): useSpacesInterface => {
               .then(async (constellation) => {
                 if (template?.constellationTemplate?.stars) {
                   const starTemplates = template.constellationTemplate.stars;
-                  console.log(starTemplates);
                   await Promise.all(
                     starTemplates.map((star) => {
                       return gqlHelper.queryCreateFileStarWithinConstellation(
