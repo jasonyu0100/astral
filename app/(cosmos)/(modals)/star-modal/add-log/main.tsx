@@ -14,7 +14,7 @@ export function AddLogStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Log</FormTitle>
+        <FormTitle>Add Star</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

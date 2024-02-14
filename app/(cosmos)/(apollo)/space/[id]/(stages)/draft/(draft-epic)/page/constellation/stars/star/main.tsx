@@ -44,7 +44,7 @@ export function DraftStar({
     <motion.div
       drag
       dragConstraints={constraintsRef}
-      className={`absolute flex h-[150px] w-[100px] flex-col items-center top-[${x}] left-[${y}]`}
+      className={`absolute flex h-[150px] w-[100px] top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
       <div

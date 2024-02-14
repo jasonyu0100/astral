@@ -8,12 +8,10 @@ import { useContext, useState } from 'react';
 import { ResourceModalContext } from '../main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
-import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
-import { updateResourceObj } from '@/graphql/mutations';
 import { FileObj } from '@/(ouros)/(model)/resource/file/main';
-import { cleanGql } from '@/utils/clean';
 import { ExploreCollectionContext } from '@/(cosmos)/(voyager)/vault/(vault-stages)/explorer/resources-view/[id]/page';
-import { ResourceContext, ResourceObj } from '@/(ouros)/(model)/resource/main';
+import { ResourceContext } from '@/(ouros)/(model)/resource/main';
+import { callUpdateResource } from '@/(cosmos)/(calls)/resource/main';
 
 export function VaultEditResourceModal() {
   const modalContext = useContext(ResourceModalContext);
@@ -25,23 +23,9 @@ export function VaultEditResourceModal() {
   const [file, changeFile] = useState(resource?.file || ({} as FileObj));
 
   async function updateResource() {
-    const payload = await amplifyClient.graphql({
-      query: updateResourceObj,
-      variables: {
-        input: {
-          id: resource.id,
-          title: title,
-          description: description,
-          file: cleanGql(file),
-        },
-      },
+    await callUpdateResource(resource.id, title, description, file).then((resource) => {
+      resourceHandler.updateResource(resource);
     });
-
-    resourceHandler.updateResource(
-      payload.data.updateResourceObj as ResourceObj,
-    );
-
-    return payload;
   }
 
   return (
