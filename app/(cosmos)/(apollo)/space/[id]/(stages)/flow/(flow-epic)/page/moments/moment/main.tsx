@@ -3,20 +3,16 @@ import { MomentDivider } from './divider/main';
 import { MomentResource } from './resource/main';
 import { MomentInfo } from './description/info/main';
 import { MomentDescription } from './description/main';
-import { MomentObj } from '@/(ouros)/(model)/flow/moment/main';
-import { useState } from 'react';
-import { userTable } from '@/(ouros)/(model)/user/table';
+import { FlowMomentContext } from '../main';
+import { useContext } from 'react';
 
-interface FlowMomentProps {
-  moment: MomentObj;
-  index: number;
-}
+export function FlowMoment() {
+  const moment = useContext(FlowMomentContext);
 
-export function FlowMoment({ moment, index }: FlowMomentProps) {
   return (
     <div className='flex w-full flex-col items-center space-y-[3rem] py-[2rem]'>
       <div className='flex w-full flex-row items-center justify-center space-x-[100px]'>
-        <MomentResource moment={moment} />
+        <MomentResource />
         <MomentDescription>
           <MomentInfo />
           <MomentBody>{moment.description}</MomentBody>

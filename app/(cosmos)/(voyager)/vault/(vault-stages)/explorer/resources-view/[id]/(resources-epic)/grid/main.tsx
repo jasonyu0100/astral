@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { ExploreCollectionContext } from '../../page';
 import { CollectionResourceAdd } from '../add-resource/main';
 import { CollectionResource } from '../resource/main';
+import { ResourceContext } from '@/(ouros)/(model)/resource/main';
 
 export function ResourcesGrid() {
   const { resources } = useContext(ExploreCollectionContext);
@@ -14,7 +15,10 @@ export function ResourcesGrid() {
         onClick={() => modalContext.explorerAddResourceModal.open()}
       />
       {resources.map((resource) => (
-        <CollectionResource resource={resource} />
+        // eslint-disable-next-line react/jsx-key
+        <ResourceContext.Provider value={resource}>
+          <CollectionResource />
+        </ResourceContext.Provider>
       ))}
     </div>
   );

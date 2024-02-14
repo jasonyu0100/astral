@@ -3,6 +3,7 @@ import { LinkObj } from '@/(ouros)/(model)/resource/link/main';
 import { LogObj } from '@/(ouros)/(model)/resource/log/main';
 import { ResourceVariant } from '@/(ouros)/(model)/resource/main';
 import { NoteObj } from '@/(ouros)/(model)/resource/note/main';
+import { createContext } from 'react';
 
 export enum StarVariant {
   FILE = 'FILE',
@@ -23,6 +24,8 @@ export interface StarObj {
   note?: NoteObj;
   link?: LinkObj;
 }
+
+export const StarContext = createContext<StarObj>({} as StarObj);
 
 export type StarTemplateObj = Omit<StarObj, 'id' | 'constellationId'>;
 

@@ -1,9 +1,13 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
 import { GalleryCollectionAdd } from './add-collection/main';
 import { GalleryCollection } from './collection/main';
-import { CollectionsModalContext, useCollectionsModal } from '@/(cosmos)/(modals)/collections-modal/main';
+import {
+  CollectionsModalContext,
+  useCollectionsModal,
+} from '@/(cosmos)/(modals)/collections-modal/main';
 import { CollectionsModalView } from '@/(cosmos)/(modals)/collections-modal/view';
+import { CollectionContext, CollectionObj } from '@/(ouros)/(model)/gallery/collection/main';
 
 export function CollectionsInterface() {
   const { collections } = useContext(DraftSidebarContext);
@@ -14,7 +18,10 @@ export function CollectionsInterface() {
       <CollectionsModalView />
       <div className='flex flex-col space-y-[2rem]'>
         {collections.map((collection) => (
-          <GalleryCollection collection={collection} />
+          // eslint-disable-next-line react/jsx-key
+          <CollectionContext.Provider value={collection}>
+            <GalleryCollection />
+          </CollectionContext.Provider>
         ))}
         <GalleryCollectionAdd
           onClick={() => {

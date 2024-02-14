@@ -1,12 +1,11 @@
-import { ResourceObj } from '@/(ouros)/(model)/resource/main';
 import { CollectionResourceInfo } from './info/main';
 import { CollectionResourceThumbnail } from './thumbnail/main';
 
-export function CollectionResource({ resource }: { resource: ResourceObj }) {
+export function CollectionResource() {
   return (
     <div className='flex flex-row items-center space-x-[2rem]'>
-      <CollectionResourceThumbnail resource={resource} />
-      <CollectionResourceInfo resource={resource} />
+      <CollectionResourceThumbnail />
+      <CollectionResourceInfo  />
     </div>
   );
 }

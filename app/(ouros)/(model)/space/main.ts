@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { FileObj, exampleFile } from '../resource/file/main';
 
 export enum SpaceVariant {
@@ -17,6 +18,8 @@ export interface SpaceObj {
   thumbnail: FileObj;
   variant: string;
 }
+
+export const SpaceContext = createContext<SpaceObj>({} as SpaceObj);
 
 export const exampleSpace: SpaceObj = {
   id: '0',

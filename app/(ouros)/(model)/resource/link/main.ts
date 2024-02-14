@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export enum LinkVariant {
   WEBSITE = 'WEBSITE',
   YOUTUBE = 'YOUTUBE',
@@ -10,6 +12,8 @@ export interface LinkObj {
   title: string;
   variant: string;
 }
+
+export const LinkContext = createContext<LinkObj>({} as LinkObj);
 
 export const exampleFile: LinkObj = {
   id: '0',

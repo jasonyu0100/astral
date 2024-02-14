@@ -9,7 +9,7 @@ import { StarModalContext } from '../main';
 
 export function AddLogStarModal() {
   const modalContext = useContext(StarModalContext);
-  const { opened, close } = modalContext.addNoteStarModal;
+  const { opened, close } = modalContext.addLogStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>

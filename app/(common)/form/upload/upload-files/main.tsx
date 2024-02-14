@@ -1,4 +1,3 @@
-import { effectStyles } from '@/(common)/styles/data';
 import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
 import { createFileObj } from '@/graphql/mutations';
 import { FileObj, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';

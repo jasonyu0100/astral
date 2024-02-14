@@ -1,10 +1,11 @@
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles, borderStyles } from '@/(common)/styles/data';
-import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 import { useContext } from 'react';
 import { FlowContext } from '../../../../page';
+import { ChapterContext } from '@/(ouros)/(model)/space/chapter/main';
 
-export function FlowChapter({ chapter }: { chapter: ChapterObj }) {
+export function FlowChapter() {
+  const chapter = useContext(ChapterContext);
   const { chapterId, chapterHandler } = useContext(FlowContext);
   const active = chapter.id === chapterId;
 

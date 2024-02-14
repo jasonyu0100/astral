@@ -22,6 +22,7 @@ export interface CollectionResourcesHandler {
     file: FileObj,
   ) => Promise<ResourceObj>;
   searchResources: (query: string) => ResourceObj[];
+  updateResource: (resource: ResourceObj) => ResourceObj;
 }
 
 export const useCollectionResources = (
@@ -58,7 +59,8 @@ export const useCollectionResources = (
         },
       });
 
-      const resources = payload?.data.listResourceObjs?.items as ResourceObj[] || [];
+      const resources =
+        (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
       return resources;
     },
     queryCreateFileResource: async (
@@ -116,6 +118,12 @@ export const useCollectionResources = (
       });
       changeSearchResults(results);
       return results;
+    },
+    updateResource: (resource: ResourceObj) => {
+      changeResources((prev) =>
+        prev.map((r) => (r.id === resource.id ? resource : r)),
+      );
+      return resource;
     },
   };
 

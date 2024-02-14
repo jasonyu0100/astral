@@ -9,12 +9,12 @@ import { StarModalContext } from '../main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);
-  const { opened, close } = modalContext.addNoteStarModal;
+  const { opened, close } = modalContext.addLinkStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Note</FormTitle>
+        <FormTitle>Add Link</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { FileObj, exampleFile, exampleFiles } from './file/main';
 import { LinkObj } from './link/main';
 import { LogObj } from './log/main';
@@ -22,6 +23,8 @@ export interface ResourceObj {
   link? : LinkObj;
   variant: string;
 }
+
+export const ResourceContext = createContext<ResourceObj>({} as ResourceObj);
 
 export const exampleResource: ResourceObj = {
   id: '0',

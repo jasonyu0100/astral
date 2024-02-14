@@ -11,6 +11,8 @@ export function AddNoteStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addNoteStarModal;
 
+  console.log(opened)
+
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>

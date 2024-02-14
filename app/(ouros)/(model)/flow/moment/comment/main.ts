@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export interface CommentObj {
   id: string;
   momentId: string;
@@ -13,6 +15,8 @@ export const exampleComment: CommentObj = {
   content: 'Hello World',
   userId: '0',
 };
+
+export const CommentContext = createContext<CommentObj>({} as CommentObj);
 
 export const exampleComments: CommentObj[] = [
   {

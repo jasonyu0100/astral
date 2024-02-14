@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { StormContext } from '../../../page';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
+import { ChapterContext } from '@/(ouros)/(model)/space/chapter/main';
 
 export function StormSidebarChapters() {
   const { chapters } = useContext(StormContext);
@@ -14,12 +15,15 @@ export function StormSidebarChapters() {
       <Layer
         displayName={StormSidebarChapters.name}
         sizeStyle='h-full w-full'
-        className='flex flex-col overflow-auto divide-slate-700 divide-y-[1px]'
+        className='flex flex-col divide-y-[1px] divide-slate-700 overflow-auto'
       >
-          {chapters.map((chapter) => (
-            <StormChapter chapter={chapter} />
-          ))}
-          <StormChapterAdd onClick={() => modalContext.addChapterModal.open()} />
+        {chapters.map((chapter) => (
+          // eslint-disable-next-line react/jsx-key
+          <ChapterContext.Provider value={chapter}>
+            <StormChapter />
+          </ChapterContext.Provider>
+        ))}
+        <StormChapterAdd onClick={() => modalContext.addChapterModal.open()} />
       </Layer>
     </div>
   );

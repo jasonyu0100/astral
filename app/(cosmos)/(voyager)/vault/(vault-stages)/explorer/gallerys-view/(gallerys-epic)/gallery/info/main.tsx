@@ -1,6 +1,8 @@
-import { GalleryObj } from '@/(ouros)/(model)/gallery/main';
+import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
+import { useContext } from 'react';
 
-export function GalleryInfo({ gallery }: { gallery: GalleryObj }) {
+export function GalleryInfo() {
+  const gallery = useContext(GalleryContext);
   return (
     <div className='flex w-full flex-grow flex-col space-y-[1rem] p-[1rem]'>
       <div className='text-xl font-bold text-slate-400'>{gallery.title}</div>

@@ -1,9 +1,12 @@
 import { borderStyles } from '@/(common)/styles/data';
-import { MomentObj } from '@/(ouros)/(model)/flow/moment/main';
 import { ResourceVariant } from '@/(ouros)/(model)/resource/main';
 import { cn } from '@/utils/cn';
+import { useContext } from 'react';
+import { FlowMomentContext } from '../../main';
 
-export function MomentResource({ moment }: { moment: MomentObj }) {
+export function MomentResource() {
+  const moment = useContext(FlowMomentContext);
+  
   return (
     <div className='flex aspect-[13/16] h-[600px] flex-shrink-0 flex-col items-center bg-white p-[30px]'>
       {moment.variant === ResourceVariant.LOG && <div></div>}

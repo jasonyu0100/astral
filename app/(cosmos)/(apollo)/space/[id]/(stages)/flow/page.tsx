@@ -7,6 +7,7 @@ import { MomentObj } from '@/(ouros)/(model)/flow/moment/main';
 import insideCosmos from '@/utils/isAuth';
 import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 import { FlowModalContext, useFlowModal } from '../../../../../(modals)/flow-modal/main';
+import { FlowModalView } from '@/(cosmos)/(modals)/flow-modal/view';
 
 interface FlowContextObj {
   chapter?: ChapterObj;
@@ -46,6 +47,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <FlowContext.Provider value={context}>
       <FlowModalContext.Provider value={modalContext}>
+      <FlowModalView />
         <FlowView />
       </FlowModalContext.Provider>
     </FlowContext.Provider>

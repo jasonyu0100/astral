@@ -32,17 +32,21 @@ export function Topbar() {
 
   return (
     <ElementsModalContext.Provider value={cartModalContext}>
+      <CartModalView />
       <SettingsModalContext.Provider value={settingsModalContext}>
+        <SettingsModalView />
         <ProfileModalContext.Provider value={profileModalContext}>
           <ProfileModalView />
-          <SettingsModalView />
-          <CartModalView />
           <TopbarContainer>
             <TopbarLogo href={studioMap.studio.now.link} />
             <TopbarLeftGroup>
               <TopbarLink href={studioMap.studio.now.link}>HOME</TopbarLink>
-              <TopbarLink href='/learn' target="_blank">LEARN</TopbarLink>
-              <TopbarLink href='/pricing' target="_blank">PRICING</TopbarLink>
+              <TopbarLink href='/learn' target='_blank'>
+                LEARN
+              </TopbarLink>
+              <TopbarLink href='/pricing' target='_blank'>
+                PRICING
+              </TopbarLink>
             </TopbarLeftGroup>
             <TopbarRightGroup>
               <div className='flex flex-row space-x-[1rem]'>

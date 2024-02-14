@@ -1,22 +1,27 @@
 import { motion } from 'framer-motion';
-import { useContext, useRef } from 'react';
+import { createContext, useContext, useRef } from 'react';
 import { DraftStar } from './star/main';
 import { DraftContext } from '../../../../page';
+import { StarContext, StarObj } from '@/(ouros)/(model)/draft/constellation/star/main';
 
 export function DraftConstellationStars() {
-  const { stars, starHandler: starHandling } = useContext(DraftContext);
+  const { stars, starHandler } = useContext(DraftContext);
   const constraintsRef = useRef(null);
+
   return (
     <motion.div
-      className='left-0 absolute top-0 h-full w-full'
+      className='absolute left-0 top-0 h-full w-full'
       ref={constraintsRef}
     >
       {stars.map((star) => (
-        <DraftStar
-          star={star}
-          constraintsRef={constraintsRef}
-          updateStar={(data) => starHandling.updateStar(star.id, data)}
-        />
+        // eslint-disable-next-line react/jsx-key
+        <StarContext.Provider value={star}>
+          <DraftStar
+            constraintsRef={constraintsRef}
+            activateStar={() => starHandler.activateStar(star.id)}
+            updateStar={(data) => starHandler.updateStar(star.id, data)}
+          />
+        </StarContext.Provider>
       ))}
     </motion.div>
   );

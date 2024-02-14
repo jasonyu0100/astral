@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export interface CollectionObj {
   id: string;
   galleryId: string;
@@ -9,6 +11,8 @@ export const exampleCollection: CollectionObj = {
   galleryId: '0',
   title: 'Symbols',
 };
+
+export const CollectionContext = createContext<CollectionObj>({} as CollectionObj);
 
 export const exampleCollections: CollectionObj[] = [
   {

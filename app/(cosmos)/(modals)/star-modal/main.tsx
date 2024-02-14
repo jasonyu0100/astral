@@ -21,7 +21,7 @@ export interface StarModalController {
     open: () => void;
     close: () => void;
   };
-  addElementsStaModal: {
+  addElementsStarModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
@@ -58,11 +58,10 @@ export const useStarModal = (): StarModalController => {
       open: () => changeShowFour(true),
       close: () => changeShowFour(false),
     },
-    addElementsStaModal: {
+    addElementsStarModal: {
       opened: showFive,
       open: () => {
         changeShowFive(true)
-        alert('dasadsadsadsadsadsads')
       },
       close: () => changeShowFive(false),
     },

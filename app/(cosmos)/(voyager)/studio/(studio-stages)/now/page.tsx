@@ -1,5 +1,4 @@
 'use client';
-import { createContext } from 'react';
 import { SpaceTabStages } from '../../(studio-tabs)/main';
 import { SpacesView } from '../../(studio-epic)/view';
 import insideCosmos from '@/utils/isAuth';
@@ -10,6 +9,7 @@ import {
 } from '../../../../(modals)/space-modal/main';
 import { useSpaces } from '@/(cosmos)/(handler)/spaces/main';
 import { SpacesContext, SpacesContextObj } from '../all/page';
+import { SpacesModalView } from '@/(cosmos)/(modals)/space-modal/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -25,6 +25,7 @@ function Page() {
   return (
     <SpacesContext.Provider value={context}>
       <SpacesModalContext.Provider value={modalContext}>
+        <SpacesModalView />
         <SpacesView />
       </SpacesModalContext.Provider>
     </SpacesContext.Provider>

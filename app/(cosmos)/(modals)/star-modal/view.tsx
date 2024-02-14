@@ -15,7 +15,7 @@ export function StarModalView() {
       {modalContext.addLogStarModal.opened && <AddLogStarModal />}
       {modalContext.addFileStarModal.opened && <AddFileStarModal />}
       {modalContext.addLinkStarModal.opened && <AddLinkStarModal />}
-      {modalContext.addElementsStaModal.opened && <AddElementsStarModal />}
+      {modalContext.addElementsStarModal.opened && <AddElementsStarModal />}
     </>
   );
 }

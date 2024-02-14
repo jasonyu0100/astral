@@ -2,15 +2,14 @@ import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
-import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
+import { ChapterContext, ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 
 export function StormChapterHeader({
-  chapter,
   children,
 }: {
-  chapter: ChapterObj;
   children: React.ReactNode;
 }) {
+  const chapter = useContext(ChapterContext);
   const { chapterHandler } = useContext(StormContext);
   return (
     <button onClick={() => chapterHandler.goToChapter(chapter)}>

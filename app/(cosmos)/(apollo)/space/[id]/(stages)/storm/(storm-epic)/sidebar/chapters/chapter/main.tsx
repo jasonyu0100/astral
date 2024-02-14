@@ -1,36 +1,43 @@
-import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
+import { ChapterContext, ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 import { StormChapterChatAdd } from './chat/add/main';
 import { StormChapterChat } from './chat/main';
 import { StormChapterHeader } from './header/main';
 import StormChapterIndicator from './header/indicator/main';
 import { StormChapterTitle } from './header/title/main';
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { StormContext } from '../../../../page';
+import { ChatObj } from '@/(ouros)/(model)/storm/chat/main';
 
-export function StormChapter({ chapter }: { chapter: ChapterObj }) {
+export const StormChatContext = createContext({} as ChatObj);
+
+export function StormChapter() {
+  const chapter = useContext(ChapterContext);
   const { chats, chapterId } = useContext(StormContext);
   const active = chapter.id === chapterId;
 
   return (
-    <div className='flex flex-col py-[1rem] mr-[1rem] space-y-[1rem]'>
+    <div className='mr-[1rem] flex flex-col space-y-[1rem] py-[1rem]'>
       {active ? (
         <>
-          <StormChapterHeader chapter={chapter}>
+          <StormChapterHeader>
             <StormChapterTitle>
               {chapter.title} {`(${chats.length})`}
             </StormChapterTitle>
             <StormChapterIndicator />
           </StormChapterHeader>
-          <div className="flex flex-col w-full space-y-[1rem]">
+          <div className='flex w-full flex-col space-y-[1rem]'>
             {chats.map((chat) => (
-              <StormChapterChat chat={chat} />
+              // eslint-disable-next-line react/jsx-key
+              <StormChatContext.Provider value={chat}>
+                <StormChapterChat />
+              </StormChatContext.Provider>
             ))}
             <StormChapterChatAdd />
           </div>
         </>
       ) : (
         <>
-          <StormChapterHeader chapter={chapter}>
+          <StormChapterHeader>
             <StormChapterTitle>{chapter.title}</StormChapterTitle>
           </StormChapterHeader>
         </>

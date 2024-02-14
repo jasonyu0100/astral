@@ -1,16 +1,21 @@
-import { MutableRefObject, useEffect } from 'react';
+import { MutableRefObject, useContext, useEffect } from 'react';
 import { motion, useMotionValue, useMotionValueEvent } from 'framer-motion';
-import { StarObj } from '@/(ouros)/(model)/draft/constellation/star/main';
+import { StarContext, StarObj, StarVariant } from '@/(ouros)/(model)/draft/constellation/star/main';
+import { FileStar } from './file/main';
+import { LogStar } from './log/main';
+import { LinkStar } from './link/main';
+import { NoteStar } from './note/main';
 
 export function DraftStar({
   constraintsRef,
-  star,
   updateStar,
+  activateStar: clickStar,
 }: {
   constraintsRef: MutableRefObject<null>;
-  star: StarObj;
   updateStar: (star: Object) => void;
+  activateStar: () => void;
 }) {
+  const star = useContext(StarContext);
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);
 
@@ -39,16 +44,20 @@ export function DraftStar({
     <motion.div
       drag
       dragConstraints={constraintsRef}
-      className={`absolute flex h-[150px] w-[100px] flex-col items-center space-y-[1rem] p-[10px] top-[${x}] left-[${y}]`}
+      className={`absolute flex h-[150px] w-[100px] flex-col items-center top-[${x}] left-[${y}]`}
       style={{ x, y }}
     >
-      <div className='h-[100px] w-[100px] flex-shrink-0'>
-        <img
-          className='pointer-events-none aspect-square w-full rounded-full border-[2px] border-slate-300'
-          src={star?.file?.src}
-        />
+      <div
+        className='flex h-full w-full flex-shrink-0 flex-col'
+        onDragStart={() => {
+          clickStar();
+        }}
+      >
+        {star.variant === StarVariant.FILE && <FileStar />}
+        {star.variant === StarVariant.LOG && <LogStar />}
+        {star.variant === StarVariant.LINK && <LinkStar />}
+        {star.variant === StarVariant.NOTE && <NoteStar />}
       </div>
-      <p className='w-full text-center font-bold text-slate-300'>{star.title}</p>
     </motion.div>
   );
 }

@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export enum FileVariant {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
@@ -29,6 +31,8 @@ export interface FileObj {
   size: number;
   variant: string;
 }
+
+export const FileContext = createContext<FileObj>({} as FileObj);
 
 export const exampleFile: FileObj = {
   id: '0',

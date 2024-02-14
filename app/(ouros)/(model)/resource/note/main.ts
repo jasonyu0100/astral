@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export enum NoteVariant {
   STICKY = 'STICKY',
   PROMPT = 'PROMPT',
@@ -11,6 +13,8 @@ export interface NoteObj {
   text: string;
   variant: string;
 }
+
+export const NoteContext = createContext<NoteObj>({} as NoteObj);
 
 export const exampleNote: NoteObj = {
   id: '0',

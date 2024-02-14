@@ -15,6 +15,7 @@ import {
 } from '@/(cosmos)/(handler)/explorer/resources/main';
 import { useCollection } from '@/(cosmos)/(handler)/explorer/collection/main';
 import { useGallery } from '@/(cosmos)/(handler)/explorer/gallery/main';
+import { ResourcesModalView } from '@/(cosmos)/(modals)/resources-modal/view';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;
@@ -42,6 +43,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <ExploreCollectionContext.Provider value={context}>
       <ResourcesModalContext.Provider value={modalContext}>
+        <ResourcesModalView />
         <ExploreResourcesView />
       </ResourcesModalContext.Provider>
     </ExploreCollectionContext.Provider>

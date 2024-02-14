@@ -1,10 +1,11 @@
 import { Layer } from '@/(common)/layer/main';
 import { backgroundStyles, borderStyles } from '@/(common)/styles/data';
-import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 import { useContext } from 'react';
 import { DraftContext } from '../../../../page';
+import { ChapterContext } from '@/(ouros)/(model)/space/chapter/main';
 
-export function DraftChapter({ chapter }: { chapter: ChapterObj }) {
+export function DraftChapter() {
+  const chapter = useContext(ChapterContext);
   const { chapterId, chapterHandler } = useContext(DraftContext);
   const active = chapter.id === chapterId;
 

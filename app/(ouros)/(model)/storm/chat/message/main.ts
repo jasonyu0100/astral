@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export enum MessageSource {
   USER = 'You',
   AGENT = 'Agent',
@@ -10,6 +12,8 @@ export interface MessageObj {
   time: string;
   message: string;
 }
+
+export const MessageContext = createContext<MessageObj>({} as MessageObj);
 
 export type MessageTemplateObj = Omit<MessageObj, 'id' | 'userId' | 'chatId' | 'time'>;
 

@@ -8,13 +8,20 @@ import { generateUploadURL } from '@/(dev)/(aws)/s3/main';
 import { createFileObj } from '@/graphql/mutations';
 
 export function FormUploadFile({
+  defaultFile,
   onChange,
   label,
 }: {
+  defaultFile?: FileObj;
   onChange: (file: FileObj) => void;
   label: string;
 }) {
   const [file, changeFile] = useState({} as FileObj);
+
+  useEffect(() => {
+    if (defaultFile === undefined) return;
+    changeFile(defaultFile);
+  }, [defaultFile])
 
   useEffect(() => {
     onChange(file);

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { StormContext } from '../../../../page';
 import { StormMessage } from './message/main';
+import { MessageContext } from '@/(ouros)/(model)/storm/chat/message/main';
 
 export function StormChatMessages() {
   const { messages, messageHandler } = useContext(StormContext);
@@ -11,7 +12,10 @@ export function StormChatMessages() {
     >
       <div className='flex w-full max-w-[900px] flex-col space-y-[1rem] py-[2rem]'>
         {messages.map((message) => (
-          <StormMessage message={message} />
+          // eslint-disable-next-line react/jsx-key
+          <MessageContext.Provider value={message}>
+            <StormMessage />
+          </MessageContext.Provider>
         ))}
       </div>
     </div>

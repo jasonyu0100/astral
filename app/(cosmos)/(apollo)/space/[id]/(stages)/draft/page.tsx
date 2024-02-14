@@ -4,7 +4,10 @@ import { DraftView } from './view';
 import { StarObj } from '@/(ouros)/(model)/draft/constellation/star/main';
 import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
 import { ConstellationObj } from '@/(ouros)/(model)/draft/constellation/main';
-import { ChapterHandler, useChapters } from '@/(cosmos)/(handler)/chapters/main';
+import {
+  ChapterHandler,
+  useChapters,
+} from '@/(cosmos)/(handler)/chapters/main';
 import {
   ConstellationHandler,
   useConstellations,
@@ -19,6 +22,8 @@ import {
   StarModalContext,
   useStarModal,
 } from '@/(cosmos)/(modals)/star-modal/main';
+import { StarModalView } from '@/(cosmos)/(modals)/star-modal/view';
+import { DraftModalView } from '@/(cosmos)/(modals)/draft-modal/view';
 
 interface DraftContextObj {
   chapterId: string;
@@ -68,7 +73,9 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <DraftContext.Provider value={context}>
       <DraftModalContext.Provider value={draftModalContext}>
+        <DraftModalView />
         <StarModalContext.Provider value={starModalContext}>
+          <StarModalView />
           <DraftView />
         </StarModalContext.Provider>
       </DraftModalContext.Provider>

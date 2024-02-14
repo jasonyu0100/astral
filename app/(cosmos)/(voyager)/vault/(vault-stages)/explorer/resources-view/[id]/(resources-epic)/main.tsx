@@ -13,7 +13,7 @@ export function ResourcesBody() {
       backgroundStyle={backgroundStyles['glass-5']}
     >
       <ResourcesBreadcrumbs />
-      <ResourcesGrid></ResourcesGrid>
+      <ResourcesGrid/>
     </Layer>
   );
 }

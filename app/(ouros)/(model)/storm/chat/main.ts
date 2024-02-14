@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export interface ChatObj {
   id: string;
   chapterId: string;
@@ -13,6 +15,8 @@ export const exampleChat: ChatObj = {
   summary: "What's the Idea",
   time: new Date('2023-12-19').toISOString(),
 };
+
+export const ChatContext = createContext<ChatObj>({} as ChatObj);
 
 export const exampleChats: ChatObj[] = [
   {

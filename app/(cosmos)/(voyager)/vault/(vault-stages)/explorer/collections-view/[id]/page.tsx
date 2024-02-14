@@ -13,6 +13,7 @@ import {
   CollectionHandler,
   useCollections,
 } from '@/(cosmos)/(handler)/explorer/collections/main';
+import { CollectionsModalView } from '@/(cosmos)/(modals)/collections-modal/view';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;
@@ -38,6 +39,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <ExploreGalleryContext.Provider value={context}>
       <CollectionsModalContext.Provider value={modalContext}>
+        <CollectionsModalView />
         <ExploreCollectionsView />
       </CollectionsModalContext.Provider>
     </ExploreGalleryContext.Provider>

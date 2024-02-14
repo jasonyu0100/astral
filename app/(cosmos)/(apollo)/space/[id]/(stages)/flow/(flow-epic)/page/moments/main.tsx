@@ -1,11 +1,15 @@
 import { Layer } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { FlowContext } from '../../../page';
 import { FlowMoment } from './moment/main';
+import { MomentObj } from '@/(ouros)/(model)/flow/moment/main';
+
+export const FlowMomentContext = createContext({} as MomentObj);
 
 export function FlowMoments() {
   const { moments } = useContext(FlowContext);
+
   return (
     <div className='w-full' style={{ height: '100%' }}>
       <Layer
@@ -13,8 +17,11 @@ export function FlowMoments() {
         sizeStyle='w-full h-full'
         className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
       >
-        {moments.map((moment, index) => (
-          <FlowMoment moment={moment} index={index}></FlowMoment>
+        {moments.map((moment) => (
+          // eslint-disable-next-line react/jsx-key
+          <FlowMomentContext.Provider value={moment}>
+            <FlowMoment/>
+          </FlowMomentContext.Provider>
         ))}
       </Layer>
     </div>

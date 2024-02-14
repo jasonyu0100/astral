@@ -1,6 +1,8 @@
-import { GalleryObj } from '@/(ouros)/(model)/gallery/main';
+import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
+import { useContext } from 'react';
 
-export function GalleryCover({ gallery }: { gallery: GalleryObj }) {
+export function GalleryCover() {
+  const gallery = useContext(GalleryContext);
   return (
     <img
       className='aspect-square w-full bg-black object-cover'

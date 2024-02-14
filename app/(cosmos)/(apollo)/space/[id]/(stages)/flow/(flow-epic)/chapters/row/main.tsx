@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { FlowContext } from '../../../page';
 import FlowChaptersAdd from './add/main';
 import { FlowChapter } from './item/main';
+import { ChapterContext } from '@/(ouros)/(model)/space/chapter/main';
 
 export function FlowChaptersRow() {
   const { chapters } = useContext(FlowContext);
@@ -12,7 +13,10 @@ export function FlowChaptersRow() {
   return (
     <div className='flex h-full flex-grow flex-row items-center space-x-[3px] overflow-auto'>
       {chapters.map((chapter) => (
-        <FlowChapter chapter={chapter} />
+        // eslint-disable-next-line react/jsx-key
+        <ChapterContext.Provider value={chapter}>
+          <FlowChapter />
+        </ChapterContext.Provider>
       ))}
       <FlowChaptersAdd onClick={() => open()} />
     </div>

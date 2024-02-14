@@ -1,18 +1,21 @@
-import { useStarModal } from '@/(cosmos)/(modals)/star-modal/main';
+import {
+  StarModalContext,
+} from '@/(cosmos)/(modals)/star-modal/main';
 import { DraftHeaderFileButton } from './file/main';
 import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';
 import { DraftHeaderNoteButton } from './note/main';
 import { DraftHeaderElementsButton } from './stack/main';
+import { useContext } from 'react';
 
 export function DraftHeaderLeft() {
-  const modalContext = useStarModal();
+  const modalContext = useContext(StarModalContext);
+
   return (
     <div className='flex w-1/3 flex-row'>
       <DraftHeaderElementsButton
         onClick={() => {
-          modalContext.addElementsStaModal.open();
-          alert('afdsafsd');
+          modalContext.addElementsStarModal.open();
         }}
       />
       <DraftHeaderNoteButton

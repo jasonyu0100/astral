@@ -16,6 +16,7 @@ export interface StarHandler {
   ) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
   queryUpdateStars: () => Promise<StarObj[]>;
+  activateStar: (starId: string) => void;
 }
 
 interface useStarInterface {
@@ -209,6 +210,9 @@ export const useStars = (constellationId: string): useStarInterface => {
     queryUpdateStars: async () => {
       const updatedStars = await gqlHelper.queryUpdateStars();
       return updatedStars;
+    },
+    activateStar: (starId: string) => {
+      changeStarId(starId);
     },
     updateStar: (starId: string, data: any) => {
       changeStars((prev) =>

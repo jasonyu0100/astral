@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { FileObj, exampleFile } from '../resource/file/main';
 export interface GalleryObj {
   id: string;
@@ -14,6 +15,8 @@ export const exampleGallery: GalleryObj = {
   description: 'Example Gallery Description',
   thumbnail: exampleFile,
 };
+
+export const GalleryContext = createContext<GalleryObj>({} as GalleryObj);
 
 export const exampleGallerys: GalleryObj[] = [
   {

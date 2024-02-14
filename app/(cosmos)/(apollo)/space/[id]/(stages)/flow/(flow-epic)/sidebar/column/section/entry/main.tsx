@@ -1,6 +1,8 @@
-import { MomentObj } from '@/(ouros)/(model)/flow/moment/main';
+import { MomentContext } from "@/(ouros)/(model)/flow/moment/main";
+import { useContext } from "react";
 
-export function FlowSidebarEntry({ moment }: { moment: MomentObj }) {
+export function FlowSidebarEntry() {
+  const moment = useContext(MomentContext);
   return (
     <div className='flex flex-row items-center space-x-[1rem]'>
       <div className='h-[50px] w-[50px] flex-shrink-0'>

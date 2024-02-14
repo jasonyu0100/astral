@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import { FileObj, exampleProfileImageFile } from '../resource/file/main';
 
 export interface UserObj {
@@ -24,6 +25,8 @@ export const exampleUser: UserObj = {
   profilePicture: exampleProfileImageFile,
   created: new Date().toISOString(),
 };
+
+export const UserContext = createContext<UserObj>({} as UserObj);
 
 export const exampleUsers: UserObj[] = [
   {

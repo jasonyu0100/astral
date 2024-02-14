@@ -1,15 +1,21 @@
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
 import { CollectionResourceAdd } from './add-resource/main';
 import { CollectionHeader } from './header/main';
 import { CollectionHeaderSearch } from './header/search/main';
 import { CollectionResource } from './resource/main';
-import { ResourcesModalContext, useResourceModal } from '@/(cosmos)/(modals)/resources-modal/main';
+import {
+  ResourcesModalContext,
+  useResourceModal,
+} from '@/(cosmos)/(modals)/resources-modal/main';
 import { ResourcesModalView } from '@/(cosmos)/(modals)/resources-modal/view';
+import { ResourceContext, ResourceObj } from '@/(ouros)/(model)/resource/main';
+
+export const SidebarResourceContext = createContext({} as ResourceObj);
 
 export function ResourcesInterface() {
   const { searchResults } = useContext(DraftSidebarContext);
-  const modalContext = useResourceModal()
+  const modalContext = useResourceModal();
 
   return (
     <ResourcesModalContext.Provider value={modalContext}>
@@ -22,7 +28,10 @@ export function ResourcesInterface() {
             }}
           />
           {searchResults.map((resource) => (
-            <CollectionResource resource={resource} />
+            // eslint-disable-next-line react/jsx-key
+            <ResourceContext.Provider value={resource}>
+              <CollectionResource />
+            </ResourceContext.Provider>
           ))}
         </div>
         <CollectionHeader>

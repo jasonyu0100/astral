@@ -9,12 +9,12 @@ import { StarModalContext } from '../main';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
-  const { opened, close } = modalContext.addNoteStarModal;
+  const { opened, close } = modalContext.addFileStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Note</FormTitle>
+        <FormTitle>Add File</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

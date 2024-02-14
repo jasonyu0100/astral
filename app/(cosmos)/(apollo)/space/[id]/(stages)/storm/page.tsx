@@ -3,17 +3,24 @@ import { StormView } from './view';
 import { ChatObj } from '@/(ouros)/(model)/storm/chat/main';
 import { MessageObj } from '@/(ouros)/(model)/storm/chat/message/main';
 import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
-import { ChapterHandler, useChapters } from '@/(cosmos)/(handler)/chapters/main';
+import {
+  ChapterHandler,
+  useChapters,
+} from '@/(cosmos)/(handler)/chapters/main';
 import { ChatHandler, useChats } from '@/(cosmos)/(handler)/storm/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext, useEffect } from 'react';
-import { MessageHandler, useMessages } from '@/(cosmos)/(handler)/storm/messages/main';
+import {
+  MessageHandler,
+  useMessages,
+} from '@/(cosmos)/(handler)/storm/messages/main';
 import { useGlobalSpace } from '@/(store)/space/main';
 import { useSpace } from '@/(cosmos)/(handler)/space/main';
 import {
   StormModalContext,
   useStormModal,
 } from '../../../../../(modals)/storm-modal/main';
+import { StormModalView } from '@/(cosmos)/(modals)/storm-modal/view';
 
 interface StormContextObj {
   chapter?: ChapterObj;
@@ -33,7 +40,7 @@ export const StormContext = createContext<StormContextObj>(
 );
 
 function Page({ params }: { params: { id: string } }) {
-  const setSpace = useGlobalSpace(state => state.setSpace);
+  const setSpace = useGlobalSpace((state) => state.setSpace);
   const { space } = useSpace(params.id);
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
     params.id,
@@ -64,6 +71,7 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <StormModalContext.Provider value={modalContext}>
+      <StormModalView />
       <StormContext.Provider value={context}>
         <StormView />
       </StormContext.Provider>

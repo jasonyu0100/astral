@@ -9,6 +9,7 @@ export function DraftPanelList() {
   return (
     <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
       {constellations.map((constellation, index) => (
+        // eslint-disable-next-line react/jsx-key
         <div
           onClick={() =>
             constellationHandler.updateConstellation(constellation)

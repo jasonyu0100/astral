@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { DraftSidebarContext } from '../../../../main';
-import { GalleryObj } from '@/(ouros)/(model)/gallery/main';
+import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
 
-export function HomeGalleryThumbnail({ gallery }: { gallery: GalleryObj }) {
+export function HomeGalleryThumbnail() {
   const { sidebarHandler } = useContext(DraftSidebarContext);
+  const gallery = useContext(GalleryContext);
 
   return (
     <img

@@ -1,6 +1,7 @@
 import { FileObj, exampleFile } from '../../resource/file/main';
 import { LogObj } from '@/(ouros)/(model)/resource/log/main';
 import { NoteObj } from '@/(ouros)/(model)/resource/note/main';
+import { createContext } from 'react';
 
 export enum MomentVisibility {
   JOURNAL = 'JOURNAL',
@@ -42,6 +43,8 @@ export const exampleMoment: MomentObj = {
   visibility: MomentVisibility.JOURNAL,
   variant: MomentVariant.FILE,
 };
+
+export const MomentContext = createContext<MomentObj>({} as MomentObj);
 
 export const exampleMoments: MomentObj[] = [
   {

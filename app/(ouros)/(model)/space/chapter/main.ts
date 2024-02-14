@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export interface ChapterObj {
   id: string;
   spaceId: string;
@@ -13,6 +15,8 @@ export const exampleChapter: ChapterObj = {
   description: 'This is a description',
   idx: 0,
 };
+
+export const ChapterContext = createContext<ChapterObj>({} as ChapterObj);
 
 export const exampleChapters: ChapterObj[] = [
   {

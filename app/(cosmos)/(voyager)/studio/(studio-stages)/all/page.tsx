@@ -10,6 +10,7 @@ import {
   useSpacesModal,
 } from '../../../../(modals)/space-modal/main';
 import { SpacesHandler, useSpaces } from '@/(cosmos)/(handler)/spaces/main';
+import { SpacesModalView } from '@/(cosmos)/(modals)/space-modal/view';
 
 export interface SpacesContextObj {
   spaces: SpaceObj[];
@@ -36,6 +37,7 @@ function Page() {
   return (
     <SpacesContext.Provider value={context}>
       <SpacesModalContext.Provider value={modalContext}>
+        <SpacesModalView />
         <SpacesView />
       </SpacesModalContext.Provider>
     </SpacesContext.Provider>

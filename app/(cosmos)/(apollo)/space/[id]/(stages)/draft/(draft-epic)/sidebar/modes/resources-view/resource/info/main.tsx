@@ -1,10 +1,8 @@
-import { ResourceObj } from '@/(ouros)/(model)/resource/main';
+import { useContext } from 'react';
+import { ResourceContext } from '@/(ouros)/(model)/resource/main';
 
-export function CollectionResourceInfo({
-  resource,
-}: {
-  resource: ResourceObj;
-}) {
+export function CollectionResourceInfo() {
+  const resource = useContext(ResourceContext);
   return (
     <div className='flex flex-grow flex-col'>
       <p className='font-extraBold text-slate-400'>{resource.title}</p>

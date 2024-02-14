@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export enum ConstellationVariant {
   VISUAL = 'VISUAL',
   AUDIO = 'AUDIO',
@@ -20,6 +22,9 @@ export const exampleConstellation: ConstellationObj = {
   description: 'Constellation Description',
   variant: ConstellationVariant.VISUAL,
 };
+
+
+export const ConstellationContext = createContext<ConstellationObj>({} as ConstellationObj);
 
 export const exampleConstellations: ConstellationObj[] = [
   {

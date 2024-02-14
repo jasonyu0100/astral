@@ -1,33 +1,19 @@
-import { CollectionObj } from '@/(ouros)/(model)/gallery/collection/main';
 import { CollectionThumbnail } from './thumbnail/main';
 import { CollectionInfo } from './info/main';
 import { GalleryCollectionContainer } from './container/main';
 import { vaultMap } from '@/(cosmos)/(voyager)/vault/map';
-import { createContext } from 'react';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { CollectionContext } from '@/(ouros)/(model)/gallery/collection/main';
 
-interface InputProps {
-  collection: CollectionObj;
-  index: number;
-}
-
-interface GalleryCollectionContextObj {
-  collection: CollectionObj;
-  index: number;
-}
-
-export const GalleryCollectionContext =
-  createContext<GalleryCollectionContextObj>({} as GalleryCollectionContextObj);
-
-export function GalleryCollection({ collection, index }: InputProps) {
+export function GalleryCollection() {
+  const collection = useContext(CollectionContext);
   return (
-    <GalleryCollectionContext.Provider value={{ collection, index }}>
       <Link href={vaultMap.vault.explorer.resources.id.link(collection.id)}>
         <GalleryCollectionContainer>
           <CollectionThumbnail />
           <CollectionInfo />
         </GalleryCollectionContainer>
       </Link>
-    </GalleryCollectionContext.Provider>
   );
 }

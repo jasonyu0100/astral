@@ -1,15 +1,18 @@
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
-import { StormChapterAvatar } from './avatar/main';
+import { StormChatIcon } from './avatar/main';
 import { ChatObj } from '@/(ouros)/(model)/storm/chat/main';
+import { StormChatContext } from '../main';
 
-export function StormChapterChat({ chat }: { chat: ChatObj }) {
+export function StormChapterChat() {
+  const chat = useContext(StormChatContext);
   const { chatId, chatHandler } = useContext(StormContext);
   const active = chat.id === chatId;
+
   return (
     <button onClick={() => chatHandler.selectChat(chat)}>
       <div className='flex flex-row items-center space-x-[1rem]'>
-        <StormChapterAvatar />
+        <StormChatIcon />
         {active ? (
           <p className='text-lg font-bold text-slate-300'>{chat.title}</p>
         ) : (
