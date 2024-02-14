@@ -14,7 +14,7 @@ export function AddElementsStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Star</FormTitle>
+        <FormTitle>Elements</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

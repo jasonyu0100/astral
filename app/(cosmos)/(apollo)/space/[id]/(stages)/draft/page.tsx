@@ -33,6 +33,7 @@ interface DraftContextObj {
   constellations: ConstellationObj[];
   constellationId: string;
   stars: StarObj[];
+  starId: string;
   starHandler: StarHandler;
   chapterHandler: ChapterHandler;
   constellationHandler: ConstellationHandler;
@@ -52,12 +53,13 @@ function Page({ params }: { params: { id: string } }) {
     constellationId,
     _constellationHandler,
   } = useConstellations(chapterId);
-  const { stars, _starHandler } = useStars(constellationId);
+  const { stars, starId, _starHandler } = useStars(constellationId);
 
   const context: DraftContextObj = {
     chapter: chapter,
     constellation: constellation,
     stars: stars,
+    starId: starId,
     chapterId: chapterId,
     chapters: chapters,
     starHandler: _starHandler,

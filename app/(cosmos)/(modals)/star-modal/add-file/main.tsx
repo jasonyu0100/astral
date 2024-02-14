@@ -17,10 +17,14 @@ export function AddFileStarModal() {
   const [description, changeDescription] = useState('' as string);
   const [file, changeFile] = useState({} as FileObj);
 
+  function addFileStar() {
+    
+  }
+
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Star</FormTitle>
+        <FormTitle>Element</FormTitle>
         <FormBody>
           <FormInput title='Name' value={title} />
           <FormUploadFile

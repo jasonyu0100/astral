@@ -2,8 +2,7 @@ import { createContext } from "react";
 
 export enum NoteVariant {
   STICKY = 'STICKY',
-  PROMPT = 'PROMPT',
-  CODE = 'CODE',
+  QUESTION = 'QUESTION',
   QUOTE = 'QUOTE',
 }
 

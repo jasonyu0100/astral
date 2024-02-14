@@ -16,7 +16,7 @@ export function AddNoteStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Star</FormTitle>
+        <FormTitle>Note Element</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>

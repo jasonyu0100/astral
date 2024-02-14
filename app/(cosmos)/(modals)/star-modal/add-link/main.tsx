@@ -14,7 +14,7 @@ export function AddLinkStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Add Star</FormTitle>
+        <FormTitle>Link Element</FormTitle>
         <FormBody>
         </FormBody>
         <FormFooter>
