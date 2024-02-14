@@ -66,7 +66,7 @@ export function PortalRegisterForm() {
               alert('Register Success');
               window.location.href = studioMap.studio.now.link;
             } else {
-              alert('Register Failed');
+              alert(res.error);
             }
           });
         });
@@ -85,7 +85,7 @@ export function PortalRegisterForm() {
         alert('Register Success');
         window.location.href = studioMap.studio.now.link;
       } else {
-        alert('Register Failed');
+        alert(res.error);
       }
     });
   };

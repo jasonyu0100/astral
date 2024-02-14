@@ -32,7 +32,6 @@ export async function emailRegisterUser(
   password: string,
 ) {
   if (process.env.PRERELEASE_MODE) {
-    alert('PRERELEASE ONLY');
     return { status: false, error: 'PRERELEASE ONLY' };
   }
   const emailCheck = await checkEmail(email);
@@ -67,7 +66,6 @@ export async function googleRegisterUser(
   profilePicture: FileObj,
 ) {
   if (process.env.PRERELEASE_MODE) {
-    alert('PRERELEASE ONLY');
     return { status: false, error: 'PRERELEASE ONLY' };
   }
   const emailCheck = await checkEmail(email);
