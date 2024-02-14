@@ -1,6 +1,6 @@
 'use client';
 import { effectStyles } from '@/(common)/styles/data';
-import { useGlobalSpace } from '@/state/space/main';
+import { useGlobalSpace } from '@/(store)/space/main';
 import { cn } from '@/utils/cn';
 import { useState, useEffect } from 'react';
 

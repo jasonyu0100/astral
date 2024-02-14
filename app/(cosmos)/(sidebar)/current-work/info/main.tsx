@@ -1,6 +1,6 @@
 'use client';
-import { useGlobalUser } from '@/state/main';
-import { useGlobalSpace } from '@/state/space/main';
+import { useGlobalUser } from '@/(store)/user/main';
+import { useGlobalSpace } from '@/(store)/space/main';
 import { cn } from '@/utils/cn';
 import { useEffect, useState } from 'react';
 

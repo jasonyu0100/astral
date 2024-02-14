@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { SeaWrapper } from './sea-epic/wrapper/main';
-import { SeaMain } from './sea-epic/main';
-import { SeaStory } from './sea-epic/story/main';
+import { SeaWrapper } from './(sea-epic)/wrapper/main';
+import { SeaMain } from './(sea-epic)/main';
+import { SeaStory } from './(sea-epic)/story/main';
 import { SeaSidebar } from './sidebar/main';
 import { SeaPoint } from './sidebar/point/main';
 

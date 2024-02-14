@@ -1,23 +1,15 @@
 'use client';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
+import { stripeExistingBillingSession } from '@/(ouros)/(stripe)/main';
 
 export default function Page() {
   const user = useGlobalUser((state) => state.user);
 
   async function openExistingCustomerBillingSession() {
-    let resp = await fetch('/api/stripe/existing-billing', {
-      method: 'POST',
-      body: JSON.stringify({
-        customerId: user.customerId,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    stripeExistingBillingSession(user.customerId || "").then(billingSession => {
+      window.location.href = billingSession.url;
     });
-    let data = await resp.json();
-    let url = data.billingSession.url;
-    window.location.href = url;
   }
 
   return (

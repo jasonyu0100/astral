@@ -6,10 +6,10 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { FormUploadFiles } from '@/(common)/form/upload/upload-files/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import { useContext, useState } from 'react';
 import { CollectionsModalContext } from '../main';
-import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-epic/sidebar/main';
+import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
 
 export function DraftCreateCollectionModal() {
   const { collectionHandler } = useContext(DraftSidebarContext);

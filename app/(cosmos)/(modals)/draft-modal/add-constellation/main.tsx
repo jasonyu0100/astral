@@ -10,7 +10,7 @@ import { useContext, useState } from 'react';
 import { DraftContext } from '../../../(apollo)/space/[id]/(stages)/draft/page';
 import { DraftModalContext } from '../main';
 import { FormSelect } from '@/(common)/form/select/main';
-import { ConstellationVariant } from '@/tables/draft/constellation/main';
+import { ConstellationVariant } from '@/(ouros)/(model)/draft/constellation/main';
 
 export function DraftAddConstellationModal() {
   const { constellationHandler } = useContext(DraftContext);

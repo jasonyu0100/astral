@@ -6,7 +6,7 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { FileModalContext } from '../main';
-import { FileContext } from '../../../(voyager)/vault/(stages)/explorer/resources-view/[id]/resources-epic/resource/main';
+import { FileContext } from '../../../(voyager)/vault/(vault-stages)/explorer/resources-view/[id]/(resources-epic)/resource/main';
 
 export function EditFileModal() {
   const modalContext = useContext(FileModalContext);

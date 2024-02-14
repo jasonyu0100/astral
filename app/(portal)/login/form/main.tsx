@@ -1,23 +1,24 @@
 import { useState } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
 import { portalMap } from '../../map';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
-import { PortalFormAction } from '@/(portal)/polaroid-epic/container/form/action-container/action/main';
-import { PortalFormAltActionLink } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main';
-import { PortalFormAltAction } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/main';
-import { PortalFormGoogleAction } from '@/(portal)/polaroid-epic/container/form/action-container/google-action/main';
-import { PortalFormActionContainer } from '@/(portal)/polaroid-epic/container/form/action-container/main';
-import { PortalFormInput } from '@/(portal)/polaroid-epic/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/main';
-import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
-import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/main';
-import { PortalCosmosTextHeader } from '@/(portal)/polaroid-epic/container/form/text-header/main';
+import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
+import { PortalFormAltActionLink } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/main';
+import { PortalFormGoogleAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/google-action/main';
+import { PortalFormActionContainer } from '@/(portal)/(polaroid-epic)/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
+import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
+import { PortalFormOrDivider } from '@/(portal)/(polaroid-epic)/container/form/or/main';
+import { PortalCosmosTextHeader } from '@/(portal)/(polaroid-epic)/container/form/text-header/main';
+import axios from 'axios';
+import { emailLoginUser, googleLoginUser } from '@/(portal)/(auth)/login/main';
+import { UserObj } from '@/(ouros)/(model)/user/main';
 
 export function PortalLoginForm() {
-    const user = useGlobalUser((state) => state.user);
-    const login = useGlobalUser((state) => state.login);
+  const login = useGlobalUser((state) => state.login);
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
 
@@ -37,22 +38,12 @@ export function PortalLoginForm() {
         .then((resp) => {
           const email = resp.data.email;
           const googleId = resp.data.id;
-          fetch('/api/portal/login/google', {
-            method: 'POST',
-            body: JSON.stringify({
-              email,
-              googleId,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((res) => {
-            if (res.status === 200) {
-              res.json().then((user) => {
-                login(user.data);
-                alert('Login Success');
-                window.location.href = studioMap.studio.now.link;
-              });
+          googleLoginUser(email, googleId).then((res) => {
+            if (res.status) {
+              const user = res.data as UserObj;
+              login(user);
+              alert('Login Success');
+              window.location.href = studioMap.studio.now.link;
             } else {
               alert('Login Failed');
             }
@@ -66,23 +57,12 @@ export function PortalLoginForm() {
   });
 
   const attemptLogin = () => {
-    fetch('/api/portal/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      if (res.status === 200) {
-        res.json().then((user) => {
-          console.log(user);
-          login(user.data);
-          alert('Login Success');
-          window.location.href = studioMap.studio.now.link;
-        });
+    emailLoginUser(email, password).then((res) => {
+      if (res.status) {
+        const user = res.data as UserObj;
+        login(user);
+        alert('Login Success');
+        window.location.href = studioMap.studio.now.link;
       } else {
         alert('Login Failed');
       }

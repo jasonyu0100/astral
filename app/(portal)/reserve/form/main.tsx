@@ -1,17 +1,16 @@
 import { useContext, useState } from 'react';
-import { PortalFormAction } from '@/(portal)/polaroid-epic/container/form/action-container/action/main';
-import { PortalFormInput } from '@/(portal)/polaroid-epic/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/main';
-import { PortalFormSelect } from '@/(portal)/polaroid-epic/container/form/body/select/main';
-import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
-import { PortalCosmosTextHeader } from '@/(portal)/polaroid-epic/container/form/text-header/main';
-import { portalModel } from '@/(portal)/polaroid-epic/model/main';
-import { amplifyClient } from '@/client';
-import { createReservationObj } from '@/graphql/mutations';
-import { PolaroidContext } from '@/(portal)/polaroid-epic/handler/polaroid/main';
+import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
+import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
+import { PortalFormSelect } from '@/(portal)/(polaroid-epic)/container/form/body/select/main';
+import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
+import { PortalCosmosTextHeader } from '@/(portal)/(polaroid-epic)/container/form/text-header/main';
+import { portalModel } from '@/(portal)/(polaroid-epic)/model/main';
+import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
+import { reservePosition } from '@/(portal)/(auth)/reserve/main';
 
 export function PortalReserveForm() {
-  const { variant} = useContext(PolaroidContext)
+  const { variant } = useContext(PolaroidContext);
   const categories = portalModel.categories.example;
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
@@ -19,38 +18,10 @@ export function PortalReserveForm() {
   const [role, changeRole] = useState('');
 
   const attemptReserve = async () => {
-    const payload = await amplifyClient.graphql({
-      query: createReservationObj,
-      variables: {
-        input: {
-          fname: fname,
-          lname: lname,
-          email: email,
-        },
-      },
+    reservePosition(fname, lname, email).then((res) => {
+      alert('Position reserved.');
+      window.location.href = '/';
     });
-    window.location.href = '/';
-
-    // fetch('/api/portal/reserve', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     fname: fname,
-    //     lname: lname,
-    //     email: email,
-    //   }),
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     res.json().then((user) => {
-    //       alert('Reserve Success');
-    //       window.location.href = '/';
-    //     });
-    //   } else {
-    //     alert('Reserve Failed');
-    //   }
-    // });
   };
 
   return (
@@ -60,13 +31,13 @@ export function PortalReserveForm() {
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
-          placeholder={variant === 'm' ? 'John': 'Taylor'}
+          placeholder={variant === 'm' ? 'John' : 'Taylor'}
           type='text'
         />
         <PortalFormInput
           value={lname}
           onChange={(e) => changeLname(e.target.value)}
-          placeholder={variant === 'm' ? 'Mayer': 'Swift'}
+          placeholder={variant === 'm' ? 'Mayer' : 'Swift'}
           type='text'
         />
         <PortalFormInput

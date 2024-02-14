@@ -2,7 +2,7 @@
 import { LinkInputProps } from '@/(common)/types/main';
 import { spaceMap } from '@/(cosmos)/(apollo)/space/[id]/map';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
-import { useGlobalSpace } from '@/state/space/main';
+import { useGlobalSpace } from '@/(store)/space/main';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 

@@ -1,10 +1,11 @@
-import { amplifyClient } from '@/client';
-import { FileObj, getFileVariantFromMimeType } from '@/tables/resource/file/main';
+import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
+import { FileObj, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';
 import React, { useEffect, useState } from 'react';
-import { createFileObj } from '../../../../../server/graphql/mutations';
 import { UploadedFile } from './uploaded-file/main';
 import { UploadedFileInfo } from './uploaded-file/info/main';
 import { UploadedFileRemove } from './uploaded-file/remove/main';
+import { generateUploadURL } from '@/(dev)/(aws)/s3/main';
+import { createFileObj } from '@/graphql/mutations';
 
 export function FormUploadFile({
   onChange,
@@ -25,16 +26,17 @@ export function FormUploadFile({
     const fileType = file.type;
     const fileSize = file.size;
 
-    const { url } = await fetch('/s3Url').then((res) => res.json());
+    const uploadUrl = await generateUploadURL()
 
-    await fetch(url, {
+    await fetch(uploadUrl, {
       method: 'PUT',
       headers: {
         'Content-Type': 'multipart/form-data',
       },
       body: file,
     });
-    const fileSrc = url.split('?')[0];
+    
+    const fileSrc = uploadUrl.split('?')[0];
 
     const filePayload: FileObj = {
       id: crypto.randomUUID(),

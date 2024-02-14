@@ -1,15 +1,15 @@
 'use client';
 import { StormView } from './view';
-import { ChatObj } from '@/tables/storm/chat/main';
-import { MessageObj } from '@/tables/storm/chat/message/main';
-import { ChapterObj } from '@/tables/space/chapter/main';
-import { ChapterHandler, useChapters } from '@/handler/chapters/main';
-import { ChatHandler, useChats } from '@/handler/storm/chats/main';
+import { ChatObj } from '@/(ouros)/(model)/storm/chat/main';
+import { MessageObj } from '@/(ouros)/(model)/storm/chat/message/main';
+import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
+import { ChapterHandler, useChapters } from '@/(cosmos)/(handler)/chapters/main';
+import { ChatHandler, useChats } from '@/(cosmos)/(handler)/storm/chats/main';
 import insideCosmos from '@/utils/isAuth';
 import { createContext, useEffect } from 'react';
-import { MessageHandler, useMessages } from '@/handler/storm/messages/main';
-import { useGlobalSpace } from '@/state/space/main';
-import { useSpace } from '@/handler/space/main';
+import { MessageHandler, useMessages } from '@/(cosmos)/(handler)/storm/messages/main';
+import { useGlobalSpace } from '@/(store)/space/main';
+import { useSpace } from '@/(cosmos)/(handler)/space/main';
 import {
   StormModalContext,
   useStormModal,
