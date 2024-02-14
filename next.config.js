@@ -11,6 +11,7 @@ const nextConfig = {
   },
   env: {
     MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
+    PRERELEASE_MODE: process.env.PRERELEASE_MODE,
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
     GRAPHQL_APIKEY: process.env.GRAPHQL_APIKEY,
     S3_ACCESSKEY: process.env.S3_ACCESSKEY,

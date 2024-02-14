@@ -5,7 +5,6 @@ import { createUserObj } from '@/graphql/mutations';
 import { listUserObjs } from '@/graphql/queries';
 import bcrypt from 'bcryptjs';
 
-
 async function checkEmail(email: string) {
   const payload = await amplifyClient.graphql({
     query: listUserObjs,
@@ -32,6 +31,10 @@ export async function emailRegisterUser(
   email: string,
   password: string,
 ) {
+  if (process.env.PRERELEASE_MODE) {
+    alert('PRERELEASE ONLY');
+    return { status: false, error: 'PRERELEASE ONLY' };
+  }
   const emailCheck = await checkEmail(email);
   if (emailCheck.status === false) {
     return { status: false, error: 'Email is already in use' };
@@ -63,6 +66,10 @@ export async function googleRegisterUser(
   googleId: string,
   profilePicture: FileObj,
 ) {
+  if (process.env.PRERELEASE_MODE) {
+    alert('PRERELEASE ONLY');
+    return { status: false, error: 'PRERELEASE ONLY' };
+  }
   const emailCheck = await checkEmail(email);
   if (emailCheck.status === false) {
     return { status: false, error: 'Email is already in use' };
