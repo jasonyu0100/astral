@@ -1,7 +1,7 @@
 import {
   RecordTabStage,
   RecordTabs,
-} from '@/(cosmos)/(voyager)/tracks/tabs/main';
+} from '@/(cosmos)/(voyager)/tracks/(tracks-tabs)/main';
 
 import { DashboardContent } from '@/(cosmos)/(common)/content/main';
 
