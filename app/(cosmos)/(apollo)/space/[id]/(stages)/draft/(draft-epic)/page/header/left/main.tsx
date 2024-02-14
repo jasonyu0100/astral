@@ -18,17 +18,17 @@ export function DraftHeaderLeft() {
           modalContext.addElementsStarModal.open();
         }}
       />
+      <DraftHeaderFileButton
+        onClick={() => modalContext.addFileStarModal.open()}
+      />
+      <DraftHeaderLinkButton
+        onClick={() => modalContext.addLinkStarModal.open()}
+      />
       <DraftHeaderNoteButton
         onClick={() => modalContext.addNoteStarModal.open()}
       />
       <DraftHeaderLogButton
         onClick={() => modalContext.addLogStarModal.open()}
-      />
-      <DraftHeaderLinkButton
-        onClick={() => modalContext.addLinkStarModal.open()}
-      />
-      <DraftHeaderFileButton
-        onClick={() => modalContext.addFileStarModal.open()}
       />
     </div>
   );
