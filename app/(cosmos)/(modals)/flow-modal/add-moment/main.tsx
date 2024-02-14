@@ -9,10 +9,10 @@ import { FormSelect } from '@/(common)/form/select/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
 import { Modal } from '@/(common)/modal/main';
-import { MomentVisibility } from '@/tables/flow/moment/main';
+import { MomentVisibility } from '@/(ouros)/(model)/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowContext } from '../../../(apollo)/space/[id]/(stages)/flow/page';
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import { FlowModalContext } from '../main';
 
 export function FlowAddMomentModal() {

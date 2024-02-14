@@ -4,9 +4,10 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
 import { getPlanName, getPlanPrice } from '@/(ouros)/pricing/page';
 import Link from 'next/link';
+import { stripeMap } from '@/(ouros)/stripe/map';
 
 export function SettingsModal() {
   const user = useGlobalUser((state) => state.user);
@@ -19,7 +20,7 @@ export function SettingsModal() {
         <FormTitle>Settings</FormTitle>
         <FormBody>
           <Link
-            href='/stripe/billing/existing'
+            href={stripeMap.stripe.billing.existing.link}
             target='_blank'
             className='rounded bg-slate-300 p-[1rem] font-bold text-black'
           >

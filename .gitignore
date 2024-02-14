@@ -2,7 +2,6 @@
 .next/
 .next/types/
 app/graphql/
-server/graphql/
 
 .npmrc
 

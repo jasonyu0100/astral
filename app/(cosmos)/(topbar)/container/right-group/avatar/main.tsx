@@ -1,6 +1,6 @@
 'use client';
 import { ButtonProps } from '@/components/ui/button';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
 import { useState, useEffect } from 'react';
 
 export function TopbarAvatar({ ...props }: ButtonProps) {

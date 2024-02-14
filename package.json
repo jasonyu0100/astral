@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "ts-node --project tsconfig.server.json server/index.ts",
-    "dev": "nodemon --exec ts-node --project tsconfig.server.json server/index.ts",
+    "start": "next start",
+    "dev": "next",
     "preinstall": "node scripts/create-npmrc & node scripts/create-aws",
-    "prebuild": "sh run_codegen.sh",
+    "prebuild": "sh scripts/run_codegen.sh",
     "build": "next build",
     "lint": "next lint",
     "format": "prettier --write ."
@@ -44,7 +44,7 @@
     "aws-amplify": "^6.0.10",
     "aws-sdk": "^2.1536.0",
     "axios": "^1.6.5",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cors": "^2.8.5",
@@ -77,6 +77,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/js-cookie": "^3.0.6",

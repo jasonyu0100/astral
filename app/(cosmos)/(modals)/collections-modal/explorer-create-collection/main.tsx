@@ -6,9 +6,9 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { FormUploadFiles } from '@/(common)/form/upload/upload-files/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import { useContext, useState } from 'react';
-import { ExploreGalleryContext } from '../../../(voyager)/vault/(stages)/explorer/collections-view/[id]/page';
+import { ExploreGalleryContext } from '../../../(voyager)/vault/(vault-stages)/explorer/collections-view/[id]/page';
 import { CollectionsModalContext } from '../main';
 
 export function ExplorerCreateCollectionModal() {

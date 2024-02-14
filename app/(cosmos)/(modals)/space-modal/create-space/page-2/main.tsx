@@ -1,6 +1,6 @@
 import { FormBody } from '@/(common)/form/body/main';
 import { FormSelect } from '@/(common)/form/select/main';
-import { SpaceVariant } from '@/tables/space/main';
+import { SpaceVariant } from '@/(ouros)/(model)/space/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 

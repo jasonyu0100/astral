@@ -1,4 +1,4 @@
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import React, { useState } from 'react';
 import SearchModal from '@/(common)/form/search-image/search-modal/main';
 

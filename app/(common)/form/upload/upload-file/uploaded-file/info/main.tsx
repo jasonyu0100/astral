@@ -1,4 +1,4 @@
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 
 export function UploadedFileInfo({ file }: { file: FileObj }) {
   return (

@@ -1,11 +1,12 @@
 import { effectStyles } from '@/(common)/styles/data';
-import { amplifyClient } from '@/client';
+import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
 import { createFileObj } from '@/graphql/mutations';
-import { FileObj, getFileVariantFromMimeType } from '@/tables/resource/file/main';
+import { FileObj, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { UploadedFileInfo } from '../upload-file/uploaded-file/info/main';
 import { UploadedFile } from '../upload-file/uploaded-file/main';
 import { UploadedFileRemove } from '../upload-file/uploaded-file/remove/main';
+import { generateUploadURL } from '@/(dev)/(aws)/s3/main';
 
 export function FormUploadFiles({
   onChange,
@@ -30,17 +31,17 @@ export function FormUploadFiles({
       const fileSize = file.size;
 
       // get secure url from our server
-      const { url } = await fetch('/s3Url').then((res) => res.json());
+      const uploadUrl = await generateUploadURL()
 
       // post the image directly to the s3 bucket
-      await fetch(url, {
+      await fetch(uploadUrl, {
         method: 'PUT',
         headers: {
           'Content-Type': 'multipart/form-data',
         },
         body: file,
       });
-      const fileSrc = url.split('?')[0];
+      const fileSrc = uploadUrl.split('?')[0];
 
       // post request to my server to store any extra data
       const filePayload: FileObj = {
@@ -122,6 +123,7 @@ export function FormUploadFiles({
         <>
           <div className='mt-[1rem] flex w-full flex-col divide-y-[1px] divide-slate-300'>
             {files.map((file, i) => (
+              // eslint-disable-next-line react/jsx-key
               <UploadedFile>
                 <UploadedFileInfo file={file} />
                 <UploadedFileRemove

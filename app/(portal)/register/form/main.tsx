@@ -1,19 +1,22 @@
 import { useContext, useState } from 'react';
 import { portalMap } from '../../map';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
 import { useGoogleLogin } from '@react-oauth/google';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
-import { PortalFormAction } from '@/(portal)/polaroid-epic/container/form/action-container/action/main';
-import { PortalFormAltActionLink } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/link/main';
-import { PortalFormAltAction } from '@/(portal)/polaroid-epic/container/form/action-container/alt-action/main';
-import { PortalFormGoogleAction } from '@/(portal)/polaroid-epic/container/form/action-container/google-action/main';
-import { PortalFormActionContainer } from '@/(portal)/polaroid-epic/container/form/action-container/main';
-import { PortalFormInput } from '@/(portal)/polaroid-epic/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/polaroid-epic/container/form/body/main';
-import { PortalForm } from '@/(portal)/polaroid-epic/container/form/main';
-import { PortalFormOrDivider } from '@/(portal)/polaroid-epic/container/form/or/main';
+import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
+import { PortalFormAltActionLink } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/main';
+import { PortalFormGoogleAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/google-action/main';
+import { PortalFormActionContainer } from '@/(portal)/(polaroid-epic)/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
+import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
+import { PortalFormOrDivider } from '@/(portal)/(polaroid-epic)/container/form/or/main';
 import axios from 'axios';
-import { PolaroidContext } from '@/(portal)/polaroid-epic/handler/polaroid/main';
+import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
+import { emailRegisterUser, googleRegisterUser } from '@/(portal)/(auth)/register/main';
+import { FileObj, FileVariant } from '@/(ouros)/(model)/resource/file/main';
+import { UserObj } from '@/(ouros)/(model)/user/main';
 
 export function PortalRegisterForm() {
   const { variant } = useContext(PolaroidContext);
@@ -41,32 +44,27 @@ export function PortalRegisterForm() {
           const googleId = resp.data.id;
           const fname = resp.data.given_name;
           const lname = resp.data.family_name;
-          const profilePicture = {
+          const profilePicture: FileObj = {
             id: crypto.randomUUID(),
             src: resp.data.picture,
-            type: 'image/*',
-            name: 'profile picture',
+            fileType: 'image/*',
+            title: 'Profile Picture',
+            size: 0,
+            variant: FileVariant.IMAGE,
           };
           const email = resp.data.email;
-          fetch('/api/portal/register/google', {
-            method: 'POST',
-            body: JSON.stringify({
-              fname,
-              lname,
-              email,
-              googleId,
-              profilePicture,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }).then((res) => {
-            if (res.status === 200) {
-              res.json().then((user) => {
-                register(user.data);
-                alert('Register Success');
-                window.location.href = studioMap.studio.now.link;
-              });
+          googleRegisterUser(
+            fname,
+            lname,
+            email,
+            googleId,
+            profilePicture,
+          ).then((res) => {
+            if (res.status === true) {
+              const user = res.data as UserObj;
+              register(user);
+              alert('Register Success');
+              window.location.href = studioMap.studio.now.link;
             } else {
               alert('Register Failed');
             }
@@ -80,24 +78,12 @@ export function PortalRegisterForm() {
   });
 
   const attemptRegister = () => {
-    fetch('/api/portal/register', {
-      method: 'POST',
-      body: JSON.stringify({
-        fname,
-        lname,
-        email,
-        password,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      if (res.status === 200) {
-        res.json().then((user) => {
-          register(user.data);
-          alert('Register Success');
-          window.location.href = studioMap.studio.now.link;
-        });
+    emailRegisterUser(fname, lname, email, password).then((res) => {
+      if (res.status) {
+        const user = res.data as UserObj;
+        register(user);
+        alert('Register Success');
+        window.location.href = studioMap.studio.now.link;
       } else {
         alert('Register Failed');
       }

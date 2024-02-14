@@ -5,15 +5,15 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/tables/resource/file/main';
-import { SpaceVariant } from '@/tables/space/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
+import { SpaceVariant } from '@/(ouros)/(model)/space/main';
 import {
   ChapterTemplateObj,
   getSpaceTemplate,
-} from '@/tables/space/templates/main';
+} from '@/(ouros)/(model)/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesContext } from '@/(cosmos)/(voyager)/studio/(stages)/all/page';
+import { SpacesContext } from '@/(cosmos)/(voyager)/studio/(studio-stages)/all/page';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;

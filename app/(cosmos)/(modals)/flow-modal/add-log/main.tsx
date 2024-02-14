@@ -8,7 +8,7 @@ import { FormContainer } from '@/(common)/form/main';
 import { FormSelect } from '@/(common)/form/select/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
-import { MomentVisibility } from '@/tables/flow/moment/main';
+import { MomentVisibility } from '@/(ouros)/(model)/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowModalContext } from '../main';
 import { FlowContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/flow/page';

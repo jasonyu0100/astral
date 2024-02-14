@@ -2,7 +2,7 @@
 import {
   PolaroidContext,
   usePolaroid,
-} from '../polaroid-epic/handler/polaroid/main';
+} from '../(polaroid-epic)/handler/polaroid/main';
 import { ReserveView } from './view';
 
 export default function Page() {

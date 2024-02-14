@@ -6,12 +6,12 @@ import { FormInput } from '@/(common)/form/input/main';
 import { FormContainer } from '@/(common)/form/main';
 import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
-import { FileObj } from '@/tables/resource/file/main';
+import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
 import { SelectedImage } from '@/(common)/form/selected-image/main';
 import { FormSearchImage } from '@/(common)/form/search-image/main';
-import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/draft-epic/sidebar/main';
+import { DraftSidebarContext } from '@/(cosmos)/(apollo)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
 
 export function DraftCreateGalleryModal() {
   const modalContext = useContext(GallerysModalContext);

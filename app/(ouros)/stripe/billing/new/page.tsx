@@ -1,6 +1,7 @@
 'use client';
 import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
-import { useGlobalUser } from '@/state/main';
+import { useGlobalUser } from '@/(store)/user/main';
+import { stripeNewBillingSession, stripeProcessSubscription } from '@/(ouros)/(stripe)/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -11,44 +12,24 @@ export default function Page() {
   const sessionId = searchParams.get('session_id') || '';
 
   useEffect(() => {
-    if (user.customerId === null) {
-      processSubscription().then((data) => {
-        update(data.user);
-        alert('UPDATED USER');
-      });
+    if (user.customerId === null || user.priceId === undefined) {
+      processSubscription()
     } else {
-      window.location.href = "/stripe/billing/existing"
+      window.location.href = '/stripe/billing/existing';
     }
   }, []);
 
   async function openNewCustomerBillingSession() {
-    let resp = await fetch('/api/stripe/new-billing', {
-      method: 'POST',
-      body: JSON.stringify({
-        sessionId: sessionId,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    stripeNewBillingSession(sessionId).then((billingSession) => {
+      window.location.href = billingSession.url;
     });
-    let data = await resp.json();
-    let url = data.billingSession.url;
-    window.location.href = url;
   }
 
   async function processSubscription() {
-    let resp = await fetch('/api/stripe/process-subscription', {
-      method: 'POST',
-      body: JSON.stringify({
-        sessionId: sessionId,
-        userId: user.id,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    stripeProcessSubscription(sessionId, user.id).then((user) => {
+      update(user);
+      alert("Processed Subscription")
     });
-    let data = await resp.json();
-    return data;
   }
 
   return (

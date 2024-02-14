@@ -1,4 +1,4 @@
-import { LogObj } from '@/tables/resource/log/main';
+import { LogObj } from '@/(ouros)/(model)/resource/log/main';
 import { createContext, useState } from 'react';
 
 export interface FlowModalController {
