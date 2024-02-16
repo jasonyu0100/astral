@@ -62,7 +62,7 @@ export function CreateSpaceModal() {
   );
 
   useEffect(() => {
-    getSpaceTemplate(variant);
+    changeChapterTemplates(getSpaceTemplate(variant));
   }, [variant]);
 
   const pageOne: PageOneProps = {

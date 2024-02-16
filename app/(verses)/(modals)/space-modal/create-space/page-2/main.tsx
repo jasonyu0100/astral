@@ -9,6 +9,9 @@ export function PageTwo() {
   const { variant, updateVariant, chapterTemplates, updateChapterTemplates } =
     modalContext.pageTwo;
 
+
+  console.log(chapterTemplates)
+
   return (
     <FormBody>
       <FormSelect
