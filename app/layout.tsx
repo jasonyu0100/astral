@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <html lang='en'>
-      <title>Create - Cosmos</title>
+      <title>Create - Verses</title>
       <head>
         <meta name='referrer' content='origin' />
       </head>

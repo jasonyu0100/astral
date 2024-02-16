@@ -1,4 +1,4 @@
-import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
+import { studioMap } from '@/(verses)/(voyager)/studio/map';
 import Link from 'next/link';
 
 export default function Page() {

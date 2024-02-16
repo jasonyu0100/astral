@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { portalMap } from '../../map';
 import { useGlobalUser } from '@/(store)/user/main';
 import { useGoogleLogin } from '@react-oauth/google';
-import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
+import { studioMap } from '@/(verses)/(voyager)/studio/map';
 import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
 import { PortalFormAltActionLink } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/link/main';
 import { PortalFormAltAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/main';

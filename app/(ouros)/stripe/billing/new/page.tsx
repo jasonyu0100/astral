@@ -1,5 +1,5 @@
 'use client';
-import { studioMap } from '@/(cosmos)/(voyager)/studio/map';
+import { studioMap } from '@/(verses)/(voyager)/studio/map';
 import { useGlobalUser } from '@/(store)/user/main';
 import { stripeNewBillingSession, stripeProcessSubscription } from '@/(ouros)/(stripe)/main';
 import { useSearchParams } from 'next/navigation';
