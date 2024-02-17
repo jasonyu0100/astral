@@ -6,10 +6,12 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { StarModalContext } from '../main';
+import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
 
 export function AddLogStarModal() {
   const modalContext = useContext(StarModalContext);
-  const { opened, close } = modalContext.addLogStarModal;
+  const { starHandler } = useContext(DraftContext);
+  const { opened, close, logObj } = modalContext.addLogStarModal;
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -20,6 +22,7 @@ export function AddLogStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
+              starHandler.queryCreateLogStar("hello", 0, 0, logObj);
               close();
             }}
           >

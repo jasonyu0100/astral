@@ -9,24 +9,22 @@ import { StarModalContext } from '../main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
 import { FileObj } from '@/(ouros)/(model)/resource/file/main';
+import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addFileStarModal;
-  const [title, changeTilted] = useState('' as string);
+  const { starHandler } = useContext(DraftContext);
+  const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState('' as string);
   const [file, changeFile] = useState({} as FileObj);
-
-  function addFileStar() {
-    
-  }
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Element</FormTitle>
         <FormBody>
-          <FormInput title='Name' value={title} />
+          <FormInput title='Name' value={title} onChange={(e) => changeTitle(e.target.value)} />
           <FormUploadFile
             label={'File'}
             onChange={(file) => changeFile(file)}
@@ -35,6 +33,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
+              starHandler.queryCreateFileStar("hello", 0, 0, file);
               close();
             }}
           >

@@ -1,3 +1,4 @@
+import { LogObj } from '@/(ouros)/(model)/resource/log/main';
 import { createContext, useState } from 'react';
 
 export interface StarModalController {
@@ -10,6 +11,8 @@ export interface StarModalController {
     opened: boolean;
     open: () => void;
     close: () => void;
+    logObj: LogObj;
+    updateLogObj: (logObj: LogObj) => void;
   };
   addLinkStarModal: {
     opened: boolean;
@@ -37,6 +40,8 @@ export const useStarModal = (): StarModalController => {
   const [showFour, changeShowFour] = useState(false);
   const [showFive, changeShowFive] = useState(false);
 
+  const [logObj, changeLogObj] = useState({} as LogObj);
+
   return {
     addNoteStarModal: {
       opened: showOne,
@@ -47,6 +52,8 @@ export const useStarModal = (): StarModalController => {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),
+      logObj: logObj,
+      updateLogObj: (logObj: LogObj) => changeLogObj(logObj),
     },
     addLinkStarModal: {
       opened: showThree,

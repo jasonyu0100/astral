@@ -1,14 +1,59 @@
+'use client';
 import { ButtonInputProps } from '@/(common)/types/main';
+import { LogObj, LogVariant } from '@/(ouros)/(model)/resource/log/main';
+import { StarModalContext } from '@/(verses)/(modals)/star-modal/main';
+import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
+import { useContext, useMemo } from 'react';
 
 export function DraftHeaderLogButton({ ...props }: ButtonInputProps) {
+  const { updateLogObj, open } = useContext(StarModalContext).addLogStarModal;
+  const BUTTON_ID = 'loom-record-sdk-button';
+
+  useMemo(() => {
+    async function setupLoom() {
+      const { supported, error } = await isSupported();
+
+      if (!supported) {
+        console.warn(`Error setting up Loom: ${error}`);
+        return;
+      }
+
+      const button = document.getElementById(BUTTON_ID);
+
+      if (!button) {
+        return;
+      }
+
+      const { configureButton } = await setup({
+        publicAppId: process.env.LOOM_API_KEY,
+      });
+
+      const sdkButton = configureButton({ element: button });
+
+      sdkButton.on('insert-click', async (video: LoomVideo) => {
+        const logObj: LogObj = {
+          ...video,
+          id: crypto.randomUUID(),
+          loomId: video.id,
+          variant: LogVariant.SCREEN,
+        };
+        updateLogObj(logObj);
+        open();
+        alert("SAVING LOOM")
+      });
+    }
+
+    setupLoom();
+  }, []);
+
   return (
     <button
       className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
-      {...props}
+      id={BUTTON_ID}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className="w-1/2 h-1/2"
+        className='h-1/2 w-1/2'
         viewBox='0 0 24 24'
         fill='none'
       >

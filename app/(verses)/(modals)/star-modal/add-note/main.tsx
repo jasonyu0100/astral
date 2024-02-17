@@ -6,12 +6,13 @@ import { FormTitle } from '@/(common)/form/title/main';
 import { Modal } from '@/(common)/modal/main';
 import { useContext } from 'react';
 import { StarModalContext } from '../main';
+import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
+import { NoteObj, NoteVariant } from '@/(ouros)/(model)/resource/note/main';
 
 export function AddNoteStarModal() {
+  const { starHandler } = useContext(DraftContext);
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addNoteStarModal;
-
-  console.log(opened)
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -23,6 +24,12 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
+              starHandler.queryCreateNoteStar("hello", 0, 0, {
+                id: crypto.randomUUID(),
+                title: "hello",
+                text: "hello",
+                variant: NoteVariant.STICKY
+              } as NoteObj);
             }}
           >
             Add

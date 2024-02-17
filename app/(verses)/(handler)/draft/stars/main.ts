@@ -4,16 +4,22 @@ import { listStarObjs } from '@/graphql/queries';
 import { StarObj } from '@/(ouros)/(model)/draft/constellation/star/main';
 import { FileObj } from '@/(ouros)/(model)/resource/file/main';
 import { ResourceVariant } from '@/(ouros)/(model)/resource/main';
-import { removeTypename, removeEmpty } from '@/utils/clean';
+import { removeTypename, removeEmpty, cleanGql } from '@/utils/clean';
 import { useMemo, useState } from 'react';
+import { NoteObj } from '@/(ouros)/(model)/resource/note/main';
+import { LogObj } from '@/(ouros)/(model)/resource/log/main';
+import { LinkObj } from '@/(ouros)/(model)/resource/link/main';
 export interface StarHandler {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
-    name: string,
+    title: string,
     x: number,
     y: number,
     file: FileObj,
   ) => Promise<StarObj>;
+  queryCreateNoteStar: (title: string, x: number, y: number, note: NoteObj) => Promise<StarObj>;
+  queryCreateLinkStar: (name: string, x: number, y: number, link: LinkObj) => Promise<StarObj>;
+  queryCreateLogStar: (name: string, x: number, y: number, log: LogObj) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
   queryUpdateStars: () => Promise<StarObj[]>;
   activateStar: (starId: string) => void;
@@ -81,7 +87,7 @@ export const useStars = (constellationId: string): useStarInterface => {
       title: string,
       x: number,
       y: number,
-      file: FileObj,
+      link: LinkObj,
     ) => {
       const payload = await amplifyClient.graphql({
         query: createStarObj,
@@ -92,15 +98,8 @@ export const useStars = (constellationId: string): useStarInterface => {
             description: "",
             x,
             y,
-            file: {
-              id: file.id,
-              src: file.src,
-              title: file.title,
-              size: file.size,
-              fileType: file.fileType,
-              variant: file.variant,
-            },
-            variant: ResourceVariant.FILE,
+            link: link,
+            variant: ResourceVariant.LINK,
           },
         },
       });
@@ -111,7 +110,7 @@ export const useStars = (constellationId: string): useStarInterface => {
       title: string,
       x: number,
       y: number,
-      file: FileObj,
+      note: NoteObj,
     ) => {
       const payload = await amplifyClient.graphql({
         query: createStarObj,
@@ -122,15 +121,8 @@ export const useStars = (constellationId: string): useStarInterface => {
             description: "",
             x,
             y,
-            file: {
-              id: file.id,
-              src: file.src,
-              title: file.title,
-              size: file.size,
-              fileType: file.fileType,
-              variant: file.variant,
-            },
-            variant: ResourceVariant.FILE,
+            note: cleanGql(note),
+            variant: ResourceVariant.NOTE,
           },
         },
       });
@@ -141,7 +133,7 @@ export const useStars = (constellationId: string): useStarInterface => {
       title: string,
       x: number,
       y: number,
-      file: FileObj,
+      log: LogObj,
     ) => {
       const payload = await amplifyClient.graphql({
         query: createStarObj,
@@ -152,15 +144,8 @@ export const useStars = (constellationId: string): useStarInterface => {
             description: "",
             x,
             y,
-            file: {
-              id: file.id,
-              src: file.src,
-              title: file.title,
-              size: file.size,
-              fileType: file.fileType,
-              variant: file.variant,
-            },
-            variant: ResourceVariant.FILE,
+            log: log,
+            variant: ResourceVariant.LOG,
           },
         },
       });
@@ -203,6 +188,51 @@ export const useStars = (constellationId: string): useStarInterface => {
         return {} as StarObj;
       }
       const star = await gqlHelper.queryCreateFileStar(name, x, y, file);
+      changeStars((prev) => [...prev, star]);
+      changeStarId(star.id);
+      return star;
+    },
+    queryCreateNoteStar: async (
+      name: string,
+      x: number,
+      y: number,
+      note: NoteObj,
+    ) => {
+      if (constellationId === '') {
+        alert('No Constellation Active');
+        return {} as StarObj;
+      }
+      const star = await gqlHelper.queryCreateNoteStar(name, x, y, note);
+      changeStars((prev) => [...prev, star]);
+      changeStarId(star.id);
+      return star;
+    },
+    queryCreateLinkStar: async (
+      name: string,
+      x: number,
+      y: number,
+      link: LinkObj,
+    ) => {
+      if (constellationId === '') {
+        alert('No Constellation Active');
+        return {} as StarObj;
+      }
+      const star = await gqlHelper.queryCreateLinkStar(name, x, y, link);
+      changeStars((prev) => [...prev, star]);
+      changeStarId(star.id);
+      return star;
+    },
+    queryCreateLogStar: async (
+      name: string,
+      x: number,
+      y: number,
+      log: LogObj,
+    ) => {
+      if (constellationId === '') {
+        alert('No Constellation Active');
+        return {} as StarObj;
+      }
+      const star = await gqlHelper.queryCreateLogStar(name, x, y, log);
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;

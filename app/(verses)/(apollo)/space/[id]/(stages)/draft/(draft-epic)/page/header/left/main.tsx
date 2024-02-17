@@ -27,9 +27,7 @@ export function DraftHeaderLeft() {
       <DraftHeaderNoteButton
         onClick={() => modalContext.addNoteStarModal.open()}
       />
-      <DraftHeaderLogButton
-        onClick={() => modalContext.addLogStarModal.open()}
-      />
+      <DraftHeaderLogButton/>
     </div>
   );
 }
