@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { StarMotionContext } from '@/(verses)/(handler)/draft/star/main';
 import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
 
-export function NoteQuestionStar() {
+export function NotePromptStar() {
   const { star, x, y, constraintsRef, activateStar } =
     useContext(StarMotionContext);
   const { starId } = useContext(DraftContext);

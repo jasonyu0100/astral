@@ -14,7 +14,7 @@ export function NoteStickyStar() {
       <motion.div
         drag
         dragConstraints={constraintsRef}
-        className={`absolute flex h-[150px] w-[100px] top-[${x}] left-[${y}]`}
+        className={`absolute flex w-[150px] aspect-[14/16] top-[${x}] left-[${y}] bg-yellow-400`}
         style={{ x, y }}
       >
         <div
@@ -23,10 +23,6 @@ export function NoteStickyStar() {
             activateStar();
           }}
         >
-          <img
-            className='pointer-events-none aspect-square h-[100px] w-[100px] flex-shrink-0 rounded-full border-[2px] border-slate-300'
-            src={star?.file?.src}
-          />
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
               {star.title} {star.variant} {star.file?.variant}

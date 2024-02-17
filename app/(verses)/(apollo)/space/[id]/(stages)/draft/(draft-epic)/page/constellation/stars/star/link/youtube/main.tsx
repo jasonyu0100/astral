@@ -14,7 +14,7 @@ export function LinkYouTubeStar() {
       <motion.div
         drag
         dragConstraints={constraintsRef}
-        className={`absolute flex w-[300px] aspect-[16/12] top-[${x}] left-[${y}] bg-red-500`}
+        className={`absolute flex w-[250px] aspect-[16/12] top-[${x}] left-[${y}]rounded-[5px] overflow-hidden`}
         style={{ x, y }}
       >
         <div

@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarMotionContext } from '@/(verses)/(handler)/draft/star/main';
 import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
+import { Layer } from '@/(common)/layer/main';
+import { backgroundStyles } from '@/(common)/styles/data';
 
 export function LinkSpotifyStar() {
   const { star, x, y, constraintsRef, activateStar } =
@@ -14,11 +16,11 @@ export function LinkSpotifyStar() {
       <motion.div
         drag
         dragConstraints={constraintsRef}
-        className={`absolute flex aspect-[16/12] w-[300px] top-[${x}] left-[${y}] bg-red-500`}
+        className={`absolute flex aspect-[16/11] w-[300px] top-[${x}] left-[${y}]`}
         style={{ x, y }}
       >
-        <div
-          className='flex aspect-[16/9] h-full w-full flex-shrink-0 flex-col'
+        <Layer
+          className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onDragStart={() => {
             activateStar();
           }}
@@ -43,7 +45,7 @@ export function LinkSpotifyStar() {
               {star.title} {star.variant} {star.file?.variant}
             </p>
           </div>
-        </div>
+        </Layer>
       </motion.div>
     </>
   );
