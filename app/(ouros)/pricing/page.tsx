@@ -54,7 +54,7 @@ export default function Page() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      <Tabs
+      {/* <Tabs
         defaultValue='yearly'
         className='flex w-full flex-col items-center'
         value={activeTab}
@@ -169,7 +169,7 @@ export default function Page() {
             </div>
           </div>
         </TabsContent>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 }
