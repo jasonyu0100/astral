@@ -1,6 +1,11 @@
 import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
 import { createFileObj } from '@/graphql/mutations';
-import { FileObj, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';
+import {
+  FileObj,
+  FileVariant,
+  getFileAccepts,
+  getFileVariantFromMimeType,
+} from '@/(ouros)/(model)/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { UploadedFileInfo } from '../upload-file/uploaded-file/info/main';
 import { UploadedFile } from '../upload-file/uploaded-file/main';
@@ -10,9 +15,11 @@ import { generateUploadURL } from '@/(dev)/(aws)/s3/main';
 export function FormUploadFiles({
   onChange,
   label,
+  variant,
 }: {
   onChange: (files: FileObj[]) => void;
   label: string;
+  variant?: FileVariant;
 }) {
   const [files, changeFiles] = useState<FileObj[]>([]);
 
@@ -30,7 +37,7 @@ export function FormUploadFiles({
       const fileSize = file.size;
 
       // get secure url from our server
-      const uploadUrl = await generateUploadURL()
+      const uploadUrl = await generateUploadURL();
 
       // post the image directly to the s3 bucket
       await fetch(uploadUrl, {
@@ -85,6 +92,7 @@ export function FormUploadFiles({
           multiple
           className='absolute inset-0 h-full w-full cursor-pointer opacity-0'
           onChange={(e) => handleFileChange(e)}
+          accept={getFileAccepts(variant || FileVariant.ANY)}
         />
         <div className='flex h-full w-full flex-row items-center space-x-[1rem]'>
           <div className='flex h-full w-[100px] items-center justify-center'>

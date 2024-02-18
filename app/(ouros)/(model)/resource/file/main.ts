@@ -1,10 +1,26 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export enum FileVariant {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
   AUDIO = 'AUDIO',
   TXT = 'TXT',
+  ANY = 'ANY',
+}
+
+export function getFileAccepts(variant: FileVariant) {
+  switch (variant) {
+    case FileVariant.IMAGE:
+      return 'image/*';
+    case FileVariant.VIDEO:
+      return 'video/*';
+    case FileVariant.AUDIO:
+      return 'audio/*';
+    case FileVariant.TXT:
+      return '.txt';
+    default:
+      return '*';
+  }
 }
 
 export function getFileVariantFromMimeType(mimeType: string): FileVariant {

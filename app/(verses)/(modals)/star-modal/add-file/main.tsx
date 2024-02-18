@@ -8,8 +8,9 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../main';
 import { FormInput } from '@/(common)/form/input/main';
 import { FormUploadFile } from '@/(common)/form/upload/upload-file/main';
-import { FileObj } from '@/(ouros)/(model)/resource/file/main';
+import { FileObj, FileVariant } from '@/(ouros)/(model)/resource/file/main';
 import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
+import { FormSelect } from '@/(common)/form/select/main';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
@@ -17,17 +18,24 @@ export function AddFileStarModal() {
   const { starHandler } = useContext(DraftContext);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState('' as string);
+  const [variant, changeVariant] = useState<string>(FileVariant.IMAGE);
   const [file, changeFile] = useState({} as FileObj);
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Element</FormTitle>
+        <FormTitle>File Element</FormTitle>
         <FormBody>
+          <FormSelect value={variant} onChange={(e) => changeVariant(e.target.value)}>
+            <option value={FileVariant.AUDIO}>AUDIO</option>
+            <option value={FileVariant.IMAGE}>IMAGE</option>
+            <option value={FileVariant.VIDEO}>VIDEO</option>
+          </FormSelect>
           <FormInput title='Name' value={title} onChange={(e) => changeTitle(e.target.value)} />
           <FormUploadFile
             label={'File'}
             onChange={(file) => changeFile(file)}
+            variant={variant}
           />
         </FormBody>
         <FormFooter>

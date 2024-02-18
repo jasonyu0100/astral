@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(dev)/(aws)/graphql/main';
-import { FileObj, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';
+import { FileObj, FileVariant, getFileAccepts, getFileVariantFromMimeType } from '@/(ouros)/(model)/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { UploadedFile } from './uploaded-file/main';
 import { UploadedFileInfo } from './uploaded-file/info/main';
@@ -11,10 +11,12 @@ export function FormUploadFile({
   defaultFile,
   onChange,
   label,
+  variant,
 }: {
   defaultFile?: FileObj;
   onChange: (file: FileObj) => void;
   label: string;
+  variant?: FileVariant;
 }) {
   const [file, changeFile] = useState({} as FileObj);
 
@@ -69,6 +71,8 @@ export function FormUploadFile({
 
     changeFile(filePayload);
   };
+
+
   return (
     <div className='flex flex-col bg-white'>
       <label
@@ -80,6 +84,7 @@ export function FormUploadFile({
       {file.id === undefined && (
         <div className='relative mb-3 h-[100px] border-b border-black bg-slate-50 p-4'>
           <input
+            accept={getFileAccepts(variant || FileVariant.ANY)}
             type='file'
             id='fileInput'
             className='absolute inset-0 h-full w-full cursor-pointer opacity-0'
