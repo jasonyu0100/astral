@@ -45,7 +45,7 @@ export function PortalLoginForm() {
               alert('Login Success');
               window.location.href = studioMap.studio.now.link;
             } else {
-              alert('Login Failed');
+              alert(res.error);
             }
           });
         });
@@ -64,7 +64,7 @@ export function PortalLoginForm() {
         alert('Login Success');
         window.location.href = studioMap.studio.now.link;
       } else {
-        alert('Login Failed');
+        alert(res.error);
       }
     });
   };
