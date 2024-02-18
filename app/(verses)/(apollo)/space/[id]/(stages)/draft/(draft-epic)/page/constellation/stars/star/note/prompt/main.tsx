@@ -30,17 +30,12 @@ export function NotePromptStar() {
             style={{ height: '100%' }}
           >
             <img
-              src={user.profilePicture.src}
+              src={"/brand/icon-bg-sm.png"}
               className='h-[50px] w-[50px] rounded-full'
             />
             <div className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-3 font-regular text-white w-[300px]'>
               {star.note?.text}
             </div>
-          </div>
-          <div className='flex h-[50px] items-center'>
-            <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.note?.variant}
-            </p>
           </div>
         </div>
       </motion.div>

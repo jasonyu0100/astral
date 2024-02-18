@@ -4,7 +4,8 @@ import { StarMotionContext } from '@/(verses)/(handler)/draft/star/main';
 import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
 
 export function FileAudioStar() {
-  const { star, x,y, constraintsRef, activateStar} = useContext(StarMotionContext);
+  const { star, x, y, constraintsRef, activateStar } =
+    useContext(StarMotionContext);
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -18,17 +19,52 @@ export function FileAudioStar() {
       >
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
-          onDragStart={() => {
+          onDragStart={(e) => {
             activateStar();
           }}
         >
-          <img
-            className='pointer-events-none aspect-square h-[100px] w-[100px] flex-shrink-0 rounded-full border-[2px] border-slate-300'
-            src={star?.file?.src}
-          />
+          <div
+            className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center bg-black shadow-md'
+            onClick={(e) => {
+              e.stopPropagation();
+              const audio = document.getElementById(
+                'file-upload-audio',
+              ) as HTMLAudioElement;
+              audio.play();
+            }}
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-1/2 w-1/2'
+              viewBox='0 0 24 24'
+              fill='none'
+            >
+              <mask
+                id='mask0_3134_7'
+                maskUnits='userSpaceOnUse'
+                x='0'
+                y='0'
+                width='24'
+                height='24'
+              >
+                <rect width='24' height='24' fill='#D9D9D9' />
+              </mask>
+              <g mask='url(#mask0_3134_7)'>
+                <path
+                  d='M10 21C8.9 21 7.95833 20.6083 7.175 19.825C6.39167 19.0417 6 18.1 6 17C6 15.9 6.39167 14.9583 7.175 14.175C7.95833 13.3917 8.9 13 10 13C10.3833 13 10.7375 13.0458 11.0625 13.1375C11.3875 13.2292 11.7 13.3667 12 13.55V3H18V7H14V17C14 18.1 13.6083 19.0417 12.825 19.825C12.0417 20.6083 11.1 21 10 21Z'
+                  fill='#CBD5E1'
+                />
+              </g>
+            </svg>
+            <audio
+              id='file-upload-audio'
+              src={star.file?.src}
+              className='aspect-square h-[100px] bg-black object-cover shadow-md'
+            />
+          </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.file?.variant}
+              {star.title}
             </p>
           </div>
         </div>
@@ -36,4 +72,3 @@ export function FileAudioStar() {
     </>
   );
 }
-

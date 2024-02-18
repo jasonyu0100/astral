@@ -91,7 +91,7 @@ export function PortalLoginForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction onClick={() => attemptLogin()}>
+        <PortalFormAction onClick={() => alert("Coming soon...")}>
           LOGIN
         </PortalFormAction>
         <PortalFormAltAction>

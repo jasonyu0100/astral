@@ -28,19 +28,10 @@ export function LinkYouTubeStar() {
             style={{width: '100%', height: '100%'}}
             src='https://www.youtube.com/embed/p22EqQBYRBM?si=xNdSEHNZlPh-S_xl'
             title='YouTube video player'
-            allowfullscreen
           ></iframe>
-          {/* <iframe
-            width='560'
-            height='315'
-            src={star.link.url}
-            title='YouTube video player'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-            allowfullscreen
-          ></iframe> */}
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.file?.variant}
+              {star.title}
             </p>
           </div>
         </div>

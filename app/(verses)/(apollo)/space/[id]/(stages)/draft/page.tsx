@@ -1,5 +1,5 @@
 'use client';
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { DraftView } from './view';
 import { StarObj } from '@/(ouros)/(model)/draft/constellation/star/main';
 import { ChapterObj } from '@/(ouros)/(model)/space/chapter/main';
@@ -37,6 +37,8 @@ interface DraftContextObj {
   starHandler: StarHandler;
   chapterHandler: ChapterHandler;
   constellationHandler: ConstellationHandler;
+  djMode: boolean;
+  toggleDjMode: () => void;
 }
 
 export const DraftContext = createContext<DraftContextObj>(
@@ -54,6 +56,7 @@ function Page({ params }: { params: { id: string } }) {
     _constellationHandler,
   } = useConstellations(chapterId);
   const { stars, starId, _starHandler } = useStars(constellationId);
+  const [djMode, changeDjMode] = useState(false as boolean);
 
   const context: DraftContextObj = {
     chapter: chapter,
@@ -67,6 +70,8 @@ function Page({ params }: { params: { id: string } }) {
     constellationId: constellationId,
     constellations: constellations,
     constellationHandler: _constellationHandler,
+    djMode: djMode,
+    toggleDjMode: () => changeDjMode(true),
   };
 
   const draftModalContext = useDraftModal();

@@ -32,17 +32,9 @@ export function LinkSpotifyStar() {
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
             loading='lazy'
           ></iframe>
-          {/* <iframe
-            width='560'
-            height='315'
-            src={star.link.url}
-            title='YouTube video player'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-            allowfullscreen
-          ></iframe> */}
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.file?.variant}
+              {star.title}
             </p>
           </div>
         </Layer>

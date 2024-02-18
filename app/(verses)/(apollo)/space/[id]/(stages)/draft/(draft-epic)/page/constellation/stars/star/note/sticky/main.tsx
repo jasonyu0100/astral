@@ -28,7 +28,7 @@ export function NoteStickyStar() {
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.note?.variant}
+              {star.title}
             </p>
           </div>
         </div>

@@ -28,8 +28,8 @@ export function FileImageStar() {
             src={star?.file?.src}
           />
           <div className='flex h-[50px] items-center'>
-            <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.file?.variant}
+            <p className='w-full text-center font-bold text-black'>
+              {star.title}
             </p>
           </div>
         </div>

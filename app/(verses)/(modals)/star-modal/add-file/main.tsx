@@ -18,7 +18,7 @@ export function AddFileStarModal() {
   const { starHandler } = useContext(DraftContext);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState('' as string);
-  const [variant, changeVariant] = useState<string>(FileVariant.IMAGE);
+  const [variant, changeVariant] = useState<FileVariant>(FileVariant.IMAGE);
   const [file, changeFile] = useState({} as FileObj);
 
   return (
@@ -26,7 +26,7 @@ export function AddFileStarModal() {
       <FormContainer>
         <FormTitle>File Element</FormTitle>
         <FormBody>
-          <FormSelect value={variant} onChange={(e) => changeVariant(e.target.value)}>
+          <FormSelect title="Variant" value={variant} onChange={(e) => changeVariant(e.target.value as FileVariant)}>
             <option value={FileVariant.AUDIO}>AUDIO</option>
             <option value={FileVariant.IMAGE}>IMAGE</option>
             <option value={FileVariant.VIDEO}>VIDEO</option>
@@ -41,7 +41,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              starHandler.queryCreateFileStar("hello", 0, 0, file);
+              starHandler.queryCreateFileStar(title, 0, 0, file);
               close();
             }}
           >
