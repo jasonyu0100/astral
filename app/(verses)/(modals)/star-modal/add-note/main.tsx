@@ -43,7 +43,7 @@ export function AddNoteStarModal() {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,
-                variant: NoteVariant.STICKY
+                variant: variant
               } as NoteObj);
             }}
           >

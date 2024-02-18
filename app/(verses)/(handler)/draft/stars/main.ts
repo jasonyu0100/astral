@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import { NoteObj } from '@/(ouros)/(model)/resource/note/main';
 import { LogObj } from '@/(ouros)/(model)/resource/log/main';
 import { LinkObj } from '@/(ouros)/(model)/resource/link/main';
+import { toast } from 'sonner';
 export interface StarHandler {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
@@ -166,6 +167,8 @@ export const useStars = (constellationId: string): useStarInterface => {
           return updatedStar;
         }),
       );
+
+      toast.success('Stars Updated');
       return updatedStars;
     },
   };
