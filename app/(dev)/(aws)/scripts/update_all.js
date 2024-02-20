@@ -9,7 +9,7 @@ AWS.config.update({
 
 // Create a DynamoDB Document Client and define the table name
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = 'ChapterObjTable';
+const tableName = 'CollectionObjTable';
 
 // Function to update a single item by ID
 const updateItem = async (itemId, key, value) => {
@@ -99,7 +99,7 @@ const updateAllItems = async () => {
       // console.log(jsonItem);
       // await deleteItem(itemId);
       // await insertItem(jsonItem);
-      await updateItem(itemId, "idx", index);
+      await updateItem(itemId, "description", "This is a test description");
       // await deleteItemField(itemId, 'type');
     }
 

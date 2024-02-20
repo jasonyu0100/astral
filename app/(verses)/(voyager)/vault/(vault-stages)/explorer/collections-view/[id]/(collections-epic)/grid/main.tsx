@@ -8,6 +8,7 @@ import { CollectionContext } from '@/(ouros)/(model)/gallery/collection/main';
 export function GalleryCollectionGrid() {
   const { collections } = useContext(ExploreGalleryContext);
   const modalContext = useContext(CollectionsModalContext);
+  console.log(collections)
 
   return (
     <div className='flex-grow ' style={{ height: '100%' }}>

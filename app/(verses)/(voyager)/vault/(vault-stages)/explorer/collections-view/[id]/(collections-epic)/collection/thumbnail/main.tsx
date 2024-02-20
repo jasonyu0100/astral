@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import { useCollectionResources } from '@/(verses)/(handler)/explorer/resources/main';
-import { CollectionContext } from '@/(ouros)/(model)/gallery/collection/main';
+import { CollectionContext, CollectionResourcesContext } from '@/(ouros)/(model)/gallery/collection/main';
 
 export function CollectionThumbnail() {
   const collection = useContext(CollectionContext);
-  const { resources } = useCollectionResources(collection.id);
+  const resources = useContext(CollectionResourcesContext);
 
   return (
     <div className='aspect-square h-full bg-black overflow-hidden'>
