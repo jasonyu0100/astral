@@ -11,7 +11,7 @@ export function GalleryCollectionContainer({
     <Layer
       displayName={GalleryCollectionContainer.name}
       className='flex h-full w-full flex-row items-center'
-      sizeStyle='h-[200px] aspect-[36/16]'
+      sizeStyle='h-[200px] aspect-[40/16]'
       backgroundStyle={backgroundStyles['glass-10']}
       borderStyle={`${borderStyles['border-all']}`}
     >

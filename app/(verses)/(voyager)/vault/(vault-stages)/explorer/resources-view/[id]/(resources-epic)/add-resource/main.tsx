@@ -1,15 +1,14 @@
 import { ButtonInputProps } from '@/(common)/types/main';
 import { AddIcon } from './icon/main';
 import { AddLabel } from './label/main';
-import { Aspect } from '@/(common)/aspect/main';
 
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <Aspect x={36} y={16} className='flex h-[150px] flex-row items-center space-x-[3rem]'>
+      <div className='flex aspect-[40/16] h-[150px] flex-row items-center space-x-[3rem]'>
         <AddIcon/>
         <AddLabel/>
-      </Aspect>
+      </div>
     </button>
   );
 }
