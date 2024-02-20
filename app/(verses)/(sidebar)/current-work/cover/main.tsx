@@ -12,11 +12,6 @@ export function SidebarWorkCover({
   minimised?: boolean;
 }) {
   const space = useGlobalSpace(state => state.space);
-  const [thumbnailSrc, changeThumbnailSrc] = useState("/brand/space.png");
-
-  useEffect(() => {
-    changeThumbnailSrc(space?.thumbnail?.src || "/brand/avatar.png");
-  }, [space]);
 
   return (
     <div className='relative flex-shrink-0'>
@@ -49,7 +44,7 @@ export function SidebarWorkCover({
         </svg>
       ) : (
         <img
-          src={thumbnailSrc}
+          src={space?.thumbnail?.src || "/brand/icon-bg-sm.png"}
           className={cn('h-[2.5rem] w-[2.5rem] rounded-full', {
             [effectStyles['glow-lg']]: active,
           })}

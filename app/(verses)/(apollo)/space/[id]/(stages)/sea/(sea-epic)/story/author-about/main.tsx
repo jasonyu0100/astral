@@ -6,7 +6,7 @@ export function StoryAuthorAbout() {
           <img
             className='h-full w-full'
             alt='test'
-            src={`/apollo/sea/avatar.png`}
+            src={`/brand/icon-bg-sm.png`}
           />
         </div>
         <p className='font-bold text-white'>Jason</p>

@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
 import { StormChatIcon } from './avatar/main';
-import { ChatObj } from '@/(ouros)/(model)/storm/chat/main';
 import { StormChatContext } from '../main';
 
 export function StormChapterChat() {

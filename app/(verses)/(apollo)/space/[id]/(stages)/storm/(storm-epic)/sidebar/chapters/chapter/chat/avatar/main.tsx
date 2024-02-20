@@ -4,7 +4,7 @@ export function StormChatIcon() {
       <img
         className='h-full w-full rounded-full'
         alt='test'
-        src={`/apollo/storm/avatar.png`}
+        src={`/brand/icon-bg-sm.png`}
       />
     </div>
   );
