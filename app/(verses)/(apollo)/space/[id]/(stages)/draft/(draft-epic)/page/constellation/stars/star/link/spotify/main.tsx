@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarMotionContext } from '@/(verses)/(handler)/draft/star/main';
 import { DraftContext } from '@/(verses)/(apollo)/space/[id]/(stages)/draft/page';
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
 
 export function LinkSpotifyStar() {
@@ -19,7 +19,7 @@ export function LinkSpotifyStar() {
         className={`absolute flex aspect-[16/11] w-[300px] top-[${x}] left-[${y}]`}
         style={{ x, y }}
       >
-        <Layer
+        <Glass
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onDragStart={() => {
             activateStar();
@@ -37,7 +37,7 @@ export function LinkSpotifyStar() {
               {star.title}
             </p>
           </div>
-        </Layer>
+        </Glass>
       </motion.div>
     </>
   );

@@ -1,8 +1,7 @@
 import { GallerysModalContext } from '@/(verses)/(modals)/gallerys-modal/main';
-import { vaultMap } from '@/(verses)/(voyager)/vault/map';
 import { useContext } from 'react';
 import { ExploreHomeContext } from '../../page';
-import { HomeGalleryAdd } from '../add-gallery/main';
+import { HomeGalleryAdd } from '../gallery/add-gallery/main';
 import { HomeGallery } from '../gallery/main';
 import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
 
@@ -16,9 +15,7 @@ export function GallerysGrid() {
       {gallerys.map((gallery) => (
         // eslint-disable-next-line react/jsx-key
         <GalleryContext.Provider value={gallery}>
-          <HomeGallery
-            href={vaultMap.vault.explorer.collections.id.link(gallery.id)}
-          />
+          <HomeGallery />
         </GalleryContext.Provider>
       ))}
       <HomeGalleryAdd onClick={() => createGalleryModal.open()} />

@@ -3,7 +3,7 @@ import {
   borderStyles,
   containerStyles,
 } from '@/(common)/styles/data';
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';
 import { HeaderAgent } from './agent/main';
@@ -13,7 +13,7 @@ import { StormHeaderLeft } from './left/main';
 
 export function StormHeader() {
   return (
-    <Layer
+    <Glass
       displayName={StormHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       backgroundStyle={backgroundStyles['glass-5']}
@@ -27,6 +27,6 @@ export function StormHeader() {
         <HeaderTitle />
       </StormHeaderMiddle>
       <StormHeaderRight>{/* <HeaderAdd /> */}</StormHeaderRight>
-    </Layer>
+    </Glass>
   );
 }

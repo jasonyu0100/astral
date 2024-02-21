@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
 
-export function HomeGalleryInfo() {
+export function SidebarHomeGalleryInfo() {
   const gallery = useContext(GalleryContext);
 
   return (

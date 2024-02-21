@@ -1,15 +1,15 @@
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
-import { HomeGalleryAdd } from './add-gallery/main';
-import { HomeGallery } from './gallery/main';
+import { SidebarHomeGalleryAdd } from './gallery/add-gallery/main';
+import { SidebarHomeGallery } from './gallery/main';
 import {
   GallerysModalContext,
   useGallerysModal,
 } from '@/(verses)/(modals)/gallerys-modal/main';
 import { GallerysModalView } from '@/(verses)/(modals)/gallerys-modal/view';
-import { GalleryContext, GalleryObj } from '@/(ouros)/(model)/gallery/main';
+import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
 
-export function GallerysInterface() {
+export function SidebarGallerysInterface() {
   const { gallerys } = useContext(DraftSidebarContext);
   const modalContext = useGallerysModal();
 
@@ -20,10 +20,10 @@ export function GallerysInterface() {
         {gallerys.map((gallery) => (
           // eslint-disable-next-line react/jsx-key
           <GalleryContext.Provider value={gallery}>
-            <HomeGallery />
+            <SidebarHomeGallery />
           </GalleryContext.Provider>
         ))}
-        <HomeGalleryAdd
+        <SidebarHomeGalleryAdd
           onClick={() => modalContext.draftCreateGalleryModal.open()}
         />
       </div>

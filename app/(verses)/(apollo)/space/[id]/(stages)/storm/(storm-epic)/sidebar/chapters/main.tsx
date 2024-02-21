@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { StormModalContext } from '@/(verses)/(modals)/storm-modal/main';
 import { useContext } from 'react';
 import { StormContext } from '../../../page';
@@ -12,7 +12,7 @@ export function StormSidebarChapters() {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <Layer
+      <Glass
         displayName={StormSidebarChapters.name}
         sizeStyle='h-full w-full'
         className='flex flex-col divide-y-[1px] divide-slate-700 overflow-auto'
@@ -24,7 +24,7 @@ export function StormSidebarChapters() {
           </ChapterContext.Provider>
         ))}
         <StormChapterAdd onClick={() => modalContext.addChapterModal.open()} />
-      </Layer>
+      </Glass>
     </div>
   );
 }

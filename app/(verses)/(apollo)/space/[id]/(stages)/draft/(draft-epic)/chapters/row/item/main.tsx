@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles, borderStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
 import { DraftContext } from '../../../../page';
@@ -11,7 +11,7 @@ export function DraftChapter() {
 
   return (
     <button onClick={() => chapterHandler.goToChapter(chapter)}>
-      <Layer
+      <Glass
         displayName={DraftChapter.name}
         sizeStyle='w-[200px] h-[40px]'
         backgroundStyle={backgroundStyles['glass-5']}
@@ -24,7 +24,7 @@ export function DraftChapter() {
             <div className='font-bold text-slate-500'>{chapter.title}</div>
           )}
         </div>
-      </Layer>
+      </Glass>
     </button>
   );
 }

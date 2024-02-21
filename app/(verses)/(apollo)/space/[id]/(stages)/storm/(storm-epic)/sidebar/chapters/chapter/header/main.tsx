@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
@@ -13,13 +13,13 @@ export function StormChapterHeader({
   const { chapterHandler } = useContext(StormContext);
   return (
     <button onClick={() => chapterHandler.goToChapter(chapter)}>
-      <Layer
+      <Glass
         displayName={StormChapterHeader.name}
         sizeStyle='w-full h-[50px]'
         className={`${containerStyles['row-center']} justify-between`}
       >
         {children}
-      </Layer>
+      </Glass>
     </button>
   );
 }

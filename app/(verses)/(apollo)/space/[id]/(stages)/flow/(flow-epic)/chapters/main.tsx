@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
 import { FlowChaptersLeftButton } from './left/main';
 import { FlowChaptersRightButton } from './right/main';
@@ -6,7 +6,7 @@ import { FlowChaptersRow } from './row/main';
 
 export function FlowChapters() {
   return (
-    <Layer
+    <Glass
       displayName={FlowChapters.name}
       sizeStyle='w-full h-[80px]'
       backgroundStyle={backgroundStyles['glass-5']}
@@ -15,6 +15,6 @@ export function FlowChapters() {
       <FlowChaptersLeftButton />
       <FlowChaptersRow/>
       <FlowChaptersRightButton />
-    </Layer>
+    </Glass>
   );
 }

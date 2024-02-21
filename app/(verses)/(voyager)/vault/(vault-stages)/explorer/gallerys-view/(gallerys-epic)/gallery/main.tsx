@@ -1,16 +1,31 @@
 import { GalleryCover } from './cover/main';
-import { GalleryInfo } from './info/main';
-import { LinkInputProps } from '@/(common)/types/main';
 import { GalleryContainer } from './container/main';
-import Link from 'next/link';
+import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
+import { useState } from 'react';
+import { GalleryBack } from './back/main';
 
-export function HomeGallery({ ...props }: LinkInputProps) {
+export function HomeGallery() {
+  const [flipped, changeFlipped] = useState(false);
+
   return (
-    <Link {...props}>
-      <GalleryContainer>
-        <GalleryCover />
-        <GalleryInfo />
-      </GalleryContainer>
-    </Link>
+    <GalleryContainer>
+      {flipped ? (
+        <>
+          <GalleryBack
+            onClick={() => {
+              changeFlipped(!flipped);
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <GalleryCover
+            onClick={() => {
+              changeFlipped(!flipped);
+            }}
+          />
+        </>
+      )}
+    </GalleryContainer>
   );
 }

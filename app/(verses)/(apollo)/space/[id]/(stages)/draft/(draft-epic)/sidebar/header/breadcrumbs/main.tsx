@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import {
   backgroundStyles,
   borderStyles,
@@ -12,13 +12,13 @@ export function SidebarBreadcrumbs({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
+    <Glass
       displayName={SidebarBreadcrumbs.name}
       sizeStyle='h-[60px] w-full'
       borderStyle={`${borderStyles['border-b']}`}
       className={`${containerStyles['row-center']} space-x-[1rem]`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

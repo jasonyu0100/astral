@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
 import { DraftChaptersLeftButton } from './left/main';
 import { DraftChaptersRightButton } from './right/main';
@@ -6,7 +6,7 @@ import { DraftChaptersRow } from './row/main';
 
 export function DraftChapters() {
   return (
-    <Layer
+    <Glass
       displayName={DraftChapters.name}
       sizeStyle='w-full h-[80px]'
       backgroundStyle={backgroundStyles['glass-5']}
@@ -15,6 +15,6 @@ export function DraftChapters() {
       <DraftChaptersLeftButton />
       <DraftChaptersRow />
       <DraftChaptersRightButton />
-    </Layer>
+    </Glass>
   );
 }

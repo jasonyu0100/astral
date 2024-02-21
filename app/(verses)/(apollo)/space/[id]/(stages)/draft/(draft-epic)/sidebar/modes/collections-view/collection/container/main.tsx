@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles, borderStyles } from '@/(common)/styles/data';
 import React from 'react';
 
@@ -8,7 +8,7 @@ export function GalleryCollectionContainer({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
+    <Glass
       displayName={GalleryCollectionContainer.name}
       className='flex h-full flex-row items-center'
       sizeStyle='h-[200px] w-full' 
@@ -16,6 +16,6 @@ export function GalleryCollectionContainer({
       borderStyle={`${borderStyles['border-all']}`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

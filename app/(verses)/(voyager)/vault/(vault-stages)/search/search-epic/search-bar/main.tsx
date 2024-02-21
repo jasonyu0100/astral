@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import {
   backgroundStyles,
   borderStyles,
@@ -7,7 +7,7 @@ import {
 
 export function SearchBar({ children }: { children: React.ReactNode }) {
   return (
-    <Layer
+    <Glass
       displayName={SearchBar.name}
       sizeStyle='flex-grow max-w-[800px] h-[4rem]'
       className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
@@ -15,6 +15,6 @@ export function SearchBar({ children }: { children: React.ReactNode }) {
       borderStyle={`${borderStyles['border-all']} ${borderStyles.rounded}`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

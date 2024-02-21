@@ -1,14 +1,14 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 
 export function SearchWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <Layer
+    <Glass
       displayName={SearchWrapper.name}
       sizeStyle='w-full h-full'
       className={`${containerStyles.row}`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

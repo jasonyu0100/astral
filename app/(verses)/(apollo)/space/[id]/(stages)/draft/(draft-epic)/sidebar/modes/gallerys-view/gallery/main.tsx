@@ -1,12 +1,12 @@
-import { HomeGalleryInfo } from './info/main';
-import { HomeGalleryThumbnail } from './thumbnail/main';
-import { GalleryContainer } from './container/main';
+import { SidebarHomeGalleryInfo } from './info/main';
+import { SidebarHomeGalleryThumbnail } from './thumbnail/main';
+import { SidebarGalleryContainer } from './container/main';
 
-export function HomeGallery() {
+export function SidebarHomeGallery() {
   return (
-    <GalleryContainer>
-      <HomeGalleryThumbnail />
-      <HomeGalleryInfo />
-    </GalleryContainer>
+    <SidebarGalleryContainer>
+      <SidebarHomeGalleryThumbnail />
+      <SidebarHomeGalleryInfo />
+    </SidebarGalleryContainer>
   );
 }

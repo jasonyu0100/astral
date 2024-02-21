@@ -1,11 +1,11 @@
 import { DivInputProps } from '../types/main';
 
-interface LayerContentProps extends DivInputProps {
+interface GlassContentProps extends DivInputProps {
   contentStyle?: string;
   children: React.ReactNode;
 }
 
-function LayerContent({ children, ...props }: LayerContentProps) {
+function GlassContent({ children, ...props }: GlassContentProps) {
   return (
     <div
       {...props}
@@ -16,15 +16,15 @@ function LayerContent({ children, ...props }: LayerContentProps) {
   );
 }
 
-interface LayerBackgroundProps {
+interface GlassBackgroundProps {
   backgroundStyle?: string;
   effectStyle?: string;
 }
 
-function LayerBackground({
+function GlassBackground({
   backgroundStyle,
   effectStyle,
-}: LayerBackgroundProps) {
+}: GlassBackgroundProps) {
   return (
     <div
       className={`h-full w-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
@@ -32,7 +32,7 @@ function LayerBackground({
   );
 }
 
-interface LayerProps extends DivInputProps {
+interface GlassProps extends DivInputProps {
   displayName: string;
   sizeStyle?: string;
   contentStyle?: string;
@@ -42,7 +42,7 @@ interface LayerProps extends DivInputProps {
   children?: React.ReactNode;
 }
 
-export function Layer({
+export function Glass({
   displayName,
   sizeStyle,
   backgroundStyle,
@@ -50,7 +50,7 @@ export function Layer({
   borderStyle,
   children,
   ...props
-}: LayerProps) {
+}: GlassProps) {
   return (
     <div
       id={displayName}
@@ -58,11 +58,11 @@ export function Layer({
         borderStyle || ''
       }`}
     >
-      <LayerBackground
+      <GlassBackground
         backgroundStyle={backgroundStyle || ''}
         effectStyle={effectStyle || ''}
       />
-      <LayerContent {...props}>{children}</LayerContent>
+      <GlassContent {...props}>{children}</GlassContent>
     </div>
   );
 }

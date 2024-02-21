@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { DraftSidebarContext } from '../../../../main';
 import { GalleryContext } from '@/(ouros)/(model)/gallery/main';
 
-export function HomeGalleryThumbnail() {
+export function SidebarHomeGalleryThumbnail() {
   const { sidebarHandler } = useContext(DraftSidebarContext);
   const gallery = useContext(GalleryContext);
 

@@ -1,15 +1,22 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
+import { DivInputProps } from '@/(common)/types/main';
 
-export function GalleryContainer({ children }: { children: React.ReactNode }) {
+interface InputProps extends DivInputProps {
+  children: React.ReactNode;
+
+}
+
+export function GalleryContainer({ children, ...props }: InputProps) {
   return (
-    <Layer
+    <Glass
       displayName={GalleryContainer.name}
       className="flex h-full w-full flex-col"
       sizeStyle='h-[500px] aspect-[11/16]'
       backgroundStyle={backgroundStyles['glass-10']}
+      {...props}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

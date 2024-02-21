@@ -1,7 +1,7 @@
 import { ResourcesModalContext } from '@/(verses)/(modals)/resources-modal/main';
 import { useContext } from 'react';
 import { ExploreCollectionContext } from '../../page';
-import { CollectionResourceAdd } from '../add-resource/main';
+import { CollectionResourceAdd } from '../resource/add-resource/main';
 import { CollectionResource } from '../resource/main';
 import { ResourceContext } from '@/(ouros)/(model)/resource/main';
 

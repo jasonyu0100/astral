@@ -6,7 +6,7 @@ import { SpaceGenre } from './genre/main';
 import { SpaceInfo } from './info/main';
 import { SpaceObj } from '@/(ouros)/(model)/space/main';
 import { createContext, useState } from 'react';
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles } from '@/(common)/styles/data';
 
 interface CreativeSpaceProps {
@@ -29,7 +29,7 @@ export function SpacesSpace({ space, index }: CreativeSpaceProps) {
 
   return (
     <CreativeSpaceContext.Provider value={{ space, index, hover }}>
-      <Layer
+      <Glass
         displayName={SpacesSpace.name}
         sizeStyle='w-full h-[100px]'
         backgroundStyle={`${hover && backgroundStyles['glass-5']}`}
@@ -42,7 +42,7 @@ export function SpacesSpace({ space, index }: CreativeSpaceProps) {
         <SpaceGenre />
         <SpaceDay />
         <SpaceDate />
-      </Layer>
+      </Glass>
     </CreativeSpaceContext.Provider>
   );
 }

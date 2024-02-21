@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import {
   containerStyles,
   borderStyles,
@@ -13,7 +13,7 @@ import { DraftHeaderCenter } from './center/main';
 
 export function DraftHeader() {
   return (
-    <Layer
+    <Glass
       displayName={DraftHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
@@ -23,6 +23,6 @@ export function DraftHeader() {
       <DraftHeaderLeft/>
       <DraftHeaderCenter/>
       <DraftHeaderRight/>
-    </Layer>
+    </Glass>
   );
 }

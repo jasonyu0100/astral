@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { containerStyles } from '@/(common)/styles/data';
 import { useContext } from 'react';
 import { StormModalContext } from '../../../../../../../../../../../(modals)/storm-modal/main';
@@ -12,7 +12,7 @@ export function StormChapterChatAdd() {
         className='flex w-full flex-row items-center space-x-[1rem]'
         onClick={() => newChat.open()}
       >
-        <Layer
+        <Glass
           displayName={StormChapterChatAdd.name}
           sizeStyle='w-[50px] h-[50px] rounded-full overflow-hidden'
           backgroundStyle='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
@@ -43,7 +43,7 @@ export function StormChapterChatAdd() {
               />
             </g>
           </svg>
-        </Layer>
+        </Glass>
         <p className='text-lg font-bold text-slate-500'>New Chat</p>
       </button>
     </>

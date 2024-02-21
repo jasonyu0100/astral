@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { useContext } from 'react';
 import { SpacesContext } from '../../(studio-stages)/all/page';
 import { SpacesSpace } from './space/main';
@@ -7,7 +7,7 @@ export function SpacesList() {
   const { spaces } = useContext(SpacesContext);
 
   return (
-    <Layer
+    <Glass
       sizeStyle='w-full'
       displayName={SpacesList.name}
       className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
@@ -15,6 +15,6 @@ export function SpacesList() {
       {spaces?.map((space, index) => (
         <SpacesSpace space={space} index={index} />
       ))}
-    </Layer>
+    </Glass>
   );
 }

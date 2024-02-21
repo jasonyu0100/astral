@@ -1,15 +1,15 @@
-import { GalleryContainer } from '../gallery/container/main';
 import { HomeGalleryAddCover } from './cover/main';
 import { HomeGalleryAddInfo } from './info/main';
 import { ButtonInputProps } from '@/(common)/types/main';
+import { SidebarGalleryContainer } from '../container/main';
 
-export function HomeGalleryAdd({ ...props }: ButtonInputProps) {
+export function SidebarHomeGalleryAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <GalleryContainer>
+      <SidebarGalleryContainer>
         <HomeGalleryAddCover />
         <HomeGalleryAddInfo />
-      </GalleryContainer>
+      </SidebarGalleryContainer>
     </button>
   );
 }

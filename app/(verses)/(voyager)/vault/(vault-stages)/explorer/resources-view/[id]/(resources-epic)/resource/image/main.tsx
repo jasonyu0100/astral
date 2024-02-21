@@ -1,10 +1,16 @@
-import { ImageInputProps } from '@/(common)/types/main';
+import { ResourceContext } from "@/(ouros)/(model)/resource/main";
+import { useContext } from "react";
 
-export function ResourceImage({ ...props }: ImageInputProps) {
+export function CollectionResourceImage() {
+  const resource = useContext(ResourceContext);
+
   return (
-    <img
-      {...props}
-      className='h-[150px] w-[150px] cursor-pointer rounded-full'
-    />
+    <div className='flex flex-col h-full w-full'>
+      <img
+        src={resource?.file?.src}
+        className='aspect-square w-full cursor-pointer bg-black'
+      />
+      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.file?.title}</p>
+    </div>
   );
 }

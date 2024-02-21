@@ -1,15 +1,15 @@
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 
 export function StormWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <Layer
+    <Glass
       displayName={StormWrapper.name}
       sizeStyle='h-full flex-grow'
       backgroundStyle={backgroundStyles['glass-5']}
       className={`${containerStyles['row']}`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

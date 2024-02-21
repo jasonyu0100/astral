@@ -1,11 +1,11 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles, borderStyles } from '@/(common)/styles/data';
 import { ButtonInputProps } from '@/(common)/types/main';
 
 export default function DraftChaptersAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <Layer
+      <Glass
         displayName={DraftChaptersAdd.name}
         sizeStyle='w-[200px] h-[40px]'
         backgroundStyle={backgroundStyles['glass-5']}
@@ -14,7 +14,7 @@ export default function DraftChaptersAdd({ ...props }: ButtonInputProps) {
         <div className='flex h-full w-full items-center justify-center'>
           <div className='font-bold text-slate-500'>Add Chapter</div>
         </div>
-      </Layer>
+      </Glass>
     </button>
   );
 }

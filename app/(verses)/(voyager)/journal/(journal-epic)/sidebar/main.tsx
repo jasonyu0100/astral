@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import React, { useContext } from 'react';
 import { FeedSidebarColumn } from './column/main';
@@ -9,7 +9,7 @@ import { FeedSidebarHeader } from './header/main';
 
 export function FeedSidebar() {
   return (
-    <Layer
+    <Glass
       displayName={FeedSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
@@ -19,6 +19,6 @@ export function FeedSidebar() {
       <FeedSidebarColumn>
         <FeedSidebarSection />
       </FeedSidebarColumn>
-    </Layer>
+    </Glass>
   );
 }

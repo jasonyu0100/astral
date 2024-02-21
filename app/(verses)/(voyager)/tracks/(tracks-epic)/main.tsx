@@ -1,15 +1,15 @@
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 
 export function RecordCollection({ children }: { children: React.ReactNode }) {
   return (
-    <Layer
+    <Glass
       displayName={RecordCollection.name}
       sizeStyle='h-full flex-grow'
       backgroundStyle={backgroundStyles['glass-5']}
       className={`${containerStyles['col-center']}`}
     >
       {children}
-    </Layer>
+    </Glass>
   );
 }

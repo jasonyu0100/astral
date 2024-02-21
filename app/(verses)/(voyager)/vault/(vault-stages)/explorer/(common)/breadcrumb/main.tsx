@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import {
   backgroundStyles,
   borderStyles,
@@ -11,7 +11,7 @@ export function CollectionBreadcrumbs({
   children: React.ReactNode;
 }) {
   return (
-    <Layer
+    <Glass
       displayName={CollectionBreadcrumbs.name}
       sizeStyle='w-full h-[60px] mt-0'
       borderStyle={`${borderStyles['border-b']}`}
@@ -20,6 +20,6 @@ export function CollectionBreadcrumbs({
       <div className='flex flex-row items-center space-x-[1rem]'>
         {children}
       </div>
-    </Layer>
+    </Glass>
   );
 }

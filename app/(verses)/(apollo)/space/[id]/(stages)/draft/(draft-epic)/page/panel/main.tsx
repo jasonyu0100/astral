@@ -1,11 +1,11 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { borderStyles } from '@/(common)/styles/data';
 import { DraftPanelHeader } from './header/main';
 import { DraftPanelList } from './list/main';
 
 export function DraftPanel() {
   return (
-    <Layer
+    <Glass
       displayName={DraftPanel.name}
       sizeStyle='w-[300px] h-full'
       className='flex flex-col'
@@ -13,6 +13,6 @@ export function DraftPanel() {
     >
       <DraftPanelHeader />
       <DraftPanelList />
-    </Layer>
+    </Glass>
   );
 }

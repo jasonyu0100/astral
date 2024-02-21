@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import { backgroundStyles, containerStyles } from '@/(common)/styles/data';
 import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
@@ -9,7 +9,7 @@ export function StormChatInput() {
   const [inputMessage, changeInputMessage] = useState('');
 
   return (
-    <Layer
+    <Glass
       displayName={StormChatInput.name}
       sizeStyle='h-[80px] w-full'
       backgroundStyle={backgroundStyles['glass-5']}
@@ -21,6 +21,6 @@ export function StormChatInput() {
         value={inputMessage}
       />
       <StormChatInputRight/>
-    </Layer>
+    </Glass>
   );
 }

@@ -1,4 +1,4 @@
-import { Layer } from '@/(common)/layer/main';
+import { Glass } from '@/(common)/layer/main';
 import {
   containerStyles,
   borderStyles,
@@ -10,7 +10,7 @@ import { FlowHeaderRight } from './right/main';
 
 export function FlowHeader() {
   return (
-    <Layer
+    <Glass
       displayName={FlowHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       backgroundStyle={backgroundStyles['glass-5']}
@@ -20,6 +20,6 @@ export function FlowHeader() {
       <FlowHeaderLeft />
       <FlowHeaderMiddle />
       <FlowHeaderRight />
-    </Layer>
+    </Glass>
   );
 }
