@@ -4,11 +4,8 @@ import {
   borderStyles,
   backgroundStyles,
 } from '@/(components)/styles/data';
-import { DraftHeaderSaveButton } from './right/save/main';
 import { DraftHeaderLeft } from './left/main';
 import { DraftHeaderRight } from './right/main';
-import { useContext } from 'react';
-import { DraftContext } from '../../../page';
 import { DraftHeaderCenter } from './center/main';
 
 export function DraftHeader() {

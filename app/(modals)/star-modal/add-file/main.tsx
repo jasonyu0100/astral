@@ -17,7 +17,6 @@ export function AddFileStarModal() {
   const { opened, close } = modalContext.addFileStarModal;
   const { starHandler } = useContext(DraftContext);
   const [title, changeTitle] = useState('' as string);
-  const [description, changeDescription] = useState('' as string);
   const [variant, changeVariant] = useState<FileVariant>(FileVariant.IMAGE);
   const [file, changeFile] = useState({} as FileObj);
 

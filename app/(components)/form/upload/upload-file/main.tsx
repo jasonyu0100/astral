@@ -82,7 +82,7 @@ export function FormUploadFile({
         {label}
       </label>
       {file.id === undefined && (
-        <div className='relative mb-3 h-[100px] border-b border-black bg-slate-50 p-4'>
+        <div className='relative mb-3 h-[100px] border-b border-black p-4'>
           <input
             accept={getFileAccepts(variant || FileVariant.ANY)}
             type='file'

@@ -85,7 +85,7 @@ export function FormUploadFiles({
       >
         {label}
       </label>
-      <div className='relative h-[200px] border-b border-black bg-slate-50'>
+      <div className='relative h-[200px] border-b border-black'>
         <input
           type='file'
           id='fileInput'

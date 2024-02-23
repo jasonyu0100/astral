@@ -14,7 +14,7 @@ export function FormSelect({
   return (
     <div className='flex w-full flex-col'>
       <label className='mb-1 text-xs font-bold text-slate-400'>{title}</label>
-      <div className='relative flex h-[60px] w-full flex-col items-center border-b-[1px] border-slate-500 bg-slate-50'>
+      <div className='relative flex h-[60px] w-full flex-col items-center border-b-[1px] border-slate-500'>
         <select
           title='position'
           className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500

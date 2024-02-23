@@ -39,7 +39,7 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
-              starHandler.queryCreateNoteStar("hello", 0, 0, {
+              starHandler.queryCreateNoteStar(title, 0, 0, {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,

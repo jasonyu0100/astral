@@ -19,8 +19,8 @@ export interface StarHandler {
     file: FileObj,
   ) => Promise<StarObj>;
   queryCreateNoteStar: (title: string, x: number, y: number, note: NoteObj) => Promise<StarObj>;
-  queryCreateLinkStar: (name: string, x: number, y: number, link: LinkObj) => Promise<StarObj>;
-  queryCreateLogStar: (name: string, x: number, y: number, log: LogObj) => Promise<StarObj>;
+  queryCreateLinkStar: (title: string, x: number, y: number, link: LinkObj) => Promise<StarObj>;
+  queryCreateLogStar: (title: string, x: number, y: number, log: LogObj) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
   queryUpdateStars: () => Promise<StarObj[]>;
   activateStar: (starId: string) => void;
