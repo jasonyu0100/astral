@@ -1,0 +1,27 @@
+import { CollectionsModalContext } from '@/(modals)/collections-modal/main';
+import { useContext } from 'react';
+import { ExploreGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
+import { GalleryCollectionAdd } from '../collection/explorer/add/main';
+import { GalleryCollection } from '../collection/explorer/main';
+import { CollectionContext } from '@/(logic)/model/gallery/collection/main';
+
+export function GalleryCollectionGrid() {
+  const { collections } = useContext(ExploreGalleryContext);
+  const modalContext = useContext(CollectionsModalContext);
+
+  return (
+    <div className='flex-grow ' style={{ height: '100%' }}>
+      <div className='flex w-full flex-row flex-wrap gap-[50px] overflow-auto'>
+        {collections.map((collection) => (
+          // eslint-disable-next-line react/jsx-key
+          <CollectionContext.Provider value={collection}>
+            <GalleryCollection />
+          </CollectionContext.Provider>
+        ))}
+        <GalleryCollectionAdd
+          onClick={() => modalContext.explorerCreateCollectionModal.open()}
+        />
+      </div>
+    </div>
+  );
+}

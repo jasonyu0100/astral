@@ -1,13 +1,13 @@
 import { createContext, useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
-import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/collections-view/[id]/(collections-epic)/collection/sidebar/add/main';
-import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/collections-view/[id]/(collections-epic)/collection/sidebar/main';
+import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/add/main';
+import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/main';
 import {
   CollectionsModalContext,
   useCollectionsModal,
 } from '@/(modals)/collections-modal/main';
 import { CollectionsModalView } from '@/(modals)/collections-modal/view';
-import { CollectionContext, CollectionObj } from '@/(logic)/model/gallery/collection/main';
+import { CollectionContext } from '@/(logic)/model/gallery/collection/main';
 
 export function CollectionsInterface() {
   const { collections } = useContext(DraftSidebarContext);

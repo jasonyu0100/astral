@@ -20,6 +20,7 @@ export function LinkSpotifyStar() {
         style={{ x, y }}
       >
         <Glass
+          displayName={LinkSpotifyStar.name}
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onDragStart={() => {
             activateStar();
