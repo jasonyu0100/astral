@@ -21,7 +21,7 @@ export function AddLinkStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Link Element</FormTitle>
+        <FormTitle>Embed Element</FormTitle>
         <FormBody>
           <FormSelect
             title='Variant'

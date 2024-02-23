@@ -4,7 +4,6 @@ import { StarModalContext } from './main';
 import { AddLogStarModal } from './add-log/main';
 import { AddFileStarModal } from './add-file/main';
 import { AddLinkStarModal } from './add-link/main';
-import { AddElementsStarModal } from './add-elements/main';
 
 export function StarModalView() {
   const modalContext = useContext(StarModalContext);
@@ -15,7 +14,6 @@ export function StarModalView() {
       {modalContext.addLogStarModal.opened && <AddLogStarModal />}
       {modalContext.addFileStarModal.opened && <AddFileStarModal />}
       {modalContext.addLinkStarModal.opened && <AddLinkStarModal />}
-      {modalContext.addElementsStarModal.opened && <AddElementsStarModal />}
     </>
   );
 }

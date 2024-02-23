@@ -24,11 +24,6 @@ export interface StarModalController {
     open: () => void;
     close: () => void;
   };
-  addElementsStarModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
 }
 
 export const StarModalContext = createContext({} as StarModalController);
@@ -38,8 +33,6 @@ export const useStarModal = (): StarModalController => {
   const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
   const [showFour, changeShowFour] = useState(false);
-  const [showFive, changeShowFive] = useState(false);
-
   const [logObj, changeLogObj] = useState({} as LogObj);
 
   return {
@@ -64,13 +57,6 @@ export const useStarModal = (): StarModalController => {
       opened: showFour,
       open: () => changeShowFour(true),
       close: () => changeShowFour(false),
-    },
-    addElementsStarModal: {
-      opened: showFive,
-      open: () => {
-        changeShowFive(true)
-      },
-      close: () => changeShowFive(false),
     },
   };
 };

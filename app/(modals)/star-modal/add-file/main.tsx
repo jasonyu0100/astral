@@ -23,7 +23,7 @@ export function AddFileStarModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>File Element</FormTitle>
+        <FormTitle>Media Element</FormTitle>
         <FormBody>
           <FormSelect title="Variant" value={variant} onChange={(e) => changeVariant(e.target.value as FileVariant)}>
             <option value={FileVariant.AUDIO}>AUDIO</option>

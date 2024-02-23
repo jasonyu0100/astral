@@ -5,7 +5,6 @@ import { DraftHeaderFileButton } from './file/main';
 import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';
 import { DraftHeaderNoteButton } from './note/main';
-import { DraftHeaderElementsButton } from './stack/main';
 import { useContext } from 'react';
 
 export function DraftHeaderLeft() {
@@ -13,21 +12,16 @@ export function DraftHeaderLeft() {
 
   return (
     <div className='flex w-1/3 flex-row'>
-      <DraftHeaderElementsButton
-        onClick={() => {
-          modalContext.addElementsStarModal.open();
-        }}
-      />
       <DraftHeaderFileButton
         onClick={() => modalContext.addFileStarModal.open()}
+      />
+      <DraftHeaderLogButton/>
+      <DraftHeaderNoteButton
+        onClick={() => modalContext.addNoteStarModal.open()}
       />
       <DraftHeaderLinkButton
         onClick={() => modalContext.addLinkStarModal.open()}
       />
-      <DraftHeaderNoteButton
-        onClick={() => modalContext.addNoteStarModal.open()}
-      />
-      <DraftHeaderLogButton/>
     </div>
   );
 }
