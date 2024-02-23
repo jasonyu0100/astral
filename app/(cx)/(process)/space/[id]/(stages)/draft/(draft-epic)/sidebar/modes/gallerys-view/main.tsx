@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
-import { SidebarHomeGalleryAdd } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/gallerys-view/(gallerys-epic)/gallery/sidebar/add/main';
-import { SidebarHomeGallery } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/gallerys-view/(gallerys-epic)/gallery/sidebar/main';
+import { SidebarHomeGalleryAdd } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/gallerys-view/(gallerys-epic)/gallery/sidebar/add/main';
+import { SidebarHomeGallery } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/gallerys-view/(gallerys-epic)/gallery/sidebar/main';
 import {
   GallerysModalContext,
   useGallerysModal,

@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
-import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/collections-view/[id]/(collections-epic)/sidebar-collection/add/main';
-import { SidebarCollection } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/collections-view/[id]/(collections-epic)/sidebar-collection/main';
+import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/collections-view/[id]/(collections-epic)/collection/sidebar/add/main';
+import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/collections-view/[id]/(collections-epic)/collection/sidebar/main';
 import {
   CollectionsModalContext,
   useCollectionsModal,

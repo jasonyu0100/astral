@@ -22,7 +22,7 @@ export function SidebarIndicator({ children, ...props }: InputProps) {
 export enum SidebarIndicatorType {
   Studio = 'Studio',
   Journal = 'Journal',
-  Vault = 'Vault',
+  Archive = 'Archive',
   Artists = 'Artists',
   Moves = 'Moves',
 }

@@ -9,7 +9,7 @@ import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
 import { Modal } from '@/(components)/modal/main';
 import { FileObj, FileVariant } from '@/(logic)/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { ExploreCollectionContext } from '../../../(cx)/(studio)/vault/(vault-stages)/explorer/resources-view/[id]/page';
+import { ExploreCollectionContext } from '../../../(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourcesModalContext } from '../main';
 import { FormSelect } from '@/(components)/form/select/main';
 

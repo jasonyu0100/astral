@@ -1,9 +1,9 @@
 import { createContext, useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
-import { CollectionResourceAdd } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/resources-view/sidebar-resource/add-resource/main';
+import { CollectionResourceAdd } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/resources-view/sidebar-resource/add-resource/main';
 import { CollectionHeader } from './header/main';
 import { CollectionHeaderSearch } from './header/search/main';
-import { SidebarCollectionResource } from '../../../../../../../../../(studio)/vault/(vault-stages)/explorer/resources-view/sidebar-resource/main';
+import { SidebarCollectionResource } from '../../../../../../../../../(studio)/archive/(archive-stages)/explorer/resources-view/sidebar-resource/main';
 import {
   ResourcesModalContext,
   useResourceModal,

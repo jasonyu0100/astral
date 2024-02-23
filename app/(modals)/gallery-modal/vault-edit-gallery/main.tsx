@@ -9,11 +9,11 @@ import { GalleryModalContext } from '../main';
 import { FormInput } from '@/(components)/form/input/main';
 import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
 import { FileObj } from '@/(logic)/model/resource/file/main';
-import { ExploreCollectionContext } from '@/(cx)/(studio)/vault/(vault-stages)/explorer/resources-view/[id]/page';
+import { ExploreCollectionContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourceContext } from '@/(logic)/model/resource/main';
 import { callUpdateResource } from '@/(logic)/calls/resource/main';
 
-export function VaultEditGalleryModal() {
+export function ArchiveEditGalleryModal() {
   const modalContext = useContext(GalleryModalContext);
   const { resourceHandler } = useContext(ExploreCollectionContext);
   const { opened, close } = modalContext.editGalleryModal;

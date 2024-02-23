@@ -1,13 +1,13 @@
 import { SidebarWorkCover } from './current-work/cover/main';
 import { SidebarIndicators } from './indicators/main';
-import { SpaceIndicator } from './indicators/space-indicator/main';
-import { VaultIndicator } from './indicators/drive-indicator/main';
+import { SpaceIndicator } from './indicators/studio-indicator/main';
+import { ArchiveIndicator } from './indicators/archive-indicator/main';
 import { JournalIndicator } from './indicators/journal-indicator/main';
 import { SidebarCurrentSpace } from './current-work/main';
 import { SidebarWorkInfo } from './current-work/info/main';
 import { SidebarBack } from './back/main';
-import { ArtistsIndicator } from './indicators/market-indicator/main';
-import { MotionsIndicator } from './indicators/record-indicator/main';
+import { ArtistsIndicator } from './indicators/artists-indicator/main';
+import { MovesIndicator } from './indicators/moves-indicator/main';
 import { studioMap } from '../(studio)/studio/map';
 
 export interface SidebarProps {
@@ -29,10 +29,10 @@ export function DashboardSidebar({
           <div className='mb-[2rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpaceIndicator indicator={indicator} minimised />
-            <VaultIndicator indicator={indicator} minimised />
+            <ArchiveIndicator indicator={indicator} minimised />
             <JournalIndicator indicator={indicator} minimised />
             <ArtistsIndicator indicator={indicator} minimised />
-            <MotionsIndicator indicator={indicator} minimised />
+            <MovesIndicator indicator={indicator} minimised />
           </SidebarIndicators>
         </div>
       ) : (
@@ -44,10 +44,10 @@ export function DashboardSidebar({
           <div className='mb-[1rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpaceIndicator indicator={indicator} />
-            <VaultIndicator indicator={indicator} />
+            <ArchiveIndicator indicator={indicator} />
             <JournalIndicator indicator={indicator} />
             <ArtistsIndicator indicator={indicator} />
-            <MotionsIndicator indicator={indicator} />
+            <MovesIndicator indicator={indicator} />
           </SidebarIndicators>
         </div>
       )}

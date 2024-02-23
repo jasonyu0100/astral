@@ -11,7 +11,7 @@ import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
 import { SelectedImage } from '@/(components)/form/selected-image/main';
 import { FormSearchImage } from '@/(components)/form/search-image/main';
-import { ExploreHomeContext } from '@/(cx)/(studio)/vault/(vault-stages)/explorer/gallerys-view/page';
+import { ExploreHomeContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/gallerys-view/page';
 
 export function ExplorerCreateGalleryModal() {
   const modalContext = useContext(GallerysModalContext);
