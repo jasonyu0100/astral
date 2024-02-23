@@ -24,5 +24,5 @@ export enum SidebarIndicatorType {
   Journal = 'Journal',
   Vault = 'Vault',
   Artists = 'Artists',
-  Motions = 'Motions',
+  Moves = 'Moves',
 }

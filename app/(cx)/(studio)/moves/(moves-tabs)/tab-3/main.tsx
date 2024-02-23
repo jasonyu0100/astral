@@ -1,17 +1,17 @@
-import { TabGreenShard } from '@/(components)/cx/tabs/tabs-row/tab/shard/green/main';
 import { Tab } from '../../../../../(components)/cx/tabs/tabs-row/tab/main';
 import { TabText } from '../../../../../(components)/cx/tabs/tabs-row/tab/text/main';
-import { motionsMap } from '../../map';
+import { TabPurpleShard } from '@/(components)/cx/tabs/tabs-row/tab/shard/purple/main';
+import { movesMap } from '../../map';
 import { RecordTabStage } from '../main';
 
-export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = RecordTabStage.Moves;
+export function TabThree({ tab }: { tab?: string }) {
+  const tabText = RecordTabStage.Trends;
   const active = tab === tabText;
 
   return (
-    <Tab href={motionsMap.motions.releases.link}>
+    <Tab href={movesMap.moves.releases.link}>
       <TabText active={active}>{tabText}</TabText>
-      <TabGreenShard active={active} />
+      <TabPurpleShard active={active} />
     </Tab>
   );
 }

@@ -6,7 +6,7 @@ import { SidebarIndicatorType } from '@/(cx)/(sidebar)/indicators/indicator/main
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebar indicator={SidebarIndicatorType.Motions} />
+      <DashboardSidebar indicator={SidebarIndicatorType.Moves} />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

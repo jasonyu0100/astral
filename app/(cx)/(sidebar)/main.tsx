@@ -29,8 +29,8 @@ export function DashboardSidebar({
           <div className='mb-[2rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpaceIndicator indicator={indicator} minimised />
-            <JournalIndicator indicator={indicator} minimised />
             <VaultIndicator indicator={indicator} minimised />
+            <JournalIndicator indicator={indicator} minimised />
             <ArtistsIndicator indicator={indicator} minimised />
             <MotionsIndicator indicator={indicator} minimised />
           </SidebarIndicators>
@@ -44,8 +44,8 @@ export function DashboardSidebar({
           <div className='mb-[1rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpaceIndicator indicator={indicator} />
-            <JournalIndicator indicator={indicator} />
             <VaultIndicator indicator={indicator} />
+            <JournalIndicator indicator={indicator} />
             <ArtistsIndicator indicator={indicator} />
             <MotionsIndicator indicator={indicator} />
           </SidebarIndicators>

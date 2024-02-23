@@ -1,7 +1,7 @@
-const baseUrl = `/motions`;
+const baseUrl = `/moves`;
 
-export const motionsMap = {
-  motions: {
+export const movesMap = {
+  moves: {
     releases: {
       link: `${baseUrl}/releases`,
     },

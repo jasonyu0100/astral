@@ -1,9 +1,9 @@
 'use client';
 
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { RecordCollection } from '../../(motions-epic)/main';
-import { RecordAlbum } from '../../(motions-epic)/shelf/album/main';
-import { RecordShelf } from '../../(motions-epic)/shelf/main';
+import { RecordCollection } from '../../(moves-epic)/main';
+import { RecordAlbum } from '../../(moves-epic)/shelf/album/main';
+import { RecordShelf } from '../../(moves-epic)/shelf/main';
 
 function Page() {
   return (

@@ -3,7 +3,7 @@
 import { Topbar } from '@/(cx)/(topbar)/main';
 import { DashboardController } from '@/(components)/cx/controller/main';
 import { createContext } from 'react';
-import { motionsMap } from '@/(cx)/(studio)/motions/map';
+import { movesMap } from '@/(cx)/(studio)/moves/map';
 import { DashboardSidebar } from '@/(cx)/(sidebar)/main';
 
 interface ReleaseContextObj {
@@ -26,7 +26,7 @@ export default function Layout({
     <ReleaseContext.Provider value={{ releaseId: params.id }}>
       <Topbar />
       <DashboardController>
-        <DashboardSidebar minimised backUrl={motionsMap.motions.releases.link} />
+        <DashboardSidebar minimised backUrl={movesMap.moves.releases.link} />
         {children}
       </DashboardController>
     </ReleaseContext.Provider>

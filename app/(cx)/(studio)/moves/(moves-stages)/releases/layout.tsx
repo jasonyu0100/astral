@@ -1,7 +1,7 @@
 import {
   RecordTabStage,
   RecordTabs,
-} from '@/(cx)/(studio)/motions/(motions-tabs)/main';
+} from '@/(cx)/(studio)/moves/(moves-tabs)/main';
 
 import { DashboardContent } from '@/(components)/cx/content/main';
 
