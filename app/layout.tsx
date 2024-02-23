@@ -1,7 +1,7 @@
 import './globals.css';
 import { fontVariables } from './fonts';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { cn } from './utils/cn';
+import { cn } from './(logic)/utils/cn';
 import { Toaster } from './components/ui/sonner';
 import { test } from '@cosmos-dev/example-package';
 

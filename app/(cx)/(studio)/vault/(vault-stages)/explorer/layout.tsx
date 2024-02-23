@@ -1,0 +1,12 @@
+import { CraftTabStage, CraftTabs } from '@/(cx)/(studio)/vault/(vault-tabs)/main';
+
+import { DashboardContent } from '@/(components)/cx/content/main';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <CraftTabs tab={CraftTabStage.Explorer} />
+      <DashboardContent>{children}</DashboardContent>
+    </>
+  );
+}

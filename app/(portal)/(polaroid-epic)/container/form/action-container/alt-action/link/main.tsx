@@ -1,4 +1,4 @@
-import { LinkInputProps } from '@/(common)/types/main';
+import { LinkInputProps } from '@/(components)/types/main';
 import Link from 'next/link';
 
 interface AltActionLinkProps extends LinkInputProps {
