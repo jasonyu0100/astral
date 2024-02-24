@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { DraftLinks } from './links/main';
 import { DraftConstellationStars } from './stars/main';

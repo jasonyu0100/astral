@@ -1,30 +1,30 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarMotionContext } from '@/(logic)/handler/draft/star/main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
+import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
 
 export function FileImageStar() {
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarMotionContext);
-  const { starId } = useContext(DraftContext);
-  const active = starId === star.id;
+    useContext(ConstellationStarContext);
 
   return (
     <>
       <motion.div
         drag
         dragConstraints={constraintsRef}
-        className={`absolute flex aspect-[13/16] w-[160px] items-center p-[10px] pb-[10px] top-[${x}] left-[${y}] bg-white`}
+        className={`absolute flex aspect-[13/16] w-[160px] items-center top-[${x}] left-[${y}] bg-white`}
         style={{ x, y }}
       >
         <div
-          className='flex h-full w-full flex-shrink-0 flex-col '
-          onDragStart={() => {
-            activateStar();
+          className='flex h-full w-full flex-shrink-0 cursor-pointer flex-col  p-[10px] pb-[10px]'
+          onClick={(e) => {
+            e.stopPropagation();
+            setTimeout(() => {
+              activateStar();
+            }, 300);
           }}
         >
           <img
-            className='pointer-events-none aspect-square w-full aspect-square flex-shrink-0 border-[2px] border-slate-300'
+            className='pointer-events-none aspect-square aspect-square w-full flex-shrink-0 border-[2px] border-slate-300'
             src={star?.file?.src}
           />
           <div className='flex h-[50px] items-center'>

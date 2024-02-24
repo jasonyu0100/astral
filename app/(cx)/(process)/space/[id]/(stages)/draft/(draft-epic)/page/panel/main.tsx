@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { borderStyles } from '@/(components)/styles/data';
 import { DraftPanelHeader } from './header/main';
 import { DraftPanelList } from './list/main';

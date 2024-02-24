@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { FlowHeader } from './header/main';
 import { FlowMoments } from './moments/main';

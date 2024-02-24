@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { DraftChapters } from './chapters/main';
 import { DraftPage } from './page/main';

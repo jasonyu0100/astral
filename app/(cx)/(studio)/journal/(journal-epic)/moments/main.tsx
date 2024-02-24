@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { useContext } from 'react';
 import { FeedJournalContext } from '../../(journal-stages)/feed/page';

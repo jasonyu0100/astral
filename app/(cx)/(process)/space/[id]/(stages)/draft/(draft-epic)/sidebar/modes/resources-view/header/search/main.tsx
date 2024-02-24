@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { borderStyles, containerStyles } from '@/(components)/styles/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';

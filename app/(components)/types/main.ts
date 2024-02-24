@@ -10,3 +10,5 @@ export interface FormInputProps
   extends React.ComponentPropsWithoutRef<'input'> {}
 
 export interface ImageInputProps extends React.ComponentPropsWithRef<'img'> {}
+
+export interface SvgInputProps extends React.ComponentPropsWithRef<'svg'> {}

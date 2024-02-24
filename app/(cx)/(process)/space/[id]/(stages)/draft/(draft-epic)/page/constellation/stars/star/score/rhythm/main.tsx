@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarMotionContext } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 
 export function ScoreRhythmStar() {
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarMotionContext);
+    useContext(ConstellationStarContext);
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -19,8 +19,9 @@ export function ScoreRhythmStar() {
       >
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
-          onDragStart={() => {
+          onClick={(e) => {
             activateStar();
+            e.stopPropagation();
           }}
         >
           <img
@@ -37,4 +38,3 @@ export function ScoreRhythmStar() {
     </>
   );
 }
-

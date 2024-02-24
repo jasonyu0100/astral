@@ -1,12 +1,11 @@
 import { ButtonInputProps } from '@/(components)/types/main';
-import { cn } from '@/(logic)/utils/cn';
 
 export function DraftHeaderSaveButton({ ...props }: ButtonInputProps) {
   return (
     <button
-      className={cn(
-        'flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950',
-      )}
+      className={
+        'flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950'
+      }
       {...props}
     >
       <svg

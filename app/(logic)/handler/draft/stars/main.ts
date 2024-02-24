@@ -24,6 +24,7 @@ export interface StarHandler {
   updateStar: (starId: string, data: any) => void;
   queryUpdateStars: () => Promise<StarObj[]>;
   activateStar: (starId: string) => void;
+  deactivateStar: () => void;
 }
 
 interface useStarInterface {
@@ -246,6 +247,9 @@ export const useStars = (constellationId: string): useStarInterface => {
     },
     activateStar: (starId: string) => {
       changeStarId(starId);
+    },
+    deactivateStar: () => {
+      changeStarId('');
     },
     updateStar: (starId: string, data: any) => {
       changeStars((prev) =>

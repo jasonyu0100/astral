@@ -4,10 +4,7 @@ import { DraftView } from './view';
 import { StarObj } from '@/(logic)/model/draft/constellation/star/main';
 import { ChapterObj } from '@/(logic)/model/space/chapter/main';
 import { ConstellationObj } from '@/(logic)/model/draft/constellation/main';
-import {
-  ChapterHandler,
-  useChapters,
-} from '@/(logic)/handler/chapters/main';
+import { ChapterHandler, useChapters } from '@/(logic)/handler/chapters/main';
 import {
   ConstellationHandler,
   useConstellations,
@@ -18,10 +15,7 @@ import {
   DraftModalContext,
   useDraftModal,
 } from '../../../../../../(modals)/draft-modal/main';
-import {
-  StarModalContext,
-  useStarModal,
-} from '@/(modals)/star-modal/main';
+import { StarModalContext, useStarModal } from '@/(modals)/star-modal/main';
 import { StarModalView } from '@/(modals)/star-modal/view';
 import { DraftModalView } from '@/(modals)/draft-modal/view';
 
@@ -37,13 +31,21 @@ interface DraftContextObj {
   starHandler: StarHandler;
   chapterHandler: ChapterHandler;
   constellationHandler: ConstellationHandler;
-  djMode: boolean;
-  toggleDjMode: () => void;
+  modalType: DraftModalType;
+  updateModalType: (multiModalType: DraftModalType) => void;
 }
 
 export const DraftContext = createContext<DraftContextObj>(
   {} as DraftContextObj,
 );
+
+export enum DraftModalType {
+  DEFAULT = 'DEFAULT',
+  STAR = 'STAR',
+  SOUND = 'SOUND',
+  VISUAL = 'VISUAL',
+  INFO = 'INFO',
+}
 
 function Page({ params }: { params: { id: string } }) {
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
@@ -56,7 +58,7 @@ function Page({ params }: { params: { id: string } }) {
     _constellationHandler,
   } = useConstellations(chapterId);
   const { stars, starId, _starHandler } = useStars(constellationId);
-  const [djMode, changeDjMode] = useState(false as boolean);
+  const [modalType, changeModalType] = useState(DraftModalType.DEFAULT);
 
   const context: DraftContextObj = {
     chapter: chapter,
@@ -70,8 +72,8 @@ function Page({ params }: { params: { id: string } }) {
     constellationId: constellationId,
     constellations: constellations,
     constellationHandler: _constellationHandler,
-    djMode: djMode,
-    toggleDjMode: () => changeDjMode(true),
+    modalType: modalType,
+    updateModalType: (modalType) => changeModalType(modalType),
   };
 
   const draftModalContext = useDraftModal();

@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarMotionContext } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 import { useGlobalUser } from '@/(logic)/store/user/main';
 
 export function NoteQuoteStar() {
   const user = useGlobalUser((state) => state.user);
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarMotionContext);
+    useContext(ConstellationStarContext);
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -22,6 +22,10 @@ export function NoteQuoteStar() {
         <div
           className='flex h-[full] w-[full] flex-col items-center space-x-[1rem]'
           style={{ height: '100%' }}
+          onClick={(e) => {
+            activateStar();
+            e.stopPropagation();
+          }}
         >
           <div className='flex h-[200px] w-[300px] items-center justify-center bg-black p-3'>
             <p className="font-2xl text-white font-permanentMarker">{'"'}{star.note?.text}{'"'}</p>

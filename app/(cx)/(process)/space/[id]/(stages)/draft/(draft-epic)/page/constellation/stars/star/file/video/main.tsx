@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarMotionContext } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 
 export function FileVideoStar() {
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarMotionContext);
+    useContext(ConstellationStarContext);
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -19,11 +19,9 @@ export function FileVideoStar() {
       >
         <div
           className='flex aspect-[16/9] h-full w-full flex-shrink-0 flex-col'
-          onDragStart={() => {
-            activateStar();
-          }}
           onClick={(e) => {
             e.stopPropagation();
+            activateStar();
             const video = document.getElementById(
               `file-upload-audio-${star.file?.id}`,
             ) as HTMLVideoElement;
@@ -31,7 +29,7 @@ export function FileVideoStar() {
           }}
         >
           <img
-            src={"/brand/image.png"}
+            src={'/brand/image.png'}
             className='aspect-square w-full'
             style={{ width: '100%', height: '100%' }}
           />

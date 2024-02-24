@@ -3,7 +3,7 @@ import {
   borderStyles,
   containerStyles,
 } from '@/(components)/styles/data';
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 
 export function SeaSidebar({ children }: { children: React.ReactNode }) {
   return (

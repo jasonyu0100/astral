@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarMotionContext } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles } from '@/(components)/styles/data';
 
 export function LinkSpotifyStar() {
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarMotionContext);
+    useContext(ConstellationStarContext);
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -22,8 +22,9 @@ export function LinkSpotifyStar() {
         <Glass
           displayName={LinkSpotifyStar.name}
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
-          onDragStart={() => {
+          onClick={(e) => {
             activateStar();
+            e.stopPropagation();
           }}
         >
           <iframe

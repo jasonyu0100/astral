@@ -1,4 +1,4 @@
-import { Glass } from '../layer/main';
+import { Glass } from '../glass/main';
 import { borderStyles } from '../styles/data';
 
 export function Divider() {

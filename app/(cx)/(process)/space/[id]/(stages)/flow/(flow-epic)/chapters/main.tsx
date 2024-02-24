@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles } from '@/(components)/styles/data';
 import { FlowChaptersLeftButton } from './left/main';
 import { FlowChaptersRightButton } from './right/main';

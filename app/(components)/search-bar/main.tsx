@@ -1,4 +1,4 @@
-import { Glass } from '../layer/main';
+import { Glass } from '../glass/main';
 import { containerStyles, borderStyles } from '../styles/data';
 import { FormInputProps } from '../types/main';
 

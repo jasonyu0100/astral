@@ -1,5 +1,5 @@
 import { containerStyles } from '@/(components)/styles/data';
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { StormHeader } from '../header/main';
 import { StormChatMessages } from './messages/main';
 

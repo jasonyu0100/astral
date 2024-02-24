@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles, borderStyles } from '@/(components)/styles/data';
 import { useContext, useState } from 'react';
 import { StormContext } from '../../../../page';

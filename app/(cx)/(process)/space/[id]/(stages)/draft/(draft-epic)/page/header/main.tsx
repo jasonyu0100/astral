@@ -1,14 +1,21 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import {
   containerStyles,
   borderStyles,
   backgroundStyles,
 } from '@/(components)/styles/data';
-import { DraftHeaderLeft } from './left/main';
-import { DraftHeaderRight } from './right/main';
-import { DraftHeaderCenter } from './center/main';
+import { DraftContext, DraftModalType } from '../../../page';
+import { useContext } from 'react';
+import { DraftHeaderDefault } from './modes/default/main';
+import { DraftHeaderStar } from './modes/star/main';
+import { DraftHeaderVisual } from './modes/visual/main';
+import { DraftHeaderSound } from './modes/sound/main';
+import { DraftHeaderInfo } from './modes/info/main';
 
 export function DraftHeader() {
+  const draftContext = useContext(DraftContext);
+  const modalType = draftContext.modalType
+
   return (
     <Glass
       displayName={DraftHeader.name}
@@ -17,9 +24,11 @@ export function DraftHeader() {
       borderStyle={borderStyles['border-b']}
       backgroundStyle={backgroundStyles['glass-5']}
     >
-      <DraftHeaderLeft/>
-      <DraftHeaderCenter/>
-      <DraftHeaderRight/>
+      {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
+      {modalType === DraftModalType.STAR && <DraftHeaderStar/>}
+      {modalType === DraftModalType.INFO && <DraftHeaderInfo/>}
+      {modalType === DraftModalType.SOUND && <DraftHeaderSound/>}
+      {modalType === DraftModalType.VISUAL && <DraftHeaderVisual/>}
     </Glass>
   );
 }

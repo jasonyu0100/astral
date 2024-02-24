@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles, containerStyles } from '@/(components)/styles/data';
 import { StormSidebarChapters } from './chapters/main';
 import { StormSidebarHeader } from './header/main';

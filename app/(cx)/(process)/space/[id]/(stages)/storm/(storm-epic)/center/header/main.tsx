@@ -3,7 +3,7 @@ import {
   borderStyles,
   containerStyles,
 } from '@/(components)/styles/data';
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';
 import { HeaderAgent } from './agent/main';

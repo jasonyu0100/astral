@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/layer/main';
+import { Glass } from '@/(components)/glass/main';
 import { StormModalContext } from '@/(modals)/storm-modal/main';
 import { useContext } from 'react';
 import { StormContext } from '../../../page';
