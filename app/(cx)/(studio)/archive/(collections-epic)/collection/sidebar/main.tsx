@@ -1,4 +1,4 @@
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
+import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
 import { useContext } from 'react';
 import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';

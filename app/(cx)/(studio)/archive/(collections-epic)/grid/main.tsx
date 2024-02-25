@@ -1,4 +1,4 @@
-import { CollectionsModalContext } from '@/(modals)/collections-modal/main';
+import { CollectionsModalContext } from '@/(modals)/studio/collection/collections-modal/main';
 import { useContext } from 'react';
 import { ExploreGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
 import { GalleryCollectionAdd } from '../collection/explorer/add/main';

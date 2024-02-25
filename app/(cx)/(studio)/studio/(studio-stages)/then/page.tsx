@@ -6,10 +6,10 @@ import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   SpacesModalContext,
   useSpacesModal,
-} from '../../../../../(modals)/space-modal/main';
+} from '../../../../../(modals)/studio/space-modal/main';
 import { useSpaces } from '@/(logic)/internal/handler/spaces/main';
 import { SpacesContext } from '../all/page';
-import { SpacesModalView } from '@/(modals)/space-modal/view';
+import { SpacesModalView } from '@/(modals)/studio/space-modal/view';
 
 function Page() {
     const user = useGlobalUser((state) => state.user);

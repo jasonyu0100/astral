@@ -3,8 +3,8 @@ import { useContext, useState } from 'react';
 import {
   useFileModal,
   ResourceModalContext,
-} from '@/(modals)/resource-modal/main';
-import { ResourceModalView } from '@/(modals)/resource-modal/view';
+} from '@/(modals)/studio/resource/resource-modal/main';
+import { ResourceModalView } from '@/(modals)/studio/resource/resource-modal/view';
 import { CollectionResourceInfo } from '../common/info/main';
 import { ResourcePolaroid } from '../common/polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';

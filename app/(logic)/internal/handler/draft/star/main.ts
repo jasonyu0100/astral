@@ -4,7 +4,7 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
-import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
+import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
 
 export interface StarMotionProps {

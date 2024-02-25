@@ -7,12 +7,12 @@ import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   GallerysModalContext,
   useGallerysModal,
-} from '../../../../../../(modals)/gallerys-modal/main';
+} from '../../../../../../(modals)/studio/gallery/gallerys-modal/main';
 import {
   GalleryHandler,
   useGallerys,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
-import { GallerysModalView } from '@/(modals)/gallerys-modal/view';
+import { GallerysModalView } from '@/(modals)/studio/gallery/gallerys-modal/view';
 
 interface ExploreHomeContextObj {
   gallerys: GalleryObj[];

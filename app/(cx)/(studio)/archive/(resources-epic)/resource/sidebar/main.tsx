@@ -6,13 +6,13 @@ import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/ma
 import {
   useFileModal,
   ResourceModalContext,
-} from '@/(modals)/resource-modal/main';
-import { ResourceModalView } from '@/(modals)/resource-modal/view';
+} from '@/(modals)/studio/resource/resource-modal/main';
+import { ResourceModalView } from '@/(modals)/studio/resource/resource-modal/view';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../common/audio/main';
 import { CollectionResourceImage } from '../common/image/main';
 import { CollectionResourceVideo } from '../common/video/main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
+import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { ResourcePolaroid } from './polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';
 

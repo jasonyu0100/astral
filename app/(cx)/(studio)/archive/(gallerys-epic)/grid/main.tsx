@@ -1,4 +1,4 @@
-import { GallerysModalContext } from '@/(modals)/gallerys-modal/main';
+import { GallerysModalContext } from '@/(modals)/studio/gallery/gallerys-modal/main';
 import { useContext } from 'react';
 import { ExploreHomeContext } from '../../(archive-stages)/explorer/gallerys-view/page';
 import { GalleryExplorerAdd } from '../gallery/explorer/add/main';

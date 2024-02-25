@@ -1,4 +1,4 @@
-import { ResourcesModalContext } from '@/(modals)/resources-modal/main';
+import { ResourcesModalContext } from '@/(modals)/studio/resource/resources-modal/main';
 import { useContext } from 'react';
 import { ExploreCollectionContext } from '../../(archive-stages)/explorer/resources-view/[id]/page';
 import { CollectionResourceAdd } from '../resource/explorer/add/main';

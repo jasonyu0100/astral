@@ -10,13 +10,13 @@ import { studioMap } from '@/(cx)/(studio)/studio/map';
 import {
   ProfileModalContext,
   useProfileModal,
-} from '@/(modals)/profile-modal/main';
-import { ProfileModalView } from '@/(modals)/profile-modal/view';
+} from '@/(modals)/app/profile-modal/main';
+import { ProfileModalView } from '@/(modals)/app/profile-modal/view';
 import {
   SettingsModalContext,
   useSettingsModal,
-} from '@/(modals)/settings-modal/main';
-import { SettingsModalView } from '@/(modals)/settings-modal/view';
+} from '@/(modals)/app/settings-modal/main';
+import { SettingsModalView } from '@/(modals)/app/settings-modal/view';
 import { TopbarLink } from './container/left-group/link/main';
 import { TopbarLeftGroup } from './container/left-group/main';
 

@@ -8,14 +8,14 @@ import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
   ResourcesModalContext,
   useResourceModal,
-} from '../../../../../../../(modals)/resources-modal/main';
+} from '../../../../../../../(modals)/studio/resource/resources-modal/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
 import { useCollection } from '@/(logic)/internal/handler/explorer/collection/main';
 import { useGallery } from '@/(logic)/internal/handler/explorer/gallery/main';
-import { ResourcesModalView } from '@/(modals)/resources-modal/view';
+import { ResourcesModalView } from '@/(modals)/studio/resource/resources-modal/view';
 
 interface ExploreCollectionContextObj {
   gallery: GalleryObj;

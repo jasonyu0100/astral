@@ -8,9 +8,9 @@ import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   SpacesModalContext,
   useSpacesModal,
-} from '../../../../../(modals)/space-modal/main';
+} from '../../../../../(modals)/studio/space-modal/main';
 import { SpacesHandler, useSpaces } from '@/(logic)/internal/handler/spaces/main';
-import { SpacesModalView } from '@/(modals)/space-modal/view';
+import { SpacesModalView } from '@/(modals)/studio/space-modal/view';
 
 export interface SpacesContextObj {
   spaces: SpaceObj[];

@@ -2,7 +2,7 @@ import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main
 import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';
 import { GalleryThumbnail } from '../../common/cover/thumbnail/main';
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
+import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
 
 export function GallerySidebarCover() {
   const gallery = useContext(GalleryContext);

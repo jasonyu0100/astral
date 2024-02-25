@@ -4,7 +4,7 @@ import {
   containerStyles,
 } from '@/(design)/(styles)/data';
 import { Glass } from '@/(components)/(basic)/glass/main';
-import { SpacesModalContext } from '@/(modals)/space-modal/main';
+import { SpacesModalContext } from '@/(modals)/studio/space-modal/main';
 import { useContext } from 'react';
 import { SpacesHeaderAction } from './action/main';
 import { SpacesAlbumInfo } from './album-info/main';

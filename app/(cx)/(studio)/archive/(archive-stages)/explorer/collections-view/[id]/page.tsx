@@ -7,13 +7,13 @@ import insideCosmos from '@/(logic)/utils/isAuth';
 import {
   CollectionsModalContext,
   useCollectionsModal,
-} from '../../../../../../../(modals)/collections-modal/main';
+} from '../../../../../../../(modals)/studio/collection/collections-modal/main';
 import { useGallery } from '@/(logic)/internal/handler/explorer/gallery/main';
 import {
   CollectionHandler,
   useCollections,
 } from '@/(logic)/internal/handler/explorer/collections/main';
-import { CollectionsModalView } from '@/(modals)/collections-modal/view';
+import { CollectionsModalView } from '@/(modals)/studio/collection/collections-modal/view';
 
 interface ExploreGalleryContextObj {
   gallery: GalleryObj;
