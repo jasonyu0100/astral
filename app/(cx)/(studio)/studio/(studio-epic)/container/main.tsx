@@ -1,14 +1,14 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 
 export function SpaceContainer({ children }: { children: React.ReactNode }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={SpaceContainer.name}
       sizeStyle='w-full h-full'
       className={`${containerStyles.row}`}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

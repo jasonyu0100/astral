@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { createContext, useContext } from 'react';
 import { FlowContext } from '../../../page';
@@ -12,7 +12,7 @@ export function FlowMoments() {
 
   return (
     <div className='w-full' style={{ height: '100%' }}>
-      <Glass
+      <GlassContainer
         displayName={FlowMoments.name}
         sizeStyle='w-full h-full'
         className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
@@ -23,7 +23,7 @@ export function FlowMoments() {
             <FlowMoment/>
           </FlowMomentContext.Provider>
         ))}
-      </Glass>
+      </GlassContainer>
     </div>
   );
 }

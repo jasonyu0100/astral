@@ -1,17 +1,17 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { FlowChapters } from './chapters/main';
 import { FlowCore } from './core/main';
 
 export function FlowMain() {
   return (
-    <Glass
+    <GlassContainer
       displayName={FlowMain.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['col']}`}
     >
       <FlowCore/>
       <FlowChapters/>
-    </Glass>
+    </GlassContainer>
   );
 }

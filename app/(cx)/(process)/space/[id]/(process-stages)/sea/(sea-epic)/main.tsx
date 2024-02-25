@@ -1,14 +1,14 @@
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function SeaMain({ children }: { children: React.ReactNode }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={SeaMain.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row-center']}`}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

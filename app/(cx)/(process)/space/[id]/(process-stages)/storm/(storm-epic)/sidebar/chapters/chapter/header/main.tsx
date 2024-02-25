@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
@@ -13,13 +13,13 @@ export function StormChapterHeader({
   const { chapterHandler } = useContext(StormContext);
   return (
     <button onClick={() => chapterHandler.goToChapter(chapter)}>
-      <Glass
+      <GlassContainer
         displayName={StormChapterHeader.name}
-        sizeStyle='w-full h-[50px]'
+        sizeStyle='w-full py-[0.5rem]'
         className={`${containerStyles['row-center']} justify-between`}
       >
         {children}
-      </Glass>
+      </GlassContainer>
     </button>
   );
 }

@@ -1,15 +1,15 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
 
 export function GalleryPhoto({ children }: { children: React.ReactNode }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={GalleryPhoto.name}
       className='flex flex-col'
       sizeStyle='aspect-[11/16] w-full'
-      backgroundStyle={backgroundStyles['glass-10']}
+      glassStyle={backgroundStyles['glass-10']}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
   containerStyles,
   borderStyles,
@@ -17,18 +17,18 @@ export function DraftHeader() {
   const modalType = draftContext.modalType
 
   return (
-    <Glass
+    <GlassContainer
       displayName={DraftHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
       borderStyle={borderStyles['border-b']}
-      backgroundStyle={backgroundStyles['glass-5']}
+      glassStyle={backgroundStyles['glass-5']}
     >
       {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
       {modalType === DraftModalType.STAR && <DraftHeaderStar/>}
       {modalType === DraftModalType.INFO && <DraftHeaderInfo/>}
       {modalType === DraftModalType.SOUND && <DraftHeaderSound/>}
       {modalType === DraftModalType.VISUAL && <DraftHeaderVisual/>}
-    </Glass>
+    </GlassContainer>
   );
 }

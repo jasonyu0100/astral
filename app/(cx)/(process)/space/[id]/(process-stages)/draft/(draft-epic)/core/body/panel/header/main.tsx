@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { DraftHeaderAddButton } from '../../../header/modes/default/left/add/main';
 import { DraftModalContext } from '@/(modals)/process/draft-modal/main';
 import { useContext } from 'react';
@@ -8,7 +8,7 @@ export function DraftPanelHeader() {
   const { open } = modalContext.addConstellationModal;
     
   return (
-    <Glass
+    <GlassContainer
       sizeStyle='w-full h-[60px]'
       className='flex flex-row items-center justify-between'
       displayName={DraftPanelHeader.name}
@@ -19,6 +19,6 @@ export function DraftPanelHeader() {
           open();
         }}
       />
-    </Glass>
+    </GlassContainer>
   );
 }

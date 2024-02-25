@@ -1,10 +1,10 @@
-import { Glass } from '../../(basic)/glass/main';
+import { GlassContainer } from '../../(basic)/glass/container/main';
 import { containerStyles, borderStyles } from '../../../(design)/(styles)/data';
 import { FormInputProps } from '../../../(types)/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (
-    <Glass
+    <GlassContainer
       displayName={SearchBar.name}
       sizeStyle='w-full h-[4rem]'
       className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
@@ -39,6 +39,6 @@ export function SearchBar({ ...props }: FormInputProps) {
         placeholder='enter search...'
         {...props}
       />
-    </Glass>
+    </GlassContainer>
   );
 }

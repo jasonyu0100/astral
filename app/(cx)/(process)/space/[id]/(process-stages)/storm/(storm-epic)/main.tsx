@@ -1,15 +1,15 @@
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function StormMain({ children }: { children: React.ReactNode }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={StormMain.name}
       sizeStyle='h-full flex-grow'
-      backgroundStyle={backgroundStyles['glass-5']}
+      glassStyle={backgroundStyles['glass-5']}
       className={`${containerStyles['row']}`}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

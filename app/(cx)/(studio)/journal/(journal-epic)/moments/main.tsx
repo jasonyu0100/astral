@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FeedJournalContext } from '../../(journal-stages)/feed/page';
@@ -8,7 +8,7 @@ export function FeedPosts() {
   const { moments } = useContext(FeedJournalContext);
   
   return (
-    <Glass
+    <GlassContainer
       displayName={FeedPosts.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
@@ -16,6 +16,6 @@ export function FeedPosts() {
       {moments.map((moment) => (
         <FeedMoment moment={moment} />
       ))}
-    </Glass>
+    </GlassContainer>
   );
 }

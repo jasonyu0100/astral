@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import React, { useContext } from 'react';
 import { CollectionsBreadcrumbs } from './breadcrumbs/main';
@@ -9,14 +9,14 @@ export function CollectionsBody() {
   const { gallery } = useContext(ExploreGalleryContext);
   
   return (
-    <Glass
+    <GlassContainer
       displayName={CollectionsBody.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
-      backgroundStyle={backgroundStyles['glass-5']}
+      glassStyle={backgroundStyles['glass-5']}
     >
       <CollectionsBreadcrumbs />
       {gallery !== null && <GalleryCollectionGrid />}
-    </Glass>
+    </GlassContainer>
   );
 }

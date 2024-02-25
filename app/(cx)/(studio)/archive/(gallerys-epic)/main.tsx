@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 import { GallerysBreadcrumbs } from './breadcrumbs/main';
@@ -6,14 +6,14 @@ import { GallerysGrid } from './grid/main';
 
 export function GallerysBody() {
   return (
-    <Glass
+    <GlassContainer
       displayName={GallerysBody.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
-      backgroundStyle={backgroundStyles['glass-5']}
+      glassStyle={backgroundStyles['glass-5']}
     >
       <GallerysBreadcrumbs />
       <GallerysGrid />
-    </Glass>
+    </GlassContainer>
   );
 }

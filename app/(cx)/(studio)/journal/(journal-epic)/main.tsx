@@ -1,16 +1,16 @@
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { FeedPosts } from './moments/main';
 
 export function FeedMain() {
   return (
-    <Glass
+    <GlassContainer
       displayName={FeedMain.name}
       className={`${containerStyles.row}`}
-      backgroundStyle={backgroundStyles['glass-5']}
+      glassStyle={backgroundStyles['glass-5']}
       sizeStyle='flex-grow h-full'
     >
       <FeedPosts />
-    </Glass>
+    </GlassContainer>
   );
 }

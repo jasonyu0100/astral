@@ -6,7 +6,7 @@ import { SpaceGenre } from './genre/main';
 import { SpaceInfo } from './info/main';
 import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
 import { createContext, useState } from 'react';
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
 
 interface CreativeSpaceProps {
@@ -29,10 +29,10 @@ export function SpacesSpace({ space, index }: CreativeSpaceProps) {
 
   return (
     <CreativeSpaceContext.Provider value={{ space, index, hover }}>
-      <Glass
+      <GlassContainer
         displayName={SpacesSpace.name}
         sizeStyle='w-full h-[100px]'
-        backgroundStyle={`${hover && backgroundStyles['glass-5']}`}
+        glassStyle={`${hover && backgroundStyles['glass-5']}`}
         className={`flex h-[100px] w-full max-w-[1000px] flex-row items-center justify-between px-[3rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}
@@ -42,7 +42,7 @@ export function SpacesSpace({ space, index }: CreativeSpaceProps) {
         <SpaceGenre />
         <SpaceDay />
         <SpaceDate />
-      </Glass>
+      </GlassContainer>
     </CreativeSpaceContext.Provider>
   );
 }

@@ -1,4 +1,5 @@
-import { DivInputProps } from '../../../(types)/main';
+import { DivInputProps } from '../../../../(types)/main';
+import { GlassPane } from '../pane/main';
 
 interface GlassContentProps extends DivInputProps {
   contentStyle?: string;
@@ -16,37 +17,19 @@ function GlassContent({ children, ...props }: GlassContentProps) {
   );
 }
 
-interface GlassBackgroundProps {
-  backgroundStyle?: string;
-  effectStyle?: string;
-}
-
-function GlassBackground({
-  backgroundStyle,
-  effectStyle,
-}: GlassBackgroundProps) {
-  return (
-    <div
-      className={`h-full w-full flex-shrink-0 ${backgroundStyle} ${effectStyle}`}
-    ></div>
-  );
-}
-
 interface GlassProps extends DivInputProps {
   displayName: string;
   sizeStyle?: string;
   contentStyle?: string;
-  backgroundStyle?: string;
-  effectStyle?: string;
+  glassStyle?: string;
   borderStyle?: string;
   children?: React.ReactNode;
 }
 
-export function Glass({
+export function GlassContainer({
   displayName,
   sizeStyle,
-  backgroundStyle,
-  effectStyle,
+  glassStyle,
   borderStyle,
   children,
   ...props
@@ -58,9 +41,8 @@ export function Glass({
         borderStyle || ''
       }`}
     >
-      <GlassBackground
-        backgroundStyle={backgroundStyle || ''}
-        effectStyle={effectStyle || ''}
+      <GlassPane
+        glassStyle={glassStyle || ''}
       />
       <GlassContent {...props}>{children}</GlassContent>
     </div>

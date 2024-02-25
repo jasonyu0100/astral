@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
   backgroundStyles,
   borderStyles,
@@ -7,13 +7,13 @@ import {
 
 export function DashboardPlayer({ children }: { children: React.ReactNode }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={DashboardPlayer.name}
       sizeStyle='h-[1rem] w-full'
       className={`${containerStyles['row-centered']}`}
-      backgroundStyle={'bg-gradient-to-br from-slate-900 to-slate-950'}
+      glassStyle={'bg-gradient-to-br from-slate-900 to-slate-950'}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

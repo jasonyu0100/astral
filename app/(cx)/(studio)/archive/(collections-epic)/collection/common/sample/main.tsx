@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 
@@ -8,13 +8,13 @@ export function CollectionSample({
   children: React.ReactNode;
 }) {
   return (
-    <Glass
+    <GlassContainer
       displayName={CollectionSample.name}
       className='flex h-full w-full flex-row items-center'
       sizeStyle='h-[200px] aspect-[32/16]'
-      backgroundStyle={backgroundStyles['glass-10']}
+      glassStyle={backgroundStyles['glass-10']}
     >
       {children}
-    </Glass>
+    </GlassContainer>
   );
 }

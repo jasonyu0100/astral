@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/(basic)/glass/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FlowContext } from '../../../../page';
@@ -11,10 +11,10 @@ export function FlowChapter() {
 
   return (
     <button onClick={() => chapterHandler.goToChapter(chapter)}>
-      <Glass
+      <GlassContainer
         displayName={FlowChapter.name}
         sizeStyle='w-[200px] h-[40px]'
-        backgroundStyle={backgroundStyles['glass-5']}
+        glassStyle={backgroundStyles['glass-5']}
         borderStyle={borderStyles['rounded-full']}
       >
         <div className='flex h-full w-full items-center justify-center'>
@@ -24,7 +24,7 @@ export function FlowChapter() {
             <div className='font-bold text-slate-500'>{chapter.title}</div>
           )}
         </div>
-      </Glass>
+      </GlassContainer>
     </button>
   );
 }
