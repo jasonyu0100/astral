@@ -1,12 +1,12 @@
 'use client';
 import { StormSidebar } from './(storm-epic)/sidebar/main';
 import { StormWrapper } from './(storm-epic)/main';
-import { StormBody } from './(storm-epic)/center/main';
+import { StormCore } from './(storm-epic)/core/main';
 
 export function StormView() {
   return (
     <StormWrapper>
-      <StormBody/>
+      <StormCore/>
       <StormSidebar />
     </StormWrapper>
   );

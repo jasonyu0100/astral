@@ -1,7 +1,4 @@
 'use client';
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { cn } from '@/(logic)/utils/cn';
 import { useState } from 'react';
 
 export const stripeProducts = {

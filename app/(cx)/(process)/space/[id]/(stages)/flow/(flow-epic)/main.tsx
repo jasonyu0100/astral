@@ -1,7 +1,7 @@
 import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { FlowChapters } from './chapters/main';
-import { FlowPage } from './page/main';
+import { FlowCore } from './core/main';
 
 export function FlowBody() {
   return (
@@ -10,7 +10,7 @@ export function FlowBody() {
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['col']}`}
     >
-      <FlowPage/>
+      <FlowCore/>
       <FlowChapters/>
     </Glass>
   );
