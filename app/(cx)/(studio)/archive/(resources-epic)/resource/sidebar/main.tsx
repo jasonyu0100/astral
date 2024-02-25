@@ -1,4 +1,7 @@
-import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import {
+  FileObj,
+  FileVariant,
+} from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
   useFileModal,
@@ -11,6 +14,7 @@ import { CollectionResourceImage } from '../common/image/main';
 import { CollectionResourceVideo } from '../common/video/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 import { ResourcePolaroid } from './polaroid/main';
+import { CollectionResourceMedia } from '../common/media/main';
 
 export function SidebarCollectionResource() {
   const { starHandler } = useContext(DraftContext);
@@ -31,11 +35,7 @@ export function SidebarCollectionResource() {
           )
         }
       >
-        <>
-          {variant === FileVariant.IMAGE && <CollectionResourceImage />}
-          {variant === FileVariant.AUDIO && <CollectionResourceAudio />}
-          {variant === FileVariant.VIDEO && <CollectionResourceVideo />}
-        </>
+        <CollectionResourceMedia />
       </ResourcePolaroid>
     </ResourceModalContext.Provider>
   );

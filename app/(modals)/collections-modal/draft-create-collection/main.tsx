@@ -11,7 +11,7 @@ import { useContext, useState } from 'react';
 import { CollectionsModalContext } from '../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { SelectedImage } from '@/(components)/(form)/selected-image/main';
+import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { Divider } from '@/(components)/(basic)/divider/main';
 
 export function DraftCreateCollectionModal() {

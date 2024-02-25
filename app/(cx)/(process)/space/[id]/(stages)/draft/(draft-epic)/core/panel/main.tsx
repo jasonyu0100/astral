@@ -1,7 +1,7 @@
 import { Glass } from '@/(components)/(basic)/glass/main';
 import { borderStyles } from '@/(design)/(styles)/data';
 import { DraftPanelHeader } from './header/main';
-import { DraftPanelList } from './list/main';
+import { DraftConstellationList } from './list/main';
 
 export function DraftPanel() {
   return (
@@ -12,7 +12,7 @@ export function DraftPanel() {
       borderStyle={borderStyles['border-r']}
     >
       <DraftPanelHeader />
-      <DraftPanelList />
+      <DraftConstellationList />
     </Glass>
   );
 }

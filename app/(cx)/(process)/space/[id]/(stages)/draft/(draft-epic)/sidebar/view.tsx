@@ -1,16 +1,9 @@
 import { Glass } from '@/(components)/(basic)/glass/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { SidebarBody } from './modes/main';
-import { ResourcesInterface } from './modes/resources-view/main';
-import { CollectionsInterface } from './modes/collections-view/main';
-import { DraftSidebarContext, SidebarMode } from './main';
-import { useContext } from 'react';
+import { DraftSidebarBody } from './modes/main';
 import { DraftSidebarHeader } from './header/main';
-import { SidebarGallerysInterface } from './modes/gallerys-view/main';
 
 export function DraftSidebarView() {
-  const { sidebarMode } = useContext(DraftSidebarContext);
-
   return (
     <Glass
       displayName={DraftSidebarView.name}
@@ -19,11 +12,7 @@ export function DraftSidebarView() {
       backgroundStyle={backgroundStyles['glass-10']}
     >
       <DraftSidebarHeader />
-      <SidebarBody>
-        {sidebarMode === SidebarMode.Gallerys && <SidebarGallerysInterface />}
-        {sidebarMode === SidebarMode.Collections && <CollectionsInterface />}
-        {sidebarMode === SidebarMode.Resources && <ResourcesInterface />}
-      </SidebarBody>
+      <DraftSidebarBody />
     </Glass>
   );
 }

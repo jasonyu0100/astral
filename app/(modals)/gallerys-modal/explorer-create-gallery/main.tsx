@@ -9,7 +9,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
-import { SelectedImage } from '@/(components)/(form)/selected-image/main';
+import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
 import { ExploreHomeContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/gallerys-view/page';
 
@@ -26,7 +26,7 @@ export function ExplorerCreateGalleryModal() {
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
-          <SelectedImage selected={thumbnail} />
+          <DisplayImage selected={thumbnail} />
           <FormSearchImage
             value={thumbnail}
             onChange={(file) => changeThumbnail(file)}

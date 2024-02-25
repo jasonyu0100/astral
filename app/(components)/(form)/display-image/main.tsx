@@ -1,6 +1,6 @@
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 
-export function SelectedImage({ selected }: { selected: FileObj }) {
+export function DisplayImage({ selected }: { selected: FileObj }) {
   return (
     <div className='flex w-full flex-col items-center py-[1rem]'>
       <img

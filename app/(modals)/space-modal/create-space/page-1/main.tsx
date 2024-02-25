@@ -2,7 +2,7 @@ import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { SelectedImage } from '@/(components)/(form)/selected-image/main';
+import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 
@@ -19,7 +19,7 @@ export function PageOne() {
 
   return (
     <FormBody>
-      <SelectedImage selected={thumbnail} />
+      <DisplayImage selected={thumbnail} />
       <FormSearchImage
         value={thumbnail}
         onChange={(file) => updateThumbnail(file)}

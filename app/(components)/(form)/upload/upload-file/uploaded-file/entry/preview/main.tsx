@@ -1,11 +1,16 @@
-import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import {
+  FileContext,
+  FileVariant,
+} from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { useContext } from 'react';
 
-export function UploadedFileInfo({ file }: { file: FileObj }) {
+export function UploadedFilePreview() {
+  const file = useContext(FileContext);
   return (
-    <div className='flex flex-row items-center space-x-[2rem]'>
+    <>
       {file.variant === FileVariant.AUDIO && (
         <div
-          className='aspect-square h-[100px] w-[100px] bg-black shadow-md flex items-center justify-center cursor-pointer'
+          className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center bg-black shadow-md'
           onClick={() => {
             const audio = document.getElementById(
               'file-upload-audio',
@@ -15,7 +20,7 @@ export function UploadedFileInfo({ file }: { file: FileObj }) {
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className="w-1/2 h-1/2"
+            className='h-1/2 w-1/2'
             viewBox='0 0 24 24'
             fill='none'
           >
@@ -56,11 +61,6 @@ export function UploadedFileInfo({ file }: { file: FileObj }) {
           className='aspect-square h-[100px] bg-black object-cover shadow-md'
         />
       )}
-      <div className='flex flex-col'>
-        <p className='text-lg font-bold'>{file.title}</p>
-        <p className='text-sm text-slate-500'>{file.fileType}</p>
-        <p className='text-md text-slate-500'>{file.size} bytes</p>
-      </div>
-    </div>
+    </>
   );
 }
