@@ -6,8 +6,8 @@ import { SpaceGenre } from './genre/main';
 import { SpaceInfo } from './info/main';
 import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
 import { createContext, useState } from 'react';
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 
 interface CreativeSpaceProps {
   space: SpaceObj;

@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 import { DivInputProps } from '@/(types)/main';
 
 interface InputProps extends DivInputProps {

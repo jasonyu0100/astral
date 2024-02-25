@@ -1,5 +1,5 @@
 import { cn } from "@/(logic)/utils/cn";
-import { DivInputProps } from "../../(types)/main";
+import { DivInputProps } from "../../../(types)/main";
 
 interface AspectProps extends DivInputProps {
     x: number;

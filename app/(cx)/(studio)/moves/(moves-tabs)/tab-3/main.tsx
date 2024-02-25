@@ -1,6 +1,6 @@
-import { Tab } from '../../../../../(components)/cx/tabs/tabs-row/tab/main';
-import { TabText } from '../../../../../(components)/cx/tabs/tabs-row/tab/text/main';
-import { TabPurpleShard } from '@/(components)/cx/tabs/tabs-row/tab/shard/purple/main';
+import { Tab } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/main';
+import { TabText } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/text/main';
+import { TabPurpleShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/purple/main';
 import { movesMap } from '../../map';
 import { RecordTabStage } from '../main';
 

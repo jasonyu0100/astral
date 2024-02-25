@@ -1,16 +1,16 @@
-import { FormBody } from '@/(components)/form/body/main';
-import { FormButton } from '@/(components)/form/button/main';
-import { FormFooter } from '@/(components)/form/footer/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormButton } from '@/(components)/(form)/button/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 import { NoteObj, NoteVariant } from '@/(logic)/internal/data/infra/model/resource/note/main';
-import { FormSelect } from '@/(components)/form/select/main';
-import { FormTextArea } from '@/(components)/form/area/main';
-import { FormInput } from '@/(components)/form/input/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 
 export function AddNoteStarModal() {
   const { starHandler } = useContext(DraftContext);

@@ -1,9 +1,9 @@
 import { TabTwo } from './tab-2/main';
 import { TabOne } from './tab-1/main';
 import { TabThree } from './tab-3/main';
-import { TabsRow } from '../../../../(components)/cx/tabs/tabs-row/main';
-import { Tabs } from '../../../../(components)/cx/tabs/main';
-import { TabsBackButton } from '@/(components)/cx/tabs/tabs-row/back-button/main';
+import { TabsRow } from '../../../../(components)/(cx)/tabs/tabs-row/main';
+import { Tabs } from '../../../../(components)/(cx)/tabs/main';
+import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
 export enum LinkTabStage {

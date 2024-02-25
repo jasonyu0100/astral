@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 
 export function LinkSpotifyStar() {
   const { star, x, y, constraintsRef, activateStar } =

@@ -1,13 +1,13 @@
-import { FormBody } from '@/(components)/form/body/main';
-import { FormButton } from '@/(components)/form/button/main';
-import { FormFooter } from '@/(components)/form/footer/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormButton } from '@/(components)/(form)/button/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { SelectedImage } from '@/(components)/form/selected-image/main';
+import { SelectedImage } from '@/(components)/(form)/selected-image/main';
 
 export function EditProfileModal() {
   const user = useGlobalUser((state) => state.user)

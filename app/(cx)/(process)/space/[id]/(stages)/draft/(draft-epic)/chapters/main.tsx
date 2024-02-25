@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 import { DraftChaptersLeftButton } from './left/main';
 import { DraftChaptersRightButton } from './right/main';
 import { DraftChaptersRow } from './row/main';

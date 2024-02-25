@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles, containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 import { GallerysBreadcrumbs } from './breadcrumbs/main';
 import { GallerysGrid } from './grid/main';

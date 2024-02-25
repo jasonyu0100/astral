@@ -1,4 +1,4 @@
-import { DashboardContent } from '@/(components)/cx/content/main';
+import { DashboardContent } from '@/(components)/(cx)/content/main';
 import { ArtistsTabStage, ArtistsTabs } from '../../(artists-tabs)/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {

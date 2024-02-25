@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
 import { ChapterContext, ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';

@@ -1,5 +1,5 @@
 import { Glass } from '../glass/main';
-import { borderStyles } from '../styles/data';
+import { borderStyles } from '../../../(design)/(styles)/data';
 
 export function Divider() {
   return (

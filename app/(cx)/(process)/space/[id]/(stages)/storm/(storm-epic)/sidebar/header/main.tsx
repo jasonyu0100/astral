@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { borderStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { borderStyles } from '@/(design)/(styles)/data';
 
 export function StormSidebarHeader() {
   return (

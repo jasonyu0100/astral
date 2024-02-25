@@ -1,6 +1,6 @@
-import { Glass } from '../glass/main';
-import { containerStyles, borderStyles } from '../styles/data';
-import { FormInputProps } from '../../(types)/main';
+import { Glass } from '../../(basic)/glass/main';
+import { containerStyles, borderStyles } from '../../../(design)/(styles)/data';
+import { FormInputProps } from '../../../(types)/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (

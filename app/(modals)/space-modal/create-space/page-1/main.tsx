@@ -1,8 +1,8 @@
-import { FormTextArea } from '@/(components)/form/area/main';
-import { FormBody } from '@/(components)/form/body/main';
-import { FormInput } from '@/(components)/form/input/main';
-import { FormSearchImage } from '@/(components)/form/search-image/main';
-import { SelectedImage } from '@/(components)/form/selected-image/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormInput } from '@/(components)/(form)/input/main';
+import { FormSearchImage } from '@/(components)/(form)/search-image/main';
+import { SelectedImage } from '@/(components)/(form)/selected-image/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 

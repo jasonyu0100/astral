@@ -1,6 +1,6 @@
-import { Tab } from '../../../../../(components)/cx/tabs/tabs-row/tab/main';
-import { TabPurpleShard } from '../../../../../(components)/cx/tabs/tabs-row/tab/shard/purple/main';
-import { TabText } from '../../../../../(components)/cx/tabs/tabs-row/tab/text/main';
+import { Tab } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/main';
+import { TabPurpleShard } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/shard/purple/main';
+import { TabText } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/text/main';
 import { journalMap } from '../../map';
 import { LinkTabStage } from '../main';
 

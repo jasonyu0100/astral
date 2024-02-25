@@ -1,4 +1,4 @@
-import { CircleLeftIcon } from '@/(components)/icons/global/circle-left/main';
+import { CircleLeftIcon } from '@/(design)/(icons)/global/circle-left/main';
 import { LinkInputProps } from '@/(types)/main';
 import Link from 'next/link';
 

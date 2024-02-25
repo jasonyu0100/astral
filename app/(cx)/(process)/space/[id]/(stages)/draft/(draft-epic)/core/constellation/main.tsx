@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { containerStyles } from '@/(design)/(styles)/data';
 import { DraftLinks } from './links/main';
 import { DraftConstellationStars } from './stars/main';
 

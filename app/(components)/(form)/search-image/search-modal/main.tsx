@@ -1,11 +1,11 @@
 import { FormBody } from '../../body/main';
 import { FormContainer } from '../../main';
-import { Modal } from '../../../modal/main';
+import { Modal } from '../../../(modal)/main';
 import { useUnsplash } from '@/(logic)/internal/handler/external/unsplash/main';
 import { useEffect, useState } from 'react';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ImageInputProps } from '../../../../(types)/main';
-import { SearchBar } from '@/(components)/search-bar/main';
+import { SearchBar } from '@/(components)/(inter)/search-bar/main';
 import { cn } from '@/(logic)/utils/cn';
 
 export default function SearchModal({

@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/glass/main';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import { useContext } from 'react';
 import { SpacesContext } from '../../(studio-stages)/all/page';
 import { SpacesSpace } from './space/main';

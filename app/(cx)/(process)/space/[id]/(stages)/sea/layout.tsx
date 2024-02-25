@@ -1,5 +1,5 @@
-import { DashboardContent } from '@/(components)/cx/content/main';
-import { DashboardBody } from '@/(components)/cx/controller/body/main';
+import { DashboardContent } from '@/(components)/(cx)/content/main';
+import { DashboardBody } from '@/(components)/(cx)/controller/body/main';
 import {
   SpaceTabStage,
   SpaceTabs,

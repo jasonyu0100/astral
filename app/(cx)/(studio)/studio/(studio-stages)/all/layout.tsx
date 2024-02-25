@@ -1,4 +1,4 @@
-import { DashboardContent } from '@/(components)/cx/content/main';
+import { DashboardContent } from '@/(components)/(cx)/content/main';
 
 import { SpaceTabStages, SpacesTabs } from '../../(studio-tabs)/main';
 

@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(types)/main';
 
-export function DraftHeaderSaveButton({ ...props }: ButtonInputProps) {
+export function DraftSaveButton({ ...props }: ButtonInputProps) {
   return (
     <button
       className={

@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles, containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import { StormSidebarChapters } from './chapters/main';
 import { StormSidebarHeader } from './header/main';
 

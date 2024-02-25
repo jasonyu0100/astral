@@ -1,6 +1,6 @@
 'use client';
-import { Glass } from '@/(components)/glass/main';
-import { borderStyles, containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 
 export function RecordShelf({ children }: { children: React.ReactNode }) {
   return (

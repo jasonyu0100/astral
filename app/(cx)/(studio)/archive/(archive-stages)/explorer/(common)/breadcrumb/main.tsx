@@ -1,9 +1,9 @@
-import { Glass } from '@/(components)/glass/main';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from '@/(components)/styles/data';
+} from '@/(design)/(styles)/data';
 
 export function CollectionBreadcrumbs({
   children,

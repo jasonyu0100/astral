@@ -1,5 +1,5 @@
-import { backgroundStyles, containerStyles } from '@/(components)/styles/data';
-import { Glass } from '@/(components)/glass/main';
+import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
 
 export function SeaMain({ children }: { children: React.ReactNode }) {
   return (

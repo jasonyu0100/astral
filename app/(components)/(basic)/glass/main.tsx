@@ -1,4 +1,4 @@
-import { DivInputProps } from '../../(types)/main';
+import { DivInputProps } from '../../../(types)/main';
 
 interface GlassContentProps extends DivInputProps {
   contentStyle?: string;

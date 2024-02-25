@@ -1,9 +1,10 @@
-import { NetworkIcon, InfoIcon } from 'lucide-react';
 import { useContext } from 'react';
 import { DraftContext, DraftModalType } from '../../../../../../page';
 import { SoundIcon } from '../../icons/sound/main';
 import { VisualIcon } from '../../icons/visual/main';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { NetworkIcon } from '../../icons/network/main';
+import { InfoIcon } from '../../icons/info/main';
 
 export function ToggleButton() {
   const { toggle } = useContext(ToggleContext);

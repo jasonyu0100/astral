@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from '@/(components)/styles/data';
-import { Glass } from '@/(components)/glass/main';
+} from '@/(design)/(styles)/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import { SpacesModalContext } from '@/(modals)/space-modal/main';
 import { useContext } from 'react';
 import { SpacesHeaderAction } from './action/main';

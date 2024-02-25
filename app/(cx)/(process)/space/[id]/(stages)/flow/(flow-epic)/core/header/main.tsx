@@ -1,9 +1,9 @@
-import { Glass } from '@/(components)/glass/main';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import {
   containerStyles,
   borderStyles,
   backgroundStyles,
-} from '@/(components)/styles/data';
+} from '@/(design)/(styles)/data';
 import { FlowHeaderLeft } from './left/main';
 import { FlowHeaderMiddle } from './middle/main';
 import { FlowHeaderRight } from './right/main';

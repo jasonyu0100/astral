@@ -2,8 +2,8 @@ import {
   backgroundStyles,
   borderStyles,
   containerStyles,
-} from '@/(components)/styles/data';
-import { Glass } from '@/(components)/glass/main';
+} from '@/(design)/(styles)/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';
 import { HeaderAgent } from './agent/main';

@@ -1,4 +1,4 @@
-import { Glass } from '@/(components)/glass/main';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import { DraftHeaderAddButton } from '../../header/modes/default/left/add/main';
 import { DraftModalContext } from '@/(modals)/draft-modal/main';
 import { useContext } from 'react';

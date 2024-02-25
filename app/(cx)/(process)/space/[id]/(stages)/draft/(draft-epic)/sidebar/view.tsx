@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles, containerStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import { SidebarBody } from './modes/main';
 import { ResourcesInterface } from './modes/resources-view/main';
 import { CollectionsInterface } from './modes/collections-view/main';

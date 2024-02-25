@@ -1,9 +1,9 @@
-import { Glass } from '@/(components)/glass/main';
+import { Glass } from '@/(components)/(basic)/glass/main';
 import {
   containerStyles,
   borderStyles,
   backgroundStyles,
-} from '@/(components)/styles/data';
+} from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../page';
 import { useContext } from 'react';
 import { DraftHeaderDefault } from './modes/default/main';

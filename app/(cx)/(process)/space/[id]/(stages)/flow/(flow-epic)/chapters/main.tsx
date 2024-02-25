@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 import { FlowChaptersLeftButton } from './left/main';
 import { FlowChaptersRightButton } from './right/main';
 import { FlowChaptersRow } from './row/main';

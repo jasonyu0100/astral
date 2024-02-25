@@ -1,5 +1,5 @@
-import { Glass } from '@/(components)/glass/main';
-import { backgroundStyles, borderStyles } from '@/(components)/styles/data';
+import { Glass } from '@/(components)/(basic)/glass/main';
+import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FlowContext } from '../../../../page';
 import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';

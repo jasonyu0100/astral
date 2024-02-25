@@ -1,17 +1,17 @@
-import { FormTextArea } from '@/(components)/form/area/main';
-import { FormBody } from '@/(components)/form/body/main';
-import { FormButton } from '@/(components)/form/button/main';
-import { FormFooter } from '@/(components)/form/footer/main';
-import { FormInput } from '@/(components)/form/input/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormButton } from '@/(components)/(form)/button/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ExploreCollectionContext } from '../../../(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourcesModalContext } from '../main';
-import { FormSelect } from '@/(components)/form/select/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
 
 export function ExplorerAddResourceModal() {
   const { resourceHandler } = useContext(ExploreCollectionContext);

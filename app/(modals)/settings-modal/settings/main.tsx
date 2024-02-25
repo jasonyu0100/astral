@@ -1,7 +1,7 @@
-import { FormBody } from '@/(components)/form/body/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';

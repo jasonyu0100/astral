@@ -1,13 +1,13 @@
-import { DraftHeaderDefaultCenter } from './center/main';
-import { DraftHeaderDefaultLeft } from './left/main';
-import { DraftHeaderDefaultRight } from './right/main';
+import { DefaultCenter } from './center/main';
+import { DefaultLeft } from './left/main';
+import { DefaultRight } from './right/main';
 
 export function DraftHeaderDefault() {
   return (
     <>
-      <DraftHeaderDefaultLeft />
-      <DraftHeaderDefaultCenter />
-      <DraftHeaderDefaultRight />
+      <DefaultLeft />
+      <DefaultCenter />
+      <DefaultRight />
     </>
   );
 }

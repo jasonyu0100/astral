@@ -4,7 +4,7 @@ import { ToggleButton } from './toggle-button/main';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 
 
-export function DraftHeaderToggleButton() {
+export function ToggleDraftModalButton() {
   const [toggled, changeToggled] = useState(false);
 
   return (

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { DraftContext } from '../../../../../../page';
 import DraftHeaderTitle from '../../../common/title/main';
 
-export function DraftHeaderDefaultCenter() {
+export function DefaultCenter() {
   const draftContext = useContext(DraftContext);
   const constellation = draftContext.constellation;
   const chapter = draftContext.chapter;

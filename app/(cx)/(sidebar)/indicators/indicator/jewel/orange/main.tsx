@@ -1,4 +1,4 @@
-import { effectStyles } from '@/(components)/styles/data';
+import { effectStyles } from '@/(design)/(styles)/data';
 import { cn } from '@/(logic)/utils/cn';
 
 export function IndicatorOrangeJewel({ active }: { active: boolean }) {

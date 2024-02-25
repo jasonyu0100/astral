@@ -6,14 +6,14 @@ import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';
 import { DraftHeaderNoteButton } from './note/main';
 import { useContext } from 'react';
-import { DraftHeaderToggleButton } from '../../../common/toggle/main';
+import { ToggleDraftModalButton } from '../../../common/toggle/main';
 
-export function DraftHeaderDefaultLeft() {
+export function DefaultLeft() {
   const modalContext = useContext(StarModalContext);
 
   return (
     <div className='flex w-1/3 flex-row'>
-      <DraftHeaderToggleButton/>
+      <ToggleDraftModalButton/>
       <DraftHeaderFileButton
         onClick={() => modalContext.addFileStarModal.open()}
       />

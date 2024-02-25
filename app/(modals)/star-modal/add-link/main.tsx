@@ -1,15 +1,15 @@
-import { FormBody } from '@/(components)/form/body/main';
-import { FormButton } from '@/(components)/form/button/main';
-import { FormFooter } from '@/(components)/form/footer/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormButton } from '@/(components)/(form)/button/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 import { LinkObj, LinkVariant } from '@/(logic)/internal/data/infra/model/resource/link/main';
-import { FormSelect } from '@/(components)/form/select/main';
-import { FormInput } from '@/(components)/form/input/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);

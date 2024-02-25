@@ -1,16 +1,16 @@
-import { FormTextArea } from '@/(components)/form/area/main';
-import { FormBody } from '@/(components)/form/body/main';
-import { FormButton } from '@/(components)/form/button/main';
-import { FormFooter } from '@/(components)/form/footer/main';
-import { FormInput } from '@/(components)/form/input/main';
-import { FormContainer } from '@/(components)/form/main';
-import { FormTitle } from '@/(components)/form/title/main';
-import { Modal } from '@/(components)/modal/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
+import { FormBody } from '@/(components)/(form)/body/main';
+import { FormButton } from '@/(components)/(form)/button/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
+import { FormContainer } from '@/(components)/(form)/main';
+import { FormTitle } from '@/(components)/(form)/title/main';
+import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
-import { SelectedImage } from '@/(components)/form/selected-image/main';
-import { FormSearchImage } from '@/(components)/form/search-image/main';
+import { SelectedImage } from '@/(components)/(form)/selected-image/main';
+import { FormSearchImage } from '@/(components)/(form)/search-image/main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';
 
 export function DraftCreateGalleryModal() {
