@@ -5,6 +5,7 @@ import { VisualIcon } from '../../icons/visual/main';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
+import { StarIcon } from '../../icons/star/main';
 
 export function ToggleButton() {
   const { toggle } = useContext(ToggleContext);
@@ -16,6 +17,7 @@ export function ToggleButton() {
       }
       onClick={() => toggle()}
     >
+      {modalType === DraftModalType.STAR && <StarIcon />}
       {modalType === DraftModalType.DEFAULT && <NetworkIcon />}
       {modalType === DraftModalType.SOUND && <SoundIcon />}
       {modalType === DraftModalType.VISUAL && <VisualIcon />}

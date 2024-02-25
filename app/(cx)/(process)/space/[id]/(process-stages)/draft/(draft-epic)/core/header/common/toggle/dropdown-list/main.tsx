@@ -12,11 +12,14 @@ export function ToggleDropdownList() {
   const { modalType, updateModalType } = useContext(DraftContext);
   const { toggle } = useContext(ToggleContext);
   return (
-    <div className='absolute top-[60px] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900' onMouseLeave={() => toggle()}>
+    <div
+      className={`absolute top-[60px] z-50 flex h-[180px] ${modalType === DraftModalType.STAR && "h-[240px]"} w-[360px] flex-col bg-slate-900`}
+      onMouseLeave={() => toggle()}
+    >
       <Glass
         displayName={ToggleDropdownList.name}
         sizeStyle={'w-full h-full'}
-        className='flex flex-col'
+        className='flex flex-col justify-center'
         backgroundStyle={backgroundStyles['glass-10']}
         borderStyle={borderStyles['border-all']}
       >
