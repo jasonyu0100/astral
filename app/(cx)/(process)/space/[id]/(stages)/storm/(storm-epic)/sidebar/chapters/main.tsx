@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { StormContext } from '../../../page';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
-import { ChapterContext } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 
 export function StormSidebarChapters() {
   const { chapters } = useContext(StormContext);

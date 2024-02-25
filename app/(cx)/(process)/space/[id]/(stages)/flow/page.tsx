@@ -1,11 +1,11 @@
 'use client';
 import { createContext } from 'react';
 import { FlowView } from './view';
-import { ChapterHandler, useChapters } from '@/(logic)/handler/chapters/main';
-import { MomentHandler, useMoments } from '@/(logic)/handler/flow/moments/main';
-import { MomentObj } from '@/(logic)/model/flow/moment/main';
+import { ChapterHandler, useChapters } from '@/(logic)/internal/handler/chapters/main';
+import { MomentHandler, useMoments } from '@/(logic)/internal/handler/flow/moments/main';
+import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { ChapterObj } from '@/(logic)/model/space/chapter/main';
+import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { FlowModalContext, useFlowModal } from '../../../../../../(modals)/flow-modal/main';
 import { FlowModalView } from '@/(modals)/flow-modal/view';
 

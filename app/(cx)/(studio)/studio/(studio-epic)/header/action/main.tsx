@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 import { SpacesFlowIcon } from '../../icon/flow/main';
 
 export function SpacesHeaderAction({ ...props }: ButtonInputProps) {

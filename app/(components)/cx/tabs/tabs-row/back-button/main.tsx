@@ -1,5 +1,5 @@
 import { CircleLeftIcon } from '@/(components)/icons/global/circle-left/main';
-import { LinkInputProps } from '@/(components)/types/main';
+import { LinkInputProps } from '@/(types)/main';
 import Link from 'next/link';
 
 export function TabsBackButton({ ...props }: LinkInputProps) {

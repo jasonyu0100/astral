@@ -1,10 +1,10 @@
-import { amplifyClient } from '@/(logic)/aws/graphql/main';
-import { FileObj, FileVariant, getFileAccepts, getFileVariantFromMimeType } from '@/(logic)/model/resource/file/main';
+import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
+import { FileObj, FileVariant, getFileAccepts, getFileVariantFromMimeType } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import React, { useEffect, useState } from 'react';
 import { UploadedFile } from './uploaded-file/main';
 import { UploadedFileInfo } from './uploaded-file/info/main';
 import { UploadedFileRemove } from './uploaded-file/remove/main';
-import { generateUploadURL } from '@/(logic)/aws/s3/main';
+import { generateUploadURL } from '@/(logic)/external/aws/s3/main';
 import { createFileObj } from '@/graphql/mutations';
 
 export function FormUploadFile({

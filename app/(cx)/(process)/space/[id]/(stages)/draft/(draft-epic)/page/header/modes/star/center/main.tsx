@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(logic)/model/draft/constellation/star/main';
-import DraftHeaderTitle from '../../common/title/main';
+import { StarContext } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import DraftHeaderTitle from '../../../common/title/main';
 
 export function DraftHeaderStarCenter() {
   const star = useContext(StarContext);

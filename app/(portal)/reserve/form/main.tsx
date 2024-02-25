@@ -7,7 +7,7 @@ import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
 import { PortalCosmosTextHeader } from '@/(portal)/(polaroid-epic)/container/form/text-header/main';
 import { portalModel } from '@/(portal)/(polaroid-epic)/model/main';
 import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
-import { reservePosition } from '@/(logic)/auth/reserve/main';
+import { reservePosition } from '@/(logic)/internal/calls/auth/reserve/main';
 
 export function PortalReserveForm() {
   const { variant } = useContext(PolaroidContext);

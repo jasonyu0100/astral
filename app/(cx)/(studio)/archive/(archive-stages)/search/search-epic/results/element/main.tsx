@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(logic)/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { cn } from '@/(logic)/utils/cn';
 import clsx from 'clsx';
 

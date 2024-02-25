@@ -1,15 +1,15 @@
-import { GalleryObj } from '@/(logic)/model/gallery/main';
+import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
-import { CollectionObj } from '@/(logic)/model/gallery/collection/main';
-import { ResourceObj } from '@/(logic)/model/resource/main';
-import { GalleryHandler, useGallerys } from '@/(logic)/handler/explorer/gallerys/main';
-import { useGlobalUser } from '@/(logic)/store/user/main';
-import { CollectionHandler, useCollections } from '@/(logic)/handler/explorer/collections/main';
+import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { GalleryHandler, useGallerys } from '@/(logic)/internal/handler/explorer/gallerys/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { CollectionHandler, useCollections } from '@/(logic)/internal/handler/explorer/collections/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
-} from '@/(logic)/handler/explorer/resources/main';
+} from '@/(logic)/internal/handler/explorer/resources/main';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',

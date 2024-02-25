@@ -1,9 +1,9 @@
 'use client';
 import { createContext } from 'react';
-import { GalleryObj } from '@/(logic)/model/gallery/main';
+import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { ExploreGallerysView } from './view';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   GallerysModalContext,
   useGallerysModal,
@@ -11,7 +11,7 @@ import {
 import {
   GalleryHandler,
   useGallerys,
-} from '@/(logic)/handler/explorer/gallerys/main';
+} from '@/(logic)/internal/handler/explorer/gallerys/main';
 import { GallerysModalView } from '@/(modals)/gallerys-modal/view';
 
 interface ExploreHomeContextObj {

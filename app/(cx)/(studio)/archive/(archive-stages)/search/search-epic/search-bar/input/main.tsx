@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/(components)/types/main';
+import { FormInputProps } from '@/(types)/main';
 
 export default function SearchBarInput({ ...props }: FormInputProps) {
   return (

@@ -1,21 +1,21 @@
 'use client';
 import { StormView } from './view';
-import { ChatObj } from '@/(logic)/model/storm/chat/main';
-import { MessageObj } from '@/(logic)/model/storm/chat/message/main';
-import { ChapterObj } from '@/(logic)/model/space/chapter/main';
+import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
+import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import {
   ChapterHandler,
   useChapters,
-} from '@/(logic)/handler/chapters/main';
-import { ChatHandler, useChats } from '@/(logic)/handler/storm/chats/main';
+} from '@/(logic)/internal/handler/chapters/main';
+import { ChatHandler, useChats } from '@/(logic)/internal/handler/storm/chats/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { createContext, useEffect } from 'react';
 import {
   MessageHandler,
   useMessages,
-} from '@/(logic)/handler/storm/messages/main';
-import { useGlobalSpace } from '@/(logic)/store/space/main';
-import { useSpace } from '@/(logic)/handler/space/main';
+} from '@/(logic)/internal/handler/storm/messages/main';
+import { useGlobalSpace } from '@/(logic)/internal/data/infra/store/space/main';
+import { useSpace } from '@/(logic)/internal/handler/space/main';
 import {
   StormModalContext,
   useStormModal,

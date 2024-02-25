@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { StormContext } from '../../../../page';
 import { StormMessage } from './message/main';
-import { MessageContext } from '@/(logic)/model/storm/chat/message/main';
+import { MessageContext } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
 
 export function StormChatMessages() {
   const { messages, messageHandler } = useContext(StormContext);

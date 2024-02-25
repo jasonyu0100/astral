@@ -6,7 +6,7 @@ import { FormInput } from '@/(components)/form/input/main';
 import { FormContainer } from '@/(components)/form/main';
 import { FormTitle } from '@/(components)/form/title/main';
 import { Modal } from '@/(components)/modal/main';
-import { FileObj } from '@/(logic)/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { GallerysModalContext } from '../main';
 import { SelectedImage } from '@/(components)/form/selected-image/main';

@@ -2,13 +2,13 @@ import { MutableRefObject, useContext } from 'react';
 import {
   StarContext,
   StarVariant,
-} from '@/(logic)/model/draft/constellation/star/main';
+} from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
 import { FileStar } from './file/main';
 import { LogStar } from './log/main';
 import { LinkStar } from './link/main';
 import { NoteStar } from './note/main';
-import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
-import { useStarMotion } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
+import { useStarMotion } from '@/(logic)/internal/handler/draft/star/main';
 
 export function DraftStar({
   constraintsRef,

@@ -2,14 +2,14 @@
 import { createContext } from 'react';
 import { SpaceTabStages } from '../../(studio-tabs)/main';
 import { SpacesView } from '../../(studio-epic)/view';
-import { SpaceObj } from '@/(logic)/model/space/main';
+import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../../../(modals)/space-modal/main';
-import { SpacesHandler, useSpaces } from '@/(logic)/handler/spaces/main';
+import { SpacesHandler, useSpaces } from '@/(logic)/internal/handler/spaces/main';
 import { SpacesModalView } from '@/(modals)/space-modal/view';
 
 export interface SpacesContextObj {

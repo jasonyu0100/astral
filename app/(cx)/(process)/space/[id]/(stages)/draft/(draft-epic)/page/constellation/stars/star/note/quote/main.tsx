@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ConstellationStarContext } from '@/(logic)/handler/draft/star/main';
+import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function NoteQuoteStar() {
   const user = useGlobalUser((state) => state.user);

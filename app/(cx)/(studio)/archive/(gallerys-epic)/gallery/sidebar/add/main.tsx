@@ -1,5 +1,5 @@
 import { SidebarGalleryAddCover } from './cover/main';
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 import { GalleryPhoto } from '../photo/main';
 
 export function SidebarHomeGalleryAdd({ ...props }: ButtonInputProps) {

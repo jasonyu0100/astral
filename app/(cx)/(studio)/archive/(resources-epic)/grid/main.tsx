@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ExploreCollectionContext } from '../../(archive-stages)/explorer/resources-view/[id]/page';
 import { CollectionResourceAdd } from '../resource/explorer/add/main';
 import { CollectionResource } from '../resource/explorer/main';
-import { ResourceContext } from '@/(logic)/model/resource/main';
+import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 
 export function ResourcesGrid() {
   const { resources } = useContext(ExploreCollectionContext);

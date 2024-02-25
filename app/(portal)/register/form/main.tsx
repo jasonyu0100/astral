@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { portalMap } from '../../map';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import { useGoogleLogin } from '@react-oauth/google';
 import { studioMap } from '@/(cx)/(studio)/studio/map';
 import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
@@ -14,9 +14,9 @@ import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
 import { PortalFormOrDivider } from '@/(portal)/(polaroid-epic)/container/form/or/main';
 import axios from 'axios';
 import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
-import { emailRegisterUser, googleRegisterUser } from '@/(logic)/auth/register/main';
-import { FileObj, FileVariant } from '@/(logic)/model/resource/file/main';
-import { UserObj } from '@/(logic)/model/user/main';
+import { emailRegisterUser, googleRegisterUser } from '@/(logic)/internal/calls/auth/register/main';
+import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { UserObj } from '@/(logic)/internal/data/infra/model/user/main';
 
 export function PortalRegisterForm() {
   const { variant } = useContext(PolaroidContext);

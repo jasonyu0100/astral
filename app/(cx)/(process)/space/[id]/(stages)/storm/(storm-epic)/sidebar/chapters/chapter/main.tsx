@@ -1,4 +1,4 @@
-import { ChapterContext, ChapterObj } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext, ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { StormChapterChatAdd } from './chat/add/main';
 import { StormChapterChat } from './chat/main';
 import { StormChapterHeader } from './header/main';
@@ -6,7 +6,7 @@ import StormChapterIndicator from './header/indicator/main';
 import { StormChapterTitle } from './header/title/main';
 import { createContext, useContext } from 'react';
 import { StormContext } from '../../../../page';
-import { ChatObj } from '@/(logic)/model/storm/chat/main';
+import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
 
 export const StormChatContext = createContext({} as ChatObj);
 

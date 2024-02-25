@@ -8,10 +8,10 @@ import { useContext, useState } from 'react';
 import { ResourceModalContext } from '../main';
 import { FormInput } from '@/(components)/form/input/main';
 import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
-import { FileObj } from '@/(logic)/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ExploreCollectionContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
-import { ResourceContext } from '@/(logic)/model/resource/main';
-import { callUpdateResource } from '@/(logic)/calls/resource/main';
+import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
 
 export function ArchiveEditResourceModal() {
   const modalContext = useContext(ResourceModalContext);

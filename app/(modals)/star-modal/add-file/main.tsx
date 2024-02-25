@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../main';
 import { FormInput } from '@/(components)/form/input/main';
 import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
-import { FileObj, FileVariant } from '@/(logic)/model/resource/file/main';
+import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
 import { FormSelect } from '@/(components)/form/select/main';
 

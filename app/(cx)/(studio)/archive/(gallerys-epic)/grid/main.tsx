@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ExploreHomeContext } from '../../(archive-stages)/explorer/gallerys-view/page';
 import { GalleryExplorerAdd } from '../gallery/explorer/add/main';
 import { HomeGallery } from '../gallery/explorer/main';
-import { GalleryContext } from '@/(logic)/model/gallery/main';
+import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
 
 export function GallerysGrid() {
   const { gallerys } = useContext(ExploreHomeContext);

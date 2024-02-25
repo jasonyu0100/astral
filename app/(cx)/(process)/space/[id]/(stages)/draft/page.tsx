@@ -1,16 +1,16 @@
 'use client';
 import { createContext, useState } from 'react';
 import { DraftView } from './view';
-import { StarObj } from '@/(logic)/model/draft/constellation/star/main';
-import { ChapterObj } from '@/(logic)/model/space/chapter/main';
-import { ConstellationObj } from '@/(logic)/model/draft/constellation/main';
-import { ChapterHandler, useChapters } from '@/(logic)/handler/chapters/main';
+import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
+import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
+import { ChapterHandler, useChapters } from '@/(logic)/internal/handler/chapters/main';
 import {
   ConstellationHandler,
   useConstellations,
-} from '@/(logic)/handler/draft/constellations/main';
+} from '@/(logic)/internal/handler/draft/constellations/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { StarHandler, useStars } from '@/(logic)/handler/draft/stars/main';
+import { StarHandler, useStars } from '@/(logic)/internal/handler/draft/stars/main';
 import {
   DraftModalContext,
   useDraftModal,

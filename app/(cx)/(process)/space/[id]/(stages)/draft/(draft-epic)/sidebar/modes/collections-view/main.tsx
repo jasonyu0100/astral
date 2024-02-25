@@ -7,7 +7,7 @@ import {
   useCollectionsModal,
 } from '@/(modals)/collections-modal/main';
 import { CollectionsModalView } from '@/(modals)/collections-modal/view';
-import { CollectionContext } from '@/(logic)/model/gallery/collection/main';
+import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 
 export function CollectionsInterface() {
   const { collections } = useContext(DraftSidebarContext);

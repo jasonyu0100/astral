@@ -1,13 +1,13 @@
 'use client';
 import { createContext } from 'react';
 import { SearchView } from './view';
-import { ResourceObj } from '@/(logic)/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import {
   SearchResourceHandler,
   useSearchResource,
-} from '@/(logic)/handler/explorer/search-resources/main';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+} from '@/(logic)/internal/handler/explorer/search-resources/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export interface SearchViewProps {
   searchResults: ResourceObj[];

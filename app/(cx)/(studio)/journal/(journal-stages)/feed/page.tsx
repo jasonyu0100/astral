@@ -2,12 +2,12 @@
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { FeedJournalView } from './view';
 import { createContext } from 'react';
-import { MomentObj, MomentVisibility } from '@/(logic)/model/flow/moment/main';
+import { MomentObj, MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import {
   FeedMomentHandler,
   useFeedMoments,
-} from '@/(logic)/handler/journal/main';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+} from '@/(logic)/internal/handler/journal/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 interface FeedJournalContextObj {
   momentId: string;

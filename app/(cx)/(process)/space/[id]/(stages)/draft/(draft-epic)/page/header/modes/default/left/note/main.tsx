@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 
 export function DraftHeaderNoteButton({ ...props }: ButtonInputProps) {
   return (

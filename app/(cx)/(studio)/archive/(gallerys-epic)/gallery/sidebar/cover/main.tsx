@@ -1,4 +1,4 @@
-import { GalleryContext } from '@/(logic)/model/gallery/main';
+import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';
 import { GalleryThumbnail } from '../../common/cover/thumbnail/main';

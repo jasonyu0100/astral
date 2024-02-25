@@ -7,7 +7,7 @@ import {
   useGallerysModal,
 } from '@/(modals)/gallerys-modal/main';
 import { GallerysModalView } from '@/(modals)/gallerys-modal/view';
-import { GalleryContext } from '@/(logic)/model/gallery/main';
+import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
 
 export function SidebarGallerysInterface() {
   const { gallerys } = useContext(DraftSidebarContext);

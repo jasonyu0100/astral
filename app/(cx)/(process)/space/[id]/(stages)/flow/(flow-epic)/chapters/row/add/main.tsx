@@ -1,6 +1,6 @@
 import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles, borderStyles } from '@/(components)/styles/data';
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 
 export default function FlowChaptersAdd({ ...props }: ButtonInputProps) {
   return (

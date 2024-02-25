@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 
 interface InputProps extends ButtonInputProps {
   children: React.ReactNode;

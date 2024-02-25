@@ -2,7 +2,7 @@ import { Glass } from '@/(components)/glass/main';
 import { containerStyles } from '@/(components)/styles/data';
 import { useContext } from 'react';
 import { StormContext } from '../../../../../page';
-import { ChapterContext, ChapterObj } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext, ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 
 export function StormChapterHeader({
   children,

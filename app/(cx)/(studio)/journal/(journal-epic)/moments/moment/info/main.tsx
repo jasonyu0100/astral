@@ -1,4 +1,4 @@
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function PostInfo() {
   const user = useGlobalUser((state) => state.user);

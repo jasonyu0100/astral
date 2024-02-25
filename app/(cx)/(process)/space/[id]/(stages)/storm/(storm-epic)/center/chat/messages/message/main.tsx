@@ -1,4 +1,4 @@
-import { MessageContext } from '@/(logic)/model/storm/chat/message/main';
+import { MessageContext } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
 import { StormPartnerChatMessage } from './them/main';
 import { StormYouChatMessage } from './you/main';
 import { useContext } from 'react';

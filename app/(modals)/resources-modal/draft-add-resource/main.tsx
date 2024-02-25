@@ -7,7 +7,7 @@ import { FormContainer } from '@/(components)/form/main';
 import { FormTitle } from '@/(components)/form/title/main';
 import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
 import { Modal } from '@/(components)/modal/main';
-import { FileObj, FileVariant } from '@/(logic)/model/resource/file/main';
+import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ResourcesModalContext } from '../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/(draft-epic)/sidebar/main';

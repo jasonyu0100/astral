@@ -6,7 +6,7 @@ import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';
 import { DraftHeaderNoteButton } from './note/main';
 import { useContext } from 'react';
-import { DraftHeaderToggleButton } from '../../common/toggle/main';
+import { DraftHeaderToggleButton } from '../../../common/toggle/main';
 
 export function DraftHeaderDefaultLeft() {
   const modalContext = useContext(StarModalContext);

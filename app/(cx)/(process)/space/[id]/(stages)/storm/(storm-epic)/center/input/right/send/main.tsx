@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 import { StormSendIcon } from '../../../../icons/send/main';
 
 export function StormMessageInputSend({ ...props }: ButtonInputProps) {

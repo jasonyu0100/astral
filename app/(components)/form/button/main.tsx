@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(components)/types/main';
+import { ButtonInputProps } from '@/(types)/main';
 import { cn } from '@/(logic)/utils/cn';
 import clsx from 'clsx';
 

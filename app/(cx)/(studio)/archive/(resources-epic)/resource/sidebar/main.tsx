@@ -1,5 +1,5 @@
-import { FileObj, FileVariant } from '@/(logic)/model/resource/file/main';
-import { ResourceContext } from '@/(logic)/model/resource/main';
+import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
   useFileModal,
   ResourceModalContext,

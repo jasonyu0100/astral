@@ -2,7 +2,7 @@ import { GalleryExplorerCover } from './cover/main';
 import { GalleryPhoto } from '../common/photo/main';
 import { useState } from 'react';
 import { GalleryExplorerBack } from './back/main';
-import { FlipContext } from '@/(logic)/contexts/flip/main';
+import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 export function HomeGallery() {
   const [flipped, changeFlipped] = useState(false);
 

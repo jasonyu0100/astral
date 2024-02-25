@@ -4,7 +4,7 @@ import { SpaceDate } from './date/main';
 import { SpaceDay } from './day/main';
 import { SpaceGenre } from './genre/main';
 import { SpaceInfo } from './info/main';
-import { SpaceObj } from '@/(logic)/model/space/main';
+import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
 import { createContext, useState } from 'react';
 import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles } from '@/(components)/styles/data';

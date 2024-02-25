@@ -7,8 +7,8 @@ import { useContext } from 'react';
 import {
   CollectionContext,
   ResourcesContext,
-} from '@/(logic)/model/gallery/collection/main';
-import { useCollectionResources } from '@/(logic)/handler/explorer/resources/main';
+} from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { useCollectionResources } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function GalleryCollection() {
   const collection = useContext(CollectionContext);

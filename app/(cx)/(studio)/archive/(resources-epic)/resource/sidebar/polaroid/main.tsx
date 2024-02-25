@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(components)/types/main';
+import { DivInputProps } from '@/(types)/main';
 
 interface InputProps extends DivInputProps {
   children: React.ReactNode;

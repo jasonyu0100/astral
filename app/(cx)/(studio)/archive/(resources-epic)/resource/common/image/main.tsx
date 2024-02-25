@@ -1,4 +1,4 @@
-import { ResourceContext } from "@/(logic)/model/resource/main";
+import { ResourceContext } from "@/(logic)/internal/data/infra/model/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceImage() {

@@ -1,4 +1,4 @@
-import { ResourceContext } from "@/(logic)/model/resource/main";
+import { ResourceContext } from "@/(logic)/internal/data/infra/model/resource/main";
 import { useFileModal } from "@/(modals)/resource-modal/main";
 import { useContext } from "react";
 

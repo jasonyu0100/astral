@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CreativeSpaceContext } from '../main';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function SpaceInfo() {
     const user = useGlobalUser((state) => state.user);

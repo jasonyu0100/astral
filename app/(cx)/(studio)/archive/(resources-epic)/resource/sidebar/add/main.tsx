@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(components)/types/main';
+import { DivInputProps } from '@/(types)/main';
 import { ResourcePolaroid } from '../polaroid/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {

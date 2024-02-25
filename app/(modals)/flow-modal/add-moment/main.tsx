@@ -9,10 +9,10 @@ import { FormSelect } from '@/(components)/form/select/main';
 import { FormTitle } from '@/(components)/form/title/main';
 import { FormUploadFile } from '@/(components)/form/upload/upload-file/main';
 import { Modal } from '@/(components)/modal/main';
-import { MomentVisibility } from '@/(logic)/model/flow/moment/main';
+import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowContext } from '../../../(cx)/(process)/space/[id]/(stages)/flow/page';
-import { FileObj } from '@/(logic)/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { FlowModalContext } from '../main';
 
 export function FlowAddMomentModal() {

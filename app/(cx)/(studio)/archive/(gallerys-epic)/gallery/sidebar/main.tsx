@@ -1,4 +1,4 @@
-import { FlipContext } from '@/(logic)/contexts/flip/main';
+import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 import { useState } from 'react';
 import { GallerySidebarBack } from './back/main';
 import { GallerySidebarCover } from './cover/main';

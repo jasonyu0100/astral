@@ -1,10 +1,10 @@
 import { FormBody } from '../../body/main';
 import { FormContainer } from '../../main';
 import { Modal } from '../../../modal/main';
-import { useUnsplash } from '@/(logic)/handler/external/unsplash/main';
+import { useUnsplash } from '@/(logic)/internal/handler/external/unsplash/main';
 import { useEffect, useState } from 'react';
-import { FileObj } from '@/(logic)/model/resource/file/main';
-import { ImageInputProps } from '../../../types/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { ImageInputProps } from '../../../../(types)/main';
 import { SearchBar } from '@/(components)/search-bar/main';
 import { cn } from '@/(logic)/utils/cn';
 

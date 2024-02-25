@@ -7,7 +7,7 @@ import { Modal } from '@/(components)/modal/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(stages)/draft/page';
-import { LinkObj, LinkVariant } from '@/(logic)/model/resource/link/main';
+import { LinkObj, LinkVariant } from '@/(logic)/internal/data/infra/model/resource/link/main';
 import { FormSelect } from '@/(components)/form/select/main';
 import { FormInput } from '@/(components)/form/input/main';
 

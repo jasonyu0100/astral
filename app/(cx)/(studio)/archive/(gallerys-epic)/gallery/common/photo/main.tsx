@@ -1,6 +1,6 @@
 import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles } from '@/(components)/styles/data';
-import { DivInputProps } from '@/(components)/types/main';
+import { DivInputProps } from '@/(types)/main';
 
 interface InputProps extends DivInputProps {
   children: React.ReactNode;

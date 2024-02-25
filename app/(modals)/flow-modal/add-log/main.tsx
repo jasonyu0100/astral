@@ -8,7 +8,7 @@ import { FormContainer } from '@/(components)/form/main';
 import { FormSelect } from '@/(components)/form/select/main';
 import { FormTitle } from '@/(components)/form/title/main';
 import { Modal } from '@/(components)/modal/main';
-import { MomentVisibility } from '@/(logic)/model/flow/moment/main';
+import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowModalContext } from '../main';
 import { FlowContext } from '@/(cx)/(process)/space/[id]/(stages)/flow/page';

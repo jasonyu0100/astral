@@ -2,7 +2,7 @@ import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles, borderStyles } from '@/(components)/styles/data';
 import { useContext } from 'react';
 import { FlowContext } from '../../../../page';
-import { ChapterContext } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 
 export function FlowChapter() {
   const chapter = useContext(ChapterContext);

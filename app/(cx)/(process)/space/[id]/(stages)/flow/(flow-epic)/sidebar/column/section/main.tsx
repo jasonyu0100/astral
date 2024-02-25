@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FlowContext } from '../../../../page';
 import { FlowSidebarEntry } from './entry/main';
-import { MomentContext } from '@/(logic)/model/flow/moment/main';
+import { MomentContext } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 
 export function FlowSidebarSection() {
   const { moments } = useContext(FlowContext);

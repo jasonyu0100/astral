@@ -3,7 +3,7 @@ import { PostDivider } from './divider/main';
 import { MomentResource } from './resource/main';
 import { PostInfo } from './info/main';
 import { PostDescription } from './description/main';
-import { MomentObj } from '@/(logic)/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { spaceMap } from '@/(cx)/(process)/space/[id]/map';
 import Link from 'next/link';
 

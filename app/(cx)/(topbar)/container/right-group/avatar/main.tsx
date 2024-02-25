@@ -1,6 +1,6 @@
 'use client';
 import { ButtonProps } from '@/components/ui/button';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function TopbarAvatar({ ...props }: ButtonProps) {
   const user = useGlobalUser((state) => state.user);

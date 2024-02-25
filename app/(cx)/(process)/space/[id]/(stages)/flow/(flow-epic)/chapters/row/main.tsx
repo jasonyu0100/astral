@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { FlowContext } from '../../../page';
 import FlowChaptersAdd from './add/main';
 import { FlowChapter } from './item/main';
-import { ChapterContext } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 
 export function FlowChaptersRow() {
   const { chapters } = useContext(FlowContext);

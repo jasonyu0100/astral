@@ -2,12 +2,12 @@
 import { SpaceTabStages } from '../../(studio-tabs)/main';
 import { SpacesView } from '../../(studio-epic)/view';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { useGlobalUser } from '@/(logic)/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../../../(modals)/space-modal/main';
-import { useSpaces } from '@/(logic)/handler/spaces/main';
+import { useSpaces } from '@/(logic)/internal/handler/spaces/main';
 import { SpacesContext } from '../all/page';
 import { SpacesModalView } from '@/(modals)/space-modal/view';
 

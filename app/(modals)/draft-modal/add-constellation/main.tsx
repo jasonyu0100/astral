@@ -10,7 +10,7 @@ import { useContext, useState } from 'react';
 import { DraftContext } from '../../../(cx)/(process)/space/[id]/(stages)/draft/page';
 import { DraftModalContext } from '../main';
 import { FormSelect } from '@/(components)/form/select/main';
-import { ConstellationVariant } from '@/(logic)/model/draft/constellation/main';
+import { ConstellationVariant } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
 
 export function DraftAddConstellationModal() {
   const { constellationHandler } = useContext(DraftContext);

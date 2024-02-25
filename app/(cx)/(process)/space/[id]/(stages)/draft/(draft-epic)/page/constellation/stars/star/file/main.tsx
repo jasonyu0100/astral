@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(logic)/model/draft/constellation/star/main';
-import { FileVariant } from '@/(logic)/model/resource/file/main';
+import { StarContext } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import { FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { FileAudioStar } from './audio/main';
 import { FileImageStar } from './image/main';
 import { FileVideoStar } from './video/main';

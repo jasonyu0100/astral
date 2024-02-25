@@ -2,7 +2,7 @@ import { Glass } from '@/(components)/glass/main';
 import { backgroundStyles, borderStyles } from '@/(components)/styles/data';
 import { useContext, useState } from 'react';
 import { StormContext } from '../../../../page';
-import { FormInputProps } from '@/(components)/types/main';
+import { FormInputProps } from '@/(types)/main';
 
 export function StormChatMessageInput({ ...props }: FormInputProps) {
   return (

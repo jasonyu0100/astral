@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { DraftContext } from '../../../page';
 import { DraftChapter } from './item/main';
 import DraftChaptersAdd from './add/main';
-import { ChapterContext } from '@/(logic)/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 
 export function DraftChaptersRow() {
   const { chapters } = useContext(DraftContext);

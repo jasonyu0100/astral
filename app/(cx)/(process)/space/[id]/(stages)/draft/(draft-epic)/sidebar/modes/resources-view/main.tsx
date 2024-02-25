@@ -9,7 +9,7 @@ import {
   useResourceModal,
 } from '@/(modals)/resources-modal/main';
 import { ResourcesModalView } from '@/(modals)/resources-modal/view';
-import { ResourceContext, ResourceObj } from '@/(logic)/model/resource/main';
+import { ResourceContext, ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);
 

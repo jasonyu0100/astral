@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { DraftContext } from '../../../../../../page';
-import DraftHeaderTitle from '../../common/title/main';
+import DraftHeaderTitle from '../../../common/title/main';
 
 export function DraftHeaderDefaultCenter() {
   const draftContext = useContext(DraftContext);

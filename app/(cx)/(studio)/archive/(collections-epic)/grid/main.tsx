@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ExploreGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
 import { GalleryCollectionAdd } from '../collection/explorer/add/main';
 import { GalleryCollection } from '../collection/explorer/main';
-import { CollectionContext } from '@/(logic)/model/gallery/collection/main';
+import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 
 export function GalleryCollectionGrid() {
   const { collections } = useContext(ExploreGalleryContext);

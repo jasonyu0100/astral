@@ -1,4 +1,4 @@
-import { FileObj } from '@/(logic)/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 
 export function SelectedImage({ selected }: { selected: FileObj }) {
   return (

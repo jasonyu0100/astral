@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { FileVariant } from '@/(logic)/model/resource/file/main';
-import { ResourcesContext } from '@/(logic)/model/gallery/collection/main';
+import { FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { ResourcesContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const resources = useContext(ResourcesContext);

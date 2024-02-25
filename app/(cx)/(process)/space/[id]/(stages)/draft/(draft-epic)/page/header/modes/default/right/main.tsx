@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { DraftContext } from '../../../../../../page';
-import { DraftHeaderSaveButton } from '../../common/save/main';
+import { DraftHeaderSaveButton } from '../../../common/save/main';
 
 export function DraftHeaderDefaultRight() {
   const { starHandler } = useContext(DraftContext);
