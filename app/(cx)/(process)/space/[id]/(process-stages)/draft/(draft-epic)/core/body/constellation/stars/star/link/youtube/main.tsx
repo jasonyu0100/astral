@@ -27,7 +27,7 @@ export function LinkYouTubeStar() {
           <iframe
             onDrag={(e) => e.stopPropagation()}
             style={{ width: '100%', height: '100%' }}
-            src='https://www.youtube.com/embed/p22EqQBYRBM?si=xNdSEHNZlPh-S_xl'
+            src={`${star.link?.url}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
             title='YouTube video player'
           ></iframe>
           <div className='flex h-[50px] items-center'>

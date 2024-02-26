@@ -6,8 +6,9 @@ import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
 
 export function LinkSpotifyStar() {
-  const { star, x, y, constraintsRef, activateStar } =
-    useContext(ConstellationStarContext);
+  const { star, x, y, constraintsRef, activateStar } = useContext(
+    ConstellationStarContext,
+  );
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;
 
@@ -28,7 +29,7 @@ export function LinkSpotifyStar() {
           }}
         >
           <iframe
-            src='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz?utm_source=generator'
+            src={`${star.link?.url}?utm_source=generator`}
             width='100%'
             height='100%'
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
