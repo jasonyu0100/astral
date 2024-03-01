@@ -1,13 +1,13 @@
-import { CollectionsModalContext } from '@/(modals)/studio/collection/collections-modal/main';
 import { useContext } from 'react';
-import { ExploreGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
+import { ExplorerGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
 import { GalleryCollectionAdd } from '../collection/explorer/add/main';
 import { GalleryCollection } from '../collection/explorer/main';
 import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { ArchiveExplorerModalContext } from '@/(modals)/(studio)/archive/explorer/main';
 
 export function GalleryCollectionGrid() {
-  const { collections } = useContext(ExploreGalleryContext);
-  const modalContext = useContext(CollectionsModalContext);
+  const { collections } = useContext(ExplorerGalleryContext);
+  const modalContext = useContext(ArchiveExplorerModalContext);
 
   return (
     <div className='flex-grow ' style={{ height: '100%' }}>
@@ -19,7 +19,7 @@ export function GalleryCollectionGrid() {
           </CollectionContext.Provider>
         ))}
         <GalleryCollectionAdd
-          onClick={() => modalContext.explorerCreateCollectionModal.open()}
+          onClick={() => modalContext.createCollection.open()}
         />
       </div>
     </div>

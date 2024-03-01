@@ -24,7 +24,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
         <TabOne tab={tab} />
         <TabTwo tab={tab} />
         <TabThree tab={tab} />
-        <TabFour tab={tab} />
+        {/* <TabFour tab={tab} /> */}
       </TabsRow>
     </Tabs>
   );

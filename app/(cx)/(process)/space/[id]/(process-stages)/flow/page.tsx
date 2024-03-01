@@ -6,8 +6,8 @@ import { MomentHandler, useMoments } from '@/(logic)/internal/handler/flow/momen
 import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
-import { FlowModalContext, useFlowModal } from '../../../../../../(modals)/process/flow-modal/main';
-import { FlowModalView } from '@/(modals)/process/flow-modal/view';
+import { FlowModalContext, useFlowModal } from '../../../../../../(modals)/(process)/flow-modal/main';
+import { FlowModalView } from '@/(modals)/(process)/flow-modal/view';
 
 interface FlowContextObj {
   chapter?: ChapterObj;

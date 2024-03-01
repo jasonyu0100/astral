@@ -1,7 +1,7 @@
 'use client';
 import { ButtonInputProps } from '@/(types)/main';
 import { LogObj, LogVariant } from '@/(logic)/internal/data/infra/model/resource/log/main';
-import { StarModalContext } from '@/(modals)/process/star-modal/main';
+import { StarModalContext } from '@/(modals)/(process)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useMemo } from 'react';
 
@@ -23,7 +23,7 @@ export function DraftHeaderLogButton({ ...props }: ButtonInputProps) {
       if (!button) {
         return;
       }
-
+      
       const { configureButton } = await setup({
         publicAppId: process.env.LOOM_API_KEY,
       });
@@ -32,14 +32,17 @@ export function DraftHeaderLogButton({ ...props }: ButtonInputProps) {
 
       sdkButton.on('insert-click', async (video: LoomVideo) => {
         const logObj: LogObj = {
-          ...video,
           id: crypto.randomUUID(),
           loomId: video.id,
+          embedUrl: video.embedUrl,
+          height: video.height,
+          width: video.width,
+          sharedUrl: video.sharedUrl,
+          providerUrl: video.providerUrl,
           variant: LogVariant.SCREEN,
         };
         updateLogObj(logObj);
         open();
-        alert('SAVING LOOM');
       });
     }
 

@@ -1,34 +1,27 @@
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 import { DraftSidebarContext } from '../../main';
 import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/add/main';
 import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/main';
-import {
-  CollectionsModalContext,
-  useCollectionsModal,
-} from '@/(modals)/studio/collection/collections-modal/main';
-import { CollectionsModalView } from '@/(modals)/studio/collection/collections-modal/view';
 import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { ArchiveSidebarModalContext } from '@/(modals)/(studio)/archive/sidebar/main';
 
 export function CollectionsInterface() {
   const { collections } = useContext(DraftSidebarContext);
-  const modalContext = useCollectionsModal();
+  const modalContext = useContext(ArchiveSidebarModalContext);
 
   return (
-    <CollectionsModalContext.Provider value={modalContext}>
-      <CollectionsModalView />
-      <div className='flex flex-col space-y-[2rem]'>
-        {collections.map((collection) => (
-          // eslint-disable-next-line react/jsx-key
-          <CollectionContext.Provider value={collection}>
-            <SidebarCollection />
-          </CollectionContext.Provider>
-        ))}
-        <SidebarCollectionAdd
-          onClick={() => {
-            modalContext.draftCreateCollectionModal.open();
-          }}
-        />
-      </div>
-    </CollectionsModalContext.Provider>
+    <div className='flex flex-col space-y-[2rem]'>
+      {collections.map((collection) => (
+        // eslint-disable-next-line react/jsx-key
+        <CollectionContext.Provider value={collection}>
+          <SidebarCollection />
+        </CollectionContext.Provider>
+      ))}
+      <SidebarCollectionAdd
+        onClick={() => {
+          modalContext.createCollection.open();
+        }}
+      />
+    </div>
   );
 }

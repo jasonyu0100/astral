@@ -1,5 +1,5 @@
 import { CollectionsBody } from '../../../../(collections-epic)/main';
 
-export function ExploreCollectionsView() {
+export function CollectionsView() {
   return <CollectionsBody />;
 }

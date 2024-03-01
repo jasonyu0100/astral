@@ -3,11 +3,11 @@ import { useContext, useState } from 'react';
 import {
   useFileModal,
   ResourceModalContext,
-} from '@/(modals)/studio/resource/resource-modal/main';
-import { ResourceModalView } from '@/(modals)/studio/resource/resource-modal/view';
+} from '@/(modals)/(studio)/resource/resource-modal/main';
 import { CollectionResourceInfo } from '../common/info/main';
 import { ResourcePolaroid } from '../common/polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';
+import { ResourceModalView } from '@/(modals)/(studio)/resource/resource-modal/view';
 
 export function CollectionResource() {
   const modalContext = useFileModal();

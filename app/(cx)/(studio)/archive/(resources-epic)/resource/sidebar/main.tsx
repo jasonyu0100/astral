@@ -6,8 +6,8 @@ import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/ma
 import {
   useFileModal,
   ResourceModalContext,
-} from '@/(modals)/studio/resource/resource-modal/main';
-import { ResourceModalView } from '@/(modals)/studio/resource/resource-modal/view';
+} from '@/(modals)/(studio)/resource/resource-modal/main';
+import { ResourceModalView } from '@/(modals)/(studio)/resource/resource-modal/view';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../common/audio/main';
 import { CollectionResourceImage } from '../common/image/main';

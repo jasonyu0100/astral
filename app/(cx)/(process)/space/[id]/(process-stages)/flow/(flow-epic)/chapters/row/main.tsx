@@ -1,4 +1,4 @@
-import { FlowModalContext } from '@/(modals)/process/flow-modal/main';
+import { FlowModalContext } from '@/(modals)/(process)/flow-modal/main';
 import { useContext } from 'react';
 import { FlowContext } from '../../../page';
 import FlowChaptersAdd from './add/main';

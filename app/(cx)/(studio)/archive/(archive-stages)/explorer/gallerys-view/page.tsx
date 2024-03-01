@@ -1,45 +1,36 @@
 'use client';
 import { createContext } from 'react';
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
-import { ExploreGallerysView } from './view';
+import { GallerysView } from './view';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import {
-  GallerysModalContext,
-  useGallerysModal,
-} from '../../../../../../(modals)/studio/gallery/gallerys-modal/main';
 import {
   GalleryHandler,
   useGallerys,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
-import { GallerysModalView } from '@/(modals)/studio/gallery/gallerys-modal/view';
 
-interface ExploreHomeContextObj {
+interface ExplorerHomeContextObj {
   gallerys: GalleryObj[];
   galleryHandler: GalleryHandler;
 }
 
-export const ExploreHomeContext = createContext<ExploreHomeContextObj>(
-  {} as ExploreHomeContextObj,
+export const ExplorerHomeContext = createContext<ExplorerHomeContextObj>(
+  {} as ExplorerHomeContextObj,
 );
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
   const { gallerys, _galleryHandler: galleryHandler } = useGallerys(user.id);
-  const modalContext = useGallerysModal();
 
-  const context: ExploreHomeContextObj = {
+  const context: ExplorerHomeContextObj = {
     gallerys,
     galleryHandler,
   };
 
   return (
-    <ExploreHomeContext.Provider value={context}>
-      <GallerysModalContext.Provider value={modalContext}>
-        <GallerysModalView />
-        <ExploreGallerysView />
-      </GallerysModalContext.Provider>
-    </ExploreHomeContext.Provider>
+    <ExplorerHomeContext.Provider value={context}>
+      <GallerysView />
+    </ExplorerHomeContext.Provider>
   );
 }
 

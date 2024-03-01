@@ -1,7 +1,7 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
-import { StormModalContext } from '../../../../../../../../../../../../(modals)/process/storm-modal/main';
+import { StormModalContext } from '../../../../../../../../../../../../(modals)/(process)/storm-modal/main';
 
 export function StormChapterChatAdd() {
   const { addChatModal: newChat } = useContext(StormModalContext);

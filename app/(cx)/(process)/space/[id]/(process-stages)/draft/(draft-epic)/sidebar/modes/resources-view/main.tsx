@@ -7,8 +7,8 @@ import { SidebarCollectionResource } from '../../../../../../../../../(studio)/a
 import {
   ResourcesModalContext,
   useResourceModal,
-} from '@/(modals)/studio/resource/resources-modal/main';
-import { ResourcesModalView } from '@/(modals)/studio/resource/resources-modal/view';
+} from '@/(modals)/(studio)/resource/resources-modal/main';
+import { ResourcesModalView } from '@/(modals)/(studio)/resource/resources-modal/view';
 import { ResourceContext, ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);

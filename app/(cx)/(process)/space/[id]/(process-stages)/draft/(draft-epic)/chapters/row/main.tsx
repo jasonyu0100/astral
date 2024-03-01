@@ -1,4 +1,4 @@
-import { DraftModalContext } from '@/(modals)/process/draft-modal/main';
+import { DraftModalContext } from '@/(modals)/(process)/draft-modal/main';
 import { useContext } from 'react';
 import { DraftContext } from '../../../page';
 import { DraftChapter } from './item/main';

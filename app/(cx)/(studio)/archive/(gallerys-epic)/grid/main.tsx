@@ -1,14 +1,13 @@
-import { GallerysModalContext } from '@/(modals)/studio/gallery/gallerys-modal/main';
 import { useContext } from 'react';
-import { ExploreHomeContext } from '../../(archive-stages)/explorer/gallerys-view/page';
+import { ExplorerHomeContext } from '../../(archive-stages)/explorer/gallerys-view/page';
 import { GalleryExplorerAdd } from '../gallery/explorer/add/main';
 import { HomeGallery } from '../gallery/explorer/main';
 import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
+import { ArchiveExplorerModalContext } from '@/(modals)/(studio)/archive/explorer/main';
 
 export function GallerysGrid() {
-  const { gallerys } = useContext(ExploreHomeContext);
-  const { explorerCreateGalleryModal: createGalleryModal } =
-    useContext(GallerysModalContext);
+  const { gallerys } = useContext(ExplorerHomeContext);
+  const modalContext = useContext(ArchiveExplorerModalContext);
 
   return (
     <div className='flex w-full flex-row flex-wrap items-center gap-[50px] pb-[50px]'>
@@ -18,7 +17,7 @@ export function GallerysGrid() {
           <HomeGallery />
         </GalleryContext.Provider>
       ))}
-      <GalleryExplorerAdd onClick={() => createGalleryModal.open()} />
+      <GalleryExplorerAdd onClick={() => modalContext.createGallery.open()} />
     </div>
   );
 }

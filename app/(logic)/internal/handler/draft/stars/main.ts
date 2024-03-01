@@ -14,13 +14,32 @@ export interface StarHandler {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
     title: string,
+    description: string,
     x: number,
     y: number,
     file: FileObj,
   ) => Promise<StarObj>;
-  queryCreateNoteStar: (title: string, x: number, y: number, note: NoteObj) => Promise<StarObj>;
-  queryCreateLinkStar: (title: string, x: number, y: number, link: LinkObj) => Promise<StarObj>;
-  queryCreateLogStar: (title: string, x: number, y: number, log: LogObj) => Promise<StarObj>;
+  queryCreateNoteStar: (
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    note: NoteObj,
+  ) => Promise<StarObj>;
+  queryCreateLinkStar: (
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    link: LinkObj,
+  ) => Promise<StarObj>;
+  queryCreateLogStar: (
+    title: string,
+    description: string,
+    x: number,
+    y: number,
+    log: LogObj,
+  ) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
   queryUpdateStars: () => Promise<StarObj[]>;
   activateStar: (starId: string) => void;
@@ -41,7 +60,7 @@ export const useStars = (constellationId: string): useStarInterface => {
   const star = stars.filter((star) => star.id === starId).at(0);
 
   const gqlHelper = {
-    queryListStars: async () => {
+    gqlListStars: async () => {
       const payload = await amplifyClient.graphql({
         query: listStarObjs,
         variables: {
@@ -52,11 +71,12 @@ export const useStars = (constellationId: string): useStarInterface => {
           },
         },
       });
-      const stars = payload?.data.listStarObjs?.items as StarObj[] || [];
+      const stars = (payload?.data.listStarObjs?.items as StarObj[]) || [];
       return stars;
     },
-    queryCreateFileStar: async (
+    gqlCreateFileStar: async (
       title: string,
+      description: string,
       x: number,
       y: number,
       file: FileObj,
@@ -67,9 +87,10 @@ export const useStars = (constellationId: string): useStarInterface => {
           input: {
             constellationId: constellationId,
             title: title,
-            description: "",
+            description: description,
             x,
             y,
+            variant: ResourceVariant.FILE,
             file: {
               id: file.id,
               src: file.src,
@@ -78,15 +99,15 @@ export const useStars = (constellationId: string): useStarInterface => {
               fileType: file.fileType,
               variant: file.variant,
             },
-            variant: ResourceVariant.FILE,
           },
         },
       });
       const star = payload?.data.createStarObj as StarObj;
       return star;
     },
-    queryCreateLinkStar: async (
+    gqlCreateLinkStar: async (
       title: string,
+      description: string,
       x: number,
       y: number,
       link: LinkObj,
@@ -97,19 +118,20 @@ export const useStars = (constellationId: string): useStarInterface => {
           input: {
             constellationId: constellationId,
             title: title,
-            description: "",
+            description: description,
             x,
             y,
-            link: link,
             variant: ResourceVariant.LINK,
+            link: link,
           },
         },
       });
       const star = payload?.data.createStarObj as StarObj;
       return star;
     },
-    queryCreateNoteStar: async (
+    gqlCreateNoteStar: async (
       title: string,
+      description: string,
       x: number,
       y: number,
       note: NoteObj,
@@ -120,41 +142,43 @@ export const useStars = (constellationId: string): useStarInterface => {
           input: {
             constellationId: constellationId,
             title: title,
-            description: "",
+            description: description,
             x,
             y,
-            note: cleanGql(note),
             variant: ResourceVariant.NOTE,
-          },
-        },
-      });
-      const star = payload?.data.createStarObj as StarObj;
-      return star;
-    },    
-    queryCreateLogStar: async (
-      title: string,
-      x: number,
-      y: number,
-      log: LogObj,
-    ) => {
-      const payload = await amplifyClient.graphql({
-        query: createStarObj,
-        variables: {
-          input: {
-            constellationId: constellationId,
-            title: title,
-            description: "",
-            x,
-            y,
-            log: log,
-            variant: ResourceVariant.LOG,
+            note: cleanGql(note),
           },
         },
       });
       const star = payload?.data.createStarObj as StarObj;
       return star;
     },
-    queryUpdateStars: async () => {
+    gqlCreateLogStar: async (
+      title: string,
+      description: string,
+      x: number,
+      y: number,
+      log: LogObj,
+    ) => {
+      console.log(log)
+      const payload = await amplifyClient.graphql({
+        query: createStarObj,
+        variables: {
+          input: {
+            constellationId: constellationId,
+            title: title,
+            description: description,
+            x,
+            y,
+            variant: ResourceVariant.LOG,
+            log: log,
+          },
+        },
+      });
+      const star = payload?.data.createStarObj as StarObj;
+      return star;
+    },
+    gqlUpdateStars: async () => {
       const updatedStars = await Promise.all(
         stars.map(async (star) => {
           let input = removeTypename(removeEmpty(star));
@@ -176,13 +200,14 @@ export const useStars = (constellationId: string): useStarInterface => {
 
   const _starHandler: StarHandler = {
     queryListStars: async () => {
-      const stars = await gqlHelper.queryListStars();
+      const stars = await gqlHelper.gqlListStars();
       changeStars(stars);
       changeStarId(stars[0]?.id || '');
       return stars;
     },
     queryCreateFileStar: async (
-      name: string,
+      title: string,
+      description: string,
       x: number,
       y: number,
       file: FileObj,
@@ -191,13 +216,14 @@ export const useStars = (constellationId: string): useStarInterface => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.queryCreateFileStar(name, x, y, file);
+      const star = await gqlHelper.gqlCreateFileStar(title, description, x, y, file);
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
     },
     queryCreateNoteStar: async (
       name: string,
+      description: string,
       x: number,
       y: number,
       note: NoteObj,
@@ -206,13 +232,14 @@ export const useStars = (constellationId: string): useStarInterface => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.queryCreateNoteStar(name, x, y, note);
+      const star = await gqlHelper.gqlCreateNoteStar(name, description, x, y, note);
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
     },
     queryCreateLinkStar: async (
-      name: string,
+      title: string,
+      description: string,
       x: number,
       y: number,
       link: LinkObj,
@@ -221,13 +248,14 @@ export const useStars = (constellationId: string): useStarInterface => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.queryCreateLinkStar(name, x, y, link);
+      const star = await gqlHelper.gqlCreateLinkStar(title, description, x, y, link);
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
     },
     queryCreateLogStar: async (
-      name: string,
+      title: string,
+      description: string,
       x: number,
       y: number,
       log: LogObj,
@@ -236,13 +264,13 @@ export const useStars = (constellationId: string): useStarInterface => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.queryCreateLogStar(name, x, y, log);
+      const star = await gqlHelper.gqlCreateLogStar(title, description, x, y, log);
       changeStars((prev) => [...prev, star]);
       changeStarId(star.id);
       return star;
     },
     queryUpdateStars: async () => {
-      const updatedStars = await gqlHelper.queryUpdateStars();
+      const updatedStars = await gqlHelper.gqlUpdateStars();
       return updatedStars;
     },
     activateStar: (starId: string) => {

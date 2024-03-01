@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
+import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
+import { LogObj, LogObjContext } from '@/(logic)/internal/data/infra/model/resource/log/main';
 
 export function LogAudioStar() {
   const { star, x, y, constraintsRef, activateStar } =
@@ -24,13 +26,12 @@ export function LogAudioStar() {
             e.stopPropagation();
           }}
         >
-          <img
-            className='pointer-events-none aspect-square h-[100px] w-[100px] flex-shrink-0 rounded-full border-[2px] border-slate-300'
-            src={star?.file?.src}
-          />
+          <LogObjContext.Provider value={star?.log || ({} as LogObj)}>
+            <FullLoomVideo />
+          </LogObjContext.Provider>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.file?.variant}
+              {star.title}
             </p>
           </div>
         </div>

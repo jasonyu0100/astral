@@ -1,6 +1,6 @@
 import {
   StarModalContext,
-} from '@/(modals)/process/star-modal/main';
+} from '@/(modals)/(process)/star-modal/main';
 import { DraftHeaderFileButton } from './file/main';
 import { DraftHeaderLinkButton } from './link/main';
 import { DraftHeaderLogButton } from './log/main';

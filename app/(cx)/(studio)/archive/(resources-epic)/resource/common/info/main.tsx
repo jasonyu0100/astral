@@ -1,5 +1,5 @@
 import { ResourceContext } from "@/(logic)/internal/data/infra/model/resource/main";
-import { useFileModal } from "@/(modals)/studio/resource/resource-modal/main";
+import { useFileModal } from "@/(modals)/(studio)/resource/resource-modal/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {

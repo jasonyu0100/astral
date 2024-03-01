@@ -1,5 +1,5 @@
 'use client';
-import { FlowModalContext } from '@/(modals)/process/flow-modal/main';
+import { FlowModalContext } from '@/(modals)/(process)/flow-modal/main';
 import { useContext } from 'react';
 
 export function FlowLogButton() {

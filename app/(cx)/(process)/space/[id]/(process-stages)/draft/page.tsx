@@ -14,10 +14,10 @@ import { StarHandler, useStars } from '@/(logic)/internal/handler/draft/stars/ma
 import {
   DraftModalContext,
   useDraftModal,
-} from '../../../../../../(modals)/process/draft-modal/main';
-import { StarModalContext, useStarModal } from '@/(modals)/process/star-modal/main';
-import { StarModalView } from '@/(modals)/process/star-modal/view';
-import { DraftModalView } from '@/(modals)/process/draft-modal/view';
+} from '../../../../../../(modals)/(process)/draft-modal/main';
+import { StarModalContext, useStarModal } from '@/(modals)/(process)/star-modal/main';
+import { StarModalView } from '@/(modals)/(process)/star-modal/view';
+import { DraftModalView } from '@/(modals)/(process)/draft-modal/view';
 
 interface DraftContextObj {
   chapterId: string;

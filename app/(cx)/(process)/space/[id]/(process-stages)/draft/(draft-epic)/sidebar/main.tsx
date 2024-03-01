@@ -3,13 +3,21 @@ import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
 import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
-import { GalleryHandler, useGallerys } from '@/(logic)/internal/handler/explorer/gallerys/main';
+import {
+  GalleryHandler,
+  useGallerys,
+} from '@/(logic)/internal/handler/explorer/gallerys/main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { CollectionHandler, useCollections } from '@/(logic)/internal/handler/explorer/collections/main';
+import {
+  CollectionHandler,
+  useCollections,
+} from '@/(logic)/internal/handler/explorer/collections/main';
 import {
   CollectionResourcesHandler,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ArchiveSidebarModalContext, useArchiveSidebarModal } from '@/(modals)/(studio)/archive/sidebar/main';
+import { ArchiveSidebarModalView } from '@/(modals)/(studio)/archive/sidebar/view';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',
@@ -74,7 +82,7 @@ export function DraftSidebar() {
     },
   };
 
-  const context: DraftSidebarContextObject = {
+  const draftContext: DraftSidebarContextObject = {
     gallery,
     collection,
     sidebarMode,
@@ -90,9 +98,14 @@ export function DraftSidebar() {
     resourceHandler: _resourceHandler,
   };
 
+  const modalContext = useArchiveSidebarModal();
+
   return (
-    <DraftSidebarContext.Provider value={context}>
-      <DraftSidebarView />
+    <DraftSidebarContext.Provider value={draftContext}>
+      <ArchiveSidebarModalContext.Provider value={modalContext}>
+        <ArchiveSidebarModalView/>
+        <DraftSidebarView />
+      </ArchiveSidebarModalContext.Provider>
     </DraftSidebarContext.Provider>
   );
 }

@@ -3,11 +3,11 @@ import { CollectionBreadcrumbDivider } from '../../(archive-stages)/explorer/(co
 import { CollectionBreadcrumbItem } from '../../(archive-stages)/explorer/(common)/breadcrumb/item/main';
 import { CollectionBreadcrumbs } from '../../(archive-stages)/explorer/(common)/breadcrumb/main';
 import { useContext } from 'react';
-import { ExploreCollectionContext } from '../../(archive-stages)/explorer/resources-view/[id]/page';
+import { ExplorerCollectionContext } from '../../(archive-stages)/explorer/resources-view/[id]/page';
 
 export function ResourcesBreadcrumbs() {
   const { gallery, collection } = useContext(
-    ExploreCollectionContext,
+    ExplorerCollectionContext,
   );
   
   return (

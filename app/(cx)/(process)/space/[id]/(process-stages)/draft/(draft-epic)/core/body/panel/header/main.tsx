@@ -1,6 +1,6 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { DraftHeaderAddButton } from '../../../header/modes/default/left/add/main';
-import { DraftModalContext } from '@/(modals)/process/draft-modal/main';
+import { DraftModalContext } from '@/(modals)/(process)/draft-modal/main';
 import { useContext } from 'react';
 
 export function DraftPanelHeader() {

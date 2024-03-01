@@ -15,15 +15,11 @@ export interface LogObj {
   width: number;
   sharedUrl: string;
   embedUrl: string;
-  thumbnailHeight?: number;
-  thumbnailWidth?: number;
-  thumbnailUrl?: string;
-  duration?: number;
-  providerUrl: string;
   variant: string;
+  providerUrl: string;
 }
 
-export const LogContext = createContext<LogObj>({} as LogObj);
+export const LogObjContext = createContext<LogObj>({} as LogObj);
 
 export const exampleLog: LogObj = {
   id: '0',
@@ -32,10 +28,6 @@ export const exampleLog: LogObj = {
   width: 0,
   sharedUrl: '',
   embedUrl: '',
-  thumbnailHeight: 0,
-  thumbnailWidth: 0,
-  thumbnailUrl: '',
-  duration: 0,
   providerUrl: '',
   variant: LogVariant.SCREEN,
 };
@@ -43,16 +35,12 @@ export const exampleLog: LogObj = {
 export const exampleLogs: LogObj[] = [
   {
     id: '0',
-  loomId: '0',
-  height: 0,
-  width: 0,
-  sharedUrl: '',
-  embedUrl: '',
-  thumbnailHeight: 0,
-  thumbnailWidth: 0,
-  thumbnailUrl: '',
-  duration: 0,
-  providerUrl: '',
+    loomId: '0',
+    height: 0,
+    width: 0,
+    sharedUrl: '',
+    embedUrl: '',
+    providerUrl: '',
     variant: LogVariant.SCREEN,
   },
 ];

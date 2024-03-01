@@ -19,8 +19,8 @@ import { useSpace } from '@/(logic)/internal/handler/space/main';
 import {
   StormModalContext,
   useStormModal,
-} from '../../../../../../(modals)/process/storm-modal/main';
-import { StormModalView } from '@/(modals)/process/storm-modal/view';
+} from '../../../../../../(modals)/(process)/storm-modal/main';
+import { StormModalView } from '@/(modals)/(process)/storm-modal/view';
 
 interface StormContextObj {
   chapter?: ChapterObj;

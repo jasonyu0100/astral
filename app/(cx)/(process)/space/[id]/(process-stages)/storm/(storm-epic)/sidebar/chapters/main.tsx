@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { StormModalContext } from '@/(modals)/process/storm-modal/main';
+import { StormModalContext } from '@/(modals)/(process)/storm-modal/main';
 import { useContext } from 'react';
 import { StormContext } from '../../../page';
 import { StormChapterAdd } from './chapter/add/main';

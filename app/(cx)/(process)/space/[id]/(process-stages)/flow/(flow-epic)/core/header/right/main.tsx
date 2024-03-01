@@ -1,4 +1,4 @@
-import { FlowModalContext } from '@/(modals)/process/flow-modal/main';
+import { FlowModalContext } from '@/(modals)/(process)/flow-modal/main';
 import { useContext } from 'react';
 import { FlowHeaderAddButton } from './add/main';
 import { FlowLogButton } from './log/main';

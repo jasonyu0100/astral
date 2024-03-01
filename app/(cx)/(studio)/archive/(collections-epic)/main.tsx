@@ -3,10 +3,10 @@ import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import React, { useContext } from 'react';
 import { CollectionsBreadcrumbs } from './breadcrumbs/main';
 import { GalleryCollectionGrid } from './grid/main';
-import { ExploreGalleryContext } from '../(archive-stages)/explorer/collections-view/[id]/page';
+import { ExplorerGalleryContext } from '../(archive-stages)/explorer/collections-view/[id]/page';
 
 export function CollectionsBody() {
-  const { gallery } = useContext(ExploreGalleryContext);
+  const { gallery } = useContext(ExplorerGalleryContext);
   
   return (
     <GlassContainer

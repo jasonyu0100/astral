@@ -1,6 +1,6 @@
 import {
   StarModalContext,
-} from '@/(modals)/process/star-modal/main';
+} from '@/(modals)/(process)/star-modal/main';
 import { useContext } from 'react';
 import { ToggleDraftModalButton } from '../../../common/toggle/main';
 
