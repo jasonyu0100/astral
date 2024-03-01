@@ -8,12 +8,12 @@ import { FormUploadFiles } from '@/(components)/(form)/upload/upload-files/main'
 import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { ArchiveSidebarModalContext } from '../../main';
+import { ArchiveSidebarCreateModalContext } from '../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
 
 export function SidebarCreateCollectionModal() {
   const { collectionHandler } = useContext(DraftSidebarContext);
-  const modalContext = useContext(ArchiveSidebarModalContext);
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
   const { opened, close } = modalContext.createCollection;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

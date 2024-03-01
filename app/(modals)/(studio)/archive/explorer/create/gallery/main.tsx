@@ -11,10 +11,10 @@ import { useContext, useState } from 'react';
 import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
 import { ExplorerHomeContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/gallerys-view/page';
-import { ArchiveExplorerModalContext } from '../../main';
+import { ArchiveExplorerCreateModalContext } from '../main';
 
 export function ExplorerCreateGalleryModal() {
-  const modalContext = useContext(ArchiveExplorerModalContext);
+  const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createGallery;
   const { galleryHandler } = useContext(ExplorerHomeContext);
   const [title, changeTitle] = useState('');

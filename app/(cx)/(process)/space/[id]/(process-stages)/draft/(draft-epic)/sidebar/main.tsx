@@ -16,8 +16,8 @@ import {
   CollectionResourcesHandler,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
-import { ArchiveSidebarModalContext, useArchiveSidebarModal } from '@/(modals)/(studio)/archive/sidebar/main';
-import { ArchiveSidebarModalView } from '@/(modals)/(studio)/archive/sidebar/view';
+import { ArchiveSidebarCreateModalContext, useArchiveSidebarCreateModal } from '@/(modals)/(studio)/archive/sidebar/create/main';
+import { ArchiveSidebarCreateModalView } from '@/(modals)/(studio)/archive/sidebar/create/view';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',
@@ -98,14 +98,14 @@ export function DraftSidebar() {
     resourceHandler: _resourceHandler,
   };
 
-  const modalContext = useArchiveSidebarModal();
+  const modalContext = useArchiveSidebarCreateModal();
 
   return (
     <DraftSidebarContext.Provider value={draftContext}>
-      <ArchiveSidebarModalContext.Provider value={modalContext}>
-        <ArchiveSidebarModalView/>
+      <ArchiveSidebarCreateModalContext.Provider value={modalContext}>
+        <ArchiveSidebarCreateModalView/>
         <DraftSidebarView />
-      </ArchiveSidebarModalContext.Provider>
+      </ArchiveSidebarCreateModalContext.Provider>
     </DraftSidebarContext.Provider>
   );
 }

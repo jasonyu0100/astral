@@ -1,10 +1,10 @@
 import { ResourceContext } from "@/(logic)/internal/data/infra/model/resource/main";
-import { useFileModal } from "@/(modals)/(studio)/resource/resource-modal/main";
+import { ArchiveExplorerEditModalContext } from "@/(modals)/(studio)/archive/explorer/edit/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {
   const resource = useContext(ResourceContext);
-  const modalContext = useFileModal();
+  const modalContext = useContext(ArchiveExplorerEditModalContext);
   
   return (
     <div className='flex h-full w-full flex-col'>
@@ -17,9 +17,9 @@ export function CollectionResourceInfo() {
       </p>
       <button
         className='mt-auto w-full bg-black p-[1rem] font-bold text-white'
-        onClick={() => modalContext.editResourceModal.open()}
+        onClick={() => modalContext.editResource.open()}
       >
-        Change
+        EDIT
       </button>
     </div>
   );

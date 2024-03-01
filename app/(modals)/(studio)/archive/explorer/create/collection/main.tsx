@@ -9,11 +9,11 @@ import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ExplorerGalleryContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/collections-view/[id]/page';
-import { ArchiveExplorerModalContext } from '../../main';
+import { ArchiveExplorerCreateModalContext } from '../main';
 
 export function ExplorerCreateCollectionModal() {
   const { collectionHandler } = useContext(ExplorerGalleryContext);
-  const modalContext = useContext(ArchiveExplorerModalContext);
+  const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createCollection;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

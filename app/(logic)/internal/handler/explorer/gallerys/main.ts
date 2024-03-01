@@ -39,7 +39,8 @@ export const useGallerys = (userId: string): useGallerysInterface => {
           },
         },
       });
-      const gallerys = payload?.data?.listGalleryObjs?.items as GalleryObj[] || [];
+      const gallerys =
+        (payload?.data?.listGalleryObjs?.items as GalleryObj[]) || [];
       return gallerys;
     },
     queryCreateGallery: async (
@@ -58,7 +59,7 @@ export const useGallerys = (userId: string): useGallerysInterface => {
           },
         },
       });
-
+      console.log(payload);
       const gallery = payload?.data?.createGalleryObj as GalleryObj;
       return gallery;
     },

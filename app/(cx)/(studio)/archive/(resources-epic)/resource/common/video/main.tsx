@@ -23,7 +23,7 @@ export function CollectionResourceVideo() {
         className='aspect-square w-full cursor-pointer bg-black flex-shrink-0'
       />
       <p className='mt-[0.5rem] w-full font-extraBold text-xl'>
-        {resource.file?.title}
+        {resource.title}
       </p>
     </div>
   );

@@ -10,7 +10,7 @@ export interface ResourceModalController {
 
 export const ResourceModalContext = createContext({} as ResourceModalController);
 
-export const useFileModal = (): ResourceModalController => {
+export const useResourceEditModal = (): ResourceModalController => {
   const [showOne, changeShowOne] = useState(false);
 
   return {

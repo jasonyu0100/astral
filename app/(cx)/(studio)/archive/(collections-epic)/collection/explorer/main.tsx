@@ -10,7 +10,7 @@ import {
 } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { useCollectionResources } from '@/(logic)/internal/handler/explorer/resources/main';
 
-export function GalleryCollection() {
+export function ExplorerCollection() {
   const collection = useContext(CollectionContext);
   const { resources } = useCollectionResources(collection.id);
 

@@ -3,11 +3,11 @@ import { DraftSidebarContext } from '../../main';
 import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/add/main';
 import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/main';
 import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
-import { ArchiveSidebarModalContext } from '@/(modals)/(studio)/archive/sidebar/main';
+import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
 
 export function CollectionsInterface() {
   const { collections } = useContext(DraftSidebarContext);
-  const modalContext = useContext(ArchiveSidebarModalContext);
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
 
   return (
     <div className='flex flex-col space-y-[2rem]'>

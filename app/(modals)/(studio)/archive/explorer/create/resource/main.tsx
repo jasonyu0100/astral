@@ -11,11 +11,11 @@ import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resour
 import { useContext, useState } from 'react';
 import { ExplorerCollectionContext } from '../../../../../../(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { ArchiveExplorerModalContext } from '../../main';
+import { ArchiveExplorerCreateModalContext } from '../main';
 
 export function ExplorerCreateResourceModal() {
   const { resourceHandler } = useContext(ExplorerCollectionContext);
-  const modalContext = useContext(ArchiveExplorerModalContext);
+  const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createResource;
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
@@ -25,7 +25,7 @@ export function ExplorerCreateResourceModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Upload Media</FormTitle>
+        <FormTitle>Add Media</FormTitle>
         <FormBody>
           <FormSelect
             value={variant}

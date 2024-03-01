@@ -31,7 +31,7 @@ export function CollectionResourceAudio() {
           </g>
         </svg>
       </div>
-      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.file?.title}</p>
+      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.title}</p>
     </div>
   );
 }

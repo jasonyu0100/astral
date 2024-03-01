@@ -10,11 +10,11 @@ import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
-import { ArchiveSidebarModalContext } from '../../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { ArchiveSidebarEditModalContext } from '../main';
 
 export function SidebarEditResourceModal() {
-  const modalContext = useContext(ArchiveSidebarModalContext);
+  const modalContext = useContext(ArchiveSidebarEditModalContext);
   const { resourceHandler } = useContext(DraftSidebarContext);
   const { opened, close } = modalContext.editResource;
   const resource = useContext(ResourceContext);

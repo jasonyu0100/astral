@@ -11,10 +11,10 @@ import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main'
 import { ExplorerCollectionContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
-import { ArchiveExplorerModalContext } from '../../main';
+import { ArchiveExplorerEditModalContext } from '../main';
 
 export function ExplorerEditGalleryModal() {
-  const modalContext = useContext(ArchiveExplorerModalContext);
+  const modalContext = useContext(ArchiveExplorerEditModalContext);
   const { resourceHandler } = useContext(ExplorerCollectionContext);
   const { opened, close } = modalContext.editGallery;
   const resource = useContext(ResourceContext);

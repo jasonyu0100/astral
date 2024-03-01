@@ -10,7 +10,7 @@ export function CollectionResourceImage() {
         src={resource?.file?.src}
         className='aspect-square w-full cursor-pointer bg-black flex-shrink-0'
       />
-      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.file?.title}</p>
+      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.title}</p>
     </div>
   );
 }

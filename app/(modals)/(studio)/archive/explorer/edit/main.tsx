@@ -1,33 +1,33 @@
 import { createContext, useState } from 'react';
 
-export interface ResourcesModalController {
-  explorerAddResourceModal: {
+export interface ArchiveExplorerEditController {
+  editGallery: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  draftAddResourceModal: {
+  editResource: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
 }
 
-export const ResourcesModalContext = createContext(
-  {} as ResourcesModalController,
+export const ArchiveExplorerEditModalContext = createContext(
+  {} as ArchiveExplorerEditController,
 );
 
-export const useResourceModal = (): ResourcesModalController => {
+export const useArchiveExplorerEditModal = (): ArchiveExplorerEditController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
 
   return {
-    explorerAddResourceModal: {
+    editGallery: {
       opened: showOne,
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    draftAddResourceModal: {
+    editResource: {
       opened: showTwo,
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),

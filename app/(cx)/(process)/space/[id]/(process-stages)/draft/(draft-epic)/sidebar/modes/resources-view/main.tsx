@@ -4,27 +4,21 @@ import { CollectionResourceAdd } from '../../../../../../../../../(studio)/archi
 import { CollectionHeader } from './header/main';
 import { CollectionHeaderSearch } from './header/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../(studio)/archive/(resources-epic)/resource/sidebar/main';
-import {
-  ResourcesModalContext,
-  useResourceModal,
-} from '@/(modals)/(studio)/resource/resources-modal/main';
-import { ResourcesModalView } from '@/(modals)/(studio)/resource/resources-modal/view';
 import { ResourceContext, ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);
 
 export function ResourcesInterface() {
   const { searchResults } = useContext(DraftSidebarContext);
-  const modalContext = useResourceModal();
+  const modalContext = useContext(ArchiveSidebarCreateModalContext)
 
   return (
-    <ResourcesModalContext.Provider value={modalContext}>
-      <ResourcesModalView />
       <div className='flex h-full flex-col w-full'>
         <div className='w-full flex flex-row flex-wrap gap-[2rem]'>
           <CollectionResourceAdd
             onClick={() => {
-              modalContext.draftAddResourceModal.open();
+              modalContext.createResource.open();
             }}
           />
           {searchResults.map((resource) => (
@@ -38,6 +32,5 @@ export function ResourcesInterface() {
           <CollectionHeaderSearch />
         </CollectionHeader>
       </div>
-    </ResourcesModalContext.Provider>
   );
 }

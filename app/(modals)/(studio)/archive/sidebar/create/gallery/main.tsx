@@ -10,11 +10,11 @@ import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main'
 import { useContext, useState } from 'react';
 import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { ArchiveSidebarModalContext } from '../../main';
+import { ArchiveSidebarCreateModalContext } from '../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
 
 export function SidebarCreateGalleryModal() {
-  const modalContext = useContext(ArchiveSidebarModalContext);
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
   const { opened, close } = modalContext.createGallery;
   const { galleryHandler } = useContext(DraftSidebarContext);
   const [title, changeTitle] = useState('');

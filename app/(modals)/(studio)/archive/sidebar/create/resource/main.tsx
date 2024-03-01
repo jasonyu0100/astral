@@ -10,12 +10,12 @@ import { Modal } from '@/(components)/(modal)/main';
 import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { ArchiveSidebarModalContext } from '../../main';
 import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { ArchiveSidebarCreateModalContext } from '../main';
 
 export function SidebarCreateResourceModal() {
   const { resourceHandler } = useContext(DraftSidebarContext);
-  const modalContext = useContext(ArchiveSidebarModalContext);
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
   const { opened, close } = modalContext.createResource;
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
@@ -25,7 +25,7 @@ export function SidebarCreateResourceModal() {
   return (
     <Modal isOpen={opened} onClose={() => close()}>
       <FormContainer>
-        <FormTitle>Upload Media</FormTitle>
+        <FormTitle>Add Media</FormTitle>
         <FormBody>
           <FormSelect
             value={variant}

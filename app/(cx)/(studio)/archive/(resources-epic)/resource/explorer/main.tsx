@@ -1,21 +1,17 @@
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
-import { useContext, useState } from 'react';
-import {
-  useFileModal,
-  ResourceModalContext,
-} from '@/(modals)/(studio)/resource/resource-modal/main';
+import { useState } from 'react';
 import { CollectionResourceInfo } from '../common/info/main';
 import { ResourcePolaroid } from '../common/polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';
-import { ResourceModalView } from '@/(modals)/(studio)/resource/resource-modal/view';
+import { ArchiveExplorerModalEditView } from '@/(modals)/(studio)/archive/explorer/edit/view';
+import { ArchiveExplorerEditModalContext, useArchiveExplorerEditModal } from '@/(modals)/(studio)/archive/explorer/edit/main';
 
-export function CollectionResource() {
-  const modalContext = useFileModal();
+export function ExplorerResource() {
+  const modalContext = useArchiveExplorerEditModal();
   const [flipped, changeFlipped] = useState(false);
 
   return (
-    <ResourceModalContext.Provider value={modalContext}>
-      <ResourceModalView />
+    <ArchiveExplorerEditModalContext.Provider value={modalContext}>
+      <ArchiveExplorerModalEditView />
       <ResourcePolaroid onClick={() => changeFlipped(!flipped)}>
         {flipped ? (
           <CollectionResourceInfo />
@@ -23,6 +19,6 @@ export function CollectionResource() {
           <CollectionResourceMedia/>
         )}
       </ResourcePolaroid>
-    </ResourceModalContext.Provider>
+    </ArchiveExplorerEditModalContext.Provider>
   );
 }

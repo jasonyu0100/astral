@@ -1,22 +1,12 @@
 import { createContext, useState } from 'react';
 
-export interface ArchiveExplorerController {
+export interface ArchiveSidebarCreateController {
   createCollection: {
     opened: boolean;
     open: () => void;
     close: () => void;
   };
-  editGallery: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
   createGallery: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  editResource: {
     opened: boolean;
     open: () => void;
     close: () => void;
@@ -28,15 +18,13 @@ export interface ArchiveExplorerController {
   };
 }
 
-export const ArchiveExplorerModalContext = createContext(
-  {} as ArchiveExplorerController,
+export const ArchiveSidebarCreateModalContext = createContext(
+  {} as ArchiveSidebarCreateController,
 );
 
-export const useArchiveExplorerModal = (): ArchiveExplorerController => {
+export const useArchiveSidebarCreateModal = (): ArchiveSidebarCreateController => {
   const [showOne, changeShowOne] = useState(false);
-  const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
-  const [showFour, changeShowFour] = useState(false);
   const [showFive, changeShowFive] = useState(false);
 
   return {
@@ -45,20 +33,10 @@ export const useArchiveExplorerModal = (): ArchiveExplorerController => {
       open: () => changeShowOne(true),
       close: () => changeShowOne(false),
     },
-    editGallery: {
-      opened: showTwo,
-      open: () => changeShowTwo(true),
-      close: () => changeShowTwo(false),
-    },
     createGallery: {
       opened: showThree,
       open: () => changeShowThree(true),
       close: () => changeShowThree(false),
-    },
-    editResource: {
-      opened: showFour,
-      open: () => changeShowFour(true),
-      close: () => changeShowFour(false),
     },
     createResource: {
       opened: showFive,
