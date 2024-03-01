@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(types)/main';
 
-export function DraftHeaderAddButton({ ...props }: ButtonInputProps) {
+export function DraftPanelAddButton({ ...props }: ButtonInputProps) {
   return (
     <button
       className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'

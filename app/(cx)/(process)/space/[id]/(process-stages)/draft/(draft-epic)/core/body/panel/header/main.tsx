@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { DraftHeaderAddButton } from '../../../header/modes/default/left/add/main';
+import { DraftPanelAddButton } from './add/main';
 import { DraftModalContext } from '@/(modals)/(process)/draft-modal/main';
 import { useContext } from 'react';
 
@@ -14,7 +14,7 @@ export function DraftPanelHeader() {
       displayName={DraftPanelHeader.name}
     >
       <p className='ml-[1rem] font-extraBold text-xl text-slate-300'>Pages</p>
-      <DraftHeaderAddButton
+      <DraftPanelAddButton
         onClick={() => {
           open();
         }}
