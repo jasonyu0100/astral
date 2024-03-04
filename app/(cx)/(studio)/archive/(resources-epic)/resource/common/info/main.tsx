@@ -1,10 +1,10 @@
 import { ResourceContext } from "@/(logic)/internal/data/infra/model/resource/main";
-import { ArchiveExplorerEditModalContext } from "@/(modals)/(studio)/archive/explorer/edit/main";
+import { EditResourceModalContext } from "@/(modals)/(studio)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {
   const resource = useContext(ResourceContext);
-  const modalContext = useContext(ArchiveExplorerEditModalContext);
+  const modalContext = useContext(EditResourceModalContext);
   
   return (
     <div className='flex h-full w-full flex-col'>

@@ -8,14 +8,14 @@ import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { ExplorerCollectionContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
-import { ArchiveSidebarEditModalContext } from '../main';
+import { EditResourceModalContext } from './main';
 
-export function SidebarEditResourceModal() {
-  const modalContext = useContext(ArchiveSidebarEditModalContext);
-  const { resourceHandler } = useContext(DraftSidebarContext);
+export function ExplorerEditResourceModal() {
+  const modalContext = useContext(EditResourceModalContext);
+  const { resourceHandler } = useContext(ExplorerCollectionContext);
   const { opened, close } = modalContext.editResource;
   const resource = useContext(ResourceContext);
   const [title, changeTitle] = useState(resource.title);
