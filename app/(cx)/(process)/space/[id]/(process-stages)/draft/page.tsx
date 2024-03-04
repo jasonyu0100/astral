@@ -10,7 +10,7 @@ import {
   useConstellations,
 } from '@/(logic)/internal/handler/draft/constellations/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { StarHandler, useStars } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandler, useStars } from '@/(logic)/internal/handler/draft/stars/main';
 import {
   DraftModalContext,
   useDraftModal,
@@ -28,7 +28,7 @@ interface DraftContextObj {
   constellationId: string;
   stars: StarObj[];
   starId: string;
-  starHandler: StarHandler;
+  starHandler: StarsHandler;
   chapterHandler: ChapterHandler;
   constellationHandler: ConstellationHandler;
   modalType: DraftModalType;

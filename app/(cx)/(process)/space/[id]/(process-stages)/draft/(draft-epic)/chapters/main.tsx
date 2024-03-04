@@ -1,7 +1,7 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
-import { DraftChaptersLeftButton } from './left/main';
-import { DraftChaptersRightButton } from './right/main';
+import { DraftChaptersLeftButton } from '../../../(common)/chapters/left/main';
+import { DraftChaptersRightButton } from '../../../(common)/chapters/right/main';
 import { DraftChaptersRow } from './row/main';
 
 export function DraftChapters() {

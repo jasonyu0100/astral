@@ -7,7 +7,10 @@ import {
   ChapterHandler,
   useChapters,
 } from '@/(logic)/internal/handler/chapters/main';
-import { ChatHandler, useChats } from '@/(logic)/internal/handler/storm/chats/main';
+import {
+  ChatHandler,
+  useChats,
+} from '@/(logic)/internal/handler/storm/chats/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { createContext, useEffect } from 'react';
 import {
@@ -15,12 +18,13 @@ import {
   useMessages,
 } from '@/(logic)/internal/handler/storm/messages/main';
 import { useGlobalSpace } from '@/(logic)/internal/data/infra/store/space/main';
-import { useSpace } from '@/(logic)/internal/handler/space/main';
+import { useSpace } from '@/(logic)/internal/handler/spaces/space/main';
 import {
   StormModalContext,
   useStormModal,
 } from '../../../../../../(modals)/(process)/storm-modal/main';
 import { StormModalView } from '@/(modals)/(process)/storm-modal/view';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 interface StormContextObj {
   chapter?: ChapterObj;
@@ -41,12 +45,13 @@ export const StormContext = createContext<StormContextObj>(
 
 function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
+  const user = useGlobalUser((state) => state.user);
   const { space } = useSpace(params.id);
   const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
     params.id,
   );
   const { chat, chatId, chats, _chatHandler } = useChats(chapterId);
-  const { messages, _messageHandler } = useMessages(chatId);
+  const { messages, _messageHandler } = useMessages(chatId, user.id);
 
   useEffect(() => {
     if (space && space?.id) {

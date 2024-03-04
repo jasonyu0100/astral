@@ -8,9 +8,10 @@ import {
   CollectionResourcesHandler,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
-import { useCollection } from '@/(logic)/internal/handler/explorer/collection/main';
-import { useGallery } from '@/(logic)/internal/handler/explorer/gallery/main';
+import { useCollection } from '@/(logic)/internal/handler/explorer/collections/collection/main';
+import { useGallery } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import { ResourcesView } from './view';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 interface ExplorerCollectionContextObj {
   gallery: GalleryObj;
@@ -27,7 +28,8 @@ export const ExplorerCollectionContext =
 function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollection(params.id);
   const { gallery } = useGallery(collection.galleryId);
-  const { resources, _resourceHandler } = useCollectionResources(params.id);
+  const user = useGlobalUser((state) => state.user);
+  const { resources, _resourceHandler } = useCollectionResources(params.id, user?.id);
 
   const context = {
     gallery,

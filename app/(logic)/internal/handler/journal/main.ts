@@ -1,10 +1,7 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createMomentObj } from '@/graphql/mutations';
-import { listMomentObjs } from '@/graphql/queries';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
-import { ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
 import { useMemo, useState } from 'react';
+import { gqlHelper } from '../../gql/journal/main';
 
 export interface FeedMomentHandler {
   queryListMoments: () => Promise<MomentObj[]>;
@@ -36,56 +33,9 @@ export const useFeedMoments = (
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
-
-  const gqlHelper = {
-    queryListMoments: async () => {
-      const payload = await amplifyClient.graphql({
-        query: listMomentObjs,
-        variables: {
-          filter: {
-            userId: {
-              eq: userId,
-            },
-            visibility: {
-              eq: visibility,
-            },
-          },
-        },
-      });
-      const moments = payload.data?.listMomentObjs?.items as MomentObj[] || [];
-      return moments;
-    },
-    queryCreateFileMoment: async (
-      title: string,
-      description: string,
-      file: FileObj,
-      chapterId: string,
-      spaceId: string,
-    ) => {
-      const payload = await amplifyClient.graphql({
-        query: createMomentObj,
-        variables: {
-          input: {
-            chapterId: chapterId,
-            spaceId: spaceId,
-            userId: userId,
-            time: new Date().toISOString(),
-            title: title,
-            description: description,
-            file: file,
-            visibility: visibility,
-            variant: ResourceVariant.FILE,
-          },
-        },
-      });
-      const moment = payload.data?.createMomentObj as MomentObj;
-      return moment;
-    },
-  };
-
   const _momentHandler: FeedMomentHandler = {
     queryListMoments: async () => {
-      const moments = await gqlHelper.queryListMoments();
+      const moments = await gqlHelper.queryListMoments(userId, visibility);
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
       return moments;
@@ -98,6 +48,8 @@ export const useFeedMoments = (
       spaceId: string,
     ) => {
       const moment = await gqlHelper.queryCreateFileMoment(
+        userId,
+        visibility,
         title,
         log,
         file,
@@ -123,7 +75,7 @@ export const useFeedMoments = (
       return moment;
     },
   };
-  
+
   useMemo(() => {
     if (!userId) {
       changeMoments([]);

@@ -1,10 +1,7 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createResourceObj } from '@/graphql/mutations';
-import { listResourceObjs } from '@/graphql/queries';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ResourceObj, ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { useState, useEffect } from 'react';
+import { gqlHelper } from '../../../gql/resources/main';
 
 interface useCollectionResourcesInterface {
   resourceId: string;
@@ -27,8 +24,8 @@ export interface CollectionResourcesHandler {
 
 export const useCollectionResources = (
   collectionId: string,
+  userId: string,
 ): useCollectionResourcesInterface => {
-  const user = useGlobalUser((state) => state.user);
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -46,46 +43,6 @@ export const useCollectionResources = (
     changeSearchResults(resources);
   }, [resources]);
 
-  const gqlHelper = {
-    queryListResources: async (collectionId: string) => {
-      const payload = await amplifyClient.graphql({
-        query: listResourceObjs,
-        variables: {
-          filter: {
-            collectionId: {
-              eq: collectionId,
-            },
-          },
-        },
-      });
-
-      const resources =
-        (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
-      return resources;
-    },
-    queryCreateFileResource: async (
-      title: string,
-      description: string,
-      file: FileObj,
-    ) => {
-      const payload = await amplifyClient.graphql({
-        query: createResourceObj,
-        variables: {
-          input: {
-            title: title,
-            description,
-            collectionId,
-            file,
-            variant: ResourceVariant.FILE,
-            userId: user?.id,
-          },
-        },
-      });
-      const resource = payload?.data?.createResourceObj as ResourceObj;
-      return resource;
-    },
-  };
-
   const _resourceHandler: CollectionResourcesHandler = {
     queryListResources: async (collectionId: string) => {
       const resources = await gqlHelper.queryListResources(collectionId);
@@ -99,6 +56,8 @@ export const useCollectionResources = (
       file: FileObj,
     ) => {
       const resource = await gqlHelper.queryCreateFileResource(
+        userId,
+        collectionId,
         name,
         description,
         file,

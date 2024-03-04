@@ -9,10 +9,12 @@ import {
   ResourcesContext,
 } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { useCollectionResources } from '@/(logic)/internal/handler/explorer/resources/main';
+import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function ExplorerCollection() {
   const collection = useContext(CollectionContext);
-  const { resources } = useCollectionResources(collection.id);
+  const user = useGlobalUser((state) => state.user);
+  const { resources } = useCollectionResources(collection.id, user?.id);
 
   return (
     <ResourcesContext.Provider value={resources}>

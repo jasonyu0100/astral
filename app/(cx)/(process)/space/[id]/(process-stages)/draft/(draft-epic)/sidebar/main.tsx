@@ -55,12 +55,12 @@ export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
   const user = useGlobalUser((state) => state.user);
   const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(
-    user.id,
+    user?.id,
   );
   const { collections, collection, collectionId, _collectionHandler } =
-    useCollections(galleryId);
+    useCollections(galleryId, user?.id);
   const { resources, resource, resourceId, searchResults, _resourceHandler } =
-    useCollectionResources(collectionId);
+    useCollectionResources(collectionId, user?.id);
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {

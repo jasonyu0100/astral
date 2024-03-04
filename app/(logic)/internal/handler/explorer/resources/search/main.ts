@@ -2,6 +2,7 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { listResourceObjs } from '@/graphql/queries';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { useState, useEffect } from 'react';
+import { gqlHelper } from '../../../../gql/resources/main';
 
 interface useSearchResourcesInterface {
   resourceId: string;
@@ -38,27 +39,9 @@ export const useSearchResource = (
     changeSearchResults(resources);
   }, [resources]);
 
-  const gqlHelper = {
-    queryListResources: async (userId: string) => {
-      const payload = await amplifyClient.graphql({
-        query: listResourceObjs,
-        variables: {
-          filter: {
-            userId: {
-              eq: userId,
-            },
-          },
-        },
-      });
-
-      const resources = payload?.data.listResourceObjs?.items as ResourceObj[] || [];
-      return resources;
-    },
-  };
-
   const _searchResourceHandler: SearchResourceHandler = {
     queryListResources: async (userId: string) => {
-      const resources = await gqlHelper.queryListResources(userId);
+      const resources = await gqlHelper.queryListUserResources(userId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;

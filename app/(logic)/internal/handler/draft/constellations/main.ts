@@ -3,6 +3,7 @@ import { createConstellationObj } from '@/graphql/mutations';
 import { listConstellationObjs } from '@/graphql/queries';
 import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
 import { useMemo, useState } from 'react';
+import { gqlHelper } from '../../../gql/constellations/main';
 
 export interface ConstellationHandler {
   queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
@@ -40,45 +41,6 @@ export const useConstellations = (
     (constellation) => constellation.id === constellationId,
   );
 
-
-  const gqlHelper = {
-    queryListConstellations: async (chapterId: string) => {
-      const payload = await amplifyClient.graphql({
-        query: listConstellationObjs,
-        variables: {
-          filter: {
-            chapterId: {
-              eq: chapterId,
-            },
-          },
-        },
-      });
-      const constellations = payload?.data.listConstellationObjs
-        ?.items as ConstellationObj[] || [];
-      return constellations;
-    },
-    queryCreateConstellation: async (
-      title: string,
-      description: string,
-      variant: string,
-    ) => {
-      const payload = await amplifyClient.graphql({
-        query: createConstellationObj,
-        variables: {
-          input: {
-            chapterId,
-            title,
-            description,
-            variant,
-          },
-        },
-      });
-      const constellation = payload?.data
-        .createConstellationObj as ConstellationObj;
-      return constellation;
-    },
-  };
-
   const _constellationHandler: ConstellationHandler = {
     queryListConstellations: async (chapterId: string) => {
       const constellations = await gqlHelper.queryListConstellations(chapterId);
@@ -92,6 +54,7 @@ export const useConstellations = (
       variant: string,
     ) => {
       const constellation = await gqlHelper.queryCreateConstellation(
+        chapterId,
         title,
         description,
         variant,

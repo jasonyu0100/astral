@@ -1,5 +1,4 @@
 'use client';
-
 import { Topbar } from '@/(cx)/(topbar)/main';
 import { DashboardController } from '@/(components)/(cx)/controller/main';
 import { DashboardSidebar } from '@/(cx)/(sidebar)/main';

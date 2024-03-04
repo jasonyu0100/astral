@@ -1,10 +1,7 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createMessageObj } from '@/graphql/mutations';
-import { listMessageObjs } from '@/graphql/queries';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { MessageObj, MessageSource } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
 import { useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
+import { gqlHelper } from '../../../gql/messages/main';
 
 export interface MessageHandler {
   queryCreateUserMessage: (text: string) => Promise<MessageObj>;
@@ -19,62 +16,13 @@ export interface useMessageInterface {
   _messageHandler: MessageHandler;
 }
 
-export const useMessages = (chatId: string): useMessageInterface => {
+export const useMessages = (chatId: string, userId: string): useMessageInterface => {
   const { getMessageResponse } = useOpenAI();
-  const user = useGlobalUser((state) => state.user);
   const [messages, changeMessages] = useState<MessageObj[]>([]);
-
-  const gqlHelper = {
-    queryCreateUserMessage: async (text: string) => {
-      const payload = await amplifyClient.graphql({
-        query: createMessageObj,
-        variables: {
-          input: {
-            chatId: chatId,
-            source: MessageSource.USER,
-            time: new Date().toISOString(),
-            message: text,
-            userId: user?.id,
-          },
-        },
-      });
-      const message = payload.data?.createMessageObj as MessageObj;
-      return message;
-    },
-    queryListMessages: async (chatId: string) => {
-      const payload = await amplifyClient.graphql({
-        query: listMessageObjs,
-        variables: {
-          filter: {
-            chatId: {
-              eq: chatId,
-            },
-          },
-        },
-      });
-      const messages = payload.data?.listMessageObjs?.items as MessageObj[] || [];
-      return messages;
-    },
-    queryCreateAgentMessage: async (text: string) => {
-      const payload = await amplifyClient.graphql({
-        query: createMessageObj,
-        variables: {
-          input: {
-            chatId: chatId,
-            source: MessageSource.AGENT,
-            time: new Date().toISOString(),
-            message: text,
-          },
-        },
-      });
-      const message = payload.data?.createMessageObj as MessageObj;
-      return message;
-    },
-  };
 
   const _messageHandler = {
     queryCreateUserMessage: async (text: string) => {
-      const message = await gqlHelper.queryCreateUserMessage(text);
+      const message = await gqlHelper.queryCreateUserMessage(chatId, userId, text);
       return message;
     },
     queryListMessages: async (chatId: string) => {
@@ -86,7 +34,7 @@ export const useMessages = (chatId: string): useMessageInterface => {
       const agentResponse =
         (await getMessageResponse(userMessage.message)) || '';
       const agentMessage =
-        await gqlHelper.queryCreateAgentMessage(agentResponse);
+        await gqlHelper.queryCreateAgentMessage(chatId, agentResponse);
       return agentMessage;
     },
     addUserMessage: (message: MessageObj) => {

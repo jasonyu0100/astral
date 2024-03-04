@@ -11,10 +11,10 @@ export function DraftChaptersRow() {
 
   return (
     <div className='flex h-full flex-grow flex-row items-center space-x-[3px] overflow-auto'>
-      {chapters.map((chapter) => (
+      {chapters.map((chapter, index) => (
         // eslint-disable-next-line react/jsx-key
         <ChapterContext.Provider value={chapter}>
-          <DraftChapter />
+          <DraftChapter index={index}/>
         </ChapterContext.Provider>
       ))}
       <DraftChaptersAdd onClick={() => addChapterModal.open()} />

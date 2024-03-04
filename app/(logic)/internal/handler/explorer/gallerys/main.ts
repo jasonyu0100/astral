@@ -4,6 +4,7 @@ import { listGalleryObjs } from '@/graphql/queries';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { useMemo, useState } from 'react';
+import { gqlHelper } from '../../../gql/gallerys/main';
 
 export interface useGallerysInterface {
   gallery: GalleryObj | undefined;
@@ -27,51 +28,13 @@ export const useGallerys = (userId: string): useGallerysInterface => {
   const [galleryId, changeGalleryId] = useState<string>('');
   const gallery = gallerys.find((gallery) => gallery.id === galleryId);
 
-  const gqlHelper = {
-    queryListGallerys: async () => {
-      const payload = await amplifyClient.graphql({
-        query: listGalleryObjs,
-        variables: {
-          filter: {
-            userId: {
-              eq: userId,
-            },
-          },
-        },
-      });
-      const gallerys =
-        (payload?.data?.listGalleryObjs?.items as GalleryObj[]) || [];
-      return gallerys;
-    },
-    queryCreateGallery: async (
-      title: string,
-      description: string,
-      thumbnail: FileObj,
-    ) => {
-      const payload = await amplifyClient.graphql({
-        query: createGalleryObj,
-        variables: {
-          input: {
-            title,
-            description,
-            userId: userId,
-            thumbnail: thumbnail,
-          },
-        },
-      });
-      console.log(payload);
-      const gallery = payload?.data?.createGalleryObj as GalleryObj;
-      return gallery;
-    },
-  };
-
   const _galleryHandler: GalleryHandler = {
     goToGallery: (gallery: GalleryObj) => {
       changeGalleryId(gallery.id);
       return gallery;
     },
     queryListGallerys: async () => {
-      const gallerys = await gqlHelper.queryListGallerys();
+      const gallerys = await gqlHelper.queryListGallerys(userId);
       changeGallerys(gallerys);
       changeGalleryId(gallerys[0]?.id || '');
       return gallerys;
@@ -82,6 +45,7 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       thumbnail: FileObj,
     ) => {
       const gallery = await gqlHelper.queryCreateGallery(
+        userId,
         title,
         description,
         thumbnail,
