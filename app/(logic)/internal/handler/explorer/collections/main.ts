@@ -1,16 +1,15 @@
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/collections/main';
-export interface useCOllectionsInterface {
+export interface CollectionsHandler {
   collectionId: string;
   collection: CollectionObj | undefined;
   collections: CollectionObj[];
-  _collectionHandler: CollectionHandler;
+  collectionActions: CollectionActions;
 }
-export interface CollectionHandler {
+export interface CollectionActions {
   queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
   queryListCollections: (galleryId: string) => Promise<CollectionObj[]>;
   queryCreateCollection: (
@@ -21,14 +20,16 @@ export interface CollectionHandler {
   goToCollection: (collection: CollectionObj) => CollectionObj;
 }
 
-export const useCollections = (galleryId: string, userId: string) => {
+export const CollectionsHandlerContext = createContext({} as CollectionsHandler);
+
+export const useCollectionsHandler = (galleryId: string, userId: string): CollectionsHandler => {
   const [collections, changeCollections] = useState<CollectionObj[]>([]);
   const [collectionId, changeCollectionId] = useState<string>('');
   const collection = collections.find(
     (collection) => collection.id === collectionId,
   );
 
-  const _collectionHandler: CollectionHandler = {
+  const collectionActions: CollectionActions = {
     goToCollection: (collection: CollectionObj) => {
       changeCollectionId(collection.id);
       return collection;
@@ -61,13 +62,13 @@ export const useCollections = (galleryId: string, userId: string) => {
       changeCollections([]);
       return;
     }
-    _collectionHandler.queryListCollections(galleryId);
+    collectionActions.queryListCollections(galleryId);
   }, [galleryId]);
 
   return {
     collectionId,
     collection,
     collections,
-    _collectionHandler,
+    collectionActions,
   };
 };

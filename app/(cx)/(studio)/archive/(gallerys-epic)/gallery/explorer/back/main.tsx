@@ -19,19 +19,21 @@ export function GalleryExplorerBack() {
   const modalContext = useEditGalleryModal();
 
   return (
-    <div
-      className='flex h-full w-full flex-col p-[1rem]'
-      onClick={() => flip()}
-    >
-      <EditGalleryModalContext.Provider value={modalContext}>
-        <ExplorerEditGalleryModal />
-      </EditGalleryModalContext.Provider>
-      <Link href={archiveMap.archive.explorer.collections.id.link(gallery.id)}>
-        <GalleryBackTitle />
-      </Link>
-      <GalleryBackAuthor />
-      <GalleryBackDescription />
-      <GalleryBackEdit />
-    </div>
+    <EditGalleryModalContext.Provider value={modalContext}>
+      <ExplorerEditGalleryModal />
+      <div
+        className='flex h-full w-full flex-col p-[1rem]'
+        onClick={() => flip()}
+      >
+        <Link
+          href={archiveMap.archive.explorer.collections.id.link(gallery.id)}
+        >
+          <GalleryBackTitle />
+        </Link>
+        <GalleryBackAuthor />
+        <GalleryBackDescription />
+        <GalleryBackEdit />
+      </div>
+    </EditGalleryModalContext.Provider>
   );
 }

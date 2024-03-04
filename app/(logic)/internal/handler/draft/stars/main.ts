@@ -1,12 +1,12 @@
 import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { NoteObj } from '@/(logic)/internal/data/infra/model/resource/note/main';
 import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
 import { LinkObj } from '@/(logic)/internal/data/infra/model/resource/link/main';
 import { toast } from 'sonner';
 import { gqlHelper } from '../../../gql/stars/main';
-export interface StarsHandler {
+export interface StarActions {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
     title: string,
@@ -42,20 +42,22 @@ export interface StarsHandler {
   deactivateStar: () => void;
 }
 
-interface useStarsInterface {
+interface StarsHandler {
   star: StarObj | undefined;
   starId: string;
   stars: StarObj[];
-  _starHandler: StarsHandler;
+  starActions: StarActions;
 }
 
-export const useStars = (constellationId: string): useStarsInterface => {
+export const StarsHandlerContext = createContext({} as StarsHandler);
+
+export const useStarsHandler = (constellationId: string): StarsHandler => {
   const [stars, changeStars] = useState<StarObj[]>([]);
   const [starId, changeStarId] = useState<string>('');
 
   const star = stars.filter((star) => star.id === starId).at(0);
 
-  const _starHandler: StarsHandler = {
+  const starActions: StarActions = {
     queryListStars: async () => {
       const stars = await gqlHelper.gqlListStars(constellationId);
       changeStars(stars);
@@ -177,13 +179,13 @@ export const useStars = (constellationId: string): useStarsInterface => {
       changeStars([]);
       return;
     }
-    _starHandler.queryListStars();
+    starActions.queryListStars();
   }, [constellationId]);
 
   return {
     star,
     starId,
     stars,
-    _starHandler,
+    starActions: starActions,
   };
 };

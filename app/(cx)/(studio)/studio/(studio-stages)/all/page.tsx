@@ -9,12 +9,12 @@ import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../../../(modals)/(studio)/studio/main';
-import { SpacesHandler, useSpaces } from '@/(logic)/internal/handler/spaces/main';
+import { SpaceActions, useSpacesHandler } from '@/(logic)/internal/handler/spaces/main';
 import { SpacesModalView } from '@/(modals)/(studio)/studio/view';
 
 export interface SpacesContextObj {
   spaces: SpaceObj[];
-  spacesHandler: SpacesHandler;
+  spacesHandler: SpaceActions;
   type: SpaceTabStages;
 }
 
@@ -24,7 +24,7 @@ export const SpacesContext = createContext<SpacesContextObj>(
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
-  const { spaces, _spacesHandler } = useSpaces(user.id);
+  const { spaces, _spacesHandler } = useSpacesHandler(user.id);
 
   const modalContext = useSpacesModal();
 

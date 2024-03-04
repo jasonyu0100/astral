@@ -1,11 +1,9 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createChatObj } from '@/graphql/mutations';
-import { listChatObjs } from '@/graphql/queries';
 import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
 import { chatTable } from '@/(logic)/internal/data/infra/model/storm/table';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
+import { gqlHelper } from '@/(logic)/internal/gql/chats/main';
 
-export interface ChatHandler {
+export interface ChatActions {
   updateChats: (chats: ChatObj[]) => ChatObj[];
   updateChat: (chat: ChatObj) => ChatObj;
   selectChat: (chat: ChatObj) => ChatObj;
@@ -13,60 +11,30 @@ export interface ChatHandler {
   queryCreateChat: (title: string, summary: string) => Promise<ChatObj>;
 }
 
-export interface useChatInterface {
+export interface ChatsHandler {
   chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
-  _chatHandler: ChatHandler;
+  _chatHandler: ChatActions;
 }
 
-export const useChats = (chapterId: string): useChatInterface => {
+export const ChatsHandlerContext = createContext({} as ChatsHandler);
+
+export const useChatsHandler = (chapterId: string): ChatsHandler => {
   const [chats, changeChats] = useState<ChatObj[]>(chatTable.examples);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
-  const gqlHelper = {
+  const _chatHandler: ChatActions = {
     queryListChats: async () => {
-      const payload = await amplifyClient.graphql({
-        query: listChatObjs,
-        variables: {
-          filter: {
-            chapterId: {
-              eq: chapterId,
-            },
-          },
-        },
-      });
-      const chats = payload.data?.listChatObjs?.items as ChatObj[] || [];
-      return chats;
-    },
-    queryCreateChat: async (title: string, summary: string) => {
-      const payload = await amplifyClient.graphql({
-        query: createChatObj,
-        variables: {
-          input: {
-            title: title,
-            summary: summary,
-            chapterId: chapterId,
-            time: new Date().toISOString(),
-          },
-        },
-      });
-      const chat = payload.data?.createChatObj as ChatObj;
-      return chat;
-    },
-  };
-
-  const _chatHandler: ChatHandler = {
-    queryListChats: async () => {
-      const chats = await gqlHelper.queryListChats();
+      const chats = await gqlHelper.queryListChats(chapterId);
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       return chats;
     },
     queryCreateChat: async (title: string, summary: string) => {
-      const chat = await gqlHelper.queryCreateChat(title, summary);
+      const chat = await gqlHelper.queryCreateChat(chapterId, title, summary);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
       return chat;

@@ -4,13 +4,13 @@ import { DraftView } from './view';
 import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
 import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
-import { ChapterHandler, useChapters } from '@/(logic)/internal/handler/chapters/main';
+import { ChapterActions, useChaptersHandler } from '@/(logic)/internal/handler/chapters/main';
 import {
-  ConstellationHandler,
-  useConstellations,
+  ConstellationActions,
+  useConstellationsHandler,
 } from '@/(logic)/internal/handler/draft/constellations/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { StarsHandler, useStars } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarActions, useStarsHandler } from '@/(logic)/internal/handler/draft/stars/main';
 import {
   DraftModalContext,
   useDraftModal,
@@ -28,9 +28,9 @@ interface DraftContextObj {
   constellationId: string;
   stars: StarObj[];
   starId: string;
-  starHandler: StarsHandler;
-  chapterHandler: ChapterHandler;
-  constellationHandler: ConstellationHandler;
+  starHandler: StarActions;
+  chapterHandler: ChapterActions;
+  constellationHandler: ConstellationActions;
   modalType: DraftModalType;
   updateModalType: (multiModalType: DraftModalType) => void;
 }
@@ -48,16 +48,16 @@ export enum DraftModalType {
 }
 
 function Page({ params }: { params: { id: string } }) {
-  const { chapter, chapters, chapterId, _chapterHandler } = useChapters(
+  const { chapter, chapters, chapterId, chapterActions: _chapterHandler } = useChaptersHandler(
     params.id,
   );
   const {
     constellation,
     constellations,
     constellationId,
-    _constellationHandler,
-  } = useConstellations(chapterId);
-  const { stars, starId, _starHandler } = useStars(constellationId);
+    constellationActions: _constellationHandler,
+  } = useConstellationsHandler(chapterId);
+  const { stars, starId, starActions: _starHandler } = useStarsHandler(constellationId);
   const [modalType, changeModalType] = useState(DraftModalType.DEFAULT);
 
   const context: DraftContextObj = {

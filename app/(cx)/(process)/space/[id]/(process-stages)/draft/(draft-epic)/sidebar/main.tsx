@@ -1,19 +1,19 @@
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
-import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { CollectionObj, ResourcesContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
-  GalleryHandler,
-  useGallerys,
+  GalleryActions,
+  useGallerysHandler,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
-  CollectionHandler,
-  useCollections,
+  CollectionActions,
+  CollectionsHandler,
 } from '@/(logic)/internal/handler/explorer/collections/main';
 import {
-  CollectionResourcesHandler,
+  CollectionResourcesActions,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
 import { ArchiveSidebarCreateModalContext, useArchiveSidebarCreateModal } from '@/(modals)/(studio)/archive/sidebar/create/main';
@@ -35,8 +35,8 @@ export interface DraftSidebarContextObject {
   gallery?: GalleryObj;
   collection?: CollectionObj;
   sidebarMode: SidebarMode;
-  galleryHandler: GalleryHandler;
-  collectionHandler: CollectionHandler;
+  galleryHandler: GalleryActions;
+  collectionHandler: CollectionActions;
   gallerys: GalleryObj[];
   galleryId: string;
   collections: CollectionObj[];
@@ -44,7 +44,7 @@ export interface DraftSidebarContextObject {
   resources: ResourceObj[];
   searchResults: ResourceObj[];
   sidebarHandler: SidebarHandler;
-  resourceHandler: CollectionResourcesHandler;
+  resourceHandler: CollectionResourcesActions;
 }
 
 export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
@@ -54,12 +54,12 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
   const user = useGlobalUser((state) => state.user);
-  const { gallerys, gallery, galleryId, _galleryHandler } = useGallerys(
+  const { gallerys, gallery, galleryId, galleryActions: _galleryHandler } = useGallerysHandler(
     user?.id,
   );
   const { collections, collection, collectionId, _collectionHandler } =
-    useCollections(galleryId, user?.id);
-  const { resources, resource, resourceId, searchResults, _resourceHandler } =
+    useCollectionsHandler(galleryId, user?.id);
+  const { resources, resource, resourceId, searchResults, resourceActions: _resourceHandler } =
     useCollectionResources(collectionId, user?.id);
 
   const sidebarHandler: SidebarHandler = {

@@ -7,8 +7,8 @@ import { FileStar } from './file/main';
 import { LogStar } from './log/main';
 import { LinkStar } from './link/main';
 import { NoteStar } from './note/main';
-import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
-import { useStarMotion } from '@/(logic)/internal/handler/draft/star/main';
+import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
+import { useStarHandler } from '@/(logic)/internal/handler/draft/stars/star/main';
 
 export function DraftStar({
   constraintsRef,
@@ -16,14 +16,14 @@ export function DraftStar({
   constraintsRef: MutableRefObject<null>;
 }) {
   const star = useContext(StarContext);
-  const starMotionContext = useStarMotion(star, constraintsRef);
+  const starMotionContext = useStarHandler(star, constraintsRef);
 
   return (
-    <ConstellationStarContext.Provider value={starMotionContext}>
+    <StarHandlerContext.Provider value={starMotionContext}>
       {star.variant === StarVariant.FILE && <FileStar />}
       {star.variant === StarVariant.LOG && <LogStar />}
       {star.variant === StarVariant.LINK && <LinkStar />}
       {star.variant === StarVariant.NOTE && <NoteStar />}
-    </ConstellationStarContext.Provider>
+    </StarHandlerContext.Provider>
   );
 }

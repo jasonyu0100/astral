@@ -7,7 +7,7 @@ import { MutableRefObject, createContext, useContext, useMemo } from 'react';
 import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
 
-export interface StarMotionProps {
+export interface StarHandler {
   star: StarObj;
   x: MotionValue<number>;
   y: MotionValue<number>;
@@ -16,12 +16,12 @@ export interface StarMotionProps {
   deactivateStar: () => void;
 }
 
-export const ConstellationStarContext = createContext({} as StarMotionProps);
+export const StarHandlerContext = createContext({} as StarHandler);
 
-export const useStarMotion = (
+export const useStarHandler = (
   star: StarObj,
   constraintsRef: MutableRefObject<null>,
-): StarMotionProps => {
+) => {
   const { starHandler, updateModalType } = useContext(DraftContext);
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);

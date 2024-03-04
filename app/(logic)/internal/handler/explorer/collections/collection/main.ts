@@ -1,20 +1,12 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { getCollectionObj } from '@/graphql/queries';
 import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import { useMemo, useState } from 'react';
+import { gqlHelper } from '@/(logic)/internal/gql/collections/main';
 
-export const useCollection = (collectionId: string) => {
+export const useCollectionHandler = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as CollectionObj);
 
-  const queryGetCollection = async (id: string) => {
-    const payload = await amplifyClient.graphql({
-      query: getCollectionObj,
-      variables: {
-        id: id,
-      },
-    });
-
-    const collection = payload?.data?.getCollectionObj as CollectionObj;
+  const queryGetCollection = async (collectionId: string) => {
+    const collection = await gqlHelper.queryGetCollection(collectionId);
     changeCollection(collection);
     return collection;
   };

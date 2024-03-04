@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
+import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
 
 export function FileImageStar() {
   const { star, x, y, constraintsRef, activateStar } =
-    useContext(ConstellationStarContext);
+    useContext(StarHandlerContext);
 
   return (
     <>

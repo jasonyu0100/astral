@@ -1,11 +1,8 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createConstellationObj } from '@/graphql/mutations';
-import { listConstellationObjs } from '@/graphql/queries';
 import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/constellations/main';
 
-export interface ConstellationHandler {
+export interface ConstellationActions {
   queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
   queryCreateConstellation: (
     title: string,
@@ -20,16 +17,18 @@ export interface ConstellationHandler {
   addConstellation: (constellation: ConstellationObj) => ConstellationObj;
 }
 
-interface useConstellationInterface {
+interface ConstellationsHandler {
   constellation?: ConstellationObj;
   constellations: ConstellationObj[];
   constellationId: string;
-  _constellationHandler: ConstellationHandler;
+  constellationActions: ConstellationActions;
 }
 
-export const useConstellations = (
+export const ConstellationsHandlerContext = createContext({} as ConstellationsHandler);
+
+export const useConstellationsHandler = (
   chapterId: string,
-): useConstellationInterface => {
+): ConstellationsHandler => {
   const [constellations, changeConstellations] = useState<ConstellationObj[]>(
     [],
   );
@@ -41,7 +40,7 @@ export const useConstellations = (
     (constellation) => constellation.id === constellationId,
   );
 
-  const _constellationHandler: ConstellationHandler = {
+  const constellationActions: ConstellationActions = {
     queryListConstellations: async (chapterId: string) => {
       const constellations = await gqlHelper.queryListConstellations(chapterId);
       changeConstellations(constellations);
@@ -87,13 +86,13 @@ export const useConstellations = (
       changeConstellations([]);
       return;
     }
-    _constellationHandler.queryListConstellations(chapterId);
+    constellationActions.queryListConstellations(chapterId);
   }, [chapterId]);
 
   return {
     constellation,
     constellations,
     constellationId,
-    _constellationHandler,
+    constellationActions,
   };
 };

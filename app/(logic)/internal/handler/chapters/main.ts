@@ -1,11 +1,9 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createChapterObj } from '@/graphql/mutations';
-import { listChapterObjs } from '@/graphql/queries';
 import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/chapters/main';
+import { createContext } from 'vm';
 
-export interface ChapterHandler {
+export interface ChapterActions {
   addChapter: (chapter: ChapterObj) => ChapterObj;
   goToChapter: (chapter: ChapterObj) => ChapterObj;
   goToPrevChapter: () => ChapterObj | undefined;
@@ -18,14 +16,16 @@ export interface ChapterHandler {
   ) => Promise<ChapterObj>;
 }
 
-export interface useChaptersInterface {
+interface ChaptersHandler {
   chapter?: ChapterObj;
   chapterId: string;
   chapters: ChapterObj[];
-  _chapterHandler: ChapterHandler;
+  chapterActions: ChapterActions;
 }
 
-export const useChapters = (spaceId: string): useChaptersInterface => {
+export const ChaptersHandlerContext = createContext({} as ChaptersHandler);
+
+export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
   const [chapters, changeChapters] = useState<ChapterObj[]>([]);
 
   const [chapterId, changeChapterId] = useState<string>(
@@ -34,7 +34,7 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
 
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
 
-  const _chapterHandler: ChapterHandler = {
+  const chapterActions: ChapterActions = {
     queryListChapters: async () => {
       const chapters = await gqlHelper.queryListChapters(spaceId);
       changeChapters(chapters);
@@ -89,13 +89,13 @@ export const useChapters = (spaceId: string): useChaptersInterface => {
       changeChapters([]);
       return;
     }
-    _chapterHandler.queryListChapters();
+    chapterActions.queryListChapters();
   }, [spaceId]);
   
   return {
     chapter,
     chapterId,
     chapters,
-    _chapterHandler,
+    chapterActions,
   };
 };

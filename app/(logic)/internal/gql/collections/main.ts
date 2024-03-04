@@ -1,18 +1,45 @@
-import { amplifyClient } from "@/(logic)/external/aws/graphql/main";
-import { CollectionObj } from "@/(logic)/internal/data/infra/model/gallery/collection/main";
-import { FileObj } from "@/(logic)/internal/data/infra/model/resource/file/main";
-import { ResourceObj, ResourceVariant } from "@/(logic)/internal/data/infra/model/resource/main";
-import { createCollectionObj, createResourceObj } from "@/graphql/mutations";
-import { listCollectionObjs, listResourceObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
+import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import {
+  ResourceObj,
+  ResourceVariant,
+} from '@/(logic)/internal/data/infra/model/resource/main';
+import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
+import {
+  getCollectionObj,
+  listCollectionObjs,
+  listResourceObjs,
+} from '@/graphql/queries';
 
 export interface CollectionGqlHelper {
-    queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
-    queryListCollections: (galleryId: string) => Promise<CollectionObj[]>;
-    queryCreateCollection: (galleryId: string, title: string, description: string) => Promise<CollectionObj>;
-    queryCreateCollectionResources: (userId: string, collection: CollectionObj, files: FileObj[]) => Promise<ResourceObj[]>;
+  queryGetCollection: (id: string) => Promise<CollectionObj>;
+  queryCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
+  queryListCollections: (galleryId: string) => Promise<CollectionObj[]>;
+  queryCreateCollection: (
+    galleryId: string,
+    title: string,
+    description: string,
+  ) => Promise<CollectionObj>;
+  queryCreateCollectionResources: (
+    userId: string,
+    collection: CollectionObj,
+    files: FileObj[],
+  ) => Promise<ResourceObj[]>;
 }
 
 export const gqlHelper = {
+  queryGetCollection: async (id: string) => {
+    const payload = await amplifyClient.graphql({
+      query: getCollectionObj,
+      variables: {
+        id: id,
+      },
+    });
+
+    const collection = payload?.data?.getCollectionObj as CollectionObj;
+    return collection;
+  },
   queryCollectionResources: async (collectionId: string) => {
     const payload = await amplifyClient.graphql({
       query: listResourceObjs,

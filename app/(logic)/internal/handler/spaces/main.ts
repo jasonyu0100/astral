@@ -1,11 +1,11 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, createContext } from 'react';
 import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ChapterTemplateObj } from '@/(logic)/internal/data/infra/model/space/templates/main';
 import { toast } from 'sonner';
 import { gqlHelper } from '../../gql/spaces/main';
 
-export interface SpacesHandler {
+export interface SpaceActions {
   queryListSpaces: () => Promise<void>;
   queryCreateSpace: (
     title: string,
@@ -16,20 +16,22 @@ export interface SpacesHandler {
   ) => Promise<SpaceObj>;
 }
 
-interface useSpacesInterface {
+interface SpacesHandler {
   space: SpaceObj | undefined;
   spaceId: string;
   spaces: SpaceObj[];
-  _spacesHandler: SpacesHandler;
+  _spacesHandler: SpaceActions;
 }
 
-export const useSpaces = (userId: string): useSpacesInterface => {
+export const SpacesHanlderContext = createContext({} as SpacesHandler);
+
+export const useSpacesHandler = (userId: string): SpacesHandler => {
   const [spaces, changeSpaces] = useState<SpaceObj[]>([]);
   const [spaceId, changeSpaceId] = useState('');
 
   const space = spaces.find((space) => space.id === spaceId);
 
-  const _spacesHandler: SpacesHandler = {
+  const _spacesHandler: SpaceActions = {
     queryListSpaces: async () => {
       const spaces = await gqlHelper.queryListSpaces(userId);
       changeSpaces(spaces);

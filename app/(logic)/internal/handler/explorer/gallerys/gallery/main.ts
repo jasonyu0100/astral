@@ -1,20 +1,12 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { getGalleryObj } from '@/graphql/queries';
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { useState, useMemo } from 'react';
+import { gqlHelper } from '@/(logic)/internal/gql/gallerys/main';
 
-export const useGallery = (galleryId: string) => {
+export const useGalleryHandler = (galleryId: string) => {
   const [gallery, changeGallery] = useState({} as GalleryObj);
 
-  const queryGetGallery = async (id: string) => {
-    const payload = await amplifyClient.graphql({
-      query: getGalleryObj,
-      variables: {
-        id: id,
-      },
-    });
-
-    const gallery: GalleryObj = payload?.data.getGalleryObj as GalleryObj;
+  const queryGetGallery = async (galleryId: string) => {
+    const gallery: GalleryObj = await gqlHelper.queryGetGallery(galleryId);
     changeGallery(gallery);
     return gallery;
   };

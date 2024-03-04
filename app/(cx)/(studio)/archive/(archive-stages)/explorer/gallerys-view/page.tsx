@@ -5,13 +5,13 @@ import { GallerysView } from './view';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
-  GalleryHandler,
-  useGallerys,
+  GalleryActions,
+  useGallerysHandler,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
 interface ExplorerHomeContextObj {
   gallerys: GalleryObj[];
-  galleryHandler: GalleryHandler;
+  galleryHandler: GalleryActions;
 }
 
 export const ExplorerHomeContext = createContext<ExplorerHomeContextObj>(
@@ -20,7 +20,7 @@ export const ExplorerHomeContext = createContext<ExplorerHomeContextObj>(
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
-  const { gallerys, _galleryHandler: galleryHandler } = useGallerys(user.id);
+  const { gallerys, galleryActions: galleryHandler } = useGallerysHandler(user.id);
 
   const context: ExplorerHomeContextObj = {
     gallerys,

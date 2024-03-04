@@ -1,19 +1,16 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { createGalleryObj } from '@/graphql/mutations';
-import { listGalleryObjs } from '@/graphql/queries';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/gallerys/main';
 
-export interface useGallerysInterface {
+export interface GallerysHandler {
   gallery: GalleryObj | undefined;
   galleryId: string;
   gallerys: GalleryObj[];
-  _galleryHandler: GalleryHandler;
+  galleryActions: GalleryActions;
 }
 
-export interface GalleryHandler {
+export interface GalleryActions {
   queryListGallerys: () => Promise<GalleryObj[]>;
   queryCreateGallery: (
     title: string,
@@ -23,12 +20,14 @@ export interface GalleryHandler {
   goToGallery: (gallery: GalleryObj) => GalleryObj;
 }
 
-export const useGallerys = (userId: string): useGallerysInterface => {
+export const GallerysHandlerContext = createContext({} as GallerysHandler);
+
+export const useGallerysHandler = (userId: string): GallerysHandler => {
   const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
   const [galleryId, changeGalleryId] = useState<string>('');
   const gallery = gallerys.find((gallery) => gallery.id === galleryId);
 
-  const _galleryHandler: GalleryHandler = {
+  const galleryActions: GalleryActions = {
     goToGallery: (gallery: GalleryObj) => {
       changeGalleryId(gallery.id);
       return gallery;
@@ -61,13 +60,13 @@ export const useGallerys = (userId: string): useGallerysInterface => {
       changeGallerys([]);
       return;
     }
-    _galleryHandler.queryListGallerys();
+    galleryActions.queryListGallerys();
   }, [userId]);
 
   return {
     gallery,
     galleryId,
     gallerys,
-    _galleryHandler,
+    galleryActions: galleryActions,
   };
 };

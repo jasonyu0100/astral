@@ -5,11 +5,11 @@ import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/colle
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
-  CollectionResourcesHandler,
+  CollectionResourcesActions,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
-import { useCollection } from '@/(logic)/internal/handler/explorer/collections/collection/main';
-import { useGallery } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
+import { useCollectionHandler } from '@/(logic)/internal/handler/explorer/collections/collection/main';
+import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import { ResourcesView } from './view';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
@@ -17,7 +17,7 @@ interface ExplorerCollectionContextObj {
   gallery: GalleryObj;
   collection: CollectionObj;
   resources: ResourceObj[];
-  resourceHandler: CollectionResourcesHandler;
+  resourceHandler: CollectionResourcesActions;
 }
 
 export const ExplorerCollectionContext =
@@ -26,10 +26,10 @@ export const ExplorerCollectionContext =
   );
 
 function Page({ params }: { params: { id: string } }) {
-  const { collection } = useCollection(params.id);
-  const { gallery } = useGallery(collection.galleryId);
+  const { collection } = useCollectionHandler(params.id);
+  const { gallery } = useGalleryHandler(collection.galleryId);
   const user = useGlobalUser((state) => state.user);
-  const { resources, _resourceHandler } = useCollectionResources(params.id, user?.id);
+  const { resources, resourceActions: _resourceHandler } = useCollectionResources(params.id, user?.id);
 
   const context = {
     gallery,

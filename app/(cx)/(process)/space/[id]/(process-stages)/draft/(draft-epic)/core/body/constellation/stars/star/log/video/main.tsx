@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ConstellationStarContext } from '@/(logic)/internal/handler/draft/star/main';
+import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
 import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { LogObj, LogObjContext } from '@/(logic)/internal/data/infra/model/resource/log/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 
 export function LogVideoStar() {
   const { star, x, y, constraintsRef, activateStar } = useContext(
-    ConstellationStarContext,
+    StarHandlerContext,
   );
   const { starId } = useContext(DraftContext);
   const active = starId === star.id;

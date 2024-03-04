@@ -1,17 +1,17 @@
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { gqlHelper } from '../../../gql/resources/main';
 
-interface useCollectionResourcesInterface {
+interface CollectionResourcesHandler {
   resourceId: string;
   resource: ResourceObj | undefined;
   resources: ResourceObj[];
   searchResults: ResourceObj[];
-  _resourceHandler: CollectionResourcesHandler;
+  resourceActions: CollectionResourcesActions;
 }
 
-export interface CollectionResourcesHandler {
+export interface CollectionResourcesActions {
   queryListResources: (id: string) => Promise<ResourceObj[]>;
   queryCreateFileResource: (
     name: string,
@@ -22,10 +22,12 @@ export interface CollectionResourcesHandler {
   updateResource: (resource: ResourceObj) => ResourceObj;
 }
 
+export const CollectionResourcesHandlerContext = createContext({} as CollectionResourcesHandler);
+
 export const useCollectionResources = (
   collectionId: string,
   userId: string,
-): useCollectionResourcesInterface => {
+): CollectionResourcesHandler => {
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -36,14 +38,14 @@ export const useCollectionResources = (
       changeResources([]);
       return;
     }
-    _resourceHandler.queryListResources(collectionId);
+    resourceActions.queryListResources(collectionId);
   }, [collectionId]);
 
   useEffect(() => {
     changeSearchResults(resources);
   }, [resources]);
 
-  const _resourceHandler: CollectionResourcesHandler = {
+  const resourceActions: CollectionResourcesActions = {
     queryListResources: async (collectionId: string) => {
       const resources = await gqlHelper.queryListResources(collectionId);
       changeResources(resources);
@@ -91,6 +93,6 @@ export const useCollectionResources = (
     resourceId,
     searchResults,
     resources,
-    _resourceHandler,
+    resourceActions: resourceActions,
   };
 };

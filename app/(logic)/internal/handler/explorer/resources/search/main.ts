@@ -1,26 +1,26 @@
-import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { listResourceObjs } from '@/graphql/queries';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { gqlHelper } from '../../../../gql/resources/main';
 
-interface useSearchResourcesInterface {
+interface SearchResourcesHandler {
   resourceId: string;
   resource: ResourceObj | undefined;
   resources: ResourceObj[];
   searchResults: ResourceObj[];
-  _searchResourceHandler: SearchResourceHandler;
+  searchActions: SearchActions;
 }
 
-export interface SearchResourceHandler {
+export interface SearchActions {
   queryListResources: (id: string) => Promise<ResourceObj[]>;
   updateQuery: (query: string) => void;
   searchQuery: () => ResourceObj[];
 }
 
+export const SearchResourcesHandlerContext = createContext({} as SearchResourcesHandler);
+
 export const useSearchResource = (
   userId: string,
-): useSearchResourcesInterface => {
+): SearchResourcesHandler => {
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -32,14 +32,14 @@ export const useSearchResource = (
       changeResources([]);
       return;
     }
-    _searchResourceHandler.queryListResources(userId);
+    searchActions.queryListResources(userId);
   }, [userId]);
 
   useEffect(() => {
     changeSearchResults(resources);
   }, [resources]);
 
-  const _searchResourceHandler: SearchResourceHandler = {
+  const searchActions: SearchActions = {
     queryListResources: async (userId: string) => {
       const resources = await gqlHelper.queryListUserResources(userId);
       changeResources(resources);
@@ -68,6 +68,6 @@ export const useSearchResource = (
     resourceId,
     searchResults,
     resources,
-    _searchResourceHandler,
+    searchActions,
   };
 };

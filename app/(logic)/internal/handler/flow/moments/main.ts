@@ -3,10 +3,10 @@ import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main'
 import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/data/infra/model/resource/note/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/moments/main';
 
-export interface MomentHandler {
+export interface MomentActions {
   queryListMoments: () => Promise<MomentObj[]>;
   queryCreateFileMoment: (
     title: string,
@@ -31,24 +31,26 @@ export interface MomentHandler {
   addMoment: (moment: MomentObj) => MomentObj;
 }
 
-export interface useMomentInterface {
+export interface MomentsHandler {
   moment?: MomentObj;
   momentId: string;
   moments: MomentObj[];
-  _momentHandler: MomentHandler;
+  momentActions: MomentActions;
 }
 
-export const useMoments = (
+export const MomentsHandlerContext = createContext({} as MomentsHandler);
+
+export const useMomentsHandler = (
   chapterId: string,
   spaceId: string,
-): useMomentInterface => {
+): MomentsHandler => {
   const user = useGlobalUser((state) => state.user);
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
-  const _momentHandler: MomentHandler = {
+  const momentActions: MomentActions = {
     queryListMoments: async () => {
       const moments = await gqlHelper.queryListMoments(chapterId);
       changeMoments(moments);
@@ -133,13 +135,13 @@ export const useMoments = (
       changeMoments([]);
       return;
     }
-    _momentHandler.queryListMoments();
+    momentActions.queryListMoments();
   }, [chapterId]);
 
   return {
     moment,
     momentId,
     moments,
-    _momentHandler,
+    momentActions,
   };
 };

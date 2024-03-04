@@ -4,15 +4,15 @@ import { FeedJournalView } from './view';
 import { createContext } from 'react';
 import { MomentObj, MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import {
-  FeedMomentHandler,
-  useFeedMoments,
+  JournalActions,
+  useJournalHandler,
 } from '@/(logic)/internal/handler/journal/main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 interface FeedJournalContextObj {
   momentId: string;
   moments: MomentObj[];
-  momentHandler: FeedMomentHandler;
+  momentHandler: JournalActions;
 }
 
 export const FeedJournalContext = createContext<FeedJournalContextObj>(
@@ -21,7 +21,7 @@ export const FeedJournalContext = createContext<FeedJournalContextObj>(
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
-  const { momentId, moments, _momentHandler } = useFeedMoments(
+  const { momentId, moments, journalActions: _momentHandler } = useJournalHandler(
     user.id,
     MomentVisibility.JOURNAL,
   );

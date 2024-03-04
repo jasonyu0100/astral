@@ -1,9 +1,9 @@
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/journal/main';
 
-export interface FeedMomentHandler {
+export interface JournalActions {
   queryListMoments: () => Promise<MomentObj[]>;
   queryCreateFileMoment: (
     title: string,
@@ -17,23 +17,25 @@ export interface FeedMomentHandler {
   addMoment: (moment: MomentObj) => MomentObj;
 }
 
-export interface useFeedMomentInterface {
+export interface JournalHandler {
   moment?: MomentObj;
   momentId: string;
   moments: MomentObj[];
-  _momentHandler: FeedMomentHandler;
+  journalActions: JournalActions;
 }
 
-export const useFeedMoments = (
+export const JournalHandlerContext = createContext({} as JournalHandler);
+
+export const useJournalHandler = (
   userId: string,
   visibility: string,
-): useFeedMomentInterface => {
+): JournalHandler => {
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
 
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
-  const _momentHandler: FeedMomentHandler = {
+  const journalActions: JournalActions = {
     queryListMoments: async () => {
       const moments = await gqlHelper.queryListMoments(userId, visibility);
       changeMoments(moments);
@@ -81,13 +83,13 @@ export const useFeedMoments = (
       changeMoments([]);
       return;
     }
-    _momentHandler.queryListMoments();
+    journalActions.queryListMoments();
   }, [userId]);
 
   return {
     moment,
     momentId,
     moments,
-    _momentHandler,
+    journalActions: journalActions,
   };
 };

@@ -1,9 +1,9 @@
 import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
 import { gqlHelper } from '../../../gql/messages/main';
 
-export interface MessageHandler {
+export interface MessageActions {
   queryCreateUserMessage: (text: string) => Promise<MessageObj>;
   queryCreateAgentMessage: (userMessage: MessageObj) => Promise<MessageObj>;
   queryListMessages: (chatId: string) => Promise<MessageObj[]>;
@@ -11,12 +11,14 @@ export interface MessageHandler {
   addAgentMessage: (message: MessageObj) => MessageObj;
 }
 
-export interface useMessageInterface {
+export interface MessagesHandler {
   messages: MessageObj[];
-  _messageHandler: MessageHandler;
+  _messageHandler: MessageActions;
 }
 
-export const useMessages = (chatId: string, userId: string): useMessageInterface => {
+export const MessagesHandlerContext = createContext({} as MessagesHandler);
+
+export const useMessagesHandler = (chatId: string, userId: string): MessagesHandler => {
   const { getMessageResponse } = useOpenAI();
   const [messages, changeMessages] = useState<MessageObj[]>([]);
 
