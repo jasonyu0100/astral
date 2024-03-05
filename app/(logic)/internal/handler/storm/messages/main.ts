@@ -2,6 +2,7 @@ import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/messa
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
 import { gqlHelper } from '../../../gql/messages/main';
+import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {
   queryCreateUserMessage: (text: string) => Promise<MessageObj>;
@@ -9,20 +10,23 @@ export interface MessageActions {
   queryListMessages: (chatId: string) => Promise<MessageObj[]>;
   addUserMessage: (message: MessageObj) => MessageObj;
   addAgentMessage: (message: MessageObj) => MessageObj;
+  updateInputMessage: (message: string) => void;
 }
 
 export interface MessagesHandler {
+  inputMessage: string;
   messages: MessageObj[];
-  _messageHandler: MessageActions;
+  messageActions: MessageActions;
 }
 
 export const MessagesHandlerContext = createContext({} as MessagesHandler);
 
 export const useMessagesHandler = (chatId: string, userId: string): MessagesHandler => {
-  const { getMessageResponse } = useOpenAI();
+  const { getMessageResponse } = useGemini();
   const [messages, changeMessages] = useState<MessageObj[]>([]);
+  const [inputMessage, changeInputMessage] = useState('');
 
-  const _messageHandler = {
+  const messageActions: MessageActions = {
     queryCreateUserMessage: async (text: string) => {
       const message = await gqlHelper.queryCreateUserMessage(chatId, userId, text);
       return message;
@@ -47,6 +51,7 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       changeMessages((prev) => [...prev, message]);
       return message;
     },
+    updateInputMessage: (message: string) => changeInputMessage(message),
   };
 
   useMemo(() => {
@@ -54,11 +59,12 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       changeMessages([]);
       return;
     }
-    _messageHandler.queryListMessages(chatId);
+    messageActions.queryListMessages(chatId);
   }, [chatId]);
 
   return {
+    inputMessage: inputMessage,
     messages,
-    _messageHandler,
+    messageActions: messageActions,
   };
 };

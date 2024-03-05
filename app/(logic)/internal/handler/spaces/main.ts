@@ -20,7 +20,7 @@ interface SpacesHandler {
   space: SpaceObj | undefined;
   spaceId: string;
   spaces: SpaceObj[];
-  _spacesHandler: SpaceActions;
+  spaceActions: SpaceActions;
 }
 
 export const SpacesHanlderContext = createContext({} as SpacesHandler);
@@ -31,7 +31,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
   const space = spaces.find((space) => space.id === spaceId);
 
-  const _spacesHandler: SpaceActions = {
+  const spaceActions: SpaceActions = {
     queryListSpaces: async () => {
       const spaces = await gqlHelper.queryListSpaces(userId);
       changeSpaces(spaces);
@@ -123,13 +123,13 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       changeSpaces([]);
       return;
     }
-    _spacesHandler.queryListSpaces();
+    spaceActions.queryListSpaces();
   }, [userId]);
 
   return {
     space,
     spaceId,
     spaces,
-    _spacesHandler,
+    spaceActions: spaceActions,
   };
 };

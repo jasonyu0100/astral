@@ -13,7 +13,7 @@ import { SpacesModalView } from '@/(modals)/(studio)/studio/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
-  const { spaces, _spacesHandler } = useSpacesHandler(user.id);
+  const { spaces, spaceActions: _spacesHandler } = useSpacesHandler(user.id);
   const modalContext = useSpacesModal();
 
   const context: SpacesContextObj = {

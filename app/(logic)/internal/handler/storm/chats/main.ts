@@ -15,7 +15,7 @@ export interface ChatsHandler {
   chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
-  _chatHandler: ChatActions;
+  chatActions: ChatActions;
 }
 
 export const ChatsHandlerContext = createContext({} as ChatsHandler);
@@ -26,7 +26,7 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
-  const _chatHandler: ChatActions = {
+  const chatActions: ChatActions = {
     queryListChats: async () => {
       const chats = await gqlHelper.queryListChats(chapterId);
       changeChats(chats);
@@ -59,13 +59,13 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
       changeChats([]);
       return;
     }
-    _chatHandler.queryListChats();
+    chatActions.queryListChats();
   }, [chapterId]);
 
   return {
     chat,
     chats,
     chatId,
-    _chatHandler,
+    chatActions: chatActions,
   };
 };

@@ -33,6 +33,7 @@ interface StormContextObj {
   chat?: ChatObj;
   chats: ChatObj[];
   chatId: string;
+  inputMessage: string;
   messages: MessageObj[];
   chapterHandler: ChapterActions;
   chatHandler: ChatActions;
@@ -50,8 +51,8 @@ function Page({ params }: { params: { id: string } }) {
   const { chapter, chapters, chapterId, chapterActions: _chapterHandler } = useChaptersHandler(
     params.id,
   );
-  const { chat, chatId, chats, _chatHandler } = useChatsHandler(chapterId);
-  const { messages, _messageHandler } = useMessagesHandler(chatId, user.id);
+  const { chat, chatId, chats, chatActions: _chatHandler } = useChatsHandler(chapterId);
+  const { messages, inputMessage, messageActions: _messageHandler } = useMessagesHandler(chatId, user.id);
 
   useEffect(() => {
     if (space && space?.id) {
@@ -66,6 +67,7 @@ function Page({ params }: { params: { id: string } }) {
     chat,
     chats,
     chatId,
+    inputMessage,
     messages,
     chapterHandler: _chapterHandler,
     chatHandler: _chatHandler,

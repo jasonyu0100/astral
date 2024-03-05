@@ -3,11 +3,12 @@ import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
 import { StormChatMessageInput } from './text/main';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { StormContext } from '../../../page';
+
 
 export function StormChatInput() {
-  const [inputMessage, changeInputMessage] = useState('');
-
+  const {  inputMessage, messageHandler } = useContext(StormContext);
   return (
     <GlassContainer
       displayName={StormChatInput.name}
@@ -17,7 +18,7 @@ export function StormChatInput() {
     >
       <StormChatInputLeft />
       <StormChatMessageInput
-        onChange={(e) => changeInputMessage(e.target.value)}
+        onChange={(e) => messageHandler.updateInputMessage(e.target.value)}
         value={inputMessage}
       />
       <StormChatInputRight/>

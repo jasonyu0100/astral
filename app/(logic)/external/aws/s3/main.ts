@@ -6,8 +6,8 @@ const randomBytes = promisify(crypto.randomBytes);
 
 const s3 = new aws.S3({
   region: 'ap-southeast-2',
-  accessKeyId: process.env.S3_ACCESSKEY,
-  secretAccessKey: process.env.S3_SECRETKEY,
+  accessKeyId: process.env.S3_ACCESS_KEY,
+  secretAccessKey: process.env.S3_SECRET_KEY,
   signatureVersion: 'v4',
 });
 

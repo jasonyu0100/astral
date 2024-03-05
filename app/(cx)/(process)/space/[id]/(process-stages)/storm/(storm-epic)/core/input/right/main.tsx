@@ -4,8 +4,7 @@ import { StormMessageInputSend } from "./send/main";
 import { StormMessageInputVoice } from "./voice/main";
 
 export function StormChatInputRight() {
-  const { messageHandler } = useContext(StormContext);
-  const [inputMessage, changeInputMessage] = useState('');
+  const { inputMessage, messageHandler } = useContext(StormContext);
 
   return (
     <div className='flex h-[50px] w-[150px] flex-shrink-0 flex-row items-center justify-evenly'>
@@ -23,7 +22,7 @@ export function StormChatInputRight() {
             .then((agentMessage: any) =>
               messageHandler.addAgentMessage(agentMessage),
             );
-          changeInputMessage('');
+          messageHandler.updateInputMessage('');
         }}
       />
     </div>

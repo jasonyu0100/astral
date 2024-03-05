@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta name='referrer' content='origin' />
       </head>
-      <GoogleOAuthProvider clientId={process.env.GOOGLE_AUTH_APIKEY || ''}>
+      <GoogleOAuthProvider clientId={process.env.GOOGLE_AUTH_API_KEY || ''}>
         <Toaster />
         <body className={cn('bg-black', [...fontVariables])}>
           <main>{!isMaintenanceMode && <>{children}</>}</main>
