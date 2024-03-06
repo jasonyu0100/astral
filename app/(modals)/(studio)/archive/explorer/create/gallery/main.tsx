@@ -10,13 +10,13 @@ import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main'
 import { useContext, useState } from 'react';
 import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { ExplorerHomeContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/gallerys-view/page';
 import { ArchiveExplorerCreateModalContext } from '../main';
+import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
 export function ExplorerCreateGalleryModal() {
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createGallery;
-  const { galleryHandler } = useContext(ExplorerHomeContext);
+  const gallerysHandler = useContext(GallerysHandlerContext)
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
@@ -48,7 +48,7 @@ export function ExplorerCreateGalleryModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              galleryHandler.queryCreateGallery(title, description, thumbnail);
+              gallerysHandler.galleryActions.queryCreateGallery(title, description, thumbnail);
               close();
             }}
           >

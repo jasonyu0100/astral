@@ -8,14 +8,14 @@ import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ExplorerCollectionContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
 import { EditResourceModalContext } from './main';
+import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);
-  const { resourceHandler } = useContext(ExplorerCollectionContext);
+  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
   const { opened, close } = modalContext.editResource;
   const resource = useContext(ResourceContext);
   const [title, changeTitle] = useState(resource.title);
@@ -24,7 +24,7 @@ export function ExplorerEditResourceModal() {
 
   async function updateResource() {
     await callUpdateResource(resource.id, title, description, file).then((resource) => {
-      resourceHandler.updateResource(resource);
+      resourcesHandler.resourceActions.updateResource(resource);
     });
   }
 

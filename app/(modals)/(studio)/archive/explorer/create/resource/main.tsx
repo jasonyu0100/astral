@@ -7,14 +7,17 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import {
+  FileObj,
+  FileVariant,
+} from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { ExplorerCollectionContext } from '../../../../../../(cx)/(studio)/archive/(archive-stages)/explorer/resources-view/[id]/page';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
+import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ExplorerCreateResourceModal() {
-  const { resourceHandler } = useContext(ExplorerCollectionContext);
+  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createResource;
   const [name, changeName] = useState('');
@@ -57,7 +60,11 @@ export function ExplorerCreateResourceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              resourceHandler.queryCreateFileResource(name, description, file);
+              resourcesHandler.resourceActions.queryCreateFileResource(
+                name,
+                description,
+                file,
+              );
               close();
             }}
           >

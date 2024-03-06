@@ -8,11 +8,11 @@ import { FormUploadFiles } from '@/(components)/(form)/upload/upload-files/main'
 import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { ExplorerGalleryContext } from '@/(cx)/(studio)/archive/(archive-stages)/explorer/collections-view/[id]/page';
 import { ArchiveExplorerCreateModalContext } from '../main';
+import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
 
 export function ExplorerCreateCollectionModal() {
-  const { collectionHandler } = useContext(ExplorerGalleryContext);
+  const collectionsHandler = useContext(CollectionsHandlerContext);
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createCollection;
   const [title, changeTitle] = useState('');
@@ -44,7 +44,7 @@ export function ExplorerCreateCollectionModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              collectionHandler.queryCreateCollection(
+              collectionsHandler.collectionActions.queryCreateCollection(
                 title,
                 description,
                 files,

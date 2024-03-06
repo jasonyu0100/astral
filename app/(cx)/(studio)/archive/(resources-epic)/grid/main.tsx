@@ -1,12 +1,13 @@
 import { useContext } from 'react';
-import { ExplorerCollectionContext } from '../../(archive-stages)/explorer/resources-view/[id]/page';
 import { CollectionResourceAdd } from '../resource/explorer/add/main';
 import { ExplorerResource } from '../resource/explorer/main';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(modals)/(studio)/archive/explorer/create/main';
+import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ResourcesGrid() {
-  const { resources } = useContext(ExplorerCollectionContext);
+  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
+  const resources = resourcesHandler.resources;
   const modalContext = useContext(ArchiveExplorerCreateModalContext)
 
   return (
@@ -15,9 +16,8 @@ export function ResourcesGrid() {
         onClick={() => modalContext.createResource.open()}
       />
       {resources.map((resource) => (
-        // eslint-disable-next-line react/jsx-key
-        <ResourceContext.Provider value={resource}>
-          <ExplorerResource />
+        <ResourceContext.Provider value={resource} key={resource.id}>
+          <ExplorerResource key={resource.id}/>
         </ResourceContext.Provider>
       ))}
     </div>

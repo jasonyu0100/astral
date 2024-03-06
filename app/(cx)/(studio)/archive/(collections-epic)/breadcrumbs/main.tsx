@@ -3,10 +3,10 @@ import { CollectionBreadcrumbDivider } from '../../(archive-stages)/explorer/(co
 import { CollectionBreadcrumbItem } from '../../(archive-stages)/explorer/(common)/breadcrumb/item/main';
 import { CollectionBreadcrumbs } from '../../(archive-stages)/explorer/(common)/breadcrumb/main';
 import { useContext } from 'react';
-import { ExplorerGalleryContext } from '../../(archive-stages)/explorer/collections-view/[id]/page';
+import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
 
 export function CollectionsBreadcrumbs() {
-  const { gallery } = useContext(ExplorerGalleryContext);
+  const gallery = useContext(GalleryContext);
 
   return (
     <CollectionBreadcrumbs>
