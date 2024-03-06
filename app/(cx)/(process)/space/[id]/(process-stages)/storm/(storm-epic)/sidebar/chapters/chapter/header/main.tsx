@@ -1,8 +1,8 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
-import { StormContext } from '../../../../../page';
-import { ChapterContext, ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function StormChapterHeader({
   children,
@@ -10,9 +10,10 @@ export function StormChapterHeader({
   children: React.ReactNode;
 }) {
   const chapter = useContext(ChapterContext);
-  const { chapterHandler } = useContext(StormContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  
   return (
-    <button onClick={() => chapterHandler.goToChapter(chapter)}>
+    <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}>
       <GlassContainer
         displayName={StormChapterHeader.name}
         sizeStyle='w-full py-[0.5rem]'

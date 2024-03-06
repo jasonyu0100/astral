@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { FlowContext } from '../../../../page';
 import { FlowSidebarEntry } from './entry/main';
 import { MomentContext } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
 
 export function FlowSidebarSection() {
-  const { moments } = useContext(FlowContext);
+  const momentsHandler = useContext(MomentsHandlerContext);
+  const moments = momentsHandler.moments;
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
       {moments.map((moment) => (
-        // eslint-disable-next-line react/jsx-key
-        <MomentContext.Provider value={moment}>
-          <FlowSidebarEntry />
+        <MomentContext.Provider value={moment} key={moment.id}>
+          <FlowSidebarEntry key={moment.id}/>
         </MomentContext.Provider>
       ))}
     </div>

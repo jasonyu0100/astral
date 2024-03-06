@@ -9,15 +9,15 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
-import { FlowContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/flow/page';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { FlowModalContext } from '../../main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
 import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { Divider } from '@/(components)/(basic)/divider/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
 
 export function FlowAddMomentModal() {
-  const { momentHandler } = useContext(FlowContext);
+  const momentsHandler = useContext(MomentsHandlerContext);
   const modalContext = useContext(FlowModalContext);
   const { opened, close } = modalContext.addFileMomentModal;
   const [title, changeTitle] = useState('');
@@ -34,8 +34,12 @@ export function FlowAddMomentModal() {
         <FormBody>
           {/* <FormDescription>Add your moment here</FormDescription> */}
           <DisplayImage selected={file} />
-          <FormSearchImage value={file} onChange={(file) => changeFile(file)} label='File' />
-          <Divider/>
+          <FormSearchImage
+            value={file}
+            onChange={(file) => changeFile(file)}
+            label='File'
+          />
+          <Divider />
           <FormInput
             placeholder='Name'
             title='Name'
@@ -72,7 +76,12 @@ export function FlowAddMomentModal() {
           <FormButton
             onClick={() => {
               close();
-              momentHandler.queryCreateFileMoment(title, log, file, visibility);
+              momentsHandler.momentActions.queryCreateFileMoment(
+                title,
+                log,
+                file,
+                visibility,
+              );
             }}
           >
             Add

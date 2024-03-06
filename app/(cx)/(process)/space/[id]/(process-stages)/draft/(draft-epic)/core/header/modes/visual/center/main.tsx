@@ -1,13 +1,15 @@
 import { useContext } from 'react';
-import { DraftContext } from '../../../../../../page';
 import DraftHeaderTitle from '../../../common/title/main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
 
 export function VisualCenter() {
-  const draftContext = useContext(DraftContext);
-  const constellation = draftContext.constellation;
-  const chapter = draftContext.chapter;
+  const constellationsHandler = useContext(ConstellationsHandlerContext);
+  const constellation = constellationsHandler.constellation;
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const chapter = chaptersHandler.chapter;
   const headerTitle =
-    draftContext.constellation && draftContext.chapter
+    constellation && chapter
       ? `${constellation?.title} - ${chapter?.title}`
       : 'None';
 

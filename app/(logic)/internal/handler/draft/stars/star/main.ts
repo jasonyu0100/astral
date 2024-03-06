@@ -6,6 +6,7 @@ import {
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
 import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import { StarsHandlerContext } from '../main';
 
 export interface StarHandler {
   star: StarObj;
@@ -22,21 +23,22 @@ export const useStarHandler = (
   star: StarObj,
   constraintsRef: MutableRefObject<null>,
 ) => {
-  const { starHandler, updateModalType } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext);
+  const { updateModalType } = useContext(DraftContext);
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);
 
   function activateStar() {
-    starHandler.activateStar(star.id);
+    starsHandler.starActions.activateStar(star.id);
     updateModalType(DraftModalType.STAR)
   }
 
   function deactivateStar() {
-    starHandler.deactivateStar();
+    starsHandler.starActions.deactivateStar();
   }
 
   function updateStar(data: any) {
-    starHandler.updateStar(star.id, data);
+    starsHandler.starActions.updateStar(star.id, data);
   }
 
   useMemo(() => {

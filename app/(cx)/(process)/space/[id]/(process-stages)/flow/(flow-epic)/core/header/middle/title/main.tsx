@@ -1,8 +1,12 @@
 import { useContext } from 'react';
-import { FlowContext } from '../../../../../page';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export default function FlowHeaderTitle() {
-  const { chapter, moment } = useContext(FlowContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const momentsHandler = useContext(MomentsHandlerContext);
+  const chapter = chaptersHandler.chapter;
+  const moment = momentsHandler.moment;
   const headerTitle =
     chapter && moment ? `${chapter.title} - ${moment.title}` : 'None';
 

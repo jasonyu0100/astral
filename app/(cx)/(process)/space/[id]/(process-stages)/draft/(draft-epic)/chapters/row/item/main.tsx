@@ -1,18 +1,18 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
-import { DraftContext } from '../../../../page';
 import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function DraftChapter({ index }: { index: number }) {
   const chapter = useContext(ChapterContext);
-  const { chapterId, chapterHandler } = useContext(DraftContext);
-  const active = chapter.id === chapterId;
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const active = chapter.id === chaptersHandler.chapterId;
 
   return (
     <WrapperTooltip text={`#${index+1} - ${chapter.title}`}>
-      <button onClick={() => chapterHandler.goToChapter(chapter)}>
+      <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}>
         <GlassContainer
           displayName={DraftChapter.name}
           sizeStyle='w-[200px] h-[40px]'

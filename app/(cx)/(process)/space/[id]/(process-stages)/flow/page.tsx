@@ -1,55 +1,46 @@
 'use client';
 import { createContext } from 'react';
 import { FlowView } from './view';
-import { ChapterActions, useChaptersHandler } from '@/(logic)/internal/handler/chapters/main';
-import { MomentActions, useMomentsHandler } from '@/(logic)/internal/handler/flow/moments/main';
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import {
+  ChaptersHandlerContext,
+  useChaptersHandler,
+} from '@/(logic)/internal/handler/chapters/main';
+import {
+  MomentsHandlerContext,
+  useMomentsHandler,
+} from '@/(logic)/internal/handler/flow/moments/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
-import { FlowModalContext, useFlowModal } from '../../../../../../(modals)/(process)/flow-modal/main';
+import {
+  FlowModalContext,
+  useFlowModal,
+} from '../../../../../../(modals)/(process)/flow-modal/main';
 import { FlowModalView } from '@/(modals)/(process)/flow-modal/view';
 
-interface FlowContextObj {
-  chapter?: ChapterObj;
-  moment?: MomentObj;
-  moments: MomentObj[];
-  momentId: string;
-  chapterId: string;
-  chapters: ChapterObj[];
-  chapterHandler: ChapterActions;
-  momentHandler: MomentActions;
-}
+interface FlowContextObj {}
 
 export const FlowContext = createContext<FlowContextObj>({} as FlowContextObj);
 
 function Page({ params }: { params: { id: string } }) {
-  const { chapter, chapters, chapterId, chapterActions: _chapterHandler } = useChaptersHandler(
-    params.id,
-  );
-  const { moment, moments, momentId, momentActions: _momentHandler } = useMomentsHandler(
-    chapterId,
+  const chaptersHandler = useChaptersHandler(params.id);
+  const momentsHandler = useMomentsHandler(
+    chaptersHandler.chapterId,
     params.id,
   );
 
-  const context: FlowContextObj = {
-    chapter,
-    moment,
-    moments,
-    momentId,
-    chapterId,
-    chapters,
-    chapterHandler: _chapterHandler,
-    momentHandler: _momentHandler,
-  };
+  const context: FlowContextObj = {};
 
   const modalContext = useFlowModal();
 
   return (
     <FlowContext.Provider value={context}>
-      <FlowModalContext.Provider value={modalContext}>
-      <FlowModalView />
-        <FlowView />
-      </FlowModalContext.Provider>
+      <ChaptersHandlerContext.Provider value={chaptersHandler}>
+        <MomentsHandlerContext.Provider value={momentsHandler}>
+          <FlowModalContext.Provider value={modalContext}>
+            <FlowModalView />
+            <FlowView />
+          </FlowModalContext.Provider>
+        </MomentsHandlerContext.Provider>
+      </ChaptersHandlerContext.Provider>
     </FlowContext.Provider>
   );
 }

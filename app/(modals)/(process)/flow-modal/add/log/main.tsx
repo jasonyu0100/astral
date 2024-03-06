@@ -11,10 +11,10 @@ import { Modal } from '@/(components)/(modal)/main';
 import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowModalContext } from '../../main';
-import { FlowContext } from '@/(cx)/(process)/space/[id]/(process-stages)/flow/page';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
 
 export function FlowAddLogModal() {
-  const { momentHandler } = useContext(FlowContext);
+  const momentsHandler = useContext(MomentsHandlerContext);
   const modalContext = useContext(FlowModalContext);
   const { opened, close, log } = modalContext.addLogMomentModal;
   const [title, changeTitle] = useState('');
@@ -65,7 +65,7 @@ export function FlowAddLogModal() {
           <FormButton
             onClick={() => {
               close();
-              momentHandler.queryCreateLogMoment(title, description, log, visibility);
+              momentsHandler.momentActions.queryCreateLogMoment(title, description, log, visibility);
             }}
           >
             Add

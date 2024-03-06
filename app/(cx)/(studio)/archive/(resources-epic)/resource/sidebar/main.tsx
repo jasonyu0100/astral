@@ -8,12 +8,12 @@ import {
 } from '@/(modals)/(studio)/resource/resource-modal/main';
 import { ResourceModalView } from '@/(modals)/(studio)/resource/resource-modal/view';
 import { useContext } from 'react';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { ResourcePolaroid } from './polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function SidebarCollectionResource() {
-  const { starHandler } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext)
   const resource = useContext(ResourceContext);
   const modalContext = useResourceEditModal();
 
@@ -22,7 +22,7 @@ export function SidebarCollectionResource() {
       <ResourceModalView />
       <ResourcePolaroid
         onClick={() =>
-          starHandler.queryCreateFileStar(
+          starsHandler.starActions.queryCreateFileStar(
             resource.title,
             resource.description,
             Math.random() * 500,

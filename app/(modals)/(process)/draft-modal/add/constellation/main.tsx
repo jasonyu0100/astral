@@ -7,13 +7,13 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
-import { DraftContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { DraftModalContext } from '../../main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ConstellationVariant } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
+import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
 
 export function DraftAddConstellationModal() {
-  const { constellationHandler } = useContext(DraftContext);
+  const constellationsHandler = useContext(ConstellationsHandlerContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [variant, changeVariant] = useState(
@@ -64,7 +64,7 @@ export function DraftAddConstellationModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              constellationHandler.queryCreateConstellation(
+              constellationsHandler.constellationActions.queryCreateConstellation(
                 title,
                 description,
                 variant,

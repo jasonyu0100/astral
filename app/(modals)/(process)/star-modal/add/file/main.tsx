@@ -9,13 +9,13 @@ import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
 import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { FormSelect } from '@/(components)/(form)/select/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addFileStarModal;
-  const { starHandler } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
   const [variant, changeVariant] = useState<FileVariant>(FileVariant.IMAGE);
@@ -41,7 +41,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              starHandler.queryCreateFileStar(title, description, 0, 0, file);
+              starsHandler.starActions.queryCreateFileStar(title, description, 0, 0, file);
               close();
             }}
           >

@@ -1,24 +1,24 @@
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
-import { FormDescription } from '@/(components)/(form)/description/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
-import { StormContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/storm/page';
 import { StormModalContext } from '../../main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function StormAddChapterModal() {
-  const { chapters, chapterHandler } = useContext(StormContext);
-  const { addChapterModal: addChapter } = useContext(StormModalContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const chapters = chaptersHandler.chapters;
+  const modalContext = useContext(StormModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
   return (
-    <Modal isOpen={addChapter.opened} onClose={() => addChapter.close()}>
+    <Modal isOpen={modalContext.addChapterModal.opened} onClose={() => modalContext.addChapterModal.close()}>
       <FormContainer>
         <FormTitle>Add Chapter</FormTitle>
         <FormBody>
@@ -39,8 +39,8 @@ export function StormAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description, chapters.length);
-              addChapter.close();
+              chaptersHandler.chapterActions.queryCreateChapter(title, description, chapters.length);
+              modalContext.addChapterModal.close();
             }}
           >
             Add

@@ -8,17 +8,20 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
-import { StormContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/storm/page';
 import { StormModalContext } from '../../main';
+import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
 
 export function StormAddChatModal() {
-  const { addChatModal: newChat } = useContext(StormModalContext);
-  const { chatHandler } = useContext(StormContext);
+  const modalContext = useContext(StormModalContext);
+  const chatsHandler = useContext(ChatsHandlerContext);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
 
   return (
-    <Modal isOpen={newChat.opened} onClose={() => newChat.close()}>
+    <Modal
+      isOpen={modalContext.addChatModal.opened}
+      onClose={() => modalContext.addChatModal.close()}
+    >
       <FormContainer>
         <FormTitle>Add Chat</FormTitle>
         <FormBody>
@@ -40,8 +43,8 @@ export function StormAddChatModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chatHandler.queryCreateChat(title, summary);
-              newChat.close();
+              chatsHandler.chatActions.queryCreateChat(title, summary);
+              modalContext.addChatModal.close();
             }}
           >
             Add

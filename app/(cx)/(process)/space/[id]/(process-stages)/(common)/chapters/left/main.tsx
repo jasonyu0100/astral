@@ -1,15 +1,15 @@
 import { useContext } from 'react';
-import { DraftContext } from '../../../draft/page';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function DraftChaptersLeftButton() {
-  const { chapterHandler } = useContext(DraftContext);
+  const chapterHandler = useContext(ChaptersHandlerContext);
 
   return (
     <WrapperTooltip text={"Prev"}>
       <button
         className='flex h-[30px] w-[30px] flex-shrink-0 items-center justify-center rounded-full'
-        onClick={() => chapterHandler.goToPrevChapter()}
+        onClick={() => chapterHandler.chapterActions.goToPrevChapter()}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

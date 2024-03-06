@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { useContext, useRef } from 'react';
 import { DraftStar } from './star/main';
-import { DraftContext } from '../../../../../page';
 import { StarContext } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function DraftConstellationStars() {
-  const { stars } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext);
+  const stars = starsHandler.stars;
   const constraintsRef = useRef(null);
 
   return (
@@ -14,11 +15,8 @@ export function DraftConstellationStars() {
       ref={constraintsRef}
     >
       {stars.map((star) => (
-        // eslint-disable-next-line react/jsx-key
-        <StarContext.Provider value={star}>
-          <DraftStar
-            constraintsRef={constraintsRef}
-          />
+        <StarContext.Provider value={star} key={star.id}>
+          <DraftStar key={star.id} constraintsRef={constraintsRef} />
         </StarContext.Provider>
       ))}
     </motion.div>

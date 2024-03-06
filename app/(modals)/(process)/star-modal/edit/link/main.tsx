@@ -6,22 +6,24 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import {
   LinkObj,
   LinkVariant,
 } from '@/(logic)/internal/data/infra/model/resource/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addLinkStarModal;
-  const { starHandler } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext);
   const [variant, changeVariant] = useState<string>(LinkVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
+  const [description, changeDescription] = useState<string>("");
   const [start, changeStart] = useState('0');
   const [end, changeEnd] = useState('10');
 
@@ -75,6 +77,7 @@ export function AddLinkStarModal() {
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
+          <FormTextArea placeholder="Description" title="Description" value={description} onChange={(e) => changeDescription(e.target.value)} />
           {variant === LinkVariant.YOUTUBE && (
             <>
               <FormInput
@@ -117,14 +120,14 @@ export function AddLinkStarModal() {
           <FormButton
             onClick={() => {
               if (variant === LinkVariant.YOUTUBE) {
-                starHandler.queryCreateLinkStar(title, 0, 0, {
+                starsHandler.starActions.queryCreateLinkStar(title, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://www.youtube.com/embed/${youtubeId}`,
                   variant: LinkVariant.YOUTUBE,
                 } as LinkObj);
               } else if (variant === LinkVariant.SPOTIFY) {
-                starHandler.queryCreateLinkStar(title, 0, 0, {
+                starsHandler.starActions.queryCreateLinkStar(title, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://open.spotify.com/embed/track/${spotifyId}`,

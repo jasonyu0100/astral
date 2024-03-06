@@ -5,16 +5,19 @@ import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/messa
 import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import {
   ChapterActions,
+  ChaptersHandlerContext,
   useChaptersHandler,
 } from '@/(logic)/internal/handler/chapters/main';
 import {
   ChatActions,
+  ChatsHandlerContext,
   useChatsHandler,
 } from '@/(logic)/internal/handler/storm/chats/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
 import { createContext, useEffect } from 'react';
 import {
   MessageActions,
+  MessagesHandlerContext,
   useMessagesHandler,
 } from '@/(logic)/internal/handler/storm/messages/main';
 import { useGlobalSpace } from '@/(logic)/internal/data/infra/store/space/main';
@@ -26,19 +29,7 @@ import {
 import { StormModalView } from '@/(modals)/(process)/storm-modal/view';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
-interface StormContextObj {
-  chapter?: ChapterObj;
-  chapters: ChapterObj[];
-  chapterId: string;
-  chat?: ChatObj;
-  chats: ChatObj[];
-  chatId: string;
-  inputMessage: string;
-  messages: MessageObj[];
-  chapterHandler: ChapterActions;
-  chatHandler: ChatActions;
-  messageHandler: MessageActions;
-}
+interface StormContextObj {}
 
 export const StormContext = createContext<StormContextObj>(
   {} as StormContextObj,
@@ -48,11 +39,9 @@ function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
   const user = useGlobalUser((state) => state.user);
   const { space } = useSpaceHandler(params.id);
-  const { chapter, chapters, chapterId, chapterActions: _chapterHandler } = useChaptersHandler(
-    params.id,
-  );
-  const { chat, chatId, chats, chatActions: _chatHandler } = useChatsHandler(chapterId);
-  const { messages, inputMessage, messageActions: _messageHandler } = useMessagesHandler(chatId, user.id);
+  const chaptersHandler = useChaptersHandler(params.id);
+  const chatsHandler = useChatsHandler(chaptersHandler.chapterId);
+  const messagesHandler = useMessagesHandler(chatsHandler.chatId, user.id);
 
   useEffect(() => {
     if (space && space?.id) {
@@ -60,28 +49,21 @@ function Page({ params }: { params: { id: string } }) {
     }
   }, [space]);
 
-  const context: StormContextObj = {
-    chapter,
-    chapters,
-    chapterId,
-    chat,
-    chats,
-    chatId,
-    inputMessage,
-    messages,
-    chapterHandler: _chapterHandler,
-    chatHandler: _chatHandler,
-    messageHandler: _messageHandler,
-  };
-
+  const context: StormContextObj = {};
   const modalContext = useStormModal();
 
   return (
     <StormModalContext.Provider value={modalContext}>
-      <StormModalView />
-      <StormContext.Provider value={context}>
-        <StormView />
-      </StormContext.Provider>
+      <ChaptersHandlerContext.Provider value={chaptersHandler}>
+        <ChatsHandlerContext.Provider value={chatsHandler}>
+          <MessagesHandlerContext.Provider value={messagesHandler}>
+            <StormModalView />
+            <StormContext.Provider value={context}>
+              <StormView />
+            </StormContext.Provider>
+          </MessagesHandlerContext.Provider>
+        </ChatsHandlerContext.Provider>
+      </ChaptersHandlerContext.Provider>
     </StormModalContext.Provider>
   );
 }

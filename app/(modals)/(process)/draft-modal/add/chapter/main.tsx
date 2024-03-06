@@ -7,11 +7,11 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
-import { DraftContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { DraftModalContext } from '../../main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function DraftAddChapterModal() {
-  const { chapters, chapterHandler } = useContext(DraftContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext)
   const modalContext = useContext(DraftModalContext);
   const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
@@ -39,7 +39,7 @@ export function DraftAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(title, description, chapters.length);
+              chaptersHandler.chapterActions.queryCreateChapter(title, description, chaptersHandler.chapters.length);
               close();
             }}
           >

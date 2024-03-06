@@ -4,11 +4,12 @@ import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
 import { StormChatMessageInput } from './text/main';
 import { useContext } from 'react';
-import { StormContext } from '../../../page';
+import { MessagesHandlerContext } from '@/(logic)/internal/handler/storm/messages/main';
 
 
 export function StormChatInput() {
-  const {  inputMessage, messageHandler } = useContext(StormContext);
+  const messagesHandler = useContext(MessagesHandlerContext)
+
   return (
     <GlassContainer
       displayName={StormChatInput.name}
@@ -18,8 +19,8 @@ export function StormChatInput() {
     >
       <StormChatInputLeft />
       <StormChatMessageInput
-        onChange={(e) => messageHandler.updateInputMessage(e.target.value)}
-        value={inputMessage}
+        onChange={(e) => messagesHandler.messageActions.updateInputMessage(e.target.value)}
+        value={messagesHandler.inputMessage}
       />
       <StormChatInputRight/>
     </GlassContainer>

@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function NotePromptStar() {
   const user = useGlobalUser((state) => state.user);
   const { star, x, y, constraintsRef, activateStar } =
     useContext(StarHandlerContext);
-  const { starId } = useContext(DraftContext);
-  const active = starId === star.id;
+  const starsHandler = useContext(StarsHandlerContext);
+  const active = starsHandler.starId === star.id;
 
   return (
     <>

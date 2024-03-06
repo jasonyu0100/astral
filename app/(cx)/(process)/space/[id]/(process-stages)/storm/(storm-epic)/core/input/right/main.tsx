@@ -1,28 +1,28 @@
-import { useContext, useState } from "react";
-import { StormContext } from "../../../../page";
+import { useContext } from "react";
 import { StormMessageInputSend } from "./send/main";
 import { StormMessageInputVoice } from "./voice/main";
+import { MessagesHandlerContext } from "@/(logic)/internal/handler/storm/messages/main";
 
 export function StormChatInputRight() {
-  const { inputMessage, messageHandler } = useContext(StormContext);
+  const messagesHandler = useContext(MessagesHandlerContext)
 
   return (
     <div className='flex h-[50px] w-[150px] flex-shrink-0 flex-row items-center justify-evenly'>
       <StormMessageInputVoice />
       <StormMessageInputSend
         onClick={(e) => {
-          messageHandler
-            .queryCreateUserMessage(inputMessage)
+          messagesHandler.messageActions
+            .queryCreateUserMessage(messagesHandler.inputMessage)
             .then((userMessage: any) =>
-              messageHandler.addUserMessage(userMessage),
+              messagesHandler.messageActions.addUserMessage(userMessage),
             )
             .then((agentInputMessage) =>
-              messageHandler.queryCreateAgentMessage(agentInputMessage),
+              messagesHandler.messageActions.queryCreateAgentMessage(agentInputMessage),
             )
             .then((agentMessage: any) =>
-              messageHandler.addAgentMessage(agentMessage),
+              messagesHandler.messageActions.addAgentMessage(agentMessage),
             );
-          messageHandler.updateInputMessage('');
+          messagesHandler.messageActions.updateInputMessage('');
         }}
       />
     </div>

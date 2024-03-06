@@ -1,36 +1,31 @@
 'use client';
 import { createContext, useState } from 'react';
 import { DraftView } from './view';
-import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
-import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
-import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
-import { ChapterActions, useChaptersHandler } from '@/(logic)/internal/handler/chapters/main';
 import {
-  ConstellationActions,
+  ChaptersHandlerContext,
+  useChaptersHandler,
+} from '@/(logic)/internal/handler/chapters/main';
+import {
+  ConstellationsHandlerContext,
   useConstellationsHandler,
 } from '@/(logic)/internal/handler/draft/constellations/main';
 import insideCosmos from '@/(logic)/utils/isAuth';
-import { StarActions, useStarsHandler } from '@/(logic)/internal/handler/draft/stars/main';
+import {
+  StarsHandlerContext,
+  useStarsHandler,
+} from '@/(logic)/internal/handler/draft/stars/main';
 import {
   DraftModalContext,
   useDraftModal,
 } from '../../../../../../(modals)/(process)/draft-modal/main';
-import { StarModalContext, useStarModal } from '@/(modals)/(process)/star-modal/main';
+import {
+  StarModalContext,
+  useStarModal,
+} from '@/(modals)/(process)/star-modal/main';
 import { StarModalView } from '@/(modals)/(process)/star-modal/view';
 import { DraftModalView } from '@/(modals)/(process)/draft-modal/view';
 
 interface DraftContextObj {
-  chapterId: string;
-  chapter?: ChapterObj;
-  chapters: ChapterObj[];
-  constellation?: ConstellationObj;
-  constellations: ConstellationObj[];
-  constellationId: string;
-  stars: StarObj[];
-  starId: string;
-  starHandler: StarActions;
-  chapterHandler: ChapterActions;
-  constellationHandler: ConstellationActions;
   modalType: DraftModalType;
   updateModalType: (multiModalType: DraftModalType) => void;
 }
@@ -48,30 +43,14 @@ export enum DraftModalType {
 }
 
 function Page({ params }: { params: { id: string } }) {
-  const { chapter, chapters, chapterId, chapterActions: _chapterHandler } = useChaptersHandler(
-    params.id,
+  const chaptersHandler = useChaptersHandler(params.id);
+  const constellationsHandler = useConstellationsHandler(
+    chaptersHandler.chapterId,
   );
-  const {
-    constellation,
-    constellations,
-    constellationId,
-    constellationActions: _constellationHandler,
-  } = useConstellationsHandler(chapterId);
-  const { stars, starId, starActions: _starHandler } = useStarsHandler(constellationId);
+  const starsHandler = useStarsHandler(constellationsHandler.constellationId);
   const [modalType, changeModalType] = useState(DraftModalType.DEFAULT);
 
   const context: DraftContextObj = {
-    chapter: chapter,
-    constellation: constellation,
-    stars: stars,
-    starId: starId,
-    chapterId: chapterId,
-    chapters: chapters,
-    starHandler: _starHandler,
-    chapterHandler: _chapterHandler,
-    constellationId: constellationId,
-    constellations: constellations,
-    constellationHandler: _constellationHandler,
     modalType: modalType,
     updateModalType: (modalType) => changeModalType(modalType),
   };
@@ -81,13 +60,19 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <DraftContext.Provider value={context}>
-      <DraftModalContext.Provider value={draftModalContext}>
-        <DraftModalView />
-        <StarModalContext.Provider value={starModalContext}>
-          <StarModalView />
-          <DraftView />
-        </StarModalContext.Provider>
-      </DraftModalContext.Provider>
+      <ChaptersHandlerContext.Provider value={chaptersHandler}>
+        <ConstellationsHandlerContext.Provider value={constellationsHandler}>
+          <StarsHandlerContext.Provider value={starsHandler}>
+            <DraftModalContext.Provider value={draftModalContext}>
+              <DraftModalView />
+              <StarModalContext.Provider value={starModalContext}>
+                <StarModalView />
+                <DraftView />
+              </StarModalContext.Provider>
+            </DraftModalContext.Provider>
+          </StarsHandlerContext.Provider>
+        </ConstellationsHandlerContext.Provider>
+      </ChaptersHandlerContext.Provider>
     </DraftContext.Provider>
   );
 }

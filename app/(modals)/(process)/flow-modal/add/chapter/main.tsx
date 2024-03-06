@@ -7,11 +7,12 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
-import { FlowContext } from '../../../../../(cx)/(process)/space/[id]/(process-stages)/flow/page';
 import { FlowModalContext } from '../../main';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function FlowAddChapterModal() {
-  const { chapters, chapterHandler } = useContext(FlowContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const chapters = chaptersHandler.chapters;
   const modalContext = useContext(FlowModalContext);
   const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
@@ -39,7 +40,7 @@ export function FlowAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chapterHandler.queryCreateChapter(
+              chaptersHandler.chapterActions.queryCreateChapter(
                 title,
                 description,
                 chapters.length,

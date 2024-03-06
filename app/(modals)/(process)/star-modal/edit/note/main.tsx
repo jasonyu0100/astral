@@ -6,14 +6,14 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { DraftContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 import { NoteObj, NoteVariant } from '@/(logic)/internal/data/infra/model/resource/note/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormInput } from '@/(components)/(form)/input/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function AddNoteStarModal() {
-  const { starHandler } = useContext(DraftContext);
+  const starsHandler = useContext(StarsHandlerContext);
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addNoteStarModal;
   const [variant, changeVariant] = useState<string>(NoteVariant.STICKY);
@@ -39,7 +39,7 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
-              starHandler.queryCreateNoteStar(title, 0, 0, {
+              starsHandler.starActions.queryCreateNoteStar(title, 0, 0, {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,

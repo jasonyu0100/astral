@@ -1,10 +1,12 @@
 import { useContext } from 'react';
-import { StormContext } from '../../../../page';
 import { StormMessage } from './message/main';
 import { MessageContext } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+import { MessagesHandlerContext } from '@/(logic)/internal/handler/storm/messages/main';
 
 export function StormChatMessages() {
-  const { messages, messageHandler } = useContext(StormContext);
+  const messagesHandler = useContext(MessagesHandlerContext)
+  const messages = messagesHandler.messages
+  
   return (
     <div
       className='flex w-full flex-col items-center overflow-auto px-[1rem]'
@@ -12,9 +14,8 @@ export function StormChatMessages() {
     >
       <div className='flex w-full max-w-[900px] flex-col space-y-[1rem] py-[2rem]'>
         {messages.map((message) => (
-          // eslint-disable-next-line react/jsx-key
-          <MessageContext.Provider value={message}>
-            <StormMessage />
+          <MessageContext.Provider value={message} key={message.id}>
+            <StormMessage key={message.id}/>
           </MessageContext.Provider>
         ))}
       </div>
