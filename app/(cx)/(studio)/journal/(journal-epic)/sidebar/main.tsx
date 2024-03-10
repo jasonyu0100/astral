@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { FeedSidebarColumn } from './column/main';
 import { FeedSidebarEntry } from './column/section/entry/main';
 import { FeedSidebarSection } from './column/section/main';
-import { FeedJournalContext } from '../../(journal-stages)/feed/page';
+import { FeedJournalContext } from '../../(journal-stages)/updates/page';
 import { FeedSidebarHeader } from './header/main';
 
 export function FeedSidebar() {

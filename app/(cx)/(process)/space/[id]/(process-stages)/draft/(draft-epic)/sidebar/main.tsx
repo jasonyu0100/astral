@@ -1,22 +1,24 @@
 import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
-import { CollectionObj, ResourcesContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
 import {
-  GalleryActions,
+  GallerysHandlerContext,
   useGallerysHandler,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
-  CollectionActions,
-  CollectionsHandler,
+  CollectionsHandlerContext,
+  useCollectionsHandler,
 } from '@/(logic)/internal/handler/explorer/collections/main';
 import {
-  CollectionResourcesActions,
+  CollectionResourcesHandlerContext,
   useCollectionResources,
 } from '@/(logic)/internal/handler/explorer/resources/main';
-import { ArchiveSidebarCreateModalContext, useArchiveSidebarCreateModal } from '@/(modals)/(studio)/archive/sidebar/create/main';
+import {
+  ArchiveSidebarCreateModalContext,
+  useArchiveSidebarCreateModal,
+} from '@/(modals)/(studio)/archive/sidebar/create/main';
 import { ArchiveSidebarCreateModalView } from '@/(modals)/(studio)/archive/sidebar/create/view';
 
 export enum SidebarMode {
@@ -32,19 +34,8 @@ interface SidebarHandler {
   goToCollection: (section: CollectionObj) => void;
 }
 export interface DraftSidebarContextObject {
-  gallery?: GalleryObj;
-  collection?: CollectionObj;
   sidebarMode: SidebarMode;
-  galleryHandler: GalleryActions;
-  collectionHandler: CollectionActions;
-  gallerys: GalleryObj[];
-  galleryId: string;
-  collections: CollectionObj[];
-  collectionId: string;
-  resources: ResourceObj[];
-  searchResults: ResourceObj[];
   sidebarHandler: SidebarHandler;
-  resourceHandler: CollectionResourcesActions;
 }
 
 export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
@@ -54,13 +45,15 @@ export const DraftSidebarContext = createContext<DraftSidebarContextObject>(
 export function DraftSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
   const user = useGlobalUser((state) => state.user);
-  const { gallerys, gallery, galleryId, galleryActions: _galleryHandler } = useGallerysHandler(
+  const gallerysHandler = useGallerysHandler(user?.id);
+  const collectionsHandler = useCollectionsHandler(
+    gallerysHandler.galleryId,
     user?.id,
   );
-  const { collections, collection, collectionId, _collectionHandler } =
-    useCollectionsHandler(galleryId, user?.id);
-  const { resources, resource, resourceId, searchResults, resourceActions: _resourceHandler } =
-    useCollectionResources(collectionId, user?.id);
+  const resourcesHandler = useCollectionResources(
+    collectionsHandler.collectionId,
+    user?.id,
+  );
 
   const sidebarHandler: SidebarHandler = {
     goToHomeView: () => {
@@ -73,39 +66,34 @@ export function DraftSidebar() {
       changeSidebarMode(SidebarMode.Resources);
     },
     goToGallery: (gallery: GalleryObj) => {
-      _galleryHandler.goToGallery(gallery);
+      gallerysHandler.galleryActions.goToGallery(gallery);
       changeSidebarMode(SidebarMode.Collections);
     },
     goToCollection: (collection: CollectionObj) => {
-      _collectionHandler.goToCollection(collection);
+      collectionsHandler.collectionActions.goToCollection(collection);
       changeSidebarMode(SidebarMode.Resources);
     },
   };
 
   const draftContext: DraftSidebarContextObject = {
-    gallery,
-    collection,
     sidebarMode,
-    gallerys,
-    galleryId,
-    galleryHandler: _galleryHandler,
-    collections,
-    collectionId,
-    collectionHandler: _collectionHandler,
-    resources,
-    searchResults,
     sidebarHandler,
-    resourceHandler: _resourceHandler,
   };
 
   const modalContext = useArchiveSidebarCreateModal();
 
   return (
     <DraftSidebarContext.Provider value={draftContext}>
-      <ArchiveSidebarCreateModalContext.Provider value={modalContext}>
-        <ArchiveSidebarCreateModalView/>
-        <DraftSidebarView />
-      </ArchiveSidebarCreateModalContext.Provider>
+      <GallerysHandlerContext.Provider value={gallerysHandler}>
+        <CollectionsHandlerContext.Provider value={collectionsHandler}>
+          <CollectionResourcesHandlerContext.Provider value={resourcesHandler}>
+            <ArchiveSidebarCreateModalContext.Provider value={modalContext}>
+              <ArchiveSidebarCreateModalView />
+              <DraftSidebarView />
+            </ArchiveSidebarCreateModalContext.Provider>
+          </CollectionResourcesHandlerContext.Provider>
+        </CollectionsHandlerContext.Provider>
+      </GallerysHandlerContext.Provider>
     </DraftSidebarContext.Provider>
   );
 }

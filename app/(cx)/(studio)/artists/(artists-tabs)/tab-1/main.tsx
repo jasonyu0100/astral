@@ -5,11 +5,11 @@ import { artistsMap } from '../../map';
 import { ArtistsTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = ArtistsTabStage.Charts;
+  const tabText = ArtistsTabStage.Network;
   const active = tab === tabText;
 
   return (
-    <Tab href={artistsMap.artists.charts.link}>
+    <Tab href={artistsMap.artists.network.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

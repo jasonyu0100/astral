@@ -67,6 +67,6 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
     gallery,
     galleryId,
     gallerys,
-    galleryActions: galleryActions,
+    galleryActions,
   };
 };

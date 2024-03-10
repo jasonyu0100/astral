@@ -10,7 +10,7 @@ import { SpacesHeaderAction } from './action/main';
 import { SpacesAlbumInfo } from './album-info/main';
 
 export function SpacesHeader() {
-  const { createSpaceModal: createSpace } = useContext(SpacesModalContext);
+  const spacesModal = useContext(SpacesModalContext);
   return (
     <GlassContainer
       sizeStyle='w-full h-[360px]'
@@ -22,7 +22,7 @@ export function SpacesHeader() {
       <SpacesAlbumInfo />
       <SpacesHeaderAction
         onClick={() => {
-          createSpace.open();
+          spacesModal.createSpaceModal.open();
         }}
       />
     </GlassContainer>

@@ -3,10 +3,10 @@ import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';
 import { useContext, useState } from 'react';
-import { DraftSidebarContext } from '../../../../main';
+import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function CollectionHeaderSearch() {
-  const { resourceHandler } = useContext(DraftSidebarContext);
+  const resourcesHandler = useContext(CollectionResourcesHandlerContext)
   const [query, changeQuery] = useState('');
 
   return (
@@ -24,7 +24,7 @@ export function CollectionHeaderSearch() {
       />
       <SearchBarButton
         onClick={() => {
-          resourceHandler.searchResources(query);
+          resourcesHandler.resourceActions.searchResources(query);
           changeQuery('');
         }}
       />

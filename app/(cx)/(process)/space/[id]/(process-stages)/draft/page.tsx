@@ -9,7 +9,7 @@ import {
   ConstellationsHandlerContext,
   useConstellationsHandler,
 } from '@/(logic)/internal/handler/draft/constellations/main';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import {
   StarsHandlerContext,
   useStarsHandler,
@@ -77,4 +77,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

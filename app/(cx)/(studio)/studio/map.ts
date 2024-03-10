@@ -5,12 +5,6 @@ export const studioMap = {
     now: {
       link: `${baseUrl}/now`,
     },
-    then: {
-      link: `${baseUrl}/then`,
-    },
-    all: {
-      link: `${baseUrl}/all`,
-    },
     link: `${baseUrl}`,
   },
 };

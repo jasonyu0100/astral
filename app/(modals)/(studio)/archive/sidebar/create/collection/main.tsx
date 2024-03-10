@@ -9,10 +9,10 @@ import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveSidebarCreateModalContext } from '../main';
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
 
 export function SidebarCreateCollectionModal() {
-  const { collectionHandler } = useContext(DraftSidebarContext);
+  const collectionsHandler = useContext(CollectionsHandlerContext);
   const modalContext = useContext(ArchiveSidebarCreateModalContext);
   const { opened, close } = modalContext.createCollection;
   const [title, changeTitle] = useState('');
@@ -44,7 +44,7 @@ export function SidebarCreateCollectionModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              collectionHandler.queryCreateCollection(
+              collectionsHandler.collectionActions.queryCreateCollection(
                 title,
                 description,
                 files,

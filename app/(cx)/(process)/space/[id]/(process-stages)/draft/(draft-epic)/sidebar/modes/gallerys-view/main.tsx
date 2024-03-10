@@ -1,20 +1,20 @@
 import { useContext } from 'react';
-import { DraftSidebarContext } from '../../main';
 import { SidebarHomeGalleryAdd } from '../../../../../../../../../(studio)/archive/(gallerys-epic)/gallery/sidebar/add/main';
 import { SidebarHomeGallery } from '../../../../../../../../../(studio)/archive/(gallerys-epic)/gallery/sidebar/main';
 import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
 import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
+import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
 export function SidebarGallerysInterface() {
-  const { gallerys } = useContext(DraftSidebarContext);
+  const gallerysHandler = useContext(GallerysHandlerContext);
+  const gallerys = gallerysHandler.gallerys;
   const modalContext = useContext(ArchiveSidebarCreateModalContext);
 
   return (
     <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
       {gallerys.map((gallery) => (
-        // eslint-disable-next-line react/jsx-key
-        <GalleryContext.Provider value={gallery}>
-          <SidebarHomeGallery />
+        <GalleryContext.Provider value={gallery} key={gallery.id}>
+          <SidebarHomeGallery key={gallery.id}/>
         </GalleryContext.Provider>
       ))}
       <SidebarHomeGalleryAdd

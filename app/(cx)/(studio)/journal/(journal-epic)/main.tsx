@@ -7,7 +7,7 @@ export function FeedMain() {
     <GlassContainer
       displayName={FeedMain.name}
       className={`${containerStyles.row}`}
-      glassStyle={backgroundStyles['glass-5']}
+      // glassStyle={backgroundStyles['glass-5']}
       sizeStyle='flex-grow h-full'
     >
       <FeedPosts />

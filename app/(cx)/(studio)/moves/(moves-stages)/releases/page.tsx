@@ -1,6 +1,6 @@
 'use client';
 
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import { RecordCollection } from '../../(moves-epic)/main';
 import { RecordAlbum } from '../../(moves-epic)/shelf/album/main';
 import { RecordShelf } from '../../(moves-epic)/shelf/main';
@@ -24,4 +24,4 @@ function Page() {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

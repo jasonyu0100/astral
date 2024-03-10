@@ -7,7 +7,7 @@ import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/ma
 import { studioMap } from '../../studio/map';
 
 export enum LinkTabStage {
-  Feed = 'Feed',
+  Updates = 'Updates',
   Social = 'Social',
   Explore = 'Explore',
 }

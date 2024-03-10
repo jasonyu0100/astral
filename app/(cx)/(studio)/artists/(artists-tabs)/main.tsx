@@ -7,7 +7,7 @@ import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/ma
 import { studioMap } from '../../studio/map';
 
 export enum ArtistsTabStage {
-  Charts = 'Charts',
+  Network = 'Network',
   Stars = 'Stars',
   Fans = 'Fans',
 }
@@ -21,8 +21,8 @@ export function ArtistsTabs({ tab }: ArtistsTabProps) {
       <TabsBackButton href={studioMap.studio.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
-        <TabTwo tab={tab} />
-        <TabThree tab={tab} />
+        {/* <TabTwo tab={tab} />
+        <TabThree tab={tab} /> */}
       </TabsRow>
     </Tabs>
   );

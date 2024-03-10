@@ -1,6 +1,6 @@
 'use client';
 import { GallerysView } from './view';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 import {
   GallerysHandlerContext,
@@ -24,4 +24,4 @@ function Page() {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

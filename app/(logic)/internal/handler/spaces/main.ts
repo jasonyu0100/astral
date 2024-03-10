@@ -23,7 +23,7 @@ interface SpacesHandler {
   spaceActions: SpaceActions;
 }
 
-export const SpacesHanlderContext = createContext({} as SpacesHandler);
+export const SpacesHandlerContext = createContext({} as SpacesHandler);
 
 export const useSpacesHandler = (userId: string): SpacesHandler => {
   const [spaces, changeSpaces] = useState<SpaceObj[]>([]);

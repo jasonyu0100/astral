@@ -11,11 +11,11 @@ export function JournalIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={journalMap.journal.feed.link}>
+        <SidebarIndicator href={journalMap.journal.updates.link}>
           <IndicatorOrangeJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={journalMap.journal.feed.link}>
+        <SidebarIndicator href={journalMap.journal.updates.link}>
           <IndicatorOrangeJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

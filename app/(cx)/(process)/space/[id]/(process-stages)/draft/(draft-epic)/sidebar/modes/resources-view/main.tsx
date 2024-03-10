@@ -1,16 +1,17 @@
 import { createContext, useContext } from 'react';
-import { DraftSidebarContext } from '../../main';
 import { CollectionResourceAdd } from '../../../../../../../../../(studio)/archive/(resources-epic)/resource/sidebar/add/main';
 import { CollectionHeader } from './header/main';
 import { CollectionHeaderSearch } from './header/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../(studio)/archive/(resources-epic)/resource/sidebar/main';
 import { ResourceContext, ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
+import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);
 
 export function ResourcesInterface() {
-  const { searchResults } = useContext(DraftSidebarContext);
+  const resourcesHandler = useContext(CollectionResourcesHandlerContext)
+  const searchResults = resourcesHandler.searchResults
   const modalContext = useContext(ArchiveSidebarCreateModalContext)
 
   return (
@@ -22,9 +23,8 @@ export function ResourcesInterface() {
             }}
           />
           {searchResults.map((resource) => (
-            // eslint-disable-next-line react/jsx-key
-            <ResourceContext.Provider value={resource}>
-              <SidebarCollectionResource />
+            <ResourceContext.Provider value={resource} key={resource.id}>
+              <SidebarCollectionResource key={resource.id}/>
             </ResourceContext.Provider>
           ))}
         </div>

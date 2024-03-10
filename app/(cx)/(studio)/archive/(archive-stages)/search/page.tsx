@@ -2,7 +2,7 @@
 import { createContext } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import {
   SearchActions,
   useSearchResource,
@@ -35,4 +35,4 @@ function Page() {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

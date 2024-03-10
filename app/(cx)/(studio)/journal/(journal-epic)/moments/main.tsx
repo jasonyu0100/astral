@@ -1,7 +1,7 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
-import { FeedJournalContext } from '../../(journal-stages)/feed/page';
+import { FeedJournalContext } from '../../(journal-stages)/updates/page';
 import { FeedMoment } from './moment/main';
 
 export function FeedPosts() {

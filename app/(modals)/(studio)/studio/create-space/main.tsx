@@ -13,7 +13,7 @@ import {
 } from '@/(logic)/internal/data/infra/model/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesContext } from '@/(cx)/(studio)/studio/(studio-stages)/all/page';
+import { SpacesHandlerContext } from '@/(logic)/internal/handler/spaces/main';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;
@@ -50,7 +50,7 @@ function Pages({ page }: { page: number }) {
 }
 
 export function CreateSpaceModal() {
-  const { spacesHandler } = useContext(SpacesContext);
+  const spacesHandler = useContext(SpacesHandlerContext);
   const modalContext = useContext(SpacesModalContext);
   const { opened, close, page, updatePage } = modalContext.createSpaceModal;
   const [title, changeTitle] = useState('');
@@ -109,7 +109,7 @@ export function CreateSpaceModal() {
             </FormButton>
             <FormButton
               onClick={() => {
-                spacesHandler.queryCreateSpace(
+                spacesHandler.spaceActions.queryCreateSpace(
                   title,
                   description,
                   thumbnail,

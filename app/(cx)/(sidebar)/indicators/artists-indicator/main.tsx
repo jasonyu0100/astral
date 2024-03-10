@@ -11,11 +11,11 @@ export function ArtistsIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={artistsMap.artists.charts.link}>
+        <SidebarIndicator href={artistsMap.artists.network.link}>
           <IndicatorPurpleJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={artistsMap.artists.charts.link}>
+        <SidebarIndicator href={artistsMap.artists.network.link}>
           <IndicatorPurpleJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

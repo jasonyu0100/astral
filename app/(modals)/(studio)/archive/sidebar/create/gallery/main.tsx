@@ -11,12 +11,12 @@ import { useContext, useState } from 'react';
 import { DisplayImage } from '@/(components)/(form)/display-image/main';
 import { FormSearchImage } from '@/(components)/(form)/search-image/main';
 import { ArchiveSidebarCreateModalContext } from '../main';
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
 export function SidebarCreateGalleryModal() {
   const modalContext = useContext(ArchiveSidebarCreateModalContext);
   const { opened, close } = modalContext.createGallery;
-  const { galleryHandler } = useContext(DraftSidebarContext);
+  const gallerysHandler = useContext(GallerysHandlerContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
@@ -48,7 +48,7 @@ export function SidebarCreateGalleryModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              galleryHandler.queryCreateGallery(title, description, thumbnail);
+              gallerysHandler.galleryActions.queryCreateGallery(title, description, thumbnail);
               close();
             }}
           >

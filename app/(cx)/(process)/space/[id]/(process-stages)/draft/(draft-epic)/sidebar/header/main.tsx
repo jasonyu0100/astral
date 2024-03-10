@@ -3,10 +3,17 @@ import { DraftSidebarContext, SidebarMode } from '../main';
 import { BreadcrumbsLink } from './breadcrumbs/breadcrumb/main';
 import { BreadcrumbsDivider } from './breadcrumbs/divider/main';
 import { SidebarBreadcrumbs } from './breadcrumbs/main';
+import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
+import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
 
 export function DraftSidebarHeader() {
-  const { sidebarMode, gallery, collection, sidebarHandler } =
+  const { sidebarMode, sidebarHandler } =
     useContext(DraftSidebarContext);
+  const gallerysHandler = useContext(GallerysHandlerContext);
+  const collectionsHandler = useContext(CollectionsHandlerContext);
+  const gallery = gallerysHandler.gallery;
+  const collection = collectionsHandler.collection;
+
   return (
     <SidebarBreadcrumbs>
       <BreadcrumbsLink

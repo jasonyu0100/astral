@@ -19,6 +19,7 @@ export function AddNoteStarModal() {
   const [variant, changeVariant] = useState<string>(NoteVariant.STICKY);
   const [text, changeText] = useState<string>("");
   const [title, changeTitle] = useState<string>("");
+  const [description, changeDescription] = useState<string>("");
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -31,6 +32,7 @@ export function AddNoteStarModal() {
             <option value={NoteVariant.QUOTE}>Quote</option>
           </FormSelect>
           <FormInput placeholder="Title" title="Title" value={title} onChange={(e) => changeTitle(e.target.value)} />
+          <FormTextArea placeholder="Description" title="Description" value={description} onChange={(e) => changeDescription(e.target.value)} />
           <FormTextArea  placeholder="Note Text" title="Text" value={text} onChange={(e) => changeText(e.target.value)} 
             rows={10}
           />
@@ -39,7 +41,7 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
-              starsHandler.starActions.queryCreateNoteStar(title, 0, 0, {
+              starsHandler.starActions.queryCreateNoteStar(title, description, 0, 0, {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,

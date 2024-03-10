@@ -3,7 +3,7 @@ import { CollectionsView } from './view';
 import {
   GalleryContext,
 } from '@/(logic)/internal/data/infra/model/gallery/main';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import {
   CollectionsHandlerContext,
@@ -34,4 +34,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

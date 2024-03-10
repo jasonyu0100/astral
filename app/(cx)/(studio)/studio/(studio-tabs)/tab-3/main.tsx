@@ -9,7 +9,7 @@ export function TabThree({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={studioMap.studio.all.link}>
+    <Tab href={studioMap.studio.now.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabPurpleShard active={active} />
     </Tab>

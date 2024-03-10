@@ -1,4 +1,4 @@
-import { FeedJournalContext } from '@/(cx)/(studio)/journal/(journal-stages)/feed/page';
+import { FeedJournalContext } from '@/(cx)/(studio)/journal/(journal-stages)/updates/page';
 import { useContext } from 'react';
 import { FeedSidebarEntry } from './entry/main';
 

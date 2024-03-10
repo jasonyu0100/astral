@@ -9,7 +9,7 @@ import {
   MomentsHandlerContext,
   useMomentsHandler,
 } from '@/(logic)/internal/handler/flow/moments/main';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import {
   FlowModalContext,
   useFlowModal,
@@ -45,4 +45,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);

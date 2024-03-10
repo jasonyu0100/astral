@@ -2,8 +2,8 @@ export const baseUrl = `/journal`;
 
 export const journalMap = {
   journal: {
-    feed: {
-      link: `${baseUrl}/feed`,
+    updates: {
+      link: `${baseUrl}/updates`,
     },
     social: {
       link: `${baseUrl}/social`,

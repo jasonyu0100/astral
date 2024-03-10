@@ -1,5 +1,5 @@
 'use client';
-import insideCosmos from '@/(logic)/utils/isAuth';
+import insideVerses from '@/(logic)/utils/isAuth';
 import { FeedJournalView } from './view';
 import { createContext } from 'react';
 import { MomentObj, MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
@@ -39,4 +39,4 @@ function Page() {
   );
 }
 
-export default insideCosmos(Page);
+export default insideVerses(Page);
