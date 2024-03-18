@@ -9,7 +9,7 @@ export function FeedSidebarHeader() {
       className='flex flex-row items-center'
       borderStyle={borderStyles['border-b']}
     >
-      <p className='font-extraBold  text-xl text-slate-400'>Network</p>
+      <p className='font-extraBold  text-xl text-slate-400'>People</p>
     </GlassContainer>
   );
 }

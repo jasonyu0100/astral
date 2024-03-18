@@ -5,6 +5,8 @@ export const backgroundStyles = {
   'glass-30': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-30',
   'glass-40': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-40',
   'glass-50': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-50',
+  'glass-r-5': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-5',
+  'glass-r-10': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-10',
   'slate-950': 'bg-slate-950',
   'slate-900': 'bg-slate-900',
   'slate-800': 'bg-slate-800',

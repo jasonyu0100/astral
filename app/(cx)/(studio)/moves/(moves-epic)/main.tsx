@@ -1,13 +1,13 @@
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
-export function RecordCollection({ children }: { children: React.ReactNode }) {
+export function MovesCollection({ children }: { children: React.ReactNode }) {
   return (
     <GlassContainer
-      displayName={RecordCollection.name}
+      displayName={MovesCollection.name}
       sizeStyle='h-full flex-grow'
       glassStyle={backgroundStyles['glass-5']}
-      className={`${containerStyles['col-center']}`}
+      className={`flex flex-col overflow-auto`}
     >
       {children}
     </GlassContainer>

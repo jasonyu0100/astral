@@ -1,16 +1,15 @@
 'use client';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';
+import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
 import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 
-export function RecordShelf({ children }: { children: React.ReactNode }) {
+export function MovesShelf({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
-      displayName={RecordShelf.name}
-      sizeStyle='h-[250px] w-full'
+    <GlassFrame
       borderStyle={borderStyles['border-b']}
-      className={`space-x-[100px] px-[40px] ${containerStyles.row}`}
+      className={`flex w-full flex-row px-[4rem] py-[2rem] space-x-[3rem]`}
     >
       {children}
-    </GlassContainer>
+    </GlassFrame>
   );
 }

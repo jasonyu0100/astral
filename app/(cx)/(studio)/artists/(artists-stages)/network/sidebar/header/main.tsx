@@ -9,7 +9,7 @@ export function JournalNetworkSidebarHeader() {
       className='flex flex-row items-center'
       borderStyle={borderStyles['border-b']}
     >
-      <p className='font-extraBold  text-xl text-slate-400'>Moves</p>
+      <p className='font-extraBold  text-xl text-slate-400'>Projects</p>
     </GlassContainer>
   );
 }

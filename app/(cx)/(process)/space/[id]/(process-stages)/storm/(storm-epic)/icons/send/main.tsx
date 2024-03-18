@@ -15,7 +15,11 @@ export function StormSendIcon() {
         width='24'
         height='24'
       >
-        <rect width='24' height='24' fill='#D9D9D9' />
+        <rect
+          width='24'
+          height='24'
+          className='fill-slate-300'
+        />
       </mask>
       <g mask='url(#mask0_1085_17421)'>
         <path

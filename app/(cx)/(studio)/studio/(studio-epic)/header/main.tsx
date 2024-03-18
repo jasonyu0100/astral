@@ -16,7 +16,6 @@ export function SpacesHeader() {
       sizeStyle='w-full h-[360px]'
       displayName={SpacesHeader.name}
       glassStyle={backgroundStyles['glass-5']}
-      borderStyle={borderStyles['border-b']}
       className={`p-[4rem] ${containerStyles['row-center']}`}
     >
       <SpacesAlbumInfo />

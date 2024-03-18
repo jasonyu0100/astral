@@ -5,13 +5,13 @@ import { JournalNetworkSidebarColumn } from './column/main';
 import { JournalNetworkSidebarSection } from './column/section/main';
 import { JournalNetworkSidebarHeader } from './header/main';
 
-export function JournalNetworkSidebar() {
+export function ArtistNetworkSidebar() {
   return (
     <GlassContainer
-      displayName={JournalNetworkSidebar.name}
+      displayName={ArtistNetworkSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
-      glassStyle={backgroundStyles['glass-10']}
+      glassStyle={backgroundStyles['glass-r-10']}
     >
       <JournalNetworkSidebarHeader />
       <JournalNetworkSidebarColumn>

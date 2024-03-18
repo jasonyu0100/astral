@@ -1,10 +1,10 @@
 'use client';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { JournalNetworkSidebar } from './sidebar/main';
 import { RecordCollection } from '../../(artists-epic)/main';
 import { RecordAlbum } from '../../(artists-epic)/shelf/album/main';
 import { RecordShelf } from '../../(artists-epic)/shelf/main';
+import { ArtistNetworkSidebar } from './sidebar/main';
 
 export function ArtistsNetworkView() {
   return (
@@ -15,6 +15,7 @@ export function ArtistsNetworkView() {
       sizeStyle='flex-grow h-full'
     >
       <GlassContainer
+        displayName={ArtistsNetworkView.name}
         className={`${containerStyles.row}`}
         sizeStyle='flex-grow h-full'
       >
@@ -31,7 +32,7 @@ export function ArtistsNetworkView() {
           </RecordShelf>
         </RecordCollection>
       </GlassContainer>
-      <JournalNetworkSidebar />
+      <ArtistNetworkSidebar />
     </GlassContainer>
   );
 }

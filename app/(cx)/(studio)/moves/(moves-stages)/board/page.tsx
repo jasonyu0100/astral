@@ -1,25 +1,27 @@
 'use client';
 
 import insideVerses from '@/(logic)/utils/isAuth';
-import { RecordCollection } from '../../(moves-epic)/main';
-import { RecordAlbum } from '../../(moves-epic)/shelf/album/main';
-import { RecordShelf } from '../../(moves-epic)/shelf/main';
+import { MovesCollection } from '../../(moves-epic)/main';
+import { MovesMove } from '../../(moves-epic)/shelf/move/main';
+import { MovesShelf } from '../../(moves-epic)/shelf/main';
+import { MovesHeader } from '../../(moves-epic)/header/main';
 
 function Page() {
   return (
     <>
-      <RecordCollection>
-        <RecordShelf>
-          <RecordAlbum />
-          <RecordAlbum />
-          <RecordAlbum />
-        </RecordShelf>
-        <RecordShelf>
-          <RecordAlbum />
-          <RecordAlbum />
-          <RecordAlbum />
-        </RecordShelf>
-      </RecordCollection>
+      <MovesCollection>
+        <MovesHeader />
+        <MovesShelf>
+          <MovesMove />
+          <MovesMove />
+          <MovesMove />
+        </MovesShelf>
+        <MovesShelf>
+          <MovesMove />
+          <MovesMove />
+          <MovesMove />
+        </MovesShelf>
+      </MovesCollection>
     </>
   );
 }
