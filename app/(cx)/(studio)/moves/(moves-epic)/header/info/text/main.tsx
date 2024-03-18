@@ -4,7 +4,7 @@ import { SpacesHeaderTextSub } from './sub/main';
 export function MovesHeaderText() {
   return (
     <div className='flex flex-col justify-center space-y-[1rem]'>
-      <SpacesHeaderTextMain>DIRECT</SpacesHeaderTextMain>
+      <SpacesHeaderTextMain>IMAGINE</SpacesHeaderTextMain>
       <SpacesHeaderTextSub>Now</SpacesHeaderTextSub>
     </div>
   );
