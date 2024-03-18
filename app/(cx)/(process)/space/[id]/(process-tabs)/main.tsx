@@ -13,18 +13,17 @@ export enum SpaceTabStage {
   Storm = 'Storm',
   Draft = 'Draft',
   Flow = 'Flow',
-  Sea = 'Sea',
+  Share = 'Share',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <Tabs>
-      {/* <TabsBackButton href={spacesMap.spaces.now.link} /> */}
       <TabsRow>
         <TabOne tab={tab} />
         <TabTwo tab={tab} />
         <TabThree tab={tab} />
-        {/* <TabFour tab={tab} /> */}
+        <TabFour tab={tab} />
       </TabsRow>
     </Tabs>
   );

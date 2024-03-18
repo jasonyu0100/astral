@@ -1,7 +1,7 @@
 // import { useEffect, useRef, useState } from 'react';
 // import { FireworkSketch } from './firework/sketch';
 
-export function SeaStory() {
+export function ShareStory() {
   return <></>
   // const layerRef = useRef<HTMLDivElement>(null);
   // const renderRef = useRef<HTMLDivElement>(null);

@@ -1,9 +1,9 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { SeaView } from './view';
+import { ShareView } from './view';
 
 function Page() {
-  return <SeaView />;
+  return <ShareView />;
 }
 
 export default insideVerses(Page);

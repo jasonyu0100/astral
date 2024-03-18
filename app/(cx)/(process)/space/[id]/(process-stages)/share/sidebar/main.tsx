@@ -5,10 +5,10 @@ import {
 } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
-export function SeaSidebar({ children }: { children: React.ReactNode }) {
+export function ShareSidebar({ children }: { children: React.ReactNode }) {
   return (
     <GlassContainer
-      displayName={SeaSidebar.name}
+      displayName={ShareSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col-center']} px-[1rem] py-[2rem]`}
       glassStyle={backgroundStyles['glass-10']}

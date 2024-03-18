@@ -10,8 +10,8 @@ export const spaceMap = {
       flow: {
         link: (id: string) => `/space/${id}/flow`,
       },
-      sea: {
-        link: (id: string) => `/space/${id}/sea`,
+      share: {
+        link: (id: string) => `/space/${id}/share`,
       },
       link: (id: string) => `/space/${id}`,
     },
