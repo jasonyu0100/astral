@@ -4,14 +4,14 @@ import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 import { CollectionContext, ResourcesContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
-import { useCollectionResources } from '@/(logic)/internal/handler/explorer/resources/main';
+import { useResourcesHandler } from '@/(logic)/internal/handler/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
 
 export function SidebarCollection() {
   const { sidebarHandler } = useContext(DraftSidebarContext);
   const collection = useContext(CollectionContext);
   const user = useGlobalUser((state) => state.user);
-  const { resources } = useCollectionResources(collection.id, user?.id);
+  const { resources } = useResourcesHandler(collection.id, user?.id);
 
   return (
     <ResourcesContext.Provider value={resources}>

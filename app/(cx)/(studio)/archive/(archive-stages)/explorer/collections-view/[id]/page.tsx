@@ -14,7 +14,7 @@ import {
   useArchiveExplorerCreateModal,
   ArchiveExplorerCreateModalContext,
 } from '@/(modals)/(studio)/archive/explorer/create/main';
-import { ArchiveExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
+import { ExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
 
 function Page({ params }: { params: { id: string } }) {
   const { gallery } = useGalleryHandler(params.id);
@@ -26,7 +26,7 @@ function Page({ params }: { params: { id: string } }) {
     <GalleryContext.Provider value={gallery}>
       <CollectionsHandlerContext.Provider value={collectionsHandler}>
         <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-          <ArchiveExplorerModalView />
+          <ExplorerModalView />
           <CollectionsView />
         </ArchiveExplorerCreateModalContext.Provider>
       </CollectionsHandlerContext.Provider>

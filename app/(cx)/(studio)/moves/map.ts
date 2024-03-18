@@ -2,8 +2,8 @@ const baseUrl = `/moves`;
 
 export const movesMap = {
   moves: {
-    releases: {
-      link: `${baseUrl}/releases`,
+    board: {
+      link: `${baseUrl}/board`,
     },
     link: `${baseUrl}`,
   },

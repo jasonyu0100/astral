@@ -7,7 +7,7 @@ import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/ma
 import { studioMap } from '../../studio/map';
 
 export enum RecordTabStage {
-  Releases = 'Releases',
+  Board = 'Board',
   Moves = 'Moves',
   Trends = 'Trends',
 }

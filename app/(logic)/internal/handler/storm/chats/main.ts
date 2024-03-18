@@ -66,6 +66,6 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
     chat,
     chats,
     chatId,
-    chatActions: chatActions,
+    chatActions,
   };
 };

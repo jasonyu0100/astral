@@ -1,10 +1,8 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import React, { useContext } from 'react';
+import React from 'react';
 import { FeedSidebarColumn } from './column/main';
-import { FeedSidebarEntry } from './column/section/entry/main';
 import { FeedSidebarSection } from './column/section/main';
-import { FeedJournalContext } from '../../(journal-stages)/updates/page';
 import { FeedSidebarHeader } from './header/main';
 
 export function FeedSidebar() {
@@ -17,6 +15,14 @@ export function FeedSidebar() {
     >
       <FeedSidebarHeader />
       <FeedSidebarColumn>
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
+        <FeedSidebarSection />
         <FeedSidebarSection />
       </FeedSidebarColumn>
     </GlassContainer>

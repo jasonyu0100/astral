@@ -4,7 +4,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { FormUploadFiles } from '@/(components)/(form)/upload/upload-files/main';
+import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';

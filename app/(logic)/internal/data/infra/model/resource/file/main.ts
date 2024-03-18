@@ -48,7 +48,7 @@ export interface FileObj {
   variant: string;
 }
 
-export const FileContext = createContext<FileObj>({} as FileObj);
+export const FileObjContext = createContext<FileObj>({} as FileObj);
 
 export const exampleFile: FileObj = {
   id: '0',

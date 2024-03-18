@@ -5,12 +5,12 @@ import { CollectionHeaderSearch } from './header/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../(studio)/archive/(resources-epic)/resource/sidebar/main';
 import { ResourceContext, ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
-import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);
 
 export function ResourcesInterface() {
-  const resourcesHandler = useContext(CollectionResourcesHandlerContext)
+  const resourcesHandler = useContext(ResourcesHandlerContext)
   const searchResults = resourcesHandler.searchResults
   const modalContext = useContext(ArchiveSidebarCreateModalContext)
 

@@ -3,15 +3,15 @@ import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import { useState, useEffect, createContext } from 'react';
 import { gqlHelper } from '../../../gql/resources/main';
 
-interface CollectionResourcesHandler {
+interface ResourcesHandler {
   resourceId: string;
   resource: ResourceObj | undefined;
   resources: ResourceObj[];
   searchResults: ResourceObj[];
-  resourceActions: CollectionResourcesActions;
+  resourceActions: ResourcesActions;
 }
 
-export interface CollectionResourcesActions {
+export interface ResourcesActions {
   queryListResources: (id: string) => Promise<ResourceObj[]>;
   queryCreateFileResource: (
     name: string,
@@ -22,12 +22,12 @@ export interface CollectionResourcesActions {
   updateResource: (resource: ResourceObj) => ResourceObj;
 }
 
-export const CollectionResourcesHandlerContext = createContext({} as CollectionResourcesHandler);
+export const ResourcesHandlerContext = createContext({} as ResourcesHandler);
 
-export const useCollectionResources = (
+export const useResourcesHandler = (
   collectionId: string,
   userId: string,
-): CollectionResourcesHandler => {
+): ResourcesHandler => {
   const [resources, changeResources] = useState<ResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
@@ -45,7 +45,7 @@ export const useCollectionResources = (
     changeSearchResults(resources);
   }, [resources]);
 
-  const resourceActions: CollectionResourcesActions = {
+  const resourceActions: ResourcesActions = {
     queryListResources: async (collectionId: string) => {
       const resources = await gqlHelper.queryListResources(collectionId);
       changeResources(resources);
@@ -93,6 +93,6 @@ export const useCollectionResources = (
     resourceId,
     searchResults,
     resources,
-    resourceActions: resourceActions,
+    resourceActions,
   };
 };

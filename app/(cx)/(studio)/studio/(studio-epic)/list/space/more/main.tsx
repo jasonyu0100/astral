@@ -1,12 +1,12 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
-export function SpaceMore() {
+export function StudioSpaceMore() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="w-[50px] h-[50px] outline-none">
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-full w-full'
+          className='h-3/4 w-3/4'
           viewBox='0 0 25 25'
           fill='none'
         >

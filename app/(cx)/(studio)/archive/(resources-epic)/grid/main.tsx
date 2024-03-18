@@ -3,10 +3,10 @@ import { CollectionResourceAdd } from '../resource/explorer/add/main';
 import { ExplorerResource } from '../resource/explorer/main';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(modals)/(studio)/archive/explorer/create/main';
-import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ResourcesGrid() {
-  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
+  const resourcesHandler = useContext(ResourcesHandlerContext);
   const resources = resourcesHandler.resources;
   const modalContext = useContext(ArchiveExplorerCreateModalContext)
 

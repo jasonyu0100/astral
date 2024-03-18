@@ -11,9 +11,9 @@ import {
 import insideVerses from '@/(logic)/utils/isAuth';
 import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
 import {
-  CollectionResourcesActions,
-  CollectionResourcesHandlerContext,
-  useCollectionResources,
+  ResourcesActions,
+  ResourcesHandlerContext,
+  useResourcesHandler,
 } from '@/(logic)/internal/handler/explorer/resources/main';
 import { useCollectionHandler } from '@/(logic)/internal/handler/explorer/collections/collection/main';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
@@ -23,23 +23,23 @@ import {
   ArchiveExplorerCreateModalContext,
   useArchiveExplorerCreateModal,
 } from '@/(modals)/(studio)/archive/explorer/create/main';
-import { ArchiveExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
+import { ExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
 
 function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollectionHandler(params.id);
   const { gallery } = useGalleryHandler(collection.galleryId);
   const user = useGlobalUser((state) => state.user);
-  const resourcesHandler = useCollectionResources(params.id, user?.id);
+  const resourcesHandler = useResourcesHandler(params.id, user?.id);
   const modalContext = useArchiveExplorerCreateModal();
 
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <ArchiveExplorerModalView />
       <GalleryContext.Provider value={gallery}>
         <CollectionContext.Provider value={collection}>
-          <CollectionResourcesHandlerContext.Provider value={resourcesHandler}>
+          <ResourcesHandlerContext.Provider value={resourcesHandler}>
+            <ExplorerModalView />
             <ResourcesView />
-          </CollectionResourcesHandlerContext.Provider>
+          </ResourcesHandlerContext.Provider>
         </CollectionContext.Provider>
       </GalleryContext.Provider>
     </ArchiveExplorerCreateModalContext.Provider>

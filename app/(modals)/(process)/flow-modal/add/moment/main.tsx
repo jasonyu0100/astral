@@ -11,8 +11,7 @@ import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/momen
 import { useContext, useState } from 'react';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { FlowModalContext } from '../../main';
-import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { DisplayImage } from '@/(components)/(form)/display-image/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { Divider } from '@/(components)/(basic)/divider/main';
 import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
 
@@ -32,10 +31,8 @@ export function FlowAddMomentModal() {
       <FormContainer>
         <FormTitle>Add Moment</FormTitle>
         <FormBody>
-          {/* <FormDescription>Add your moment here</FormDescription> */}
-          <DisplayImage selected={file} />
           <FormSearchImage
-            value={file}
+            file={file}
             onChange={(file) => changeFile(file)}
             label='File'
           />

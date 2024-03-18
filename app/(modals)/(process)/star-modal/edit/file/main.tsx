@@ -7,7 +7,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
+import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import {
   FileObj,
   FileVariant,

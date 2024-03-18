@@ -6,16 +6,16 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
+import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
 import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
 import { EditResourceModalContext } from './main';
-import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);
-  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
+  const resourcesHandler = useContext(ResourcesHandlerContext);
   const { opened, close } = modalContext.editResource;
   const resource = useContext(ResourceContext);
   const [title, changeTitle] = useState(resource.title);

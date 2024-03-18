@@ -5,7 +5,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { FormUploadFile } from '@/(components)/(form)/upload/upload-file/main';
+import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { Modal } from '@/(components)/(modal)/main';
 import {
   FileObj,
@@ -14,10 +14,10 @@ import {
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
-import { CollectionResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ExplorerCreateResourceModal() {
-  const resourcesHandler = useContext(CollectionResourcesHandlerContext);
+  const resourcesHandler = useContext(ResourcesHandlerContext);
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
   const { opened, close } = modalContext.createResource;
   const [name, changeName] = useState('');

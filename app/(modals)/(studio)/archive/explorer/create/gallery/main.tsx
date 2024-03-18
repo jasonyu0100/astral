@@ -8,8 +8,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { DisplayImage } from '@/(components)/(form)/display-image/main';
-import { FormSearchImage } from '@/(components)/(form)/search-image/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
 import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
@@ -26,9 +25,8 @@ export function ExplorerCreateGalleryModal() {
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
-          <DisplayImage selected={thumbnail} />
           <FormSearchImage
-            value={thumbnail}
+            file={thumbnail}
             onChange={(file) => changeThumbnail(file)}
             label='Thumbnail'
           />

@@ -3,10 +3,13 @@ import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FeedJournalContext } from '../../(journal-stages)/updates/page';
 import { FeedMoment } from './moment/main';
+import { MomentContext, exampleMoments } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 
 export function FeedPosts() {
-  const { moments } = useContext(FeedJournalContext);
-  
+  // TODO
+  // const { moments } = useContext(FeedJournalContext);
+  const moments = exampleMoments
+
   return (
     <GlassContainer
       displayName={FeedPosts.name}
@@ -14,7 +17,9 @@ export function FeedPosts() {
       className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
     >
       {moments.map((moment) => (
-        <FeedMoment moment={moment} />
+        <MomentContext.Provider value={moment} key={moment.id}>
+          <FeedMoment key={moment.id} />
+        </MomentContext.Provider>
       ))}
     </GlassContainer>
   );

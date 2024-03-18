@@ -9,7 +9,7 @@ export function TabThree({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={movesMap.moves.releases.link}>
+    <Tab href={movesMap.moves.board.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabPurpleShard active={active} />
     </Tab>

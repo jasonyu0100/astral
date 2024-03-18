@@ -7,7 +7,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { DisplayImage } from '@/(components)/(form)/display-image/main';
+import { ImagePreview } from '@/(components)/(form)/image-preview/main';
 
 export function EditProfileModal() {
   const user = useGlobalUser((state) => state.user)
@@ -20,7 +20,7 @@ export function EditProfileModal() {
       <FormContainer>
         <FormTitle>Profile</FormTitle>
         <FormBody>
-          <DisplayImage selected={user.profilePicture} />
+          <ImagePreview file={user.profilePicture} />
           <h1 className="font-bold">First Name: {user.fname}</h1>
           <h1 className="font-bold">Last Name: {user.lname}</h1>
           <h1 className="font-bold">Email: {user.email}</h1>

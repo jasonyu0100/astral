@@ -8,8 +8,8 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { DisplayImage } from '@/(components)/(form)/display-image/main';
-import { FormSearchImage } from '@/(components)/(form)/search-image/main';
+import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ArchiveSidebarCreateModalContext } from '../main';
 import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
 
@@ -26,9 +26,8 @@ export function SidebarCreateGalleryModal() {
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
-          <DisplayImage selected={thumbnail} />
           <FormSearchImage
-            value={thumbnail}
+            file={thumbnail}
             onChange={(file) => changeThumbnail(file)}
             label='Thumbnail'
           />

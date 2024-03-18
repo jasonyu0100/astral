@@ -26,7 +26,7 @@ export default function Layout({
     <ReleaseContext.Provider value={{ releaseId: params.id }}>
       <Topbar />
       <DashboardController>
-        <DashboardSidebar minimised backUrl={movesMap.moves.releases.link} />
+        <DashboardSidebar minimised backUrl={movesMap.moves.board.link} />
         {children}
       </DashboardController>
     </ReleaseContext.Provider>

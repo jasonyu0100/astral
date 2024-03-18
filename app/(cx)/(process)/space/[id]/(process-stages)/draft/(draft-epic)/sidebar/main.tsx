@@ -12,8 +12,8 @@ import {
   useCollectionsHandler,
 } from '@/(logic)/internal/handler/explorer/collections/main';
 import {
-  CollectionResourcesHandlerContext,
-  useCollectionResources,
+  ResourcesHandlerContext,
+  useResourcesHandler,
 } from '@/(logic)/internal/handler/explorer/resources/main';
 import {
   ArchiveSidebarCreateModalContext,
@@ -50,7 +50,7 @@ export function DraftSidebar() {
     gallerysHandler.galleryId,
     user?.id,
   );
-  const resourcesHandler = useCollectionResources(
+  const resourcesHandler = useResourcesHandler(
     collectionsHandler.collectionId,
     user?.id,
   );
@@ -86,12 +86,12 @@ export function DraftSidebar() {
     <DraftSidebarContext.Provider value={draftContext}>
       <GallerysHandlerContext.Provider value={gallerysHandler}>
         <CollectionsHandlerContext.Provider value={collectionsHandler}>
-          <CollectionResourcesHandlerContext.Provider value={resourcesHandler}>
+          <ResourcesHandlerContext.Provider value={resourcesHandler}>
             <ArchiveSidebarCreateModalContext.Provider value={modalContext}>
               <ArchiveSidebarCreateModalView />
               <DraftSidebarView />
             </ArchiveSidebarCreateModalContext.Provider>
-          </CollectionResourcesHandlerContext.Provider>
+          </ResourcesHandlerContext.Provider>
         </CollectionsHandlerContext.Provider>
       </GallerysHandlerContext.Provider>
     </DraftSidebarContext.Provider>

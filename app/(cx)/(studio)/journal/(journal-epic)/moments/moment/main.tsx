@@ -3,11 +3,14 @@ import { PostDivider } from './divider/main';
 import { MomentResource } from './resource/main';
 import { PostInfo } from './info/main';
 import { PostDescription } from './description/main';
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import { MomentContext } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { spaceMap } from '@/(cx)/(process)/space/[id]/map';
 import Link from 'next/link';
+import { useContext } from 'react';
 
-export function FeedMoment({ moment }: { moment: MomentObj }) {
+export function FeedMoment() {
+  const moment = useContext(MomentContext);
+
   return (
     <div className='flex w-full flex-col items-center space-y-[3rem] py-[2rem]'>
       <div className='flex w-full flex-row items-center justify-center space-x-[100px]'>

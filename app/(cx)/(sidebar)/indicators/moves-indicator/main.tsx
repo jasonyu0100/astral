@@ -11,11 +11,11 @@ export function MovesIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={movesMap.moves.releases.link}>
+        <SidebarIndicator href={movesMap.moves.board.link}>
           <IndicatorSilverJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={movesMap.moves.releases.link}>
+        <SidebarIndicator href={movesMap.moves.board.link}>
           <IndicatorSilverJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

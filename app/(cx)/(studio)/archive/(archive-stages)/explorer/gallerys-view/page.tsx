@@ -6,8 +6,11 @@ import {
   GallerysHandlerContext,
   useGallerysHandler,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
-import { ArchiveExplorerCreateModalContext, useArchiveExplorerCreateModal } from '@/(modals)/(studio)/archive/explorer/create/main';
-import { ArchiveExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
+import {
+  ArchiveExplorerCreateModalContext,
+  useArchiveExplorerCreateModal,
+} from '@/(modals)/(studio)/archive/explorer/create/main';
+import { ExplorerModalView } from '@/(modals)/(studio)/archive/explorer/create/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -16,8 +19,8 @@ function Page() {
 
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <ArchiveExplorerModalView />
       <GallerysHandlerContext.Provider value={gallerysHandler}>
+        <ExplorerModalView />
         <GallerysView />
       </GallerysHandlerContext.Provider>
     </ArchiveExplorerCreateModalContext.Provider>

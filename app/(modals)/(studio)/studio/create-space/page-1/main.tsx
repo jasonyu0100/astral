@@ -1,10 +1,12 @@
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { FormSearchImage } from '@/(components)/(form)/search-image/main';
-import { DisplayImage } from '@/(components)/(form)/display-image/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
+import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
+import { Divider } from '@/(components)/(basic)/divider/main';
+import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
 
 export function PageOne() {
   const modalContext = useContext(CreateSpaceModalContext);
@@ -19,9 +21,8 @@ export function PageOne() {
 
   return (
     <FormBody>
-      <DisplayImage selected={thumbnail} />
       <FormSearchImage
-        value={thumbnail}
+        file={thumbnail}
         onChange={(file) => updateThumbnail(file)}
         label='Thumbnail'
       />

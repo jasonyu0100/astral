@@ -1,9 +1,4 @@
 'use client';
-import { SpaceCount } from './count/main';
-import { SpaceDate } from './date/main';
-import { SpaceDay } from './day/main';
-import { SpaceGenre } from './genre/main';
-import { SpaceInfo } from './info/main';
 import {
   SpaceContext,
   SpaceObj,
@@ -11,16 +6,17 @@ import {
 import { createContext, useContext, useState } from 'react';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
-import { SpaceMore } from './more/main';
+import { StudioSpaceMore } from './more/main';
+import { StudioSpaceBody } from './body/main';
 
-interface CreativeSpaceContextObj {
+interface ExtendedSpaceContextObj {
   space: SpaceObj;
   index: number;
   hover: boolean;
 }
 
-export const CreativeSpaceContext = createContext<CreativeSpaceContextObj>(
-  {} as CreativeSpaceContextObj,
+export const ExtendedSpaceContext = createContext<ExtendedSpaceContextObj>(
+  {} as ExtendedSpaceContextObj,
 );
 
 export function StudioSpace({ index }: { index: number }) {
@@ -28,7 +24,7 @@ export function StudioSpace({ index }: { index: number }) {
   const [hover, changeHover] = useState(false);
 
   return (
-    <CreativeSpaceContext.Provider value={{ space, index, hover }}>
+    <ExtendedSpaceContext.Provider value={{ space, index, hover }}>
       <GlassContainer
         displayName={StudioSpace.name}
         sizeStyle='w-full h-[100px]'
@@ -37,15 +33,9 @@ export function StudioSpace({ index }: { index: number }) {
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}
       >
-        <div className='flex flex-row space-x-[50px]'>
-          <SpaceCount />
-          <SpaceInfo />
-          <SpaceDay />
-          <SpaceGenre />
-          <SpaceDate />
-        </div>
-        <SpaceMore />
+        <StudioSpaceBody/>
+        <StudioSpaceMore />
       </GlassContainer>
-    </CreativeSpaceContext.Provider>
+    </ExtendedSpaceContext.Provider>
   );
 }

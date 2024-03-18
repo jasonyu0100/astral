@@ -8,8 +8,8 @@ export function TopbarAvatar({ ...props }: ButtonProps) {
   return (
     <button className='flex h-full items-center' {...props}>
       <img
-        className='h-[2.5rem] w-[2.5rem] animate-pulse-slow rounded-full shadow-md shadow-slate-300/50'
-        src={user?.profilePicture?.src || "/brand/icon-bg-sm.png"}
+        className='h-[2.5rem] w-[2.5rem] animate-pulse-slow rounded-full'
+        src={"/brand/icon-bg-sm.png" || user?.profilePicture?.src}
       />
     </button>
   );

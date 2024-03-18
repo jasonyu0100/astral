@@ -4,7 +4,7 @@ import { ExplorerCreateCollectionModal } from './collection/main';
 import { ExplorerCreateGalleryModal } from './gallery/main';
 import { ExplorerCreateResourceModal } from './resource/main';
 
-export function ArchiveExplorerModalView() {
+export function ExplorerModalView() {
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
 
   return (
