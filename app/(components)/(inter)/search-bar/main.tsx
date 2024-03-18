@@ -35,7 +35,7 @@ export function SearchBar({ ...props }: FormInputProps) {
         </g>
       </svg>
       <input
-        className="  font-['Creato Display'] h-[3rem] bg-transparent font-regular text-2xl leading-7 text-slate-900 outline-none"
+        className="font-['Creato Display'] h-[3rem] bg-transparent font-regular text-2xl leading-7 text-slate-900 outline-none"
         placeholder='enter search...'
         {...props}
       />

@@ -11,7 +11,8 @@ export function StormChatMessageInput({ ...props }: FormInputProps) {
       borderStyle={borderStyles['rounded-full']}
     >
       <input
-        className='h-full w-full bg-transparent px-[2rem] font-bold text-white outline-none'
+        className='h-full w-full bg-transparent px-[2rem] font-bold text-slate-300 outline-none animate-pulse-slow'
+        placeholder="Type a message..."
         {...props}
       />
     </GlassContainer>

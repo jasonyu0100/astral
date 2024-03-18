@@ -1,9 +1,9 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../../../../page';
-import { DraftHeaderInfoBoardButton } from './info/main';
-import { DraftHeaderNetworkBoardButton } from './network/main';
-import { DraftHeaderSoundBoardButton } from './sound/main';
+import { DraftHeaderTextBoardButton } from './text/main';
+import { DraftHeaderDefaultBoardButton } from './default/main';
+import { DraftHeaderAudioBoardButton } from './audio/main';
 import { DraftHeaderVisualBoardButton } from './visual/main';
 import { useContext } from 'react';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
@@ -13,24 +13,23 @@ export function ToggleDropdownList() {
   const { toggle } = useContext(ToggleContext);
   return (
     <div
-      className={`absolute top-[60px] z-50 flex h-[180px] ${modalType === DraftModalType.STAR && "h-[240px]"} w-[360px] flex-col bg-slate-900`}
+      className={`absolute left-[-60px] top-[60px] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900 ${modalType === DraftModalType.STAR && 'h-[240px]'} `}
       onMouseLeave={() => toggle()}
     >
       <GlassContainer
         displayName={ToggleDropdownList.name}
         sizeStyle={'w-full h-full'}
-        className='flex flex-col justify-center'
         glassStyle={backgroundStyles['glass-10']}
-        borderStyle={borderStyles['border-all']}
+        className='flex flex-col items-center justify-center'
       >
         {modalType !== DraftModalType.DEFAULT && (
-          <DraftHeaderNetworkBoardButton
+          <DraftHeaderDefaultBoardButton
             onClick={() => updateModalType(DraftModalType.DEFAULT)}
           />
         )}
-        {modalType !== DraftModalType.SOUND && (
-          <DraftHeaderSoundBoardButton
-            onClick={() => updateModalType(DraftModalType.SOUND)}
+        {modalType !== DraftModalType.AUDIO && (
+          <DraftHeaderAudioBoardButton
+            onClick={() => updateModalType(DraftModalType.AUDIO)}
           />
         )}
         {modalType !== DraftModalType.VISUAL && (
@@ -38,9 +37,9 @@ export function ToggleDropdownList() {
             onClick={() => updateModalType(DraftModalType.VISUAL)}
           />
         )}
-        {modalType !== DraftModalType.INFO && (
-          <DraftHeaderInfoBoardButton
-            onClick={() => updateModalType(DraftModalType.INFO)}
+        {modalType !== DraftModalType.TEXT && (
+          <DraftHeaderTextBoardButton
+            onClick={() => updateModalType(DraftModalType.TEXT)}
           />
         )}
       </GlassContainer>

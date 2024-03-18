@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { cn } from '@/(logic)/utils/cn';
 
 export function DraftChapter({ index }: { index: number }) {
   const chapter = useContext(ChapterContext);
@@ -12,11 +13,13 @@ export function DraftChapter({ index }: { index: number }) {
 
   return (
     <WrapperTooltip text={`#${index+1} - ${chapter.title}`}>
-      <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}>
+      <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)} className={cn({
+        "animate-pulse-slow": active
+      })}>
         <GlassContainer
           displayName={DraftChapter.name}
           sizeStyle='w-[200px] h-[40px]'
-          glassStyle={backgroundStyles['glass-5']}
+          glassStyle={active ? backgroundStyles['glass-10'] : backgroundStyles['glass-5']}
           borderStyle={borderStyles['rounded-full']}
         >
           <div className='flex h-full w-full items-center justify-center'>

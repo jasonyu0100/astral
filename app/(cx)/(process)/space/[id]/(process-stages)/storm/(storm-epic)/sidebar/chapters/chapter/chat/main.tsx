@@ -11,15 +11,19 @@ export function StormChapterChat() {
 
   return (
     <button onClick={() => chatsHandler.chatActions.selectChat(chat)}>
-      <div className='flex flex-row items-center w-full pr-[1rem]'>
+      <div className='flex w-full flex-row items-center pr-[1rem]'>
         <StormChatIcon />
         {active ? (
-          <>
-            <p className='text-lg font-bold text-slate-300 ml-[1rem]'>{chat.title}</p>
+          <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
+            <p className='ml-[1rem] text-lg font-bold text-slate-300'>
+              {chat.title}
+            </p>
             <StormChapterIndicator />
-          </>
+          </div>
         ) : (
-          <p className='text-lg font-bold text-slate-500 ml-[1rem]'>{chat.title}</p>
+          <p className='ml-[1rem] text-lg font-bold text-slate-500'>
+            {chat.title}
+          </p>
         )}
       </div>
     </button>

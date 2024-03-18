@@ -1,8 +1,8 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';
-import { DraftChaptersLeftButton } from '../../../(common)/chapters/left/main';
-import { DraftChaptersRightButton } from '../../../(common)/chapters/right/main';
-import { DraftChaptersRow } from './row/main';
+import { ChaptersLeftButton } from '../../(cx)/(process)/space/[id]/(process-stages)/(common)/chapters/left/main';
+import { ChaptersRightButton } from '../../(cx)/(process)/space/[id]/(process-stages)/(common)/chapters/right/main';
+import { ChaptersRow } from './row/main';
 
 export function DraftChapters() {
   return (
@@ -12,9 +12,9 @@ export function DraftChapters() {
       glassStyle={backgroundStyles['glass-5']}
       className='flex h-full w-full flex-row items-center justify-center space-x-[1rem] px-[1rem]'
     >
-      <DraftChaptersLeftButton />
-      <DraftChaptersRow />
-      <DraftChaptersRightButton />
+      <ChaptersLeftButton />
+      <ChaptersRow />
+      <ChaptersRightButton />
     </GlassContainer>
   );
 }

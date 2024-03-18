@@ -1,4 +1,4 @@
-import { GalleryPhoto } from '../../common/photo/main';
+import { GalleryPhoto } from '../photo/main';
 import { GalleryExplorerAddCover } from './cover/main';
 import { ButtonInputProps } from '@/(types)/main';
 

@@ -21,13 +21,12 @@ export function DraftHeader() {
       displayName={DraftHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
-      borderStyle={borderStyles['border-b']}
       glassStyle={backgroundStyles['glass-5']}
     >
       {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
       {modalType === DraftModalType.STAR && <DraftHeaderStar/>}
-      {modalType === DraftModalType.INFO && <DraftHeaderInfo/>}
-      {modalType === DraftModalType.SOUND && <DraftHeaderSound/>}
+      {modalType === DraftModalType.TEXT && <DraftHeaderInfo/>}
+      {modalType === DraftModalType.AUDIO && <DraftHeaderSound/>}
       {modalType === DraftModalType.VISUAL && <DraftHeaderVisual/>}
     </GlassContainer>
   );

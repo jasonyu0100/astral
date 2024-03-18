@@ -28,21 +28,16 @@ export function FileVideoStar() {
             video.play();
           }}
         >
-          <img
-            src={'/brand/image.png'}
-            className='aspect-square w-full'
-            style={{ width: '100%', height: '100%' }}
-          />
-          {/* <video
+          <video
             id={`file-upload-audio-${star.file?.id}`}
             onDrag={(e) => e.stopPropagation()}
             style={{ width: '100%', height: '100%' }}
             src={star.file?.src}
             title='YouTube video player'
-          ></video> */}
+          ></video>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              Log 42
+              {star.title}
             </p>
           </div>
         </div>

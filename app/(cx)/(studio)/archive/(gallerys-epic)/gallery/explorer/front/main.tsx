@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';
 import { GalleryThumbnail } from '../../common/cover/thumbnail/main';
 
-export function GalleryExplorerCover() {
+export function GalleryExplorerFront() {
   const gallery = useContext(GalleryContext);
 
   return (

@@ -1,7 +1,7 @@
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 import { useState } from 'react';
 import { GallerySidebarBack } from './back/main';
-import { GallerySidebarCover } from './cover/main';
+import { GallerySidebarCover } from './front/main';
 import { GalleryPhoto } from './photo/main';
 
 export function SidebarHomeGallery() {

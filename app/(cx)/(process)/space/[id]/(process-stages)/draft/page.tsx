@@ -37,9 +37,9 @@ export const DraftContext = createContext<DraftContextObj>(
 export enum DraftModalType {
   DEFAULT = 'DEFAULT',
   STAR = 'STAR',
-  SOUND = 'SOUND',
+  AUDIO = 'AUDIO',
   VISUAL = 'VISUAL',
-  INFO = 'INFO',
+  TEXT = 'TEXT',
 }
 
 function Page({ params }: { params: { id: string } }) {

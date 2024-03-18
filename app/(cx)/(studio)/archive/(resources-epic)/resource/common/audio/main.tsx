@@ -5,8 +5,8 @@ export function CollectionResourceAudio() {
   const resource = useContext(ResourceContext);
 
   return (
-    <div className='flex h-full w-full flex-col flex-shrink-0'>
-      <div className='flex aspect-square w-full items-center justify-center bg-slate-950 p-[30px] flex-shrink-0'>
+    <div className='flex h-full w-full flex-shrink-0 flex-col'>
+      <div className='flex aspect-square w-full flex-shrink-0 items-center justify-center bg-slate-950 p-[30px]'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'
@@ -31,7 +31,9 @@ export function CollectionResourceAudio() {
           </g>
         </svg>
       </div>
-      <p className='w-full font-extraBold text-xl mt-[0.5rem]'>{resource.title}</p>
+      <p className='mt-[1rem] w-full text-center font-extraBold text-xl'>
+        {resource.title}
+      </p>
     </div>
   );
 }

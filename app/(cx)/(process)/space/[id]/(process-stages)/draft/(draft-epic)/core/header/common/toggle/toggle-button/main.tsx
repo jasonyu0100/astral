@@ -7,6 +7,8 @@ import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
+import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { backgroundStyles } from '@/(design)/(styles)/data';
 
 export function ToggleButton() {
   const { toggle } = useContext(ToggleContext);
@@ -15,15 +17,22 @@ export function ToggleButton() {
     <WrapperTooltip text={modalType}>
       <button
         className={
-          'flex h-[60px] w-[60px] flex-col items-center justify-center border-r  border-slate-500 border-opacity-30'
+          'flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950 flex-shrink-0 animate-pulse-slow'
         }
         onClick={() => toggle()}
       >
-        {modalType === DraftModalType.STAR && <StarIcon />}
-        {modalType === DraftModalType.DEFAULT && <NetworkIcon />}
-        {modalType === DraftModalType.SOUND && <SoundIcon />}
-        {modalType === DraftModalType.VISUAL && <VisualIcon />}
-        {modalType === DraftModalType.INFO && <InfoIcon />}
+        <GlassContainer
+          displayName={ToggleButton.name}
+          sizeStyle={'w-[60px] h-[60px]'}
+          glassStyle={backgroundStyles['glass-5']}
+          className='flex flex-col justify-center items-center'
+        >
+          {modalType === DraftModalType.STAR && <StarIcon />}
+          {modalType === DraftModalType.DEFAULT && <NetworkIcon />}
+          {modalType === DraftModalType.AUDIO && <SoundIcon />}
+          {modalType === DraftModalType.VISUAL && <VisualIcon />}
+          {modalType === DraftModalType.TEXT && <InfoIcon />}
+        </GlassContainer>
       </button>
     </WrapperTooltip>
   );

@@ -7,8 +7,8 @@ export function StormChatInputRight() {
   const messagesHandler = useContext(MessagesHandlerContext)
 
   return (
-    <div className='flex h-[50px] w-[150px] flex-shrink-0 flex-row items-center justify-evenly'>
-      <StormMessageInputVoice />
+    <div className='flex h-[50px] w-[100px] flex-shrink-0 flex-row items-center justify-evenly'>
+      {/* <StormMessageInputVoice /> */}
       <StormMessageInputSend
         onClick={(e) => {
           messagesHandler.messageActions

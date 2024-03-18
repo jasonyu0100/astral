@@ -15,7 +15,6 @@ export function FlowHeader() {
       sizeStyle='h-[60px] w-full flex-shrink-0'
       glassStyle={backgroundStyles['glass-5']}
       className={`${containerStyles['row-center']} justify-between space-x-[1rem]`}
-      borderStyle={borderStyles['border-b']}
     >
       <FlowHeaderLeft />
       <FlowHeaderMiddle />
