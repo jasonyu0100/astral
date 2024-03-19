@@ -1,22 +1,21 @@
-import { LinkInputProps } from '@/(types)/main';
-import Link from 'next/link';
+import { HyperLinkInputProps } from '@/(types)/main';
 
 export interface IndicatorProps {
   indicator: string | undefined;
   minimised?: boolean;
 }
-interface InputProps extends LinkInputProps {
+interface InputProps extends HyperLinkInputProps {
   children: React.ReactNode;
 }
 
 export function SidebarIndicator({ children, ...props }: InputProps) {
   return (
-    <Link
+    <a
       {...props}
       className='inline-flex h-[3rem] items-center justify-start gap-[1rem] self-stretch'
     >
       {children}
-    </Link>
+    </a>
   );
 }
 export enum SidebarIndicatorType {
