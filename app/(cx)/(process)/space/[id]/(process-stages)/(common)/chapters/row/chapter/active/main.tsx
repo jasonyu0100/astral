@@ -1,4 +1,4 @@
-import { ChapterContext } from "@/(logic)/internal/data/infra/model/space/chapter/main";
+import { ChapterContext } from "@/(logic)/internal/model/space/chapter/main";
 import { useContext } from "react";
 
 export function ChapterActiveText() {

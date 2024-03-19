@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
+import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
 import { createConstellationObj } from '@/graphql/mutations';
 import { listConstellationObjs } from '@/graphql/queries';
 

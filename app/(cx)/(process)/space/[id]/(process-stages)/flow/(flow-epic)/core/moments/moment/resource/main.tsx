@@ -1,5 +1,5 @@
 import { borderStyles } from '@/(design)/(styles)/data';
-import { ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { cn } from '@/(logic)/utils/cn';
 import { useContext } from 'react';
 import { FlowMomentContext } from '../../main';

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { FileObj } from "../../data/infra/model/resource/file/main";
+import { FileObj } from "../../model/resource/file/main";
 
 interface FileOnChangeContextInterface {
     file: FileObj;

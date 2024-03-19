@@ -2,7 +2,7 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import {
   MessageObj,
   MessageSource,
-} from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+} from '@/(logic)/internal/model/storm/chat/message/main';
 import { createMessageObj } from '@/graphql/mutations';
 import { listMessageObjs } from '@/graphql/queries';
 

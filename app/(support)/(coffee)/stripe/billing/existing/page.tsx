@@ -1,6 +1,6 @@
 'use client';
 import { studioMap } from '@/(cx)/(studio)/studio/map';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { stripeExistingBillingSession } from '@/(logic)/external/pricing/stripe/main';
 
 export default function Page() {

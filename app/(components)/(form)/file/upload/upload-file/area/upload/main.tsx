@@ -1,7 +1,7 @@
 import {
   FileVariant,
   getFileAccepts,
-} from '@/(logic)/internal/data/infra/model/resource/file/main';
+} from '@/(logic)/internal/model/resource/file/main';
 import {
   UploadHandlerContext,
 } from '@/(logic)/internal/handler/upload/single/main';

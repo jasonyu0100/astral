@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { CollectionContext, ResourcesContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { CollectionContext, ResourcesContext } from '@/(logic)/internal/model/gallery/collection/main';
 import { useResourcesHandler } from '@/(logic)/internal/handler/explorer/resources/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCollection() {
   const { sidebarHandler } = useContext(DraftSidebarContext);

@@ -1,4 +1,4 @@
-import { getFileAccepts, FileVariant } from "@/(logic)/internal/data/infra/model/resource/file/main";
+import { getFileAccepts, FileVariant } from "@/(logic)/internal/model/resource/file/main";
 import { UploadsHandlerContext } from "@/(logic)/internal/handler/upload/multiple/main";
 import { useContext } from "react";
 

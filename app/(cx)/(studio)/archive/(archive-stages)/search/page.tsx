@@ -1,13 +1,13 @@
 'use client';
 import { createContext } from 'react';
 import { SearchView } from './view';
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import insideVerses from '@/(logic)/utils/isAuth';
 import {
   SearchActions,
   useSearchResource,
 } from '@/(logic)/internal/handler/explorer/resources/search/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export interface SearchViewProps {
   searchResults: ResourceObj[];

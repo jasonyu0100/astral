@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../resource/explorer/add/main';
 import { ExplorerResource } from '../resource/explorer/main';
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceContext } from '@/(logic)/internal/model/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(modals)/(studio)/archive/explorer/create/main';
 import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 

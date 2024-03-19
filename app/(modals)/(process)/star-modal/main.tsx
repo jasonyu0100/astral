@@ -1,4 +1,4 @@
-import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
+import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { createContext, useState } from 'react';
 
 export interface StarModalController {

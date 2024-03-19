@@ -6,7 +6,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceContext } from '@/(logic)/internal/model/resource/main';
 import { EditGalleryModalContext } from './main';
 
 export function ExplorerEditGalleryModal() {

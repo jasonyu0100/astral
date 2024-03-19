@@ -1,4 +1,4 @@
-import { GalleryContext } from "@/(logic)/internal/data/infra/model/gallery/main";
+import { GalleryContext } from "@/(logic)/internal/model/gallery/main";
 import { useContext } from "react";
 
 export function GalleryBackDescription() {

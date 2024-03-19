@@ -1,8 +1,8 @@
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
-import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
-import { NoteObj } from '@/(logic)/internal/data/infra/model/resource/note/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { LogObj } from '@/(logic)/internal/model/resource/log/main';
+import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/moments/main';
 
@@ -12,19 +12,16 @@ export interface MomentActions {
     title: string,
     log: string,
     file: FileObj,
-    visibility: string,
   ) => Promise<MomentObj>;
   queryCreateLogMoment: (
     title: string,
     description: string,
     log: LogObj,
-    visibility: string,
   ) => Promise<MomentObj>;
   queryCreateStickyMoment: (
     title: string,
     log: string,
     sticky: NoteObj,
-    visibility: string,
   ) => Promise<MomentObj>;
   updateMoments: (moments: MomentObj[]) => MomentObj[];
   updateMoment: (moment: MomentObj) => MomentObj;
@@ -61,7 +58,6 @@ export const useMomentsHandler = (
       title: string,
       log: string,
       file: FileObj,
-      visibility: string,
     ) => {
       const moment = await gqlHelper.queryCreateFileMoment(
         chapterId,
@@ -70,7 +66,6 @@ export const useMomentsHandler = (
         title,
         log,
         file,
-        visibility,
       );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
@@ -80,7 +75,6 @@ export const useMomentsHandler = (
       title: string,
       description: string,
       log: LogObj,
-      visibility: string,
     ) => {
       const moment = await gqlHelper.queryCreateLogMoment(
         chapterId,
@@ -89,7 +83,6 @@ export const useMomentsHandler = (
         title,
         description,
         log,
-        visibility,
       );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);
@@ -99,7 +92,6 @@ export const useMomentsHandler = (
       title: string,
       log: string,
       sticky: NoteObj,
-      visibility: string,
     ) => {
       const moment = await gqlHelper.queryCreateStickyMoment(
         chapterId,
@@ -108,7 +100,6 @@ export const useMomentsHandler = (
         title,
         log,
         sticky,
-        visibility,
       );
       changeMomentId(moment.id);
       changeMoments((prev) => [...prev, moment]);

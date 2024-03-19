@@ -1,10 +1,10 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { CollectionObj } from '@/(logic)/internal/model/gallery/collection/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import {
   ResourceObj,
   ResourceVariant,
-} from '@/(logic)/internal/data/infra/model/resource/main';
+} from '@/(logic)/internal/model/resource/main';
 import { createCollectionObj, createResourceObj } from '@/graphql/mutations';
 import {
   getCollectionObj,

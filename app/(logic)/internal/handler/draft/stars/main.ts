@@ -1,9 +1,9 @@
-import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { createContext, useMemo, useState } from 'react';
-import { NoteObj } from '@/(logic)/internal/data/infra/model/resource/note/main';
-import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
-import { LinkObj } from '@/(logic)/internal/data/infra/model/resource/link/main';
+import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
+import { LogObj } from '@/(logic)/internal/model/resource/log/main';
+import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
 import { toast } from 'sonner';
 import { gqlHelper } from '../../../gql/stars/main';
 export interface StarActions {

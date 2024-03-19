@@ -1,4 +1,4 @@
-import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
+import { SpaceObj } from '@/(logic)/internal/model/space/main';
 import { useState, useMemo } from 'react';
 import { gqlHelper } from '../../../gql/spaces/main';
 

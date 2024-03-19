@@ -1,4 +1,4 @@
-import { MessageObj } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+import { MessageObj } from '@/(logic)/internal/model/storm/chat/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
 import { gqlHelper } from '../../../gql/messages/main';

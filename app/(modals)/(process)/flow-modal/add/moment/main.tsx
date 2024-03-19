@@ -4,12 +4,10 @@ import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { FlowModalContext } from '../../main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { Divider } from '@/(components)/(basic)/divider/main';
@@ -21,9 +19,6 @@ export function FlowAddMomentModal() {
   const { opened, close } = modalContext.addFileMomentModal;
   const [title, changeTitle] = useState('');
   const [log, changeLog] = useState('');
-  const [visibility, changeVisibility] = useState(
-    MomentVisibility.JOURNAL as string,
-  );
   const [file, changeFile] = useState({} as FileObj);
 
   return (
@@ -43,24 +38,6 @@ export function FlowAddMomentModal() {
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
-          <FormSelect
-            title='Visibility'
-            value={visibility}
-            onChange={(e) => changeVisibility(e.target.value)}
-          >
-            <option value={MomentVisibility.EXPLORE}>
-              {MomentVisibility.EXPLORE}
-            </option>
-            <option value={MomentVisibility.JOURNAL}>
-              {MomentVisibility.JOURNAL}
-            </option>
-            <option value={MomentVisibility.NONE}>
-              {MomentVisibility.NONE}
-            </option>
-            <option value={MomentVisibility.SOCIAL}>
-              {MomentVisibility.SOCIAL}
-            </option>
-          </FormSelect>
           <FormTextArea
             title='Log'
             rows={5}
@@ -77,7 +54,6 @@ export function FlowAddMomentModal() {
                 title,
                 log,
                 file,
-                visibility,
               );
             }}
           >

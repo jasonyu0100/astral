@@ -1,10 +1,10 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { LinkObj } from '@/(logic)/internal/data/infra/model/resource/link/main';
-import { LogObj } from '@/(logic)/internal/data/infra/model/resource/log/main';
-import { ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
-import { NoteObj } from '@/(logic)/internal/data/infra/model/resource/note/main';
+import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
+import { LogObj } from '@/(logic)/internal/model/resource/log/main';
+import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
+import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { removeTypename, removeEmpty, cleanGql } from '@/(logic)/utils/clean';
 import { createStarObj, updateStarObj } from '@/graphql/mutations';
 import { listStarObjs } from '@/graphql/queries';

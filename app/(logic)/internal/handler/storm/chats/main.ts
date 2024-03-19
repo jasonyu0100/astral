@@ -1,5 +1,5 @@
-import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
-import { chatTable } from '@/(logic)/internal/data/infra/model/storm/table';
+import { ChatObj } from '@/(logic)/internal/model/storm/chat/main';
+import { chatTable } from '@/(logic)/internal/model/storm/table';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '@/(logic)/internal/gql/chats/main';
 

@@ -10,7 +10,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import {
   FileObj,
   FileVariant,
-} from '@/(logic)/internal/data/infra/model/resource/file/main';
+} from '@/(logic)/internal/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveExplorerCreateModalContext } from '../main';

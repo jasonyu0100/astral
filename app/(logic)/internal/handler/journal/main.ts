@@ -1,5 +1,5 @@
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/journal/main';
 
@@ -28,7 +28,6 @@ export const JournalHandlerContext = createContext({} as JournalHandler);
 
 export const useJournalHandler = (
   userId: string,
-  visibility: string,
 ): JournalHandler => {
   const [moments, changeMoments] = useState<MomentObj[]>([]);
   const [momentId, changeMomentId] = useState<string>('');
@@ -37,7 +36,7 @@ export const useJournalHandler = (
 
   const journalActions: JournalActions = {
     queryListMoments: async () => {
-      const moments = await gqlHelper.queryListMoments(userId, visibility);
+      const moments = await gqlHelper.queryListMoments(userId);
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
       return moments;
@@ -51,7 +50,6 @@ export const useJournalHandler = (
     ) => {
       const moment = await gqlHelper.queryCreateFileMoment(
         userId,
-        visibility,
         title,
         log,
         file,

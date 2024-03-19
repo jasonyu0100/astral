@@ -2,7 +2,7 @@ import { MutableRefObject, useContext } from 'react';
 import {
   StarContext,
   StarVariant,
-} from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+} from '@/(logic)/internal/model/draft/constellation/star/main';
 import { FileStar } from './file/main';
 import { LogStar } from './log/main';
 import { LinkStar } from './link/main';

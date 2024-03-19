@@ -5,7 +5,7 @@ import {
 } from 'framer-motion';
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
 import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
-import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
+import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
 import { StarsHandlerContext } from '../main';
 
 export interface StarHandler {

@@ -1,6 +1,6 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
-import { useGlobalSpace } from '@/(logic)/internal/data/infra/store/space/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { cn } from '@/(logic)/utils/cn';
 import { useEffect, useState } from 'react';
 

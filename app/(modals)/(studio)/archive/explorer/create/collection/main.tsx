@@ -6,7 +6,7 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveExplorerCreateModalContext } from '../main';
 import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';

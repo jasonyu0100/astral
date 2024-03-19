@@ -1,7 +1,7 @@
 import {
   FileObj,
   FileObjContext,
-} from '@/(logic)/internal/data/infra/model/resource/file/main';
+} from '@/(logic)/internal/model/resource/file/main';
 import React, { createContext, useState } from 'react';
 import SearchModalView from '@/(modals)/(components)/search-modal/view';
 import { SearchImageListPreview } from './list-image-preview/main';

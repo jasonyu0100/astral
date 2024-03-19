@@ -1,6 +1,6 @@
 import { borderStyles } from '@/(design)/(styles)/data';
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
-import { ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
+import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { cn } from '@/(logic)/utils/cn';
 
 export function MomentResource({ moment }: { moment: MomentObj }) {

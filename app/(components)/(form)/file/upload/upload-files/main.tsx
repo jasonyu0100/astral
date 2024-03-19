@@ -1,7 +1,7 @@
 import {
   FileObj,
   FileVariant,
-} from '@/(logic)/internal/data/infra/model/resource/file/main';
+} from '@/(logic)/internal/model/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {

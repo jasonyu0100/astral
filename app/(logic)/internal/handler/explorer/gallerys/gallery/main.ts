@@ -1,4 +1,4 @@
-import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
+import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
 import { useState, useMemo } from 'react';
 import { gqlHelper } from '@/(logic)/internal/gql/gallerys/main';
 

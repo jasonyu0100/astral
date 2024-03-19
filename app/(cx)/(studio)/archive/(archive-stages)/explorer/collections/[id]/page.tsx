@@ -2,14 +2,14 @@
 import { CollectionsView } from './view';
 import {
   GalleryContext,
-} from '@/(logic)/internal/data/infra/model/gallery/main';
+} from '@/(logic)/internal/model/gallery/main';
 import insideVerses from '@/(logic)/utils/isAuth';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import {
   CollectionsHandlerContext,
   useCollectionsHandler,
 } from '@/(logic)/internal/handler/explorer/collections/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   useArchiveExplorerCreateModal,
   ArchiveExplorerCreateModalContext,

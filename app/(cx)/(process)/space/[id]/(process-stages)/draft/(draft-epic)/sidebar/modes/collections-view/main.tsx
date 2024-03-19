@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { SidebarCollectionAdd } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/add/main';
 import { SidebarCollection } from '../../../../../../../../../(studio)/archive/(collections-epic)/collection/sidebar/main';
-import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { CollectionContext } from '@/(logic)/internal/model/gallery/collection/main';
 import { ArchiveSidebarCreateModalContext } from '@/(modals)/(studio)/archive/sidebar/create/main';
 import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
 

@@ -14,14 +14,14 @@ import {
   MessagesHandlerContext,
   useMessagesHandler,
 } from '@/(logic)/internal/handler/storm/messages/main';
-import { useGlobalSpace } from '@/(logic)/internal/data/infra/store/space/main';
+import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { useSpaceHandler } from '@/(logic)/internal/handler/spaces/space/main';
 import {
   StormModalContext,
   useStormModal,
 } from '../../../../../../(modals)/(process)/storm-modal/main';
 import { StormModalView } from '@/(modals)/(process)/storm-modal/view';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 interface StormContextObj {}
 

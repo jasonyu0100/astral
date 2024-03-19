@@ -1,4 +1,4 @@
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceContext } from '@/(logic)/internal/model/resource/main';
 import { useContext } from 'react';
 
 export function CollectionResourceAudio() {

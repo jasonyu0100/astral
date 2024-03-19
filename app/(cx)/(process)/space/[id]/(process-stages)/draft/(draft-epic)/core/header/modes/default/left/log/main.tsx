@@ -3,7 +3,7 @@ import { ButtonInputProps } from '@/(types)/main';
 import {
   LogObj,
   LogVariant,
-} from '@/(logic)/internal/data/infra/model/resource/log/main';
+} from '@/(logic)/internal/model/resource/log/main';
 import { StarModalContext } from '@/(modals)/(process)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useMemo } from 'react';

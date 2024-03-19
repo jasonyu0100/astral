@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function NoteQuoteStar() {

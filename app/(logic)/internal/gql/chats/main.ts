@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
+import { ChatObj } from '@/(logic)/internal/model/storm/chat/main';
 import { createChatObj } from '@/graphql/mutations';
 import { listChatObjs } from '@/graphql/queries';
 

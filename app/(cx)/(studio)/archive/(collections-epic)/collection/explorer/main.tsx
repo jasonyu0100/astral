@@ -7,9 +7,9 @@ import { useContext } from 'react';
 import {
   CollectionContext,
   ResourcesContext,
-} from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+} from '@/(logic)/internal/model/gallery/collection/main';
 import { useResourcesHandler } from '@/(logic)/internal/handler/explorer/resources/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function ExplorerCollection() {
   const collection = useContext(CollectionContext);

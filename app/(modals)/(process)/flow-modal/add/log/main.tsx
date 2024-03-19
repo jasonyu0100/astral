@@ -5,10 +5,8 @@ import { FormDescription } from '@/(components)/(form)/description/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import { useContext, useState } from 'react';
 import { FlowModalContext } from '../../main';
 import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
@@ -19,9 +17,6 @@ export function FlowAddLogModal() {
   const { opened, close, log } = modalContext.addLogMomentModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [visibility, changeVisibility] = useState(
-    MomentVisibility.JOURNAL as string,
-  );
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -35,24 +30,6 @@ export function FlowAddLogModal() {
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
-          <FormSelect
-            title='Visibility'
-            value={visibility}
-            onChange={(e) => changeVisibility(e.target.value)}
-          >
-            <option value={MomentVisibility.EXPLORE}>
-              {MomentVisibility.EXPLORE}
-            </option>
-            <option value={MomentVisibility.JOURNAL}>
-              {MomentVisibility.JOURNAL}
-            </option>
-            <option value={MomentVisibility.NONE}>
-              {MomentVisibility.NONE}
-            </option>
-            <option value={MomentVisibility.SOCIAL}>
-              {MomentVisibility.SOCIAL}
-            </option>
-          </FormSelect>
           <FormTextArea
             title='Description'
             rows={5}
@@ -65,7 +42,7 @@ export function FlowAddLogModal() {
           <FormButton
             onClick={() => {
               close();
-              momentsHandler.momentActions.queryCreateLogMoment(title, description, log, visibility);
+              momentsHandler.momentActions.queryCreateLogMoment(title, description, log);
             }}
           >
             Add

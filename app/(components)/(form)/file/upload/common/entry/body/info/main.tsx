@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObjContext } from '@/(logic)/internal/model/resource/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {

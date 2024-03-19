@@ -4,7 +4,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { getPlanName, getPlanPrice } from '@/(support)/(coffee)/support/page';
 import Link from 'next/link';
 import { stripeMap } from '@/(support)/(coffee)/stripe/map';

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../collection/explorer/add/main';
 import { ExplorerCollection } from '../collection/explorer/main';
-import { CollectionContext } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { CollectionContext } from '@/(logic)/internal/model/gallery/collection/main';
 import { ArchiveExplorerCreateModalContext } from '@/(modals)/(studio)/archive/explorer/create/main';
 import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
 

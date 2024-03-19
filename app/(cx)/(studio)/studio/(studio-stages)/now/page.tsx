@@ -1,6 +1,6 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   SpacesModalContext,
   useSpacesModal,

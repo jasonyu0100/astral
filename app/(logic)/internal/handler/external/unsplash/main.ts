@@ -1,4 +1,4 @@
-import { FileObj, FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObj, FileVariant } from '@/(logic)/internal/model/resource/file/main';
 import { useEffect } from 'react';
 
 export const useUnsplash = () => {

@@ -6,7 +6,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { ProfileModalContext } from '../main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ImagePreview } from '@/(components)/(form)/image-preview/main';
 
 export function EditProfileModal() {

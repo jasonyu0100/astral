@@ -1,5 +1,5 @@
-import { GalleryContext } from '@/(logic)/internal/data/infra/model/gallery/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { GalleryContext } from '@/(logic)/internal/model/gallery/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useContext } from 'react';
 
 export function ContainerDescription() {

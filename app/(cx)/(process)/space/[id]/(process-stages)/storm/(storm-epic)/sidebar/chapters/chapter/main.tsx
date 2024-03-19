@@ -1,10 +1,10 @@
-import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapter/main';
+import { ChapterContext } from '@/(logic)/internal/model/space/chapter/main';
 import { StormChapterChatAdd } from './chat/add/main';
 import { StormChapterChat } from './chat/main';
 import { StormChapterHeader } from './header/main';
 import { StormChapterTitle } from './header/title/main';
 import { useContext } from 'react';
-import { ChatContext } from '@/(logic)/internal/data/infra/model/storm/chat/main';
+import { ChatContext } from '@/(logic)/internal/model/storm/chat/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
 import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';

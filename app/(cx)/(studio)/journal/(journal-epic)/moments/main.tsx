@@ -3,7 +3,7 @@ import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FeedJournalContext } from '../../(journal-stages)/updates/page';
 import { FeedMoment } from './moment/main';
-import { MomentContext, exampleMoments } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import { MomentContext, exampleMoments } from '@/(logic)/internal/model/flow/moment/main';
 
 export function FeedPosts() {
   // TODO

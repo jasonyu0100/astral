@@ -1,5 +1,5 @@
-import { FileVariant } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+import { FileVariant } from '@/(logic)/internal/model/resource/file/main';
+import { ResourceContext } from '@/(logic)/internal/model/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';

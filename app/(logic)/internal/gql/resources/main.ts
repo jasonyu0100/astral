@@ -1,9 +1,9 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import {
   ResourceObj,
   ResourceVariant,
-} from '@/(logic)/internal/data/infra/model/resource/main';
+} from '@/(logic)/internal/model/resource/main';
 import { createResourceObj } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
 

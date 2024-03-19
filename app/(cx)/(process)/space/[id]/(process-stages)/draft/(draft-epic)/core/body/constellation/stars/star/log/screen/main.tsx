@@ -5,7 +5,7 @@ import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import {
   LogObj,
   LogObjContext,
-} from '@/(logic)/internal/data/infra/model/resource/log/main';
+} from '@/(logic)/internal/model/resource/log/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 
 export function LogScreenStar() {

@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { useState, useEffect, createContext } from 'react';
 import { gqlHelper } from '../../../../gql/resources/main';
 

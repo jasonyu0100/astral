@@ -1,5 +1,5 @@
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/gallerys/main';
 

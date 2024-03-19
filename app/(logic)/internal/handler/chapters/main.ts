@@ -1,4 +1,4 @@
-import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
+import { ChapterObj } from '@/(logic)/internal/model/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/chapters/main';
 

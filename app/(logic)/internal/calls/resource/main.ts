@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { updateResourceObj } from '@/graphql/mutations';
 import { cleanGql } from '@/(logic)/utils/clean';
 

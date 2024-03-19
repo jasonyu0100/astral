@@ -3,13 +3,13 @@ import { createContext } from 'react';
 import {
   GalleryContext,
   GalleryObj,
-} from '@/(logic)/internal/data/infra/model/gallery/main';
+} from '@/(logic)/internal/model/gallery/main';
 import {
   CollectionContext,
   CollectionObj,
-} from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+} from '@/(logic)/internal/model/gallery/collection/main';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,
@@ -18,7 +18,7 @@ import {
 import { useCollectionHandler } from '@/(logic)/internal/handler/explorer/collections/collection/main';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import { ResourcesView } from './view';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ArchiveExplorerCreateModalContext,
   useArchiveExplorerCreateModal,

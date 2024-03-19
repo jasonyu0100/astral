@@ -1,12 +1,12 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { ConstellationObj } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
-import { StarObj } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ResourceVariant } from '@/(logic)/internal/data/infra/model/resource/main';
-import { ChapterObj } from '@/(logic)/internal/data/infra/model/space/chapter/main';
-import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
-import { ChatObj } from '@/(logic)/internal/data/infra/model/storm/chat/main';
-import { MessageObj, MessageSource } from '@/(logic)/internal/data/infra/model/storm/chat/message/main';
+import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
+import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
+import { ChapterObj } from '@/(logic)/internal/model/space/chapter/main';
+import { SpaceObj } from '@/(logic)/internal/model/space/main';
+import { ChatObj } from '@/(logic)/internal/model/storm/chat/main';
+import { MessageObj, MessageSource } from '@/(logic)/internal/model/storm/chat/message/main';
 import {
   createSpaceObj,
   createChapterObj,

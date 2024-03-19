@@ -1,5 +1,5 @@
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {

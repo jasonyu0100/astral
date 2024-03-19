@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
+import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { createGalleryObj } from '@/graphql/mutations';
 import { getGalleryObj, listGalleryObjs } from '@/graphql/queries';
 

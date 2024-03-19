@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(logic)/external/aws/graphql/main";
-import { ChapterObj } from "@/(logic)/internal/data/infra/model/space/chapter/main";
+import { ChapterObj } from "@/(logic)/internal/model/space/chapter/main";
 import { createChapterObj } from "@/graphql/mutations";
 import { listChapterObjs } from "@/graphql/queries";
 

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
-import { LogObj, LogObjContext } from '@/(logic)/internal/data/infra/model/resource/log/main';
+import { LogObj, LogObjContext } from '@/(logic)/internal/model/resource/log/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
 

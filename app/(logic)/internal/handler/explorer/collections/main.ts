@@ -1,6 +1,6 @@
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
-import { ResourceObj } from '@/(logic)/internal/data/infra/model/resource/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { CollectionObj } from '@/(logic)/internal/model/gallery/collection/main';
+import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../../gql/collections/main';
 export interface CollectionsHandler {

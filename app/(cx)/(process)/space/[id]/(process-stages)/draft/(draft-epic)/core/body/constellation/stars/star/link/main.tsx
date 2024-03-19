@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(logic)/internal/data/infra/model/draft/constellation/star/main';
-import { LinkVariant } from '@/(logic)/internal/data/infra/model/resource/link/main';
+import { StarContext } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { LinkVariant } from '@/(logic)/internal/model/resource/link/main';
 import { LinkSpotifyStar } from './spotify/main';
 import { LinkYouTubeStar } from './youtube/main';
 

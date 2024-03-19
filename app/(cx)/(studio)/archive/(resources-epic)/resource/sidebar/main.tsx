@@ -1,7 +1,7 @@
 import {
   FileObj,
-} from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ResourceContext } from '@/(logic)/internal/data/infra/model/resource/main';
+} from '@/(logic)/internal/model/resource/file/main';
+import { ResourceContext } from '@/(logic)/internal/model/resource/main';
 import {
   useResourceEditModal,
   ResourceModalContext,

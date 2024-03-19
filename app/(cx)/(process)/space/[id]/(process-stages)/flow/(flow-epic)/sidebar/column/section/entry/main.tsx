@@ -1,4 +1,4 @@
-import { MomentContext } from "@/(logic)/internal/data/infra/model/flow/moment/main";
+import { MomentContext } from "@/(logic)/internal/model/flow/moment/main";
 import { useContext } from "react";
 
 export function FlowSidebarEntry() {

@@ -2,7 +2,7 @@
 import {
   SpaceContext,
   SpaceObj,
-} from '@/(logic)/internal/data/infra/model/space/main';
+} from '@/(logic)/internal/model/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles } from '@/(design)/(styles)/data';

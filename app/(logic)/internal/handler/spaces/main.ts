@@ -1,7 +1,7 @@
 import { useState, useMemo, createContext } from 'react';
-import { SpaceObj } from '@/(logic)/internal/data/infra/model/space/main';
-import { FileObj } from '@/(logic)/internal/data/infra/model/resource/file/main';
-import { ChapterTemplateObj } from '@/(logic)/internal/data/infra/model/space/templates/main';
+import { SpaceObj } from '@/(logic)/internal/model/space/main';
+import { FileObj } from '@/(logic)/internal/model/resource/file/main';
+import { ChapterTemplateObj } from '@/(logic)/internal/model/space/templates/main';
 import { toast } from 'sonner';
 import { gqlHelper } from '../../gql/spaces/main';
 
@@ -130,6 +130,6 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
     space,
     spaceId,
     spaces,
-    spaceActions: spaceActions,
+    spaceActions,
   };
 };

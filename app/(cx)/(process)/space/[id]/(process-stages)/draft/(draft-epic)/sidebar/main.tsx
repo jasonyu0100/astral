@@ -1,12 +1,12 @@
-import { GalleryObj } from '@/(logic)/internal/data/infra/model/gallery/main';
+import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
 import { createContext, useState } from 'react';
 import { DraftSidebarView } from './view';
-import { CollectionObj } from '@/(logic)/internal/data/infra/model/gallery/collection/main';
+import { CollectionObj } from '@/(logic)/internal/model/gallery/collection/main';
 import {
   GallerysHandlerContext,
   useGallerysHandler,
 } from '@/(logic)/internal/handler/explorer/gallerys/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   CollectionsHandlerContext,
   useCollectionsHandler,

@@ -2,12 +2,12 @@
 import insideVerses from '@/(logic)/utils/isAuth';
 import { FeedJournalView } from './view';
 import { createContext } from 'react';
-import { MomentObj, MomentVisibility } from '@/(logic)/internal/data/infra/model/flow/moment/main';
 import {
   JournalActions,
   useJournalHandler,
 } from '@/(logic)/internal/handler/journal/main';
-import { useGlobalUser } from '@/(logic)/internal/data/infra/store/user/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 
 interface FeedJournalContextObj {
   momentId: string;
@@ -23,7 +23,6 @@ function Page() {
   const user = useGlobalUser((state) => state.user);
   const { momentId, moments, journalActions: _momentHandler } = useJournalHandler(
     user.id,
-    MomentVisibility.JOURNAL,
   );
 
   const context: FeedJournalContextObj = {

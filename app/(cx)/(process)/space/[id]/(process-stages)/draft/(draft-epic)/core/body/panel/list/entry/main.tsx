@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ConstellationContext } from '@/(logic)/internal/data/infra/model/draft/constellation/main';
+import { ConstellationContext } from '@/(logic)/internal/model/draft/constellation/main';
 import { cn } from '@/(logic)/utils/cn';
 import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
 

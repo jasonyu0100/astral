@@ -1,4 +1,4 @@
-import { MomentObj } from '@/(logic)/internal/data/infra/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 
 export function FeedSidebarEntry({ moment }: { moment: MomentObj }) {
   return (

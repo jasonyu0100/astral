@@ -9,7 +9,7 @@ import { StarModalContext } from '../../main';
 import {
   LinkObj,
   LinkVariant,
-} from '@/(logic)/internal/data/infra/model/resource/link/main';
+} from '@/(logic)/internal/model/resource/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';

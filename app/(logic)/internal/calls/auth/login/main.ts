@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { UserObj } from '@/(logic)/internal/data/infra/model/user/main';
+import { UserObj } from '@/(logic)/internal/model/user/main';
 import { listUserObjs } from '@/graphql/queries';
 import bcrypt from 'bcryptjs';
 
