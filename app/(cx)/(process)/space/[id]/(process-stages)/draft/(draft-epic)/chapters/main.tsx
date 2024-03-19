@@ -1,13 +1,13 @@
 import { ChaptersLeft } from '../../../(common)/chapters/left/main';
 import { ChaptersRight } from '../../../(common)/chapters/right/main';
 import { ChaptersContainer } from '../../../(common)/chapters/main';
-import { FlowChaptersRow } from './row/main';
+import { DraftChaptersRow } from './row/main';
 
-export function FlowChapters() {
+export function DraftChapters() {
   return (
     <ChaptersContainer>
       <ChaptersLeft />
-      <FlowChaptersRow />
+      <DraftChaptersRow />
       <ChaptersRight />
     </ChaptersContainer>
   );

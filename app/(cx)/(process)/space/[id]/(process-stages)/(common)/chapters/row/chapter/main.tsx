@@ -5,30 +5,32 @@ import { ChapterContext } from '@/(logic)/internal/data/infra/model/space/chapte
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 import { cn } from '@/(logic)/utils/cn';
+import { ChapterActiveText } from './active/main';
+import { ChapterInactiveText } from './inactive/main';
 
-export function DraftChapter({ index }: { index: number }) {
+export function ChapterContainer({ index }: { index: number }) {
   const chapter = useContext(ChapterContext);
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const active = chapter.id === chaptersHandler.chapterId;
 
   return (
-    <WrapperTooltip text={`#${index+1} - ${chapter.title}`}>
-      <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)} className={cn({
-        "animate-pulse-slow": active
-      })}>
+    <WrapperTooltip text={`#${index + 1} - ${chapter.title}`}>
+      <button
+        onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}
+        className={cn({
+          'animate-pulse-slow': active,
+        })}
+      >
         <GlassContainer
-          displayName={DraftChapter.name}
+          displayName={ChapterContainer.name}
           sizeStyle='w-[200px] h-[40px]'
-          glassStyle={active ? backgroundStyles['glass-10'] : backgroundStyles['glass-5']}
+          glassStyle={
+            active ? backgroundStyles['glass-10'] : backgroundStyles['glass-5']
+          }
           borderStyle={borderStyles['rounded-full']}
+          className='flex items-center justify-center'
         >
-          <div className='flex h-full w-full items-center justify-center'>
-            {active ? (
-              <div className='font-bold text-white'>{chapter.title}</div>
-            ) : (
-              <div className='font-bold text-slate-500'>{chapter.title}</div>
-            )}
-          </div>
+          {active ? <ChapterActiveText /> : <ChapterInactiveText />}
         </GlassContainer>
       </button>
     </WrapperTooltip>

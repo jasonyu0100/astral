@@ -2,11 +2,11 @@ import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
 import { ButtonInputProps } from '@/(types)/main';
 
-export default function FlowChaptersAdd({ ...props }: ButtonInputProps) {
+export default function ChaptersAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <GlassContainer
-        displayName={FlowChaptersAdd.name}
+        displayName={ChaptersAdd.name}
         sizeStyle='w-[200px] h-[40px]'
         glassStyle={backgroundStyles['glass-5']}
         borderStyle={borderStyles['rounded-full']}

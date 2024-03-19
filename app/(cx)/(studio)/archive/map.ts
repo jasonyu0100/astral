@@ -6,15 +6,15 @@ export const archiveMap = {
       link: `${baseUrl}/search`,
     },
     explorer: {
-      link: `${baseUrl}/explorer/gallerys-view`,
+      link: `${baseUrl}/explorer/gallerys`,
       collections: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/collections-view/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/collections/${id}`,
         },
       },
       resources: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/resources-view/${id}`,
+          link: (id: string) => `${baseUrl}/explorer/resources/${id}`,
         },
       },
     },

@@ -1,7 +1,7 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { containerStyles } from '@/(design)/(styles)/data';
-import { DraftChapters } from '../../../../../../../(components)/(chapters)/main';
 import { DraftCore } from './core/main';
+import { DraftChapters } from './chapters/main';
 
 export function DraftMain() {
   return (

@@ -10,7 +10,7 @@ export function DraftLinks() {
       {stars.map((star, i) => (
         <line
           key={star.id}
-          className='stroke-slate-500 stroke-[1px] opacity-30'
+          className='stroke-slate-300 stroke-[3px] opacity-30 animate-pulse'
           x1={star.x + 50}
           y1={star.y + 60}
           x2={stars[i === 0 ? 0 : i - 1].x + 50}

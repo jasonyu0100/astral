@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
-export function ChaptersRightButton() {
+export function ChaptersRight() {
   const chapterHandler = useContext(ChaptersHandlerContext);
 
   return (
