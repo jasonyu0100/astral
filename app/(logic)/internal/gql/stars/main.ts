@@ -5,8 +5,12 @@ import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
-import { removeTypename, removeEmpty, cleanGql } from '@/(logic)/utils/clean';
-import { createStarObj, updateStarObj } from '@/graphql/mutations';
+import { removeTypename, removeEmpty, gqlArgs } from '@/(logic)/utils/clean';
+import {
+  createStarObj,
+  deleteStarObj,
+  updateStarObj,
+} from '@/graphql/mutations';
 import { listStarObjs } from '@/graphql/queries';
 
 export interface StarsGqlHelper {
@@ -35,7 +39,6 @@ export interface StarsGqlHelper {
     y: number,
     log: LogObj,
   ) => Promise<StarObj>;
-  gqlUpdateStars: (stars: StarObj[]) => Promise<StarObj[]>;
   gqlCreateNoteStar: (
     constellationId: string,
     title: string,
@@ -44,6 +47,9 @@ export interface StarsGqlHelper {
     y: number,
     note: NoteObj,
   ) => Promise<StarObj>;
+  gqlUpdateStars: (updatedStarObjs: StarObj[]) => Promise<StarObj[]>;
+  gqlUpdateStar: (starId: string, updatedStarObj: StarObj) => Promise<StarObj>;
+  gqlDeleteStar: (starId: string) => Promise<StarObj>;
 }
 
 export const gqlHelper: StarsGqlHelper = {
@@ -58,8 +64,8 @@ export const gqlHelper: StarsGqlHelper = {
         },
       },
     });
-    const stars = (payload?.data.listStarObjs?.items as StarObj[]) || [];
-    return stars;
+    const starObjs = (payload?.data.listStarObjs?.items as StarObj[]) || [];
+    return starObjs;
   },
   gqlCreateFileStar: async (
     constellationId: string,
@@ -72,26 +78,19 @@ export const gqlHelper: StarsGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createStarObj,
       variables: {
-        input: {
+        input: gqlArgs({
           constellationId: constellationId,
           title: title,
           description: description,
-          x,
-          y,
+          x: x,
+          y: y,
           variant: ResourceVariant.FILE,
-          file: {
-            id: file.id,
-            src: file.src,
-            title: file.title,
-            size: file.size,
-            fileType: file.fileType,
-            variant: file.variant,
-          },
-        },
+          file: file,
+        }),
       },
     });
-    const star = payload?.data.createStarObj as StarObj;
-    return star;
+    const starObj = payload?.data.createStarObj as StarObj;
+    return starObj;
   },
   gqlCreateLinkStar: async (
     constellationId: string,
@@ -104,19 +103,19 @@ export const gqlHelper: StarsGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createStarObj,
       variables: {
-        input: {
+        input: gqlArgs({
           constellationId: constellationId,
           title: title,
           description: description,
-          x,
-          y,
+          x: x,
+          y: y,
           variant: ResourceVariant.LINK,
           link: link,
-        },
+        }),
       },
     });
-    const star = payload?.data.createStarObj as StarObj;
-    return star;
+    const starObj = payload?.data.createStarObj as StarObj;
+    return starObj;
   },
   gqlCreateLogStar: async (
     constellationId: string,
@@ -126,39 +125,38 @@ export const gqlHelper: StarsGqlHelper = {
     y: number,
     log: LogObj,
   ) => {
-    console.log(log);
     const payload = await amplifyClient.graphql({
       query: createStarObj,
       variables: {
-        input: {
+        input: gqlArgs({
           constellationId: constellationId,
           title: title,
           description: description,
-          x,
-          y,
+          x: x,
+          y: y,
           variant: ResourceVariant.LOG,
           log: log,
-        },
+        }),
       },
     });
-    const star = payload?.data.createStarObj as StarObj;
-    return star;
+    const starObj = payload?.data.createStarObj as StarObj;
+    return starObj;
   },
   gqlUpdateStars: async (stars: StarObj[]) => {
-    const updatedStars = await Promise.all(
+    const updatedStarObjs = await Promise.all(
       stars.map(async (star: StarObj) => {
-        let input = removeTypename(removeEmpty(star));
+        console.log(star, gqlArgs(star));
         const payload = await amplifyClient.graphql({
           query: updateStarObj,
           variables: {
-            input: input,
+            input: gqlArgs(star),
           },
         });
         const updatedStar = payload.data?.updateStarObj as StarObj;
         return updatedStar;
       }),
     );
-    return updatedStars;
+    return updatedStarObjs;
   },
   gqlCreateNoteStar: async (
     constellationId: string,
@@ -168,22 +166,54 @@ export const gqlHelper: StarsGqlHelper = {
     y: number,
     note: NoteObj,
   ) => {
-    const cleanedNote = cleanGql(note);
     const payload = await amplifyClient.graphql({
       query: createStarObj,
       variables: {
-        input: {
+        input: gqlArgs({
           constellationId: constellationId,
           title: title,
           description: description,
           x,
           y,
           variant: ResourceVariant.NOTE,
-          note: cleanedNote,
+          note: note,
+        }),
+      },
+    });
+    const starObj = payload?.data.createStarObj as StarObj;
+    return starObj;
+  },
+  gqlDeleteStar: async (starId: string) => {
+    const payload = await amplifyClient.graphql({
+      query: deleteStarObj,
+      variables: {
+        input: {
+          id: starId,
         },
       },
     });
-    const star = payload?.data.createStarObj as StarObj;
-    return star;
+    const starObj = payload?.data?.deleteStarObj as StarObj;
+    return starObj;
+  },
+  gqlUpdateStar: async (starId: string, updatedStarObj: StarObj) => {
+    const payload = await amplifyClient.graphql({
+      query: updateStarObj,
+      variables: {
+        input: gqlArgs({
+          id: starId,
+          title: updatedStarObj.title,
+          description: updatedStarObj.description,
+          x: updatedStarObj.x,
+          y: updatedStarObj.y,
+          variant: updatedStarObj.variant,
+          file: updatedStarObj.file,
+          log: updatedStarObj.log,
+          link: updatedStarObj.link,
+          note: updatedStarObj.note,
+        }),
+      },
+    });
+    const updatedStar = payload?.data?.updateStarObj as StarObj;
+    return updatedStar;
   },
 };

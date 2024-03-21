@@ -1,8 +1,12 @@
-export function cleanGql(obj: any) {
+export function gqlArgs(obj: any) {
+  // Recursively remove empty and typename which may cause gql error
+  // GQL Update w/ Incorrect Typename Error
   return removeEmpty(removeTypename(obj));
 }
 
 export function removeEmpty(obj: any) {
+  // Recursively remove empty field
+  if (!obj) return undefined
   return Object.keys(obj)
     .filter(function (k) {
       return obj[k] != null;
@@ -14,6 +18,8 @@ export function removeEmpty(obj: any) {
 }
 
 export function removeTypename(obj: any): any {
+  // Recursively remove typename
+  if (!obj) return undefined
   if (typeof obj !== 'object' || obj === null) {
     return obj;
   }

@@ -2,6 +2,7 @@ import { FileObj, exampleFile } from '../../resource/file/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext } from 'react';
+import { LinkObj } from '../../resource/link/main';
 
 export enum MomentVariant {
   FILE = 'FILE',
@@ -21,7 +22,8 @@ export interface MomentObj {
   variant: string;
   file?: FileObj;
   log?: LogObj;
-  sticky?: NoteObj;
+  link?: LinkObj;
+  note?: NoteObj;
 }
 
 export const exampleMoment: MomentObj = {

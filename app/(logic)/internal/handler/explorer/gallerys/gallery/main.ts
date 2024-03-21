@@ -6,7 +6,7 @@ export const useGalleryHandler = (galleryId: string) => {
   const [gallery, changeGallery] = useState({} as GalleryObj);
 
   const queryGetGallery = async (galleryId: string) => {
-    const gallery: GalleryObj = await gqlHelper.queryGetGallery(galleryId);
+    const gallery: GalleryObj = await gqlHelper.gqlGetGallery(galleryId);
     changeGallery(gallery);
     return gallery;
   };

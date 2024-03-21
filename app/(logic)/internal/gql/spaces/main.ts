@@ -6,7 +6,11 @@ import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { ChapterObj } from '@/(logic)/internal/model/space/chapter/main';
 import { SpaceObj } from '@/(logic)/internal/model/space/main';
 import { ChatObj } from '@/(logic)/internal/model/storm/chat/main';
-import { MessageObj, MessageSource } from '@/(logic)/internal/model/storm/chat/message/main';
+import {
+  MessageObj,
+  MessageSource,
+} from '@/(logic)/internal/model/storm/chat/message/main';
+import { gqlArgs } from '@/(logic)/utils/clean';
 import {
   createSpaceObj,
   createChapterObj,
@@ -14,51 +18,58 @@ import {
   createConstellationObj,
   createMessageObj,
   createStarObj,
+  deleteSpaceObj,
+  updateSpaceObj,
 } from '@/graphql/mutations';
 import { getSpaceObj, listSpaceObjs } from '@/graphql/queries';
 
 export interface SpacesGqlHelper {
-    queryGetSpace: (id: string) => Promise<SpaceObj>,
-    queryCreateSpace: (
-        userId: string,
-        title: string,
-        description: string,
-        thumbnail: FileObj,
-        variant: string,
-    ) => Promise<SpaceObj>;
-    queryListSpaces: (userId: string) => Promise<SpaceObj[]>;
-    queryCreateChapterWithinSpace: (
-        title: string,
-        description: string,
-        idx: number,
-        spaceId: string,
-    ) => Promise<ChapterObj>;
-    queryCreateChatWithinChapter: (
-        title: string,
-        summary: string,
-        chapterId: string,
-    ) => Promise<ChatObj>;
-    queryCreateConstellationWithinChapter: (
-        title: string,
-        description: string,
-        variant: string,
-        chapterId: string,
-    ) => Promise<ConstellationObj>;
-    queryCreateAgentMessageWithinChat: (
-        text: string,
-        chatId: string,
-    ) => Promise<MessageObj>;
-    queryCreateFileStarWithinConstellation: (
-        title: string,
-        x: number,
-        y: number,
-        file: FileObj,
-        constellationId: string,
-    ) => Promise<StarObj>;
+  gqlGetSpace: (id: string) => Promise<SpaceObj>;
+  gqlCreateSpace: (
+    userId: string,
+    title: string,
+    description: string,
+    thumbnail: FileObj,
+    variant: string,
+  ) => Promise<SpaceObj>;
+  gqlListSpaces: (userId: string) => Promise<SpaceObj[]>;
+  gqlCreateChapterWithinSpace: (
+    title: string,
+    description: string,
+    idx: number,
+    spaceId: string,
+  ) => Promise<ChapterObj>;
+  gqlCreateChatWithinChapter: (
+    title: string,
+    summary: string,
+    chapterId: string,
+  ) => Promise<ChatObj>;
+  gqlCreateConstellationWithinChapter: (
+    title: string,
+    description: string,
+    variant: string,
+    chapterId: string,
+  ) => Promise<ConstellationObj>;
+  gqlCreateAgentMessageWithinChat: (
+    text: string,
+    chatId: string,
+  ) => Promise<MessageObj>;
+  gqlCreateFileStarWithinConstellation: (
+    title: string,
+    x: number,
+    y: number,
+    file: FileObj,
+    constellationId: string,
+  ) => Promise<StarObj>;
+  gqlUpdateSpace: (
+    spaceId: string,
+    updatedSpaceObj: SpaceObj,
+  ) => Promise<SpaceObj>;
+  gqlDeleteSpace: (spaceId: string) => Promise<SpaceObj>;
 }
 
 export const gqlHelper: SpacesGqlHelper = {
-  queryGetSpace: async (id: string) => {
+  gqlGetSpace: async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getSpaceObj,
       variables: {
@@ -66,10 +77,10 @@ export const gqlHelper: SpacesGqlHelper = {
       },
     });
 
-    const space: SpaceObj = payload?.data.getSpaceObj as SpaceObj;
-    return space;
+    const spaceObj: SpaceObj = payload?.data.getSpaceObj as SpaceObj;
+    return spaceObj;
   },
-  queryCreateSpace: async (
+  gqlCreateSpace: async (
     userId: string,
     title: string,
     description: string,
@@ -80,20 +91,20 @@ export const gqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createSpaceObj,
       variables: {
-        input: {
+        input: gqlArgs({
           userId: userId,
-          title,
-          description,
+          title: title,
+          description: description,
           time: currentDate,
-          thumbnail,
+          thumbnail: thumbnail,
           variant: variant,
-        },
+        }),
       },
     });
-    const space = payload?.data?.createSpaceObj as SpaceObj;
-    return space;
+    const spaceObj = payload?.data?.createSpaceObj as SpaceObj;
+    return spaceObj;
   },
-  queryListSpaces: async (userId: string) => {
+  gqlListSpaces: async (userId: string) => {
     const payload = await amplifyClient.graphql({
       query: listSpaceObjs,
       variables: {
@@ -104,10 +115,10 @@ export const gqlHelper: SpacesGqlHelper = {
         },
       },
     });
-    const spaces = (payload?.data?.listSpaceObjs?.items as SpaceObj[]) || [];
-    return spaces;
+    const spaceObjs = (payload?.data?.listSpaceObjs?.items as SpaceObj[]) || [];
+    return spaceObjs;
   },
-  queryCreateChapterWithinSpace: async (
+  gqlCreateChapterWithinSpace: async (
     title: string,
     description: string,
     idx: number,
@@ -116,18 +127,18 @@ export const gqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createChapterObj,
       variables: {
-        input: {
-          title,
-          description,
-          spaceId,
-          idx,
-        },
+        input: gqlArgs({
+          title: title,
+          description: description,
+          spaceId: spaceId,
+          idx: idx,
+        }),
       },
     });
-    const chapter = payload.data?.createChapterObj as ChapterObj;
-    return chapter;
+    const chapterObj = payload.data?.createChapterObj as ChapterObj;
+    return chapterObj;
   },
-  queryCreateChatWithinChapter: async (
+  gqlCreateChatWithinChapter: async (
     title: string,
     summary: string,
     chapterId: string,
@@ -136,18 +147,18 @@ export const gqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createChatObj,
       variables: {
-        input: {
+        input: gqlArgs({
           title: title,
           summary: summary,
           chapterId: chapterId,
           time: currentDate,
-        },
+        }),
       },
     });
-    const chat = payload.data?.createChatObj as ChatObj;
-    return chat;
+    const chatObj = payload.data?.createChatObj as ChatObj;
+    return chatObj;
   },
-  queryCreateConstellationWithinChapter: async (
+  gqlCreateConstellationWithinChapter: async (
     title: string,
     description: string,
     variant: string,
@@ -156,35 +167,35 @@ export const gqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createConstellationObj,
       variables: {
-        input: {
+        input: gqlArgs({
           chapterId,
           title,
           description,
           variant,
-        },
+        }),
       },
     });
-    const constellation = payload?.data
+    const constellationObj = payload?.data
       .createConstellationObj as ConstellationObj;
-    return constellation;
+    return constellationObj;
   },
-  queryCreateAgentMessageWithinChat: async (text: string, chatId: string) => {
+  gqlCreateAgentMessageWithinChat: async (text: string, chatId: string) => {
     const currentDate = new Date().toISOString();
     const payload = await amplifyClient.graphql({
       query: createMessageObj,
       variables: {
-        input: {
+        input: gqlArgs({
           chatId: chatId,
           source: MessageSource.AGENT,
           time: currentDate,
           message: text,
-        },
+        }),
       },
     });
-    const message = payload.data?.createMessageObj as MessageObj;
-    return message;
+    const messageObj = payload.data?.createMessageObj as MessageObj;
+    return messageObj;
   },
-  queryCreateFileStarWithinConstellation: async (
+  gqlCreateFileStarWithinConstellation: async (
     title: string,
     x: number,
     y: number,
@@ -194,25 +205,49 @@ export const gqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createStarObj,
       variables: {
-        input: {
+        input: gqlArgs({
           constellationId: constellationId,
           title: title,
           description: '',
-          x,
-          y,
-          file: {
-            id: file.id,
-            src: file.src,
-            title: file.title,
-            size: file.size,
-            fileType: file.fileType,
-            variant: file.variant,
-          },
+          x: x,
+          y: y,
+          file: file,
           variant: ResourceVariant.FILE,
+        }),
+      },
+    });
+    const starObj = payload?.data.createStarObj as StarObj;
+    return starObj;
+  },
+  gqlDeleteSpace: async (spaceId: string) => {
+    const payload = await amplifyClient.graphql({
+      query: deleteSpaceObj,
+      variables: {
+        input: {
+          id: spaceId,
         },
       },
     });
-    const star = payload?.data.createStarObj as StarObj;
-    return star;
+    const spaceObj = payload?.data?.deleteSpaceObj as SpaceObj;
+    return spaceObj;
+  },
+  gqlUpdateSpace: async (spaceId: string, updatedSpaceObj: SpaceObj) => {
+    const payload = await amplifyClient.graphql({
+      query: updateSpaceObj,
+      variables: {
+        input: gqlArgs({
+          id: spaceId,
+          userId: updatedSpaceObj.userId,
+          title: updatedSpaceObj.title,
+          time: updatedSpaceObj.time,
+          description: updatedSpaceObj.description,
+          thumbnail: updatedSpaceObj.thumbnail,
+          variant: updatedSpaceObj.variant,
+          moveId: updatedSpaceObj.moveId,
+        }),
+      },
+    });
+    const spaceObj = payload?.data?.updateSpaceObj as SpaceObj;
+    return spaceObj;
   },
 };

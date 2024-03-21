@@ -28,11 +28,11 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
 
   const messageActions: MessageActions = {
     queryCreateUserMessage: async (text: string) => {
-      const message = await gqlHelper.queryCreateUserMessage(chatId, userId, text);
+      const message = await gqlHelper.gqlCreateUserMessage(chatId, userId, text);
       return message;
     },
     queryListMessages: async (chatId: string) => {
-      const messages = await gqlHelper.queryListMessages(chatId);
+      const messages = await gqlHelper.gqlListMessages(chatId);
       changeMessages(messages);
       return messages;
     },
@@ -40,7 +40,7 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       const agentResponse =
         (await getMessageResponse(userMessage.message)) || '';
       const agentMessage =
-        await gqlHelper.queryCreateAgentMessage(chatId, agentResponse);
+        await gqlHelper.gqlCreateAgentMessage(chatId, agentResponse);
       return agentMessage;
     },
     addUserMessage: (message: MessageObj) => {

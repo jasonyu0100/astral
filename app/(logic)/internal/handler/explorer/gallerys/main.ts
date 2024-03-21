@@ -33,7 +33,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       return gallery;
     },
     queryListGallerys: async () => {
-      const gallerys = await gqlHelper.queryListGallerys(userId);
+      const gallerys = await gqlHelper.gqlListGallerys(userId);
       changeGallerys(gallerys);
       changeGalleryId(gallerys[0]?.id || '');
       return gallerys;
@@ -43,7 +43,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       description: string,
       thumbnail: FileObj,
     ) => {
-      const gallery = await gqlHelper.queryCreateGallery(
+      const gallery = await gqlHelper.gqlCreateGallery(
         userId,
         title,
         description,

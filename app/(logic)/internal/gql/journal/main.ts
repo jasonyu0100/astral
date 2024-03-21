@@ -2,15 +2,16 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
+import { gqlArgs } from '@/(logic)/utils/clean';
 import { createMomentObj } from '@/graphql/mutations';
 import { listMomentObjs } from '@/graphql/queries';
 
 export interface JournalGqlHelper {
-  queryListMoments: (
+  gqlListMoments: (
     userId: string,
     visibility: string,
   ) => Promise<MomentObj[]>;
-  queryCreateFileMoment: (
+  gqlCreateFileMoment: (
     userId: string,
     title: string,
     description: string,
@@ -47,7 +48,7 @@ export const gqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createMomentObj,
       variables: {
-        input: {
+        input: gqlArgs({
           chapterId: chapterId,
           spaceId: spaceId,
           userId: userId,
@@ -56,7 +57,7 @@ export const gqlHelper = {
           description: description,
           file: file,
           variant: ResourceVariant.FILE,
-        },
+        }),
       },
     });
     const moment = payload.data?.createMomentObj as MomentObj;

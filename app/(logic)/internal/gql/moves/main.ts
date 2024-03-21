@@ -1,23 +1,30 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { MoveObj } from '../../model/move/main';
-import { createMoveObj } from '@/graphql/mutations';
+import {
+  createMoveObj,
+  deleteMoveObj,
+  updateMoveObj,
+} from '@/graphql/mutations';
 import { getMoveObj, listMoveObjs } from '@/graphql/queries';
+import { gqlArgs } from '@/(logic)/utils/clean';
 
 export interface MovesGqlHelper {
-    queryGetMove: (id: string) => Promise<MoveObj>,
-    queryCreateMove: (
-        userId: string,
-        title: string,
-        description: string,
-        thumbnail: FileObj,
-        variant: string,
-    ) => Promise<MoveObj>;
-    queryListMoves: (userId: string) => Promise<MoveObj[]>;
+  gqlGetMove: (id: string) => Promise<MoveObj>;
+  gqlCreateMove: (
+    userId: string,
+    title: string,
+    description: string,
+    thumbnail: FileObj,
+    variant: string,
+  ) => Promise<MoveObj>;
+  gqlListMoves: (userId: string) => Promise<MoveObj[]>;
+  gqlDeleteMove: (moveId: string) => Promise<MoveObj>;
+  gqlUpdateMove: (moveId: string, updatedMoveObj: MoveObj) => Promise<MoveObj>;
 }
 
-export const gqlHelper: MovesGqlHelper = {
-  queryGetMove: async (id: string) => {
+export const gqlHelper = {
+  gqlGetMove: async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getMoveObj,
       variables: {
@@ -25,10 +32,10 @@ export const gqlHelper: MovesGqlHelper = {
       },
     });
 
-    const move: MoveObj = payload?.data.getMoveObj as MoveObj;
-    return move;
+    const moveObj: MoveObj = payload?.data.getMoveObj as MoveObj;
+    return moveObj;
   },
-  queryCreateMove: async (
+  gqlCreateMove: async (
     userId: string,
     title: string,
     description: string,
@@ -39,20 +46,20 @@ export const gqlHelper: MovesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createMoveObj,
       variables: {
-        input: {
+        input: gqlArgs({
           userId: userId,
           title,
           description,
           time: currentDate,
           thumbnail,
           variant: variant,
-        },
+        }),
       },
     });
-    const move = payload?.data?.createMoveObj as MoveObj;
-    return move;
+    const moveObj = payload?.data?.createMoveObj as MoveObj;
+    return moveObj;
   },
-  queryListMoves: async (userId: string) => {
+  gqlListMoves: async (userId: string) => {
     const payload = await amplifyClient.graphql({
       query: listMoveObjs,
       variables: {
@@ -63,7 +70,37 @@ export const gqlHelper: MovesGqlHelper = {
         },
       },
     });
-    const moves = (payload?.data?.listMoveObjs?.items as MoveObj[]) || [];
-    return moves;
+    const moveObjs = (payload?.data?.listMoveObjs?.items as MoveObj[]) || [];
+    return moveObjs;
+  },
+  gqlDeleteMove: async (moveId: string) => {
+    const payload = await amplifyClient.graphql({
+      query: deleteMoveObj,
+      variables: {
+        input: {
+          id: moveId,
+        },
+      },
+    });
+    const moveObj = payload?.data?.deleteMoveObj as MoveObj;
+    return moveObj;
+  },
+  gqlUpdateMove: async (moveId: string, updatedMoveObj: MoveObj) => {
+    const payload = await amplifyClient.graphql({
+      query: updateMoveObj,
+      variables: {
+        input: gqlArgs({
+          id: moveId,
+          userId: updatedMoveObj.userId,
+          title: updatedMoveObj.title,
+          time: updatedMoveObj.time,
+          description: updatedMoveObj.description,
+          thumbnail: updatedMoveObj.thumbnail,
+          variant: updatedMoveObj.variant,
+        }),
+      },
+    });
+    const moveObj = payload?.data?.updateMoveObj as MoveObj;
+    return moveObj;
   },
 };

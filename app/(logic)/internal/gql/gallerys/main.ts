@@ -1,22 +1,32 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import { createGalleryObj } from '@/graphql/mutations';
+import { gqlArgs } from '@/(logic)/utils/clean';
+import {
+  createGalleryObj,
+  deleteGalleryObj,
+  updateGalleryObj,
+} from '@/graphql/mutations';
 import { getGalleryObj, listGalleryObjs } from '@/graphql/queries';
 
 export interface GallerysGqlHelper {
-  queryGetGallery: (id: string) => Promise<GalleryObj>;
-  queryListGallerys: (userId: string) => Promise<GalleryObj[]>;
-  queryCreateGallery: (
+  gqlGetGallery: (id: string) => Promise<GalleryObj>;
+  gqlListGallerys: (userId: string) => Promise<GalleryObj[]>;
+  gqlCreateGallery: (
     userId: string,
     title: string,
     description: string,
     thumbnail: FileObj,
   ) => Promise<GalleryObj>;
+  gqlUpdateGallery: (
+    galleryId: string,
+    updatedGalleryObj: GalleryObj,
+  ) => Promise<GalleryObj>;
+  gqlDeleteGallery: (galleryId: string) => Promise<GalleryObj>;
 }
 
 export const gqlHelper: GallerysGqlHelper = {
-  queryGetGallery: async (id: string) => {
+  gqlGetGallery: async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getGalleryObj,
       variables: {
@@ -24,10 +34,10 @@ export const gqlHelper: GallerysGqlHelper = {
       },
     });
 
-    const gallery: GalleryObj = payload?.data.getGalleryObj as GalleryObj;
-    return gallery;
+    const galleryObj: GalleryObj = payload?.data.getGalleryObj as GalleryObj;
+    return galleryObj;
   },
-  queryListGallerys: async (userId: string) => {
+  gqlListGallerys: async (userId: string) => {
     const payload = await amplifyClient.graphql({
       query: listGalleryObjs,
       variables: {
@@ -38,11 +48,11 @@ export const gqlHelper: GallerysGqlHelper = {
         },
       },
     });
-    const gallerys =
+    const galleryObjs =
       (payload?.data?.listGalleryObjs?.items as GalleryObj[]) || [];
-    return gallerys;
+    return galleryObjs;
   },
-  queryCreateGallery: async (
+  gqlCreateGallery: async (
     userId: string,
     title: string,
     description: string,
@@ -51,16 +61,46 @@ export const gqlHelper: GallerysGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createGalleryObj,
       variables: {
-        input: {
+        input: gqlArgs({
           title,
           description,
           userId: userId,
           thumbnail: thumbnail,
+        }),
+      },
+    });
+    const galleryObj = payload?.data?.createGalleryObj as GalleryObj;
+    return galleryObj;
+  },
+  gqlUpdateGallery: async (
+    galleryId: string,
+    updatedGalleryObj: GalleryObj,
+  ) => {
+    const payload = await amplifyClient.graphql({
+      query: updateGalleryObj,
+      variables: {
+        input: gqlArgs({
+          id: galleryId,
+          title: updatedGalleryObj.title,
+          description: updatedGalleryObj.description,
+          userId: updatedGalleryObj.userId,
+          thumbnail: updatedGalleryObj.thumbnail,
+        }),
+      },
+    });
+    const galleryObj = payload?.data?.updateGalleryObj as GalleryObj;
+    return galleryObj;
+  },
+  gqlDeleteGallery: async (galleryId: string) => {
+    const payload = await amplifyClient.graphql({
+      query: deleteGalleryObj,
+      variables: {
+        input: {
+          id: galleryId,
         },
       },
     });
-    console.log(payload);
-    const gallery = payload?.data?.createGalleryObj as GalleryObj;
-    return gallery;
+    const galleryObj = payload?.data?.deleteGalleryObj as GalleryObj;
+    return galleryObj;
   },
 };

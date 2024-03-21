@@ -2,40 +2,48 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
-import { createUpdateObj } from '@/graphql/mutations';
+import {
+  createUpdateObj,
+  deleteUpdateObj,
+  updateUpdateObj,
+} from '@/graphql/mutations';
 import { listUpdateObjs } from '@/graphql/queries';
 import { UpdateObj, UpdateVariant } from '../../model/update/main';
+import { gqlArgs } from '@/(logic)/utils/clean';
 
 export interface UpdatesGqlHelper {
-    queryListUpdates: (chapterId: string) => Promise<UpdateObj[]>;
-    queryCreateFileUpdate: (
-        chapterId: string,
-        spaceId: string,
-        userId: string,
-        title: string,
-        description: string,
-        file: FileObj,
-    ) => Promise<UpdateObj>;
-    queryCreateLogUpdate: (
-        chapterId: string,
-        spaceId: string,
-        userId: string,
-        title: string,
-        description: string,
-        log: LogObj,
-    ) => Promise<UpdateObj>;
-    queryCreateStickyUpdate: (
-        chapterId: string,
-        spaceId: string,
-        userId: string,
-        title: string,
-        description: string,
-        note: NoteObj,
-    ) => Promise<UpdateObj>;
+  gqlListUpdates: (chapterId: string) => Promise<UpdateObj[]>;
+  gqlCreateFileUpdate: (
+    spaceId: string,
+    userId: string,
+    title: string,
+    description: string,
+    file: FileObj,
+  ) => Promise<UpdateObj>;
+  gqlCreateLogUpdate: (
+    spaceId: string,
+    userId: string,
+    title: string,
+    description: string,
+    log: LogObj,
+  ) => Promise<UpdateObj>;
+  gqlCreateNoteUpdate: (
+    spaceId: string,
+    userId: string,
+    title: string,
+    description: string,
+    note: NoteObj,
+  ) => Promise<UpdateObj>;
+  gqlDeleteUpdate: (updateId: string) => Promise<UpdateObj>;
+  gqlUpdateUpdate: (
+    updateId: string,
+    updatedUpdateObj: UpdateObj,
+  ) => Promise<UpdateObj>;
+  gqlUpdateUpdates: (updatedUpdateObjs: UpdateObj[]) => Promise<UpdateObj[]>;
 }
 
-export const gqlHelper = {
-  queryListUpdates: async (userId: string) => {
+export const gqlHelper: UpdatesGqlHelper = {
+  gqlListUpdates: async (userId: string) => {
     const payload = await amplifyClient.graphql({
       query: listUpdateObjs,
       variables: {
@@ -46,10 +54,11 @@ export const gqlHelper = {
         },
       },
     });
-    const updates = (payload.data?.listUpdateObjs?.items as UpdateObj[]) || [];
-    return updates;
+    const updateObjs =
+      (payload.data?.listUpdateObjs?.items as UpdateObj[]) || [];
+    return updateObjs;
   },
-  queryCreateFileUpdate: async (
+  gqlCreateFileUpdate: async (
     spaceId: string,
     userId: string,
     title: string,
@@ -60,7 +69,7 @@ export const gqlHelper = {
     const payload = await amplifyClient.graphql({
       query: createUpdateObj,
       variables: {
-        input: {
+        input: gqlArgs({
           spaceId: spaceId,
           userId: userId,
           time: currentDate,
@@ -68,24 +77,24 @@ export const gqlHelper = {
           description: description,
           file: file,
           variant: UpdateVariant.FILE,
-        },
+        }),
       },
     });
-    const update = payload.data?.createUpdateObj as UpdateObj;
-    return update;
+    const updateObj = payload.data?.createUpdateObj as UpdateObj;
+    return updateObj;
   },
-  queryCreateLogUpdate: async (
+  gqlCreateLogUpdate: async (
     spaceId: string,
     userId: string,
     title: string,
     description: string,
     log: LogObj,
   ) => {
-    const currentDate = new Date().toISOString()
+    const currentDate = new Date().toISOString();
     const payload = await amplifyClient.graphql({
       query: createUpdateObj,
       variables: {
-        input: {
+        input: gqlArgs({
           spaceId: spaceId,
           userId: userId,
           time: currentDate,
@@ -93,24 +102,24 @@ export const gqlHelper = {
           description: description,
           log: log,
           variant: UpdateVariant.LOG,
-        },
+        }),
       },
     });
-    const update = payload.data?.createUpdateObj as UpdateObj;
-    return update;
+    const updateObj = payload.data?.createUpdateObj as UpdateObj;
+    return updateObj;
   },
-  queryCreateStickyUpdate: async (
+  gqlCreateNoteUpdate: async (
     spaceId: string,
     userId: string,
     title: string,
     description: string,
     note: NoteObj,
   ) => {
-    const currentDate = new Date().toISOString()
+    const currentDate = new Date().toISOString();
     const payload = await amplifyClient.graphql({
       query: createUpdateObj,
       variables: {
-        input: {
+        input: gqlArgs({
           spaceId: spaceId,
           userId: userId,
           time: currentDate,
@@ -118,10 +127,59 @@ export const gqlHelper = {
           description: description,
           note: note,
           variant: UpdateVariant.NOTE,
-        },
+        }),
       },
     });
     const update = payload.data?.createUpdateObj as UpdateObj;
     return update;
+  },
+  gqlDeleteUpdate: async (updateId: string) => {
+    const payload = await amplifyClient.graphql({
+      query: deleteUpdateObj,
+      variables: {
+        input: gqlArgs({
+          id: updateId,
+        }),
+      },
+    });
+    const updateObj = payload?.data?.deleteUpdateObj as UpdateObj;
+    return updateObj;
+  },
+  gqlUpdateUpdate: async (updateId: string, updatedUpdateObj: UpdateObj) => {
+    const payload = await amplifyClient.graphql({
+      query: updateUpdateObj,
+      variables: {
+        input: gqlArgs({
+          id: updateId,
+          spaceId: updatedUpdateObj.spaceId,
+          userId: updatedUpdateObj.userId,
+          title: updatedUpdateObj.title,
+          time: updatedUpdateObj.time,
+          description: updatedUpdateObj.description,
+          variant: updatedUpdateObj.variant,
+          file: updatedUpdateObj.file,
+          log: updatedUpdateObj.log,
+          link: updatedUpdateObj.link,
+          note: updatedUpdateObj.note,
+        }),
+      },
+    });
+    const updateObj = payload?.data?.updateUpdateObj as UpdateObj;
+    return updateObj;
+  },
+  gqlUpdateUpdates: async (updates: UpdateObj[]) => {
+    const updatedUpdateObjs = await Promise.all(
+      updates.map(async (update: UpdateObj) => {
+        const payload = await amplifyClient.graphql({
+          query: updateUpdateObj,
+          variables: {
+            input: gqlArgs(update),
+          },
+        });
+        const updatedUpdate = payload.data?.updateUpdateObj as UpdateObj;
+        return updatedUpdate;
+      }),
+    );
+    return updatedUpdateObjs;
   },
 };

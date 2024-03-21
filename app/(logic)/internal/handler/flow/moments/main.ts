@@ -49,7 +49,7 @@ export const useMomentsHandler = (
 
   const momentActions: MomentActions = {
     queryListMoments: async () => {
-      const moments = await gqlHelper.queryListMoments(chapterId);
+      const moments = await gqlHelper.gqlListMoments(chapterId);
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
       return moments;
@@ -59,7 +59,7 @@ export const useMomentsHandler = (
       log: string,
       file: FileObj,
     ) => {
-      const moment = await gqlHelper.queryCreateFileMoment(
+      const moment = await gqlHelper.gqlCreateFileMoment(
         chapterId,
         spaceId,
         user?.id,
@@ -76,7 +76,7 @@ export const useMomentsHandler = (
       description: string,
       log: LogObj,
     ) => {
-      const moment = await gqlHelper.queryCreateLogMoment(
+      const moment = await gqlHelper.gqlCreateLogMoment(
         chapterId,
         spaceId,
         user?.id,
@@ -93,7 +93,7 @@ export const useMomentsHandler = (
       log: string,
       sticky: NoteObj,
     ) => {
-      const moment = await gqlHelper.queryCreateStickyMoment(
+      const moment = await gqlHelper.gqlCreateStickyMoment(
         chapterId,
         spaceId,
         user?.id,

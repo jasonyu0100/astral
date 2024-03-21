@@ -31,7 +31,7 @@ export const useMovesHandler = (userId: string): MovesHandler => {
 
   const moveActions: MoveActions = {
     queryListMoves: async () => {
-      const moves = await gqlHelper.queryListMoves(userId);
+      const moves = await gqlHelper.gqlListMoves(userId);
       changeMoves(moves);
       changeMoveId(moves[0]?.id || '');
     },
@@ -41,7 +41,7 @@ export const useMovesHandler = (userId: string): MovesHandler => {
       thumbnail: FileObj,
       variant: string,
     ) => {
-      const move = await gqlHelper.queryCreateMove(
+      const move = await gqlHelper.gqlCreateMove(
         userId,
         title,
         description,

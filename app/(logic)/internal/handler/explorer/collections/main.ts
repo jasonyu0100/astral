@@ -35,20 +35,20 @@ export const useCollectionsHandler = (galleryId: string, userId: string): Collec
       return collection;
     },
     queryCollectionResources: async (collectionId: string) => {
-      const resources = await gqlHelper.queryCollectionResources(collectionId);
+      const resources = await gqlHelper.gqlListCollectionResources(collectionId);
       return resources;
     },
     queryListCollections: async (galleryId: string) => {
-      const collections = await gqlHelper.queryListCollections(galleryId);
+      const collections = await gqlHelper.gqlListCollections(galleryId);
       changeCollections(collections);
       changeCollectionId(collections[0]?.id || '');
       return collections;
     },
     queryCreateCollection: async (title: string, description: string, files: FileObj[]) => {
-      const collection = await gqlHelper.queryCreateCollection(galleryId, title, description);
+      const collection = await gqlHelper.gqlCreateCollection(galleryId, title, description);
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);
-      const resources = await gqlHelper.queryCreateCollectionResources(
+      const resources = await gqlHelper.gqlCreateCollectionResources(
         userId,
         collection,
         files,

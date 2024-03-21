@@ -28,13 +28,13 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
 
   const chatActions: ChatActions = {
     queryListChats: async () => {
-      const chats = await gqlHelper.queryListChats(chapterId);
+      const chats = await gqlHelper.gqlListChats(chapterId);
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       return chats;
     },
     queryCreateChat: async (title: string, summary: string) => {
-      const chat = await gqlHelper.queryCreateChat(chapterId, title, summary);
+      const chat = await gqlHelper.gqlCreateChat(chapterId, title, summary);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
       return chat;

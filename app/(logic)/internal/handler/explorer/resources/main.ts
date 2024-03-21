@@ -18,8 +18,11 @@ export interface ResourcesActions {
     description: string,
     file: FileObj,
   ) => Promise<ResourceObj>;
+  queryUpdateResource: (
+    resourceId: string,
+    updatedResourceObj: ResourceObj,
+  ) => Promise<ResourceObj>;
   searchResources: (query: string) => ResourceObj[];
-  updateResource: (resource: ResourceObj) => ResourceObj;
 }
 
 export const ResourcesHandlerContext = createContext({} as ResourcesHandler);
@@ -47,7 +50,8 @@ export const useResourcesHandler = (
 
   const resourceActions: ResourcesActions = {
     queryListResources: async (collectionId: string) => {
-      const resources = await gqlHelper.queryListResources(collectionId);
+      const resources =
+        await gqlHelper.gqlListCollectionResources(collectionId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;
@@ -57,7 +61,7 @@ export const useResourcesHandler = (
       description: string,
       file: FileObj,
     ) => {
-      const resource = await gqlHelper.queryCreateFileResource(
+      const resource = await gqlHelper.gqlCreateFileResource(
         userId,
         collectionId,
         name,
@@ -66,6 +70,19 @@ export const useResourcesHandler = (
       );
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);
+      return resource;
+    },
+    queryUpdateResource: async (
+      resourceId: string,
+      updatedResourceObj: ResourceObj,
+    ) => {
+      const resource = await gqlHelper.gqlUpdateResource(
+        resourceId,
+        updatedResourceObj
+      );
+      changeResources((prev) =>
+        prev.map((r) => (r.id === resource.id ? resource : r)),
+      );
       return resource;
     },
     searchResources: (query: string) => {
@@ -79,12 +96,6 @@ export const useResourcesHandler = (
       });
       changeSearchResults(results);
       return results;
-    },
-    updateResource: (resource: ResourceObj) => {
-      changeResources((prev) =>
-        prev.map((r) => (r.id === resource.id ? resource : r)),
-      );
-      return resource;
     },
   };
 

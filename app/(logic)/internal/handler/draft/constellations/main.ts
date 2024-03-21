@@ -42,7 +42,7 @@ export const useConstellationsHandler = (
 
   const constellationActions: ConstellationActions = {
     queryListConstellations: async (chapterId: string) => {
-      const constellations = await gqlHelper.queryListConstellations(chapterId);
+      const constellations = await gqlHelper.gqlListConstellations(chapterId);
       changeConstellations(constellations);
       changeConstellationId(constellations[0]?.id || '');
       return constellations;
@@ -52,7 +52,7 @@ export const useConstellationsHandler = (
       description: string,
       variant: string,
     ) => {
-      const constellation = await gqlHelper.queryCreateConstellation(
+      const constellation = await gqlHelper.gqlCreateConstellation(
         chapterId,
         title,
         description,

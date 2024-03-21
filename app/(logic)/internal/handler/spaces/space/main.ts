@@ -6,7 +6,7 @@ export const useSpaceHandler = (spaceId: string) => {
   const [space, changeSpace] = useState({} as SpaceObj);
 
   const queryGetSpace = async (spaceId: string) => {
-    const space: SpaceObj = await gqlHelper.queryGetSpace(spaceId);
+    const space: SpaceObj = await gqlHelper.gqlGetSpace(spaceId);
     changeSpace(space);
     return space;
   };

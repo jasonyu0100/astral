@@ -6,7 +6,7 @@ export const useCollectionHandler = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as CollectionObj);
 
   const queryGetCollection = async (collectionId: string) => {
-    const collection = await gqlHelper.queryGetCollection(collectionId);
+    const collection = await gqlHelper.gqlGetCollection(collectionId);
     changeCollection(collection);
     return collection;
   };

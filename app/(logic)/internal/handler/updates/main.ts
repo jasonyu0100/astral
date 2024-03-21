@@ -47,7 +47,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
 
   const updateActions: UpdateActions = {
     queryListUpdates: async (userId: string) => {
-      const updates = await gqlHelper.queryListUpdates(userId);
+      const updates = await gqlHelper.gqlListUpdates(userId);
       changeUpdates(updates);
       changeUpdateId(updates.at(0)?.id || '');
       return updates;
@@ -57,7 +57,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       log: string,
       file: FileObj,
     ) => {
-      const update = await gqlHelper.queryCreateFileUpdate(
+      const update = await gqlHelper.gqlCreateFileUpdate(
         spaceId,
         user?.id,
         title,
@@ -73,7 +73,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       description: string,
       log: LogObj,
     ) => {
-      const update = await gqlHelper.queryCreateLogUpdate(
+      const update = await gqlHelper.gqlCreateLogUpdate(
         spaceId,
         user?.id,
         title,
@@ -89,7 +89,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       log: string,
       sticky: NoteObj,
     ) => {
-      const update = await gqlHelper.queryCreateStickyUpdate(
+      const update = await gqlHelper.gqlCreateNoteUpdate(
         spaceId,
         user?.id,
         title,

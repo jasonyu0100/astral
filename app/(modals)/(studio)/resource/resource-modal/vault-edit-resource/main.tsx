@@ -10,7 +10,6 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceContext } from '@/(logic)/internal/model/resource/main';
-import { callUpdateResource } from '@/(logic)/internal/calls/resource/main';
 import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
 
 export function ArchiveEditResourceModal() {
@@ -21,12 +20,6 @@ export function ArchiveEditResourceModal() {
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
   const [file, changeFile] = useState(resource?.file || ({} as FileObj));
-
-  async function updateResource() {
-    await callUpdateResource(resource.id, title, description, file).then((resource) => {
-      resourcesHandler.resourceActions.updateResource(resource);
-    });
-  }
 
   return (
     <Modal isOpen={opened} onClose={() => close()}>
@@ -52,9 +45,16 @@ export function ArchiveEditResourceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              updateResource().then(() => {
-                close();
-              });
+              resourcesHandler.resourceActions
+                .queryUpdateResource(resource.id, {
+                  ...resource,
+                  title, 
+                  description, 
+                  file
+                })
+                .then(() => {
+                  close();
+                });
             }}
           >
             Save

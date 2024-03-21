@@ -33,7 +33,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
   const spaceActions: SpaceActions = {
     queryListSpaces: async () => {
-      const spaces = await gqlHelper.queryListSpaces(userId);
+      const spaces = await gqlHelper.gqlListSpaces(userId);
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },
@@ -44,7 +44,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       variant: string,
       chapterTemplates: ChapterTemplateObj[],
     ) => {
-      const space = await gqlHelper.queryCreateSpace(
+      const space = await gqlHelper.gqlCreateSpace(
         userId,
         title,
         description,
@@ -55,7 +55,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       changeSpaceId(space.id);
       const _ = await Promise.all(
         chapterTemplates.map(async (template, idx) => {
-          const chapter = await gqlHelper.queryCreateChapterWithinSpace(
+          const chapter = await gqlHelper.gqlCreateChapterWithinSpace(
             template.title,
             template.description,
             idx,
@@ -64,7 +64,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
           if (template.chatTemplate) {
             const chat = await gqlHelper
-              .queryCreateChatWithinChapter(
+              .gqlCreateChatWithinChapter(
                 template.chatTemplate.title,
                 template.chatTemplate?.description,
                 chapter.id,
@@ -74,7 +74,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
                   const messageTemplates = template.chatTemplate.messages;
                   await Promise.all(
                     messageTemplates.map(async (message) => {
-                      return gqlHelper.queryCreateAgentMessageWithinChat(
+                      return gqlHelper.gqlCreateAgentMessageWithinChat(
                         message.message,
                         chat.id,
                       );
@@ -87,7 +87,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
           if (template.constellationTemplate) {
             const constellation = await gqlHelper
-              .queryCreateConstellationWithinChapter(
+              .gqlCreateConstellationWithinChapter(
                 template.constellationTemplate.title,
                 template.constellationTemplate.description,
                 template.constellationTemplate.variant,
@@ -98,7 +98,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
                   const starTemplates = template.constellationTemplate.stars;
                   await Promise.all(
                     starTemplates.map((star) => {
-                      return gqlHelper.queryCreateFileStarWithinConstellation(
+                      return gqlHelper.gqlCreateFileStarWithinConstellation(
                         star.title,
                         star.x,
                         star.y,

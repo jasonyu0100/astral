@@ -35,13 +35,13 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
 
   const chapterActions: ChapterActions = {
     queryListChapters: async () => {
-      const chapters = await gqlHelper.queryListChapters(spaceId);
+      const chapters = await gqlHelper.gqlListChapters(spaceId);
       changeChapters(chapters);
       changeChapterId(chapters.at(0)?.id || '');
       return chapters;
     },
     queryCreateChapter: async (title: string, description: string, index: number) => {
-      const chapter = await gqlHelper.queryCreateChapter(title, description, index, spaceId);
+      const chapter = await gqlHelper.gqlCreateChapter(title, description, index, spaceId);
       changeChapters((prev) => [...prev, chapter]);
       changeChapterId(chapter.id);
       return chapter;
