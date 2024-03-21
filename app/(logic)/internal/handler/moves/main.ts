@@ -2,7 +2,7 @@ import { useState, useMemo, createContext } from 'react';
 import { MoveObj } from '@/(logic)/internal/model/move/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { toast } from 'sonner';
-import { gqlHelper } from '../../gql/moves/main';
+import { movesGqlHelper } from '../../gql/moves/main';
 
 export interface MoveActions {
   queryListMoves: () => Promise<void>;
@@ -31,7 +31,7 @@ export const useMovesHandler = (userId: string): MovesHandler => {
 
   const moveActions: MoveActions = {
     queryListMoves: async () => {
-      const moves = await gqlHelper.gqlListMoves(userId);
+      const moves = await movesGqlHelper.gqlListMoves(userId);
       changeMoves(moves);
       changeMoveId(moves[0]?.id || '');
     },
@@ -41,7 +41,7 @@ export const useMovesHandler = (userId: string): MovesHandler => {
       thumbnail: FileObj,
       variant: string,
     ) => {
-      const move = await gqlHelper.gqlCreateMove(
+      const move = await movesGqlHelper.gqlCreateMove(
         userId,
         title,
         description,

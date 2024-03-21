@@ -8,23 +8,23 @@ import {
 } from '@/graphql/mutations';
 import { listChapterObjs } from '@/graphql/queries';
 
-export interface ChapterGqlHelper {
-  gqlListChapters: (spaceId: string) => Promise<ChapterObj[]>;
-  gqlCreateChapter: (
+export interface ChaptersGqlHelper {
+  listFromSpace: (spaceId: string) => Promise<ChapterObj[]>;
+  create: (
     title: string,
     description: string,
     idx: number,
     spaceId: string,
   ) => Promise<ChapterObj>;
-  gqlUpdateChapter: (
+  update: (
     chapterId: string,
     updatedChapterObj: ChapterObj,
   ) => Promise<ChapterObj>;
-  gqlDeleteChapter: (chapterId: string) => Promise<ChapterObj>;
+  delete: (chapterId: string) => Promise<ChapterObj>;
 }
 
-export const gqlHelper: ChapterGqlHelper = {
-  gqlListChapters: async (spaceId: string) => {
+export const chaptersGqlHelper: ChaptersGqlHelper = {
+  listFromSpace: async (spaceId: string) => {
     const payload = await amplifyClient.graphql({
       query: listChapterObjs,
       variables: {
@@ -40,7 +40,7 @@ export const gqlHelper: ChapterGqlHelper = {
     const sortedChapterObjs = chapterObjs.sort((a, b) => a.idx - b.idx);
     return sortedChapterObjs;
   },
-  gqlCreateChapter: async (
+  create: async (
     title: string,
     description: string,
     idx: number,
@@ -60,7 +60,7 @@ export const gqlHelper: ChapterGqlHelper = {
     const chapterObj = payload.data?.createChapterObj as ChapterObj;
     return chapterObj;
   },
-  gqlUpdateChapter: async (
+  update: async (
     chapterId: string,
     updatedChapterObj: ChapterObj,
   ) => {
@@ -79,7 +79,7 @@ export const gqlHelper: ChapterGqlHelper = {
     const chapterObj = payload.data?.updateChapterObj as ChapterObj;
     return chapterObj;
   },
-  gqlDeleteChapter: async (chapterId: string) => {
+  delete: async (chapterId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteChapterObj,
       variables: {

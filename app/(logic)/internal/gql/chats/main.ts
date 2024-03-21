@@ -9,18 +9,18 @@ import {
 import { listChatObjs } from '@/graphql/queries';
 
 export interface ChatsGqlHelper {
-  gqlListChats: (chapterId: string) => Promise<ChatObj[]>;
-  gqlCreateChat: (
+  listFromChapter: (chapterId: string) => Promise<ChatObj[]>;
+  create: (
     chapterId: string,
     title: string,
     summary: string,
   ) => Promise<ChatObj>;
-  gqlUpdateChat: (chatId: string, updatedChatObj: ChatObj) => Promise<ChatObj>;
-  gqlDeleteChat: (chatId: string) => Promise<ChatObj>;
+  update: (chatId: string, updatedChatObj: ChatObj) => Promise<ChatObj>;
+  delete: (chatId: string) => Promise<ChatObj>;
 }
 
-export const gqlHelper: ChatsGqlHelper = {
-  gqlListChats: async (chapterId: string) => {
+export const chatsGqlHelper: ChatsGqlHelper = {
+  listFromChapter: async (chapterId: string) => {
     const payload = await amplifyClient.graphql({
       query: listChatObjs,
       variables: {
@@ -34,7 +34,7 @@ export const gqlHelper: ChatsGqlHelper = {
     const chatObjs = (payload.data?.listChatObjs?.items as ChatObj[]) || [];
     return chatObjs;
   },
-  gqlCreateChat: async (chapterId: string, title: string, summary: string) => {
+  create: async (chapterId: string, title: string, summary: string) => {
     const currentDate = new Date().toISOString();
     const payload = await amplifyClient.graphql({
       query: createChatObj,
@@ -50,7 +50,7 @@ export const gqlHelper: ChatsGqlHelper = {
     const chatObj = payload.data?.createChatObj as ChatObj;
     return chatObj;
   },
-  gqlUpdateChat: async (chatId: string, updatedChatObj: ChatObj) => {
+  update: async (chatId: string, updatedChatObj: ChatObj) => {
     const payload = await amplifyClient.graphql({
       query: updateChatObj,
       variables: {
@@ -66,7 +66,7 @@ export const gqlHelper: ChatsGqlHelper = {
     const chatObj = payload.data?.updateChatObj as ChatObj;
     return chatObj;
   },
-  gqlDeleteChat: async (chatId: string) => {
+  delete: async (chatId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteChatObj,
       variables: {

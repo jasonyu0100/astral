@@ -1,46 +1,30 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import { CollectionObj } from '@/(logic)/internal/model/gallery/collection/main';
-import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import {
-  ResourceObj,
-  ResourceVariant,
-} from '@/(logic)/internal/model/resource/main';
 import { gqlArgs } from '@/(logic)/utils/clean';
 import {
   createCollectionObj,
-  createResourceObj,
   deleteCollectionObj,
   updateCollectionObj,
 } from '@/graphql/mutations';
-import {
-  getCollectionObj,
-  listCollectionObjs,
-  listResourceObjs,
-} from '@/graphql/queries';
+import { getCollectionObj, listCollectionObjs } from '@/graphql/queries';
 
-export interface CollectionGqlHelper {
-  gqlGetCollection: (id: string) => Promise<CollectionObj>;
-  gqlListCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
-  gqlListCollections: (galleryId: string) => Promise<CollectionObj[]>;
-  gqlCreateCollection: (
+export interface CollectionsGqlHelper {
+  get: (id: string) => Promise<CollectionObj>;
+  listFromGallery: (galleryId: string) => Promise<CollectionObj[]>;
+  create: (
     galleryId: string,
     title: string,
     description: string,
   ) => Promise<CollectionObj>;
-  gqlCreateCollectionResources: (
-    userId: string,
-    collection: CollectionObj,
-    files: FileObj[],
-  ) => Promise<ResourceObj[]>;
-  gqlUpdateCollection: (
+  update: (
     collectionId: string,
     updatedCollectionObj: CollectionObj,
   ) => Promise<CollectionObj>;
-  gqlDeleteCollection: (collectionId: string) => Promise<CollectionObj>;
+  delete: (collectionId: string) => Promise<CollectionObj>;
 }
 
-export const gqlHelper: CollectionGqlHelper = {
-  gqlGetCollection: async (id: string) => {
+export const collectionsGqlHelper: CollectionsGqlHelper = {
+  get: async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getCollectionObj,
       variables: {
@@ -51,21 +35,7 @@ export const gqlHelper: CollectionGqlHelper = {
     const collectionObj = payload?.data?.getCollectionObj as CollectionObj;
     return collectionObj;
   },
-  gqlListCollectionResources: async (collectionId: string) => {
-    const payload = await amplifyClient.graphql({
-      query: listResourceObjs,
-      variables: {
-        filter: {
-          userId: {
-            eq: collectionId,
-          },
-        },
-      },
-    });
-    const resourceObjs = payload?.data?.listResourceObjs?.items as ResourceObj[];
-    return resourceObjs;
-  },
-  gqlListCollections: async (galleryId: string) => {
+  listFromGallery: async (galleryId: string) => {
     const payload = await amplifyClient.graphql({
       query: listCollectionObjs,
       variables: {
@@ -80,17 +50,13 @@ export const gqlHelper: CollectionGqlHelper = {
       (payload?.data?.listCollectionObjs?.items as CollectionObj[]) || [];
     return collectionObjs;
   },
-  gqlCreateCollection: async (
-    galleryId: string,
-    title: string,
-    description: string,
-  ) => {
+  create: async (galleryId: string, title: string, description: string) => {
     const payload = await amplifyClient.graphql({
       query: createCollectionObj,
       variables: {
         input: gqlArgs({
-          title: title,
           galleryId: galleryId,
+          title: title,
           description: description,
         }),
       },
@@ -98,35 +64,7 @@ export const gqlHelper: CollectionGqlHelper = {
     const collectionObj = payload?.data?.createCollectionObj as CollectionObj;
     return collectionObj;
   },
-  gqlCreateCollectionResources: async (
-    userId: string,
-    collection: CollectionObj,
-    files: FileObj[],
-  ) => {
-    const resourceObjs = [];
-    for (let file of files) {
-      const payload = await amplifyClient.graphql({
-        query: createResourceObj,
-        variables: {
-          input: gqlArgs({
-            title: file.title,
-            description: file.title,
-            collectionId: collection.id,
-            file: file,
-            variant: ResourceVariant.FILE,
-            userId: userId,
-          }),
-        },
-      });
-      const resourceObj = payload?.data?.createResourceObj as ResourceObj;
-      resourceObjs.push(resourceObj);
-    }
-    return resourceObjs;
-  },
-  gqlUpdateCollection: async (
-    collectionId: string,
-    updatedCollectionObj: CollectionObj,
-  ) => {
+  update: async (collectionId: string, updatedCollectionObj: CollectionObj) => {
     const payload = await amplifyClient.graphql({
       query: updateCollectionObj,
       variables: {
@@ -141,7 +79,7 @@ export const gqlHelper: CollectionGqlHelper = {
     const collectionObj = payload?.data?.updateCollectionObj as CollectionObj;
     return collectionObj;
   },
-  gqlDeleteCollection: async (collectionId: string) => {
+  delete: async (collectionId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteCollectionObj,
       variables: {

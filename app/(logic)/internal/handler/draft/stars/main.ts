@@ -5,7 +5,7 @@ import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
 import { toast } from 'sonner';
-import { gqlHelper } from '../../../gql/stars/main';
+import { starsGqlHelper } from '../../../gql/stars/main';
 export interface StarActions {
   queryListStars: () => Promise<StarObj[]>;
   queryCreateFileStar: (
@@ -59,7 +59,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
 
   const starActions: StarActions = {
     queryListStars: async () => {
-      const stars = await gqlHelper.gqlListStars(constellationId);
+      const stars = await starsGqlHelper.listFromConstellation(constellationId);
       changeStars(stars);
       changeStarId(stars[0]?.id || '');
       return stars;
@@ -75,7 +75,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.gqlCreateFileStar(
+      const star = await starsGqlHelper.createFromFile(
         constellationId,
         title,
         description,
@@ -98,7 +98,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.gqlCreateNoteStar(
+      const star = await starsGqlHelper.createFromNote(
         constellationId,
         name,
         description,
@@ -121,7 +121,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.gqlCreateLinkStar(
+      const star = await starsGqlHelper.createFromLink(
         constellationId,
         title,
         description,
@@ -144,7 +144,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await gqlHelper.gqlCreateLogStar(
+      const star = await starsGqlHelper.createFromLog(
         constellationId,
         title,
         description,
@@ -157,7 +157,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       return star;
     },
     queryUpdateStars: async () => {
-      const updatedStars = await gqlHelper.gqlUpdateStars(stars);
+      const updatedStars = await starsGqlHelper.updateMany(stars);
       toast.success('Stars Updated');
       return updatedStars;
     },

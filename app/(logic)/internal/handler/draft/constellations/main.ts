@@ -1,6 +1,6 @@
 import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../../gql/constellations/main';
+import { constellationsGqlHelper } from '../../../gql/constellations/main';
 
 export interface ConstellationActions {
   queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
@@ -42,7 +42,7 @@ export const useConstellationsHandler = (
 
   const constellationActions: ConstellationActions = {
     queryListConstellations: async (chapterId: string) => {
-      const constellations = await gqlHelper.gqlListConstellations(chapterId);
+      const constellations = await constellationsGqlHelper.listFromChapter(chapterId);
       changeConstellations(constellations);
       changeConstellationId(constellations[0]?.id || '');
       return constellations;
@@ -52,7 +52,7 @@ export const useConstellationsHandler = (
       description: string,
       variant: string,
     ) => {
-      const constellation = await gqlHelper.gqlCreateConstellation(
+      const constellation = await constellationsGqlHelper.create(
         chapterId,
         title,
         description,

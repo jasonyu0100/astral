@@ -1,7 +1,7 @@
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { useState, useEffect, createContext } from 'react';
-import { gqlHelper } from '../../../gql/resources/main';
+import { resourcesGqlHelper } from '../../../gql/resources/main';
 
 interface ResourcesHandler {
   resourceId: string;
@@ -51,7 +51,7 @@ export const useResourcesHandler = (
   const resourceActions: ResourcesActions = {
     queryListResources: async (collectionId: string) => {
       const resources =
-        await gqlHelper.gqlListCollectionResources(collectionId);
+        await resourcesGqlHelper.listFromCollection(collectionId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;
@@ -61,7 +61,7 @@ export const useResourcesHandler = (
       description: string,
       file: FileObj,
     ) => {
-      const resource = await gqlHelper.gqlCreateFileResource(
+      const resource = await resourcesGqlHelper.createFromFile(
         userId,
         collectionId,
         name,
@@ -76,7 +76,7 @@ export const useResourcesHandler = (
       resourceId: string,
       updatedResourceObj: ResourceObj,
     ) => {
-      const resource = await gqlHelper.gqlUpdateResource(
+      const resource = await resourcesGqlHelper.update(
         resourceId,
         updatedResourceObj
       );

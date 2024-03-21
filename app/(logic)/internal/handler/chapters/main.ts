@@ -1,6 +1,6 @@
 import { ChapterObj } from '@/(logic)/internal/model/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../gql/chapters/main';
+import { chaptersGqlHelper } from '../../gql/chapters/main';
 
 export interface ChapterActions {
   addChapter: (chapter: ChapterObj) => ChapterObj;
@@ -35,13 +35,13 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
 
   const chapterActions: ChapterActions = {
     queryListChapters: async () => {
-      const chapters = await gqlHelper.gqlListChapters(spaceId);
+      const chapters = await chaptersGqlHelper.listFromSpace(spaceId);
       changeChapters(chapters);
       changeChapterId(chapters.at(0)?.id || '');
       return chapters;
     },
     queryCreateChapter: async (title: string, description: string, index: number) => {
-      const chapter = await gqlHelper.gqlCreateChapter(title, description, index, spaceId);
+      const chapter = await chaptersGqlHelper.create(title, description, index, spaceId);
       changeChapters((prev) => [...prev, chapter]);
       changeChapterId(chapter.id);
       return chapter;

@@ -10,20 +10,20 @@ import { getMoveObj, listMoveObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/(logic)/utils/clean';
 
 export interface MovesGqlHelper {
-  gqlGetMove: (id: string) => Promise<MoveObj>;
-  gqlCreateMove: (
+  get: (id: string) => Promise<MoveObj>;
+  create: (
     userId: string,
     title: string,
     description: string,
     thumbnail: FileObj,
     variant: string,
   ) => Promise<MoveObj>;
-  gqlListMoves: (userId: string) => Promise<MoveObj[]>;
-  gqlDeleteMove: (moveId: string) => Promise<MoveObj>;
-  gqlUpdateMove: (moveId: string, updatedMoveObj: MoveObj) => Promise<MoveObj>;
+  listFromUser: (userId: string) => Promise<MoveObj[]>;
+  delete: (moveId: string) => Promise<MoveObj>;
+  update: (moveId: string, updatedMoveObj: MoveObj) => Promise<MoveObj>;
 }
 
-export const gqlHelper = {
+export const movesGqlHelper = {
   gqlGetMove: async (id: string) => {
     const payload = await amplifyClient.graphql({
       query: getMoveObj,

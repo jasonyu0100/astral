@@ -8,25 +8,25 @@ import {
 } from '@/graphql/mutations';
 import { listConstellationObjs } from '@/graphql/queries';
 
-export interface ConstellationGqlHelper {
-  gqlListConstellations: (chapterId: string) => Promise<ConstellationObj[]>;
-  gqlCreateConstellation: (
+export interface ConstellationsGqlHelper {
+  listFromChapter: (chapterId: string) => Promise<ConstellationObj[]>;
+  create: (
     chapterId: string,
     title: string,
     description: string,
     variant: string,
   ) => Promise<ConstellationObj>;
-  gqlUpdateConstellation: (
+  update: (
     constellationId: string,
     updatedConstellationObj: ConstellationObj,
   ) => Promise<ConstellationObj>;
-  gqlDeleteConstellation: (
+  delete: (
     constellationId: string,
   ) => Promise<ConstellationObj>;
 }
 
-export const gqlHelper : ConstellationGqlHelper = {
-  gqlListConstellations: async (chapterId: string) => {
+export const constellationsGqlHelper : ConstellationsGqlHelper = {
+  listFromChapter: async (chapterId: string) => {
     const payload = await amplifyClient.graphql({
       query: listConstellationObjs,
       variables: {
@@ -41,7 +41,7 @@ export const gqlHelper : ConstellationGqlHelper = {
       (payload?.data.listConstellationObjs?.items as ConstellationObj[]) || [];
     return constellationObjs;
   },
-  gqlCreateConstellation: async (
+  create: async (
     chapterId: string,
     title: string,
     description: string,
@@ -62,7 +62,7 @@ export const gqlHelper : ConstellationGqlHelper = {
       .createConstellationObj as ConstellationObj;
     return constellationObj;
   },
-  gqlUpdateConstellation: async (
+  update: async (
     constellationId: string,
     updatedConstellationObj: ConstellationObj,
   ) => {
@@ -82,7 +82,7 @@ export const gqlHelper : ConstellationGqlHelper = {
       .updateConstellationObj as ConstellationObj;
     return constellationObj;
   },
-  gqlDeleteConstellation: async (constellationId: string) => {
+  delete: async (constellationId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteConstellationObj,
       variables: {

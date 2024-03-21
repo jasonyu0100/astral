@@ -1,7 +1,7 @@
 import { MessageObj } from '@/(logic)/internal/model/storm/chat/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
-import { gqlHelper } from '../../../gql/messages/main';
+import { messagesGqlHelper } from '../../../gql/messages/main';
 import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {
@@ -28,11 +28,11 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
 
   const messageActions: MessageActions = {
     queryCreateUserMessage: async (text: string) => {
-      const message = await gqlHelper.gqlCreateUserMessage(chatId, userId, text);
+      const message = await messagesGqlHelper.createFromUser(chatId, userId, text);
       return message;
     },
     queryListMessages: async (chatId: string) => {
-      const messages = await gqlHelper.gqlListMessages(chatId);
+      const messages = await messagesGqlHelper.listFromChat(chatId);
       changeMessages(messages);
       return messages;
     },
@@ -40,7 +40,7 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       const agentResponse =
         (await getMessageResponse(userMessage.message)) || '';
       const agentMessage =
-        await gqlHelper.gqlCreateAgentMessage(chatId, agentResponse);
+        await messagesGqlHelper.createFromAgent(chatId, agentResponse);
       return agentMessage;
     },
     addUserMessage: (message: MessageObj) => {

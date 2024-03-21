@@ -2,7 +2,8 @@ import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { CollectionObj } from '@/(logic)/internal/model/gallery/collection/main';
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../../gql/collections/main';
+import { collectionsGqlHelper } from '../../../gql/collections/main';
+import { resourcesGqlHelper } from '@/(logic)/internal/gql/resources/main';
 export interface CollectionsHandler {
   collectionId: string;
   collection: CollectionObj | undefined;
@@ -35,22 +36,22 @@ export const useCollectionsHandler = (galleryId: string, userId: string): Collec
       return collection;
     },
     queryCollectionResources: async (collectionId: string) => {
-      const resources = await gqlHelper.gqlListCollectionResources(collectionId);
+      const resources = await resourcesGqlHelper.listFromCollection(collectionId);
       return resources;
     },
     queryListCollections: async (galleryId: string) => {
-      const collections = await gqlHelper.gqlListCollections(galleryId);
+      const collections = await collectionsGqlHelper.listFromGallery(galleryId);
       changeCollections(collections);
       changeCollectionId(collections[0]?.id || '');
       return collections;
     },
     queryCreateCollection: async (title: string, description: string, files: FileObj[]) => {
-      const collection = await gqlHelper.gqlCreateCollection(galleryId, title, description);
+      const collection = await collectionsGqlHelper.create(galleryId, title, description);
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);
-      const resources = await gqlHelper.gqlCreateCollectionResources(
+      const resources = await resourcesGqlHelper.createFromMultipleFiles(
         userId,
-        collection,
+        collection.id,
         files,
       );
       return collection;

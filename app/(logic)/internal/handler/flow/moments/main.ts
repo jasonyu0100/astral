@@ -4,7 +4,7 @@ import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../../gql/moments/main';
+import { momentsGqlHelper } from '../../../gql/moments/main';
 
 export interface MomentActions {
   queryListMoments: () => Promise<MomentObj[]>;
@@ -49,7 +49,7 @@ export const useMomentsHandler = (
 
   const momentActions: MomentActions = {
     queryListMoments: async () => {
-      const moments = await gqlHelper.gqlListMoments(chapterId);
+      const moments = await momentsGqlHelper.listFromChapter(chapterId);
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
       return moments;
@@ -59,7 +59,7 @@ export const useMomentsHandler = (
       log: string,
       file: FileObj,
     ) => {
-      const moment = await gqlHelper.gqlCreateFileMoment(
+      const moment = await momentsGqlHelper.create.createFromFile(
         chapterId,
         spaceId,
         user?.id,
@@ -76,7 +76,7 @@ export const useMomentsHandler = (
       description: string,
       log: LogObj,
     ) => {
-      const moment = await gqlHelper.gqlCreateLogMoment(
+      const moment = await momentsGqlHelper.create.createFromLog(
         chapterId,
         spaceId,
         user?.id,
@@ -93,7 +93,7 @@ export const useMomentsHandler = (
       log: string,
       sticky: NoteObj,
     ) => {
-      const moment = await gqlHelper.gqlCreateStickyMoment(
+      const moment = await momentsGqlHelper.create.createFromNote(
         chapterId,
         spaceId,
         user?.id,

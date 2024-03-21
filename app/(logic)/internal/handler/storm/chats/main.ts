@@ -1,7 +1,7 @@
 import { ChatObj } from '@/(logic)/internal/model/storm/chat/main';
 import { chatTable } from '@/(logic)/internal/model/storm/table';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '@/(logic)/internal/gql/chats/main';
+import { chatsGqlHelper } from '@/(logic)/internal/gql/chats/main';
 
 export interface ChatActions {
   updateChats: (chats: ChatObj[]) => ChatObj[];
@@ -28,13 +28,13 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
 
   const chatActions: ChatActions = {
     queryListChats: async () => {
-      const chats = await gqlHelper.gqlListChats(chapterId);
+      const chats = await chatsGqlHelper.listFromChapter(chapterId);
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       return chats;
     },
     queryCreateChat: async (title: string, summary: string) => {
-      const chat = await gqlHelper.gqlCreateChat(chapterId, title, summary);
+      const chat = await chatsGqlHelper.create(chapterId, title, summary);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
       return chat;

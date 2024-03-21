@@ -1,12 +1,12 @@
 import { SpaceObj } from '@/(logic)/internal/model/space/main';
 import { useState, useMemo } from 'react';
-import { gqlHelper } from '../../../gql/spaces/main';
+import { spacesGqlHelper } from '../../../gql/spaces/main';
 
 export const useSpaceHandler = (spaceId: string) => {
   const [space, changeSpace] = useState({} as SpaceObj);
 
   const queryGetSpace = async (spaceId: string) => {
-    const space: SpaceObj = await gqlHelper.gqlGetSpace(spaceId);
+    const space: SpaceObj = await spacesGqlHelper.get(spaceId);
     changeSpace(space);
     return space;
   };

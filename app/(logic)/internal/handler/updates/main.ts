@@ -3,7 +3,7 @@ import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../gql/updates/main';
+import { updatesGqlHelper } from '../../gql/updates/main';
 import { UpdateObj } from '../../model/update/main';
 
 export interface UpdateActions {
@@ -47,7 +47,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
 
   const updateActions: UpdateActions = {
     queryListUpdates: async (userId: string) => {
-      const updates = await gqlHelper.gqlListUpdates(userId);
+      const updates = await updatesGqlHelper.listFromChapter(userId);
       changeUpdates(updates);
       changeUpdateId(updates.at(0)?.id || '');
       return updates;
@@ -57,7 +57,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       log: string,
       file: FileObj,
     ) => {
-      const update = await gqlHelper.gqlCreateFileUpdate(
+      const update = await updatesGqlHelper.create.createFromFile(
         spaceId,
         user?.id,
         title,
@@ -73,7 +73,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       description: string,
       log: LogObj,
     ) => {
-      const update = await gqlHelper.gqlCreateLogUpdate(
+      const update = await updatesGqlHelper.create.createFromLog(
         spaceId,
         user?.id,
         title,
@@ -89,7 +89,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       log: string,
       sticky: NoteObj,
     ) => {
-      const update = await gqlHelper.gqlCreateNoteUpdate(
+      const update = await updatesGqlHelper.create.createFromNote(
         spaceId,
         user?.id,
         title,

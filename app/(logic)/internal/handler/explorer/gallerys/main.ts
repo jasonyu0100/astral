@@ -1,7 +1,7 @@
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { GalleryObj } from '@/(logic)/internal/model/gallery/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../../gql/gallerys/main';
+import { gallerysGqlHelper } from '../../../gql/gallerys/main';
 
 export interface GallerysHandler {
   gallery: GalleryObj | undefined;
@@ -33,7 +33,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       return gallery;
     },
     queryListGallerys: async () => {
-      const gallerys = await gqlHelper.gqlListGallerys(userId);
+      const gallerys = await gallerysGqlHelper.listFromUser(userId);
       changeGallerys(gallerys);
       changeGalleryId(gallerys[0]?.id || '');
       return gallerys;
@@ -43,7 +43,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       description: string,
       thumbnail: FileObj,
     ) => {
-      const gallery = await gqlHelper.gqlCreateGallery(
+      const gallery = await gallerysGqlHelper.create(
         userId,
         title,
         description,

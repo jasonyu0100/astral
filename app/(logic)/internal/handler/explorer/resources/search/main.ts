@@ -1,6 +1,6 @@
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import { useState, useEffect, createContext } from 'react';
-import { gqlHelper } from '../../../../gql/resources/main';
+import { resourcesGqlHelper } from '../../../../gql/resources/main';
 
 interface SearchResourcesHandler {
   resourceId: string;
@@ -41,7 +41,7 @@ export const useSearchResource = (
 
   const searchActions: SearchActions = {
     queryListResources: async (userId: string) => {
-      const resources = await gqlHelper.queryListUserResources(userId);
+      const resources = await resourcesGqlHelper.queryListUserResources(userId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;

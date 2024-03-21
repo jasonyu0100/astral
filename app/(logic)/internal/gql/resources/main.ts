@@ -5,25 +5,38 @@ import {
   ResourceVariant,
 } from '@/(logic)/internal/model/resource/main';
 import { gqlArgs } from '@/(logic)/utils/clean';
-import { createResourceObj, deleteResourceObj, updateResourceObj } from '@/graphql/mutations';
+import {
+  createResourceObj,
+  deleteResourceObj,
+  updateResourceObj,
+} from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
+import { CollectionObj } from '../../model/gallery/collection/main';
 
 export interface ResourcesGqlHelper {
-  gqlListCollectionResources: (collectionId: string) => Promise<ResourceObj[]>;
-  gqlCreateFileResource: (
+  listFromCollection: (collectionId: string) => Promise<ResourceObj[]>;
+  listFromUser: (userId: string) => Promise<ResourceObj[]>;
+  createFromFile: (
     userId: string,
     collectionId: string,
     title: string,
     description: string,
     file: FileObj,
   ) => Promise<ResourceObj>;
-  gqlListUserResources: (userId: string) => Promise<ResourceObj[]>;
-  gqlUpdateResource: (resourceId: string, updatedResourceObj: ResourceObj) => Promise<ResourceObj>
-  gqlDeleteResource: (resourceId: string) => Promise<ResourceObj>;
+  createFromMultipleFiles: (
+    userId: string,
+    collectionId: string,
+    files: FileObj[],
+  ) => Promise<ResourceObj[]>;
+  update: (
+    resourceId: string,
+    updatedResourceObj: ResourceObj,
+  ) => Promise<ResourceObj>;
+  delete: (resourceId: string) => Promise<ResourceObj>;
 }
 
-export const gqlHelper: ResourcesGqlHelper = {
-  gqlListCollectionResources: async (collectionId: string) => {
+export const resourcesGqlHelper: ResourcesGqlHelper = {
+  listFromCollection: async (collectionId: string) => {
     const payload = await amplifyClient.graphql({
       query: listResourceObjs,
       variables: {
@@ -39,7 +52,7 @@ export const gqlHelper: ResourcesGqlHelper = {
       (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
     return resourceObjs;
   },
-  gqlListUserResources: async (userId: string) => {
+  listFromUser: async (userId: string) => {
     const payload = await amplifyClient.graphql({
       query: listResourceObjs,
       variables: {
@@ -55,7 +68,7 @@ export const gqlHelper: ResourcesGqlHelper = {
       (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
     return resourceObjs;
   },
-  gqlCreateFileResource: async (
+  createFromFile: async (
     userId: string,
     collectionId: string,
     title: string,
@@ -78,10 +91,32 @@ export const gqlHelper: ResourcesGqlHelper = {
     const resourceObj = payload?.data?.createResourceObj as ResourceObj;
     return resourceObj;
   },
-  gqlUpdateResource: async (
-    resourceId: string,
-    updatedResourceObj: ResourceObj,
+  createFromMultipleFiles: async (
+    userId: string,
+    collectionId: string,
+    files: FileObj[],
   ) => {
+    const resourceObjs = [];
+    for (let file of files) {
+      const payload = await amplifyClient.graphql({
+        query: createResourceObj,
+        variables: {
+          input: gqlArgs({
+            title: file.title,
+            description: file.title,
+            collectionId: collectionId,
+            file: file,
+            variant: ResourceVariant.FILE,
+            userId: userId,
+          }),
+        },
+      });
+      const resourceObj = payload?.data?.createResourceObj as ResourceObj;
+      resourceObjs.push(resourceObj);
+    }
+    return resourceObjs;
+  },
+  update: async (resourceId: string, updatedResourceObj: ResourceObj) => {
     const payload = await amplifyClient.graphql({
       query: updateResourceObj,
       variables: {
@@ -99,7 +134,7 @@ export const gqlHelper: ResourcesGqlHelper = {
     const resourceObj = payload?.data?.updateResourceObj as ResourceObj;
     return resourceObj;
   },
-  gqlDeleteResource: async (resourceId: string) => {
+  delete: async (resourceId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteResourceObj,
       variables: {
@@ -110,5 +145,5 @@ export const gqlHelper: ResourcesGqlHelper = {
     });
     const resourceObj = payload?.data?.deleteResourceObj as ResourceObj;
     return resourceObj;
-  }
+  },
 };

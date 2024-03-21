@@ -12,22 +12,22 @@ import {
 import { listMessageObjs } from '@/graphql/queries';
 
 export interface MessagesGqlHelper {
-  gqlListMessages: (chatId: string) => Promise<MessageObj[]>;
-  gqlCreateUserMessage: (
+  listFromChat: (chatId: string) => Promise<MessageObj[]>;
+  createFromUser: (
     chatId: string,
     userId: string,
     text: string,
   ) => Promise<MessageObj>;
-  gqlCreateAgentMessage: (chatId: string, text: string) => Promise<MessageObj>;
-  gqlDeleteMessage: (messageId: string) => Promise<MessageObj>;
-  gqlUpdateMessage: (
+  createFromAgent: (chatId: string, text: string) => Promise<MessageObj>;
+  delete: (messageId: string) => Promise<MessageObj>;
+  update: (
     messageId: string,
     updatedMessageObj: MessageObj,
   ) => Promise<MessageObj>;
 }
 
-export const gqlHelper: MessagesGqlHelper = {
-  gqlCreateUserMessage: async (
+export const messagesGqlHelper: MessagesGqlHelper = {
+  createFromUser: async (
     chatId: string,
     userId: string,
     text: string,
@@ -48,7 +48,7 @@ export const gqlHelper: MessagesGqlHelper = {
     const messageObj = payload.data?.createMessageObj as MessageObj;
     return messageObj;
   },
-  gqlListMessages: async (chatId: string) => {
+  listFromChat: async (chatId: string) => {
     const payload = await amplifyClient.graphql({
       query: listMessageObjs,
       variables: {
@@ -63,7 +63,7 @@ export const gqlHelper: MessagesGqlHelper = {
       (payload.data?.listMessageObjs?.items as MessageObj[]) || [];
     return messageObjs;
   },
-  gqlCreateAgentMessage: async (chatId: string, text: string) => {
+  createFromAgent: async (chatId: string, text: string) => {
     const currentDate = new Date().toISOString();
     const payload = await amplifyClient.graphql({
       query: createMessageObj,
@@ -79,7 +79,7 @@ export const gqlHelper: MessagesGqlHelper = {
     const messageObj = payload.data?.createMessageObj as MessageObj;
     return messageObj;
   },
-  gqlDeleteMessage: async (messageId: string) => {
+  delete: async (messageId: string) => {
     const payload = await amplifyClient.graphql({
       query: deleteMessageObj,
       variables: {
@@ -91,7 +91,7 @@ export const gqlHelper: MessagesGqlHelper = {
     const messageObj = payload.data?.deleteMessageObj as MessageObj;
     return messageObj;
   },
-  gqlUpdateMessage: async (
+  update: async (
     messageId: string,
     updatedMessageObj: MessageObj,
   ) => {
