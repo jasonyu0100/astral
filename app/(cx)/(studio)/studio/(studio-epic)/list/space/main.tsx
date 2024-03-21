@@ -28,7 +28,7 @@ export function StudioSpace({ index }: { index: number }) {
       <GlassContainer
         displayName={StudioSpace.name}
         sizeStyle='w-full h-[100px]'
-        glassStyle={`${hover && backgroundStyles['glass-5']}`}
+        glassStyle={`${hover && backgroundStyles['glass-10']}`}
         className={`flex h-[100px] w-full flex-row items-center justify-between pl-[3rem] pr-[2rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}
