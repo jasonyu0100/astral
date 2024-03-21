@@ -5,7 +5,7 @@ import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
 import { toast } from 'sonner';
-import { starsGqlHelper } from '../../../gql/stars/main';
+import { starsGqlHelper } from '../../gql/stars/main';
 export interface StarActions {
   listStars: () => Promise<StarObj[]>;
   createFromFile: (
@@ -75,7 +75,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await starsGqlHelper.createFromFile(
+      const star = await starsGqlHelper.create.createFromFile(
         constellationId,
         title,
         description,
@@ -98,7 +98,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await starsGqlHelper.createFromNote(
+      const star = await starsGqlHelper.create.createFromNote(
         constellationId,
         name,
         description,
@@ -121,7 +121,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await starsGqlHelper.createFromLink(
+      const star = await starsGqlHelper.create.createFromLink(
         constellationId,
         title,
         description,
@@ -144,7 +144,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
         alert('No Constellation Active');
         return {} as StarObj;
       }
-      const star = await starsGqlHelper.createFromLog(
+      const star = await starsGqlHelper.create.createFromLog(
         constellationId,
         title,
         description,

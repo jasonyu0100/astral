@@ -6,14 +6,14 @@ import {
 } from '@/(logic)/internal/model/resource/log/main';
 import { StarModalContext } from '@/(modals)/(process)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 
 export function DraftHeaderLogButton({ ...props }: ButtonInputProps) {
   const { updateLogObj, open } = useContext(StarModalContext).addLogStarModal;
   const BUTTON_ID = 'loom-record-sdk-button';
 
-  useMemo(() => {
+  useEffect(() => {
     async function setupLoom() {
       const { supported, error } = await isSupported();
 

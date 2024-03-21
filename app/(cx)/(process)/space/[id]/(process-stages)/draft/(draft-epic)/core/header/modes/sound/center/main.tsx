@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import DraftHeaderTitle from '../../../common/title/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
+import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
 
 export function SoundCenter() {
   const constellationsHandler = useContext(ConstellationsHandlerContext);

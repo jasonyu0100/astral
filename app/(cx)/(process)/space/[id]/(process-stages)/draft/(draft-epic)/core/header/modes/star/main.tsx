@@ -3,7 +3,7 @@ import { DraftHeaderStarCenter } from './center/main';
 import { DraftHeaderStarLeft } from './left/main';
 import { DraftHeaderStarRight } from './right/main';
 import { StarContext, StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function DraftHeaderStar() {
   const starsHandler = useContext(StarsHandlerContext);

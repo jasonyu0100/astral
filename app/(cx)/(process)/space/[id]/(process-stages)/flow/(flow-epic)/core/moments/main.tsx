@@ -3,7 +3,7 @@ import { containerStyles } from '@/(design)/(styles)/data';
 import { createContext, useContext } from 'react';
 import { FlowMoment } from './moment/main';
 import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
-import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/moments/main';
 
 export const FlowMomentContext = createContext({} as MomentObj);
 

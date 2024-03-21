@@ -10,7 +10,7 @@ import { ResourceModalView } from '@/(modals)/(studio)/resource/resource-modal/v
 import { useContext } from 'react';
 import { ResourcePolaroid } from './polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function SidebarCollectionResource() {
   const starsHandler = useContext(StarsHandlerContext)

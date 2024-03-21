@@ -15,25 +15,19 @@ export function ToggleButton() {
   const { modalType } = useContext(DraftContext);
   return (
     <WrapperTooltip text={modalType}>
-      <button
-        className={
-          'flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950 flex-shrink-0 animate-pulse-slow'
-        }
+      <GlassContainer
+        displayName={ToggleButton.name}
+        sizeStyle={'w-[60px] h-[60px]'}
+        glassStyle={backgroundStyles['glass-5']}
+        className='flex animate-pulse-slow cursor-pointer flex-col items-center justify-center'
         onClick={() => toggle()}
       >
-        <GlassContainer
-          displayName={ToggleButton.name}
-          sizeStyle={'w-[60px] h-[60px]'}
-          glassStyle={backgroundStyles['glass-5']}
-          className='flex flex-col justify-center items-center'
-        >
-          {modalType === DraftModalType.STAR && <StarIcon />}
-          {modalType === DraftModalType.DEFAULT && <NetworkIcon />}
-          {modalType === DraftModalType.AUDIO && <SoundIcon />}
-          {modalType === DraftModalType.VISUAL && <VisualIcon />}
-          {modalType === DraftModalType.TEXT && <InfoIcon />}
-        </GlassContainer>
-      </button>
+        {modalType === DraftModalType.STAR && <StarIcon />}
+        {modalType === DraftModalType.DEFAULT && <NetworkIcon />}
+        {modalType === DraftModalType.AUDIO && <SoundIcon />}
+        {modalType === DraftModalType.VISUAL && <VisualIcon />}
+        {modalType === DraftModalType.TEXT && <InfoIcon />}
+      </GlassContainer>
     </WrapperTooltip>
   );
 }

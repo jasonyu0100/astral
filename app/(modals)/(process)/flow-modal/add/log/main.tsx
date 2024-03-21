@@ -9,7 +9,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { FlowModalContext } from '../../main';
-import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/moments/main';
 
 export function FlowAddLogModal() {
   const momentsHandler = useContext(MomentsHandlerContext);

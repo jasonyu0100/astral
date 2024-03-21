@@ -12,7 +12,7 @@ import {
 } from '@/(logic)/internal/model/resource/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);

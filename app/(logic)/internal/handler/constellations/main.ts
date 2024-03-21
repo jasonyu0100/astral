@@ -1,6 +1,6 @@
 import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
 import { createContext, useMemo, useState } from 'react';
-import { constellationsGqlHelper } from '../../../gql/constellations/main';
+import { constellationsGqlHelper } from '../../gql/constellations/main';
 
 export interface ConstellationActions {
   listConstellations: (id: string) => Promise<ConstellationObj[]>;

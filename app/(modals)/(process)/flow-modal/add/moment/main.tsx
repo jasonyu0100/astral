@@ -11,7 +11,7 @@ import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { FlowModalContext } from '../../main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { Divider } from '@/(components)/(basic)/divider/main';
-import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/moments/main';
 
 export function FlowAddMomentModal() {
   const momentsHandler = useContext(MomentsHandlerContext);

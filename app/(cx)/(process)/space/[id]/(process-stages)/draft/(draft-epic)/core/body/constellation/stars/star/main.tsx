@@ -7,8 +7,8 @@ import { FileStar } from './file/main';
 import { LogStar } from './log/main';
 import { LinkStar } from './link/main';
 import { NoteStar } from './note/main';
-import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
-import { useStarHandler } from '@/(logic)/internal/handler/draft/stars/star/main';
+import { StarHandlerContext } from '@/(logic)/internal/handler/stars/star/main';
+import { useStarHandler } from '@/(logic)/internal/handler/stars/star/main';
 
 export function DraftStar({
   constraintsRef,

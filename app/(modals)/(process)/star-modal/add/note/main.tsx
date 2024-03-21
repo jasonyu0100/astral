@@ -10,7 +10,7 @@ import { NoteObj, NoteVariant } from '@/(logic)/internal/model/resource/note/mai
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function AddNoteStarModal() {
   const starsHandler = useContext(StarsHandlerContext);

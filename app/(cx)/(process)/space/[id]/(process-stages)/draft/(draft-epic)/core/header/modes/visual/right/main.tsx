@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { DraftSaveButton } from '../../../common/save/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function VisualRight() {
   const starsHandler = useContext(StarsHandlerContext)

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FlowSidebarEntry } from './entry/main';
 import { MomentContext } from '@/(logic)/internal/model/flow/moment/main';
-import { MomentsHandlerContext } from '@/(logic)/internal/handler/flow/moments/main';
+import { MomentsHandlerContext } from '@/(logic)/internal/handler/moments/main';
 
 export function FlowSidebarSection() {
   const momentsHandler = useContext(MomentsHandlerContext);

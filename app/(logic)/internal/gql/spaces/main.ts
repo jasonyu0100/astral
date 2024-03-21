@@ -10,8 +10,6 @@ import {
 import { gqlArgs } from '@/(logic)/utils/clean';
 import {
   createSpaceObj,
-  createMessageObj,
-  createStarObj,
   deleteSpaceObj,
   updateSpaceObj,
 } from '@/graphql/mutations';
@@ -83,46 +81,6 @@ export const spacesGqlHelper: SpacesGqlHelper = {
     });
     const spaceObjs = (payload?.data?.listSpaceObjs?.items as SpaceObj[]) || [];
     return spaceObjs;
-  },
-  createMessageInside: async (text: string, chatId: string) => {
-    const currentDate = new Date().toISOString();
-    const payload = await amplifyClient.graphql({
-      query: createMessageObj,
-      variables: {
-        input: gqlArgs({
-          chatId: chatId,
-          source: MessageSource.AGENT,
-          time: currentDate,
-          message: text,
-        }),
-      },
-    });
-    const messageObj = payload.data?.createMessageObj as MessageObj;
-    return messageObj;
-  },
-  createStarInside: async (
-    title: string,
-    x: number,
-    y: number,
-    file: FileObj,
-    constellationId: string,
-  ) => {
-    const payload = await amplifyClient.graphql({
-      query: createStarObj,
-      variables: {
-        input: gqlArgs({
-          constellationId: constellationId,
-          title: title,
-          description: '',
-          x: x,
-          y: y,
-          file: file,
-          variant: ResourceVariant.FILE,
-        }),
-      },
-    });
-    const starObj = payload?.data.createStarObj as StarObj;
-    return starObj;
   },
   delete: async (spaceId: string) => {
     const payload = await amplifyClient.graphql({

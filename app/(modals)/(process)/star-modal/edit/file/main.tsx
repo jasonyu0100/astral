@@ -13,7 +13,7 @@ import {
   FileVariant,
 } from '@/(logic)/internal/model/resource/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddFileStarModal() {

@@ -8,12 +8,12 @@ import {
 import {
   ConstellationsHandlerContext,
   useConstellationsHandler,
-} from '@/(logic)/internal/handler/draft/constellations/main';
+} from '@/(logic)/internal/handler/constellations/main';
 import insideVerses from '@/(logic)/utils/isAuth';
 import {
   StarsHandlerContext,
   useStarsHandler,
-} from '@/(logic)/internal/handler/draft/stars/main';
+} from '@/(logic)/internal/handler/stars/main';
 import {
   DraftModalContext,
   useDraftModal,

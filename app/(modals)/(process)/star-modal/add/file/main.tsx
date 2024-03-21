@@ -10,7 +10,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileObj, FileVariant } from '@/(logic)/internal/model/resource/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);

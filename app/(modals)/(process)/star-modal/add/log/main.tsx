@@ -9,7 +9,7 @@ import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import { LogObjContext } from '@/(logic)/internal/model/resource/log/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function AddLogStarModal() {
   const modalContext = useContext(StarModalContext);

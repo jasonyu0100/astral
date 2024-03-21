@@ -41,7 +41,7 @@ export const useSearchResource = (
 
   const searchActions: SearchActions = {
     listResources: async (userId: string) => {
-      const resources = await resourcesGqlHelper.queryListUserResources(userId);
+      const resources = await resourcesGqlHelper.listFromUser(userId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;

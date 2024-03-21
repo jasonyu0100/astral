@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ConstellationContext } from '@/(logic)/internal/model/draft/constellation/main';
 import { cn } from '@/(logic)/utils/cn';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
+import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
 
 export function ConstellationListEntry({ index }: { index: number }) {
   const constellationsHandler =

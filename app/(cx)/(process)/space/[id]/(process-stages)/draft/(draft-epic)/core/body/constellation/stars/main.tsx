@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useContext, useRef } from 'react';
 import { DraftStar } from './star/main';
 import { StarContext } from '@/(logic)/internal/model/draft/constellation/star/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function DraftConstellationStars() {
   const starsHandler = useContext(StarsHandlerContext);

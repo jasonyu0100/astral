@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import DraftHeaderTitle from '../../../common/title/main';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/draft/constellations/main';
+import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 
 export function DefaultCenter() {

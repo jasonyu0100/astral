@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(logic)/internal/handler/draft/stars/star/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarHandlerContext } from '@/(logic)/internal/handler/stars/star/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function ScoreRhythmStar() {
   const { star, x, y, constraintsRef, activateStar } =

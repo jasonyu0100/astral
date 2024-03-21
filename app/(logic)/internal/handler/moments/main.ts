@@ -4,7 +4,7 @@ import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
-import { momentsGqlHelper } from '../../../gql/moments/main';
+import { momentsGqlHelper } from '../../gql/moments/main';
 
 export interface MomentActions {
   listMoments: () => Promise<MomentObj[]>;

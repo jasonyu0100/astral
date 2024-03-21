@@ -7,7 +7,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/draft/stars/main';
+import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddLogStarModal() {

@@ -1,7 +1,6 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
   containerStyles,
-  borderStyles,
   backgroundStyles,
 } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../page';

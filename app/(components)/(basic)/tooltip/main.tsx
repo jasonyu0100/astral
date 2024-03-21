@@ -1,9 +1,5 @@
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import { TooltipContent } from '@radix-ui/react-tooltip';
+import { cn } from '@/(logic)/utils/cn';
+import { useState } from 'react';
 
 export function WrapperTooltip({
   text,
@@ -12,14 +8,21 @@ export function WrapperTooltip({
   text: string;
   children: React.ReactNode;
 }) {
+  const [hover, changeHover] = useState(false);
+
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>{children}</TooltipTrigger>
-        <TooltipContent className='outline-none p-[0.5rem]'>
-          <p className='font-bold text-white'>{text}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <div
+      className='relative flex flex-col items-center'
+      onMouseEnter={() => changeHover(true)}
+      onMouseLeave={() => changeHover(false)}
+    >
+      <div className={cn('absolute top-[-2rem] p-[0.5rem] font-bold text-white outline-none text-center w-[8rem]', {
+        'opacity-100': hover,
+        'opacity-0': !hover,
+      })}>
+        {text}
+      </div>
+      {children}
+    </div>
   );
 }
