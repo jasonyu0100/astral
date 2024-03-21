@@ -23,6 +23,7 @@ export interface ResourcesActions {
     updatedResourceObj: ResourceObj,
   ) => Promise<ResourceObj>;
   searchResources: (query: string) => ResourceObj[];
+  deleteResource: (resourceId: string) => Promise<ResourceObj>;
 }
 
 export const ResourcesHandlerContext = createContext({} as ResourcesHandler);
@@ -41,6 +42,11 @@ export const useResourcesHandler = (
   }, [resources]);
 
   const resourceActions: ResourcesActions = {
+    deleteResource: async (resourceId: string) => {
+      const resource = await resourcesGqlHelper.delete(resourceId);
+      changeResources((prev) => prev.filter((r) => r.id !== resourceId));
+      return resource;
+    },
     listResources: async (collectionId: string) => {
       const resources =
         await resourcesGqlHelper.listFromCollection(collectionId);

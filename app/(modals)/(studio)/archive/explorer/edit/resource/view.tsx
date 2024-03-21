@@ -1,5 +1,5 @@
 import { FormBody } from '@/(components)/(form)/body/main';
-import { FormButton } from '@/(components)/(form)/button/main';
+import { ButtonVariant, FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
@@ -58,6 +58,18 @@ export function ExplorerEditResourceModal() {
             }}
           >
             Save
+          </FormButton>
+          <FormButton
+            variant={ButtonVariant.SECONDARY}
+            onClick={() => {
+              resourcesHandler.resourceActions
+                .deleteResource(resource.id)
+                .then(() => {
+                  close();
+                });
+            }}
+          >
+            Delete
           </FormButton>
         </FormFooter>
       </FormContainer>

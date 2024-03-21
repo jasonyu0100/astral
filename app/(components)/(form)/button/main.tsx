@@ -1,6 +1,5 @@
 import { ButtonInputProps } from '@/(types)/main';
 import { cn } from '@/(logic)/utils/cn';
-import clsx from 'clsx';
 
 export enum ButtonVariant {
   PRIMARY = 'primary',

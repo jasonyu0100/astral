@@ -12,13 +12,13 @@ export function WrapperTooltip({
 
   return (
     <div
-      className='relative flex flex-col items-center'
+      className='flex flex-col items-center'
       onMouseEnter={() => changeHover(true)}
       onMouseLeave={() => changeHover(false)}
     >
-      <div className={cn('absolute top-[-2rem] p-[0.5rem] font-bold text-white outline-none text-center w-[8rem]', {
-        'opacity-100': hover,
-        'opacity-0': !hover,
+      <div className={cn('absolute top-[-50px] p-[0.5rem] font-bold text-slate-300 outline-none text-center w-[200px]', {
+        'visible animate-pulse': hover,
+        'invisible': !hover,
       })}>
         {text}
       </div>

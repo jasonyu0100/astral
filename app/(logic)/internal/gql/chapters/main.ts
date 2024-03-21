@@ -9,7 +9,6 @@ import {
 import { listChapterObjs } from '@/graphql/queries';
 
 export interface ChaptersGqlHelper {
-  listFromSpace: (spaceId: string) => Promise<ChapterObj[]>;
   create: (
     title: string,
     description: string,
@@ -21,6 +20,7 @@ export interface ChaptersGqlHelper {
     updatedChapterObj: ChapterObj,
   ) => Promise<ChapterObj>;
   delete: (chapterId: string) => Promise<ChapterObj>;
+  listFromSpace: (spaceId: string) => Promise<ChapterObj[]>;
 }
 
 export const chaptersGqlHelper: ChaptersGqlHelper = {
@@ -60,10 +60,7 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
     const chapterObj = payload.data?.createChapterObj as ChapterObj;
     return chapterObj;
   },
-  update: async (
-    chapterId: string,
-    updatedChapterObj: ChapterObj,
-  ) => {
+  update: async (chapterId: string, updatedChapterObj: ChapterObj) => {
     const payload = await amplifyClient.graphql({
       query: updateChapterObj,
       variables: {
