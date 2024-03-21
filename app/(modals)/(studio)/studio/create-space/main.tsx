@@ -109,7 +109,7 @@ export function CreateSpaceModal() {
             </FormButton>
             <FormButton
               onClick={() => {
-                spacesHandler.spaceActions.queryCreateSpace(
+                spacesHandler.spaceActions.createSpace(
                   title,
                   description,
                   thumbnail,

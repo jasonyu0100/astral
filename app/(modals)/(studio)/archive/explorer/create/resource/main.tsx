@@ -60,7 +60,7 @@ export function ExplorerCreateResourceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              resourcesHandler.resourceActions.queryCreateFileResource(
+              resourcesHandler.resourceActions.createResourceFromFile(
                 name,
                 description,
                 file,

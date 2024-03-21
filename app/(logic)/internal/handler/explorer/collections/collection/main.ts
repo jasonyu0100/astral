@@ -5,7 +5,7 @@ import { collectionsGqlHelper } from '@/(logic)/internal/gql/collections/main';
 export const useCollectionHandler = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as CollectionObj);
 
-  const queryGetCollection = async (collectionId: string) => {
+  const getCollection = async (collectionId: string) => {
     const collection = await collectionsGqlHelper.get(collectionId);
     changeCollection(collection);
     return collection;
@@ -16,7 +16,7 @@ export const useCollectionHandler = (collectionId: string) => {
       changeCollection({} as CollectionObj);
       return;
     }
-    queryGetCollection(collectionId);
+    getCollection(collectionId);
   }, [collectionId]);
 
   return {

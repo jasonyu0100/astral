@@ -7,8 +7,8 @@ export interface ChatActions {
   updateChats: (chats: ChatObj[]) => ChatObj[];
   updateChat: (chat: ChatObj) => ChatObj;
   selectChat: (chat: ChatObj) => ChatObj;
-  queryListChats: () => Promise<ChatObj[]>;
-  queryCreateChat: (title: string, summary: string) => Promise<ChatObj>;
+  listChats: () => Promise<ChatObj[]>;
+  createChat: (title: string, summary: string) => Promise<ChatObj>;
 }
 
 export interface ChatsHandler {
@@ -27,13 +27,13 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
 
   const chatActions: ChatActions = {
-    queryListChats: async () => {
+    listChats: async () => {
       const chats = await chatsGqlHelper.listFromChapter(chapterId);
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       return chats;
     },
-    queryCreateChat: async (title: string, summary: string) => {
+    createChat: async (title: string, summary: string) => {
       const chat = await chatsGqlHelper.create(chapterId, title, summary);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);
@@ -59,7 +59,7 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
       changeChats([]);
       return;
     }
-    chatActions.queryListChats();
+    chatActions.listChats();
   }, [chapterId]);
 
   return {

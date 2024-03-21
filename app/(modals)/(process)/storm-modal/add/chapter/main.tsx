@@ -39,7 +39,7 @@ export function StormAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.queryCreateChapter(title, description, chapters.length);
+              chaptersHandler.chapterActions.createChapter(title, description, chapters.length);
               modalContext.addChapterModal.close();
             }}
           >

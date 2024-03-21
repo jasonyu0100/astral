@@ -11,8 +11,8 @@ export interface GallerysHandler {
 }
 
 export interface GalleryActions {
-  queryListGallerys: () => Promise<GalleryObj[]>;
-  queryCreateGallery: (
+  listGallerys: () => Promise<GalleryObj[]>;
+  createGallery: (
     title: string,
     description: string,
     thumbnail: FileObj,
@@ -32,13 +32,13 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       changeGalleryId(gallery.id);
       return gallery;
     },
-    queryListGallerys: async () => {
+    listGallerys: async () => {
       const gallerys = await gallerysGqlHelper.listFromUser(userId);
       changeGallerys(gallerys);
       changeGalleryId(gallerys[0]?.id || '');
       return gallerys;
     },
-    queryCreateGallery: async (
+    createGallery: async (
       title: string,
       description: string,
       thumbnail: FileObj,
@@ -60,7 +60,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
       changeGallerys([]);
       return;
     }
-    galleryActions.queryListGallerys();
+    galleryActions.listGallerys();
   }, [userId]);
 
   return {

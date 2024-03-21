@@ -50,7 +50,7 @@ export function FlowAddMomentModal() {
           <FormButton
             onClick={() => {
               close();
-              momentsHandler.momentActions.queryCreateFileMoment(
+              momentsHandler.momentActions.createMomentFromFile(
                 title,
                 log,
                 file,

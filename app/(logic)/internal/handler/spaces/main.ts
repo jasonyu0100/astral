@@ -11,8 +11,8 @@ import { messagesGqlHelper } from '../../gql/messages/main';
 import { starsGqlHelper } from '../../gql/stars/main';
 
 export interface SpaceActions {
-  queryListSpaces: () => Promise<void>;
-  queryCreateSpace: (
+  listSpaces: () => Promise<void>;
+  createSpace: (
     title: string,
     description: string,
     thumbnail: FileObj,
@@ -37,12 +37,12 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
   const space = spaces.find((space) => space.id === spaceId);
 
   const spaceActions: SpaceActions = {
-    queryListSpaces: async () => {
+    listSpaces: async () => {
       const spaces = await spacesGqlHelper.listFromUser(userId);
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },
-    queryCreateSpace: async (
+    createSpace: async (
       title: string,
       description: string,
       thumbnail: FileObj,
@@ -125,7 +125,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       changeSpaces([]);
       return;
     }
-    spaceActions.queryListSpaces();
+    spaceActions.listSpaces();
   }, [userId]);
 
   return {

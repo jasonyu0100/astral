@@ -64,7 +64,7 @@ export function DraftAddConstellationModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              constellationsHandler.constellationActions.queryCreateConstellation(
+              constellationsHandler.constellationActions.createConstellation(
                 title,
                 description,
                 variant,

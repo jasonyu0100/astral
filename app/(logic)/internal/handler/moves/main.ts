@@ -5,8 +5,8 @@ import { toast } from 'sonner';
 import { movesGqlHelper } from '../../gql/moves/main';
 
 export interface MoveActions {
-  queryListMoves: () => Promise<void>;
-  queryCreateMove: (
+  listMoves: () => Promise<void>;
+  createMove: (
     title: string,
     description: string,
     thumbnail: FileObj,
@@ -30,12 +30,12 @@ export const useMovesHandler = (userId: string): MovesHandler => {
   const move = moves.find((move) => move.id === moveId);
 
   const moveActions: MoveActions = {
-    queryListMoves: async () => {
+    listMoves: async () => {
       const moves = await movesGqlHelper.gqlListMoves(userId);
       changeMoves(moves);
       changeMoveId(moves[0]?.id || '');
     },
-    queryCreateMove: async (
+    createMove: async (
       title: string,
       description: string,
       thumbnail: FileObj,
@@ -60,7 +60,7 @@ export const useMovesHandler = (userId: string): MovesHandler => {
       changeMoves([]);
       return;
     }
-    moveActions.queryListMoves();
+    moveActions.listMoves();
   }, [userId]);
 
   return {

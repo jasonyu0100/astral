@@ -22,7 +22,7 @@ export function SidebarCollectionResource() {
       <ResourceModalView />
       <ResourcePolaroid
         onClick={() =>
-          starsHandler.starActions.queryCreateFileStar(
+          starsHandler.starActions.createFromFile(
             resource.title,
             resource.description,
             Math.random() * 500,

@@ -5,11 +5,9 @@ import { messagesGqlHelper } from '../../../gql/messages/main';
 import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {
-  queryCreateUserMessage: (text: string) => Promise<MessageObj>;
-  queryCreateAgentMessage: (userMessage: MessageObj) => Promise<MessageObj>;
-  queryListMessages: (chatId: string) => Promise<MessageObj[]>;
-  addUserMessage: (message: MessageObj) => MessageObj;
-  addAgentMessage: (message: MessageObj) => MessageObj;
+  createMessageFromUser: (text: string) => Promise<MessageObj>;
+  createMessageFromAgent: (userMessage: MessageObj) => Promise<MessageObj>;
+  listMessages: (chatId: string) => Promise<MessageObj[]>;
   updateInputMessage: (message: string) => void;
 }
 
@@ -27,29 +25,23 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
   const [inputMessage, changeInputMessage] = useState('');
 
   const messageActions: MessageActions = {
-    queryCreateUserMessage: async (text: string) => {
-      const message = await messagesGqlHelper.createFromUser(chatId, userId, text);
-      return message;
+    createMessageFromUser: async (text: string) => {
+      const messageFromUser = await messagesGqlHelper.createFromUser(chatId, userId, text);
+      changeMessages((prev) => [...prev, messageFromUser]);
+      return messageFromUser;
     },
-    queryListMessages: async (chatId: string) => {
+    listMessages: async (chatId: string) => {
       const messages = await messagesGqlHelper.listFromChat(chatId);
       changeMessages(messages);
       return messages;
     },
-    queryCreateAgentMessage: async (userMessage: MessageObj) => {
-      const agentResponse =
-        (await getMessageResponse(userMessage.message)) || '';
-      const agentMessage =
-        await messagesGqlHelper.createFromAgent(chatId, agentResponse);
-      return agentMessage;
-    },
-    addUserMessage: (message: MessageObj) => {
-      changeMessages((prev) => [...prev, message]);
-      return message;
-    },
-    addAgentMessage: (message: MessageObj) => {
-      changeMessages((prev) => [...prev, message]);
-      return message;
+    createMessageFromAgent: async (messageFromUser: MessageObj) => {
+      const responseFromAgent =
+        (await getMessageResponse(messageFromUser.message)) || '';
+      const messageFromAgent =
+        await messagesGqlHelper.createFromAgent(chatId, responseFromAgent);
+      changeMessages((prev) => [...prev, messageFromAgent]);
+      return messageFromAgent;
     },
     updateInputMessage: (message: string) => changeInputMessage(message),
   };
@@ -59,7 +51,7 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       changeMessages([]);
       return;
     }
-    messageActions.queryListMessages(chatId);
+    messageActions.listMessages(chatId);
   }, [chatId]);
 
   return {

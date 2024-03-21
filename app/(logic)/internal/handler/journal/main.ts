@@ -4,8 +4,8 @@ import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/journal/main';
 
 export interface JournalActions {
-  queryListMoments: () => Promise<MomentObj[]>;
-  queryCreateFileMoment: (
+  listMoments: () => Promise<MomentObj[]>;
+  createMomentFromFile: (
     title: string,
     log: string,
     file: FileObj,
@@ -35,13 +35,13 @@ export const useJournalHandler = (
   const moment = moments.filter((moment) => moment.id === momentId).at(0);
 
   const journalActions: JournalActions = {
-    queryListMoments: async () => {
+    listMoments: async () => {
       const moments = await gqlHelper.queryListMoments(userId);
       changeMoments(moments);
       changeMomentId(moments.at(0)?.id || '');
       return moments;
     },
-    queryCreateFileMoment: async (
+    createMomentFromFile: async (
       title: string,
       log: string,
       file: FileObj,
@@ -81,7 +81,7 @@ export const useJournalHandler = (
       changeMoments([]);
       return;
     }
-    journalActions.queryListMoments();
+    journalActions.listMoments();
   }, [userId]);
 
   return {

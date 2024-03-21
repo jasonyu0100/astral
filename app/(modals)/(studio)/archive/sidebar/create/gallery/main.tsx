@@ -47,7 +47,7 @@ export function SidebarCreateGalleryModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              gallerysHandler.galleryActions.queryCreateGallery(title, description, thumbnail);
+              gallerysHandler.galleryActions.createGallery(title, description, thumbnail);
               close();
             }}
           >

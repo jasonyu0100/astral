@@ -39,7 +39,7 @@ export function DraftAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.queryCreateChapter(title, description, chaptersHandler.chapters.length);
+              chaptersHandler.chapterActions.createChapter(title, description, chaptersHandler.chapters.length);
               close();
             }}
           >

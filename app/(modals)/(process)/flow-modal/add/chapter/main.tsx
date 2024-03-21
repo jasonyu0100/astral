@@ -40,7 +40,7 @@ export function FlowAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.queryCreateChapter(
+              chaptersHandler.chapterActions.createChapter(
                 title,
                 description,
                 chapters.length,

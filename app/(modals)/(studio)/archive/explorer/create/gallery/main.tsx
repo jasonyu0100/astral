@@ -46,7 +46,7 @@ export function ExplorerCreateGalleryModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              gallerysHandler.galleryActions.queryCreateGallery(title, description, thumbnail);
+              gallerysHandler.galleryActions.createGallery(title, description, thumbnail);
               close();
             }}
           >

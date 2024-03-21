@@ -7,29 +7,29 @@ import { LinkObj } from '@/(logic)/internal/model/resource/link/main';
 import { toast } from 'sonner';
 import { starsGqlHelper } from '../../../gql/stars/main';
 export interface StarActions {
-  queryListStars: () => Promise<StarObj[]>;
-  queryCreateFileStar: (
+  listStars: () => Promise<StarObj[]>;
+  createFromFile: (
     title: string,
     description: string,
     x: number,
     y: number,
     file: FileObj,
   ) => Promise<StarObj>;
-  queryCreateNoteStar: (
+  createFromNote: (
     title: string,
     description: string,
     x: number,
     y: number,
     note: NoteObj,
   ) => Promise<StarObj>;
-  queryCreateLinkStar: (
+  createFromLink: (
     title: string,
     description: string,
     x: number,
     y: number,
     link: LinkObj,
   ) => Promise<StarObj>;
-  queryCreateLogStar: (
+  createFromLog: (
     title: string,
     description: string,
     x: number,
@@ -37,7 +37,7 @@ export interface StarActions {
     log: LogObj,
   ) => Promise<StarObj>;
   updateStar: (starId: string, data: any) => void;
-  queryUpdateStars: () => Promise<StarObj[]>;
+  updateStars: () => Promise<StarObj[]>;
   activateStar: (starId: string) => void;
   deactivateStar: () => void;
 }
@@ -58,13 +58,13 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
   const star = stars.filter((star) => star.id === starId).at(0);
 
   const starActions: StarActions = {
-    queryListStars: async () => {
+    listStars: async () => {
       const stars = await starsGqlHelper.listFromConstellation(constellationId);
       changeStars(stars);
       changeStarId(stars[0]?.id || '');
       return stars;
     },
-    queryCreateFileStar: async (
+    createFromFile: async (
       title: string,
       description: string,
       x: number,
@@ -87,7 +87,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       changeStarId(star.id);
       return star;
     },
-    queryCreateNoteStar: async (
+    createFromNote: async (
       name: string,
       description: string,
       x: number,
@@ -110,7 +110,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       changeStarId(star.id);
       return star;
     },
-    queryCreateLinkStar: async (
+    createFromLink: async (
       title: string,
       description: string,
       x: number,
@@ -133,7 +133,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       changeStarId(star.id);
       return star;
     },
-    queryCreateLogStar: async (
+    createFromLog: async (
       title: string,
       description: string,
       x: number,
@@ -156,7 +156,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       changeStarId(star.id);
       return star;
     },
-    queryUpdateStars: async () => {
+    updateStars: async () => {
       const updatedStars = await starsGqlHelper.updateMany(stars);
       toast.success('Stars Updated');
       return updatedStars;
@@ -179,7 +179,7 @@ export const useStarsHandler = (constellationId: string): StarsHandler => {
       changeStars([]);
       return;
     }
-    starActions.queryListStars();
+    starActions.listStars();
   }, [constellationId]);
 
   return {

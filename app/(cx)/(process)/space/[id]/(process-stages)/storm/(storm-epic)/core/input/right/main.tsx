@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { StormMessageInputSend } from "./send/main";
-import { StormMessageInputVoice } from "./voice/main";
 import { MessagesHandlerContext } from "@/(logic)/internal/handler/storm/messages/main";
 
 export function StormChatInputRight() {
@@ -12,16 +11,10 @@ export function StormChatInputRight() {
       <StormMessageInputSend
         onClick={(e) => {
           messagesHandler.messageActions
-            .queryCreateUserMessage(messagesHandler.inputMessage)
-            .then((userMessage: any) =>
-              messagesHandler.messageActions.addUserMessage(userMessage),
-            )
+            .createMessageFromUser(messagesHandler.inputMessage)
             .then((agentInputMessage) =>
-              messagesHandler.messageActions.queryCreateAgentMessage(agentInputMessage),
+              messagesHandler.messageActions.createMessageFromAgent(agentInputMessage),
             )
-            .then((agentMessage: any) =>
-              messagesHandler.messageActions.addAgentMessage(agentMessage),
-            );
           messagesHandler.messageActions.updateInputMessage('');
         }}
       />

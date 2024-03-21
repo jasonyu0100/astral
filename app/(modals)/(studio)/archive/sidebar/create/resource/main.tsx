@@ -60,7 +60,7 @@ export function SidebarCreateResourceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              resourcesHandler.resourceActions.queryCreateFileResource(name, description, file);
+              resourcesHandler.resourceActions.createResourceFromFile(name, description, file);
               close();
             }}
           >

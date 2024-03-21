@@ -11,7 +11,7 @@ interface SearchResourcesHandler {
 }
 
 export interface SearchActions {
-  queryListResources: (id: string) => Promise<ResourceObj[]>;
+  listResources: (id: string) => Promise<ResourceObj[]>;
   updateQuery: (query: string) => void;
   searchQuery: () => ResourceObj[];
 }
@@ -32,7 +32,7 @@ export const useSearchResource = (
       changeResources([]);
       return;
     }
-    searchActions.queryListResources(userId);
+    searchActions.listResources(userId);
   }, [userId]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const useSearchResource = (
   }, [resources]);
 
   const searchActions: SearchActions = {
-    queryListResources: async (userId: string) => {
+    listResources: async (userId: string) => {
       const resources = await resourcesGqlHelper.queryListUserResources(userId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');

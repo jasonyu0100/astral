@@ -1,6 +1,6 @@
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect as useMemo, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../gql/resources/main';
 
 interface ResourcesHandler {
@@ -12,13 +12,13 @@ interface ResourcesHandler {
 }
 
 export interface ResourcesActions {
-  queryListResources: (id: string) => Promise<ResourceObj[]>;
-  queryCreateFileResource: (
+  listResources: (id: string) => Promise<ResourceObj[]>;
+  createResourceFromFile: (
     name: string,
     description: string,
     file: FileObj,
   ) => Promise<ResourceObj>;
-  queryUpdateResource: (
+  updateResource: (
     resourceId: string,
     updatedResourceObj: ResourceObj,
   ) => Promise<ResourceObj>;
@@ -36,27 +36,19 @@ export const useResourcesHandler = (
   const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
   const resource = resources.find((resource) => resource.id === resourceId);
 
-  useEffect(() => {
-    if (!collectionId) {
-      changeResources([]);
-      return;
-    }
-    resourceActions.queryListResources(collectionId);
-  }, [collectionId]);
-
-  useEffect(() => {
+  useMemo(() => {
     changeSearchResults(resources);
   }, [resources]);
 
   const resourceActions: ResourcesActions = {
-    queryListResources: async (collectionId: string) => {
+    listResources: async (collectionId: string) => {
       const resources =
         await resourcesGqlHelper.listFromCollection(collectionId);
       changeResources(resources);
       changeResourceId(resources[0]?.id || '');
       return resources;
     },
-    queryCreateFileResource: async (
+    createResourceFromFile: async (
       name: string,
       description: string,
       file: FileObj,
@@ -72,7 +64,7 @@ export const useResourcesHandler = (
       changeResourceId(resource.id);
       return resource;
     },
-    queryUpdateResource: async (
+    updateResource: async (
       resourceId: string,
       updatedResourceObj: ResourceObj,
     ) => {
@@ -98,6 +90,14 @@ export const useResourcesHandler = (
       return results;
     },
   };
+
+  useMemo(() => {
+    if (!collectionId) {
+      changeResources([]);
+      return;
+    }
+    resourceActions.listResources(collectionId);
+  }, [collectionId]);
 
   return {
     resource,

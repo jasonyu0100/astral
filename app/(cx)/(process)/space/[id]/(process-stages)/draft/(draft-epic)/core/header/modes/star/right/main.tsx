@@ -7,7 +7,7 @@ export function DraftHeaderStarRight() {
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      <DraftSaveButton onClick={() => starsHandler.starActions.queryUpdateStars()} />
+      <DraftSaveButton onClick={() => starsHandler.starActions.updateStars()} />
     </div>
   );
 }

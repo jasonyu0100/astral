@@ -7,8 +7,8 @@ export interface ChapterActions {
   goToChapter: (chapter: ChapterObj) => ChapterObj;
   goToPrevChapter: () => ChapterObj | undefined;
   goToNextChapter: () => ChapterObj | undefined;
-  queryListChapters: () => Promise<ChapterObj[]>;
-  queryCreateChapter: (
+  listChapters: () => Promise<ChapterObj[]>;
+  createChapter: (
     title: string,
     description: string,
     idx: number,
@@ -34,13 +34,13 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
   const chapter = chapters.filter((chapter) => chapter.id === chapterId).at(0);
 
   const chapterActions: ChapterActions = {
-    queryListChapters: async () => {
+    listChapters: async () => {
       const chapters = await chaptersGqlHelper.listFromSpace(spaceId);
       changeChapters(chapters);
       changeChapterId(chapters.at(0)?.id || '');
       return chapters;
     },
-    queryCreateChapter: async (title: string, description: string, index: number) => {
+    createChapter: async (title: string, description: string, index: number) => {
       const chapter = await chaptersGqlHelper.create(title, description, index, spaceId);
       changeChapters((prev) => [...prev, chapter]);
       changeChapterId(chapter.id);
@@ -88,7 +88,7 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
       changeChapters([]);
       return;
     }
-    chapterActions.queryListChapters();
+    chapterActions.listChapters();
   }, [spaceId]);
   
   return {

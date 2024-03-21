@@ -3,8 +3,8 @@ import { createContext, useMemo, useState } from 'react';
 import { constellationsGqlHelper } from '../../../gql/constellations/main';
 
 export interface ConstellationActions {
-  queryListConstellations: (id: string) => Promise<ConstellationObj[]>;
-  queryCreateConstellation: (
+  listConstellations: (id: string) => Promise<ConstellationObj[]>;
+  createConstellation: (
     title: string,
     description: string,
     variant: string,
@@ -41,13 +41,13 @@ export const useConstellationsHandler = (
   );
 
   const constellationActions: ConstellationActions = {
-    queryListConstellations: async (chapterId: string) => {
+    listConstellations: async (chapterId: string) => {
       const constellations = await constellationsGqlHelper.listFromChapter(chapterId);
       changeConstellations(constellations);
       changeConstellationId(constellations[0]?.id || '');
       return constellations;
     },
-    queryCreateConstellation: async (
+    createConstellation: async (
       title: string,
       description: string,
       variant: string,
@@ -86,7 +86,7 @@ export const useConstellationsHandler = (
       changeConstellations([]);
       return;
     }
-    constellationActions.queryListConstellations(chapterId);
+    constellationActions.listConstellations(chapterId);
   }, [chapterId]);
 
   return {

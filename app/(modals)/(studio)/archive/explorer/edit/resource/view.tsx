@@ -46,7 +46,7 @@ export function ExplorerEditResourceModal() {
           <FormButton
             onClick={() => {
               resourcesHandler.resourceActions
-                .queryUpdateResource(resource.id, {
+                .updateResource(resource.id, {
                   ...resource,
                   title,
                   description,

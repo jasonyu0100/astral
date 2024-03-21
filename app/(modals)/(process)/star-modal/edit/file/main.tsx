@@ -59,7 +59,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              starsHandler.starActions.queryCreateFileStar(title, description, 0, 0, file);
+              starsHandler.starActions.createFromFile(title, description, 0, 0, file);
               close();
             }}
           >

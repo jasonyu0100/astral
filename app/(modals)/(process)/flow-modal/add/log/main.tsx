@@ -42,7 +42,7 @@ export function FlowAddLogModal() {
           <FormButton
             onClick={() => {
               close();
-              momentsHandler.momentActions.queryCreateLogMoment(title, description, log);
+              momentsHandler.momentActions.createMomentFromLog(title, description, log);
             }}
           >
             Add

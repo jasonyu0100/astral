@@ -122,7 +122,7 @@ export const useUpdatesHandler = (spaceId: string): UpdatesHandler => {
       return;
     }
     updateActions.queryListUpdates(userId);
-  }, []);
+  }, [userId]);
 
   return {
     update,

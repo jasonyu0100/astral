@@ -44,7 +44,7 @@ export function SidebarCreateCollectionModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              collectionsHandler.collectionActions.queryCreateCollection(
+              collectionsHandler.collectionActions.createCollection(
                 title,
                 description,
                 files,

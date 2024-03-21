@@ -43,7 +43,7 @@ export function StormAddChatModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chatsHandler.chatActions.queryCreateChat(title, summary);
+              chatsHandler.chatActions.createChat(title, summary);
               modalContext.addChatModal.close();
             }}
           >
