@@ -20,8 +20,8 @@ export function SidebarIndicator({ children, ...props }: InputProps) {
 }
 export enum SidebarIndicatorType {
   Studio = 'Studio',
-  Journal = 'Journal',
   Archive = 'Archive',
-  Artists = 'Artists',
-  Board = 'Board',
+  Journal = 'Journal',
+  Creative = 'Creative',
+  Project = 'Project',
 }

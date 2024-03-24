@@ -1,7 +1,7 @@
-const baseUrl = `/artists`;
+const baseUrl = `/creative`;
 
-export const artistsMap = {
-  artists: {
+export const creativeMap = {
+  creative: {
     network: {
       link: `${baseUrl}/network`,
     },

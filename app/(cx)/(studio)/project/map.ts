@@ -1,6 +1,6 @@
-const baseUrl = `/board`;
+const baseUrl = `/project`;
 
-export const boardMap = {
+export const projectMap = {
   moves: {
     board: {
       link: `${baseUrl}/board`,

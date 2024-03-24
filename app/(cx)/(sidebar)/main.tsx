@@ -6,8 +6,8 @@ import { JournalIndicator } from './indicators/journal-indicator/main';
 import { SidebarCurrentSpace } from './current-work/main';
 import { SidebarWorkInfo } from './current-work/info/main';
 import { SidebarBack } from './back/main';
-import { ArtistsIndicator } from './indicators/artists-indicator/main';
-import { MovesIndicator } from './indicators/moves-indicator/main';
+import { CreativeIndicator } from './indicators/creative-indicator/main';
+import { ProjectIndicator } from './indicators/project-indicator/main';
 import { studioMap } from '../(studio)/studio/map';
 
 export interface SidebarProps {
@@ -31,8 +31,8 @@ export function DashboardSidebar({
             <SpaceIndicator indicator={indicator} minimised />
             <ArchiveIndicator indicator={indicator} minimised />
             <JournalIndicator indicator={indicator} minimised />
-            <ArtistsIndicator indicator={indicator} minimised />
-            <MovesIndicator indicator={indicator} minimised />
+            <CreativeIndicator indicator={indicator} minimised />
+            <ProjectIndicator indicator={indicator} minimised />
           </SidebarIndicators>
         </div>
       ) : (
@@ -46,8 +46,8 @@ export function DashboardSidebar({
             <SpaceIndicator indicator={indicator} />
             <ArchiveIndicator indicator={indicator} />
             <JournalIndicator indicator={indicator} />
-            <ArtistsIndicator indicator={indicator} />
-            <MovesIndicator indicator={indicator} />
+            <CreativeIndicator indicator={indicator} />
+            <ProjectIndicator indicator={indicator} />
           </SidebarIndicators>
         </div>
       )}

@@ -1,14 +1,11 @@
-import {
-  RecordTabStage,
-  RecordTabs,
-} from '@/(cx)/(studio)/board/(board-tabs)/main';
+import { ArtistsTabStage, ArtistsTabs } from '../../(creative-tabs)/main';
 
 import { DashboardContent } from '@/(components)/(cx)/content/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <RecordTabs tab={RecordTabStage.Moves} />
+      <ArtistsTabs tab={ArtistsTabStage.Network} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

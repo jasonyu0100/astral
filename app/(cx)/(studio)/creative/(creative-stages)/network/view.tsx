@@ -1,9 +1,9 @@
 'use client';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
-import { RecordCollection } from '../../(artists-epic)/main';
-import { RecordAlbum } from '../../(artists-epic)/shelf/album/main';
-import { RecordShelf } from '../../(artists-epic)/shelf/main';
+import { RecordCollection } from '../../(creative-epic)/main';
+import { RecordAlbum } from '../../(creative-epic)/shelf/album/main';
+import { RecordShelf } from '../../(creative-epic)/shelf/main';
 import { ArtistNetworkSidebar } from './sidebar/main';
 
 export function ArtistsNetworkView() {
