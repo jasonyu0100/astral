@@ -2,7 +2,7 @@
 import { releaseMap } from '@/(cx)/(releases)/release/[id]/map';
 import Link from 'next/link';
 
-export function ArtistsAlbum() {
+export function ArtistAlbum() {
   return (
     <div className='flex flex-col items-center justify-center'>
       <Link

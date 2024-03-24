@@ -2,7 +2,7 @@
 import { releaseMap } from '@/(cx)/(releases)/release/[id]/map';
 import Link from 'next/link';
 
-export function Cluster() {
+export function Horizon() {
   return (
     <div className='flex flex-col items-center justify-center'>
       <Link
@@ -15,7 +15,7 @@ export function Cluster() {
           </div>
         </div>
         <p className='font-creato-bold text-xl font-bold text-slate-50'>
-          Cluster
+          Horizon
         </p>
       </Link>
     </div>

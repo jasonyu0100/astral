@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export function ArtistsCollectionAdd() {
+export function ArtistCollectionAdd() {
   return (
     <div className='flex h-[250px] w-[200px] flex-col items-center justify-center'>
       <Link

@@ -22,6 +22,6 @@ export enum SidebarIndicatorType {
   Studio = 'Studio',
   Archive = 'Archive',
   Journal = 'Journal',
-  Artists = 'Artists',
+  Creative = 'Creative',
   Venture = 'Venture',
 }

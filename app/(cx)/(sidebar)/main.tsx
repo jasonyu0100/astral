@@ -6,7 +6,7 @@ import { JournalIndicator } from './indicators/journal-indicator/main';
 import { SidebarCurrentSpace } from './current-work/main';
 import { SidebarWorkInfo } from './current-work/info/main';
 import { SidebarBack } from './back/main';
-import { CreativeIndicator } from './indicators/artists-indicator/main';
+import { CreativeIndicator } from './indicators/creative-indicator/main';
 import { VentureIndicator } from './indicators/venture-indicator/main';
 import { studioMap } from '../(studio)/studio/map';
 

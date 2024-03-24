@@ -2,8 +2,8 @@ const baseUrl = `/venture`;
 
 export const ventureMap = {
   venture: {
-    horizon: {
-      link: `${baseUrl}/horizon`,
+    horizons: {
+      link: `${baseUrl}/horizons`,
     },
     link: `${baseUrl}`,
   },

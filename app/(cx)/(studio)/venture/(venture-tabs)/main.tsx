@@ -7,7 +7,7 @@ import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/ma
 import { studioMap } from '../../studio/map';
 
 export enum ProjectTabStage {
-  Horizon = 'Horizon',
+  Horizons = 'Horizons',
   Two = 'Two',
   Three = 'Three',
 }

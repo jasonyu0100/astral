@@ -6,7 +6,7 @@ import { DashboardSidebar } from '@/(cx)/(sidebar)/main';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebar indicator={SidebarIndicatorType.Artists} />
+      <DashboardSidebar indicator={SidebarIndicatorType.Creative} />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

@@ -1,11 +1,11 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { ArtistssNetworkView } from './view';
+import { ArtistsNetworkView } from './view';
 
 function Page() {
   return (
     <>
-      <ArtistssNetworkView />
+      <ArtistsNetworkView />
     </>
   );
 }

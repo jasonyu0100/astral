@@ -11,11 +11,11 @@ export function VentureIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={ventureMap.venture.horizon.link}>
+        <SidebarIndicator href={ventureMap.venture.horizons.link}>
           <IndicatorSilverJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={ventureMap.venture.horizon.link}>
+        <SidebarIndicator href={ventureMap.venture.horizons.link}>
           <IndicatorSilverJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

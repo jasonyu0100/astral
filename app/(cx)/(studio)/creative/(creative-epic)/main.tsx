@@ -1,10 +1,10 @@
 import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
-export function ArtistsCollection({ children }: { children: React.ReactNode }) {
+export function ArtistCollection({ children }: { children: React.ReactNode }) {
   return (
     <GlassContainer
-      displayName={ArtistsCollection.name}
+      displayName={ArtistCollection.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['col-center']}`}
     >

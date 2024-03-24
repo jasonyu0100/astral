@@ -5,11 +5,11 @@ import { ventureMap } from '../../map';
 import { ProjectTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = ProjectTabStage.Horizon;
+  const tabText = ProjectTabStage.Horizons;
   const active = tab === tabText;
 
   return (
-    <Tab href={ventureMap.venture.horizon.link}>
+    <Tab href={ventureMap.venture.horizons.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>
