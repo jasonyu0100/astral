@@ -8,7 +8,7 @@ export function ToggleDraftModalButton() {
 
   return (
     <ToggleContext.Provider
-      value={{ toggled, toggle: () => changeToggled(!toggled) }}
+      value={{ toggled: toggled, toggle: () => changeToggled(!toggled) }}
     >
       <ToggleButton />
       <div className='relative'>{toggled && <ToggleDropdownList />}</div>

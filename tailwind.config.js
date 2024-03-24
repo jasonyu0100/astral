@@ -50,6 +50,14 @@ module.exports = {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.85' },
         },
+        breatheSlow: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.3' },
+        },
+        breatheFast: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.4' },
+        },
         activate: {
           '0%': { opacity: '0.25' },
           '50%': { opacity: '0.8' },
@@ -58,9 +66,11 @@ module.exports = {
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
-        wind: 'wind 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-slow': 'pulseSlow 1.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        activate: 'activate 2s cubic-bezier(0.4, 0, 0.6, 1)',
+        'wind': 'wind 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow': 'pulseSlow 2.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'breathe-slow': 'breatheSlow 4.2s cubic-bezier(0.3, 0, 0.7, 1) infinite',
+        'breathe-fast': 'breatheFast 2.1s cubic-bezier(0.3, 0, 0.7, 1) infinite',
+        'activate': 'activate 2s cubic-bezier(0.4, 0, 0.6, 1)',
       },
     },
   },
