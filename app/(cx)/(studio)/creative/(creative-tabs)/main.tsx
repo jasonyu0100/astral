@@ -6,16 +6,16 @@ import { TabsRow } from '../../../../(components)/(cx)/tabs/tabs-row/main';
 import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
-export enum ArtistsTabStage {
+export enum CreativeTabStage {
   Network = 'Network',
   Stars = 'Stars',
   Fans = 'Fans',
 }
-interface ArtistsTabProps {
+interface CreativeTabProps {
   tab?: string;
 }
 
-export function ArtistsTabs({ tab }: ArtistsTabProps) {
+export function CreativeTabs({ tab }: CreativeTabProps) {
   return (
     <Tabs>
       <TabsBackButton href={studioMap.studio.now.link} />

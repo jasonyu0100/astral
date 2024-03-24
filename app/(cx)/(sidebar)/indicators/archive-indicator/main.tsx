@@ -1,8 +1,8 @@
 import { archiveMap } from '@/(cx)/(studio)/archive/map';
-import { IndicatorProps, SidebarIndicator } from '../indicator/main';
-import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from '../indicator/main';
-import { IndicatorGreenJewel } from '../indicator/jewel/green/main';
+import { IndicatorProps, SidebarIndicator } from '../(common)/indicator/main';
+import { IndicatorText } from '../(common)/indicator/text/main';
+import { SidebarIndicatorType } from '../(common)/indicator/main';
+import { IndicatorGreenJewel } from '../(common)/indicator/jewel/green/main';
 
 export function ArchiveIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Archive;

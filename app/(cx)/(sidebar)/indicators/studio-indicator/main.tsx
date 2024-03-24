@@ -1,7 +1,7 @@
-import { SidebarIndicatorType } from '../indicator/main';
-import { IndicatorBlueJewel } from '../indicator/jewel/blue/main';
-import { IndicatorProps, SidebarIndicator } from '../indicator/main';
-import { IndicatorText } from '../indicator/text/main';
+import { SidebarIndicatorType } from '../(common)/indicator/main';
+import { IndicatorBlueJewel } from '../(common)/indicator/jewel/blue/main';
+import { IndicatorProps, SidebarIndicator } from '../(common)/indicator/main';
+import { IndicatorText } from '../(common)/indicator/text/main';
 import { studioMap } from '@/(cx)/(studio)/studio/map';
 
 export function SpaceIndicator({ indicator, minimised }: IndicatorProps) {

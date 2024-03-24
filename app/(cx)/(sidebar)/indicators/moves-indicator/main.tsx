@@ -4,7 +4,7 @@ import { IndicatorProps, SidebarIndicator } from '../(common)/indicator/main';
 import { IndicatorText } from '../(common)/indicator/text/main';
 import { SidebarIndicatorType } from '../(common)/indicator/main';
 
-export function ProjectIndicator({ indicator, minimised }: IndicatorProps) {
+export function MovesIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Project;
   const active = indicator === indicatorLabel;
 

@@ -1,7 +1,7 @@
-import { IndicatorProps, SidebarIndicator } from '../indicator/main';
-import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from '../indicator/main';
-import { IndicatorPurpleJewel } from '../indicator/jewel/purple/main';
+import { IndicatorProps, SidebarIndicator } from '../(common)/indicator/main';
+import { IndicatorText } from '../(common)/indicator/text/main';
+import { SidebarIndicatorType } from '../(common)/indicator/main';
+import { IndicatorPurpleJewel } from '../(common)/indicator/jewel/purple/main';
 import { creativeMap } from '@/(cx)/(studio)/creative/map';
 
 export function CreativeIndicator({ indicator, minimised }: IndicatorProps) {

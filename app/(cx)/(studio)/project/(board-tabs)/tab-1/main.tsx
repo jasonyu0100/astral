@@ -2,10 +2,10 @@ import { TabBlueShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/blue/m
 import { Tab } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/main';
 import { TabText } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/text/main';
 import { projectMap } from '../../map';
-import { RecordTabStage } from '../main';
+import { ProjectTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = RecordTabStage.Moves;
+  const tabText = ProjectTabStage.Board;
   const active = tab === tabText;
 
   return (

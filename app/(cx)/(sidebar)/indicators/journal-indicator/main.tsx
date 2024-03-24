@@ -1,8 +1,8 @@
 import { journalMap } from '@/(cx)/(studio)/journal/map';
-import { IndicatorProps, SidebarIndicator } from '../indicator/main';
-import { IndicatorText } from '../indicator/text/main';
-import { SidebarIndicatorType } from '../indicator/main';
-import { IndicatorOrangeJewel } from '../indicator/jewel/orange/main';
+import { IndicatorProps, SidebarIndicator } from '../(common)/indicator/main';
+import { IndicatorText } from '../(common)/indicator/text/main';
+import { SidebarIndicatorType } from '../(common)/indicator/main';
+import { IndicatorOrangeJewel } from '../(common)/indicator/jewel/orange/main';
 
 export function JournalIndicator({ indicator, minimised }: IndicatorProps) {
   const indicatorLabel = SidebarIndicatorType.Journal;

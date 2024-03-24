@@ -1,6 +1,6 @@
 import {
-  RecordTabStage,
-  RecordTabs,
+  ProjectTabStage,
+  ProjectTabs,
 } from '@/(cx)/(studio)/project/(board-tabs)/main';
 
 import { DashboardContent } from '@/(components)/(cx)/content/main';
@@ -8,7 +8,7 @@ import { DashboardContent } from '@/(components)/(cx)/content/main';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <RecordTabs tab={RecordTabStage.Moves} />
+      <ProjectTabs tab={ProjectTabStage.Board} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

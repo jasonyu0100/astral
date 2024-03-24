@@ -6,16 +6,16 @@ import { TabThree } from './tab-3/main';
 import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
-export enum RecordTabStage {
-  Moves = 'Moves',
+export enum ProjectTabStage {
+  Board = 'Board',
   Two = 'Two',
   Three = 'Three',
 }
-interface RecordTabProps {
+interface ProjectTabProps {
   tab?: string;
 }
 
-export function RecordTabs({ tab }: RecordTabProps) {
+export function ProjectTabs({ tab }: ProjectTabProps) {
   return (
     <Tabs>
       <TabsBackButton href={studioMap.studio.now.link} />

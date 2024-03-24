@@ -1,7 +1,7 @@
-import { CosmosBackground } from '../(components)/(app)/background/cosmos/main';
+import { VersesBackground } from '../(components)/(app)/background/verses/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <CosmosBackground>
+  return <VersesBackground>
     {children}
-  </CosmosBackground>;
+  </VersesBackground>;
 }
