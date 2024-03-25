@@ -10,13 +10,13 @@ export function ArtistsNetworkView() {
   return (
     <GlassContainer
       displayName={ArtistsNetworkView.name}
-      className={`${containerStyles.row}`}
+      className={`flex flex-row`}
       glassStyle={backgroundStyles['glass-5']}
       sizeStyle='flex-grow h-full'
     >
       <GlassContainer
         displayName={ArtistsNetworkView.name}
-        className={`${containerStyles.row}`}
+        className={`flex flex-row`}
         sizeStyle='flex-grow h-full'
       >
         <ArtistCollection>
