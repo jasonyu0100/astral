@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 
 export function CollectionSample({
@@ -12,7 +12,7 @@ export function CollectionSample({
       displayName={CollectionSample.name}
       className='flex h-full w-full flex-row items-center'
       sizeStyle='h-[200px] aspect-[32/16]'
-      glassStyle={backgroundStyles['glass-10']}
+      glassStyle={glassStyles['glass-10']}
     >
       {children}
     </GlassContainer>

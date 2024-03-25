@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 
 export function JournalNetworkSidebarSection() {
   return (
@@ -9,25 +9,25 @@ export function JournalNetworkSidebarSection() {
           sizeStyle='h-[50px] w-full'
           className='rounded-[1rem]'
           borderStyle={borderStyles['border-all']}
-          glassStyle={backgroundStyles['glass-5']}
+          glassStyle={glassStyles['glass-5']}
         ></GlassContainer>
         <GlassContainer
           sizeStyle='h-[50px] w-full'
           className='rounded-[1rem]'
           borderStyle={borderStyles['border-all']}
-          glassStyle={backgroundStyles['glass-5']}
+          glassStyle={glassStyles['glass-5']}
         ></GlassContainer>
         <GlassContainer
           sizeStyle='h-[50px] w-full'
           className='rounded-[1rem]'
           borderStyle={borderStyles['border-all']}
-          glassStyle={backgroundStyles['glass-5']}
+          glassStyle={glassStyles['glass-5']}
         ></GlassContainer>
         <GlassContainer
           sizeStyle='h-[50px] w-full'
           className='rounded-[1rem]'
           borderStyle={borderStyles['border-all']}
-          glassStyle={backgroundStyles['glass-5']}
+          glassStyle={glassStyles['glass-5']}
         ></GlassContainer>
       </div>
     </div>

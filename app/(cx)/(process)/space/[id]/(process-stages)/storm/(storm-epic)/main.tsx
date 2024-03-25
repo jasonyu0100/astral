@@ -1,13 +1,18 @@
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import {
+  glassStyles,
+  containerStyles,
+  roundedStyles,
+} from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
-export function StormMain({ children }: { children: React.ReactNode }) {
+export function StormContainer({ children }: { children: React.ReactNode }) {
   return (
     <GlassContainer
-      displayName={StormMain.name}
+      displayName={StormContainer.name}
       sizeStyle='h-full flex-grow'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`${containerStyles['row']}`}
+      roundedStyle={roundedStyles['rounded-container-sm']}
     >
       {children}
     </GlassContainer>

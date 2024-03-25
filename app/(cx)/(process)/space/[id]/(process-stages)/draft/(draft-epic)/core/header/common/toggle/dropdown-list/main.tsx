@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../../../../page';
 import { DraftHeaderTextBoardButton } from './text/main';
 import { DraftHeaderDefaultBoardButton } from './default/main';
@@ -19,7 +19,7 @@ export function ToggleDropdownList() {
       <GlassContainer
         displayName={ToggleDropdownList.name}
         sizeStyle={'w-full h-full'}
-        glassStyle={backgroundStyles['glass-10']}
+        glassStyle={glassStyles['glass-10']}
         className='flex flex-col items-center justify-center'
       >
         {modalType !== DraftModalType.DEFAULT && (

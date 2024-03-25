@@ -1,5 +1,5 @@
 import {
-  backgroundStyles,
+  glassStyles,
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';
@@ -16,7 +16,7 @@ export function StormHeader() {
     <GlassContainer
       displayName={StormHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`${containerStyles['row-center']} justify-between space-x-[1rem] px-[1rem]`}
     >
       <StormHeaderLeft>

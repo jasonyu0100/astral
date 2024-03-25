@@ -1,4 +1,4 @@
-export const backgroundStyles = {
+export const glassStyles = {
   'glass-5': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-5',
   'glass-10': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-10',
   'glass-20': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-20',
@@ -31,11 +31,18 @@ export const effectStyles = {
 };
 
 export const roundedStyles = {
-  'rounded-sm': '1rem',
-  'rounded-md': '2rem',
-  'rounded-lg': '3rem',
-  'rounded-xl': '4rem',
-  'rounded-2xl': '5rem',
+  'rounded-container': 'rounded-t-[2.5rem] overflow-hidden',
+  'rounded-container-sm': 'rounded-t-[1rem] overflow-hidden',
+  rounded: 'rounded-[1rem] overflow-hidden',
+  'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
+  'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
+  'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',
+  'rounded-br': 'rounded-br-[1rem] overflow-hidden',
+  'rounded-t': 'rounded-t-[1rem] overflow-hidden',
+  'rounded-r': 'rounded-r-[1rem] overflow-hidden',
+  'rounded-b': 'rounded-b-[1rem] overflow-hidden',
+  'rounded-l': 'rounded-l-[1rem] overflow-hidden',
+  'rounded-full': 'rounded-full overflow-hidden',
 };
 
 export const borderStyles = {
@@ -54,7 +61,6 @@ export const borderStyles = {
   'rounded-b': 'rounded-b-[1rem] overflow-hidden',
   'rounded-l': 'rounded-l-[1rem] overflow-hidden',
   'rounded-full': 'rounded-full overflow-hidden',
-  none: '',
 };
 
 export const containerStyles = {

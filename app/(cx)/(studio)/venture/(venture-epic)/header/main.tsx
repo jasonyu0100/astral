@@ -1,5 +1,5 @@
 import {
-  backgroundStyles,
+  glassStyles,
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';
@@ -12,7 +12,7 @@ export function VentureHeader() {
     <GlassContainer
       sizeStyle='w-full h-[220px]'
       displayName={VentureHeader.name}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`p-[4rem] flex flex-row items-center space-x-[8rem]`}
     >
       <VentureInfo />

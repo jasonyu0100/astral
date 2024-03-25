@@ -1,9 +1,11 @@
 'use client';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import {
+  glassStyles,
+  containerStyles,
+  roundedStyles,
+} from '@/(design)/(styles)/data';
 import { ArtistCollection } from '../../(creative-epic)/main';
-import { ArtistAlbum } from '../../(creative-epic)/shelf/album/main';
-import { ArtistShelf } from '../../(creative-epic)/shelf/main';
 import { ArtistNetworkSidebar } from './sidebar/main';
 
 export function ArtistsNetworkView() {
@@ -11,26 +13,16 @@ export function ArtistsNetworkView() {
     <GlassContainer
       displayName={ArtistsNetworkView.name}
       className={`flex flex-row`}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       sizeStyle='flex-grow h-full'
+      roundedStyle={roundedStyles['rounded-container']}
     >
       <GlassContainer
         displayName={ArtistsNetworkView.name}
         className={`flex flex-row`}
         sizeStyle='flex-grow h-full'
       >
-        <ArtistCollection>
-          <ArtistShelf>
-            <ArtistAlbum />
-            <ArtistAlbum />
-            <ArtistAlbum />
-          </ArtistShelf>
-          <ArtistShelf>
-            <ArtistAlbum />
-            <ArtistAlbum />
-            <ArtistAlbum />
-          </ArtistShelf>
-        </ArtistCollection>
+        <ArtistCollection />
       </GlassContainer>
       <ArtistNetworkSidebar />
     </GlassContainer>

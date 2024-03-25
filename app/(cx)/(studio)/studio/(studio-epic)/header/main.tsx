@@ -1,5 +1,5 @@
 import {
-  backgroundStyles,
+  glassStyles,
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';
@@ -15,7 +15,7 @@ export function SpacesHeader() {
     <GlassContainer
       sizeStyle='w-full h-[360px]'
       displayName={SpacesHeader.name}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`p-[4rem] ${containerStyles['row-center']}`}
     >
       <SpacesAlbumInfo />

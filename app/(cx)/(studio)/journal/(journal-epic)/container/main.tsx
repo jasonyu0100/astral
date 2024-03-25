@@ -1,4 +1,4 @@
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function FeedContainer({ children }: { children: React.ReactNode }) {
@@ -7,7 +7,8 @@ export function FeedContainer({ children }: { children: React.ReactNode }) {
       displayName={FeedContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
+      roundedStyle={roundedStyles['rounded-container']}
     >
       {children}
     </GlassContainer>

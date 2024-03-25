@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 
 export function FlowContainer({ children }: { children: React.ReactNode }) {
@@ -8,7 +8,8 @@ export function FlowContainer({ children }: { children: React.ReactNode }) {
       displayName={FlowContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
+      roundedStyle={roundedStyles['rounded-container-sm']}
     >
       {children}
     </GlassContainer>

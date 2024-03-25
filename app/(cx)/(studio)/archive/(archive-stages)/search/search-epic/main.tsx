@@ -1,4 +1,4 @@
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function SearchController({ children }: { children: React.ReactNode }) {
@@ -6,7 +6,7 @@ export function SearchController({ children }: { children: React.ReactNode }) {
     <GlassContainer
       displayName={SearchController.name}
       sizeStyle='h-full flex-grow'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`${containerStyles['col']} space-y-[2rem] p-[2rem]`}
     >
       {children}

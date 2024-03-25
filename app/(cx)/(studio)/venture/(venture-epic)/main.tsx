@@ -1,4 +1,4 @@
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function VentureCollection({ children }: { children: React.ReactNode }) {
@@ -6,8 +6,9 @@ export function VentureCollection({ children }: { children: React.ReactNode }) {
     <GlassContainer
       displayName={VentureCollection.name}
       sizeStyle='h-full flex-grow'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`flex flex-col overflow-auto`}
+      roundedStyle={roundedStyles['rounded-container']}
     >
       {children}
     </GlassContainer>

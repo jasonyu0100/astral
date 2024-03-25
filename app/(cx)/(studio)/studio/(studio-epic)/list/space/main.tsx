@@ -5,7 +5,7 @@ import {
 } from '@/(logic)/internal/model/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles } from '@/(design)/(styles)/data';
+import { glassStyles } from '@/(design)/(styles)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';
 
@@ -28,7 +28,7 @@ export function StudioSpace({ index }: { index: number }) {
       <GlassContainer
         displayName={StudioSpace.name}
         sizeStyle='w-full h-[100px]'
-        glassStyle={`${hover && backgroundStyles['glass-10']}`}
+        glassStyle={`${hover && glassStyles['glass-10']}`}
         className={`flex h-[100px] w-full flex-row items-center justify-between pl-[3rem] pr-[2rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}

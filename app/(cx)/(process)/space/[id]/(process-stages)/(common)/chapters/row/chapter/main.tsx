@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(logic)/internal/model/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
@@ -25,9 +25,9 @@ export function ChapterContainer({ index }: { index: number }) {
           displayName={ChapterContainer.name}
           sizeStyle='w-[200px] h-[40px]'
           glassStyle={
-            active ? backgroundStyles['glass-10'] : backgroundStyles['glass-5']
+            active ? glassStyles['glass-10'] : glassStyles['glass-5']
           }
-          borderStyle={borderStyles['rounded-full']}
+          roundedStyle={roundedStyles['rounded-full']}
           className='flex items-center justify-center'
         >
           {active ? <ChapterActiveText /> : <ChapterInactiveText />}

@@ -1,6 +1,6 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { backgroundStyles } from '@/(design)/(styles)/data';
+import { glassStyles } from '@/(design)/(styles)/data';
 import { ButtonInputProps } from '@/(types)/main';
 
 export function DraftSaveButton({ ...props }: ButtonInputProps) {

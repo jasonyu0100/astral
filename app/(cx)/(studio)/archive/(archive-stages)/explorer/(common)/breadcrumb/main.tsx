@@ -1,6 +1,6 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
-  backgroundStyles,
+  glassStyles,
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';

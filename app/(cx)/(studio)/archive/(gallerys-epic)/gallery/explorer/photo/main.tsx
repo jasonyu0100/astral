@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles } from '@/(design)/(styles)/data';
+import { glassStyles } from '@/(design)/(styles)/data';
 import { DivInputProps } from '@/(types)/main';
 
 interface InputProps extends DivInputProps {
@@ -13,7 +13,7 @@ export function GalleryPhoto({ children, ...props }: InputProps) {
       displayName={GalleryPhoto.name}
       className="flex h-full w-full flex-col"
       sizeStyle='h-[500px] aspect-[11/16]'
-      glassStyle={backgroundStyles['glass-10']}
+      glassStyle={glassStyles['glass-10']}
       {...props}
     >
       {children}

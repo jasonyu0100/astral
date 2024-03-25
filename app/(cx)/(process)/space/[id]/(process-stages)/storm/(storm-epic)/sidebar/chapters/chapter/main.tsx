@@ -5,7 +5,7 @@ import { StormChapterHeader } from './header/main';
 import { StormChapterTitle } from './header/title/main';
 import { useContext } from 'react';
 import { ChatContext } from '@/(logic)/internal/model/storm/chat/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
 import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
@@ -25,7 +25,7 @@ export function StormChapter() {
           className='relative my-[1rem] rounded-lg'
           borderStyle={borderStyles['border-all']}
         >
-          <GlassPane glassStyle={backgroundStyles['glass-5']} />
+          <GlassPane glassStyle={glassStyles['glass-5']} />
           <div className='z-50 flex w-full flex-col space-y-[1rem] px-[1rem] py-[1rem]'>
             <StormChapterHeader>
               <StormChapterTitle>

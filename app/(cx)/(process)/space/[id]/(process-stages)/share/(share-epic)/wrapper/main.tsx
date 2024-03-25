@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 
 export function ShareWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -7,7 +7,7 @@ export function ShareWrapper({ children }: { children: React.ReactNode }) {
       displayName={ShareWrapper.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
     >
       {children}
     </GlassContainer>

@@ -23,6 +23,7 @@ interface GlassProps extends DivInputProps {
   contentStyle?: string;
   glassStyle?: string;
   borderStyle?: string;
+  roundedStyle?: string;
   children?: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ export function GlassContainer({
   sizeStyle,
   glassStyle,
   borderStyle,
+  roundedStyle,
   children,
   ...props
 }: GlassProps) {
@@ -39,7 +41,7 @@ export function GlassContainer({
       id={displayName}
       className={`relative flex-shrink-0 ${sizeStyle || 'h-full w-full'} ${
         borderStyle || ''
-      }`}
+      } ${roundedStyle || ''}`}
     >
       <GlassPane
         glassStyle={glassStyle || ''}

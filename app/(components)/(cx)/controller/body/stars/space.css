@@ -6,8 +6,6 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: 1px;
-  width: 1px;
   background-color: #fff;
   border-radius: 50%;
   box-shadow: -42vw -4vh 0px 0px #fff, 25vw -41vh 0px 0px #fff,

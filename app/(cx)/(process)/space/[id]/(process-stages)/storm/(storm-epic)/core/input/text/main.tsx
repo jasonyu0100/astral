@@ -1,5 +1,5 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { FormInputProps } from '@/(types)/main';
 
 export function StormChatMessageInput({ ...props }: FormInputProps) {
@@ -7,12 +7,12 @@ export function StormChatMessageInput({ ...props }: FormInputProps) {
     <GlassContainer
       displayName={StormChatMessageInput.name}
       sizeStyle='max-w-[600px] flex-grow h-[50px]'
-      glassStyle={backgroundStyles['glass-10']}
-      borderStyle={borderStyles['rounded-full']}
+      glassStyle={glassStyles['glass-10']}
+      roundedStyle={roundedStyles['rounded-full']}
     >
       <input
-        className='h-full w-full bg-transparent px-[2rem] font-bold text-slate-300 outline-none animate-pulse-slow'
-        placeholder="Type a message..."
+        className='h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-bold text-slate-300 outline-none'
+        placeholder='Type a message...'
         {...props}
       />
     </GlassContainer>

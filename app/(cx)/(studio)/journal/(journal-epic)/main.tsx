@@ -1,4 +1,4 @@
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { FeedPosts } from './moments/main';
 

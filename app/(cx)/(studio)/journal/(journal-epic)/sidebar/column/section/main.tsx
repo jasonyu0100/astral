@@ -1,6 +1,6 @@
 import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';
 import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 
 export function FeedSidebarSection() {
   const active = false;
@@ -19,7 +19,7 @@ export function FeedSidebarSection() {
         </div>
         <p className='ml-auto font-bold text-white'>(1)</p>
       </div>
-      {active && <GlassPane glassStyle={backgroundStyles['glass-5']} />}
+      {active && <GlassPane glassStyle={glassStyles['glass-5']} />}
     </GlassFrame>
   );
 }

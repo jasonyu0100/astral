@@ -1,4 +1,4 @@
-import { backgroundStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 
 export function SharePoint({ children }: { children: React.ReactNode }) {

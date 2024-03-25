@@ -2,7 +2,7 @@ import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
   containerStyles,
   borderStyles,
-  backgroundStyles,
+  glassStyles,
 } from '@/(design)/(styles)/data';
 import { FlowHeaderLeft } from './left/main';
 import { FlowHeaderMiddle } from './middle/main';
@@ -13,7 +13,7 @@ export function FlowHeader() {
     <GlassContainer
       displayName={FlowHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`${containerStyles['row-center']} justify-between space-x-[1rem]`}
     >
       <FlowHeaderLeft />

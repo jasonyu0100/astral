@@ -1,6 +1,6 @@
 'use client';
 
-import { backgroundStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import { SpacesHeader } from './header/main';
 import { SpacesList } from './list/main';
@@ -10,8 +10,9 @@ export function StudioSpaces() {
     <GlassContainer
       displayName={StudioSpaces.name}
       sizeStyle='h-full flex-grow'
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
       className={`overflow-auto ${containerStyles.col}`}
+      roundedStyle={roundedStyles['rounded-container-sm']}
     >
       <SpacesHeader />
       <SpacesList />

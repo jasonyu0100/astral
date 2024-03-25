@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ShareWrapper } from './(share-epic)/wrapper/main';
-import { ShareMain } from './(share-epic)/main';
+import { ShareContainer } from './(share-epic)/main';
 import { ShareStory } from './(share-epic)/story/main';
 import { ShareSidebar } from './sidebar/main';
 import { SharePoint } from './sidebar/point/main';
@@ -10,9 +10,9 @@ export function ShareView() {
 
   return (
     <ShareWrapper>
-      <ShareMain>
+      <ShareContainer>
         <ShareStory />
-      </ShareMain>
+      </ShareContainer>
       <ShareSidebar>
         {/* <div
           className='flex w-full flex-col overflow-auto'

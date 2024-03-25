@@ -1,7 +1,7 @@
 import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
 import {
   containerStyles,
-  backgroundStyles,
+  glassStyles,
 } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../page';
 import { useContext } from 'react';
@@ -20,7 +20,7 @@ export function DraftHeader() {
       displayName={DraftHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
-      glassStyle={backgroundStyles['glass-5']}
+      glassStyle={glassStyles['glass-5']}
     >
       {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
       {modalType === DraftModalType.STAR && <DraftHeaderStar/>}

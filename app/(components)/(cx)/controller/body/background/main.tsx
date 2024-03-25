@@ -2,7 +2,6 @@
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 import { cn } from '@/(logic)/utils/cn';
 import { useContext } from 'react';
-import './space.css';
 
 export function DashboardBackground() {
   const { toggled } = useContext(ToggleContext);
@@ -20,7 +19,6 @@ export function DashboardBackground() {
           },
         )}
       >
-        <div className='main opacity-30'></div>
       </div>
     </>
   );

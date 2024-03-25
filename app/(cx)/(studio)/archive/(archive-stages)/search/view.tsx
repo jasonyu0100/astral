@@ -20,7 +20,7 @@ export function SearchView() {
       </SearchBar>
       <SearchResults>
         {searchResults.map((result, index) => (
-          <SearchResult result={result} index={index} />
+          <SearchResult result={result} index={index} key={result.id}/>
         ))}
       </SearchResults>
     </SearchController>
