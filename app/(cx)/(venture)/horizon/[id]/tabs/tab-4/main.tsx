@@ -1,22 +1,22 @@
 'use client';
 
 import { Tab } from '@/(components)/(cx)/tabs/tabs-row/tab/main';
-import { TabGreenShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/green/main';
+import { TabOrangeShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/(components)/(cx)/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ReleaseContext } from '../../layout';
-import { releaseMap } from '../../map';
+import { horizonMap } from '../../map';
 import { ReleaseTabStage } from '../main';
 
-export function TabTwo({ tab }: { tab?: string }) {
+export function TabFour({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Two;
+  const tabText = ReleaseTabStage.Four;
   const active = tab === tabText;
 
   return (
-    <Tab href={releaseMap.release.id.two.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.four.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
-      <TabGreenShard active={active} />
+      <TabOrangeShard active={active} />
     </Tab>
   );
 }

@@ -10,7 +10,7 @@ export function SpaceCount() {
   return (
     <div className='flex w-[50px] items-center justify-center'>
       {hover ? (
-        <Link href={spaceMap.space.id.storm.link(space.id)}>
+        <a href={spaceMap.space.id.storm.link(space.id)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-[30px] w-[30px]'
@@ -31,7 +31,7 @@ export function SpaceCount() {
               <path d='M8 19V5L19 12L8 19Z' fill='#CBD5E1' />
             </g>
           </svg>
-        </Link>
+        </a>
       ) : (
         <p className='font-extraBold text-xl text-slate-300'>#{index + 1}</p>
       )}
