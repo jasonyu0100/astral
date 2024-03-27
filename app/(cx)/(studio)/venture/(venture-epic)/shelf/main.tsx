@@ -2,16 +2,20 @@
 import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
 import { borderStyles } from '@/(design)/(styles)/data';
+import { Horizon } from './move/main';
 
-export function VentureShelf({ children }: { children: React.ReactNode }) {
+export function VentureShelf() {
   return (
     <GlassWindowFrame
-      borderStyle={borderStyles['border-b']}
+      className='w-[500px] flex-shrink-0'
+      borderStyle={borderStyles['border-r']}
     >
       <GlassWindowContents
-        className={`flex w-full flex-row space-x-[3rem] px-[4rem] py-[2rem]`}
+        className={`flex h-full w-full flex-col space-y-[3rem] p-[2rem]`}
       >
-        {children}
+        <Horizon />
+        <Horizon />
+        <Horizon />
       </GlassWindowContents>
     </GlassWindowFrame>
   );
