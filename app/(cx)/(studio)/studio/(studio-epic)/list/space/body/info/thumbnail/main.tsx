@@ -1,13 +1,16 @@
-import { useContext } from "react";
-import { ExtendedSpaceContext } from "../../../main";
+import { useContext } from 'react';
+import { ExtendedSpaceContext } from '../../../main';
+import { SpaceCover } from '@/(components)/(basic)/cover/space/main';
+import { cn } from '@/(logic)/utils/cn';
 
 export function SpaceInfoThumbnail() {
-  const { space } = useContext(ExtendedSpaceContext);
+  const { hover, index, space } = useContext(ExtendedSpaceContext);
 
   return (
-    <img
-      className='h-[50px] w-[50px] rounded-full'
-      src={space?.thumbnail?.src}
-    />
+    <div className={`relative flex h-[50px] w-[50px] items-center justify-center `}>
+      <SpaceCover file={space?.thumbnail} className={cn({
+        "animate-spin": hover,
+      })}/>
+    </div>
   );
 }

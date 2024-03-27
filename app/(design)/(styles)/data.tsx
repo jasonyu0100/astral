@@ -24,14 +24,15 @@ export const glassStyles = {
 };
 
 export const effectStyles = {
+  'glow-sm': 'shadow-sm shadow-slate-500/50',
   'glow-md': 'shadow-md shadow-slate-500/50',
-  'glow-lg': 'shadow-lg shadow-slate-500/50',
-  'glow-xl': 'shadow-xl shadow-slate-500/50',
+  'glow-lg': 'shadow-lg shadow-slate-500/30',
+  'glow-xl': 'shadow-xl shadow-slate-500/30',
   none: '',
 };
 
 export const roundedStyles = {
-  'rounded-container': 'rounded-t-[2.5rem] overflow-hidden',
+  'rounded-container': 'rounded-t-[2rem] overflow-hidden',
   'rounded-container-sm': 'rounded-t-[1rem] overflow-hidden',
   'rounded': 'rounded-[1rem] overflow-hidden',
   'rounded-sm': 'rounded-[0.5rem] overflow-hidden',

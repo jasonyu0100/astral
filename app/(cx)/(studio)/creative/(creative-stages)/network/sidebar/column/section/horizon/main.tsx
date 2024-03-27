@@ -1,14 +1,18 @@
+import { Divider } from '@/(components)/(basic)/divider/main';
 import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
 import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
+import { HorizonCover } from '@/(components)/(basic)/cover/horizon/main';
+import { SpaceCover } from '@/(components)/(basic)/cover/space/main';
 import {
   borderStyles,
   glassStyles,
   roundedStyles,
 } from '@/(design)/(styles)/data';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
-import { exampleFile } from '@/(logic)/internal/model/resource/file/main';
+import { FileObj, exampleFile } from '@/(logic)/internal/model/resource/file/main';
 import { useState } from 'react';
+import { Seperator } from '@/(components)/(basic)/seperator/main';
 
 export function SidebarNetworkHorizon() {
   const file = exampleFile;
@@ -23,12 +27,17 @@ export function SidebarNetworkHorizon() {
         roundedStyle={roundedStyles['rounded-sm']}
         borderStyle={borderStyles['border-all']}
       >
-        <GlassWindowContents className='flex flex-col space-y-[1rem]'>
-          <div className='flex flex-row items-center space-x-[2rem]'>
-            <img className='h-[50px] w-[50px]' src={file.src} />
-            <p className='text-lg font-bold text-slate-300'>
-              Project Horizon - John Smith
-            </p>
+        <GlassWindowContents className='flex flex-col space-y-[1rem] w-full'>
+          <div className='flex flex-row items-center space-x-[2rem] w-full'>
+            <HorizonCover file={file} />
+            <div className='flex flex-col'>
+              <p className='text-xl font-bold text-slate-300'>
+                Project Horizon
+              </p>
+              <p className='text-md text-slate-300'>
+                John Smith
+              </p>
+            </div>
             <button
               className='h-[50px] w-[50px]'
               onClick={() => changeExpanded(!expanded)}
@@ -60,28 +69,48 @@ export function SidebarNetworkHorizon() {
           </div>
           {expanded && (
             <>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <img className='h-[50px] w-[50px]' src={file.src} />
+              <Divider />
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <SpaceCover file={file}  />
+                <Seperator className="w-[3rem]"/>
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Horizon - John Smith
+                  Project Space
                 </p>
               </div>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <img className='h-[50px] w-[50px]' src={file.src} />
+
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <SpaceCover file={file}  />
+                <Seperator/>
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Horizon - John Smith
+                  Project Space
                 </p>
               </div>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <img className='h-[50px] w-[50px]' src={file.src} />
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <SpaceCover file={file}  />
+                <Seperator/>
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Horizon - John Smith
+                  Project Space
                 </p>
               </div>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <img className='h-[50px] w-[50px]' src={file.src} />
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <SpaceCover file={file}  />
+                <Seperator/>
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Horizon - John Smith
+                  Project Space
+                </p>
+              </div>
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <SpaceCover file={file}  />
+                <Seperator/>
+                <p className='text-lg font-bold text-slate-300'>
+                  Project Space
+                </p>
+              </div>
+
+              <div className='flex flex-row items-center space-x-[2rem]'>
+                <SpaceCover file={{} as FileObj}  />
+                <p className='text-lg font-bold text-slate-300'>
+                  New Space +
                 </p>
               </div>
             </>

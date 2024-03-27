@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/stars/star/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { effectStyles } from '@/(design)/(styles)/data';
 
 export function NotePromptStar() {
   const user = useGlobalUser((state) => state.user);
@@ -32,7 +33,7 @@ export function NotePromptStar() {
           >
             <img
               src={'/brand/icon-bg-sm.png'}
-              className='h-[50px] w-[50px] rounded-full'
+              className={`h-[50px] w-[50px] rounded-full ${effectStyles['glow-md']}`}
             />
             <div className='w-[300px] rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-3 font-regular text-white'>
               {star.note?.text}
