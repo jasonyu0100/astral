@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   containerStyles,
   borderStyles,
@@ -10,7 +10,7 @@ import { FlowHeaderRight } from './right/main';
 
 export function FlowHeader() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={FlowHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       glassStyle={glassStyles['glass-5']}
@@ -19,6 +19,6 @@ export function FlowHeader() {
       <FlowHeaderLeft />
       <FlowHeaderMiddle />
       <FlowHeaderRight />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

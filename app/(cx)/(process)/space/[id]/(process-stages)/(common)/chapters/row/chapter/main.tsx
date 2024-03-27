@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(logic)/internal/model/space/chapter/main';
@@ -21,7 +21,7 @@ export function ChapterContainer({ index }: { index: number }) {
           'animate-pulse-slow': active,
         })}
       >
-        <GlassContainer
+        <GlassAreaContainer
           displayName={ChapterContainer.name}
           sizeStyle='w-[200px] h-[40px]'
           glassStyle={
@@ -31,7 +31,7 @@ export function ChapterContainer({ index }: { index: number }) {
           className='flex items-center justify-center'
         >
           {active ? <ChapterActiveText /> : <ChapterInactiveText />}
-        </GlassContainer>
+        </GlassAreaContainer>
       </button>
     </WrapperTooltip>
   );

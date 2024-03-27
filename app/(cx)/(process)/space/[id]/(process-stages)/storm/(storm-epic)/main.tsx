@@ -3,11 +3,11 @@ import {
   containerStyles,
   roundedStyles,
 } from '@/(design)/(styles)/data';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 
 export function StormContainer({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={StormContainer.name}
       sizeStyle='h-full flex-grow'
       glassStyle={glassStyles['glass-5']}
@@ -15,6 +15,6 @@ export function StormContainer({ children }: { children: React.ReactNode }) {
       roundedStyle={roundedStyles['rounded-container-sm']}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

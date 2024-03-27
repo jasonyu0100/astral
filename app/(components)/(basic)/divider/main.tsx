@@ -1,12 +1,12 @@
-import { GlassContainer } from '../glass/container/main';
+import { GlassAreaContainer } from '../glass/area/main';
 import { borderStyles } from '../../../(design)/(styles)/data';
 
 export function Divider() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={Divider.name}
       sizeStyle='w-full h-[0px]'
       borderStyle={borderStyles['border-b']}
-    ></GlassContainer>
+    ></GlassAreaContainer>
   );
 }

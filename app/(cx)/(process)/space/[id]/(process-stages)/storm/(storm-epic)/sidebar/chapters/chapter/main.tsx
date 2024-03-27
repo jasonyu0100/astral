@@ -5,11 +5,16 @@ import { StormChapterHeader } from './header/main';
 import { StormChapterTitle } from './header/title/main';
 import { useContext } from 'react';
 import { ChatContext } from '@/(logic)/internal/model/storm/chat/main';
-import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
-import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
-import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';
+import {
+  glassStyles,
+  borderStyles,
+  roundedStyles,
+} from '@/(design)/(styles)/data';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
+import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
+import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
 
 export function StormChapter() {
   const chapter = useContext(ChapterContext);
@@ -21,12 +26,12 @@ export function StormChapter() {
   return (
     <>
       {active ? (
-        <GlassFrame
-          className='relative my-[1rem] rounded-lg'
+        <GlassWindowFrame
+          className='relative my-2'
           borderStyle={borderStyles['border-all']}
+          roundedStyle={roundedStyles['rounded-sm']}
         >
-          <GlassPane glassStyle={glassStyles['glass-5']} />
-          <div className='z-50 flex w-full flex-col space-y-[1rem] px-[1rem] py-[1rem]'>
+          <GlassWindowContents className='flex w-full flex-col space-y-[1rem] px-[1rem] py-[1rem]'>
             <StormChapterHeader>
               <StormChapterTitle>
                 {chapter.title} {`(${chats.length})`}
@@ -40,8 +45,9 @@ export function StormChapter() {
               ))}
               <StormChapterChatAdd />
             </div>
-          </div>
-        </GlassFrame>
+          </GlassWindowContents>
+          <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+        </GlassWindowFrame>
       ) : (
         <div className='my-[1rem] flex flex-col space-y-[1rem]'>
           <StormChapterHeader>

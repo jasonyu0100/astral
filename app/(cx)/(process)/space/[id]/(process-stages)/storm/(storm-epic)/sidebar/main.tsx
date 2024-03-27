@@ -1,11 +1,11 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { StormSidebarChapters } from './chapters/main';
 import { StormSidebarHeader } from './header/main';
 
 export function StormSidebar() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={StormSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
       glassStyle={glassStyles['glass-10']}
@@ -13,6 +13,6 @@ export function StormSidebar() {
     >
       <StormSidebarHeader />
       <StormSidebarChapters />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

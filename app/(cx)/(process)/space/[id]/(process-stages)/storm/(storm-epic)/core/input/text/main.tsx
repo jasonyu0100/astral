@@ -1,10 +1,10 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { FormInputProps } from '@/(types)/main';
 
 export function StormChatMessageInput({ ...props }: FormInputProps) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={StormChatMessageInput.name}
       sizeStyle='max-w-[600px] flex-grow h-[50px]'
       glassStyle={glassStyles['glass-10']}
@@ -15,6 +15,6 @@ export function StormChatMessageInput({ ...props }: FormInputProps) {
         placeholder='Type a message...'
         {...props}
       />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

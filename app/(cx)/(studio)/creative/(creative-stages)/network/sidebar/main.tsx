@@ -1,14 +1,14 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
-import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import React from 'react';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { JournalNetworkSidebarColumn } from './column/main';
 import { JournalNetworkSidebarSection } from './column/section/main';
 import { JournalNetworkSidebarHeader } from './header/main';
 
-export function ArtistNetworkSidebar() {
+export function CreativeNetworkSidebar() {
   return (
-    <GlassContainer
-      displayName={ArtistNetworkSidebar.name}
+    <GlassAreaContainer
+      displayName={CreativeNetworkSidebar.name}
       sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
       glassStyle={glassStyles['glass-r-10']}
@@ -17,6 +17,6 @@ export function ArtistNetworkSidebar() {
       <JournalNetworkSidebarColumn>
         <JournalNetworkSidebarSection />
       </JournalNetworkSidebarColumn>
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

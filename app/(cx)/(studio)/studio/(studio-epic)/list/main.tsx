@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
 import { SpacesHandlerContext } from '@/(logic)/internal/handler/spaces/main';
@@ -9,7 +9,7 @@ export function SpacesList() {
   const spaces = spacesHandler.spaces;
 
   return (
-    <GlassContainer
+    <GlassAreaContainer
       sizeStyle='w-full'
       displayName={SpacesList.name}
       className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
@@ -19,6 +19,6 @@ export function SpacesList() {
           <StudioSpace index={index} key={space.id} />
         </SpaceContext.Provider>
       ))}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

@@ -1,9 +1,9 @@
 import { glassStyles, roundedStyles } from '@/(design)/(styles)/data';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 
 export function VentureCollection({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={VentureCollection.name}
       sizeStyle='h-full flex-grow'
       glassStyle={glassStyles['glass-5']}
@@ -11,6 +11,6 @@ export function VentureCollection({ children }: { children: React.ReactNode }) {
       roundedStyle={roundedStyles['rounded-container']}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

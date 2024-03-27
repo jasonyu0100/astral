@@ -33,7 +33,8 @@ export const effectStyles = {
 export const roundedStyles = {
   'rounded-container': 'rounded-t-[2.5rem] overflow-hidden',
   'rounded-container-sm': 'rounded-t-[1rem] overflow-hidden',
-  rounded: 'rounded-[1rem] overflow-hidden',
+  'rounded': 'rounded-[1rem] overflow-hidden',
+  'rounded-sm': 'rounded-[0.5rem] overflow-hidden',
   'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
   'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
   'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',

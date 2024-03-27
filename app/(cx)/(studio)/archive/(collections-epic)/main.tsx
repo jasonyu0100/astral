@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import React, { useContext } from 'react';
 import { CollectionsBreadcrumbs } from './breadcrumbs/main';
@@ -9,7 +9,7 @@ export function CollectionsBody() {
   const gallery = useContext(GalleryContext);
   
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={CollectionsBody.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
@@ -18,6 +18,6 @@ export function CollectionsBody() {
     >
       <CollectionsBreadcrumbs />
       {gallery !== null && <CollectionsGrid />}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

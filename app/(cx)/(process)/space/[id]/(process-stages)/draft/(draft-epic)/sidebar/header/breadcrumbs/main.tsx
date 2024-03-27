@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   glassStyles,
   borderStyles,
@@ -12,13 +12,13 @@ export function SidebarBreadcrumbs({
   children: React.ReactNode;
 }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={SidebarBreadcrumbs.name}
       sizeStyle='h-[60px] w-full'
       borderStyle={`${borderStyles['border-b']}`}
       className={`${containerStyles['row-center']} space-x-[1rem]`}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

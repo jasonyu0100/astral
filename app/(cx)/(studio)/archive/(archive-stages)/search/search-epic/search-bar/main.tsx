@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   glassStyles,
   borderStyles,
@@ -7,7 +7,7 @@ import {
 
 export function SearchBar({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={SearchBar.name}
       sizeStyle='flex-grow max-w-[800px] h-[4rem]'
       className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
@@ -15,6 +15,6 @@ export function SearchBar({ children }: { children: React.ReactNode }) {
       borderStyle={`${borderStyles['border-all']} ${borderStyles.rounded}`}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

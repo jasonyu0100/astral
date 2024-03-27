@@ -1,30 +1,30 @@
 'use client';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   glassStyles,
   containerStyles,
   roundedStyles,
 } from '@/(design)/(styles)/data';
 import { ArtistCollection } from '../../(creative-epic)/main';
-import { ArtistNetworkSidebar } from './sidebar/main';
+import { CreativeNetworkSidebar } from './sidebar/main';
 
 export function ArtistsNetworkView() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={ArtistsNetworkView.name}
       className={`flex flex-row`}
       glassStyle={glassStyles['glass-5']}
       sizeStyle='flex-grow h-full'
       roundedStyle={roundedStyles['rounded-container']}
     >
-      <GlassContainer
+      <GlassAreaContainer
         displayName={ArtistsNetworkView.name}
         className={`flex flex-row`}
         sizeStyle='flex-grow h-full'
       >
         <ArtistCollection />
-      </GlassContainer>
-      <ArtistNetworkSidebar />
-    </GlassContainer>
+      </GlassAreaContainer>
+      <CreativeNetworkSidebar />
+    </GlassAreaContainer>
   );
 }

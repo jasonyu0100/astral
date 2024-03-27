@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 import { ButtonInputProps } from '@/(types)/main';

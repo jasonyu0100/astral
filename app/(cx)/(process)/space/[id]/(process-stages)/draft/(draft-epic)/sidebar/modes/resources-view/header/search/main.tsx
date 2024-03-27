@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';
@@ -10,7 +10,7 @@ export function CollectionHeaderSearch() {
   const [query, changeQuery] = useState('');
 
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={CollectionHeaderSearch.name}
       sizeStyle='flex-grow h-[3rem]'
       borderStyle={`${borderStyles['border-b']}`}
@@ -28,6 +28,6 @@ export function CollectionHeaderSearch() {
           changeQuery('');
         }}
       />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

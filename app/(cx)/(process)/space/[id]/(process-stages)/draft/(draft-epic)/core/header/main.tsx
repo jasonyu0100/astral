@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   containerStyles,
   glassStyles,
@@ -16,7 +16,7 @@ export function DraftHeader() {
   const modalType = draftContext.modalType
 
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={DraftHeader.name}
       sizeStyle='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
@@ -27,6 +27,6 @@ export function DraftHeader() {
       {modalType === DraftModalType.TEXT && <DraftHeaderInfo/>}
       {modalType === DraftModalType.AUDIO && <DraftHeaderSound/>}
       {modalType === DraftModalType.VISUAL && <DraftHeaderVisual/>}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

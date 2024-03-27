@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/stars/star/main';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function LinkSpotifyStar() {
@@ -19,7 +19,7 @@ export function LinkSpotifyStar() {
         className={`absolute flex aspect-[16/11] w-[300px] top-[${x}] left-[${y}]`}
         style={{ x, y }}
       >
-        <GlassContainer
+        <GlassAreaContainer
           displayName={LinkSpotifyStar.name}
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onClick={(e) => {
@@ -39,7 +39,7 @@ export function LinkSpotifyStar() {
               {star.title}
             </p>
           </div>
-        </GlassContainer>
+        </GlassAreaContainer>
       </motion.div>
     </>
   );

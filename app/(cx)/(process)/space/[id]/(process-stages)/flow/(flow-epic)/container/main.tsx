@@ -1,10 +1,10 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 
 export function FlowContainer({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={FlowContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row']}`}
@@ -12,6 +12,6 @@ export function FlowContainer({ children }: { children: React.ReactNode }) {
       roundedStyle={roundedStyles['rounded-container-sm']}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

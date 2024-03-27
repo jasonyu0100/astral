@@ -3,13 +3,13 @@ import {
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { VentureActionButton } from './action/main';
 import { VentureInfo } from './info/main';
 
 export function VentureHeader() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       sizeStyle='w-full h-[220px]'
       displayName={VentureHeader.name}
       glassStyle={glassStyles['glass-5']}
@@ -21,6 +21,6 @@ export function VentureHeader() {
           alert("TODO")
         }}
       />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

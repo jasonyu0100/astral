@@ -4,7 +4,7 @@ import {
   SpaceObj,
 } from '@/(logic)/internal/model/space/main';
 import { createContext, useContext, useState } from 'react';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';
@@ -25,7 +25,7 @@ export function StudioSpace({ index }: { index: number }) {
 
   return (
     <ExtendedSpaceContext.Provider value={{ space, index, hover }}>
-      <GlassContainer
+      <GlassAreaContainer
         displayName={StudioSpace.name}
         sizeStyle='w-full h-[100px]'
         glassStyle={`${hover && glassStyles['glass-10']}`}
@@ -35,7 +35,7 @@ export function StudioSpace({ index }: { index: number }) {
       >
         <StudioSpaceBody/>
         <StudioSpaceMore />
-      </GlassContainer>
+      </GlassAreaContainer>
     </ExtendedSpaceContext.Provider>
   );
 }

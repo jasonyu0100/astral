@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../../../../page';
 import { DraftHeaderTextBoardButton } from './text/main';
@@ -16,7 +16,7 @@ export function ToggleDropdownList() {
       className={`absolute left-[-60px] top-[60px] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900 ${modalType === DraftModalType.STAR && 'h-[240px]'} `}
       onMouseLeave={() => toggle()}
     >
-      <GlassContainer
+      <GlassAreaContainer
         displayName={ToggleDropdownList.name}
         sizeStyle={'w-full h-full'}
         glassStyle={glassStyles['glass-10']}
@@ -42,7 +42,7 @@ export function ToggleDropdownList() {
             onClick={() => updateModalType(DraftModalType.TEXT)}
           />
         )}
-      </GlassContainer>
+      </GlassAreaContainer>
     </div>
   );
 }

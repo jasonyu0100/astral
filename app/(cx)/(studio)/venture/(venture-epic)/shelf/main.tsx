@@ -1,15 +1,18 @@
 'use client';
-import { GlassFrame } from '@/(components)/(basic)/glass/frame/main';
-import { GlassPane } from '@/(components)/(basic)/glass/pane/main';
-import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
+import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
+import { borderStyles } from '@/(design)/(styles)/data';
 
 export function VentureShelf({ children }: { children: React.ReactNode }) {
   return (
-    <GlassFrame
+    <GlassWindowFrame
       borderStyle={borderStyles['border-b']}
-      className={`flex w-full flex-row px-[4rem] py-[2rem] space-x-[3rem]`}
     >
-      {children}
-    </GlassFrame>
+      <GlassWindowContents
+        className={`flex w-full flex-row space-x-[3rem] px-[4rem] py-[2rem]`}
+      >
+        {children}
+      </GlassWindowContents>
+    </GlassWindowFrame>
   );
 }

@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   glassStyles,
   borderStyles,
@@ -7,12 +7,12 @@ import {
 
 export function CreativeSearch() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={CreativeSearch.name}
       sizeStyle='w-full h-[120px]'
       className='flex flex-shrink-0 flex-row items-center p-[2rem]'
     >
-      <GlassContainer
+      <GlassAreaContainer
         sizeStyle='flex-grow h-[4rem]'
         className={`flex flex-row items-center space-x-[1rem] px-[1rem]`}
         glassStyle={glassStyles['glass-10']}
@@ -23,8 +23,8 @@ export function CreativeSearch() {
           className='h-full w-full rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
           placeholder='Enter name...'
         ></input>
-      </GlassContainer>
+      </GlassAreaContainer>
       {/* <p className='font-bold text-slate-300'>Search People</p> */}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

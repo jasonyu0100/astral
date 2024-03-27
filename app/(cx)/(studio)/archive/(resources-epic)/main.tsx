@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
 import React from 'react';
 import { ResourcesBreadcrumbs } from './breadcrumbs/main';
@@ -6,7 +6,7 @@ import { ResourcesGrid } from './grid/main';
 
 export function ResourcesBody() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={ResourcesBody.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
@@ -15,6 +15,6 @@ export function ResourcesBody() {
     >
       <ResourcesBreadcrumbs />
       <ResourcesGrid/>
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

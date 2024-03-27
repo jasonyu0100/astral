@@ -1,11 +1,11 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { CreativeSearch } from './search/main';
 import { CreativeFooter } from './footer/main';
 import { CreativeResults } from './results/main';
 
 export function ArtistCollection() {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={ArtistCollection.name}
       sizeStyle='h-full flex-grow'
       className='flex flex-col'
@@ -13,6 +13,6 @@ export function ArtistCollection() {
       <CreativeSearch />
       <CreativeResults />
       <CreativeFooter />
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

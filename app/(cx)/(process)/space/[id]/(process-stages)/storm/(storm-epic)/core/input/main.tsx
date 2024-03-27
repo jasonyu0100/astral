@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
@@ -11,7 +11,7 @@ export function StormChatInput() {
   const messagesHandler = useContext(MessagesHandlerContext)
 
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={StormChatInput.name}
       sizeStyle='h-[80px] w-full'
       glassStyle={glassStyles['glass-5']}
@@ -23,6 +23,6 @@ export function StormChatInput() {
         value={messagesHandler.inputMessage}
       />
       <StormChatInputRight/>
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

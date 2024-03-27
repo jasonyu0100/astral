@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   glassStyles,
   borderStyles,
@@ -11,7 +11,7 @@ export function CollectionBreadcrumbs({
   children: React.ReactNode;
 }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={CollectionBreadcrumbs.name}
       sizeStyle='w-full h-[60px] mt-0'
       borderStyle={`${borderStyles['border-b']}`}
@@ -20,6 +20,6 @@ export function CollectionBreadcrumbs({
       <div className='flex flex-row items-center space-x-[1rem]'>
         {children}
       </div>
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

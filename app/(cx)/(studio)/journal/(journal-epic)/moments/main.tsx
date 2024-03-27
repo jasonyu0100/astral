@@ -1,4 +1,4 @@
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { FeedJournalContext } from '../../(journal-stages)/updates/page';
@@ -11,7 +11,7 @@ export function FeedPosts() {
   const moments = exampleMoments
 
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={FeedPosts.name}
       sizeStyle='flex-grow h-full'
       className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
@@ -21,6 +21,6 @@ export function FeedPosts() {
           <FeedMoment key={moment.id} />
         </MomentContext.Provider>
       ))}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

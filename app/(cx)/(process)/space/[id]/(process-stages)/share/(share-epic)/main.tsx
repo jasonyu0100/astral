@@ -1,15 +1,15 @@
 import { containerStyles, roundedStyles } from '@/(design)/(styles)/data';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 
 export function ShareContainer({ children }: { children: React.ReactNode }) {
   return (
-    <GlassContainer
+    <GlassAreaContainer
       displayName={ShareContainer.name}
       sizeStyle='h-full flex-grow'
       className={`${containerStyles['row-center']}`}
       roundedStyle={roundedStyles['rounded-container-sm']}
     >
       {children}
-    </GlassContainer>
+    </GlassAreaContainer>
   );
 }

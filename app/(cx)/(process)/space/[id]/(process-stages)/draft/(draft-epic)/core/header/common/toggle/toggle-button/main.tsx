@@ -7,7 +7,7 @@ import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { GlassContainer } from '@/(components)/(basic)/glass/container/main';
+import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 
 export function ToggleButton() {
@@ -15,7 +15,7 @@ export function ToggleButton() {
   const { modalType } = useContext(DraftContext);
   return (
     <WrapperTooltip text={modalType}>
-      <GlassContainer
+      <GlassAreaContainer
         displayName={ToggleButton.name}
         sizeStyle={'w-[60px] h-[60px]'}
         glassStyle={glassStyles['glass-5']}
@@ -27,7 +27,7 @@ export function ToggleButton() {
         {modalType === DraftModalType.AUDIO && <SoundIcon />}
         {modalType === DraftModalType.VISUAL && <VisualIcon />}
         {modalType === DraftModalType.TEXT && <InfoIcon />}
-      </GlassContainer>
+      </GlassAreaContainer>
     </WrapperTooltip>
   );
 }
