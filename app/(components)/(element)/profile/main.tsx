@@ -1,5 +1,4 @@
 import {
-  GlowWrapperStyle,
   GlassEffectWrapper,
 } from '@/(components)/(glass)/effect/main';
 import { roundedFx } from '@/(design)/(fx)/data';
