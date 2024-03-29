@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useState } from 'react';
-import { DraftView } from './view';
+import { DraftView } from './(draft-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,

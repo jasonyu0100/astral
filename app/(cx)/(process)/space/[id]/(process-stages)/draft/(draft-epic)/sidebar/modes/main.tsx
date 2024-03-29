@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { DraftSidebarContext, SidebarMode } from '../main';
-import { CollectionsInterface } from './collections-view/main';
-import { SidebarGallerysInterface } from './gallerys-view/main';
-import { ResourcesInterface } from './resources-view/main';
+import { CollectionsInterface } from './(collections-sidebar-epic)/main';
+import { SidebarGallerysInterface } from './(gallerys-sidebar-epic)/main';
+import { ResourcesInterface } from './(resources-sidebar-epic)/main';
 
 export function DraftSidebarBody() {
   const { sidebarMode } = useContext(DraftSidebarContext);

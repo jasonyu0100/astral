@@ -17,7 +17,7 @@ import {
 } from '@/(logic)/internal/handler/explorer/resources/main';
 import { useCollectionHandler } from '@/(logic)/internal/handler/explorer/collections/collection/main';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
-import { ResourcesView } from './view';
+import { ResourcesView } from './(resources-explorer-epic)/view';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ArchiveExplorerCreateModalContext,

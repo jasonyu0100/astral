@@ -1,5 +1,5 @@
 'use client';
-import { StormView } from './view';
+import { StormView } from './(storm-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,

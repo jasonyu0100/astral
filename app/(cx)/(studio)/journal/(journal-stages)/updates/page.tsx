@@ -1,6 +1,6 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { JournalView } from './view';
+import { JournalView } from './(updates-epic)/view';
 import { createContext } from 'react';
 import {
   JournalActions,

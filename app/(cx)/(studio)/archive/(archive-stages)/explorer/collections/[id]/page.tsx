@@ -1,5 +1,5 @@
 'use client';
-import { CollectionsView } from './view';
+import { CollectionsView } from './(collections-explorer-epic)/view';
 import {
   GalleryContext,
 } from '@/(logic)/internal/model/gallery/main';

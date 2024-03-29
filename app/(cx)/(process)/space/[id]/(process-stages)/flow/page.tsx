@@ -1,6 +1,6 @@
 'use client';
 import { createContext } from 'react';
-import { FlowView } from './view';
+import { FlowView } from './(flow-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,

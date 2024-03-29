@@ -1,7 +1,7 @@
 import { useUnsplash } from '@/(logic)/internal/handler/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import { SearchBar } from '@/(components)/(inter)/search-bar/main';
+import { SearchBar } from '@/(components)/(explorer)/search-bar/main';
 import { cn } from '@/(logic)/utils/cn';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormContainer } from '@/(components)/(form)/main';

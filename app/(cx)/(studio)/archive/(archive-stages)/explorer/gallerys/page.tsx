@@ -1,5 +1,5 @@
 'use client';
-import { GallerysView } from './view';
+import { GallerysView } from './(gallerys-explorer-epic)/view';
 import insideVerses from '@/(logic)/utils/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
