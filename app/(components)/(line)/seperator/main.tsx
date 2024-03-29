@@ -7,7 +7,7 @@ export function Seperator({ ...props }: SeperatorProps) {
     <div
       className={`flex h-full w-[2rem] flex-shrink-0 flex-row items-center justify-center ${props.className}`}
     >
-      <div className='h-[1px] w-full bg-slate-300 bg-opacity-30' />
+      <div className='h-[1px] w-full bg-slate-500 bg-opacity-30' />
     </div>
   );
 }

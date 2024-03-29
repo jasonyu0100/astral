@@ -8,7 +8,7 @@ interface InputProps extends HyperLinkInputProps {
   children: React.ReactNode;
 }
 
-export function SidebarIndicator({ children, ...props }: InputProps) {
+export function DashboardSidebarIndicator({ children, ...props }: InputProps) {
   return (
     <a
       {...props}
@@ -18,7 +18,7 @@ export function SidebarIndicator({ children, ...props }: InputProps) {
     </a>
   );
 }
-export enum SidebarIndicatorType {
+export enum DashboardSidebarIndicatorType {
   Studio = 'Studio',
   Archive = 'Archive',
   Journal = 'Journal',

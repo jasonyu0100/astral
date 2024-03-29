@@ -1,7 +1,7 @@
 import { LinkInputProps } from '@/(types)/main';
 import Link from 'next/link';
 
-export function SidebarBack({ ...props }: LinkInputProps) {
+export function DashboardSidebarTopBack({ ...props }: LinkInputProps) {
   return (
     <Link
       className='flex h-[3rem] w-full items-center gap-[1rem] self-stretch'

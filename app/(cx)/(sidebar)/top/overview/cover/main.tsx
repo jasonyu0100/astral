@@ -2,15 +2,12 @@
 import { effectStyles } from '@/(design)/(styles)/data';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { cn } from '@/(logic)/utils/cn';
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { DashboardSidebarContext } from '../../../main';
 
-export function SidebarWorkCover({
-  active,
-  minimised,
-}: {
-  active: boolean;
-  minimised?: boolean;
-}) {
+export function DashboardSidebarTopOveriewCover() {
+  const { indicator, minimised } = useContext(DashboardSidebarContext);
+  const active = !indicator;
   const space = useGlobalSpace(state => state.space);
 
   return (

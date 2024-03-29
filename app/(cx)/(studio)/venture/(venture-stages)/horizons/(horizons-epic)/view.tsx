@@ -22,7 +22,6 @@ export function VentureHorizonsView() {
           size='w-full h-[100px]'
           glass={glassStyles['glass-5']}
           className='flex flex-row items-center justify-between px-[50px]'
-          border={borderStyles['border-all']}
         >
           <div className='flex w-1/3 flex-row justify-start '></div>
           <div className='flex w-1/3  flex-row justify-center gap-[1rem]'>

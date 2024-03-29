@@ -2,24 +2,25 @@
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { cn } from '@/(logic)/utils/cn';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { DashboardSidebarContext } from '../../../main';
 
-export function SidebarWorkInfo({ active }: { active: boolean }) {
-  const user = useGlobalUser(state => state.user);
-  const space = useGlobalSpace(state => state.space);
+export function DashboardSidebarTopOverviewInfo() {
+  const { indicator, minimised } = useContext(DashboardSidebarContext);
+  const active = !indicator;
+  const user = useGlobalUser((state) => state.user);
+  const space = useGlobalSpace((state) => state.space);
   const [title, changeTitle] = useState('Untitled');
   const [name, changeName] = useState('No Author');
 
   useEffect(() => {
     changeTitle(space?.title || 'Untitled');
-    changeName(
-      `${user?.fname || ''} ${user?.lname || ''}`,
-    );
+    changeName(`${user?.fname || ''} ${user?.lname || ''}`);
   }, [space, user]);
 
   return (
     <div
-      id={SidebarWorkInfo.name}
+      id={DashboardSidebarTopOverviewInfo.name}
       className={cn(
         'inline-flex h-[50px] flex-col items-start justify-center',
         {
