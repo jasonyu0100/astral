@@ -1,6 +1,6 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { FeedJournalView } from './view';
+import { JournalView } from './view';
 import { createContext } from 'react';
 import {
   JournalActions,
@@ -9,14 +9,14 @@ import {
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 
-interface FeedJournalContextObj {
+interface JournalContextObj {
   momentId: string;
   moments: MomentObj[];
   momentHandler: JournalActions;
 }
 
-export const FeedJournalContext = createContext<FeedJournalContextObj>(
-  {} as FeedJournalContextObj,
+export const JournalContext = createContext<JournalContextObj>(
+  {} as JournalContextObj,
 );
 
 function Page() {
@@ -25,16 +25,16 @@ function Page() {
     user.id,
   );
 
-  const context: FeedJournalContextObj = {
+  const context: JournalContextObj = {
     momentId,
     moments,
     momentHandler: _momentHandler,
   };
 
   return (
-    <FeedJournalContext.Provider value={context}>
-      <FeedJournalView />
-    </FeedJournalContext.Provider>
+    <JournalContext.Provider value={context}>
+      <JournalView />
+    </JournalContext.Provider>
   );
 }
 

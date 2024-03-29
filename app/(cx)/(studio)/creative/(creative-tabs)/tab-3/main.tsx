@@ -2,10 +2,10 @@ import { Tab } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/main';
 import { TabText } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/text/main';
 import { TabPurpleShard } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/shard/purple/main';
 import { creativeMap } from '../../map';
-import { ArtistTabStage } from '../main';
+import { CreativeTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
-  const tabText = ArtistTabStage.Fans;
+  const tabText = CreativeTabStage.Fans;
   const active = tab === tabText;
 
   return (

@@ -2,10 +2,10 @@ import { Tab } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/main';
 import { TabBlueShard } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '../../../../../(components)/(cx)/tabs/tabs-row/tab/text/main';
 import { journalMap } from '../../map';
-import { LinkTabStage } from '../main';
+import { JournalTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = LinkTabStage.Updates;
+  const tabText = JournalTabStage.Updates;
   const active = tab === tabText;
 
   return (

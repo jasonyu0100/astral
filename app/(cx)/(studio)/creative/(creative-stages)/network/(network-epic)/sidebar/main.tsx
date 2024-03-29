@@ -1,9 +1,9 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
-import { JournalNetworkSidebarColumn } from './column/main';
-import { JournalNetworkSidebarSection } from './column/section/main';
-import { JournalNetworkSidebarHeader } from './header/main';
+import { CreativeNetworkSidebarHorizons } from './horizons/main';
+import { CreativeNetworkSidebarHeader } from './header/main';
+import { CreativeNetworkSidebarHorizon } from './horizons/horizon/main';
 
 export function CreativeNetworkSidebar() {
   return (
@@ -13,10 +13,13 @@ export function CreativeNetworkSidebar() {
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
       glass={glassStyles['glass-r-10']}
     >
-      <JournalNetworkSidebarHeader />
-      <JournalNetworkSidebarColumn>
-        <JournalNetworkSidebarSection />
-      </JournalNetworkSidebarColumn>
+      <CreativeNetworkSidebarHeader />
+      <CreativeNetworkSidebarHorizons>
+        <CreativeNetworkSidebarHorizon />
+        <CreativeNetworkSidebarHorizon />
+        <CreativeNetworkSidebarHorizon />
+        <CreativeNetworkSidebarHorizon />
+      </CreativeNetworkSidebarHorizons>
     </GlassAreaContainer>
   );
 }

@@ -1,12 +1,12 @@
 import { UpdatesMain } from './(updates-epic)/main';
-import { UpdatesSidebar } from './(updates-epic)/sidebar/main';
+import { JournalUpdatesSidebar } from './(updates-epic)/sidebar/main';
 import { UpdatesContainer } from './(updates-epic)/container/main';
 
-export function FeedJournalView() {
+export function JournalView() {
   return (
       <UpdatesContainer>
         <UpdatesMain />
-        <UpdatesSidebar />
+        <JournalUpdatesSidebar />
       </UpdatesContainer>
   );
 }

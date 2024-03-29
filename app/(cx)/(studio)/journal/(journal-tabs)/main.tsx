@@ -6,16 +6,16 @@ import { Tabs } from '../../../../(components)/(cx)/tabs/main';
 import { TabsBackButton } from '@/(components)/(cx)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
-export enum LinkTabStage {
+export enum JournalTabStage {
   Updates = 'Updates',
   Social = 'Social',
   Explore = 'Explore',
 }
-interface LinkTabProps {
+interface JournalTabProps {
   tab?: string;
 }
 
-export function LinkTabs({ tab }: LinkTabProps) {
+export function LinkTabs({ tab }: JournalTabProps) {
   return (
     <Tabs>
       <TabsBackButton href={studioMap.studio.spaces.link} />
