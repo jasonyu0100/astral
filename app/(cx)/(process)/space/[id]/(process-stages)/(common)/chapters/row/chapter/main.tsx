@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
+import { glassFx, borderFx, roundedFx } from '@/(design)/(fx)/data';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(logic)/internal/model/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
@@ -23,11 +23,11 @@ export function ChapterContainer({ index }: { index: number }) {
       >
         <GlassAreaContainer
           name={ChapterContainer.name}
-          size='w-[200px] h-[40px]'
-          glass={
-            active ? glassStyles['glass-10'] : glassStyles['glass-5']
+          sizeFx='w-[200px] h-[40px]'
+          glassFx={
+            active ? glassFx['glass-10'] : glassFx['glass-5']
           }
-          rounded={roundedStyles['rounded-full']}
+          roundedFx={roundedFx['rounded-full']}
           className='flex items-center justify-center'
         >
           {active ? <ChapterActiveText /> : <ChapterInactiveText />}

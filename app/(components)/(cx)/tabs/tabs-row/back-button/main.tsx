@@ -1,5 +1,5 @@
-import { CircleLeftIcon } from '@/(design)/(icons)/global/circle-left/main';
-import { LinkInputProps } from '@/(types)/main';
+import { CircleLeftIcon } from '@/(components)/(cx)/tabs/tabs-row/back-button/circle-left/main';
+import { LinkInputProps } from '@/(logic)/types/element/main';
 import Link from 'next/link';
 
 export function TabsBackButton({ ...props }: LinkInputProps) {

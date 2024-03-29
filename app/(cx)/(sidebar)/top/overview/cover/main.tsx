@@ -1,5 +1,5 @@
 'use client';
-import { effectStyles } from '@/(design)/(styles)/data';
+import { effectFx } from '@/(design)/(fx)/data';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { cn } from '@/(logic)/utils/cn';
 import { useContext } from 'react';
@@ -43,7 +43,7 @@ export function DashboardSidebarTopOveriewCover() {
         <img
           src={space?.thumbnail?.src || "/brand/icon-bg-sm.png"}
           className={cn('h-[2.5rem] w-[2.5rem] rounded-full', {
-            [effectStyles['glow-lg']]: active,
+            [effectFx['glow-lg']]: active,
           })}
         />
       )}

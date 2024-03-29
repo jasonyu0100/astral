@@ -15,7 +15,7 @@ export function StormSidebarChapters() {
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
         name={StormSidebarChapters.name}
-        size='h-full w-full'
+        sizeFx='h-full w-full'
         className='flex flex-col overflow-auto'
       >
         {chapters.map((chapter) => (

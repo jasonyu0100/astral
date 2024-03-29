@@ -1,8 +1,8 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  containerStyles,
-  glassStyles,
-} from '@/(design)/(styles)/data';
+  containerFx,
+  glassFx,
+} from '@/(design)/(fx)/data';
 import { DraftContext, DraftModalType } from '../../../../page';
 import { useContext } from 'react';
 import { DraftHeaderDefault } from './modes/default/main';
@@ -18,9 +18,9 @@ export function DraftHeader() {
   return (
     <GlassAreaContainer
       name={DraftHeader.name}
-      size='h-[60px] w-full flex-shrink-0'
-      className={`${containerStyles['row-center']} justify-between`}
-      glass={glassStyles['glass-5']}
+      sizeFx='h-[60px] w-full flex-shrink-0'
+      className={`${containerFx['row-center']} justify-between`}
+      glassFx={glassFx['glass-5']}
     >
       {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
       {modalType === DraftModalType.STAR && <DraftHeaderStar/>}

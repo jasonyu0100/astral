@@ -1,14 +1,14 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassStyles, borderStyles, roundedStyles } from '@/(design)/(styles)/data';
-import { FormInputProps } from '@/(types)/main';
+import { glassFx, borderFx, roundedFx } from '@/(design)/(fx)/data';
+import { FormInputProps } from '@/(logic)/types/element/main';
 
 export function StormChatMessageInput({ ...props }: FormInputProps) {
   return (
     <GlassAreaContainer
       name={StormChatMessageInput.name}
-      size='max-w-[600px] flex-grow h-[50px]'
-      glass={glassStyles['glass-10']}
-      rounded={roundedStyles['rounded-full']}
+      sizeFx='max-w-[600px] flex-grow h-[50px]'
+      glassFx={glassFx['glass-10']}
+      roundedFx={roundedFx['rounded-full']}
     >
       <input
         className='h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-bold text-slate-300 outline-none'

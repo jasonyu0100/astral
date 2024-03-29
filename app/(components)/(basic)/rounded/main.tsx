@@ -1,4 +1,4 @@
-import { DivInputProps } from "@/(types)/main";
+import { DivInputProps } from "@/(logic)/types/element/main";
 
 interface RoundedContainerProps extends DivInputProps {
     roundedStyle?: string;

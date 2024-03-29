@@ -6,10 +6,10 @@ import { StormChapterTitle } from './header/title/main';
 import { useContext } from 'react';
 import { ChatContext } from '@/(logic)/internal/model/storm/chat/main';
 import {
-  glassStyles,
-  borderStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
@@ -29,8 +29,8 @@ export function StormChapter() {
         <GlassWindowFrame
           name={StormChapter.name}
           className='relative my-2'
-          border={borderStyles['border-all']}
-          rounded={roundedStyles['rounded-sm']}
+          borderFx={borderFx['border-all']}
+          roundedFx={roundedFx['rounded-sm']}
         >
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem] px-[1rem] py-[1rem]'>
             <StormChapterHeader>
@@ -47,7 +47,7 @@ export function StormChapter() {
               <StormChapterChatAdd />
             </div>
           </GlassWindowContents>
-          <GlassWindowPane glass={glassStyles['glass-5']} />
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       ) : (
         <div className='my-[1rem] flex flex-col space-y-[1rem]'>

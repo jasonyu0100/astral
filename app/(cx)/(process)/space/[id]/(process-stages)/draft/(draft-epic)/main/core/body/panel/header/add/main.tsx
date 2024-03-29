@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 
 export function DraftPanelAddButton({ ...props }: ButtonInputProps) {
   return (

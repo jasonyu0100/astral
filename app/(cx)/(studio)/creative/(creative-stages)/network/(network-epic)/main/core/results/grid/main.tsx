@@ -1,13 +1,13 @@
 'use client';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
+import { borderFx, containerFx } from '@/(design)/(fx)/data';
 
 export function CreativeRow({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={CreativeRow.name}
-      size='w-full h-full'
-      border={borderStyles['border-b']}
+      sizeFx='w-full h-full'
+      borderFx={borderFx['border-b']}
       className={`flex flex-row flex-wrap gap-[2rem] p-[2rem]`}
     >
       {children}

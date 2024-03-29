@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { glassStyles } from '@/(design)/(styles)/data';
-import { ButtonInputProps } from '@/(types)/main';
+import { glassFx } from '@/(design)/(fx)/data';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 
 export function DraftSaveButton({ ...props }: ButtonInputProps) {
   return (

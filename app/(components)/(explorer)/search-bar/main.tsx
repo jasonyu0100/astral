@@ -1,14 +1,14 @@
 import { GlassAreaContainer } from '../../(glass)/area/main';
-import { containerStyles, borderStyles } from '../../../(design)/(styles)/data';
-import { FormInputProps } from '../../../(types)/main';
+import { containerFx, borderFx } from '../../../(design)/(fx)/data';
+import { FormInputProps } from '../../../(logic)/types/element/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (
     <GlassAreaContainer
       name={SearchBar.name}
-      size='w-full h-[4rem]'
-      className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
-      border={borderStyles['border-b']}
+      sizeFx='w-full h-[4rem]'
+      className={`${containerFx['row-center']} space-x-[1rem] px-[1rem]`}
+      borderFx={borderFx['border-b']}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'

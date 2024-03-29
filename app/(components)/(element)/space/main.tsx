@@ -1,7 +1,7 @@
 import { GlassEffectWrapper } from '@/(components)/(glass)/effect/main';
-import { roundedStyles } from '@/(design)/(styles)/data';
+import { roundedFx } from '@/(design)/(fx)/data';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import { DivInputProps } from '@/(types)/main';
+import { DivInputProps } from '@/(logic)/types/element/main';
 
 export enum SpaceCoverVariant {
   PLAIN = 'PLAIN',
@@ -25,7 +25,7 @@ export function SpaceCover({ file, variant, ...props }: SpaceCoverProps) {
       {variant === SpaceCoverVariant.EVENT_HORIZON && (
         <GlassEffectWrapper
           className={props.className}
-          roundedStyle={roundedStyles['rounded-full']}
+          roundedFx={roundedFx['rounded-full']}
         >
           <img
             className={`h-[50px] w-[50px] flex-shrink-0 rounded-full border-[4px] border-slate-950 bg-slate-950 pt-[2px]`}

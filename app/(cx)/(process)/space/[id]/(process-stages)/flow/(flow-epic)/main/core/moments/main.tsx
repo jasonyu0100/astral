@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerStyles } from '@/(design)/(styles)/data';
+import { containerFx } from '@/(design)/(fx)/data';
 import { createContext, useContext } from 'react';
 import { FlowMoment } from './moment/main';
 import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
@@ -15,8 +15,8 @@ export function FlowMoments() {
     <div className='w-full' style={{ height: '100%' }}>
       <GlassAreaContainer
         name={FlowMoments.name}
-        size='w-full h-full'
-        className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
+        sizeFx='w-full h-full'
+        className={`${containerFx['col-center']} overflow-auto p-[3rem]`}
       >
         {moments.map((moment) => (
           <FlowMomentContext.Provider value={moment} key={moment.id}>

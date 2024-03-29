@@ -9,7 +9,7 @@ export function DraftPanelHeader() {
     
   return (
     <GlassAreaContainer
-      size='w-full h-[60px]'
+      sizeFx='w-full h-[60px]'
       className='flex flex-row items-center justify-between'
       name={DraftPanelHeader.name}
     >

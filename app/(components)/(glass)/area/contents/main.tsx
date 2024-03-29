@@ -1,7 +1,6 @@
-import { DivInputProps } from "@/(types)/main";
+import { DivInputProps } from "@/(logic)/types/element/main";
 
 interface GlassAreaContentsProps extends DivInputProps {
-  contentStyle?: string;
   children: React.ReactNode;
 }
 

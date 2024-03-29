@@ -1,14 +1,14 @@
-import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
+import { glassFx, containerFx, roundedFx } from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function UpdatesContainer({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={UpdatesContainer.name}
-      size='h-full flex-grow'
-      className={`${containerStyles['row']}`}
-      glass={glassStyles['glass-5']}
-      rounded={roundedStyles['rounded-container']}
+      sizeFx='h-full flex-grow'
+      className={`${containerFx['row']}`}
+      glassFx={glassFx['glass-5']}
+      roundedFx={roundedFx['rounded-container']}
     >
       {children}
     </GlassAreaContainer>

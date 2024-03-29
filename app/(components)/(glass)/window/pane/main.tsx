@@ -1,7 +1,7 @@
 interface GlassPaneProps {
-    glass?: string;
+    glassFx?: string;
 }
 
-export function GlassWindowPane({ glass: glassStyle }: GlassPaneProps) {
-    return <div className={`absolute top-0 left-0 w-full h-full flex-shrink-0 ${glassStyle}`}></div>
+export function GlassWindowPane({ glassFx: glassFx }: GlassPaneProps) {
+    return <div className={`absolute top-0 left-0 w-full h-full flex-shrink-0 ${glassFx}`}></div>
 }

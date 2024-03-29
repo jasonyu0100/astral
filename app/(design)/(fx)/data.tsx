@@ -1,4 +1,4 @@
-export const glassStyles = {
+export const glassFx = {
   'glass-5': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-5',
   'glass-10': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-10',
   'glass-20': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-20',
@@ -7,23 +7,12 @@ export const glassStyles = {
   'glass-50': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-50',
   'glass-r-5': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-5',
   'glass-r-10': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-10',
-  'slate-950': 'bg-slate-950',
-  'slate-900': 'bg-slate-900',
-  'slate-800': 'bg-slate-800',
-  'slate-700': 'bg-slate-700',
-  'slate-600': 'bg-slate-600',
-  'slate-500': 'bg-slate-500',
-  'slate-400': 'bg-slate-400',
-  'slate-300': 'bg-slate-300',
-  'slate-200': 'bg-slate-200',
-  'slate-100': 'bg-slate-100',
-  'slate-50': 'bg-slate-50',
   'gradient-950': 'bg-gradient-to-r to-slate-950 from-slate-900 opacity-10',
   'gradient-900': 'bg-gradient-to-r to-slate-900 from-slate-800 opacity-10',
   none: '',
 };
 
-export const effectStyles = {
+export const effectFx = {
   'glow-sm': 'shadow-sm shadow-slate-500/50',
   'glow-md': 'shadow-md shadow-slate-500/50',
   'glow-lg': 'shadow-lg shadow-slate-500/30',
@@ -31,7 +20,7 @@ export const effectStyles = {
   none: '',
 };
 
-export const roundedStyles = {
+export const roundedFx = {
   'rounded-container': 'rounded-t-[2rem] overflow-hidden',
   'rounded-container-sm': 'rounded-t-[1rem] overflow-hidden',
   'rounded': 'rounded-[1rem] overflow-hidden',
@@ -47,7 +36,7 @@ export const roundedStyles = {
   'rounded-full': 'rounded-full overflow-hidden',
 };
 
-export const borderStyles = {
+export const borderFx = {
   'border-all': 'border border-slate-500 border-opacity-30',
   'border-t': 'border-t border-slate-500 border-opacity-30',
   'border-r': 'border-r border-slate-500 border-opacity-30',
@@ -65,7 +54,7 @@ export const borderStyles = {
   'rounded-full': 'rounded-full overflow-hidden',
 };
 
-export const containerStyles = {
+export const containerFx = {
   col: 'flex flex-col',
   'col-center': 'flex flex-col items-center',
   'col-centered': 'flex flex-col items-center justify-center',

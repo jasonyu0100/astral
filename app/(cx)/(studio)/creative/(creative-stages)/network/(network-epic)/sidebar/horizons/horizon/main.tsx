@@ -5,10 +5,10 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizonCover } from '@/(components)/(element)/horizon/main';
 import { SpaceCover } from '@/(components)/(element)/space/main';
 import {
-  borderStyles,
-  glassStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  borderFx,
+  glassFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 import {
   FileObj,
@@ -28,8 +28,8 @@ export function CreativeNetworkSidebarHorizon() {
       <GlassWindowFrame
         name={CreativeNetworkSidebarHorizon.name}
         className='min-h-[80px] w-full p-[15px]'
-        rounded={roundedStyles['rounded-sm']}
-        border={borderStyles['border-all']}
+        roundedFx={roundedFx['rounded-sm']}
+        borderFx={borderFx['border-all']}
       >
         <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
           <div className='flex w-full flex-row justify-between'>
@@ -112,7 +112,7 @@ export function CreativeNetworkSidebarHorizon() {
             </>
           )}
         </GlassWindowContents>
-        <GlassWindowPane glass={glassStyles['glass-5']} />
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
     </ToggleContext.Provider>
   );

@@ -8,7 +8,7 @@ import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassStyles } from '@/(design)/(styles)/data';
+import { glassFx } from '@/(design)/(fx)/data';
 
 export function ToggleButton() {
   const { toggle } = useContext(ToggleContext);
@@ -17,8 +17,8 @@ export function ToggleButton() {
     <WrapperTooltip text={modalType}>
       <GlassAreaContainer
         name={ToggleButton.name}
-        size={'w-[60px] h-[60px]'}
-        glass={glassStyles['glass-5']}
+        sizeFx={'w-[60px] h-[60px]'}
+        glassFx={glassFx['glass-5']}
         className='flex animate-pulse-slow cursor-pointer flex-col items-center justify-center'
         onClick={() => toggle()}
       >

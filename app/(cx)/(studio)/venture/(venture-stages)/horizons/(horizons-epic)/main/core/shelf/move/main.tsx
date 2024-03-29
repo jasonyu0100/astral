@@ -4,7 +4,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { horizonMap } from '@/(cx)/(venture)/horizon/[id]/map';
-import { glassStyles, roundedStyles } from '@/(design)/(styles)/data';
+import { glassFx, roundedFx } from '@/(design)/(fx)/data';
 import { exampleFile } from '@/(logic)/internal/model/resource/file/main';
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ export function Horizon() {
     <GlassWindowFrame
       name={GlassWindowFrame.name}
       className='p-[1rem]'
-      rounded={roundedStyles['rounded-sm']}
+      roundedFx={roundedFx['rounded-sm']}
     >
       <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
         <Link
@@ -27,7 +27,7 @@ export function Horizon() {
           <p className='text-lg text-slate-300'>John Smith</p>
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glass={glassStyles['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

@@ -7,7 +7,7 @@ export function CreativeNetworkMain() {
   return (
     <GlassAreaContainer
       name={CreativeNetworkMain.name}
-      size='h-full flex-grow'
+      sizeFx='h-full flex-grow'
       className='flex flex-col'
     >
       <CreativeSearch />

@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(types)/main';
+import { DivInputProps } from '@/(logic)/types/element/main';
 import { ResourcePolaroid } from '../polaroid/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {

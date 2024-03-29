@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  glassStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
-import { ButtonInputProps } from '@/(types)/main';
+  glassFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 
 export default function ChaptersAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
         name={ChaptersAdd.name}
-        size='w-[200px] h-[40px]'
-        glass={glassStyles['glass-5']}
-        rounded={roundedStyles['rounded-full']}
+        sizeFx='w-[200px] h-[40px]'
+        glassFx={glassFx['glass-5']}
+        roundedFx={roundedFx['rounded-full']}
       >
         <div className='flex h-full w-full items-center justify-center'>
           <div className='font-bold text-slate-500'>Add Chapter</div>

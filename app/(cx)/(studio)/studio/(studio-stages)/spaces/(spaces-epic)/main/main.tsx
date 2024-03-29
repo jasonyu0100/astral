@@ -10,7 +10,7 @@ export function SpacesMain() {
 
   return (
     <GlassAreaContainer
-      size='w-full'
+      sizeFx='w-full'
       name={SpacesMain.name}
       className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
     >

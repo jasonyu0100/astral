@@ -1,5 +1,5 @@
 'use client';
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 import {
   LogObj,
   LogVariant,

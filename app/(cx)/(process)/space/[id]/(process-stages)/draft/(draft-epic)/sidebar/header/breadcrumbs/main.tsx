@@ -1,9 +1,9 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  glassStyles,
-  borderStyles,
-  containerStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  containerFx,
+} from '@/(design)/(fx)/data';
 import React from 'react';
 
 export function SidebarBreadcrumbs({
@@ -14,9 +14,9 @@ export function SidebarBreadcrumbs({
   return (
     <GlassAreaContainer
       name={SidebarBreadcrumbs.name}
-      size='h-[60px] w-full'
-      border={`${borderStyles['border-b']}`}
-      className={`${containerStyles['row-center']} space-x-[1rem]`}
+      sizeFx='h-[60px] w-full'
+      borderFx={`${borderFx['border-b']}`}
+      className={`${containerFx['row-center']} space-x-[1rem]`}
     >
       {children}
     </GlassAreaContainer>

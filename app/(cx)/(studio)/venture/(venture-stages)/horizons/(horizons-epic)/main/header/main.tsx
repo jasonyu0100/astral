@@ -1,8 +1,8 @@
 import {
-  glassStyles,
-  borderStyles,
-  containerStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  containerFx,
+} from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { VentureActionButton } from './action/main';
 import { VentureInfo } from './info/main';
@@ -10,9 +10,9 @@ import { VentureInfo } from './info/main';
 export function VentureHeader() {
   return (
     <GlassAreaContainer
-      size='w-full h-[220px]'
+      sizeFx='w-full h-[220px]'
       name={VentureHeader.name}
-      glass={glassStyles['glass-5']}
+      glassFx={glassFx['glass-5']}
       className={`p-[4rem] flex flex-row items-center space-x-[8rem]`}
     >
       <VentureInfo />

@@ -6,7 +6,7 @@ import { cn } from '@/(logic)/utils/cn';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { ImageInputProps } from '@/(types)/main';
+import { ImageInputProps } from '@/(logic)/types/element/main';
 import { SearchModalContext } from './main';
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
 

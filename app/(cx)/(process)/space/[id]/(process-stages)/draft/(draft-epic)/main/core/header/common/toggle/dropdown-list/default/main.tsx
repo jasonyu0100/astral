@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 import { NetworkIcon } from '../../../icons/network/main';
 import { DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
 

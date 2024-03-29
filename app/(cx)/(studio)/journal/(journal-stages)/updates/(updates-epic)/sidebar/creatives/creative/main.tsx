@@ -3,10 +3,10 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import {
-  glassStyles,
-  borderStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 import { exampleFile } from '@/(logic)/internal/model/resource/file/main';
 import { useState } from 'react';
@@ -20,10 +20,10 @@ export function JouranlUpdatesSidebarCreative() {
       <GlassWindowFrame
         name={JouranlUpdatesSidebarCreative.name}
         className='w-full p-[1rem]'
-        border={borderStyles['border-all']}
-        rounded={roundedStyles['rounded-sm']}
+        borderFx={borderFx['border-all']}
+        roundedFx={roundedFx['rounded-sm']}
       >
-        <GlassWindowPane glass={glassStyles['glass-5']} />
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
         <GlassWindowContents className='flex h-full w-full flex-row items-center justify-between'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <ProfileCover file={exampleFile} />

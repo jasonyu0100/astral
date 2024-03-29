@@ -1,4 +1,4 @@
-import { LinkInputProps } from '@/(types)/main';
+import { LinkInputProps } from '@/(logic)/types/element/main';
 import Link from 'next/link';
 
 export function TopbarLogo({ ...props }: LinkInputProps) {

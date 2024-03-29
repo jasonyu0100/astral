@@ -3,10 +3,10 @@
 import insideVerses from '@/(logic)/utils/isAuth';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  borderStyles,
-  glassStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  borderFx,
+  glassFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { Divider } from '@/(components)/(line)/divider/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
@@ -19,8 +19,8 @@ export function VentureHorizonsView() {
       {/* <VentureHeader /> */}
       <div className='flex flex-row'>
         <GlassAreaContainer
-          size='w-full h-[100px]'
-          glass={glassStyles['glass-5']}
+          sizeFx='w-full h-[100px]'
+          glassFx={glassFx['glass-5']}
           className='flex flex-row items-center justify-between px-[50px]'
         >
           <div className='flex w-1/3 flex-row justify-start '></div>
@@ -117,30 +117,30 @@ export function VentureHorizonsView() {
       </div>
       <div className='flex h-full w-full flex-row'>
         <GlassAreaContainer
-          size='h-full w-[300px]'
-          border={borderStyles['border-r']}
+          sizeFx='h-full w-[300px]'
+          borderFx={borderFx['border-r']}
           className='flex flex-col space-y-[2rem] overflow-auto px-[2rem] py-[2rem]'
         >
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Scale</p>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
-              <GlassWindowPane glass={glassStyles['glass-5']} />
+              <GlassWindowPane glassFx={glassFx['glass-5']} />
               <p className='text-md font-bold text-slate-300'>Local</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Group </p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Cluster</p>
@@ -149,23 +149,23 @@ export function VentureHorizonsView() {
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Modal</p>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Music</p>
-              <GlassWindowPane glass={glassStyles['glass-5']} />
+              <GlassWindowPane glassFx={glassFx['glass-5']} />
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Art</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Film</p>
@@ -174,23 +174,23 @@ export function VentureHorizonsView() {
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Degree</p>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
-              <GlassWindowPane glass={glassStyles['glass-5']} />
+              <GlassWindowPane glassFx={glassFx['glass-5']} />
               <p className='text-md font-bold text-slate-300'>1st</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>2nd</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              border={borderStyles['border-all']}
-              rounded={roundedStyles.rounded}
+              borderFx={borderFx['border-all']}
+              roundedFx={roundedFx.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>3rd</p>

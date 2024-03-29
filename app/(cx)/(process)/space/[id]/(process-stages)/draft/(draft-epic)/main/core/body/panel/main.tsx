@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderStyles } from '@/(design)/(styles)/data';
+import { borderFx } from '@/(design)/(fx)/data';
 import { DraftPanelHeader } from './header/main';
 import { DraftConstellationList } from './list/main';
 
@@ -7,9 +7,9 @@ export function DraftPanel() {
   return (
     <GlassAreaContainer
       name={DraftPanel.name}
-      size='w-[300px] h-full'
+      sizeFx='w-[300px] h-full'
       className='flex flex-col'
-      border={borderStyles['border-r']}
+      borderFx={borderFx['border-r']}
     >
       <DraftPanelHeader />
       <DraftConstellationList />

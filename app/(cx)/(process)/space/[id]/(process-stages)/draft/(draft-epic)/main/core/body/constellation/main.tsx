@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerStyles } from '@/(design)/(styles)/data';
+import { containerFx } from '@/(design)/(fx)/data';
 import { DraftLinks } from './links/main';
 import { DraftConstellationStars } from './stars/main';
 
@@ -7,8 +7,8 @@ export function DraftConstellation() {
   return (
     <GlassAreaContainer
       name={DraftConstellation.name}
-      size='flex-grow h-full'
-      className={`${containerStyles['row']}`}
+      sizeFx='flex-grow h-full'
+      className={`${containerFx['row']}`}
     >
       <DraftLinks />
       <DraftConstellationStars />

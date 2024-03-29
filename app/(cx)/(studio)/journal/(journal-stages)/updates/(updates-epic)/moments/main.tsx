@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerStyles } from '@/(design)/(styles)/data';
+import { containerFx } from '@/(design)/(fx)/data';
 import { UpdatesMoment } from './moment/main';
 import { MomentContext, exampleMoments } from '@/(logic)/internal/model/flow/moment/main';
 
@@ -9,8 +9,8 @@ export function UpdatesPosts() {
   return (
     <GlassAreaContainer
       name={UpdatesPosts.name}
-      size='flex-grow h-full'
-      className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
+      sizeFx='flex-grow h-full'
+      className={`${containerFx['col-center']} overflow-auto p-[3rem]`}
     >
       {moments.map((moment) => (
         <MomentContext.Provider value={moment} key={moment.id}>

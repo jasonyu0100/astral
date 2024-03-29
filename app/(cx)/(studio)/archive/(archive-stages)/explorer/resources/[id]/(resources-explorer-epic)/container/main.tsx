@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  glassStyles,
-  containerStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  containerFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 
 export function ResourcesContainer({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={ResourcesContainer.name}
-      size='flex-grow h-full'
-      className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
-      glass={glassStyles['glass-5']}
-      rounded={roundedStyles['rounded-container-sm']}
+      sizeFx='flex-grow h-full'
+      className={`${containerFx['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
+      glassFx={glassFx['glass-5']}
+      roundedFx={roundedFx['rounded-container-sm']}
     >
       {children}
     </GlassAreaContainer>

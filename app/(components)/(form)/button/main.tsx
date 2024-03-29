@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 import { cn } from '@/(logic)/utils/cn';
 
 export enum ButtonVariant {

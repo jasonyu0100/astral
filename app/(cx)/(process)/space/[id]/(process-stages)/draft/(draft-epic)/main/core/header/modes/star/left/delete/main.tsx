@@ -1,5 +1,5 @@
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 
 export function StarDeleteButton({ ...props }: ButtonInputProps) {
   return (

@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/(types)/main';
+import { FormInputProps } from '@/(logic)/types/element/main';
 
 export default function SearchBarInput({ ...props }: FormInputProps) {
   return (

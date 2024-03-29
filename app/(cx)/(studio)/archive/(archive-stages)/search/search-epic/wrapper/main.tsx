@@ -1,12 +1,12 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerStyles } from '@/(design)/(styles)/data';
+import { containerFx } from '@/(design)/(fx)/data';
 
 export function SearchWrapper({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={SearchWrapper.name}
-      size='w-full h-full'
-      className={`${containerStyles.row}`}
+      sizeFx='w-full h-full'
+      className={`${containerFx.row}`}
     >
       {children}
     </GlassAreaContainer>

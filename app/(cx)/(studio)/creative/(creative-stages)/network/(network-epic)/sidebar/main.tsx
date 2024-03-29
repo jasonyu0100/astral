@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
+import { glassFx, containerFx } from '@/(design)/(fx)/data';
 import { CreativeNetworkSidebarHorizons } from './horizons/main';
 import { CreativeNetworkSidebarHeader } from './header/main';
 import { CreativeNetworkSidebarHorizon } from './horizons/horizon/main';
@@ -9,9 +9,9 @@ export function CreativeNetworkSidebar() {
   return (
     <GlassAreaContainer
       name={CreativeNetworkSidebar.name}
-      size='max-w-[500px] min-w-[250px] w-1/4 h-full'
-      className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
-      glass={glassStyles['glass-r-10']}
+      sizeFx='max-w-[500px] min-w-[250px] w-1/4 h-full'
+      className={`${containerFx['col']} space-y-[1rem] px-[1rem]`}
+      glassFx={glassFx['glass-r-10']}
     >
       <CreativeNetworkSidebarHeader />
       <CreativeNetworkSidebarHorizons>

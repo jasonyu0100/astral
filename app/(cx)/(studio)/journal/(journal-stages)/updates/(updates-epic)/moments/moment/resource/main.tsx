@@ -1,4 +1,4 @@
-import { borderStyles } from '@/(design)/(styles)/data';
+import { borderFx } from '@/(design)/(fx)/data';
 import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { cn } from '@/(logic)/utils/cn';
@@ -11,7 +11,7 @@ export function MomentResource({ moment }: { moment: MomentObj }) {
           <img
             className={cn(
               'aspect-square w-full flex-shrink-0 bg-black object-cover',
-              borderStyles['border-all'],
+              borderFx['border-all'],
             )}
             src={moment?.file?.src}
           />

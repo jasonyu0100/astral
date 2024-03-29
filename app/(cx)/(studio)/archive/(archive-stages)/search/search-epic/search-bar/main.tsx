@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  glassStyles,
-  borderStyles,
-  containerStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  containerFx,
+} from '@/(design)/(fx)/data';
 
 export function SearchBar({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={SearchBar.name}
-      size='flex-grow max-w-[800px] h-[4rem]'
-      className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
-      glass={glassStyles['glass-10']}
-      border={`${borderStyles['border-all']} ${borderStyles.rounded}`}
+      sizeFx='flex-grow max-w-[800px] h-[4rem]'
+      className={`${containerFx['row-center']} space-x-[1rem] px-[1rem]`}
+      glassFx={glassFx['glass-10']}
+      borderFx={`${borderFx['border-all']} ${borderFx.rounded}`}
     >
       {children}
     </GlassAreaContainer>

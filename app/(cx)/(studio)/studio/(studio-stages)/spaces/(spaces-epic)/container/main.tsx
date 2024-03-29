@@ -1,8 +1,8 @@
 import {
-  glassStyles,
-  containerStyles,
-  roundedStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  containerFx,
+  roundedFx,
+} from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function StudioSpacesContainer({
@@ -13,10 +13,10 @@ export function StudioSpacesContainer({
   return (
     <GlassAreaContainer
       name={StudioSpacesContainer.name}
-      size='h-full flex-grow'
-      glass={glassStyles['glass-5']}
-      className={`overflow-auto ${containerStyles.col}`}
-      rounded={roundedStyles['rounded-container-sm']}
+      sizeFx='h-full flex-grow'
+      glassFx={glassFx['glass-5']}
+      className={`overflow-auto ${containerFx.col}`}
+      roundedFx={roundedFx['rounded-container-sm']}
     >
       {children}
     </GlassAreaContainer>

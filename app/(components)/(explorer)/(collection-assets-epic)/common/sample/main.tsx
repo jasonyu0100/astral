@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
+import { glassFx, borderFx } from '@/(design)/(fx)/data';
 import React from 'react';
 
 export function CollectionSample({
@@ -11,8 +11,8 @@ export function CollectionSample({
     <GlassAreaContainer
       name={CollectionSample.name}
       className='flex h-full w-full flex-row items-center'
-      size='h-[200px] aspect-[32/16]'
-      glass={glassStyles['glass-10']}
+      sizeFx='h-[200px] aspect-[32/16]'
+      glassFx={glassFx['glass-10']}
     >
       {children}
     </GlassAreaContainer>

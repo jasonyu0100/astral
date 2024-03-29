@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/main';
+import { ButtonInputProps } from '@/(logic)/types/element/main';
 import { StormSendIcon } from '../../../../icons/send/main';
 
 export function StormMessageInputSend({ ...props }: ButtonInputProps) {

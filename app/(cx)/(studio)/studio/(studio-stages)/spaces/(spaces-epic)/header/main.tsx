@@ -1,8 +1,8 @@
 import {
-  glassStyles,
-  borderStyles,
-  containerStyles,
-} from '@/(design)/(styles)/data';
+  glassFx,
+  borderFx,
+  containerFx,
+} from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { SpacesModalContext } from '@/(modals)/(studio)/studio/main';
 import { useContext } from 'react';
@@ -13,10 +13,10 @@ export function SpacesHeader() {
   const spacesModal = useContext(SpacesModalContext);
   return (
     <GlassAreaContainer
-      size='w-full h-[360px]'
+      sizeFx='w-full h-[360px]'
       name={SpacesHeader.name}
-      glass={glassStyles['glass-5']}
-      className={`p-[4rem] ${containerStyles['row-center']}`}
+      glassFx={glassFx['glass-5']}
+      className={`p-[4rem] ${containerFx['row-center']}`}
     >
       <SpacesAlbumInfo />
       <SpacesHeaderAction

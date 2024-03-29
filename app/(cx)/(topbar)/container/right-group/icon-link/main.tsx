@@ -1,4 +1,4 @@
-import { ButtonInputProps, LinkInputProps } from '@/(types)/main';
+import { ButtonInputProps, LinkInputProps } from '@/(logic)/types/element/main';
 import Link from 'next/link';
 
 interface InputProps extends ButtonInputProps {

@@ -1,4 +1,4 @@
-import { SvgInputProps } from '@/(types)/main';
+import { SvgInputProps } from '@/(logic)/types/element/main';
 
 export function InfoIcon({ ...props }: SvgInputProps) {
   return (

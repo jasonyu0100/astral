@@ -1,13 +1,13 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderStyles } from '@/(design)/(styles)/data';
+import { borderFx } from '@/(design)/(fx)/data';
 
 export function JournalUpdatesSidebarHeader() {
   return (
     <GlassAreaContainer
       name={JournalUpdatesSidebarHeader.name}
-      size='h-[60px] w-full flex-shrink-0'
+      sizeFx='h-[60px] w-full flex-shrink-0'
       className='flex flex-row items-center'
-      border={borderStyles['border-b']}
+      borderFx={borderFx['border-b']}
     >
       <p className='font-extraBold  text-xl text-slate-400'>Network</p>
     </GlassAreaContainer>

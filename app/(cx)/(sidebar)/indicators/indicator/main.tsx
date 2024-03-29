@@ -1,4 +1,4 @@
-import { HyperLinkInputProps } from '@/(types)/main';
+import { HyperLinkInputProps } from '@/(logic)/types/element/main';
 
 export interface IndicatorProps {
   indicator: string | undefined;
