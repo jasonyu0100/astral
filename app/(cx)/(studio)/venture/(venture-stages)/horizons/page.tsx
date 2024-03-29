@@ -1,10 +1,10 @@
 'use client';
 
 import insideVerses from '@/(logic)/utils/isAuth';
-import { VentureCollection } from '../../(venture-epic)/main';
-import { Horizon } from '../../(venture-epic)/shelf/move/main';
-import { VentureShelf } from '../../(venture-epic)/shelf/main';
-import { VentureHeader } from '../../(venture-epic)/header/main';
+import { VentureHorizonsMain } from './(horizons-epic)/main';
+import { Horizon } from './(horizons-epic)/shelf/move/main';
+import { VentureShelf } from './(horizons-epic)/shelf/main';
+import { VentureHeader } from './(horizons-epic)/header/main';
 import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 import {
   borderStyles,
@@ -17,7 +17,7 @@ import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
 
 function Page() {
   return (
-    <VentureCollection>
+    <VentureHorizonsMain>
       {/* <VentureHeader /> */}
       <div className='flex flex-row'>
         <GlassAreaContainer
@@ -122,9 +122,9 @@ function Page() {
         <GlassAreaContainer
           sizeStyle='h-full w-[300px]'
           borderStyle={borderStyles['border-r']}
-          className='flex flex-col space-y-[2rem] overflow-auto px-[1rem] py-[2rem]'
+          className='flex flex-col space-y-[2rem] overflow-auto px-[2rem] py-[2rem]'
         >
-          <div className='flex flex-col space-y-[0.5rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Scale</p>
             <GlassWindowFrame
               borderStyle={borderStyles['border-all']}
@@ -149,7 +149,7 @@ function Page() {
               <p className='text-md font-bold text-slate-300'>Cluster</p>
             </GlassWindowFrame>
           </div>
-          <div className='flex flex-col space-y-[0.5rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Modal</p>
             <GlassWindowFrame
               borderStyle={borderStyles['border-all']}
@@ -174,7 +174,7 @@ function Page() {
               <p className='text-md font-bold text-slate-300'>Film</p>
             </GlassWindowFrame>
           </div>
-          <div className='flex flex-col space-y-[0.5rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Degree</p>
             <GlassWindowFrame
               borderStyle={borderStyles['border-all']}
@@ -210,7 +210,7 @@ function Page() {
           <VentureShelf />
         </div>
       </div>
-    </VentureCollection>
+    </VentureHorizonsMain>
   );
 }
 

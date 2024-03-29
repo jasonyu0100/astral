@@ -5,24 +5,24 @@ import {
   containerStyles,
   roundedStyles,
 } from '@/(design)/(styles)/data';
-import { ArtistCollection } from '../../(creative-epic)/main';
-import { CreativeNetworkSidebar } from './sidebar/main';
+import { CreativeNetworkMain } from './(network-epic)/main';
+import { CreativeNetworkSidebar } from './(network-epic)/sidebar/main';
 
-export function ArtistsNetworkView() {
+export function CreativeNetworkView() {
   return (
     <GlassAreaContainer
-      displayName={ArtistsNetworkView.name}
+      displayName={CreativeNetworkView.name}
       className={`flex flex-row`}
       glassStyle={glassStyles['glass-5']}
       sizeStyle='flex-grow h-full'
       roundedStyle={roundedStyles['rounded-container']}
     >
       <GlassAreaContainer
-        displayName={ArtistsNetworkView.name}
+        displayName={CreativeNetworkView.name}
         className={`flex flex-row`}
         sizeStyle='flex-grow h-full'
       >
-        <ArtistCollection />
+        <CreativeNetworkMain />
       </GlassAreaContainer>
       <CreativeNetworkSidebar />
     </GlassAreaContainer>

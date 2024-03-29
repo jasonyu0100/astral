@@ -7,7 +7,7 @@ import {
 } from '../../../../../(modals)/(studio)/studio/main';
 import { SpacesHandlerContext, useSpacesHandler } from '@/(logic)/internal/handler/spaces/main';
 import { SpacesModalView } from '@/(modals)/(studio)/studio/view';
-import { StudioSpaces } from '../../(studio-epic)/main';
+import { StudioSpacesMain } from './(spaces-epic)/main';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -19,7 +19,7 @@ function Page() {
       <SpacesHandlerContext.Provider value={spacesHandler}>
         <SpacesModalContext.Provider value={modalContext}>
           <SpacesModalView />
-          <StudioSpaces />
+          <StudioSpacesMain />
         </SpacesModalContext.Provider>
       </SpacesHandlerContext.Provider>
   );

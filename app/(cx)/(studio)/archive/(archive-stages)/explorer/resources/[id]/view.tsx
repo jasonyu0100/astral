@@ -1,4 +1,4 @@
-import { ResourcesBody } from '../../../../(resources-epic)/main';
+import { ResourcesBody } from './(resources-epic)/main';
 
 export function ResourcesView() {
   return <ResourcesBody />;

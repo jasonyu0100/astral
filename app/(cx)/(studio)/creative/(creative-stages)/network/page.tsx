@@ -1,9 +1,9 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { ArtistsNetworkView } from './view';
+import { CreativeNetworkView } from './view';
 
 function Page() {
-  return <ArtistsNetworkView />;
+  return <CreativeNetworkView />;
 }
 
 export default insideVerses(Page);
