@@ -6,8 +6,8 @@ import { DraftConstellationStars } from './stars/main';
 export function DraftConstellation() {
   return (
     <GlassAreaContainer
-      displayName={DraftConstellation.name}
-      sizeStyle='flex-grow h-full'
+      name={DraftConstellation.name}
+      size='flex-grow h-full'
       className={`${containerStyles['row']}`}
     >
       <DraftLinks />

@@ -6,8 +6,8 @@ import { FlowCore } from './core/main';
 export function FlowMain() {
   return (
     <GlassAreaContainer
-      displayName={FlowMain.name}
-      sizeStyle='h-full flex-grow'
+      name={FlowMain.name}
+      size='h-full flex-grow'
       className={`${containerStyles['col']}`}
     >
       <FlowCore/>

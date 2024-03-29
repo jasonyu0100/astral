@@ -21,10 +21,10 @@ function Page() {
       {/* <VentureHeader /> */}
       <div className='flex flex-row'>
         <GlassAreaContainer
-          sizeStyle='w-full h-[100px]'
-          glassStyle={glassStyles['glass-5']}
+          size='w-full h-[100px]'
+          glass={glassStyles['glass-5']}
           className='flex flex-row items-center justify-between px-[50px]'
-          borderStyle={borderStyles['border-all']}
+          border={borderStyles['border-all']}
         >
           <div className='flex w-1/3 flex-row justify-start '></div>
           <div className='flex w-1/3  flex-row justify-center gap-[1rem]'>
@@ -120,30 +120,30 @@ function Page() {
       </div>
       <div className='flex h-full w-full flex-row'>
         <GlassAreaContainer
-          sizeStyle='h-full w-[300px]'
-          borderStyle={borderStyles['border-r']}
+          size='h-full w-[300px]'
+          border={borderStyles['border-r']}
           className='flex flex-col space-y-[2rem] overflow-auto px-[2rem] py-[2rem]'
         >
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Scale</p>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
-              <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+              <GlassWindowPane glass={glassStyles['glass-5']} />
               <p className='text-md font-bold text-slate-300'>Local</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Group </p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Cluster</p>
@@ -152,23 +152,23 @@ function Page() {
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Modal</p>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Music</p>
-              <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+              <GlassWindowPane glass={glassStyles['glass-5']} />
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Art</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>Film</p>
@@ -177,23 +177,23 @@ function Page() {
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-extraBold text-xl text-slate-300'>Degree</p>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
-              <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+              <GlassWindowPane glass={glassStyles['glass-5']} />
               <p className='text-md font-bold text-slate-300'>1st</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>2nd</p>
             </GlassWindowFrame>
             <GlassWindowFrame
-              borderStyle={borderStyles['border-all']}
-              roundedStyle={roundedStyles.rounded}
+              border={borderStyles['border-all']}
+              rounded={roundedStyles.rounded}
               className='px-[1rem] py-[0.5rem]'
             >
               <p className='text-md font-bold text-slate-300'>3rd</p>

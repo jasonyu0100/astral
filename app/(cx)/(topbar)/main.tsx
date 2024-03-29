@@ -30,9 +30,9 @@ export function Topbar() {
       <ProfileModalContext.Provider value={profileModalContext}>
         <ProfileModalView />
         <TopbarContainer>
-          <TopbarLogo href={studioMap.studio.now.link} />
+          <TopbarLogo href={studioMap.studio.spaces.link} />
           <TopbarLeftGroup>
-            <TopbarLink href={studioMap.studio.now.link}>HOME</TopbarLink>
+            <TopbarLink href={studioMap.studio.spaces.link}>HOME</TopbarLink>
             <TopbarLink href='/learn' target='_blank'>
               LEARN
             </TopbarLink>

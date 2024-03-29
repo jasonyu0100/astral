@@ -5,10 +5,10 @@ import { FormInputProps } from '../../../(types)/main';
 export function SearchBar({ ...props }: FormInputProps) {
   return (
     <GlassAreaContainer
-      displayName={SearchBar.name}
-      sizeStyle='w-full h-[4rem]'
+      name={SearchBar.name}
+      size='w-full h-[4rem]'
       className={`${containerStyles['row-center']} space-x-[1rem] px-[1rem]`}
-      borderStyle={borderStyles['border-b']}
+      border={borderStyles['border-b']}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'

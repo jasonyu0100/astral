@@ -43,7 +43,7 @@ export function PortalLoginForm() {
               const user = res.data as UserObj;
               login(user);
               alert('Login Success');
-              window.location.href = studioMap.studio.now.link;
+              window.location.href = studioMap.studio.spaces.link;
             } else {
               alert(res.error);
             }
@@ -62,7 +62,7 @@ export function PortalLoginForm() {
         const user = res.data as UserObj;
         login(user);
         alert('Login Success');
-        window.location.href = studioMap.studio.now.link;
+        window.location.href = studioMap.studio.spaces.link;
       } else {
         alert(res.error);
       }

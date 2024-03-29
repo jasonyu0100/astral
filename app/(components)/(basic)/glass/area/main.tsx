@@ -3,33 +3,32 @@ import { GlassAreaContents } from './contents/main';
 import { GlassAreaPane } from './pane/main';
 
 interface GlassAreaProps extends DivInputProps {
-  displayName: string;
-  sizeStyle?: string;
-  contentStyle?: string;
-  glassStyle?: string;
-  borderStyle?: string;
-  roundedStyle?: string;
+  name: string;
+  size?: string;
+  glass?: string;
+  border?: string;
+  rounded?: string;
   children?: React.ReactNode;
 }
 
 export function GlassAreaContainer({
-  displayName,
-  sizeStyle,
-  glassStyle,
-  borderStyle,
-  roundedStyle,
+  name,
+  size,
+  glass,
+  border,
+  rounded,
   children,
   ...props
 }: GlassAreaProps) {
   return (
     <div
-      id={displayName}
-      className={`relative flex-shrink-0 ${sizeStyle || 'h-full w-full'} ${
-        borderStyle || ''
-      } ${roundedStyle || ''}`}
+      id={name}
+      className={`relative flex-shrink-0 ${size || 'h-full w-full'} ${
+        border || ''
+      } ${rounded || ''}`}
     >
       <GlassAreaPane
-        glassStyle={glassStyle || ''}
+        glassStyle={glass || ''}
       />
       <GlassAreaContents {...props}>{children}</GlassAreaContents>
     </div>

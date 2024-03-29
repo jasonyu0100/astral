@@ -4,8 +4,8 @@ import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
 export function SharePoint({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      displayName={SharePoint.name}
-      sizeStyle='w-full h-[150px]'
+      name={SharePoint.name}
+      size='w-full h-[150px]'
       className='p-[2rem] text-white'
     >
       {children}

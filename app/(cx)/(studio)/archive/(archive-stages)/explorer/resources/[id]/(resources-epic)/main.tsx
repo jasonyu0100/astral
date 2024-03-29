@@ -7,11 +7,11 @@ import { ResourcesGrid } from './grid/main';
 export function ResourcesBody() {
   return (
     <GlassAreaContainer
-      displayName={ResourcesBody.name}
-      sizeStyle='flex-grow h-full'
+      name={ResourcesBody.name}
+      size='flex-grow h-full'
       className={`${containerStyles['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
-      glassStyle={glassStyles['glass-5']}
-      roundedStyle={roundedStyles['rounded-container-sm']}
+      glass={glassStyles['glass-5']}
+      rounded={roundedStyles['rounded-container-sm']}
     >
       <ResourcesBreadcrumbs />
       <ResourcesGrid/>

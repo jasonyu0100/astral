@@ -18,11 +18,12 @@ export function UpdatesSidebarSection() {
       value={{ toggled: expanded, toggle: () => changeExpanded(!expanded) }}
     >
       <GlassWindowFrame
+        name={UpdatesSidebarSection.name}
         className='w-full p-[1rem]'
-        borderStyle={borderStyles['border-all']}
-        roundedStyle={roundedStyles['rounded-sm']}
+        border={borderStyles['border-all']}
+        rounded={roundedStyles['rounded-sm']}
       >
-        <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+        <GlassWindowPane glass={glassStyles['glass-5']} />
         <GlassWindowContents className='flex h-full w-full flex-row items-center justify-between'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <ProfileCover file={exampleFile} />
@@ -56,10 +57,7 @@ export function UpdatesSidebarSection() {
               </g>
             </svg>
           </button>
-          {expanded && <>
-
-          adsadsdsa
-          </>}
+          {expanded && <>adsadsdsa</>}
         </GlassWindowContents>
       </GlassWindowFrame>
     </ToggleContext.Provider>

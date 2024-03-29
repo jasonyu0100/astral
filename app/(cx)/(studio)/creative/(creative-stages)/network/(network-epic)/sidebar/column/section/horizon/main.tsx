@@ -10,7 +10,10 @@ import {
   roundedStyles,
 } from '@/(design)/(styles)/data';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
-import { FileObj, exampleFile } from '@/(logic)/internal/model/resource/file/main';
+import {
+  FileObj,
+  exampleFile,
+} from '@/(logic)/internal/model/resource/file/main';
 import { useState } from 'react';
 import { Seperator } from '@/(components)/(basic)/seperator/main';
 
@@ -23,20 +26,19 @@ export function SidebarNetworkHorizon() {
       value={{ toggled: expanded, toggle: () => changeExpanded(!expanded) }}
     >
       <GlassWindowFrame
+        name={SidebarNetworkHorizon.name}
         className='min-h-[80px] w-full p-[15px]'
-        roundedStyle={roundedStyles['rounded-sm']}
-        borderStyle={borderStyles['border-all']}
+        rounded={roundedStyles['rounded-sm']}
+        border={borderStyles['border-all']}
       >
-        <GlassWindowContents className='flex flex-col space-y-[1rem] w-full'>
-          <div className='flex flex-row items-center space-x-[2rem] w-full'>
+        <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
+          <div className='flex w-full flex-row items-center space-x-[2rem]'>
             <HorizonCover file={file} />
             <div className='flex flex-col'>
               <p className='text-xl font-bold text-slate-300'>
                 Project Horizon
               </p>
-              <p className='text-md text-slate-300'>
-                John Smith
-              </p>
+              <p className='text-md text-slate-300'>John Smith</p>
             </div>
             <button
               className='h-[50px] w-[50px]'
@@ -71,52 +73,50 @@ export function SidebarNetworkHorizon() {
             <>
               <Divider />
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <SpaceCover file={file}  />
-                <Seperator className="w-[3rem]"/>
+                <SpaceCover file={file} />
+                <Seperator className='w-[3rem]' />
                 <p className='text-lg font-bold text-slate-300'>
                   Project Space
                 </p>
               </div>
 
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <SpaceCover file={file}  />
-                <Seperator/>
+                <SpaceCover file={file} />
+                <Seperator />
                 <p className='text-lg font-bold text-slate-300'>
                   Project Space
                 </p>
               </div>
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <SpaceCover file={file}  />
-                <Seperator/>
+                <SpaceCover file={file} />
+                <Seperator />
                 <p className='text-lg font-bold text-slate-300'>
                   Project Space
                 </p>
               </div>
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <SpaceCover file={file}  />
-                <Seperator/>
+                <SpaceCover file={file} />
+                <Seperator />
                 <p className='text-lg font-bold text-slate-300'>
                   Project Space
                 </p>
               </div>
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <SpaceCover file={file}  />
-                <Seperator/>
+                <SpaceCover file={file} />
+                <Seperator />
                 <p className='text-lg font-bold text-slate-300'>
                   Project Space
                 </p>
               </div>
 
               <div className='flex flex-row items-center space-x-[2rem]'>
-                <SpaceCover file={{} as FileObj}  />
-                <p className='text-lg font-bold text-slate-300'>
-                  New Space +
-                </p>
+                <SpaceCover file={{} as FileObj} />
+                <p className='text-lg font-bold text-slate-300'>New Space +</p>
               </div>
             </>
           )}
         </GlassWindowContents>
-        <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+        <GlassWindowPane glass={glassStyles['glass-5']} />
       </GlassWindowFrame>
     </ToggleContext.Provider>
   );

@@ -11,11 +11,11 @@ export function SpaceIndicator({ indicator, minimised }: IndicatorProps) {
   return (
     <>
       {minimised ? (
-        <SidebarIndicator href={studioMap.studio.now.link}>
+        <SidebarIndicator href={studioMap.studio.spaces.link}>
           <IndicatorBlueJewel active={active} />
         </SidebarIndicator>
       ) : (
-        <SidebarIndicator href={studioMap.studio.now.link}>
+        <SidebarIndicator href={studioMap.studio.spaces.link}>
           <IndicatorBlueJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </SidebarIndicator>

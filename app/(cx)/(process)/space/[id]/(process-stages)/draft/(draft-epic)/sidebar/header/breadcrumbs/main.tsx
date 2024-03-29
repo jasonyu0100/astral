@@ -13,9 +13,9 @@ export function SidebarBreadcrumbs({
 }) {
   return (
     <GlassAreaContainer
-      displayName={SidebarBreadcrumbs.name}
-      sizeStyle='h-[60px] w-full'
-      borderStyle={`${borderStyles['border-b']}`}
+      name={SidebarBreadcrumbs.name}
+      size='h-[60px] w-full'
+      border={`${borderStyles['border-b']}`}
       className={`${containerStyles['row-center']} space-x-[1rem]`}
     >
       {children}

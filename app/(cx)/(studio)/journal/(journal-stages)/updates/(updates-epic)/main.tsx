@@ -5,9 +5,9 @@ import { UpdatesPosts } from './moments/main';
 export function UpdatesMain() {
   return (
     <GlassAreaContainer
-      displayName={UpdatesMain.name}
+      name={UpdatesMain.name}
       className={`${containerStyles.row}`}
-      sizeStyle='flex-grow h-full'
+      size='flex-grow h-full'
     >
       <UpdatesPosts />
     </GlassAreaContainer>

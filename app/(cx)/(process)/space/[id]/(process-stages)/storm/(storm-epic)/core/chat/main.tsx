@@ -7,8 +7,8 @@ export function StormChat() {
   return (
     <div className='w-full' style={{ height: '100%' }}>
       <GlassAreaContainer
-        displayName={StormChat.name}
-        sizeStyle='w-full h-full'
+        name={StormChat.name}
+        size='w-full h-full'
         className={`${containerStyles['col-center']}`}
       >
         <StormHeader />

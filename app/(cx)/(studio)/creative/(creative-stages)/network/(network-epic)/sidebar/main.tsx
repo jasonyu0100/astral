@@ -8,10 +8,10 @@ import { JournalNetworkSidebarHeader } from './header/main';
 export function CreativeNetworkSidebar() {
   return (
     <GlassAreaContainer
-      displayName={CreativeNetworkSidebar.name}
-      sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
+      name={CreativeNetworkSidebar.name}
+      size='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
-      glassStyle={glassStyles['glass-r-10']}
+      glass={glassStyles['glass-r-10']}
     >
       <JournalNetworkSidebarHeader />
       <JournalNetworkSidebarColumn>

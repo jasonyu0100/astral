@@ -5,11 +5,11 @@ import { studioMap } from '../../map';
 import { SpaceTabStages } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = SpaceTabStages.Then;
+  const tabText = SpaceTabStages.Two;
   const active = tab === tabText;
 
   return (
-    <Tab href={studioMap.studio.now.link}>
+    <Tab href={studioMap.studio.spaces.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabGreenShard active={active} />
     </Tab>

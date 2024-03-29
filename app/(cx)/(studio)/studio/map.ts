@@ -2,8 +2,8 @@ const baseUrl = `/studio`;
 
 export const studioMap = {
   studio: {
-    now: {
-      link: `${baseUrl}/now`,
+    spaces: {
+      link: `${baseUrl}/spaces`,
     },
     link: `${baseUrl}`,
   },

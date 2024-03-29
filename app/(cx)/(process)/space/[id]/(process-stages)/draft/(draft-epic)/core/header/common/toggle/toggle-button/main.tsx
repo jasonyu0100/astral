@@ -16,9 +16,9 @@ export function ToggleButton() {
   return (
     <WrapperTooltip text={modalType}>
       <GlassAreaContainer
-        displayName={ToggleButton.name}
-        sizeStyle={'w-[60px] h-[60px]'}
-        glassStyle={glassStyles['glass-5']}
+        name={ToggleButton.name}
+        size={'w-[60px] h-[60px]'}
+        glass={glassStyles['glass-5']}
         className='flex animate-pulse-slow cursor-pointer flex-col items-center justify-center'
         onClick={() => toggle()}
       >

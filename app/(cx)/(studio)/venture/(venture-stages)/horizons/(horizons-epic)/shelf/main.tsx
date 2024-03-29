@@ -8,8 +8,9 @@ import { Divider } from '@/(components)/(basic)/divider/main';
 export function VentureShelf() {
   return (
     <GlassWindowFrame
+      name={VentureShelf.name}
       className='w-[500px] flex-shrink-0'
-      borderStyle={borderStyles['border-r']}
+      border={borderStyles['border-r']}
     >
       <GlassWindowContents
         className={`flex h-full w-full flex-col space-y-[3rem] p-[2rem]`}

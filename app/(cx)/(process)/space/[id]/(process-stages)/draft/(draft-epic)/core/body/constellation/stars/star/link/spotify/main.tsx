@@ -20,7 +20,7 @@ export function LinkSpotifyStar() {
         style={{ x, y }}
       >
         <GlassAreaContainer
-          displayName={LinkSpotifyStar.name}
+          name={LinkSpotifyStar.name}
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onClick={(e) => {
             activateStar();

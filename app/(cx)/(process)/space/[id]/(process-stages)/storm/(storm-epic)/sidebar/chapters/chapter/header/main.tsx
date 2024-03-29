@@ -15,8 +15,8 @@ export function StormChapterHeader({
   return (
     <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}>
       <GlassAreaContainer
-        displayName={StormChapterHeader.name}
-        sizeStyle='w-full py-[0.5rem]'
+        name={StormChapterHeader.name}
+        size='w-full py-[0.5rem]'
         className={`${containerStyles['row-center']} justify-between`}
       >
         {children}

@@ -11,9 +11,9 @@ import { FlowHeaderRight } from './right/main';
 export function FlowHeader() {
   return (
     <GlassAreaContainer
-      displayName={FlowHeader.name}
-      sizeStyle='h-[60px] w-full flex-shrink-0'
-      glassStyle={glassStyles['glass-5']}
+      name={FlowHeader.name}
+      size='h-[60px] w-full flex-shrink-0'
+      glass={glassStyles['glass-5']}
       className={`${containerStyles['row-center']} justify-between space-x-[1rem]`}
     >
       <FlowHeaderLeft />

@@ -6,8 +6,8 @@ import { DraftChapters } from './chapters/main';
 export function DraftMain() {
   return (
     <GlassAreaContainer
-      displayName={DraftMain.name}
-      sizeStyle='h-full flex-grow'
+      name={DraftMain.name}
+      size='h-full flex-grow'
       className={`${containerStyles['col']}`}
     >
       <DraftCore />

@@ -64,7 +64,7 @@ export function PortalRegisterForm() {
               const user = res.data as UserObj;
               register(user);
               alert('Register Success');
-              window.location.href = studioMap.studio.now.link;
+              window.location.href = studioMap.studio.spaces.link;
             } else {
               alert(res.error);
             }
@@ -83,7 +83,7 @@ export function PortalRegisterForm() {
         const user = res.data as UserObj;
         register(user);
         alert('Register Success');
-        window.location.href = studioMap.studio.now.link;
+        window.location.href = studioMap.studio.spaces.link;
       } else {
         alert(res.error);
       }

@@ -10,8 +10,8 @@ export function SpacesList() {
 
   return (
     <GlassAreaContainer
-      sizeStyle='w-full'
-      displayName={SpacesList.name}
+      size='w-full'
+      name={SpacesList.name}
       className={`flex-col divide-y-[1px] divide-slate-500 divide-opacity-30`}
     >
       {spaces?.map((space, index) => (

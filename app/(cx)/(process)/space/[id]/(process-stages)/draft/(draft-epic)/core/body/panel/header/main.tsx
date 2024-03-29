@@ -9,9 +9,9 @@ export function DraftPanelHeader() {
     
   return (
     <GlassAreaContainer
-      sizeStyle='w-full h-[60px]'
+      size='w-full h-[60px]'
       className='flex flex-row items-center justify-between'
-      displayName={DraftPanelHeader.name}
+      name={DraftPanelHeader.name}
     >
       <p className='ml-[1rem] font-extraBold text-xl text-slate-300'>Pages</p>
       <DraftPanelAddButton

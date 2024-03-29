@@ -27,9 +27,10 @@ export function StormChapter() {
     <>
       {active ? (
         <GlassWindowFrame
+          name={StormChapter.name}
           className='relative my-2'
-          borderStyle={borderStyles['border-all']}
-          roundedStyle={roundedStyles['rounded-sm']}
+          border={borderStyles['border-all']}
+          rounded={roundedStyles['rounded-sm']}
         >
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem] px-[1rem] py-[1rem]'>
             <StormChapterHeader>
@@ -46,7 +47,7 @@ export function StormChapter() {
               <StormChapterChatAdd />
             </div>
           </GlassWindowContents>
-          <GlassWindowPane glassStyle={glassStyles['glass-5']} />
+          <GlassWindowPane glass={glassStyles['glass-5']} />
         </GlassWindowFrame>
       ) : (
         <div className='my-[1rem] flex flex-col space-y-[1rem]'>

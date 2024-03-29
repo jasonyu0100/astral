@@ -11,16 +11,16 @@ import { CreativeNetworkSidebar } from './(network-epic)/sidebar/main';
 export function CreativeNetworkView() {
   return (
     <GlassAreaContainer
-      displayName={CreativeNetworkView.name}
+      name={CreativeNetworkView.name}
       className={`flex flex-row`}
-      glassStyle={glassStyles['glass-5']}
-      sizeStyle='flex-grow h-full'
-      roundedStyle={roundedStyles['rounded-container']}
+      glass={glassStyles['glass-5']}
+      size='flex-grow h-full'
+      rounded={roundedStyles['rounded-container']}
     >
       <GlassAreaContainer
-        displayName={CreativeNetworkView.name}
+        name={CreativeNetworkView.name}
         className={`flex flex-row`}
-        sizeStyle='flex-grow h-full'
+        size='flex-grow h-full'
       >
         <CreativeNetworkMain />
       </GlassAreaContainer>

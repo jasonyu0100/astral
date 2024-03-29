@@ -7,8 +7,8 @@ export function DraftCore() {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
-        displayName={DraftCore.name}
-        sizeStyle='w-full h-full'
+        name={DraftCore.name}
+        size='w-full h-full'
         className={`${containerStyles['col']}`}
       >
         <DraftHeader />

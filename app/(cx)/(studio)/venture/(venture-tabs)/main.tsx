@@ -18,7 +18,6 @@ interface ProjectTabProps {
 export function ProjectTabs({ tab }: ProjectTabProps) {
   return (
     <Tabs>
-      <TabsBackButton href={studioMap.studio.now.link} />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} />

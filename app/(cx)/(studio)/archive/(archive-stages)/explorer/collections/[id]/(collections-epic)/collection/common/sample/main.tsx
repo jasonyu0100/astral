@@ -9,10 +9,10 @@ export function CollectionSample({
 }) {
   return (
     <GlassAreaContainer
-      displayName={CollectionSample.name}
+      name={CollectionSample.name}
       className='flex h-full w-full flex-row items-center'
-      sizeStyle='h-[200px] aspect-[32/16]'
-      glassStyle={glassStyles['glass-10']}
+      size='h-[200px] aspect-[32/16]'
+      glass={glassStyles['glass-10']}
     >
       {children}
     </GlassAreaContainer>

@@ -6,8 +6,8 @@ import { StormChatInput } from './input/main';
 export function StormCore() {
   return (
     <GlassAreaContainer
-      displayName={StormCore.name}
-      sizeStyle='flex-grow h-full'
+      name={StormCore.name}
+      size='flex-grow h-full'
       className={`${containerStyles['col']}`}
     >
       <StormChat />

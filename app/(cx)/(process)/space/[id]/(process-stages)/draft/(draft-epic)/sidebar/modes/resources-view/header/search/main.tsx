@@ -11,9 +11,9 @@ export function CollectionHeaderSearch() {
 
   return (
     <GlassAreaContainer
-      displayName={CollectionHeaderSearch.name}
-      sizeStyle='flex-grow h-[3rem]'
-      borderStyle={`${borderStyles['border-b']}`}
+      name={CollectionHeaderSearch.name}
+      size='flex-grow h-[3rem]'
+      border={`${borderStyles['border-b']}`}
       className={`${containerStyles.row}`}
     >
       <SearchBarInput

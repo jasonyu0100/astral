@@ -13,9 +13,9 @@ export function SpacesHeader() {
   const spacesModal = useContext(SpacesModalContext);
   return (
     <GlassAreaContainer
-      sizeStyle='w-full h-[360px]'
-      displayName={SpacesHeader.name}
-      glassStyle={glassStyles['glass-5']}
+      size='w-full h-[360px]'
+      name={SpacesHeader.name}
+      glass={glassStyles['glass-5']}
       className={`p-[4rem] ${containerStyles['row-center']}`}
     >
       <SpacesAlbumInfo />

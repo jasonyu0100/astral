@@ -4,9 +4,9 @@ import { borderStyles } from '../../../(design)/(styles)/data';
 export function Divider() {
   return (
     <GlassAreaContainer
-      displayName={Divider.name}
-      sizeStyle='w-full h-[0px]'
-      borderStyle={borderStyles['border-b']}
+      name={Divider.name}
+      size='w-full h-[0px]'
+      border={borderStyles['border-b']}
     ></GlassAreaContainer>
   );
 }

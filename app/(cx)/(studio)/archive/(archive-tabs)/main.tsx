@@ -16,7 +16,7 @@ interface CraftTabs {
 export function CraftTabs({ tab }: CraftTabs) {
   return (
     <Tabs>
-      <TabsBackButton href={studioMap.studio.now.link} />
+      <TabsBackButton href={studioMap.studio.spaces.link} />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} /> */}

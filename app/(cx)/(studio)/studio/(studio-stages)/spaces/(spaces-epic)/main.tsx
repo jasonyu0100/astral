@@ -8,11 +8,11 @@ import { SpacesList } from './list/main';
 export function StudioSpacesMain() {
   return (
     <GlassAreaContainer
-      displayName={StudioSpacesMain.name}
-      sizeStyle='h-full flex-grow'
-      glassStyle={glassStyles['glass-5']}
+      name={StudioSpacesMain.name}
+      size='h-full flex-grow'
+      glass={glassStyles['glass-5']}
       className={`overflow-auto ${containerStyles.col}`}
-      roundedStyle={roundedStyles['rounded-container-sm']}
+      rounded={roundedStyles['rounded-container-sm']}
     >
       <SpacesHeader />
       <SpacesList />

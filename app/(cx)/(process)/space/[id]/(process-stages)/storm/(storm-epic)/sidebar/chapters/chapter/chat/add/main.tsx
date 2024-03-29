@@ -13,9 +13,9 @@ export function StormChapterChatAdd() {
         onClick={() => newChat.open()}
       >
         <GlassAreaContainer
-          displayName={StormChapterChatAdd.name}
-          sizeStyle='w-[50px] h-[50px] rounded-full overflow-hidden'
-          glassStyle='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
+          name={StormChapterChatAdd.name}
+          size='w-[50px] h-[50px] rounded-full overflow-hidden'
+          glass='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
           className={`${containerStyles['col-centered']}`}
         >
           <svg

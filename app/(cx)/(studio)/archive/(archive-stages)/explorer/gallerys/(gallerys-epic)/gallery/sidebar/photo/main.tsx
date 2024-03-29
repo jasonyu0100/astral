@@ -4,10 +4,10 @@ import { glassStyles } from '@/(design)/(styles)/data';
 export function GalleryPhoto({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      displayName={GalleryPhoto.name}
+      name={GalleryPhoto.name}
       className='flex flex-col'
-      sizeStyle='aspect-[11/16] w-full'
-      glassStyle={glassStyles['glass-10']}
+      size='aspect-[11/16] w-full'
+      glass={glassStyles['glass-10']}
     >
       {children}
     </GlassAreaContainer>

@@ -14,9 +14,9 @@ import { StormHeaderLeft } from './left/main';
 export function StormHeader() {
   return (
     <GlassAreaContainer
-      displayName={StormHeader.name}
-      sizeStyle='h-[60px] w-full flex-shrink-0'
-      glassStyle={glassStyles['glass-5']}
+      name={StormHeader.name}
+      size='h-[60px] w-full flex-shrink-0'
+      glass={glassStyles['glass-5']}
       className={`${containerStyles['row-center']} justify-between space-x-[1rem] px-[1rem]`}
     >
       <StormHeaderLeft>

@@ -22,12 +22,12 @@ export function ChapterContainer({ index }: { index: number }) {
         })}
       >
         <GlassAreaContainer
-          displayName={ChapterContainer.name}
-          sizeStyle='w-[200px] h-[40px]'
-          glassStyle={
+          name={ChapterContainer.name}
+          size='w-[200px] h-[40px]'
+          glass={
             active ? glassStyles['glass-10'] : glassStyles['glass-5']
           }
-          roundedStyle={roundedStyles['rounded-full']}
+          rounded={roundedStyles['rounded-full']}
           className='flex items-center justify-center'
         >
           {active ? <ChapterActiveText /> : <ChapterInactiveText />}

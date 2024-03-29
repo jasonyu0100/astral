@@ -9,10 +9,10 @@ export default function ChaptersAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
-        displayName={ChaptersAdd.name}
-        sizeStyle='w-[200px] h-[40px]'
-        glassStyle={glassStyles['glass-5']}
-        roundedStyle={roundedStyles['rounded-full']}
+        name={ChaptersAdd.name}
+        size='w-[200px] h-[40px]'
+        glass={glassStyles['glass-5']}
+        rounded={roundedStyles['rounded-full']}
       >
         <div className='flex h-full w-full items-center justify-center'>
           <div className='font-bold text-slate-500'>Add Chapter</div>

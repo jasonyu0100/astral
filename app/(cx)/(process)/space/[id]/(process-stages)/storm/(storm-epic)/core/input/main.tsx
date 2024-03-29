@@ -12,9 +12,9 @@ export function StormChatInput() {
 
   return (
     <GlassAreaContainer
-      displayName={StormChatInput.name}
-      sizeStyle='h-[80px] w-full'
-      glassStyle={glassStyles['glass-5']}
+      name={StormChatInput.name}
+      size='h-[80px] w-full'
+      glass={glassStyles['glass-5']}
       className={`${containerStyles['row-centered']} px-[1rem]`}
     >
       <StormChatInputLeft />

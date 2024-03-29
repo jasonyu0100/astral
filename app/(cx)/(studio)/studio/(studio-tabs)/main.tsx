@@ -5,9 +5,9 @@ import { Tabs } from '../../../../(components)/(cx)/tabs/main';
 import { TabsRow } from '../../../../(components)/(cx)/tabs/tabs-row/main';
 
 export enum SpaceTabStages {
-  Now = 'Now',
-  Then = 'Then',
-  All = 'All',
+  Spaces = 'Spaces',
+  Two = 'Two',
+  Three = 'Three',
 }
 
 interface SpacesTabProps {

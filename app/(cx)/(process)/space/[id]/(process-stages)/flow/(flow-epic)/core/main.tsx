@@ -7,8 +7,8 @@ export function FlowCore() {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
-        displayName={FlowCore.name}
-        sizeStyle='w-full h-full'
+        name={FlowCore.name}
+        size='w-full h-full'
         className={`${containerStyles['col']}`}
       >
         <FlowHeader />

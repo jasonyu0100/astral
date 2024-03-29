@@ -4,8 +4,8 @@ import { containerStyles } from '@/(design)/(styles)/data';
 export function SearchWrapper({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      displayName={SearchWrapper.name}
-      sizeStyle='w-full h-full'
+      name={SearchWrapper.name}
+      size='w-full h-full'
       className={`${containerStyles.row}`}
     >
       {children}

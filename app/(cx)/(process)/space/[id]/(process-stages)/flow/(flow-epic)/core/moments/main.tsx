@@ -14,8 +14,8 @@ export function FlowMoments() {
   return (
     <div className='w-full' style={{ height: '100%' }}>
       <GlassAreaContainer
-        displayName={FlowMoments.name}
-        sizeStyle='w-full h-full'
+        name={FlowMoments.name}
+        size='w-full h-full'
         className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
       >
         {moments.map((moment) => (

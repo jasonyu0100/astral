@@ -26,9 +26,9 @@ export function StudioSpace({ index }: { index: number }) {
   return (
     <ExtendedSpaceContext.Provider value={{ space, index, hover }}>
       <GlassAreaContainer
-        displayName={StudioSpace.name}
-        sizeStyle='w-full h-[100px]'
-        glassStyle={`${hover && glassStyles['glass-10']}`}
+        name={StudioSpace.name}
+        size='w-full h-[100px]'
+        glass={`${hover && glassStyles['glass-10']}`}
         className={`flex h-[100px] w-full flex-row items-center justify-between pl-[3rem] pr-[2rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}
         onMouseOut={() => changeHover(false)}

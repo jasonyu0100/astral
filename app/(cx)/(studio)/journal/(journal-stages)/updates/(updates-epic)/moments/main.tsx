@@ -8,8 +8,8 @@ export function UpdatesPosts() {
 
   return (
     <GlassAreaContainer
-      displayName={UpdatesPosts.name}
-      sizeStyle='flex-grow h-full'
+      name={UpdatesPosts.name}
+      size='flex-grow h-full'
       className={`${containerStyles['col-center']} overflow-auto p-[3rem]`}
     >
       {moments.map((moment) => (

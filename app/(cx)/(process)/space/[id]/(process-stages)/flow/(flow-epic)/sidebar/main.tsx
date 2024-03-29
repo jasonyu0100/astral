@@ -6,10 +6,10 @@ import { FlowSidebarHeader } from './header/main';
 export function FlowSidebar() {
   return (
     <GlassAreaContainer
-      displayName={FlowSidebar.name}
-      sizeStyle='max-w-[500px] min-w-[250px] w-1/4 h-full'
+      name={FlowSidebar.name}
+      size='max-w-[500px] min-w-[250px] w-1/4 h-full'
       className={`${containerStyles['col']} space-y-[1rem] px-[1rem]`}
-      glassStyle={glassStyles['glass-10']}
+      glass={glassStyles['glass-10']}
     >
       <FlowSidebarHeader />
       <FlowSidebarColumn />

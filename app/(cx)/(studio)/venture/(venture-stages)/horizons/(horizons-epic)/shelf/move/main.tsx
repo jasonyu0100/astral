@@ -10,11 +10,15 @@ import Link from 'next/link';
 
 export function Horizon() {
   return (
-    <GlassWindowFrame className="p-[1rem]" roundedStyle={roundedStyles['rounded-sm']}>
+    <GlassWindowFrame
+      name={GlassWindowFrame.name}
+      className='p-[1rem]'
+      rounded={roundedStyles['rounded-sm']}
+    >
       <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
         <Link
           className='flex flex-col items-center space-y-[1rem]'
-          href={horizonMap.horizon.id.one.link('0')}
+          href={horizonMap.horizon.id.base.link('0')}
         >
           <HorizonCover file={exampleFile} />
         </Link>
@@ -23,7 +27,7 @@ export function Horizon() {
           <p className='text-lg text-slate-300'>John Smith</p>
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassStyle={glassStyles['glass-5']}/>
+      <GlassWindowPane glass={glassStyles['glass-5']} />
     </GlassWindowFrame>
   );
 }

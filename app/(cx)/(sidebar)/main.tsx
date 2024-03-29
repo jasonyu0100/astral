@@ -25,7 +25,7 @@ export function DashboardSidebar({
     <>
       {minimised ? (
         <div className='relative flex h-full w-[4.5rem] flex-shrink-0 flex-col overflow-y-auto bg-slate-900 px-[1rem] py-[1rem]'>
-          <SidebarBack href={backUrl || studioMap.studio.now.link} />
+          <SidebarBack href={backUrl || studioMap.studio.spaces.link} />
           <div className='mb-[2rem] h-[1rem] w-full border-b border-slate-500 border-opacity-30'></div>
           <SidebarIndicators>
             <SpaceIndicator indicator={indicator} minimised />

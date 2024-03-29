@@ -17,9 +17,9 @@ export function ToggleDropdownList() {
       onMouseLeave={() => toggle()}
     >
       <GlassAreaContainer
-        displayName={ToggleDropdownList.name}
-        sizeStyle={'w-full h-full'}
-        glassStyle={glassStyles['glass-10']}
+        name={ToggleDropdownList.name}
+        size={'w-full h-full'}
+        glass={glassStyles['glass-10']}
         className='flex flex-col items-center justify-center'
       >
         {modalType !== DraftModalType.DEFAULT && (

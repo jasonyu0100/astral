@@ -8,12 +8,12 @@ import { useEffect, useState } from 'react';
 
 export function SidebarCurrentSpace({ children }: { children: React.ReactNode}) {
   const space = useGlobalSpace(state => state.space);
-  const [url, changeUrl] = useState(studioMap.studio.now.link);
+  const [url, changeUrl] = useState(studioMap.studio.spaces.link);
   useEffect(() => {
     changeUrl(
       space.id
         ? spaceMap.space.id.storm.link(space.id)
-        : studioMap.studio.now.link,
+        : studioMap.studio.spaces.link,
     );
   }, [space]);
 

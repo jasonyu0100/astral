@@ -6,10 +6,10 @@ import { DraftConstellationList } from './list/main';
 export function DraftPanel() {
   return (
     <GlassAreaContainer
-      displayName={DraftPanel.name}
-      sizeStyle='w-[300px] h-full'
+      name={DraftPanel.name}
+      size='w-[300px] h-full'
       className='flex flex-col'
-      borderStyle={borderStyles['border-r']}
+      border={borderStyles['border-r']}
     >
       <DraftPanelHeader />
       <DraftConstellationList />

@@ -5,7 +5,7 @@ import { DashboardContent } from '@/(components)/(cx)/content/main';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SpacesTabs tab={SpaceTabStages.Now} />
+      <SpacesTabs tab={SpaceTabStages.Spaces} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

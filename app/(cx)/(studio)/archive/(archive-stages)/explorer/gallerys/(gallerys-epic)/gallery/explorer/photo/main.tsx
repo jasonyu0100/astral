@@ -10,10 +10,10 @@ interface InputProps extends DivInputProps {
 export function GalleryPhoto({ children, ...props }: InputProps) {
   return (
     <GlassAreaContainer
-      displayName={GalleryPhoto.name}
+      name={GalleryPhoto.name}
       className="flex h-full w-full flex-col"
-      sizeStyle='h-[500px] aspect-[11/16]'
-      glassStyle={glassStyles['glass-10']}
+      size='h-[500px] aspect-[11/16]'
+      glass={glassStyles['glass-10']}
       {...props}
     >
       {children}

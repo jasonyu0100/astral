@@ -17,10 +17,10 @@ export function DraftHeader() {
 
   return (
     <GlassAreaContainer
-      displayName={DraftHeader.name}
-      sizeStyle='h-[60px] w-full flex-shrink-0'
+      name={DraftHeader.name}
+      size='h-[60px] w-full flex-shrink-0'
       className={`${containerStyles['row-center']} justify-between`}
-      glassStyle={glassStyles['glass-5']}
+      glass={glassStyles['glass-5']}
     >
       {modalType === DraftModalType.DEFAULT && <DraftHeaderDefault/>}
       {modalType === DraftModalType.STAR && <DraftHeaderStar/>}

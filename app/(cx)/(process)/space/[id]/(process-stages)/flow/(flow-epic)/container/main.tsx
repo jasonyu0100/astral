@@ -5,11 +5,11 @@ import React from 'react';
 export function FlowContainer({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      displayName={FlowContainer.name}
-      sizeStyle='h-full flex-grow'
+      name={FlowContainer.name}
+      size='h-full flex-grow'
       className={`${containerStyles['row']}`}
-      glassStyle={glassStyles['glass-5']}
-      roundedStyle={roundedStyles['rounded-container-sm']}
+      glass={glassStyles['glass-5']}
+      rounded={roundedStyles['rounded-container-sm']}
     >
       {children}
     </GlassAreaContainer>

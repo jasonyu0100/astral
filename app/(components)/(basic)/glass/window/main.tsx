@@ -1,19 +1,22 @@
 import { DivInputProps } from '@/(types)/main';
 
 interface GlassWindowFrameProps extends DivInputProps {
-  borderStyle?: string;
-  roundedStyle?: string;
+  name: string;
+  border?: string;
+  rounded?: string;
   children: React.ReactNode;
 }
 
 export function GlassWindowFrame({
   children,
-  borderStyle,
-  roundedStyle,
+  name,
+  border: borderStyle,
+  rounded: roundedStyle,
   ...props
 }: GlassWindowFrameProps) {
   return (
     <div
+      id={name}
       className={`relative ${borderStyle || ''} ${roundedStyle || ''} ${props.className || ''}`}
     >
       {children}
