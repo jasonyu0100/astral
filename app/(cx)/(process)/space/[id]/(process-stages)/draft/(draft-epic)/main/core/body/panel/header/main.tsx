@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { DraftPanelAddButton } from './add/main';
 import { DraftModalContext } from '@/(modals)/(process)/draft-modal/main';
 import { useContext } from 'react';

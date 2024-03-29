@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { createContext, useContext } from 'react';
 import { FlowMoment } from './moment/main';

@@ -3,7 +3,7 @@ import { ExtendedSpaceContext } from '../../../main';
 import {
   SpaceCover,
   SpaceCoverVariant,
-} from '@/(components)/(basic)/cover/space/main';
+} from '@/(components)/(element)/space/main';
 import { cn } from '@/(logic)/utils/cn';
 
 export function SpaceInfoThumbnail() {

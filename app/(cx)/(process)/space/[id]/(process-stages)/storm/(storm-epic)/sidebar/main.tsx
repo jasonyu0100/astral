@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassStyles, containerStyles } from '@/(design)/(styles)/data';
 import { StormSidebarChapters } from './chapters/main';
 import { StormSidebarHeader } from './header/main';

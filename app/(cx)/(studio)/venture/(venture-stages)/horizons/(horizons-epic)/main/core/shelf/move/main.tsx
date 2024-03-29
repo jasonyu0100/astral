@@ -1,8 +1,8 @@
 'use client';
-import { HorizonCover } from '@/(components)/(basic)/cover/horizon/main';
-import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
-import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
+import { HorizonCover } from '@/(components)/(element)/horizon/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { horizonMap } from '@/(cx)/(venture)/horizon/[id]/map';
 import { glassStyles, roundedStyles } from '@/(design)/(styles)/data';
 import { exampleFile } from '@/(logic)/internal/model/resource/file/main';

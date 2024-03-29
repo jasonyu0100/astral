@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '../../(basic)/glass/area/main';
+import { GlassAreaContainer } from '../../(glass)/area/main';
 import { containerStyles, borderStyles } from '../../../(design)/(styles)/data';
 import { FormInputProps } from '../../../(types)/main';
 

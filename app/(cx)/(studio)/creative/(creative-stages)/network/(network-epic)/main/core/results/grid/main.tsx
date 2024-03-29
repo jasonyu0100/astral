@@ -1,5 +1,5 @@
 'use client';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 
 export function CreativeRow({ children }: { children: React.ReactNode }) {

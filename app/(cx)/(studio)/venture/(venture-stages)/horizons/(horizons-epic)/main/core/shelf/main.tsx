@@ -1,9 +1,9 @@
 'use client';
-import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { borderStyles } from '@/(design)/(styles)/data';
 import { Horizon } from './move/main';
-import { Divider } from '@/(components)/(basic)/divider/main';
+import { Divider } from '@/(components)/(line)/divider/main';
 
 export function VentureShelf() {
   return (

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '../glass/area/main';
+import { GlassAreaContainer } from '../../(glass)/area/main';
 import { borderStyles } from '../../../(design)/(styles)/data';
 
 export function Divider() {

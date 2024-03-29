@@ -3,7 +3,7 @@ import {
   borderStyles,
   containerStyles,
 } from '@/(design)/(styles)/data';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { SpacesModalContext } from '@/(modals)/(studio)/studio/main';
 import { useContext } from 'react';
 import { SpacesHeaderAction } from './action/main';

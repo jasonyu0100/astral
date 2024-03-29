@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
 import { SpacesHandlerContext } from '@/(logic)/internal/handler/spaces/main';

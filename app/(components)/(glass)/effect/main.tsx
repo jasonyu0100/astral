@@ -1,17 +1,17 @@
 import { DivInputProps } from '@/(types)/main';
 
-interface EffectWrapperProps extends DivInputProps {
+interface GlassEffectWrapperProps extends DivInputProps {
   roundedStyle?: string;
   effectStyle?: string;
   children: React.ReactNode;
 }
 
-export function EffectWrapper({
+export function GlassEffectWrapper({
   children,
   effectStyle,
   roundedStyle,
   ...props
-}: EffectWrapperProps) {
+}: GlassEffectWrapperProps) {
   return (
     <div
       className={`flex-shrink-0 ${effectStyle || ''} ${roundedStyle || ''} ${props.className || ''}`}

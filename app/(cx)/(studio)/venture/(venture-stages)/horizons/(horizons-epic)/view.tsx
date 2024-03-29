@@ -1,15 +1,15 @@
 'use client';
 
 import insideVerses from '@/(logic)/utils/isAuth';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
   borderStyles,
   glassStyles,
   roundedStyles,
 } from '@/(design)/(styles)/data';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
-import { Divider } from '@/(components)/(basic)/divider/main';
-import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { Divider } from '@/(components)/(line)/divider/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { VentureHorizonsContainer } from './container/main';
 import { VentureShelf } from './main/core/shelf/main';
 

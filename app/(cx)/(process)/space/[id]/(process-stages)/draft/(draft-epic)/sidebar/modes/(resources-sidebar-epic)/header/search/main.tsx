@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderStyles, containerStyles } from '@/(design)/(styles)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';

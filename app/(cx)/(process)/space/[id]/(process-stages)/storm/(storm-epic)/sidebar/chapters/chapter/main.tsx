@@ -12,9 +12,9 @@ import {
 } from '@/(design)/(styles)/data';
 import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
 import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
-import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
-import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 
 export function StormChapter() {
   const chapter = useContext(ChapterContext);

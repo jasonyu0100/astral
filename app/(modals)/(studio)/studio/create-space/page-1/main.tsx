@@ -5,7 +5,7 @@ import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/
 import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
-import { Divider } from '@/(components)/(basic)/divider/main';
+import { Divider } from '@/(components)/(line)/divider/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 
 export function PageOne() {

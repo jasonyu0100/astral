@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(logic)/internal/handler/stars/star/main';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
 
 export function LinkSpotifyStar() {

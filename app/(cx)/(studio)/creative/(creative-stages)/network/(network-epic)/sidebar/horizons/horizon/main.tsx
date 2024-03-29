@@ -1,9 +1,9 @@
-import { Divider } from '@/(components)/(basic)/divider/main';
-import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
-import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
-import { HorizonCover } from '@/(components)/(basic)/cover/horizon/main';
-import { SpaceCover } from '@/(components)/(basic)/cover/space/main';
+import { Divider } from '@/(components)/(line)/divider/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { HorizonCover } from '@/(components)/(element)/horizon/main';
+import { SpaceCover } from '@/(components)/(element)/space/main';
 import {
   borderStyles,
   glassStyles,
@@ -15,7 +15,7 @@ import {
   exampleFile,
 } from '@/(logic)/internal/model/resource/file/main';
 import { useState } from 'react';
-import { Seperator } from '@/(components)/(basic)/seperator/main';
+import { Seperator } from '@/(components)/(line)/seperator/main';
 
 export function CreativeNetworkSidebarHorizon() {
   const file = exampleFile;

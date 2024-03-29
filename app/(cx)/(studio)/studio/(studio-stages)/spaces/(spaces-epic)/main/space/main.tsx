@@ -4,7 +4,7 @@ import {
   SpaceObj,
 } from '@/(logic)/internal/model/space/main';
 import { createContext, useContext, useState } from 'react';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';

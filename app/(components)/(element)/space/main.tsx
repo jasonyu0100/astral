@@ -1,4 +1,4 @@
-import { EffectWrapper } from '@/(components)/(basic)/effect/main';
+import { GlassEffectWrapper } from '@/(components)/(glass)/effect/main';
 import { roundedStyles } from '@/(design)/(styles)/data';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { DivInputProps } from '@/(types)/main';
@@ -23,7 +23,7 @@ export function SpaceCover({ file, variant, ...props }: SpaceCoverProps) {
         />
       )}
       {variant === SpaceCoverVariant.EVENT_HORIZON && (
-        <EffectWrapper
+        <GlassEffectWrapper
           className={props.className}
           roundedStyle={roundedStyles['rounded-full']}
         >
@@ -32,7 +32,7 @@ export function SpaceCover({ file, variant, ...props }: SpaceCoverProps) {
             src={file.src}
             alt={file.title}
           />
-        </EffectWrapper>
+        </GlassEffectWrapper>
       )}
     </>
   );

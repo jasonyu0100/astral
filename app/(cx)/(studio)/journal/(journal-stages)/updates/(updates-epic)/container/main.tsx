@@ -1,5 +1,5 @@
 import { glassStyles, containerStyles, roundedStyles } from '@/(design)/(styles)/data';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function UpdatesContainer({ children }: { children: React.ReactNode }) {
   return (

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 
 export function ChaptersContainer({ children }: { children: React.ReactNode }) {

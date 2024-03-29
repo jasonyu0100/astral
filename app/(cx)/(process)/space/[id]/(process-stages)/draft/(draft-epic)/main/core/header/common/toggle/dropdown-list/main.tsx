@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassStyles, borderStyles } from '@/(design)/(styles)/data';
 import { DraftContext, DraftModalType } from '../../../../../../../page';
 import { DraftHeaderTextBoardButton } from './text/main';

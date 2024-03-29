@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { UpdatesMoment } from './moment/main';
 import { MomentContext, exampleMoments } from '@/(logic)/internal/model/flow/moment/main';

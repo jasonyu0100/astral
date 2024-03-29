@@ -7,7 +7,7 @@ import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassStyles } from '@/(design)/(styles)/data';
 
 export function ToggleButton() {

@@ -1,7 +1,7 @@
-import { ProfileCover } from '@/(components)/(basic)/cover/profile/main';
-import { GlassWindowContents } from '@/(components)/(basic)/glass/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(basic)/glass/window/main';
-import { GlassWindowPane } from '@/(components)/(basic)/glass/window/pane/main';
+import { ProfileCover } from '@/(components)/(element)/profile/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import {
   glassStyles,
   borderStyles,

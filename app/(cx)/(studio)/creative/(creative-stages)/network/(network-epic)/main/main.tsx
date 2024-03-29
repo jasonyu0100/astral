@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { CreativeSearch } from './core/search/main';
 import { CreativeFooter } from './core/footer/main';
 import { CreativeResults } from './core/results/main';

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(components)/(basic)/glass/area/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { containerStyles } from '@/(design)/(styles)/data';
 import { useContext } from 'react';
 import { StormModalContext } from '../../../../../../../../../../../../(modals)/(process)/storm-modal/main';
