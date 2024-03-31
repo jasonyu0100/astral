@@ -1,8 +1,8 @@
 import { containerFx } from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { UpdatesPosts } from './moments/main';
-import { JournalFooter } from './moments/footer/main';
-import { JournalSearch } from './moments/search/main';
+import { UpdatesPosts } from './main/main';
+import { JournalFooter } from './main/footer/main';
+import { JournalSearch } from './main/search/main';
 
 export function UpdatesMain() {
   return (

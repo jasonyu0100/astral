@@ -3,11 +3,11 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, borderFx, roundedFx } from '@/(design)/(fx)/data';
 
-export function CreativeSearch() {
+export function JournalSearch() {
   return (
     <div className='w-full p-[2rem]'>
       <GlassWindowFrame
-        name={CreativeSearch.name}
+        name={JournalSearch.name}
         className='h-[4rem] w-full'
         borderFx={borderFx['border-all']}
         roundedFx={roundedFx['rounded-full']}
@@ -17,7 +17,7 @@ export function CreativeSearch() {
         >
           <input
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
-            placeholder='Discover the creative...'
+            placeholder='Seek verses...'
           ></input>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />

@@ -11,7 +11,7 @@ export function ResourcesContainer({ children }: { children: React.ReactNode }) 
     <GlassAreaContainer
       name={ResourcesContainer.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']} p-[1rem]`}
+      className={`${containerFx['col']} p-[2rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}
