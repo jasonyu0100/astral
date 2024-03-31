@@ -31,13 +31,13 @@ export function PortalReserveForm() {
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
-          placeholder={variant === 'm' ? 'John' : 'Taylor'}
+          placeholder={variant === 'm' ? 'John' : 'Jane'}
           type='text'
         />
         <PortalFormInput
           value={lname}
           onChange={(e) => changeLname(e.target.value)}
-          placeholder={variant === 'm' ? 'Mayer' : 'Swift'}
+          placeholder={variant === 'm' ? 'Smith' : 'Smith'}
           type='text'
         />
         <PortalFormInput
