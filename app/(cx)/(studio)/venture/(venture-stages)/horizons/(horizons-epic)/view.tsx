@@ -2,11 +2,7 @@
 
 import insideVerses from '@/(logic)/utils/isAuth';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  borderFx,
-  glassFx,
-  roundedFx,
-} from '@/(design)/(fx)/data';
+import { borderFx, glassFx, roundedFx } from '@/(design)/(fx)/data';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { Divider } from '@/(components)/(line)/divider/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
@@ -117,87 +113,103 @@ export function VentureHorizonsView() {
       </div>
       <div className='flex h-full w-full flex-row'>
         <GlassAreaContainer
-          sizeFx='h-full w-[300px]'
+          sizeFx='h-full w-[320px]'
           borderFx={borderFx['border-r']}
-          className='flex flex-col space-y-[2rem] overflow-auto px-[2rem] py-[2rem]'
+          className='flex flex-col space-y-[2rem] overflow-auto px-[1rem]'
         >
-          <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-extraBold text-xl text-slate-300'>Scale</p>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-              <p className='text-md font-bold text-slate-300'>Local</p>
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>Group </p>
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>Cluster</p>
-            </GlassWindowFrame>
+          <div className='flex flex-col'>
+            <div className='flex h-[60px] flex-shrink-0 items-center'>
+              <p className='font-extraBold text-lg text-slate-500'>Scale</p>
+            </div>
+            <div className='ml-[0.25rem] flex flex-col space-y-[1rem]'>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+                <p className='text-md font-bold text-slate-300'>Local</p>
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>Group </p>
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>Cluster</p>
+              </GlassWindowFrame>
+            </div>
           </div>
-          <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-extraBold text-xl text-slate-300'>Modal</p>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>Music</p>
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>Art</p>
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>Film</p>
-            </GlassWindowFrame>
+          <div className='flex flex-col'>
+            <div className='flex h-[60px] flex-shrink-0 items-center'>
+              <p className='font-extraBold text-lg text-slate-500'>Modal</p>
+            </div>
+            <div className='ml-[0.25rem] flex flex-col space-y-[1rem]'>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>Music</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>Art</p>
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>Film</p>
+              </GlassWindowFrame>
+            </div>
           </div>
-          <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-extraBold text-xl text-slate-300'>Degree</p>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-              <p className='text-md font-bold text-slate-300'>1st</p>
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>2nd</p>
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              borderFx={borderFx['border-all']}
-              roundedFx={roundedFx.rounded}
-              className='px-[1rem] py-[0.5rem]'
-            >
-              <p className='text-md font-bold text-slate-300'>3rd</p>
-            </GlassWindowFrame>
+          <div className='flex flex-col'>
+            <div className='flex h-[60px] flex-shrink-0 items-center'>
+              <p className='font-extraBold text-lg text-slate-500'>Degree</p>
+            </div>
+            <div className='ml-[0.25rem] flex flex-col space-y-[1rem]'>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+                <p className='text-md font-bold text-slate-300'>1st</p>
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>2nd</p>
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                borderFx={borderFx['border-all']}
+                roundedFx={roundedFx.rounded}
+                className='px-[1rem] py-[0.5rem]'
+              >
+                <p className='text-md font-bold text-slate-300'>3rd</p>
+              </GlassWindowFrame>
+            </div>
           </div>
         </GlassAreaContainer>
-        <div className='flex h-full flex-row overflow-auto'>
+        <div
+          className='flex flex-row overflow-auto'
+          
+          style={{ height: 'calc(100% - 100px)', width: 'calc(100% - 320px)' }}
+        >
           <VentureShelf />
           <VentureShelf />
           <VentureShelf />

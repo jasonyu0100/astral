@@ -1,4 +1,4 @@
-import { glassFx, roundedFx } from '@/(design)/(fx)/data';
+import { borderFx, glassFx, roundedFx } from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function VentureHorizonsContainer({ children }: { children: React.ReactNode }) {
@@ -7,7 +7,8 @@ export function VentureHorizonsContainer({ children }: { children: React.ReactNo
       name={VentureHorizonsContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      className={`flex flex-col overflow-auto`}
+      className={`flex flex-col`}
+      borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

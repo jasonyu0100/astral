@@ -4,5 +4,5 @@ interface GlassWindowContentsProps extends DivInputProps {
   children: React.ReactNode;
 }
 export function GlassWindowContents({ children, ...props} : GlassWindowContentsProps) {
-    return <div className={`relative z-50 ${props.className || ''}`}>{children}</div>
+    return <div className={`relative z-50 ${props.className || ''}`} style={{height: '100%'}}>{children}</div>
 }
