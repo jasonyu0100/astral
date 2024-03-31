@@ -10,9 +10,9 @@ export function CreativeNetworkMain() {
       sizeFx='h-full flex-grow'
       className='flex flex-col'
     >
-      <CreativeSearch />
-      <CreativeResults />
       <CreativeFooter />
+      <CreativeResults />
+      <CreativeSearch />
     </GlassAreaContainer>
   );
 }

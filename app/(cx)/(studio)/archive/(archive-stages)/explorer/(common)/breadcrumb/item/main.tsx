@@ -1,3 +1,4 @@
+import { Divider } from '@/(components)/(line)/divider/main';
 import { LinkInputProps } from '@/(logic)/types/element/main';
 import Link from 'next/link';
 
@@ -12,16 +13,16 @@ export function CollectionBreadcrumbItem({
   ...props
 }: InputProps) {
   return (
-    <>
+    <div className='flex flex-col'>
       {active ? (
-        <Link className='font-bold text-slate-300' {...props}>
-          {children}
-        </Link>
+          <Link className='animate-pulse font-bold text-slate-300' {...props}>
+            {children}
+          </Link>
       ) : (
         <Link className='font-bold text-slate-500' {...props}>
           {children}
         </Link>
       )}
-    </>
+    </div>
   );
 }

@@ -11,10 +11,10 @@ export function ResourcesContainer({ children }: { children: React.ReactNode }) 
     <GlassAreaContainer
       name={ResourcesContainer.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
+      className={`${containerFx['col']} p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
-      roundedFx={roundedFx['rounded-container-sm']}
+      roundedFx={roundedFx['rounded-container']}
     >
       {children}
     </GlassAreaContainer>

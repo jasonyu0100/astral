@@ -32,6 +32,7 @@ export function ResourcesBreadcrumbs() {
       >
         {collection.title}
       </CollectionBreadcrumbItem>
+      <CollectionBreadcrumbDivider />
     </CollectionBreadcrumbs>
   );
 }

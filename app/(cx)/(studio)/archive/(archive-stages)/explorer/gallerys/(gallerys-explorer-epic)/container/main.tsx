@@ -11,10 +11,10 @@ export function GallerysContainer({ children }: { children: React.ReactNode }) {
     <GlassAreaContainer
       name={GallerysContainer.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']} space-y-[3rem] overflow-auto px-[2rem] py-[2rem]`}
+      className={`${containerFx['col']} p-[2rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
-      roundedFx={roundedFx['rounded-container-sm']}
+      roundedFx={roundedFx['rounded-container']}
     >
         {children}
     </GlassAreaContainer>

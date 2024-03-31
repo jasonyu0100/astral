@@ -5,10 +5,10 @@ import {
   roundedFx,
 } from '@/(design)/(fx)/data';
 
-export function CreativeSearch() {
+export function JournalSearch() {
   return (
     <GlassAreaContainer
-      name={CreativeSearch.name}
+      name={JournalSearch.name}
       sizeFx='w-full h-[120px]'
       className='flex flex-shrink-0 flex-row items-center p-[2rem]'
     >
@@ -21,7 +21,7 @@ export function CreativeSearch() {
       >
         <input
           className='h-full w-full rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none animate-pulse-slow'
-          placeholder='Discover the creative...'
+          placeholder='Seek verses...'
         ></input>
       </GlassAreaContainer>
       {/* <p className='font-bold text-slate-300'>Search People</p> */}

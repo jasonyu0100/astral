@@ -18,7 +18,7 @@ export function StudioSpacesContainer({
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       className={`overflow-auto ${containerFx.col}`}
-      roundedFx={roundedFx['rounded-container-sm']}
+      roundedFx={roundedFx['rounded-container']}
     >
       {children}
     </GlassAreaContainer>

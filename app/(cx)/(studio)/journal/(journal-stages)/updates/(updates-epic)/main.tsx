@@ -1,15 +1,14 @@
 import { containerFx } from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { UpdatesPosts } from './moments/main';
+import { JournalFooter } from './moments/footer/main';
+import { JournalSearch } from './moments/search/main';
 
 export function UpdatesMain() {
   return (
-    <GlassAreaContainer
-      name={UpdatesMain.name}
-      className={`${containerFx.row}`}
-      sizeFx='flex-grow h-full'
-    >
+    <div className='h-full flex-grow'>
+      <JournalSearch />
       <UpdatesPosts />
-    </GlassAreaContainer>
+    </div>
   );
 }

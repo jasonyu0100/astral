@@ -11,13 +11,15 @@ export function GallerysGrid() {
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
 
   return (
-    <div className='flex w-full flex-row flex-wrap items-center gap-[50px] pb-[50px]'>
-      {gallerys.map((gallery) => (
-        <GalleryContext.Provider value={gallery} key={gallery.id}>
-          <ExplorerGallery key={gallery.id}/>
-        </GalleryContext.Provider>
-      ))}
-      <GalleryExplorerAdd onClick={() => modalContext.createGallery.open()} />
+    <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
+      <div className='flex w-full flex-row flex-wrap items-center gap-[2rem] py-[2rem]'>
+        {gallerys.map((gallery) => (
+          <GalleryContext.Provider value={gallery} key={gallery.id}>
+            <ExplorerGallery key={gallery.id} />
+          </GalleryContext.Provider>
+        ))}
+        <GalleryExplorerAdd onClick={() => modalContext.createGallery.open()} />
+      </div>
     </div>
   );
 }

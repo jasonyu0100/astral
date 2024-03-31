@@ -1,9 +1,7 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  glassFx,
-  borderFx,
-  containerFx,
-} from '@/(design)/(fx)/data';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx, borderFx, containerFx } from '@/(design)/(fx)/data';
 
 export function CollectionBreadcrumbs({
   children,
@@ -11,15 +9,14 @@ export function CollectionBreadcrumbs({
   children: React.ReactNode;
 }) {
   return (
-    <GlassAreaContainer
+    <GlassWindowFrame
       name={CollectionBreadcrumbs.name}
-      sizeFx='w-full h-[60px] mt-0'
-      borderFx={`${borderFx['border-b']}`}
-      className={`${containerFx['row-center']} px-[2rem]`}
+      className={`'w-full flex-shrink-0'`}
     >
-      <div className='flex flex-row items-center space-x-[1rem]'>
+      <GlassWindowContents className='flex w-full flex-row items-center space-x-[1rem]'>
         {children}
-      </div>
-    </GlassAreaContainer>
+      </GlassWindowContents>
+      {/* <GlassWindowPane glassFx={glassFx['glass-5']} /> */}
+    </GlassWindowFrame>
   );
 }

@@ -8,6 +8,7 @@ export function GallerysBreadcrumbs() {
       <CollectionBreadcrumbItem href={archiveMap.archive.link} active={true}>
         Home
       </CollectionBreadcrumbItem>
+      <CollectionBreadcrumbDivider />
     </CollectionBreadcrumbs>
   );
 }
