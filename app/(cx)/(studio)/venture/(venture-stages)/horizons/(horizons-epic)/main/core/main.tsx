@@ -3,8 +3,7 @@ import { HorizonsListContainer } from "./horizons/main";
 export function HorizonsCore() {
   return (
     <div
-      className='flex flex-row overflow-auto'
-      style={{ height: 'calc(100% - 100px)', width: 'calc(100% - 320px)' }}
+      className='flex flex-col overflow-auto w-full h-full'
     >
       <HorizonsListContainer />
       <HorizonsListContainer />

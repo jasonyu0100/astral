@@ -11,7 +11,7 @@ export function HorizonsListContainer() {
   return (
     <GlassWindowFrame
       name={HorizonsListContainer.name}
-      className='h-full w-[500px] flex-shrink-0'
+      className='h-[500px] w-[full] flex-shrink-0 p-[2rem]'
       borderFx={borderFx['border-r']}
     >
       <GlassWindowContents className={`flex h-full w-full flex-col`}>

@@ -1,11 +1,16 @@
-import { HorizonsCore } from "./core/main";
-import { HorizonsSidebar } from "./core/sidebar/main";
+import { HorizonsCore } from './core/main';
+import { HorizonsHeader } from './core/header/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function HorizonsMain() {
   return (
-    <div className='flex h-full w-full flex-row'>
-      <HorizonsSidebar />
+    <GlassAreaContainer
+      name={HorizonsMain.name}
+      sizeFx='h-full flex-grow'
+      className='flex flex-col'
+    >
+      <HorizonsHeader />
       <HorizonsCore />
-    </div>
+    </GlassAreaContainer>
   );
 }

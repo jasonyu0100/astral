@@ -5,7 +5,7 @@ export function HorizonsHeader() {
   return (
     <GlassAreaContainer
       name={HorizonsHeader.name}
-      sizeFx='w-full h-[100px]'
+      sizeFx='w-full h-[4rem]'
       glassFx={glassFx['glass-5']}
       className='flex flex-row items-center justify-between px-[50px]'
     >
