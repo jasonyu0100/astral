@@ -1,4 +1,4 @@
-import { constellationTable, starTable } from './draft/table';
+import { constellationTable, starTable } from './map/table';
 import { chatTable, messageTable } from './storm/table';
 import { collectionTable, galleryTable } from './gallery/table';
 import { chapterTable, spaceTable } from './space/table';
@@ -62,7 +62,7 @@ export const architecture = {
           },
         },
       },
-      draft: {
+      map: {
         constellation: {
           table: constellationTable,
           star: {

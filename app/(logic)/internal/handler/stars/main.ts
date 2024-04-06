@@ -1,4 +1,4 @@
-import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { StarObj } from '@/(logic)/internal/model/map/constellation/star/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { createContext, useMemo, useState } from 'react';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';

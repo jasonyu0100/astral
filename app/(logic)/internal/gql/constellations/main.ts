@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
+import { ConstellationObj } from '@/(logic)/internal/model/map/constellation/main';
 import { gqlArgs } from '@/(logic)/utils/clean';
 import {
   createConstellationObj,

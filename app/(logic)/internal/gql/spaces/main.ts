@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { StarObj } from '@/(logic)/internal/model/map/constellation/star/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { SpaceObj } from '@/(logic)/internal/model/space/main';

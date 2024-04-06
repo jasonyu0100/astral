@@ -4,8 +4,8 @@ export const spaceMap = {
       storm: {
         link: (id: string) => `/space/${id}/storm`,
       },
-      draft: {
-        link: (id: string) => `/space/${id}/draft`,
+      map: {
+        link: (id: string) => `/space/${id}/map`,
       },
       flow: {
         link: (id: string) => `/space/${id}/flow`,

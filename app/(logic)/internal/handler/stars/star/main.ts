@@ -4,8 +4,8 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
-import { DraftContext, DraftModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/page';
-import { StarObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { MapContext, MapModalType } from '@/(cx)/(process)/space/[id]/(process-stages)/map/page';
+import { StarObj } from '@/(logic)/internal/model/map/constellation/star/main';
 import { StarsHandlerContext } from '../main';
 
 export interface StarHandler {
@@ -24,13 +24,13 @@ export const useStarHandler = (
   constraintsRef: MutableRefObject<null>,
 ) => {
   const starsHandler = useContext(StarsHandlerContext);
-  const { updateModalType } = useContext(DraftContext);
+  const { updateModalType } = useContext(MapContext);
   const x = useMotionValue(star.x);
   const y = useMotionValue(star.y);
 
   function activateStar() {
     starsHandler.starActions.activateStar(star.id);
-    updateModalType(DraftModalType.STAR)
+    updateModalType(MapModalType.STAR)
   }
 
   function deactivateStar() {
