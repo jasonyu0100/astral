@@ -14,17 +14,9 @@ export function ConstellationListEntry({ index }: { index: number }) {
       onClick={() => constellationsHandler.constellationActions.updateConstellation(constellation)}
       className='w-full flex cursor-pointer'
     >
-      {/* <p
-        className={cn(`text-xl font-bold`, {
-          'text-slate-500 animate-pulse-slow': active,
-          'text-slate-500': !active,
-        })}
-      >
-        {index + 1}.
-      </p> */}
       <p
         className={cn(`text-md font-bold`, {
-          'text-slate-500 animate-pulse-slow': active,
+          'text-slate-400': active,
           'text-slate-500': !active,
         })}
       >

@@ -1,6 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(design)/(fx)/data';
-import { DraftPanelHeader } from './header/main';
 import { DraftConstellationList } from './list/main';
 
 export function DraftPanel() {
@@ -11,7 +10,6 @@ export function DraftPanel() {
       className='flex flex-col'
       borderFx={borderFx['border-r']}
     >
-      <DraftPanelHeader />
       <DraftConstellationList />
     </GlassAreaContainer>
   );

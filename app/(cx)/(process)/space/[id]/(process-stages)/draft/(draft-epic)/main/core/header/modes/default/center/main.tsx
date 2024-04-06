@@ -10,8 +10,8 @@ export function DefaultCenter() {
   const chapter = chaptersHandler.chapter;
   const headerTitle =
     constellation && chapter
-      ? `${constellation?.title} - ${chapter?.title}`
-      : 'None';
+      ? `${chapter?.title} - ${constellation?.title}`
+      : `${chapter?.title} - None`;
 
   return (
     <div className='flex w-1/3 flex-row justify-center'>
