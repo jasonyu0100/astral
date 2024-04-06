@@ -14,7 +14,7 @@ export function FormSelect({
   return (
     <div className='flex w-full flex-col'>
       <label className='mb-1 text-xs font-bold text-slate-400'>{title}</label>
-      <div className='relative flex h-[60px] w-full flex-col items-center border-b-[1px] border-slate-500'>
+      <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
         <select
           title='position'
           className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500
@@ -27,7 +27,7 @@ export function FormSelect({
         </select>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='absolute right-[0px] h-[60px] w-[60px]'
+          className='absolute right-[0px] h-[4rem] w-[4rem]'
           viewBox='0 0 24 24'
           fill='none'
         >

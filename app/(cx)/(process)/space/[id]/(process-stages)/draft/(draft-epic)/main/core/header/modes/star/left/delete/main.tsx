@@ -6,7 +6,7 @@ export function StarDeleteButton({ ...props }: ButtonInputProps) {
     <WrapperTooltip text='Delete'>
       <button
         className={
-          'flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
+          'flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950'
         }
         {...props}
       >

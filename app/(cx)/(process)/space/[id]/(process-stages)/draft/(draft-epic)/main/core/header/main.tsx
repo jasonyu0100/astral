@@ -18,7 +18,7 @@ export function DraftHeader() {
   return (
     <GlassAreaContainer
       name={DraftHeader.name}
-      sizeFx='h-[60px] w-full flex-shrink-0'
+      sizeFx='h-[4rem] w-full flex-shrink-0'
       className={`${containerFx['row-center']} justify-between`}
       glassFx={glassFx['glass-5']}
     >

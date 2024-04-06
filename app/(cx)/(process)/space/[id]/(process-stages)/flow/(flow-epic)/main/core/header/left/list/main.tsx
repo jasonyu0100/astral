@@ -3,7 +3,7 @@ import { ButtonInputProps } from '@/(logic)/types/element/main';
 export function FlowHeaderListButton({ ...props }: ButtonInputProps) {
   return (
     <button
-      className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
+      className='flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950'
       {...props}
     >
       <svg

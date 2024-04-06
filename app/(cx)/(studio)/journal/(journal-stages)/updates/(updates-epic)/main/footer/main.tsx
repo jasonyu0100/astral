@@ -5,7 +5,7 @@ export function JournalFooter() {
   return (
     <GlassAreaContainer
       name={JournalFooter.name}
-      sizeFx='w-full h-[60px]'
+      sizeFx='w-full h-[4rem]'
       className='flex flex-shrink-0 flex-row items-center justify-center'
       glassFx={glassFx['glass-5']}
     >

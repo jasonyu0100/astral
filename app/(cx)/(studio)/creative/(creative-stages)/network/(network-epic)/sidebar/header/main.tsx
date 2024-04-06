@@ -5,7 +5,7 @@ export function CreativeNetworkSidebarHeader() {
   return (
     <GlassAreaContainer
       name={CreativeNetworkSidebarHeader.name}
-      sizeFx='h-[60px] w-full flex-shrink-0'
+      sizeFx='h-[4rem] w-full flex-shrink-0'
       className='flex flex-row items-center'
       borderFx={borderFx['border-b']}
     >

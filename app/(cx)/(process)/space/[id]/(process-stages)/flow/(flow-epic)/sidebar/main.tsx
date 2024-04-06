@@ -8,10 +8,9 @@ export function FlowSidebar() {
     <GlassAreaContainer
       name={FlowSidebar.name}
       sizeFx='max-w-[500px] min-w-[250px] w-1/4 h-full'
-      className={`${containerFx['col']} space-y-[1rem] px-[1rem]`}
+      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-10']}
     >
-      <FlowSidebarHeader />
       <FlowSidebarColumn />
     </GlassAreaContainer>
   );

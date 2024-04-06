@@ -5,7 +5,6 @@ import { DraftSidebarContainer } from './container/main';
 export function DraftSidebarView() {
   return (
     <DraftSidebarContainer>
-      <DraftSidebarHeader />
       <DraftSidebarBody />
     </DraftSidebarContainer>
   );

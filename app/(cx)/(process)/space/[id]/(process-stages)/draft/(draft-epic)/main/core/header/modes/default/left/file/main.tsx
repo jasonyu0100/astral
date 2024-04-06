@@ -5,7 +5,7 @@ export function DraftHeaderFileButton({ ...props }: ButtonInputProps) {
   return (
     <WrapperTooltip text='Add File'>
       <button
-        className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
+        className='flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950'
         {...props}
       >
         <svg

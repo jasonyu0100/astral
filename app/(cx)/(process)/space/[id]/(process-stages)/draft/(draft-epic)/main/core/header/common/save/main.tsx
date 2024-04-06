@@ -8,7 +8,7 @@ export function DraftSaveButton({ ...props }: ButtonInputProps) {
     <WrapperTooltip text='Save'>
       <button
         className={
-          'flex h-[60px] w-[60px] flex-col items-center justify-center hover:bg-slate-950'
+          'flex h-[4rem] w-[4rem] flex-col items-center justify-center hover:bg-slate-950'
         }
         {...props}
       >

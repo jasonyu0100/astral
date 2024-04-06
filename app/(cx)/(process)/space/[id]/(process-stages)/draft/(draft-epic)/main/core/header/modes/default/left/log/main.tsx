@@ -56,7 +56,7 @@ export function DraftHeaderLogButton({ ...props }: ButtonInputProps) {
   return (
     <WrapperTooltip text='Add Log'>
       <button
-        className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950'
+        className='flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950'
         id={BUTTON_ID}
       >
         <svg

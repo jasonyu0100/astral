@@ -5,7 +5,7 @@ export function FormInput({ title, ...props }: PortalFormInputProps) {
   return (
     <div className='flex w-full flex-col'>
       <label className='mb-1 text-xs font-bold text-slate-400'>{title}</label>
-      <div className='flex h-[60px] w-full flex-col border-b-[1px] border-slate-500'>
+      <div className='flex h-[4rem] w-full flex-col border-b-[1px] border-slate-500'>
         <input
           className='
             h-full w-full appearance-none border-none 

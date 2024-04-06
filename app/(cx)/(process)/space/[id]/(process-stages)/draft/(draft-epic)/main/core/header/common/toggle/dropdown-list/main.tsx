@@ -13,7 +13,7 @@ export function ToggleDropdownList() {
   const { toggle } = useContext(ToggleContext);
   return (
     <div
-      className={`absolute left-[-60px] top-[60px] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900 ${modalType === DraftModalType.STAR && 'h-[240px]'} `}
+      className={`absolute left-[-4rem] top-[4rem] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900 ${modalType === DraftModalType.STAR && 'h-[240px]'} `}
       onMouseLeave={() => toggle()}
     >
       <GlassAreaContainer
