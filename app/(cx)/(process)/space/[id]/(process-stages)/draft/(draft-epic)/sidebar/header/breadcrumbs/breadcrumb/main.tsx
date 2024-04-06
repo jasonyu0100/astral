@@ -9,9 +9,9 @@ export function BreadcrumbsLink({ children, active, ...props }: InputProps) {
   return (
     <button {...props}>
       {active ? (
-        <p className='font-extraBold text-slate-400'>{children}</p>
+        <p className='font-extraBold text-xl text-slate-400 animate-pulse-slow'>{children}</p>
       ) : (
-        <p className='font-extraBold text-slate-500'>{children}</p>
+        <p className='font-extraBold text-xl text-slate-500'>{children}</p>
       )}
     </button>
   );

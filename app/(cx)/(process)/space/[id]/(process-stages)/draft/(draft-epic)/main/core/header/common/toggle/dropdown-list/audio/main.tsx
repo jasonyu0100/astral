@@ -9,7 +9,7 @@ export function DraftHeaderAudioBoardButton({ ...props }: ButtonInputProps) {
         <SoundIcon className='h-1/2 w-1/2' />
       </div>
       <div className='flex h-[60px] flex-grow items-center flex-row pl-[10px]'>
-        <p className='font-bold text-white'>{DraftModalType.AUDIO}</p>
+        <p className='font-bold text-slate-300'>{DraftModalType.AUDIO}</p>
       </div>
     </button>
   );

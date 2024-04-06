@@ -3,19 +3,15 @@ const baseUrl = '/horizon';
 export const horizonMap = {
   horizon: {
     id: {
-      base: {
-        link: (id: string) => `${baseUrl}/${id}/base`,
+      link: {
+        link: (id: string) => `${baseUrl}/${id}/link`,
       },
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      log: {
+      origin: {
         link: (id: string) => `${baseUrl}/${id}/log`,
       },
-      share: {
-        link: (id: string) => `${baseUrl}/${id}/share`,
-      },
-      link: (id: string) => `${baseUrl}/${id}`,
     },
     link: baseUrl,
   },

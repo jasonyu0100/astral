@@ -11,7 +11,7 @@ import {
   exampleFile,
   exampleFiles,
 } from '@/(logic)/internal/model/resource/file/main';
-import { BaseSidebar } from './(base-epic)/sidebar/main';
+import { BaseSidebar } from './(link-epic)/sidebar/main';
 
 function Page() {
   return (

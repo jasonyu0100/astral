@@ -11,5 +11,5 @@ export default function HeaderTitle() {
 
   const headerTitle =
     chapter && chat ? `${chapter.title} - ${chat.title}` : 'None';
-  return <p className='text-md font-bold text-slate-300'>{headerTitle}</p>;
+  return <p className='text-lg font-bold text-slate-300'>{headerTitle}</p>;
 }

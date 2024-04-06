@@ -20,7 +20,7 @@ export function Horizon() {
         <div className='flex flex-row items-center space-x-[1rem]'>
           <Link
             className='flex flex-col items-center space-y-[1rem]'
-            href={horizonMap.horizon.id.base.link('0')}
+            href={horizonMap.horizon.id.link.link('0')}
           >
             <HorizonCover file={exampleFile} />
           </Link>

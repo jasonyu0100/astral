@@ -3,5 +3,5 @@ export default function DraftHeaderTitle({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className='text-md font-bold text-slate-300'>{children}</div>;
+  return <div className='text-xl font-extraBold text-slate-300'>{children}</div>;
 }

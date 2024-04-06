@@ -13,7 +13,7 @@ export enum SpaceTabStage {
   Storm = 'Storm',
   Draft = 'Draft',
   Flow = 'Flow',
-  Share = 'Share',
+  Sea = 'Sea',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {

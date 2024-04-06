@@ -9,7 +9,7 @@ export function StoryAuthorAbout() {
             src={`/brand/icon-bg-sm.png`}
           />
         </div>
-        <p className='font-bold text-white'>Jason</p>
+        <p className='font-bold font-slate-300'>Jason</p>
         <p className='font-regular text-white'>21 hours ago</p>
       </div>
     </div>

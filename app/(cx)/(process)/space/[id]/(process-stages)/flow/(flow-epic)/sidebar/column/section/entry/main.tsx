@@ -12,7 +12,7 @@ export function FlowSidebarEntry() {
           src={moment?.file?.src}
         />
       </div>
-      <p className='text-lg font-bold text-white'>{moment.title}</p>
+      <p className='text-lg font-bold font-slate-300'>{moment.title}</p>
     </div>
   );
 }

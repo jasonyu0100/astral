@@ -9,7 +9,7 @@ export function DraftHeaderVisualBoardButton({ ...props }: ButtonInputProps) {
         <VisualIcon className='h-1/2 w-1/2' />
       </div>
       <div className='flex h-[60px] flex-grow flex-row items-center pl-[10px]'>
-        <p className='font-bold text-white'>{DraftModalType.VISUAL}</p>
+        <p className='font-bold font-slate-300'>{DraftModalType.VISUAL}</p>
       </div>
     </button>
   );

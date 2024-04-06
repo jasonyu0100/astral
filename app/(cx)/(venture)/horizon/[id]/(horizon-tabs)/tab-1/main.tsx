@@ -10,11 +10,11 @@ import { ReleaseTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Base;
+  const tabText = ReleaseTabStage.Link;
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.base.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.link.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

@@ -12,15 +12,23 @@ export function ConstellationListEntry({ index }: { index: number }) {
   return (
     <div
       onClick={() => constellationsHandler.constellationActions.updateConstellation(constellation)}
-      className='cursor-pointer'
+      className='w-full flex cursor-pointer'
     >
-      <p
+      {/* <p
         className={cn(`text-xl font-bold`, {
-          'text-slate-300': active,
+          'text-slate-500 animate-pulse-slow': active,
           'text-slate-500': !active,
         })}
       >
-        {index + 1}. {constellation.title}
+        {index + 1}.
+      </p> */}
+      <p
+        className={cn(`text-md font-bold`, {
+          'text-slate-500 animate-pulse-slow': active,
+          'text-slate-500': !active,
+        })}
+      >
+        {index+1}. {constellation.title}
       </p>
     </div>
   );

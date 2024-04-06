@@ -1,6 +1,6 @@
 'use client';
 import insideVerses from '@/(logic)/utils/isAuth';
-import { ShareView } from './(share-epic)/view';
+import { ShareView } from './(sea-epic)/view';
 
 function Page() {
   return <ShareView />;

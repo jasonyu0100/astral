@@ -14,7 +14,7 @@ export function HorizonsSidebarOption({
       roundedFx={roundedFx.rounded}
       className='px-[1rem] py-[0.5rem]'
     >
-      <p className='text-md font-bold text-slate-300'>{children}</p>
+      <p className='text-lg font-bold text-slate-300'>{children}</p>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );

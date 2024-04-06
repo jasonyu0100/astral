@@ -8,7 +8,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { borderFx, glassFx, roundedFx } from '@/(design)/(fx)/data';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { LogSidebar } from './(log-epic)/sidebar/main';
+import { LogSidebar } from './(origin-epic)/sidebar/main';
 
 function Page() {
   return (

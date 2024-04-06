@@ -10,10 +10,9 @@ interface ReleaseTabProps {
 }
 
 export enum ReleaseTabStage {
-  Base = 'Base',
+  Link = 'Link',
   Map = 'Map',
-  Log = 'Log',
-  Share = 'Share',
+  Origin = 'Origin',
 }
 
 export function ReleaseTabs({ tab }: ReleaseTabProps) {
@@ -23,7 +22,6 @@ export function ReleaseTabs({ tab }: ReleaseTabProps) {
         <TabOne tab={tab} />
         <TabTwo tab={tab} />
         <TabThree tab={tab} />
-        <TabFour tab={tab} />
       </TabsRow>
     </Tabs>
   );

@@ -9,7 +9,7 @@ export function DraftHeaderDefaultBoardButton({ ...props }: ButtonInputProps) {
         <NetworkIcon className='h-1/2 w-1/2' />
       </div>
       <div className='flex h-[60px] flex-grow flex-row items-center pl-[10px]'>
-        <p className='font-bold text-white'>{DraftModalType.DEFAULT}</p>
+        <p className='font-bold text-slate-300'>{DraftModalType.DEFAULT}</p>
       </div>
     </button>
   );
