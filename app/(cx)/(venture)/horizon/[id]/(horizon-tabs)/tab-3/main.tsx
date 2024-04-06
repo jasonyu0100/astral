@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { ReleaseContext } from '../../layout';
 import { horizonMap } from '../../map';
 import { ReleaseTabStage } from '../main';
-import { TabPurpleShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/purple/main';
+import { TabOrangeShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/orange/main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
@@ -16,7 +16,7 @@ export function TabThree({ tab }: { tab?: string }) {
   return (
     <Tab href={horizonMap.horizon.id.origin.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
-      <TabPurpleShard active={active} />
+      <TabOrangeShard active={active} />
     </Tab>
   );
 }

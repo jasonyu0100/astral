@@ -1,14 +1,12 @@
-import { borderFx, containerFx, roundedFx } from '@/(design)/(fx)/data';
+import { containerFx } from '@/(design)/(fx)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function ShareContainer({ children }: { children: React.ReactNode }) {
+export function SeaMain({ children }: { children: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      name={ShareContainer.name}
+      name={SeaMain.name}
       sizeFx='h-full flex-grow'
-      className={`${containerFx['row-center']}`}
-      borderFx={borderFx['border-all']}
-      roundedFx={roundedFx['rounded-container-sm']}
+      className={`${containerFx['col']}`}
     >
       {children}
     </GlassAreaContainer>
