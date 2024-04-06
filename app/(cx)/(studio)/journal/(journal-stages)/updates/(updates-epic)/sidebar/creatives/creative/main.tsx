@@ -25,7 +25,7 @@ export function JouranlUpdatesSidebarCreative() {
           <div className='flex w-full flex-row justify-between'>
             <div className='flex flex-row items-center space-x-[1rem]'>
               <ProfileCover file={exampleFile} />
-              <p className='font-bold font-slate-300'>John Smith</p>
+              <p className='font-bold text-slate-300'>John Smith</p>
             </div>
             <button
               className='h-[50px] w-[50px]'
@@ -89,11 +89,11 @@ export function JouranlUpdatesSidebarCreative() {
               <div className='flex flex-col space-y-[1rem] pt-[2rem]'>
                 <div className='flex flex-row items-center space-x-[1rem]'>
                   <ProfileCover file={exampleFile} />
-                  <p className='font-bold font-slate-300'>Space</p>
+                  <p className='font-bold text-slate-300'>Space</p>
                 </div>
                 <div className='flex flex-row items-center space-x-[1rem]'>
                   <ProfileCover file={exampleFile} />
-                  <p className='font-bold font-slate-300'>Space</p>
+                  <p className='font-bold text-slate-300'>Space</p>
                 </div>
               </div>
             </div>

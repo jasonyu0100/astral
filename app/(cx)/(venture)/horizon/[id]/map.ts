@@ -10,7 +10,7 @@ export const horizonMap = {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
       origin: {
-        link: (id: string) => `${baseUrl}/${id}/log`,
+        link: (id: string) => `${baseUrl}/${id}/origin`,
       },
     },
     link: baseUrl,

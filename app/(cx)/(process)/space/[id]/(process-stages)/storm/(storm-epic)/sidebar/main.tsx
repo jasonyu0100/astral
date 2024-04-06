@@ -11,7 +11,6 @@ export function StormSidebar() {
       glassFx={glassFx['glass-10']}
       className={`${containerFx['col-center']} space-y-[0.5rem] px-[1rem]`}
     >
-      <StormSidebarHeader />
       <StormSidebarChapters />
     </GlassAreaContainer>
   );

@@ -60,7 +60,7 @@ export default function SearchModalView() {
             ))}
           </div>
           <button
-            className='h-[100px] w-full bg-black text-xl font-bold font-slate-300'
+            className='h-[100px] w-full bg-black text-xl font-bold text-slate-300'
             onClick={() => {
               onChange(selected);
               modalContext.searchModal.close();
