@@ -1,5 +1,5 @@
 'use client';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { JournalView } from './(updates-epic)/view';
 import { createContext } from 'react';
 import {
@@ -38,4 +38,4 @@ function Page() {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

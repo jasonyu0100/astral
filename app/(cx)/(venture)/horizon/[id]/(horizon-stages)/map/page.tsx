@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { MapView } from './view';
 import { MapSidebar } from './(map-epic)/sidebar/main';
 
@@ -15,4 +15,4 @@ function Page() {
   </>;
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

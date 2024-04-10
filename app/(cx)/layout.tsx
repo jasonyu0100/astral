@@ -1,7 +1,7 @@
-import { VersesBackground } from '../(components)/(app)/background/verses/main';
+import { VerseBackground } from '../(components)/(app)/background/verse/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <VersesBackground>
+  return <VerseBackground>
     {children}
-  </VersesBackground>;
+  </VerseBackground>;
 }

@@ -2,7 +2,7 @@
 import { createContext } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import {
   SearchActions,
   useSearchResource,
@@ -35,4 +35,4 @@ function Page() {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

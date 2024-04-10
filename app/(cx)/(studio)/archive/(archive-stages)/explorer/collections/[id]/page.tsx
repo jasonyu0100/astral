@@ -3,7 +3,7 @@ import { CollectionsView } from './(collections-explorer-epic)/view';
 import {
   GalleryContext,
 } from '@/(logic)/internal/model/gallery/main';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
 import {
   CollectionsHandlerContext,
@@ -34,4 +34,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

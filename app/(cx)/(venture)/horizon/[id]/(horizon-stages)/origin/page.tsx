@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { LogView } from './view';
 import { LogSidebar } from './(origin-epic)/sidebar/main';
 
@@ -16,4 +16,4 @@ function Page() {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);
