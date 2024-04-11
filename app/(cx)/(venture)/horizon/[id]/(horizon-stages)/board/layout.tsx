@@ -5,7 +5,7 @@ import { ReleaseTabStage, ReleaseTabs } from '../../(horizon-tabs)/main';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <DashboardBody>
-      <ReleaseTabs tab={ReleaseTabStage.Rank} />
+      <ReleaseTabs tab={ReleaseTabStage.Board} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

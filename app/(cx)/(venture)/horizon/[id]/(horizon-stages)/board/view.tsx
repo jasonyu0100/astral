@@ -6,14 +6,14 @@ import {
   borderFx,
 } from '@/(design)/(fx)/data';
 
-export function RankView({
+export function BoardView({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={RankView.name}
+      name={BoardView.name}
       sizeFx='flex-grow h-full'
       className={`${containerFx['row']}`}
       glassFx={glassFx['glass-5']}
