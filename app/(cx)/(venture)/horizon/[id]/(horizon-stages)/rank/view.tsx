@@ -6,14 +6,14 @@ import {
   borderFx,
 } from '@/(design)/(fx)/data';
 
-export function OriginView({
+export function RankView({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={OriginView.name}
+      name={RankView.name}
       sizeFx='flex-grow h-full'
       className={`${containerFx['row']}`}
       glassFx={glassFx['glass-5']}

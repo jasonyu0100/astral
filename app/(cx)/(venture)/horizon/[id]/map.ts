@@ -9,6 +9,9 @@ export const horizonMap = {
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
+      rank: {
+        link: (id: string) => `${baseUrl}/${id}/rank`,
+      },
       origin: {
         link: (id: string) => `${baseUrl}/${id}/origin`,
       },

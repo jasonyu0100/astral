@@ -1,17 +1,17 @@
 'use client';
 
 import insideVerse from '@/(logic)/utils/isAuth';
-import { OriginView } from './view';
-import { RankSidebar } from './(origin-epic)/sidebar/main';
+import { RankView } from './view';
+import { RankSidebar } from './(rank-epic)/sidebar/main';
 
 function Page() {
   return (
     <>
-      <OriginView>
+      <RankView>
         <div className='flex h-full w-full flex-row'>
         </div>
         <RankSidebar/>
-      </OriginView>
+      </RankView>
     </>
   );
 }

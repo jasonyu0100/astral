@@ -6,17 +6,17 @@ import { useContext } from 'react';
 import { ReleaseContext } from '../../layout';
 import { horizonMap } from '../../map';
 import { ReleaseTabStage } from '../main';
-import { TabOrangeShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/orange/main';
+import { TabPurpleShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/purple/main';
 
-export function TabThree({ tab }: { tab?: string }) {
+export function TabFour({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Rank;
+  const tabText = ReleaseTabStage.Origin;
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.rank.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.origin.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
-      <TabOrangeShard active={active} />
+      <TabPurpleShard active={active} />
     </Tab>
   );
 }
