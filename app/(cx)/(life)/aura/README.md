@@ -31,3 +31,42 @@ Determine Fate
 Modifiers
 - Expansion (+/-)
 - Growth (+/-)
+
+Colours
+Tailwind Colours
+The colour options available
+
+Intensity Profiles
+From 1 to 11, all area under the graph equal
+Determines what the brush looks like on the canvas
+
+Network Profiles
+Mapping from all the colors with simultaneous equations
+Determines relative field strenghts and interactions
+Current Styles (+, -, x, /, null)
+Color X interacts with Color Y in Z manner through maths
+This impacts the polarity, and color board
+
+Origin board simply shows origins
+Intermediary board simply shows an rgba layered visualisation
+
+Origin Board (Main View)
+Contains the origins
+Display the nodes
+A coord can only have one origin
+
+Intermediary Board (Layer View)
+All coords are rgba
+Visualise the origins
+Color and the Intensity
+
+Polarity Board (Topographic View)
+All coords are from -1 to 1
+Linear mapping from -255 and 255
+Plusing and minus the highs and the lows from yin and yang
+Just the Polarity
+
+Color Board (Artistic View)
+All coords are rgb
+Additive colour mixing
+Just the Color
