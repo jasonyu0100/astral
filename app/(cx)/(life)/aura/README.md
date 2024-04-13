@@ -70,3 +70,8 @@ Color Board (Artistic View)
 All coords are rgb
 Additive colour mixing
 Just the Color
+
+Audio Board (Musicians View)
+All origins are sounds with frequencies vibrating with different amplitudes
+Waveforms
+Just the Sound
