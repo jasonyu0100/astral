@@ -10,7 +10,7 @@ interface ReleaseTabProps {
 }
 
 export enum ReleaseTabStage {
-  Link = 'Link',
+  Forum = 'Forum',
   Map = 'Map',
   Board = 'Board',
   Origin = 'Origin',

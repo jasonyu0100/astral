@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { gqlArgs } from '@/(logic)/utils/clean';

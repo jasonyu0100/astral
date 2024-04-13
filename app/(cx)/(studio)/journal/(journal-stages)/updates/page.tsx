@@ -7,7 +7,7 @@ import {
   useJournalHandler,
 } from '@/(logic)/internal/handler/journal/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 
 interface JournalContextObj {
   momentId: string;

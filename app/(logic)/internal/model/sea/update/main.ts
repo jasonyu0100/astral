@@ -1,8 +1,8 @@
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../resource/file/main';
-import { LinkObj } from '../resource/link/main';
+import { FileObj, exampleFile } from '../../resource/file/main';
+import { LinkObj } from '../../resource/link/main';
 
 export enum UpdateVariant {
   FILE = 'FILE',

@@ -1,6 +1,6 @@
 import { TableDescriptor } from '../tables';
-import { exampleComment, exampleComments } from '../update/comment/main';
-import { exampleMoment, exampleMoments } from './moment/main';
+import { exampleComment, exampleComments } from '../sea/update/comment/main';
+import { exampleMoment, exampleMoments } from '../journal/moment/main';
 
 export const momentTable: TableDescriptor = {
   example: exampleMoment,

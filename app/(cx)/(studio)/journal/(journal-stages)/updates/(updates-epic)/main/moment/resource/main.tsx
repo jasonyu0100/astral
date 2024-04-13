@@ -1,5 +1,5 @@
 import { borderFx } from '@/(design)/(fx)/data';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';
 import { cn } from '@/(logic)/utils/cn';
 

@@ -6,7 +6,7 @@ import {
 import { listUpdateObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/(logic)/utils/clean';
 import { UpdatesCreateGqlHelper, updatesCreateGqlHelper } from './create/main';
-import { UpdateObj } from '@/(logic)/internal/model/update/main';
+import { UpdateObj } from '@/(logic)/internal/model/sea/update/main';
 
 export interface UpdatesGqlHelper {
   create: UpdatesCreateGqlHelper;

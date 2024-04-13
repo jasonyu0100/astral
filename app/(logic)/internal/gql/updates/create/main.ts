@@ -2,7 +2,7 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import {
   createUpdateObj,
 } from '@/graphql/mutations';
-import { UpdateObj, UpdateVariant } from '@/(logic)/internal/model/update/main';
+import { UpdateObj, UpdateVariant } from '@/(logic)/internal/model/sea/update/main';
 import { gqlArgs } from '@/(logic)/utils/clean';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';

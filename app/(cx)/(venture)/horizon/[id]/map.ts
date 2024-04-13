@@ -3,8 +3,8 @@ const baseUrl = '/horizon';
 export const horizonMap = {
   horizon: {
     id: {
-      link: {
-        link: (id: string) => `${baseUrl}/${id}/link`,
+      forum: {
+        link: (id: string) => `${baseUrl}/${id}/forum`,
       },
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
