@@ -43,7 +43,7 @@ Determines what the brush looks like on the canvas
 Network Profiles
 Mapping from all the colors with simultaneous equations
 Determines relative field strenghts and interactions
-Current Styles (+, -, x, /, null)
+Current Styles (+, -, x, /, null, inf, etc.)
 Color X interacts with Color Y in Z manner through maths
 This impacts the polarity, and color board
 
