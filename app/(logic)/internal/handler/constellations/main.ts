@@ -1,4 +1,4 @@
-import { ConstellationObj } from '@/(logic)/internal/model/draft/constellation/main';
+import { ConstellationObj } from '@/(logic)/internal/model/map/constellation/main';
 import { createContext, useMemo, useState } from 'react';
 import { constellationsGqlHelper } from '../../gql/constellations/main';
 

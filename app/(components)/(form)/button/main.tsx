@@ -16,7 +16,7 @@ export function FormButton({ children, variant, ...props }: InputProps) {
     <button
       {...props}
       className={cn(
-        `flex h-[60px] w-full flex-col items-center justify-center bg-slate-950 ${props.className}`,
+        `flex h-[4rem] w-full flex-col items-center justify-center bg-slate-950 ${props.className}`,
         {
           'bg-black':
             variant === ButtonVariant.PRIMARY || variant === undefined,

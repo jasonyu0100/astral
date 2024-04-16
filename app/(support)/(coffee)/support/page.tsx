@@ -59,7 +59,7 @@ export default function Page() {
         <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
           <TabsTrigger
             value='yearly'
-            className={cn('h-full w-1/2 rounded font-bold text-white', {
+            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
               'bg-slate-950': activeTab === 'yearly',
             })}
             onClick={() => setActiveTab('yearly')}
@@ -68,7 +68,7 @@ export default function Page() {
           </TabsTrigger>
           <TabsTrigger
             value='monthly'
-            className={cn('h-full w-1/2 rounded font-bold text-white', {
+            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
               'bg-slate-950': activeTab === 'monthly',
             })}
             onClick={() => setActiveTab('monthly')}

@@ -7,7 +7,7 @@ export function VentureHorizonsContainer({ children }: { children: React.ReactNo
       name={VentureHorizonsContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      className={`flex flex-col`}
+      className={`flex flex-row`}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}
     >

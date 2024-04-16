@@ -5,12 +5,12 @@ import { GalleryBackDescription } from '../../common/back/description/main';
 import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/map/(map-epic)/sidebar/main';
 
 export function GallerySidebarBack() {
   const { flip } = useContext(FlipContext);
   const gallery = useContext(GalleryContext);
-  const { sidebarHandler } = useContext(DraftSidebarContext);
+  const { sidebarHandler } = useContext(MapSidebarContext);
 
   return (
     <div

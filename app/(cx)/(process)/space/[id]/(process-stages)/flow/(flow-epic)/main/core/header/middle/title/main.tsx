@@ -10,5 +10,5 @@ export default function FlowHeaderTitle() {
   const headerTitle =
     chapter && moment ? `${chapter.title} - ${moment.title}` : 'None';
 
-  return <div className='text-md font-bold text-slate-300'>{headerTitle}</div>;
+  return <div className='text-lg font-extraBold text-slate-300'>{headerTitle}</div>;
 }

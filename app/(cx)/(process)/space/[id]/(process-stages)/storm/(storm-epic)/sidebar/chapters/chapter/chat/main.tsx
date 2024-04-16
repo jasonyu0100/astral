@@ -15,7 +15,7 @@ export function StormChapterChat() {
         <StormChatIcon />
         {active ? (
           <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
-            <p className='ml-[1rem] text-lg font-bold text-slate-300'>
+            <p className='ml-[1rem] text-lg font-bold text-slate-500'>
               {chat.title}
             </p>
             <StormChapterIndicator />

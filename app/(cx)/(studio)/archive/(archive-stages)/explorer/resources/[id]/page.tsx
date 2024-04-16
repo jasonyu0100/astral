@@ -8,7 +8,7 @@ import {
   CollectionContext,
   CollectionObj,
 } from '@/(logic)/internal/model/gallery/collection/main';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { ResourceObj } from '@/(logic)/internal/model/resource/main';
 import {
   ResourcesActions,
@@ -46,4 +46,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

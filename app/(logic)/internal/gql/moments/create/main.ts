@@ -2,7 +2,7 @@ import { amplifyClient } from '@/(logic)/external/aws/graphql/main';
 import {
   MomentObj,
   MomentVariant,
-} from '@/(logic)/internal/model/flow/moment/main';
+} from '@/(logic)/internal/model/journal/moment/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';

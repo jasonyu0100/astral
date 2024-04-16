@@ -1,5 +1,5 @@
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 import { createContext, useMemo, useState } from 'react';
 import { gqlHelper } from '../../gql/journal/main';
 

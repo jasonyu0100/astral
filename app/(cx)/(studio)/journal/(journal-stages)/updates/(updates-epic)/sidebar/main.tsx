@@ -3,17 +3,15 @@ import { glassFx, containerFx } from '@/(design)/(fx)/data';
 import React from 'react';
 import { JournalUpdatesSidebarCreatives } from './creatives/main';
 import { JouranlUpdatesSidebarCreative } from './creatives/creative/main';
-import { JournalUpdatesSidebarHeader } from './header/main';
 
-export function JournalUpdatesSidebar() {
+export function UpdatesSidebar() {
   return (
     <GlassAreaContainer
-      name={JournalUpdatesSidebar.name}
+      name={UpdatesSidebar.name}
       sizeFx='max-w-[500px] min-w-[250px] w-1/4 h-full'
-      className={`${containerFx['col']} space-y-[1rem] px-[1rem]`}
+      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <JournalUpdatesSidebarHeader />
       <JournalUpdatesSidebarCreatives>
         <JouranlUpdatesSidebarCreative />
         <JouranlUpdatesSidebarCreative />

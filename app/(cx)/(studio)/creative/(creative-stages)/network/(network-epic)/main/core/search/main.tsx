@@ -1,30 +1,27 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  glassFx,
-  borderFx,
-  roundedFx,
-} from '@/(design)/(fx)/data';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx, borderFx, roundedFx } from '@/(design)/(fx)/data';
 
 export function CreativeSearch() {
   return (
-    <GlassAreaContainer
-      name={CreativeSearch.name}
-      sizeFx='w-full h-[120px]'
-      className='flex flex-shrink-0 flex-row items-center p-[2rem]'
-    >
-      <GlassAreaContainer
-        sizeFx='flex-grow h-[4rem]'
-        className={`flex flex-row items-center space-x-[1rem] px-[1rem]`}
-        glassFx={glassFx['glass-10']}
+    <div className='w-full p-[2rem]'>
+      <GlassWindowFrame
+        name={CreativeSearch.name}
+        className='h-[4rem] w-full'
         borderFx={borderFx['border-all']}
         roundedFx={roundedFx['rounded-full']}
       >
-        <input
-          className='h-full w-full rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none animate-pulse-slow'
-          placeholder='Discover the creative...'
-        ></input>
-      </GlassAreaContainer>
-      {/* <p className='font-bold text-slate-300'>Search People</p> */}
-    </GlassAreaContainer>
+        <GlassWindowContents
+          className={`flex flex-row items-center space-x-[1rem] px-[1rem]`}
+        >
+          <input
+            className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
+            placeholder='Discover the creative...'
+          ></input>
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+      </GlassWindowFrame>
+    </div>
   );
 }

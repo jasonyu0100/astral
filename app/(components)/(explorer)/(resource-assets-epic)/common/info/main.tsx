@@ -16,7 +16,7 @@ export function CollectionResourceInfo() {
         {resource.description}
       </p>
       <button
-        className='mt-auto w-full bg-black p-[1rem] font-bold text-white'
+        className='mt-auto w-full bg-black p-[1rem] font-bold text-slate-300'
         onClick={() => modalContext.editResource.open()}
       >
         EDIT

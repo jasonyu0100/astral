@@ -6,7 +6,7 @@ export function FlowLogButton() {
   const modalContext = useContext(FlowModalContext);
 
   return (
-    <button className='flex h-[60px] w-[60px] items-center justify-center hover:bg-slate-950' onClick={() => modalContext.addLogMomentModal.open()}>
+    <button className='flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950' onClick={() => modalContext.addLogMomentModal.open()}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-[24px] w-[24px]'

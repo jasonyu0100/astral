@@ -1,5 +1,5 @@
 'use client';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { JournalView } from './(updates-epic)/view';
 import { createContext } from 'react';
 import {
@@ -7,7 +7,7 @@ import {
   useJournalHandler,
 } from '@/(logic)/internal/handler/journal/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 
 interface JournalContextObj {
   momentId: string;
@@ -38,4 +38,4 @@ function Page() {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

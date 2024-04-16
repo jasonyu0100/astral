@@ -10,10 +10,10 @@ interface ReleaseTabProps {
 }
 
 export enum ReleaseTabStage {
-  Base = 'Base',
+  Forum = 'Forum',
   Map = 'Map',
-  Log = 'Log',
-  Share = 'Share',
+  Board = 'Board',
+  Origin = 'Origin',
 }
 
 export function ReleaseTabs({ tab }: ReleaseTabProps) {

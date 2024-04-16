@@ -1,6 +1,6 @@
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { FileObj } from '@/(logic)/internal/model/resource/file/main';
-import { MomentObj } from '@/(logic)/internal/model/flow/moment/main';
+import { MomentObj } from '@/(logic)/internal/model/journal/moment/main';
 import { LogObj } from '@/(logic)/internal/model/resource/log/main';
 import { NoteObj } from '@/(logic)/internal/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';

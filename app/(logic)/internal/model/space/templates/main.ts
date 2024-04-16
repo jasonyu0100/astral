@@ -1,4 +1,4 @@
-import { StarTemplateObj } from '@/(logic)/internal/model/draft/constellation/star/main';
+import { StarTemplateObj } from '@/(logic)/internal/model/map/constellation/star/main';
 import { SpaceVariant } from '../main';
 import { barTemplate } from './bar';
 import { customTemplate } from './custom';

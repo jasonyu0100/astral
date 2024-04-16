@@ -5,7 +5,7 @@ export function GalleryBackEdit() {
   const modalContext = useContext(EditGalleryModalContext);
   return (
     <button
-      className='mt-auto flex w-full items-center justify-center bg-black p-[1rem] font-bold text-white'
+      className='mt-auto flex w-full items-center justify-center bg-black p-[1rem] font-bold text-slate-300'
       onClick={(e) => {
         e.stopPropagation();
         modalContext.editGallery.open();

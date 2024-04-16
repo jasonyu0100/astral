@@ -1,4 +1,4 @@
-import { ConstellationVariant } from '@/(logic)/internal/model/draft/constellation/main';
+import { ConstellationVariant } from '@/(logic)/internal/model/map/constellation/main';
 import { ChapterTemplateObj } from './main';
 import { exampleFiles } from '@/(logic)/internal/model/resource/file/main';
 import { ResourceVariant } from '@/(logic)/internal/model/resource/main';

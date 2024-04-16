@@ -9,7 +9,7 @@ import {
   MomentsHandlerContext,
   useMomentsHandler,
 } from '@/(logic)/internal/handler/moments/main';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import {
   FlowModalContext,
   useFlowModal,
@@ -45,4 +45,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

@@ -1,4 +1,4 @@
-import { DraftSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/draft/(draft-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(cx)/(process)/space/[id]/(process-stages)/map/(map-epic)/sidebar/main';
 import { useContext } from 'react';
 import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';
@@ -8,7 +8,7 @@ import { useResourcesHandler } from '@/(logic)/internal/handler/explorer/resourc
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCollection() {
-  const { sidebarHandler } = useContext(DraftSidebarContext);
+  const { sidebarHandler } = useContext(MapSidebarContext);
   const collection = useContext(CollectionContext);
   const user = useGlobalUser((state) => state.user);
   const { resources } = useResourcesHandler(collection.id, user?.id);

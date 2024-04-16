@@ -15,7 +15,7 @@ export function StormHeader() {
   return (
     <GlassAreaContainer
       name={StormHeader.name}
-      sizeFx='h-[60px] w-full flex-shrink-0'
+      sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
       className={`${containerFx['row-center']} justify-between space-x-[1rem] px-[1rem]`}
     >

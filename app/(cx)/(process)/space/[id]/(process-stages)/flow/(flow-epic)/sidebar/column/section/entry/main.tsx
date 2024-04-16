@@ -1,4 +1,4 @@
-import { MomentContext } from "@/(logic)/internal/model/flow/moment/main";
+import { MomentContext } from "@/(logic)/internal/model/journal/moment/main";
 import { useContext } from "react";
 
 export function FlowSidebarEntry() {
@@ -12,7 +12,7 @@ export function FlowSidebarEntry() {
           src={moment?.file?.src}
         />
       </div>
-      <p className='text-lg font-bold text-white'>{moment.title}</p>
+      <p className='text-lg font-bold text-slate-300'>{moment.title}</p>
     </div>
   );
 }

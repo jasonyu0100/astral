@@ -1,6 +1,6 @@
 'use client';
 import { GallerysView } from './(gallerys-explorer-epic)/view';
-import insideVerses from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(logic)/utils/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   GallerysHandlerContext,
@@ -27,4 +27,4 @@ function Page() {
   );
 }
 
-export default insideVerses(Page);
+export default insideVerse(Page);

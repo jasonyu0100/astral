@@ -1,3 +1,3 @@
 export function HeaderAgent({ children }: { children: React.ReactNode }) {
-  return <div className='text-md font-bold text-slate-300'>{children}</div>;
+  return <div className='text-lg font-bold text-slate-300'>{children}</div>;
 }

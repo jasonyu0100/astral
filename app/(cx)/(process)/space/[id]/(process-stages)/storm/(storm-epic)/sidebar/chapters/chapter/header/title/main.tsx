@@ -1,5 +1,20 @@
-import React from 'react';
+import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
+import { ChapterContext } from '@/(logic)/internal/model/space/chapter/main';
+import { cn } from '@/(logic)/utils/cn';
+import React, { useContext } from 'react';
 
-export function StormChapterTitle({ children }: { children: React.ReactNode }) {
-  return <p className='font-extraBold text-xl text-slate-500'>{children}</p>;
+export function StormChapterTitle() {
+  const chapter = useContext(ChapterContext);
+  const chatsHandler = useContext(ChatsHandlerContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const active = chapter.id === chaptersHandler.chapterId;
+
+  return (
+    <p className={cn('font-extraBold text-xl text-slate-500', {
+      'text-slate-400 animate-pulse-slow': active,
+    })}>
+      {chapter.title}
+    </p>
+  );
 }
