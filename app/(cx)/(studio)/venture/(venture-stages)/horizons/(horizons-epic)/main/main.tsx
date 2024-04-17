@@ -11,8 +11,8 @@ export function HorizonsMain() {
       className='flex flex-col'
     >
       <HorizonsHeader />
-      <HorizonsCore />
       <HorizonsSearch />
+      <HorizonsCore />
     </GlassAreaContainer>
   );
 }
