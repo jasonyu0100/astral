@@ -1,6 +1,7 @@
 import { HorizonsCore } from './core/main';
 import { HorizonsHeader } from './core/header/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { HorizonsSearch } from './core/search/main';
 
 export function HorizonsMain() {
   return (
@@ -11,6 +12,7 @@ export function HorizonsMain() {
     >
       <HorizonsHeader />
       <HorizonsCore />
+      <HorizonsSearch />
     </GlassAreaContainer>
   );
 }
