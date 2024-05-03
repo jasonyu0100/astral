@@ -1,16 +1,16 @@
 'use client';
 
-import insideVerse from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(lgx)/utils/isAuth';
 import { BaseView } from './view';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx, roundedFx } from '@/(design)/(fx)/data';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { ProfileCover } from '@/(components)/(element)/profile/main';
+import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
+import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { borderFx, glassFx, roundedFx } from '@/(fx)/data';
+import { GlassWindowContents } from '@/(pkgs)/(glass)/window/contents/main';
+import { ProfileCover } from '@/(pkgs)/(element)/profile/main';
 import {
   exampleFile,
   exampleFiles,
-} from '@/(logic)/internal/model/resource/file/main';
+} from '@/(lgx)/internal/model/resource/file/main';
 import { BaseSidebar } from './(link-epic)/sidebar/main';
 
 function Page() {

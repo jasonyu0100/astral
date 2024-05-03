@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerse from '@/(logic)/utils/isAuth';
+import insideVerse from '@/(lgx)/utils/isAuth';
 import { MapView } from './view';
 import { MapSidebar } from './(map-epic)/sidebar/main';
 

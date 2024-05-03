@@ -1,5 +1,5 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, containerFx } from '@/(design)/(fx)/data';
+import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { glassFx, containerFx } from '@/(fx)/data';
 import React from 'react';
 
 export function MapSidebar() {

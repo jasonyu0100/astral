@@ -1,19 +1,19 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
 import {
   glassFx,
   containerFx,
   roundedFx,
   borderFx,
-} from '@/(design)/(fx)/data';
+} from '@/(fx)/data';
 
-export function OriginView({
+export function PointView({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={OriginView.name}
+      name={PointView.name}
       sizeFx='flex-grow h-full'
       className={`${containerFx['row']}`}
       glassFx={glassFx['glass-5']}

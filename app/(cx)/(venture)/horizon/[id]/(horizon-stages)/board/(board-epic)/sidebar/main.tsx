@@ -1,14 +1,14 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, containerFx, borderFx, roundedFx } from '@/(design)/(fx)/data';
+import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassWindowContents } from '@/(pkgs)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
+import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { glassFx, containerFx, borderFx, roundedFx } from '@/(fx)/data';
 import React from 'react';
 
-export function BoardSidebar() {
+export function ArcSidebar() {
   return (
     <GlassAreaContainer
-      name={BoardSidebar.name}
+      name={ArcSidebar.name}
       sizeFx='max-w-[500px] min-w-[250px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
@@ -20,7 +20,7 @@ export function BoardSidebar() {
         className='p-[1rem]'
       >
         <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>1. Origin</p>
+          <p className='text-white'>1. Point</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>

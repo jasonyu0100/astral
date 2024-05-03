@@ -1,19 +1,19 @@
 'use client';
 
-import insideVerse from '@/(logic)/utils/isAuth';
-import { OriginView } from './view';
-import { RankSidebar } from './(origin-epic)/sidebar/main';
-import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFile } from '@/(logic)/internal/model/resource/file/main';
-import { Divider } from '@/(components)/(line)/divider/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx } from '@/(design)/(fx)/data';
+import insideVerse from '@/(lgx)/utils/isAuth';
+import { PointView } from './view';
+import { RankSidebar } from './(point-epic)/sidebar/main';
+import { ProfileCover } from '@/(pkgs)/(element)/profile/main';
+import { exampleFile } from '@/(lgx)/internal/model/resource/file/main';
+import { Divider } from '@/(pkgs)/(line)/divider/main';
+import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
+import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { glassFx } from '@/(fx)/data';
 
 function Page() {
   return (
     <>
-      <OriginView>
+      <PointView>
         <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[2rem]'>
           <h1 className='text-lg font-bold text-slate-300'>State - Hiatus</h1>
           <h1 className='text-lg font-bold text-slate-300'>State - Normal</h1>
@@ -61,7 +61,7 @@ function Page() {
           </div>
         </div>
         <RankSidebar />
-      </OriginView>
+      </PointView>
     </>
   );
 }

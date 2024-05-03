@@ -1,10 +1,10 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
 import {
   glassFx,
   containerFx,
   roundedFx,
   borderFx,
-} from '@/(design)/(fx)/data';
+} from '@/(fx)/data';
 
 export function BaseView({
   children,

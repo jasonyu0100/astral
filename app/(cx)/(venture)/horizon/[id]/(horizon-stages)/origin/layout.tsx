@@ -1,12 +1,12 @@
-import { DashboardContent } from '@/(components)/(cx)/content/main';
-import { DashboardBody } from '@/(components)/(cx)/controller/body/main';
+import { DasharcContent } from '@/(pkgs)/(core)/content/main';
+import { DasharcBody } from '@/(pkgs)/(core)/controller/body/main';
 import { ReleaseTabStage, ReleaseTabs } from '../../(horizon-tabs)/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <DashboardBody>
-      <ReleaseTabs tab={ReleaseTabStage.Origin} />
-      <DashboardContent>{children}</DashboardContent>
-    </DashboardBody>
+    <DasharcBody>
+      <ReleaseTabs tab={ReleaseTabStage.Point} />
+      <DasharcContent>{children}</DasharcContent>
+    </DasharcBody>
   );
 }

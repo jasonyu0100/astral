@@ -1,8 +1,8 @@
 'use client';
 
-import { Tab } from '@/(components)/(cx)/tabs/tabs-row/tab/main';
-import { TabGreenShard } from '@/(components)/(cx)/tabs/tabs-row/tab/shard/green/main';
-import { TabText } from '@/(components)/(cx)/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/(pkgs)/(core)/tabs/tabs-row/tab/main';
+import { TabGreenShard } from '@/(pkgs)/(core)/tabs/tabs-row/tab/shard/green/main';
+import { TabText } from '@/(pkgs)/(core)/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ReleaseContext } from '../../layout';
 import { horizonMap } from '../../map';
