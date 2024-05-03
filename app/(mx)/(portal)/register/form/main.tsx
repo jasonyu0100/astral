@@ -14,8 +14,14 @@ import { PortalForm } from '@/(mx)/(portal)/(polaroid-epic)/container/form/main'
 import { PortalFormOrDivider } from '@/(mx)/(portal)/(polaroid-epic)/container/form/or/main';
 import axios from 'axios';
 import { PolaroidContext } from '@/(mx)/(portal)/(polaroid-epic)/handler/polaroid/main';
-import { emailRegisterUser, googleRegisterUser } from '@/(lgx)/internal/calls/auth/register/main';
-import { FileObj, FileVariant } from '@/(lgx)/internal/model/resource/file/main';
+import {
+  emailRegisterUser,
+  googleRegisterUser,
+} from '@/(lgx)/internal/calls/auth/register/main';
+import {
+  FileObj,
+  FileVariant,
+} from '@/(lgx)/internal/model/resource/file/main';
 import { UserObj } from '@/(lgx)/internal/model/user/main';
 
 export function PortalRegisterForm() {
@@ -97,22 +103,25 @@ export function PortalRegisterForm() {
       </PortalFormGoogleAction>
       <PortalFormOrDivider />
       <PortalFormBody>
-        <PortalFormInput
-          value={fname}
-          onChange={(e) => changeFname(e.target.value)}
-          placeholder={variant === 'm' ? 'John' : 'Taylor'}
-          type='text'
-        />
-        <PortalFormInput
-          value={lname}
-          onChange={(e) => changeLname(e.target.value)}
-          placeholder={variant === 'm' ? 'Mayer' : 'Swift'}
-          type='text'
-        />
+        <div className='flex flex-row'>
+          <PortalFormInput
+            value={fname}
+            onChange={(e) => changeFname(e.target.value)}
+            placeholder={'First'}
+            type='text'
+          />
+          <div className="w-[40px]"/>
+          <PortalFormInput
+            value={lname}
+            onChange={(e) => changeLname(e.target.value)}
+            placeholder={'Last'}
+            type='text'
+          />
+        </div>
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='email'
+          placeholder='Email'
           type='text'
         />
         <PortalFormInput
@@ -129,7 +138,7 @@ export function PortalRegisterForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction onClick={() => alert("Coming soon...")}>
+        <PortalFormAction onClick={() => alert('Coming soon...')}>
           REGISTER
         </PortalFormAction>
         <PortalFormAltAction>

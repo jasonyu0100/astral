@@ -80,13 +80,13 @@ export function PortalLoginForm() {
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='example@email.com'
+          placeholder='🎧 email@studio.com'
           type='text'
         />
         <PortalFormInput
           value={password}
           onChange={(e) => changePassword(e.target.value)}
-          placeholder='Password'
+          placeholder='🔒 Password'
           type='password'
         />
       </PortalFormBody>

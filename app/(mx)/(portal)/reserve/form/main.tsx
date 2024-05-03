@@ -43,7 +43,7 @@ export function PortalReserveForm() {
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='email@studio.com'
+          placeholder='🎧 email@studio.com'
           type='text'
         />
         <PortalFormSelect
@@ -53,7 +53,7 @@ export function PortalReserveForm() {
           }}
         >
           {categories.map((category) => (
-            <option value={category}>{category}</option>
+            <option value={category}>⭐ {category}</option>
           ))}
         </PortalFormSelect>
       </PortalFormBody>
