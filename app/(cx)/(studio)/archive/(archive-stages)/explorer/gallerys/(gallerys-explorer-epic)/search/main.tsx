@@ -16,7 +16,7 @@ export function GallerysSearch() {
       >
         <input
           className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
-          placeholder='Gather inspiration...'
+          placeholder='Find your meaning...'
         ></input>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

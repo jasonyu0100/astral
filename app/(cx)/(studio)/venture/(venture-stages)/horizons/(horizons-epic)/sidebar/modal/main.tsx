@@ -8,8 +8,8 @@ export function HorizonsSidebarModal() {
       <HorizonsSidebarLabel>Modal</HorizonsSidebarLabel>
       <HorizonsSidebarList>
         <HorizonsSidebarOption>Music</HorizonsSidebarOption>
-        <HorizonsSidebarOption>Film</HorizonsSidebarOption>
         <HorizonsSidebarOption>Art</HorizonsSidebarOption>
+        <HorizonsSidebarOption>Film</HorizonsSidebarOption>
       </HorizonsSidebarList>
     </div>
   );
