@@ -1,7 +1,7 @@
-import { VerseBackground } from "@/(lib)/(app)/background/verses/main";
+import { DefaultBackground } from "@/(lib)/(app)/background/default/main";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <VerseBackground>
+  return <DefaultBackground>
     {children}
-  </VerseBackground>;
+  </DefaultBackground>;
 }

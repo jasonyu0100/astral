@@ -4,7 +4,7 @@ import { PortalFormInput } from '@/(mx)/(portal)/(polaroid-epic)/container/form/
 import { PortalFormBody } from '@/(mx)/(portal)/(polaroid-epic)/container/form/body/main';
 import { PortalFormSelect } from '@/(mx)/(portal)/(polaroid-epic)/container/form/body/select/main';
 import { PortalForm } from '@/(mx)/(portal)/(polaroid-epic)/container/form/main';
-import { PortalVersesTextHeader } from '@/(mx)/(portal)/(polaroid-epic)/container/form/text-header/main';
+import { PortalTextHeader } from '@/(mx)/(portal)/(polaroid-epic)/container/form/text-header/main';
 import { portalModel } from '@/(mx)/(portal)/(polaroid-epic)/model/main';
 import { PolaroidContext } from '@/(mx)/(portal)/(polaroid-epic)/handler/polaroid/main';
 import { reservePosition } from '@/(lgx)/internal/calls/auth/reserve/main';
@@ -26,7 +26,7 @@ export function PortalReserveForm() {
 
   return (
     <PortalForm>
-      <PortalVersesTextHeader />
+      <PortalTextHeader />
       <PortalFormBody>
         <PortalFormInput
           value={fname}

@@ -12,7 +12,7 @@ import { PortalFormInput } from '@/(mx)/(portal)/(polaroid-epic)/container/form/
 import { PortalFormBody } from '@/(mx)/(portal)/(polaroid-epic)/container/form/body/main';
 import { PortalForm } from '@/(mx)/(portal)/(polaroid-epic)/container/form/main';
 import { PortalFormOrDivider } from '@/(mx)/(portal)/(polaroid-epic)/container/form/or/main';
-import { PortalVersesTextHeader } from '@/(mx)/(portal)/(polaroid-epic)/container/form/text-header/main';
+import { PortalTextHeader } from '@/(mx)/(portal)/(polaroid-epic)/container/form/text-header/main';
 import axios from 'axios';
 import { emailLoginUser, googleLoginUser } from '@/(lgx)/internal/calls/auth/login/main';
 import { UserObj } from '@/(lgx)/internal/model/user/main';
@@ -71,7 +71,7 @@ export function PortalLoginForm() {
 
   return (
     <PortalForm>
-      <PortalVersesTextHeader />
+      <PortalTextHeader />
       <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
         Login with Google
       </PortalFormGoogleAction>
