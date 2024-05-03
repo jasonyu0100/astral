@@ -1,4 +1,4 @@
-DUO GAME
+NAME = "DUAL"
 
 Generate Horizon
 1. Choose Origin
