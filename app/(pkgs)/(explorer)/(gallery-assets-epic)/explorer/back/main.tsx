@@ -7,11 +7,11 @@ import { GalleryBackDescription } from '../../common/back/description/main';
 import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { FlipContext } from '@/(lgx)/internal/contexts/flip/main';
-import { ExplorerEditGalleryModal } from '@/(cx)/(modals)/(studio)/archive/explorer/edit/gallery/view';
+import { ExplorerEditGalleryModal } from '@/(cx)/(center)/(modals)/archive/explorer/edit/gallery/view';
 import {
   EditGalleryModalContext,
   useEditGalleryModal,
-} from '@/(cx)/(modals)/(studio)/archive/explorer/edit/gallery/main';
+} from '@/(cx)/(center)/(modals)/archive/explorer/edit/gallery/main';
 
 export function GalleryExplorerBack() {
   const { flip } = useContext(FlipContext);

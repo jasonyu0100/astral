@@ -1,5 +1,5 @@
 import { ResourceContext } from "@/(lgx)/internal/model/resource/main";
-import { EditResourceModalContext } from "@/(cx)/(modals)/(studio)/archive/explorer/edit/resource/main";
+import { EditResourceModalContext } from "@/(cx)/(center)/(modals)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {

@@ -1,5 +1,5 @@
 import { FileOnChangeContext } from "@/(lgx)/internal/contexts/fileOnChange/main";
-import { SearchModalContext } from "@/(cx)/(modals)/(components)/search-modal/main";
+import { SearchModalContext } from "@/(pkgs)/(form)/file/search/search-image/search-modal/main";
 import { useContext } from "react";
 
 export function SearchButton() {

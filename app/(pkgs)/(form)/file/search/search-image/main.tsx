@@ -1,18 +1,13 @@
 import {
   FileObj,
-  FileObjContext,
 } from '@/(lgx)/internal/model/resource/file/main';
-import React, { createContext, useState } from 'react';
-import SearchModalView from '@/(cx)/(modals)/(components)/search-modal/view';
-import { SearchImageListPreview } from './list-image-preview/main';
-import {
-  SearchModalContext,
-  useSearchModal,
-} from '@/(cx)/(modals)/(components)/search-modal/main';
+import React, { createContext } from 'react';
+import SearchModalView from '@/(pkgs)/(form)/file/search/search-image/search-modal/view';
 import { FileOnChangeContext } from '@/(lgx)/internal/contexts/fileOnChange/main';
 import { SearchImageLabel } from './label/main';
 import { SearchButton } from './search-button/main';
 import { DisplayImagePreview } from './display-image-preview/main';
+import { SearchModalContext, useSearchModal } from './search-modal/main';
 
 export const SearchImageContext = createContext({});
 
