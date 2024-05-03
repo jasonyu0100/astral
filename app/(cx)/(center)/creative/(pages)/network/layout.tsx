@@ -1,4 +1,4 @@
-import { CreativeTabStage, CreativeTabs } from '../../(creative-tabs)/main';
+import { CreativeTabStage, CreativeTabs } from '../../(tabs)/main';
 
 import { DashboardContent } from '@/(lib)/(core)/content/main';
 

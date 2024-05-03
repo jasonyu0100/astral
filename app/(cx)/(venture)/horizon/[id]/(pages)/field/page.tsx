@@ -11,7 +11,7 @@ import {
   exampleFile,
   exampleFiles,
 } from '@/(lgx)/internal/model/resource/file/main';
-import { BaseSidebar } from './(link-epic)/sidebar/main';
+import { BaseSidebar } from './(field-epic)/sidebar/main';
 
 function Page() {
   return (

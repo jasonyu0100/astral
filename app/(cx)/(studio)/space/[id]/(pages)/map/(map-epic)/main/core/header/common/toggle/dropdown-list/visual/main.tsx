@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(lgx)/types/element/main';
 import { VisualIcon } from '../../../icons/visual/main';
-import { MapModalType } from '@/(cx)/(studio)/space/[id]/(process-stages)/map/page';
+import { MapModalType } from '@/(cx)/(studio)/space/[id]/(pages)/map/page';
 
 export function MapHeaderVisualBoardButton({ ...props }: ButtonInputProps) {
   return (

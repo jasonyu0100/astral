@@ -1,12 +1,12 @@
-import { DasharcContent } from '@/(lib)/(core)/content/main';
-import { DasharcBody } from '@/(lib)/(core)/controller/body/main';
+import { DashboardContent } from '@/(lib)/(core)/content/main';
+import { DashboardBody } from '@/(lib)/(core)/controller/body/main';
 import { ReleaseTabStage, ReleaseTabs } from '../../(tabs)/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <DasharcBody>
+    <DashboardBody>
       <ReleaseTabs tab={ReleaseTabStage.Map} />
-      <DasharcContent>{children}</DasharcContent>
-    </DasharcBody>
+      <DashboardContent>{children}</DashboardContent>
+    </DashboardBody>
   );
 }

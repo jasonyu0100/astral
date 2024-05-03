@@ -1,4 +1,4 @@
-import { CraftTabStage, CraftTabs } from '@/(cx)/(center)/archive/(archive-tabs)/main';
+import { CraftTabStage, CraftTabs } from '@/(cx)/(center)/archive/(tabs)/main';
 
 import { DashboardContent } from '@/(lib)/(core)/content/main';
 

@@ -1,7 +1,7 @@
 import {
   CraftTabStage,
   CraftTabs,
-} from '@/(cx)/(center)/archive/(archive-tabs)/main';
+} from '@/(cx)/(center)/archive/(tabs)/main';
 import { DashboardContent } from '@/(lib)/(core)/content/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(lgx)/types/element/main';
 import { SoundIcon } from '../../../icons/sound/main';
-import { MapModalType } from '@/(cx)/(studio)/space/[id]/(process-stages)/map/page';
+import { MapModalType } from '@/(cx)/(studio)/space/[id]/(pages)/map/page';
 
 export function MapHeaderAudioBoardButton({ ...props }: ButtonInputProps) {
   return (

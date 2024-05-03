@@ -10,7 +10,7 @@ import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
 import { Divider } from '@/(lib)/(line)/divider/main';
 import { Seperator } from '@/(lib)/(line)/seperator/main';
 import { ChaptersContainer } from './chapters/main';
-import { ChaptersRowContainer } from '@/(cx)/(studio)/space/[id]/(process-stages)/(common)/chapters/row/main';
+import { ChaptersRowContainer } from '@/(cx)/(studio)/space/[id]/(pages)/(common)/chapters/row/main';
 import { ChaptersLeft } from './chapters/left/main';
 import { ChaptersRight } from './chapters/right/main';
 import { ChapterContainer } from './chapters/row/chapter/main';

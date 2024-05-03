@@ -5,7 +5,7 @@ import { GalleryBackDescription } from '../../common/back/description/main';
 import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { FlipContext } from '@/(lgx)/internal/contexts/flip/main';
-import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(process-stages)/map/(map-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(pages)/map/(map-epic)/sidebar/main';
 
 export function GallerySidebarBack() {
   const { flip } = useContext(FlipContext);

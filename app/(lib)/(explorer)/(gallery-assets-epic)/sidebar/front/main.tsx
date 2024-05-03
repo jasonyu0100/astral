@@ -2,7 +2,7 @@ import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
 import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';
 import { GalleryThumbnail } from '../../common/cover/thumbnail/main';
-import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(process-stages)/map/(map-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(pages)/map/(map-epic)/sidebar/main';
 
 export function GallerySidebarCover() {
   const gallery = useContext(GalleryContext);

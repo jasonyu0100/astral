@@ -1,10 +1,10 @@
 'use client';
 
 import { Topbar } from '@/(cx)/(base)/(topbar)/main';
-import { DasharcController } from '@/(lib)/(core)/controller/main';
+import { DashboardController } from '@/(lib)/(core)/controller/main';
 import { createContext } from 'react';
 import { ventureMap } from '@/(cx)/(center)/venture/map';
-import { DasharcSidebarView } from '@/(cx)/(base)/(sidebar)/main';
+import { DashboardSidebarView } from '@/(cx)/(base)/(sidebar)/main';
 
 interface ReleaseContextObj {
   releaseId: string;
@@ -25,10 +25,10 @@ export default function Layout({
   return (
     <ReleaseContext.Provider value={{ releaseId: params.id }}>
       <Topbar />
-      <DasharcController>
-        <DasharcSidebarView minimised backUrl={ventureMap.venture.horizons.link} />
+      <DashboardController>
+        <DashboardSidebarView minimised backUrl={ventureMap.venture.horizons.link} />
         {children}
-      </DasharcController>
+      </DashboardController>
     </ReleaseContext.Provider>
   );
 }

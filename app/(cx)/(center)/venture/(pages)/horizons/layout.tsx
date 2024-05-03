@@ -1,7 +1,7 @@
 import {
   ProjectTabStage,
   ProjectTabs,
-} from '@/(cx)/(center)/venture/(venture-tabs)/main';
+} from '@/(cx)/(center)/venture/(tabs)/main';
 
 import { DashboardContent } from '@/(lib)/(core)/content/main';
 

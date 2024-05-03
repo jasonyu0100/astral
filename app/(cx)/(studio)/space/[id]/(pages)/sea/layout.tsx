@@ -3,7 +3,7 @@ import { DashboardBody } from '@/(lib)/(core)/controller/body/main';
 import {
   SpaceTabStage,
   SpaceTabs,
-} from '@/(cx)/(studio)/space/[id]/(process-tabs)/main';
+} from '@/(cx)/(studio)/space/[id]/(tabs)/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

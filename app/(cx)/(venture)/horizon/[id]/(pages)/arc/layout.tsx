@@ -1,11 +1,11 @@
 import { DashboardContent } from '@/(lib)/(core)/content/main';
 import { DashboardBody } from '@/(lib)/(core)/controller/body/main';
-import { SpaceTabStage, SpaceTabs } from '@/(cx)/(studio)/space/[id]/(tabs)/main';
+import { ReleaseTabStage, ReleaseTabs } from '../../(tabs)/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <DashboardBody>
-      <SpaceTabs tab={SpaceTabStage.Flow} />
+      <ReleaseTabs tab={ReleaseTabStage.Arc} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

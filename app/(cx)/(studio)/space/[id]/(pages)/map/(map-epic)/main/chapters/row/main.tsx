@@ -2,8 +2,8 @@ import { MapModalContext } from '@/(cx)/(studio)/(modals)/map-modal/main';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
-import ChaptersAdd from '@/(cx)/(studio)/space/[id]/(process-stages)/(common)/chapters/row/add/main';
-import { ChapterContainer } from '@/(cx)/(studio)/space/[id]/(process-stages)/(common)/chapters/row/chapter/main';
+import ChaptersAdd from '@/(cx)/(studio)/space/[id]/(pages)/(common)/chapters/row/add/main';
+import { ChapterContainer } from '@/(cx)/(studio)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
 
 export function MapChaptersRow() {

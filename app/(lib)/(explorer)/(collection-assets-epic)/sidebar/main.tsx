@@ -1,4 +1,4 @@
-import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(process-stages)/map/(map-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(cx)/(studio)/space/[id]/(pages)/map/(map-epic)/sidebar/main';
 import { useContext } from 'react';
 import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';
