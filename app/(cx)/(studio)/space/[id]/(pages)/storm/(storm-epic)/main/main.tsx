@@ -1,5 +1,5 @@
 import { containerFx } from '@/(fx)/data';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { StormCore } from './core/main';
 import { StormChatInput } from './input/main';
 

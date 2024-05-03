@@ -1,13 +1,13 @@
-import { FormBody } from '@/(pkgs)/(form)/body/main';
-import { FormButton } from '@/(pkgs)/(form)/button/main';
-import { FormFooter } from '@/(pkgs)/(form)/footer/main';
-import { FormContainer } from '@/(pkgs)/(form)/main';
-import { FormTitle } from '@/(pkgs)/(form)/title/main';
-import { Modal } from '@/(pkgs)/(modal)/main';
+import { FormBody } from '@/(lib)/(form)/body/main';
+import { FormButton } from '@/(lib)/(form)/button/main';
+import { FormFooter } from '@/(lib)/(form)/footer/main';
+import { FormContainer } from '@/(lib)/(form)/main';
+import { FormTitle } from '@/(lib)/(form)/title/main';
+import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { FormInput } from '@/(pkgs)/(form)/input/main';
-import { FullLoomVideo } from '@/(pkgs)/(loom)/full-video/main';
+import { FormInput } from '@/(lib)/(form)/input/main';
+import { FullLoomVideo } from '@/(lib)/(loom)/full-video/main';
 import { LogObjContext } from '@/(lgx)/internal/model/resource/log/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 

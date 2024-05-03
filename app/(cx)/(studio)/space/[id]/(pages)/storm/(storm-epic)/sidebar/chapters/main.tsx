@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { StormModalContext } from '@/(cx)/(studio)/(modals)/storm-modal/main';
 import { useContext } from 'react';
 import { StormChapterAdd } from './chapter/add/main';

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, containerFx, roundedFx, borderFx } from '@/(fx)/data';
 import React from 'react';
 

@@ -1,6 +1,6 @@
-import { TabGreenShard } from '@/(pkgs)/(core)/tabs/tabs-row/tab/shard/green/main';
-import { Tab } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/main';
-import { TabText } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/text/main';
+import { TabGreenShard } from '@/(lib)/(core)/tabs/tabs-row/tab/shard/green/main';
+import { Tab } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/main';
+import { TabText } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/text/main';
 import { archiveMap } from '../../map';
 import { CraftTabStage } from '../main';
 

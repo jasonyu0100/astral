@@ -1,7 +1,7 @@
-import { FormBody } from '@/(pkgs)/(form)/body/main';
-import { FormContainer } from '@/(pkgs)/(form)/main';
-import { FormTitle } from '@/(pkgs)/(form)/title/main';
-import { Modal } from '@/(pkgs)/(modal)/main';
+import { FormBody } from '@/(lib)/(form)/body/main';
+import { FormContainer } from '@/(lib)/(form)/main';
+import { FormTitle } from '@/(lib)/(form)/title/main';
+import { Modal } from '@/(lib)/(modal)/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';

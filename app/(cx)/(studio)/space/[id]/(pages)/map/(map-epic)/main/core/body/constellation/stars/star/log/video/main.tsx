@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(lgx)/internal/handler/stars/star/main';
 import { LogObj, LogObjContext } from '@/(lgx)/internal/model/resource/log/main';
-import { FullLoomVideo } from '@/(pkgs)/(loom)/full-video/main';
+import { FullLoomVideo } from '@/(lib)/(loom)/full-video/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 
 export function LogVideoStar() {

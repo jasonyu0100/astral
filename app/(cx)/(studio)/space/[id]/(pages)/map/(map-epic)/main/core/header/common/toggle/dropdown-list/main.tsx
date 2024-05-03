@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, borderFx } from '@/(fx)/data';
 import { MapContext, MapModalType } from '../../../../../../../page';
 import { MapHeaderTextBoardButton } from './text/main';

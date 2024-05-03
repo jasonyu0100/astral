@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { FlowChapters } from './chapters/main';
 import { FlowCore } from './core/main';

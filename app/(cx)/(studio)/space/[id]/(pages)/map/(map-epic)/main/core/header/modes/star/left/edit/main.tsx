@@ -1,4 +1,4 @@
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 import { ButtonInputProps } from '@/(lgx)/types/element/main';
 
 export function StarEditButton({ ...props }: ButtonInputProps) {

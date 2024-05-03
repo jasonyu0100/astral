@@ -1,6 +1,6 @@
 import { HorizonsCore } from './core/main';
 import { HorizonsHeader } from './core/header/main';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { HorizonsSearch } from './core/search/main';
 
 export function HorizonsMain() {

@@ -1,5 +1,5 @@
-import { DashboardController } from '@/(pkgs)/(core)/controller/main';
-import { DashboardBody } from '../../../(pkgs)/(core)/controller/body/main';
+import { DashboardController } from '@/(lib)/(core)/controller/main';
+import { DashboardBody } from '../../../(lib)/(core)/controller/body/main';
 import { DashboardSidebarView } from '@/(cx)/(base)/(sidebar)/main';
 import { DashboardSidebarIndicatorType } from '@/(cx)/(base)/(sidebar)/indicators/indicator/main';
 

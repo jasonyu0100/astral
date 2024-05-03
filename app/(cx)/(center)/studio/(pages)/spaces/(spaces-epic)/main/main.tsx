@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
 import { SpacesHandlerContext } from '@/(lgx)/internal/handler/spaces/main';

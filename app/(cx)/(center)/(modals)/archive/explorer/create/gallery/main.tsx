@@ -1,14 +1,14 @@
-import { FormTextArea } from '@/(pkgs)/(form)/area/main';
-import { FormBody } from '@/(pkgs)/(form)/body/main';
-import { FormButton } from '@/(pkgs)/(form)/button/main';
-import { FormFooter } from '@/(pkgs)/(form)/footer/main';
-import { FormInput } from '@/(pkgs)/(form)/input/main';
-import { FormContainer } from '@/(pkgs)/(form)/main';
-import { FormTitle } from '@/(pkgs)/(form)/title/main';
-import { Modal } from '@/(pkgs)/(modal)/main';
+import { FormTextArea } from '@/(lib)/(form)/area/main';
+import { FormBody } from '@/(lib)/(form)/body/main';
+import { FormButton } from '@/(lib)/(form)/button/main';
+import { FormFooter } from '@/(lib)/(form)/footer/main';
+import { FormInput } from '@/(lib)/(form)/input/main';
+import { FormContainer } from '@/(lib)/(form)/main';
+import { FormTitle } from '@/(lib)/(form)/title/main';
+import { Modal } from '@/(lib)/(modal)/main';
 import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
 import { useContext, useState } from 'react';
-import { FormSearchImage } from '@/(pkgs)/(form)/file/search/search-image/main';
+import { FormSearchImage } from '@/(lib)/(form)/file/search/search-image/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
 import { GallerysHandlerContext } from '@/(lgx)/internal/handler/explorer/gallerys/main';
 

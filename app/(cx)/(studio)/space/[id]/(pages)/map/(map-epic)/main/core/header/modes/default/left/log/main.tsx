@@ -7,7 +7,7 @@ import {
 import { StarModalContext } from '@/(cx)/(studio)/(modals)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useEffect, useMemo } from 'react';
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 
 export function MapHeaderLogButton({ ...props }: ButtonInputProps) {
   const { updateLogObj, open } = useContext(StarModalContext).addLogStarModal;

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { createContext, useContext } from 'react';
 import { FlowMoment } from './moment/main';

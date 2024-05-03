@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 
 export function ChaptersRight() {

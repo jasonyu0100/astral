@@ -6,8 +6,8 @@ import { ToggleContext } from '@/(lgx)/internal/contexts/toggle/main';
 import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx } from '@/(fx)/data';
 
 export function ToggleButton() {

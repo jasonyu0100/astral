@@ -1,5 +1,5 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 import { glassFx } from '@/(fx)/data';
 import { ButtonInputProps } from '@/(lgx)/types/element/main';
 

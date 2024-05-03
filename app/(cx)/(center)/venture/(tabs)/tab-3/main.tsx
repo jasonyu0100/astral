@@ -1,6 +1,6 @@
-import { Tab } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/main';
-import { TabText } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/text/main';
-import { TabPurpleShard } from '@/(pkgs)/(core)/tabs/tabs-row/tab/shard/purple/main';
+import { Tab } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/main';
+import { TabText } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/text/main';
+import { TabPurpleShard } from '@/(lib)/(core)/tabs/tabs-row/tab/shard/purple/main';
 import { ventureMap } from '../../map';
 import { ProjectTabStage } from '../main';
 

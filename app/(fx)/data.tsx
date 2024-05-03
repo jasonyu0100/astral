@@ -1,64 +1,7 @@
-export const glassFx = {
-  'glass-5': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-5',
-  'glass-10': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-10',
-  'glass-20': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-20',
-  'glass-30': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-30',
-  'glass-40': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-40',
-  'glass-50': 'bg-gradient-to-r from-slate-100 to-slate-500 opacity-50',
-  'glass-r-5': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-5',
-  'glass-r-10': 'bg-gradient-to-r from-slate-500 to-slate-100 opacity-10',
-  'gradient-950': 'bg-gradient-to-r to-slate-950 from-slate-900 opacity-10',
-  'gradient-900': 'bg-gradient-to-r to-slate-900 from-slate-800 opacity-10',
-  none: '',
-};
+import { glassFx } from './glass/data';
+import { roundedFx } from './rounded/data';
+import { effectFx } from './effect/data';
+import { containerFx } from './container/data';
+import { borderFx } from './border/data';
 
-export const effectFx = {
-  'glow-sm': 'shadow-sm shadow-slate-500/50',
-  'glow-md': 'shadow-md shadow-slate-500/50',
-  'glow-lg': 'shadow-lg shadow-slate-500/30',
-  'glow-xl': 'shadow-xl shadow-slate-500/30',
-  none: '',
-};
-
-export const roundedFx = {
-  'rounded-container': 'rounded-t-[2rem] overflow-hidden',
-  'rounded-container-sm': 'rounded-t-[1rem] overflow-hidden',
-  'rounded': 'rounded-[1rem] overflow-hidden',
-  'rounded-sm': 'rounded-[0.5rem] overflow-hidden',
-  'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
-  'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
-  'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',
-  'rounded-br': 'rounded-br-[1rem] overflow-hidden',
-  'rounded-t': 'rounded-t-[1rem] overflow-hidden',
-  'rounded-r': 'rounded-r-[1rem] overflow-hidden',
-  'rounded-b': 'rounded-b-[1rem] overflow-hidden',
-  'rounded-l': 'rounded-l-[1rem] overflow-hidden',
-  'rounded-full': 'rounded-full overflow-hidden',
-};
-
-export const borderFx = {
-  'border-all': 'border border-slate-500 border-opacity-30',
-  'border-t': 'border-t border-slate-500 border-opacity-30',
-  'border-r': 'border-r border-slate-500 border-opacity-30',
-  'border-b': 'border-b border-slate-500 border-opacity-30',
-  'border-l': 'border-l border-slate-500 border-opacity-30',
-  rounded: 'rounded-[1rem] overflow-hidden',
-  'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
-  'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
-  'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',
-  'rounded-br': 'rounded-br-[1rem] overflow-hidden',
-  'rounded-t': 'rounded-t-[1rem] overflow-hidden',
-  'rounded-r': 'rounded-r-[1rem] overflow-hidden',
-  'rounded-b': 'rounded-b-[1rem] overflow-hidden',
-  'rounded-l': 'rounded-l-[1rem] overflow-hidden',
-  'rounded-full': 'rounded-full overflow-hidden',
-};
-
-export const containerFx = {
-  col: 'flex flex-col',
-  'col-center': 'flex flex-col items-center',
-  'col-centered': 'flex flex-col items-center justify-center',
-  row: 'flex flex-row',
-  'row-center': 'flex flex-row items-center',
-  'row-centered': 'flex flex-row items-center justify-center',
-};
+export { glassFx, roundedFx, effectFx, containerFx, borderFx };

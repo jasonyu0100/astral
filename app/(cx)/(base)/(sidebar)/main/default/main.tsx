@@ -1,4 +1,4 @@
-import { Divider } from '@/(pkgs)/(line)/divider/main';
+import { Divider } from '@/(lib)/(line)/divider/main';
 import { ArchiveIndicator } from '../../indicators/variants/archive-indicator/main';
 import { CreativeIndicator } from '../../indicators/variants/creative-indicator/main';
 import { JournalIndicator } from '../../indicators/variants/journal-indicator/main';

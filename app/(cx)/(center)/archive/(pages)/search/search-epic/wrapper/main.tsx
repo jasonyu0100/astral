@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 
 export function SearchWrapper({ children }: { children: React.ReactNode }) {

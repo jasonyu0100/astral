@@ -1,9 +1,9 @@
-import { Divider } from '@/(pkgs)/(line)/divider/main';
-import { GlassWindowContents } from '@/(pkgs)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
-import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
-import { HorizonCover } from '@/(pkgs)/(element)/horizon/main';
-import { SpaceCover } from '@/(pkgs)/(element)/space/main';
+import { Divider } from '@/(lib)/(line)/divider/main';
+import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
+import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
+import { HorizonCover } from '@/(lib)/(element)/horizon/main';
+import { SpaceCover } from '@/(lib)/(element)/space/main';
 import { borderFx, glassFx, roundedFx } from '@/(fx)/data';
 import { ToggleContext } from '@/(lgx)/internal/contexts/toggle/main';
 import {
@@ -11,7 +11,7 @@ import {
   exampleFile,
 } from '@/(lgx)/internal/model/resource/file/main';
 import { useState } from 'react';
-import { Seperator } from '@/(pkgs)/(line)/seperator/main';
+import { Seperator } from '@/(lib)/(line)/seperator/main';
 
 export function CreativeNetworkSidebarHorizon() {
   const file = exampleFile;

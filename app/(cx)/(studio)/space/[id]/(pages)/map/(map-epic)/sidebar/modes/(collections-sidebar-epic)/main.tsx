@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { CollectionContext } from '@/(lgx)/internal/model/gallery/collection/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
 import { CollectionsHandlerContext } from '@/(lgx)/internal/handler/explorer/collections/main';
-import { SidebarCollection } from '@/(pkgs)/(explorer)/(collection-assets-epic)/sidebar/main';
-import { SidebarCollectionAdd } from '@/(pkgs)/(explorer)/(collection-assets-epic)/sidebar/add/main';
+import { SidebarCollection } from '@/(lib)/(explorer)/(collection-assets-epic)/sidebar/main';
+import { SidebarCollectionAdd } from '@/(lib)/(explorer)/(collection-assets-epic)/sidebar/add/main';
 
 export function CollectionsInterface() {
   const collectionsHandler = useContext(CollectionsHandlerContext);

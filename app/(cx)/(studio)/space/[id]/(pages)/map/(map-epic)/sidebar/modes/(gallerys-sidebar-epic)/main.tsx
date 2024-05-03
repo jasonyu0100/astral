@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { SidebarHomeGalleryAdd } from '../../../../../../../../../../(pkgs)/(explorer)/(gallery-assets-epic)/sidebar/add/main';
-import { SidebarHomeGallery } from '../../../../../../../../../../(pkgs)/(explorer)/(gallery-assets-epic)/sidebar/main';
+import { SidebarHomeGalleryAdd } from '../../../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/sidebar/add/main';
+import { SidebarHomeGallery } from '../../../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/sidebar/main';
 import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
 import { GallerysHandlerContext } from '@/(lgx)/internal/handler/explorer/gallerys/main';

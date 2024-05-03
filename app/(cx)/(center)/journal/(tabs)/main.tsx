@@ -1,9 +1,9 @@
 import { TabTwo } from './tab-2/main';
 import { TabOne } from './tab-1/main';
 import { TabThree } from './tab-3/main';
-import { TabsRow } from '../../../../(pkgs)/(core)/tabs/tabs-row/main';
-import { Tabs } from '../../../../(pkgs)/(core)/tabs/main';
-import { TabsBackButton } from '@/(pkgs)/(core)/tabs/tabs-row/back-button/main';
+import { TabsRow } from '../../../../(lib)/(core)/tabs/tabs-row/main';
+import { Tabs } from '../../../../(lib)/(core)/tabs/main';
+import { TabsBackButton } from '@/(lib)/(core)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
 export enum JournalTabStage {

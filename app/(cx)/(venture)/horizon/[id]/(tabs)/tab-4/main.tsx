@@ -1,12 +1,12 @@
 'use client';
 
-import { Tab } from '@/(pkgs)/(core)/tabs/tabs-row/tab/main';
-import { TabText } from '@/(pkgs)/(core)/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/(lib)/(core)/tabs/tabs-row/tab/main';
+import { TabText } from '@/(lib)/(core)/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ReleaseContext } from '../../layout';
 import { horizonMap } from '../../map';
 import { ReleaseTabStage } from '../main';
-import { TabPurpleShard } from '@/(pkgs)/(core)/tabs/tabs-row/tab/shard/purple/main';
+import { TabPurpleShard } from '@/(lib)/(core)/tabs/tabs-row/tab/shard/purple/main';
 
 export function TabFour({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);

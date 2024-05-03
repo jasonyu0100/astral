@@ -1,7 +1,7 @@
 'use client';
 
 import { Topbar } from '@/(cx)/(base)/(topbar)/main';
-import { DasharcController } from '@/(pkgs)/(core)/controller/main';
+import { DasharcController } from '@/(lib)/(core)/controller/main';
 import { createContext } from 'react';
 import { ventureMap } from '@/(cx)/(center)/venture/map';
 import { DasharcSidebarView } from '@/(cx)/(base)/(sidebar)/main';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, containerFx } from '@/(fx)/data';
 import { CreativeNetworkSidebarHorizons } from './horizons/main';
 import { CreativeNetworkSidebarHorizon } from './horizons/horizon/main';

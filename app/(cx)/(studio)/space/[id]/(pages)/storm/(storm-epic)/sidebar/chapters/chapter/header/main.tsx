@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';

@@ -4,7 +4,7 @@ import {
   SpaceObj,
 } from '@/(lgx)/internal/model/space/main';
 import { createContext, useContext, useState } from 'react';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx } from '@/(fx)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';

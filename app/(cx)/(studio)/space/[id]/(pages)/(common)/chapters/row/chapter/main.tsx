@@ -1,8 +1,8 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
 import { useContext } from 'react';
 import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
-import { WrapperTooltip } from '@/(pkgs)/(basic)/tooltip/main';
+import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 import { cn } from '@/(lgx)/utils/cn';
 import { ChapterActiveText } from './active/main';

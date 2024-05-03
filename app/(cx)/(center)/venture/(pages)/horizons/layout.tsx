@@ -3,7 +3,7 @@ import {
   ProjectTabs,
 } from '@/(cx)/(center)/venture/(venture-tabs)/main';
 
-import { DashboardContent } from '@/(pkgs)/(core)/content/main';
+import { DashboardContent } from '@/(lib)/(core)/content/main';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

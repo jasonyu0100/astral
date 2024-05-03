@@ -1,5 +1,5 @@
 import { glassFx, containerFx, roundedFx, borderFx } from '@/(fx)/data';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 
 export function UpdatesContainer({ children }: { children: React.ReactNode }) {
   return (

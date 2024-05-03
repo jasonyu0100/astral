@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { StarHandlerContext } from '@/(lgx)/internal/handler/stars/star/main';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 
 export function LinkSpotifyStar() {

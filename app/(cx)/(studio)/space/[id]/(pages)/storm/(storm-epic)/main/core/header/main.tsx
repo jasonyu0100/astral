@@ -3,7 +3,7 @@ import {
   borderFx,
   containerFx,
 } from '@/(fx)/data';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';
 import { HeaderAgent } from './agent/main';

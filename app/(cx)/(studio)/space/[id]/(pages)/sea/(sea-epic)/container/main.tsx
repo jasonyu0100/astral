@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, containerFx, borderFx, roundedFx } from '@/(fx)/data';
 
 export function ShareContainer({ children }: { children: React.ReactNode }) {

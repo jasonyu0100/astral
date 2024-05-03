@@ -1,6 +1,6 @@
 'use client';
 import { Topbar } from '@/(cx)/(base)/(topbar)/main';
-import { DashboardController } from '@/(pkgs)/(core)/controller/main';
+import { DashboardController } from '@/(lib)/(core)/controller/main';
 import { DashboardSidebarView } from '@/(cx)/(base)/(sidebar)/main';
 import { createContext } from 'react';
 

@@ -1,6 +1,6 @@
-import { GlassWindowContents } from '@/(pkgs)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
-import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
+import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { borderFx, roundedFx, glassFx } from '@/(fx)/data';
 import { StormChapter } from '../../../main';
 

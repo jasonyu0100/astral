@@ -1,4 +1,4 @@
-import { Divider } from '@/(pkgs)/(line)/divider/main';
+import { Divider } from '@/(lib)/(line)/divider/main';
 import { studioMap } from '@/(cx)/(center)/studio/map';
 import { DashboardSidebarTopBack } from '../../top/back/main';
 import { ArchiveIndicator } from '../../indicators/variants/archive-indicator/main';

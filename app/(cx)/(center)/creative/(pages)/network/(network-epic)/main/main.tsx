@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { CreativeSearch } from './core/search/main';
 import { CreativeFooter } from './core/footer/main';
 import { CreativeResults } from './core/results/main';

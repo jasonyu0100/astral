@@ -1,5 +1,5 @@
 import { glassFx, borderFx } from '@/(fx)/data';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 
 export function SharePoint({ children }: { children: React.ReactNode }) {
   return (

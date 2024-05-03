@@ -1,7 +1,7 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
-import { GlassWindowContents } from '@/(pkgs)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
-import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
+import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
+import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { glassFx, containerFx, borderFx, roundedFx } from '@/(fx)/data';
 import React from 'react';
 

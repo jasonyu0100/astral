@@ -3,11 +3,11 @@
 import insideVerse from '@/(lgx)/utils/isAuth';
 import { PointView } from './view';
 import { RankSidebar } from './(point-epic)/sidebar/main';
-import { ProfileCover } from '@/(pkgs)/(element)/profile/main';
+import { ProfileCover } from '@/(lib)/(element)/profile/main';
 import { exampleFile } from '@/(lgx)/internal/model/resource/file/main';
-import { Divider } from '@/(pkgs)/(line)/divider/main';
-import { GlassWindowFrame } from '@/(pkgs)/(glass)/window/main';
-import { GlassWindowPane } from '@/(pkgs)/(glass)/window/pane/main';
+import { Divider } from '@/(lib)/(line)/divider/main';
+import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
+import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { glassFx } from '@/(fx)/data';
 
 function Page() {

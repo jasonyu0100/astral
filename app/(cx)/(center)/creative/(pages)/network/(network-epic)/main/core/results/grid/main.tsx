@@ -1,5 +1,5 @@
 'use client';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { borderFx, containerFx } from '@/(fx)/data';
 
 export function CreativeRow({ children }: { children: React.ReactNode }) {

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
 import { FormInputProps } from '@/(lgx)/types/element/main';
 

@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { UpdatesMoment } from './moment/main';
 import { MomentContext, exampleMoments } from '@/(lgx)/internal/model/journal/moment/main';

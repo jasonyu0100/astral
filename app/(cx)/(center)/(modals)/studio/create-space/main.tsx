@@ -1,8 +1,8 @@
-import { ButtonVariant, FormButton } from '@/(pkgs)/(form)/button/main';
-import { FormFooter } from '@/(pkgs)/(form)/footer/main';
-import { FormContainer } from '@/(pkgs)/(form)/main';
-import { FormTitle } from '@/(pkgs)/(form)/title/main';
-import { Modal } from '@/(pkgs)/(modal)/main';
+import { ButtonVariant, FormButton } from '@/(lib)/(form)/button/main';
+import { FormFooter } from '@/(lib)/(form)/footer/main';
+import { FormContainer } from '@/(lib)/(form)/main';
+import { FormTitle } from '@/(lib)/(form)/title/main';
+import { Modal } from '@/(lib)/(modal)/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
 import { FileObj } from '@/(lgx)/internal/model/resource/file/main';

@@ -1,5 +1,5 @@
 import { borderFx, glassFx, roundedFx } from '@/(fx)/data';
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 
 export function VentureHorizonsContainer({ children }: { children: React.ReactNode }) {
   return (

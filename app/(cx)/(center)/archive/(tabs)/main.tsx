@@ -1,8 +1,8 @@
 import { TabTwo } from './tab-1/main';
 import { TabOne } from './tab-2/main';
-import { Tabs } from '../../../../(pkgs)/(core)/tabs/main';
-import { TabsRow } from '../../../../(pkgs)/(core)/tabs/tabs-row/main';
-import { TabsBackButton } from '@/(pkgs)/(core)/tabs/tabs-row/back-button/main';
+import { Tabs } from '../../../../(lib)/(core)/tabs/main';
+import { TabsRow } from '../../../../(lib)/(core)/tabs/tabs-row/main';
+import { TabsBackButton } from '@/(lib)/(core)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
 
 export enum CraftTabStage {

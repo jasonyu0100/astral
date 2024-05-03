@@ -1,5 +1,5 @@
-import { FormBody } from '@/(pkgs)/(form)/body/main';
-import { FormSelect } from '@/(pkgs)/(form)/select/main';
+import { FormBody } from '@/(lib)/(form)/body/main';
+import { FormSelect } from '@/(lib)/(form)/select/main';
 import { SpaceVariant } from '@/(lgx)/internal/model/space/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';

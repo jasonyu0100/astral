@@ -1,6 +1,6 @@
-import { Tab } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/shard/blue/main';
-import { TabText } from '../../../../../(pkgs)/(core)/tabs/tabs-row/tab/text/main';
+import { Tab } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/main';
+import { TabBlueShard } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/shard/blue/main';
+import { TabText } from '../../../../../(lib)/(core)/tabs/tabs-row/tab/text/main';
 import { studioMap } from '../../map';
 import { SpaceTabStages } from '../main';
 

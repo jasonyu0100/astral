@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/(pkgs)/(glass)/area/main';
+import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, containerFx } from '@/(fx)/data';
 import { FlowSidebarColumn } from './column/main';
 import { FlowSidebarHeader } from './header/main';

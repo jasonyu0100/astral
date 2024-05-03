@@ -3,7 +3,7 @@ import { ExtendedSpaceContext } from '../../../main';
 import {
   SpaceCover,
   SpaceCoverVariant,
-} from '@/(pkgs)/(element)/space/main';
+} from '@/(lib)/(element)/space/main';
 import { cn } from '@/(lgx)/utils/cn';
 
 export function SpaceInfoThumbnail() {
