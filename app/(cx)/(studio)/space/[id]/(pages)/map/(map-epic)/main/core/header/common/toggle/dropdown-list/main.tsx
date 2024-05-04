@@ -19,7 +19,7 @@ export function ToggleDropdownList() {
       <GlassAreaContainer
         name={ToggleDropdownList.name}
         sizeFx={'w-full h-full'}
-        glassFx={glassFx['glass-10']}
+        glassFx={glassFx['glass-5']}
         className='flex flex-col items-center justify-center'
       >
         {modalType !== MapModalType.DEFAULT && (

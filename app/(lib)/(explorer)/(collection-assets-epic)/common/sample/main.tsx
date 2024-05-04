@@ -11,7 +11,7 @@ export function CollectionSample({
     <GlassAreaContainer
       name={CollectionSample.name}
       className='flex h-full w-full flex-row items-center'
-      sizeFx='h-[200px] aspect-[32/16]'
+      sizeFx='w-full aspect-[32/16]'
       glassFx={glassFx['glass-10']}
     >
       {children}

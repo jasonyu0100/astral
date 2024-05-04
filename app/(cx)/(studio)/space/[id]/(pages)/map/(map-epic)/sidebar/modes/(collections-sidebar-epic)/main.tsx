@@ -11,17 +11,20 @@ export function CollectionsInterface() {
   const modalContext = useContext(ArchiveSidebarCreateModalContext);
 
   return (
-    <div className='flex flex-col space-y-[2rem]'>
-      {collections.map((collection) => (
-        <CollectionContext.Provider value={collection} key={collection.id}>
-          <SidebarCollection key={collection.id}/>
-        </CollectionContext.Provider>
-      ))}
-      <SidebarCollectionAdd
-        onClick={() => {
-          modalContext.createCollection.open();
-        }}
-      />
+    <div className='flex h-full w-full flex-col'>
+      <div className='flex w-full flex-row flex-wrap space-y-[2rem] overflow-auto'>
+        <SidebarCollectionAdd
+          onClick={() => {
+            modalContext.createCollection.open();
+          }}
+        />
+        {collections.map((collection) => (
+          <CollectionContext.Provider value={collection} key={collection.id}>
+            <SidebarCollection key={collection.id} />
+          </CollectionContext.Provider>
+        ))}
+      </div>
+      <p className='font-bold text-slate-500'>Back</p>
     </div>
   );
 }

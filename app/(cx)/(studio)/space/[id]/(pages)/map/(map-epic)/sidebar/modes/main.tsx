@@ -8,8 +8,7 @@ export function MapSidebarBody() {
   const { sidebarMode } = useContext(MapSidebarContext);
   return (
     <div
-      className='flex flex-col overflow-auto pr-[2rem]'
-      style={{ height: '100%' }}
+      className='flex flex-col h-full w-full pt-[1rem]'
     >
       {sidebarMode === SidebarMode.Gallerys && <SidebarGallerysInterface />}
       {sidebarMode === SidebarMode.Collections && <CollectionsInterface />}

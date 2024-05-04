@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { SidebarHomeGalleryAdd } from '../../../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/sidebar/add/main';
-import { SidebarHomeGallery } from '../../../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/sidebar/main';
 import { GalleryContext } from '@/(types)/model/gallery/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
 import { GallerysHandlerContext } from '@/(lgx)/internal/handler/explorer/gallerys/main';
+import { SidebarHomeGalleryAdd } from '@/(lib)/(explorer)/(gallery-assets-epic)/sidebar/add/main';
+import { SidebarHomeGallery } from '@/(lib)/(explorer)/(gallery-assets-epic)/sidebar/main';
 
 export function SidebarGallerysInterface() {
   const gallerysHandler = useContext(GallerysHandlerContext);
@@ -11,15 +11,18 @@ export function SidebarGallerysInterface() {
   const modalContext = useContext(ArchiveSidebarCreateModalContext);
 
   return (
-    <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
-      {gallerys.map((gallery) => (
-        <GalleryContext.Provider value={gallery} key={gallery.id}>
-          <SidebarHomeGallery key={gallery.id}/>
-        </GalleryContext.Provider>
-      ))}
-      <SidebarHomeGalleryAdd
-        onClick={() => modalContext.createGallery.open()}
-      />
+    <div className='flex h-full w-full flex-col'>
+      <div className='flex w-full flex-row flex-wrap space-y-[2rem] overflow-auto'>
+        <SidebarHomeGalleryAdd
+          onClick={() => modalContext.createGallery.open()}
+        />
+        {gallerys.map((gallery) => (
+          <GalleryContext.Provider value={gallery} key={gallery.id}>
+            <SidebarHomeGallery key={gallery.id} />
+          </GalleryContext.Provider>
+        ))}
+      </div>
+      <p className='font-bold text-slate-500'>Back</p>
     </div>
   );
 }

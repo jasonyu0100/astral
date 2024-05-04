@@ -1,13 +1,13 @@
 import { SidebarGalleryAddCover } from './cover/main';
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps, DivInputProps } from '@/(types)/element/main';
 import { GalleryPhoto } from '../photo/main';
 
-export function SidebarHomeGalleryAdd({ ...props }: ButtonInputProps) {
+export function SidebarHomeGalleryAdd({ ...props }: DivInputProps) {
   return (
-    <button {...props}>
-      <GalleryPhoto>
+    <GalleryPhoto>
+      <div {...props} className="h-full cursor-pointer">
         <SidebarGalleryAddCover />
-      </GalleryPhoto>
-    </button>
+      </div>
+    </GalleryPhoto>
   );
 }

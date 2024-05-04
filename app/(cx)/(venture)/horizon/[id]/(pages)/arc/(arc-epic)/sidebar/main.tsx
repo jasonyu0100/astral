@@ -9,7 +9,7 @@ export function ArcSidebar() {
   return (
     <GlassAreaContainer
       name={ArcSidebar.name}
-      sizeFx='max-w-[500px] min-w-[250px] w-1/4 h-full flex-shrink-0'
+      sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >

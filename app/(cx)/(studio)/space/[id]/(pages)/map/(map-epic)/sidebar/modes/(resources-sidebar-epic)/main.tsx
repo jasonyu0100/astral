@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../../../../../../(lib)/(explorer)/(resource-assets-epic)/sidebar/add/main';
-import { CollectionHeader } from './header/main';
-import { CollectionHeaderSearch } from './header/search/main';
+import { ResourcesFooter } from './footer/main';
+import { CollectionHeaderSearch } from './footer/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../../(lib)/(explorer)/(resource-assets-epic)/sidebar/main';
 import { ResourceContext, ResourceObj } from '@/(types)/model/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
@@ -9,28 +9,31 @@ import { ResourcesHandlerContext } from '@/(lgx)/internal/handler/explorer/resou
 
 export const SidebarResourceContext = createContext({} as ResourceObj);
 
+
+// TODO ADD SEARCH AND BREADCRUMB TO SIDEBAR RESOURCES
+
 export function ResourcesInterface() {
-  const resourcesHandler = useContext(ResourcesHandlerContext)
-  const searchResults = resourcesHandler.searchResults
-  const modalContext = useContext(ArchiveSidebarCreateModalContext)
+  const resourcesHandler = useContext(ResourcesHandlerContext);
+  const searchResults = resourcesHandler.searchResults;
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
 
   return (
-      <div className='flex h-full flex-col w-full'>
-        <div className='w-full flex flex-row flex-wrap gap-[2rem]'>
-          <CollectionResourceAdd
-            onClick={() => {
-              modalContext.createResource.open();
-            }}
-          />
-          {searchResults.map((resource) => (
-            <ResourceContext.Provider value={resource} key={resource.id}>
-              <SidebarCollectionResource key={resource.id}/>
-            </ResourceContext.Provider>
-          ))}
-        </div>
-        <CollectionHeader>
-          <CollectionHeaderSearch />
-        </CollectionHeader>
+    <div className='flex h-full w-full flex-col'>
+      <div className='flex w-full flex-row flex-wrap gap-[2rem] overflow-auto'>
+        <CollectionResourceAdd
+          onClick={() => {
+            modalContext.createResource.open();
+          }}
+        />
+        {searchResults.map((resource) => (
+          <ResourceContext.Provider value={resource} key={resource.id}>
+            <SidebarCollectionResource key={resource.id} />
+          </ResourceContext.Provider>
+        ))}
       </div>
+      <ResourcesFooter>
+        <CollectionHeaderSearch />
+      </ResourcesFooter>
+    </div>
   );
 }

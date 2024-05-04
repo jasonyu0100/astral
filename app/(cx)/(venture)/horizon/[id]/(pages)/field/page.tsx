@@ -49,7 +49,7 @@ function Page() {
                   <h1 className='text-slate-300'>Hello World</h1>
                   <img
                     src={exampleFiles[2].src}
-                    className='w-full max-w-[500px]'
+                    className='w-full max-w-[360px]'
                   />
                 </div>
               </GlassWindowContents>
