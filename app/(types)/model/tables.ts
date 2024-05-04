@@ -70,7 +70,7 @@ export const architecture = {
           },
         },
       },
-      flow: {
+      draft: {
         moment: {
           table: momentTable,
           comment: {
