@@ -14,7 +14,6 @@ export function Horizon() {
       name={GlassWindowFrame.name}
       className='p-[1rem] flex-shrink-0 aspect-[16/9]'
       roundedFx={roundedFx['rounded-sm']}
-      borderFx={borderFx['border-all']}
     >
       <GlassWindowContents className='w-full h-full flex flex-col space-y-[1rem]'>
         <div className='flex flex-row items-center space-x-[1rem]'>

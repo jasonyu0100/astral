@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
-import { glassFx } from '@/(fx)/data';
+import { borderFx, glassFx } from '@/(fx)/data';
 
 export function CreativeFooter() {
   return (

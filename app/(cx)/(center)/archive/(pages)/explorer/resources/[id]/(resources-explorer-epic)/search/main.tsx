@@ -7,7 +7,7 @@ export function ResourcesSearch() {
   return (
     <GlassWindowFrame
       name={ResourcesSearch.name}
-      className='h-[4rem] w-full'
+      className='h-[4rem] w-full flex-shrink-0'
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-full']}
     >

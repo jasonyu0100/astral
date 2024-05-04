@@ -1,11 +1,11 @@
-import { GlassWindowContents } from "@/(lib)/(glass)/window/contents/main";
-import { GlassWindowFrame } from "@/(lib)/(glass)/window/main";
-import { GlassWindowPane } from "@/(lib)/(glass)/window/pane/main";
-import { borderFx, roundedFx, glassFx } from "@/(fx)/data";
+import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
+import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
+import { borderFx, roundedFx, glassFx } from '@/(fx)/data';
 
 export function HorizonsSearch() {
   return (
-    <div className='w-full p-[2rem]'>
+  <div className='w-full px-[2rem] pt-[1rem] pb-[2rem]'>
       <GlassWindowFrame
         name={HorizonsSearch.name}
         className='h-[4rem] w-full'

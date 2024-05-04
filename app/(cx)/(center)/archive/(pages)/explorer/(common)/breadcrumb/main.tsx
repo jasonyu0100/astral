@@ -11,7 +11,7 @@ export function CollectionBreadcrumbs({
   return (
     <GlassWindowFrame
       name={CollectionBreadcrumbs.name}
-      className={`'w-full flex-shrink-0'`}
+      className={'w-full flex-shrink-0 pt-[1rem]'}
     >
       <GlassWindowContents className='flex w-full flex-row items-center space-x-[1rem]'>
         {children}

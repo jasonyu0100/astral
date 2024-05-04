@@ -5,7 +5,7 @@ import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
 
 export function JournalSearch() {
   return (
-    <div className='w-full p-[2rem]'>
+    <div className='w-full px-[2rem] py-[2rem] pb-[1rem]'>
       <GlassWindowFrame
         name={JournalSearch.name}
         className='h-[4rem] w-full'

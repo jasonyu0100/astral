@@ -5,7 +5,7 @@ import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
 
 export function CreativeSearch() {
   return (
-    <div className='w-full p-[2rem]'>
+    <div className='w-full px-[2rem] pb-[1rem] pt-[2rem]'>
       <GlassWindowFrame
         name={CreativeSearch.name}
         className='h-[4rem] w-full'

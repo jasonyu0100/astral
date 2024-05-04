@@ -4,10 +4,10 @@ import Link from 'next/link';
 export function TopbarLogo({ ...props }: LinkInputProps) {
   return (
     <Link
-      className='flex h-full w-[15rem] flex-shrink-0 flex-row items-center px-[1rem]'
+      className='flex h-full w-[16rem] flex-shrink-0 flex-row items-center'
       {...props}
     >
-      <img src='/brand/logo-text.png' className='w-[12rem] animate-pulse-slow' alt='Ouros' />
+      <img src='/brand/logo.png' className='h-[3rem] pl-[3px] animate-pulse-slow' alt='Ouros' />
     </Link>
   );
 }

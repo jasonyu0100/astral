@@ -7,7 +7,7 @@ export function CollectionsSearch() {
   return (
     <GlassWindowFrame
       name={CollectionsSearch.name}
-      className='h-[4rem] w-full'
+      className='h-[4rem] w-full flex-shrink-0'
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-full']}
     >
@@ -16,7 +16,7 @@ export function CollectionsSearch() {
       >
         <input
           className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
-          placeholder='Explore within...'
+          placeholder='Search within...'
         ></input>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

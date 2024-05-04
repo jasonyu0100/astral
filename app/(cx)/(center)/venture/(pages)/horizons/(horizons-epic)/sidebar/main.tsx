@@ -9,7 +9,6 @@ export function HorizonsSidebar() {
     <GlassAreaContainer
       name={HorizonsSidebar.name}
       sizeFx='max-w-[400px] min-w-[250px] w-1/4 h-full'
-      borderFx={borderFx['border-l']}
       glassFx={glassFx['glass-5']}
       className='flex flex-col p-[1rem]'
     >

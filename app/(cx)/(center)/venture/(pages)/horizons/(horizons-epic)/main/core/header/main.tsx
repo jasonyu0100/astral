@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
-import { glassFx } from '@/(fx)/data';
+import { borderFx, glassFx } from '@/(fx)/data';
 
 export function HorizonsHeader() {
   return (
     <GlassAreaContainer
       name={HorizonsHeader.name}
-      sizeFx='w-full h-[4rem]'
+      sizeFx='w-full h-[6rem]'
       glassFx={glassFx['glass-5']}
       className='flex flex-row items-center justify-between px-[50px]'
     >
       <div className='flex w-1/3 flex-row justify-start '></div>
-      <div className='flex w-1/3  flex-row justify-center gap-[1rem]'>
+      <div className='flex w-1/3  flex-row justify-center gap-[1rem] space-x-[3rem]'>
         <button>
           <svg
             xmlns='http://www.w3.org/2000/svg'
