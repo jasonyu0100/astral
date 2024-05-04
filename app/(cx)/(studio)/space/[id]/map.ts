@@ -7,8 +7,8 @@ export const spaceMap = {
       map: {
         link: (id: string) => `/space/${id}/map`,
       },
-      flow: {
-        link: (id: string) => `/space/${id}/flow`,
+      draft: {
+        link: (id: string) => `/space/${id}/draft`,
       },
       sea: {
         link: (id: string) => `/space/${id}/sea`,

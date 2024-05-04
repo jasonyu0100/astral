@@ -12,7 +12,7 @@ interface SpaceTabProps {
 export enum SpaceTabStage {
   Storm = 'Storm',
   Map = 'Map',
-  Flow = 'Flow',
+  Draft = 'Draft',
   Sea = 'Sea',
 }
 

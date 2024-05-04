@@ -10,11 +10,11 @@ import { TabOrangeShard } from '@/(lib)/(core)/tabs/tabs-row/tab/shard/orange/ma
 
 export function TabThree({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Flow;
+  const tabText = SpaceTabStage.Draft;
   const active = tab === tabText;
 
   return (
-    <Tab href={spaceMap.space.id.flow.link(spaceContext.spaceId)}>
+    <Tab href={spaceMap.space.id.draft.link(spaceContext.spaceId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

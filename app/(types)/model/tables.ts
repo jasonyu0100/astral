@@ -4,7 +4,7 @@ import { collectionTable, galleryTable } from './gallery/table';
 import { chapterTable, spaceTable } from './space/table';
 import { userTable } from './user/table';
 import { journeyTable } from './sea/table';
-import { commentTable, momentTable } from './flow/table';
+import { commentTable, momentTable } from './draft/table';
 import {
   fileTable,
   logTable as logTable,

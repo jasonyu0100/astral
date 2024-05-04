@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
-import { MoveObj } from '../../model/flow/move/main';
+import { MoveObj } from '../../model/draft/move/main';
 import {
   createMoveObj,
   deleteMoveObj,

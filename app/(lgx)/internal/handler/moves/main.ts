@@ -1,5 +1,5 @@
 import { useState, useMemo, createContext } from 'react';
-import { MoveObj } from '@/(types)/model/flow/move/main';
+import { MoveObj } from '@/(types)/model/draft/move/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { toast } from 'sonner';
 import { movesGqlHelper } from '../../../../(types)/gql/moves/main';
