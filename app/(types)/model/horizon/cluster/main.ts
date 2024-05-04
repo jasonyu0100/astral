@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../../resource/file/main';
 
 export enum ClusterVariant {
   AGENT = 'AGENT',
@@ -26,8 +25,6 @@ export const exampleHorizon: ClusterObj = {
   title: 'Horizon Example',
   description: 'Horizon Description',
   time: new Date().toISOString(),
-  thumbnail: exampleFile,
-  variant: ClusterVariant.CUSTOM,
 };
 
 export const exampleHorizons: ClusterObj[] = [
@@ -37,8 +34,6 @@ export const exampleHorizons: ClusterObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
-    variant: ClusterVariant.CUSTOM,
   },
   {
     id: '1',
@@ -46,7 +41,5 @@ export const exampleHorizons: ClusterObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
-    variant: ClusterVariant.CUSTOM,
   },
 ];

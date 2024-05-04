@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../../resource/file/main';
 
 export enum HorizonVariant {
   MIX = 'MIX',
@@ -26,8 +25,6 @@ export const exampleHorizon: FieldObj = {
   title: 'Horizon Example',
   description: 'Horizon Description',
   time: new Date().toISOString(),
-  thumbnail: exampleFile,
-  variant: HorizonVariant.CUSTOM,
 };
 
 export const exampleHorizons: FieldObj[] = [
@@ -37,8 +34,6 @@ export const exampleHorizons: FieldObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
-    variant: HorizonVariant.CUSTOM,
   },
   {
     id: '1',
@@ -46,7 +41,5 @@ export const exampleHorizons: FieldObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
-    variant: HorizonVariant.CUSTOM,
   },
 ];
