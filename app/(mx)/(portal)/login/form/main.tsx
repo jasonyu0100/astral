@@ -14,8 +14,11 @@ import { PortalForm } from '@/(mx)/(portal)/(polaroid-epic)/container/form/main'
 import { PortalFormOrDivider } from '@/(mx)/(portal)/(polaroid-epic)/container/form/or/main';
 import { PortalTextHeader } from '@/(mx)/(portal)/(polaroid-epic)/container/form/text-header/main';
 import axios from 'axios';
-import { emailLoginUser, googleLoginUser } from '@/(lgx)/internal/calls/auth/login/main';
-import { UserObj } from '@/(lgx)/internal/model/user/main';
+import {
+  emailLoginUser,
+  googleLoginUser,
+} from '@/(lgx)/internal/calls/auth/login/main';
+import { UserObj } from '@/(types)/model/user/main';
 
 export function PortalLoginForm() {
   const login = useGlobalUser((state) => state.login);
@@ -72,21 +75,19 @@ export function PortalLoginForm() {
   return (
     <PortalForm>
       <PortalTextHeader />
-      <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
-        Login with Google
-      </PortalFormGoogleAction>
-      <PortalFormOrDivider />
       <PortalFormBody>
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='🎧 email@studio.com'
+          placeholder='email@studio.com'
+          emoji='🎧'
           type='text'
         />
         <PortalFormInput
           value={password}
           onChange={(e) => changePassword(e.target.value)}
-          placeholder='🔒 Password'
+          placeholder='Password'
+          emoji='🔒'
           type='password'
         />
       </PortalFormBody>
@@ -94,8 +95,11 @@ export function PortalLoginForm() {
         <PortalFormAction onClick={() => attemptLogin()}>
           LOGIN
         </PortalFormAction>
+        <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
+          Login with Google
+        </PortalFormGoogleAction>
         <PortalFormAltAction>
-          Don't have an account?{' '}
+          Don{"'"}t have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>
             Register
           </PortalFormAltActionLink>

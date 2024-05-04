@@ -3,7 +3,7 @@ import {
   FileObj,
   FileVariant,
   getFileVariantFromMimeType,
-} from '../../../model/resource/file/main';
+} from '../../../../../(types)/model/resource/file/main';
 import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
 import { generateUploadURL } from '@/(lgx)/external/aws/s3/main';
 import { createFileObj } from '@/graphql/mutations';

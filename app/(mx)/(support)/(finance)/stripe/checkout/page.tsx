@@ -6,7 +6,7 @@ import {
   EmbeddedCheckout,
 } from '@stripe/react-stripe-js';
 import { useSearchParams } from 'next/navigation';
-import { stripeCheckoutSession } from '@/(lgx)/external/pricing/stripe/main';
+import { stripeCheckoutSession } from '@/(lgx)/external/stripe/main';
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || '');
 

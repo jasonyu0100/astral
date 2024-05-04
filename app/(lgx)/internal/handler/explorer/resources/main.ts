@@ -1,7 +1,7 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import { useState, useEffect as useMemo, createContext } from 'react';
-import { resourcesGqlHelper } from '../../../gql/resources/main';
+import { resourcesGqlHelper } from '../../../../../(types)/gql/resources/main';
 
 interface ResourcesHandler {
   resourceId: string;

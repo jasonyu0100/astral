@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(lgx)/internal/model/map/constellation/star/main';
+import { StarContext } from '@/(types)/model/map/constellation/star/main';
 import { ScoreMelodyStar } from './melody/main';
 import { ScoreRhythmStar } from './rhythm/main';
 import { ScoreBeatStar } from './beat/main';
-import { ScoreVariant } from '@/(lgx)/internal/model/resource/score/main';
+import { ScoreVariant } from '@/(types)/model/resource/score/main';
 
 export function ScoreStar() {
   const star = useContext(StarContext);

@@ -1,9 +1,9 @@
 'use client';
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 import {
   LogObj,
   LogVariant,
-} from '@/(lgx)/internal/model/resource/log/main';
+} from '@/(types)/model/resource/log/main';
 import { StarModalContext } from '@/(cx)/(studio)/(modals)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useEffect, useMemo } from 'react';

@@ -3,7 +3,7 @@ import {
   glassFx,
   roundedFx,
 } from '@/(fx)/data';
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 
 export default function ChaptersAdd({ ...props }: ButtonInputProps) {
   return (

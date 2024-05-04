@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
+import { ChapterContext } from '@/(types)/model/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 import ChaptersAdd from '@/(cx)/(studio)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(cx)/(studio)/space/[id]/(pages)/(common)/chapters/row/chapter/main';

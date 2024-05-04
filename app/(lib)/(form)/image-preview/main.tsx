@@ -1,4 +1,4 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 
 export function ImagePreview({ file }: { file: FileObj}) {
 

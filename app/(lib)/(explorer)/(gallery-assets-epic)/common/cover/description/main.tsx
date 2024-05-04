@@ -1,4 +1,4 @@
-import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
+import { GalleryContext } from '@/(types)/model/gallery/main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
 import { useContext } from 'react';
 

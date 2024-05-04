@@ -1,7 +1,7 @@
-import { ChatObj } from '@/(lgx)/internal/model/storm/chat/main';
-import { chatTable } from '@/(lgx)/internal/model/storm/table';
+import { ChatObj } from '@/(types)/model/storm/chat/main';
+import { chatTable } from '@/(types)/model/storm/table';
 import { createContext, useMemo, useState } from 'react';
-import { chatsGqlHelper } from '@/(lgx)/internal/gql/chats/main';
+import { chatsGqlHelper } from '@/(types)/gql/chats/main';
 
 export interface ChatActions {
   updateChats: (chats: ChatObj[]) => ChatObj[];

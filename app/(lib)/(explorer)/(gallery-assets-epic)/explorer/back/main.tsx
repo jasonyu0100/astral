@@ -1,4 +1,4 @@
-import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
+import { GalleryContext } from '@/(types)/model/gallery/main';
 import { archiveMap } from '@/(cx)/(center)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';

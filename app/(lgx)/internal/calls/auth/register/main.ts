@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { UserObj } from '@/(lgx)/internal/model/user/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { UserObj } from '@/(types)/model/user/main';
 import { createUserObj } from '@/graphql/mutations';
 import { listUserObjs } from '@/graphql/queries';
 import bcrypt from 'bcryptjs';

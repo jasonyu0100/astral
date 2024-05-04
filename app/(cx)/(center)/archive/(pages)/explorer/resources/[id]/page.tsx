@@ -3,13 +3,13 @@ import { createContext } from 'react';
 import {
   GalleryContext,
   GalleryObj,
-} from '@/(lgx)/internal/model/gallery/main';
+} from '@/(types)/model/gallery/main';
 import {
   CollectionContext,
   CollectionObj,
-} from '@/(lgx)/internal/model/gallery/collection/main';
+} from '@/(types)/model/gallery/collection/main';
 import insideVerse from '@/(lgx)/utils/isAuth';
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,

@@ -1,7 +1,7 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { MomentObj } from '@/(lgx)/internal/model/journal/moment/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { MomentObj } from '@/(types)/model/journal/moment/main';
 import { createContext, useMemo, useState } from 'react';
-import { gqlHelper } from '../../gql/journal/main';
+import { gqlHelper } from '../../../../(types)/gql/journal/main';
 
 export interface JournalActions {
   listMoments: () => Promise<MomentObj[]>;

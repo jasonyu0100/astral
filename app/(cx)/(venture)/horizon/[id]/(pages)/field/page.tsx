@@ -10,7 +10,7 @@ import { ProfileCover } from '@/(lib)/(element)/profile/main';
 import {
   exampleFile,
   exampleFiles,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import { BaseSidebar } from './(field-epic)/sidebar/main';
 
 function Page() {

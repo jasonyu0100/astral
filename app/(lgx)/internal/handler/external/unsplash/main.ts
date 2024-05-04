@@ -1,4 +1,4 @@
-import { FileObj, FileVariant } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj, FileVariant } from '@/(types)/model/resource/file/main';
 import { useEffect } from 'react';
 
 export const useUnsplash = () => {

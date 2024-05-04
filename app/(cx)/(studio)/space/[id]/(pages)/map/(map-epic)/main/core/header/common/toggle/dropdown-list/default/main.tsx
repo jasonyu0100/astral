@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 import { NetworkIcon } from '../../../icons/network/main';
 import { MapModalType } from '@/(cx)/(studio)/space/[id]/(pages)/map/page';
 

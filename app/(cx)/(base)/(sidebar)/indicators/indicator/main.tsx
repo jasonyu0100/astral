@@ -1,4 +1,4 @@
-import { HyperLinkInputProps } from '@/(lgx)/types/element/main';
+import { HyperLinkInputProps } from '@/(types)/element/main';
 
 export interface IndicatorProps {
   indicator: string | undefined;

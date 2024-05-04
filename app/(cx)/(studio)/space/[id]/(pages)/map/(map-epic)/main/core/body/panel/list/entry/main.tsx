@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ConstellationContext } from '@/(lgx)/internal/model/map/constellation/main';
+import { ConstellationContext } from '@/(types)/model/map/constellation/main';
 import { cn } from '@/(lgx)/utils/cn';
 import { ConstellationsHandlerContext } from '@/(lgx)/internal/handler/constellations/main';
 

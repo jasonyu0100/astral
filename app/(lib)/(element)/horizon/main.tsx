@@ -1,7 +1,7 @@
 import { GlassEffectWrapper } from '@/(lib)/(glass)/effect/main';
 import { roundedFx } from '@/(fx)/data';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { DivInputProps } from '@/(lgx)/types/element/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { DivInputProps } from '@/(types)/element/main';
 
 interface HorizonCoverProps extends DivInputProps {
   coverFx?: string;

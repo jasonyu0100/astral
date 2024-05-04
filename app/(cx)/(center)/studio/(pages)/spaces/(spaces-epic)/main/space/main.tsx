@@ -2,7 +2,7 @@
 import {
   SpaceContext,
   SpaceObj,
-} from '@/(lgx)/internal/model/space/main';
+} from '@/(types)/model/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx } from '@/(fx)/data';

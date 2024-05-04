@@ -5,7 +5,7 @@ import {
 } from 'framer-motion';
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
 import { MapContext, MapModalType } from '@/(cx)/(studio)/space/[id]/(pages)/map/page';
-import { StarObj } from '@/(lgx)/internal/model/map/constellation/star/main';
+import { StarObj } from '@/(types)/model/map/constellation/star/main';
 import { StarsHandlerContext } from '../main';
 
 export interface StarHandler {

@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(lib)/(form)/input/main';
 import { FullLoomVideo } from '@/(lib)/(loom)/full-video/main';
-import { LogObjContext } from '@/(lgx)/internal/model/resource/log/main';
+import { LogObjContext } from '@/(types)/model/resource/log/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 
 export function AddLogStarModal() {

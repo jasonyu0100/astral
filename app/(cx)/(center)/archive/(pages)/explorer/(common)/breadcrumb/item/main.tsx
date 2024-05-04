@@ -1,5 +1,5 @@
 import { Divider } from '@/(lib)/(line)/divider/main';
-import { LinkInputProps } from '@/(lgx)/types/element/main';
+import { LinkInputProps } from '@/(types)/element/main';
 import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {

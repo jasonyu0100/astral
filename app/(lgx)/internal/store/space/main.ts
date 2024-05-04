@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import Cookies from 'js-cookie';
-import { SpaceObj } from '@/(lgx)/internal/model/space/main';
+import { SpaceObj } from '@/(types)/model/space/main';
 
 interface SpaceStore {
   space: SpaceObj;

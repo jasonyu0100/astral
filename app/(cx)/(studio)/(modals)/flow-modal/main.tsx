@@ -1,4 +1,4 @@
-import { LogObj } from '@/(lgx)/internal/model/resource/log/main';
+import { LogObj } from '@/(types)/model/resource/log/main';
 import { createContext, useState } from 'react';
 
 export interface FlowModalController {

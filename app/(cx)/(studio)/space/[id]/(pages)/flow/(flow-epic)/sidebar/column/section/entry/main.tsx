@@ -1,4 +1,4 @@
-import { MomentContext } from "@/(lgx)/internal/model/journal/moment/main";
+import { MomentContext } from "@/(types)/model/journal/moment/main";
 import { useContext } from "react";
 
 export function FlowSidebarEntry() {

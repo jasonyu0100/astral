@@ -1,4 +1,4 @@
-import { SvgInputProps } from '@/(lgx)/types/element/main';
+import { SvgInputProps } from '@/(types)/element/main';
 
 export function VisualIcon({ ...props }: SvgInputProps) {
   return (

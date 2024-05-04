@@ -1,5 +1,5 @@
 import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 
 export function MapHeaderFileButton({ ...props }: ButtonInputProps) {
   return (

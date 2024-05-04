@@ -33,11 +33,14 @@ export function Topbar() {
           <TopbarLogo href={studioMap.studio.spaces.link} />
           <TopbarLeftGroup>
             <TopbarLink href={studioMap.studio.spaces.link}>HOME</TopbarLink>
-            <TopbarLink href='/learn' target='_blank'>
+            <TopbarLink href='/learn'>
               LEARN
             </TopbarLink>
-            <TopbarLink href='/support' target='_blank'>
+            <TopbarLink href='/support'>
               SUPPORT
+            </TopbarLink>
+            <TopbarLink href='/dual'>
+              DUAL
             </TopbarLink>
           </TopbarLeftGroup>
           <TopbarRightGroup>

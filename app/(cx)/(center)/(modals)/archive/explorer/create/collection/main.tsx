@@ -6,7 +6,7 @@ import { FormContainer } from '@/(lib)/(form)/main';
 import { FormTitle } from '@/(lib)/(form)/title/main';
 import { FormUploadFiles } from '@/(lib)/(form)/file/upload/upload-files/main';
 import { Modal } from '@/(lib)/(modal)/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveExplorerCreateModalContext } from '../main';
 import { CollectionsHandlerContext } from '@/(lgx)/internal/handler/explorer/collections/main';

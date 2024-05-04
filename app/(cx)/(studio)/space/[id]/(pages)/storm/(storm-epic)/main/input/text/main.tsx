@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
-import { FormInputProps } from '@/(lgx)/types/element/main';
+import { FormInputProps } from '@/(types)/element/main';
 
 export function StormChatMessageInput({ ...props }: FormInputProps) {
   return (

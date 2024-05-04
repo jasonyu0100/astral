@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { FileVariant } from '@/(lgx)/internal/model/resource/file/main';
-import { ResourcesContext } from '@/(lgx)/internal/model/gallery/collection/main';
+import { FileVariant } from '@/(types)/model/resource/file/main';
+import { ResourcesContext } from '@/(types)/model/gallery/collection/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const resources = useContext(ResourcesContext);

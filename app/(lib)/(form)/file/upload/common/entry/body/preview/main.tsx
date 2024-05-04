@@ -1,7 +1,7 @@
 import {
   FileObjContext,
   FileVariant,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {

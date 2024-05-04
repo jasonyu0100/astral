@@ -1,7 +1,7 @@
 'use client';
 import { createContext } from 'react';
 import { SearchView } from './view';
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import insideVerse from '@/(lgx)/utils/isAuth';
 import {
   SearchActions,

@@ -31,14 +31,16 @@ export function PortalReserveForm() {
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
-          placeholder={variant === 'm' ? 'Jason' : 'Taylor'}
+          placeholder={`first name`}
+          emoji='🎤'
           type='text'
         />
         <PortalFormInput
           value={lname}
           onChange={(e) => changeLname(e.target.value)}
-          placeholder={variant === 'm' ? 'Yu' : 'Swift'}
+          placeholder={`last name`}
           type='text'
+          emoji='🎸'
         />
         <PortalFormInput
           value={email}
@@ -53,7 +55,7 @@ export function PortalReserveForm() {
           }}
         >
           {categories.map((category) => (
-            <option value={category}>⭐ {category}</option>
+            <option value={category} key={category}>⭐ {category}</option>
           ))}
         </PortalFormSelect>
       </PortalFormBody>

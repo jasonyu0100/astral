@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CollectionContext } from '@/(lgx)/internal/model/gallery/collection/main';
+import { CollectionContext } from '@/(types)/model/gallery/collection/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
 import { CollectionsHandlerContext } from '@/(lgx)/internal/handler/explorer/collections/main';
 import { SidebarCollection } from '@/(lib)/(explorer)/(collection-assets-epic)/sidebar/main';

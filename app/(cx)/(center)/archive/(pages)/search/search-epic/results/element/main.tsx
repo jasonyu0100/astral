@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import { cn } from '@/(lgx)/utils/cn';
 import clsx from 'clsx';
 

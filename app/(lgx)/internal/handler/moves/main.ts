@@ -1,8 +1,8 @@
 import { useState, useMemo, createContext } from 'react';
-import { MoveObj } from '@/(lgx)/internal/model/flow/move/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { MoveObj } from '@/(types)/model/flow/move/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { toast } from 'sonner';
-import { movesGqlHelper } from '../../gql/moves/main';
+import { movesGqlHelper } from '../../../../(types)/gql/moves/main';
 
 export interface MoveActions {
   listMoves: () => Promise<void>;

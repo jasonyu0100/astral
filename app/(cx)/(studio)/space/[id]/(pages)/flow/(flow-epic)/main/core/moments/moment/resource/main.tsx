@@ -1,5 +1,5 @@
 import { borderFx } from '@/(fx)/data';
-import { ResourceVariant } from '@/(lgx)/internal/model/resource/main';
+import { ResourceVariant } from '@/(types)/model/resource/main';
 import { cn } from '@/(lgx)/utils/cn';
 import { useContext } from 'react';
 import { FlowMomentContext } from '../../main';

@@ -11,7 +11,7 @@ import { FormUploadFile } from '@/(lib)/(form)/file/upload/upload-file/main';
 import {
   FileObj,
   FileVariant,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 import { FormTextArea } from '@/(lib)/(form)/area/main';

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GalleryExplorerAdd } from '../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/explorer/add/main';
 import { ExplorerGallery } from '../../../../../../../../(lib)/(explorer)/(gallery-assets-epic)/explorer/main';
-import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
+import { GalleryContext } from '@/(types)/model/gallery/main';
 import { GallerysHandlerContext } from '@/(lgx)/internal/handler/explorer/gallerys/main';
 import { ArchiveExplorerCreateModalContext } from '@/(cx)/(center)/(modals)/archive/explorer/create/main';
 

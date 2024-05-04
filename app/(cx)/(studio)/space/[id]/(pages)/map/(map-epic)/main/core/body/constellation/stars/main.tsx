@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext, useRef } from 'react';
 import { MapStar } from './star/main';
-import { StarContext } from '@/(lgx)/internal/model/map/constellation/star/main';
+import { StarContext } from '@/(types)/model/map/constellation/star/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 
 export function MapConstellationStars() {

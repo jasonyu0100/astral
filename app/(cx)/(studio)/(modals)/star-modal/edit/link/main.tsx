@@ -9,7 +9,7 @@ import { StarModalContext } from '../../main';
 import {
   LinkObj,
   LinkVariant,
-} from '@/(lgx)/internal/model/resource/link/main';
+} from '@/(types)/model/resource/link/main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
 import { FormInput } from '@/(lib)/(form)/input/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CollectionSample } from '../common/sample/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { CollectionContext, ResourcesContext } from '@/(lgx)/internal/model/gallery/collection/main';
+import { CollectionContext, ResourcesContext } from '@/(types)/model/gallery/collection/main';
 import { useResourcesHandler } from '@/(lgx)/internal/handler/explorer/resources/main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
 

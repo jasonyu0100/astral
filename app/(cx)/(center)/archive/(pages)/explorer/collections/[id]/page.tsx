@@ -2,7 +2,7 @@
 import { CollectionsView } from './(collections-explorer-epic)/view';
 import {
   GalleryContext,
-} from '@/(lgx)/internal/model/gallery/main';
+} from '@/(types)/model/gallery/main';
 import insideVerse from '@/(lgx)/utils/isAuth';
 import { useGalleryHandler } from '@/(lgx)/internal/handler/explorer/gallerys/gallery/main';
 import {

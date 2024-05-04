@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { glassFx } from '@/(fx)/data';
-import { DivInputProps } from '@/(lgx)/types/element/main';
+import { DivInputProps } from '@/(types)/element/main';
 
 interface InputProps extends DivInputProps {
   children: React.ReactNode;

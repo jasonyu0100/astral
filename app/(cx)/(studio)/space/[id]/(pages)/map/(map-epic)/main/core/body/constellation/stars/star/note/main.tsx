@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(lgx)/internal/model/map/constellation/star/main';
-import { NoteVariant } from '@/(lgx)/internal/model/resource/note/main';
+import { StarContext } from '@/(types)/model/map/constellation/star/main';
+import { NoteVariant } from '@/(types)/model/resource/note/main';
 import { NotePromptStar } from './prompt/main';
 import { NoteStickyStar } from './sticky/main';
 import { NoteQuoteStar } from './quote/main';

@@ -1,6 +1,6 @@
 import { CreativeProfile } from './grid/profile/main';
 import { CreativeRow } from './grid/main';
-import { exampleFiles } from '@/(lgx)/internal/model/resource/file/main';
+import { exampleFiles } from '@/(types)/model/resource/file/main';
 
 export function CreativeResults() {
   return (

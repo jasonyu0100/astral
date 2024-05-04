@@ -1,6 +1,6 @@
 import { GalleryPhoto } from '../photo/main';
 import { GalleryExplorerAddCover } from './cover/main';
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 
 export function GalleryExplorerAdd({ ...props }: ButtonInputProps) {
   return (

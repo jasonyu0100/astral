@@ -1,4 +1,4 @@
-import { getFileAccepts, FileVariant } from "@/(lgx)/internal/model/resource/file/main";
+import { getFileAccepts, FileVariant } from "@/(types)/model/resource/file/main";
 import { UploadsHandlerContext } from "@/(lgx)/internal/handler/upload/multiple/main";
 import { useContext } from "react";
 

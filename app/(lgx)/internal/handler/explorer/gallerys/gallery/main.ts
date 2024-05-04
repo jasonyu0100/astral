@@ -1,6 +1,6 @@
-import { GalleryObj } from '@/(lgx)/internal/model/gallery/main';
+import { GalleryObj } from '@/(types)/model/gallery/main';
 import { useState, useMemo } from 'react';
-import { gallerysGqlHelper } from '@/(lgx)/internal/gql/gallerys/main';
+import { gallerysGqlHelper } from '@/(types)/gql/gallerys/main';
 
 export const useGalleryHandler = (galleryId: string) => {
   const [gallery, changeGallery] = useState({} as GalleryObj);

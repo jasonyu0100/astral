@@ -3,7 +3,7 @@ import { CollectionBreadcrumbDivider } from '../../../../(common)/breadcrumb/div
 import { CollectionBreadcrumbItem } from '../../../../(common)/breadcrumb/item/main';
 import { CollectionBreadcrumbs } from '../../../../(common)/breadcrumb/main';
 import { useContext } from 'react';
-import { GalleryContext } from '@/(lgx)/internal/model/gallery/main';
+import { GalleryContext } from '@/(types)/model/gallery/main';
 
 export function CollectionsBreadcrumbs() {
   const gallery = useContext(GalleryContext);

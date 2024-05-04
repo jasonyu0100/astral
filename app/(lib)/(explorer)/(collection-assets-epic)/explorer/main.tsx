@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import {
   CollectionContext,
   ResourcesContext,
-} from '@/(lgx)/internal/model/gallery/collection/main';
+} from '@/(types)/model/gallery/collection/main';
 import { useResourcesHandler } from '@/(lgx)/internal/handler/explorer/resources/main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
 

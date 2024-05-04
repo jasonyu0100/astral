@@ -1,5 +1,5 @@
 import { FileOnChangeContext } from '@/(lgx)/internal/contexts/fileOnChange/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {

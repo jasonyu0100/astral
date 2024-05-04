@@ -1,7 +1,7 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { GalleryObj } from '@/(lgx)/internal/model/gallery/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { GalleryObj } from '@/(types)/model/gallery/main';
 import { createContext, useMemo, useState } from 'react';
-import { gallerysGqlHelper } from '../../../gql/gallerys/main';
+import { gallerysGqlHelper } from '../../../../../(types)/gql/gallerys/main';
 
 export interface GallerysHandler {
   gallery: GalleryObj | undefined;

@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 import { SpacesFlowIcon } from '../icon/flow/main';
 
 export function SpacesHeaderAction({ ...props }: ButtonInputProps) {

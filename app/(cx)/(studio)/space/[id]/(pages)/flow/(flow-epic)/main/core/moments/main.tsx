@@ -2,7 +2,7 @@ import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { createContext, useContext } from 'react';
 import { FlowMoment } from './moment/main';
-import { MomentObj } from '@/(lgx)/internal/model/journal/moment/main';
+import { MomentObj } from '@/(types)/model/journal/moment/main';
 import { MomentsHandlerContext } from '@/(lgx)/internal/handler/moments/main';
 
 export const FlowMomentContext = createContext({} as MomentObj);

@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 import { cn } from '@/(lgx)/utils/cn';
 
 export enum ButtonVariant {

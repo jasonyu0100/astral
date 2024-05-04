@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
 import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { horizonMap } from '@/(cx)/(venture)/horizon/[id]/map';
 import { borderFx, glassFx, roundedFx } from '@/(fx)/data';
-import { exampleFile } from '@/(lgx)/internal/model/resource/file/main';
+import { exampleFile } from '@/(types)/model/resource/file/main';
 import Link from 'next/link';
 
 export function Horizon() {

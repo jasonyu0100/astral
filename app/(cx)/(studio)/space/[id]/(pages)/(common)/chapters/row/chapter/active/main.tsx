@@ -1,4 +1,4 @@
-import { ChapterContext } from "@/(lgx)/internal/model/space/chapter/main";
+import { ChapterContext } from "@/(types)/model/space/chapter/main";
 import { useContext } from "react";
 
 export function ChapterActiveText() {

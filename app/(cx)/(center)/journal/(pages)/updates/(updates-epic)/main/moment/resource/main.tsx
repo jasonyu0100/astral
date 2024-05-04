@@ -1,6 +1,6 @@
 import { borderFx } from '@/(fx)/data';
-import { MomentObj } from '@/(lgx)/internal/model/journal/moment/main';
-import { ResourceVariant } from '@/(lgx)/internal/model/resource/main';
+import { MomentObj } from '@/(types)/model/journal/moment/main';
+import { ResourceVariant } from '@/(types)/model/resource/main';
 import { cn } from '@/(lgx)/utils/cn';
 
 export function MomentResource({ moment }: { moment: MomentObj }) {

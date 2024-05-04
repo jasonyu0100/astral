@@ -1,14 +1,14 @@
 import { useState, useMemo, createContext } from 'react';
-import { SpaceObj } from '@/(lgx)/internal/model/space/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { ChapterTemplateObj } from '@/(lgx)/internal/model/space/templates/main';
+import { SpaceObj } from '@/(types)/model/space/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { ChapterTemplateObj } from '@/(types)/model/space/templates/main';
 import { toast } from 'sonner';
-import { spacesGqlHelper } from '../../gql/spaces/main';
-import { chaptersGqlHelper } from '../../gql/chapters/main';
-import { chatsGqlHelper } from '../../gql/chats/main';
-import { constellationsGqlHelper } from '../../gql/constellations/main';
-import { messagesGqlHelper } from '../../gql/messages/main';
-import { starsGqlHelper } from '../../gql/stars/main';
+import { spacesGqlHelper } from '../../../../(types)/gql/spaces/main';
+import { chaptersGqlHelper } from '../../../../(types)/gql/chapters/main';
+import { chatsGqlHelper } from '../../../../(types)/gql/chats/main';
+import { constellationsGqlHelper } from '../../../../(types)/gql/constellations/main';
+import { messagesGqlHelper } from '../../../../(types)/gql/messages/main';
+import { starsGqlHelper } from '../../../../(types)/gql/stars/main';
 
 export interface SpaceActions {
   listSpaces: () => Promise<void>;

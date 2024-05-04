@@ -1,6 +1,6 @@
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 import { ChatsHandlerContext } from '@/(lgx)/internal/handler/storm/chats/main';
-import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
+import { ChapterContext } from '@/(types)/model/space/chapter/main';
 import { cn } from '@/(lgx)/utils/cn';
 import React, { useContext } from 'react';
 

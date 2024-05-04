@@ -6,7 +6,7 @@ import { FormTitle } from '@/(lib)/(form)/title/main';
 import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { NoteObj, NoteVariant } from '@/(lgx)/internal/model/resource/note/main';
+import { NoteObj, NoteVariant } from '@/(types)/model/resource/note/main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
 import { FormTextArea } from '@/(lib)/(form)/area/main';
 import { FormInput } from '@/(lib)/(form)/input/main';

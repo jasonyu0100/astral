@@ -1,7 +1,7 @@
 import {
   FileObj,
   FileVariant,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {

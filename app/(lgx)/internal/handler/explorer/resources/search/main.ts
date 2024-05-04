@@ -1,6 +1,6 @@
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import { useState, useEffect, createContext } from 'react';
-import { resourcesGqlHelper } from '../../../../gql/resources/main';
+import { resourcesGqlHelper } from '../../../../../../(types)/gql/resources/main';
 
 interface SearchResourcesHandler {
   resourceId: string;

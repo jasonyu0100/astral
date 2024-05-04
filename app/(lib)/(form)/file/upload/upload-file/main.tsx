@@ -3,7 +3,7 @@ import {
   FileObjContext,
   FileVariant,
   getFileAccepts,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadedFileEntry } from '../common/entry/main';
 import { UploadedFileEntryBody } from '../common/entry/body/main';

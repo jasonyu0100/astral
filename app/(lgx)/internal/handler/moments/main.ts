@@ -1,10 +1,10 @@
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { MomentObj } from '@/(lgx)/internal/model/journal/moment/main';
-import { LogObj } from '@/(lgx)/internal/model/resource/log/main';
-import { NoteObj } from '@/(lgx)/internal/model/resource/note/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { MomentObj } from '@/(types)/model/journal/moment/main';
+import { LogObj } from '@/(types)/model/resource/log/main';
+import { NoteObj } from '@/(types)/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
-import { momentsGqlHelper } from '../../gql/moments/main';
+import { momentsGqlHelper } from '../../../../(types)/gql/moments/main';
 
 export interface MomentActions {
   listMoments: () => Promise<MomentObj[]>;

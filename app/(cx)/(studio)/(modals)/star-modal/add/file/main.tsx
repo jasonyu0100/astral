@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(lib)/(form)/input/main';
 import { FormUploadFile } from '@/(lib)/(form)/file/upload/upload-file/main';
-import { FileObj, FileVariant } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj, FileVariant } from '@/(types)/model/resource/file/main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 

@@ -7,8 +7,8 @@ import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(lib)/(form)/input/main';
 import { FormUploadFile } from '@/(lib)/(form)/file/upload/upload-file/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { ResourceContext } from '@/(lgx)/internal/model/resource/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { ResourceContext } from '@/(types)/model/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(lgx)/internal/handler/explorer/resources/main';
 

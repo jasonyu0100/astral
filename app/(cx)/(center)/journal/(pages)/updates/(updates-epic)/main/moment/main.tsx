@@ -3,7 +3,7 @@ import { PostDivider } from './divider/main';
 import { MomentResource } from './resource/main';
 import { PostInfo } from './info/main';
 import { PostDescription } from './description/main';
-import { MomentContext } from '@/(lgx)/internal/model/journal/moment/main';
+import { MomentContext } from '@/(types)/model/journal/moment/main';
 import { spaceMap } from '@/(cx)/(studio)/space/[id]/map';
 import Link from 'next/link';
 import { useContext } from 'react';

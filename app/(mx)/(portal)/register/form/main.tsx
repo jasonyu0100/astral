@@ -21,8 +21,9 @@ import {
 import {
   FileObj,
   FileVariant,
-} from '@/(lgx)/internal/model/resource/file/main';
-import { UserObj } from '@/(lgx)/internal/model/user/main';
+} from '@/(types)/model/resource/file/main';
+import { UserObj } from '@/(types)/model/user/main';
+import { PortalTextHeader } from '../../(polaroid-epic)/container/form/text-header/main';
 
 export function PortalRegisterForm() {
   const { variant } = useContext(PolaroidContext);
@@ -98,23 +99,22 @@ export function PortalRegisterForm() {
 
   return (
     <PortalForm>
-      <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
-        Register with Google
-      </PortalFormGoogleAction>
-      <PortalFormOrDivider />
+      <PortalTextHeader />
       <PortalFormBody>
         <div className='flex flex-row'>
           <PortalFormInput
             value={fname}
             onChange={(e) => changeFname(e.target.value)}
-            placeholder={'First'}
+            placeholder={'first name'}
+            emoji='🎤'
             type='text'
           />
-          <div className="w-[40px]"/>
+          <div className='w-[40px]' />
           <PortalFormInput
             value={lname}
             onChange={(e) => changeLname(e.target.value)}
-            placeholder={'Last'}
+            placeholder={'last name'}
+            emoji='🎸'
             type='text'
           />
         </div>
@@ -122,6 +122,7 @@ export function PortalRegisterForm() {
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
           placeholder='Email'
+          emoji='✉️'
           type='text'
         />
         <PortalFormInput
@@ -129,8 +130,10 @@ export function PortalRegisterForm() {
           onChange={(e) => changePassword(e.target.value)}
           placeholder='Password'
           type='password'
+          emoji='🔒'
         />
         <PortalFormInput
+          emoji='🔐'
           type='password'
           value={rePassword}
           onChange={(e) => changeRePassword(e.target.value)}
@@ -141,6 +144,9 @@ export function PortalRegisterForm() {
         <PortalFormAction onClick={() => alert('Coming soon...')}>
           REGISTER
         </PortalFormAction>
+        <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
+          Register with Google
+        </PortalFormGoogleAction>
         <PortalFormAltAction>
           Already have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.login.link}>

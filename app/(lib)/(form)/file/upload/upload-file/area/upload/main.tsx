@@ -1,7 +1,7 @@
 import {
   FileVariant,
   getFileAccepts,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import {
   UploadHandlerContext,
 } from '@/(lgx)/internal/handler/upload/single/main';

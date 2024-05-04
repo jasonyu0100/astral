@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FlowSidebarEntry } from './entry/main';
-import { MomentContext } from '@/(lgx)/internal/model/journal/moment/main';
+import { MomentContext } from '@/(types)/model/journal/moment/main';
 import { MomentsHandlerContext } from '@/(lgx)/internal/handler/moments/main';
 
 export function FlowSidebarSection() {

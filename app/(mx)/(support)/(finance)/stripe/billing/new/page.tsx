@@ -1,7 +1,7 @@
 'use client';
 import { studioMap } from '@/(cx)/(center)/studio/map';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
-import { stripeNewBillingSession, stripeProcessSubscription } from '@/(lgx)/external/pricing/stripe/main';
+import { stripeNewBillingSession, stripeProcessSubscription } from '@/(lgx)/external/stripe/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

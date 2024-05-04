@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(lgx)/internal/model/map/constellation/star/main';
-import { FileVariant } from '@/(lgx)/internal/model/resource/file/main';
+import { StarContext } from '@/(types)/model/map/constellation/star/main';
+import { FileVariant } from '@/(types)/model/resource/file/main';
 import { FileAudioStar } from './audio/main';
 import { FileImageStar } from './image/main';
 import { FileVideoStar } from './video/main';

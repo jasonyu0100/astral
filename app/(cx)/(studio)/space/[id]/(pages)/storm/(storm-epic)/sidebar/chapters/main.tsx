@@ -3,7 +3,7 @@ import { StormModalContext } from '@/(cx)/(studio)/(modals)/storm-modal/main';
 import { useContext } from 'react';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
-import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
+import { ChapterContext } from '@/(types)/model/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 
 export function StormSidebarChapters() {

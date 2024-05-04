@@ -1,11 +1,11 @@
-import { StarObj } from '@/(lgx)/internal/model/map/constellation/star/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { StarObj } from '@/(types)/model/map/constellation/star/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { createContext, useMemo, useState } from 'react';
-import { NoteObj } from '@/(lgx)/internal/model/resource/note/main';
-import { LogObj } from '@/(lgx)/internal/model/resource/log/main';
-import { LinkObj } from '@/(lgx)/internal/model/resource/link/main';
+import { NoteObj } from '@/(types)/model/resource/note/main';
+import { LogObj } from '@/(types)/model/resource/log/main';
+import { LinkObj } from '@/(types)/model/resource/link/main';
 import { toast } from 'sonner';
-import { starsGqlHelper } from '../../gql/stars/main';
+import { starsGqlHelper } from '../../../../(types)/gql/stars/main';
 export interface StarActions {
   listStars: () => Promise<StarObj[]>;
   createFromFile: (

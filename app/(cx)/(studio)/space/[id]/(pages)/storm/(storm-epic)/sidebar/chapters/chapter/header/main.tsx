@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(lgx)/internal/model/space/chapter/main';
+import { ChapterContext } from '@/(types)/model/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(lgx)/internal/handler/chapters/main';
 import { StormChapterTitle } from './title/main';
 

@@ -7,7 +7,7 @@ import {
   useJournalHandler,
 } from '@/(lgx)/internal/handler/journal/main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
-import { MomentObj } from '@/(lgx)/internal/model/journal/moment/main';
+import { MomentObj } from '@/(types)/model/journal/moment/main';
 
 interface JournalContextObj {
   momentId: string;

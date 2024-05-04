@@ -1,6 +1,6 @@
 'use client';
 
-import { FileObj } from "@/(lgx)/internal/model/resource/file/main";
+import { FileObj } from "@/(types)/model/resource/file/main";
 import { cn } from "@/(lgx)/utils/cn";
 
 export function CreativeProfile({ result, index } : { result: FileObj, index: number }) {

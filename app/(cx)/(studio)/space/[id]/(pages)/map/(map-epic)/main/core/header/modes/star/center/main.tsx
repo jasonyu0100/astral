@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(lgx)/internal/model/map/constellation/star/main';
+import { StarContext } from '@/(types)/model/map/constellation/star/main';
 import MapHeaderTitle from '../../../common/title/main';
 
 export function MapHeaderStarCenter() {

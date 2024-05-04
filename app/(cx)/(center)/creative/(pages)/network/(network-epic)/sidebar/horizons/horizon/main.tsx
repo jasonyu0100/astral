@@ -9,7 +9,7 @@ import { ToggleContext } from '@/(lgx)/internal/contexts/toggle/main';
 import {
   FileObj,
   exampleFile,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import { useState } from 'react';
 import { Seperator } from '@/(lib)/(line)/seperator/main';
 

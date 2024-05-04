@@ -1,10 +1,10 @@
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { LogObj } from '@/(lgx)/internal/model/resource/log/main';
-import { NoteObj } from '@/(lgx)/internal/model/resource/note/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { LogObj } from '@/(types)/model/resource/log/main';
+import { NoteObj } from '@/(types)/model/resource/note/main';
 import { createContext, useMemo, useState } from 'react';
-import { updatesGqlHelper } from '../../gql/updates/main';
-import { UpdateObj } from '../../model/sea/update/main';
+import { updatesGqlHelper } from '../../../../(types)/gql/updates/main';
+import { UpdateObj } from '../../../../(types)/model/sea/update/main';
 
 export interface UpdateActions {
   queryListUpdates: (userId: string) => Promise<UpdateObj[]>;

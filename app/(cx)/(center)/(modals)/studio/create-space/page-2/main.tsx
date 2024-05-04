@@ -1,6 +1,6 @@
 import { FormBody } from '@/(lib)/(form)/body/main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
-import { SpaceVariant } from '@/(lgx)/internal/model/space/main';
+import { SpaceVariant } from '@/(types)/model/space/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 

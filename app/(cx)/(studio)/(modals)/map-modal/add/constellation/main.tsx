@@ -9,7 +9,7 @@ import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
 import { FormSelect } from '@/(lib)/(form)/select/main';
-import { ConstellationVariant } from '@/(lgx)/internal/model/map/constellation/main';
+import { ConstellationVariant } from '@/(types)/model/map/constellation/main';
 import { ConstellationsHandlerContext } from '@/(lgx)/internal/handler/constellations/main';
 
 export function MapAddConstellationModal() {

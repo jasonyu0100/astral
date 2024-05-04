@@ -1,6 +1,6 @@
-import { ChapterObj } from '@/(lgx)/internal/model/space/chapter/main';
+import { ChapterObj } from '@/(types)/model/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
-import { chaptersGqlHelper } from '../../gql/chapters/main';
+import { chaptersGqlHelper } from '../../../../(types)/gql/chapters/main';
 
 export interface ChapterActions {
   addChapter: (chapter: ChapterObj) => ChapterObj;

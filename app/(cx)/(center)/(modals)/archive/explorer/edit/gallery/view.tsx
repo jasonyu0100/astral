@@ -6,7 +6,7 @@ import { FormTitle } from '@/(lib)/(form)/title/main';
 import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(lib)/(form)/input/main';
-import { ResourceContext } from '@/(lgx)/internal/model/resource/main';
+import { ResourceContext } from '@/(types)/model/resource/main';
 import { EditGalleryModalContext } from './main';
 
 export function ExplorerEditGalleryModal() {

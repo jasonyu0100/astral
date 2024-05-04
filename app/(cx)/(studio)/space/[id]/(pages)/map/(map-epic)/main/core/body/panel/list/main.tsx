@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ConstellationContext } from '@/(lgx)/internal/model/map/constellation/main';
+import { ConstellationContext } from '@/(types)/model/map/constellation/main';
 import { ConstellationListEntry } from './entry/main';
 import { ConstellationsHandlerContext } from '@/(lgx)/internal/handler/constellations/main';
 import { MapModalContext } from '@/(cx)/(studio)/(modals)/map-modal/main';

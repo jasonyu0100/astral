@@ -1,6 +1,6 @@
 import {
   FileObj,
-} from '@/(lgx)/internal/model/resource/file/main';
+} from '@/(types)/model/resource/file/main';
 import React, { createContext } from 'react';
 import SearchModalView from '@/(lib)/(form)/file/search/search-image/search-modal/view';
 import { FileOnChangeContext } from '@/(lgx)/internal/contexts/fileOnChange/main';

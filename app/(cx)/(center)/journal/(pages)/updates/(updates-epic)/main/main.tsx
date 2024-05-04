@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { containerFx } from '@/(fx)/data';
 import { UpdatesMoment } from './moment/main';
-import { MomentContext, exampleMoments } from '@/(lgx)/internal/model/journal/moment/main';
+import { MomentContext, exampleMoments } from '@/(types)/model/journal/moment/main';
 
 export function UpdatesPosts() {
   const moments = exampleMoments

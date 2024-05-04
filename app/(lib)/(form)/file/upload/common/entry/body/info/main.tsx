@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObjContext } from '@/(types)/model/resource/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {

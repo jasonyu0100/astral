@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { MapHeaderStarCenter } from './center/main';
 import { MapHeaderStarLeft } from './left/main';
 import { MapHeaderStarRight } from './right/main';
-import { StarContext, StarObj } from '@/(lgx)/internal/model/map/constellation/star/main';
+import { StarContext, StarObj } from '@/(types)/model/map/constellation/star/main';
 import { StarsHandlerContext } from '@/(lgx)/internal/handler/stars/main';
 
 export function MapHeaderStar() {

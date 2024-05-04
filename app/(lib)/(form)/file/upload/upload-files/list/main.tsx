@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObjContext } from '@/(types)/model/resource/file/main';
 import { UploadsHandlerContext } from '@/(lgx)/internal/handler/upload/multiple/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';

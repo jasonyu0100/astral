@@ -1,12 +1,12 @@
 import { useUnsplash } from '@/(lgx)/internal/handler/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { SearchBar } from '@/(lib)/(explorer)/search-bar/main';
 import { cn } from '@/(lgx)/utils/cn';
 import { FormBody } from '@/(lib)/(form)/body/main';
 import { FormContainer } from '@/(lib)/(form)/main';
 import { Modal } from '@/(lib)/(modal)/main';
-import { ImageInputProps } from '@/(lgx)/types/element/main';
+import { ImageInputProps } from '@/(types)/element/main';
 import { SearchModalContext } from './main';
 import { FileOnChangeContext } from '@/(lgx)/internal/contexts/fileOnChange/main';
 

@@ -5,7 +5,7 @@ import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { Divider } from '@/(lib)/(line)/divider/main';
 import { glassFx, borderFx, roundedFx } from '@/(fx)/data';
 import { ToggleContext } from '@/(lgx)/internal/contexts/toggle/main';
-import { exampleFile } from '@/(lgx)/internal/model/resource/file/main';
+import { exampleFile } from '@/(types)/model/resource/file/main';
 import { useState } from 'react';
 
 export function JouranlUpdatesSidebarCreative() {

@@ -7,7 +7,7 @@ import { FormContainer } from '@/(lib)/(form)/main';
 import { FormTitle } from '@/(lib)/(form)/title/main';
 import { Modal } from '@/(lib)/(modal)/main';
 import { useContext, useState } from 'react';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
 import { FlowModalContext } from '../../main';
 import { FormSearchImage } from '@/(lib)/(form)/file/search/search-image/main';
 import { Divider } from '@/(lib)/(line)/divider/main';

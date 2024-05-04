@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/(lgx)/types/element/main';
+import { FormInputProps } from '@/(types)/element/main';
 
 export default function SearchBarInput({ ...props }: FormInputProps) {
   return (

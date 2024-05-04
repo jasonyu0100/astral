@@ -3,7 +3,7 @@ import { CollectionResourceAdd } from '../../../../../../../../../../(lib)/(expl
 import { CollectionHeader } from './header/main';
 import { CollectionHeaderSearch } from './header/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../../(lib)/(explorer)/(resource-assets-epic)/sidebar/main';
-import { ResourceContext, ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { ResourceContext, ResourceObj } from '@/(types)/model/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(cx)/(center)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(lgx)/internal/handler/explorer/resources/main';
 

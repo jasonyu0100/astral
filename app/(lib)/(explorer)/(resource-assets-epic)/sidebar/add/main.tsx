@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(lgx)/types/element/main';
+import { DivInputProps } from '@/(types)/element/main';
 import { ResourcePolaroid } from '../polaroid/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {

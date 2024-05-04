@@ -1,5 +1,5 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { ResourceContext } from '@/(lgx)/internal/model/resource/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { ResourceContext } from '@/(types)/model/resource/main';
 import { useContext } from 'react';
 import { ResourcePolaroid } from './polaroid/main';
 import { CollectionResourceMedia } from '../common/media/main';

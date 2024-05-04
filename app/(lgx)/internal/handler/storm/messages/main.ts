@@ -1,7 +1,7 @@
-import { MessageObj } from '@/(lgx)/internal/model/storm/chat/message/main';
+import { MessageObj } from '@/(types)/model/storm/chat/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
-import { messagesGqlHelper } from '../../../gql/messages/main';
+import { messagesGqlHelper } from '../../../../../(types)/gql/messages/main';
 import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {

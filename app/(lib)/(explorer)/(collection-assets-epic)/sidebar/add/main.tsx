@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 import { CollectionThumbnail } from '../../common/thumbnail/main';
 import { CollectionInfo } from '../../common/info/main';
 import { CollectionSample } from '../../common/sample/main';

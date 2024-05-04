@@ -1,6 +1,6 @@
-import { CollectionObj } from '@/(lgx)/internal/model/gallery/collection/main';
+import { CollectionObj } from '@/(types)/model/gallery/collection/main';
 import { useMemo, useState } from 'react';
-import { collectionsGqlHelper } from '@/(lgx)/internal/gql/collections/main';
+import { collectionsGqlHelper } from '@/(types)/gql/collections/main';
 
 export const useCollectionHandler = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as CollectionObj);

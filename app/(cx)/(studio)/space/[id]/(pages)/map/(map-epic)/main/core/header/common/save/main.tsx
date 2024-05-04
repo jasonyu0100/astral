@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { WrapperTooltip } from '@/(lib)/(basic)/tooltip/main';
 import { glassFx } from '@/(fx)/data';
-import { ButtonInputProps } from '@/(lgx)/types/element/main';
+import { ButtonInputProps } from '@/(types)/element/main';
 
 export function MapSaveButton({ ...props }: ButtonInputProps) {
   return (

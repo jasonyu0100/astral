@@ -5,12 +5,12 @@ import { FormTitle } from '@/(lib)/(form)/title/main';
 import { Modal } from '@/(lib)/(modal)/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { SpaceVariant } from '@/(lgx)/internal/model/space/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { SpaceVariant } from '@/(types)/model/space/main';
 import {
   ChapterTemplateObj,
   getSpaceTemplate,
-} from '@/(lgx)/internal/model/space/templates/main';
+} from '@/(types)/model/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
 import { SpacesHandlerContext } from '@/(lgx)/internal/handler/spaces/main';

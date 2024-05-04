@@ -1,9 +1,9 @@
-import { FileObj } from '@/(lgx)/internal/model/resource/file/main';
-import { CollectionObj } from '@/(lgx)/internal/model/gallery/collection/main';
-import { ResourceObj } from '@/(lgx)/internal/model/resource/main';
+import { FileObj } from '@/(types)/model/resource/file/main';
+import { CollectionObj } from '@/(types)/model/gallery/collection/main';
+import { ResourceObj } from '@/(types)/model/resource/main';
 import { createContext, useMemo, useState } from 'react';
-import { collectionsGqlHelper } from '../../../gql/collections/main';
-import { resourcesGqlHelper } from '@/(lgx)/internal/gql/resources/main';
+import { collectionsGqlHelper } from '../../../../../(types)/gql/collections/main';
+import { resourcesGqlHelper } from '@/(types)/gql/resources/main';
 export interface CollectionsHandler {
   collectionId: string;
   collection: CollectionObj | undefined;

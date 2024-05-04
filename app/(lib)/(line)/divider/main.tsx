@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(lgx)/types/element/main';
+import { DivInputProps } from '@/(types)/element/main';
 
 export interface DividerProps extends DivInputProps {
   dividerFx?: string;
