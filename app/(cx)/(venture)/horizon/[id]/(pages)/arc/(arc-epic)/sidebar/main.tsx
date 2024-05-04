@@ -20,7 +20,7 @@ export function ArcSidebar() {
         className='p-[1rem]'
       >
         <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>1. Point</p>
+          <p className='text-white'>1. Decision XYZ</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
@@ -87,6 +87,17 @@ export function ArcSidebar() {
       >
         <GlassWindowContents className='flex flex-row'>
           <p className='text-white'>IT</p>
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      </GlassWindowFrame>
+      <GlassWindowFrame
+        name='temp'
+        borderFx={borderFx['border-all']}
+        roundedFx={roundedFx.rounded}
+        className='p-[1rem]'
+      >
+        <GlassWindowContents className='flex flex-row'>
+          <p className='text-white'>Propose Decision +</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>

@@ -10,9 +10,9 @@ export function HorizonsMain() {
       sizeFx='h-full flex-grow'
       className='flex flex-col'
     >
-      <HorizonsHeader />
-      <HorizonsCore />
       <HorizonsSearch />
+      <HorizonsCore />
+      <HorizonsHeader />
     </GlassAreaContainer>
   );
 }

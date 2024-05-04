@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/(lib)/(glass)/area/main';
 import { UpdatesPosts } from './main/main';
 import { JournalSearch } from './main/search/main';
+import { JournalFooter } from './main/footer/main';
 
 export function UpdatesMain() {
   return (
@@ -11,6 +12,7 @@ export function UpdatesMain() {
     >
       <JournalSearch />
       <UpdatesPosts />
+      <JournalFooter />
     </GlassAreaContainer>
   );
 }

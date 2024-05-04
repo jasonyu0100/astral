@@ -5,7 +5,9 @@ import { borderFx, roundedFx, glassFx } from '@/(fx)/data';
 
 export function HorizonsSearch() {
   return (
-  <div className='w-full px-[2rem] pt-[1rem] pb-[2rem]'>
+    <GlassWindowFrame
+      className='w-full px-[2rem] pb-[2rem] pt-[2rem]'
+    >
       <GlassWindowFrame
         name={HorizonsSearch.name}
         className='h-[4rem] w-full'
@@ -22,6 +24,6 @@ export function HorizonsSearch() {
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
-    </div>
+    </GlassWindowFrame>
   );
 }
