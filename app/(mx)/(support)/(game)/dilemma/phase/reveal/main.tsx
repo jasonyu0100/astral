@@ -106,15 +106,33 @@ export function PhaseReveal() {
         <p className='text-md font-bold text-slate-500'>Region B wins</p>
         <p className='text-md font-bold text-slate-500'>B31 vs A17 vs P16</p>
         <br />
-        <p className='text-md font-bold text-slate-500 '>
-          (optional) P1 would you like to reveal all the cards? (y/n)
-        </p>
-        <p className='text-md font-bold text-slate-500 '>
-          (optional) Dealer shuffles region cards then reveals
-        </p>
-        <br />
         <p className='text-md font-bold text-slate-500 '>NEXT DRAW</p>
       </div>
+    </div>
+  );
+}
+
+function ExtraSettings() {
+  return (
+    <div className='flex flex-col'>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 1a) Dealer always reveals cards
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 2a) P1 chooses whether to reveal cards
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 2b) Dealer shuffles region cards then reveals
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 3a) Deduction is dealt at the beginning
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 3b) Deduction is dealt at the end privately
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 3c) Deduction is dealt at the end publicly
+      </p>
     </div>
   );
 }
