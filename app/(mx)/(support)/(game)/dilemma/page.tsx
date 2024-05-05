@@ -125,16 +125,16 @@ function PhaseActions({ cards }: { cards: any[] }) {
       )}
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500 '>
-          Player 1 placed ? at A (2/2 , ++)
+          Player 1 placed ? at A (3 / 3 , ++)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 1 placed ? at P (4/0 , +0)
+          Player 1 placed ? at P (8 / 0 , +0)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 2 placed ? at A (2/2 , ++)
+          Player 2 placed ? at A (3 / 3 , ++)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 2 placed ? at B (1/-1 , ??)
+          Player 2 placed ? at B (1 / -1 , ??)
         </p>
       </div>
     </div>
@@ -156,8 +156,8 @@ export default function Page() {
       playerB: 8,
     },
     bottomRight: {
-      playerA: 2,
-      playerB: 2,
+      playerA: 3,
+      playerB: 3,
     },
   });
 
@@ -222,10 +222,10 @@ export default function Page() {
             <div className='flex aspect-[12/16] h-[5rem] bg-white'>A</div>
             <div className='flex aspect-[12/16] h-[5rem] bg-white'>K</div>
             <div className='flex aspect-[12/16] h-[5rem] bg-white'>Q</div>
-            <div className='flex aspect-[12/16] h-[5rem] bg-white'>J</div>
+            <div className='flex aspect-[12/16] h-[5rem] bg-white'>P</div>
           </div>
         </div>
-        <PhaseActions cards={['A', 'K', 'Q', 'J']} />
+        <PhaseActions cards={['A', 'K', 'Q', 'P']} />
         <div className='flex flex-col space-y-[1rem]'>
           <p className='font-extraBold text-xl text-slate-300 '>Phase 2</p>
           <div className=' flex flex-row space-x-[1rem]'>
@@ -242,10 +242,10 @@ export default function Page() {
           </div>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed ? at B (2/-2 , ??)
+              Player 1 placed ? at B (3 / -3 , ??)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed ? at P2 (0/8 , 0+)
+              Player 2 placed ? at P2 (0 / 8 , 0+)
             </p>
           </div>
         </div>
@@ -266,10 +266,10 @@ export default function Page() {
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed ? at P (0/8 , 0+)
+              Player 2 placed ? at P (0 / 8 , 0+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed ? at B (2/-2 , ??)
+              Player 1 placed ? at B (3 / -3 , ??)
             </p>
           </div>
         </div>
@@ -278,44 +278,46 @@ export default function Page() {
           <p className='text-md font-bold text-slate-500 '>Draw</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 received A, K, Q, J with a value of 50
+              Player 1 received A, K, Q, P with a value of 50
             </p>
             <p className='text-md font-bold text-slate-500 '>
               Player 2 received 2, 3, 4, 5 with a value of 14
             </p>
+            <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
+            <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 1</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed Q at A (5/5 , ++)
+              Player 1 placed Q at A (5 / 5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed J at P (8/0 , +0)
+              Player 1 placed P at P (8 / 0 , +0)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 5 at A (5/5 , ++)
+              Player 2 placed 5 at A (5 / 5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 4 at B (2/-2 , ??)
+              Player 2 placed 4 at B (3 / -3 , ??)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 2</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed A at B (2/-2 , ??)
+              Player 1 placed A at B (3 / -3 , ??)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 3 at P (0/8 , 0+)
+              Player 2 placed 3 at P (0 / 8 , 0+)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 3</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 2 at P (0/8 , 0+)
+              Player 2 placed 2 at P (0 / 8 , 0+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed K at B (2/-2 , ??)
+              Player 1 placed K at B (3 / -3 , ??)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Reveal</p>
@@ -330,7 +332,7 @@ export default function Page() {
             </div>
             <div className='flex flex-col'>
               <p className='text-md font-bold text-slate-500 '>
-                P - (J) and (3,2)
+                P - (P) and (3,2)
               </p>
               <p className='text-md font-bold text-slate-500 '>
                 sum(11, 5) = 16, max(11, 5) = P1
@@ -350,10 +352,6 @@ export default function Page() {
             <p className='text-md font-bold text-slate-500'>Player 1 wins</p>
             <p className='text-md font-bold text-slate-500'>P1 += 54</p>
             <p className='text-md font-bold text-slate-500'>P2 -= 8</p>
-            <br />
-            <p className='text-md font-bold text-slate-500'>House wins</p>
-            <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
-            <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
             <br />
             <p className='text-md font-bold text-slate-500'>Region B wins</p>
             <p className='text-md font-bold text-slate-500'>
