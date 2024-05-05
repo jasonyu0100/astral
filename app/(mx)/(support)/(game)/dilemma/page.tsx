@@ -25,7 +25,7 @@ function Quadrant({ board }: { board: TwoByTwo }) {
         borderFx={`${borderFx['border-r']} ${borderFx['border-b']}`}
       >
         <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-          {flipped ? (
+          {!flipped ? (
             <>
               <p>A</p>
               <p>
@@ -128,7 +128,7 @@ function PhaseActions({ cards }: { cards: any[] }) {
           Player 1 placed ? at A (2/2 , ++)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 1 placed ? at P1 (4/0 , +0)
+          Player 1 placed ? at P (4/0 , +0)
         </p>
         <p className='text-md font-bold text-slate-500 '>
           Player 2 placed ? at A (2/2 , ++)
@@ -242,10 +242,10 @@ export default function Page() {
           </div>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed ? at B (1/-1 , ??)
+              Player 1 placed ? at B (2/-2 , ??)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed ? at P2 (0/4 , 0+)
+              Player 2 placed ? at P2 (0/8 , 0+)
             </p>
           </div>
         </div>
@@ -266,10 +266,10 @@ export default function Page() {
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed ? at P2 (0/4 , 0+)
+              Player 2 placed ? at P (0/8 , 0+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed ? at B (1/-1 , ??)
+              Player 1 placed ? at B (2/-2 , ??)
             </p>
           </div>
         </div>
@@ -284,38 +284,38 @@ export default function Page() {
               Player 2 received 2, 3, 4, 5 with a value of 14
             </p>
           </div>
-          <p className='text-md font-bold text-slate-500 '>P1</p>
+          <p className='text-md font-bold text-slate-500 '>Phase 1</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed Q at A (2/2 , ++)
+              Player 1 placed Q at A (5/5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed J at P1 (4/0 , +0)
+              Player 1 placed J at P (8/0 , +0)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 5 at A (2/2 , ++)
+              Player 2 placed 5 at A (5/5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 4 at B (1/-1 , ??)
+              Player 2 placed 4 at B (2/-2 , ??)
             </p>
           </div>
-          <p className='text-md font-bold text-slate-500 '>P2</p>
+          <p className='text-md font-bold text-slate-500 '>Phase 2</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed A at B (1/-1 , ??)
+              Player 1 placed A at B (2/-2 , ??)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 3 at P2 (0/4 , 0+)
+              Player 2 placed 3 at P (0/8 , 0+)
             </p>
           </div>
-          <p className='text-md font-bold text-slate-500 '>P3</p>
+          <p className='text-md font-bold text-slate-500 '>Phase 3</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 2 at P2 (0/4 , 0+)
+              Player 2 placed 2 at P (0/8 , 0+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed K at B (1/-1 , ??)
+              Player 1 placed K at B (2/-2 , ??)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Reveal</p>
