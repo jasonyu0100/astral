@@ -1,0 +1,170 @@
+// 'use client';
+
+// const rows = 5;
+// const cols = 5;
+// const PieceStyle =
+//   `flex h-[3rem] w-[3rem] items-center justify-center border-white';
+
+// function TopLeftPiece({
+//   children,
+//   value,
+// }: {
+//   children: React.ReactNode;
+//   value: any;
+// }) {
+//   return (
+//     <div
+//       className={`${PieceStyle} border-l-[2px] border-t-[2px] border-white bg-green-500`}
+//       onClick={() => {}}
+//     >
+//       {value}
+//       {/* {children} */}
+//     </div>
+//   );
+// }
+
+// function TopRightPiece({ children }: { children: React.ReactNode }) {
+//   return (
+//     <div
+//       className={`${PieceStyle} border-r-[2px] border-t-[2px] border-white bg-blue-500`}
+//     >
+//       {children}
+//     </div>
+//   );
+// }
+
+// function BottomLeftPiece({ children }: { children: React.ReactNode }) {
+//   return (
+//     <div
+//       className={`${PieceStyle} border-b-[2px] border-l-[2px] border-white bg-yellow-500`}
+//     >
+//       {children}
+//     </div>
+//   );
+// }
+// function BottomRightPiece({ children }: { children: React.ReactNode }) {
+//   return (
+//     <div
+//       className={`${PieceStyle} border-b-[2px] border-r-[2px] border-white bg-red-500`}
+//     >
+//       {children}
+//     </div>
+//   );
+// }
+
+// export enum QuadrantType {
+//   TOP_LEFT = 'TOP_LEFT',
+//   TOP_RIGHT = 'TOP_RIGHT',
+//   BOTTOM_LEFT = 'BOTTOM_LEFT',
+//   BOTTOM_RIGHT = 'BOTTOM_RIGHT',
+// }
+
+// function BoardQuadrant({
+//   board,
+//   numRows,
+//   numCols,
+//   quadrant,
+// }: {
+//   board: any[];
+//   numRows: number;
+//   numCols: number;
+//   quadrant: QuadrantType;
+// }) {
+//   let tempBoard = Array(numRows).fill(Array(numCols).fill(0));
+//   tempBoard[0][0] = 'rgb(123,123,123)';
+
+//   console.log(tempBoard);
+
+//   return (
+//     <div className='flex flex-col'>
+//       {board.map((row: any, rowIdx: any) => (
+//         <div className='flex flex-row' key={rowIdx}>
+//           {row.map((col: any, colIdx: any) => {
+//             if (quadrant == QuadrantType.TOP_LEFT) {
+//               return (
+//                 <TopLeftPiece
+//                   key={`${rowIdx},${colIdx}`}
+//                   value={tempBoard[rowIdx][colIdx]}
+//                 >
+//                   {rowIdx},{colIdx}
+//                 </TopLeftPiece>
+//               );
+//             } else if (quadrant == QuadrantType.TOP_RIGHT) {
+//               return (
+//                 <TopRightPiece key={`${rowIdx},${colIdx}`}>
+//                   {rowIdx},{colIdx}
+//                 </TopRightPiece>
+//               );
+//             } else if (quadrant == QuadrantType.BOTTOM_LEFT) {
+//               return (
+//                 <BottomLeftPiece key={`${rowIdx},${colIdx}`}>
+//                   {rowIdx},{colIdx}
+//                 </BottomLeftPiece>
+//               );
+//             } else if (quadrant == QuadrantType.BOTTOM_RIGHT) {
+//               return (
+//                 <BottomRightPiece key={`${rowIdx},${colIdx}`}>
+//                   {rowIdx},{colIdx}
+//                 </BottomRightPiece>
+//               );
+//             } else {
+//               return;
+//             }
+//           })}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// function Board({ numRows, numCols }: { numRows: number; numCols: number }) {
+//   const board = Array(numRows).fill(Array(numCols).fill(0));
+
+//   const colors = ['red', 'blue', 'green', 'yellow'];
+
+//   return (
+//     <div className='flex w-[30rem] flex-col'>
+//       <div className='flex h-[15rem] w-[15rem] flex-row'>
+//         <BoardQuadrant
+//           board={board}
+//           numRows={numRows}
+//           numCols={numCols}
+//           quadrant={QuadrantType.TOP_LEFT}
+//         />
+//         <div className='h-full w-[0px] border-l-[1px] border-r-[1px] border-white' />
+//         <BoardQuadrant
+//           board={board}
+//           numRows={numRows}
+//           numCols={numCols}
+//           quadrant={QuadrantType.TOP_RIGHT}
+//         />
+//       </div>
+//       <div className='h-[0px] w-full border-b-[1px] border-t-[1px] border-white' />
+//       <div className='flex h-[15rem] w-[15rem] flex-row'>
+//         <BoardQuadrant
+//           board={board}
+//           numRows={numRows}
+//           numCols={numCols}
+//           quadrant={QuadrantType.BOTTOM_LEFT}
+//         />
+//         <div className='h-full w-[0px] border-l-[1px] border-r-[1px] border-white' />
+//         <BoardQuadrant
+//           board={board}
+//           numRows={numRows}
+//           numCols={numCols}
+//           quadrant={QuadrantType.BOTTOM_RIGHT}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default function Page() {
+//   return (
+//     <div className='flex flex-col p-[3rem]'>
+//       <p className='text-white'>Dual Game</p>
+//       <div className='mt-[3rem]'></div>
+//       <Board numRows={5} numCols={5} />
+//     </div>
+//   );
+// }
