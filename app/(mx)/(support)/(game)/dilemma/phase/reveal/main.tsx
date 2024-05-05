@@ -133,6 +133,15 @@ function ExtraSettings() {
       <p className='text-md font-bold text-slate-500 '>
         (optional 3c) Deduction is dealt at the end publicly
       </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 4a) Dealer reveals only the winning region
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 4b) Dealer reveals only the winning side
+      </p>
+      <p className='text-md font-bold text-slate-500 '>
+        (optional 5a) Players are the dealers
+      </p>
     </div>
   );
 }
