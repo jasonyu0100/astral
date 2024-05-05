@@ -1,7 +1,7 @@
 export function PhaseTwo() {
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='font-extraBold text-xl text-slate-300 '>Phase 2</p>
+      <p className='font-extraBold text-xl text-slate-300 '>Phase Two</p>
       <div className=' flex flex-row space-x-[1rem]'>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Pass</div>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Place</div>

@@ -7,7 +7,7 @@ export function PhaseReveal() {
       <p className='font-extraBold text-xl text-slate-300 '>Reveal</p>
       {fullLog && (
         <>
-          <p className='text-md font-bold text-slate-500 '>Draw</p>
+          <p className='text-md font-bold text-slate-500 '>Start Draw</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
               Dealer shuffles and deals 4 cards to each player
@@ -58,7 +58,7 @@ export function PhaseReveal() {
               Player 1 placed K at B (2 / -2 , ??)
             </p>
           </div>
-          <p className='text-md font-bold text-slate-500 '>Reveal</p>
+          <p className='text-md font-bold text-slate-500 '>The Reveal</p>
           <div className='flex flex-col'>
             <div className='flex flex-col'>
               <p className='text-md font-bold text-slate-500'>
@@ -90,14 +90,14 @@ export function PhaseReveal() {
       {!fullLog && (
         <div className='flex flex-col'>
           <p className='text-md font-bold text-slate-500 '>...</p>
-          <br/>
+          <br />
           <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
           <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
-          <br/>
+          <br />
           <p className='text-md font-bold text-slate-500 '>...</p>
         </div>
       )}
-      <p className='text-md font-bold text-slate-500 '>Results</p>
+      <p className='text-md font-bold text-slate-300 '>Final Results</p>
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500'>P1 wins</p>
         <p className='text-md font-bold text-slate-500'>P1 += 54</p>
@@ -107,8 +107,13 @@ export function PhaseReveal() {
         <p className='text-md font-bold text-slate-500'>B31 vs A17 vs P16</p>
         <br />
         <p className='text-md font-bold text-slate-500 '>
-          P1 would you like to reveal all the cards? (y/n)
+          (optional) P1 would you like to reveal all the cards? (y/n)
         </p>
+        <p className='text-md font-bold text-slate-500 '>
+          (optional) Dealer shuffles region cards then reveals
+        </p>
+        <br />
+        <p className='text-md font-bold text-slate-500 '>NEXT DRAW</p>
       </div>
     </div>
   );

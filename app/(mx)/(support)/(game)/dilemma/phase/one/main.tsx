@@ -7,7 +7,7 @@ export function PhaseOne({ cards }: { cards: any[] }) {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='font-extraBold text-xl text-slate-300 '>Phase 1</p>
+      <p className='font-extraBold text-xl text-slate-300 '>Phase One</p>
 
       <div className='flex aspect-[12/16] h-[5rem] bg-white'>
         Card - {cards[cardIndex]}

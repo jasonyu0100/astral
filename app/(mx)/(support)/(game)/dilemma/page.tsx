@@ -10,6 +10,8 @@ import { PhaseOne } from './phase/one/main';
 import { PhaseTwo } from './phase/two/main';
 import { PhaseThree } from './phase/three/main';
 import { PhaseReveal } from './phase/reveal/main';
+import { Divider } from '@/(lib)/(line)/divider/main';
+import { GameDescription } from './description/main';
 
 export interface TwoByTwo {
   topLeft: PlayerOutcome;
@@ -45,9 +47,11 @@ export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
-    <div className='flex flex-row  space-x-[3rem] p-[3rem]'>
+    <div className='flex flex-row  space-x-[3rem] p-[2rem]'>
       <div className='flex flex-col'>
-        <p className='mb-[3rem] font-extraBold text-xl text-slate-300 '>Dual</p>
+        <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
+          Dual
+        </p>
         <div className='flex flex-col'>
           <div className='flex flex-row'>
             <Quadrant board={gameState} />
@@ -97,28 +101,18 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='flex h-[40rem] flex-grow flex-col space-y-[3rem] overflow-auto'>
-        <div className='flex flex-col'>
-          <p className='mb-[2rem] font-extraBold text-xl text-slate-300 '>
-            P1 vs P2
-          </p>
-          <p className='text-md font-bold text-slate-500'>
-            Dual is a 1v1 game where players place cards in a 2x2 grid to score
-            points for your side or yourself
-          </p>
-          <p className='text-md font-bold text-slate-500'>
-            Dilemma is a 2v2 game where players place cards in a 2x2 grid to
-            score points for your side and yourself
-          </p>
-          <p className='text-md font-bold text-slate-500'>
-            Both can be played in tournaments or casual games
-          </p>
+      <div className='flex h-[40rem] w-[60rem] flex-col'>
+        <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
+          P1 vs P2
+        </p>
+        <div className='flex  flex-col space-y-[3rem] overflow-auto'>
+          <GameDescription />
+          <PhaseDraw />
+          <PhaseOne cards={['A', 'K', 'Q', 'P']} />
+          <PhaseTwo />
+          <PhaseThree />
+          <PhaseReveal />
         </div>
-        <PhaseDraw />
-        <PhaseOne cards={['A', 'K', 'Q', 'P']} />
-        <PhaseTwo />
-        <PhaseThree />
-        <PhaseReveal />
       </div>
     </div>
   );
