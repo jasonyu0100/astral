@@ -4,9 +4,9 @@ export function PhaseReveal() {
   const [fullLog, changeFullLog] = useState(false);
   return (
     <div className='flex flex-col space-y-[1rem]'>
+      <p className='font-extraBold text-xl text-slate-300 '>Reveal</p>
       {fullLog && (
         <>
-          <p className='font-extraBold text-xl text-slate-300 '>Reveal</p>
           <p className='text-md font-bold text-slate-500 '>Draw</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
@@ -84,6 +84,7 @@ export function PhaseReveal() {
           </div>
         </>
       )}
+      {!fullLog && <p className='text-md font-bold text-slate-500 '>...</p>}
       <p className='text-md font-bold text-slate-500 '>Results</p>
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500'>Player 1 wins</p>
