@@ -10,13 +10,16 @@ export function PhaseReveal() {
           <p className='text-md font-bold text-slate-500 '>Draw</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
+              Dealer shuffles and deals 4 cards to each player
+            </p>
+            <p className='text-md font-bold text-slate-500 '>
               Player 1 received A, K, Q, P with a value of 50
             </p>
             <p className='text-md font-bold text-slate-500 '>
               Player 2 received 2, 3, 4, 5 with a value of 14
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Hero is at A with 1.5x
+              Hero is now at A with 1.5x
             </p>
             <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
             <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
@@ -87,19 +90,25 @@ export function PhaseReveal() {
       {!fullLog && (
         <div className='flex flex-col'>
           <p className='text-md font-bold text-slate-500 '>...</p>
+          <br/>
           <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
           <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
+          <br/>
           <p className='text-md font-bold text-slate-500 '>...</p>
         </div>
       )}
       <p className='text-md font-bold text-slate-500 '>Results</p>
       <div className='flex flex-col'>
-        <p className='text-md font-bold text-slate-500'>Player 1 wins</p>
+        <p className='text-md font-bold text-slate-500'>P1 wins</p>
         <p className='text-md font-bold text-slate-500'>P1 += 54</p>
         <p className='text-md font-bold text-slate-500'>P2 -= 8</p>
         <br />
         <p className='text-md font-bold text-slate-500'>Region B wins</p>
         <p className='text-md font-bold text-slate-500'>B31 vs A17 vs P16</p>
+        <br />
+        <p className='text-md font-bold text-slate-500 '>
+          P1 would you like to reveal all the cards? (y/n)
+        </p>
       </div>
     </div>
   );

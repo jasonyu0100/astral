@@ -73,7 +73,8 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>P2</p>
                 <p>
-                  {gameState.bottomLeft.playerA} / {gameState.bottomLeft.playerB}
+                  {gameState.bottomLeft.playerA} /{' '}
+                  {gameState.bottomLeft.playerB}
                 </p>
                 <p>(1.0 , 0+)</p>
               </GlassWindowContents>
@@ -86,7 +87,8 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>B</p>
                 <p>
-                  {gameState.bottomRight.playerA} / {gameState.bottomRight.playerB}
+                  {gameState.bottomRight.playerA} /{' '}
+                  {gameState.bottomRight.playerB}
                 </p>
                 <p>(1.0 , ??)</p>
               </GlassWindowContents>
@@ -96,9 +98,19 @@ export default function Page() {
         </div>
       </div>
       <div className='flex h-[40rem] flex-grow flex-col space-y-[3rem] overflow-auto'>
-        <p className='mb-[3rem] font-extraBold text-xl text-slate-300 '>
-          Player 1
-        </p>
+        <div className='flex flex-col'>
+          <p className='mb-[2rem] font-extraBold text-xl text-slate-300 '>
+            P1 vs P2
+          </p>
+          <p className='text-md font-bold text-slate-500'>
+            Dual is a 1v1 game where players place cards in a 2x2 grid to score
+            points for your side
+          </p>
+          <p className='text-md font-bold text-slate-500'>
+            Dilemma is a 2v2 game where players place cards in a 2x2 grid to
+            score points for your side and yourself
+          </p>
+        </div>
         <PhaseDraw />
         <PhaseOne cards={['A', 'K', 'Q', 'P']} />
         <PhaseTwo />
