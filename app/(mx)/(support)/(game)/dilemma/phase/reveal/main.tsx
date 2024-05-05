@@ -140,7 +140,7 @@ function ExtraSettings() {
         (optional 4b) Dealer reveals only the winning side
       </p>
       <p className='text-md font-bold text-slate-500 '>
-        (optional 5a) Players are the dealers
+        (optional 5a) Players are the dealers and handle the reveal themselves
       </p>
     </div>
   );
