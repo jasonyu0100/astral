@@ -22,43 +22,55 @@ export interface TwoByTwo {
 export interface PlayerOutcome {
   playerA: number;
   playerB: number;
+  hero: number; // 1.0, 1.5, 2.0
 }
 
 export const defaultGameState = {
   topLeft: {
     playerA: 5,
     playerB: 5,
+    hero: 1,
   },
   topRight: {
     playerA: 8,
     playerB: 0,
+    hero: 1,
   },
   bottomLeft: {
     playerA: 0,
     playerB: 8,
+    hero: 1,
   },
   bottomRight: {
     playerA: 2,
     playerB: 2,
+    hero: 1,
   },
 };
 
 export const zeroGameState = {
   topLeft: {
-    playerA: 5,
-    playerB: 5,
+    playerA: 3,
+    playerB: 3,
+    hero: 1,
   },
   topRight: {
-    playerA: 4,
-    playerB: -4,
+    playerA: 5,
+    playerB: 1,
+    hero: 1,
+    anti: 1,
   },
   bottomLeft: {
-    playerA: -4,
-    playerB: 4,
+    playerA: 1,
+    playerB: 5,
+    hero: 1,
+    anti: 1,
   },
   bottomRight: {
     playerA: 2,
     playerB: 2,
+    hero: 1,
+    anti: 1,
   },
 };
 

@@ -20,7 +20,7 @@ export function Quadrant({ board }: { board: TwoByTwo }) {
               <p>
                 {board.topLeft.playerA} / {board.topLeft.playerB}
               </p>
-              <p>(1.5 , ++)</p>
+              <p>(1.0 , ++)</p>
             </>
           ) : (
             <>
