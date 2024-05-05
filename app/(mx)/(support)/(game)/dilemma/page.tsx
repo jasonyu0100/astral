@@ -283,6 +283,9 @@ export default function Page() {
             <p className='text-md font-bold text-slate-500 '>
               Player 2 received 2, 3, 4, 5 with a value of 14
             </p>
+            <p className='text-md font-bold text-slate-500 '>
+              Hero is at A with 1.5x
+            </p>
             <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
             <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
           </div>
