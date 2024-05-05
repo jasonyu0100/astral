@@ -5,7 +5,7 @@ export function PhaseTwo() {
       <div className=' flex flex-row space-x-[1rem]'>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Pass</div>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Place</div>
-        <div className='flex aspect-[12/16] h-[5rem] bg-white'>Call</div>
+        <div className='flex aspect-[12/16] h-[5rem] bg-white'>Follow</div>
       </div>
       <div className=' flex flex-row space-x-[1rem]'>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Back</div>

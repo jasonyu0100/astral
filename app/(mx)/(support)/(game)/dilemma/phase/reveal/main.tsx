@@ -21,8 +21,6 @@ export function PhaseReveal() {
             <p className='text-md font-bold text-slate-500 '>
               Hero is now at A with 1.5x
             </p>
-            <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
-            <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 1</p>
           <div className='flex flex-col'>
@@ -91,6 +89,7 @@ export function PhaseReveal() {
         <div className='flex flex-col'>
           <p className='text-md font-bold text-slate-500 '>...</p>
           <br />
+          <p className='text-md font-bold text-slate-500 '>Cards in play</p>
           <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
           <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
           <br />

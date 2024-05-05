@@ -43,8 +43,27 @@ export const defaultGameState = {
   },
 };
 
+export const zeroGameState = {
+  topLeft: {
+    playerA: 5,
+    playerB: 5,
+  },
+  topRight: {
+    playerA: 4,
+    playerB: -4,
+  },
+  bottomLeft: {
+    playerA: -4,
+    playerB: 4,
+  },
+  bottomRight: {
+    playerA: 2,
+    playerB: 2,
+  },
+};
+
 export default function Page() {
-  const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
+  const [gameState, setGameState] = useState<TwoByTwo>(zeroGameState);
 
   return (
     <div className='flex flex-row  space-x-[3rem] p-[2rem]'>

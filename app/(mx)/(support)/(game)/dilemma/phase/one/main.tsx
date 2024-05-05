@@ -39,6 +39,12 @@ export function PhaseOne({ cards }: { cards: any[] }) {
           </div>
           <div
             className='flex aspect-[12/16] h-[5rem] bg-white'
+            onClick={() => alert("Fold Hand")}
+          >
+            Fold
+          </div>
+          <div
+            className='flex aspect-[12/16] h-[5rem] bg-white'
             onClick={() => {
               alert('finish');
             }}
