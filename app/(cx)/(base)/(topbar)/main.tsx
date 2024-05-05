@@ -5,7 +5,6 @@ import { TopbarIconLink } from './container/right-group/icon-link/main';
 import { TopbarLogo } from './container/left-group/logo/main';
 import { TopbarRightGroup } from './container/right-group/main';
 import { SettingsIcon } from './(common)/icons/settings/main';
-import { ListIcon } from './(common)/icons/cart/main';
 import { studioMap } from '@/(cx)/(center)/studio/map';
 import {
   ProfileModalContext,
@@ -36,11 +35,8 @@ export function Topbar() {
             <TopbarLink href='/learn'>
               LEARN
             </TopbarLink>
-            <TopbarLink href='/support'>
+            <TopbarLink href='/dilemma'>
               SUPPORT
-            </TopbarLink>
-            <TopbarLink href='/dual'>
-              DUAL
             </TopbarLink>
           </TopbarLeftGroup>
           <TopbarRightGroup>

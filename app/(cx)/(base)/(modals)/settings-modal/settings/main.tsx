@@ -5,7 +5,7 @@ import { Modal } from '@/(lib)/(modal)/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(lgx)/internal/store/user/main';
-import { getPlanName, getPlanPrice } from '@/(mx)/(support)/(finance)/support/page';
+import { getPlanName, getPlanPrice } from '@/(mx)/(support)/(finance)/pricing-support/page';
 import Link from 'next/link';
 import { stripeMap } from '@/(mx)/(support)/(finance)/stripe/map';
 
