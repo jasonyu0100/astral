@@ -110,6 +110,9 @@ export default function Page() {
             Dilemma is a 2v2 game where players place cards in a 2x2 grid to
             score points for your side and yourself
           </p>
+          <p className='text-md font-bold text-slate-500'>
+            Both can be played in tournaments or casual games
+          </p>
         </div>
         <PhaseDraw />
         <PhaseOne cards={['A', 'K', 'Q', 'P']} />
