@@ -84,7 +84,14 @@ export function PhaseReveal() {
           </div>
         </>
       )}
-      {!fullLog && <p className='text-md font-bold text-slate-500 '>...</p>}
+      {!fullLog && (
+        <div className='flex flex-col'>
+          <p className='text-md font-bold text-slate-500 '>...</p>
+          <p className='text-md font-bold text-slate-500 '>P1 -= 50</p>
+          <p className='text-md font-bold text-slate-500 '>P2 -= 14</p>
+          <p className='text-md font-bold text-slate-500 '>...</p>
+        </div>
+      )}
       <p className='text-md font-bold text-slate-500 '>Results</p>
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500'>Player 1 wins</p>
