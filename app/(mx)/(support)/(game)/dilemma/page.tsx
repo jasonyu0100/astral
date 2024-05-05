@@ -50,7 +50,7 @@ export default function Page() {
     <div className='flex flex-row  space-x-[3rem] p-[2rem]'>
       <div className='flex flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
-          Dual
+          Dilemma
         </p>
         <div className='flex flex-col'>
           <div className='flex flex-row'>
