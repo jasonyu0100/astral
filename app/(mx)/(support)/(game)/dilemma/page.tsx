@@ -25,7 +25,7 @@ export interface PlayerOutcome {
   hero: number; // 1.0, 1.5, 2.0
 }
 
-export const zeroGameState = {
+export const zerothGameStatee = {
   topLeft: {
     playerA: 5,
     playerB: 5,
