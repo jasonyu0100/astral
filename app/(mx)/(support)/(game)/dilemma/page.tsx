@@ -17,7 +17,7 @@ export interface Player {
   name: string;
   cards: string[];
   score: number;
-  history?: any[];
+  memory?: any[];
 }
 export interface TwoByTwo {
   quadrantA: QuadrantState;
@@ -25,7 +25,7 @@ export interface TwoByTwo {
   quadrantP2: QuadrantState;
   quadrantB: QuadrantState;
   players: Player[];
-  anti: number; // 1, 2, 3, 5 etc.
+  anti: number; // 0, 1, 2, 3, 5 etc.
   goal: number; // 1000, 2000, 3000, 5000 etc.
   floor: number; // 0
   history?: any[];
