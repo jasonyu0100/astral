@@ -18,7 +18,7 @@ export function Quadrant({ board }: { board: TwoByTwo }) {
             <>
               <p>A</p>
               <p>
-                {board.topLeft.playerA} / {board.topLeft.playerB}
+                {board.quadrantA.payoutA} / {board.quadrantA.payoutB}
               </p>
               <p>(1.0 , ++)</p>
             </>

@@ -13,16 +13,25 @@ import { PhaseReveal } from './phase/reveal/main';
 import { Divider } from '@/(lib)/(line)/divider/main';
 import { GameDescription } from './description/main';
 
-export interface TwoByTwo {
-  topLeft: PlayerOutcome;
-  topRight: PlayerOutcome;
-  bottomLeft: PlayerOutcome;
-  bottomRight: PlayerOutcome;
+export interface Player {
+  name: string;
+  cards: string[];
+  score: number;
 }
-export interface PlayerOutcome {
-  playerA: number;
-  playerB: number;
-  hero: number; // 1.0, 1.5, 2.0
+export interface TwoByTwo {
+  quadrantA: QuadrantState;
+  quadrantP1: QuadrantState;
+  quadrantP2: QuadrantState;
+  quadrantB: QuadrantState;
+  players: Player[];
+  anti: number; // 1, 2, 3, 5 etc.
+  goal: number; // 1000, 2000, 3000, 5000 etc.
+  floor: number; // 0
+}
+export interface QuadrantState {
+  payoutA: number;
+  payoutB: number;
+  hero: number; // 1.0, 1.5, 2.0, 2.5 etc.
 }
 
 export const zerothGameStatee = {
@@ -93,7 +102,7 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>P1</p>
                 <p>
-                  {gameState.topRight.playerA} / {gameState.topRight.playerB}
+                  {gameState.quadrantP1.payoutA} / {gameState.quadrantP1.payoutB}
                 </p>
                 <p>(1.0 , +o)</p>
               </GlassWindowContents>
@@ -108,8 +117,8 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>P2</p>
                 <p>
-                  {gameState.bottomLeft.playerA} /{' '}
-                  {gameState.bottomLeft.playerB}
+                  {gameState.quadrantP2.payoutA} /{' '}
+                  {gameState.quadrantP2.payoutB}
                 </p>
                 <p>(1.0 , o+)</p>
               </GlassWindowContents>
@@ -122,8 +131,8 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>B</p>
                 <p>
-                  {gameState.bottomRight.playerA} /{' '}
-                  {gameState.bottomRight.playerB}
+                  {gameState.quadrantB.payoutA} /{' '}
+                  {gameState.quadrantB.payoutB}
                 </p>
                 <p>(1.0 , ??)</p>
               </GlassWindowContents>
