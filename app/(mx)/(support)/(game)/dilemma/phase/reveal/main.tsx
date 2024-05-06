@@ -25,35 +25,35 @@ export function PhaseReveal() {
           <p className='text-md font-bold text-slate-500 '>Phase 1</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed Q at A (5 / 5 , ++)
+              Player 1 played Q at A (5 / 5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed P at P (8 / 0 , +o)
+              Player 1 played P at P (8 / 0 , +o)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 5 at A (5 / 5 , ++)
+              Player 2 played 5 at A (5 / 5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 4 at B (2 / -2 , ??)
+              Player 2 played 4 at B (2 / -2 , ??)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 2</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed A at B (2 / -2 , ??)
+              Player 1 played A at B (2 / -2 , ??)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 3 at P (0 / 8 , o+)
+              Player 2 played 3 at P (0 / 8 , o+)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 3</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 placed 2 at P (0 / 8 , o+)
+              Player 2 played 2 at P (0 / 8 , o+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 placed K at B (2 / -2 , ??)
+              Player 1 played K at B (2 / -2 , ??)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>The Reveal</p>
