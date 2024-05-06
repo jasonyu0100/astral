@@ -10,7 +10,6 @@ import { PhaseOne } from './phase/one/main';
 import { PhaseTwo } from './phase/two/main';
 import { PhaseThree } from './phase/three/main';
 import { PhaseReveal } from './phase/reveal/main';
-import { Divider } from '@/(lib)/(line)/divider/main';
 import { GameDescription } from './description/main';
 
 export interface Player {
@@ -36,53 +35,86 @@ export interface QuadrantState {
   hero: number; // 1.0, 1.5, 2.0, 2.5 etc.
 }
 
-export const zerothGameStatee = {
-  topLeft: {
-    playerA: 5,
-    playerB: 5,
+export const zerothGameState: TwoByTwo = {
+  quadrantA: {
+    payoutA: 5,
+    payoutB: 5,
     hero: 1,
   },
-  topRight: {
-    playerA: 8,
-    playerB: 0,
+  quadrantP1: {
+    payoutA: 8,
+    payoutB: 0,
     hero: 1,
   },
-  bottomLeft: {
-    playerA: 0,
-    playerB: 8,
+  quadrantP2: {
+    payoutA: 0,
+    payoutB: 8,
     hero: 1,
   },
-  bottomRight: {
-    playerA: 2,
-    playerB: 2,
+  quadrantB: {
+    payoutA: 2,
+    payoutB: 2,
     hero: 1,
   },
+  players: [
+    {
+      name: 'J22',
+      cards: [],
+      score: 0,
+      memory: [],
+    },
+    {
+      name: 'J22',
+      cards: [],
+      score: 0,
+      memory: [],
+    },
+  ],
+  anti: 0,
+  goal: 1000,
+  floor: 0,
+  history: [],
 };
 
-export const defaultGameState = {
-  topLeft: {
-    playerA: 3,
-    playerB: 3,
+export const defaultGameState: TwoByTwo = {
+  quadrantA: {
+    payoutA: 3,
+    payoutB: 3,
     hero: 1,
   },
-  topRight: {
-    playerA: 5,
-    playerB: 1,
+  quadrantP1: {
+    payoutA: 5,
+    payoutB: 1,
     hero: 1,
-    anti: 1,
   },
-  bottomLeft: {
-    playerA: 1,
-    playerB: 5,
+  quadrantP2: {
+    payoutA: 1,
+    payoutB: 5,
     hero: 1,
-    anti: 1,
   },
-  bottomRight: {
-    playerA: 2,
-    playerB: 2,
+  quadrantB: {
+    payoutA: 2,
+    payoutB: 2,
     hero: 1,
-    anti: 1,
   },
+  players: [
+    {
+      name: 'J22',
+      cards: [],
+      score: 0,
+      memory: [],
+    },
+    {
+      name: 'J22',
+      cards: [],
+      score: 0,
+      memory: [],
+    },
+  ],
+  anti: 0,
+  goal: 1000,
+  floor: 0,
+  history: [],
 };
 
 export default function Page() {
@@ -104,7 +136,8 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>P1</p>
                 <p>
-                  {gameState.quadrantP1.payoutA} / {gameState.quadrantP1.payoutB}
+                  {gameState.quadrantP1.payoutA} /{' '}
+                  {gameState.quadrantP1.payoutB}
                 </p>
                 <p>(1.0 , +o)</p>
               </GlassWindowContents>
@@ -133,8 +166,7 @@ export default function Page() {
               <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
                 <p>B</p>
                 <p>
-                  {gameState.quadrantB.payoutA} /{' '}
-                  {gameState.quadrantB.payoutB}
+                  {gameState.quadrantB.payoutA} / {gameState.quadrantB.payoutB}
                 </p>
                 <p>(1.0 , ??)</p>
               </GlassWindowContents>
