@@ -3,8 +3,12 @@ import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
 import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { TwoByTwo } from '../../page';
+import { useState } from 'react';
 
 export function QuadrantP1({ gameState }: { gameState: TwoByTwo }) {
+  const [flipped, changeFlipped] = useState(false);
+  const anti = gameState.anti;
+  
   return (
     <GlassWindowFrame
       className='aspect-square h-[20rem] w-[20rem]'
@@ -13,7 +17,7 @@ export function QuadrantP1({ gameState }: { gameState: TwoByTwo }) {
       <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
         <p>P1</p>
         <p>
-          {gameState.quadrantP1.payoutA} / {gameState.quadrantP1.payoutB}
+          {gameState.quadrants.quadrantP1.payoutA - anti} / {gameState.quadrants.quadrantP1.payoutB - anti}
         </p>
         <p>(1x , +o)</p>
       </GlassWindowContents>

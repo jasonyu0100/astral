@@ -22,13 +22,17 @@ export interface Player {
   score: number;
   memory?: any[];
 }
-export interface TwoByTwo {
+
+export interface Quadrants {
   quadrantA: QuadrantState;
   quadrantP1: QuadrantState;
   quadrantP2: QuadrantState;
   quadrantB: QuadrantState;
+}
+export interface TwoByTwo {
+  quadrants: Quadrants;
   players: Player[];
-  anti: number; // 0, 1, 2, 3, 5 etc.
+  anti: number; // 0, 1, 2, 3
   goal: number; // 1000, 2000, 3000, 5000 etc.
   floor: number; // 0
   history?: any[];

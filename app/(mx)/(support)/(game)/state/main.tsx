@@ -1,6 +1,6 @@
-import { TwoByTwo } from "../dilemma/page";
+import { Quadrants, TwoByTwo } from '../dilemma/page';
 
-export const zerothGameState: TwoByTwo = {
+export const zerothQuadrants: Quadrants = {
   quadrantA: {
     payoutA: 5,
     payoutB: 5,
@@ -21,6 +21,56 @@ export const zerothGameState: TwoByTwo = {
     payoutB: 2,
     hero: 1,
   },
+};
+
+export const legacyQuadrants: Quadrants = {
+  quadrantA: {
+    payoutA: 3,
+    payoutB: 3,
+    hero: 1,
+  },
+  quadrantP1: {
+    payoutA: 5,
+    payoutB: 1,
+    hero: 1,
+  },
+  quadrantP2: {
+    payoutA: 1,
+    payoutB: 5,
+    hero: 1,
+  },
+  quadrantB: {
+    payoutA: 2,
+    payoutB: 2,
+    hero: 1,
+  },
+};
+
+export const defaultQuadrants: Quadrants = {
+  quadrantA: {
+    payoutA: 3,
+    payoutB: 3,
+    hero: 1,
+  },
+  quadrantP1: {
+    payoutA: 4,
+    payoutB: 1,
+    hero: 1,
+  },
+  quadrantP2: {
+    payoutA: 1,
+    payoutB: 4,
+    hero: 1,
+  },
+  quadrantB: {
+    payoutA: 2,
+    payoutB: 2,
+    hero: 1,
+  },
+};
+
+export const zerothGameState: TwoByTwo = {
+  quadrants: zerothQuadrants,
   players: [
     {
       name: 'J22',
@@ -42,26 +92,7 @@ export const zerothGameState: TwoByTwo = {
 };
 
 export const legacyGameState: TwoByTwo = {
-  quadrantA: {
-    payoutA: 3,
-    payoutB: 3,
-    hero: 1,
-  },
-  quadrantP1: {
-    payoutA: 5,
-    payoutB: 1,
-    hero: 1,
-  },
-  quadrantP2: {
-    payoutA: 1,
-    payoutB: 5,
-    hero: 1,
-  },
-  quadrantB: {
-    payoutA: 2,
-    payoutB: 2,
-    hero: 1,
-  },
+  quadrants: legacyQuadrants,
   players: [
     {
       name: 'J22',
@@ -83,26 +114,7 @@ export const legacyGameState: TwoByTwo = {
 };
 
 export const defaultGameState: TwoByTwo = {
-  quadrantA: {
-    payoutA: 3,
-    payoutB: 3,
-    hero: 1,
-  },
-  quadrantP1: {
-    payoutA: 4,
-    payoutB: 1,
-    hero: 1,
-  },
-  quadrantP2: {
-    payoutA: 1,
-    payoutB: 4,
-    hero: 1,
-  },
-  quadrantB: {
-    payoutA: 2,
-    payoutB: 2,
-    hero: 1,
-  },
+  quadrants: defaultQuadrants,
   players: [
     {
       name: 'J22',

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { borderFx, glassFx } from '@/(fx)/data';
 import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
@@ -7,6 +7,8 @@ import { TwoByTwo } from '@/(mx)/(support)/(game)/dilemma/page';
 
 export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
   const [flipped, changeFlipped] = useState(false);
+  const anti = gameState.anti;
+
   return (
     <div onClick={() => changeFlipped(!flipped)}>
       <GlassWindowFrame
@@ -18,7 +20,8 @@ export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
             <>
               <p>A</p>
               <p>
-                {gameState.quadrantA.payoutA} / {gameState.quadrantA.payoutB}
+                {gameState.quadrants.quadrantA.payoutA} /
+                {gameState.quadrants.quadrantA.payoutB}
               </p>
               <p>(1x , ++)</p>
             </>

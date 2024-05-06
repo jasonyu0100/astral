@@ -52,6 +52,9 @@ export function GameDescription() {
         Flip - Flip a coin to resolve a ?
       </p>
       <p className='text-md font-bold text-slate-500'>
+        Balance - Adjust the anti value
+      </p>
+      <p className='text-md font-bold text-slate-500'>
         Value - The value of a card
       </p>
     </div>
