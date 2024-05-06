@@ -17,7 +17,7 @@ export function PhaseTwo() {
       </div>
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500 '>
-          Player 1 played ? at B (2 / -2 , ??)
+          Player 1 played ? at B (2 / 2? , ??)
         </p>
         <p className='text-md font-bold text-slate-500 '>
           Player 2 played ? at P2 (0 / 8 , o+)

@@ -28,13 +28,13 @@ export function GameDescription() {
         Fold - Folding the draw phase
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Deal - Trading the cards with a partner
+        Deal - Trading cards with a partner
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Draw - Drawing the cards from the deck
+        Draw - Drawing cards from the deck
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Reveal - Revealing the cards in the quadrants
+        Reveal - Revealing cards in the quadrants
       </p>
       <p className='text-md font-bold text-slate-500'>
         Phase - A turn in the game
