@@ -17,7 +17,7 @@ export function PhaseThree() {
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500 '>Player 1 passed</p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 2 placed ? at P (0 / 8 , 0+)
+          Player 2 placed ? at P (0 / 8 , o+)
         </p>
         <p className='text-md font-bold text-slate-500 '>
           Player 1 placed ? at B (2 / -2 , ??)

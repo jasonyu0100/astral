@@ -25,7 +25,7 @@ export interface PlayerOutcome {
   hero: number; // 1.0, 1.5, 2.0
 }
 
-export const defaultGameState = {
+export const zeroGameState = {
   topLeft: {
     playerA: 5,
     playerB: 5,
@@ -48,7 +48,7 @@ export const defaultGameState = {
   },
 };
 
-export const zeroGameState = {
+export const defaultGameState = {
   topLeft: {
     playerA: 3,
     playerB: 3,
@@ -75,7 +75,7 @@ export const zeroGameState = {
 };
 
 export default function Page() {
-  const [gameState, setGameState] = useState<TwoByTwo>(zeroGameState);
+  const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
     <div className='flex flex-row  space-x-[3rem] p-[2rem]'>
@@ -95,7 +95,7 @@ export default function Page() {
                 <p>
                   {gameState.topRight.playerA} / {gameState.topRight.playerB}
                 </p>
-                <p>(1.0 , +0)</p>
+                <p>(1.0 , +o)</p>
               </GlassWindowContents>
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             </GlassWindowFrame>
@@ -111,7 +111,7 @@ export default function Page() {
                   {gameState.bottomLeft.playerA} /{' '}
                   {gameState.bottomLeft.playerB}
                 </p>
-                <p>(1.0 , 0+)</p>
+                <p>(1.0 , o+)</p>
               </GlassWindowContents>
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             </GlassWindowFrame>

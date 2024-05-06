@@ -91,7 +91,7 @@ export function PhaseOne({ cards }: { cards: any[] }) {
           Player 1 placed ? at A (2 / 2 , ++)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 1 placed ? at P (8 / 0 , +0)
+          Player 1 placed ? at P (8 / 0 , +o)
         </p>
         <p className='text-md font-bold text-slate-500 '>
           Player 2 placed ? at A (2 / 2 , ++)

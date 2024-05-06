@@ -19,7 +19,7 @@ export function PhaseTwo() {
           Player 1 placed ? at B (2 / -2 , ??)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 2 placed ? at P2 (0 / 8 , 0+)
+          Player 2 placed ? at P2 (0 / 8 , o+)
         </p>
       </div>
     </div>
