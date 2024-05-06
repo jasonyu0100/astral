@@ -89,7 +89,7 @@ export function PhaseOne({ cards }: { cards: any[] }) {
           Player 2 played ? at A (2 / 2 , ++)
         </p>
         <p className='text-md font-bold text-slate-500 '>
-          Player 2 played ? at B (2? / 2 , ??)
+          Player 2 played ? at B (2? / 2 , ?+)
         </p>
       </div>
     </div>

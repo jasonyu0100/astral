@@ -34,13 +34,13 @@ export function PhaseReveal() {
               Player 2 played 5 at A (5 / 5 , ++)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 2 played 4 at B (2 / 2? , ??)
+              Player 2 played 4 at B (2? / 2 , ?+)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>Phase 2</p>
           <div className='flex flex-col'>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 played A at B (2 / 2? , ??)
+              Player 1 played A at B (2 / 2? , +?)
             </p>
             <p className='text-md font-bold text-slate-500 '>
               Player 2 played 3 at P (0 / 8 , o+)
@@ -53,7 +53,7 @@ export function PhaseReveal() {
               Player 2 played 2 at P (0 / 8 , o+)
             </p>
             <p className='text-md font-bold text-slate-500 '>
-              Player 1 played K at B (2 / 2 , ??)
+              Player 1 played K at B (2 / 2? , +?)
             </p>
           </div>
           <p className='text-md font-bold text-slate-500 '>The Reveal</p>
