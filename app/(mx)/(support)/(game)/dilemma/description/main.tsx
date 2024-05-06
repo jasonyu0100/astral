@@ -13,7 +13,7 @@ export function GameDescription() {
       <p className='text-md font-bold text-slate-500'>
         Both can be played in tournaments or casual games
       </p>
-      <br/>
+      <br />
       <p className='font-extraBold text-xl text-slate-300 '>Terminology</p>
       <p className='text-md font-bold text-slate-500'>
         Follow - Following the preceding Player
@@ -40,13 +40,16 @@ export function GameDescription() {
         Phase - A turn in the game
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Region - A 2x2 grid in the game
-        </p>
+        Board - A 2x2 grid in the game
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Quadrant - A region on the board
+      </p>
       <p className='text-md font-bold text-slate-500'>
         Side - A team in the game
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Value - The score of a card 
+        Value - The score of a card
       </p>
     </div>
   );
