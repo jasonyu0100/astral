@@ -121,7 +121,7 @@ export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
-    <div className='flex flex-row  space-x-[3rem] px-[3rem] p-[1rem]'>
+    <div className='flex flex-row  space-x-[5rem] pt-[3rem] px-[3rem]'>
       <div className='flex flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
           Dilemma
@@ -175,18 +175,21 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='flex h-[36rem] w-[60rem] flex-col'>
+      <div className='flex h-[40rem] w-[60rem] flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
-          P1 vs P2
+          Player 1 vs Player 2
         </p>
-        <div className='flex  flex-col space-y-[3rem] overflow-auto'>
-          <GameDescription />
-          <PhaseDraw />
-          <PhaseOne cards={['A', 'K', 'Q', 'P']} />
-          <PhaseTwo />
-          <PhaseThree />
-          <PhaseReveal />
-        </div>
+        <GlassWindowFrame className='h-full w-full p-[2rem]'>
+          <GlassWindowContents className='flex  flex-col space-y-[3rem] overflow-auto'>
+            <GameDescription />
+            <PhaseDraw />
+            <PhaseOne cards={['A', 'K', 'Q', 'P']} />
+            <PhaseTwo />
+            <PhaseThree />
+            <PhaseReveal />
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        </GlassWindowFrame>
       </div>
     </div>
   );
