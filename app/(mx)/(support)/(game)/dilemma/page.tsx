@@ -121,7 +121,7 @@ export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
-    <div className='flex flex-row  space-x-[3rem] p-[2rem]'>
+    <div className='flex flex-row  space-x-[3rem] px-[3rem] p-[1rem]'>
       <div className='flex flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
           Dilemma
@@ -175,7 +175,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='flex h-[40rem] w-[60rem] flex-col'>
+      <div className='flex h-[36rem] w-[60rem] flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
           P1 vs P2
         </p>
