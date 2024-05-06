@@ -49,6 +49,9 @@ export function GameDescription() {
         Side - A team in the game
       </p>
       <p className='text-md font-bold text-slate-500'>
+        Flip - Flip a coin to resolve a ?
+      </p>
+      <p className='text-md font-bold text-slate-500'>
         Value - The value of a card
       </p>
     </div>

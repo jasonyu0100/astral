@@ -4,7 +4,7 @@ import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
 import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { useState } from 'react';
-import { Quadrant } from './quadrant/a/main';
+import { QuadrantA } from './quadrant/a/main';
 import { PhaseDraw } from './phase/draw/main';
 import { PhaseOne } from './phase/one/main';
 import { PhaseTwo } from './phase/two/main';
@@ -12,6 +12,9 @@ import { PhaseThree } from './phase/three/main';
 import { PhaseReveal } from './phase/reveal/main';
 import { GameDescription } from './description/main';
 import { defaultGameState } from '../state/main';
+import { QuadrantP1 } from './quadrant/p1/main';
+import { QuadrantP2 } from './quadrant/p2/main';
+import { QuadrantB } from './quadrant/b/main';
 
 export interface Player {
   name: string;
@@ -36,63 +39,23 @@ export interface QuadrantState {
   hero: number; // 1.0, 1.5, 2.0, 2.5 etc.
 }
 
-
-
 export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
-    <div className='flex flex-row  space-x-[5rem] pt-[3rem] px-[3rem]'>
+    <div className='flex flex-row  space-x-[5rem] px-[3rem] pt-[3rem]'>
       <div className='flex flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
           Dilemma
         </p>
         <div className='flex flex-col'>
           <div className='flex flex-row'>
-            <Quadrant board={gameState} />
-            <GlassWindowFrame
-              className='aspect-square h-[20rem] w-[20rem]'
-              borderFx={`${borderFx['border-l']} ${borderFx['border-b']}`}
-            >
-              <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-                <p>P1</p>
-                <p>
-                  {gameState.quadrantP1.payoutA} /{' '}
-                  {gameState.quadrantP1.payoutB}
-                </p>
-                <p>(1.0 , +o)</p>
-              </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-            </GlassWindowFrame>
+            <QuadrantA gameState={gameState} />
+            <QuadrantP1 gameState={gameState} />
           </div>
           <div className='flex flex-row'>
-            <GlassWindowFrame
-              className='aspect-square h-[20rem] w-[20rem]'
-              borderFx={`${borderFx['border-r']} ${borderFx['border-t']}`}
-            >
-              <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-                <p>P2</p>
-                <p>
-                  {gameState.quadrantP2.payoutA} /{' '}
-                  {gameState.quadrantP2.payoutB}
-                </p>
-                <p>(1.0 , o+)</p>
-              </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-            </GlassWindowFrame>
-            <GlassWindowFrame
-              className='aspect-square h-[20rem] w-[20rem]'
-              borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
-            >
-              <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-                <p>B</p>
-                <p>
-                  {gameState.quadrantB.payoutA} / {gameState.quadrantB.payoutB}
-                </p>
-                <p>(1.0 , ??)</p>
-              </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-5']} />
-            </GlassWindowFrame>
+            <QuadrantP2 gameState={gameState} />
+            <QuadrantB gameState={gameState} />
           </div>
         </div>
       </div>

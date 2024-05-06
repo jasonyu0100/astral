@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
 import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
 import { TwoByTwo } from '@/(mx)/(support)/(game)/dilemma/page';
 
-export function Quadrant({ board }: { board: TwoByTwo }) {
+export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
   const [flipped, changeFlipped] = useState(false);
   return (
     <div onClick={() => changeFlipped(!flipped)}>
@@ -18,9 +18,9 @@ export function Quadrant({ board }: { board: TwoByTwo }) {
             <>
               <p>A</p>
               <p>
-                {board.quadrantA.payoutA} / {board.quadrantA.payoutB}
+                {gameState.quadrantA.payoutA} / {gameState.quadrantA.payoutB}
               </p>
-              <p>(1.0 , ++)</p>
+              <p>(1x , ++)</p>
             </>
           ) : (
             <>
