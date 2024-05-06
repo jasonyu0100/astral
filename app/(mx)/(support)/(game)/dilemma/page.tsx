@@ -1,5 +1,5 @@
 'use client';
-import { borderFx, glassFx } from '@/(fx)/data';
+import { borderFx, glassFx, roundedFx } from '@/(fx)/data';
 import { GlassWindowContents } from '@/(lib)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(lib)/(glass)/window/main';
 import { GlassWindowPane } from '@/(lib)/(glass)/window/pane/main';
@@ -61,6 +61,7 @@ export default function Page() {
             <QuadrantP2 gameState={gameState} />
             <QuadrantB gameState={gameState} />
           </div>
+          <p className="text-slate-500 font-bold mt-[2rem]">Anti 0 Hero B</p>
         </div>
       </div>
       <div className='flex h-[40rem] w-[60rem] flex-col'>

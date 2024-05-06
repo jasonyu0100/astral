@@ -96,7 +96,7 @@ export function PhaseReveal() {
           <p className='text-md font-bold text-slate-500 '>...</p>
         </div>
       )}
-      <p className='text-md font-bold text-slate-300 '>Final Results</p>
+      <p className='text-md font-bold text-slate-300 '>Results</p>
       <div className='flex flex-col'>
         <p className='text-md font-bold text-slate-500'>P1 wins</p>
         <p className='text-md font-bold text-slate-500'>P1 += 54</p>
@@ -104,9 +104,17 @@ export function PhaseReveal() {
         <br />
         <p className='text-md font-bold text-slate-500'>Region B wins</p>
         <p className='text-md font-bold text-slate-500'>B31 vs A17 vs P16</p>
-        <br />
-        <p className='text-md font-bold text-slate-500 '>NEXT DRAW</p>
       </div>
+      <p className='text-md font-bold text-slate-300 '>Balancing</p>
+      <div className='flex flex-col'>
+        <p className='text-md font-bold text-slate-500'>
+          The anti can increase, decrease or remain the same
+        </p>
+        <p className='text-md font-bold text-slate-500'>
+          P1 would you like to balance the anti? (y/n)
+        </p>
+      </div>
+      <p className='text-md font-bold text-slate-300 '>NEXT DRAW</p>
     </div>
   );
 }

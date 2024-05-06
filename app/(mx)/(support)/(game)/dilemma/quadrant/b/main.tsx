@@ -8,21 +8,36 @@ import { useState } from 'react';
 export function QuadrantB({ gameState }: { gameState: TwoByTwo }) {
   const [flipped, changeFlipped] = useState(false);
   const anti = gameState.anti;
+  const hero = gameState.quadrants.quadrantB.hero;
 
   return (
-    <GlassWindowFrame
-      className='aspect-square h-[20rem] w-[20rem]'
-      borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
-    >
-      <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-        <p>B</p>
-        <p>
-          {gameState.quadrants.quadrantB.payoutA} /{' '}
-          {gameState.quadrants.quadrantB.payoutB}
-        </p>
-        <p>(2x , ??)</p>
-      </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
-    </GlassWindowFrame>
+    <div onClick={() => changeFlipped(!flipped)}>
+      <GlassWindowFrame
+        className='aspect-square h-[20rem] w-[20rem]'
+        borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
+      >
+        <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
+          {flipped ? (
+            <>
+              <p>B</p>
+              <p>
+                {gameState.quadrants.quadrantB.payoutA} /{' '}
+                {gameState.quadrants.quadrantB.payoutB}
+              </p>
+              <p>(2x , ??)</p>
+            </>
+          ) : (
+            <>
+              <p>B</p>
+              <p>
+                {gameState.quadrants.quadrantB.payoutA} /{' '}
+                {gameState.quadrants.quadrantB.payoutB}
+              </p>
+            </>
+          )}
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+      </GlassWindowFrame>
+    </div>
   );
 }

@@ -16,11 +16,11 @@ export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
         borderFx={`${borderFx['border-r']} ${borderFx['border-b']}`}
       >
         <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-          {!flipped ? (
+          {flipped ? (
             <>
               <p>A</p>
               <p>
-                {gameState.quadrants.quadrantA.payoutA} /
+                {gameState.quadrants.quadrantA.payoutA} /{' '}
                 {gameState.quadrants.quadrantA.payoutB}
               </p>
               <p>(1x , ++)</p>
@@ -28,6 +28,10 @@ export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
           ) : (
             <>
               <p>A</p>
+              <p>
+                {gameState.quadrants.quadrantA.payoutA} /{' '}
+                {gameState.quadrants.quadrantA.payoutB}
+              </p>
             </>
           )}
         </GlassWindowContents>
