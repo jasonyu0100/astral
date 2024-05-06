@@ -177,7 +177,7 @@ export default function Page() {
       </div>
       <div className='flex h-[40rem] w-[60rem] flex-col'>
         <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
-          Player 1 vs Player 2
+          P1 vs P2
         </p>
         <GlassWindowFrame className='h-full w-full p-[2rem]'>
           <GlassWindowContents className='flex  flex-col space-y-[3rem] overflow-auto'>
