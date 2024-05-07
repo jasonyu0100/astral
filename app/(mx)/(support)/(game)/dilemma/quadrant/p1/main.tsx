@@ -23,7 +23,7 @@ export function QuadrantP1({ gameState }: { gameState: TwoByTwo }) {
                 {gameState.quadrants.quadrantP1.payoutA - anti} /{' '}
                 {gameState.quadrants.quadrantP1.payoutB - anti}
               </p>
-              <p>(1x , +o)</p>
+              <p>+o</p>
             </>
           ) : (
             <>
@@ -32,6 +32,7 @@ export function QuadrantP1({ gameState }: { gameState: TwoByTwo }) {
                 {gameState.quadrants.quadrantP1.payoutA - anti} /{' '}
                 {gameState.quadrants.quadrantP1.payoutB - anti}
               </p>
+              <p>+o</p>
             </>
           )}
         </GlassWindowContents>

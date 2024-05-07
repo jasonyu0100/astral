@@ -15,47 +15,108 @@ export function GameDescription() {
       </p>
       <br />
       <p className='font-extraBold text-xl text-slate-300 '>Terminology</p>
+      <br />
+      <p className='text-lg font-bold text-slate-300'>Actions</p>
       <p className='text-md font-bold text-slate-500'>
         Play - Playing a card in a quadrant
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Follow - Following the preceding play
+        Pass - Passing the play at hand
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Pass - Passing the current phase
+        Follow - Following the previous play
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Fold - Folding the draw phase
+        Fold - Folding the draw hand
+      </p>
+      <br />
+      <p className='text-lg font-bold text-slate-300'>Payouts</p>
+      <p className='text-md font-bold text-slate-500'>
+        + - A positive payout that is resolved
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Deal - Trading cards with a partner
+        o - A neutral payout that is resolved
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Draw - Drawing cards from the deck
+        ? - A hidden payout yet to be resolved
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Reveal - Revealing cards in the quadrants
+        ++ - Holder receives positive, the rest receive positive
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Phase - A turn in the game
+        +o - Holder receives positive, the rest receive neutral
       </p>
+      <p className='text-md font-bold text-slate-500'>
+        ?? - Holder receives positive, the rest receive hidden
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Flip - Resolves ? into a positive or negative payout
+      </p>
+      <br />
+      <p className='text-lg font-bold text-slate-300'>Phases</p>
+      <p className='text-md font-bold text-slate-500'>
+        Draw - Deal four cards to each player from the deck
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Phase One - Fold or play two cards in quadrants
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Phase Two - Pass or play one card in a quadrant
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Phase Three - Pass or play final card in a quadrant
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        The Reveal - Reveal the quadrants and calculate the results
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Balance - Holder adjusts Anti or moves Hero
+      </p>
+      <br />
+      <p className='text-lg font-bold text-slate-300'>Misc</p>
       <p className='text-md font-bold text-slate-500'>
         Board - A 2x2 grid in the game
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Quad - A region on the board
+        Quadrant - A region on the board
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Side - A team in the game
+        Side - A side in the game
+      </p>
+      <br />
+      <p className='text-lg font-bold text-slate-300'>Meta</p>
+      <p className='text-md font-bold text-slate-500'>
+        Anti - Balance modifier that subtracts from P payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Anti - A modifier that adjusts P payouts
+        Hero - Blind modifier that adds onto AB payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Flip - Flip a coin to resolve a ?
+        Destination - Region with max QV
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Value - The value of a card
+        Holder - Player with max QV in winning quad
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Mult - The payout multipliers of a quad
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Tax - The card value of played cards
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Income - The net payout less tax
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        CV - The number value of a card
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        QV - The card value of a quadrant
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        QP - The payout of a quad without anti-hero modifiers
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        NP - The payout of a quad with anti-hero modifiers
       </p>
     </div>
   );

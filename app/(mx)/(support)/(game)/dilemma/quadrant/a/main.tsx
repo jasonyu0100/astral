@@ -23,7 +23,7 @@ export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
                 {gameState.quadrants.quadrantA.payoutA} /{' '}
                 {gameState.quadrants.quadrantA.payoutB}
               </p>
-              <p>(1x , ++)</p>
+              <p>++</p>
             </>
           ) : (
             <>
@@ -32,6 +32,7 @@ export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
                 {gameState.quadrants.quadrantA.payoutA} /{' '}
                 {gameState.quadrants.quadrantA.payoutB}
               </p>
+              <p>++</p>
             </>
           )}
         </GlassWindowContents>

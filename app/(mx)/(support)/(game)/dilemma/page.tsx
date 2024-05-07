@@ -61,7 +61,7 @@ export default function Page() {
             <QuadrantP2 gameState={gameState} />
             <QuadrantB gameState={gameState} />
           </div>
-          <p className="text-slate-500 font-bold mt-[2rem]">Anti 0 Hero B</p>
+          <p className="text-slate-500 font-bold mt-[2rem]">Anti=1, Hero=2, H=B</p>
         </div>
       </div>
       <div className='flex h-[40rem] w-[60rem] flex-col'>
