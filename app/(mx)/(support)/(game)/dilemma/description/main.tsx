@@ -89,7 +89,7 @@ export function GameDescription() {
         Anti - Balance modifier that subtracts from P multiplier payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Hero - Blind modifier that adds onto AB multiplier payouts
+        Hero - Positional modifier that adds onto AB multiplier payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
