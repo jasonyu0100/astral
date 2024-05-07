@@ -86,10 +86,10 @@ export function GameDescription() {
       <br />
       <p className='text-lg font-bold text-slate-300'>Meta</p>
       <p className='text-md font-bold text-slate-500'>
-        Anti - Balance modifier that subtracts from P payouts
+        Anti - Balance modifier that subtracts from P multiplier payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Hero - Blind modifier that adds onto AB payouts
+        Hero - Blind modifier that adds onto AB multiplier payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
