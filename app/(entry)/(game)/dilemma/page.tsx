@@ -11,37 +11,11 @@ import { PhaseTwo } from './phase/two/main';
 import { PhaseThree } from './phase/three/main';
 import { PhaseReveal } from './phase/reveal/main';
 import { GameDescription } from './description/main';
-import { defaultGameState } from '../state/main';
 import { QuadrantP1 } from './quadrant/p1/main';
 import { QuadrantP2 } from './quadrant/p2/main';
 import { QuadrantB } from './quadrant/b/main';
-
-export interface Player {
-  name: string;
-  cards: string[];
-  score: number;
-  memory?: any[];
-}
-
-export interface Quadrants {
-  quadrantA: QuadrantState;
-  quadrantP1: QuadrantState;
-  quadrantP2: QuadrantState;
-  quadrantB: QuadrantState;
-}
-export interface TwoByTwo {
-  quadrants: Quadrants;
-  players: Player[];
-  anti: number; // 0, 1, 2, 3
-  goal: number; // 1000, 2000, 3000, 5000 etc.
-  floor: number; // 0
-  history?: any[];
-}
-export interface QuadrantState {
-  payoutA: number;
-  payoutB: number;
-  hero: number; // 1.0, 1.5, 2.0, 2.5 etc.
-}
+import { TwoByTwo } from './types/2x2/main';
+import { defaultGameState } from './state/2x2/main';
 
 export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
