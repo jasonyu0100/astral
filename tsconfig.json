@@ -24,7 +24,7 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(entry)/(support)/(game)/aura/page.tsx.archive"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/(entry)/(game)/aura/page.tsx.archive"],
   "exclude": ["node_modules"],
   "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
 }

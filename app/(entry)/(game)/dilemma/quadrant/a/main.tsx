@@ -3,7 +3,7 @@ import { borderFx, glassFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { TwoByTwo } from '@/(entry)/(support)/(game)/dilemma/page';
+import { TwoByTwo } from '@/(entry)/(game)/dilemma/page';
 
 export function QuadrantA({ gameState }: { gameState: TwoByTwo }) {
   const [flipped, changeFlipped] = useState(false);
