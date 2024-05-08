@@ -5,7 +5,7 @@ import { ReleaseTabStage, ReleaseTabs } from '../../(tabs)/main';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <DashboardBody>
-      <ReleaseTabs tab={ReleaseTabStage.Arc} />
+      <ReleaseTabs tab={ReleaseTabStage.Dual} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

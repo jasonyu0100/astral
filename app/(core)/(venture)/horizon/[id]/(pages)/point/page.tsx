@@ -50,7 +50,7 @@ function Page() {
                 INSPIRATION
               </p>
               <img
-                src='https://www.nvidia.com/content/dam/en-zz/Solutions/research/ai-playground/nvidia-picasso-3c33-p@2x.jpg'
+                src='https://www.nvidia.com/content/dam/en-zz/Solutions/reseDualh/ai-playground/nvidia-picasso-3c33-p@2x.jpg'
                 className='h-full object-contain'
               />
               <GlassWindowPane glassFx={glassFx['glass-10']} />

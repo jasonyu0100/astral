@@ -6,14 +6,14 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function ArcView({
+export function DualView({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={ArcView.name}
+      name={DualView.name}
       sizeFx='flex-grow h-full'
       className={`${containerFx['row']}`}
       glassFx={glassFx['glass-5']}

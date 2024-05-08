@@ -1,8 +1,8 @@
 'use client';
 
 import insideVerse from '@/(utils)/isAuth';
-import { ArcView } from './view';
-import { ArcSidebar } from './(arc-epic)/sidebar/main';
+import { DualView } from './view';
+import { DualSidebar } from './(dual-epic)/sidebar/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
@@ -69,7 +69,7 @@ function DecisionMatrix() {
 function Page() {
   return (
     <>
-      <ArcView>
+      <DualView>
         <div className='flex h-full w-full flex-col'>
           <p className='text-bold text-slate-500'>Decision Matrix</p>
           <DecisionMatrix />
@@ -218,8 +218,8 @@ function Page() {
             <ChaptersRight />
           </ChaptersContainer>
         </div>
-        <ArcSidebar />
-      </ArcView>
+        <DualSidebar />
+      </DualView>
     </>
   );
 }
