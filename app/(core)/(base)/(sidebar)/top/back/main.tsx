@@ -1,4 +1,4 @@
-import { LinkInputProps } from '@/(types)/element/main';
+import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 export function DashboardSidebarTopBack({ ...props }: LinkInputProps) {

@@ -6,7 +6,7 @@ import insideVerse from '@/(utils)/isAuth';
 import {
   SearchActions,
   useSearchResource,
-} from '@/(logic)/internal/handler/explorer/resources/search/main';
+} from '@/(types)/handler/explorer/resources/search/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export interface SearchViewProps {

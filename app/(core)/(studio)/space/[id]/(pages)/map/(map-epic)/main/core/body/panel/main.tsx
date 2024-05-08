@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';
-import { MapConstellationList } from './list/main';
+import { MapPartList } from './list/main';
 
 export function MapPanel() {
   return (
@@ -10,7 +10,7 @@ export function MapPanel() {
       className='flex flex-col'
       borderFx={borderFx['border-r']}
     >
-      <MapConstellationList />
+      <MapPartList />
     </GlassAreaContainer>
   );
 }

@@ -8,7 +8,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 
 export function StormAddChapterModal() {
   const chaptersHandler = useContext(ChaptersHandlerContext);

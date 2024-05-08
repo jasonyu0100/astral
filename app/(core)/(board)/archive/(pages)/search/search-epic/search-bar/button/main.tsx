@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 
 export function SearchBarButton({ ...props }: ButtonInputProps) {
   return (

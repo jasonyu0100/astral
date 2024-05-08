@@ -1,20 +1,20 @@
 import { useContext } from 'react';
-import { MapHeaderStarCenter } from './center/main';
-import { MapHeaderStarLeft } from './left/main';
-import { MapHeaderStarRight } from './right/main';
-import { StarContext, StarObj } from '@/(types)/model/map/constellation/star/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { MapHeaderIdeaCenter } from './center/main';
+import { MapHeaderIdeaLeft } from './left/main';
+import { MapHeaderIdeaRight } from './right/main';
+import { IdeaContext, IdeaObj } from '@/(types)/model/map/part/idea/main';
+import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 
-export function MapHeaderStar() {
-  const starsHandler = useContext(StarsHandlerContext);
-  const starId = starsHandler.starId;
-  const star = starsHandler.stars.find((star) => star.id === starId) || {};
+export function MapHeaderIdea() {
+  const ideasHandler = useContext(IdeasHandlerContext);
+  const ideaId = ideasHandler.ideaId;
+  const idea = ideasHandler.ideas.find((idea) => idea.id === ideaId) || {};
 
   return (
-    <StarContext.Provider value={star as StarObj}>
-      <MapHeaderStarLeft />
-      <MapHeaderStarCenter />
-      <MapHeaderStarRight />
-    </StarContext.Provider>
+    <IdeaContext.Provider value={idea as IdeaObj}>
+      <MapHeaderIdeaLeft />
+      <MapHeaderIdeaCenter />
+      <MapHeaderIdeaRight />
+    </IdeaContext.Provider>
   );
 }

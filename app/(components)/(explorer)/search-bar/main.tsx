@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '../../(glass)/area/main';
 import { containerFx, borderFx } from '../../../(style)/data';
-import { FormInputProps } from '../../../(types)/element/main';
+import { FormInputProps } from '../../../(types)/props/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
   return (

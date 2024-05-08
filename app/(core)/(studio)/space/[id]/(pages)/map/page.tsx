@@ -4,16 +4,16 @@ import { MapView } from './(map-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(logic)/internal/handler/chapters/main';
+} from '@/(types)/handler/chapters/main';
 import {
-  ConstellationsHandlerContext,
-  useConstellationsHandler,
-} from '@/(logic)/internal/handler/constellations/main';
+  PartsHandlerContext,
+  usePartsHandler,
+} from '@/(types)/handler/parts/main';
 import insideVerse from '@/(utils)/isAuth';
 import {
-  StarsHandlerContext,
-  useStarsHandler,
-} from '@/(logic)/internal/handler/stars/main';
+  IdeasHandlerContext,
+  useIdeasHandler,
+} from '@/(types)/handler/ideas/main';
 import {
   MapModalContext,
   useMapModal,
@@ -36,7 +36,7 @@ export const MapContext = createContext<MapContextObj>(
 
 export enum MapModalType {
   DEFAULT = 'DEFAULT',
-  STAR = 'STAR',
+  IDEA = 'IDEA',
   AUDIO = 'AUDIO',
   VISUAL = 'VISUAL',
   TEXT = 'TEXT',
@@ -44,10 +44,10 @@ export enum MapModalType {
 
 function Page({ params }: { params: { id: string } }) {
   const chaptersHandler = useChaptersHandler(params.id);
-  const constellationsHandler = useConstellationsHandler(
+  const partsHandler = usePartsHandler(
     chaptersHandler.chapterId,
   );
-  const starsHandler = useStarsHandler(constellationsHandler.constellationId);
+  const ideasHandler = useIdeasHandler(partsHandler.partId);
   const [modalType, changeModalType] = useState(MapModalType.DEFAULT);
 
   const context: MapContextObj = {
@@ -61,8 +61,8 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <MapContext.Provider value={context}>
       <ChaptersHandlerContext.Provider value={chaptersHandler}>
-        <ConstellationsHandlerContext.Provider value={constellationsHandler}>
-          <StarsHandlerContext.Provider value={starsHandler}>
+        <PartsHandlerContext.Provider value={partsHandler}>
+          <IdeasHandlerContext.Provider value={ideasHandler}>
             <MapModalContext.Provider value={mapModalContext}>
               <MapModalView />
               <StarModalContext.Provider value={starModalContext}>
@@ -70,8 +70,8 @@ function Page({ params }: { params: { id: string } }) {
                 <MapView />
               </StarModalContext.Provider>
             </MapModalContext.Provider>
-          </StarsHandlerContext.Provider>
-        </ConstellationsHandlerContext.Provider>
+          </IdeasHandlerContext.Provider>
+        </PartsHandlerContext.Provider>
       </ChaptersHandlerContext.Provider>
     </MapContext.Provider>
   );

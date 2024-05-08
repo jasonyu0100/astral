@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { ConstellationContext } from '@/(types)/model/map/constellation/main';
+import { PartContext } from '@/(types)/model/map/part/main';
 import { cn } from '@/(utils)/cn';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
+import { PartsHandlerContext } from '@/(types)/handler/parts/main';
 
-export function ConstellationListEntry({ index }: { index: number }) {
-  const constellationsHandler =
-    useContext(ConstellationsHandlerContext);
-  const constellation = useContext(ConstellationContext);
-  const active = constellation.id == constellationsHandler.constellationId;
+export function PartListEntry({ index }: { index: number }) {
+  const partsHandler =
+    useContext(PartsHandlerContext);
+  const part = useContext(PartContext);
+  const active = part.id == partsHandler.partId;
 
   return (
     <div
-      onClick={() => constellationsHandler.constellationActions.updateConstellation(constellation)}
+      onClick={() => partsHandler.partActions.updatePart(part)}
       className='w-full flex cursor-pointer'
     >
       <p
@@ -20,7 +20,7 @@ export function ConstellationListEntry({ index }: { index: number }) {
           'text-slate-500': !active,
         })}
       >
-        {index+1}. {constellation.title}
+        {index+1}. {part.title}
       </p>
     </div>
   );

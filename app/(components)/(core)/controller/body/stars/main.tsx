@@ -1,5 +1,5 @@
 import './space.css';
 
-export function StarsOverlay() {
+export function IdeasOverlay() {
   return <div className='main opacity-30'></div>;
 }

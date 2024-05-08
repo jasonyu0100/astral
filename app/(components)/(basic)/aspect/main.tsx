@@ -1,5 +1,5 @@
 import { cn } from "@/(utils)/cn";
-import { DivInputProps } from "../../../(types)/element/main";
+import { DivInputProps } from "../../../(types)/props/main";
 
 interface AspectProps extends DivInputProps {
     x: number;

@@ -9,7 +9,7 @@ import { Modal } from '@/(components)/(modal)/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveExplorerCreateModalContext } from '../main';
-import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
+import { CollectionsHandlerContext } from '@/(types)/handler/explorer/collections/main';
 
 export function ExplorerCreateCollectionModal() {
   const collectionsHandler = useContext(CollectionsHandlerContext);

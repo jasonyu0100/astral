@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
-import { DivInputProps } from '@/(types)/element/main';
+import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/lib/utils';
 
 interface InputProps extends DivInputProps {

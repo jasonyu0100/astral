@@ -1,5 +1,5 @@
 import { Divider } from '@/(components)/(line)/divider/main';
-import { LinkInputProps } from '@/(types)/element/main';
+import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {

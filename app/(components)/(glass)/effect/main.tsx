@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(types)/element/main';
+import { DivInputProps } from '@/(types)/props/main';
 
 interface GlassEffectWrapperProps extends DivInputProps {
   roundedFx?: string;

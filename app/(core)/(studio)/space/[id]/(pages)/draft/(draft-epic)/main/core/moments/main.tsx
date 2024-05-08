@@ -1,17 +1,14 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
-import { createContext, useContext } from 'react';
-import { MomentObj } from '@/(types)/model/journal/moment/main';
-import { MomentsHandlerContext } from '@/(logic)/internal/handler/moments/main';
+import { createContext } from 'react';
+import { PostObj } from '@/(types)/model/post/main';
 import { DraftPanel } from '../panel/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 
-export const DraftMomentContext = createContext({} as MomentObj);
+export const DraftMomentContext = createContext({} as PostObj);
 
 export function DraftMoments() {
-  const momentsHandler = useContext(MomentsHandlerContext);
-  const moments = momentsHandler.moments;
 
   return (
     <div className='flex w-full flex-row' style={{ height: '100%' }}>

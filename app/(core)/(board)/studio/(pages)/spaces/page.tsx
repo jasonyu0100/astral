@@ -5,7 +5,7 @@ import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../(modals)/studio/main';
-import { SpacesHandlerContext, useSpacesHandler } from '@/(logic)/internal/handler/spaces/main';
+import { SpacesHandlerContext, useSpacesHandler } from '@/(types)/handler/spaces/main';
 import { SpacesModalView } from '@/(core)/(board)/(modals)/studio/view';
 import { StudioSpacesView } from './(spaces-epic)/view';
 

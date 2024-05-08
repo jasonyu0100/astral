@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { StarContext } from '@/(types)/model/map/constellation/star/main';
+import { IdeaContext } from '@/(types)/model/map/part/idea/main';
 import MapHeaderTitle from '../../../common/title/main';
 
-export function MapHeaderStarCenter() {
-  const star = useContext(StarContext);
+export function MapHeaderIdeaCenter() {
+  const idea = useContext(IdeaContext);
 
   return (
     <div className='flex w-1/3 flex-row justify-center'>
-      <MapHeaderTitle>{star.variant} - {star.title}</MapHeaderTitle>
+      <MapHeaderTitle>{idea.variant} - {idea.title}</MapHeaderTitle>
     </div>
   );
 }

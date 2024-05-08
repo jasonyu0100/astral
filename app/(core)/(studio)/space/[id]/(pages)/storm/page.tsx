@@ -3,19 +3,19 @@ import { StormView } from './(storm-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(logic)/internal/handler/chapters/main';
+} from '@/(types)/handler/chapters/main';
 import {
   ChatsHandlerContext,
   useChatsHandler,
-} from '@/(logic)/internal/handler/storm/chats/main';
+} from '@/(types)/handler/storm/chats/main';
 import insideVerse from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
 import {
   MessagesHandlerContext,
   useMessagesHandler,
-} from '@/(logic)/internal/handler/storm/messages/main';
+} from '@/(types)/handler/storm/messages/main';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import { useSpaceHandler } from '@/(logic)/internal/handler/spaces/space/main';
+import { useSpaceHandler } from '@/(types)/handler/spaces/space/main';
 import {
   StormModalContext,
   useStormModal,

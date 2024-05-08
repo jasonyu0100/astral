@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(types)/element/main';
+import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/(utils)/cn';
 
 interface InputProps extends DivInputProps {

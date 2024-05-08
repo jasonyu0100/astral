@@ -4,7 +4,7 @@ import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
 import { StormChatMessageInput } from './text/main';
 import { useContext } from 'react';
-import { MessagesHandlerContext } from '@/(logic)/internal/handler/storm/messages/main';
+import { MessagesHandlerContext } from '@/(types)/handler/storm/messages/main';
 
 
 export function StormChatInput() {

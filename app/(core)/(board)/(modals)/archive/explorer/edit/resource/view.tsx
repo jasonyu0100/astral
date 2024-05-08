@@ -10,7 +10,7 @@ import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/ma
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { ResourceContext } from '@/(types)/model/resource/main';
 import { EditResourceModalContext } from './main';
-import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';
 
 export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);

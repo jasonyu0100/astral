@@ -1,16 +1,18 @@
-import { exampleStars, exampleStar } from './constellation/star/main';
+import { exampleIdeas, exampleIdea } from './part/idea/main';
 import {
-  exampleConstellation,
-  exampleConstellations,
-} from './constellation/main';
-import { TableDescriptor } from '../tables';
+  examplePart,
+  exampleParts,
+} from './part/main';
+import { ModelExample } from '../tables';
 
-export const constellationTable: TableDescriptor = {
-  example: exampleConstellation,
-  examples: exampleConstellations,
+export const partExamples: ModelExample = {
+  description: "Part examples.",
+  example: examplePart,
+  examples: exampleParts,
 };
 
-export const starTable: TableDescriptor = {
-  example: exampleStar,
-  examples: exampleStars,
+export const ideaExamples: ModelExample = {
+  description: "Idea examples.",
+  example: exampleIdea,
+  examples: exampleIdeas,
 };

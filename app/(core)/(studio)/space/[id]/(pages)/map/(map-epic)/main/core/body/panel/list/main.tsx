@@ -1,16 +1,16 @@
 import { useContext } from 'react';
-import { ConstellationContext } from '@/(types)/model/map/constellation/main';
-import { ConstellationListEntry } from './entry/main';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
+import { PartContext } from '@/(types)/model/map/part/main';
+import { PartListEntry } from './entry/main';
+import { PartsHandlerContext } from '@/(types)/handler/parts/main';
 import { MapModalContext } from '@/(core)/(studio)/(modals)/map-modal/main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 
-export function MapConstellationList() {
+export function MapPartList() {
   const chaptersHandler = useContext(ChaptersHandlerContext)
-  const constellationsHandler = useContext(ConstellationsHandlerContext);
-  const constellations = constellationsHandler.constellations;
+  const partsHandler = useContext(PartsHandlerContext);
+  const parts = partsHandler.parts;
   const modalContext = useContext(MapModalContext);
-  const { open } = modalContext.addConstellationModal;
+  const { open } = modalContext.addPartModal;
 
 
   // TODO CLEAN UP
@@ -23,13 +23,13 @@ export function MapConstellationList() {
           </p>
         </div>
       ))}
-      {/* {constellations.map((constellation, index) => (
-        <ConstellationContext.Provider
-          value={constellation}
-          key={constellation.id}
+      {/* {parts.map((part, index) => (
+        <PartContext.Provider
+          value={part}
+          key={part.id}
         >
-          <ConstellationListEntry index={index} key={constellation.id} />
-        </ConstellationContext.Provider>
+          <PartListEntry index={index} key={part.id} />
+        </PartContext.Provider>
       ))}
       <div
         className='flex w-full cursor-pointer'

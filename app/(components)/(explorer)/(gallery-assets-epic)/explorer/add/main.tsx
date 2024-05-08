@@ -1,6 +1,6 @@
 import { GalleryContainer } from '../container/main';
 import { GalleryExplorerAddCover } from './cover/main';
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 
 export function GalleryExplorerAdd({ ...props }: ButtonInputProps) {
   return (

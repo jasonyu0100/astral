@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
-import { SpacesHandlerContext } from '@/(logic)/internal/handler/spaces/main';
+import { SpacesHandlerContext } from '@/(types)/handler/spaces/main';
 import { SpaceContext } from '@/(types)/model/space/main';
 
 export function SpacesMain() {

@@ -1,5 +1,5 @@
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 
 export function MapHeaderFileButton({ ...props }: ButtonInputProps) {
   return (

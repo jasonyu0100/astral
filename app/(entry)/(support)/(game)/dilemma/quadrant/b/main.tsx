@@ -13,6 +13,7 @@ export function QuadrantB({ gameState }: { gameState: TwoByTwo }) {
   return (
     <div onClick={() => changeFlipped(!flipped)}>
       <GlassWindowFrame
+      name="Quadrant B"
         className='aspect-square h-[20rem] w-[20rem]'
         borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
       >

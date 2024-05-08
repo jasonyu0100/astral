@@ -12,13 +12,13 @@ import {
 } from '@/(types)/model/resource/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addLinkStarModal;
-  const starsHandler = useContext(StarsHandlerContext);
+  const ideasHandler = useContext(IdeasHandlerContext);
   const [variant, changeVariant] = useState<string>(LinkVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
@@ -120,14 +120,14 @@ export function AddLinkStarModal() {
           <FormButton
             onClick={() => {
               if (variant === LinkVariant.YOUTUBE) {
-                starsHandler.starActions.createFromLink(title, description, 0, 0, {
+                ideasHandler.starActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://www.youtube.com/embed/${youtubeId}`,
                   variant: LinkVariant.YOUTUBE,
                 } as LinkObj);
               } else if (variant === LinkVariant.SPOTIFY) {
-                starsHandler.starActions.createFromLink(title, description, 0, 0, {
+                ideasHandler.starActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://open.spotify.com/embed/track/${spotifyId}`,

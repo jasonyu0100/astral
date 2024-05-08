@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MapAddChapterModal } from './add/chapter/main';
-import { MapAddConstellationModal } from './add/constellation/main';
+import { MapAddPartModal } from './add/part/main';
 import { MapModalContext } from './main';
 
 export function MapModalView() {
@@ -9,7 +9,7 @@ export function MapModalView() {
   return (
     <>
       {modalContext.addChapterModal.opened && <MapAddChapterModal />}
-      {modalContext.addConstellationModal.opened && <MapAddConstellationModal />}
+      {modalContext.addPartModal.opened && <MapAddPartModal />}
     </>
   );
 }

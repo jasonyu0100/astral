@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ConstellationsHandlerContext } from '@/(logic)/internal/handler/constellations/main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { PartsHandlerContext } from '@/(types)/handler/parts/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 
 export function DefaultCenter() {
-  const constellationsHandler = useContext(ConstellationsHandlerContext);
-  const constellation = constellationsHandler.constellation;
+  const partsHandler = useContext(PartsHandlerContext);
+  const part = partsHandler.part;
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const chapter = chaptersHandler.chapter;
   const headerTitle =
-    constellation && chapter
-      ? `${chapter?.title} - ${constellation?.title}`
+    part && chapter
+      ? `${chapter?.title} - ${part?.title}`
       : `${chapter?.title} - None`;
 
   return (

@@ -7,12 +7,12 @@ import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddLogStarModal() {
   const modalContext = useContext(StarModalContext);
-  const starsHandler = useContext(StarsHandlerContext);
+  const ideasHandler = useContext(IdeasHandlerContext);
   const { opened, close, logObj } = modalContext.addLogStarModal;
   const [title, changeTitle] = useState<string>("");
   const [description, changeDescription] = useState<string>("");
@@ -28,7 +28,7 @@ export function AddLogStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              starsHandler.starActions.createFromLog(title, description,0, 0, logObj);
+              ideasHandler.starActions.createFromLog(title, description,0, 0, logObj);
               close();
             }}
           >

@@ -23,7 +23,7 @@ export function MapHeader() {
       glassFx={glassFx['glass-5']}
     >
       {modalType === MapModalType.DEFAULT && <MapHeaderDefault/>}
-      {modalType === MapModalType.STAR && <MapHeaderStar/>}
+      {modalType === MapModalType.IDEA && <MapHeaderStar/>}
       {modalType === MapModalType.TEXT && <MapHeaderInfo/>}
       {modalType === MapModalType.AUDIO && <MapHeaderSound/>}
       {modalType === MapModalType.VISUAL && <MapHeaderVisual/>}

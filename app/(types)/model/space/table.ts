@@ -1,13 +1,15 @@
-import { TableDescriptor } from '../tables';
-import { exampleChapter, exampleChapters } from './chapter/main';
+import { ModelExample } from '../tables';
+import { exampleChapter, exampleChapters } from '../chapter/main';
 import { exampleSpace, exampleSpaces } from './main';
 
-export const spaceTable: TableDescriptor = {
+export const spaceExamples: ModelExample = {
+  description: "Space examples.",
   example: exampleSpace,
   examples: exampleSpaces,
 };
 
-export const chapterTable: TableDescriptor = {
+export const chapterExamples: ModelExample = {
+  description: "Chapter examples.",
   example: exampleChapter,
   examples: exampleChapters,
 };

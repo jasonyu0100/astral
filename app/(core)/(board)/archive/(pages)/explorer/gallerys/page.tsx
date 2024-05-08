@@ -5,7 +5,7 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   GallerysHandlerContext,
   useGallerysHandler,
-} from '@/(logic)/internal/handler/explorer/gallerys/main';
+} from '@/(types)/handler/explorer/gallerys/main';
 import {
   ArchiveExplorerCreateModalContext,
   useArchiveExplorerCreateModal,

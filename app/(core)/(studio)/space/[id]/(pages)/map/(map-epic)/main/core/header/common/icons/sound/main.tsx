@@ -1,4 +1,4 @@
-import { SvgInputProps } from '@/(types)/element/main';
+import { SvgInputProps } from '@/(types)/props/main';
 
 export function SoundIcon({ ...props }: SvgInputProps) {
   return (

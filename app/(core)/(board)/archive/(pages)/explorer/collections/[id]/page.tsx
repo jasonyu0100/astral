@@ -4,11 +4,11 @@ import {
   GalleryContext,
 } from '@/(types)/model/gallery/main';
 import insideVerse from '@/(utils)/isAuth';
-import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
+import { useGalleryHandler } from '@/(types)/handler/explorer/gallerys/gallery/main';
 import {
   CollectionsHandlerContext,
   useCollectionsHandler,
-} from '@/(logic)/internal/handler/explorer/collections/main';
+} from '@/(types)/handler/explorer/collections/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   useArchiveExplorerCreateModal,

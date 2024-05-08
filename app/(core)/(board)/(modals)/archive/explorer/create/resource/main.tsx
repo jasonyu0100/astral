@@ -14,7 +14,7 @@ import {
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
-import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';
 
 export function ExplorerCreateResourceModal() {
   const resourcesHandler = useContext(ResourcesHandlerContext);

@@ -1,4 +1,4 @@
-import { ConstellationVariant } from '@/(types)/model/map/constellation/main';
+import { PartVariant } from '@/(types)/model/map/part/main';
 import { exampleFiles } from '@/(types)/model/resource/file/main';
 import { ResourceVariant } from '@/(types)/model/resource/main';
 import { ChapterTemplateObj } from './main';
@@ -23,10 +23,10 @@ export const songMixTemplate: ChapterTemplateObj[] = [
         },
       ],
     },
-    constellationTemplate: {
+    partTemplate: {
       title: 'Vision',
       description: 'My vision board',
-      variant: ConstellationVariant.VISUAL,
+      variant: PartVariant.VISUAL,
       stars: [
         {
           title: 'Star 0',

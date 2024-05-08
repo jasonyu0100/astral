@@ -8,7 +8,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { DraftModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 
 export function DraftAddChapterModal() {
   const chaptersHandler = useContext(ChaptersHandlerContext);

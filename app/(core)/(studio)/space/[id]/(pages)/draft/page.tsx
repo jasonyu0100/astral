@@ -4,11 +4,7 @@ import { DraftView } from './(draft-epic)/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(logic)/internal/handler/chapters/main';
-import {
-  MomentsHandlerContext,
-  useMomentsHandler,
-} from '@/(logic)/internal/handler/moments/main';
+} from '@/(types)/handler/chapters/main';
 import insideVerse from '@/(utils)/isAuth';
 import {
   DraftModalContext,
@@ -22,10 +18,6 @@ export const DraftContext = createContext<DraftContextObj>({} as DraftContextObj
 
 function Page({ params }: { params: { id: string } }) {
   const chaptersHandler = useChaptersHandler(params.id);
-  const momentsHandler = useMomentsHandler(
-    chaptersHandler.chapterId,
-    params.id,
-  );
 
   const context: DraftContextObj = {};
 
@@ -34,12 +26,10 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <DraftContext.Provider value={context}>
       <ChaptersHandlerContext.Provider value={chaptersHandler}>
-        <MomentsHandlerContext.Provider value={momentsHandler}>
           <DraftModalContext.Provider value={modalContext}>
             <DraftModalView />
             <DraftView />
           </DraftModalContext.Provider>
-        </MomentsHandlerContext.Provider>
       </ChaptersHandlerContext.Provider>
     </DraftContext.Provider>
   );

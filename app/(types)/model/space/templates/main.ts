@@ -1,4 +1,4 @@
-import { StarTemplateObj } from '@/(types)/model/map/constellation/star/main';
+import { IdeaTemplateObj } from '@/(types)/model/map/part/idea/main';
 import { SpaceVariant } from '../main';
 import { barTemplate } from './bar';
 import { customTemplate } from './custom';
@@ -11,7 +11,7 @@ export interface ChapterTemplateObj {
   title: string;
   description: string;
   chatTemplate?: ChatTemplateObj;
-  constellationTemplate?: ConstellationTemplateObj;
+  partTemplate?: PartTemplateObj;
 }
 
 export interface ChatTemplateObj {
@@ -20,11 +20,11 @@ export interface ChatTemplateObj {
   messages?: MessageTemplateObj[];
 }
 
-export interface ConstellationTemplateObj {
+export interface PartTemplateObj {
   title: string;
   description: string;
   variant: string;
-  stars?: StarTemplateObj[];
+  stars?: IdeaTemplateObj[];
 }
 
 export function getSpaceTemplate(variant: SpaceVariant): ChapterTemplateObj[] {

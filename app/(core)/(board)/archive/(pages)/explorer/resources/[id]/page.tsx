@@ -14,9 +14,9 @@ import {
   ResourcesActions,
   ResourcesHandlerContext,
   useResourcesHandler,
-} from '@/(logic)/internal/handler/explorer/resources/main';
-import { useCollectionHandler } from '@/(logic)/internal/handler/explorer/collections/collection/main';
-import { useGalleryHandler } from '@/(logic)/internal/handler/explorer/gallerys/gallery/main';
+} from '@/(types)/handler/explorer/resources/main';
+import { useCollectionHandler } from '@/(types)/handler/explorer/collections/collection/main';
+import { useGalleryHandler } from '@/(types)/handler/explorer/gallerys/gallery/main';
 import { ResourcesView } from './(resources-explorer-epic)/view';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {

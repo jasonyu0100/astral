@@ -1,23 +1,19 @@
-import { constellationTable, starTable } from './map/table';
-import { chatTable, messageTable } from './storm/table';
-import { collectionTable, galleryTable } from './gallery/table';
-import { chapterTable, spaceTable } from './space/table';
-import { userTable } from './user/table';
-import { journeyTable } from './sea/table';
-import { commentTable, momentTable } from './draft/table';
+import { partExamples, ideaExamples } from './map/table';
+import { chatExamples, messageExamples } from './storm/table';
+import { collectionExamples, galleryExamples } from './gallery/table';
+import { chapterExamples, spaceExamples } from './space/table';
+import { userExamples as userExamples } from './user/table';
+import { verseExamples } from './draft/table';
 import {
-  fileTable,
-  logTable as logTable,
-  resourceTable,
-  stickyTable,
+  fileExamples,
+  logExamples as logExamples,
+  resourceExamples,
+  stickyExamples,
 } from './resource/table';
+import { horizonExamples } from './horizon/table';
 
-export interface ObjectDescriptor {
-  example: any;
-  examples: any[];
-}
-
-export interface TableDescriptor {
+export interface ModelExample {
+  description: string;
   example: any;
   examples: any[];
 }
@@ -30,58 +26,55 @@ export interface TableObjectDescriptor {
 
 export const architecture = {
   user: {
-    table: userTable,
+    examples: userExamples,
   },
   resource: {
-    table: resourceTable,
+    example: resourceExamples,
     log: {
-      table: logTable,
+      examples: logExamples,
     },
     sticky: {
-      table: stickyTable,
+      examples: stickyExamples,
     },
     file: {
-      table: fileTable,
+      examples: fileExamples,
     },
   },
   gallery: {
-    table: galleryTable,
+    examples: galleryExamples,
     collection: {
-      table: collectionTable,
+      table: collectionExamples,
     },
   },
+  horizon: {
+    examples: horizonExamples,
+  },
   space: {
-    table: spaceTable,
+    examples: spaceExamples,
     chapter: {
-      table: chapterTable,
+      table: chapterExamples,
       storm: {
         chat: {
-          table: chatTable,
+          table: chatExamples,
           message: {
-            table: messageTable,
+            table: messageExamples,
           },
         },
       },
       map: {
-        constellation: {
-          table: constellationTable,
+        part: {
+          examples: partExamples,
           star: {
-            table: starTable,
+            table: ideaExamples,
           },
         },
       },
       draft: {
-        moment: {
-          table: momentTable,
-          comment: {
-            table: commentTable,
-          },
+        verse: {
+          table: verseExamples,
         },
       },
       sea: {
-        journey: {
-          table: journeyTable,
-        },
       },
     },
   },

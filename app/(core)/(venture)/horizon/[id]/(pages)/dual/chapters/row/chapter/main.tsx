@@ -1,9 +1,9 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(types)/model/space/chapter/main';
+import { ChapterContext } from '@/(types)/model/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 import { cn } from '@/(utils)/cn';
 import { ChapterActiveText } from './active/main';
 import { ChapterInactiveText } from './inactive/main';

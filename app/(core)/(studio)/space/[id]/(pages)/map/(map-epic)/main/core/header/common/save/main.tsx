@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { glassFx } from '@/(style)/data';
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 
 export function MapSaveButton({ ...props }: ButtonInputProps) {
   return (

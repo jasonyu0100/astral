@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { MapSaveButton } from '../../../common/save/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 
 export function DefaultRight() {
-  const starsHandler = useContext(StarsHandlerContext);
+  const ideasHandler = useContext(IdeasHandlerContext);
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      <MapSaveButton onClick={() => starsHandler.starActions.updateStars()} />
+      <MapSaveButton onClick={() => ideasHandler.starActions.updateStars()} />
     </div>
   );
 }

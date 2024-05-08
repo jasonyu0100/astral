@@ -9,7 +9,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { Modal } from '@/(components)/(modal)/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ChatsHandlerContext } from '@/(logic)/internal/handler/storm/chats/main';
+import { ChatsHandlerContext } from '@/(types)/handler/storm/chats/main';
 
 export function StormAddChatModal() {
   const modalContext = useContext(StormModalContext);

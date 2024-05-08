@@ -13,7 +13,7 @@ import {
 } from '@/(types)/model/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesHandlerContext } from '@/(logic)/internal/handler/spaces/main';
+import { SpacesHandlerContext } from '@/(types)/handler/spaces/main';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;

@@ -2,18 +2,18 @@ import { FileObj } from '@/(types)/model/resource/file/main';
 import { ResourceContext } from '@/(types)/model/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
-import { StarsHandlerContext } from '@/(logic)/internal/handler/stars/main';
+import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 import { ResourceContainer } from '../common/container/main';
 
 export function SidebarCollectionResource() {
-  const starsHandler = useContext(StarsHandlerContext);
+  const ideasHandler = useContext(IdeasHandlerContext);
   const resource = useContext(ResourceContext);
 
   return (
     <ResourceContainer
       className='w-[2/5] p-[10px]'
       onClick={() =>
-        starsHandler.starActions.createFromFile(
+        ideasHandler.ideaActions.createFromFile(
           resource.title,
           resource.description,
           Math.random() * 500,

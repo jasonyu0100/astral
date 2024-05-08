@@ -1,4 +1,4 @@
-import { useUnsplash } from '@/(logic)/internal/handler/external/unsplash/main';
+import { useUnsplash } from '@/(types)/handler/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { SearchBar } from '@/(components)/(explorer)/search-bar/main';
@@ -6,7 +6,7 @@ import { cn } from '@/(utils)/cn';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { Modal } from '@/(components)/(modal)/main';
-import { ImageInputProps } from '@/(types)/element/main';
+import { ImageInputProps } from '@/(types)/props/main';
 import { SearchModalContext } from './main';
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
 

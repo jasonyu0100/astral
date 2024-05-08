@@ -22,7 +22,7 @@ export function ToggleButton() {
         className='flex animate-pulse-slow cursor-pointer flex-col items-center justify-center'
         onClick={() => toggle()}
       >
-        {modalType === MapModalType.STAR && <StarIcon />}
+        {modalType === MapModalType.IDEA && <StarIcon />}
         {modalType === MapModalType.DEFAULT && <NetworkIcon />}
         {modalType === MapModalType.AUDIO && <SoundIcon />}
         {modalType === MapModalType.VISUAL && <VisualIcon />}

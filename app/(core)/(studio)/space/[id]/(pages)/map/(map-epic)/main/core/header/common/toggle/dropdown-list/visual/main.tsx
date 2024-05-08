@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 import { VisualIcon } from '../../../icons/visual/main';
 import { MapModalType } from '@/(core)/(studio)/space/[id]/(pages)/map/page';
 

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GalleryContext } from '@/(types)/model/gallery/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
-import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
+import { GallerysHandlerContext } from '@/(types)/handler/explorer/gallerys/main';
 import { SidebarHomeGalleryAdd } from '@/(components)/(explorer)/(gallery-assets-epic)/sidebar/add/main';
 import { SidebarHomeGallery } from '@/(components)/(explorer)/(gallery-assets-epic)/sidebar/main';
 

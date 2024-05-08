@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { GalleryExplorerAdd } from '../../../../../../../../(components)/(explorer)/(gallery-assets-epic)/explorer/add/main';
 import { ExplorerGallery } from '../../../../../../../../(components)/(explorer)/(gallery-assets-epic)/explorer/main';
 import { GalleryContext } from '@/(types)/model/gallery/main';
-import { GallerysHandlerContext } from '@/(logic)/internal/handler/explorer/gallerys/main';
+import { GallerysHandlerContext } from '@/(types)/handler/explorer/gallerys/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(board)/(modals)/archive/explorer/create/main';
 
 export function GallerysGrid() {

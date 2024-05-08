@@ -1,7 +1,7 @@
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ButtonInputProps } from '@/(types)/element/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 
-export function StarDeleteButton({ ...props }: ButtonInputProps) {
+export function IdeaDeleteButton({ ...props }: ButtonInputProps) {
   return (
     <WrapperTooltip text='Delete'>
       <button

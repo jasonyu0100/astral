@@ -1,8 +1,8 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { containerFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(types)/model/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChapterContext } from '@/(types)/model/chapter/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 import { StormChapterTitle } from './title/main';
 
 export function StormChapterHeader() {

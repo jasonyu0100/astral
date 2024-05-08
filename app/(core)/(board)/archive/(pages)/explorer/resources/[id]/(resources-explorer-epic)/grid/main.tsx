@@ -3,7 +3,7 @@ import { CollectionResourceAdd } from '../../../../../../../../../(components)/(
 import { ExplorerResource } from '../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/explorer/main';
 import { ResourceContext } from '@/(types)/model/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(board)/(modals)/archive/explorer/create/main';
-import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';
 
 export function ResourcesGrid() {
   const resourcesHandler = useContext(ResourcesHandlerContext);

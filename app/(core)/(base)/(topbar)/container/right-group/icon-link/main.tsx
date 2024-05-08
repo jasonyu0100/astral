@@ -1,4 +1,4 @@
-import { ButtonInputProps, LinkInputProps } from '@/(types)/element/main';
+import { ButtonInputProps, LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface InputProps extends ButtonInputProps {

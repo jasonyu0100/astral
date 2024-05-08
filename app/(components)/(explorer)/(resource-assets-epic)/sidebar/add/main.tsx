@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/(types)/element/main';
+import { DivInputProps } from '@/(types)/props/main';
 import { ResourceContainer } from '../../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {

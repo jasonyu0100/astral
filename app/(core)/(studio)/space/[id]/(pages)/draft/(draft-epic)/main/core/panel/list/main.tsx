@@ -1,4 +1,4 @@
-import { ChaptersHandlerContext } from '@/(logic)/internal/handler/chapters/main';
+import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
 import { useContext } from 'react';
 
 export function DraftChapterList() {

@@ -1,4 +1,4 @@
-import { UploadHandlerContext } from '@/(logic)/internal/handler/upload/single/main';
+import { UploadHandlerContext } from '@/(types)/handler/upload/single/main';
 import { useContext } from 'react';
 
 export function UploadedEntryRemove() {

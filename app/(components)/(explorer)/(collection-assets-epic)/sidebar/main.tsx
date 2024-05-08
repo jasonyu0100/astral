@@ -4,7 +4,7 @@ import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 import { CollectionContext, ResourcesContext } from '@/(types)/model/gallery/collection/main';
-import { useResourcesHandler } from '@/(logic)/internal/handler/explorer/resources/main';
+import { useResourcesHandler } from '@/(types)/handler/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCollection() {

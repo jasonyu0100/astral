@@ -3,7 +3,7 @@ import { GalleryCollectionAdd } from '../../../../../../../../../(components)/(e
 import { ExplorerCollection } from '../../../../../../../../../(components)/(explorer)/(collection-assets-epic)/explorer/main';
 import { CollectionContext } from '@/(types)/model/gallery/collection/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(board)/(modals)/archive/explorer/create/main';
-import { CollectionsHandlerContext } from '@/(logic)/internal/handler/explorer/collections/main';
+import { CollectionsHandlerContext } from '@/(types)/handler/explorer/collections/main';
 
 export function CollectionsGrid() {
   const collectionsHandler = useContext(CollectionsHandlerContext);

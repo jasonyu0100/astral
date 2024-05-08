@@ -1,5 +1,5 @@
 import { SidebarGalleryAddCover } from './cover/main';
-import { DivInputProps } from '@/(types)/element/main';
+import { DivInputProps } from '@/(types)/props/main';
 import { GalleryContainer } from '../../explorer/container/main';
 
 export function SidebarHomeGalleryAdd({ ...props }: DivInputProps) {

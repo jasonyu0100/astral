@@ -6,7 +6,7 @@ export interface MapModalController {
     open: () => void;
     close: () => void;
   };
-  addConstellationModal: {
+  addPartModal: {
     opened: boolean;
     open: () => void;
     close: () => void;
@@ -17,7 +17,7 @@ export const MapModalContext = createContext({} as MapModalController);
 
 export const useMapModal = (): MapModalController => {
   const [showAddChapter, changeShowAddChapter] = useState(false);
-  const [showAddConstellation, changeShowAddConstellation] = useState(false);
+  const [showAddPart, changeShowAddPart] = useState(false);
 
   return {
     addChapterModal: {
@@ -25,10 +25,10 @@ export const useMapModal = (): MapModalController => {
       open: () => changeShowAddChapter(true),
       close: () => changeShowAddChapter(false),
     },
-    addConstellationModal: {
-      opened: showAddConstellation,
-      open: () => changeShowAddConstellation(true),
-      close: () => changeShowAddConstellation(false),
+    addPartModal: {
+      opened: showAddPart,
+      open: () => changeShowAddPart(true),
+      close: () => changeShowAddPart(false),
     },
   };
 };
