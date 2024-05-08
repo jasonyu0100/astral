@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { StarObj } from '@/(types)/model/map/constellation/star/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   deleteStarObj,
   updateStarObj,

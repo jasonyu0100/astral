@@ -1,4 +1,4 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { StarObj } from '@/(types)/model/map/constellation/star/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { ResourceVariant } from '@/(types)/model/resource/main';
@@ -7,7 +7,7 @@ import {
   MessageObj,
   MessageSource,
 } from '@/(types)/model/storm/chat/message/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   createSpaceObj,
   deleteSpaceObj,

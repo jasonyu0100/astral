@@ -1,11 +1,11 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { StarObj } from '@/(types)/model/map/constellation/star/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { LinkObj } from '@/(types)/model/resource/link/main';
 import { LogObj } from '@/(types)/model/resource/log/main';
 import { ResourceVariant } from '@/(types)/model/resource/main';
 import { NoteObj } from '@/(types)/model/resource/note/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   createStarObj,
 } from '@/graphql/mutations';

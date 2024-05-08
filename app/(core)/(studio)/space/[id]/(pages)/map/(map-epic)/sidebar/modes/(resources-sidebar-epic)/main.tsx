@@ -1,0 +1,39 @@
+import { createContext, useContext } from 'react';
+import { CollectionResourceAdd } from '../../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/sidebar/add/main';
+import { ResourcesFooter } from './footer/main';
+import { CollectionHeaderSearch } from './footer/search/main';
+import { SidebarCollectionResource } from '../../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/sidebar/main';
+import { ResourceContext, ResourceObj } from '@/(types)/model/resource/main';
+import { ArchiveSidebarCreateModalContext } from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
+import { ResourcesHandlerContext } from '@/(logic)/internal/handler/explorer/resources/main';
+
+export const SidebarResourceContext = createContext({} as ResourceObj);
+
+
+// TODO ADD SEARCH AND BREADCRUMB TO SIDEBAR RESOURCES
+
+export function ResourcesInterface() {
+  const resourcesHandler = useContext(ResourcesHandlerContext);
+  const searchResults = resourcesHandler.searchResults;
+  const modalContext = useContext(ArchiveSidebarCreateModalContext);
+
+  return (
+    <div className='flex h-full w-full flex-col'>
+      <div className='flex w-full flex-row flex-wrap gap-[2rem] overflow-auto'>
+        <CollectionResourceAdd
+          onClick={() => {
+            modalContext.createResource.open();
+          }}
+        />
+        {searchResults.map((resource) => (
+          <ResourceContext.Provider value={resource} key={resource.id}>
+            <SidebarCollectionResource key={resource.id} />
+          </ResourceContext.Provider>
+        ))}
+      </div>
+      <ResourcesFooter>
+        <CollectionHeaderSearch />
+      </ResourcesFooter>
+    </div>
+  );
+}

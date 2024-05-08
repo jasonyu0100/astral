@@ -1,4 +1,4 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { MoveObj } from '../../model/draft/move/main';
 import {
@@ -7,7 +7,7 @@ import {
   updateMoveObj,
 } from '@/graphql/mutations';
 import { getMoveObj, listMoveObjs } from '@/graphql/queries';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 
 export interface MovesGqlHelper {
   get: (id: string) => Promise<MoveObj>;

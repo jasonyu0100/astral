@@ -1,7 +1,7 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GalleryObj } from '@/(types)/model/gallery/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   createGalleryObj,
   deleteGalleryObj,

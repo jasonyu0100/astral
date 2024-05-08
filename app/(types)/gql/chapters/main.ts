@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { ChapterObj } from '@/(types)/model/space/chapter/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   createChapterObj,
   deleteChapterObj,

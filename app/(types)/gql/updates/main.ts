@@ -1,10 +1,10 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import {
   deleteUpdateObj,
   updateUpdateObj,
 } from '@/graphql/mutations';
 import { listUpdateObjs } from '@/graphql/queries';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import { UpdatesCreateGqlHelper, updatesCreateGqlHelper } from './create/main';
 import { UpdateObj } from '@/(types)/model/sea/update/main';
 

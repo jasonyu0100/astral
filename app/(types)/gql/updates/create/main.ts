@@ -1,9 +1,9 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import {
   createUpdateObj,
 } from '@/graphql/mutations';
 import { UpdateObj, UpdateVariant } from '@/(types)/model/sea/update/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { LogObj } from '@/(types)/model/resource/log/main';
 import { NoteObj } from '@/(types)/model/resource/note/main';

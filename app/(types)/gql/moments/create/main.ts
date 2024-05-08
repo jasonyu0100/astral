@@ -1,4 +1,4 @@
-import { amplifyClient } from '@/(lgx)/external/aws/graphql/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
 import {
   MomentObj,
   MomentVariant,
@@ -6,7 +6,7 @@ import {
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { LogObj } from '@/(types)/model/resource/log/main';
 import { NoteObj } from '@/(types)/model/resource/note/main';
-import { gqlArgs } from '@/(lgx)/utils/clean';
+import { gqlArgs } from '@/(utils)/clean';
 import {
   createMomentObj,
 } from '@/graphql/mutations';

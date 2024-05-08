@@ -1,10 +1,10 @@
 'use client';
-import { PortalBackground } from './(mx)/(portal)/(polaroid-epic)/background/main';
+import { PortalBackground } from './(entry)/(portal)/(polaroid-epic)/background/main';
 import {
   usePolaroid,
   PolaroidContext,
-} from './(mx)/(portal)/(polaroid-epic)/handler/polaroid/main';
-import { ReserveView } from './(mx)/(portal)/reserve/view';
+} from './(entry)/(portal)/(polaroid-epic)/handler/polaroid/main';
+import { ReserveView } from './(entry)/(portal)/reserve/view';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
