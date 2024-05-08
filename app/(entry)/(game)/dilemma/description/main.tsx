@@ -95,6 +95,9 @@ export function GameDescription() {
         Destination - Region with max QV
       </p>
       <p className='text-md font-bold text-slate-500'>
+        Candidate - Player with max QV in a quad
+      </p>
+      <p className='text-md font-bold text-slate-500'>
         Holder - Player with max QV in winning quad
       </p>
       <p className='text-md font-bold text-slate-500'>

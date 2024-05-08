@@ -2,13 +2,13 @@ import { borderFx, glassFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { TwoByTwo } from '../../page';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GameStateContext } from '../../contexts/main';
 
-export function QuadrantB({ gameState }: { gameState: TwoByTwo }) {
+export function QuadrantB() {
+  const { gameState, setGameState } = useContext(GameStateContext);
   const [flipped, changeFlipped] = useState(false);
   const anti = gameState.anti;
-  const hero = gameState.quadrants.quadrantB.hero;
 
   return (
     <div onClick={() => changeFlipped(!flipped)}>
@@ -21,11 +21,15 @@ export function QuadrantB({ gameState }: { gameState: TwoByTwo }) {
           {flipped ? (
             <>
               <p>B</p>
-              <p>
-                {gameState.quadrants.quadrantB.payoutA} /{' '}
-                {gameState.quadrants.quadrantB.payoutB}
-              </p>
-              <p>??</p>
+              <p>{`{{A, J}, {9, 5}}`}</p>
+              <p>{`{{14, 11}, {9, 5}}`}</p>
+              <p>{`{sum(14, 11), sum(9, 5)}`}</p>
+              <p>{`{25, 14}`}</p>
+              <p>{`P1=25, P2=14`}</p>
+              <p>{`max(25, 14) = P1`}</p>
+              <p>{`Candidate = P1`}</p>
+              <p>{`sum(25, 14)`}</p>
+              <p>{`QV = 39`}</p>
             </>
           ) : (
             <>
