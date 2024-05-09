@@ -24,4 +24,5 @@ export interface TwoByTwo {
 
 export interface TwoByTwoResolution {
   // step
+  
 }

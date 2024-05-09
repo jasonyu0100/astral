@@ -17,48 +17,14 @@ import { QuadrantB } from './quadrant/b/main';
 import { TwoByTwo } from './types/2x2/main';
 import { defaultGameState } from './presets/2x2/main';
 import { GameStateContext } from './contexts/main';
+import { DilemmaUi } from './ui/view';
 
 export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);
 
   return (
     <GameStateContext.Provider value={{ gameState, setGameState }}>
-      <div className='flex flex-row  space-x-[5rem] px-[3rem] pt-[3rem]'>
-        <div className='flex flex-col'>
-          <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
-            Dilemma
-          </p>
-          <div className='flex flex-col'>
-            <div className='flex flex-row'>
-              <QuadrantA />
-              <QuadrantP1 />
-            </div>
-            <div className='flex flex-row'>
-              <QuadrantP2 />
-              <QuadrantB />
-            </div>
-            <p className='mt-[2rem] font-bold text-slate-500'>
-              Anti=1, Hero=2, H=B
-            </p>
-          </div>
-        </div>
-        <div className='flex h-[40rem] w-[60rem] flex-col'>
-          <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
-            P1 vs P2
-          </p>
-          <GlassWindowFrame className='h-full w-full p-[2rem]'>
-            <GlassWindowContents className='flex  flex-col space-y-[3rem] overflow-auto'>
-              <GameDescription />
-              <PhaseDraw />
-              <PhaseOne cards={['A', 'K', 'Q', 'P']} />
-              <PhaseTwo />
-              <PhaseThree />
-              <PhaseReveal />
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-5']} />
-          </GlassWindowFrame>
-        </div>
-      </div>
+      <DilemmaUi/>
     </GameStateContext.Provider>
   );
 }
