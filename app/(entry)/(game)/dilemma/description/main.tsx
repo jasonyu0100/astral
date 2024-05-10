@@ -86,13 +86,16 @@ export function GameDescription() {
       <br />
       <p className='text-lg font-bold text-slate-300'>Meta</p>
       <p className='text-md font-bold text-slate-500'>
-        Anti - Balance modifier that subtracts from P multiplier payouts
+        Anti - Balance modifier that subtracts from P mult payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Hero - Positional modifier that adds onto AB multiplier payouts
+        Hero - Positional modifier that adds onto AB mult payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        No Mercy - Conditional modifier that makes the hero a multiplier
+        No Mercy - Conditional modifier that makes hero a multiplier
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Rein - Conditional modifier that lets the hero determine the flip
       </p>
       <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
