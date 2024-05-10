@@ -92,6 +92,9 @@ export function GameDescription() {
         Hero - Positional modifier that adds onto AB multiplier payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
+        No Mercy - Conditional modifier that makes the hero a multiplier
+      </p>
+      <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
       </p>
       <p className='text-md font-bold text-slate-500'>
