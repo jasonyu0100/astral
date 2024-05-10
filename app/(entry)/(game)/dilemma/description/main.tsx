@@ -92,7 +92,7 @@ export function GameDescription() {
         Hero - Positional modifier that adds onto AB mult payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Evermore - Conditional modifier that temporarily unlocks other conditionals
+        Evermore - Vision modifier that temporarily unlocks other conditionals
       </p>
       <p className='text-md font-bold text-slate-500'>
         Reverend - Conditional modifier that makes the hero a multiplier
