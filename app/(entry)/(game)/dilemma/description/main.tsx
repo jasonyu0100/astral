@@ -98,7 +98,7 @@ export function GameDescription() {
         Reverend - Conditional modifier that makes the hero a multiplier
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Rein - Conditional modifier that lets the hero determine the flip
+        Reins - Conditional modifier that lets the hero determine the flip
       </p>
       <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
