@@ -92,6 +92,9 @@ export function GameDescription() {
         Hero - Positional modifier that adds onto AB mult payouts
       </p>
       <p className='text-md font-bold text-slate-500'>
+        Vision - Conditional modifier that temporarily unlocks other conditionals
+      </p>
+      <p className='text-md font-bold text-slate-500'>
         No Mercy - Conditional modifier that makes the hero a multiplier
       </p>
       <p className='text-md font-bold text-slate-500'>
