@@ -1,10 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Force() {
+  const typeTwo = false;
   const [authorised, setAuthorised] = useState(false);
   const [dual, setDual] = useState(false);
+
+  useEffect(() => {
+    if (typeTwo && authorised) {
+      setDual(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (authorised) {
+      setAuthorised(true);
+    }
+  }, [])
 
   return (
     <div className='flex flex-col'>
