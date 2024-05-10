@@ -24,6 +24,7 @@ export function Force() {
           <br />
           {dual && (
             <>
+              {/* Starcraft APM Program */}
               <p className='hidden'>Dualist - refined player</p>
               <p className='hidden'>Duelist - undefined player</p>
             </>
