@@ -4,7 +4,7 @@ import { Meta } from './meta/main';
 import { Misc } from './misc/main';
 import { Payouts } from './payouts/main';
 import { Phases } from './phases/main';
-import { Terminology } from './terminology/main';
+import { Terminology } from './actions/main';
 import { Force } from './force/main';
 
 export function GameDescription() {

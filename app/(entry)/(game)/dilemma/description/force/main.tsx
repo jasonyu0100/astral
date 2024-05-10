@@ -1,6 +1,7 @@
 export function Force() {
     return <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-300'>Force</p>
+      <br />
       <p className='text-md font-bold text-slate-500'>
         Force - Conditional modifier that unlocks dual
       </p>

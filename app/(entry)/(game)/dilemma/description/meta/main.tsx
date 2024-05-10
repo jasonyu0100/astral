@@ -2,6 +2,7 @@ export function Meta() {
   return (
     <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-300'>Meta</p>
+      <br />
       <p className='text-md font-bold text-slate-500'>
         Anti - Balance modifier that subtracts from P mult payouts
       </p>
@@ -47,6 +48,8 @@ export function Meta() {
       <p className='text-md font-bold text-slate-500'>
         NP - The payout of a quad with anti-hero modifiers
       </p>
+      <br />
+      <p className='text-md font-bold text-slate-500'>~ evermore verses</p>
     </div>
   );
 }

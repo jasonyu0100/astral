@@ -1,6 +1,7 @@
 export function Abstract() {
     return <div className='flex flex-col'>
         <p className='font-extraBold text-xl text-slate-300 '>Abstract</p>
+        <br/>
         <p className='text-md font-bold text-slate-500'>
           Dual is a 1v1 game where players place cards in a 2x2 grid to score
           points for your side or yourself

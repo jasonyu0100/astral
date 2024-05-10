@@ -2,6 +2,7 @@ export function Phases() {
   return (
     <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-300'>Phases</p>
+      <br />
       <p className='text-md font-bold text-slate-500'>
         Draw - Deal four cards to each player from the deck
       </p>

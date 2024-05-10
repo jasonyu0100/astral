@@ -1,7 +1,7 @@
 export function Payouts() {
     return <div className='flex flex-col'>
-
       <p className='text-lg font-bold text-slate-300'>Payouts</p>
+      <br />
       <p className='text-md font-bold text-slate-500'>
         + - A positive payout that is resolved
       </p>
