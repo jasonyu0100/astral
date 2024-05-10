@@ -95,7 +95,7 @@ export function GameDescription() {
         No Mercy - Conditional modifier that makes hero a multiplier
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Rein - Conditional modifier that lets the hero determine the flip
+        Rein - Conditional modifier that lets hero determine the flip
       </p>
       <p className='text-md font-bold text-slate-500'>
         Destination - Region with max QV
