@@ -11,7 +11,7 @@ export function GameDescription() {
   const [access, setAccess] = useState(false);
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col space-y-[1rem]'>
       <Abstract />
       <Terminology />
       <Payouts/>
