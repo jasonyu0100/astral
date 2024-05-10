@@ -95,7 +95,7 @@ export function GameDescription() {
         Vision - Conditional modifier that temporarily unlocks other conditionals
       </p>
       <p className='text-md font-bold text-slate-500'>
-        No Mercy - Conditional modifier that makes the hero a multiplier
+        Reverend - Conditional modifier that makes the hero a multiplier
       </p>
       <p className='text-md font-bold text-slate-500'>
         Rein - Conditional modifier that lets the hero determine the flip
