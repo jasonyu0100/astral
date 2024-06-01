@@ -7,7 +7,7 @@ import { DivInputProps } from '@/(types)/props/main';
 import React from 'react';
 
 interface InputProps extends DivInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function CollectionContainer({

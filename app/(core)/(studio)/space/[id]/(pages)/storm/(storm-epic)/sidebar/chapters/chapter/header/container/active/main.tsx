@@ -7,7 +7,7 @@ import { StormChapter } from '../../../main';
 export function ActiveChapterHeaderContainer({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame

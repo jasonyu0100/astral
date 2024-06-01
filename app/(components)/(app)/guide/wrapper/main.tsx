@@ -1,4 +1,4 @@
-export function GuideWrapper({ children }: { children: React.ReactNode }) {
+export function GuideWrapper({ children }: { children?: React.ReactNode }) {
   return (
     <div
       className='relative max-w-[1500px]'

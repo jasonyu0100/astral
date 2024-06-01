@@ -1,10 +1,10 @@
 import { DivInputProps } from "@/(types)/props/main";
 
 interface GlassWindowFrameProps extends DivInputProps {
-  name: string;
+  name?: string;
   borderFx?: string;
   roundedFx?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function GlassWindowFrame({

@@ -5,7 +5,7 @@ import { borderFx, roundedFx, glassFx } from '@/(style)/data';
 export function HorizonsSidebarOption({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame

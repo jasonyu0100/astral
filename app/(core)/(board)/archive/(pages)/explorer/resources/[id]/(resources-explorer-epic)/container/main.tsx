@@ -6,7 +6,7 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function ResourcesContainer({ children }: { children: React.ReactNode }) {
+export function ResourcesContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={ResourcesContainer.name}

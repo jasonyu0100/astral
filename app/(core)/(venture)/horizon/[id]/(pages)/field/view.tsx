@@ -9,7 +9,7 @@ import {
 export function BaseView({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer

@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(types)/handler/ideas/idea/main';
+import { IdeaHandlerContext } from '@/(types)/handler/ideas/idea/main';
 import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 
 export function LinkYouTubeStar() {
-  const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarHandlerContext);
+  const { idea, x, y, constraintsRef, activateIdea } =
+    useContext(IdeaHandlerContext);
   const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === star.id;
+  const active = ideasHandler.ideaId === idea.id;
 
   return (
     <>
@@ -20,19 +20,19 @@ export function LinkYouTubeStar() {
         <div
           className='flex aspect-[16/9] h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            activateStar();
+            activateIdea();
             e.stopPropagation();
           }}
         >
           <iframe
             onDrag={(e) => e.stopPropagation()}
             style={{ width: '100%', height: '100%' }}
-            src={`${star.link?.url}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
+            src={`${idea.link?.url}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
             title='YouTube video player'
           ></iframe>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title}
+              {idea.title}
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, containerFx, borderFx, roundedFx } from '@/(style)/data';
 
-export function ShareContainer({ children }: { children: React.ReactNode }) {
+export function ShareContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={ShareContainer.name}

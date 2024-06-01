@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(types)/handler/ideas/idea/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 import { effectFx } from '@/(style)/data';
+import { IdeaHandlerContext } from '@/(types)/handler/ideas/idea/main';
 
-export function NotePromptStar() {
+export function NotePromptIdea() {
   const user = useGlobalUser((state) => state.user);
-  const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarHandlerContext);
+  const { idea, x, y, constraintsRef, activateIdea } =
+    useContext(IdeaHandlerContext);
   const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === star.id;
+  const active = ideasHandler.ideaId === idea.id;
 
   return (
     <>
@@ -23,7 +23,7 @@ export function NotePromptStar() {
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            activateStar();
+            activateIdea();
             e.stopPropagation();
           }}
         >
@@ -36,7 +36,7 @@ export function NotePromptStar() {
               className={`h-[50px] w-[50px] rounded-full ${effectFx['glow-md']}`}
             />
             <div className='w-[300px] rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-3 font-regular text-white'>
-              {star.note?.text}
+              {idea.note?.text}
             </div>
           </div>
         </div>

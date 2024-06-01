@@ -6,7 +6,7 @@ import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/lib/utils';
 
 interface InputProps extends DivInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function GalleryContainer({ children, ...props }: InputProps) {

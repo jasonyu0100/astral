@@ -7,7 +7,7 @@ export function DefaultRight() {
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      <MapSaveButton onClick={() => ideasHandler.starActions.updateStars()} />
+      <MapSaveButton onClick={() => ideasHandler.ideaActions.updateIdeas()} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 interface PortalFormSelectProps
   extends React.ComponentPropsWithoutRef<'select'> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function PortalFormSelect({

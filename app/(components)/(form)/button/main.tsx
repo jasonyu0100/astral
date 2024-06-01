@@ -8,7 +8,7 @@ export enum ButtonVariant {
 
 interface InputProps extends ButtonInputProps {
   variant?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function FormButton({ children, variant, ...props }: InputProps) {

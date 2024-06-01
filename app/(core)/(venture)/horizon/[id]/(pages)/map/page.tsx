@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { MapView } from './view';
 import { MapSidebar } from './(map-epic)/sidebar/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
@@ -138,4 +138,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

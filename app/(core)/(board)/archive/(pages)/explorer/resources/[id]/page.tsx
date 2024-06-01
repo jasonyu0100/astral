@@ -8,7 +8,7 @@ import {
   CollectionContext,
   CollectionObj,
 } from '@/(types)/model/gallery/collection/main';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { ResourceObj } from '@/(types)/model/resource/main';
 import {
   ResourcesActions,
@@ -46,4 +46,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { DualView } from './view';
 import { DualSidebar } from './(dual-epic)/sidebar/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
@@ -224,4 +224,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

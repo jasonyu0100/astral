@@ -5,7 +5,7 @@ export function ModalOverlay({
   onClick,
   isOpen,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isOpen: boolean;
   onClick: any;
 }) {

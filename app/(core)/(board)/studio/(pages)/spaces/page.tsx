@@ -1,5 +1,5 @@
 'use client';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   SpacesModalContext,
@@ -25,4 +25,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

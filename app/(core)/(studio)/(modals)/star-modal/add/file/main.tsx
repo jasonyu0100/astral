@@ -41,7 +41,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              ideasHandler.starActions.createFromFile(title, description, 0, 0, file);
+              ideasHandler.ideaActions.createFromFile(title, description, 0, 0, file);
               close();
             }}
           >

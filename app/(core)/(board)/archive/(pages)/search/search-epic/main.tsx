@@ -1,7 +1,7 @@
 import { glassFx, containerFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function SearchController({ children }: { children: React.ReactNode }) {
+export function SearchController({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={SearchController.name}

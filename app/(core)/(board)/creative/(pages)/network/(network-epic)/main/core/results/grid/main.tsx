@@ -2,7 +2,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx } from '@/(style)/data';
 
-export function CreativeRow({ children }: { children: React.ReactNode }) {
+export function CreativeRow({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={CreativeRow.name}

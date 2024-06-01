@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { DashboardBackground } from './background/main';
 import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
 
-export function DashboardBody({ children }: { children: React.ReactNode }) {
+export function DashboardBody({ children }: { children?: React.ReactNode }) {
   const [hovered, changeHovered] = useState(false);
 
   return (

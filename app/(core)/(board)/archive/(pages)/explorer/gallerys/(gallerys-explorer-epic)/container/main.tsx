@@ -6,7 +6,7 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function GallerysContainer({ children }: { children: React.ReactNode }) {
+export function GallerysContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={GallerysContainer.name}

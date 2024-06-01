@@ -1,7 +1,7 @@
 import { containerFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function SeaMain({ children }: { children: React.ReactNode }) {
+export function SeaMain({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={SeaMain.name}

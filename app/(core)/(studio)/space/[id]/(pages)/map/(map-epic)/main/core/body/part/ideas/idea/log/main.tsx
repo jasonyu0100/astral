@@ -5,7 +5,7 @@ import { LogAudioStar } from './audio/main';
 import { LogVideoStar } from './video/main';
 import { LogScreenStar } from './screen/main';
 
-export function LogStar() {
+export function LogIdea() {
   const star = useContext(IdeaContext);
 
   return (

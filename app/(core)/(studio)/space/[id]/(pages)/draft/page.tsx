@@ -5,7 +5,7 @@ import {
   ChaptersHandlerContext,
   useChaptersHandler,
 } from '@/(types)/handler/chapters/main';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import {
   DraftModalContext,
   useDraftModal,
@@ -35,4 +35,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

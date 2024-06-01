@@ -2,7 +2,7 @@
 import { createContext } from 'react';
 import { SearchView } from './view';
 import { ResourceObj } from '@/(types)/model/resource/main';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import {
   SearchActions,
   useSearchResource,
@@ -35,4 +35,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { BaseView } from './view';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
@@ -92,4 +92,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

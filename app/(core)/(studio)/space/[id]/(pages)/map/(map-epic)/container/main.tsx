@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, containerFx, roundedFx, borderFx } from '@/(style)/data';
 
-export function MapContainer({ children }: { children: React.ReactNode }) {
+export function MapContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={MapContainer.name}

@@ -1,7 +1,7 @@
 import { ButtonInputProps } from '@/(types)/props/main';
 
 interface InputProps extends ButtonInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function PortalFormAction({ children, ...props }: InputProps) {

@@ -41,7 +41,7 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
-              ideasHandler.starActions.createFromNote(title, description, 0, 0, {
+              ideasHandler.ideaActions.createFromNote(title, description, 0, 0, {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,

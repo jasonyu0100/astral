@@ -1,6 +1,6 @@
 'use client';
 
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { PointView } from './view';
 import { RankSidebar } from './(point-epic)/sidebar/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
@@ -66,4 +66,4 @@ function Page() {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

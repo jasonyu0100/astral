@@ -27,7 +27,7 @@ export const barTemplate: ChapterTemplateObj[] = [
       title: 'Vision',
       description: 'My vision board',
       variant: PartVariant.VISUAL,
-      stars: [
+      ideas: [
         {
           title: 'Star 0',
           description: 'Twinkle twinkle little star',

@@ -2,7 +2,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, containerFx, roundedFx, borderFx } from '@/(style)/data';
 import React from 'react';
 
-export function DraftContainer({ children }: { children: React.ReactNode }) {
+export function DraftContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={DraftContainer.name}

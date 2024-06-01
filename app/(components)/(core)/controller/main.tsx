@@ -1,7 +1,7 @@
 export function DashboardController({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <div

@@ -1,7 +1,7 @@
 export function HorizonsSidebarLabel({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <div className='flex h-[2rem] mb-[1rem] flex-shrink-0 items-center'>

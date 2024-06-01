@@ -1,7 +1,7 @@
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function VentureHorizonsContainer({ children }: { children: React.ReactNode }) {
+export function VentureHorizonsContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={VentureHorizonsContainer.name}

@@ -2,7 +2,7 @@ import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface AltActionLinkProps extends LinkInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function PortalFormAltActionLink({

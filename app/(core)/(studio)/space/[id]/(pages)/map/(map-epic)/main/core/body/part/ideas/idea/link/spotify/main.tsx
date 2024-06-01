@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(types)/handler/ideas/idea/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
+import { IdeaHandlerContext } from '@/(types)/handler/ideas/idea/main';
 
 export function LinkSpotifyStar() {
-  const { star, x, y, constraintsRef, activateStar } = useContext(
-    StarHandlerContext,
+  const { idea, x, y, constraintsRef, activateIdea } = useContext(
+    IdeaHandlerContext,
   );
   const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === star.id;
+  const active = ideasHandler.ideaId === idea?.id;
 
   return (
     <>
@@ -23,12 +23,12 @@ export function LinkSpotifyStar() {
           name={LinkSpotifyStar.name}
           className='flex aspect-[16/8] h-full w-full flex-shrink-0 flex-col items-center justify-center'
           onClick={(e) => {
-            activateStar();
+            activateIdea();
             e.stopPropagation();
           }}
         >
           <iframe
-            src={`${star.link?.url}?utm_source=generator`}
+            src={`${idea.link?.url}?utm_source=generator`}
             width='100%'
             height='100%'
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
@@ -36,7 +36,7 @@ export function LinkSpotifyStar() {
           ></iframe>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title}
+              {idea.title}
             </p>
           </div>
         </GlassAreaContainer>

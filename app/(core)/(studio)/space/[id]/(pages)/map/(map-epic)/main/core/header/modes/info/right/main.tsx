@@ -8,7 +8,7 @@ export function InfoRight() {
   return (
     <div className='flex w-1/3 flex-row justify-end'>
       <MapSaveButton
-        onClick={() => ideasHandler.starActions.updateStars()}
+        onClick={() => ideasHandler.ideaActions.updateIdeas()}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+import { cn } from "@/(utils)/cn";
 
 export function DraftChapterListEntry({ index }: { index: number }) {
 

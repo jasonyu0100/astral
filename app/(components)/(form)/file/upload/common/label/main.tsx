@@ -1,4 +1,4 @@
-export function UploadFileLabel({ children }: { children: React.ReactNode }) {
+export function UploadFileLabel({ children }: { children?: React.ReactNode }) {
   return (
     <label
       htmlFor='fileInput'

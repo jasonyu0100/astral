@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(types)/handler/ideas/idea/main';
 import { LogObj, LogObjContext } from '@/(types)/model/resource/log/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
+import { IdeaHandlerContext } from '@/(types)/handler/ideas/idea/main';
 
 export function LogVideoStar() {
-  const { star, x, y, constraintsRef, activateStar } = useContext(
-    StarHandlerContext,
+  const { idea, x, y, constraintsRef, activateIdea } = useContext(
+    IdeaHandlerContext,
   );
   const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === star.id;
+  const active = ideasHandler.ideaId === idea.id;
 
   return (
     <>
@@ -23,16 +23,16 @@ export function LogVideoStar() {
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            activateStar();
+            activateIdea();
             e.stopPropagation();
           }}
         >
-          <LogObjContext.Provider value={star?.log || ({} as LogObj)}>
+          <LogObjContext.Provider value={idea?.log || ({} as LogObj)}>
             <FullLoomVideo />
           </LogObjContext.Provider>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title}
+              {idea.title}
             </p>
           </div>
         </div>

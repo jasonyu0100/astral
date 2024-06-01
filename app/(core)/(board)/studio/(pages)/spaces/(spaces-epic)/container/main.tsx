@@ -4,7 +4,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 export function StudioSpacesContainer({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer

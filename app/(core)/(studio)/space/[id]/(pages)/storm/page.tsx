@@ -8,7 +8,7 @@ import {
   ChatsHandlerContext,
   useChatsHandler,
 } from '@/(types)/handler/storm/chats/main';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
 import {
   MessagesHandlerContext,
@@ -62,4 +62,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

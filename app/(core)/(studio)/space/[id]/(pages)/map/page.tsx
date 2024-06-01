@@ -9,7 +9,7 @@ import {
   PartsHandlerContext,
   usePartsHandler,
 } from '@/(types)/handler/parts/main';
-import insideVerse from '@/(utils)/isAuth';
+import isVerseAuth from '@/(utils)/isAuth';
 import {
   IdeasHandlerContext,
   useIdeasHandler,
@@ -77,4 +77,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default insideVerse(Page);
+export default isVerseAuth(Page);

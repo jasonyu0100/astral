@@ -2,7 +2,7 @@ import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function TopbarLink({ children, ...props }: InputProps) {

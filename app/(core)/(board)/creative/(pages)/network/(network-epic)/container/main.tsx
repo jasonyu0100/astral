@@ -4,7 +4,7 @@ import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 export function CreativeNetworkContainer({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer

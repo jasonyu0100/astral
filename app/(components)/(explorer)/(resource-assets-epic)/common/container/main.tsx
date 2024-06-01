@@ -2,7 +2,7 @@ import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/(utils)/cn';
 
 interface InputProps extends DivInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function ResourceContainer({ children, ...props }: InputProps) {

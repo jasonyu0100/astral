@@ -6,7 +6,7 @@ import { ModalContainerWrapper } from './wrapper/main';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function Modal({ children, isOpen, onClose }: ModalProps) {

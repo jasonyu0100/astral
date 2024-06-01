@@ -5,7 +5,7 @@ export interface IndicatorProps {
   minimised?: boolean;
 }
 interface InputProps extends HyperLinkInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function DashboardSidebarIndicator({ children, ...props }: InputProps) {

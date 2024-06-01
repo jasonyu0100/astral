@@ -4,7 +4,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 export function CollectionBreadcrumbs({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame

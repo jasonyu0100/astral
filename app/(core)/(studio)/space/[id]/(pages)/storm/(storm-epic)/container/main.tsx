@@ -6,7 +6,7 @@ import {
 } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function StormContainer({ children }: { children: React.ReactNode }) {
+export function StormContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={StormContainer.name}

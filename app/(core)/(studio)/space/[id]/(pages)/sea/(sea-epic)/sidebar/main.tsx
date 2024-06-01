@@ -1,11 +1,7 @@
-import {
-  glassFx,
-  borderFx,
-  containerFx,
-} from '@/(style)/data';
+import { glassFx, borderFx, containerFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function ShareSidebar({ children }: { children: React.ReactNode }) {
+export function ShareSidebar({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={ShareSidebar.name}

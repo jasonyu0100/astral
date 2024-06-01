@@ -42,7 +42,7 @@ export function AddLogStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              ideasHandler.starActions.createFromLog(title, description, 0, 0, logObj);
+              ideasHandler.ideaActions.createFromLog(title, description, 0, 0, logObj);
               close();
             }}
           >

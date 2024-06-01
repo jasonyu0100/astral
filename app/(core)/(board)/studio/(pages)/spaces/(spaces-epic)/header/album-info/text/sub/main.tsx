@@ -1,7 +1,7 @@
 export function SpacesHeaderTextSub({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <p className='font-regular text-3xl font-normal leading-9 text-white'>

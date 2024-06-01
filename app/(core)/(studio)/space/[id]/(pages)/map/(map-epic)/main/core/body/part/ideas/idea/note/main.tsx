@@ -1,18 +1,18 @@
 import { useContext } from 'react';
 import { IdeaContext } from '@/(types)/model/map/part/idea/main';
 import { NoteVariant } from '@/(types)/model/resource/note/main';
-import { NotePromptStar } from './prompt/main';
-import { NoteStickyStar } from './sticky/main';
-import { NoteQuoteStar } from './quote/main';
+import { NotePromptIdea } from './prompt/main';
+import { NoteStickyIdea } from './sticky/main';
+import { NoteQuoteIdea } from './quote/main';
 
-export function NoteStar() {
+export function NoteIdea() {
   const star = useContext(IdeaContext);
 
   return (
     <>
-      {star.note?.variant === NoteVariant.PROMPT && <NotePromptStar />}
-      {star.note?.variant === NoteVariant.QUOTE && <NoteQuoteStar />}
-      {star.note?.variant === NoteVariant.STICKY && <NoteStickyStar />}
+      {star.note?.variant === NoteVariant.PROMPT && <NotePromptIdea />}
+      {star.note?.variant === NoteVariant.QUOTE && <NoteQuoteIdea />}
+      {star.note?.variant === NoteVariant.STICKY && <NoteStickyIdea />}
     </>
   );
 }

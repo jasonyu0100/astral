@@ -3,7 +3,7 @@ import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   active: boolean;
 }
 

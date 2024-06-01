@@ -5,7 +5,7 @@ import {
   containerFx,
 } from '@/(style)/data';
 
-export function SearchBar({ children }: { children: React.ReactNode }) {
+export function SearchBar({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={SearchBar.name}

@@ -2,7 +2,7 @@ export function IndicatorText({
   children,
   active,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   active: boolean;
 }) {
   return active ? (

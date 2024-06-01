@@ -118,14 +118,14 @@ export function AddLinkStarModal() {
           <FormButton
             onClick={() => {
               if (variant === LinkVariant.YOUTUBE) {
-                ideasHandler.starActions.createFromLink(title, description, 0, 0, {
+                ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://www.youtube.com/embed/${youtubeId}`,
                   variant: LinkVariant.YOUTUBE,
                 } as LinkObj);
               } else if (variant === LinkVariant.SPOTIFY) {
-                ideasHandler.starActions.createFromLink(title, description, 0, 0, {
+                ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://open.spotify.com/embed/track/${spotifyId}`,

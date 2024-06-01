@@ -1,7 +1,7 @@
 export function PortalFormAltAction({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <div className='mt-auto flex w-full flex-col items-center justify-center'>

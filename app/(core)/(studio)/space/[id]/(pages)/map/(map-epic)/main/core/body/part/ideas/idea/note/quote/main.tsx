@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { StarHandlerContext } from '@/(types)/handler/ideas/idea/main';
+import { IdeaHandlerContext } from '@/(types)/handler/ideas/idea/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
 
-export function NoteQuoteStar() {
+export function NoteQuoteIdea() {
   const user = useGlobalUser((state) => state.user);
-  const { star, x, y, constraintsRef, activateStar } =
-    useContext(StarHandlerContext);
+  const { idea, x, y, constraintsRef, activateIdea } =
+    useContext(IdeaHandlerContext);
   const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === star.id;
+  const active = ideasHandler.ideaId === idea.id;
 
   return (
     <>
@@ -23,16 +23,16 @@ export function NoteQuoteStar() {
           className='flex h-[full] w-[full] flex-col items-center space-x-[1rem]'
           style={{ height: '100%' }}
           onClick={(e) => {
-            activateStar();
+            activateIdea();
             e.stopPropagation();
           }}
         >
           <div className='flex h-[200px] w-[300px] items-center justify-center bg-black p-3'>
-            <p className="font-2xl text-white font-permanentMarker">{'"'}{star.note?.text}{'"'}</p>
+            <p className="font-2xl text-white font-permanentMarker">{'"'}{idea.note?.text}{'"'}</p>
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {star.title} {star.variant} {star.note?.variant}
+              {idea.title} {idea.variant} {idea.note?.variant}
             </p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { cn } from './(utils)/cn';
 import { Toaster } from './components/ui/sonner';
 import { test } from '@cosmos-dev/example-package';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children?: React.ReactNode }) {
   const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
 
   return (

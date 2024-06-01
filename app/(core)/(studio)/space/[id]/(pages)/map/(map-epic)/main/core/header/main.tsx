@@ -6,7 +6,7 @@ import {
 import { MapContext, MapModalType } from '../../../../page';
 import { useContext } from 'react';
 import { MapHeaderDefault } from './modes/default/main';
-import { MapHeaderStar } from './modes/star/main';
+import { MapHeaderIdea } from './modes/star/main';
 import { MapHeaderVisual } from './modes/visual/main';
 import { MapHeaderSound } from './modes/sound/main';
 import { MapHeaderInfo } from './modes/info/main';
@@ -23,7 +23,7 @@ export function MapHeader() {
       glassFx={glassFx['glass-5']}
     >
       {modalType === MapModalType.DEFAULT && <MapHeaderDefault/>}
-      {modalType === MapModalType.IDEA && <MapHeaderStar/>}
+      {modalType === MapModalType.IDEA && <MapHeaderIdea/>}
       {modalType === MapModalType.TEXT && <MapHeaderInfo/>}
       {modalType === MapModalType.AUDIO && <MapHeaderSound/>}
       {modalType === MapModalType.VISUAL && <MapHeaderVisual/>}

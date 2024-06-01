@@ -1,4 +1,4 @@
-export function PortalBackground({ children }: { children: React.ReactNode }) {
+export function PortalBackground({ children }: { children?: React.ReactNode }) {
   return (
     <div
       className={`

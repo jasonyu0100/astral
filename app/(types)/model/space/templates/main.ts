@@ -24,7 +24,7 @@ export interface PartTemplateObj {
   title: string;
   description: string;
   variant: string;
-  stars?: IdeaTemplateObj[];
+  ideas?: IdeaTemplateObj[];
 }
 
 export function getSpaceTemplate(variant: SpaceVariant): ChapterTemplateObj[] {

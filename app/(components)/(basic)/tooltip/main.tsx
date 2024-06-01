@@ -6,7 +6,7 @@ export function WrapperTooltip({
   children,
 }: {
   text: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const [hover, changeHover] = useState(false);
 

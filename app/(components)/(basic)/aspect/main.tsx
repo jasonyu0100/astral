@@ -4,7 +4,7 @@ import { DivInputProps } from "../../../(types)/props/main";
 interface AspectProps extends DivInputProps {
     x: number;
     y: number;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 export function Aspect({ children, x, y, ...props }: AspectProps) {

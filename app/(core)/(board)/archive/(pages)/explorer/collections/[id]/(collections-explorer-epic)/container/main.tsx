@@ -9,7 +9,7 @@ import {
 export function CollectionsContainer({
   children,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer

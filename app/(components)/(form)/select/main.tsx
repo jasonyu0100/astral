@@ -3,7 +3,7 @@ import { useState } from 'react';
 interface PortalFormSelectProps
   extends React.ComponentPropsWithoutRef<'select'> {
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function FormSelect({

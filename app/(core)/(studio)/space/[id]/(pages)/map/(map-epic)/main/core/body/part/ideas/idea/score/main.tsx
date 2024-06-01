@@ -1,18 +1,18 @@
 import { useContext } from 'react';
 import { IdeaContext } from '@/(types)/model/map/part/idea/main';
-import { ScoreMelodyStar } from './melody/main';
-import { ScoreRhythmStar } from './rhythm/main';
-import { ScoreBeatStar } from './beat/main';
+import { ScoreMelodyIdea } from './melody/main';
+import { ScoreRhythmIdea } from './rhythm/main';
+import { ScoreBeatIdea } from './beat/main';
 import { ScoreVariant } from '@/(types)/model/resource/score/main';
 
-export function ScoreStar() {
+export function ScoreIdea() {
   const star = useContext(IdeaContext);
 
   return (
     <>
-      {star.score?.variant === ScoreVariant.MELODY && <ScoreMelodyStar />}
-      {star.score?.variant === ScoreVariant.RHYTHM && <ScoreRhythmStar />}
-      {star.score?.variant === ScoreVariant.BEAT && <ScoreBeatStar />}
+      {star.score?.variant === ScoreVariant.MELODY && <ScoreMelodyIdea />}
+      {star.score?.variant === ScoreVariant.RHYTHM && <ScoreRhythmIdea />}
+      {star.score?.variant === ScoreVariant.BEAT && <ScoreBeatIdea />}
     </>
   );
 }

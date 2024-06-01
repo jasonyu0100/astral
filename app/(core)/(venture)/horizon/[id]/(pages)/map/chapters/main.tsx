@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 
-export function ChaptersContainer({ children }: { children: React.ReactNode }) {
+export function ChaptersContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={ChaptersContainer.name}

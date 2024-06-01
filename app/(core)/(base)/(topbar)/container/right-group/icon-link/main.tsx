@@ -2,7 +2,7 @@ import { ButtonInputProps, LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 
 interface InputProps extends ButtonInputProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function TopbarIconLink({ children, ...props }: InputProps) {
