@@ -36,6 +36,9 @@ export function Topbar() {
               LEARN
             </TopbarLink>
             <TopbarLink href='/dilemma'>
+              PLAY
+            </TopbarLink>
+            <TopbarLink href='/support'>
               SUPPORT
             </TopbarLink>
           </TopbarLeftGroup>

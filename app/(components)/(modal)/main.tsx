@@ -11,7 +11,7 @@ interface ModalProps {
 
 export function Modal({ children, isOpen, onClose }: ModalProps) {
   return (
-    <ModalOverlay isOpen={isOpen}>
+    <ModalOverlay isOpen={isOpen} onClick={() => onClose()}>
       <ModalContainerWrapper>
         <ModalContainer>{children}</ModalContainer>
         <ModalCloseButton onClick={() => onClose()}>FLIP ME</ModalCloseButton>
