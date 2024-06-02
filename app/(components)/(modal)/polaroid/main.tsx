@@ -11,10 +11,10 @@ interface PolaroidModalProps {
 
 export function PolaroidModal({ children, isOpen, onClose }: PolaroidModalProps) {
   return (
-    <ModalOverlay isOpen={isOpen} onClick={() => onClose()}>
+    <ModalOverlay isOpen={isOpen} onClose={onClose}>
       <ModalContainerWrapper>
         <PolaroidModalContainer>{children}</PolaroidModalContainer>
-        <PolaroidModalCloseButton onClick={() => onClose()}>FLIP ME</PolaroidModalCloseButton>
+        <PolaroidModalCloseButton onClick={onClose}>FLIP ME</PolaroidModalCloseButton>
       </ModalContainerWrapper>
     </ModalOverlay>
   );

@@ -137,7 +137,7 @@ export function CreateSpaceModal() {
         <FormContainer>
           <FormTitle>Create Space</FormTitle>
           <Pages page={page} />
-          <PolaroidModalFooter />
+          <ModalFooter />
         </FormContainer>
       </PolaroidModal>
     </CreateSpaceModalContext.Provider>

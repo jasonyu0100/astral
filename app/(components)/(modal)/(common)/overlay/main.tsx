@@ -2,15 +2,16 @@ import { cn } from '@/(utils)/cn';
 
 export function ModalOverlay({
   children,
-  onClick,
+  onClose,
   isOpen,
 }: {
   children?: React.ReactNode;
   isOpen: boolean;
-  onClick: any;
+  onClose: any;
 }) {
   return (
     <div
+      id='ModalOverlay'
       className={cn(
         'fixed inset-0 z-50 flex h-screen w-screen items-center justify-center',
         {
@@ -18,18 +19,9 @@ export function ModalOverlay({
         },
       )}
       style={{ marginTop: '0px', marginBottom: '0px' }}
-      onClick={onClick}
+      onClick={onClose}
     >
-      <div className='fixed inset-0 flex items-center justify-center bg-slate-950 bg-opacity-80'>
-        <div
-          className='h-full w-full'
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {children}
-        </div>
-      </div>
+      {children}
     </div>
   );
 }

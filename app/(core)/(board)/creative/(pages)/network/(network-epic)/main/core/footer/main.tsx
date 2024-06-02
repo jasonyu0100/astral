@@ -1,10 +1,10 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';
 
-export function CreativeFooter() {
+export function NetworkFooter() {
   return (
     <GlassAreaContainer
-      name={CreativeFooter.name}
+      name={NetworkFooter.name}
       sizeFx='w-full h-[4rem]'
       className='flex flex-shrink-0 flex-row items-center justify-center'
       glassFx={glassFx['glass-5']}

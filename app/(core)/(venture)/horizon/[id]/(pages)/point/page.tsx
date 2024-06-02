@@ -2,7 +2,7 @@
 
 import isVerseAuth from '@/(utils)/isAuth';
 import { PointView } from './view';
-import { RankSidebar } from './(point-epic)/sidebar/main';
+import { PointSidebar } from './(point-epic)/sidebar/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { exampleFile } from '@/(types)/model/resource/file/main';
 import { Divider } from '@/(components)/(line)/divider/main';
@@ -60,7 +60,7 @@ function Page() {
             </button>
           </div>
         </div>
-        <RankSidebar />
+        <PointSidebar />
       </PointView>
     </>
   );

@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { DayColor, DayView } from './day/main';
 import { FeltModal } from '@/(components)/(modal)/felt/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
+import { FormButton } from '@/(components)/(form)/button/main';
 
 enum CardSuit {
   Other = 'Other',
@@ -75,15 +77,12 @@ export function MonthView() {
   const [currentSuit, setCurrentSuit] = useState(CardSuit.Other);
   const [currentNumber, setCurrentNumber] = useState(CardNumber.Joker);
   const [currentColor, setCurrentColor] = useState(CardColor.Alpha);
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className='flex flex-col'>
-      <FeltModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-      >
-        <div className='flex h-full w-full flex-col'>
+      <FeltModal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <div className='flex h-full w-full flex-col items-center space-y-[2rem] p-[2rem]'>
           <div className='flex flex-row'>
             <div className='flex flex-row'>
               {currentNumber === CardNumber.Joker ? (
@@ -96,47 +95,51 @@ export function MonthView() {
               <img src={`/cards/Suit=Other, Number=${currentColor}.png`} />
             </div>
           </div>
-          <div className='flex flex-row'>
-            <div className='flex flex-col'>
-              <p className='font-bold text-slate-500'>Number</p>
-              <select onChange={(e) => setCurrentNumber(e.target.value)}>
-                {currentSuit === CardSuit.Other ? (
-                  <>
-                    <option key={CardNumber.Joker}>{CardNumber.Joker}</option>
-                  </>
-                ) : (
-                  <>
-                    {numberOrder
-                      .filter((number) => number !== CardNumber.Joker)
-                      .map((number) => (
-                        <option key={number}>{number}</option>
-                      ))}
-                  </>
-                )}
-              </select>
-            </div>
-            <div className='flex flex-col'>
-              <p className='font-bold text-slate-500'>Suit</p>
-              <select onChange={(e) => setCurrentSuit(e.target.value)}>
-                {suitOrder.map((suit) => (
-                  <option key={suit}>{suit}</option>
-                ))}
-              </select>
-            </div>
-            <div className='flex flex-col'>
-              <p className='font-bold text-slate-500'>Color</p>
-              <select onChange={(e) => setCurrentColor(e.target.value)}>
-                {backColors.map((colors) => (
-                  <option key={colors}>{colors}</option>
-                ))}
-              </select>
-            </div>
+          <div className='flex w-[300px] flex-col'>
+            <FormSelect
+              title='Number'
+              onChange={(e) => setCurrentNumber(e.target.value)}
+            >
+              {currentSuit === CardSuit.Other ? (
+                <>
+                  <option key={CardNumber.Joker}>{CardNumber.Joker}</option>
+                </>
+              ) : (
+                <>
+                  {numberOrder
+                    .filter((number) => number !== CardNumber.Joker)
+                    .map((number) => (
+                      <option key={number}>{number}</option>
+                    ))}
+                </>
+              )}
+            </FormSelect>
+            <FormSelect
+              title='Suit'
+              onChange={(e) => setCurrentSuit(e.target.value)}
+            >
+              {suitOrder.map((suit) => (
+                <option key={suit}>{suit}</option>
+              ))}
+            </FormSelect>
+            <FormSelect
+              title='Color'
+              onChange={(e) => setCurrentSuit(e.target.value)}
+            >
+              {backColors.map((colors) => (
+                <option key={colors}>{colors}</option>
+              ))}
+            </FormSelect>
+            <FormButton onClick={() => setShowModal(false)}>DEAL</FormButton>
           </div>
         </div>
       </FeltModal>
 
       <div className='flex flex-col p-[1rem]'>
-        <button className='bg-white p-[1rem]' onClick={() => setShowModal(true)}>
+        <button
+          className='bg-white p-[1rem]'
+          onClick={() => setShowModal(true)}
+        >
           DEAL CARDS
         </button>
         <div className='flex h-full w-full flex-row space-x-[4rem] p-[3rem]'>

@@ -13,7 +13,7 @@ import {
 import { useState } from 'react';
 import { Seperator } from '@/(components)/(line)/seperator/main';
 
-export function CreativeNetworkSidebarHorizon() {
+export function NetworkSidebarPoint() {
   const file = exampleFile;
   const [expanded, changeExpanded] = useState(false);
 
@@ -22,7 +22,7 @@ export function CreativeNetworkSidebarHorizon() {
       value={{ toggled: expanded, toggle: () => changeExpanded(!expanded) }}
     >
       <GlassWindowFrame
-        name={CreativeNetworkSidebarHorizon.name}
+        name={NetworkSidebarPoint.name}
         className='min-h-[80px] w-full p-[15px]'
         roundedFx={roundedFx['rounded-sm']}
         borderFx={borderFx['border-all']}

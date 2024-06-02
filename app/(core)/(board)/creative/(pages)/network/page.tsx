@@ -1,9 +1,9 @@
 'use client';
 import isVerseAuth from '@/(utils)/isAuth';
-import { CreativeNetworkView } from './(network-epic)/view';
+import { NetworkView } from './(network-epic)/view';
 
 function Page() {
-  return <CreativeNetworkView />;
+  return <NetworkView />;
 }
 
 export default isVerseAuth(Page);

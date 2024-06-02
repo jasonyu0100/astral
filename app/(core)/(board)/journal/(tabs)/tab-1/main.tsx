@@ -5,11 +5,11 @@ import { journalMap } from '../../map';
 import { JournalTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = JournalTabStage.Updates;
+  const tabText = JournalTabStage.Record;
   const active = tab === tabText;
 
   return (
-    <Tab href={journalMap.journal.updates.link}>
+    <Tab href={journalMap.journal.record.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

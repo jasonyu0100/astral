@@ -11,7 +11,7 @@ interface FeltModalProps {
 
 export function FeltModal({ children, isOpen, onClose }: FeltModalProps) {
   return (
-    <ModalOverlay isOpen={isOpen} onClick={() => onClose()}>
+    <ModalOverlay isOpen={isOpen} onClose={() => onClose()}>
       <ModalContainerWrapper>
         <FeltModalContainer>{children}</FeltModalContainer>
         <FeltModalCloseButton onClick={() => onClose()}>FLIP ME</FeltModalCloseButton>

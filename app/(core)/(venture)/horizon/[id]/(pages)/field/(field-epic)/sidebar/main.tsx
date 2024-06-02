@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, containerFx } from '@/(style)/data';
 import React from 'react';
+import { FieldSidebarPoint } from './point/main';
 
 export function BaseSidebar() {
   return (
@@ -10,6 +11,11 @@ export function BaseSidebar() {
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
+      <FieldSidebarPoint/>
+      <FieldSidebarPoint/>
+      <FieldSidebarPoint/>
+      <FieldSidebarPoint/>
+      <FieldSidebarPoint/>
     </GlassAreaContainer>
   );
 }

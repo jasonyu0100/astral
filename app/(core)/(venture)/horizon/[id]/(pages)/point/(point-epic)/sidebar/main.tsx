@@ -1,22 +1,21 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, containerFx } from '@/(style)/data';
 import React from 'react';
+import { PointSidebarPoint } from './point/main';
 
-export function RankSidebar() {
+export function PointSidebar() {
   return (
     <GlassAreaContainer
-      name={RankSidebar.name}
+      name={PointSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <div className='text-slate-300 flex flex-col space-y-[1rem] font-bold'>
-        <p>May 22 - Headphones</p>
-        <p>June 1 - Guitar</p>
-        <p>July 6 - iPad</p>
-        <p>August 9 - Tonex</p>
-        <p>September 23 - Monster</p>
-      </div>
+      <PointSidebarPoint/>
+      <PointSidebarPoint/>
+      <PointSidebarPoint/>
+      <PointSidebarPoint/>
+      <PointSidebarPoint/>
     </GlassAreaContainer>
   );
 }

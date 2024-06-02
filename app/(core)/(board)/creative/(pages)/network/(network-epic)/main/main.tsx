@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { CreativeSearch } from './core/search/main';
-import { CreativeFooter } from './core/footer/main';
-import { CreativeResults } from './core/results/main';
+import { NetworkSearch } from './core/search/main';
+import { NetworkFooter } from './core/footer/main';
+import { NetworkResults } from './core/results/main';
 
-export function CreativeNetworkMain() {
+export function NetworkMain() {
   return (
     <GlassAreaContainer
-      name={CreativeNetworkMain.name}
+      name={NetworkMain.name}
       sizeFx='h-full flex-grow'
       className='flex flex-col'
     >
-      <CreativeSearch />
-      <CreativeResults />
-      <CreativeFooter />
+      <NetworkSearch />
+      <NetworkResults />
+      <NetworkFooter />
     </GlassAreaContainer>
   );
 }

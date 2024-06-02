@@ -14,11 +14,11 @@ export function JournalIndicator() {
   return (
     <>
       {minimised ? (
-        <DashboardSidebarIndicator href={journalMap.journal.updates.link}>
+        <DashboardSidebarIndicator href={journalMap.journal.record.link}>
           <IndicatorOrangeJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
-        <DashboardSidebarIndicator href={journalMap.journal.updates.link}>
+        <DashboardSidebarIndicator href={journalMap.journal.record.link}>
           <IndicatorOrangeJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
