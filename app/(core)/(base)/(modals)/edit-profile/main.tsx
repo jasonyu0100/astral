@@ -3,7 +3,7 @@ import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext } from 'react';
 import { ProfileModalContext } from '../profile-modal/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
@@ -16,7 +16,7 @@ export function EditProfileModal() {
   const { opened, close } = modalContext.editProfileModal;
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Profile</FormTitle>
         <FormBody>
@@ -35,6 +35,6 @@ export function EditProfileModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

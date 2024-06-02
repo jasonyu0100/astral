@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { DayColor, DayView } from './day/main';
+import { FeltModal } from '@/(components)/(modal)/felt/main';
 
 enum CardSuit {
   Other = 'Other',
@@ -74,124 +75,142 @@ export function MonthView() {
   const [currentSuit, setCurrentSuit] = useState(CardSuit.Other);
   const [currentNumber, setCurrentNumber] = useState(CardNumber.Joker);
   const [currentColor, setCurrentColor] = useState(CardColor.Alpha);
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <div className='flex flex-col'>
-      <div className='flex h-full w-full flex-row space-x-[4rem] p-[3rem] bg-black'>
-        <div className='flex flex-row'>
+      <FeltModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      >
+        <div className='flex h-full w-full flex-col'>
           <div className='flex flex-row'>
-            {currentNumber === CardNumber.Joker ? (
-              <img src={`/cards/Suit=Other, Number=${currentNumber}.png`} />
-            ) : (
-              <img
-                src={`/cards/Suit=${currentSuit}, Number=${currentNumber}.png`}
-              />
-            )}
-            <img src={`/cards/Suit=Other, Number=${currentColor}.png`} />
+            <div className='flex flex-row'>
+              {currentNumber === CardNumber.Joker ? (
+                <img src={`/cards/Suit=Other, Number=${currentNumber}.png`} />
+              ) : (
+                <img
+                  src={`/cards/Suit=${currentSuit}, Number=${currentNumber}.png`}
+                />
+              )}
+              <img src={`/cards/Suit=Other, Number=${currentColor}.png`} />
+            </div>
+          </div>
+          <div className='flex flex-row'>
+            <div className='flex flex-col'>
+              <p className='font-bold text-slate-500'>Number</p>
+              <select onChange={(e) => setCurrentNumber(e.target.value)}>
+                {currentSuit === CardSuit.Other ? (
+                  <>
+                    <option key={CardNumber.Joker}>{CardNumber.Joker}</option>
+                  </>
+                ) : (
+                  <>
+                    {numberOrder
+                      .filter((number) => number !== CardNumber.Joker)
+                      .map((number) => (
+                        <option key={number}>{number}</option>
+                      ))}
+                  </>
+                )}
+              </select>
+            </div>
+            <div className='flex flex-col'>
+              <p className='font-bold text-slate-500'>Suit</p>
+              <select onChange={(e) => setCurrentSuit(e.target.value)}>
+                {suitOrder.map((suit) => (
+                  <option key={suit}>{suit}</option>
+                ))}
+              </select>
+            </div>
+            <div className='flex flex-col'>
+              <p className='font-bold text-slate-500'>Color</p>
+              <select onChange={(e) => setCurrentColor(e.target.value)}>
+                {backColors.map((colors) => (
+                  <option key={colors}>{colors}</option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-        <div className='flex flex-col'>
-          <p className='font-bold'>Number</p>
-          <select onChange={(e) => setCurrentNumber(e.target.value)}>
-            {currentSuit === CardSuit.Other ? (
-              <>
-                <option key={CardNumber.Joker}>{CardNumber.Joker}</option>
-              </>
-            ) : (
-              <>
-                {numberOrder
-                  .filter((number) => number !== CardNumber.Joker)
-                  .map((number) => (
-                    <option key={number}>{number}</option>
-                  ))}
-              </>
-            )}
-          </select>
-        </div>
-        <div className='flex flex-col'>
-          <p className='font-bold'>Suit</p>
-          <select onChange={(e) => setCurrentSuit(e.target.value)}>
-            {suitOrder.map((suit) => (
-              <option key={suit}>{suit}</option>
-            ))}
-          </select>
-        </div>
-        <div className='flex flex-col'>
-          <p className='font-bold'>Color</p>
-          <select onChange={(e) => setCurrentColor(e.target.value)}>
-            {backColors.map((colors) => (
-              <option key={colors}>{colors}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className='flex h-full w-full flex-row space-x-[4rem] p-[3rem]'>
-        <div className='flex flex-col space-y-[2rem]'>
-          <p className='text-slate-500 text-lg font-medium'>Blank Contributions</p>
-          <div className='flex w-[500px] flex-row flex-wrap'>
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
+      </FeltModal>
+
+      <div className='flex flex-col p-[1rem]'>
+        <button className='bg-white p-[1rem]' onClick={() => setShowModal(true)}>
+          DEAL CARDS
+        </button>
+        <div className='flex h-full w-full flex-row space-x-[4rem] p-[3rem]'>
+          <div className='flex flex-col space-y-[2rem]'>
+            <p className='text-lg font-medium text-slate-500'>
+              Blank Contributions
+            </p>
+            <div className='flex w-[500px] flex-row flex-wrap'>
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+            </div>
           </div>
-        </div>
-        <div className='flex flex-col space-y-[2rem]'>
-          <p className='text-slate-500 text-lg font-medium'>Space Contributions</p>
-          <div className='flex w-[500px] flex-row flex-wrap'>
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
-            <DayView color={DayColor.Blue} />
+          <div className='flex flex-col space-y-[2rem]'>
+            <p className='text-lg font-medium text-slate-500'>
+              Space Contributions
+            </p>
+            <div className='flex w-[500px] flex-row flex-wrap'>
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+              <DayView color={DayColor.Blue} />
+            </div>
           </div>
         </div>
       </div>

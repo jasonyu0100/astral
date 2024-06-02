@@ -2,7 +2,7 @@ import { ButtonVariant, FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
 import { FileObj } from '@/(types)/model/resource/file/main';
@@ -133,13 +133,13 @@ export function CreateSpaceModal() {
 
   return (
     <CreateSpaceModalContext.Provider value={context}>
-      <Modal isOpen={opened} onClose={() => close()}>
+      <PolaroidModal isOpen={opened} onClose={() => close()}>
         <FormContainer>
           <FormTitle>Create Space</FormTitle>
           <Pages page={page} />
-          <ModalFooter />
+          <PolaroidModalFooter />
         </FormContainer>
-      </Modal>
+      </PolaroidModal>
     </CreateSpaceModalContext.Provider>
   );
 }

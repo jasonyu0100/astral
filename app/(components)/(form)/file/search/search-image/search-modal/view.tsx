@@ -5,7 +5,7 @@ import { SearchBar } from '@/(components)/(explorer)/search-bar/main';
 import { cn } from '@/(utils)/cn';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormContainer } from '@/(components)/(form)/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ImageInputProps } from '@/(types)/props/main';
 import { SearchModalContext } from './main';
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
@@ -25,7 +25,7 @@ export default function SearchModalView() {
   }, []);
 
   return (
-    <Modal
+    <PolaroidModal
       isOpen={modalContext.searchModal.opened}
       onClose={modalContext.searchModal.close}
     >
@@ -70,7 +70,7 @@ export default function SearchModalView() {
           </button>
         </FormBody>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }
 

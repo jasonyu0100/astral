@@ -5,7 +5,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
 import { FormSelect } from '@/(components)/(form)/select/main';
@@ -23,7 +23,7 @@ export function MapAddPartModal() {
   const { opened, close } = modalContext.addPartModal;
 
   return (
-    <Modal
+    <PolaroidModal
       isOpen={opened}
       onClose={() => close()}
     >
@@ -76,6 +76,6 @@ export function MapAddPartModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

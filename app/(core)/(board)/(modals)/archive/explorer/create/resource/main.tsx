@@ -6,7 +6,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import {
   FileObj,
   FileVariant,
@@ -26,7 +26,7 @@ export function ExplorerCreateResourceModal() {
   const [variant, changeVariant] = useState(FileVariant.IMAGE);
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Add Media</FormTitle>
         <FormBody>
@@ -72,6 +72,6 @@ export function ExplorerCreateResourceModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

@@ -6,7 +6,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
 import { ChatsHandlerContext } from '@/(types)/handler/storm/chats/main';
@@ -18,7 +18,7 @@ export function StormAddChatModal() {
   const [summary, changeSummary] = useState('');
 
   return (
-    <Modal
+    <PolaroidModal
       isOpen={modalContext.addChatModal.opened}
       onClose={() => modalContext.addChatModal.close()}
     >
@@ -51,6 +51,6 @@ export function StormAddChatModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

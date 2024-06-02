@@ -5,7 +5,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
@@ -21,7 +21,7 @@ export function ExplorerCreateGalleryModal() {
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
@@ -54,6 +54,6 @@ export function ExplorerCreateGalleryModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

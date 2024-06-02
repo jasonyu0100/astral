@@ -3,7 +3,7 @@ import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
@@ -19,7 +19,7 @@ export function AddLogStarModal() {
   const [description, changeDescription] = useState<string>('');
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Log Element</FormTitle>
         <FormBody>
@@ -50,6 +50,6 @@ export function AddLogStarModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

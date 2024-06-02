@@ -3,7 +3,7 @@ import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { ResourceContext } from '@/(types)/model/resource/main';
@@ -21,7 +21,7 @@ export function ExplorerEditGalleryModal() {
   }
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Gallery</FormTitle>
         <FormBody>
@@ -48,6 +48,6 @@ export function ExplorerEditGalleryModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

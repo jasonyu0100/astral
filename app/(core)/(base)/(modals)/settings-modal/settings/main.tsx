@@ -1,7 +1,7 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
@@ -15,7 +15,7 @@ export function SettingsModal() {
   const { opened, close } = modalContext.settingsModal;
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Settings</FormTitle>
         <FormBody>
@@ -32,6 +32,6 @@ export function SettingsModal() {
           </h1>
         </FormBody>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }

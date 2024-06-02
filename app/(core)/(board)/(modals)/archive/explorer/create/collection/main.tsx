@@ -5,7 +5,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
-import { Modal } from '@/(components)/(modal)/main';
+import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileObj } from '@/(types)/model/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveExplorerCreateModalContext } from '../main';
@@ -20,7 +20,7 @@ export function ExplorerCreateCollectionModal() {
   const [files, changeFiles] = useState([] as FileObj[]);
 
   return (
-    <Modal isOpen={opened} onClose={() => close()}>
+    <PolaroidModal isOpen={opened} onClose={() => close()}>
       <FormContainer>
         <FormTitle>Create Collection</FormTitle>
         <FormBody>
@@ -56,7 +56,7 @@ export function ExplorerCreateCollectionModal() {
           </FormButton>
         </FormFooter>
       </FormContainer>
-    </Modal>
+    </PolaroidModal>
   );
 }
 
