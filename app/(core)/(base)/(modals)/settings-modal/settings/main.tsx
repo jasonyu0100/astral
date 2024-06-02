@@ -5,9 +5,9 @@ import { Modal } from '@/(components)/(modal)/main';
 import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { getPlanName, getPlanPrice } from '@/(entry)/(support)/(finance)/support/page';
 import Link from 'next/link';
-import { stripeMap } from '@/(entry)/(support)/(finance)/stripe/map';
+import { getPlanName, getPlanPrice } from '@/(core)/(misc)/(support)/(finance)/support/page';
+import { stripeMap } from '@/(core)/(misc)/(support)/(finance)/stripe/map';
 
 export function SettingsModal() {
   const user = useGlobalUser((state) => state.user);

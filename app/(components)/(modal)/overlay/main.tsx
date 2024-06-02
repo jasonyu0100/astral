@@ -22,6 +22,7 @@ export function ModalOverlay({
     >
       <div className='fixed inset-0 flex items-center justify-center bg-slate-950 bg-opacity-80'>
         <div
+          className='h-full w-full'
           onClick={(e) => {
             e.stopPropagation();
           }}

@@ -1,5 +1,5 @@
 'use client';
-import { portalMap } from '@/(entry)/(portal)/map';
+import { portalMap } from '@/(portal)/map';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
