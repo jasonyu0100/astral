@@ -17,7 +17,7 @@ export function ExplorerResource() {
       <ExplorerEditResourceModal />
       <ResourceContainer
         onClick={() => changeFlipped(!flipped)}
-        className='h-[300px] p-[20px]'
+        className='h-[250px] p-[20px]'
       >
         {flipped ? <CollectionResourceInfo /> : <CollectionResourceMedia />}
       </ResourceContainer>

@@ -1,21 +1,26 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
+import { cn } from '@/(utils)/cn';
 import { DivInputProps } from '@/(types)/props/main';
-import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface InputProps extends DivInputProps {
   children?: React.ReactNode;
 }
 
-export function GalleryContainer({ children, ...props }: InputProps) {
+export function CollectionContainer({ children, ...props }: InputProps) {
   return (
     <GlassWindowFrame
-      name={GalleryContainer.name}
-      className={cn(`aspect-[11/16] w-full`, props.className)}
+      name={CollectionContainer.name}
+      roundedFx={roundedFx['rounded-xs']}
+      className={cn(
+        `aspect-[32/16] w-full  overflow-hidden rounded`,
+        props.className,
+      )}
     >
-      <GlassWindowContents className='flex flex-col'>
+      <GlassWindowContents className='flex flex-row items-center'>
         {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

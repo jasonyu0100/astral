@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { CollectionResourceAdd } from '../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/explorer/add/main';
-import { ExplorerResource } from '../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/explorer/main';
+import { CollectionResourceAdd } from '../../../../../../../../../(components)/(explorer)/(resource-element)/explorer/add/main';
+import { ExplorerResource } from '../../../../../../../../../(components)/(explorer)/(resource-element)/explorer/main';
 import { ResourceContext } from '@/(types)/model/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(board)/(modals)/archive/explorer/create/main';
 import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';

@@ -2,7 +2,7 @@ import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 import { useState } from 'react';
 import { GallerySidebarBack } from './back/main';
 import { GallerySidebarCover } from './front/main';
-import { GalleryContainer } from '../explorer/container/main';
+import { GalleryContainer } from '../common/container/main';
 
 export function SidebarHomeGallery() {
   const [flipped, changeFlipped] = useState(false);

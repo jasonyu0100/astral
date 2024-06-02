@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react';
-import { CollectionResourceAdd } from '../../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/sidebar/add/main';
+import { CollectionResourceAdd } from '../../../../../../../../../../(components)/(explorer)/(resource-element)/sidebar/add/main';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
-import { SidebarCollectionResource } from '../../../../../../../../../../(components)/(explorer)/(resource-assets-epic)/sidebar/main';
+import { SidebarCollectionResource } from '../../../../../../../../../../(components)/(explorer)/(resource-element)/sidebar/main';
 import { ResourceContext, ResourceObj } from '@/(types)/model/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';

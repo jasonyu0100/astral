@@ -1,4 +1,4 @@
-import { GalleryContainer } from '../container/main';
+import { GalleryContainer } from '../../common/container/main';
 import { GalleryExplorerAddCover } from './cover/main';
 import { ButtonInputProps } from '@/(types)/props/main';
 

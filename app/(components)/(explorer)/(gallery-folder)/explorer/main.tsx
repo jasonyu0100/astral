@@ -1,5 +1,5 @@
 import { GalleryExplorerFront } from './front/main';
-import { GalleryContainer } from './container/main';
+import { GalleryContainer } from '../common/container/main';
 import { useState } from 'react';
 import { GalleryExplorerBack } from './back/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';

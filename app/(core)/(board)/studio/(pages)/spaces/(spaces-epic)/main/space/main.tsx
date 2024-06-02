@@ -5,7 +5,7 @@ import {
 } from '@/(types)/model/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';
 
@@ -28,6 +28,7 @@ export function StudioSpace({ index }: { index: number }) {
       <GlassAreaContainer
         name={StudioSpace.name}
         sizeFx='w-full h-[100px]'
+        borderFx={borderFx['border-b']}
         glassFx={`${hover && glassFx['glass-10']}`}
         className={`flex h-[100px] w-full flex-row items-center justify-between pl-[3rem] pr-[2rem] py-[1rem]`}
         onMouseOver={() => changeHover(true)}

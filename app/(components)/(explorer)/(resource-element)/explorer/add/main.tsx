@@ -3,7 +3,7 @@ import { ResourceContainer } from '../../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {
   return (
-    <ResourceContainer {...props} className="h-[300px] p-[20px]">
+    <ResourceContainer {...props} className="h-[250px] p-[20px]">
       <div className='flex aspect-square w-full items-center justify-center bg-black'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
