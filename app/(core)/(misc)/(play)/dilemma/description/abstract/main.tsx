@@ -3,15 +3,10 @@ export function Abstract() {
         <p className='font-extraBold text-xl text-slate-300 '>Abstract</p>
         <br/>
         <p className='text-md font-bold text-slate-500'>
-          Dual is a 1v1 game where players place cards in a 2x2 grid to score
-          points for your side or yourself
+          Dilemma is a game where players place cards in a 2x2 grid in order to maximize their score
         </p>
         <p className='text-md font-bold text-slate-500'>
-          Dilemma is a 2v2 game where players place cards in a 2x2 grid to score
-          points for your side and yourself
-        </p>
-        <p className='text-md font-bold text-slate-500'>
-          Both can be played in tournaments or casual games
+          It's intended to be played in a tournament format
         </p>
       </div>
 }

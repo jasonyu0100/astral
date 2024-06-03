@@ -48,8 +48,6 @@ export function Meta() {
       <p className='text-md font-bold text-slate-500'>
         NP - The payout of a quad with anti-hero modifiers
       </p>
-      <br />
-      <p className='text-md font-bold text-slate-500'>~ evermore verses</p>
     </div>
   );
 }

@@ -1,16 +1,17 @@
 import { FormattedLink } from '@/(components)/(basic)/link/main';
+import { learnMap } from './map';
 
 export default function Page() {
   return (
-    <div className='flex flex-col p-[2rem]'>
-      <h1 className='text-xl font-bold text-white'>LEARN</h1>
-      <FormattedLink href='/learn/compass'>Compass</FormattedLink>
-      <FormattedLink href='/learn/domains'>Domains</FormattedLink>
-      <FormattedLink href='/learn/fractal'>Fractal</FormattedLink>
-      <FormattedLink href='/learn/map'>Map</FormattedLink>
-      <FormattedLink href='/learn/month'>Month</FormattedLink>
-      <FormattedLink href='/learn/queue'>Queue</FormattedLink>
-      <FormattedLink href='/learn/timer'>Timer</FormattedLink>
+    <div className='flex flex-col p-[2rem] space-y-[1rem]'>
+      <h1 className='text-2xl font-bold text-white'>LEARN</h1>
+      <FormattedLink href={learnMap.learn.compass.link}>Compass</FormattedLink>
+      <FormattedLink href={learnMap.learn.domains.link}>Domains</FormattedLink>
+      <FormattedLink href={learnMap.learn.fractal.link}>Fractal</FormattedLink>
+      <FormattedLink href={learnMap.learn.map.link}>Map</FormattedLink>
+      <FormattedLink href={learnMap.learn.month.link}>Month</FormattedLink>
+      <FormattedLink href={learnMap.learn.queue.link}>Queue</FormattedLink>
+      <FormattedLink href={learnMap.learn.timer.link}>Timer</FormattedLink>
     </div>
   );
 }

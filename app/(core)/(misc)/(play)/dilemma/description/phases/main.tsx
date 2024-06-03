@@ -4,22 +4,33 @@ export function Phases() {
       <p className='text-lg font-bold text-slate-300'>Phases</p>
       <br />
       <p className='text-md font-bold text-slate-500'>
-        Draw - Deal four cards to each player from the deck
+        Draw - Deal five cards to each player from the deck
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Phase One - Fold or play two cards in quadrants
+        Set - Play two cards in quadrants
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Phase Two - Pass or play one card in a quadrant
+        Wager - Place a point bet on the outcome of the game
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Phase Three - Pass or play final card in a quadrant
+        Play 1 - Play a card in a quadrant
       </p>
       <p className='text-md font-bold text-slate-500'>
-        The Reveal - Reveal the quadrants and calculate the results
+        Play 2 - Play a card in a quadrant
       </p>
       <p className='text-md font-bold text-slate-500'>
-        Balance - Holder adjusts Anti or moves Hero
+        Play 3 - Play final card in a quadrant
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Reveal - Reveal cards one by one the quadrants
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Score - Calculate the outcome and redistribute the points
+      </p>
+      <p className='text-md font-bold text-slate-500'>
+        Balance - Holder adjusts Anti or moves the Hero Blind
       </p>
     </div>
   );
