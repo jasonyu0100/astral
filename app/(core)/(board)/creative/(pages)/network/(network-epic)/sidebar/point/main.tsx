@@ -28,20 +28,9 @@ export function NetworkSidebarPoint() {
         borderFx={borderFx['border-all']}
       >
         <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
-          <div className='flex aspect-[16/9] w-full flex-col'>
-            {!expanded && (
-              <div className='flex w-full flex-row'>
-                <p className='text-md font-bold text-slate-500'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aenean eget tortor turpis. Mauris tellus libero, iaculis quis
-                  enim ac, porttitor fringilla justo. Proin sodales iaculis
-                  dignissim.
-                </p>
-              </div>
-            )}
+          <div className='flex w-full flex-col'>
             <div className='mt-auto flex flex-row  items-center justify-between'>
               <div className='flex w-full flex-row items-center space-x-[2rem]'>
-                <HorizonCover file={file} />
                 <div className='flex flex-col'>
                   <p className='text-lg font-bold text-slate-300'>
                     Project Horizon
@@ -109,40 +98,24 @@ export function NetworkSidebarPoint() {
           {expanded && (
             <>
               <Divider />
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <SpaceCover file={file} />
-                <p className='text-lg font-bold text-slate-400'>
-                  Project Space
-                </p>
-              </div>
 
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <SpaceCover file={file} />
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Space
+                  Creative A
                 </p>
               </div>
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <SpaceCover file={file} />
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Space
+                  Creative A
                 </p>
               </div>
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <SpaceCover file={file} />
                 <p className='text-lg font-bold text-slate-300'>
-                  Project Space
+                  Creative A
                 </p>
-              </div>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <SpaceCover file={file} />
-                <p className='text-lg font-bold text-slate-300'>
-                  Project Space
-                </p>
-              </div>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <SpaceCover file={{} as FileObj} />
-                <p className='text-lg font-bold text-slate-300'>New Space +</p>
               </div>
             </>
           )}

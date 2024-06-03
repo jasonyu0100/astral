@@ -15,6 +15,7 @@ import { horizonMap } from '../../map';
 function Page() {
   return (
     <BaseView>
+      <BaseSidebar />
       <div className='h-full flex-grow overflow-auto'>
         <div className='flex flex-grow flex-col items-center space-y-[2rem] p-[2rem]'>
           <GlassWindowFrame
@@ -103,7 +104,6 @@ function Page() {
         </div>
       </div>
 
-      <BaseSidebar />
     </BaseView>
   );
 }

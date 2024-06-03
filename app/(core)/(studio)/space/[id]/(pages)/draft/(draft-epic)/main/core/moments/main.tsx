@@ -16,32 +16,28 @@ export function DraftMoments() {
       <GlassAreaContainer
         name={DraftMoments.name}
         sizeFx='flex-grow h-full'
-        className={`overflow-auto p-[3rem] space-y-[3rem]`}
+        className={`overflow-auto p-[2rem] space-y-[3rem]`}
       >
         {/* TODO */}
-        <div className='flex flex-row'>
-          <div className='font-bold text-slate-500'>Draft #1</div>
+        <div className='flex flex-col space-y-[1rem]'>
+          <div className='font-bold text-slate-500'>Take 4A</div>
           <GlassWindowFrame className="h-[300px] w-[500px]">
             <GlassWindowPane glassFx={glassFx['glass-5']}/>
           </GlassWindowFrame>
         </div>
-        <div className='flex flex-row'>
-          <div className='font-bold text-slate-500'>Draft #1</div>
+        <div className='flex flex-col space-y-[1rem]'>
+          <div className='font-bold text-slate-500'>Take 4B</div>
           <GlassWindowFrame className="h-[300px] w-[500px]">
             <GlassWindowPane glassFx={glassFx['glass-5']}/>
           </GlassWindowFrame>
         </div>
-        <div className='flex flex-row'>
-          <div className='font-bold text-slate-500'>Draft #1</div>
+        <div className='flex flex-col space-y-[1rem]'>
+          <div className='font-bold text-slate-500'>Take 4C</div>
           <GlassWindowFrame className="h-[300px] w-[500px]">
             <GlassWindowPane glassFx={glassFx['glass-5']}/>
           </GlassWindowFrame>
         </div>
-        {/* {moments.map((moment) => (
-          <DraftMomentContext.Provider value={moment} key={moment.id}>
-            <DraftMoment key={moment.id}/>
-          </DraftMomentContext.Provider>
-        ))} */}
+
       </GlassAreaContainer>
     </div>
   );

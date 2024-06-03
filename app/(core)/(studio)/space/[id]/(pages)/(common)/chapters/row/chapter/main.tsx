@@ -8,7 +8,7 @@ import { cn } from '@/(utils)/cn';
 import { ChapterActiveText } from './active/main';
 import { ChapterInactiveText } from './inactive/main';
 
-export function ChapterContainer({ index }: { index: number }) {
+export function ChapterContainer({ index, children }: { children?: React.ReactNode, index: number }) {
   const chapter = useContext(ChapterContext);
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const active = chapter.id === chaptersHandler.chapterId;
@@ -30,7 +30,8 @@ export function ChapterContainer({ index }: { index: number }) {
           roundedFx={roundedFx['rounded-full']}
           className='flex items-center justify-center'
         >
-          {active ? <ChapterActiveText /> : <ChapterInactiveText />}
+          <p className="text-white font-bold">{children}</p>
+          {/* {active ? <ChapterActiveText /> : <ChapterInactiveText />} */}
         </GlassAreaContainer>
       </button>
     </WrapperTooltip>

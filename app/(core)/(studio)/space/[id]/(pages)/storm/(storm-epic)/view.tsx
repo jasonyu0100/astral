@@ -6,8 +6,8 @@ import { StormMain } from './main/main';
 export function StormView() {
   return (
     <StormContainer>
-      <StormMain/>
       <StormSidebar />
+      <StormMain/>
     </StormContainer>
   );
 }

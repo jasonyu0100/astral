@@ -6,8 +6,8 @@ import { HorizonsSidebar } from './sidebar/main';
 export function HorizonsView() {
   return (
     <HorizonsContainer>
-      <HorizonsMain />
       <HorizonsSidebar />
+      <HorizonsMain />
     </HorizonsContainer>
   );
 }

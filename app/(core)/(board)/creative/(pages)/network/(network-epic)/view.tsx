@@ -5,8 +5,8 @@ import { NetworkContainer } from './container/main';
 export function NetworkView() {
   return (
     <NetworkContainer>
-      <NetworkMain />
       <NetworkSidebar />
+      <NetworkMain />
     </NetworkContainer>
   );
 }

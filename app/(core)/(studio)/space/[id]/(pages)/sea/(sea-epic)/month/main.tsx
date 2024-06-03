@@ -4,6 +4,7 @@ import { DayColor, DayView } from './day/main';
 import { FeltModal } from '@/(components)/(modal)/felt/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormButton } from '@/(components)/(form)/button/main';
+import { Divider } from '@/(components)/(line)/divider/main';
 
 enum CardSuit {
   Other = 'Other',
@@ -135,13 +136,7 @@ export function MonthView() {
         </div>
       </FeltModal>
 
-      <div className='flex flex-col p-[1rem]'>
-        <button
-          className='bg-white p-[1rem]'
-          onClick={() => setShowModal(true)}
-        >
-          DEAL CARDS
-        </button>
+      <div className='flex flex-col p-[1rem] space-y-[1rem]'>
         <div className='flex h-full w-full flex-row space-x-[4rem] p-[3rem]'>
           <div className='flex flex-col space-y-[2rem]'>
             <p className='text-lg font-medium text-slate-500'>
@@ -216,6 +211,16 @@ export function MonthView() {
             </div>
           </div>
         </div>
+        <Divider/>
+        <button
+          className='bg-white p-[1rem] w-[300px]'
+          onClick={() => setShowModal(true)}
+        >
+          DEAL CARDS
+        </button>
+        <p className="text-slate-300 font-bold text-lg">Day 1</p>
+        <p className="text-slate-300 font-bold text-lg">Day 1</p>
+        <p className="text-slate-300 font-bold text-lg">Day 1</p>
       </div>
     </div>
   );

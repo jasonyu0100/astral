@@ -12,6 +12,7 @@ export function DualSidebar() {
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
+      borderFx={borderFx['border-r']}
     >
       <GlassWindowFrame
         name='temp'
@@ -20,7 +21,7 @@ export function DualSidebar() {
         className='p-[1rem]'
       >
         <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>1. Decision XYZ</p>
+          <p className='text-white'>1. Dress Code</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
@@ -31,7 +32,7 @@ export function DualSidebar() {
         className='p-[1rem]'
       >
         <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>2. Second</p>
+          <p className='text-white'>2. Colors</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
@@ -42,62 +43,7 @@ export function DualSidebar() {
         className='p-[1rem]'
       >
         <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>3. Third</p>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        name='temp'
-        borderFx={borderFx['border-all']}
-        roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
-      >
-        <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>4. Fourth</p>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        name='temp'
-        borderFx={borderFx['border-all']}
-        roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
-      >
-        <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>5. Fifth</p>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        name='temp'
-        borderFx={borderFx['border-all']}
-        roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
-      >
-        <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>AI</p>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        name='temp'
-        borderFx={borderFx['border-all']}
-        roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
-      >
-        <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>IT</p>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        name='temp'
-        borderFx={borderFx['border-all']}
-        roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
-      >
-        <GlassWindowContents className='flex flex-row'>
-          <p className='text-white'>Propose Decision +</p>
+          <p className='text-white'>3. Locations</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>

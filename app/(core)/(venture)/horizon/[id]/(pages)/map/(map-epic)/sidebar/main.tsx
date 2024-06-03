@@ -14,12 +14,9 @@ export function MapSidebar() {
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <MapSidebarPoint/>
-      <MapSidebarPoint/>
-      <MapSidebarPoint/>
-      <MapSidebarPoint/>
-      <MapSidebarPoint/>
-      <MapSidebarPoint/>
+      <MapSidebarPoint>Marketing Group</MapSidebarPoint>
+      <MapSidebarPoint>Sales Group</MapSidebarPoint>
+      <MapSidebarPoint>Production Group</MapSidebarPoint>
 
     </GlassAreaContainer>
   );

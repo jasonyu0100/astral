@@ -8,6 +8,7 @@ export function ShareSidebar({ children }: { children?: React.ReactNode }) {
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
+      borderFx={borderFx['border-r']}
     >
       {children}
     </GlassAreaContainer>

@@ -1,6 +1,6 @@
 'use client';
 import isVerseAuth from '@/(utils)/isAuth';
-import { HorizonsView } from './(horizons-epic)/view';
+import { HorizonsView } from '../../(horizons-epic)/view';
 
 function Page() {
   return <HorizonsView />;

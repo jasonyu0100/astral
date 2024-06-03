@@ -11,11 +11,13 @@ export function JournalSidebar() {
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <JournalSidebarPoint/>
-      <JournalSidebarPoint/>
-      <JournalSidebarPoint/>
-      <JournalSidebarPoint/>
-      <JournalSidebarPoint/>
+      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <JournalSidebarPoint />
+      <JournalSidebarPoint />
+      <JournalSidebarPoint />
+      <p className='text-lg font-bold text-slate-300'>1 month ago</p>
+      <JournalSidebarPoint />
+      <JournalSidebarPoint />
     </GlassAreaContainer>
   );
 }

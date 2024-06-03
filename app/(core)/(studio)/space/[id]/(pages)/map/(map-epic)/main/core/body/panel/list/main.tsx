@@ -4,6 +4,7 @@ import { PartListEntry } from './entry/main';
 import { PartsHandlerContext } from '@/(types)/handler/parts/main';
 import { MapModalContext } from '@/(core)/(studio)/(modals)/map-modal/main';
 import { ChaptersHandlerContext } from '@/(types)/handler/chapters/main';
+import { Divider } from '@/(components)/(line)/divider/main';
 
 export function MapPartList() {
   const chaptersHandler = useContext(ChaptersHandlerContext)
@@ -16,6 +17,10 @@ export function MapPartList() {
   // TODO CLEAN UP
   return (
     <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
+      <div>
+        <p className={`text-md font-bold text-slate-500`}>0. General</p>
+      </div>
+      <Divider/>
       {chaptersHandler.chapters.map((chapter, index) => (
         <div key={chapter.id}>
           <p className={`text-md font-bold text-slate-500`}>

@@ -20,23 +20,27 @@ export function MapChaptersRow() {
   return (
     <ChaptersRowContainer>
       {parts.map((part, index) => (
-        <p className="text-slate-500 font-bold mr-[3rem]">{part.title}</p>
+        <p className='mr-[3rem] font-bold text-slate-500'>{part.title}</p>
       ))}
-      <div
-        className='flex w-full cursor-pointer'
-        onClick={() => {
-          open();
-        }}
-      >
-        <p className={`text-md animate-pulse-slow font-bold text-slate-500`}>
-          Add Page
-        </p>
-      </div>
       {/* {chaptersHandler.chapters.map((chapter, index) => (
         <ChapterContext.Provider value={chapter} key={chapter.id}>
           <ChapterContainer index={index} key={chapter.id} />
         </ChapterContext.Provider>
       ))} */}
+      <ChapterContainer index={1}>Scene 1A</ChapterContainer>
+      <ChapterContainer index={1}>Scene 1B</ChapterContainer>
+      <ChapterContainer index={1}>Scene 1C</ChapterContainer>
+      <ChapterContainer index={1}>Scene 1D</ChapterContainer>
+      <div
+        className='flex cursor-pointer'
+        onClick={() => {
+          open();
+        }}
+      >
+        <p className={`text-md animate-pulse-slow font-bold text-slate-500`}>
+          Add Scene
+        </p>
+      </div>
       <ChaptersAdd onClick={() => addChapterModal.open()} />
     </ChaptersRowContainer>
   );
