@@ -5,7 +5,7 @@ import { glassFx } from '@/(style)/data';
 import { CollectionsBreadcrumbs } from './breadcrumbs/main';
 import { CollectionsGrid } from './grid/main';
 
-export function CollectionsResults() {
+export function CollectionsContent() {
   return (
     <GlassWindowFrame className='h-full flex-grow px-[2rem] pt-[1rem]'>
       <GlassWindowContents className='flex w-full flex-col overflow-auto'>
