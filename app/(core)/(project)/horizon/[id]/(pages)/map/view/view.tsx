@@ -14,7 +14,7 @@ export function MapView({
     <GlassAreaContainer
       name={MapView.name}
       sizeFx='flex-grow h-full'
-      className={`$flex`}
+      className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}

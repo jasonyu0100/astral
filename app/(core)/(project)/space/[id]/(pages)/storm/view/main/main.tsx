@@ -8,7 +8,7 @@ export function StormMain() {
     <GlassAreaContainer
       name={StormMain.name}
       sizeFx='flex-grow h-full'
-      className={`$flex flex-col`}
+      className={`flex flex-col`}
     >
       <StormCore />
       <StormChatInput />

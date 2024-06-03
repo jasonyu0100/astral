@@ -12,18 +12,20 @@ export function ShareView() {
   return (
     <ShareContainer>
       <ShareSidebar>
-        <ShareSidebarPoint>Day 1</ShareSidebarPoint>
-        <ShareSidebarPoint>Day 2</ShareSidebarPoint>
-        <ShareSidebarPoint>Day 3</ShareSidebarPoint>
-        <ShareSidebarPoint>Day 4</ShareSidebarPoint>
-        <ShareSidebarPoint>Day 5</ShareSidebarPoint>
+        <ShareSidebarPoint>Week 1</ShareSidebarPoint>
+        <ShareSidebarPoint>Week 2</ShareSidebarPoint>
+        <ShareSidebarPoint>Week 3</ShareSidebarPoint>
+        <ShareSidebarPoint>Week 4</ShareSidebarPoint>
+        <ShareSidebarPoint>Week 5</ShareSidebarPoint>
       </ShareSidebar>
       <SeaMain>
-        <MonthView/>
-        <SeaContribution/>
-        <SeaContribution/>
-        <SeaContribution/>
-        <SeaContribution/>
+        <MonthView />
+        <div className='flex flex-col overflow-auto max-w-[800px] items-center space-y-[2rem]'>
+          <SeaContribution />
+          <SeaContribution />
+          <SeaContribution />
+          <SeaContribution />
+        </div>
       </SeaMain>
     </ShareContainer>
   );

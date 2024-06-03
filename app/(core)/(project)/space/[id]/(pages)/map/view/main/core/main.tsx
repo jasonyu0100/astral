@@ -9,7 +9,7 @@ export function MapCore() {
       <GlassAreaContainer
         name={MapCore.name}
         sizeFx='w-full h-full'
-        className={`$flex flex-col`}
+        className={`flex flex-col`}
       >
         <MapHeader />
         <MapBody />

@@ -1,14 +1,15 @@
-
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 
 export function SeaMain({ children }: { children?: React.ReactNode }) {
   return (
-    <GlassAreaContainer
-      name={SeaMain.name}
-      sizeFx='h-full flex-grow p-[2rem]'
-      className={`$flex flex-col`}
-    >
-      <div className='w-full overflow-auto space-y-[2rem]'>{children}</div>
-    </GlassAreaContainer>
+    <GlassWindowFrame name={SeaMain.name} className='h-full flex-grow p-[2rem] pr-[1rem]'>
+      <GlassWindowContents className="overflow-auto">
+        <div className='flex w-full flex-col space-y-[2rem] pr-[1rem]'>
+          {children}
+        </div>
+      </GlassWindowContents>
+    </GlassWindowFrame>
   );
 }

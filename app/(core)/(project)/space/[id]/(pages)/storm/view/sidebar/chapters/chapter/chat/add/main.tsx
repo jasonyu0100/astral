@@ -16,7 +16,7 @@ export function StormChapterChatAdd() {
           name={StormChapterChatAdd.name}
           sizeFx='w-[50px] h-[50px] rounded-full overflow-hidden'
           glassFx='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
-          className={`$flex flex-col justify-center items-center`}
+          className={`flex flex-col justify-center items-center`}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

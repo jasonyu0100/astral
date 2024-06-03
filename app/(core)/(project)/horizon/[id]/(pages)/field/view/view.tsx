@@ -14,7 +14,7 @@ export function BaseView({
     <GlassAreaContainer
       name={BaseView.name}
       sizeFx='flex-grow h-full'
-      className={`$flex`}
+      className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}

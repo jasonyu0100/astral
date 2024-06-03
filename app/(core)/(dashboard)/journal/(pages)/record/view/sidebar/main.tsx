@@ -8,14 +8,15 @@ export function JournalSidebar() {
     <GlassAreaContainer
       name={JournalSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
-      className={`$flex flex-col space-y-[1rem] p-[1rem]`}
+      className={`flex flex-col space-y-[1rem] p-[1rem] pt-[2rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <p className='text-lg font-bold text-slate-500'>1 day ago</p>
+      <JournalSidebarPoint>Image Space</JournalSidebarPoint>
       <JournalSidebarPoint />
+      <p className='text-lg font-bold text-slate-500'>1 week ago</p>
       <JournalSidebarPoint />
-      <JournalSidebarPoint />
-      <p className='text-lg font-bold text-slate-300'>1 month ago</p>
+      <p className='text-lg font-bold text-slate-500'>1 month ago</p>
       <JournalSidebarPoint />
       <JournalSidebarPoint />
     </GlassAreaContainer>

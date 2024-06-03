@@ -15,7 +15,7 @@ export function StormChatInput() {
       name={StormChatInput.name}
       sizeFx='h-[80px] w-full'
       glassFx={glassFx['glass-5']}
-      className={`$flex flex-row justify-center items-center px-[1rem]`}
+      className={`flex flex-row justify-center items-center px-[1rem]`}
     >
       <StormChatInputLeft />
       <StormChatMessageInput

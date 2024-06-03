@@ -9,7 +9,7 @@ import { exampleFiles } from "@/(model)/resource/file/main";
 export function SeaContributionContents() {
   return (
     <GlassWindowFrame className='w-full'>
-      <GlassWindowContents className='max-h-[20rem] w-full overflow-auto'>
+      <GlassWindowContents className='w-full'>
         <div className='space-y-[1rem]  p-[1rem]'>
           <h1 className='text-slate-300'>Hello World</h1>
           <h1 className='text-slate-300'>Hello World</h1>

@@ -8,7 +8,7 @@ export function MapPart() {
     <GlassAreaContainer
       name={MapPart.name}
       sizeFx='flex-grow h-full'
-      className={`$flex`}
+      className={`flex`}
     >
       <MapLinks />
       <MapPartIdeas />

@@ -8,7 +8,7 @@ export function DraftSidebarPoint({children} : {children ?: React.ReactNode}) {
         name='temp'
         borderFx={borderFx['border-all']}
         roundedFx={roundedFx.rounded}
-        className='p-[1rem]'
+        className='p-[2rem]'
       >
         <GlassWindowContents className='flex flex-row'>
           <p className='text-white'>{children}</p>

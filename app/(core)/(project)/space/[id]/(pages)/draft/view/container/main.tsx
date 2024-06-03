@@ -7,7 +7,7 @@ export function DraftContainer({ children }: { children?: React.ReactNode }) {
     <GlassAreaContainer
       name={DraftContainer.name}
       sizeFx='h-full flex-grow'
-      className={`$flex`}
+      className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container-sm']}

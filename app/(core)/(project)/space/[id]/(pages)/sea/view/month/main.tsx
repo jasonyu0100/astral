@@ -81,7 +81,7 @@ export function MonthView() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-full'>
       <FeltModal isOpen={showModal} onClose={() => setShowModal(false)}>
         <div className='flex h-full w-full flex-col items-center space-y-[2rem] p-[2rem]'>
           <div className='flex flex-row'>
@@ -174,42 +174,6 @@ export function MonthView() {
               <DayView color={DayColor.Blue} />
             </div>
           </div>
-          <div className='flex flex-col space-y-[2rem]'>
-            <p className='text-lg font-medium text-slate-500'>
-              Space Contributions
-            </p>
-            <div className='flex w-[500px] flex-row flex-wrap'>
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-            </div>
-          </div>
         </div>
         <Divider/>
         <button
@@ -218,9 +182,12 @@ export function MonthView() {
         >
           DEAL CARDS
         </button>
-        <p className="text-slate-300 font-bold text-lg">Day 1</p>
-        <p className="text-slate-300 font-bold text-lg">Day 1</p>
-        <p className="text-slate-300 font-bold text-lg">Day 1</p>
+        <p className="text-slate-300 font-bold text-lg">January</p>
+        <p className="text-slate-300 font-bold text-lg">February</p>
+        <p className="text-slate-300 font-bold text-lg">March</p>
+        <p className="text-slate-300 font-bold text-lg">March</p>
+        <p className="text-slate-300 font-bold text-lg">March</p>
+        <p className="text-slate-300 font-bold text-lg">March</p>
       </div>
     </div>
   );

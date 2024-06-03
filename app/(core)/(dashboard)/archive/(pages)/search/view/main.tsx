@@ -7,7 +7,7 @@ export function SearchController({ children }: { children?: React.ReactNode }) {
       name={SearchController.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      className={`$flex flex-col space-y-[2rem] p-[2rem]`}
+      className={`flex flex-col space-y-[2rem] p-[2rem]`}
     >
       {children}
     </GlassAreaContainer>

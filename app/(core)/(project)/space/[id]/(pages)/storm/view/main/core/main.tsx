@@ -9,7 +9,7 @@ export function StormCore() {
       <GlassAreaContainer
         name={StormCore.name}
         sizeFx='w-full h-full'
-        className={`$flex flex-col items-center`}
+        className={`flex flex-col items-center`}
       >
         <StormHeader />
         <StormChat />

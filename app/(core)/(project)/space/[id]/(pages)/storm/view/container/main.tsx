@@ -12,7 +12,7 @@ export function StormContainer({ children }: { children?: React.ReactNode }) {
       name={StormContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      className={`$flex`}
+      className={`flex`}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container-sm']}
     >

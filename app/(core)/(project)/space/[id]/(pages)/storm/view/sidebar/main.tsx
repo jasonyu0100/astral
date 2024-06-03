@@ -9,7 +9,7 @@ export function StormSidebar() {
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
-      className={`$flex flex-col items-center space-y-[0.5rem] px-[1rem]`}
+      className={`flex flex-col items-center space-y-[0.5rem] px-[1rem]`}
     >
       <StormSidebarChapters />
     </GlassAreaContainer>
