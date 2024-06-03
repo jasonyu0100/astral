@@ -1,8 +1,8 @@
-import { FileObj } from '@/(types)/model/resource/file/main';
-import { ResourceContext } from '@/(types)/model/resource/main';
+import { FileObj } from '@/(model)/resource/file/main';
+import { ResourceContext } from '@/(model)/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
-import { IdeasHandlerContext } from '@/(types)/handler/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 import { ResourceContainer } from '../common/container/main';
 
 export function SidebarCollectionResource() {

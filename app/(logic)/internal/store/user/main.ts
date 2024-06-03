@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import Cookies from 'js-cookie';
-import { UserObj } from '@/(types)/model/user/main';
+import { UserObj } from '@/(model)/user/main';
 
 interface UserStore {
   user: UserObj;

@@ -1,4 +1,4 @@
-import { ResourceContext } from "@/(types)/model/resource/main";
+import { ResourceContext } from "@/(model)/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceImage() {

@@ -3,7 +3,7 @@ import {
   FileObjContext,
   FileVariant,
   getFileAccepts,
-} from '@/(types)/model/resource/file/main';
+} from '@/(model)/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadedFileEntry } from '../common/entry/main';
 import { UploadedFileEntryBody } from '../common/entry/body/main';
@@ -13,7 +13,7 @@ import { UploadFileLabel } from '../common/label/main';
 import {
   UploadHandlerContext,
   useUploadHandler,
-} from '@/(types)/handler/upload/single/main';
+} from '@/(controller)/upload/single/main';
 import { UploadFileArea } from './area/main';
 import { UploadFileAreaInterface } from './area/upload/main';
 import { UploadWrapper } from '../common/wrapper/main';

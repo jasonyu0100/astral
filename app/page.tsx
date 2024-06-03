@@ -1,9 +1,9 @@
 'use client';
-import { PortalBackground } from './(portal)/(polaroid-epic)/background/main';
+import { PortalBackground } from './(portal)/(common)/background/main';
 import {
   usePolaroid,
   PolaroidContext,
-} from './(portal)/(polaroid-epic)/handler/polaroid/main';
+} from './(portal)/(common)/handler/polaroid/main';
 import { ReserveView } from './(portal)/reserve/view';
 
 export default function Page() {

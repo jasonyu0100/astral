@@ -1,5 +1,5 @@
-import { FileObjContext } from '@/(types)/model/resource/file/main';
-import { UploadsHandlerContext } from '@/(types)/handler/upload/multiple/main';
+import { FileObjContext } from '@/(model)/resource/file/main';
+import { UploadsHandlerContext } from '@/(controller)/upload/multiple/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';
 import { UploadedFileEntry } from '../../common/entry/main';

@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { UserObj } from '@/(types)/model/user/main';
+import { UserObj } from '@/(model)/user/main';
 import { updateUserObj } from '@/graphql/mutations';
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);

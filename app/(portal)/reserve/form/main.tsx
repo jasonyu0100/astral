@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
-import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
-import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
-import { PortalFormSelect } from '@/(portal)/(polaroid-epic)/container/form/body/select/main';
-import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
-import { PortalTextHeader } from '@/(portal)/(polaroid-epic)/container/form/text-header/main';
-import { portalModel } from '@/(portal)/(polaroid-epic)/model/main';
-import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
+import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
+import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
+import { PortalFormSelect } from '@/(portal)/(common)/container/form/body/select/main';
+import { PortalForm } from '@/(portal)/(common)/container/form/main';
+import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
+import { portalModel } from '@/(portal)/(common)/model/main';
+import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
 import { reservePosition } from '@/(logic)/internal/calls/auth/reserve/main';
 
 export function PortalReserveForm() {

@@ -3,7 +3,7 @@ import { RegisterView } from './view';
 import {
   PolaroidContext,
   usePolaroid,
-} from '../(polaroid-epic)/handler/polaroid/main';
+} from '../(common)/handler/polaroid/main';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =

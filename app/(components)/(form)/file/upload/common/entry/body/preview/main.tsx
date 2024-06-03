@@ -1,7 +1,7 @@
 import {
   FileObjContext,
   FileVariant,
-} from '@/(types)/model/resource/file/main';
+} from '@/(model)/resource/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {

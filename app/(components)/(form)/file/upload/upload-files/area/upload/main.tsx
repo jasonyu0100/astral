@@ -1,5 +1,5 @@
-import { getFileAccepts, FileVariant } from "@/(types)/model/resource/file/main";
-import { UploadsHandlerContext } from "@/(types)/handler/upload/multiple/main";
+import { getFileAccepts, FileVariant } from "@/(model)/resource/file/main";
+import { UploadsHandlerContext } from "@/(controller)/upload/multiple/main";
 import { useContext } from "react";
 
 export function UploadFilesAreaInterface() {

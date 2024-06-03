@@ -6,10 +6,10 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileObj } from '@/(types)/model/resource/file/main';
+import { FileObj } from '@/(model)/resource/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveExplorerCreateModalContext } from '../main';
-import { CollectionsHandlerContext } from '@/(types)/handler/explorer/collections/main';
+import { CollectionsHandlerContext } from '@/(controller)/explorer/collections/main';
 
 export function ExplorerCreateCollectionModal() {
   const collectionsHandler = useContext(CollectionsHandlerContext);

@@ -1,8 +1,8 @@
 import { TabThree } from './tab-3/main';
 import { TabOne } from './tab-1/main';
 import { TabTwo } from './tab-2/main';
-import { Tabs } from '../../../../(components)/(core)/tabs/main';
-import { TabsRow } from '../../../../(components)/(core)/tabs/tabs-row/main';
+import { Tabs } from '../../../../(components)/(dashboard)/tabs/main';
+import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main';
 
 export enum SpaceTabStages {
   Spaces = 'Spaces',

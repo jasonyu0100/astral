@@ -3,21 +3,21 @@ import { createContext } from 'react';
 import {
   GalleryContext,
   GalleryObj,
-} from '@/(types)/model/gallery/main';
+} from '@/(model)/gallery/main';
 import {
   CollectionContext,
   CollectionObj,
-} from '@/(types)/model/gallery/collection/main';
+} from '@/(model)/gallery/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { ResourceObj } from '@/(types)/model/resource/main';
+import { ResourceObj } from '@/(model)/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,
   useResourcesHandler,
-} from '@/(types)/handler/explorer/resources/main';
-import { useCollectionHandler } from '@/(types)/handler/explorer/collections/collection/main';
-import { useGalleryHandler } from '@/(types)/handler/explorer/gallerys/gallery/main';
-import { ResourcesView } from './(resources-explorer-epic)/view';
+} from '@/(controller)/explorer/resources/main';
+import { useCollectionHandler } from '@/(controller)/explorer/collections/collection/main';
+import { useGalleryHandler } from '@/(controller)/explorer/gallerys/gallery/main';
+import { ResourcesView } from './view/view';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ArchiveExplorerCreateModalContext,

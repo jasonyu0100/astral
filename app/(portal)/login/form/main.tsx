@@ -3,22 +3,22 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { portalMap } from '../../map';
 import { studioMap } from '@/(core)/(board)/studio/map';
-import { PortalFormAltActionLink } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/link/main';
-import { PortalFormAltAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/main';
-import { PortalFormGoogleAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/google-action/main';
-import { PortalFormActionContainer } from '@/(portal)/(polaroid-epic)/container/form/action-container/main';
-import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
-import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
-import { PortalFormOrDivider } from '@/(portal)/(polaroid-epic)/container/form/or/main';
-import { PortalTextHeader } from '@/(portal)/(polaroid-epic)/container/form/text-header/main';
+import { PortalFormAltActionLink } from '@/(portal)/(common)/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/(common)/container/form/action-container/alt-action/main';
+import { PortalFormGoogleAction } from '@/(portal)/(common)/container/form/action-container/google-action/main';
+import { PortalFormActionContainer } from '@/(portal)/(common)/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
+import { PortalForm } from '@/(portal)/(common)/container/form/main';
+import { PortalFormOrDivider } from '@/(portal)/(common)/container/form/or/main';
+import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import axios from 'axios';
 import {
   emailLoginUser,
   googleLoginUser,
 } from '@/(logic)/internal/calls/auth/login/main';
-import { UserObj } from '@/(types)/model/user/main';
-import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
+import { UserObj } from '@/(model)/user/main';
+import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
 
 export function PortalLoginForm() {
   const login = useGlobalUser((state) => state.login);

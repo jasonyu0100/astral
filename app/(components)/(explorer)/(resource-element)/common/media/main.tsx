@@ -1,5 +1,5 @@
-import { FileVariant } from '@/(types)/model/resource/file/main';
-import { ResourceContext } from '@/(types)/model/resource/main';
+import { FileVariant } from '@/(model)/resource/file/main';
+import { ResourceContext } from '@/(model)/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';

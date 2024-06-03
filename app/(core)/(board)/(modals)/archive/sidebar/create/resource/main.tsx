@@ -10,11 +10,11 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import {
   FileObj,
   FileVariant,
-} from '@/(types)/model/resource/file/main';
+} from '@/(model)/resource/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveSidebarCreateModalContext } from '../main';
-import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 
 export function SidebarCreateResourceModal() {
   const resourcesHandler = useContext(ResourcesHandlerContext);

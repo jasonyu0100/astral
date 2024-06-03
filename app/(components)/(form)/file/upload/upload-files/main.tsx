@@ -1,13 +1,13 @@
 import {
   FileObj,
   FileVariant,
-} from '@/(types)/model/resource/file/main';
+} from '@/(model)/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {
   UploadsHandlerContext,
   useUploadsHandler,
-} from '@/(types)/handler/upload/multiple/main';
+} from '@/(controller)/upload/multiple/main';
 import { UploadFilesList } from './list/main';
 import { UploadFilesArea } from './area/main';
 

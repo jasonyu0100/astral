@@ -6,7 +6,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { ResourceContext } from '@/(types)/model/resource/main';
+import { ResourceContext } from '@/(model)/resource/main';
 import { EditGalleryModalContext } from './main';
 
 export function ExplorerEditGalleryModal() {

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GalleryContext } from '@/(types)/model/gallery/main';
+import { GalleryContext } from '@/(model)/gallery/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 
 export function GalleryThumbnail() {

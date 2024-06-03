@@ -5,15 +5,15 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/(types)/model/resource/file/main';
-import { SpaceVariant } from '@/(types)/model/space/main';
+import { FileObj } from '@/(model)/resource/file/main';
+import { SpaceVariant } from '@/(model)/space/main';
 import {
   ChapterTemplateObj,
   getSpaceTemplate,
-} from '@/(types)/model/space/templates/main';
+} from '@/(model)/space/templates/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesHandlerContext } from '@/(types)/handler/spaces/main';
+import { SpacesHandlerContext } from '@/(controller)/spaces/main';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;

@@ -1,10 +1,10 @@
-import { SearchController } from './search-epic/main';
-import { SearchBar } from './search-epic/search-bar/main';
+import { SearchController } from './view/main';
+import { SearchBar } from './view/search-bar/main';
 import { SearchContextObj } from './page';
-import { SearchResults } from './search-epic/results/main';
-import { SearchResult } from './search-epic/results/element/main';
-import SearchBarInput from './search-epic/search-bar/input/main';
-import { SearchBarButton } from './search-epic/search-bar/button/main';
+import { SearchResults } from './view/results/main';
+import { SearchResult } from './view/results/element/main';
+import SearchBarInput from './view/search-bar/input/main';
+import { SearchBarButton } from './view/search-bar/button/main';
 import { useContext } from 'react';
 
 export function SearchView() {

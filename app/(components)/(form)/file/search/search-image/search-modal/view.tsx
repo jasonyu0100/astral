@@ -1,6 +1,6 @@
-import { useUnsplash } from '@/(types)/handler/external/unsplash/main';
+import { useUnsplash } from '@/(controller)/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
-import { FileObj } from '@/(types)/model/resource/file/main';
+import { FileObj } from '@/(model)/resource/file/main';
 import { SearchBar } from '@/(components)/(explorer)/search-bar/main';
 import { cn } from '@/(utils)/cn';
 import { FormBody } from '@/(components)/(form)/body/main';

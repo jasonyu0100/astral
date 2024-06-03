@@ -1,14 +1,14 @@
 'use client';
-import { CollectionsView } from './(collections-explorer-epic)/view';
+import { CollectionsView } from './view/view';
 import {
   GalleryContext,
-} from '@/(types)/model/gallery/main';
+} from '@/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { useGalleryHandler } from '@/(types)/handler/explorer/gallerys/gallery/main';
+import { useGalleryHandler } from '@/(controller)/explorer/gallerys/gallery/main';
 import {
   CollectionsHandlerContext,
   useCollectionsHandler,
-} from '@/(types)/handler/explorer/collections/main';
+} from '@/(controller)/explorer/collections/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   useArchiveExplorerCreateModal,

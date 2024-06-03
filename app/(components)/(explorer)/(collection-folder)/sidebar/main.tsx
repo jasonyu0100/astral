@@ -1,10 +1,10 @@
-import { MapSidebarContext } from '@/(core)/(studio)/space/[id]/(pages)/map/(map-epic)/sidebar/main';
+import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/main';
 import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { CollectionContext, ResourcesContext } from '@/(types)/model/gallery/collection/main';
-import { useResourcesHandler } from '@/(types)/handler/explorer/resources/main';
+import { CollectionContext, ResourcesContext } from '@/(model)/gallery/collection/main';
+import { useResourcesHandler } from '@/(controller)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCollection() {

@@ -7,10 +7,10 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileObj } from '@/(types)/model/resource/file/main';
-import { ResourceContext } from '@/(types)/model/resource/main';
+import { FileObj } from '@/(model)/resource/file/main';
+import { ResourceContext } from '@/(model)/resource/main';
 import { EditResourceModalContext } from './main';
-import { ResourcesHandlerContext } from '@/(types)/handler/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 
 export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);

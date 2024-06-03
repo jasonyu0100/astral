@@ -1,6 +1,6 @@
-import { Tab } from '../../../../../(components)/(core)/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '../../../../../(components)/(core)/tabs/tabs-row/tab/shard/blue/main';
-import { TabText } from '../../../../../(components)/(core)/tabs/tabs-row/tab/text/main';
+import { Tab } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/main';
+import { TabBlueShard } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
+import { TabText } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/text/main';
 import { creativeMap } from '../../map';
 import { CreativeTabStage } from '../main';
 

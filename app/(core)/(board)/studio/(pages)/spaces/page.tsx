@@ -5,9 +5,9 @@ import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../(modals)/studio/main';
-import { SpacesHandlerContext, useSpacesHandler } from '@/(types)/handler/spaces/main';
+import { SpacesHandlerContext, useSpacesHandler } from '@/(controller)/spaces/main';
 import { SpacesModalView } from '@/(core)/(board)/(modals)/studio/view';
-import { StudioSpacesView } from './(spaces-epic)/view';
+import { StudioSpacesView } from './view/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);

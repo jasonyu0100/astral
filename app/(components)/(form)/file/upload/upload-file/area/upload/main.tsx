@@ -1,10 +1,10 @@
 import {
   FileVariant,
   getFileAccepts,
-} from '@/(types)/model/resource/file/main';
+} from '@/(model)/resource/file/main';
 import {
   UploadHandlerContext,
-} from '@/(types)/handler/upload/single/main';
+} from '@/(controller)/upload/single/main';
 import { useContext } from 'react';
 
 export function UploadFileAreaInterface() {

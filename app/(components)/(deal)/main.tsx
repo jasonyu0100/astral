@@ -11,10 +11,10 @@ interface ModalProps {
 
 export function Modal({ children, isOpen, onClose }: ModalProps) {
   return (
-    <PolaroidModalOverlay isOpen={isOpen} onClick={() => onClose()}>
-      <PolaroidModalContainerWrapper>
-        <PolaroidModalContainer>{children}</ModalContainer>
-        <PolaroidModalCloseButton onClick={() => onClose()}>FLIP ME</ModalCloseButton>
+    <ModalOverlay isOpen={isOpen} onClick={() => onClose()}>
+      <ModalContainerWrapper>
+        <ModalContainer>{children}</ModalContainer>
+        <ModalCloseButton onClick={() => onClose()}>FLIP ME</ModalCloseButton>
       </ModalContainerWrapper>
     </ModalOverlay>
   );

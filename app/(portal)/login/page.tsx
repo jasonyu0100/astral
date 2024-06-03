@@ -2,7 +2,7 @@
 import {
   PolaroidContext,
   usePolaroid,
-} from '../(polaroid-epic)/handler/polaroid/main';
+} from '../(common)/handler/polaroid/main';
 import { LoginView } from './view';
 
 export default function Page() {

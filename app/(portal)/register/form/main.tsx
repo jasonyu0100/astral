@@ -3,17 +3,17 @@ import { portalMap } from '../../map';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useGoogleLogin } from '@react-oauth/google';
 import { studioMap } from '@/(core)/(board)/studio/map';
-import { PortalFormAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/action/main';
-import { PortalFormAltActionLink } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/link/main';
-import { PortalFormAltAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/alt-action/main';
-import { PortalFormGoogleAction } from '@/(portal)/(polaroid-epic)/container/form/action-container/google-action/main';
-import { PortalFormActionContainer } from '@/(portal)/(polaroid-epic)/container/form/action-container/main';
-import { PortalFormInput } from '@/(portal)/(polaroid-epic)/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/(polaroid-epic)/container/form/body/main';
-import { PortalForm } from '@/(portal)/(polaroid-epic)/container/form/main';
-import { PortalFormOrDivider } from '@/(portal)/(polaroid-epic)/container/form/or/main';
+import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
+import { PortalFormAltActionLink } from '@/(portal)/(common)/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/(common)/container/form/action-container/alt-action/main';
+import { PortalFormGoogleAction } from '@/(portal)/(common)/container/form/action-container/google-action/main';
+import { PortalFormActionContainer } from '@/(portal)/(common)/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
+import { PortalForm } from '@/(portal)/(common)/container/form/main';
+import { PortalFormOrDivider } from '@/(portal)/(common)/container/form/or/main';
 import axios from 'axios';
-import { PolaroidContext } from '@/(portal)/(polaroid-epic)/handler/polaroid/main';
+import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
 import {
   emailRegisterUser,
   googleRegisterUser,
@@ -21,9 +21,9 @@ import {
 import {
   FileObj,
   FileVariant,
-} from '@/(types)/model/resource/file/main';
-import { UserObj } from '@/(types)/model/user/main';
-import { PortalTextHeader } from '../../(polaroid-epic)/container/form/text-header/main';
+} from '@/(model)/resource/file/main';
+import { UserObj } from '@/(model)/user/main';
+import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 
 export function PortalRegisterForm() {
   const { variant } = useContext(PolaroidContext);

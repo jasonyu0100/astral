@@ -1,4 +1,4 @@
-import { ResourceContext } from "@/(types)/model/resource/main";
+import { ResourceContext } from "@/(model)/resource/main";
 import { EditResourceModalContext } from "@/(core)/(board)/(modals)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 

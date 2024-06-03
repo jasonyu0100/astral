@@ -1,0 +1,43 @@
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { glassFx, borderFx, roundedFx } from '@/(style)/data';
+import { useContext } from 'react';
+import { ChapterContext } from '@/(model)/chapter/main';
+import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
+import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { cn } from '@/(utils)/cn';
+import { ChapterActiveText } from './active/main';
+import { ChapterInactiveText } from './inactive/main';
+
+export function ChapterContainer({
+  index,
+  children,
+}: {
+  children?: React.ReactNode;
+  index: number;
+}) {
+  const chapter = useContext(ChapterContext);
+  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const active = chapter.id === chaptersHandler.chapterId;
+
+  return (
+    <WrapperTooltip text={`#${index + 1} - ${chapter.title}`}>
+      <button
+        onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}
+        className={cn({
+          'animate-pulse-slow': active,
+        })}
+      >
+        <GlassAreaContainer
+          name={ChapterContainer.name}
+          sizeFx='w-[200px] h-[40px]'
+          glassFx={active ? glassFx['glass-10'] : glassFx['glass-5']}
+          roundedFx={roundedFx['rounded-full']}
+          className='flex items-center justify-center'
+        >
+          <p className='font-bold text-white'>{children}</p>
+          {/* {active ? <ChapterActiveText /> : <ChapterInactiveText />} */}
+        </GlassAreaContainer>
+      </button>
+    </WrapperTooltip>
+  );
+}

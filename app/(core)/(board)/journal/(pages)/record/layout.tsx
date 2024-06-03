@@ -1,6 +1,6 @@
 import { JournalTabStage, LinkTabs } from '@/(core)/(board)/journal/(tabs)/main';
 
-import { DashboardContent } from '@/(components)/(core)/content/main';
+import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
