@@ -1,7 +1,7 @@
 import {
   glassFx,
   borderFx,
-  containerFx,
+  
 } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { HeaderAdd } from './add/main';
@@ -17,7 +17,7 @@ export function StormHeader() {
       name={StormHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
-      className={`${containerFx['row-center']} justify-between space-x-[1rem] px-[1rem]`}
+      className={`$flex items-center justify-between space-x-[1rem] px-[1rem]`}
     >
       <StormHeaderLeft>
         {/* <HeaderAgent>Chat GPT-3</HeaderAgent> */}

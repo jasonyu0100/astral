@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  containerFx,
+  
   borderFx,
   glassFx,
 } from '@/(style)/data';
@@ -14,7 +14,7 @@ export function DraftHeader() {
       name={DraftHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
-      className={`${containerFx['row-center']} justify-between space-x-[1rem]`}
+      className={`$flex items-center justify-between space-x-[1rem]`}
     >
       <DraftHeaderLeft />
       <DraftHeaderMiddle />

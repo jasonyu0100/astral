@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerFx } from '@/(style)/data';
+
 import { useContext } from 'react';
 import { StormModalContext } from '../../../../../../../../(modals)/storm-modal/main';
 
@@ -16,7 +16,7 @@ export function StormChapterChatAdd() {
           name={StormChapterChatAdd.name}
           sizeFx='w-[50px] h-[50px] rounded-full overflow-hidden'
           glassFx='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
-          className={`${containerFx['col-centered']}`}
+          className={`$flex flex-col justify-center items-center`}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

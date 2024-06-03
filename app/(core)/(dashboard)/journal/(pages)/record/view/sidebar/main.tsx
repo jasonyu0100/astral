@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, containerFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import { JournalSidebarPoint } from './point/main';
 
 export function JournalSidebar() {
@@ -8,7 +8,7 @@ export function JournalSidebar() {
     <GlassAreaContainer
       name={JournalSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
-      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
+      className={`$flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>

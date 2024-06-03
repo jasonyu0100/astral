@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerFx } from '@/(style)/data';
+
 import { MapCore } from './core/main';
 import { MapChapters } from './chapters/main';
 
@@ -8,7 +8,7 @@ export function MapMain() {
     <GlassAreaContainer
       name={MapMain.name}
       sizeFx='h-full flex-grow'
-      className={`${containerFx['col']}`}
+      className={`$flex flex-col`}
     >
       <MapCore />
       <MapChapters />

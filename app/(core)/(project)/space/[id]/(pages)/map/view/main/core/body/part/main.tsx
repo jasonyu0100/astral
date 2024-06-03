@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerFx } from '@/(style)/data';
+
 import { MapLinks } from './links/main';
 import { MapPartIdeas } from './ideas/main';
 
@@ -8,7 +8,7 @@ export function MapPart() {
     <GlassAreaContainer
       name={MapPart.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['row']}`}
+      className={`$flex`}
     >
       <MapLinks />
       <MapPartIdeas />

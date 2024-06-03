@@ -1,4 +1,4 @@
-import { glassFx, containerFx, roundedFx, borderFx } from '@/(style)/data';
+import { glassFx, roundedFx, borderFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function StudioSpacesContainer({
@@ -13,7 +13,7 @@ export function StudioSpacesContainer({
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}
-      className={`${containerFx.col}`}
+      className="flex flex-col"
     >
       {children}
     </GlassAreaContainer>

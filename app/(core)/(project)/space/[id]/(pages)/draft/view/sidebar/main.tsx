@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, containerFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import { DraftSidebarPoint } from './point/main';
 
 export function DraftSidebar() {
@@ -7,7 +7,7 @@ export function DraftSidebar() {
     <GlassAreaContainer
       name={DraftSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
-      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
+      className={`$flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
       <div className='flex flex-col'>

@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, containerFx } from '@/(style)/data';
+import { borderFx } from '@/(style)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';
 import { useContext, useState } from 'react';
@@ -14,7 +14,7 @@ export function CollectionHeaderSearch() {
       name={CollectionHeaderSearch.name}
       sizeFx='flex-grow h-[3rem]'
       borderFx={`${borderFx['border-b']}`}
-      className={`${containerFx.row}`}
+      className={"flex"}
     >
       <SearchBarInput
         onChange={(e: any) => {

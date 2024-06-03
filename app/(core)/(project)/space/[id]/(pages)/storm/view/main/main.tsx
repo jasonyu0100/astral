@@ -1,4 +1,4 @@
-import { containerFx } from '@/(style)/data';
+
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { StormCore } from './core/main';
 import { StormChatInput } from './input/main';
@@ -8,7 +8,7 @@ export function StormMain() {
     <GlassAreaContainer
       name={StormMain.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']}`}
+      className={`$flex flex-col`}
     >
       <StormCore />
       <StormChatInput />

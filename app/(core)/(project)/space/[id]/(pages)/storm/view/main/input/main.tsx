@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, containerFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
 import { StormChatMessageInput } from './text/main';
@@ -15,7 +15,7 @@ export function StormChatInput() {
       name={StormChatInput.name}
       sizeFx='h-[80px] w-full'
       glassFx={glassFx['glass-5']}
-      className={`${containerFx['row-centered']} px-[1rem]`}
+      className={`$flex flex-row justify-center items-center px-[1rem]`}
     >
       <StormChatInputLeft />
       <StormChatMessageInput

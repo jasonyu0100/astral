@@ -1,7 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
   glassFx,
-  containerFx,
   roundedFx,
   borderFx,
 } from '@/(style)/data';
@@ -11,7 +10,7 @@ export function ResourcesContainer({ children }: { children?: React.ReactNode })
     <GlassAreaContainer
       name={ResourcesContainer.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']}`}
+      className={"flex flex-col"}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}

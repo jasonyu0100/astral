@@ -17,10 +17,10 @@ export function JournalEntry() {
           </p>
           <p className='font-bold text-slate-500'>25/5/2022</p>
         </div>
-        <GlassWindowFrame className='h-[10rem] w-full'>
+        <GlassWindowFrame className='h-[15rem] w-full'>
           <GlassWindowContents>
-            <input
-              className='h-full w-full bg-transparent p-[1rem] text-slate-500 outline-none'
+            <textarea
+              className='h-full w-full font-bold text-md bg-transparent p-[1rem] text-slate-500 outline-none'
               placeholder='Write something...'
             />
           </GlassWindowContents>

@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
-  containerFx,
+  
   glassFx,
 } from '@/(style)/data';
 import { MapContext, MapModalType } from '../../../../page';
@@ -19,7 +19,7 @@ export function MapHeader() {
     <GlassAreaContainer
       name={MapHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
-      className={`${containerFx['row-center']} justify-between`}
+      className={`$flex items-center justify-between`}
       glassFx={glassFx['glass-5']}
     >
       {modalType === MapModalType.DEFAULT && <MapHeaderDefault/>}

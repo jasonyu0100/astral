@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerFx } from '@/(style)/data';
+
 import { DraftHeader } from './header/main';
 import { DraftMoments } from './moments/main';
 
@@ -9,7 +9,7 @@ export function DraftCore() {
       <GlassAreaContainer
         name={DraftCore.name}
         sizeFx='w-full h-full'
-        className={`${containerFx['col']}`}
+        className={`$flex flex-col`}
       >
         <DraftHeader />
         <DraftMoments />

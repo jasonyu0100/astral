@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, containerFx, borderFx } from '@/(style)/data';
+import { glassFx, borderFx } from '@/(style)/data';
 import { NetworkSidebarPoint } from './point/main';
 
 export function NetworkSidebar() {
@@ -8,7 +8,7 @@ export function NetworkSidebar() {
     <GlassAreaContainer
       name={NetworkSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
-      className={`${containerFx['col']} overflow-auto p-[1rem]`}
+      className={`flex flex-col overflow-auto p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
     >

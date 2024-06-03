@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import {
   glassFx,
-  containerFx,
+  
   roundedFx,
   borderFx,
 } from '@/(style)/data';
@@ -15,7 +15,7 @@ export function RuleView({
     <GlassAreaContainer
       name={RuleView.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['row']}`}
+      className={`$flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}

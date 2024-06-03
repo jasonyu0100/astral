@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { containerFx } from '@/(style)/data';
+
 import { useContext } from 'react';
 import { ChapterContext } from '@/(model)/chapter/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
@@ -14,7 +14,7 @@ export function StormChapterHeader() {
       <GlassAreaContainer
         name={StormChapterHeader.name}
         sizeFx='w-full py-[0.5rem]'
-        className={`${containerFx['row-center']} justify-between`}
+        className={`$flex items-center justify-between`}
       >
         <StormChapterTitle />
       </GlassAreaContainer>

@@ -2,7 +2,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, containerFx, borderFx, roundedFx } from '@/(style)/data';
+import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 import React from 'react';
 
 export function RuleSidebar() {
@@ -10,7 +10,7 @@ export function RuleSidebar() {
     <GlassAreaContainer
       name={RuleSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
-      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
+      className={`$flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
     >

@@ -1,4 +1,4 @@
-import { glassFx, borderFx, containerFx } from '@/(style)/data';
+import { glassFx, borderFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function ShareSidebar({ children }: { children?: React.ReactNode }) {
@@ -6,7 +6,7 @@ export function ShareSidebar({ children }: { children?: React.ReactNode }) {
     <GlassAreaContainer
       name={ShareSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
-      className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
+      className={`$flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
     >

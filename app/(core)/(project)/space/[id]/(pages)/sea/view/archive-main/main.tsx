@@ -1,4 +1,4 @@
-import { containerFx } from '@/(style)/data';
+
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function SeaMain({ children }: { children?: React.ReactNode }) {
@@ -6,7 +6,7 @@ export function SeaMain({ children }: { children?: React.ReactNode }) {
     <GlassAreaContainer
       name={SeaMain.name}
       sizeFx='h-full flex-grow p-[2rem]'
-      className={`${containerFx['col']}`}
+      className={`$flex flex-col`}
     >
       <div className='w-full overflow-auto space-y-[2rem]'>{children}</div>
     </GlassAreaContainer>

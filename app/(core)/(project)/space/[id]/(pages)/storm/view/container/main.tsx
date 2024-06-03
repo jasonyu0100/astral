@@ -1,6 +1,6 @@
 import {
   glassFx,
-  containerFx,
+  
   roundedFx,
   borderFx,
 } from '@/(style)/data';
@@ -12,7 +12,7 @@ export function StormContainer({ children }: { children?: React.ReactNode }) {
       name={StormContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      className={`${containerFx['row']}`}
+      className={`$flex`}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
