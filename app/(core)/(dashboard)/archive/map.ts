@@ -7,6 +7,9 @@ export const archiveMap = {
     },
     explorer: {
       link: `${baseUrl}/explorer/gallerys`,
+      gallerys: {
+        link: `${baseUrl}/explorer/gallerys`,
+      },
       collections: {
         id: {
           link: (id: string) => `${baseUrl}/explorer/collections/${id}`,

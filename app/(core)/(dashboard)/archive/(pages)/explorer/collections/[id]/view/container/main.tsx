@@ -15,7 +15,7 @@ export function CollectionsContainer({
     <GlassAreaContainer
       name={CollectionsContainer.name}
       sizeFx='flex-grow h-full'
-      className={`${containerFx['col']} p-[2rem] pb-[0rem]`}
+      className={`${containerFx['col']}`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-all']}
       roundedFx={roundedFx['rounded-container']}

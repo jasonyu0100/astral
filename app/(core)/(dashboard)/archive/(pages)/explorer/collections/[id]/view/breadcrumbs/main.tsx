@@ -23,7 +23,6 @@ export function CollectionsBreadcrumbs() {
       >
         {gallery.title}
       </CollectionBreadcrumbItem>
-      <CollectionBreadcrumbDivider />
     </CollectionBreadcrumbs>
   );
 }

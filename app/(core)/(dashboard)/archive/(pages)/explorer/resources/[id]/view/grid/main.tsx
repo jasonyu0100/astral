@@ -11,7 +11,7 @@ export function ResourcesGrid() {
   const modalContext = useContext(ArchiveExplorerCreateModalContext);
 
   return (
-    <div className='flex-grow mt-[2rem] overflow-auto' style={{ height: '100%' }}>
+    <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
       <div className='flex flex-row w-full flex-wrap gap-[2rem] '>
         {resources.map((resource) => (
           <ResourceContext.Provider value={resource} key={resource.id}>

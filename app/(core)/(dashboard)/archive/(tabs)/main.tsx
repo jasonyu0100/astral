@@ -10,13 +10,14 @@ export enum CraftTabStage {
   Explorer = 'Explorer',
 }
 interface CraftTabs {
+  backUrl?: string;
   tab?: string;
 }
 
-export function CraftTabs({ tab }: CraftTabs) {
+export function CraftTabs({ tab, backUrl }: CraftTabs) {
   return (
     <Tabs>
-      <TabsBackButton href={studioMap.studio.spaces.link} />
+      <TabsBackButton href={backUrl ? backUrl : studioMap.studio.spaces.link} />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} /> */}

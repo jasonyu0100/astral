@@ -24,6 +24,9 @@ import {
   useArchiveExplorerCreateModal,
 } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { ExplorerModalView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
+import { DashboardContent } from '@/(components)/(dashboard)/content/main';
+import { CraftTabs, CraftTabStage } from '@/(core)/(dashboard)/archive/(tabs)/main';
+import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 
 function Page({ params }: { params: { id: string } }) {
   const { collection } = useCollectionHandler(params.id);
@@ -37,8 +40,13 @@ function Page({ params }: { params: { id: string } }) {
       <GalleryContext.Provider value={gallery}>
         <CollectionContext.Provider value={collection}>
           <ResourcesHandlerContext.Provider value={resourcesHandler}>
-            <ExplorerModalView />
-            <ResourcesView />
+              <CraftTabs tab={CraftTabStage.Explorer} 
+                backUrl={archiveMap.archive.explorer.collections.id.link(gallery.id)}
+              />
+              <DashboardContent>
+                <ExplorerModalView />
+                <ResourcesView />
+              </DashboardContent>
           </ResourcesHandlerContext.Provider>
         </CollectionContext.Provider>
       </GalleryContext.Provider>

@@ -12,7 +12,7 @@ export function CollectionsGrid() {
 
   return (
     <div
-      className='flex-grow overflow-auto py-[2rem]'
+      className='flex-grow overflow-auto'
       style={{ height: '100%' }}
     >
       <div className='flex w-full flex-row flex-wrap gap-[2rem]'>
