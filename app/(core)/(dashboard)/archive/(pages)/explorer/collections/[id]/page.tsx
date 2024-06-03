@@ -1,5 +1,5 @@
 'use client';
-import { CollectionsView } from './view/view';
+import { CollectionsResults } from './view/view';
 import {
   GalleryContext,
 } from '@/(model)/gallery/main';
@@ -27,7 +27,7 @@ function Page({ params }: { params: { id: string } }) {
       <CollectionsHandlerContext.Provider value={collectionsHandler}>
         <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
           <ExplorerModalView />
-          <CollectionsView />
+          <CollectionsResults />
         </ArchiveExplorerCreateModalContext.Provider>
       </CollectionsHandlerContext.Provider>
     </GalleryContext.Provider>

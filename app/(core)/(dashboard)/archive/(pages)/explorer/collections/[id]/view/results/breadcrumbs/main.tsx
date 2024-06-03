@@ -1,7 +1,7 @@
 import { archiveMap } from '@/(core)/(dashboard)/archive/map';
-import { CollectionBreadcrumbDivider } from '../../../../(common)/breadcrumb/divider/main';
-import { CollectionBreadcrumbItem } from '../../../../(common)/breadcrumb/item/main';
-import { CollectionBreadcrumbs } from '../../../../(common)/breadcrumb/main';
+import { CollectionBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
+import { CollectionBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
+import { CollectionBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
 import { useContext } from 'react';
 import { GalleryContext } from '@/(model)/gallery/main';
 
