@@ -1,4 +1,4 @@
-import { journalMap } from '@/(core)/(board)/journal/map';
+import { journalMap } from '@/(core)/(dashboard)/journal/map';
 import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';

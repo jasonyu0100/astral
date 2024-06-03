@@ -1,4 +1,4 @@
-import { archiveMap } from '@/(core)/(board)/archive/map';
+import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import { DashboardSidebarIndicator } from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';

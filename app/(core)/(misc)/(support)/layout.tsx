@@ -1,9 +1,28 @@
-import { Suspense } from 'react';
+'use client';
+import { Topbar } from '@/(core)/(common)/(topbar)/main';
+import { DashboardController } from '@/(components)/(dashboard)/controller/main';
+import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
+import { DashboardContent } from '@/(components)/(dashboard)/content/main';
+import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
+import { SupportCentralView } from './(common)/central/main';
 
-export default function Layout({ children }: { children?: React.ReactNode }) {
+export default function Layout({
+  children,
+  params,
+}: {
+  children?: React.ReactNode;
+
+  params: { id: string };
+}) {
   return (
-    <div className='relative flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-b from-violet-950 to-slate-950'>
-      <Suspense>{children}</Suspense>
-    </div>
+    <>
+      <Topbar />
+      <DashboardController>
+        <DashboardSidebarView minimised />
+        <DashboardBody>
+          <SupportCentralView>{children}</SupportCentralView>
+        </DashboardBody>
+      </DashboardController>
+    </>
   );
 }

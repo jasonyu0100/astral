@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CollectionContext } from '@/(model)/gallery/collection/main';
-import { ArchiveSidebarCreateModalContext } from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
+import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { CollectionsHandlerContext } from '@/(controller)/explorer/collections/main';
 import { SidebarCollection } from '@/(components)/(explorer)/(collection-folder)/sidebar/main';
 import { SidebarCollectionAdd } from '@/(components)/(explorer)/(collection-folder)/sidebar/add/main';

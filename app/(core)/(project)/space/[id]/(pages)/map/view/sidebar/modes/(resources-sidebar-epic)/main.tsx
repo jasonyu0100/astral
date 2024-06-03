@@ -4,7 +4,7 @@ import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
 import { SidebarCollectionResource } from '../../../../../../../../../../(components)/(explorer)/(resource-element)/sidebar/main';
 import { ResourceContext, ResourceObj } from '@/(model)/resource/main';
-import { ArchiveSidebarCreateModalContext } from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
+import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 
 export const SidebarResourceContext = createContext({} as ResourceObj);

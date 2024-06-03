@@ -1,5 +1,5 @@
 import { GalleryContext } from '@/(model)/gallery/main';
-import { archiveMap } from '@/(core)/(board)/archive/map';
+import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { GalleryBackEdit } from '../../common/back/edit/main';
@@ -7,11 +7,11 @@ import { GalleryBackDescription } from '../../common/back/description/main';
 import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
-import { ExplorerEditGalleryModal } from '@/(core)/(board)/(modals)/archive/explorer/edit/gallery/view';
+import { ExplorerEditGalleryModal } from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/gallery/view';
 import {
   EditGalleryModalContext,
   useEditGalleryModal,
-} from '@/(core)/(board)/(modals)/archive/explorer/edit/gallery/main';
+} from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/gallery/main';
 
 export function GalleryExplorerBack() {
   const { flip } = useContext(FlipContext);

@@ -1,5 +1,5 @@
 import { Divider } from '@/(components)/(line)/divider/main';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { DashboardSidebarTopBack } from '../../top/back/main';
 import { ArchiveIndicator } from '../../indicators/variants/archive-indicator/main';
 import { CreativeIndicator } from '../../indicators/variants/creative-indicator/main';

@@ -1,5 +1,5 @@
 import { GalleryContext } from '@/(model)/gallery/main';
-import { archiveMap } from '@/(core)/(board)/archive/map';
+import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';

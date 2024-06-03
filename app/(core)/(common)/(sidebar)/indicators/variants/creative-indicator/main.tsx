@@ -2,7 +2,7 @@ import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main'
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorPurpleJewel } from '../../indicator/jewel/purple/main';
-import { creativeMap } from '@/(core)/(board)/creative/map';
+import { creativeMap } from '@/(core)/(dashboard)/creative/map';
 import { DashboardSidebarContext } from '@/(core)/(common)/(sidebar)/main';
 import { useContext } from 'react';
 

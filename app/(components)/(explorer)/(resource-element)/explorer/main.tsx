@@ -5,8 +5,8 @@ import { CollectionResourceMedia } from '../common/media/main';
 import {
   EditResourceModalContext,
   useEditResourceModal,
-} from '@/(core)/(board)/(modals)/archive/explorer/edit/resource/main';
-import { ExplorerEditResourceModal } from '@/(core)/(board)/(modals)/archive/explorer/edit/resource/view';
+} from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/main';
+import { ExplorerEditResourceModal } from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/view';
 
 export function ExplorerResource() {
   const modalContext = useEditResourceModal();

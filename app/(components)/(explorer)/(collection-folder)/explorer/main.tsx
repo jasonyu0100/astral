@@ -1,7 +1,7 @@
 import { CollectionThumbnail } from '../common/thumbnail/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionContainer } from '../common/container/main';
-import { archiveMap } from '@/(core)/(board)/archive/map';
+import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';
 import {

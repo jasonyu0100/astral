@@ -1,4 +1,4 @@
-import { EditGalleryModalContext } from "@/(core)/(board)/(modals)/archive/explorer/edit/gallery/main";
+import { EditGalleryModalContext } from "@/(core)/(dashboard)/(modals)/archive/explorer/edit/gallery/main";
 import { useContext } from "react";
 
 export function GalleryBackEdit() {

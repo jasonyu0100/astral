@@ -1,4 +1,4 @@
-import { ventureMap } from '@/(core)/(board)/venture/map';
+import { ventureMap } from '@/(core)/(dashboard)/venture/map';
 import { IndicatorSilverJewel } from '../../indicator/jewel/silver/main';
 import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';

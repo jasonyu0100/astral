@@ -18,8 +18,8 @@ import {
 import {
   ArchiveSidebarCreateModalContext,
   useArchiveSidebarCreateModal,
-} from '@/(core)/(board)/(modals)/archive/sidebar/create/main';
-import { ArchiveSidebarCreateModalView } from '@/(core)/(board)/(modals)/archive/sidebar/create/view';
+} from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
+import { ArchiveSidebarCreateModalView } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/view';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',

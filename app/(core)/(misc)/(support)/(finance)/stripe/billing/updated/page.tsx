@@ -1,4 +1,4 @@
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import Link from 'next/link';
 
 export default function Page() {

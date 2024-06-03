@@ -4,7 +4,7 @@ import {
   DashboardSidebarIndicator,
 } from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useContext } from 'react';
 import { DashboardSidebarContext } from '@/(core)/(common)/(sidebar)/main';
 

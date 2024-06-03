@@ -1,4 +1,6 @@
 'use client';
+import { cn } from '@/(utils)/cn';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
 export const stripeProducts = {
@@ -51,7 +53,7 @@ export default function Page() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      {/* <Tabs
+      <Tabs
         defaultValue='yearly'
         className='flex w-full flex-col items-center'
         value={activeTab}
@@ -87,7 +89,7 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Standard</p>
+                <p className='font-extraBold text-3xl'>standard</p>
                 <p className='text-lg font-bold'>180 / year</p>
               </div>
             </div>
@@ -100,7 +102,7 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Pro</p>
+                <p className='font-extraBold text-3xl'>pro</p>
                 <p className='text-lg font-bold'>480 / year</p>
               </div>
             </div>
@@ -111,11 +113,11 @@ export default function Page() {
               }
             >
               <img
-                src='/landing/personality-f.png'
+                src='/landing/personality-m.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Verses</p>
+                <p className='font-extraBold text-3xl'>pulsar.club</p>
                 <p className='text-lg font-bold'>Invite Only</p>
               </div>
             </div>
@@ -132,7 +134,7 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Standard</p>
+                <p className='font-extraBold text-3xl'>standard</p>
                 <p className='text-lg font-bold'>20 / mo</p>
               </div>
             </div>
@@ -145,7 +147,7 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Pro</p>
+                <p className='font-extraBold text-3xl'>pro</p>
                 <p className='text-lg font-bold'>50 / mo</p>
               </div>
             </div>
@@ -160,13 +162,13 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Verses</p>
+                <p className='font-extraBold text-3xl'>pulsar.club</p>
                 <p className='text-lg font-bold'>Invite Only</p>
               </div>
             </div>
           </div>
         </TabsContent>
-      </Tabs> */}
+      </Tabs>
     </div>
   );
 }

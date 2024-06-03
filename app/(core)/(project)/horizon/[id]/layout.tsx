@@ -3,7 +3,7 @@
 import { Topbar } from '@/(core)/(common)/(topbar)/main';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { createContext } from 'react';
-import { ventureMap } from '@/(core)/(board)/venture/map';
+import { ventureMap } from '@/(core)/(dashboard)/venture/map';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
 
 interface ReleaseContextObj {

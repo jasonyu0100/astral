@@ -1,6 +1,6 @@
 'use client';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';

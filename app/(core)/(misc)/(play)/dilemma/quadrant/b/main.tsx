@@ -35,8 +35,7 @@ export function QuadrantB() {
             <>
               <p>B</p>
               <p>
-                {gameState.quadrants.quadrantB.payoutA} /{' '}
-                {gameState.quadrants.quadrantB.payoutB}
+                ({gameState.quadrants.quadrantB.payoutA}, {gameState.quadrants.quadrantB.payoutB})
               </p>
               <p>??</p>
             </>

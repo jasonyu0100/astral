@@ -17,7 +17,7 @@ import { QuadrantB } from './quadrant/b/main';
 import { TwoByTwo } from './types/2x2/main';
 import { defaultGameState } from './presets/2x2/main';
 import { GameStateContext } from './contexts/main';
-import { DilemmaUi } from './ui/view';
+import { DilemmaUi } from './view/view';
 
 export default function Page() {
   const [gameState, setGameState] = useState<TwoByTwo>(defaultGameState);

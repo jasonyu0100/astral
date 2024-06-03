@@ -5,7 +5,7 @@ import { TopbarIconLink } from './container/right-group/icon-link/main';
 import { TopbarLogo } from './container/left-group/logo/main';
 import { TopbarRightGroup } from './container/right-group/main';
 import { SettingsIcon } from './(common)/icons/settings/main';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import {
   ProfileModalContext,
   useProfileModal,

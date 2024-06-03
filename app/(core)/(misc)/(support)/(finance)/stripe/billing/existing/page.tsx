@@ -1,5 +1,5 @@
 'use client';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { stripeExistingBillingSession } from '@/(api)/stripe/main';
 

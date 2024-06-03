@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { portalMap } from '../../map';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useGoogleLogin } from '@react-oauth/google';
-import { studioMap } from '@/(core)/(board)/studio/map';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
 import { PortalFormAltActionLink } from '@/(portal)/(common)/container/form/action-container/alt-action/link/main';
 import { PortalFormAltAction } from '@/(portal)/(common)/container/form/action-container/alt-action/main';
