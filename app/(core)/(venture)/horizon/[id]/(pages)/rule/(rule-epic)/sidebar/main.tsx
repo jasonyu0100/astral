@@ -5,10 +5,10 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, containerFx, borderFx, roundedFx } from '@/(style)/data';
 import React from 'react';
 
-export function DualSidebar() {
+export function RuleSidebar() {
   return (
     <GlassAreaContainer
-      name={DualSidebar.name}
+      name={RuleSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`${containerFx['col']} space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}

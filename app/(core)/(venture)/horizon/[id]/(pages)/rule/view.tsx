@@ -6,14 +6,14 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function DualView({
+export function RuleView({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={DualView.name}
+      name={RuleView.name}
       sizeFx='flex-grow h-full'
       className={`${containerFx['row']}`}
       glassFx={glassFx['glass-5']}

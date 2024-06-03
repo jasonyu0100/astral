@@ -12,7 +12,7 @@ interface ReleaseTabProps {
 export enum ReleaseTabStage {
   Field = 'Field',
   Map = 'Map',
-  Dual = 'Dual',
+  Rule = 'Rule',
   Point = 'Point',
 }
 
