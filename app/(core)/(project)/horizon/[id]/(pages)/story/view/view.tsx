@@ -6,14 +6,14 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function RuleView({
+export function StoryView({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={RuleView.name}
+      name={StoryView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}

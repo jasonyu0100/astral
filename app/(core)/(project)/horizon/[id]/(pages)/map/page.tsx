@@ -125,10 +125,10 @@ function Page() {
           <ChaptersContainer>
             <ChaptersLeft />
             <ChaptersRowContainer>
-              <ChapterContainer index={1}>Team A</ChapterContainer>
-              <ChapterContainer index={1}>Team B</ChapterContainer>
-              <ChapterContainer index={1}>Team C</ChapterContainer>
-              <ChapterContainer index={1}>Team D</ChapterContainer>
+              <ChapterContainer index={1}>Group A</ChapterContainer>
+              <ChapterContainer index={1}>Group B</ChapterContainer>
+              <ChapterContainer index={1}>Group C</ChapterContainer>
+              <ChapterContainer index={1}>Group D</ChapterContainer>
             </ChaptersRowContainer>
             <ChaptersRight />
           </ChaptersContainer>

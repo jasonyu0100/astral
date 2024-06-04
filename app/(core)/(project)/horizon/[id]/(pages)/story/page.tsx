@@ -1,8 +1,8 @@
 'use client';
 
 import isVerseAuth from '@/(utils)/isAuth';
-import { RuleView } from './view/view';
-import { RuleSidebar } from './view/sidebar/main';
+import { StoryView } from './view/view';
+import { StorySidebar } from './view/sidebar/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
@@ -69,8 +69,8 @@ function DecisionMatrix() {
 function Page() {
   return (
     <>
-      <RuleView>
-        <RuleSidebar />
+      <StoryView>
+        <StorySidebar />
         <div className='flex h-full w-full flex-col'>
           <div className='w-full overflow-auto' style={{height: '100%'}}>
 
@@ -224,7 +224,7 @@ function Page() {
             <ChaptersRight />
           </ChaptersContainer>
         </div>
-      </RuleView>
+      </StoryView>
     </>
   );
 }

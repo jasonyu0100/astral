@@ -6,7 +6,7 @@ import { borderFx, roundedFx, glassFx } from "@/(style)/data";
 export function DraftSidebarPoint({children} : {children ?: React.ReactNode}) {
     return <GlassWindowFrame
         name='temp'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx.rounded}
         className='p-[2rem]'
       >

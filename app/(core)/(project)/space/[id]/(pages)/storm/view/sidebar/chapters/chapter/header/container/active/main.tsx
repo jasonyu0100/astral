@@ -13,7 +13,7 @@ export function ActiveChapterHeaderContainer({
     <GlassWindowFrame
       name={StormChapter.name}
       className='my-[1rem]'
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-sm']}
     >
       <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>

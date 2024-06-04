@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
-import { DraftSidebarPoint } from './point/main';
+import { DraftSidebarPoint } from './state/main';
 
 export function DraftSidebar() {
   return (

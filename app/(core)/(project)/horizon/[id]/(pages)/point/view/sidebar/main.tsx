@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, borderFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import React from 'react';
 import { PointSidebarPoint } from './point/main';
 

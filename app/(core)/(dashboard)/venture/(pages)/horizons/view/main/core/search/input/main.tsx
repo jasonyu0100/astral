@@ -8,7 +8,7 @@ export function HorizonsSearchInput() {
       <GlassWindowFrame
         name={HorizonsSearchInput.name}
         className='h-[4rem] w-full'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents

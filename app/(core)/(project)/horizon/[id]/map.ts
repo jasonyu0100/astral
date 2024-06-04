@@ -9,8 +9,8 @@ export const horizonMap = {
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      rule: {
-        link: (id: string) => `${baseUrl}/${id}/rule`,
+      story: {
+        link: (id: string) => `${baseUrl}/${id}/story`,
       },
       point: {
         link: (id: string) => `${baseUrl}/${id}/point`,

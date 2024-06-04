@@ -15,11 +15,11 @@ function Page() {
   return (
     <PointView>
       <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[2rem]'>
-        <h1 className='text-lg font-bold text-slate-300'>State - Hiatus</h1>
-        <h1 className='text-lg font-bold text-slate-300'>State - Normal</h1>
-        <h1 className='text-lg font-bold text-slate-300'>State - On Track</h1>
+        <h1 className='text-lg font-bold text-slate-300'>Point - Hiatus</h1>
+        <h1 className='text-lg font-bold text-slate-300'>Point - Normal</h1>
+        <h1 className='text-lg font-bold text-slate-300'>Point - On Track</h1>
         <h1 className='text-lg font-bold text-slate-300'>
-          State - In progress
+          Point - In progress
         </h1>
         <Divider />
         <TimerComponent />
@@ -36,7 +36,7 @@ function Page() {
         <Divider />
         <div className='flex flex-col'>
           <h1 className='text-lg font-bold text-slate-300'>
-            State - In progress
+            Point - In progress
           </h1>
           <Divider />
           <div className='flex flex-row items-center text-slate-300'>

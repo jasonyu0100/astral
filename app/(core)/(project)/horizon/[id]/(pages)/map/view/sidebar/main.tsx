@@ -1,9 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, borderFx, roundedFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import React from 'react';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { MapSidebarPoint } from './point/main';
 
 export function MapSidebar() {

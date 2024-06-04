@@ -10,7 +10,7 @@ export function HorizonsSidebarOption({
   return (
     <GlassWindowFrame
       name={HorizonsSidebarOption.name}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
       className='px-[1rem] py-[0.5rem]'
     >
