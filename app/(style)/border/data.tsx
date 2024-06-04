@@ -1,17 +1,10 @@
 export const borderFx = {
-  'border-all': 'border border-slate-500 border-opacity-30',
-  'border-t': 'border-t border-slate-500 border-opacity-30',
-  'border-r': 'border-r border-slate-500 border-opacity-30',
-  'border-b': 'border-b border-slate-500 border-opacity-30',
-  'border-l': 'border-l border-slate-500 border-opacity-30',
-  rounded: 'rounded-[1rem] overflow-hidden',
-  'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
-  'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
-  'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',
-  'rounded-br': 'rounded-br-[1rem] overflow-hidden',
-  'rounded-t': 'rounded-t-[1rem] overflow-hidden',
-  'rounded-r': 'rounded-r-[1rem] overflow-hidden',
-  'rounded-b': 'rounded-b-[1rem] overflow-hidden',
-  'rounded-l': 'rounded-l-[1rem] overflow-hidden',
-  'rounded-full': 'rounded-full overflow-hidden',
+  'border-all':
+    'border border border-slate-400 border-opacity-30',
+  'border-around':
+    'border border border-b-[0px] border-slate-400 border-opacity-30',
+  'border-t': 'border-t border-slate-400 border-opacity-30',
+  'border-r': 'border-r border-slate-400 border-opacity-30',
+  'border-b': 'border-b border-slate-400 border-opacity-30',
+  'border-l': 'border-l border-slate-400 border-opacity-30',
 };

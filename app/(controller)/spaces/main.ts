@@ -1,12 +1,12 @@
 import { useState, useMemo, createContext } from 'react';
 import { SpaceObj } from '@/(model)/space/main';
-import { FileObj } from '@/(model)/resource/file/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import { ChapterTemplateObj } from '@/(model)/space/templates/main';
 import { toast } from 'sonner';
 import { spacesGqlHelper } from '../../(db)/spaces/main';
 import { chaptersGqlHelper } from '../../(db)/chapters/main';
 import { chatsGqlHelper } from '../../(db)/chats/main';
-import { partsGqlHelper } from '../../(db)/parts/main';
+import { partsGqlHelper } from '../../(db)/scenes/main';
 import { messagesGqlHelper } from '../../(db)/messages/main';
 import { ideasGqlHelper } from '../../(db)/ideas/main';
 

@@ -10,7 +10,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import {
   FileObj,
   FileVariant,
-} from '@/(model)/resource/file/main';
+} from '@/(model)/media/resource/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveSidebarCreateModalContext } from '../main';

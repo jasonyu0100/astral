@@ -9,7 +9,7 @@ export function DraftContainer({ children }: { children?: React.ReactNode }) {
       sizeFx='h-full flex-grow'
       className={`flex`}
       glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
       {children}

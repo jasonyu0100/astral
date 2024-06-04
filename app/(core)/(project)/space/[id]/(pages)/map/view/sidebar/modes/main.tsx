@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { MapSidebarContext, SidebarMode } from '../main';
-import { CollectionsInterface } from './(collections-sidebar-epic)/main';
-import { SidebarGallerysInterface } from './(gallerys-sidebar-epic)/main';
-import { ResourcesInterface } from './(resources-sidebar-epic)/main';
+import { CollectionsInterface } from './(collections)/main';
+import { SidebarGallerysInterface } from './(galllerys)/main';
+import { ResourcesInterface } from './(resources)/main';
 
 export function MapSidebarBody() {
   const { sidebarMode } = useContext(MapSidebarContext);

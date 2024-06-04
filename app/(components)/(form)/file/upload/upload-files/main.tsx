@@ -1,7 +1,7 @@
 import {
   FileObj,
   FileVariant,
-} from '@/(model)/resource/file/main';
+} from '@/(model)/media/resource/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {

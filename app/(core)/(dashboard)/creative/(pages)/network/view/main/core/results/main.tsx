@@ -1,6 +1,6 @@
 import { CreativeProfile } from './grid/profile/main';
 import { CreativeRow } from './grid/main';
-import { exampleFiles } from '@/(model)/resource/file/main';
+import { exampleFiles } from '@/(model)/media/resource/file/main';
 
 export function NetworkResults() {
   return (

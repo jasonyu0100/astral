@@ -7,8 +7,8 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileObj } from '@/(model)/resource/file/main';
-import { ResourceContext } from '@/(model)/resource/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
+import { ResourceContext } from '@/(model)/media/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 

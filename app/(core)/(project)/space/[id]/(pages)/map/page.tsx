@@ -6,9 +6,9 @@ import {
   useChaptersHandler,
 } from '@/(controller)/chapters/main';
 import {
-  PartsHandlerContext,
-  usePartsHandler,
-} from '@/(controller)/parts/main';
+  ScenesHandlerContext,
+  useScenesHandler,
+} from '@/(controller)/scenes/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   IdeasHandlerContext,
@@ -44,7 +44,7 @@ export enum MapModalType {
 
 function Page({ params }: { params: { id: string } }) {
   const chaptersHandler = useChaptersHandler(params.id);
-  const partsHandler = usePartsHandler(
+  const partsHandler = useScenesHandler(
     chaptersHandler.chapterId,
   );
   const ideasHandler = useIdeasHandler(partsHandler.partId);
@@ -61,7 +61,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <MapContext.Provider value={context}>
       <ChaptersHandlerContext.Provider value={chaptersHandler}>
-        <PartsHandlerContext.Provider value={partsHandler}>
+        <ScenesHandlerContext.Provider value={partsHandler}>
           <IdeasHandlerContext.Provider value={ideasHandler}>
             <MapModalContext.Provider value={mapModalContext}>
               <MapModalView />
@@ -71,7 +71,7 @@ function Page({ params }: { params: { id: string } }) {
               </StarModalContext.Provider>
             </MapModalContext.Provider>
           </IdeasHandlerContext.Provider>
-        </PartsHandlerContext.Provider>
+        </ScenesHandlerContext.Provider>
       </ChaptersHandlerContext.Provider>
     </MapContext.Provider>
   );

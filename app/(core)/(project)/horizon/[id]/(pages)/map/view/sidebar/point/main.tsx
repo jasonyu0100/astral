@@ -7,7 +7,7 @@ export function MapSidebarPoint({ children }: { children?: React.ReactNode }) {
   return (
     <GlassWindowFrame
       name='temp'
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
       className='p-[1rem]'
     >

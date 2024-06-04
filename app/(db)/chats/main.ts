@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { ChatObj } from '@/(model)/storm/chat/main';
+import { ChatObj } from '@/(model)/space/chapter/chat/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChatObj,

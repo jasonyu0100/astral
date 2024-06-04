@@ -1,4 +1,4 @@
-import { ChapterContext } from "@/(model)/chapter/main";
+import { ChapterContext } from "@/(model)/space/chapter/main";
 import { useContext } from "react";
 
 export function ChapterActiveText() {

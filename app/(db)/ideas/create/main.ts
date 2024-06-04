@@ -1,10 +1,10 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { IdeaObj } from '@/(model)/map/part/idea/main';
-import { FileObj } from '@/(model)/resource/file/main';
-import { LinkObj } from '@/(model)/resource/link/main';
-import { LogObj } from '@/(model)/resource/log/main';
-import { ResourceVariant } from '@/(model)/resource/main';
-import { NoteObj } from '@/(model)/resource/note/main';
+import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
+import { LinkObj } from '@/(model)/media/resource/link/main';
+import { LogObj } from '@/(model)/media/resource/log/main';
+import { ResourceVariant } from '@/(model)/media/resource/main';
+import { NoteObj } from '@/(model)/media/resource/note/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createIdeaObj,

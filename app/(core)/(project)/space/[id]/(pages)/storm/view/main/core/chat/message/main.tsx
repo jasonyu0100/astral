@@ -1,5 +1,5 @@
-import { MessageContext } from '@/(model)/storm/chat/message/main';
-import { StormPartnerChatMessage } from './them/main';
+import { MessageContext } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { StormScenenerChatMessage } from './them/main';
 import { StormYouChatMessage } from './you/main';
 import { useContext } from 'react';
 
@@ -11,7 +11,7 @@ export function StormMessage() {
       {message.source === 'You' ? (
         <StormYouChatMessage>{message.message}</StormYouChatMessage>
       ) : (
-        <StormPartnerChatMessage>{message.message}</StormPartnerChatMessage>
+        <StormScenenerChatMessage>{message.message}</StormScenenerChatMessage>
       )}
     </>
   );

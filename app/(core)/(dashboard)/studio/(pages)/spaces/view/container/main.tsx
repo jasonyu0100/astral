@@ -11,7 +11,7 @@ export function StudioSpacesContainer({
       name={StudioSpacesContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
       className="flex flex-col"
     >

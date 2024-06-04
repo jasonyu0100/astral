@@ -1,4 +1,4 @@
-import { ChapterObj } from '@/(model)/chapter/main';
+import { ChapterObj } from '@/(model)/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
 import { chaptersGqlHelper } from '../../(db)/chapters/main';
 

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleProfileImageFile } from '../resource/file/main';
+import { FileObj, exampleProfileImageFile } from '../media/resource/file/main';
 
 export interface UserObj {
   id: string;

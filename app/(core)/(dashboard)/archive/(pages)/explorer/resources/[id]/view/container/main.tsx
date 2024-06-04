@@ -12,7 +12,7 @@ export function ResourcesContainer({ children }: { children?: React.ReactNode })
       sizeFx='flex-grow h-full'
       className={"flex flex-col"}
       glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

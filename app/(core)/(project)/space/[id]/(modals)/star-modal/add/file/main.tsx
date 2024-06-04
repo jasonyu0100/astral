@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileObj, FileVariant } from '@/(model)/resource/file/main';
+import { FileObj, FileVariant } from '@/(model)/media/resource/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 

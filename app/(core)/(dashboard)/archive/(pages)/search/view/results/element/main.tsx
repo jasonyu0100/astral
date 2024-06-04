@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(model)/resource/main';
+import { ResourceObj } from '@/(model)/media/resource/main';
 import { cn } from '@/(utils)/cn';
 import clsx from 'clsx';
 

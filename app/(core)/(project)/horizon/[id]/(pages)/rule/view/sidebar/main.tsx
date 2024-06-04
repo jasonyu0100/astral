@@ -16,7 +16,7 @@ export function RuleSidebar() {
     >
       <GlassWindowFrame
         name='temp'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx.rounded}
         className='p-[1rem]'
       >
@@ -27,7 +27,7 @@ export function RuleSidebar() {
       </GlassWindowFrame>
       <GlassWindowFrame
         name='temp'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx.rounded}
         className='p-[1rem]'
       >
@@ -38,7 +38,7 @@ export function RuleSidebar() {
       </GlassWindowFrame>
       <GlassWindowFrame
         name='temp'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx.rounded}
         className='p-[1rem]'
       >

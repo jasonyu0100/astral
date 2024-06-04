@@ -40,6 +40,11 @@ export const permanentMarker = localFont({
   variable: '--font-marker',
 });
 
+export const magazineLetter = localFont({
+  src: './font/MagazineLetter.ttf',
+  variable: '--font-magazine',
+});
+
 export const fontVariables = [
   creatoThin.variable,
   creatoLight.variable,
@@ -49,4 +54,5 @@ export const fontVariables = [
   creatoExtraBold.variable,
   creatoBlack.variable,
   permanentMarker.variable,
+  magazineLetter.variable,
 ];

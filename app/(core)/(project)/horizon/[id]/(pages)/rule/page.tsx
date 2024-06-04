@@ -21,7 +21,7 @@ function DecisionMatrix() {
       <div className='flex flex-row'>
         <GlassWindowFrame
           name='temp'
-          borderFx={borderFx['border-all']}
+          borderFx={borderFx['border-around']}
           className='h-[5rem] w-[5rem]'
         >
           <GlassWindowContents className='flex flex-row'>
@@ -31,7 +31,7 @@ function DecisionMatrix() {
         </GlassWindowFrame>
         <GlassWindowFrame
           name='temp'
-          borderFx={borderFx['border-all']}
+          borderFx={borderFx['border-around']}
           className='h-[5rem] w-[5rem]'
         >
           <GlassWindowContents className='flex flex-row'>
@@ -43,7 +43,7 @@ function DecisionMatrix() {
       <div className='flex flex-row'>
         <GlassWindowFrame
           name='temp'
-          borderFx={borderFx['border-all']}
+          borderFx={borderFx['border-around']}
           className='h-[5rem] w-[5rem]'
         >
           <GlassWindowContents className='flex flex-row'>
@@ -53,7 +53,7 @@ function DecisionMatrix() {
         </GlassWindowFrame>
         <GlassWindowFrame
           name='temp'
-          borderFx={borderFx['border-all']}
+          borderFx={borderFx['border-around']}
           className='h-[5rem] w-[5rem]'
         >
           <GlassWindowContents className='flex flex-row'>
@@ -81,7 +81,7 @@ function Page() {
             <div className='flex w-full flex-row space-x-[2rem] p-[2rem]'>
               <GlassWindowFrame
                 name='temp'
-                borderFx={borderFx['border-all']}
+                borderFx={borderFx['border-around']}
                 roundedFx={roundedFx.rounded}
                 className='h-[2rem] w-[10rem]'
               >
@@ -90,7 +90,7 @@ function Page() {
               </GlassWindowFrame>
               <GlassWindowFrame
                 name='temp'
-                borderFx={borderFx['border-all']}
+                borderFx={borderFx['border-around']}
                 roundedFx={roundedFx.rounded}
                 className='h-[2rem] w-[10rem]'
               >
@@ -99,7 +99,7 @@ function Page() {
               </GlassWindowFrame>
               <GlassWindowFrame
                 name='temp'
-                borderFx={borderFx['border-all']}
+                borderFx={borderFx['border-around']}
                 roundedFx={roundedFx.rounded}
                 className='h-[2rem] w-[10rem]'
               >
@@ -108,7 +108,7 @@ function Page() {
               </GlassWindowFrame>
               <GlassWindowFrame
                 name='temp'
-                borderFx={borderFx['border-all']}
+                borderFx={borderFx['border-around']}
                 roundedFx={roundedFx.rounded}
                 className='h-[2rem] w-[10rem]'
               >
@@ -121,7 +121,7 @@ function Page() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -131,7 +131,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -141,7 +141,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -152,7 +152,7 @@ function Page() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -162,7 +162,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -172,7 +172,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -183,7 +183,7 @@ function Page() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -193,7 +193,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >
@@ -203,7 +203,7 @@ function Page() {
                 <Seperator />
                 <GlassWindowFrame
                   name='temp'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded-full']}
                   className='h-[5rem] w-[5rem]'
                 >

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { IdeaContext } from '@/(model)/map/part/idea/main';
+import { IdeaContext } from '@/(model)/space/chapter/scene/idea/main';
 import MapHeaderTitle from '../../../common/title/main';
 
 export function MapHeaderIdeaCenter() {

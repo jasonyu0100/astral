@@ -26,6 +26,12 @@ export const learnMap = {
     timer: {
       link: `${baseUrl}/timer`,
     },
+    texture: {
+      link: `${baseUrl}/texture`,
+    },
+    fonts: {
+      link: `${baseUrl}/fonts`,
+    },
     link: `${baseUrl}`,
   },
 };

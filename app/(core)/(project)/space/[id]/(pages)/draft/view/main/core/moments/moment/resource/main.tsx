@@ -1,5 +1,5 @@
 import { borderFx } from '@/(style)/data';
-import { ResourceVariant } from '@/(model)/resource/main';
+import { ResourceVariant } from '@/(model)/media/resource/main';
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
 import { DraftMomentContext } from '../../main';
@@ -17,7 +17,7 @@ export function MomentResource() {
         <img
           className={cn(
             'aspect-square w-full flex-shrink-0 bg-black object-cover',
-            borderFx['border-all'],
+            borderFx['border-around'],
           )}
           src={moment?.file?.src}
         />

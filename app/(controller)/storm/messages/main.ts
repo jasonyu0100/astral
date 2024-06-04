@@ -1,4 +1,4 @@
-import { MessageObj } from '@/(model)/storm/chat/message/main';
+import { MessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
 import { messagesGqlHelper } from '../../../(db)/messages/main';

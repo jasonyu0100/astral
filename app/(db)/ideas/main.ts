@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { IdeaObj } from '@/(model)/map/part/idea/main';
+import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   deleteIdeaObj,
@@ -9,7 +9,7 @@ import { listIdeaObjs } from '@/graphql/queries';
 import { IdeasCreateGqlHelperType, ideasCreateGqlHelper } from './create/main';
 
 export interface IdeasGqlHelper {
-  listFromPart: (partId: string) => Promise<IdeaObj[]>;
+  listFromScene: (partId: string) => Promise<IdeaObj[]>;
   create: IdeasCreateGqlHelperType;
   updateMany: (updatedIdeaObjs: IdeaObj[]) => Promise<IdeaObj[]>;
   update: (ideaId: string, updatedIdeaObj: IdeaObj) => Promise<IdeaObj>;
@@ -18,7 +18,7 @@ export interface IdeasGqlHelper {
 
 export const ideasGqlHelper: IdeasGqlHelper = {
   create: ideasCreateGqlHelper,
-  listFromPart: async (partId: string) => {
+  listFromScene: async (partId: string) => {
     const payload = await amplifyClient.graphql({
       query: listIdeaObjs,
       variables: {

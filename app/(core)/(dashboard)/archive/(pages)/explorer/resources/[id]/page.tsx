@@ -3,13 +3,13 @@ import { createContext } from 'react';
 import {
   GalleryContext,
   GalleryObj,
-} from '@/(model)/gallery/main';
+} from '@/(model)/media/gallery/main';
 import {
   CollectionContext,
   CollectionObj,
-} from '@/(model)/gallery/collection/main';
+} from '@/(model)/media/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { ResourceObj } from '@/(model)/resource/main';
+import { ResourceObj } from '@/(model)/media/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,

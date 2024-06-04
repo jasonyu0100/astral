@@ -1,8 +1,8 @@
-import { PartVariant } from '@/(model)/map/part/main';
+import { SceneVariant } from '@/(model)/space/chapter/scene/main';
 import { ChapterTemplateObj } from './main';
-import { exampleFile, exampleFiles } from '@/(model)/resource/file/main';
-import { ResourceVariant } from '@/(model)/resource/main';
-import { MessageSource } from '@/(model)/storm/chat/message/main';
+import { exampleFile, exampleFiles } from '@/(model)/media/resource/file/main';
+import { ResourceVariant } from '@/(model)/media/resource/main';
+import { MessageSource } from '@/(model)/space/chapter/chat/conversation/message/main';
 
 export const songSpaceTemplate: ChapterTemplateObj[] = [
   {
@@ -26,7 +26,7 @@ export const songSpaceTemplate: ChapterTemplateObj[] = [
     partTemplate: {
       title: 'Vision',
       description: 'My vision board',
-      variant: PartVariant.VISUAL,
+      variant: SceneVariant.VISUAL,
       ideas: [
         {
           title: 'Star 0',

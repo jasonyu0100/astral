@@ -6,7 +6,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileObj } from '@/(model)/resource/file/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import { useContext, useState } from 'react';
 import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';

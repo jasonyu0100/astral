@@ -12,7 +12,7 @@ export function NetworkContainer({
       className={`flex flex-row`}
       glassFx={glassFx['glass-5']}
       sizeFx='flex-grow h-full'
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

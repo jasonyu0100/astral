@@ -1,17 +1,17 @@
-import { IdeaTemplateObj } from '@/(model)/map/part/idea/main';
+import { IdeaTemplateObj } from '@/(model)/space/chapter/scene/idea/main';
 import { SpaceVariant } from '../main';
 import { barTemplate } from './bar';
 import { customTemplate } from './custom';
 import { ideaTemplate } from './idea';
 import { songMixTemplate } from './mix';
 import { songSpaceTemplate } from './song';
-import { MessageTemplateObj } from '@/(model)/storm/chat/message/main';
+import { MessageTemplateObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 
 export interface ChapterTemplateObj {
   title: string;
   description: string;
   chatTemplate?: ChatTemplateObj;
-  partTemplate?: PartTemplateObj;
+  partTemplate?: SceneTemplateObj;
 }
 
 export interface ChatTemplateObj {
@@ -20,7 +20,7 @@ export interface ChatTemplateObj {
   messages?: MessageTemplateObj[];
 }
 
-export interface PartTemplateObj {
+export interface SceneTemplateObj {
   title: string;
   description: string;
   variant: string;

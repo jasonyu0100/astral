@@ -1,6 +1,6 @@
 'use client';
 
-import { FileObj } from "@/(model)/resource/file/main";
+import { FileObj } from "@/(model)/media/resource/file/main";
 import { cn } from "@/(utils)/cn";
 
 export function CreativeProfile({ result, index } : { result: FileObj, index: number }) {

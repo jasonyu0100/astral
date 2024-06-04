@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { ChapterObj } from '@/(model)/chapter/main';
+import { ChapterObj } from '@/(model)/space/chapter/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChapterObj,

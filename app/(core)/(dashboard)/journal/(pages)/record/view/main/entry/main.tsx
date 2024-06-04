@@ -7,7 +7,7 @@ export function JournalEntry() {
   return (
     <GlassWindowFrame
       className='w-full'
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded']}
     >
       <GlassWindowContents>

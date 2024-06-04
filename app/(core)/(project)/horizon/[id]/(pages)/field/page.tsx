@@ -7,7 +7,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFile, exampleFiles } from '@/(model)/resource/file/main';
+import { exampleFile, exampleFiles } from '@/(model)/media/resource/file/main';
 import { BaseSidebar } from './view/sidebar/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { horizonMap } from '../../map';
@@ -20,7 +20,7 @@ function Page() {
         <div className='flex flex-grow flex-col items-center space-y-[2rem] p-[2rem]'>
           <GlassWindowFrame
             className='w-full'
-            borderFx={borderFx['border-all']}
+            borderFx={borderFx['border-around']}
             roundedFx={roundedFx['rounded']}
           >
             <GlassWindowContents>
@@ -37,7 +37,7 @@ function Page() {
           <div className='h-[1rem] w-[1rem] rounded-full bg-slate-500 bg-opacity-30' />
           <GlassWindowFrame
             className='w-full p-[1rem]'
-            borderFx={borderFx['border-all']}
+            borderFx={borderFx['border-around']}
             roundedFx={roundedFx['rounded']}
           >
             <GlassWindowContents>
@@ -70,7 +70,7 @@ function Page() {
           </GlassWindowFrame>
           <GlassWindowFrame
             className='w-full p-[1rem]'
-            borderFx={borderFx['border-all']}
+            borderFx={borderFx['border-around']}
             roundedFx={roundedFx['rounded']}
           >
             <GlassWindowContents>

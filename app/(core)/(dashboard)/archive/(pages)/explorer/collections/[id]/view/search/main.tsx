@@ -9,7 +9,7 @@ export function CollectionsSearch() {
       <GlassWindowFrame
         name={CollectionsSearch.name}
         className='h-[4rem] w-full flex-shrink-0'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents

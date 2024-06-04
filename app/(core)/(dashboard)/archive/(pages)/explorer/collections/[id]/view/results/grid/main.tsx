@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(explorer)/(collection-folder)/explorer/add/main';
-import { ExplorerCollection } from '../../../../../../../../../../(components)/(explorer)/(collection-folder)/explorer/main';
-import { CollectionContext } from '@/(model)/gallery/collection/main';
+import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/add/main';
+import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/main';
+import { CollectionContext } from '@/(model)/media/collection/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { CollectionsHandlerContext } from '@/(controller)/explorer/collections/main';
 

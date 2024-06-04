@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(model)/resource/main';
+import { ResourceObj } from '@/(model)/media/resource/main';
 import { useState, useEffect, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../../(db)/resources/main';
 

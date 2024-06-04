@@ -1,17 +1,17 @@
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(model)/chapter/main';
+import { ChapterContext } from '@/(model)/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
-import { PartsHandlerContext } from '@/(controller)/parts/main';
+import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 
 export function MapChaptersRow() {
-  const partsHandler = useContext(PartsHandlerContext);
+  const partsHandler = useContext(ScenesHandlerContext);
   const parts = partsHandler.parts;
   const modalContext = useContext(MapModalContext);
-  const { open } = modalContext.addPartModal;
+  const { open } = modalContext.addSceneModal;
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const { addChapterModal } = useContext(MapModalContext);
 

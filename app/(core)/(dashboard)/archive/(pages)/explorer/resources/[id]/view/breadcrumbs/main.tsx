@@ -3,8 +3,8 @@ import { CollectionBreadcrumbDivider } from '../../../../(common)/breadcrumb/div
 import { CollectionBreadcrumbItem } from '../../../../(common)/breadcrumb/item/main';
 import { CollectionBreadcrumbs } from '../../../../(common)/breadcrumb/main';
 import { useContext } from 'react';
-import { CollectionContext } from '@/(model)/gallery/collection/main';
-import { GalleryContext } from '@/(model)/gallery/main';
+import { CollectionContext } from '@/(model)/media/collection/main';
+import { GalleryContext } from '@/(model)/media/gallery/main';
 
 export function ResourcesBreadcrumbs() {
   const gallery = useContext(GalleryContext);

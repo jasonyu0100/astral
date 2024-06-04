@@ -1,4 +1,4 @@
-export function StormPartnerChatMessage({
+export function StormScenenerChatMessage({
   children,
 }: {
   children?: React.ReactNode;

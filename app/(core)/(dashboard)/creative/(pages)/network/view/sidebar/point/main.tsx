@@ -17,7 +17,7 @@ export function NetworkSidebarPoint() {
       <GlassWindowFrame
         name={NetworkSidebarPoint.name}
         className='min-h-[80px] w-full p-[15px]'
-        roundedFx={roundedFx['rounded-sm']}
+        roundedFx={roundedFx['rounded']}
         borderFx={borderFx['border-all']}
       >
         <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>

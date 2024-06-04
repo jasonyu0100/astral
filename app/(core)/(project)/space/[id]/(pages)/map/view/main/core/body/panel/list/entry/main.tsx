@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { PartContext } from '@/(model)/map/part/main';
+import { SceneContext } from '@/(model)/space/chapter/scene/main';
 import { cn } from '@/(utils)/cn';
-import { PartsHandlerContext } from '@/(controller)/parts/main';
+import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 
-export function PartListEntry({ index }: { index: number }) {
+export function SceneListEntry({ index }: { index: number }) {
   const partsHandler =
-    useContext(PartsHandlerContext);
-  const part = useContext(PartContext);
+    useContext(ScenesHandlerContext);
+  const part = useContext(SceneContext);
   const active = part.id == partsHandler.partId;
 
   return (
     <div
-      onClick={() => partsHandler.partActions.updatePart(part)}
+      onClick={() => partsHandler.partActions.updateScene(part)}
       className='w-full flex cursor-pointer'
     >
       <p

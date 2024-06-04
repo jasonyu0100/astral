@@ -1,4 +1,4 @@
-import { LogObj } from '@/(model)/resource/log/main';
+import { LogObj } from '@/(model)/media/resource/log/main';
 import { createContext, useState } from 'react';
 
 export interface DraftModalController {

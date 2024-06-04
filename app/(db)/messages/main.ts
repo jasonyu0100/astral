@@ -2,7 +2,7 @@ import { amplifyClient } from '@/(api)/aws/graphql/main';
 import {
   MessageObj,
   MessageSource,
-} from '@/(model)/storm/chat/message/main';
+} from '@/(model)/space/chapter/chat/conversation/message/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createMessageObj,
@@ -100,7 +100,7 @@ export const messagesGqlHelper: MessagesGqlHelper = {
       variables: {
         input: gqlArgs({
           id: messageId,
-          chatId: updatedMessageObj.chatId,
+          chatId: updatedMessageObj.conversationId,
           source: updatedMessageObj.source,
           time: updatedMessageObj.time,
           message: updatedMessageObj.message,

@@ -4,7 +4,7 @@ import isVerseAuth from '@/(utils)/isAuth';
 import { PointView } from './view/view';
 import { PointSidebar } from './view/sidebar/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFile } from '@/(model)/resource/file/main';
+import { exampleFile } from '@/(model)/media/resource/file/main';
 import { Divider } from '@/(components)/(line)/divider/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';

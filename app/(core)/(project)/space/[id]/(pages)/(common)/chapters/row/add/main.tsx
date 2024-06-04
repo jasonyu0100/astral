@@ -15,7 +15,7 @@ export default function ChaptersAdd({ ...props }: ButtonInputProps) {
         roundedFx={roundedFx['rounded-full']}
       >
         <div className='flex h-full w-full items-center justify-center'>
-          <div className='font-bold text-slate-500'>Add Part</div>
+          <div className='font-bold text-slate-500'>Add Chapter</div>
         </div>
       </GlassAreaContainer>
     </button>

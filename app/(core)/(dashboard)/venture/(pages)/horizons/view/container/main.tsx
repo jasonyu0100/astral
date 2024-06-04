@@ -8,7 +8,7 @@ export function HorizonsContainer({ children }: { children?: React.ReactNode }) 
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
       className={`flex flex-row`}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

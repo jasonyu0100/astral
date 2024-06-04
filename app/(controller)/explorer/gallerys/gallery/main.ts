@@ -1,4 +1,4 @@
-import { GalleryObj } from '@/(model)/gallery/main';
+import { GalleryObj } from '@/(model)/media/gallery/main';
 import { useState, useMemo } from 'react';
 import { gallerysGqlHelper } from '@/(db)/gallerys/main';
 

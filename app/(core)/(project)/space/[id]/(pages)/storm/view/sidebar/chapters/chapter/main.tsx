@@ -1,9 +1,9 @@
-import { ChapterContext } from '@/(model)/chapter/main';
+import { ChapterContext } from '@/(model)/space/chapter/main';
 import { StormChapterChatAdd } from './chat/add/main';
 import { StormChapterChat } from './chat/main';
 import { StormChapterHeader } from './header/main';
 import { useContext } from 'react';
-import { ChatContext } from '@/(model)/storm/chat/main';
+import { ChatContext } from '@/(model)/space/chapter/chat/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import { ChatsHandlerContext } from '@/(controller)/storm/chats/main';
 import { ActiveChapterHeaderContainer } from './header/container/active/main';

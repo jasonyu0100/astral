@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../resource/file/main';
+import { FileObj, exampleFile } from '../media/resource/file/main';
 
 export enum SpaceVariant {
   MIX = 'MIX',

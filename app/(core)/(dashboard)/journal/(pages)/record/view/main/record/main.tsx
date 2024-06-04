@@ -5,7 +5,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { borderFx, roundedFx, glassFx } from '@/(style)/data';
-import { exampleFile, exampleFiles } from '@/(model)/resource/file/main';
+import { exampleFile, exampleFiles } from '@/(model)/media/resource/file/main';
 import { JournalRecordHeader } from './header/main';
 import { JournalHeaderContents } from './contents/main';
 
@@ -13,7 +13,7 @@ export function JournalRecord() {
   return (
     <GlassWindowFrame
       className='w-full'
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded']}
     >
       <GlassWindowContents>

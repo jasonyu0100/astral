@@ -1,0 +1,32 @@
+import { createContext } from "react";
+
+export interface ConversationObj {
+  id: string;
+  chatId: string;
+  summary: string;
+  time: string;
+}
+
+export const exampleConversation: ConversationObj = {
+  id: '0',
+  chatId: '0',
+  summary: "A conversation about the idea",
+  time: new Date('2023-12-19').toISOString(),
+};
+
+export const ConversationContext = createContext<ConversationObj>({} as ConversationObj);
+
+export const exampleConversations: ConversationObj[] = [
+  {
+    id: '0',
+    chatId: '0',
+    summary: "Another conversation about the idea",
+    time: new Date('2023-12-19').toISOString(),
+  },
+  {
+    id: '1',
+    chatId: '0',
+    summary: "What's the meaning?",
+    time: new Date('2023-12-19').toISOString(),
+  },
+];

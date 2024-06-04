@@ -1,17 +1,17 @@
 import { useContext } from 'react';
-import { PartContext } from '@/(model)/map/part/main';
-import { PartListEntry } from './entry/main';
-import { PartsHandlerContext } from '@/(controller)/parts/main';
+import { SceneContext } from '@/(model)/space/chapter/scene/main';
+import { SceneListEntry } from './entry/main';
+import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import { Divider } from '@/(components)/(line)/divider/main';
 
-export function MapPartList() {
+export function MapSceneList() {
   const chaptersHandler = useContext(ChaptersHandlerContext)
-  const partsHandler = useContext(PartsHandlerContext);
+  const partsHandler = useContext(ScenesHandlerContext);
   const parts = partsHandler.parts;
   const modalContext = useContext(MapModalContext);
-  const { open } = modalContext.addPartModal;
+  const { open } = modalContext.addSceneModal;
 
 
   // TODO CLEAN UP
@@ -29,12 +29,12 @@ export function MapPartList() {
         </div>
       ))}
       {/* {parts.map((part, index) => (
-        <PartContext.Provider
+        <SceneContext.Provider
           value={part}
           key={part.id}
         >
-          <PartListEntry index={index} key={part.id} />
-        </PartContext.Provider>
+          <SceneListEntry index={index} key={part.id} />
+        </SceneContext.Provider>
       ))}
       <div
         className='flex w-full cursor-pointer'

@@ -16,7 +16,7 @@ export function BaseView({
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-all']}
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

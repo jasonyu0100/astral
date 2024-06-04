@@ -1,9 +1,9 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/resource/file/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import {
   ResourceObj,
   ResourceVariant,
-} from '@/(model)/resource/main';
+} from '@/(model)/media/resource/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createResourceObj,
@@ -11,7 +11,7 @@ import {
   updateResourceObj,
 } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { CollectionObj } from '../../(model)/gallery/collection/main';
+import { CollectionObj } from '../../(model)/media/collection/main';
 
 export interface ResourcesGqlHelper {
   listFromCollection: (collectionId: string) => Promise<ResourceObj[]>;

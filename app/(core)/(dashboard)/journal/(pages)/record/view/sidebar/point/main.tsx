@@ -3,6 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, roundedFx, glassFx } from '@/(style)/data';
 import React from 'react';
+import { ColorfulText } from '@/(components)/(text)/colorful/main';
 
 export function JournalSidebarPoint({
   children,
@@ -12,14 +13,14 @@ export function JournalSidebarPoint({
   return (
     <GlassWindowFrame
       name='temp'
-      borderFx={borderFx['border-all']}
-      roundedFx={roundedFx.rounded}
-      className='p-[1rem]'
+      borderFx={borderFx['border-around']}
+      className='min-h-[10rem] bg-black p-[1rem]'
     >
       <GlassWindowContents className='flex flex-row'>
-        <p className='text-white'>{children}</p>
+        <ColorfulText seed={children?.toString()}>
+          {children?.toString()}
+        </ColorfulText>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

@@ -2,7 +2,7 @@ import { memo, useContext, useMemo, useRef, useState } from 'react';
 import { oembed } from '@loomhq/loom-embed';
 import {
   LogObjContext,
-} from '@/(model)/resource/log/main';
+} from '@/(model)/media/resource/log/main';
 
 export const FullLoomVideo = memo(function FullLoomVideo() {
   const logObj = useContext(LogObjContext);

@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {},
+      boxShadow: {
+        'glow': '-15px 15px 50px 0px rgba(255, 255, 255, 0.15)',
+      },
       fontFamily: {
         thin: ['var(--font-creato-thin)'],
         light: ['var(--font-creato-light)'],
@@ -19,6 +22,7 @@ module.exports = {
         extraBold: ['var(--font-creato-extraBold)'],
         black: ['var(--font-creato-black)'],
         permanentMarker: ['var(--font-marker)'],
+        magazine: ['var(--font-magazine)'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -66,11 +70,13 @@ module.exports = {
       },
       animation: {
         'waving-hand': 'wave 2s linear infinite',
-        'wind': 'wind 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        wind: 'wind 7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse-slow': 'pulseSlow 2.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'breathe-slow': 'breatheSlow 4.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'breathe-fast': 'breatheFast 2.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'activate': 'activate 2s cubic-bezier(0.4, 0, 0.6, 1)',
+        'breathe-slow':
+          'breatheSlow 4.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'breathe-fast':
+          'breatheFast 2.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        activate: 'activate 2s cubic-bezier(0.4, 0, 0.6, 1)',
       },
     },
   },

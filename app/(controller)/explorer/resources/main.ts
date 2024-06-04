@@ -1,5 +1,5 @@
-import { FileObj } from '@/(model)/resource/file/main';
-import { ResourceObj } from '@/(model)/resource/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
+import { ResourceObj } from '@/(model)/media/resource/main';
 import { useState, useEffect as useMemo, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../(db)/resources/main';
 

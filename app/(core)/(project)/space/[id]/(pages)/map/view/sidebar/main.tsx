@@ -1,7 +1,7 @@
-import { GalleryObj } from '@/(model)/gallery/main';
+import { GalleryObj } from '@/(model)/media/gallery/main';
 import { createContext, useState } from 'react';
 import { MapSidebarView } from './view';
-import { CollectionObj } from '@/(model)/gallery/collection/main';
+import { CollectionObj } from '@/(model)/media/collection/main';
 import {
   GallerysHandlerContext,
   useGallerysHandler,

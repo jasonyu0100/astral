@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { MapHeaderIdeaCenter } from './center/main';
 import { MapHeaderIdeaLeft } from './left/main';
 import { MapHeaderIdeaRight } from './right/main';
-import { IdeaContext, IdeaObj } from '@/(model)/map/part/idea/main';
+import { IdeaContext, IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 
 export function MapHeaderIdea() {

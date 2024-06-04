@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/resource/file/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import { SpaceObj } from '@/(model)/space/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {

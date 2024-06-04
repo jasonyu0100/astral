@@ -12,6 +12,8 @@ export default function Page() {
       <FormattedLink href={learnMap.learn.month.link}>Month</FormattedLink>
       <FormattedLink href={learnMap.learn.queue.link}>Queue</FormattedLink>
       <FormattedLink href={learnMap.learn.timer.link}>Timer</FormattedLink>
+      <FormattedLink href={learnMap.learn.texture.link}>Texture</FormattedLink>
+      <FormattedLink href={learnMap.learn.fonts.link}>Fonts</FormattedLink>
     </div>
   );
 }

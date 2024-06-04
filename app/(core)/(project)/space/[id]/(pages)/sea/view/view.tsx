@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ShareContainer } from './container/main';
-import { SeaMain } from './archive-main/main';
 import { ShareSidebar } from './sidebar/main';
-import { MonthView } from './month/main';
+import { MonthView } from './main/month/main';
 import { ShareSidebarPoint } from './sidebar/point/main';
-import { SeaContribution } from './record/main';
+import { SeaContribution } from './main/contribution/main';
+import { SeaMain } from './main/main';
 
 export function ShareView() {
   const [showTestModal, changeShowTestModal] = useState(true);

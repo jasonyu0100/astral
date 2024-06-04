@@ -20,7 +20,7 @@ function MapSpace() {
     <div className='flex flex-col items-center'>
       <GlassWindowFrame
         className='h-[5rem] w-[5rem]'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -35,7 +35,7 @@ function ContributionMap() {
     <div className='flex flex-col items-center'>
       <GlassWindowFrame
         className='h-[5rem] w-[5rem]'
-        borderFx={borderFx['border-all']}
+        borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -53,13 +53,13 @@ function Page() {
           <div className='h-full flex-grow overflow-auto p-[3rem]'>
             <GlassWindowFrame
               className='p-[3rem]'
-              borderFx={borderFx['border-all']}
+              borderFx={borderFx['border-around']}
               roundedFx={roundedFx['rounded']}
             >
               <GlassWindowContents className='flex flex-row flex-wrap space-x-[3rem]'>
                 <GlassWindowFrame
                   className='max-w-[20rem] p-[3rem]'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded']}
                 >
                   <GlassWindowContents className='flex flex-row flex-wrap'>
@@ -84,7 +84,7 @@ function Page() {
                 </GlassWindowFrame>
                 <GlassWindowFrame
                   className='max-w-[20rem] p-[3rem]'
-                  borderFx={borderFx['border-all']}
+                  borderFx={borderFx['border-around']}
                   roundedFx={roundedFx['rounded']}
                 >
                   <GlassWindowContents className='flex flex-row flex-wrap'>

@@ -1,9 +1,9 @@
-import { IdeaObj } from '@/(model)/map/part/idea/main';
-import { FileObj } from '@/(model)/resource/file/main';
+import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import { createContext, useMemo, useState } from 'react';
-import { NoteObj } from '@/(model)/resource/note/main';
-import { LogObj } from '@/(model)/resource/log/main';
-import { LinkObj } from '@/(model)/resource/link/main';
+import { NoteObj } from '@/(model)/media/resource/note/main';
+import { LogObj } from '@/(model)/media/resource/log/main';
+import { LinkObj } from '@/(model)/media/resource/link/main';
 import { toast } from 'sonner';
 import { ideasGqlHelper } from '../../(db)/ideas/main';
 export interface IdeaActions {
@@ -59,7 +59,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
 
   const ideaActions: IdeaActions = {
     listIdeas: async () => {
-      const ideas = await ideasGqlHelper.listFromPart(partId);
+      const ideas = await ideasGqlHelper.listFromScene(partId);
       changeIdeas(ideas);
       changeIdeaId(ideas[0]?.id || '');
       return ideas;
@@ -72,7 +72,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       file: FileObj,
     ) => {
       if (partId === '') {
-        alert('No Part Active');
+        alert('No Scene Active');
         return {} as IdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromFile(
@@ -83,6 +83,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
         y,
         file,
       );
+      alert('adsads')
       changeIdeas((prev) => [...prev, idea]);
       changeIdeaId(idea.id);
       return idea;
@@ -95,7 +96,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       note: NoteObj,
     ) => {
       if (partId === '') {
-        alert('No Part Active');
+        alert('No Scene Active');
         return {} as IdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromNote(
@@ -118,7 +119,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       link: LinkObj,
     ) => {
       if (partId === '') {
-        alert('No Part Active');
+        alert('No Scene Active');
         return {} as IdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromLink(
@@ -141,7 +142,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       log: LogObj,
     ) => {
       if (partId === '') {
-        alert('No Part Active');
+        alert('No Scene Active');
         return {} as IdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromLog(

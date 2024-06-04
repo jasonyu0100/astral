@@ -1,6 +1,6 @@
 import { GlassEffectWrapper } from '@/(components)/(glass)/effect/main';
 import { roundedFx } from '@/(style)/data';
-import { FileObj } from '@/(model)/resource/file/main';
+import { FileObj } from '@/(model)/media/resource/file/main';
 import { DivInputProps } from '@/(types)/props/main';
 
 export enum SpaceCoverVariant {

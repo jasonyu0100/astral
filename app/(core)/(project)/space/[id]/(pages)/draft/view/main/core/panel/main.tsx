@@ -8,7 +8,6 @@ export function DraftPanel() {
       name={DraftPanel.name}
       sizeFx='w-[240px] h-full'
       className='flex flex-col'
-      borderFx={borderFx['border-r']}
     >
       <DraftChapterList />
     </GlassAreaContainer>

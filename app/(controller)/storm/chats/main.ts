@@ -1,5 +1,4 @@
-import { ChatObj } from '@/(model)/storm/chat/main';
-import { chatExamples } from '@/(model)/storm/table';
+import { ChatObj } from '@/(model)/space/chapter/chat/main';
 import { createContext, useMemo, useState } from 'react';
 import { chatsGqlHelper } from '@/(db)/chats/main';
 
@@ -21,7 +20,7 @@ export interface ChatsHandler {
 export const ChatsHandlerContext = createContext({} as ChatsHandler);
 
 export const useChatsHandler = (chapterId: string): ChatsHandler => {
-  const [chats, changeChats] = useState<ChatObj[]>(chatExamples.examples);
+  const [chats, changeChats] = useState<ChatObj[]>([]);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);

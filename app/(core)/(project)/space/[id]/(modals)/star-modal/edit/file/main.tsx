@@ -11,7 +11,7 @@ import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/ma
 import {
   FileObj,
   FileVariant,
-} from '@/(model)/resource/file/main';
+} from '@/(model)/media/resource/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
