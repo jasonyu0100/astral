@@ -8,11 +8,9 @@ interface CardInputProps extends ImageInputProps {
 
 export function Card({ suit, number, ...props }: CardInputProps) {
   return (
-    <div>
       <img
         src={`/cards/Suit=${suit}, Number=${number}.png`}
         className={`h-[100px] object-contain ${props.className || ''}`}
       />
-    </div>
   );
 }

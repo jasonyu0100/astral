@@ -1,12 +1,9 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 import { createContext } from 'react';
-import { PostObj } from '@/(model)/journal/post/main';
 import { DraftPanel } from '../panel/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-
-export const DraftMomentContext = createContext({} as PostObj);
 
 export function DraftMoments() {
 
