@@ -11,7 +11,7 @@ import {
   updateResourceObj,
 } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { GalleryCollectionObj } from '../../(model)/archive/collection/main';
+import { GalleryCollectionObj } from '../../../(model)/archive/collection/main';
 
 export interface ResourcesGqlHelper {
   listFromCollection: (collectionId: string) => Promise<CollectionResourceObj[]>;

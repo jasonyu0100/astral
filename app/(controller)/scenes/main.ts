@@ -1,6 +1,6 @@
 import { ChapterSceneObj } from '@/(model)/space/chapter/scene/main';
 import { createContext, useMemo, useState } from 'react';
-import { partsGqlHelper } from '../../(db)/scenes/main';
+import { partsGqlHelper } from '../../(db)/(archive-db)/scenes/main';
 
 export interface SceneActions {
   listScenes: (id: string) => Promise<ChapterSceneObj[]>;

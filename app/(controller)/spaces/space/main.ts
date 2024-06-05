@@ -1,6 +1,6 @@
 import { SpaceObj } from '@/(model)/space/main';
 import { useState, useMemo } from 'react';
-import { spacesGqlHelper } from '../../../(db)/spaces/main';
+import { spacesGqlHelper } from '../../../(db)/(archive-db)/spaces/main';
 
 export const useSpaceHandler = (spaceId: string) => {
   const [space, changeSpace] = useState({} as SpaceObj);

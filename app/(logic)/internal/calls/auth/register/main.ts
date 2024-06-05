@@ -1,4 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { userDbWrapper } from '@/(db)/user/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createUserObj } from '@/graphql/mutations';
@@ -31,29 +32,22 @@ export async function emailRegisterUser(
   email: string,
   password: string,
 ) {
-  if (process.env.PRERELEASE_MODE) {
-    return { status: false, error: 'PRERELEASE ONLY' };
-  }
+  // if (process.env.PRERELEASE_MODE) {
+  //   return { status: false, error: 'PRERELEASE ONLY' };
+  // }
   const emailCheck = await checkEmail(email);
   if (emailCheck.status === false) {
     return { status: false, error: 'Email is already in use' };
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  const payload = await amplifyClient.graphql({
-    query: createUserObj,
-    variables: {
-      input: {
-        fname: fname,
-        lname: lname,
-        email: email,
-        passwordHash: passwordHash,
-        created: new Date().toISOString(),
-      },
-    },
-  });
-
-  const user = payload?.data?.createUserObj as UserObj;
+  const user = await userDbWrapper.createObj({
+    fname: fname,
+    lname: lname,
+    email: email,
+    passwordHash: passwordHash,
+    created: new Date().toISOString(),
+  })
 
   return { status: true, data: user };
 }

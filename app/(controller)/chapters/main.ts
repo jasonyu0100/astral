@@ -1,6 +1,6 @@
 import { SpaceChapterObj } from '@/(model)/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
-import { chaptersGqlHelper } from '../../(db)/chapters/main';
+import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
 
 export interface ChapterActions {
   addChapter: (chapter: SpaceChapterObj) => SpaceChapterObj;

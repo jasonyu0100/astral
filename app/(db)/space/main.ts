@@ -92,16 +92,7 @@ export const spacesGqlHelper: SpacesGqlHelper = {
     const payload = await amplifyClient.graphql({
       query: updateSpaceObj,
       variables: {
-        input: gqlArgs({
-          id: spaceId,
-          userId: updatedSpaceObj.userId,
-          title: updatedSpaceObj.title,
-          time: updatedSpaceObj.time,
-          description: updatedSpaceObj.description,
-          thumbnail: updatedSpaceObj.thumbnail,
-          variant: updatedSpaceObj.variant,
-          moveId: updatedSpaceObj.moveId,
-        }),
+        input: gqlArgs(updateSpaceObj),
       },
     });
     const spaceObj = payload?.data?.updateSpaceObj as SpaceObj;

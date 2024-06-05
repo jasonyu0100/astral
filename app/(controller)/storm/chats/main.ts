@@ -1,6 +1,6 @@
 import { ChapterChatObj } from '@/(model)/space/chapter/chat/main';
 import { createContext, useMemo, useState } from 'react';
-import { chatsGqlHelper } from '@/(db)/chats/main';
+import { chatsGqlHelper } from '@/(db)/(archive-db)/chats/main';
 
 export interface ChatActions {
   updateChats: (chats: ChapterChatObj[]) => ChapterChatObj[];

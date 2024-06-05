@@ -141,7 +141,7 @@ export function PortalRegisterForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction onClick={() => alert('Coming soon...')}>
+        <PortalFormAction onClick={() => attemptRegister()}>
           REGISTER
         </PortalFormAction>
         <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>

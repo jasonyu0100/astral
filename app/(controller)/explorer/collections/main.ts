@@ -2,8 +2,8 @@ import { FileElem } from '@/(model)/elements/file/main';
 import { GalleryCollectionObj } from '@/(model)/archive/collection/main';
 import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { createContext, useMemo, useState } from 'react';
-import { collectionsGqlHelper } from '../../../(db)/collections/main';
-import { resourcesGqlHelper } from '@/(db)/resources/main';
+import { collectionsGqlHelper } from '../../../(db)/(archive-db)/collections/main';
+import { resourcesGqlHelper } from '@/(db)/(archive-db)/resources/main';
 export interface CollectionsHandler {
   collectionId: string;
   collection: GalleryCollectionObj | undefined;

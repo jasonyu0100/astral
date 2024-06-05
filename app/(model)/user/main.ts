@@ -11,7 +11,7 @@ export interface UserObj {
   priceId?: string;
   passwordHash?: string;
   googleId?: string;
-  profilePicture: FileElem;
+  profilePicture?: FileElem;
   created: string;
 }
 

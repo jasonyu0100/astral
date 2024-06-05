@@ -1,6 +1,6 @@
 import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { useState, useEffect, createContext } from 'react';
-import { resourcesGqlHelper } from '../../../../(db)/resources/main';
+import { resourcesGqlHelper } from '../../../../(db)/(archive-db)/resources/main';
 
 interface SearchResourcesHandler {
   resourceId: string;

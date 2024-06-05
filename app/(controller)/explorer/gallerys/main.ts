@@ -1,7 +1,7 @@
 import { FileElem } from '@/(model)/elements/file/main';
 import { ArchiveGalleryObj } from '@/(model)/archive/gallery/main';
 import { createContext, useMemo, useState } from 'react';
-import { gallerysGqlHelper } from '../../../(db)/gallerys/main';
+import { gallerysGqlHelper } from '../../../(db)/(archive-db)/gallerys/main';
 
 export interface GallerysHandler {
   gallery: ArchiveGalleryObj | undefined;

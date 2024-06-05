@@ -3,12 +3,12 @@ import { SpaceObj } from '@/(model)/space/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { TemplateChapterObj } from '@/(model)/space/templates/main';
 import { toast } from 'sonner';
-import { spacesGqlHelper } from '../../(db)/spaces/main';
-import { chaptersGqlHelper } from '../../(db)/chapters/main';
-import { chatsGqlHelper } from '../../(db)/chats/main';
-import { partsGqlHelper } from '../../(db)/scenes/main';
-import { messagesGqlHelper } from '../../(db)/messages/main';
-import { ideasGqlHelper } from '../../(db)/ideas/main';
+import { spacesGqlHelper } from '../../(db)/(archive-db)/spaces/main';
+import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
+import { chatsGqlHelper } from '../../(db)/(archive-db)/chats/main';
+import { partsGqlHelper } from '../../(db)/(archive-db)/scenes/main';
+import { messagesGqlHelper } from '../../(db)/(archive-db)/messages/main';
+import { ideasGqlHelper } from '../../(db)/(archive-db)/ideas/main';
 
 export interface SpaceActions {
   listSpaces: () => Promise<void>;
@@ -38,7 +38,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
   const spaceActions: SpaceActions = {
     listSpaces: async () => {
-      const spaces = await spacesGqlHelper.listFromUser(userId);
+      const spaces = await spacesGqlHelper.list(userId);
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },

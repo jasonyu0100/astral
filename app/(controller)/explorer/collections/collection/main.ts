@@ -1,6 +1,6 @@
 import { GalleryCollectionObj } from '@/(model)/archive/collection/main';
 import { useMemo, useState } from 'react';
-import { collectionsGqlHelper } from '@/(db)/collections/main';
+import { collectionsGqlHelper } from '@/(db)/(archive-db)/collections/main';
 
 export const useCollectionHandler = (collectionId: string) => {
   const [collection, changeCollection] = useState({} as GalleryCollectionObj);

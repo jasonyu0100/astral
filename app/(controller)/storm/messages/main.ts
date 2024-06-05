@@ -1,7 +1,7 @@
 import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
-import { messagesGqlHelper } from '../../../(db)/messages/main';
+import { messagesGqlHelper } from '../../../(db)/(archive-db)/messages/main';
 import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {

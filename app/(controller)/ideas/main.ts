@@ -5,7 +5,7 @@ import { NoteElem } from '@/(model)/elements/note/main';
 import { LogElem } from '@/(model)/elements/log/main';
 import { LinkElem } from '@/(model)/elements/link/main';
 import { toast } from 'sonner';
-import { ideasGqlHelper } from '../../(db)/ideas/main';
+import { ideasGqlHelper } from '../../(db)/(archive-db)/ideas/main';
 export interface IdeaActions {
   listIdeas: () => Promise<SceneIdeaObj[]>;
   createFromFile: (
