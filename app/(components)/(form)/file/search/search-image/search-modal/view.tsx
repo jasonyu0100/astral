@@ -1,6 +1,6 @@
 import { useUnsplash } from '@/(controller)/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { SearchBar } from '@/(components)/(media)/search-bar/main';
 import { cn } from '@/(utils)/cn';
 import { FormBody } from '@/(components)/(form)/body/main';
@@ -13,9 +13,9 @@ import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/ma
 export default function SearchModalView() {
   const { file, onChange } = useContext(FileOnChangeContext);
   const modalContext = useContext(SearchModalContext);
-  const [images, changeImages] = useState<FileObj[]>([]);
+  const [images, changeImages] = useState<FileElem[]>([]);
   const [query, changeQuery] = useState('');
-  const [selected, changeSelected] = useState({} as FileObj);
+  const [selected, changeSelected] = useState({} as FileElem);
   const { searchImage } = useUnsplash();
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function SearchModalView() {
 }
 
 interface SearchImageProps extends ImageInputProps {
-  image: FileObj;
+  image: FileElem;
   active: boolean;
 }
 

@@ -8,6 +8,15 @@ export interface GalleryCollectionObj {
   description: string;
 }
 
+export const galleryCollectionGql = `
+type GalleryCollectionObj {
+  id: String!
+  galleryId: String!
+  title: String!
+  description: String!
+}
+`;
+
 export const exampleGalleryCollection: GalleryCollectionObj = {
   id: '0',
   galleryId: '0',

@@ -1,6 +1,6 @@
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 
-export function ImagePreview({ file }: { file: FileObj}) {
+export function ImagePreview({ file }: { file: FileElem}) {
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>

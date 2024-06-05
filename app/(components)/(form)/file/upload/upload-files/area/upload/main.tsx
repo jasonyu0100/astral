@@ -1,4 +1,4 @@
-import { getFileAccepts, FileVariant } from "@/(model)/concept/file/main";
+import { getFileAccepts, FileElemVariant } from "@/(model)/elements/file/main";
 import { UploadsHandlerContext } from "@/(controller)/upload/multiple/main";
 import { useContext } from "react";
 
@@ -11,7 +11,7 @@ export function UploadFilesAreaInterface() {
       multiple
       className='absolute inset-0 h-full w-full cursor-pointer opacity-0'
       onChange={(e) => uploadsHandler.uploadsActions.uploadFiles(e)}
-      accept={getFileAccepts(uploadsHandler.variant || FileVariant.ANY)}
+      accept={getFileAccepts(uploadsHandler.variant || FileElemVariant.ANY)}
     />
   );
 }

@@ -9,7 +9,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { SpaceSceneVariant } from '@/(model)/space/chapter/scene/main';
+import { ChapterSceneVariant } from '@/(model)/space/chapter/scene/main';
 import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 
 export function MapAddSceneModal() {
@@ -17,7 +17,7 @@ export function MapAddSceneModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [variant, changeVariant] = useState(
-    SpaceSceneVariant.VISUAL as string,
+    ChapterSceneVariant.VISUAL as string,
   );
   const modalContext = useContext(MapModalContext);
   const { opened, close } = modalContext.addSceneModal;
@@ -35,17 +35,17 @@ export function MapAddSceneModal() {
             value={variant}
             onChange={(e) => changeVariant(e.target.value)}
           >
-            <option value={SpaceSceneVariant.VISUAL}>
-              {SpaceSceneVariant.VISUAL}
+            <option value={ChapterSceneVariant.VISUAL}>
+              {ChapterSceneVariant.VISUAL}
             </option>
-            <option value={SpaceSceneVariant.LINK}>
-              {SpaceSceneVariant.LINK}
+            <option value={ChapterSceneVariant.LINK}>
+              {ChapterSceneVariant.LINK}
             </option>
-            <option value={SpaceSceneVariant.AUDIO}>
-              {SpaceSceneVariant.AUDIO}
+            <option value={ChapterSceneVariant.AUDIO}>
+              {ChapterSceneVariant.AUDIO}
             </option>
-            <option value={SpaceSceneVariant.MEMO}>
-              {SpaceSceneVariant.MEMO}
+            <option value={ChapterSceneVariant.MEMO}>
+              {ChapterSceneVariant.MEMO}
             </option>
           </FormSelect>
           <FormInput

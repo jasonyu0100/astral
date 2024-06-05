@@ -1,7 +1,7 @@
 'use client';
 import { createContext } from 'react';
 import { SearchView } from './view';
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   SearchActions,

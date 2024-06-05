@@ -8,6 +8,16 @@ export interface PostCommentObj {
   time: string;
 }
 
+export const postCommentGql = `
+type PostCommentObj {
+  id : String!
+  postId : String!
+  title : String!
+  description : String!
+  time : String!
+}
+`;
+
 export const PostCommentContext = createContext<PostCommentObj>(
   {} as PostCommentObj,
 );

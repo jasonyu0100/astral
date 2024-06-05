@@ -19,9 +19,9 @@ import {
   googleRegisterUser,
 } from '@/(logic)/internal/calls/auth/register/main';
 import {
-  FileObj,
-  FileVariant,
-} from '@/(model)/concept/file/main';
+  FileElem,
+  FileElemVariant,
+} from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 
@@ -51,13 +51,13 @@ export function PortalRegisterForm() {
           const googleId = resp.data.id;
           const fname = resp.data.given_name;
           const lname = resp.data.family_name;
-          const profilePicture: FileObj = {
+          const profilePicture: FileElem = {
             id: crypto.randomUUID(),
             src: resp.data.picture,
             fileType: 'image/*',
             title: 'Profile Picture',
             size: 0,
-            variant: FileVariant.IMAGE,
+            variant: FileElemVariant.IMAGE,
           };
           const email = resp.data.email;
           googleRegisterUser(

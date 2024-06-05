@@ -2,13 +2,13 @@
 
 import { createContext } from 'react';
 
-export enum LogVariant {
+export enum LogElemVariant {
   VIDEO = 'VIDEO',
   SCREEN = 'SCREEN',
   AUDIO = 'AUDIO',
 }
 
-export interface LogObj {
+export interface LogElem {
   id: string;
   loomId: string;
   height: number;
@@ -19,9 +19,21 @@ export interface LogObj {
   providerUrl: string;
 }
 
-export const LogObjContext = createContext<LogObj>({} as LogObj);
+export const logElemGql = `
+type LogElem {
+  id: String!
+  loomId: String
+  height: Int
+  width: Int
+  sharedUrl: String
+  embedUrl: String
+  variant: String
+  providerUrl: String
+}`;
 
-export const exampleLog: LogObj = {
+export const LogElemContext = createContext<LogElem>({} as LogElem);
+
+export const exampleLogElem: LogElem = {
   id: '0',
   loomId: '0',
   height: 0,
@@ -29,10 +41,10 @@ export const exampleLog: LogObj = {
   sharedUrl: '',
   embedUrl: '',
   providerUrl: '',
-  variant: LogVariant.SCREEN,
+  variant: LogElemVariant.SCREEN,
 };
 
-export const exampleLogs: LogObj[] = [
+export const exampleLogElems: LogElem[] = [
   {
     id: '0',
     loomId: '0',
@@ -41,6 +53,6 @@ export const exampleLogs: LogObj[] = [
     sharedUrl: '',
     embedUrl: '',
     providerUrl: '',
-    variant: LogVariant.SCREEN,
+    variant: LogElemVariant.SCREEN,
   },
 ];

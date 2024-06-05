@@ -1,4 +1,4 @@
-import { CollectionResourceContext } from "@/(model)/media/resource/main";
+import { CollectionResourceContext } from "@/(model)/archive/resource/main";
 import { EditResourceModalContext } from "@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 

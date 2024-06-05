@@ -1,9 +1,9 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import {
   CollectionResourceObj,
   CollectionResourceVariant,
-} from '@/(model)/media/resource/main';
+} from '@/(model)/archive/resource/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createResourceObj,
@@ -11,7 +11,7 @@ import {
   updateResourceObj,
 } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { GalleryCollectionObj } from '../../(model)/media/collection/main';
+import { GalleryCollectionObj } from '../../(model)/archive/collection/main';
 
 export interface ResourcesGqlHelper {
   listFromCollection: (collectionId: string) => Promise<CollectionResourceObj[]>;
@@ -21,12 +21,12 @@ export interface ResourcesGqlHelper {
     collectionId: string,
     title: string,
     description: string,
-    file: FileObj,
+    file: FileElem,
   ) => Promise<CollectionResourceObj>;
   createFromMultipleFiles: (
     userId: string,
     collectionId: string,
-    files: FileObj[],
+    files: FileElem[],
   ) => Promise<CollectionResourceObj[]>;
   update: (
     resourceId: string,
@@ -73,7 +73,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
     collectionId: string,
     title: string,
     description: string,
-    file: FileObj,
+    file: FileElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createResourceObj,
@@ -94,7 +94,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
   createFromMultipleFiles: async (
     userId: string,
     collectionId: string,
-    files: FileObj[],
+    files: FileElem[],
   ) => {
     const resourceObjs = [];
     for (let file of files) {

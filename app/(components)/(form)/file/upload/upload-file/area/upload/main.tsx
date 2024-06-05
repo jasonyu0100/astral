@@ -1,7 +1,7 @@
 import {
-  FileVariant,
+  FileElemVariant,
   getFileAccepts,
-} from '@/(model)/concept/file/main';
+} from '@/(model)/elements/file/main';
 import {
   UploadHandlerContext,
 } from '@/(controller)/upload/single/main';
@@ -12,7 +12,7 @@ export function UploadFileAreaInterface() {
 
   return (
     <input
-      accept={getFileAccepts(uploadHandler.variant || FileVariant.ANY)}
+      accept={getFileAccepts(uploadHandler.variant || FileElemVariant.ANY)}
       type='file'
       id='fileInput'
       className='absolute inset-0 h-full w-full cursor-pointer opacity-0'

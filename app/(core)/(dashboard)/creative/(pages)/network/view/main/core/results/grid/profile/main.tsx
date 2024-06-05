@@ -1,9 +1,9 @@
 'use client';
 
-import { FileObj } from "@/(model)/concept/file/main";
+import { FileElem } from "@/(model)/elements/file/main";
 import { cn } from "@/(utils)/cn";
 
-export function CreativeProfile({ result, index } : { result: FileObj, index: number }) {
+export function CreativeProfile({ result, index } : { result: FileElem, index: number }) {
   return (
     <div
       className={cn(

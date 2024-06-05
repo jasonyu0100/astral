@@ -1,9 +1,9 @@
 import {
-  FileObj,
-  FileObjContext,
-  FileVariant,
+  FileElem,
+  FileElemContext,
+  FileElemVariant,
   getFileAccepts,
-} from '@/(model)/concept/file/main';
+} from '@/(model)/elements/file/main';
 import React, { useEffect } from 'react';
 import { UploadedFileEntry } from '../common/entry/main';
 import { UploadedFileEntryBody } from '../common/entry/body/main';
@@ -25,10 +25,10 @@ export function FormUploadFile({
   label,
   variant,
 }: {
-  defaultFile?: FileObj;
-  onChange: (file: FileObj) => void;
+  defaultFile?: FileElem;
+  onChange: (file: FileElem) => void;
   label: string;
-  variant?: FileVariant;
+  variant?: FileElemVariant;
 }) {
   const uploadHandler = useUploadHandler(defaultFile, variant);
   const file = uploadHandler.file;
@@ -39,12 +39,12 @@ export function FormUploadFile({
 
   return (
     <UploadHandlerContext.Provider value={uploadHandler}>
-      <FileObjContext.Provider value={file} key={file.id}>
+      <FileElemContext.Provider value={file} key={file.id}>
         <UploadWrapper>
           <UploadFileLabel>{label}</UploadFileLabel>
           {file.id === undefined ? <UploadFileArea /> : <UploadedFile />}
         </UploadWrapper>
-      </FileObjContext.Provider>
+      </FileElemContext.Provider>
     </UploadHandlerContext.Provider>
   );
 }

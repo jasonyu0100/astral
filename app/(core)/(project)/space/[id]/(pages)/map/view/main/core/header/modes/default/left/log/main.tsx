@@ -1,9 +1,9 @@
 'use client';
 import { ButtonInputProps } from '@/(types)/props/main';
 import {
-  LogObj,
-  LogVariant,
-} from '@/(model)/concept/log/main';
+  LogElem,
+  LogElemVariant,
+} from '@/(model)/elements/log/main';
 import { StarModalContext } from '@/(core)/(project)/space/[id]/(modals)/star-modal/main';
 import { setup, isSupported, LoomVideo } from '@loomhq/record-sdk';
 import { useContext, useEffect, useMemo } from 'react';
@@ -35,7 +35,7 @@ export function MapHeaderLogButton({ ...props }: ButtonInputProps) {
       const sdkButton = configureButton({ element: button });
 
       sdkButton.on('insert-click', async (video: LoomVideo) => {
-        const logObj: LogObj = {
+        const logObj: LogElem = {
           id: crypto.randomUUID(),
           loomId: video.id,
           embedUrl: video.embedUrl,
@@ -43,7 +43,7 @@ export function MapHeaderLogButton({ ...props }: ButtonInputProps) {
           width: video.width,
           sharedUrl: video.sharedUrl,
           providerUrl: video.providerUrl,
-          variant: LogVariant.SCREEN,
+          variant: LogElemVariant.SCREEN,
         };
         updateLogObj(logObj);
         open();

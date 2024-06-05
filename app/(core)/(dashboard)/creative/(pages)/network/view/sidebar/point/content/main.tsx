@@ -1,23 +1,23 @@
 import React from 'react';
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { SpaceCover } from '@/(components)/(element)/space/main';
-import { exampleFile } from '@/(model)/concept/file/main';
+import { exampleFileElem } from '@/(model)/elements/file/main';
 
 export function NetworkSidebarPointContents() {
   return (
     <>
-      <Divider />
+      <HorizontalDivider />
 
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFile} />
+        <SpaceCover file={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFile} />
+        <SpaceCover file={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFile} />
+        <SpaceCover file={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
     </>

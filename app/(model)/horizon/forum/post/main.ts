@@ -8,6 +8,16 @@ export interface ForumPostObj {
   time: string;
 }
 
+export const forumPostGql = `
+type ForumPostObj {
+  id: String!
+  forumId: String!
+  title: String!
+  description: String!
+  time: String!
+}
+`
+
 export const ForumPostContext = createContext<ForumPostObj>({} as ForumPostObj);
 
 export const exampleForumPost: ForumPostObj = {

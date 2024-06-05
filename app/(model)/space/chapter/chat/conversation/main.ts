@@ -14,6 +14,15 @@ export const exampleChatConversation: ChatConversationObj = {
   time: new Date('2023-12-19').toISOString(),
 };
 
+export const chatConversationGql = `
+type ChatConversationObj {
+  id: String!
+  chatId: String!
+  summary: String!
+  time: String!
+}
+`
+
 export const ChatConversationContext = createContext<ChatConversationObj>({} as ChatConversationObj);
 
 export const exampleChatConversations: ChatConversationObj[] = [

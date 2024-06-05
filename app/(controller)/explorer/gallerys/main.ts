@@ -1,34 +1,34 @@
-import { FileObj } from '@/(model)/concept/file/main';
-import { GalleryObj } from '@/(model)/media/gallery/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { ArchiveGalleryObj } from '@/(model)/archive/gallery/main';
 import { createContext, useMemo, useState } from 'react';
 import { gallerysGqlHelper } from '../../../(db)/gallerys/main';
 
 export interface GallerysHandler {
-  gallery: GalleryObj | undefined;
+  gallery: ArchiveGalleryObj | undefined;
   galleryId: string;
-  gallerys: GalleryObj[];
+  gallerys: ArchiveGalleryObj[];
   galleryActions: GalleryActions;
 }
 
 export interface GalleryActions {
-  listGallerys: () => Promise<GalleryObj[]>;
+  listGallerys: () => Promise<ArchiveGalleryObj[]>;
   createGallery: (
     title: string,
     description: string,
-    thumbnail: FileObj,
-  ) => Promise<GalleryObj>;
-  goToGallery: (gallery: GalleryObj) => GalleryObj;
+    thumbnail: FileElem,
+  ) => Promise<ArchiveGalleryObj>;
+  goToGallery: (gallery: ArchiveGalleryObj) => ArchiveGalleryObj;
 }
 
 export const GallerysHandlerContext = createContext({} as GallerysHandler);
 
 export const useGallerysHandler = (userId: string): GallerysHandler => {
-  const [gallerys, changeGallerys] = useState<GalleryObj[]>([]);
+  const [gallerys, changeGallerys] = useState<ArchiveGalleryObj[]>([]);
   const [galleryId, changeGalleryId] = useState<string>('');
   const gallery = gallerys.find((gallery) => gallery.id === galleryId);
 
   const galleryActions: GalleryActions = {
-    goToGallery: (gallery: GalleryObj) => {
+    goToGallery: (gallery: ArchiveGalleryObj) => {
       changeGalleryId(gallery.id);
       return gallery;
     },
@@ -41,7 +41,7 @@ export const useGallerysHandler = (userId: string): GallerysHandler => {
     createGallery: async (
       title: string,
       description: string,
-      thumbnail: FileObj,
+      thumbnail: FileElem,
     ) => {
       const gallery = await gallerysGqlHelper.create(
         userId,

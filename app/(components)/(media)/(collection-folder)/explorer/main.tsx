@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import {
   GalleryCollectionContext,
   CollectionResourcesContext,
-} from '@/(model)/media/collection/main';
+} from '@/(model)/archive/collection/main';
 import { useResourcesHandler } from '@/(controller)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 

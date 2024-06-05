@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
-export enum SpaceSceneVariant {
+export enum ChapterSceneVariant {
   VISUAL = 'VISUAL',
   AUDIO = 'AUDIO',
   MEMO = 'MEMO',
   LINK = 'LINK',
 }
 
-export interface SpaceSceneObj {
+export interface ChapterSceneObj {
   id: string;
   chapterId: string;
   title: string;
@@ -15,36 +15,45 @@ export interface SpaceSceneObj {
   variant: string;
 }
 
-export const exampleSpaceScene: SpaceSceneObj = {
+export const chapterSceneGql = `
+type ChapterSceneObj {
+  id: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  variant: String!
+}`
+
+export const exampleChapterScene: ChapterSceneObj = {
   id: '0',
   chapterId: '0',
   title: 'Idea Scene',
   description: 'Scene Description',
-  variant: SpaceSceneVariant.VISUAL,
+  variant: ChapterSceneVariant.VISUAL,
 };
 
-export const SpaceSceneContext = createContext<SpaceSceneObj>({} as SpaceSceneObj);
+export const ChapterSceneContext = createContext<ChapterSceneObj>({} as ChapterSceneObj);
 
-export const exampleSpaceScenes: SpaceSceneObj[] = [
+export const exampleChapterScenes: ChapterSceneObj[] = [
   {
     id: '0',
     chapterId: '0',
     title: 'Idea Scene 1',
     description: 'Scene Description',
-    variant: SpaceSceneVariant.VISUAL,
+    variant: ChapterSceneVariant.VISUAL,
   },
   {
     id: '1',
     chapterId: '0',
     title: 'Idea Scene 2',
     description: 'Scene Description',
-    variant: SpaceSceneVariant.VISUAL,
+    variant: ChapterSceneVariant.VISUAL,
   },
   {
     id: '2',
     chapterId: '0',
     title: 'Idea Scene 3',
     description: 'Scene Description',
-    variant: SpaceSceneVariant.VISUAL,
+    variant: ChapterSceneVariant.VISUAL,
   },
 ];

@@ -1,4 +1,4 @@
-import { FileObj, FileVariant } from '@/(model)/concept/file/main';
+import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { useEffect } from 'react';
 
 export const useUnsplash = () => {
@@ -40,13 +40,13 @@ export const useUnsplash = () => {
       );
       const data = await resp.json();
       return data.results.map((result: any) => {
-        const fileObj : FileObj = {
+        const fileObj : FileElem = {
           id: crypto.randomUUID(),
           src: result.urls.raw,
           fileType: 'image/*',
           title: result.alt_description,
           size: 0,
-          variant: FileVariant.IMAGE,
+          variant: FileElemVariant.IMAGE,
         }
         return fileObj;
       });

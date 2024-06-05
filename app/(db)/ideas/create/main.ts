@@ -1,10 +1,10 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { FileObj } from '@/(model)/concept/file/main';
-import { LinkObj } from '@/(model)/concept/link/main';
-import { LogObj } from '@/(model)/concept/log/main';
-import { CollectionResourceVariant } from '@/(model)/media/resource/main';
-import { NoteObj } from '@/(model)/concept/note/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { LinkElem } from '@/(model)/elements/link/main';
+import { LogElem } from '@/(model)/elements/log/main';
+import { CollectionResourceVariant } from '@/(model)/archive/resource/main';
+import { NoteElem } from '@/(model)/elements/note/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createIdeaObj,
@@ -17,7 +17,7 @@ export interface IdeasCreateGqlHelperType {
     description: string,
     x: number,
     y: number,
-    file: FileObj,
+    file: FileElem,
   ) => Promise<SceneIdeaObj>;
   createFromLink: (
     partId: string,
@@ -25,7 +25,7 @@ export interface IdeasCreateGqlHelperType {
     description: string,
     x: number,
     y: number,
-    link: LinkObj,
+    link: LinkElem,
   ) => Promise<SceneIdeaObj>;
   createFromLog: (
     partId: string,
@@ -33,7 +33,7 @@ export interface IdeasCreateGqlHelperType {
     description: string,
     x: number,
     y: number,
-    log: LogObj,
+    log: LogElem,
   ) => Promise<SceneIdeaObj>;
   createFromNote: (
     partId: string,
@@ -41,7 +41,7 @@ export interface IdeasCreateGqlHelperType {
     description: string,
     x: number,
     y: number,
-    note: NoteObj,
+    note: NoteElem,
   ) => Promise<SceneIdeaObj>;
 }
 
@@ -52,7 +52,7 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
     description: string,
     x: number,
     y: number,
-    file: FileObj,
+    file: FileElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createIdeaObj,
@@ -77,7 +77,7 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
     description: string,
     x: number,
     y: number,
-    link: LinkObj,
+    link: LinkElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createIdeaObj,
@@ -102,7 +102,7 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
     description: string,
     x: number,
     y: number,
-    log: LogObj,
+    log: LogElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createIdeaObj,
@@ -127,7 +127,7 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
     description: string,
     x: number,
     y: number,
-    note: NoteObj,
+    note: NoteElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createIdeaObj,

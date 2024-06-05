@@ -1,6 +1,6 @@
-import { SpaceSceneVariant } from '@/(model)/space/chapter/scene/main';
-import { exampleFiles } from '@/(model)/concept/file/main';
-import { CollectionResourceVariant } from '@/(model)/media/resource/main';
+import { ChapterSceneVariant } from '@/(model)/space/chapter/scene/main';
+import { exampleFileElems } from '@/(model)/elements/file/main';
+import { CollectionResourceVariant } from '@/(model)/archive/resource/main';
 import { TemplateChapterObj } from '../main';
 import { ConversationMessageSource } from '@/(model)/space/chapter/chat/conversation/message/main';
 

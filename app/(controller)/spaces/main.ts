@@ -1,6 +1,6 @@
 import { useState, useMemo, createContext } from 'react';
 import { SpaceObj } from '@/(model)/space/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { TemplateChapterObj } from '@/(model)/space/templates/main';
 import { toast } from 'sonner';
 import { spacesGqlHelper } from '../../(db)/spaces/main';
@@ -15,7 +15,7 @@ export interface SpaceActions {
   createSpace: (
     title: string,
     description: string,
-    thumbnail: FileObj,
+    thumbnail: FileElem,
     variant: string,
     chapterTemplates: TemplateChapterObj[],
   ) => Promise<SpaceObj>;
@@ -45,7 +45,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
     createSpace: async (
       title: string,
       description: string,
-      thumbnail: FileObj,
+      thumbnail: FileElem,
       variant: string,
       chapterTemplates: TemplateChapterObj[],
     ) => {

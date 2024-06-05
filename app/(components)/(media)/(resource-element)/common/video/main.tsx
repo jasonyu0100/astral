@@ -1,4 +1,4 @@
-import { CollectionResourceContext } from '@/(model)/media/resource/main';
+import { CollectionResourceContext } from '@/(model)/archive/resource/main';
 import { useContext } from 'react';
 
 export function CollectionResourceVideo() {

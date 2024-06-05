@@ -6,7 +6,7 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveSidebarCreateModalContext } from '../main';
 import { CollectionsHandlerContext } from '@/(controller)/explorer/collections/main';
@@ -17,7 +17,7 @@ export function SidebarCreateCollectionModal() {
   const { opened, close } = modalContext.createCollection;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [files, changeFiles] = useState([] as FileObj[]);
+  const [files, changeFiles] = useState([] as FileElem[]);
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>

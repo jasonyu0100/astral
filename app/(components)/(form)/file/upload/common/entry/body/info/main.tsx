@@ -1,8 +1,8 @@
-import { FileObjContext } from '@/(model)/concept/file/main';
+import { FileElemContext } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {
-  const file = useContext(FileObjContext);
+  const file = useContext(FileElemContext);
   return (
     <div className='flex flex-col'>
       <p className='text-lg font-bold'>{file.title}</p>

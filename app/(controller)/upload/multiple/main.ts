@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
 import {
-  FileObj,
-  FileVariant,
+  FileElem,
+  FileElemVariant,
   getFileVariantFromMimeType,
-} from '../../../(model)/concept/file/main';
+} from '../../../(model)/elements/file/main';
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { generateUploadURL } from '@/(api)/aws/s3/main';
 import { createFileObj } from '@/graphql/mutations';
@@ -14,15 +14,15 @@ export interface UploadsActions {
 }
 
 export interface UploadsHandlerObj {
-  files: FileObj[];
-  variant?: FileVariant;
+  files: FileElem[];
+  variant?: FileElemVariant;
   uploadsActions: UploadsActions;
 }
 
 export const UploadsHandlerContext = createContext({} as UploadsHandlerObj);
 
-export const useUploadsHandler = (variant ?: FileVariant) : UploadsHandlerObj => {
-  const [files, changeFiles] = useState<FileObj[]>([]);
+export const useUploadsHandler = (variant ?: FileElemVariant) : UploadsHandlerObj => {
+  const [files, changeFiles] = useState<FileElem[]>([]);
 
   const uploadsActions: UploadsActions = {
     clearFile: (i) =>
@@ -30,7 +30,7 @@ export const useUploadsHandler = (variant ?: FileVariant) : UploadsHandlerObj =>
     uploadFiles: async (event: any) => {
       // get file attributes
       const files: any[] = Array.from(event.target.files);
-      const payload: FileObj[] = [];
+      const payload: FileElem[] = [];
       for (let file of files) {
         const fileName = file.name;
         const fileType = file.type;
@@ -50,7 +50,7 @@ export const useUploadsHandler = (variant ?: FileVariant) : UploadsHandlerObj =>
         const fileSrc = uploadUrl.split('?')[0];
 
         // post request to my server to store any extra data
-        const filePayload: FileObj = {
+        const filePayload: FileElem = {
           id: crypto.randomUUID(),
           src: fileSrc,
           title: fileName,

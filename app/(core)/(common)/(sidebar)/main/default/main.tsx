@@ -1,4 +1,4 @@
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { DashboardSidebarIndicators } from '../../indicators/main';
 import { DashboardSidebarTopOverview } from '../../top/overview/main';
 import { DashboardSidebarDefaultContainer } from './container/main';
@@ -12,7 +12,7 @@ export function DashboardSidebarDefault() {
   return (
     <DashboardSidebarDefaultContainer>
       <DashboardSidebarTopOverview/>
-      <Divider className='my-[1rem] mb-[2rem]' />
+      <HorizontalDivider className='my-[1rem] mb-[2rem]' />
       <DashboardSidebarIndicators>
         <SpaceIndicator />
         <ArchiveIndicator />

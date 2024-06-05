@@ -7,8 +7,8 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { Divider } from '@/(components)/(line)/divider/main';
-import { Seperator } from '@/(components)/(line)/seperator/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 import { ChaptersContainer } from './chapters/main';
 import { ChaptersRowContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/main';
 import { ChaptersLeft } from './chapters/left/main';
@@ -128,7 +128,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-10']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}
@@ -138,7 +138,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-5']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}
@@ -159,7 +159,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-5']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}
@@ -169,7 +169,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-10']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}
@@ -190,7 +190,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-10']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}
@@ -200,7 +200,7 @@ function Page() {
                   <GlassWindowContents className='flex flex-row'></GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-5']} />
                 </GlassWindowFrame>
-                <Seperator />
+                <HorizontalSeperator />
                 <GlassWindowFrame
                   name='temp'
                   borderFx={borderFx['border-around']}

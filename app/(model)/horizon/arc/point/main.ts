@@ -8,6 +8,16 @@ export interface ArcPointObj {
   time: string;
 }
 
+export const arcPointGql = `
+type ArcPointObj {
+  id : String!
+  arcId : String!
+  title : String!
+  description : String!
+  time : String!
+}
+`;
+
 export const ArcPointContext = createContext<ArcPointObj>({} as ArcPointObj);
 
 export const exampleArcPoint: ArcPointObj = {

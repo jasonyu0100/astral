@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import { FileObj } from "../../../../(model)/concept/file/main";
+import { FileElem } from "../../../../(model)/elements/file/main";
 
 interface FileOnChangeContextInterface {
-    file: FileObj;
-    onChange: (file: FileObj) => void;
+    file: FileElem;
+    onChange: (file: FileElem) => void;
 }
 
 export const FileOnChangeContext = createContext({} as FileOnChangeContextInterface);

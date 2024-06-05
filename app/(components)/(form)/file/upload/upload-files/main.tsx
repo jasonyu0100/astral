@@ -1,7 +1,7 @@
 import {
-  FileObj,
-  FileVariant,
-} from '@/(model)/concept/file/main';
+  FileElem,
+  FileElemVariant,
+} from '@/(model)/elements/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {
@@ -16,9 +16,9 @@ export function FormUploadFiles({
   label,
   variant,
 }: {
-  onChange: (files: FileObj[]) => void;
+  onChange: (files: FileElem[]) => void;
   label: string;
-  variant?: FileVariant;
+  variant?: FileElemVariant;
 }) {
   const uploadsHandler = useUploadsHandler(variant);
 

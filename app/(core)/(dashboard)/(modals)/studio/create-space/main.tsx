@@ -5,7 +5,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { SpaceVariant } from '@/(model)/space/main';
 import {
   TemplateChapterObj,
@@ -25,8 +25,8 @@ export interface PageOneProps {
   updateTitle: (title: string) => void;
   description: string;
   updateDescription: (description: string) => void;
-  thumbnail: FileObj;
-  updateThumbnail: (thumbnail: FileObj) => void;
+  thumbnail: FileElem;
+  updateThumbnail: (thumbnail: FileElem) => void;
 }
 
 export interface PageTwoProps {
@@ -55,7 +55,7 @@ export function CreateSpaceModal() {
   const { opened, close, page, updatePage } = modalContext.createSpaceModal;
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [thumbnail, changeThumbnail] = useState({} as FileObj);
+  const [thumbnail, changeThumbnail] = useState({} as FileElem);
   const [variant, changeVariant] = useState(SpaceVariant.SONG);
   const [chapterTemplates, changeChapterTemplates] = useState(
     [] as TemplateChapterObj[],
@@ -71,7 +71,7 @@ export function CreateSpaceModal() {
     description,
     updateDescription: (description: string) => changeDescription(description),
     thumbnail,
-    updateThumbnail: (thumbnail: FileObj) => changeThumbnail(thumbnail),
+    updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
   };
 
   const pageTwo: PageTwoProps = {

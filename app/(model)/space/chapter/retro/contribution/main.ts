@@ -1,11 +1,11 @@
 import { createContext } from 'react';
 
-export enum SpaceContributionVariant {
+export enum RetroContributionVariant {
   CONVERSATION = 'CONVERSATION',
   SCENE = 'SCENE',
   VERSE = 'VERSE',
 }
-export interface SpaceContributionObj {
+export interface RetroContributionObj {
   id: string;
   retroId: string;
   variant: string;
@@ -17,14 +17,28 @@ export interface SpaceContributionObj {
   time: string;
 }
 
-export const SpaceContributionContext = createContext<SpaceContributionObj>(
-  {} as SpaceContributionObj,
+export const retroContributionGql = `
+type RetroContributionObj {
+  id: String!
+  retroId: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  verseId: String
+  value: Int!
+  message: String!
+  time: String!
+}
+`
+
+export const RetroContributionContext = createContext<RetroContributionObj>(
+  {} as RetroContributionObj,
 );
 
-export const exampleSpaceContribution: SpaceContributionObj = {
+export const exampleRetroContribution: RetroContributionObj = {
   id: '0',
   retroId: '0',
-  variant: SpaceContributionVariant.CONVERSATION,
+  variant: RetroContributionVariant.CONVERSATION,
   conversationId: '0',
   sceneId: undefined,
   verseId: undefined,
@@ -33,11 +47,11 @@ export const exampleSpaceContribution: SpaceContributionObj = {
   time: new Date('2023-12-19').toISOString(),
 };
 
-export const exampleSpaceContributions: SpaceContributionObj[] = [
+export const exampleRetroContributions: RetroContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: SpaceContributionVariant.CONVERSATION,
+    variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,
@@ -48,7 +62,7 @@ export const exampleSpaceContributions: SpaceContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: SpaceContributionVariant.CONVERSATION,
+    variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,
@@ -59,7 +73,7 @@ export const exampleSpaceContributions: SpaceContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: SpaceContributionVariant.CONVERSATION,
+    variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,

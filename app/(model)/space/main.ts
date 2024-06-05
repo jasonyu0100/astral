@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../concept/file/main';
+import { FileElem, exampleFileElem } from '../elements/file/main';
 
 export enum SpaceVariant {
   MIX = 'MIX',
@@ -15,10 +15,20 @@ export interface SpaceObj {
   title: string;
   description: string;
   time: string;
-  thumbnail: FileObj;
+  thumbnail: FileElem;
   variant: string;
-  moveId?: string;
 }
+
+export const spaceGql = `
+type SpaceObj {
+	id: String!
+	userId: String!
+	title: String!
+	time: String!
+	description: String!
+	thumbnail: FileElem!
+	variant: String!
+}`;
 
 export const SpaceContext = createContext<SpaceObj>({} as SpaceObj);
 
@@ -28,7 +38,7 @@ export const exampleSpace: SpaceObj = {
   title: 'Space Example',
   description: 'Space Description',
   time: new Date().toISOString(),
-  thumbnail: exampleFile,
+  thumbnail: exampleFileElem,
   variant: SpaceVariant.CUSTOM,
 };
 
@@ -39,7 +49,7 @@ export const exampleSpaces: SpaceObj[] = [
     title: 'Space Example',
     description: 'Space Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
+    thumbnail: exampleFileElem,
     variant: SpaceVariant.CUSTOM,
   },
   {
@@ -48,7 +58,7 @@ export const exampleSpaces: SpaceObj[] = [
     title: 'Space Example',
     description: 'Space Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
+    thumbnail: exampleFileElem,
     variant: SpaceVariant.CUSTOM,
   },
 ];

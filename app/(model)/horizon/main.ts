@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../concept/file/main';
+import { FileElem, exampleFileElem } from '../elements/file/main';
 
 export enum HorizonVariant {
   MIX = 'MIX',
@@ -15,9 +15,20 @@ export interface HorizonObj {
   title: string;
   description: string;
   time: string;
-  thumbnail: FileObj;
+  thumbnail: FileElem;
   variant: string;
 }
+
+export const horizonGql = `
+type HorizonObj {
+  id: String!
+  userId: String!
+  title: String!
+  time: String!
+  description: String!
+  thumbnail: FileElem!
+  variant: String!
+}`;
 
 export const HorizonContext = createContext<HorizonObj>({} as HorizonObj);
 
@@ -27,7 +38,7 @@ export const exampleHorizon: HorizonObj = {
   title: 'Horizon Example',
   description: 'Horizon Description',
   time: new Date().toISOString(),
-  thumbnail: exampleFile,
+  thumbnail: exampleFileElem,
   variant: HorizonVariant.CUSTOM,
 };
 
@@ -38,7 +49,7 @@ export const exampleHorizons: HorizonObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
+    thumbnail: exampleFileElem,
     variant: HorizonVariant.CUSTOM,
   },
   {
@@ -47,7 +58,7 @@ export const exampleHorizons: HorizonObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     time: new Date().toISOString(),
-    thumbnail: exampleFile,
+    thumbnail: exampleFileElem,
     variant: HorizonVariant.CUSTOM,
   },
 ];

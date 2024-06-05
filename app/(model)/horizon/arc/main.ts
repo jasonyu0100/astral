@@ -8,6 +8,16 @@ export interface HorizonArcObj {
   time: string;
 }
 
+export const horizonArcGql = `
+type HorizonArcObj {
+  id: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  time: String!
+}
+`;
+
 export const HorizonArcContext = createContext<HorizonArcObj>(
   {} as HorizonArcObj,
 );

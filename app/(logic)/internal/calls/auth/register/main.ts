@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createUserObj } from '@/graphql/mutations';
 import { listUserObjs } from '@/graphql/queries';
@@ -63,7 +63,7 @@ export async function googleRegisterUser(
   lname: string,
   email: string,
   googleId: string,
-  profilePicture: FileObj,
+  profilePicture: FileElem,
 ) {
   if (process.env.PRERELEASE_MODE) {
     return { status: false, error: 'PRERELEASE ONLY' };

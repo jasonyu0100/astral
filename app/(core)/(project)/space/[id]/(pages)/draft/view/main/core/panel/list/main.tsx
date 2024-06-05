@@ -1,4 +1,4 @@
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import { useContext } from 'react';
 
@@ -11,7 +11,7 @@ export function DraftChapterList() {
       <div>
         <p className={`text-md font-bold text-slate-500`}>0. General</p>
       </div>
-      <Divider/>
+      <HorizontalDivider/>
       {chaptersHandler.chapters.map((chapter, index) => (
         <div key={chapter.id}>
           <p className={`text-md font-bold text-slate-500`}>

@@ -7,7 +7,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFile, exampleFiles } from '@/(model)/concept/file/main';
+import { exampleFileElem, exampleFileElems } from '@/(model)/elements/file/main';
 import { BaseSidebar } from './view/sidebar/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { horizonMap } from '../../map';
@@ -42,7 +42,7 @@ function Page() {
           >
             <GlassWindowContents>
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <ProfileCover file={exampleFile} />
+                <ProfileCover file={exampleFileElem} />
                 <div className='flex flex-col'>
                   <p className='font-bold text-slate-300'>John Smith</p>
                   <p className='text-slate-500'>Space XYZ</p>
@@ -54,7 +54,7 @@ function Page() {
                 <h1 className='text-slate-300'>Hello World</h1>
                 <h1 className='text-slate-300'>Hello World</h1>
                 <img
-                  src={exampleFiles[2].src}
+                  src={exampleFileElems[2].src}
                   className='w-full max-w-[360px]'
                 />
                 <p className='text-xs font-bold text-slate-500'>
@@ -75,7 +75,7 @@ function Page() {
           >
             <GlassWindowContents>
               <div className='flex flex-row items-center space-x-[1rem]'>
-                <ProfileCover file={exampleFile} />
+                <ProfileCover file={exampleFileElem} />
                 <div className='flex flex-col'>
                   <p className='font-bold text-slate-300'>John Smith</p>
                   <p className='text-slate-500'>Space XYZ</p>
@@ -87,7 +87,7 @@ function Page() {
                 <h1 className='text-slate-300'>Hello World</h1>
                 <h1 className='text-slate-300'>Hello World</h1>
                 <img
-                  src={exampleFiles[2].src}
+                  src={exampleFileElems[2].src}
                   className='w-full max-w-[360px]'
                 />
                 <p className='text-xs font-bold text-slate-500'>

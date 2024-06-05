@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { SpaceSceneContext } from '@/(model)/space/chapter/scene/main';
+import { ChapterSceneContext } from '@/(model)/space/chapter/scene/main';
 import { cn } from '@/(utils)/cn';
 import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 
 export function SceneListEntry({ index }: { index: number }) {
   const partsHandler =
     useContext(ScenesHandlerContext);
-  const part = useContext(SpaceSceneContext);
+  const part = useContext(ChapterSceneContext);
   const active = part.id == partsHandler.partId;
 
   return (

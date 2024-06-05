@@ -12,8 +12,8 @@ import { ChaptersLeft } from './chapters/left/main';
 import { ChaptersRowContainer } from './chapters/row/main';
 import { ChapterContainer } from './chapters/row/chapter/main';
 import { ChaptersRight } from './chapters/right/main';
-import { Divider } from '@/(components)/(line)/divider/main';
-import { Seperator } from '@/(components)/(line)/seperator/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 
 function MapSpace() {
   return (
@@ -104,7 +104,7 @@ function Page() {
                         <MapSpace />
                         <MapSpace />
                       </div>
-                      <Seperator />
+                      <HorizontalSeperator />
                       <div className='flex flex-col'>
                         <p className='text-slate-500 font-bold'>
                           Contribution Map

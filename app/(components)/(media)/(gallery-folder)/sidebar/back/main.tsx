@@ -1,4 +1,4 @@
-import { GalleryContext } from '@/(model)/media/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
 import { useContext } from 'react';
 import { GalleryBackEdit } from '../../common/back/edit/main';
 import { GalleryBackDescription } from '../../common/back/description/main';
@@ -9,7 +9,7 @@ import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/map/vie
 
 export function GallerySidebarBack() {
   const { flip } = useContext(FlipContext);
-  const gallery = useContext(GalleryContext);
+  const gallery = useContext(ArchiveGalleryContext);
   const { sidebarHandler } = useContext(MapSidebarContext);
 
   return (

@@ -1,4 +1,4 @@
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { LinkInputProps } from '@/(types)/props/main';
 import Link from 'next/link';
 

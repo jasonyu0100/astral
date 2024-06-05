@@ -17,6 +17,9 @@ export const learnMap = {
     map: {
       link: `${baseUrl}/map`,
     },
+    model: {
+      link: `${baseUrl}/model`,
+    },
     month: {
       link: `${baseUrl}/month`,
     },

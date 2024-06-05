@@ -1,4 +1,4 @@
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { useState, useEffect, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../../(db)/resources/main';
 

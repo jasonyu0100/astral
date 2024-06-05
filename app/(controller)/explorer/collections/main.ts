@@ -1,6 +1,6 @@
-import { FileObj } from '@/(model)/concept/file/main';
-import { GalleryCollectionObj } from '@/(model)/media/collection/main';
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { GalleryCollectionObj } from '@/(model)/archive/collection/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { createContext, useMemo, useState } from 'react';
 import { collectionsGqlHelper } from '../../../(db)/collections/main';
 import { resourcesGqlHelper } from '@/(db)/resources/main';
@@ -16,7 +16,7 @@ export interface CollectionActions {
   createCollection: (
     title: string,
     description: string,
-    files: FileObj[],
+    files: FileElem[],
   ) => Promise<GalleryCollectionObj>;
   goToCollection: (collection: GalleryCollectionObj) => GalleryCollectionObj;
 }
@@ -45,7 +45,7 @@ export const useCollectionsHandler = (galleryId: string, userId: string): Collec
       changeCollectionId(collections[0]?.id || '');
       return collections;
     },
-    createCollection: async (title: string, description: string, files: FileObj[]) => {
+    createCollection: async (title: string, description: string, files: FileElem[]) => {
       const collection = await collectionsGqlHelper.create(galleryId, title, description);
       changeCollections((prev) => [...prev, collection]);
       changeCollectionId(collection.id);

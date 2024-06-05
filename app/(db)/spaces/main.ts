@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { SpaceObj } from '@/(model)/space/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
@@ -16,7 +16,7 @@ export interface SpacesGqlHelper {
     userId: string,
     title: string,
     description: string,
-    thumbnail: FileObj,
+    thumbnail: FileElem,
     variant: string,
   ) => Promise<SpaceObj>;
   update: (
@@ -42,7 +42,7 @@ export const spacesGqlHelper: SpacesGqlHelper = {
     userId: string,
     title: string,
     description: string,
-    thumbnail: FileObj,
+    thumbnail: FileElem,
     variant: string,
   ) => {
     const currentDate = new Date().toISOString();

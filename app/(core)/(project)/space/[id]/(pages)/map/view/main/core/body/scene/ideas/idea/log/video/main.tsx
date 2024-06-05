@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { LogObj, LogObjContext } from '@/(model)/concept/log/main';
+import { LogElem, LogElemContext } from '@/(model)/elements/log/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 import { IdeaHandlerContext } from '@/(controller)/ideas/idea/main';
@@ -27,9 +27,9 @@ export function LogVideoStar() {
             e.stopPropagation();
           }}
         >
-          <LogObjContext.Provider value={idea?.log || ({} as LogObj)}>
+          <LogElemContext.Provider value={idea?.log || ({} as LogElem)}>
             <FullLoomVideo />
-          </LogObjContext.Provider>
+          </LogElemContext.Provider>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
               {idea.title}

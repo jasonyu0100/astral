@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { SpaceSceneObj } from '@/(model)/space/chapter/scene/main';
+import { ChapterSceneObj } from '@/(model)/space/chapter/scene/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createSceneObj,
@@ -9,20 +9,20 @@ import {
 import { listSceneObjs } from '@/graphql/queries';
 
 export interface ScenesGqlHelper {
-  listFromChapter: (chapterId: string) => Promise<SpaceSceneObj[]>;
+  listFromChapter: (chapterId: string) => Promise<ChapterSceneObj[]>;
   create: (
     chapterId: string,
     title: string,
     description: string,
     variant: string,
-  ) => Promise<SpaceSceneObj>;
+  ) => Promise<ChapterSceneObj>;
   update: (
     partId: string,
-    updatedSceneObj: SpaceSceneObj,
-  ) => Promise<SpaceSceneObj>;
+    updatedSceneObj: ChapterSceneObj,
+  ) => Promise<ChapterSceneObj>;
   delete: (
     partId: string,
-  ) => Promise<SpaceSceneObj>;
+  ) => Promise<ChapterSceneObj>;
 }
 
 export const partsGqlHelper : ScenesGqlHelper = {
@@ -38,7 +38,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObjs =
-      (payload?.data.listSceneObjs?.items as SpaceSceneObj[]) || [];
+      (payload?.data.listSceneObjs?.items as ChapterSceneObj[]) || [];
     return partObjs;
   },
   create: async (
@@ -59,12 +59,12 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      .createSceneObj as SpaceSceneObj;
+      .createSceneObj as ChapterSceneObj;
     return partObj;
   },
   update: async (
     partId: string,
-    updatedSceneObj: SpaceSceneObj,
+    updatedSceneObj: ChapterSceneObj,
   ) => {
     const payload = await amplifyClient.graphql({
       query: updateSceneObj,
@@ -79,7 +79,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      .updateSceneObj as SpaceSceneObj;
+      .updateSceneObj as ChapterSceneObj;
     return partObj;
   },
   delete: async (partId: string) => {
@@ -92,7 +92,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      ?.deleteSceneObj as SpaceSceneObj;
+      ?.deleteSceneObj as ChapterSceneObj;
     return partObj;
   },
 };

@@ -1,4 +1,4 @@
-import { LogObj } from '@/(model)/concept/log/main';
+import { LogElem } from '@/(model)/elements/log/main';
 import { createContext, useState } from 'react';
 
 export interface StarModalController {
@@ -11,8 +11,8 @@ export interface StarModalController {
     opened: boolean;
     open: () => void;
     close: () => void;
-    logObj: LogObj;
-    updateLogObj: (logObj: LogObj) => void;
+    logObj: LogElem;
+    updateLogObj: (logObj: LogElem) => void;
   };
   addLinkStarModal: {
     opened: boolean;
@@ -33,7 +33,7 @@ export const useStarModal = (): StarModalController => {
   const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
   const [showFour, changeShowFour] = useState(false);
-  const [logObj, changeLogObj] = useState({} as LogObj);
+  const [logObj, changeLogObj] = useState({} as LogElem);
 
   return {
     addNoteStarModal: {
@@ -46,7 +46,7 @@ export const useStarModal = (): StarModalController => {
       open: () => changeShowTwo(true),
       close: () => changeShowTwo(false),
       logObj: logObj,
-      updateLogObj: (logObj: LogObj) => changeLogObj(logObj),
+      updateLogObj: (logObj: LogElem) => changeLogObj(logObj),
     },
     addLinkStarModal: {
       opened: showThree,

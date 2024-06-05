@@ -7,9 +7,9 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import {
-  LinkObj,
-  LinkVariant,
-} from '@/(model)/concept/link/main';
+  LinkElem,
+  LinkElemVariant,
+} from '@/(model)/elements/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
@@ -18,7 +18,7 @@ export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addLinkStarModal;
   const ideasHandler = useContext(IdeasHandlerContext);
-  const [variant, changeVariant] = useState<string>(LinkVariant.YOUTUBE);
+  const [variant, changeVariant] = useState<string>(LinkElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
@@ -67,8 +67,8 @@ export function AddLinkStarModal() {
             value={variant}
             onChange={(e) => changeVariant(e.target.value)}
           >
-            <option value={LinkVariant.YOUTUBE}>YouTube</option>
-            <option value={LinkVariant.SPOTIFY}>Spotify</option>
+            <option value={LinkElemVariant.YOUTUBE}>YouTube</option>
+            <option value={LinkElemVariant.SPOTIFY}>Spotify</option>
           </FormSelect>
           <FormInput
             placeholder='Title'
@@ -76,7 +76,7 @@ export function AddLinkStarModal() {
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
-          {variant === LinkVariant.YOUTUBE && (
+          {variant === LinkElemVariant.YOUTUBE && (
             <>
               <FormInput
                 placeholder='https://www.youtube.com/watch?v=EcomZGuMZis'
@@ -94,7 +94,7 @@ export function AddLinkStarModal() {
               />
             </>
           )}
-          {variant === LinkVariant.SPOTIFY && (
+          {variant === LinkElemVariant.SPOTIFY && (
             <>
               <FormInput
                 placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
@@ -117,20 +117,20 @@ export function AddLinkStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              if (variant === LinkVariant.YOUTUBE) {
+              if (variant === LinkElemVariant.YOUTUBE) {
                 ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://www.youtube.com/embed/${youtubeId}`,
-                  variant: LinkVariant.YOUTUBE,
-                } as LinkObj);
-              } else if (variant === LinkVariant.SPOTIFY) {
+                  variant: LinkElemVariant.YOUTUBE,
+                } as LinkElem);
+              } else if (variant === LinkElemVariant.SPOTIFY) {
                 ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
                   id: '0',
                   title: 'passion.png',
                   url: `https://open.spotify.com/embed/track/${spotifyId}`,
-                  variant: LinkVariant.SPOTIFY,
-                } as LinkObj);
+                  variant: LinkElemVariant.SPOTIFY,
+                } as LinkElem);
               }
               close();
             }}

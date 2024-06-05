@@ -1,6 +1,6 @@
 import {
-  FileObj,
-} from '@/(model)/concept/file/main';
+  FileElem,
+} from '@/(model)/elements/file/main';
 import React, { createContext } from 'react';
 import SearchModalView from '@/(components)/(form)/file/search/search-image/search-modal/view';
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
@@ -16,8 +16,8 @@ export function FormSearchImage({
   onChange,
   label,
 }: {
-  file: FileObj;
-  onChange: (file: FileObj) => void;
+  file: FileElem;
+  onChange: (file: FileElem) => void;
   label: string;
 }) {
   const modalContext = useSearchModal();

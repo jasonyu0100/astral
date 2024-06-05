@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { SceneIdeaContext } from '@/(model)/space/chapter/scene/idea/main';
-import { LinkVariant } from '@/(model)/concept/link/main';
+import { LinkElemVariant } from '@/(model)/elements/link/main';
 import { LinkSpotifyStar } from './spotify/main';
 import { LinkYouTubeStar } from './youtube/main';
 
@@ -9,8 +9,8 @@ export function LinkIdea() {
 
   return (
     <>
-      {star.link?.variant === LinkVariant.SPOTIFY && <LinkSpotifyStar />}
-      {star.link?.variant === LinkVariant.YOUTUBE && <LinkYouTubeStar />}
+      {star.link?.variant === LinkElemVariant.SPOTIFY && <LinkSpotifyStar />}
+      {star.link?.variant === LinkElemVariant.YOUTUBE && <LinkYouTubeStar />}
     </>
   );
 }

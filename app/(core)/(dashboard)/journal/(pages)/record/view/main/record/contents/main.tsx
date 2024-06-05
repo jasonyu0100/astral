@@ -4,7 +4,7 @@ import { GlassWindowPane } from "@/(components)/(glass)/window/pane/main";
 import { spaceMap } from "@/(core)/(project)/space/[id]/map";
 import { horizonMap } from "@/(core)/(project)/horizon/[id]/map";
 import { glassFx } from "@/(style)/data";
-import { exampleFiles } from "@/(model)/concept/file/main";
+import { exampleFileElems } from "@/(model)/elements/file/main";
 
 export function JournalHeaderContents() {
   return (
@@ -15,7 +15,7 @@ export function JournalHeaderContents() {
           <h1 className='text-slate-300'>Hello World</h1>
           <h1 className='text-slate-300'>Hello World</h1>
           <h1 className='text-slate-300'>Hello World</h1>
-          <img src={exampleFiles[2].src} className='w-full max-w-[360px]' />
+          <img src={exampleFileElems[2].src} className='w-full max-w-[360px]' />
           <p className='text-xs font-bold text-slate-500'>
             <a href={horizonMap.horizon.id.field.link('0')}>Horizon XYZ</a>
             {'>'}

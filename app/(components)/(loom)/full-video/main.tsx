@@ -1,11 +1,11 @@
 import { memo, useContext, useMemo, useRef, useState } from 'react';
 import { oembed } from '@loomhq/loom-embed';
 import {
-  LogObjContext,
-} from '@/(model)/concept/log/main';
+  LogElemContext,
+} from '@/(model)/elements/log/main';
 
 export const FullLoomVideo = memo(function FullLoomVideo() {
-  const logObj = useContext(LogObjContext);
+  const logObj = useContext(LogElemContext);
   const loomRef = useRef<HTMLDivElement>(null);
   const [videoHtml, changeVideoHtml] = useState<string>('');
 

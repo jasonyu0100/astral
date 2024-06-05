@@ -8,6 +8,16 @@ export interface ClusterUpdateObj {
   time: string;
 }
 
+export const clusterUpdateGql = `
+type ClusterUpdateObj {
+  id : String!
+  clusterId : String!
+  title : String!
+  description : String!
+  time : String!
+}
+`;
+
 export const ClusterUpdateContext = createContext<ClusterUpdateObj>(
   {} as ClusterUpdateObj,
 );

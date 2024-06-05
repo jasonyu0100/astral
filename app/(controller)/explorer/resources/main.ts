@@ -1,5 +1,5 @@
-import { FileObj } from '@/(model)/concept/file/main';
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { useState, useEffect as useMemo, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../(db)/resources/main';
 
@@ -16,7 +16,7 @@ export interface ResourcesActions {
   createResourceFromFile: (
     name: string,
     description: string,
-    file: FileObj,
+    file: FileElem,
   ) => Promise<CollectionResourceObj>;
   updateResource: (
     resourceId: string,
@@ -57,7 +57,7 @@ export const useResourcesHandler = (
     createResourceFromFile: async (
       name: string,
       description: string,
-      file: FileObj,
+      file: FileElem,
     ) => {
       const resource = await resourcesGqlHelper.createFromFile(
         userId,

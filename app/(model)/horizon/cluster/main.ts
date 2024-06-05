@@ -8,6 +8,16 @@ export interface HorizonClusterObj {
   time: string;
 }
 
+export const horizonClusterGql = `
+type HorizonClusterObj {
+  id: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  time: String!
+}
+`;
+
 export const HorizonClusterContext = createContext<HorizonClusterObj>(
   {} as HorizonClusterObj,
 );

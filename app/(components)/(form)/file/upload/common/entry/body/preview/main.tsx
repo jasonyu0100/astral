@@ -1,14 +1,14 @@
 import {
-  FileObjContext,
-  FileVariant,
-} from '@/(model)/concept/file/main';
+  FileElemContext,
+  FileElemVariant,
+} from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {
-  const file = useContext(FileObjContext);
+  const file = useContext(FileElemContext);
   return (
     <>
-      {file.variant === FileVariant.AUDIO && (
+      {file.variant === FileElemVariant.AUDIO && (
         <div
           className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center bg-black shadow-md'
           onClick={() => {
@@ -48,13 +48,13 @@ export function UploadedFileEntryPreview() {
           />
         </div>
       )}
-      {file.variant === FileVariant.VIDEO && (
+      {file.variant === FileElemVariant.VIDEO && (
         <video
           src={file.src}
           className='aspect-square h-[100px] bg-black object-cover shadow-md'
         />
       )}
-      {file.variant === FileVariant.IMAGE && (
+      {file.variant === FileElemVariant.IMAGE && (
         <img
           src={file.src}
           alt={file.title}

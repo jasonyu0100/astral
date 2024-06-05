@@ -13,6 +13,17 @@ export interface VerseCommentObj {
   message: string;
 }
 
+export const verseCommentGql = `
+type VerseCommentObj {
+  id: String!
+  userId: String
+  verseId: String!
+  source: String!
+  time: String!
+  message: String!
+}
+`
+
 export const VerseCommentContext = createContext<VerseCommentObj>({} as VerseCommentObj);
 
 export const exampleVerseComment: VerseCommentObj = {

@@ -13,6 +13,17 @@ export interface ConversationMessageObj {
   message: string;
 }
 
+export const conversationMessageGql = `
+type ConversationMessageObj {
+  id: String!
+  userId: String
+  conversationId: String!
+  source: String!
+  time: String!
+  message: String!
+}
+`
+
 export const ConversationMessageContext = createContext<ConversationMessageObj>({} as ConversationMessageObj);
 
 export const exampleConversationMessage: ConversationMessageObj = {

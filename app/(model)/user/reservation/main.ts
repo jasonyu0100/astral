@@ -4,3 +4,12 @@ export interface ReservationObj {
   lname: string;
   email: string;
 }
+
+export const reservationGql = `
+type ReservationObj {
+  id: String!
+  fname: String!
+  lname: String!
+  email: String!
+}
+`

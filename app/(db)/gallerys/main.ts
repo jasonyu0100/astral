@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { GalleryObj } from '@/(model)/media/gallery/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { ArchiveGalleryObj } from '@/(model)/archive/gallery/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createGalleryObj,
@@ -10,19 +10,19 @@ import {
 import { getGalleryObj, listGalleryObjs } from '@/graphql/queries';
 
 export interface GallerysGqlHelper {
-  get: (id: string) => Promise<GalleryObj>;
-  listFromUser: (userId: string) => Promise<GalleryObj[]>;
+  get: (id: string) => Promise<ArchiveGalleryObj>;
+  listFromUser: (userId: string) => Promise<ArchiveGalleryObj[]>;
   create: (
     userId: string,
     title: string,
     description: string,
-    thumbnail: FileObj,
-  ) => Promise<GalleryObj>;
+    thumbnail: FileElem,
+  ) => Promise<ArchiveGalleryObj>;
   update: (
     galleryId: string,
-    updatedGalleryObj: GalleryObj,
-  ) => Promise<GalleryObj>;
-  delete: (galleryId: string) => Promise<GalleryObj>;
+    updatedGalleryObj: ArchiveGalleryObj,
+  ) => Promise<ArchiveGalleryObj>;
+  delete: (galleryId: string) => Promise<ArchiveGalleryObj>;
 }
 
 export const gallerysGqlHelper: GallerysGqlHelper = {
@@ -34,7 +34,7 @@ export const gallerysGqlHelper: GallerysGqlHelper = {
       },
     });
 
-    const galleryObj: GalleryObj = payload?.data.getGalleryObj as GalleryObj;
+    const galleryObj: ArchiveGalleryObj = payload?.data.getGalleryObj as ArchiveGalleryObj;
     return galleryObj;
   },
   listFromUser: async (userId: string) => {
@@ -49,14 +49,14 @@ export const gallerysGqlHelper: GallerysGqlHelper = {
       },
     });
     const galleryObjs =
-      (payload?.data?.listGalleryObjs?.items as GalleryObj[]) || [];
+      (payload?.data?.listGalleryObjs?.items as ArchiveGalleryObj[]) || [];
     return galleryObjs;
   },
   create: async (
     userId: string,
     title: string,
     description: string,
-    thumbnail: FileObj,
+    thumbnail: FileElem,
   ) => {
     const payload = await amplifyClient.graphql({
       query: createGalleryObj,
@@ -69,12 +69,12 @@ export const gallerysGqlHelper: GallerysGqlHelper = {
         }),
       },
     });
-    const galleryObj = payload?.data?.createGalleryObj as GalleryObj;
+    const galleryObj = payload?.data?.createGalleryObj as ArchiveGalleryObj;
     return galleryObj;
   },
   update: async (
     galleryId: string,
-    updatedGalleryObj: GalleryObj,
+    updatedGalleryObj: ArchiveGalleryObj,
   ) => {
     const payload = await amplifyClient.graphql({
       query: updateGalleryObj,
@@ -88,7 +88,7 @@ export const gallerysGqlHelper: GallerysGqlHelper = {
         }),
       },
     });
-    const galleryObj = payload?.data?.updateGalleryObj as GalleryObj;
+    const galleryObj = payload?.data?.updateGalleryObj as ArchiveGalleryObj;
     return galleryObj;
   },
   delete: async (galleryId: string) => {
@@ -100,7 +100,7 @@ export const gallerysGqlHelper: GallerysGqlHelper = {
         },
       },
     });
-    const galleryObj = payload?.data?.deleteGalleryObj as GalleryObj;
+    const galleryObj = payload?.data?.deleteGalleryObj as ArchiveGalleryObj;
     return galleryObj;
   },
 };

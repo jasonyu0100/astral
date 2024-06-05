@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { FileVariant } from '@/(model)/concept/file/main';
-import { CollectionResourcesContext } from '@/(model)/media/collection/main';
+import { FileElemVariant } from '@/(model)/elements/file/main';
+import { CollectionResourcesContext } from '@/(model)/archive/collection/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const resources = useContext(CollectionResourcesContext);
   const visualResources = resources?.filter(
     (resource) =>
-      resource.file?.variant === FileVariant.IMAGE ||
-      resource.file?.variant === FileVariant.VIDEO,
+      resource.file?.variant === FileElemVariant.IMAGE ||
+      resource.file?.variant === FileElemVariant.VIDEO,
   );
 
   return (
@@ -49,13 +49,13 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
           {visualResources.slice(0, 4).map((resource) => (
             // eslint-disable-next-line react/jsx-key
             <>
-              {resource.file?.variant === FileVariant.IMAGE && (
+              {resource.file?.variant === FileElemVariant.IMAGE && (
                 <img
                   className='aspect-square h-1/2 object-fill'
                   src={resource?.file?.src}
                 />
               )}
-              {resource.file?.variant === FileVariant.VIDEO && (
+              {resource.file?.variant === FileElemVariant.VIDEO && (
                 <video
                   className='aspect-square h-1/2 object-fill'
                   src={resource?.file?.src}

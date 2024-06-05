@@ -1,5 +1,5 @@
-import { FileObj } from '@/(model)/concept/file/main';
-import { CollectionResourceContext } from '@/(model)/media/resource/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { CollectionResourceContext } from '@/(model)/archive/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
@@ -18,7 +18,7 @@ export function SidebarCollectionResource() {
           resource.description,
           Math.random() * 500,
           Math.random() * 500,
-          resource?.file || ({} as FileObj),
+          resource?.file || ({} as FileElem),
         );
       }}
     >

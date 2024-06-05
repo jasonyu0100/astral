@@ -7,7 +7,7 @@ import { songSpaceTemplate } from './song/main';
 import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { SpaceChapterObj } from '../chapter/main';
 import { SceneIdeaObj } from '../chapter/scene/idea/main';
-import { SpaceVerseObj } from '../chapter/verse/main';
+import { ChapterVerseObj } from '../chapter/verse/main';
 import { VerseCommentObj } from '../chapter/verse/comment/main';
 
 export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx'>;
@@ -48,7 +48,7 @@ export interface TemplateSceneObj {
 
 // VERSE
 
-export type _TemplateVerseObj = Omit<SpaceVerseObj, 'id' | 'chapterId' >;
+export type _TemplateVerseObj = Omit<ChapterVerseObj, 'id' | 'chapterId' >;
 export type _TemplateCommentObj = Omit<VerseCommentObj, 'id' | 'userId' | 'verseId' | 'time'>;
 
 export interface TemplateVerseObj extends _TemplateVerseObj {

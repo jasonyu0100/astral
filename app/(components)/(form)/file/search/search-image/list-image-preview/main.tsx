@@ -1,5 +1,5 @@
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {
@@ -22,7 +22,7 @@ export function SearchImageListPreview() {
       <button
         className='h-[30px] w-[30px] rounded-full'
         onClick={() => {
-          onChange({} as FileObj);
+          onChange({} as FileElem);
         }}
       >
         <svg

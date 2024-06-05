@@ -8,6 +8,16 @@ export interface HorizonForumObj {
   time: string;
 }
 
+export const horizonForumGql = `
+type HorizonForumObj {
+  id: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  time: String!
+}
+`;
+
 export const HorizonForumContext = createContext<HorizonForumObj>(
   {} as HorizonForumObj,
 );

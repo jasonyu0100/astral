@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(model)/concept/file/main';
+import { FileElemContext } from '@/(model)/elements/file/main';
 import { UploadsHandlerContext } from '@/(controller)/upload/multiple/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';
@@ -11,12 +11,12 @@ export function UploadFilesList() {
   return (
     <div className='mt-[1rem] flex w-full flex-col divide-y-[1px] divide-slate-300'>
       {uploadsHandler.files.map((file, i) => (
-        <FileObjContext.Provider value={file} key={file.id}>
+        <FileElemContext.Provider value={file} key={file.id}>
           <UploadedFileEntry key={file.id}>
             <UploadedFileEntryBody />
             <UploadedEntryRemove i={i} />
           </UploadedFileEntry>
-        </FileObjContext.Provider>
+        </FileElemContext.Provider>
       ))}
     </div>
   );

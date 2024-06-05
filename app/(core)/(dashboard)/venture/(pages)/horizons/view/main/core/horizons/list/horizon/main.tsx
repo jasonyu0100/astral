@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { exampleFile } from '@/(model)/concept/file/main';
+import { exampleFileElem } from '@/(model)/elements/file/main';
 import Link from 'next/link';
 
 export function Horizon() {
@@ -21,7 +21,7 @@ export function Horizon() {
             className='flex flex-col items-center space-y-[1rem]'
             href={horizonMap.horizon.id.field.link('0')}
           >
-            <HorizonCover file={exampleFile} />
+            <HorizonCover file={exampleFileElem} />
           </Link>
           <div className='flex flex-col'>
             <p className='text-xl font-bold text-slate-300'>Horizon</p>

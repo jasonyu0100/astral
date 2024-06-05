@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { SpaceChatObj } from '@/(model)/space/chapter/chat/main';
+import { ChapterChatObj } from '@/(model)/space/chapter/chat/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChatObj,
@@ -9,14 +9,14 @@ import {
 import { listChatObjs } from '@/graphql/queries';
 
 export interface ChatsGqlHelper {
-  listFromChapter: (chapterId: string) => Promise<SpaceChatObj[]>;
+  listFromChapter: (chapterId: string) => Promise<ChapterChatObj[]>;
   create: (
     chapterId: string,
     title: string,
     summary: string,
-  ) => Promise<SpaceChatObj>;
-  update: (chatId: string, updatedChatObj: SpaceChatObj) => Promise<SpaceChatObj>;
-  delete: (chatId: string) => Promise<SpaceChatObj>;
+  ) => Promise<ChapterChatObj>;
+  update: (chatId: string, updatedChatObj: ChapterChatObj) => Promise<ChapterChatObj>;
+  delete: (chatId: string) => Promise<ChapterChatObj>;
 }
 
 export const chatsGqlHelper: ChatsGqlHelper = {
@@ -31,7 +31,7 @@ export const chatsGqlHelper: ChatsGqlHelper = {
         },
       },
     });
-    const chatObjs = (payload.data?.listChatObjs?.items as SpaceChatObj[]) || [];
+    const chatObjs = (payload.data?.listChatObjs?.items as ChapterChatObj[]) || [];
     return chatObjs;
   },
   create: async (chapterId: string, title: string, summary: string) => {
@@ -47,10 +47,10 @@ export const chatsGqlHelper: ChatsGqlHelper = {
         }),
       },
     });
-    const chatObj = payload.data?.createChatObj as SpaceChatObj;
+    const chatObj = payload.data?.createChatObj as ChapterChatObj;
     return chatObj;
   },
-  update: async (chatId: string, updatedChatObj: SpaceChatObj) => {
+  update: async (chatId: string, updatedChatObj: ChapterChatObj) => {
     const payload = await amplifyClient.graphql({
       query: updateChatObj,
       variables: {
@@ -63,7 +63,7 @@ export const chatsGqlHelper: ChatsGqlHelper = {
         }),
       },
     });
-    const chatObj = payload.data?.updateChatObj as SpaceChatObj;
+    const chatObj = payload.data?.updateChatObj as ChapterChatObj;
     return chatObj;
   },
   delete: async (chatId: string) => {
@@ -75,7 +75,7 @@ export const chatsGqlHelper: ChatsGqlHelper = {
         },
       },
     });
-    const chatObj = payload.data?.deleteChatObj as SpaceChatObj;
+    const chatObj = payload.data?.deleteChatObj as ChapterChatObj;
     return chatObj;
   },
 };

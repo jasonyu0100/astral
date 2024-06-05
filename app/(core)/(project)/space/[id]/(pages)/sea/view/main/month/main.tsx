@@ -4,7 +4,7 @@ import { DayColor, DayView } from './day/main';
 import { FeltModal } from '@/(components)/(modal)/felt/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormButton } from '@/(components)/(form)/button/main';
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { Card } from '../../../../../../../../../(components)/(element)/card/main';
 import { Dice, DiceFace } from '../../../../../../../../../(components)/(element)/dice/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
@@ -185,7 +185,7 @@ export function MonthView() {
             </div>
           </div>
         </div>
-        <Divider />
+        <HorizontalDivider />
         <button
           className='w-[300px] bg-white p-[1rem]'
           onClick={() => setShowModal(true)}

@@ -1,9 +1,9 @@
 import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { createContext, useMemo, useState } from 'react';
-import { NoteObj } from '@/(model)/concept/note/main';
-import { LogObj } from '@/(model)/concept/log/main';
-import { LinkObj } from '@/(model)/concept/link/main';
+import { NoteElem } from '@/(model)/elements/note/main';
+import { LogElem } from '@/(model)/elements/log/main';
+import { LinkElem } from '@/(model)/elements/link/main';
 import { toast } from 'sonner';
 import { ideasGqlHelper } from '../../(db)/ideas/main';
 export interface IdeaActions {
@@ -13,28 +13,28 @@ export interface IdeaActions {
     description: string,
     x: number,
     y: number,
-    file: FileObj,
+    file: FileElem,
   ) => Promise<SceneIdeaObj>;
   createFromNote: (
     title: string,
     description: string,
     x: number,
     y: number,
-    note: NoteObj,
+    note: NoteElem,
   ) => Promise<SceneIdeaObj>;
   createFromLink: (
     title: string,
     description: string,
     x: number,
     y: number,
-    link: LinkObj,
+    link: LinkElem,
   ) => Promise<SceneIdeaObj>;
   createFromLog: (
     title: string,
     description: string,
     x: number,
     y: number,
-    log: LogObj,
+    log: LogElem,
   ) => Promise<SceneIdeaObj>;
   updateIdea: (ideaId: string, data: any) => void;
   updateIdeas: () => Promise<SceneIdeaObj[]>;
@@ -69,7 +69,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      file: FileObj,
+      file: FileElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -93,7 +93,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      note: NoteObj,
+      note: NoteElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -116,7 +116,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      link: LinkObj,
+      link: LinkElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -139,7 +139,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      log: LogObj,
+      log: LogElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');

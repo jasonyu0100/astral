@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleProfileImageFile } from '../concept/file/main';
+import { FileElem, exampleProfileImageFileElem } from '../elements/file/main';
 
 export interface UserObj {
   id: string;
@@ -11,9 +11,25 @@ export interface UserObj {
   priceId?: string;
   passwordHash?: string;
   googleId?: string;
-  profilePicture: FileObj;
+  profilePicture: FileElem;
   created: string;
 }
+
+export const userGql = `
+type UserObj {
+	id: String!
+	fname: String!
+	lname: String!
+	passwordHash: String
+	email: String!
+	googleId: String
+	profilePicture: FileElem
+	customerId: String
+	subscriptionId: String
+	priceId: String
+	created: String!
+}
+`;
 
 export type SafeUserObj = Omit<UserObj, 'passwordHash'>;
 
@@ -22,7 +38,7 @@ export const exampleUser: UserObj = {
   fname: 'John',
   lname: 'Smith',
   email: 'email@example.com',
-  profilePicture: exampleProfileImageFile,
+  profilePicture: exampleProfileImageFileElem,
   created: new Date().toISOString(),
 };
 
@@ -34,7 +50,7 @@ export const exampleUsers: UserObj[] = [
     fname: 'John',
     lname: 'Smith',
     email: 'john@example.com',
-    profilePicture: exampleProfileImageFile,
+    profilePicture: exampleProfileImageFileElem,
     created: new Date().toISOString(),
   },
   {
@@ -42,7 +58,7 @@ export const exampleUsers: UserObj[] = [
     fname: 'Jane',
     lname: 'Smith',
     email: 'jane@example.com',
-    profilePicture: exampleProfileImageFile,
+    profilePicture: exampleProfileImageFileElem,
     created: new Date().toISOString(),
   },
 ];

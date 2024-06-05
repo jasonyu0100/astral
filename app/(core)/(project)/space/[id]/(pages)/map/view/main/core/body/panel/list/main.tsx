@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { SpaceSceneContext } from '@/(model)/space/chapter/scene/main';
+import { ChapterSceneContext } from '@/(model)/space/chapter/scene/main';
 import { SceneListEntry } from './entry/main';
 import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 
 export function MapSceneList() {
   const chaptersHandler = useContext(ChaptersHandlerContext)
@@ -20,7 +20,7 @@ export function MapSceneList() {
       <div>
         <p className={`text-md font-bold text-slate-500`}>0. General</p>
       </div>
-      <Divider/>
+      <HorizontalDivider/>
       {chaptersHandler.chapters.map((chapter, index) => (
         <div key={chapter.id}>
           <p className={`text-md font-bold text-slate-500`}>

@@ -1,4 +1,4 @@
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import { cn } from '@/(utils)/cn';
 import clsx from 'clsx';
 

@@ -1,15 +1,15 @@
 'use client';
 import { createContext } from 'react';
 import {
-  GalleryContext,
-  GalleryObj,
-} from '@/(model)/media/gallery/main';
+  ArchiveGalleryContext,
+  ArchiveGalleryObj,
+} from '@/(model)/archive/gallery/main';
 import {
   GalleryCollectionContext,
   GalleryCollectionObj,
-} from '@/(model)/media/collection/main';
+} from '@/(model)/archive/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { CollectionResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/archive/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,
@@ -37,7 +37,7 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <GalleryContext.Provider value={gallery}>
+      <ArchiveGalleryContext.Provider value={gallery}>
         <GalleryCollectionContext.Provider value={collection}>
           <ResourcesHandlerContext.Provider value={resourcesHandler}>
               <CraftTabs tab={CraftTabStage.Explorer} 
@@ -49,7 +49,7 @@ function Page({ params }: { params: { id: string } }) {
               </DashboardContent>
           </ResourcesHandlerContext.Provider>
         </GalleryCollectionContext.Provider>
-      </GalleryContext.Provider>
+      </ArchiveGalleryContext.Provider>
     </ArchiveExplorerCreateModalContext.Provider>
   );
 }

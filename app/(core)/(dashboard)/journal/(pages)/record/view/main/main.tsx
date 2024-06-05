@@ -6,7 +6,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { borderFx, roundedFx, glassFx } from '@/(style)/data';
-import { exampleFile, exampleFiles } from '@/(model)/concept/file/main';
+import { exampleFileElem, exampleFileElems } from '@/(model)/elements/file/main';
 import { JournalEntry } from './entry/main';
 import { JournalPip } from './pip/main';
 import { JournalRecord } from './record/main';

@@ -1,5 +1,5 @@
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {
@@ -13,7 +13,7 @@ export function DisplayImagePreview() {
             <img
               className='h-[150px] w-[150px] flex-shrink-0 rounded-full bg-slate-300'
               src={file?.src}
-              onClick={() => onChange({} as FileObj)}
+              onClick={() => onChange({} as FileElem)}
             />
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -21,7 +21,7 @@ export function DisplayImagePreview() {
               height='24'
               className='absolute h-1/2 w-1/2 opacity-0 hover:opacity-100'
               viewBox='0 0 24 24'
-              onClick={() => onChange({} as FileObj)}
+              onClick={() => onChange({} as FileElem)}
               fill='none'
             >
               <mask

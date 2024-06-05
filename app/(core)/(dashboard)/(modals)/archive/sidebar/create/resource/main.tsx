@@ -8,9 +8,9 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import {
-  FileObj,
-  FileVariant,
-} from '@/(model)/concept/file/main';
+  FileElem,
+  FileElemVariant,
+} from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ArchiveSidebarCreateModalContext } from '../main';
@@ -22,8 +22,8 @@ export function SidebarCreateResourceModal() {
   const { opened, close } = modalContext.createResource;
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
-  const [file, changeFile] = useState({} as FileObj);
-  const [variant, changeVariant] = useState(FileVariant.IMAGE);
+  const [file, changeFile] = useState({} as FileElem);
+  const [variant, changeVariant] = useState(FileElemVariant.IMAGE);
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>
@@ -32,12 +32,12 @@ export function SidebarCreateResourceModal() {
         <FormBody>
           <FormSelect
             value={variant}
-            onChange={(e) => changeVariant(e.target.value as FileVariant)}
+            onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
             title='Variant'
           >
-            <option value={FileVariant.IMAGE}>Image</option>
-            <option value={FileVariant.VIDEO}>Video</option>
-            <option value={FileVariant.AUDIO}>Audio</option>
+            <option value={FileElemVariant.IMAGE}>Image</option>
+            <option value={FileElemVariant.VIDEO}>Video</option>
+            <option value={FileElemVariant.AUDIO}>Audio</option>
           </FormSelect>
           <FormUploadFile
             onChange={(file) => changeFile(file)}

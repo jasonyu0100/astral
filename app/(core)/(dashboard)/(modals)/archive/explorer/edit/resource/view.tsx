@@ -7,8 +7,8 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileObj } from '@/(model)/concept/file/main';
-import { CollectionResourceContext } from '@/(model)/media/resource/main';
+import { FileElem } from '@/(model)/elements/file/main';
+import { CollectionResourceContext } from '@/(model)/archive/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 
@@ -19,7 +19,7 @@ export function ExplorerEditResourceModal() {
   const resource = useContext(CollectionResourceContext);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
-  const [file, changeFile] = useState(resource?.file || ({} as FileObj));
+  const [file, changeFile] = useState(resource?.file || ({} as FileElem));
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>

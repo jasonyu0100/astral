@@ -1,25 +1,25 @@
-import { SpaceSceneObj } from '@/(model)/space/chapter/scene/main';
+import { ChapterSceneObj } from '@/(model)/space/chapter/scene/main';
 import { createContext, useMemo, useState } from 'react';
 import { partsGqlHelper } from '../../(db)/scenes/main';
 
 export interface SceneActions {
-  listScenes: (id: string) => Promise<SpaceSceneObj[]>;
+  listScenes: (id: string) => Promise<ChapterSceneObj[]>;
   createScene: (
     title: string,
     description: string,
     variant: string,
-  ) => Promise<SpaceSceneObj>;
+  ) => Promise<ChapterSceneObj>;
   updateScenes: (
-    parts: SpaceSceneObj[],
-  ) => SpaceSceneObj[];
-  updateScene: (part: SpaceSceneObj) => SpaceSceneObj;
-  goToScene: (part: SpaceSceneObj) => SpaceSceneObj;
-  addScene: (part: SpaceSceneObj) => SpaceSceneObj;
+    parts: ChapterSceneObj[],
+  ) => ChapterSceneObj[];
+  updateScene: (part: ChapterSceneObj) => ChapterSceneObj;
+  goToScene: (part: ChapterSceneObj) => ChapterSceneObj;
+  addScene: (part: ChapterSceneObj) => ChapterSceneObj;
 }
 
 interface ScenesHandler {
-  part?: SpaceSceneObj;
-  parts: SpaceSceneObj[];
+  part?: ChapterSceneObj;
+  parts: ChapterSceneObj[];
   partId: string;
   partActions: SceneActions;
 }
@@ -29,7 +29,7 @@ export const ScenesHandlerContext = createContext({} as ScenesHandler);
 export const useScenesHandler = (
   chapterId: string,
 ): ScenesHandler => {
-  const [parts, changeScenes] = useState<SpaceSceneObj[]>(
+  const [parts, changeScenes] = useState<ChapterSceneObj[]>(
     [],
   );
   const [partId, changeSceneId] = useState<string>(
@@ -62,20 +62,20 @@ export const useScenesHandler = (
       changeScenes((prev) => [...prev, part]);
       return part;
     },
-    updateScenes: (parts: SpaceSceneObj[]) => {
+    updateScenes: (parts: ChapterSceneObj[]) => {
       changeScenes(parts);
       changeSceneId(parts.at(0)?.id || '');
       return parts;
     },
-    updateScene: (part: SpaceSceneObj) => {
+    updateScene: (part: ChapterSceneObj) => {
       changeSceneId(part.id);
       return part;
     },
-    goToScene: (part: SpaceSceneObj) => {
+    goToScene: (part: ChapterSceneObj) => {
       changeSceneId(part.id);
       return part;
     },
-    addScene: (part: SpaceSceneObj) => {
+    addScene: (part: ChapterSceneObj) => {
       changeSceneId(part.id);
       changeScenes((prev) => [...prev, part]);
       return part;

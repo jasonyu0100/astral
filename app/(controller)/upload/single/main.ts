@@ -1,9 +1,9 @@
 import { createContext, useMemo, useState } from 'react';
 import {
-  FileObj,
-  FileVariant,
+  FileElem,
+  FileElemVariant,
   getFileVariantFromMimeType,
-} from '../../../(model)/concept/file/main';
+} from '../../../(model)/elements/file/main';
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { generateUploadURL } from '@/(api)/aws/s3/main';
 import { createFileObj } from '@/graphql/mutations';
@@ -14,22 +14,22 @@ export interface UploadActions {
 }
 
 export interface UploadHandlerObj {
-  file: FileObj;
-  defaultFile?: FileObj;
-  variant?: FileVariant;
+  file: FileElem;
+  defaultFile?: FileElem;
+  variant?: FileElemVariant;
   uploadActions: UploadActions;
 }
 
 export const UploadHandlerContext = createContext({} as UploadHandlerObj);
 
 export const useUploadHandler = (
-  defaultFile?: FileObj,
-  variant?: FileVariant,
+  defaultFile?: FileElem,
+  variant?: FileElemVariant,
 ) : UploadHandlerObj => {
-  const [file, changeFile] = useState({} as FileObj);
+  const [file, changeFile] = useState({} as FileElem);
 
   const uploadActions: UploadActions = {
-    clearFile: () => changeFile({} as FileObj),
+    clearFile: () => changeFile({} as FileElem),
     uploadFile: async (event: any) => {
       const file = event.target.files[0];
       const fileName = file.name;
@@ -48,7 +48,7 @@ export const useUploadHandler = (
 
       const fileSrc = uploadUrl.split('?')[0];
 
-      const filePayload: FileObj = {
+      const filePayload: FileElem = {
         id: crypto.randomUUID(),
         src: fileSrc,
         title: fileName,

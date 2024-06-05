@@ -1,10 +1,10 @@
 import { DivInputProps } from '@/(types)/props/main';
 
-export interface SeperatorProps extends DivInputProps {
+export interface HorizontalSeperatorProps extends DivInputProps {
   seperatorFx?: string;
 }
 
-export function Seperator({ seperatorFx, ...props }: SeperatorProps) {
+export function HorizontalSeperator({ seperatorFx, ...props }: HorizontalSeperatorProps) {
   return (
     <div
       className={`flex h-full w-[2rem] flex-shrink-0 flex-row items-center justify-center ${props.className}`}

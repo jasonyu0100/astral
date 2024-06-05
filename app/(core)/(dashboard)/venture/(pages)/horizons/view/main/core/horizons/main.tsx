@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { borderFx, glassFx } from '@/(style)/data';
 import { Horizon } from './list/horizon/main';
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { HorizonsList } from './list/main';
 import { HorizonsListLabel } from './label/main';
 

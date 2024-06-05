@@ -1,4 +1,4 @@
-import { LogObj } from '@/(model)/concept/log/main';
+import { LogElem } from '@/(model)/elements/log/main';
 import { createContext, useState } from 'react';
 
 export interface DraftModalController {
@@ -16,8 +16,8 @@ export interface DraftModalController {
     opened: boolean;
     open: () => void;
     close: () => void;
-    log: LogObj;
-    updateLogObj: (logObj: LogObj) => void;
+    log: LogElem;
+    updateLogObj: (logObj: LogElem) => void;
   };
 }
 
@@ -27,7 +27,7 @@ export const useDraftModal = (): DraftModalController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
   const [showThree, changeShowThree] = useState(false);
-  const [log, changeLog] = useState({} as LogObj);
+  const [log, changeLog] = useState({} as LogElem);
 
   return {
     addChapterModal: {
@@ -45,7 +45,7 @@ export const useDraftModal = (): DraftModalController => {
       open: () => changeShowThree(true),
       close: () => changeShowThree(false),
       log: log,
-      updateLogObj: (logObj: LogObj) => changeLog(logObj),
+      updateLogObj: (logObj: LogElem) => changeLog(logObj),
     },
   };
 };

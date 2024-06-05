@@ -1,5 +1,5 @@
-import { FileVariant } from '@/(model)/concept/file/main';
-import { CollectionResourceContext } from '@/(model)/media/resource/main';
+import { FileElemVariant } from '@/(model)/elements/file/main';
+import { CollectionResourceContext } from '@/(model)/archive/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';
@@ -11,9 +11,9 @@ export function CollectionResourceMedia() {
 
   return (
     <>
-      {variant === FileVariant.IMAGE && <CollectionResourceImage />}
-      {variant === FileVariant.AUDIO && <CollectionResourceAudio />}
-      {variant === FileVariant.VIDEO && <CollectionResourceVideo />}
+      {variant === FileElemVariant.IMAGE && <CollectionResourceImage />}
+      {variant === FileElemVariant.AUDIO && <CollectionResourceAudio />}
+      {variant === FileElemVariant.VIDEO && <CollectionResourceVideo />}
     </>
   );
 }

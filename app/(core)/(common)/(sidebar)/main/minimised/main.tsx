@@ -1,4 +1,4 @@
-import { Divider } from '@/(components)/(line)/divider/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { DashboardSidebarTopBack } from '../../top/back/main';
 import { ArchiveIndicator } from '../../indicators/variants/archive-indicator/main';
@@ -16,7 +16,7 @@ export function DashboardSidebarMinimised() {
   return (
     <DashboardSidebarMinimisedContainer>
       <DashboardSidebarTopBack href={backUrl || studioMap.studio.spaces.link} />
-      <Divider className='my-[1rem] mb-[2rem]' />
+      <HorizontalDivider className='my-[1rem] mb-[2rem]' />
       <DashboardSidebarIndicators>
         <SpaceIndicator />
         <ArchiveIndicator />

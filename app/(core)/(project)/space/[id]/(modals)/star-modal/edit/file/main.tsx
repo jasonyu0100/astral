@@ -9,9 +9,9 @@ import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import {
-  FileObj,
-  FileVariant,
-} from '@/(model)/concept/file/main';
+  FileElem,
+  FileElemVariant,
+} from '@/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
@@ -21,8 +21,8 @@ export function AddFileStarModal() {
   const { opened, close } = modalContext.addFileStarModal;
   const ideasHandler = useContext(IdeasHandlerContext);
   const [title, changeTitle] = useState('' as string);
-  const [variant, changeVariant] = useState<FileVariant>(FileVariant.IMAGE);
-  const [file, changeFile] = useState({} as FileObj);
+  const [variant, changeVariant] = useState<FileElemVariant>(FileElemVariant.IMAGE);
+  const [file, changeFile] = useState({} as FileElem);
   const [description, changeDescription] = useState<string>('');
 
   return (
@@ -33,11 +33,11 @@ export function AddFileStarModal() {
           <FormSelect
             title='Variant'
             value={variant}
-            onChange={(e) => changeVariant(e.target.value as FileVariant)}
+            onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
           >
-            <option value={FileVariant.AUDIO}>AUDIO</option>
-            <option value={FileVariant.IMAGE}>IMAGE</option>
-            <option value={FileVariant.VIDEO}>VIDEO</option>
+            <option value={FileElemVariant.AUDIO}>AUDIO</option>
+            <option value={FileElemVariant.IMAGE}>IMAGE</option>
+            <option value={FileElemVariant.VIDEO}>VIDEO</option>
           </FormSelect>
           <FormInput
             title='Title'

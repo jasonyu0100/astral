@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export interface SpaceChapterObj {
   id: string;
@@ -8,6 +8,16 @@ export interface SpaceChapterObj {
   idx: number;
 }
 
+export const spaceChapterGql = `
+type SpaceChapterObj {
+	id: String!
+	spaceId: String!
+	title: String!
+	description: String!
+	idx: Int!
+}
+  `;
+
 export const exampleSpaceChapter: SpaceChapterObj = {
   id: '0',
   spaceId: '0',
@@ -16,7 +26,9 @@ export const exampleSpaceChapter: SpaceChapterObj = {
   idx: 0,
 };
 
-export const SpaceChapterContext = createContext<SpaceChapterObj>({} as SpaceChapterObj);
+export const SpaceChapterContext = createContext<SpaceChapterObj>(
+  {} as SpaceChapterObj,
+);
 
 export const exampleSpaceChapters: SpaceChapterObj[] = [
   {

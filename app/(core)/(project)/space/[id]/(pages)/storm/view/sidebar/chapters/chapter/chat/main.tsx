@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { StormChatIcon } from './avatar/main';
 import StormChapterIndicator from '../header/indicator/main';
-import { SpaceChatContext } from '@/(model)/space/chapter/chat/main';
+import { ChapterChatContext } from '@/(model)/space/chapter/chat/main';
 import { ChatsHandlerContext } from '@/(controller)/storm/chats/main';
 
 export function StormChapterChat() {
-  const chat = useContext(SpaceChatContext);
+  const chat = useContext(ChapterChatContext);
   const chatsHandler = useContext(ChatsHandlerContext);
   const active = chat.id === chatsHandler.chatId;
 

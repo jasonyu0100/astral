@@ -1,10 +1,10 @@
 import { DivInputProps } from '@/(types)/props/main';
 
-export interface DividerProps extends DivInputProps {
+export interface HorizontalDividerProps extends DivInputProps {
   dividerFx?: string;
 }
 
-export function Divider({ dividerFx, ...props }: DividerProps) {
+export function HorizontalDivider({ dividerFx, ...props }: HorizontalDividerProps) {
   return (
     <div
       className={`flex h-[0px] w-full flex-shrink-0 flex-row items-center ${props.className}`}

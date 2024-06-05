@@ -6,7 +6,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileObj } from '@/(model)/concept/file/main';
+import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
@@ -19,7 +19,7 @@ export function SidebarCreateGalleryModal() {
   const gallerysHandler = useContext(GallerysHandlerContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [thumbnail, changeThumbnail] = useState({} as FileObj);
+  const [thumbnail, changeThumbnail] = useState({} as FileElem);
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>

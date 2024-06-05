@@ -1,4 +1,4 @@
-import { GalleryCollectionObj } from '@/(model)/media/collection/main';
+import { GalleryCollectionObj } from '@/(model)/archive/collection/main';
 import { useMemo, useState } from 'react';
 import { collectionsGqlHelper } from '@/(db)/collections/main';
 
