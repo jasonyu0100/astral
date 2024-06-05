@@ -1,7 +1,7 @@
 import { useState, useMemo, createContext } from 'react';
 import { SpaceObj } from '@/(model)/space/main';
 import { FileObj } from '@/(model)/media/resource/file/main';
-import { ChapterTemplateObj } from '@/(model)/space/templates/main';
+import { TemplateChapterObj } from '@/(model)/space/templates/main';
 import { toast } from 'sonner';
 import { spacesGqlHelper } from '../../(db)/spaces/main';
 import { chaptersGqlHelper } from '../../(db)/chapters/main';
@@ -17,7 +17,7 @@ export interface SpaceActions {
     description: string,
     thumbnail: FileObj,
     variant: string,
-    chapterTemplates: ChapterTemplateObj[],
+    chapterTemplates: TemplateChapterObj[],
   ) => Promise<SpaceObj>;
 }
 
@@ -47,7 +47,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       description: string,
       thumbnail: FileObj,
       variant: string,
-      chapterTemplates: ChapterTemplateObj[],
+      chapterTemplates: TemplateChapterObj[],
     ) => {
       const space = await spacesGqlHelper.create(
         userId,
@@ -62,57 +62,57 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
         chapterTemplates.map(async (template, idx) => {
           const chapter = await chaptersGqlHelper.create(
             template.title,
-            template.description,
+            template.summary,
             idx,
             space.id,
           );
-          if (template.chatTemplate) {
-            const chatObj = await chatsGqlHelper
-              .create(
-                chapter.id,
-                template.chatTemplate.title,
-                template.chatTemplate.description,
-              )
-              .then(async (chat) => {
-                if (template?.chatTemplate?.messages) {
-                  const messageTemplates = template.chatTemplate.messages;
-                  await Promise.all(
-                    messageTemplates.map(async (message) => {
-                      const messageObj = messagesGqlHelper.createFromAgent(
-                        chat.id,
-                        message.message,
-                      );
-                      return messageObj;
-                    }),
-                  );
-                }
-                return chat;
-              });
-          }
+          // if (template.chatTemplates) {
+          //   const chatObj = await chatsGqlHelper
+          //     .create(
+          //       chapter.id,
+          //       template.chatTemplates.title,
+          //       template.chatTemplates.description,
+          //     )
+          //     .then(async (chat) => {
+          //       if (template?.chatTemplates?.messages) {
+          //         const messageTemplates = template.chatTemplates.messages;
+          //         await Promise.all(
+          //           messageTemplates.map(async (message) => {
+          //             const messageObj = messagesGqlHelper.createFromAgent(
+          //               chat.id,
+          //               message.message,
+          //             );
+          //             return messageObj;
+          //           }),
+          //         );
+          //       }
+          //       return chat;
+          //     });
+          // }
 
-          if (template.partTemplate) {
-            const partObj = await partsGqlHelper
-              .create(
-                chapter.id,
-                template.partTemplate.title,
-                template.partTemplate.description,
-                template.partTemplate.variant,
-              )
-              .then(async (part) => {
-                if (template?.partTemplate?.ideas) {
-                  const ideaTemplates = template.partTemplate.ideas;
-                  await Promise.all(
-                    ideaTemplates.map((idea) => {
-                      const ideaObj = ideasGqlHelper.create.createFromFile(
-                        part.id, idea.title, idea.description, idea.x, idea.y, idea.file || ({} as FileObj),
-                      )
-                      return ideaObj;
-                    }),
-                  );
-                }
-                return part;
-              });
-          }
+          // if (template.sceneTemplates) {
+          //   const partObj = await partsGqlHelper
+          //     .create(
+          //       chapter.id,
+          //       template.sceneTemplates.title,
+          //       template.sceneTemplates.description,
+          //       template.sceneTemplates.variant,
+          //     )
+          //     .then(async (part) => {
+          //       if (template?.sceneTemplates?.ideas) {
+          //         const ideaTemplates = template.sceneTemplates.ideas;
+          //         await Promise.all(
+          //           ideaTemplates.map((idea) => {
+          //             const ideaObj = ideasGqlHelper.create.createFromFile(
+          //               part.id, idea.title, idea.description, idea.x, idea.y, idea.file || ({} as FileObj),
+          //             )
+          //             return ideaObj;
+          //           }),
+          //         );
+          //       }
+          //       return part;
+          //     });
+          // }
         }),
       );
       toast('Space has been created.');

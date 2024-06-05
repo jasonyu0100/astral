@@ -68,7 +68,7 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
           id: chapterId,
           spaceId: updatedChapterObj.spaceId,
           title: updatedChapterObj.title,
-          description: updatedChapterObj.description,
+          description: updatedChapterObj.summary,
           idx: updatedChapterObj.idx,
         }),
       },

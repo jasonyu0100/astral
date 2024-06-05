@@ -8,7 +8,7 @@ import { SpacesModalContext } from '../main';
 import { FileObj } from '@/(model)/media/resource/file/main';
 import { SpaceVariant } from '@/(model)/space/main';
 import {
-  ChapterTemplateObj,
+  TemplateChapterObj,
   getSpaceTemplate,
 } from '@/(model)/space/templates/main';
 import { PageOne } from './page-1/main';
@@ -32,8 +32,8 @@ export interface PageOneProps {
 export interface PageTwoProps {
   variant: string;
   updateVariant: (variant: string) => void;
-  chapterTemplates: ChapterTemplateObj[];
-  updateChapterTemplates: (templates: ChapterTemplateObj[]) => void;
+  chapterTemplates: TemplateChapterObj[];
+  updateChapterTemplates: (templates: TemplateChapterObj[]) => void;
 }
 
 export const CreateSpaceModalContext = createContext(
@@ -58,7 +58,7 @@ export function CreateSpaceModal() {
   const [thumbnail, changeThumbnail] = useState({} as FileObj);
   const [variant, changeVariant] = useState(SpaceVariant.SONG);
   const [chapterTemplates, changeChapterTemplates] = useState(
-    [] as ChapterTemplateObj[],
+    [] as TemplateChapterObj[],
   );
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export function CreateSpaceModal() {
     variant,
     updateVariant: (variant: string) => changeVariant(variant as SpaceVariant),
     chapterTemplates,
-    updateChapterTemplates: (templates: ChapterTemplateObj[]) =>
+    updateChapterTemplates: (templates: TemplateChapterObj[]) =>
       changeChapterTemplates(templates),
   };
 

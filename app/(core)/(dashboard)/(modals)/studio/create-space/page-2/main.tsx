@@ -26,7 +26,7 @@ export function PageTwo() {
       {variant === SpaceVariant.CUSTOM ? (
         <div className='flex w-full flex-col'>
           {chapterTemplates.map((chapter, index) => (
-            <div className='flex w-full flex-col space-y-[0.5rem]'>
+            <div className='flex w-full flex-col space-y-[0.5rem]' key={index}>
               <div className='flex flex-row items-center'>
                 <p className='text-md mr-2 font-bold'>{index + 1}.</p>
                 <input
@@ -75,13 +75,13 @@ export function PageTwo() {
                 </button>
               </div>
               <textarea
-                value={chapter.description}
+                value={chapter.summary}
                 placeholder='Enter your description...'
                 className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
                 onChange={(e) =>
                   updateChapterTemplates(
                     chapterTemplates.map((c, i) =>
-                      i === index ? { ...c, description: e.target.value } : c,
+                      i === index ? { ...c, summary: e.target.value } : c,
                     ),
                   )
                 }
@@ -97,7 +97,7 @@ export function PageTwo() {
                     ...chapterTemplates,
                     {
                       title: `Chapter ${chapterTemplates.length + 1}`,
-                      description: '',
+                      summary: '',
                     },
                   ])
                 }
@@ -137,9 +137,9 @@ export function PageTwo() {
       ) : (
         <div className='flex w-full flex-col space-y-[1rem] bg-slate-50 p-2'>
           {chapterTemplates.map((template, index) => (
-            <p className='text-md overflow-hidden font-bold'>
+            <p className='text-md overflow-hidden font-bold' key={index}>
               {index + 1}. {template.title} -{' '}
-              <span className='font-light'>{template.description}</span>
+              <span className='font-light'>{template.summary}</span>
             </p>
           ))}
         </div>

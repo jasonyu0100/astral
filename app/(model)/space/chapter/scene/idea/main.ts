@@ -15,7 +15,7 @@ export enum IdeaVariant {
 }
 export interface IdeaObj {
   id: string;
-  partId: string;
+  sceneId: string;
   title: string;
   description: string;
   x: number;
@@ -30,11 +30,9 @@ export interface IdeaObj {
 
 export const IdeaContext = createContext<IdeaObj>({} as IdeaObj);
 
-export type IdeaTemplateObj = Omit<IdeaObj, 'id' | 'partId'>;
-
 export const exampleIdea: IdeaObj = {
   id: '0',
-  partId: '0',
+  sceneId: '0',
   title: 'Star 1',
   description: "Twinkle twinkle little star",
   x: 120,
@@ -46,7 +44,7 @@ export const exampleIdea: IdeaObj = {
 export const exampleIdeas: IdeaObj[] = [
   {
     id: '0',
-    partId: '0',
+    sceneId: '0',
     title: 'Star 0',
     description: "Twinkle twinkle little star",
     x: 120,
@@ -56,7 +54,7 @@ export const exampleIdeas: IdeaObj[] = [
   },
   {
     id: '1',
-    partId: '0',
+    sceneId: '0',
     title: 'Star 1',
     description: "Twinkle twinkle little star",
     x: 240,
@@ -66,7 +64,7 @@ export const exampleIdeas: IdeaObj[] = [
   },
   {
     id: '2',
-    partId: '0',
+    sceneId: '0',
     title: 'Star 2',
     description: "Twinkle twinkle little star",
     x: 360,

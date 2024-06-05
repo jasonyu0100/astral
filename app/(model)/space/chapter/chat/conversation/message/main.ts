@@ -15,8 +15,6 @@ export interface MessageObj {
 
 export const MessageContext = createContext<MessageObj>({} as MessageObj);
 
-export type MessageTemplateObj = Omit<MessageObj, 'id' | 'userId' | 'chatId' | 'time'>;
-
 export const exampleMessage: MessageObj = {
   id: '0',
   conversationId: '0',

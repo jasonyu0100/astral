@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export enum SceneVariant {
   VISUAL = 'VISUAL',
@@ -22,7 +22,6 @@ export const exampleScene: SceneObj = {
   description: 'Scene Description',
   variant: SceneVariant.VISUAL,
 };
-
 
 export const SceneContext = createContext<SceneObj>({} as SceneObj);
 
