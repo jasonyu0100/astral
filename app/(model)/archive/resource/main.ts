@@ -37,6 +37,32 @@ type CollectionResourceObj {
   link: LinkElem
   variant: String!
 }
+
+input CreateCollectionResourceObjInput {
+	userId: String!
+	collectionId: String!
+	title: String!
+	description: String!
+	variant: String!
+    file: FileElemInput
+  log: LogElemInput
+  note: NoteElemInput
+  link: LinkElemInput
+  score: ScoreElemInput
+}
+
+input UpdateCollectionResourceObjInput {
+	userId: String!
+	collectionId: String!
+	title: String!
+	description: String!
+	variant: String!
+    file: FileElemInput
+  log: LogElemInput
+  note: NoteElemInput
+  link: LinkElemInput
+  score: ScoreElemInput
+}
 `;
 
 export const CollectionResourceContext = createContext<CollectionResourceObj>({} as CollectionResourceObj);

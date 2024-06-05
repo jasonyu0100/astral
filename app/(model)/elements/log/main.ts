@@ -29,7 +29,19 @@ type LogElem {
   embedUrl: String
   variant: String
   providerUrl: String
-}`;
+}
+  
+input LogElemInput {
+  id: String!
+  loomId: String
+  height: Int
+  width: Int
+  sharedUrl: String
+  embedUrl: String
+  variant: String
+  providerUrl: String
+}
+`;
 
 export const LogElemContext = createContext<LogElem>({} as LogElem);
 

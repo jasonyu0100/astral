@@ -41,8 +41,40 @@ type SceneIdeaObj {
   log: LogElem
   note: NoteElem
   link: LinkElem
-  score: ConceptScore
-}  
+  score: ScoreElem
+}
+
+input UpdateSceneIdeaObjInput {
+	id: String!
+	sceneId: String
+	title: String
+	description: String
+	x: Int
+	y: Int
+	variant: String
+  file: FileElemInput
+  log: LogElemInput
+  note: NoteElemInput
+  link: LinkElemInput
+  score: ScoreElemInput
+}
+
+input CreateSceneIdeaObjInput {
+	id: String!
+	sceneId: String
+	title: String
+	description: String
+	x: Int
+	y: Int
+	variant: String
+  file: FileElemInput
+  log: LogElemInput
+  note: NoteElemInput
+  link: LinkElemInput
+  score: ScoreElemInput
+}
+
+
 `;
 
 export const SceneIdeaContext = createContext<SceneIdeaObj>({} as SceneIdeaObj);

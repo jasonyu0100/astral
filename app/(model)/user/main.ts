@@ -29,6 +29,19 @@ type UserObj {
 	priceId: String
 	created: String!
 }
+
+input CreateUserObjInput {
+	fname: String!
+	lname: String!
+	passwordHash: String
+	email: String!
+	googleId: String
+	customerId: String
+	subscriptionId: String
+	priceId: String
+	created: String!
+  profilePicture: FileElemInput
+}
 `;
 
 export type SafeUserObj = Omit<UserObj, 'passwordHash'>;

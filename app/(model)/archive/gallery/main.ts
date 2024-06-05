@@ -16,6 +16,22 @@ type ArchiveGalleryObj {
   description: String!
   thumbnail: FileElem!
 }
+
+input CreateArchiveGalleryObjInput {
+	userId: String!
+	title: String!
+	description: String!
+  thumbnail: FileElemInput
+}
+
+input UpdateArchiveGalleryObjInput {
+	id: String!
+	userId: String
+	title: String
+	description: String
+    thumbnail: FileElemInput
+}
+
 `;
 
 export const exampleArchiveGallery: ArchiveGalleryObj = {
@@ -26,7 +42,9 @@ export const exampleArchiveGallery: ArchiveGalleryObj = {
   thumbnail: exampleFileElem,
 };
 
-export const ArchiveGalleryContext = createContext<ArchiveGalleryObj>({} as ArchiveGalleryObj);
+export const ArchiveGalleryContext = createContext<ArchiveGalleryObj>(
+  {} as ArchiveGalleryObj,
+);
 
 export const exampleArchiveGallerys: ArchiveGalleryObj[] = [
   {

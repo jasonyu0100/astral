@@ -25,7 +25,17 @@ type FileElem {
   title: String
   size: Int
   variant: String
-}`;
+}
+  
+input FileElemInput {
+  id: String!
+  src: String
+  fileType: String
+  title: String
+  size: Int
+  variant: String
+}
+`;
 
 export const FileElemContext = createContext<FileElem>({} as FileElem);
 

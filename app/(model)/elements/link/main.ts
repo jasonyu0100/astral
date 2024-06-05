@@ -20,6 +20,13 @@ type LinkElem {
   title: String
   variant: String
 }
+
+type LinkElemInput {
+  id: String!
+  url: String
+  title: String
+  variant: String
+}
 `;
 
 export const LinkElemContext = createContext<LinkElem>({} as LinkElem);

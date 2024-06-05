@@ -28,7 +28,27 @@ type HorizonObj {
   description: String!
   thumbnail: FileElem!
   variant: String!
-}`;
+}
+  
+input CreateHorizonObjInput {
+	userId: String!
+	title: String!
+	time: String!
+	description: String!
+	variant: String!
+  thumbnail: FileElemInput
+}
+
+input UpdateHorizonObjInput {
+	id: String!
+	userId: String
+	title: String
+	time: String
+	description: String
+	variant: String
+  thumbnail: FileElemInput
+}
+`;
 
 export const HorizonContext = createContext<HorizonObj>({} as HorizonObj);
 

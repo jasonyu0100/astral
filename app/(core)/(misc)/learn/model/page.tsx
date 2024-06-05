@@ -21,7 +21,7 @@ function Section({ gqlMap }: { gqlMap: string }) {
     >
       <GlassWindowContents className='h-full w-full p-[2rem]'>
         <div
-          className='flex h-full w-full flex-col font-bold text-white'
+          className='flex h-full w-full flex-col font-bold text-white overflow-auto'
           style={{ whiteSpace: 'pre-line' }}
         >
           {gqlMap}

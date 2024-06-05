@@ -9,7 +9,7 @@ projects:
         generatedFileName: app/graphql/API.ts
         docsFilePath: app/graphql
         region: ap-southeast-2
-        apiId: np66kmimg5gwvf5rplh66ykgxi
+        apiId: 2o6vjunp5fh5xgezebslspssxu
         frontend: javascript
         framework: react
         maxDepth: 5

@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "10.4.14",
-    "aws-amplify": "^6.0.10",
+    "aws-amplify": "^6.3.5",
     "aws-sdk": "^2.1536.0",
     "axios": "^1.6.5",
     "bcryptjs": "^2.4.3",

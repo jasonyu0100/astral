@@ -20,6 +20,13 @@ type NoteElem {
   text: String
   variant: String
 }
+
+input NoteElemInput {
+  id: String!
+  title: String
+  text: String
+  variant: String
+}
 `;
 
 export const NoteElemContext = createContext<NoteElem>({} as NoteElem);

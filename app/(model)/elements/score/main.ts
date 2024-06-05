@@ -18,6 +18,12 @@ type ScoreElem {
   title: String
   variant: String
 }
+
+input ScoreElemInput {
+  id: String!
+  title: String
+  variant: String
+}
 `;
 
 export const ScoreElemContext = createContext<ScoreElem>({} as ScoreElem);
