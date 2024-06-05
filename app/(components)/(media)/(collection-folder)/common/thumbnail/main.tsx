@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { FileElemVariant } from '@/(model)/elements/file/main';
-import { CollectionResourcesContext } from '@/(model)/gallery/resource/collection/main';
+import { CollectionResourcesContext } from '@/(model)/gallery/collection/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const resources = useContext(CollectionResourcesContext);

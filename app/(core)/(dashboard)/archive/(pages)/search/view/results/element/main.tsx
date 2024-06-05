@@ -1,4 +1,4 @@
-import { CollectionResourceObj } from '@/(model)/gallery/resource/main';
+import { CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { cn } from '@/(utils)/cn';
 import clsx from 'clsx';
 

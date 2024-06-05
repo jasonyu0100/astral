@@ -1,6 +1,6 @@
 import { FileElem } from '@/(model)/elements/file/main';
-import { GalleryCollectionObj } from '@/(model)/gallery/resource/collection/main';
-import { CollectionResourceObj } from '@/(model)/gallery/resource/main';
+import { GalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { createContext, useMemo, useState } from 'react';
 import { collectionsGqlHelper } from '../../../(db)/(archive-db)/collections/main';
 import { resourcesGqlHelper } from '@/(db)/(archive-db)/resources/main';

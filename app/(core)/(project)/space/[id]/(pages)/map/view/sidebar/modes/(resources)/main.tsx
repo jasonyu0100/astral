@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
-import { CollectionResourceContext, CollectionResourceObj } from '@/(model)/gallery/resource/main';
+import { CollectionResourceContext, CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
-import { CollectionResourceAdd } from '@/(components)/(media)/(resource-element)/sidebar/add/main';
-import { SidebarCollectionResource } from '@/(components)/(media)/(resource-element)/sidebar/main';
+import { CollectionResourceAdd } from '@/(components)/(media)/(resource-file)/sidebar/add/main';
+import { SidebarCollectionResource } from '@/(components)/(media)/(resource-file)/sidebar/main';
 
 export const SidebarResourceContext = createContext({} as CollectionResourceObj);
 

@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/resource/main';
+import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 

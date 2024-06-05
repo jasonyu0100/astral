@@ -1,6 +1,6 @@
-import { galleryCollectionGql } from './resource/collection/main';
+import { galleryCollectionGql } from './collection/main';
 import { galleryGql } from './main';
-import { collectionResourceGql } from './resource/main';
+import { collectionResourceGql } from './collection/resource/main';
 
 export const galleryMap = {
   children: ['collection'],

@@ -1,5 +1,5 @@
 import { FileElem } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/resource/main';
+import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';

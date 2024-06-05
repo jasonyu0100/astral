@@ -7,9 +7,9 @@ import {
 import {
   GalleryCollectionContext,
   GalleryCollectionObj,
-} from '@/(model)/gallery/resource/collection/main';
+} from '@/(model)/gallery/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { CollectionResourceObj } from '@/(model)/gallery/resource/main';
+import { CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,

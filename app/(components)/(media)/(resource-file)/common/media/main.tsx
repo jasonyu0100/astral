@@ -1,5 +1,5 @@
 import { FileElemVariant } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/resource/main';
+import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';

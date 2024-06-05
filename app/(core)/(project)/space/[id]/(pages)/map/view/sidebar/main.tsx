@@ -1,7 +1,7 @@
 import { GalleryObj } from '@/(model)/gallery/main';
 import { createContext, useState } from 'react';
 import { MapSidebarView } from './view';
-import { GalleryCollectionObj } from '@/(model)/gallery/resource/collection/main';
+import { GalleryCollectionObj } from '@/(model)/gallery/collection/main';
 import {
   GallerysHandlerContext,
   useGallerysHandler,

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { CollectionResourceObj } from '../main';
+import { CollectionResourceObj } from './resource/main';
 
 export interface GalleryCollectionObj {
   id: string;

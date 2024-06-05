@@ -6,7 +6,6 @@ import {
 } from '../../../(model)/elements/file/main';
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { generateUploadURL } from '@/(api)/aws/s3/main';
-import { createFileObj } from '@/graphql/mutations';
 
 export interface UploadActions {
   clearFile: () => void;
@@ -56,19 +55,6 @@ export const useUploadHandler = (
         size: fileSize,
         variant: getFileVariantFromMimeType(fileType),
       };
-
-      await amplifyClient.graphql({
-        query: createFileObj,
-        variables: {
-          input: {
-            title: filePayload.title,
-            src: filePayload.src,
-            fileType: filePayload.fileType,
-            size: filePayload.size,
-            variant: filePayload.variant,
-          },
-        },
-      });
 
       changeFile(filePayload);
     },

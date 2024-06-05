@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { FileElem, exampleFileElem, exampleFileElems } from '../../elements/file/main';
-import { LinkElem } from '../../elements/link/main';
-import { LogElem } from '../../elements/log/main';
-import { NoteElem } from '../../elements/note/main';
+import { FileElem, exampleFileElem, exampleFileElems } from '../../../elements/file/main';
+import { LinkElem } from '../../../elements/link/main';
+import { LogElem } from '../../../elements/log/main';
+import { NoteElem } from '../../../elements/note/main';
 
 export enum CollectionResourceVariant {
   FILE = 'FILE',

@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { CollectionResourceObj } from "@/(model)/gallery/resource/main";
+import { CollectionResourceObj } from "@/(model)/gallery/collection/resource/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createCollectionResourceObj, deleteCollectionResourceObj, updateCollectionResourceObj } from "@/graphql/mutations";
 import { listCollectionResourceObjs } from "@/graphql/queries";

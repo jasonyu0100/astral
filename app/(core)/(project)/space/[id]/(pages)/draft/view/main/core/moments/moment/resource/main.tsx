@@ -1,5 +1,5 @@
 import { borderFx } from '@/(style)/data';
-import { CollectionResourceVariant } from '@/(model)/gallery/resource/main';
+import { CollectionResourceVariant } from '@/(model)/gallery/collection/resource/main';
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
 
