@@ -1,8 +1,8 @@
 'use client';
 import { createContext } from 'react';
 import {
-  ArchiveGalleryContext,
-  ArchiveGalleryObj,
+  GalleryContext,
+  GalleryObj,
 } from '@/(model)/gallery/main';
 import {
   GalleryCollectionContext,
@@ -37,7 +37,7 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <ArchiveGalleryContext.Provider value={gallery}>
+      <GalleryContext.Provider value={gallery}>
         <GalleryCollectionContext.Provider value={collection}>
           <ResourcesHandlerContext.Provider value={resourcesHandler}>
               <CraftTabs tab={CraftTabStage.Explorer} 
@@ -49,7 +49,7 @@ function Page({ params }: { params: { id: string } }) {
               </DashboardContent>
           </ResourcesHandlerContext.Provider>
         </GalleryCollectionContext.Provider>
-      </ArchiveGalleryContext.Provider>
+      </GalleryContext.Provider>
     </ArchiveExplorerCreateModalContext.Provider>
   );
 }

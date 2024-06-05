@@ -1,4 +1,4 @@
-import { ArchiveGalleryContext } from '@/(model)/gallery/main';
+import { GalleryContext } from '@/(model)/gallery/main';
 import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ import {
 
 export function GalleryExplorerBack() {
   const { flip } = useContext(FlipContext);
-  const gallery = useContext(ArchiveGalleryContext);
+  const gallery = useContext(GalleryContext);
   const modalContext = useEditGalleryModal();
 
   return (

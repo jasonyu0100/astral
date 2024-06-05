@@ -1,8 +1,8 @@
-import { ArchiveGalleryContext } from "@/(model)/gallery/main";
+import { GalleryContext } from "@/(model)/gallery/main";
 import { useContext } from "react";
 
 export function GalleryBackTitle() {
-  const gallery = useContext(ArchiveGalleryContext);
+  const gallery = useContext(GalleryContext);
   
   return (
     <div className='animate-pulse font-extraBold text-xl text-slate-300'>

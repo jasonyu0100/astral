@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { ArchiveGalleryContext } from '@/(model)/gallery/main';
+import { GalleryContext } from '@/(model)/gallery/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 
 export function GalleryThumbnail() {
   const { flip } = useContext(FlipContext);
-  const gallery = useContext(ArchiveGalleryContext);
+  const gallery = useContext(GalleryContext);
 
   return (
     <img

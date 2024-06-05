@@ -4,10 +4,10 @@ import { CollectionBreadcrumbItem } from '../../../../(common)/breadcrumb/item/m
 import { CollectionBreadcrumbs } from '../../../../(common)/breadcrumb/main';
 import { useContext } from 'react';
 import { GalleryCollectionContext } from '@/(model)/gallery/resource/collection/main';
-import { ArchiveGalleryContext } from '@/(model)/gallery/main';
+import { GalleryContext } from '@/(model)/gallery/main';
 
 export function ResourcesBreadcrumbs() {
-  const gallery = useContext(ArchiveGalleryContext);
+  const gallery = useContext(GalleryContext);
   const collection = useContext(GalleryCollectionContext);
   
   return (

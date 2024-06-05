@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
-export interface ArchiveGalleryObj {
+export interface GalleryObj {
   id: string;
   userId: string;
   title: string;
@@ -8,8 +8,8 @@ export interface ArchiveGalleryObj {
   thumbnail: FileElem;
 }
 
-export const archiveGalleryGql = `
-type ArchiveGalleryObj {
+export const galleryGql = `
+type GalleryObj {
   id: String!
   userId: String!
   title: String!
@@ -17,14 +17,14 @@ type ArchiveGalleryObj {
   thumbnail: FileElem!
 }
 
-input CreateArchiveGalleryObjInput {
+input CreateGalleryObjInput {
 	userId: String!
 	title: String!
 	description: String!
   thumbnail: FileElemInput
 }
 
-input UpdateArchiveGalleryObjInput {
+input UpdateGalleryObjInput {
 	id: String!
 	userId: String
 	title: String
@@ -34,7 +34,7 @@ input UpdateArchiveGalleryObjInput {
 
 `;
 
-export const exampleArchiveGallery: ArchiveGalleryObj = {
+export const exampleGallery: GalleryObj = {
   id: '0',
   userId: '0',
   title: 'Example Gallery',
@@ -42,11 +42,9 @@ export const exampleArchiveGallery: ArchiveGalleryObj = {
   thumbnail: exampleFileElem,
 };
 
-export const ArchiveGalleryContext = createContext<ArchiveGalleryObj>(
-  {} as ArchiveGalleryObj,
-);
+export const GalleryContext = createContext<GalleryObj>({} as GalleryObj);
 
-export const exampleArchiveGallerys: ArchiveGalleryObj[] = [
+export const exampleGallerys: GalleryObj[] = [
   {
     id: '0',
     userId: '0',

@@ -19,7 +19,7 @@ function Section({ gqlMap }: { gqlMap: string }) {
     >
       <GlassWindowContents className='h-full w-full p-[2rem]'>
         <div
-          className='flex h-full w-full flex-col font-bold text-white overflow-auto'
+          className='flex h-full w-full flex-col overflow-auto font-bold text-white'
           style={{ whiteSpace: 'pre-line' }}
         >
           {gqlMap}
@@ -42,15 +42,14 @@ export default function Page() {
   const [modelObj, setModelObj] = useState(models.user);
 
   return (
-    <div className='h-full w-full p-[3rem] flex-col'>
+    <div className='h-full w-full flex-col p-[3rem]'>
       <div className='flex flex-col space-y-[1rem]'>
         <div className='flex flex-row items-center space-x-[1rem] p-[1rem]'>
           <p className='font-bold text-white'>Model:</p>
           <select
-            onChange={(e) => setCurrentId(e.target.value)}
             className='bg-black font-bold text-white'
             onChange={(e) => {
-              setModelObj(models[e.target.value]);
+              setModelObj(models[e.target.value.toString()]);
               setCurrentId(e.target.value);
             }}
           >
@@ -81,8 +80,15 @@ export default function Page() {
           </div>
         </div>
       </div>
-      
-      <Section gqlMap={modelObj.gql} />
+
+      <div className='flex flex-row space-x-[3rem]'>
+        <Section gqlMap={modelObj.gql} />
+        <div className='flex h-[5rem] w-[10rem] items-center justify-center bg-slate-300 bg-opacity-30'>
+          <a className='text-3xl text-white' href={`/dev/db/${currentId}`}>
+            {currentId} dataview
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

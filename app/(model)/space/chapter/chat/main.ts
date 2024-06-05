@@ -9,7 +9,7 @@ export interface ChapterChatObj {
 }
 
 export const chapterChatGql = `
-type SpaceChatObj {
+type ChapterChatObj {
   id: String!
   chapterId: String!
   title: String!

@@ -10,7 +10,7 @@ export interface ChapterVerseObj {
 }
 
 export const chapterVerseGql = `
-type SpaceVerseObj {
+type ChapterVerseObj {
   id: String!
   chapterId: String!
   title: String!

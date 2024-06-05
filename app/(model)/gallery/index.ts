@@ -1,10 +1,10 @@
 import { galleryCollectionGql } from './resource/collection/main';
-import { archiveGalleryGql } from './main';
+import { galleryGql } from './main';
 import { collectionResourceGql } from './resource/main';
 
 export const galleryMap = {
   children: ['collection'],
-  gql: archiveGalleryGql,
+  gql: galleryGql,
   collection: {
     children: ['resource'],
     gql: galleryCollectionGql,

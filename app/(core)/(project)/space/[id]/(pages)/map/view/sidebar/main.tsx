@@ -1,4 +1,4 @@
-import { ArchiveGalleryObj } from '@/(model)/gallery/main';
+import { GalleryObj } from '@/(model)/gallery/main';
 import { createContext, useState } from 'react';
 import { MapSidebarView } from './view';
 import { GalleryCollectionObj } from '@/(model)/gallery/resource/collection/main';
@@ -30,7 +30,7 @@ interface SidebarHandler {
   goToHomeView: () => void;
   goToGalleryView: () => void;
   goToCollectionView: () => void;
-  goToGallery: (section: ArchiveGalleryObj) => void;
+  goToGallery: (section: GalleryObj) => void;
   goToCollection: (section: GalleryCollectionObj) => void;
 }
 export interface MapSidebarContextObject {
@@ -65,7 +65,7 @@ export function MapSidebar() {
     goToCollectionView: () => {
       changeSidebarMode(SidebarMode.Resources);
     },
-    goToGallery: (gallery: ArchiveGalleryObj) => {
+    goToGallery: (gallery: GalleryObj) => {
       gallerysHandler.galleryActions.goToGallery(gallery);
       changeSidebarMode(SidebarMode.Collections);
     },

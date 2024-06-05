@@ -1,19 +1,19 @@
-import { ArchiveGalleryObj } from '@/(model)/gallery/main';
+import { GalleryObj } from '@/(model)/gallery/main';
 import { useState, useMemo } from 'react';
 import { gallerysGqlHelper } from '@/(db)/(archive-db)/gallerys/main';
 
 export const useGalleryHandler = (galleryId: string) => {
-  const [gallery, changeGallery] = useState({} as ArchiveGalleryObj);
+  const [gallery, changeGallery] = useState({} as GalleryObj);
 
   const queryGetGallery = async (galleryId: string) => {
-    const gallery: ArchiveGalleryObj = await gallerysGqlHelper.get(galleryId);
+    const gallery: GalleryObj = await gallerysGqlHelper.get(galleryId);
     changeGallery(gallery);
     return gallery;
   };
 
   useMemo(() => {
     if (!galleryId) {
-      changeGallery({} as ArchiveGalleryObj);
+      changeGallery({} as GalleryObj);
       return;
     }
     queryGetGallery(galleryId);

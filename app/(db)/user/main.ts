@@ -69,7 +69,7 @@ async function createObj(newObj: Omit<UserObj, 'id'>) {
   return castSingle(payload?.data?.createUserObj);
 } 
 
-async function updateObj(id: string, updateObj: Object) {
+async function updateObj(id: string, updateObj: Partial<UserObj>) {
   const payload = await amplifyClient.graphql({
     query: updateUserObj,
     variables: {
@@ -115,7 +115,7 @@ interface UserDbWrapper {
     getObj: (key: string, value: string) => Promise<UserObj>;
     listObjs: (key: string, value: string) => Promise<UserObj[]>;
     createObj: (newObj: Omit<UserObj, 'id'>) => Promise<UserObj>;
-    updateObj: (id: string, updateObj: Object) => Promise<UserObj>;
+    updateObj: (id: string, updateObj: Partial<UserObj>) => Promise<UserObj>;
     overwriteObj: (id: string, newObj: UserObj) => Promise<UserObj>;
     deleteObj: (id: string) => Promise<UserObj>;
     getFromVariables: (variables: Object) => Promise<UserObj>;

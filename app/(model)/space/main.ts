@@ -28,7 +28,25 @@ type SpaceObj {
 	description: String!
 	thumbnail: FileElem!
 	variant: String!
-}`;
+}
+
+input UpdateSpaceChapterObjInput {
+	id: String!
+	spaceId: String
+	title: String
+	description: String
+	idx: Int
+  thumbnail: FileElemInput
+}
+
+input CreateSpaceChapterObjInput {
+	spaceId: String!
+	title: String!
+	description: String!
+	idx: Int!
+  thumbnail: FileElemInput!
+}
+`;
 
 export const SpaceContext = createContext<SpaceObj>({} as SpaceObj);
 

@@ -9,7 +9,7 @@ export interface ChapterRetroObj {
 }
 
 export const chapterRetroGql = `
-type SpaceRetroObj {
+type ChapterRetroObj {
 id: String!
 chapterId: String!
 title: String!
