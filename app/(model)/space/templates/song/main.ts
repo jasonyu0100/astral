@@ -1,7 +1,7 @@
 import { ChapterSceneVariant } from '@/(model)/space/chapter/scene/main';
 import { TemplateChapterObj } from '../main';
 import { exampleFileElem, exampleFileElems } from '@/(model)/elements/file/main';
-import { CollectionResourceVariant } from '@/(model)/archive/resource/main';
+import { CollectionResourceVariant } from '@/(model)/gallery/resource/main';
 import { ConversationMessageSource } from '@/(model)/space/chapter/chat/conversation/message/main';
 
 export const songSpaceTemplate: TemplateChapterObj[] = [

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import {
   GalleryCollectionContext,
   CollectionResourcesContext,
-} from '@/(model)/archive/collection/main';
+} from '@/(model)/gallery/resource/collection/main';
 
 export function CollectionInfo({ empty }: { empty?: boolean }) {
   const collection = useContext(GalleryCollectionContext);

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/gallery/main';
 import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
 
 export function GalleryThumbnail() {

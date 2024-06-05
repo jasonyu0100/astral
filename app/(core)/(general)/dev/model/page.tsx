@@ -2,15 +2,11 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
-import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
-import { archiveGqlMap } from '@/(model)/archive';
-import { conceptGqlMap } from '@/(model)/elements';
-import { horizonGqlMap } from '@/(model)/horizon';
-import { horizonGql } from '@/(model)/horizon/main';
-import { spaceGqlMap } from '@/(model)/space';
-import { userGqlMap } from '@/(model)/user';
+import { galleryMap } from '@/(model)/gallery';
+import { elementsMap } from '@/(model)/elements';
+import { horizonMap } from '@/(model)/horizon';
+import { spaceMap } from '@/(model)/space';
+import { userMap } from '@/(model)/user';
 import { glassFx, roundedFx } from '@/(style)/data';
 
 function Section({ gqlMap }: { gqlMap: string }) {
@@ -50,68 +46,68 @@ export default function Page() {
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>
         <p className='text-3xl font-bold text-white'>User GQL</p>
         <SectionRow>
-          <Section gqlMap={userGqlMap.user.gql} />
-          <Section gqlMap={userGqlMap.reservation.gql} />
+          <Section gqlMap={userMap.gql} />
+          <Section gqlMap={userMap.reservation.gql} />
         </SectionRow>
       </div>
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>
         <p className='text-3xl font-bold text-white'>Archive GQL</p>
         <SectionRow>
-          <Section gqlMap={archiveGqlMap.gallery.gql} />
-          <Section gqlMap={archiveGqlMap.gallery.collection.gql} />
-          <Section gqlMap={archiveGqlMap.gallery.collection.resource.gql} />
+          <Section gqlMap={galleryMap.gql} />
+          <Section gqlMap={galleryMap.collection.gql} />
+          <Section gqlMap={galleryMap.collection.resource.gql} />
         </SectionRow>
       </div>
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>
         <p className='text-3xl font-bold text-white'>Space GQL</p>
         <SectionRow>
 
-          <Section gqlMap={spaceGqlMap.chapter.gql} />
+          <Section gqlMap={spaceMap.chapter.gql} />
           <SectionDivider />
-          <Section gqlMap={spaceGqlMap.chapter.chat.gql} />
-          <Section gqlMap={spaceGqlMap.chapter.chat.conversation.gql} />
-          <Section gqlMap={spaceGqlMap.chapter.chat.conversation.message.gql} />
+          <Section gqlMap={spaceMap.chapter.chat.gql} />
+          <Section gqlMap={spaceMap.chapter.chat.conversation.gql} />
+          <Section gqlMap={spaceMap.chapter.chat.conversation.message.gql} />
           <SectionDivider />
-          <Section gqlMap={spaceGqlMap.chapter.scene.gql} />
-          <Section gqlMap={spaceGqlMap.chapter.scene.idea.gql} />
+          <Section gqlMap={spaceMap.chapter.scene.gql} />
+          <Section gqlMap={spaceMap.chapter.scene.idea.gql} />
           <SectionDivider />
-          <Section gqlMap={spaceGqlMap.chapter.verse.gql} />
-          <Section gqlMap={spaceGqlMap.chapter.verse.comment.gql} />
+          <Section gqlMap={spaceMap.chapter.verse.gql} />
+          <Section gqlMap={spaceMap.chapter.verse.comment.gql} />
           <SectionDivider />
-          <Section gqlMap={spaceGqlMap.chapter.retro.gql} />
-          <Section gqlMap={spaceGqlMap.chapter.retro.contribution.gql} />
+          <Section gqlMap={spaceMap.chapter.retro.gql} />
+          <Section gqlMap={spaceMap.chapter.retro.contribution.gql} />
         </SectionRow>
       </div>
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>
         <p className='text-3xl font-bold text-white'>Horizon GQL</p>
         <SectionRow>
-          <Section gqlMap={horizonGqlMap.horizon.gql} />
+          <Section gqlMap={horizonMap.gql} />
           <SectionDivider />
-          <Section gqlMap={horizonGqlMap.horizon.forum.gql} />
-          <Section gqlMap={horizonGqlMap.horizon.forum.post.gql} />
-          <Section gqlMap={horizonGqlMap.horizon.forum.post.comment.gql} />
+          <Section gqlMap={horizonMap.forum.gql} />
+          <Section gqlMap={horizonMap.forum.post.gql} />
+          <Section gqlMap={horizonMap.forum.post.comment.gql} />
           <SectionDivider />
-          <Section gqlMap={horizonGqlMap.horizon.cluster.gql} />
-          <Section gqlMap={horizonGqlMap.horizon.cluster.update.gql} />
+          <Section gqlMap={horizonMap.cluster.gql} />
+          <Section gqlMap={horizonMap.cluster.update.gql} />
           <SectionDivider />
-          <Section gqlMap={horizonGqlMap.horizon.arc.gql} />
-          <Section gqlMap={horizonGqlMap.horizon.arc.point.gql} />
+          <Section gqlMap={horizonMap.arc.gql} />
+          <Section gqlMap={horizonMap.arc.point.gql} />
           <SectionDivider />
-          <Section gqlMap={horizonGqlMap.horizon.point.gql} />
+          <Section gqlMap={horizonMap.point.gql} />
         </SectionRow>
       </div>
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>
         <p className='text-3xl font-bold text-white'>Concept GQL</p>
         <SectionRow>
-          <Section gqlMap={conceptGqlMap.file.gql} />
+          <Section gqlMap={elementsMap.file.gql} />
           <SectionDivider />
-          <Section gqlMap={conceptGqlMap.link.gql} />
+          <Section gqlMap={elementsMap.link.gql} />
           <SectionDivider />
-          <Section gqlMap={conceptGqlMap.log.gql} />
+          <Section gqlMap={elementsMap.log.gql} />
           <SectionDivider />
-          <Section gqlMap={conceptGqlMap.note.gql} />
+          <Section gqlMap={elementsMap.note.gql} />
           <SectionDivider />
-          <Section gqlMap={conceptGqlMap.score.gql} />
+          <Section gqlMap={elementsMap.score.gql} />
         </SectionRow>
       </div>
     </div>

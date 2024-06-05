@@ -3,7 +3,7 @@ import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { LinkElem } from '@/(model)/elements/link/main';
 import { LogElem } from '@/(model)/elements/log/main';
-import { CollectionResourceVariant } from '@/(model)/archive/resource/main';
+import { CollectionResourceVariant } from '@/(model)/gallery/resource/main';
 import { NoteElem } from '@/(model)/elements/note/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {

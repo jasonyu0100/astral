@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/gallery/main';
 import { GallerysHandlerContext } from '@/(controller)/explorer/gallerys/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { GalleryExplorerAdd } from '@/(components)/(media)/(gallery-folder)/explorer/add/main';

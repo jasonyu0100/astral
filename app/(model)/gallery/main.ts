@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileElem, exampleFileElem } from '../../elements/file/main';
+import { FileElem, exampleFileElem } from '../elements/file/main';
 export interface ArchiveGalleryObj {
   id: string;
   userId: string;

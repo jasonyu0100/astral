@@ -1,5 +1,5 @@
 import { FileElem } from '@/(model)/elements/file/main';
-import { CollectionResourceObj } from '@/(model)/archive/resource/main';
+import { CollectionResourceObj } from '@/(model)/gallery/resource/main';
 import { useState, useEffect as useMemo, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../(db)/(archive-db)/resources/main';
 

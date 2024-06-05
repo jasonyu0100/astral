@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../../../../../(components)/(media)/(resource-element)/explorer/add/main';
 import { ExplorerResource } from '../../../../../../../../../(components)/(media)/(resource-element)/explorer/main';
-import { CollectionResourceContext } from '@/(model)/archive/resource/main';
+import { CollectionResourceContext } from '@/(model)/gallery/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 

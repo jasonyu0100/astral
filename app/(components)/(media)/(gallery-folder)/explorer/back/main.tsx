@@ -1,4 +1,4 @@
-import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/gallery/main';
 import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';

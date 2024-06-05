@@ -9,28 +9,38 @@ import { postCommentGql } from './forum/post/comment/main';
 import { horizonPointGql } from './point/main';
 import { horizonGql } from './main';
 
-export const horizonGqlMap = {
-  horizon: {
+export const horizonMap = {
+    children: ['arc', 'cluster', 'forum', 'point'],
     gql: horizonGql,
     arc: {
+      children: ['point'],
       gql: horizonArcGql,
-      point: { gql: arcPointGql },
+      point: { 
+        children: [],
+        gql: arcPointGql 
+      },
     },
     cluster: {
       gql: horizonClusterGql,
-      update: { gql: clusterUpdateGql },
+      update: { 
+        children: [],
+        gql: clusterUpdateGql 
+      },
     },
     forum: {
+      children: ['post'],
       gql: horizonForumGql,
       post: {
+      children: ['comment'],
         gql: forumPostGql,
         comment: {
+          children: [],
           gql: postCommentGql,
         },
       },
     },
     point: {
+      children: [],
       gql: horizonPointGql,
     },
-  },
 };

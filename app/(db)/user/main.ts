@@ -120,8 +120,6 @@ interface UserDbWrapper {
     deleteObj: (id: string) => Promise<UserObj>;
     getFromVariables: (variables: Object) => Promise<UserObj>;
     listFromVariables: (variables: Object) => Promise<UserObj[]>;
-    castSingle: (obj: any) => UserObj;
-    castMultiple: (objs: any[]) => UserObj[];
 }
 
 export const userDbWrapper: UserDbWrapper = {
@@ -133,6 +131,4 @@ export const userDbWrapper: UserDbWrapper = {
     deleteObj,
     getFromVariables,
     listFromVariables,
-    castSingle,
-    castMultiple,
 }

@@ -1,7 +1,7 @@
 import { FileElem, exampleFileElem } from '@/(model)/elements/file/main';
 import { LinkElem } from '@/(model)/elements/link/main';
 import { LogElem } from '@/(model)/elements/log/main';
-import { CollectionResourceVariant } from '@/(model)/archive/resource/main';
+import { CollectionResourceVariant } from '@/(model)/gallery/resource/main';
 import { NoteElem } from '@/(model)/elements/note/main';
 import { ScoreElem } from '@/(model)/elements/score/main';
 import { createContext } from 'react';

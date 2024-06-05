@@ -2,7 +2,7 @@
 import { CollectionsResults } from './view/view';
 import {
   ArchiveGalleryContext,
-} from '@/(model)/archive/gallery/main';
+} from '@/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { useGalleryHandler } from '@/(controller)/explorer/gallerys/gallery/main';
 import {

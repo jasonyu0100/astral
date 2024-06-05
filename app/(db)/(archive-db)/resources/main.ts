@@ -3,7 +3,7 @@ import { FileElem } from '@/(model)/elements/file/main';
 import {
   CollectionResourceObj,
   CollectionResourceVariant,
-} from '@/(model)/archive/resource/main';
+} from '@/(model)/gallery/resource/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createResourceObj,
@@ -11,7 +11,7 @@ import {
   updateResourceObj,
 } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { GalleryCollectionObj } from '../../../(model)/archive/collection/main';
+import { GalleryCollectionObj } from '../../../(model)/gallery/resource/collection/main';
 
 export interface ResourcesGqlHelper {
   listFromCollection: (collectionId: string) => Promise<CollectionResourceObj[]>;

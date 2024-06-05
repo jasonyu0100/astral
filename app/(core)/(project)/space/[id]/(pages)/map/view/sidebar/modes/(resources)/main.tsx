@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
-import { CollectionResourceContext, CollectionResourceObj } from '@/(model)/archive/resource/main';
+import { CollectionResourceContext, CollectionResourceObj } from '@/(model)/gallery/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource-element)/sidebar/add/main';

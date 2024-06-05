@@ -1,4 +1,4 @@
-import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/gallery/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useContext } from 'react';
 

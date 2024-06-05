@@ -8,14 +8,20 @@ import { sceneIdeaGql } from "./chapter/scene/idea/main";
 import { chapterSceneGql } from "./chapter/scene/main";
 import { verseCommentGql } from "./chapter/verse/comment/main";
 import { chapterVerseGql } from "./chapter/verse/main";
+import { spaceGql } from "./main";
 
-export const spaceGqlMap = {
+export const spaceMap = {
+    children: ['chapter'],
+    gql: spaceGql,
     chapter: {
         gql: spaceChapterGql,
+        children: ['chat', 'retro', 'scene', 'verse'],
         chat: {
             gql: chapterChatGql, 
+            children: ['conversation'],
             conversation: {
                 gql: chatConversationGql,
+                children: ['message'],
                 message: {
                     gql: conversationMessageGql,
                 }
@@ -23,18 +29,21 @@ export const spaceGqlMap = {
         },
         retro: {
             gql: chapterRetroGql,
+            children: ['contribution'],
             contribution: {
                 gql: retroContributionGql,
             }
         },
         scene: {
             gql: chapterSceneGql,
+            children: ['idea'],
             idea: {
                 gql: sceneIdeaGql,
             }
         },
         verse: {
             gql: chapterVerseGql,
+            children: ['comment'],
             comment: {
                 gql: verseCommentGql
             }

@@ -4,14 +4,26 @@ import { logElemGql } from './log/main';
 import { noteElemGql } from './note/main';
 import { scoreElemGql } from './score/main';
 
-export const conceptGqlMap = {
+export const elementsMap = {
+  children: ['file', 'note', 'link', 'log', 'score'],
   file: {
+    children: [],
     gql: fileElemGql,
   },
   note: {
+    children: [],
     gql: noteElemGql,
   },
-  link: { gql: linkElemGql },
-  log: { gql: logElemGql },
-  score: { gql: scoreElemGql },
+  link: {
+    children: [],
+    gql: linkElemGql,
+  },
+  log: {
+    children: [],
+    gql: logElemGql,
+  },
+  score: {
+    children: [],
+    gql: scoreElemGql,
+  },
 };

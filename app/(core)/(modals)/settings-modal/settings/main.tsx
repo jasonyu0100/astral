@@ -6,8 +6,8 @@ import { useContext } from 'react';
 import { SettingsModalContext } from '../main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import Link from 'next/link';
-import { getPlanName, getPlanPrice } from '@/(core)/(misc)/(support)/(finance)/support/page';
-import { stripeMap } from '@/(core)/(misc)/(support)/(finance)/stripe/map';
+import { getPlanName, getPlanPrice } from '@/(core)/(general)/(finance)/support/page';
+import { stripeMap } from '@/(core)/(general)/(finance)/stripe/map';
 
 export function SettingsModal() {
   const user = useGlobalUser((state) => state.user);

@@ -9,7 +9,7 @@ import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
-import { TimerComponent } from '@/(core)/(misc)/learn/timer/component/main';
+import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
 
 function Page() {
   return (

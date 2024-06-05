@@ -1,4 +1,4 @@
-import { ArchiveGalleryContext } from '@/(model)/archive/gallery/main';
+import { ArchiveGalleryContext } from '@/(model)/gallery/main';
 import { useContext } from 'react';
 import { GalleryBackEdit } from '../../common/back/edit/main';
 import { GalleryBackDescription } from '../../common/back/description/main';
