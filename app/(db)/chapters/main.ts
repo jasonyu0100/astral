@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { ChapterObj } from '@/(model)/space/chapter/main';
+import { SpaceChapterObj } from '@/(model)/space/chapter/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChapterObj,
@@ -14,13 +14,13 @@ export interface ChaptersGqlHelper {
     description: string,
     idx: number,
     spaceId: string,
-  ) => Promise<ChapterObj>;
+  ) => Promise<SpaceChapterObj>;
   update: (
     chapterId: string,
-    updatedChapterObj: ChapterObj,
-  ) => Promise<ChapterObj>;
-  delete: (chapterId: string) => Promise<ChapterObj>;
-  listFromSpace: (spaceId: string) => Promise<ChapterObj[]>;
+    updatedChapterObj: SpaceChapterObj,
+  ) => Promise<SpaceChapterObj>;
+  delete: (chapterId: string) => Promise<SpaceChapterObj>;
+  listFromSpace: (spaceId: string) => Promise<SpaceChapterObj[]>;
 }
 
 export const chaptersGqlHelper: ChaptersGqlHelper = {
@@ -36,7 +36,7 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
       },
     });
     const chapterObjs =
-      (payload.data?.listChapterObjs?.items as ChapterObj[]) || [];
+      (payload.data?.listChapterObjs?.items as SpaceChapterObj[]) || [];
     const sortedChapterObjs = chapterObjs.sort((a, b) => a.idx - b.idx);
     return sortedChapterObjs;
   },
@@ -57,10 +57,10 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
         }),
       },
     });
-    const chapterObj = payload.data?.createChapterObj as ChapterObj;
+    const chapterObj = payload.data?.createChapterObj as SpaceChapterObj;
     return chapterObj;
   },
-  update: async (chapterId: string, updatedChapterObj: ChapterObj) => {
+  update: async (chapterId: string, updatedChapterObj: SpaceChapterObj) => {
     const payload = await amplifyClient.graphql({
       query: updateChapterObj,
       variables: {
@@ -73,7 +73,7 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
         }),
       },
     });
-    const chapterObj = payload.data?.updateChapterObj as ChapterObj;
+    const chapterObj = payload.data?.updateChapterObj as SpaceChapterObj;
     return chapterObj;
   },
   delete: async (chapterId: string) => {
@@ -85,7 +85,7 @@ export const chaptersGqlHelper: ChaptersGqlHelper = {
         },
       },
     });
-    const chapterObj = payload.data?.deleteChapterObj as ChapterObj;
+    const chapterObj = payload.data?.deleteChapterObj as SpaceChapterObj;
     return chapterObj;
   },
 };

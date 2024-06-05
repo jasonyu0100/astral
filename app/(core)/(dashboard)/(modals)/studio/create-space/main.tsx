@@ -5,7 +5,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { SpaceVariant } from '@/(model)/space/main';
 import {
   TemplateChapterObj,

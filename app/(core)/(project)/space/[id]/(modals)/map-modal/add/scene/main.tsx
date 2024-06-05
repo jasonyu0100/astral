@@ -9,7 +9,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { SceneVariant } from '@/(model)/space/chapter/scene/main';
+import { SpaceSceneVariant } from '@/(model)/space/chapter/scene/main';
 import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 
 export function MapAddSceneModal() {
@@ -17,7 +17,7 @@ export function MapAddSceneModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [variant, changeVariant] = useState(
-    SceneVariant.VISUAL as string,
+    SpaceSceneVariant.VISUAL as string,
   );
   const modalContext = useContext(MapModalContext);
   const { opened, close } = modalContext.addSceneModal;
@@ -35,17 +35,17 @@ export function MapAddSceneModal() {
             value={variant}
             onChange={(e) => changeVariant(e.target.value)}
           >
-            <option value={SceneVariant.VISUAL}>
-              {SceneVariant.VISUAL}
+            <option value={SpaceSceneVariant.VISUAL}>
+              {SpaceSceneVariant.VISUAL}
             </option>
-            <option value={SceneVariant.LINK}>
-              {SceneVariant.LINK}
+            <option value={SpaceSceneVariant.LINK}>
+              {SpaceSceneVariant.LINK}
             </option>
-            <option value={SceneVariant.AUDIO}>
-              {SceneVariant.AUDIO}
+            <option value={SpaceSceneVariant.AUDIO}>
+              {SpaceSceneVariant.AUDIO}
             </option>
-            <option value={SceneVariant.MEMO}>
-              {SceneVariant.MEMO}
+            <option value={SpaceSceneVariant.MEMO}>
+              {SpaceSceneVariant.MEMO}
             </option>
           </FormSelect>
           <FormInput

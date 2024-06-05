@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { CollectionObj } from '@/(model)/media/collection/main';
+import { GalleryCollectionObj } from '@/(model)/media/collection/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createCollectionObj,
@@ -9,18 +9,18 @@ import {
 import { getCollectionObj, listCollectionObjs } from '@/graphql/queries';
 
 export interface CollectionsGqlHelper {
-  get: (id: string) => Promise<CollectionObj>;
-  listFromGallery: (galleryId: string) => Promise<CollectionObj[]>;
+  get: (id: string) => Promise<GalleryCollectionObj>;
+  listFromGallery: (galleryId: string) => Promise<GalleryCollectionObj[]>;
   create: (
     galleryId: string,
     title: string,
     description: string,
-  ) => Promise<CollectionObj>;
+  ) => Promise<GalleryCollectionObj>;
   update: (
     collectionId: string,
-    updatedCollectionObj: CollectionObj,
-  ) => Promise<CollectionObj>;
-  delete: (collectionId: string) => Promise<CollectionObj>;
+    updatedCollectionObj: GalleryCollectionObj,
+  ) => Promise<GalleryCollectionObj>;
+  delete: (collectionId: string) => Promise<GalleryCollectionObj>;
 }
 
 export const collectionsGqlHelper: CollectionsGqlHelper = {
@@ -32,7 +32,7 @@ export const collectionsGqlHelper: CollectionsGqlHelper = {
       },
     });
 
-    const collectionObj = payload?.data?.getCollectionObj as CollectionObj;
+    const collectionObj = payload?.data?.getCollectionObj as GalleryCollectionObj;
     return collectionObj;
   },
   listFromGallery: async (galleryId: string) => {
@@ -47,7 +47,7 @@ export const collectionsGqlHelper: CollectionsGqlHelper = {
       },
     });
     const collectionObjs =
-      (payload?.data?.listCollectionObjs?.items as CollectionObj[]) || [];
+      (payload?.data?.listCollectionObjs?.items as GalleryCollectionObj[]) || [];
     return collectionObjs;
   },
   create: async (galleryId: string, title: string, description: string) => {
@@ -61,10 +61,10 @@ export const collectionsGqlHelper: CollectionsGqlHelper = {
         }),
       },
     });
-    const collectionObj = payload?.data?.createCollectionObj as CollectionObj;
+    const collectionObj = payload?.data?.createCollectionObj as GalleryCollectionObj;
     return collectionObj;
   },
-  update: async (collectionId: string, updatedCollectionObj: CollectionObj) => {
+  update: async (collectionId: string, updatedCollectionObj: GalleryCollectionObj) => {
     const payload = await amplifyClient.graphql({
       query: updateCollectionObj,
       variables: {
@@ -76,7 +76,7 @@ export const collectionsGqlHelper: CollectionsGqlHelper = {
         }),
       },
     });
-    const collectionObj = payload?.data?.updateCollectionObj as CollectionObj;
+    const collectionObj = payload?.data?.updateCollectionObj as GalleryCollectionObj;
     return collectionObj;
   },
   delete: async (collectionId: string) => {
@@ -88,7 +88,7 @@ export const collectionsGqlHelper: CollectionsGqlHelper = {
         },
       },
     });
-    const collectionObj = payload?.data?.deleteCollectionObj as CollectionObj;
+    const collectionObj = payload?.data?.deleteCollectionObj as GalleryCollectionObj;
     return collectionObj;
   },
 };

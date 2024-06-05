@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(model)/space/chapter/main';
+import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import { cn } from '@/(utils)/cn';
@@ -9,7 +9,7 @@ import { ChapterActiveText } from './active/main';
 import { ChapterInactiveText } from './inactive/main';
 
 export function ChapterContainer({ index, children }: { children?: React.ReactNode, index: number }) {
-  const chapter = useContext(ChapterContext);
+  const chapter = useContext(SpaceChapterContext);
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const active = chapter.id === chaptersHandler.chapterId;
 

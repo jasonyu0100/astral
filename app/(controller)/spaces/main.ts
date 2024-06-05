@@ -1,6 +1,6 @@
 import { useState, useMemo, createContext } from 'react';
 import { SpaceObj } from '@/(model)/space/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { TemplateChapterObj } from '@/(model)/space/templates/main';
 import { toast } from 'sonner';
 import { spacesGqlHelper } from '../../(db)/spaces/main';

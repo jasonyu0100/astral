@@ -5,25 +5,25 @@ import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import Link from 'next/link';
 import { useContext } from 'react';
 import {
-  CollectionContext,
-  ResourcesContext,
+  GalleryCollectionContext,
+  CollectionResourcesContext,
 } from '@/(model)/media/collection/main';
 import { useResourcesHandler } from '@/(controller)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function ExplorerCollection() {
-  const collection = useContext(CollectionContext);
+  const collection = useContext(GalleryCollectionContext);
   const user = useGlobalUser((state) => state.user);
   const { resources } = useResourcesHandler(collection.id, user?.id);
 
   return (
-    <ResourcesContext.Provider value={resources}>
+    <CollectionResourcesContext.Provider value={resources}>
       <Link href={archiveMap.archive.explorer.resources.id.link(collection.id)}>
         <CollectionContainer className="w-[300px]">
           <CollectionThumbnail />
           <CollectionInfo />
         </CollectionContainer>
       </Link>
-    </ResourcesContext.Provider>
+    </CollectionResourcesContext.Provider>
   );
 }

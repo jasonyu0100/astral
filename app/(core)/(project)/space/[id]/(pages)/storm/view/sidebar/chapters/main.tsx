@@ -3,7 +3,7 @@ import { StormModalContext } from '@/(core)/(project)/space/[id]/(modals)/storm-
 import { useContext } from 'react';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
-import { ChapterContext } from '@/(model)/space/chapter/main';
+import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 
 export function StormSidebarChapters() {
@@ -19,9 +19,9 @@ export function StormSidebarChapters() {
         className='flex flex-col overflow-auto'
       >
         {chapters.map((chapter) => (
-          <ChapterContext.Provider value={chapter} key={chapter.id}>
+          <SpaceChapterContext.Provider value={chapter} key={chapter.id}>
             <StormChapter key={chapter.id}/>
-          </ChapterContext.Provider>
+          </SpaceChapterContext.Provider>
         ))}
         <StormChapterAdd onClick={() => modalContext.addChapterModal.open()} />
       </GlassAreaContainer>

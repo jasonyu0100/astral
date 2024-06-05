@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export interface RetroObj {
+export interface SpaceRetroObj {
   id: string;
   chapterId: string;
   title: string;
@@ -8,9 +8,9 @@ export interface RetroObj {
   time: string;
 }
 
-export const RetroContext = createContext<RetroObj>({} as RetroObj);
+export const SpaceRetroContext = createContext<SpaceRetroObj>({} as SpaceRetroObj);
 
-export const exampleRetro: RetroObj = {
+export const exampleSpaceRetro: SpaceRetroObj = {
   id: '0',
   chapterId: '0',
   title: 'May Retro',
@@ -18,7 +18,7 @@ export const exampleRetro: RetroObj = {
   time: new Date('2023-12-19').toISOString(),
 };
 
-export const exampleRetros: RetroObj[] = [
+export const exampleSpaceRetros: SpaceRetroObj[] = [
   {
     id: '0',
     chapterId: '0',

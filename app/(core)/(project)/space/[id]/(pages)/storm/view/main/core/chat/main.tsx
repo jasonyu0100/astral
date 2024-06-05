@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { StormMessage } from './message/main';
-import { MessageContext } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { ConversationMessageContext } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { MessagesHandlerContext } from '@/(controller)/storm/messages/main';
 
 export function StormChat() {
@@ -14,9 +14,9 @@ export function StormChat() {
     >
       <div className='flex w-full max-w-[900px] flex-col space-y-[1rem] py-[2rem]'>
         {messages.map((message) => (
-          <MessageContext.Provider value={message} key={message.id}>
+          <ConversationMessageContext.Provider value={message} key={message.id}>
             <StormMessage key={message.id}/>
-          </MessageContext.Provider>
+          </ConversationMessageContext.Provider>
         ))}
       </div>
     </div>

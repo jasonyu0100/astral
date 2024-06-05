@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export interface ChatObj {
+export interface SpaceChatObj {
   id: string;
   chapterId: string;
   title: string;
@@ -8,7 +8,7 @@ export interface ChatObj {
   time: string;
 }
 
-export const exampleChat: ChatObj = {
+export const exampleSpaceChat: SpaceChatObj = {
   id: '0',
   chapterId: '0',
   title: 'The Idea',
@@ -16,9 +16,9 @@ export const exampleChat: ChatObj = {
   time: new Date('2023-12-19').toISOString(),
 };
 
-export const ChatContext = createContext<ChatObj>({} as ChatObj);
+export const SpaceChatContext = createContext<SpaceChatObj>({} as SpaceChatObj);
 
-export const exampleChats: ChatObj[] = [
+export const exampleSpaceChats: SpaceChatObj[] = [
   {
     id: '0',
     chapterId: '0',

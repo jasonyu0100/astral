@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { FileVariant } from '@/(model)/media/resource/file/main';
-import { ResourcesContext } from '@/(model)/media/collection/main';
+import { FileVariant } from '@/(model)/concept/file/main';
+import { CollectionResourcesContext } from '@/(model)/media/collection/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
-  const resources = useContext(ResourcesContext);
+  const resources = useContext(CollectionResourcesContext);
   const visualResources = resources?.filter(
     (resource) =>
       resource.file?.variant === FileVariant.IMAGE ||

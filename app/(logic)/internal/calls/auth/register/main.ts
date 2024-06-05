@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createUserObj } from '@/graphql/mutations';
 import { listUserObjs } from '@/graphql/queries';

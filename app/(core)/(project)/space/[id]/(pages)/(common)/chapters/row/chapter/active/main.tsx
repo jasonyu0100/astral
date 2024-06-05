@@ -1,8 +1,8 @@
-import { ChapterContext } from "@/(model)/space/chapter/main";
+import { SpaceChapterContext } from "@/(model)/space/chapter/main";
 import { useContext } from "react";
 
 export function ChapterActiveText() {
-  const chapter = useContext(ChapterContext);
+  const chapter = useContext(SpaceChapterContext);
   
   return <p className='font-bold text-slate-300'>{chapter.title}</p>;
 }

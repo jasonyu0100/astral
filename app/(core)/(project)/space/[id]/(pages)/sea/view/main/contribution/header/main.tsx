@@ -1,5 +1,5 @@
 import { ProfileCover } from "@/(components)/(element)/profile/main";
-import { exampleFile } from "@/(model)/media/resource/file/main";
+import { exampleFile } from "@/(model)/concept/file/main";
 
 export function SeaContributionHeader() {
   return (

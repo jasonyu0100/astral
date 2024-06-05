@@ -5,11 +5,11 @@ import {
   GalleryObj,
 } from '@/(model)/media/gallery/main';
 import {
-  CollectionContext,
-  CollectionObj,
+  GalleryCollectionContext,
+  GalleryCollectionObj,
 } from '@/(model)/media/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import {
   ResourcesActions,
   ResourcesHandlerContext,
@@ -38,7 +38,7 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
       <GalleryContext.Provider value={gallery}>
-        <CollectionContext.Provider value={collection}>
+        <GalleryCollectionContext.Provider value={collection}>
           <ResourcesHandlerContext.Provider value={resourcesHandler}>
               <CraftTabs tab={CraftTabStage.Explorer} 
                 backUrl={archiveMap.archive.explorer.collections.id.link(gallery.id)}
@@ -48,7 +48,7 @@ function Page({ params }: { params: { id: string } }) {
                 <ResourcesView />
               </DashboardContent>
           </ResourcesHandlerContext.Provider>
-        </CollectionContext.Provider>
+        </GalleryCollectionContext.Provider>
       </GalleryContext.Provider>
     </ArchiveExplorerCreateModalContext.Provider>
   );

@@ -1,10 +1,10 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
-import { LinkObj } from '@/(model)/media/resource/link/main';
-import { LogObj } from '@/(model)/media/resource/log/main';
-import { ResourceVariant } from '@/(model)/media/resource/main';
-import { NoteObj } from '@/(model)/media/resource/note/main';
+import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { FileObj } from '@/(model)/concept/file/main';
+import { LinkObj } from '@/(model)/concept/link/main';
+import { LogObj } from '@/(model)/concept/log/main';
+import { CollectionResourceVariant } from '@/(model)/media/resource/main';
+import { NoteObj } from '@/(model)/concept/note/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createIdeaObj,
@@ -18,7 +18,7 @@ export interface IdeasCreateGqlHelperType {
     x: number,
     y: number,
     file: FileObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromLink: (
     partId: string,
     title: string,
@@ -26,7 +26,7 @@ export interface IdeasCreateGqlHelperType {
     x: number,
     y: number,
     link: LinkObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromLog: (
     partId: string,
     title: string,
@@ -34,7 +34,7 @@ export interface IdeasCreateGqlHelperType {
     x: number,
     y: number,
     log: LogObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromNote: (
     partId: string,
     title: string,
@@ -42,7 +42,7 @@ export interface IdeasCreateGqlHelperType {
     x: number,
     y: number,
     note: NoteObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
 }
 
 export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
@@ -63,12 +63,12 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
           description: description,
           x: x,
           y: y,
-          variant: ResourceVariant.FILE,
+          variant: CollectionResourceVariant.FILE,
           file: file,
         }),
       },
     });
-    const ideaObj = payload?.data.createIdeaObj as IdeaObj;
+    const ideaObj = payload?.data.createIdeaObj as SceneIdeaObj;
     return ideaObj;
   },
   createFromLink: async (
@@ -88,12 +88,12 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
           description: description,
           x: x,
           y: y,
-          variant: ResourceVariant.LINK,
+          variant: CollectionResourceVariant.LINK,
           link: link,
         }),
       },
     });
-    const ideaObj = payload?.data.createIdeaObj as IdeaObj;
+    const ideaObj = payload?.data.createIdeaObj as SceneIdeaObj;
     return ideaObj;
   },
   createFromLog: async (
@@ -113,12 +113,12 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
           description: description,
           x: x,
           y: y,
-          variant: ResourceVariant.LOG,
+          variant: CollectionResourceVariant.LOG,
           log: log,
         }),
       },
     });
-    const ideaObj = payload?.data.createIdeaObj as IdeaObj;
+    const ideaObj = payload?.data.createIdeaObj as SceneIdeaObj;
     return ideaObj;
   },
   createFromNote: async (
@@ -138,12 +138,12 @@ export const ideasCreateGqlHelper: IdeasCreateGqlHelperType = {
           description: description,
           x,
           y,
-          variant: ResourceVariant.NOTE,
+          variant: CollectionResourceVariant.NOTE,
           note: note,
         }),
       },
     });
-    const ideaObj = payload?.data.createIdeaObj as IdeaObj;
+    const ideaObj = payload?.data.createIdeaObj as SceneIdeaObj;
     return ideaObj;
   },
 };

@@ -1,4 +1,4 @@
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { GalleryObj } from '@/(model)/media/gallery/main';
 import { createContext, useMemo, useState } from 'react';
 import { gallerysGqlHelper } from '../../../(db)/gallerys/main';

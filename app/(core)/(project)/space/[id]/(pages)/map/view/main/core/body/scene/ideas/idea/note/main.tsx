@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { IdeaContext } from '@/(model)/space/chapter/scene/idea/main';
-import { NoteVariant } from '@/(model)/media/resource/note/main';
+import { SceneIdeaContext } from '@/(model)/space/chapter/scene/idea/main';
+import { NoteVariant } from '@/(model)/concept/note/main';
 import { NotePromptIdea } from './prompt/main';
 import { NoteStickyIdea } from './sticky/main';
 import { NoteQuoteIdea } from './quote/main';
 
 export function NoteIdea() {
-  const star = useContext(IdeaContext);
+  const star = useContext(SceneIdeaContext);
 
   return (
     <>

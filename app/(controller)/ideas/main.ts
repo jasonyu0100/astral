@@ -1,58 +1,58 @@
-import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { createContext, useMemo, useState } from 'react';
-import { NoteObj } from '@/(model)/media/resource/note/main';
-import { LogObj } from '@/(model)/media/resource/log/main';
-import { LinkObj } from '@/(model)/media/resource/link/main';
+import { NoteObj } from '@/(model)/concept/note/main';
+import { LogObj } from '@/(model)/concept/log/main';
+import { LinkObj } from '@/(model)/concept/link/main';
 import { toast } from 'sonner';
 import { ideasGqlHelper } from '../../(db)/ideas/main';
 export interface IdeaActions {
-  listIdeas: () => Promise<IdeaObj[]>;
+  listIdeas: () => Promise<SceneIdeaObj[]>;
   createFromFile: (
     title: string,
     description: string,
     x: number,
     y: number,
     file: FileObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromNote: (
     title: string,
     description: string,
     x: number,
     y: number,
     note: NoteObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromLink: (
     title: string,
     description: string,
     x: number,
     y: number,
     link: LinkObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   createFromLog: (
     title: string,
     description: string,
     x: number,
     y: number,
     log: LogObj,
-  ) => Promise<IdeaObj>;
+  ) => Promise<SceneIdeaObj>;
   updateIdea: (ideaId: string, data: any) => void;
-  updateIdeas: () => Promise<IdeaObj[]>;
+  updateIdeas: () => Promise<SceneIdeaObj[]>;
   activateIdea: (ideaId: string) => void;
   deactivateIdea: () => void;
 }
 
 interface IdeasHandler {
-  idea: IdeaObj | undefined;
+  idea: SceneIdeaObj | undefined;
   ideaId: string;
-  ideas: IdeaObj[];
+  ideas: SceneIdeaObj[];
   ideaActions: IdeaActions;
 }
 
 export const IdeasHandlerContext = createContext({} as IdeasHandler);
 
 export const useIdeasHandler = (partId: string): IdeasHandler => {
-  const [ideas, changeIdeas] = useState<IdeaObj[]>([]);
+  const [ideas, changeIdeas] = useState<SceneIdeaObj[]>([]);
   const [ideaId, changeIdeaId] = useState<string>('');
 
   const idea = ideas.filter((idea) => idea.id === ideaId).at(0);
@@ -73,7 +73,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
     ) => {
       if (partId === '') {
         alert('No Scene Active');
-        return {} as IdeaObj;
+        return {} as SceneIdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromFile(
         partId,
@@ -97,7 +97,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
     ) => {
       if (partId === '') {
         alert('No Scene Active');
-        return {} as IdeaObj;
+        return {} as SceneIdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromNote(
         partId,
@@ -120,7 +120,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
     ) => {
       if (partId === '') {
         alert('No Scene Active');
-        return {} as IdeaObj;
+        return {} as SceneIdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromLink(
         partId,
@@ -143,7 +143,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
     ) => {
       if (partId === '') {
         alert('No Scene Active');
-        return {} as IdeaObj;
+        return {} as SceneIdeaObj;
       }
       const idea = await ideasGqlHelper.create.createFromLog(
         partId,

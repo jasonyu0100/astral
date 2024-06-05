@@ -1,8 +1,8 @@
-import { SceneVariant } from '@/(model)/space/chapter/scene/main';
-import { exampleFiles } from '@/(model)/media/resource/file/main';
-import { ResourceVariant } from '@/(model)/media/resource/main';
+import { SpaceSceneVariant } from '@/(model)/space/chapter/scene/main';
+import { exampleFiles } from '@/(model)/concept/file/main';
+import { CollectionResourceVariant } from '@/(model)/media/resource/main';
 import { TemplateChapterObj } from '../main';
-import { MessageSource } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { ConversationMessageSource } from '@/(model)/space/chapter/chat/conversation/message/main';
 
 export const customTemplate: TemplateChapterObj[] = [
   {

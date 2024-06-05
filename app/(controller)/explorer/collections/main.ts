@@ -1,37 +1,37 @@
-import { FileObj } from '@/(model)/media/resource/file/main';
-import { CollectionObj } from '@/(model)/media/collection/main';
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { FileObj } from '@/(model)/concept/file/main';
+import { GalleryCollectionObj } from '@/(model)/media/collection/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import { createContext, useMemo, useState } from 'react';
 import { collectionsGqlHelper } from '../../../(db)/collections/main';
 import { resourcesGqlHelper } from '@/(db)/resources/main';
 export interface CollectionsHandler {
   collectionId: string;
-  collection: CollectionObj | undefined;
-  collections: CollectionObj[];
+  collection: GalleryCollectionObj | undefined;
+  collections: GalleryCollectionObj[];
   collectionActions: CollectionActions;
 }
 export interface CollectionActions {
-  listCollections: (galleryId: string) => Promise<CollectionObj[]>;
-  listResourcesInside: (collectionId: string) => Promise<ResourceObj[]>;
+  listCollections: (galleryId: string) => Promise<GalleryCollectionObj[]>;
+  listResourcesInside: (collectionId: string) => Promise<CollectionResourceObj[]>;
   createCollection: (
     title: string,
     description: string,
     files: FileObj[],
-  ) => Promise<CollectionObj>;
-  goToCollection: (collection: CollectionObj) => CollectionObj;
+  ) => Promise<GalleryCollectionObj>;
+  goToCollection: (collection: GalleryCollectionObj) => GalleryCollectionObj;
 }
 
 export const CollectionsHandlerContext = createContext({} as CollectionsHandler);
 
 export const useCollectionsHandler = (galleryId: string, userId: string): CollectionsHandler => {
-  const [collections, changeCollections] = useState<CollectionObj[]>([]);
+  const [collections, changeCollections] = useState<GalleryCollectionObj[]>([]);
   const [collectionId, changeCollectionId] = useState<string>('');
   const collection = collections.find(
     (collection) => collection.id === collectionId,
   );
 
   const collectionActions: CollectionActions = {
-    goToCollection: (collection: CollectionObj) => {
+    goToCollection: (collection: GalleryCollectionObj) => {
       changeCollectionId(collection.id);
       return collection;
     },

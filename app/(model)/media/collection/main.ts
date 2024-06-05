@@ -1,28 +1,28 @@
 import { createContext } from 'react';
-import { ResourceObj } from '../resource/main';
+import { CollectionResourceObj } from '../resource/main';
 
-export interface CollectionObj {
+export interface GalleryCollectionObj {
   id: string;
   galleryId: string;
   title: string;
   description: string;
 }
 
-export const exampleCollection: CollectionObj = {
+export const exampleGalleryCollection: GalleryCollectionObj = {
   id: '0',
   galleryId: '0',
   title: 'Symbols',
   description: 'A collection of symbols',
 };
 
-export const CollectionContext = createContext<CollectionObj>(
-  {} as CollectionObj,
+export const GalleryCollectionContext = createContext<GalleryCollectionObj>(
+  {} as GalleryCollectionObj,
 );
-export const ResourcesContext = createContext<ResourceObj[]>(
-  [] as ResourceObj[],
+export const CollectionResourcesContext = createContext<CollectionResourceObj[]>(
+  [] as CollectionResourceObj[],
 );
 
-export const exampleCollections: CollectionObj[] = [
+export const exampleGalleryCollections: GalleryCollectionObj[] = [
   {
     id: '0',
     galleryId: '0',

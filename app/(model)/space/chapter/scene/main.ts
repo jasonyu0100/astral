@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
-export enum SceneVariant {
+export enum SpaceSceneVariant {
   VISUAL = 'VISUAL',
   AUDIO = 'AUDIO',
   MEMO = 'MEMO',
   LINK = 'LINK',
 }
 
-export interface SceneObj {
+export interface SpaceSceneObj {
   id: string;
   chapterId: string;
   title: string;
@@ -15,36 +15,36 @@ export interface SceneObj {
   variant: string;
 }
 
-export const exampleScene: SceneObj = {
+export const exampleSpaceScene: SpaceSceneObj = {
   id: '0',
   chapterId: '0',
   title: 'Idea Scene',
   description: 'Scene Description',
-  variant: SceneVariant.VISUAL,
+  variant: SpaceSceneVariant.VISUAL,
 };
 
-export const SceneContext = createContext<SceneObj>({} as SceneObj);
+export const SpaceSceneContext = createContext<SpaceSceneObj>({} as SpaceSceneObj);
 
-export const exampleScenes: SceneObj[] = [
+export const exampleSpaceScenes: SpaceSceneObj[] = [
   {
     id: '0',
     chapterId: '0',
     title: 'Idea Scene 1',
     description: 'Scene Description',
-    variant: SceneVariant.VISUAL,
+    variant: SpaceSceneVariant.VISUAL,
   },
   {
     id: '1',
     chapterId: '0',
     title: 'Idea Scene 2',
     description: 'Scene Description',
-    variant: SceneVariant.VISUAL,
+    variant: SpaceSceneVariant.VISUAL,
   },
   {
     id: '2',
     chapterId: '0',
     title: 'Idea Scene 3',
     description: 'Scene Description',
-    variant: SceneVariant.VISUAL,
+    variant: SpaceSceneVariant.VISUAL,
   },
 ];

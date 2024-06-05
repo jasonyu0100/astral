@@ -1,18 +1,18 @@
-import { ChatObj } from '@/(model)/space/chapter/chat/main';
+import { SpaceChatObj } from '@/(model)/space/chapter/chat/main';
 import { createContext, useMemo, useState } from 'react';
 import { chatsGqlHelper } from '@/(db)/chats/main';
 
 export interface ChatActions {
-  updateChats: (chats: ChatObj[]) => ChatObj[];
-  updateChat: (chat: ChatObj) => ChatObj;
-  selectChat: (chat: ChatObj) => ChatObj;
-  listChats: () => Promise<ChatObj[]>;
-  createChat: (title: string, summary: string) => Promise<ChatObj>;
+  updateChats: (chats: SpaceChatObj[]) => SpaceChatObj[];
+  updateChat: (chat: SpaceChatObj) => SpaceChatObj;
+  selectChat: (chat: SpaceChatObj) => SpaceChatObj;
+  listChats: () => Promise<SpaceChatObj[]>;
+  createChat: (title: string, summary: string) => Promise<SpaceChatObj>;
 }
 
 export interface ChatsHandler {
-  chat?: ChatObj;
-  chats: ChatObj[];
+  chat?: SpaceChatObj;
+  chats: SpaceChatObj[];
   chatId: string;
   chatActions: ChatActions;
 }
@@ -20,7 +20,7 @@ export interface ChatsHandler {
 export const ChatsHandlerContext = createContext({} as ChatsHandler);
 
 export const useChatsHandler = (chapterId: string): ChatsHandler => {
-  const [chats, changeChats] = useState<ChatObj[]>([]);
+  const [chats, changeChats] = useState<SpaceChatObj[]>([]);
   const [chatId, changeChatId] = useState<string>(chats?.at(0)?.id || '');
 
   const chat = chats.filter((chat) => chat.id === chatId).at(0);
@@ -38,16 +38,16 @@ export const useChatsHandler = (chapterId: string): ChatsHandler => {
       changeChatId(chat.id);
       return chat;
     },
-    updateChats: (chats: ChatObj[]) => {
+    updateChats: (chats: SpaceChatObj[]) => {
       changeChats(chats);
       changeChatId(chats.at(0)?.id || '');
       return chats;
     },
-    updateChat: (chat: ChatObj) => {
+    updateChat: (chat: SpaceChatObj) => {
       changeChatId(chat.id);
       return chat;
     },
-    selectChat: (chat: ChatObj) => {
+    selectChat: (chat: SpaceChatObj) => {
       changeChatId(chat.id);
       return chat;
     },

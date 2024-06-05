@@ -1,17 +1,17 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile, exampleFiles } from './file/main';
-import { LinkObj } from './link/main';
-import { LogObj } from './log/main';
-import { NoteObj } from './note/main';
+import { FileObj, exampleFile, exampleFiles } from '../../concept/file/main';
+import { LinkObj } from '../../concept/link/main';
+import { LogObj } from '../../concept/log/main';
+import { NoteObj } from '../../concept/note/main';
 
-export enum ResourceVariant {
+export enum CollectionResourceVariant {
   FILE = 'FILE',
   LOG = 'LOG',
   NOTE = 'NOTE',
   LINK = 'LINK',
 }
 
-export interface ResourceObj {
+export interface CollectionResourceObj {
   id: string;
   userId: string;
   collectionId: string;
@@ -24,19 +24,19 @@ export interface ResourceObj {
   variant: string;
 }
 
-export const ResourceContext = createContext<ResourceObj>({} as ResourceObj);
+export const CollectionResourceContext = createContext<CollectionResourceObj>({} as CollectionResourceObj);
 
-export const exampleResource: ResourceObj = {
+export const exampleCollectionResource: CollectionResourceObj = {
   id: '0',
   userId: '0',
   collectionId: '0',
   title: 'Example Resource',
   description: 'Example Resource Description',
   file: exampleFile,
-  variant: ResourceVariant.FILE,
+  variant: CollectionResourceVariant.FILE,
 };
 
-export const exampleResources: ResourceObj[] = [
+export const exampleCollectionResources: CollectionResourceObj[] = [
   ...exampleFiles.map((file, i) => {
     return {
       id: i.toString(),
@@ -45,7 +45,7 @@ export const exampleResources: ResourceObj[] = [
       title: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       file: file,
-      variant: ResourceVariant.FILE,
+      variant: CollectionResourceVariant.FILE,
     };
   }),
 ];

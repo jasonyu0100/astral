@@ -1,4 +1,4 @@
-import { getFileAccepts, FileVariant } from "@/(model)/media/resource/file/main";
+import { getFileAccepts, FileVariant } from "@/(model)/concept/file/main";
 import { UploadsHandlerContext } from "@/(controller)/upload/multiple/main";
 import { useContext } from "react";
 

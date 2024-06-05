@@ -1,11 +1,11 @@
 import { createContext } from 'react';
 
-export enum ContributionVariant {
+export enum SpaceContributionVariant {
   CONVERSATION = 'CONVERSATION',
   SCENE = 'SCENE',
   VERSE = 'VERSE',
 }
-export interface ContributionObj {
+export interface SpaceContributionObj {
   id: string;
   retroId: string;
   variant: string;
@@ -17,14 +17,14 @@ export interface ContributionObj {
   time: string;
 }
 
-export const ContributionContext = createContext<ContributionObj>(
-  {} as ContributionObj,
+export const SpaceContributionContext = createContext<SpaceContributionObj>(
+  {} as SpaceContributionObj,
 );
 
-export const exampleContribution: ContributionObj = {
+export const exampleSpaceContribution: SpaceContributionObj = {
   id: '0',
   retroId: '0',
-  variant: ContributionVariant.CONVERSATION,
+  variant: SpaceContributionVariant.CONVERSATION,
   conversationId: '0',
   sceneId: undefined,
   verseId: undefined,
@@ -33,11 +33,11 @@ export const exampleContribution: ContributionObj = {
   time: new Date('2023-12-19').toISOString(),
 };
 
-export const exampleContributions: ContributionObj[] = [
+export const exampleSpaceContributions: SpaceContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: ContributionVariant.CONVERSATION,
+    variant: SpaceContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,
@@ -48,7 +48,7 @@ export const exampleContributions: ContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: ContributionVariant.CONVERSATION,
+    variant: SpaceContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,
@@ -59,7 +59,7 @@ export const exampleContributions: ContributionObj[] = [
   {
     id: '0',
     retroId: '0',
-    variant: ContributionVariant.CONVERSATION,
+    variant: SpaceContributionVariant.CONVERSATION,
     conversationId: '0',
     sceneId: undefined,
     verseId: undefined,

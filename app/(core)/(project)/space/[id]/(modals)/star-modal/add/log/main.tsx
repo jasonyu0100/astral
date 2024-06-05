@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
-import { LogObjContext } from '@/(model)/media/resource/log/main';
+import { LogObjContext } from '@/(model)/concept/log/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 
 export function AddLogStarModal() {

@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GalleryObj } from '@/(model)/media/gallery/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createGalleryObj,

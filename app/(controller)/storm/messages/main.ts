@@ -1,19 +1,19 @@
-import { MessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 import { useOpenAI } from '../../external/openai/main';
 import { messagesGqlHelper } from '../../../(db)/messages/main';
 import { useGemini } from '../../external/gemini/main';
 
 export interface MessageActions {
-  createMessageFromUser: (text: string) => Promise<MessageObj>;
-  createMessageFromAgent: (userMessage: MessageObj) => Promise<MessageObj>;
-  listMessages: (chatId: string) => Promise<MessageObj[]>;
+  createMessageFromUser: (text: string) => Promise<ConversationMessageObj>;
+  createMessageFromAgent: (userMessage: ConversationMessageObj) => Promise<ConversationMessageObj>;
+  listMessages: (chatId: string) => Promise<ConversationMessageObj[]>;
   updateInputMessage: (message: string) => void;
 }
 
 export interface MessagesHandler {
   inputMessage: string;
-  messages: MessageObj[];
+  messages: ConversationMessageObj[];
   messageActions: MessageActions;
 }
 
@@ -21,7 +21,7 @@ export const MessagesHandlerContext = createContext({} as MessagesHandler);
 
 export const useMessagesHandler = (chatId: string, userId: string): MessagesHandler => {
   const { getMessageResponse } = useGemini();
-  const [messages, changeMessages] = useState<MessageObj[]>([]);
+  const [messages, changeMessages] = useState<ConversationMessageObj[]>([]);
   const [inputMessage, changeInputMessage] = useState('');
 
   const messageActions: MessageActions = {
@@ -35,7 +35,7 @@ export const useMessagesHandler = (chatId: string, userId: string): MessagesHand
       changeMessages(messages);
       return messages;
     },
-    createMessageFromAgent: async (messageFromUser: MessageObj) => {
+    createMessageFromAgent: async (messageFromUser: ConversationMessageObj) => {
       const responseFromAgent =
         (await getMessageResponse(messageFromUser.message)) || '';
       const messageFromAgent =

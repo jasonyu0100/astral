@@ -1,9 +1,9 @@
-import { ResourceContext } from "@/(model)/media/resource/main";
+import { CollectionResourceContext } from "@/(model)/media/resource/main";
 import { EditResourceModalContext } from "@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {
-  const resource = useContext(ResourceContext);
+  const resource = useContext(CollectionResourceContext);
   const modalContext = useContext(EditResourceModalContext);
   
   return (

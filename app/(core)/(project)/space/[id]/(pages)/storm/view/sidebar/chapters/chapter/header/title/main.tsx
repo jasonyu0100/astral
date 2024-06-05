@@ -1,11 +1,11 @@
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import { ChatsHandlerContext } from '@/(controller)/storm/chats/main';
-import { ChapterContext } from '@/(model)/space/chapter/main';
+import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { cn } from '@/(utils)/cn';
 import React, { useContext } from 'react';
 
 export function StormChapterTitle() {
-  const chapter = useContext(ChapterContext);
+  const chapter = useContext(SpaceChapterContext);
   const chatsHandler = useContext(ChatsHandlerContext);
   const chaptersHandler = useContext(ChaptersHandlerContext);
   const active = chapter.id === chaptersHandler.chapterId;

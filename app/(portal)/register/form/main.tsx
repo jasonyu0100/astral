@@ -21,7 +21,7 @@ import {
 import {
   FileObj,
   FileVariant,
-} from '@/(model)/media/resource/file/main';
+} from '@/(model)/concept/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 

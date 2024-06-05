@@ -1,7 +1,7 @@
 import {
   FileVariant,
   getFileAccepts,
-} from '@/(model)/media/resource/file/main';
+} from '@/(model)/concept/file/main';
 import {
   UploadHandlerContext,
 } from '@/(controller)/upload/single/main';

@@ -1,4 +1,4 @@
-import { FileObj, FileVariant } from '@/(model)/media/resource/file/main';
+import { FileObj, FileVariant } from '@/(model)/concept/file/main';
 import { useEffect } from 'react';
 
 export const useUnsplash = () => {

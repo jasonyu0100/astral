@@ -1,7 +1,7 @@
 import { MutableRefObject, useContext } from 'react';
 import {
-  IdeaContext,
-  IdeaVariant,
+  SceneIdeaContext,
+  SceneIdeaVariant,
 } from '@/(model)/space/chapter/scene/idea/main';
 import { FileIdea } from './file/main';
 import { LogIdea } from './log/main';
@@ -15,15 +15,15 @@ export function MapIdea({
 }: {
   constraintsRef: MutableRefObject<null>;
 }) {
-  const idea = useContext(IdeaContext);
+  const idea = useContext(SceneIdeaContext);
   const ideaMotionContext = useIdeaHandler(idea, constraintsRef);
 
   return (
     <IdeaHandlerContext.Provider value={ideaMotionContext}>
-      {idea.variant === IdeaVariant.FILE && <FileIdea />}
-      {idea.variant === IdeaVariant.LOG && <LogIdea />}
-      {idea.variant === IdeaVariant.LINK && <LinkIdea />}
-      {idea.variant === IdeaVariant.NOTE && <NoteIdea />}
+      {idea.variant === SceneIdeaVariant.FILE && <FileIdea />}
+      {idea.variant === SceneIdeaVariant.LOG && <LogIdea />}
+      {idea.variant === SceneIdeaVariant.LINK && <LinkIdea />}
+      {idea.variant === SceneIdeaVariant.NOTE && <NoteIdea />}
     </IdeaHandlerContext.Provider>
   );
 }

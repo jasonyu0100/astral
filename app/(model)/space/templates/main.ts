@@ -4,13 +4,13 @@ import { customTemplate } from './custom/main';
 import { ideaTemplate } from './idea/main';
 import { songMixTemplate } from './mix/main';
 import { songSpaceTemplate } from './song/main';
-import { MessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
-import { ChapterObj } from '../chapter/main';
-import { IdeaObj } from '../chapter/scene/idea/main';
-import { VerseObj } from '../chapter/verse/main';
-import { CommentObj } from '../chapter/verse/comment/main';
+import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { SpaceChapterObj } from '../chapter/main';
+import { SceneIdeaObj } from '../chapter/scene/idea/main';
+import { SpaceVerseObj } from '../chapter/verse/main';
+import { VerseCommentObj } from '../chapter/verse/comment/main';
 
-export type _TemplateChapterObj = Omit<ChapterObj, 'id' | 'spaceId' | 'idx'>;
+export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx'>;
 export interface TemplateChapterObj extends _TemplateChapterObj {
   chatTemplates?: TemplateChatObj;
   sceneTemplates?: TemplateSceneObj;
@@ -20,9 +20,9 @@ export interface TemplateChapterObj extends _TemplateChapterObj {
 
 // CHAT
 
-export type _TemplateChatObj = Omit<ChapterObj, 'id' | 'chapterId' | 'time' >;
-export type _TemplateConversationObj = Omit<ChapterObj, 'id' | 'chatId' | 'time' >;
-export type _TemplateMessageObj = Omit<MessageObj, 'id' | 'userId' | 'conversationId' | 'time'>;
+export type _TemplateChatObj = Omit<SpaceChapterObj, 'id' | 'chapterId' | 'time' >;
+export type _TemplateConversationObj = Omit<SpaceChapterObj, 'id' | 'chatId' | 'time' >;
+export type _TemplateMessageObj = Omit<ConversationMessageObj, 'id' | 'userId' | 'conversationId' | 'time'>;
 export interface TemplateChatObj extends _TemplateChatObj {
   title: string;
   summary: string;
@@ -39,8 +39,8 @@ export interface TemplateMessageObj extends _TemplateMessageObj {
 
 // SCENE
 
-export type _TemplateSceneObj = Omit<ChapterObj, 'id' | 'chapterId' >;
-export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId' >;
+export type _TemplateSceneObj = Omit<SpaceChapterObj, 'id' | 'chapterId' >;
+export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId' >;
 
 export interface TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
@@ -48,8 +48,8 @@ export interface TemplateSceneObj {
 
 // VERSE
 
-export type _TemplateVerseObj = Omit<VerseObj, 'id' | 'chapterId' >;
-export type _TemplateCommentObj = Omit<CommentObj, 'id' | 'userId' | 'verseId' | 'time'>;
+export type _TemplateVerseObj = Omit<SpaceVerseObj, 'id' | 'chapterId' >;
+export type _TemplateCommentObj = Omit<VerseCommentObj, 'id' | 'userId' | 'verseId' | 'time'>;
 
 export interface TemplateVerseObj extends _TemplateVerseObj {
   comments?: _TemplateCommentObj[];
@@ -57,8 +57,8 @@ export interface TemplateVerseObj extends _TemplateVerseObj {
 
 // RETRO
 
-export type _TemplateRetroObj = Omit<ChapterObj, 'id' | 'chapterId' >;
-export type _TemplateContributionObj = Omit<ChapterObj, 'id' | 'retroId' | 'time' >;
+export type _TemplateRetroObj = Omit<SpaceChapterObj, 'id' | 'chapterId' >;
+export type _TemplateContributionObj = Omit<SpaceChapterObj, 'id' | 'retroId' | 'time' >;
 
 export interface TemplateRetroObj extends _TemplateRetroObj {
   contributions?: _TemplateContributionObj[];

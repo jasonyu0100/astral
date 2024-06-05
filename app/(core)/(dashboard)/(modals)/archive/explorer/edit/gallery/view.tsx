@@ -6,13 +6,13 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { ResourceContext } from '@/(model)/media/resource/main';
+import { CollectionResourceContext } from '@/(model)/media/resource/main';
 import { EditGalleryModalContext } from './main';
 
 export function ExplorerEditGalleryModal() {
   const modalContext = useContext(EditGalleryModalContext);
   const { opened, close } = modalContext.editGallery;
-  const resource = useContext(ResourceContext);
+  const resource = useContext(CollectionResourceContext);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
 

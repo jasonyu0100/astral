@@ -1,5 +1,5 @@
-import { FileObj } from '@/(model)/media/resource/file/main';
-import { ResourceContext } from '@/(model)/media/resource/main';
+import { FileObj } from '@/(model)/concept/file/main';
+import { CollectionResourceContext } from '@/(model)/media/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
@@ -7,7 +7,7 @@ import { ResourceContainer } from '../common/container/main';
 
 export function SidebarCollectionResource() {
   const ideasHandler = useContext(IdeasHandlerContext);
-  const resource = useContext(ResourceContext);
+  const resource = useContext(CollectionResourceContext);
 
   return (
     <ResourceContainer

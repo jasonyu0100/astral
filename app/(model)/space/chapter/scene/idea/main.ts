@@ -1,19 +1,19 @@
-import { FileObj, exampleFile } from '@/(model)/media/resource/file/main';
-import { LinkObj } from '@/(model)/media/resource/link/main';
-import { LogObj } from '@/(model)/media/resource/log/main';
-import { ResourceVariant } from '@/(model)/media/resource/main';
-import { NoteObj } from '@/(model)/media/resource/note/main';
-import { ScoreObj } from '@/(model)/media/resource/score/main';
+import { FileObj, exampleFile } from '@/(model)/concept/file/main';
+import { LinkObj } from '@/(model)/concept/link/main';
+import { LogObj } from '@/(model)/concept/log/main';
+import { CollectionResourceVariant } from '@/(model)/media/resource/main';
+import { NoteObj } from '@/(model)/concept/note/main';
+import { ScoreObj } from '@/(model)/concept/score/main';
 import { createContext } from 'react';
 
-export enum IdeaVariant {
+export enum SceneIdeaVariant {
   FILE = 'FILE',
   LOG = 'LOG',
   LINK = 'LINK', 
   NOTE = 'NOTE',
   SCORE = 'SCORE',
 }
-export interface IdeaObj {
+export interface SceneIdeaObj {
   id: string;
   sceneId: string;
   title: string;
@@ -28,9 +28,9 @@ export interface IdeaObj {
   score?: ScoreObj;
 }
 
-export const IdeaContext = createContext<IdeaObj>({} as IdeaObj);
+export const SceneIdeaContext = createContext<SceneIdeaObj>({} as SceneIdeaObj);
 
-export const exampleIdea: IdeaObj = {
+export const exampleSceneIdea: SceneIdeaObj = {
   id: '0',
   sceneId: '0',
   title: 'Star 1',
@@ -38,10 +38,10 @@ export const exampleIdea: IdeaObj = {
   x: 120,
   y: 120,
   file: exampleFile,
-  variant: ResourceVariant.FILE,
+  variant: CollectionResourceVariant.FILE,
 };
 
-export const exampleIdeas: IdeaObj[] = [
+export const exampleSceneIdeas: SceneIdeaObj[] = [
   {
     id: '0',
     sceneId: '0',
@@ -50,7 +50,7 @@ export const exampleIdeas: IdeaObj[] = [
     x: 120,
     y: 120,
     file: exampleFile,
-    variant: ResourceVariant.FILE,
+    variant: CollectionResourceVariant.FILE,
   },
   {
     id: '1',
@@ -60,7 +60,7 @@ export const exampleIdeas: IdeaObj[] = [
     x: 240,
     y: 120,
     file: exampleFile,
-    variant: ResourceVariant.FILE,
+    variant: CollectionResourceVariant.FILE,
   },
   {
     id: '2',
@@ -70,6 +70,6 @@ export const exampleIdeas: IdeaObj[] = [
     x: 360,
     y: 120,
     file: exampleFile,
-    variant: ResourceVariant.FILE,
+    variant: CollectionResourceVariant.FILE,
   },
 ];

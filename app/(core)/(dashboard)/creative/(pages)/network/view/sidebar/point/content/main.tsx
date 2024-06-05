@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from '@/(components)/(line)/divider/main';
 import { SpaceCover } from '@/(components)/(element)/space/main';
-import { exampleFile } from '@/(model)/media/resource/file/main';
+import { exampleFile } from '@/(model)/concept/file/main';
 
 export function NetworkSidebarPointContents() {
   return (

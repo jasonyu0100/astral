@@ -1,8 +1,8 @@
-import { ResourceContext } from '@/(model)/media/resource/main';
+import { CollectionResourceContext } from '@/(model)/media/resource/main';
 import { useContext } from 'react';
 
 export function CollectionResourceVideo() {
-  const resource = useContext(ResourceContext);
+  const resource = useContext(CollectionResourceContext);
 
   return (
     <div className='flex h-full w-full flex-col flex-shrink-0'>

@@ -1,7 +1,7 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import {
-  MessageObj,
-  MessageSource,
+  ConversationMessageObj,
+  ConversationMessageSource,
 } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
@@ -12,18 +12,18 @@ import {
 import { listMessageObjs } from '@/graphql/queries';
 
 export interface MessagesGqlHelper {
-  listFromChat: (chatId: string) => Promise<MessageObj[]>;
+  listFromChat: (chatId: string) => Promise<ConversationMessageObj[]>;
   createFromUser: (
     chatId: string,
     userId: string,
     text: string,
-  ) => Promise<MessageObj>;
-  createFromAgent: (chatId: string, text: string) => Promise<MessageObj>;
-  delete: (messageId: string) => Promise<MessageObj>;
+  ) => Promise<ConversationMessageObj>;
+  createFromAgent: (chatId: string, text: string) => Promise<ConversationMessageObj>;
+  delete: (messageId: string) => Promise<ConversationMessageObj>;
   update: (
     messageId: string,
-    updatedMessageObj: MessageObj,
-  ) => Promise<MessageObj>;
+    updatedMessageObj: ConversationMessageObj,
+  ) => Promise<ConversationMessageObj>;
 }
 
 export const messagesGqlHelper: MessagesGqlHelper = {
@@ -38,14 +38,14 @@ export const messagesGqlHelper: MessagesGqlHelper = {
       variables: {
         input: gqlArgs({
           chatId: chatId,
-          source: MessageSource.USER,
+          source: ConversationMessageSource.USER,
           time: currentDate,
           message: text,
           userId: userId,
         }),
       },
     });
-    const messageObj = payload.data?.createMessageObj as MessageObj;
+    const messageObj = payload.data?.createMessageObj as ConversationMessageObj;
     return messageObj;
   },
   listFromChat: async (chatId: string) => {
@@ -60,7 +60,7 @@ export const messagesGqlHelper: MessagesGqlHelper = {
       },
     });
     const messageObjs =
-      (payload.data?.listMessageObjs?.items as MessageObj[]) || [];
+      (payload.data?.listMessageObjs?.items as ConversationMessageObj[]) || [];
     return messageObjs;
   },
   createFromAgent: async (chatId: string, text: string) => {
@@ -70,13 +70,13 @@ export const messagesGqlHelper: MessagesGqlHelper = {
       variables: {
         input: gqlArgs({
           chatId: chatId,
-          source: MessageSource.AGENT,
+          source: ConversationMessageSource.AGENT,
           time: currentDate,
           message: text,
         }),
       },
     });
-    const messageObj = payload.data?.createMessageObj as MessageObj;
+    const messageObj = payload.data?.createMessageObj as ConversationMessageObj;
     return messageObj;
   },
   delete: async (messageId: string) => {
@@ -88,12 +88,12 @@ export const messagesGqlHelper: MessagesGqlHelper = {
         },
       },
     });
-    const messageObj = payload.data?.deleteMessageObj as MessageObj;
+    const messageObj = payload.data?.deleteMessageObj as ConversationMessageObj;
     return messageObj;
   },
   update: async (
     messageId: string,
-    updatedMessageObj: MessageObj,
+    updatedMessageObj: ConversationMessageObj,
   ) => {
     const payload = await amplifyClient.graphql({
       query: updateMessageObj,
@@ -108,7 +108,7 @@ export const messagesGqlHelper: MessagesGqlHelper = {
         }),
       },
     });
-    let messageObj = payload.data?.updateMessageObj as MessageObj;
+    let messageObj = payload.data?.updateMessageObj as ConversationMessageObj;
     return messageObj;
   },
 };

@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(model)/media/resource/file/main';
+import { FileObjContext } from '@/(model)/concept/file/main';
 import { UploadsHandlerContext } from '@/(controller)/upload/multiple/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';

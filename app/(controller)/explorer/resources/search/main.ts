@@ -1,19 +1,19 @@
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import { useState, useEffect, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../../(db)/resources/main';
 
 interface SearchResourcesHandler {
   resourceId: string;
-  resource: ResourceObj | undefined;
-  resources: ResourceObj[];
-  searchResults: ResourceObj[];
+  resource: CollectionResourceObj | undefined;
+  resources: CollectionResourceObj[];
+  searchResults: CollectionResourceObj[];
   searchActions: SearchActions;
 }
 
 export interface SearchActions {
-  listResources: (id: string) => Promise<ResourceObj[]>;
+  listResources: (id: string) => Promise<CollectionResourceObj[]>;
   updateQuery: (query: string) => void;
-  searchQuery: () => ResourceObj[];
+  searchQuery: () => CollectionResourceObj[];
 }
 
 export const SearchResourcesHandlerContext = createContext({} as SearchResourcesHandler);
@@ -21,9 +21,9 @@ export const SearchResourcesHandlerContext = createContext({} as SearchResources
 export const useSearchResource = (
   userId: string,
 ): SearchResourcesHandler => {
-  const [resources, changeResources] = useState<ResourceObj[]>([]);
+  const [resources, changeResources] = useState<CollectionResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
-  const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
+  const [searchResults, changeSearchResults] = useState<CollectionResourceObj[]>([]);
   const [query, changeQuery] = useState('');
   const resource = resources.find((resource) => resource.id === resourceId);
 

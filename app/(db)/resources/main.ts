@@ -1,8 +1,8 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 import {
-  ResourceObj,
-  ResourceVariant,
+  CollectionResourceObj,
+  CollectionResourceVariant,
 } from '@/(model)/media/resource/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
@@ -11,28 +11,28 @@ import {
   updateResourceObj,
 } from '@/graphql/mutations';
 import { listResourceObjs } from '@/graphql/queries';
-import { CollectionObj } from '../../(model)/media/collection/main';
+import { GalleryCollectionObj } from '../../(model)/media/collection/main';
 
 export interface ResourcesGqlHelper {
-  listFromCollection: (collectionId: string) => Promise<ResourceObj[]>;
-  listFromUser: (userId: string) => Promise<ResourceObj[]>;
+  listFromCollection: (collectionId: string) => Promise<CollectionResourceObj[]>;
+  listFromUser: (userId: string) => Promise<CollectionResourceObj[]>;
   createFromFile: (
     userId: string,
     collectionId: string,
     title: string,
     description: string,
     file: FileObj,
-  ) => Promise<ResourceObj>;
+  ) => Promise<CollectionResourceObj>;
   createFromMultipleFiles: (
     userId: string,
     collectionId: string,
     files: FileObj[],
-  ) => Promise<ResourceObj[]>;
+  ) => Promise<CollectionResourceObj[]>;
   update: (
     resourceId: string,
-    updatedResourceObj: ResourceObj,
-  ) => Promise<ResourceObj>;
-  delete: (resourceId: string) => Promise<ResourceObj>;
+    updatedResourceObj: CollectionResourceObj,
+  ) => Promise<CollectionResourceObj>;
+  delete: (resourceId: string) => Promise<CollectionResourceObj>;
 }
 
 export const resourcesGqlHelper: ResourcesGqlHelper = {
@@ -49,7 +49,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
     });
 
     const resourceObjs =
-      (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
+      (payload?.data.listResourceObjs?.items as CollectionResourceObj[]) || [];
     return resourceObjs;
   },
   listFromUser: async (userId: string) => {
@@ -65,7 +65,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
     });
 
     const resourceObjs =
-      (payload?.data.listResourceObjs?.items as ResourceObj[]) || [];
+      (payload?.data.listResourceObjs?.items as CollectionResourceObj[]) || [];
     return resourceObjs;
   },
   createFromFile: async (
@@ -83,12 +83,12 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
           description: description,
           collectionId: collectionId,
           file: file,
-          variant: ResourceVariant.FILE,
+          variant: CollectionResourceVariant.FILE,
           userId: userId,
         }),
       },
     });
-    const resourceObj = payload?.data?.createResourceObj as ResourceObj;
+    const resourceObj = payload?.data?.createResourceObj as CollectionResourceObj;
     return resourceObj;
   },
   createFromMultipleFiles: async (
@@ -106,17 +106,17 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
             description: file.title,
             collectionId: collectionId,
             file: file,
-            variant: ResourceVariant.FILE,
+            variant: CollectionResourceVariant.FILE,
             userId: userId,
           }),
         },
       });
-      const resourceObj = payload?.data?.createResourceObj as ResourceObj;
+      const resourceObj = payload?.data?.createResourceObj as CollectionResourceObj;
       resourceObjs.push(resourceObj);
     }
     return resourceObjs;
   },
-  update: async (resourceId: string, updatedResourceObj: ResourceObj) => {
+  update: async (resourceId: string, updatedResourceObj: CollectionResourceObj) => {
     const payload = await amplifyClient.graphql({
       query: updateResourceObj,
       variables: {
@@ -131,7 +131,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
         }),
       },
     });
-    const resourceObj = payload?.data?.updateResourceObj as ResourceObj;
+    const resourceObj = payload?.data?.updateResourceObj as CollectionResourceObj;
     return resourceObj;
   },
   delete: async (resourceId: string) => {
@@ -143,7 +143,7 @@ export const resourcesGqlHelper: ResourcesGqlHelper = {
         },
       },
     });
-    const resourceObj = payload?.data?.deleteResourceObj as ResourceObj;
+    const resourceObj = payload?.data?.deleteResourceObj as CollectionResourceObj;
     return resourceObj;
   },
 };

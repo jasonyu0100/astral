@@ -1,7 +1,7 @@
 'use client';
 import { createContext } from 'react';
 import { SearchView } from './view';
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   SearchActions,
@@ -10,8 +10,8 @@ import {
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export interface SearchViewProps {
-  searchResults: ResourceObj[];
-  resources: ResourceObj[];
+  searchResults: CollectionResourceObj[];
+  resources: CollectionResourceObj[];
   searchResourceHandler: SearchActions;
 }
 

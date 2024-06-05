@@ -1,6 +1,6 @@
 import {
   FileObj,
-} from '@/(model)/media/resource/file/main';
+} from '@/(model)/concept/file/main';
 import React, { createContext } from 'react';
 import SearchModalView from '@/(components)/(form)/file/search/search-image/search-modal/view';
 import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';

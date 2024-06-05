@@ -1,4 +1,4 @@
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import { cn } from '@/(utils)/cn';
 import clsx from 'clsx';
 
@@ -6,7 +6,7 @@ export function SearchResult({
   result,
   index,
 }: {
-  result: ResourceObj;
+  result: CollectionResourceObj;
   index: number;
 }) {
   return (

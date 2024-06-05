@@ -7,7 +7,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFile, exampleFiles } from '@/(model)/media/resource/file/main';
+import { exampleFile, exampleFiles } from '@/(model)/concept/file/main';
 import { BaseSidebar } from './view/sidebar/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { horizonMap } from '../../map';

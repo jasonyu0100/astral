@@ -1,6 +1,6 @@
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { useContext } from 'react';
-import { ChapterContext } from '@/(model)/space/chapter/main';
+import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';

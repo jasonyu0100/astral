@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SceneContext } from '@/(model)/space/chapter/scene/main';
+import { SpaceSceneContext } from '@/(model)/space/chapter/scene/main';
 import { SceneListEntry } from './entry/main';
 import { ScenesHandlerContext } from '@/(controller)/scenes/main';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';

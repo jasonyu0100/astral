@@ -1,31 +1,31 @@
-import { ChapterObj } from '@/(model)/space/chapter/main';
+import { SpaceChapterObj } from '@/(model)/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
 import { chaptersGqlHelper } from '../../(db)/chapters/main';
 
 export interface ChapterActions {
-  addChapter: (chapter: ChapterObj) => ChapterObj;
-  goToChapter: (chapter: ChapterObj) => ChapterObj;
-  goToPrevChapter: () => ChapterObj | undefined;
-  goToNextChapter: () => ChapterObj | undefined;
-  listChapters: () => Promise<ChapterObj[]>;
+  addChapter: (chapter: SpaceChapterObj) => SpaceChapterObj;
+  goToChapter: (chapter: SpaceChapterObj) => SpaceChapterObj;
+  goToPrevChapter: () => SpaceChapterObj | undefined;
+  goToNextChapter: () => SpaceChapterObj | undefined;
+  listChapters: () => Promise<SpaceChapterObj[]>;
   createChapter: (
     title: string,
     description: string,
     idx: number,
-  ) => Promise<ChapterObj>;
+  ) => Promise<SpaceChapterObj>;
 }
 
 interface ChaptersHandler {
-  chapter?: ChapterObj;
+  chapter?: SpaceChapterObj;
   chapterId: string;
-  chapters: ChapterObj[];
+  chapters: SpaceChapterObj[];
   chapterActions: ChapterActions;
 }
 
 export const ChaptersHandlerContext = createContext({} as ChaptersHandler);
 
 export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
-  const [chapters, changeChapters] = useState<ChapterObj[]>([]);
+  const [chapters, changeChapters] = useState<SpaceChapterObj[]>([]);
 
   const [chapterId, changeChapterId] = useState<string>(
     chapters.at(0)?.id || '',
@@ -46,12 +46,12 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
       changeChapterId(chapter.id);
       return chapter;
     },
-    addChapter: (chapter: ChapterObj) => {
+    addChapter: (chapter: SpaceChapterObj) => {
       changeChapterId(chapter.id);
       changeChapters((prev) => [...prev, chapter]);
       return chapter;
     },
-    goToChapter: (chapter: ChapterObj) => {
+    goToChapter: (chapter: SpaceChapterObj) => {
       changeChapterId(chapter.id);
       return chapter;
     },

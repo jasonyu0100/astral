@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   deleteIdeaObj,
@@ -9,11 +9,11 @@ import { listIdeaObjs } from '@/graphql/queries';
 import { IdeasCreateGqlHelperType, ideasCreateGqlHelper } from './create/main';
 
 export interface IdeasGqlHelper {
-  listFromScene: (partId: string) => Promise<IdeaObj[]>;
+  listFromScene: (partId: string) => Promise<SceneIdeaObj[]>;
   create: IdeasCreateGqlHelperType;
-  updateMany: (updatedIdeaObjs: IdeaObj[]) => Promise<IdeaObj[]>;
-  update: (ideaId: string, updatedIdeaObj: IdeaObj) => Promise<IdeaObj>;
-  delete: (ideaId: string) => Promise<IdeaObj>;
+  updateMany: (updatedIdeaObjs: SceneIdeaObj[]) => Promise<SceneIdeaObj[]>;
+  update: (ideaId: string, updatedIdeaObj: SceneIdeaObj) => Promise<SceneIdeaObj>;
+  delete: (ideaId: string) => Promise<SceneIdeaObj>;
 }
 
 export const ideasGqlHelper: IdeasGqlHelper = {
@@ -29,12 +29,12 @@ export const ideasGqlHelper: IdeasGqlHelper = {
         },
       },
     });
-    const ideaObjs = (payload?.data.listIdeaObjs?.items as IdeaObj[]) || [];
+    const ideaObjs = (payload?.data.listIdeaObjs?.items as SceneIdeaObj[]) || [];
     return ideaObjs;
   },
-  updateMany: async (ideas: IdeaObj[]) => {
+  updateMany: async (ideas: SceneIdeaObj[]) => {
     const updatedIdeaObjs = await Promise.all(
-      ideas.map(async (idea: IdeaObj) => {
+      ideas.map(async (idea: SceneIdeaObj) => {
         console.log(idea, gqlArgs(idea));
         const payload = await amplifyClient.graphql({
           query: updateIdeaObj,
@@ -42,7 +42,7 @@ export const ideasGqlHelper: IdeasGqlHelper = {
             input: gqlArgs(idea),
           },
         });
-        const updatedIdea = payload.data?.updateIdeaObj as IdeaObj;
+        const updatedIdea = payload.data?.updateIdeaObj as SceneIdeaObj;
         return updatedIdea;
       }),
     );
@@ -57,10 +57,10 @@ export const ideasGqlHelper: IdeasGqlHelper = {
         },
       },
     });
-    const ideaObj = payload?.data?.deleteIdeaObj as IdeaObj;
+    const ideaObj = payload?.data?.deleteIdeaObj as SceneIdeaObj;
     return ideaObj;
   },
-  update: async (ideaId: string, updatedIdeaObj: IdeaObj) => {
+  update: async (ideaId: string, updatedIdeaObj: SceneIdeaObj) => {
     const payload = await amplifyClient.graphql({
       query: updateIdeaObj,
       variables: {
@@ -78,7 +78,7 @@ export const ideasGqlHelper: IdeasGqlHelper = {
         }),
       },
     });
-    const updatedIdea = payload?.data?.updateIdeaObj as IdeaObj;
+    const updatedIdea = payload?.data?.updateIdeaObj as SceneIdeaObj;
     return updatedIdea;
   },
 };

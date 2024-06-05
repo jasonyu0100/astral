@@ -1,7 +1,7 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../../../media/resource/file/main';
+import { FileObj, exampleFile } from '../../../concept/file/main';
 
-export interface VerseObj {
+export interface SpaceVerseObj {
   id: string;
   chapterId: string;
   title: string;
@@ -9,9 +9,9 @@ export interface VerseObj {
   time: string;
 }
 
-export const VerseContext = createContext<VerseObj>({} as VerseObj);
+export const SpaceVerseContext = createContext<SpaceVerseObj>({} as SpaceVerseObj);
 
-export const exampleVerse: VerseObj = {
+export const exampleSpaceVerse: SpaceVerseObj = {
   id: '0',
   chapterId: '0',
   title: 'Verse Example',
@@ -19,7 +19,7 @@ export const exampleVerse: VerseObj = {
   time: new Date().toISOString(),
 };
 
-export const exampleVerses: VerseObj[] = [
+export const exampleSpaceVerses: SpaceVerseObj[] = [
   {
     id: '0',
     chapterId: '0',

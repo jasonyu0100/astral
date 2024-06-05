@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { IdeaContext } from '@/(model)/space/chapter/scene/idea/main';
-import { FileVariant } from '@/(model)/media/resource/file/main';
+import { SceneIdeaContext } from '@/(model)/space/chapter/scene/idea/main';
+import { FileVariant } from '@/(model)/concept/file/main';
 import { FileAudioIdea } from './audio/main';
 import { FileImageIdea } from './image/main';
 import { FileVideoIdea } from './video/main';
 
 export function FileIdea() {
-  const idea = useContext(IdeaContext);
+  const idea = useContext(SceneIdeaContext);
 
   return (
     <>

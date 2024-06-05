@@ -1,9 +1,9 @@
-import { CollectionObj } from '@/(model)/media/collection/main';
+import { GalleryCollectionObj } from '@/(model)/media/collection/main';
 import { useMemo, useState } from 'react';
 import { collectionsGqlHelper } from '@/(db)/collections/main';
 
 export const useCollectionHandler = (collectionId: string) => {
-  const [collection, changeCollection] = useState({} as CollectionObj);
+  const [collection, changeCollection] = useState({} as GalleryCollectionObj);
 
   const getCollection = async (collectionId: string) => {
     const collection = await collectionsGqlHelper.get(collectionId);
@@ -13,7 +13,7 @@ export const useCollectionHandler = (collectionId: string) => {
 
   useMemo(() => {
     if (!collectionId) {
-      changeCollection({} as CollectionObj);
+      changeCollection({} as GalleryCollectionObj);
       return;
     }
     getCollection(collectionId);

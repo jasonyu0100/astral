@@ -1,29 +1,29 @@
-import { FileObj } from '@/(model)/media/resource/file/main';
-import { ResourceObj } from '@/(model)/media/resource/main';
+import { FileObj } from '@/(model)/concept/file/main';
+import { CollectionResourceObj } from '@/(model)/media/resource/main';
 import { useState, useEffect as useMemo, createContext } from 'react';
 import { resourcesGqlHelper } from '../../../(db)/resources/main';
 
 interface ResourcesHandler {
   resourceId: string;
-  resource: ResourceObj | undefined;
-  resources: ResourceObj[];
-  searchResults: ResourceObj[];
+  resource: CollectionResourceObj | undefined;
+  resources: CollectionResourceObj[];
+  searchResults: CollectionResourceObj[];
   resourceActions: ResourcesActions;
 }
 
 export interface ResourcesActions {
-  listResources: (id: string) => Promise<ResourceObj[]>;
+  listResources: (id: string) => Promise<CollectionResourceObj[]>;
   createResourceFromFile: (
     name: string,
     description: string,
     file: FileObj,
-  ) => Promise<ResourceObj>;
+  ) => Promise<CollectionResourceObj>;
   updateResource: (
     resourceId: string,
-    updatedResourceObj: ResourceObj,
-  ) => Promise<ResourceObj>;
-  searchResources: (query: string) => ResourceObj[];
-  deleteResource: (resourceId: string) => Promise<ResourceObj>;
+    updatedResourceObj: CollectionResourceObj,
+  ) => Promise<CollectionResourceObj>;
+  searchResources: (query: string) => CollectionResourceObj[];
+  deleteResource: (resourceId: string) => Promise<CollectionResourceObj>;
 }
 
 export const ResourcesHandlerContext = createContext({} as ResourcesHandler);
@@ -32,9 +32,9 @@ export const useResourcesHandler = (
   collectionId: string,
   userId: string,
 ): ResourcesHandler => {
-  const [resources, changeResources] = useState<ResourceObj[]>([]);
+  const [resources, changeResources] = useState<CollectionResourceObj[]>([]);
   const [resourceId, changeResourceId] = useState<string>('');
-  const [searchResults, changeSearchResults] = useState<ResourceObj[]>([]);
+  const [searchResults, changeSearchResults] = useState<CollectionResourceObj[]>([]);
   const resource = resources.find((resource) => resource.id === resourceId);
 
   useMemo(() => {
@@ -72,7 +72,7 @@ export const useResourcesHandler = (
     },
     updateResource: async (
       resourceId: string,
-      updatedResourceObj: ResourceObj,
+      updatedResourceObj: CollectionResourceObj,
     ) => {
       const resource = await resourcesGqlHelper.update(
         resourceId,

@@ -5,11 +5,11 @@ import {
 } from 'framer-motion';
 import { MutableRefObject, createContext, useContext, useMemo } from 'react';
 import { MapContext, MapModalType } from '@/(core)/(project)/space/[id]/(pages)/map/page';
-import { IdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
 import { IdeasHandlerContext } from '../main';
 
 export interface IdeaHandler {
-  idea: IdeaObj;
+  idea: SceneIdeaObj;
   x: MotionValue<number>;
   y: MotionValue<number>;
   constraintsRef: MutableRefObject<null>;
@@ -20,7 +20,7 @@ export interface IdeaHandler {
 export const IdeaHandlerContext = createContext({} as IdeaHandler);
 
 export const useIdeaHandler = (
-  idea: IdeaObj,
+  idea: SceneIdeaObj,
   constraintsRef: MutableRefObject<null>,
 ) => {
   const ideasHandler = useContext(IdeasHandlerContext);

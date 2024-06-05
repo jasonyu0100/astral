@@ -1,10 +1,10 @@
 import { createContext } from "react";
 
-export enum MessageSource {
+export enum ConversationMessageSource {
   USER = 'You',
   AGENT = 'Agent',
 }
-export interface MessageObj {
+export interface ConversationMessageObj {
   id: string;
   userId?: string;
   conversationId: string;
@@ -13,30 +13,30 @@ export interface MessageObj {
   message: string;
 }
 
-export const MessageContext = createContext<MessageObj>({} as MessageObj);
+export const ConversationMessageContext = createContext<ConversationMessageObj>({} as ConversationMessageObj);
 
-export const exampleMessage: MessageObj = {
+export const exampleConversationMessage: ConversationMessageObj = {
   id: '0',
   conversationId: '0',
-  source: MessageSource.USER,
+  source: ConversationMessageSource.USER,
   time: new Date('2023-12-19').toISOString(),
   message: 'Hello World',
   userId: '0',
 };
 
-export const exampleAgentMessage: MessageObj = {
+export const exampleAgentConversationMessage: ConversationMessageObj = {
   id: '1',
   conversationId: '0',
-  source: MessageSource.AGENT,
+  source: ConversationMessageSource.AGENT,
   time: new Date('2023-12-19').toISOString(),
   message: 'Hello World',
 };
 
-export const exampleMessages: MessageObj[] = [
+export const exampleConversationMessages: ConversationMessageObj[] = [
   {
     id: '0',
     conversationId: '0',
-    source: MessageSource.USER,
+    source: ConversationMessageSource.USER,
     time: new Date('2023-12-19').toISOString(),
     message: 'Test Message',
     userId: '0',
@@ -44,14 +44,14 @@ export const exampleMessages: MessageObj[] = [
   {
     id: '1',
     conversationId: '0',
-    source: MessageSource.AGENT,
+    source: ConversationMessageSource.AGENT,
     time: new Date('2023-12-19').toISOString(),
     message: 'Hello World',
   },
   {
     id: '2',
     conversationId: '0',
-    source: MessageSource.USER,
+    source: ConversationMessageSource.USER,
     time: new Date('2023-12-19').toISOString(),
     message: 'Hello There',
     userId: '0',

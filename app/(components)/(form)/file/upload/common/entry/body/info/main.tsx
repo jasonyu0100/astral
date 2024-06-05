@@ -1,4 +1,4 @@
-import { FileObjContext } from '@/(model)/media/resource/file/main';
+import { FileObjContext } from '@/(model)/concept/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {

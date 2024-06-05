@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import {
-  CollectionContext,
-  ResourcesContext,
+  GalleryCollectionContext,
+  CollectionResourcesContext,
 } from '@/(model)/media/collection/main';
 
 export function CollectionInfo({ empty }: { empty?: boolean }) {
-  const collection = useContext(CollectionContext);
-  const resources = useContext(ResourcesContext);
+  const collection = useContext(GalleryCollectionContext);
+  const resources = useContext(CollectionResourcesContext);
 
   return (
     <div className='flex h-full flex-grow flex-col items-center justify-center space-y-[1rem] p-[1rem]'>

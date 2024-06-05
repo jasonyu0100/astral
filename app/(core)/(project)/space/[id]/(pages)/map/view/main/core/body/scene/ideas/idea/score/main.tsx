@@ -1,12 +1,12 @@
 import { useContext } from 'react';
-import { IdeaContext } from '@/(model)/space/chapter/scene/idea/main';
+import { SceneIdeaContext } from '@/(model)/space/chapter/scene/idea/main';
 import { ScoreMelodyIdea } from './melody/main';
 import { ScoreRhythmIdea } from './rhythm/main';
 import { ScoreBeatIdea } from './beat/main';
-import { ScoreVariant } from '@/(model)/media/resource/score/main';
+import { ScoreVariant } from '@/(model)/concept/score/main';
 
 export function ScoreIdea() {
-  const star = useContext(IdeaContext);
+  const star = useContext(SceneIdeaContext);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CollectionContext } from '@/(model)/media/collection/main';
+import { GalleryCollectionContext } from '@/(model)/media/collection/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { CollectionsHandlerContext } from '@/(controller)/explorer/collections/main';
 import { SidebarCollection } from '@/(components)/(media)/(collection-folder)/sidebar/main';
@@ -19,9 +19,9 @@ export function CollectionsInterface() {
           }}
         />
         {collections.map((collection) => (
-          <CollectionContext.Provider value={collection} key={collection.id}>
+          <GalleryCollectionContext.Provider value={collection} key={collection.id}>
             <SidebarCollection key={collection.id} />
-          </CollectionContext.Provider>
+          </GalleryCollectionContext.Provider>
         ))}
       </div>
       <p className='font-bold text-slate-500'>Back</p>

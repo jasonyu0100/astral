@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../resource/file/main';
+import { FileObj, exampleFile } from '../../concept/file/main';
 export interface GalleryObj {
   id: string;
   userId: string;

@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { SceneObj } from '@/(model)/space/chapter/scene/main';
+import { SpaceSceneObj } from '@/(model)/space/chapter/scene/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createSceneObj,
@@ -9,20 +9,20 @@ import {
 import { listSceneObjs } from '@/graphql/queries';
 
 export interface ScenesGqlHelper {
-  listFromChapter: (chapterId: string) => Promise<SceneObj[]>;
+  listFromChapter: (chapterId: string) => Promise<SpaceSceneObj[]>;
   create: (
     chapterId: string,
     title: string,
     description: string,
     variant: string,
-  ) => Promise<SceneObj>;
+  ) => Promise<SpaceSceneObj>;
   update: (
     partId: string,
-    updatedSceneObj: SceneObj,
-  ) => Promise<SceneObj>;
+    updatedSceneObj: SpaceSceneObj,
+  ) => Promise<SpaceSceneObj>;
   delete: (
     partId: string,
-  ) => Promise<SceneObj>;
+  ) => Promise<SpaceSceneObj>;
 }
 
 export const partsGqlHelper : ScenesGqlHelper = {
@@ -38,7 +38,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObjs =
-      (payload?.data.listSceneObjs?.items as SceneObj[]) || [];
+      (payload?.data.listSceneObjs?.items as SpaceSceneObj[]) || [];
     return partObjs;
   },
   create: async (
@@ -59,12 +59,12 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      .createSceneObj as SceneObj;
+      .createSceneObj as SpaceSceneObj;
     return partObj;
   },
   update: async (
     partId: string,
-    updatedSceneObj: SceneObj,
+    updatedSceneObj: SpaceSceneObj,
   ) => {
     const payload = await amplifyClient.graphql({
       query: updateSceneObj,
@@ -79,7 +79,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      .updateSceneObj as SceneObj;
+      .updateSceneObj as SpaceSceneObj;
     return partObj;
   },
   delete: async (partId: string) => {
@@ -92,7 +92,7 @@ export const partsGqlHelper : ScenesGqlHelper = {
       },
     });
     const partObj = payload?.data
-      ?.deleteSceneObj as SceneObj;
+      ?.deleteSceneObj as SpaceSceneObj;
     return partObj;
   },
 };

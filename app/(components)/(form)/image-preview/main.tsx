@@ -1,4 +1,4 @@
-import { FileObj } from '@/(model)/media/resource/file/main';
+import { FileObj } from '@/(model)/concept/file/main';
 
 export function ImagePreview({ file }: { file: FileObj}) {
 

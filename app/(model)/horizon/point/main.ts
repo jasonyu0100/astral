@@ -1,30 +1,36 @@
 import { createContext } from 'react';
 
-export interface ArcObj {
+export interface HorizonPointObj {
   id: string;
+  horizonId: string;
   title: string;
   description: string;
   time: string;
 }
 
-export const ArcContext = createContext<ArcObj>({} as ArcObj);
+export const HorizonPointContext = createContext<HorizonPointObj>(
+  {} as HorizonPointObj,
+);
 
-export const exampleArc: ArcObj = {
+export const exampleHorizonPoint: HorizonPointObj = {
   id: '0',
+  horizonId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
   time: new Date().toISOString(),
 };
 
-export const exampleArcs: ArcObj[] = [
+export const exampleHorizonPoints: HorizonPointObj[] = [
   {
     id: '0',
+    horizonId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
   },
   {
     id: '1',
+    horizonId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),

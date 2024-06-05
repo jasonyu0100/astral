@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileObj, exampleFile } from '../media/resource/file/main';
+import { FileObj, exampleFile } from '../concept/file/main';
 
 export enum HorizonVariant {
   MIX = 'MIX',

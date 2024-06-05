@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
-import { LogObj, LogObjContext } from '@/(model)/media/resource/log/main';
+import { LogObj, LogObjContext } from '@/(model)/concept/log/main';
 import { IdeasHandlerContext } from '@/(controller)/ideas/main';
 import { IdeaHandlerContext } from '@/(controller)/ideas/idea/main';
 
