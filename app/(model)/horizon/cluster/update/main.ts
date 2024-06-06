@@ -3,6 +3,7 @@ import { createContext } from 'react';
 export interface ClusterUpdateObj {
   id: string;
   clusterId: string;
+  userId: string;
   title: string;
   description: string;
   time: string;
@@ -12,6 +13,7 @@ export const clusterUpdateGql = `
 type ClusterUpdateObj {
   id : String!
   clusterId : String!
+  userId: String!
   title : String!
   description : String!
   time : String!
@@ -25,6 +27,7 @@ export const ClusterUpdateContext = createContext<ClusterUpdateObj>(
 export const exampleClusterUpdate: ClusterUpdateObj = {
   id: '0',
   clusterId: '0',
+  userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
   time: new Date().toISOString(),
@@ -34,6 +37,7 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
   {
     id: '0',
     clusterId: '0',
+    userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
@@ -41,6 +45,7 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
   {
     id: '1',
     clusterId: '0',
+    userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
@@ -48,6 +53,7 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
   {
     id: '2',
     clusterId: '0',
+    userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),

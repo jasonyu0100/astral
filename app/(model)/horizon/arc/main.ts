@@ -7,6 +7,7 @@ export interface HorizonArcObj {
   title: string;
   description: string;
   time: string;
+  idx: number;
 }
 
 export const horizonArcGql = `
@@ -17,6 +18,7 @@ type HorizonArcObj {
   title: String!
   description: String!
   time: String!
+  idx: Int!
 }
 `;
 
@@ -31,6 +33,7 @@ export const exampleHorizonArc: HorizonArcObj = {
   title: 'Work from creativity',
   description: 'Arc Description',
   time: new Date().toISOString(),
+  idx: 0,
 };
 
 export const exampleHorizonArcs: HorizonArcObj[] = [
@@ -41,6 +44,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
+    idx: 0,
   },
   {
     id: '1',
@@ -49,6 +53,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
+    idx: 1,
   },
   {
     id: '2',
@@ -57,5 +62,6 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     title: 'Work from creativity',
     description: 'Verse Description',
     time: new Date().toISOString(),
+    idx: 2,
   },
 ];
