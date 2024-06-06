@@ -4,7 +4,6 @@ import {
   SceneIdeaVariant,
 } from '@/(model)/space/chapter/scene/idea/main';
 import { FileIdea } from './file/main';
-import { LogIdea } from './log/main';
 import { LinkIdea } from './link/main';
 import { NoteIdea } from './note/main';
 import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
@@ -21,7 +20,6 @@ export function MapIdea({
   return (
     <IdeaHandlerContext.Provider value={ideaMotionContext}>
       {idea.variant === SceneIdeaVariant.FILE && <FileIdea />}
-      {idea.variant === SceneIdeaVariant.LOG && <LogIdea />}
       {idea.variant === SceneIdeaVariant.LINK && <LinkIdea />}
       {idea.variant === SceneIdeaVariant.NOTE && <NoteIdea />}
     </IdeaHandlerContext.Provider>

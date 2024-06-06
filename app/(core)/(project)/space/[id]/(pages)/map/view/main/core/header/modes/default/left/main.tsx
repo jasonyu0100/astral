@@ -3,7 +3,6 @@ import {
 } from '@/(core)/(project)/space/[id]/(modals)/star-modal/main';
 import { MapHeaderFileButton } from './file/main';
 import { MapHeaderLinkButton } from './link/main';
-import { MapHeaderLogButton } from './log/main';
 import { MapHeaderNoteButton } from './note/main';
 import { useContext } from 'react';
 import { ToggleMapModalButton } from '../../../common/toggle/main';
@@ -17,7 +16,6 @@ export function DefaultLeft() {
       <MapHeaderFileButton
         onClick={() => modalContext.addFileStarModal.open()}
       />
-      <MapHeaderLogButton/>
       <MapHeaderNoteButton
         onClick={() => modalContext.addNoteStarModal.open()}
       />

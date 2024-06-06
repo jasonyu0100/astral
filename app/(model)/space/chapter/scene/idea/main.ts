@@ -1,17 +1,13 @@
 import { FileElem, exampleFileElem } from '@/(model)/elements/file/main';
 import { LinkElem } from '@/(model)/elements/link/main';
-import { LogElem } from '@/(model)/elements/log/main';
 import { CollectionResourceVariant } from '@/(model)/gallery/collection/resource/main';
 import { NoteElem } from '@/(model)/elements/note/main';
-import { ScoreElem } from '@/(model)/elements/score/main';
 import { createContext } from 'react';
 
 export enum SceneIdeaVariant {
   FILE = 'FILE',
-  LOG = 'LOG',
   LINK = 'LINK',
   NOTE = 'NOTE',
-  SCORE = 'SCORE',
 }
 export interface SceneIdeaObj {
   id: string;
@@ -23,10 +19,8 @@ export interface SceneIdeaObj {
   y: number;
   variant: string;
   file?: FileElem;
-  log?: LogElem;
   note?: NoteElem;
   link?: LinkElem;
-  score?: ScoreElem;
 }
 
 export const sceneIdeaGql = `
@@ -40,10 +34,8 @@ type SceneIdeaObj {
   y: Int!
   variant: String!
   file: FileElem
-  log: LogElem
   note: NoteElem
   link: LinkElem
-  score: ScoreElem
 }
 
 input UpdateSceneIdeaObjInput {
@@ -55,10 +47,8 @@ input UpdateSceneIdeaObjInput {
 	y: Int
 	variant: String
   file: FileElemInput
-  log: LogElemInput
   note: NoteElemInput
   link: LinkElemInput
-  score: ScoreElemInput
 }
 
 input CreateSceneIdeaObjInput {
@@ -70,10 +60,8 @@ input CreateSceneIdeaObjInput {
 	y: Int
 	variant: String
   file: FileElemInput
-  log: LogElemInput
   note: NoteElemInput
   link: LinkElemInput
-  score: ScoreElemInput
 }
 
 

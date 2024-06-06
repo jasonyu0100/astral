@@ -1,7 +1,10 @@
 import { createContext } from 'react';
-import { FileElem, exampleFileElem, exampleFileElems } from '../../../elements/file/main';
+import {
+  FileElem,
+  exampleFileElem,
+  exampleFileElems,
+} from '../../../elements/file/main';
 import { LinkElem } from '../../../elements/link/main';
-import { LogElem } from '../../../elements/log/main';
 import { NoteElem } from '../../../elements/note/main';
 
 export enum CollectionResourceVariant {
@@ -19,8 +22,7 @@ export interface CollectionResourceObj {
   description: string;
   file?: FileElem;
   note?: NoteElem;
-  log?: LogElem;
-  link? : LinkElem;
+  link?: LinkElem;
   variant: string;
 }
 
@@ -33,7 +35,6 @@ type CollectionResourceObj {
   description: String!
   file: FileElem
   note: NoteElem
-  log: LogElem
   link: LinkElem
   variant: String!
 }
@@ -44,11 +45,9 @@ input CreateCollectionResourceObjInput {
 	title: String!
 	description: String!
 	variant: String!
-    file: FileElemInput
-  log: LogElemInput
+  file: FileElemInput
   note: NoteElemInput
   link: LinkElemInput
-  score: ScoreElemInput
 }
 
 input UpdateCollectionResourceObjInput {
@@ -57,15 +56,15 @@ input UpdateCollectionResourceObjInput {
 	title: String!
 	description: String!
 	variant: String!
-    file: FileElemInput
-  log: LogElemInput
+  file: FileElemInput
   note: NoteElemInput
   link: LinkElemInput
-  score: ScoreElemInput
 }
 `;
 
-export const CollectionResourceContext = createContext<CollectionResourceObj>({} as CollectionResourceObj);
+export const CollectionResourceContext = createContext<CollectionResourceObj>(
+  {} as CollectionResourceObj,
+);
 
 export const exampleCollectionResource: CollectionResourceObj = {
   id: '0',
