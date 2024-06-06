@@ -23,11 +23,17 @@ import { chapterVerseDbWrapper } from '@/(model)/(db)/space/chapter/verse/main';
 import { verseCommentDbWrapper } from '@/(model)/(db)/space/chapter/verse/comment/main';
 import { chatMemberGql } from '@/(model)/space/chapter/chat/member/main';
 import { chatMemberDbWrapper } from '@/(model)/(db)/space/chapter/chat/member/main';
+import { spaceMemberGql } from '@/(model)/space/member/main';
 
 export const spaceMap = {
-  children: ['chapter'],
+  children: ['chapter', 'member'],
   gql: spaceGql,
   db: spaceDbWrapper,
+  member: {
+    children: [],
+    gql: spaceMemberGql,
+    db: null
+  },
   chapter: {
     gql: spaceChapterGql,
     db: spaceChapterDbWrapper,
@@ -36,6 +42,11 @@ export const spaceMap = {
       gql: chapterChatGql,
       db: chapterChatDbWrapper,
       children: ['conversation', 'member'],
+      member: {
+        children: [],
+        db: chatMemberDbWrapper,
+        gql: chatMemberGql,
+      },
       conversation: {
         gql: chatConversationGql,
         db: chatConversationDbWrapper,
@@ -46,11 +57,6 @@ export const spaceMap = {
           db: conversationMessageDbWrapper,
         },
       },
-      member: {
-        children: [],
-        db: chatMemberDbWrapper,
-        gql: chatMemberGql,
-      }
     },
     retro: {
       gql: chapterRetroGql,

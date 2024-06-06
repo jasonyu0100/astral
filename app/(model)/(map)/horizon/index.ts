@@ -17,11 +17,19 @@ import { horizonforumDbWrapper } from '@/(model)/(db)/horizon/forum/main';
 import { forumPostDbWrapper } from '@/(model)/(db)/horizon/forum/post/main';
 import { postCommentDbWrapper } from '@/(model)/(db)/horizon/forum/post/comment/main';
 import { horizonUpdateDbWrapper } from '@/(model)/(db)/horizon/point/main';
+import { horizonMemberGql } from '@/(model)/horizon/member/main';
+import { clusterMemberGql } from '@/(model)/horizon/cluster/member/main';
+import { forumMemberGql } from '@/(model)/horizon/forum/member/main';
 
 export const horizonMap = {
-  children: ['arc', 'cluster', 'forum', 'update'],
+  children: ['arc', 'cluster', 'forum', 'update', 'member'],
   gql: horizonGql,
   db: horizonDbWrapper,
+  member: {
+    children: [],
+    gql: horizonMemberGql,
+    db: null,
+  },
   arc: {
     children: ['point'],
     gql: horizonArcGql,
@@ -35,6 +43,12 @@ export const horizonMap = {
   cluster: {
     gql: horizonClusterGql,
     db: horizonClusterDbWrapper,
+    children: ['update', 'member'],
+    member: {
+      children: [],
+      gql: clusterMemberGql,
+      db: null,
+    },
     update: {
       children: [],
       gql: clusterUpdateGql,
@@ -42,9 +56,14 @@ export const horizonMap = {
     },
   },
   forum: {
-    children: ['post'],
+    children: ['post', 'member'],
     db: horizonforumDbWrapper,
     gql: horizonForumGql,
+    member: {
+      children: [],
+      gql: forumMemberGql,
+      db: null,
+    },
     post: {
       children: ['comment'],
       db: forumPostDbWrapper,

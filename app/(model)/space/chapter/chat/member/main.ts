@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export enum MemberVariant {
+export enum ChatMemberVariant {
   USER = 'You',
   AGENT = 'Agent',
 }
@@ -28,7 +28,7 @@ export const ChatMemberObjContext = createContext<ChatMemberObj>(
 export const exampleChatMember: ChatMemberObj = {
   id: '0',
   chatId: '0',
-  variant: MemberVariant.USER,
+  variant: ChatMemberVariant.USER,
   userId: '0',
 };
 
@@ -36,19 +36,19 @@ export const exampleChatMembers: ChatMemberObj[] = [
   {
     id: '0',
     chatId: '0',
-    variant: MemberVariant.USER,
+    variant: ChatMemberVariant.USER,
     userId: '0',
   },
   {
     id: '0',
     chatId: '0',
-    variant: MemberVariant.USER,
+    variant: ChatMemberVariant.USER,
     userId: '0',
   },
   {
     id: '0',
     chatId: '0',
-    variant: MemberVariant.USER,
+    variant: ChatMemberVariant.USER,
     userId: '0',
   },
 ];
