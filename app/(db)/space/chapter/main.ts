@@ -122,7 +122,7 @@ interface SpaceChapterDbWrapper {
     listFromVariables: (variables: Object) => Promise<SpaceChapterObj[]>;
 }
 
-export const spacechapterDbWrapper: SpaceChapterDbWrapper = {
+export const spaceChapterDbWrapper: SpaceChapterDbWrapper = {
     getObj,
     listObjs,
     createObj,

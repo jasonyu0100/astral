@@ -122,7 +122,7 @@ interface ArcPointDbWrapper {
     listFromVariables: (variables: Object) => Promise<ArcPointObj[]>;
 }
 
-export const arcpointDbWrapper: ArcPointDbWrapper = {
+export const arcPointDbWrapper: ArcPointDbWrapper = {
     getObj,
     listObjs,
     createObj,

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useContext, useRef } from 'react';
 import { MapIdea } from './idea/main';
 import { SceneIdeaContext } from '@/(model)/space/chapter/scene/idea/main';
-import { IdeasHandlerContext } from '@/(controller)/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
 
 export function MapSceneIdeas() {
   const ideasHandler = useContext(IdeasHandlerContext);

@@ -122,7 +122,7 @@ interface RetroContributionDbWrapper {
     listFromVariables: (variables: Object) => Promise<RetroContributionObj[]>;
 }
 
-export const retrocontributionDbWrapper: RetroContributionDbWrapper = {
+export const retroContributionDbWrapper: RetroContributionDbWrapper = {
     getObj,
     listObjs,
     createObj,

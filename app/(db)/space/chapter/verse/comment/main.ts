@@ -122,7 +122,7 @@ interface VerseCommentDbWrapper {
     listFromVariables: (variables: Object) => Promise<VerseCommentObj[]>;
 }
 
-export const versecommentDbWrapper: VerseCommentDbWrapper = {
+export const verseCommentDbWrapper: VerseCommentDbWrapper = {
     getObj,
     listObjs,
     createObj,

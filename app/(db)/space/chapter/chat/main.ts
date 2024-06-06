@@ -122,7 +122,7 @@ interface ChapterChatDbWrapper {
     listFromVariables: (variables: Object) => Promise<ChapterChatObj[]>;
 }
 
-export const chapterchatDbWrapper: ChapterChatDbWrapper = {
+export const chapterChatDbWrapper: ChapterChatDbWrapper = {
     getObj,
     listObjs,
     createObj,

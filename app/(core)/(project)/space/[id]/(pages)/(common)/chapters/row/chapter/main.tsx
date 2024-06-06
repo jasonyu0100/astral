@@ -3,7 +3,7 @@ import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 import { cn } from '@/(utils)/cn';
 import { ChapterActiveText } from './active/main';
 import { ChapterInactiveText } from './inactive/main';

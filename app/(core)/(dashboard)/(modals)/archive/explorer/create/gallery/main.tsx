@@ -10,7 +10,7 @@ import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ArchiveExplorerCreateModalContext } from '../main';
-import { GallerysHandlerContext } from '@/(controller)/explorer/gallerys/main';
+import { GallerysHandlerContext } from '@/(controller)/(archive)/explorer/gallerys/main';
 
 export function ExplorerCreateGalleryModal() {
   const modalContext = useContext(ArchiveExplorerCreateModalContext);

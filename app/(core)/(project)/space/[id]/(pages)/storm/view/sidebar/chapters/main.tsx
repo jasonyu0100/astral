@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
 import { SpaceChapterContext } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 
 export function StormSidebarChapters() {
   const chaptersHandler = useContext(ChaptersHandlerContext);

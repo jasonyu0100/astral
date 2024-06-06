@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { StormChatIcon } from './avatar/main';
 import StormChapterIndicator from '../header/indicator/main';
 import { ChapterChatContext } from '@/(model)/space/chapter/chat/main';
-import { ChatsHandlerContext } from '@/(controller)/storm/chats/main';
+import { ChatsHandlerContext } from '@/(controller)/(archive)/storm/chats/main';
 
 export function StormChapterChat() {
   const chat = useContext(ChapterChatContext);

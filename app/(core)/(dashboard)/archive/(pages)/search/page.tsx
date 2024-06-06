@@ -6,7 +6,7 @@ import isVerseAuth from '@/(utils)/isAuth';
 import {
   SearchActions,
   useSearchResource,
-} from '@/(controller)/explorer/resources/search/main';
+} from '@/(controller)/(archive)/explorer/resources/search/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export interface SearchViewProps {

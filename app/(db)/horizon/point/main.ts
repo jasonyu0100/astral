@@ -122,7 +122,7 @@ interface HorizonPointDbWrapper {
     listFromVariables: (variables: Object) => Promise<HorizonPointObj[]>;
 }
 
-export const horizonpointDbWrapper: HorizonPointDbWrapper = {
+export const horizonPointDbWrapper: HorizonPointDbWrapper = {
     getObj,
     listObjs,
     createObj,

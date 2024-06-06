@@ -122,7 +122,7 @@ interface ClusterUpdateDbWrapper {
     listFromVariables: (variables: Object) => Promise<ClusterUpdateObj[]>;
 }
 
-export const clusterupdateDbWrapper: ClusterUpdateDbWrapper = {
+export const clusterUpdateDbWrapper: ClusterUpdateDbWrapper = {
     getObj,
     listObjs,
     createObj,

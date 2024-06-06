@@ -122,7 +122,7 @@ interface HorizonClusterDbWrapper {
     listFromVariables: (variables: Object) => Promise<HorizonClusterObj[]>;
 }
 
-export const horizonclusterDbWrapper: HorizonClusterDbWrapper = {
+export const horizonClusterDbWrapper: HorizonClusterDbWrapper = {
     getObj,
     listObjs,
     createObj,

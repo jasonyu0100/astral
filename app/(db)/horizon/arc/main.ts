@@ -122,7 +122,7 @@ interface HorizonArcDbWrapper {
     listFromVariables: (variables: Object) => Promise<HorizonArcObj[]>;
 }
 
-export const horizonarcDbWrapper: HorizonArcDbWrapper = {
+export const horizonArcDbWrapper: HorizonArcDbWrapper = {
     getObj,
     listObjs,
     createObj,

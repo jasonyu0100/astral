@@ -3,19 +3,19 @@ import { StormView } from './view/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(controller)/chapters/main';
+} from '@/(controller)/(archive)/chapters/main';
 import {
   ChatsHandlerContext,
   useChatsHandler,
-} from '@/(controller)/storm/chats/main';
+} from '@/(controller)/(archive)/storm/chats/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
 import {
   MessagesHandlerContext,
   useMessagesHandler,
-} from '@/(controller)/storm/messages/main';
+} from '@/(controller)/(archive)/storm/messages/main';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import { useSpaceHandler } from '@/(controller)/spaces/space/main';
+import { useSpaceHandler } from '@/(controller)/(archive)/spaces/space/main';
 import {
   StormModalContext,
   useStormModal,

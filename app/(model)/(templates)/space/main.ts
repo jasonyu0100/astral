@@ -1,14 +1,14 @@
-import { SpaceVariant } from '../main';
+import { SpaceVariant } from '../../space/main';
 import { barTemplate } from './bar/main';
 import { customTemplate } from './custom/main';
 import { ideaTemplate } from './idea/main';
 import { songMixTemplate } from './mix/main';
 import { songSpaceTemplate } from './song/main';
 import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
-import { SpaceChapterObj } from '../chapter/main';
-import { SceneIdeaObj } from '../chapter/scene/idea/main';
-import { ChapterVerseObj } from '../chapter/verse/main';
-import { VerseCommentObj } from '../chapter/verse/comment/main';
+import { SpaceChapterObj } from '../../space/chapter/main';
+import { SceneIdeaObj } from '../../space/chapter/scene/idea/main';
+import { ChapterVerseObj } from '../../space/chapter/verse/main';
+import { VerseCommentObj } from '../../space/chapter/verse/comment/main';
 
 export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx'>;
 export interface TemplateChapterObj extends _TemplateChapterObj {

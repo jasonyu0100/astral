@@ -3,7 +3,7 @@ import { borderFx } from '@/(style)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';
 import { useContext, useState } from 'react';
-import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(controller)/(archive)/explorer/resources/main';
 
 export function CollectionHeaderSearch() {
   const resourcesHandler = useContext(ResourcesHandlerContext)

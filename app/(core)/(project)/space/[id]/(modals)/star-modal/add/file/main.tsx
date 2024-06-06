@@ -10,7 +10,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { IdeasHandlerContext } from '@/(controller)/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);

@@ -3,6 +3,7 @@ import { FileElem, exampleFileElem } from '../../../elements/file/main';
 
 export interface ChapterVerseObj {
   id: string;
+  userId: string;
   chapterId: string;
   title: string;
   description: string;
@@ -12,6 +13,7 @@ export interface ChapterVerseObj {
 export const chapterVerseGql = `
 type ChapterVerseObj {
   id: String!
+  userId: String!
   chapterId: String!
   title: String!
   description: String!
@@ -25,6 +27,7 @@ export const ChapterVerseContext = createContext<ChapterVerseObj>(
 
 export const exampleChapterVerse: ChapterVerseObj = {
   id: '0',
+  userId: '0',
   chapterId: '0',
   title: 'Verse Example',
   description: 'Verse Description',
@@ -34,6 +37,7 @@ export const exampleChapterVerse: ChapterVerseObj = {
 export const exampleChapterVerses: ChapterVerseObj[] = [
   {
     id: '0',
+    userId: '0',
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',
@@ -41,6 +45,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
   },
   {
     id: '1',
+    userId: '0',
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',
@@ -48,6 +53,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
   },
   {
     id: '2',
+    userId: '0',
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',

@@ -3,7 +3,7 @@ import { MapHeaderIdeaCenter } from './center/main';
 import { MapHeaderIdeaLeft } from './left/main';
 import { MapHeaderIdeaRight } from './right/main';
 import { SceneIdeaContext, SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { IdeasHandlerContext } from '@/(controller)/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
 
 export function MapHeaderIdea() {
   const ideasHandler = useContext(IdeasHandlerContext);

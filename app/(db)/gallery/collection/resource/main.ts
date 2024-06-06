@@ -122,7 +122,7 @@ interface CollectionResourceDbWrapper {
     listFromVariables: (variables: Object) => Promise<CollectionResourceObj[]>;
 }
 
-export const collectionresourceDbWrapper: CollectionResourceDbWrapper = {
+export const collectionResourceDbWrapper: CollectionResourceDbWrapper = {
     getObj,
     listObjs,
     createObj,

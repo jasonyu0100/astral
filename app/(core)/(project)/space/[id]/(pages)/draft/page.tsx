@@ -4,7 +4,7 @@ import { DraftView } from './view/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(controller)/chapters/main';
+} from '@/(controller)/(archive)/chapters/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   DraftModalContext,

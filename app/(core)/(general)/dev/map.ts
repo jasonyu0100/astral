@@ -5,14 +5,14 @@ export const devMap = {
     texture: {
       link: `${baseUrl}/texture`,
     },
-    model: {
-      link: `${baseUrl}/model`,
+    tables: {
+      link: `${baseUrl}/tables`,
     },
     fonts: {
       link: `${baseUrl}/fonts`,
     },
-    db: {
-      link: `${baseUrl}/db`,
+    explore: {
+      link: `${baseUrl}/explore`,
     },
     link: `${baseUrl}`,
   },

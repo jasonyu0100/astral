@@ -122,7 +122,7 @@ interface ChapterRetroDbWrapper {
     listFromVariables: (variables: Object) => Promise<ChapterRetroObj[]>;
 }
 
-export const chapterretroDbWrapper: ChapterRetroDbWrapper = {
+export const chapterRetroDbWrapper: ChapterRetroDbWrapper = {
     getObj,
     listObjs,
     createObj,

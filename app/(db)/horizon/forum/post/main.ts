@@ -122,7 +122,7 @@ interface ForumPostDbWrapper {
     listFromVariables: (variables: Object) => Promise<ForumPostObj[]>;
 }
 
-export const forumpostDbWrapper: ForumPostDbWrapper = {
+export const forumPostDbWrapper: ForumPostDbWrapper = {
     getObj,
     listObjs,
     createObj,

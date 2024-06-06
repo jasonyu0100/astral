@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { SpaceChapterContext } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';

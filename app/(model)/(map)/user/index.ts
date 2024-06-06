@@ -1,6 +1,7 @@
 import { userDbWrapper } from "@/(db)/user/main";
-import { userGql } from "./main";
-import { reservationGql } from "./reservation/main";
+import { userGql } from "../../user/main";
+import { reservationGql } from "../../user/reservation/main";
+import { reservationDbWrapper } from "@/(db)/user/reservation/main";
 
 export const userMap = {
     children: ['reservation'],
@@ -9,5 +10,6 @@ export const userMap = {
     reservation: {
         children: [],
         gql: reservationGql,
+        db: reservationDbWrapper,
     }
 }

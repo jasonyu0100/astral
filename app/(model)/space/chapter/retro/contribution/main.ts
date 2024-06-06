@@ -1,16 +1,19 @@
 import { createContext } from 'react';
 
 export enum RetroContributionVariant {
-  CONVERSATION = 'CONVERSATION',
-  SCENE = 'SCENE',
-  VERSE = 'VERSE',
+  CONVERSATION = 'CONVERSATION', // WHAT CONVERSATIONS WERE MADE
+  IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
+  SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
+  VERSE = 'VERSE', // WHAT WORK WAS DONE
 }
+
 export interface RetroContributionObj {
   id: string;
   retroId: string;
   variant: string;
   conversationId?: string;
   sceneId?: string;
+  ideaId?: string;
   verseId?: string;
   value: number;
   message: string;
@@ -23,13 +26,14 @@ type RetroContributionObj {
   retroId: String!
   variant: String!
   conversationId: String
+  ideaId: String
   sceneId: String
   verseId: String
   value: Int!
   message: String!
   time: String!
 }
-`
+`;
 
 export const RetroContributionContext = createContext<RetroContributionObj>(
   {} as RetroContributionObj,
@@ -40,6 +44,7 @@ export const exampleRetroContribution: RetroContributionObj = {
   retroId: '0',
   variant: RetroContributionVariant.CONVERSATION,
   conversationId: '0',
+  ideaId: undefined,
   sceneId: undefined,
   verseId: undefined,
   value: 11,
@@ -53,6 +58,7 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     retroId: '0',
     variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
+    ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
     value: 11,
@@ -64,6 +70,7 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     retroId: '0',
     variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
+    ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
     value: 0,
@@ -75,6 +82,7 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     retroId: '0',
     variant: RetroContributionVariant.CONVERSATION,
     conversationId: '0',
+    ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
     value: 6,

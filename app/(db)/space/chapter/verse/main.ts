@@ -122,7 +122,7 @@ interface ChapterVerseDbWrapper {
     listFromVariables: (variables: Object) => Promise<ChapterVerseObj[]>;
 }
 
-export const chapterverseDbWrapper: ChapterVerseDbWrapper = {
+export const chapterVerseDbWrapper: ChapterVerseDbWrapper = {
     getObj,
     listObjs,
     createObj,

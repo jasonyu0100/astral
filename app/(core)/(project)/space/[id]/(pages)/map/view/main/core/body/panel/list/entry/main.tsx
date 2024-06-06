@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ChapterSceneContext } from '@/(model)/space/chapter/scene/main';
 import { cn } from '@/(utils)/cn';
-import { ScenesHandlerContext } from '@/(controller)/scenes/main';
+import { ScenesHandlerContext } from '@/(controller)/(archive)/scenes/main';
 
 export function SceneListEntry({ index }: { index: number }) {
   const partsHandler =

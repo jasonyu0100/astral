@@ -10,10 +10,10 @@ import { SpaceVariant } from '@/(model)/space/main';
 import {
   TemplateChapterObj,
   getSpaceTemplate,
-} from '@/(model)/space/templates/main';
+} from '@/(model)/(templates)/space/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesHandlerContext } from '@/(controller)/spaces/main';
+import { SpacesHandlerContext } from '@/(controller)/(archive)/spaces/main';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;

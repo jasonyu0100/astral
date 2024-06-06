@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MapSaveButton } from '../../../common/save/main';
-import { IdeasHandlerContext } from '@/(controller)/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
 
 export function SoundRight() {
   const ideasHandler = useContext(IdeasHandlerContext)

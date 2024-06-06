@@ -3,7 +3,7 @@ import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
 import { CollectionResourceContext, CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { ResourcesHandlerContext } from '@/(controller)/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(controller)/(archive)/explorer/resources/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource-file)/sidebar/add/main';
 import { SidebarCollectionResource } from '@/(components)/(media)/(resource-file)/sidebar/main';
 

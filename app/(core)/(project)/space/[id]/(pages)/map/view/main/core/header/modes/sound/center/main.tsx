@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
-import { ScenesHandlerContext } from '@/(controller)/scenes/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
+import { ScenesHandlerContext } from '@/(controller)/(archive)/scenes/main';
 
 export function SoundCenter() {
   const partsHandler = useContext(ScenesHandlerContext);

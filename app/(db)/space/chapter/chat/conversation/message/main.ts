@@ -122,7 +122,7 @@ interface ConversationMessageDbWrapper {
     listFromVariables: (variables: Object) => Promise<ConversationMessageObj[]>;
 }
 
-export const conversationmessageDbWrapper: ConversationMessageDbWrapper = {
+export const conversationMessageDbWrapper: ConversationMessageDbWrapper = {
     getObj,
     listObjs,
     createObj,

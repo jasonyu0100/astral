@@ -5,16 +5,16 @@ import { GalleryCollectionObj } from '@/(model)/gallery/collection/main';
 import {
   GallerysHandlerContext,
   useGallerysHandler,
-} from '@/(controller)/explorer/gallerys/main';
+} from '@/(controller)/(archive)/explorer/gallerys/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   CollectionsHandlerContext,
   useCollectionsHandler,
-} from '@/(controller)/explorer/collections/main';
+} from '@/(controller)/(archive)/explorer/collections/main';
 import {
   ResourcesHandlerContext,
   useResourcesHandler,
-} from '@/(controller)/explorer/resources/main';
+} from '@/(controller)/(archive)/explorer/resources/main';
 import {
   ArchiveSidebarCreateModalContext,
   useArchiveSidebarCreateModal,

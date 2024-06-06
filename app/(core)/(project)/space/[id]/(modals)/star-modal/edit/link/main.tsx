@@ -12,7 +12,7 @@ import {
 } from '@/(model)/elements/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { IdeasHandlerContext } from '@/(controller)/ideas/main';
+import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddLinkStarModal() {

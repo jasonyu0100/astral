@@ -15,6 +15,7 @@ export enum SceneIdeaVariant {
 }
 export interface SceneIdeaObj {
   id: string;
+  userId?: string;
   sceneId: string;
   title: string;
   description: string;
@@ -31,6 +32,7 @@ export interface SceneIdeaObj {
 export const sceneIdeaGql = `
 type SceneIdeaObj {
   id: String!
+  userId: String
   sceneId: String!
   title: String!
   description: String!

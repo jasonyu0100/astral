@@ -4,16 +4,16 @@ import { MapView } from './view/view';
 import {
   ChaptersHandlerContext,
   useChaptersHandler,
-} from '@/(controller)/chapters/main';
+} from '@/(controller)/(archive)/chapters/main';
 import {
   ScenesHandlerContext,
   useScenesHandler,
-} from '@/(controller)/scenes/main';
+} from '@/(controller)/(archive)/scenes/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   IdeasHandlerContext,
   useIdeasHandler,
-} from '@/(controller)/ideas/main';
+} from '@/(controller)/(archive)/ideas/main';
 import {
   MapModalContext,
   useMapModal,

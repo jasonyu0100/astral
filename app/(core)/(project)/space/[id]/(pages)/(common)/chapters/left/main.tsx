@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 
 export function ChaptersLeft() {
   const chapterHandler = useContext(ChaptersHandlerContext);

@@ -7,7 +7,7 @@ import { UploadFileLabel } from '../common/label/main';
 import {
   UploadsHandlerContext,
   useUploadsHandler,
-} from '@/(controller)/upload/multiple/main';
+} from '@/(controller)/elements/file/(upload)/multiple/main';
 import { UploadFilesList } from './list/main';
 import { UploadFilesArea } from './area/main';
 

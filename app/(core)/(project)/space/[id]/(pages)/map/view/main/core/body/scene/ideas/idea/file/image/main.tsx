@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(controller)/ideas/idea/main';
+import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
 
 export function FileImageIdea() {
   const { idea, x, y, constraintsRef, activateIdea } =

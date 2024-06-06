@@ -5,7 +5,7 @@ import {
   SpacesModalContext,
   useSpacesModal,
 } from '../../../(modals)/studio/main';
-import { SpacesHandlerContext, useSpacesHandler } from '@/(controller)/spaces/main';
+import { SpacesHandlerContext, useSpacesHandler } from '@/(controller)/(archive)/spaces/main';
 import { SpacesModalView } from '@/(core)/(dashboard)/(modals)/studio/view';
 import { StudioSpacesView } from './view/view';
 

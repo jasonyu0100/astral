@@ -2,11 +2,11 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { galleryMap } from '@/(model)/gallery';
-import { elementsMap } from '@/(model)/elements';
+import { galleryMap } from '@/(model)/(map)/gallery';
+import { elementsMap } from '@/(model)/(map)/elements';
 import { horizonMap } from '@/(model)/horizon';
 import { spaceMap } from '@/(model)/space';
-import { userMap } from '@/(model)/user';
+import { userMap } from '@/(model)/(map)/user';
 import { glassFx, roundedFx } from '@/(style)/data';
 
 function Section({ gqlMap }: { gqlMap: string }) {
@@ -65,6 +65,7 @@ export default function Page() {
           <Section gqlMap={spaceMap.chapter.gql} />
           <SectionDivider />
           <Section gqlMap={spaceMap.chapter.chat.gql} />
+          <Section gqlMap={spaceMap.chapter.chat.member.gql} />
           <Section gqlMap={spaceMap.chapter.chat.conversation.gql} />
           <Section gqlMap={spaceMap.chapter.chat.conversation.message.gql} />
           <SectionDivider />

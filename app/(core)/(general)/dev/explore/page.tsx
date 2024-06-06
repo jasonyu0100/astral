@@ -3,11 +3,11 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { galleryMap } from '@/(model)/gallery';
-import { elementsMap } from '@/(model)/elements';
+import { galleryMap } from '@/(model)/(map)/gallery';
+import { elementsMap } from '@/(model)/(map)/elements';
 import { horizonMap } from '@/(model)/horizon';
 import { spaceMap } from '@/(model)/space';
-import { userMap } from '@/(model)/user';
+import { userMap } from '@/(model)/(map)/user';
 import { roundedFx, glassFx } from '@/(style)/data';
 import { useEffect, useState } from 'react';
 

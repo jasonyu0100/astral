@@ -122,7 +122,7 @@ interface GalleryCollectionDbWrapper {
     listFromVariables: (variables: Object) => Promise<GalleryCollectionObj[]>;
 }
 
-export const gallerycollectionDbWrapper: GalleryCollectionDbWrapper = {
+export const galleryCollectionDbWrapper: GalleryCollectionDbWrapper = {
     getObj,
     listObjs,
     createObj,

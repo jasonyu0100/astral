@@ -14,9 +14,9 @@ import {
   ResourcesActions,
   ResourcesHandlerContext,
   useResourcesHandler,
-} from '@/(controller)/explorer/resources/main';
-import { useCollectionHandler } from '@/(controller)/explorer/collections/collection/main';
-import { useGalleryHandler } from '@/(controller)/explorer/gallerys/gallery/main';
+} from '@/(controller)/(archive)/explorer/resources/main';
+import { useCollectionHandler } from '@/(controller)/(archive)/explorer/collections/collection/main';
+import { useGalleryHandler } from '@/(controller)/(archive)/explorer/gallerys/gallery/main';
 import { ResourcesView } from './view/view';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {

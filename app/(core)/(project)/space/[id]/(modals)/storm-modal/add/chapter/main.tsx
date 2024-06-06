@@ -8,7 +8,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 
 export function StormAddChapterModal() {
   const chaptersHandler = useContext(ChaptersHandlerContext);

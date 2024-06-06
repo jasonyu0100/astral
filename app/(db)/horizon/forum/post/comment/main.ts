@@ -122,7 +122,7 @@ interface PostCommentDbWrapper {
     listFromVariables: (variables: Object) => Promise<PostCommentObj[]>;
 }
 
-export const postcommentDbWrapper: PostCommentDbWrapper = {
+export const postCommentDbWrapper: PostCommentDbWrapper = {
     getObj,
     listObjs,
     createObj,

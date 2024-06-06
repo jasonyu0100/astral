@@ -1,5 +1,5 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ChaptersHandlerContext } from '@/(controller)/chapters/main';
+import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
 import { useContext } from 'react';
 
 export function DraftChapterList() {
