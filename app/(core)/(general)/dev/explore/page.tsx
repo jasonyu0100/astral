@@ -5,11 +5,11 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { galleryMap } from '@/(model)/(map)/gallery';
 import { elementsMap } from '@/(model)/(map)/elements';
-import { horizonMap } from '@/(model)/horizon';
-import { spaceMap } from '@/(model)/space';
 import { userMap } from '@/(model)/(map)/user';
 import { roundedFx, glassFx } from '@/(style)/data';
 import { useEffect, useState } from 'react';
+import { horizonMap } from '@/(model)/(map)/horizon';
+import { spaceMap } from '@/(model)/(map)/space';
 
 function Section({ gqlMap }: { gqlMap: string }) {
   return (
