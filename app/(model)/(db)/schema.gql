@@ -325,6 +325,11 @@ input CreateRetroContributionObjInput {
 	time: String!
 }
 
+input CreateRetroMemberObjInput {
+	retroId: String!
+	userId: String!
+}
+
 input CreateSceneIdeaObjInput {
 	sceneId: String!
 	userId: String!
@@ -379,6 +384,11 @@ input CreateVerseCommentObjInput {
 	verseId: String!
 	time: String!
 	message: String!
+}
+
+input CreateVerseMemberObjInput {
+	verseId: String!
+	userId: String!
 }
 
 input DeleteArcPointObjInput {
@@ -481,6 +491,10 @@ input DeleteRetroContributionObjInput {
 	id: String!
 }
 
+input DeleteRetroMemberObjInput {
+	id: String!
+}
+
 input DeleteSceneIdeaObjInput {
 	id: String!
 }
@@ -502,6 +516,10 @@ input DeleteUserObjInput {
 }
 
 input DeleteVerseCommentObjInput {
+	id: String!
+}
+
+input DeleteVerseMemberObjInput {
 	id: String!
 }
 
@@ -763,6 +781,17 @@ type RetroContributionObj {
 
 type RetroContributionObjConnection {
 	items: [RetroContributionObj]
+	nextToken: String
+}
+
+type RetroMemberObj {
+	id: String!
+	retroId: String!
+	userId: String!
+}
+
+type RetroMemberObjConnection {
+	items: [RetroMemberObj]
 	nextToken: String
 }
 
@@ -1079,6 +1108,12 @@ input TableRetroContributionObjFilterInput {
 	time: TableStringFilterInput
 }
 
+input TableRetroMemberObjFilterInput {
+	id: TableStringFilterInput
+	retroId: TableStringFilterInput
+	userId: TableStringFilterInput
+}
+
 input TableSceneIdeaObjFilterInput {
 	id: TableStringFilterInput
 	userId: TableStringFilterInput
@@ -1147,6 +1182,12 @@ input TableVerseCommentObjFilterInput {
 	verseId: TableStringFilterInput
 	time: TableStringFilterInput
 	message: TableStringFilterInput
+}
+
+input TableVerseMemberObjFilterInput {
+	id: TableStringFilterInput
+	verseId: TableStringFilterInput
+	userId: TableStringFilterInput
 }
 
 input UpdateArcPointObjInput {
@@ -1349,6 +1390,12 @@ input UpdateRetroContributionObjInput {
 	time: String
 }
 
+input UpdateRetroMemberObjInput {
+	id: String!
+	retroId: String
+	userId: String
+}
+
 input UpdateSceneIdeaObjInput {
 	id: String!
 	userId: String
@@ -1411,6 +1458,12 @@ input UpdateVerseCommentObjInput {
 	message: String
 }
 
+input UpdateVerseMemberObjInput {
+	id: String!
+	verseId: String
+	userId: String
+}
+
 type UserObj {
 	id: String!
 	fname: String!
@@ -1440,6 +1493,17 @@ type VerseCommentObj {
 
 type VerseCommentObjConnection {
 	items: [VerseCommentObj]
+	nextToken: String
+}
+
+type VerseMemberObj {
+	id: String!
+	verseId: String!
+	userId: String!
+}
+
+type VerseMemberObjConnection {
+	items: [VerseMemberObj]
 	nextToken: String
 }
 
@@ -1537,6 +1601,12 @@ type Mutation {
 	createGalleryMemberObj(input: CreateGalleryMemberObjInput!): GalleryMemberObj
 	updateGalleryMemberObj(input: UpdateGalleryMemberObjInput!): GalleryMemberObj
 	deleteGalleryMemberObj(input: DeleteGalleryMemberObjInput!): GalleryMemberObj
+	createVerseMemberObj(input: CreateVerseMemberObjInput!): VerseMemberObj
+	updateVerseMemberObj(input: UpdateVerseMemberObjInput!): VerseMemberObj
+	deleteVerseMemberObj(input: DeleteVerseMemberObjInput!): VerseMemberObj
+	createRetroMemberObj(input: CreateRetroMemberObjInput!): RetroMemberObj
+	updateRetroMemberObj(input: UpdateRetroMemberObjInput!): RetroMemberObj
+	deleteRetroMemberObj(input: DeleteRetroMemberObjInput!): RetroMemberObj
 }
 
 type Query {
@@ -1603,6 +1673,10 @@ type Query {
 	listSpaceMemberObjs(filter: TableSpaceMemberObjFilterInput, limit: Int, nextToken: String): SpaceMemberObjConnection
 	getGalleryMemberObj(id: String!): GalleryMemberObj
 	listGalleryMemberObjs(filter: TableGalleryMemberObjFilterInput, limit: Int, nextToken: String): GalleryMemberObjConnection
+	getVerseMemberObj(id: String!): VerseMemberObj
+	listVerseMemberObjs(filter: TableVerseMemberObjFilterInput, limit: Int, nextToken: String): VerseMemberObjConnection
+	getRetroMemberObj(id: String!): RetroMemberObj
+	listRetroMemberObjs(filter: TableRetroMemberObjFilterInput, limit: Int, nextToken: String): RetroMemberObjConnection
 }
 
 type Subscription {
@@ -2239,4 +2313,16 @@ type Subscription {
 		@aws_subscribe(mutations: ["updateGalleryMemberObj"])
 	onDeleteGalleryMemberObj(id: String, galleryId: String, userId: String): GalleryMemberObj
 		@aws_subscribe(mutations: ["deleteGalleryMemberObj"])
+	onCreateVerseMemberObj(id: String, verseId: String, userId: String): VerseMemberObj
+		@aws_subscribe(mutations: ["createVerseMemberObj"])
+	onUpdateVerseMemberObj(id: String, verseId: String, userId: String): VerseMemberObj
+		@aws_subscribe(mutations: ["updateVerseMemberObj"])
+	onDeleteVerseMemberObj(id: String, verseId: String, userId: String): VerseMemberObj
+		@aws_subscribe(mutations: ["deleteVerseMemberObj"])
+	onCreateRetroMemberObj(id: String, retroId: String, userId: String): RetroMemberObj
+		@aws_subscribe(mutations: ["createRetroMemberObj"])
+	onUpdateRetroMemberObj(id: String, retroId: String, userId: String): RetroMemberObj
+		@aws_subscribe(mutations: ["updateRetroMemberObj"])
+	onDeleteRetroMemberObj(id: String, retroId: String, userId: String): RetroMemberObj
+		@aws_subscribe(mutations: ["deleteRetroMemberObj"])
 }

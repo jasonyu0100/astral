@@ -4,4 +4,4 @@ UPDATING THE MODEL
 2. MODEL GQL
 3. MODEL DB WRAPPER
 4. MODEL MAP
-5. MODEL PAGE ( /dev/models /dev/explore )
+5. MODEL PAGE ( /dev/explore )

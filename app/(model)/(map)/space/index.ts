@@ -24,6 +24,10 @@ import { verseCommentDbWrapper } from '@/(model)/(db)/space/chapter/verse/commen
 import { chatMemberGql } from '@/(model)/space/chapter/chat/member/main';
 import { chatMemberDbWrapper } from '@/(model)/(db)/space/chapter/chat/member/main';
 import { spaceMemberGql } from '@/(model)/space/member/main';
+import { verseMemberGql } from '@/(model)/space/chapter/verse/member/main';
+import { verseMemberDbWrapper } from '@/(model)/(db)/space/chapter/verse/member/main';
+import { retroMemberGql } from '@/(model)/space/chapter/retro/member/main';
+import { retroMemberDbWrapper } from '@/(model)/(db)/space/chapter/retro/member/main';
 
 export const spaceMap = {
   children: ['chapter', 'member'],
@@ -61,7 +65,12 @@ export const spaceMap = {
     retro: {
       gql: chapterRetroGql,
       db: chapterRetroDbWrapper,
-      children: ['contribution'],
+      children: ['contribution', 'member'],
+      member: {
+        children: [],
+        db: retroMemberDbWrapper,
+        gql: retroMemberGql,
+      },
       contribution: {
         children: [],
         db: retroContributionDbWrapper,
@@ -81,7 +90,12 @@ export const spaceMap = {
     verse: {
       gql: chapterVerseGql,
       db: chapterVerseDbWrapper,
-      children: ['comment'],
+      children: ['comment', 'member'],
+      member: {
+        children: [],
+        db: verseMemberGql,
+        gql: verseMemberDbWrapper,
+      },
       comment: {
         children: [],
         db: verseCommentDbWrapper,
