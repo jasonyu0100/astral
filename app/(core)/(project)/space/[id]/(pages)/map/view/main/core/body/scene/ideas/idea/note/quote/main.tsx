@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
+import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function NoteQuoteIdea() {
   const user = useGlobalUser((state) => state.user);

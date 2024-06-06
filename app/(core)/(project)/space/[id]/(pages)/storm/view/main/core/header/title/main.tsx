@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
-import { ChatsHandlerContext } from '@/(controller)/(archive)/storm/chats/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ChatsHandlerContext } from '@/(model)/(controller)/(archive)/storm/chats/main';
 
 export default function HeaderTitle() {
   const chatsHandler = useContext(ChatsHandlerContext);

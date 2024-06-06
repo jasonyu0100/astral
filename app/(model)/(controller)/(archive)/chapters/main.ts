@@ -1,6 +1,6 @@
 import { SpaceChapterObj } from '@/(model)/space/chapter/main';
 import { createContext, useMemo, useState } from 'react';
-import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
+// import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
 
 export interface ChapterActions {
   addChapter: (chapter: SpaceChapterObj) => SpaceChapterObj;
@@ -35,51 +35,51 @@ export const useChaptersHandler = (spaceId: string): ChaptersHandler => {
 
   const chapterActions: ChapterActions = {
     listChapters: async () => {
-      const chapters = await chaptersGqlHelper.listFromSpace(spaceId);
-      changeChapters(chapters);
-      changeChapterId(chapters.at(0)?.id || '');
-      return chapters;
+      // const chapters = await chaptersGqlHelper.listFromSpace(spaceId);
+      // changeChapters(chapters);
+      // changeChapterId(chapters.at(0)?.id || '');
+      // return chapters;
     },
     createChapter: async (title: string, description: string, index: number) => {
-      const chapter = await chaptersGqlHelper.create(title, description, index, spaceId);
-      changeChapters((prev) => [...prev, chapter]);
-      changeChapterId(chapter.id);
-      return chapter;
+      // const chapter = await chaptersGqlHelper.create(title, description, index, spaceId);
+      // changeChapters((prev) => [...prev, chapter]);
+      // changeChapterId(chapter.id);
+      // return chapter;
     },
     addChapter: (chapter: SpaceChapterObj) => {
-      changeChapterId(chapter.id);
-      changeChapters((prev) => [...prev, chapter]);
-      return chapter;
+      // changeChapterId(chapter.id);
+      // changeChapters((prev) => [...prev, chapter]);
+      // return chapter;
     },
     goToChapter: (chapter: SpaceChapterObj) => {
-      changeChapterId(chapter.id);
-      return chapter;
+      // changeChapterId(chapter.id);
+      // return chapter;
     },
     goToPrevChapter: () => {
-      const currentIndex = chapters.findIndex(
-        (chapter) => chapter.id === chapterId,
-      );
-      const previousIndex = currentIndex - 1;
+      // const currentIndex = chapters.findIndex(
+      //   (chapter) => chapter.id === chapterId,
+      // );
+      // const previousIndex = currentIndex - 1;
 
-      if (previousIndex >= 0) {
-        const previousChapter = chapters[previousIndex];
-        changeChapterId(previousChapter.id);
-        return previousChapter;
-      }
-      return undefined;
+      // if (previousIndex >= 0) {
+      //   const previousChapter = chapters[previousIndex];
+      //   changeChapterId(previousChapter.id);
+      //   return previousChapter;
+      // }
+      // return undefined;
     },
     goToNextChapter: () => {
-      const currentIndex = chapters.findIndex(
-        (chapter) => chapter.id === chapterId,
-      );
-      const nextIndex = currentIndex + 1;
+      // const currentIndex = chapters.findIndex(
+      //   (chapter) => chapter.id === chapterId,
+      // );
+      // const nextIndex = currentIndex + 1;
 
-      if (nextIndex < chapters.length) {
-        const nextChapter = chapters[nextIndex];
-        changeChapterId(nextChapter.id);
-        return nextChapter;
-      }
-      return undefined;
+      // if (nextIndex < chapters.length) {
+      //   const nextChapter = chapters[nextIndex];
+      //   changeChapterId(nextChapter.id);
+      //   return nextChapter;
+      // }
+      // return undefined;
     },
   };
 

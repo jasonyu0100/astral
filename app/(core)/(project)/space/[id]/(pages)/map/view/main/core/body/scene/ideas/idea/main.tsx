@@ -7,8 +7,8 @@ import { FileIdea } from './file/main';
 import { LogIdea } from './log/main';
 import { LinkIdea } from './link/main';
 import { NoteIdea } from './note/main';
-import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
-import { useIdeaHandler } from '@/(controller)/(archive)/ideas/idea/main';
+import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
+import { useIdeaHandler } from '@/(model)/(controller)/(archive)/ideas/idea/main';
 
 export function MapIdea({
   constraintsRef,

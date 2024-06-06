@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MapSaveButton } from '../../../common/save/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function MapHeaderIdeaRight() {
   const ideasHandler = useContext(IdeasHandlerContext);

@@ -2,7 +2,7 @@ import { FileElem } from '@/(model)/elements/file/main';
 import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 import { ResourceContainer } from '../common/container/main';
 
 export function SidebarCollectionResource() {

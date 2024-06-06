@@ -3,7 +3,7 @@ import { CollectionResourceAdd } from '../../../../../../../../../(components)/(
 import { ExplorerResource } from '../../../../../../../../../(components)/(media)/(resource-file)/explorer/main';
 import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { ResourcesHandlerContext } from '@/(controller)/(archive)/explorer/resources/main';
+import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
 export function ResourcesGrid() {
   const resourcesHandler = useContext(ResourcesHandlerContext);

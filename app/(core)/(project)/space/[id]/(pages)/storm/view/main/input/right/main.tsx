@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StormMessageInputSend } from "./send/main";
-import { MessagesHandlerContext } from "@/(controller)/(archive)/storm/messages/main";
+import { MessagesHandlerContext } from "@/(model)/(controller)/(archive)/storm/messages/main";
 
 export function StormChatInputRight() {
   const messagesHandler = useContext(MessagesHandlerContext)

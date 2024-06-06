@@ -17,7 +17,7 @@ import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
 import {
   emailRegisterUser,
   googleRegisterUser,
-} from '@/(logic)/internal/calls/auth/register/main';
+} from '@/(logic)/calls/auth/register/main';
 import {
   FileElem,
   FileElemVariant,

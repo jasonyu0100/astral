@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { ChapterSceneContext } from '@/(model)/space/chapter/scene/main';
 import { SceneListEntry } from './entry/main';
-import { ScenesHandlerContext } from '@/(controller)/(archive)/scenes/main';
+import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 
 export function MapSceneList() {

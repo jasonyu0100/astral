@@ -10,11 +10,11 @@ import { TabPurpleShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/sha
 
 export function TabFour({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Point;
+  const tabText = ReleaseTabStage.View;
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.point.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.view.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabPurpleShard active={active} />
     </Tab>

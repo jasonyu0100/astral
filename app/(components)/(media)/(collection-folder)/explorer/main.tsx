@@ -8,7 +8,7 @@ import {
   GalleryCollectionContext,
   CollectionResourcesContext,
 } from '@/(model)/gallery/collection/main';
-import { useResourcesHandler } from '@/(controller)/(archive)/explorer/resources/main';
+import { useResourcesHandler } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function ExplorerCollection() {

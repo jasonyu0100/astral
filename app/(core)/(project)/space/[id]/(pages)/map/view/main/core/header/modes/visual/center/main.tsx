@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
-import { ScenesHandlerContext } from '@/(controller)/(archive)/scenes/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
 
 export function VisualCenter() {
   const partsHandler = useContext(ScenesHandlerContext);

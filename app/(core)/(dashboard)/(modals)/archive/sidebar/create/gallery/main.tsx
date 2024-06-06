@@ -11,7 +11,7 @@ import { useContext, useState } from 'react';
 import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ArchiveSidebarCreateModalContext } from '../main';
-import { GallerysHandlerContext } from '@/(controller)/(archive)/explorer/gallerys/main';
+import { GallerysHandlerContext } from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
 
 export function SidebarCreateGalleryModal() {
   const modalContext = useContext(ArchiveSidebarCreateModalContext);

@@ -2,7 +2,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 import { useContext } from 'react';
 import { SpaceChapterContext } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { StormChapterTitle } from './title/main';
 
 export function StormChapterHeader() {

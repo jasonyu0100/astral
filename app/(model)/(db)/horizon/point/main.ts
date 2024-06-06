@@ -1,20 +1,20 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { HorizonPointObj } from "@/(model)/horizon/point/main";
+import { HorizonUpdateObj } from "@/(model)/horizon/update/main";
 import { gqlArgs } from "@/(utils)/clean";
-import { createHorizonPointObj, deleteHorizonPointObj, updateHorizonPointObj } from "@/graphql/mutations";
-import { listHorizonPointObjs } from "@/graphql/queries";
+import { createHorizonUpdateObj, deleteHorizonUpdateObj, updateHorizonUpdateObj } from "@/graphql/mutations";
+import { listHorizonUpdateObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): HorizonPointObj {
-  return obj as HorizonPointObj;
+function castSingle(obj: any): HorizonUpdateObj {
+  return obj as HorizonUpdateObj;
 }
 
-function castMultiple(objs: any[]): HorizonPointObj[] {
-  return objs as HorizonPointObj[];
+function castMultiple(objs: any[]): HorizonUpdateObj[] {
+  return objs as HorizonUpdateObj[];
 }
 
-async function getObj(key: string, value: string): Promise<HorizonPointObj> {
+async function getObj(key: string, value: string): Promise<HorizonUpdateObj> {
   const payload = await amplifyClient.graphql({
-    query: listHorizonPointObjs,
+    query: listHorizonUpdateObjs,
     variables: {
         [key]: {
           eq: value,
@@ -22,21 +22,21 @@ async function getObj(key: string, value: string): Promise<HorizonPointObj> {
     },
   });
 
-  return castSingle(payload?.data?.listHorizonPointObjs);
+  return castSingle(payload?.data?.listHorizonUpdateObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<HorizonPointObj> {
+async function getFromVariables(variables: Object): Promise<HorizonUpdateObj> {
   const payload = await amplifyClient.graphql({
-    query: listHorizonPointObjs,
+    query: listHorizonUpdateObjs,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listHorizonPointObjs);
+  return castSingle(payload?.data?.listHorizonUpdateObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<HorizonPointObj[]> {
+async function listObjs(key: string, value: string): Promise<HorizonUpdateObj[]> {
   const payload = await amplifyClient.graphql({
-    query: listHorizonPointObjs,
+    query: listHorizonUpdateObjs,
     variables: {
       filter: {
         [key]: {
@@ -46,32 +46,32 @@ async function listObjs(key: string, value: string): Promise<HorizonPointObj[]> 
     },
   });
 
-  return castMultiple(payload?.data?.listHorizonPointObjs?.items || []);
+  return castMultiple(payload?.data?.listHorizonUpdateObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<HorizonPointObj[]> {
+async function listFromVariables(variables: Object): Promise<HorizonUpdateObj[]> {
   const payload = await amplifyClient.graphql({
-    query: listHorizonPointObjs,
+    query: listHorizonUpdateObjs,
     variables: variables
   });
 
-  return castMultiple(payload?.data?.listHorizonPointObjs?.items || []);
+  return castMultiple(payload?.data?.listHorizonUpdateObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<HorizonPointObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonUpdateObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createHorizonPointObj,
+    query: createHorizonUpdateObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createHorizonPointObj);
+  return castSingle(payload?.data?.createHorizonUpdateObj);
 } 
 
-async function updateObj(id: string, updateObj: Partial<HorizonPointObj>) {
+async function updateObj(id: string, updateObj: Partial<HorizonUpdateObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateHorizonPointObj,
+    query: updateHorizonUpdateObj,
     variables: {
       input: {
         id: id,
@@ -80,12 +80,12 @@ async function updateObj(id: string, updateObj: Partial<HorizonPointObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateHorizonPointObj);
+  return castSingle(payload?.data?.updateHorizonUpdateObj);
 } 
 
-async function overwriteObj(id: string, newObj: HorizonPointObj) {
+async function overwriteObj(id: string, newObj: HorizonUpdateObj) {
   const payload = await amplifyClient.graphql({
-    query: updateHorizonPointObj,
+    query: updateHorizonUpdateObj,
     variables: {
       input: {
         id: id,
@@ -94,13 +94,13 @@ async function overwriteObj(id: string, newObj: HorizonPointObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateHorizonPointObj);
+  return castSingle(payload?.data?.updateHorizonUpdateObj);
 } 
 
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteHorizonPointObj,
+    query: deleteHorizonUpdateObj,
     variables: {
       input: {
         id: id,
@@ -108,21 +108,21 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteHorizonPointObj);
+  return castSingle(payload?.data?.deleteHorizonUpdateObj);
 } 
 
-interface HorizonPointDbWrapper {
-    getObj: (key: string, value: string) => Promise<HorizonPointObj>;
-    listObjs: (key: string, value: string) => Promise<HorizonPointObj[]>;
-    createObj: (newObj: Omit<HorizonPointObj, 'id'>) => Promise<HorizonPointObj>;
-    updateObj: (id: string, updateObj: Partial<HorizonPointObj>) => Promise<HorizonPointObj>;
-    overwriteObj: (id: string, newObj: HorizonPointObj) => Promise<HorizonPointObj>;
-    deleteObj: (id: string) => Promise<HorizonPointObj>;
-    getFromVariables: (variables: Object) => Promise<HorizonPointObj>;
-    listFromVariables: (variables: Object) => Promise<HorizonPointObj[]>;
+interface HorizonUpdateDbWrapper {
+    getObj: (key: string, value: string) => Promise<HorizonUpdateObj>;
+    listObjs: (key: string, value: string) => Promise<HorizonUpdateObj[]>;
+    createObj: (newObj: Omit<HorizonUpdateObj, 'id'>) => Promise<HorizonUpdateObj>;
+    updateObj: (id: string, updateObj: Partial<HorizonUpdateObj>) => Promise<HorizonUpdateObj>;
+    overwriteObj: (id: string, newObj: HorizonUpdateObj) => Promise<HorizonUpdateObj>;
+    deleteObj: (id: string) => Promise<HorizonUpdateObj>;
+    getFromVariables: (variables: Object) => Promise<HorizonUpdateObj>;
+    listFromVariables: (variables: Object) => Promise<HorizonUpdateObj[]>;
 }
 
-export const horizonPointDbWrapper: HorizonPointDbWrapper = {
+export const horizonUpdateDbWrapper: HorizonUpdateDbWrapper = {
     getObj,
     listObjs,
     createObj,

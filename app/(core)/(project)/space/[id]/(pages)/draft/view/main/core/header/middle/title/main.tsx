@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 
 export default function DraftHeaderTitle() {
   const chaptersHandler = useContext(ChaptersHandlerContext);

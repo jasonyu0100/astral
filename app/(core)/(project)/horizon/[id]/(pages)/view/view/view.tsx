@@ -5,14 +5,14 @@ import {
   borderFx,
 } from '@/(style)/data';
 
-export function PointView({
+export function HorizonViewView({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={PointView.name}
+      name={HorizonViewView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}

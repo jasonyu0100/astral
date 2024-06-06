@@ -9,7 +9,7 @@ import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
 import { LogElemContext } from '@/(model)/elements/log/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function AddLogStarModal() {
   const modalContext = useContext(StarModalContext);

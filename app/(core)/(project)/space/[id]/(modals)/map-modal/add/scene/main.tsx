@@ -10,7 +10,7 @@ import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { ChapterSceneVariant } from '@/(model)/space/chapter/scene/main';
-import { ScenesHandlerContext } from '@/(controller)/(archive)/scenes/main';
+import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
 
 export function MapAddSceneModal() {
   const partsHandler = useContext(ScenesHandlerContext);

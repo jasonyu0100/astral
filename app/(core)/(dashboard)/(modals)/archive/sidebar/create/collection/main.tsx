@@ -9,7 +9,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { ArchiveSidebarCreateModalContext } from '../main';
-import { CollectionsHandlerContext } from '@/(controller)/(archive)/explorer/collections/main';
+import { CollectionsHandlerContext } from '@/(model)/(controller)/(archive)/explorer/collections/main';
 
 export function SidebarCreateCollectionModal() {
   const collectionsHandler = useContext(CollectionsHandlerContext);

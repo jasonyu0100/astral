@@ -3,12 +3,12 @@ import { SpaceObj } from '@/(model)/space/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { TemplateChapterObj } from '@/(model)/(templates)/space/main';
 import { toast } from 'sonner';
-import { spacesGqlHelper } from '../../(db)/(archive-db)/spaces/main';
-import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
-import { chatsGqlHelper } from '../../(db)/(archive-db)/chats/main';
-import { partsGqlHelper } from '../../(db)/(archive-db)/scenes/main';
-import { messagesGqlHelper } from '../../(db)/(archive-db)/messages/main';
-import { ideasGqlHelper } from '../../(db)/(archive-db)/ideas/main';
+// import { spacesGqlHelper } from '../../(db)/(archive-db)/spaces/main';
+// import { chaptersGqlHelper } from '../../(db)/(archive-db)/chapters/main';
+// import { chatsGqlHelper } from '../../(db)/(archive-db)/chats/main';
+// import { partsGqlHelper } from '../../(db)/(archive-db)/scenes/main';
+// import { messagesGqlHelper } from '../../(db)/(archive-db)/messages/main';
+// import { ideasGqlHelper } from '../../(db)/(archive-db)/ideas/main';
 
 export interface SpaceActions {
   listSpaces: () => Promise<void>;
@@ -38,7 +38,7 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
 
   const spaceActions: SpaceActions = {
     listSpaces: async () => {
-      const spaces = await spacesGqlHelper.list(userId);
+      // const spaces = await spacesGqlHelper.list(userId);
       changeSpaces(spaces);
       changeSpaceId(spaces[0]?.id || '');
     },
@@ -49,23 +49,23 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
       variant: string,
       chapterTemplates: TemplateChapterObj[],
     ) => {
-      const space = await spacesGqlHelper.create(
-        userId,
-        title,
-        description,
-        thumbnail,
-        variant,
-      );
-      changeSpaces((prev) => [...prev, space]);
-      changeSpaceId(space.id);
-      const _ = await Promise.all(
-        chapterTemplates.map(async (template, idx) => {
-          const chapter = await chaptersGqlHelper.create(
-            template.title,
-            template.summary,
-            idx,
-            space.id,
-          );
+      // const space = await spacesGqlHelper.create(
+      //   userId,
+      //   title,
+      //   description,
+      //   thumbnail,
+      //   variant,
+      // );
+      // changeSpaces((prev) => [...prev, space]);
+      // changeSpaceId(space.id);
+      // const _ = await Promise.all(
+      //   chapterTemplates.map(async (template, idx) => {
+      //     const chapter = await chaptersGqlHelper.create(
+      //       template.title,
+      //       template.summary,
+      //       idx,
+      //       space.id,
+      //     );
           // if (template.chatTemplates) {
           //   const chatObj = await chatsGqlHelper
           //     .create(
@@ -113,10 +113,10 @@ export const useSpacesHandler = (userId: string): SpacesHandler => {
           //       return part;
           //     });
           // }
-        }),
-      );
-      toast('Space has been created.');
-      return space;
+      //   }),
+      // );
+      // toast('Space has been created.');
+      // return space;
     },
   };
 

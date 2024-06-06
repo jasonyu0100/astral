@@ -10,7 +10,7 @@ import { NoteElem, NoteElemVariant } from '@/(model)/elements/note/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function AddNoteStarModal() {
   const ideasHandler = useContext(IdeasHandlerContext);

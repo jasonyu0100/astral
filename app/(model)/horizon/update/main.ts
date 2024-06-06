@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export interface HorizonPointObj {
+export interface HorizonUpdateObj {
   id: string;
   horizonId: string;
   title: string;
@@ -8,21 +8,21 @@ export interface HorizonPointObj {
   time: string;
 }
 
-export const horizonPointGql = `
-type HorizonPointObj {
+export const horizonUpdateGql = `
+type HorizonUpdateObj {
   id: String!
   horizonId: String!
   title: String!
   description: String!
   time: String!
 }
-`
+`;
 
-export const HorizonPointContext = createContext<HorizonPointObj>(
-  {} as HorizonPointObj,
+export const HorizonUpdateContext = createContext<HorizonUpdateObj>(
+  {} as HorizonUpdateObj,
 );
 
-export const exampleHorizonPoint: HorizonPointObj = {
+export const exampleHorizonUpdate: HorizonUpdateObj = {
   id: '0',
   horizonId: '0',
   title: 'Work from creativity',
@@ -30,19 +30,26 @@ export const exampleHorizonPoint: HorizonPointObj = {
   time: new Date().toISOString(),
 };
 
-export const exampleHorizonPoints: HorizonPointObj[] = [
+export const exampleHorizonUpdates: HorizonUpdateObj[] = [
   {
     id: '0',
     horizonId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Arc Description',
     time: new Date().toISOString(),
   },
   {
-    id: '1',
+    id: '0',
     horizonId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Arc Description',
+    time: new Date().toISOString(),
+  },
+  {
+    id: '0',
+    horizonId: '0',
+    title: 'Work from creativity',
+    description: 'Arc Description',
     time: new Date().toISOString(),
   },
 ];

@@ -5,8 +5,8 @@ import {
   LogElem,
   LogElemContext,
 } from '@/(model)/elements/log/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
-import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
 
 export function LogScreenStar() {
   const { idea, x, y, constraintsRef, activateIdea } = useContext(

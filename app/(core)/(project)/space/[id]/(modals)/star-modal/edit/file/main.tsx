@@ -13,7 +13,7 @@ import {
   FileElemVariant,
 } from '@/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 
 export function AddFileStarModal() {

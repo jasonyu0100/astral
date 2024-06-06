@@ -6,7 +6,7 @@ import { clusterUpdateGql } from '../../horizon/cluster/update/main';
 import { horizonForumGql } from '../../horizon/forum/main';
 import { forumPostGql } from '../../horizon/forum/post/main';
 import { postCommentGql } from '../../horizon/forum/post/comment/main';
-import { horizonPointGql } from '../../horizon/point/main';
+import { horizonUpdateGql } from '../../horizon/update/main';
 import { horizonGql } from '../../horizon/main';
 import { horizonDbWrapper } from '@/(model)/(db)/horizon/main';
 import { horizonArcDbWrapper } from '@/(model)/(db)/horizon/arc/main';
@@ -16,10 +16,10 @@ import { clusterUpdateDbWrapper } from '@/(model)/(db)/horizon/cluster/update/ma
 import { horizonforumDbWrapper } from '@/(model)/(db)/horizon/forum/main';
 import { forumPostDbWrapper } from '@/(model)/(db)/horizon/forum/post/main';
 import { postCommentDbWrapper } from '@/(model)/(db)/horizon/forum/post/comment/main';
-import { horizonPointDbWrapper } from '@/(model)/(db)/horizon/point/main';
+import { horizonUpdateDbWrapper } from '@/(model)/(db)/horizon/point/main';
 
 export const horizonMap = {
-  children: ['arc', 'cluster', 'forum', 'point'],
+  children: ['arc', 'cluster', 'forum', 'update'],
   gql: horizonGql,
   db: horizonDbWrapper,
   arc: {
@@ -56,9 +56,9 @@ export const horizonMap = {
       },
     },
   },
-  point: {
+  update: {
     children: [],
-    db: horizonPointDbWrapper,
-    gql: horizonPointGql,
+    db: horizonUpdateDbWrapper,
+    gql: horizonUpdateGql,
   },
 };

@@ -12,7 +12,7 @@ import {
 } from '@/(model)/elements/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);

@@ -13,7 +13,7 @@ export enum ReleaseTabStage {
   Field = 'Field',
   Map = 'Map',
   Story = 'Story',
-  Point = 'Point',
+  View = 'View',
 }
 
 export function ReleaseTabs({ tab }: ReleaseTabProps) {

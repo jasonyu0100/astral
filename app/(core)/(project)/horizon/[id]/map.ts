@@ -12,8 +12,8 @@ export const horizonMap = {
       story: {
         link: (id: string) => `${baseUrl}/${id}/story`,
       },
-      point: {
-        link: (id: string) => `${baseUrl}/${id}/point`,
+      view: {
+        link: (id: string) => `${baseUrl}/${id}/view`,
       },
     },
     link: baseUrl,

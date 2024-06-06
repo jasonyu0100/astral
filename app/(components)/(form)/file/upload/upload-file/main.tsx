@@ -13,7 +13,7 @@ import { UploadFileLabel } from '../common/label/main';
 import {
   UploadHandlerContext,
   useUploadHandler,
-} from '@/(controller)/elements/file/(upload)/single/main';
+} from '@/(model)/(controller)/elements/file/(upload)/single/main';
 import { UploadFileArea } from './area/main';
 import { UploadFileAreaInterface } from './area/upload/main';
 import { UploadWrapper } from '../common/wrapper/main';

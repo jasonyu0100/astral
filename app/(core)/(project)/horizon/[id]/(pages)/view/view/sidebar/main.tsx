@@ -1,23 +1,23 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 import React from 'react';
-import { PointSidebarPoint } from './point/main';
+import { HorizonViewSidebarPoint } from './point/main';
 
-export function PointSidebar() {
+export function HorizonViewSidebar() {
   return (
     <GlassAreaContainer
-      name={PointSidebar.name}
+      name={HorizonViewSidebar.name}
       sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full flex-shrink-0'
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-      <PointSidebarPoint/>
-      <PointSidebarPoint/>
+      <HorizonViewSidebarPoint/>
+      <HorizonViewSidebarPoint/>
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-      <PointSidebarPoint/>
-      <PointSidebarPoint/>
-      <PointSidebarPoint/>
+      <HorizonViewSidebarPoint/>
+      <HorizonViewSidebarPoint/>
+      <HorizonViewSidebarPoint/>
     </GlassAreaContainer>
   );
 }

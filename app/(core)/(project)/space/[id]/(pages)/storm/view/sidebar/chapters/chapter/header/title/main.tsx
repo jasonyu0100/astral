@@ -1,5 +1,5 @@
-import { ChaptersHandlerContext } from '@/(controller)/(archive)/chapters/main';
-import { ChatsHandlerContext } from '@/(controller)/(archive)/storm/chats/main';
+import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ChatsHandlerContext } from '@/(model)/(controller)/(archive)/storm/chats/main';
 import { SpaceChapterContext } from '@/(model)/space/chapter/main';
 import { cn } from '@/(utils)/cn';
 import React, { useContext } from 'react';

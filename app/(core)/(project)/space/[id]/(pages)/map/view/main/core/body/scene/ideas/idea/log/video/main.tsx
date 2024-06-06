@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { LogElem, LogElemContext } from '@/(model)/elements/log/main';
 import { FullLoomVideo } from '@/(components)/(loom)/full-video/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
-import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
 
 export function LogVideoStar() {
   const { idea, x, y, constraintsRef, activateIdea } = useContext(

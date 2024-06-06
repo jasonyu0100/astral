@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(controller)/(archive)/ideas/idea/main';
-import { IdeasHandlerContext } from '@/(controller)/(archive)/ideas/main';
+import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
+import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 
 export function NoteStickyIdea() {
   const { idea, x, y, constraintsRef, activateIdea } =

@@ -3,7 +3,7 @@ import { GlassWindowFrame } from "@/(components)/(glass)/window/main";
 import { GlassWindowPane } from "@/(components)/(glass)/window/pane/main";
 import { borderFx, roundedFx, glassFx } from "@/(style)/data";
 
-export function PointSidebarPoint({children} : {children ?: React.ReactNode}) {
+export function HorizonViewSidebarPoint({children} : {children ?: React.ReactNode}) {
     return <GlassWindowFrame
         name='temp'
         borderFx={borderFx['border-around']}

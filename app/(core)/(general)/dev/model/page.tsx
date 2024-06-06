@@ -4,8 +4,8 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { galleryMap } from '@/(model)/(map)/gallery';
 import { elementsMap } from '@/(model)/(map)/elements';
-import { horizonMap } from '@/(model)/horizon';
-import { spaceMap } from '@/(model)/space';
+import { horizonMap } from '@/(model)/(map)/horizon';
+import { spaceMap } from '@/(model)/(map)/space';
 import { userMap } from '@/(model)/(map)/user';
 import { glassFx, roundedFx } from '@/(style)/data';
 
@@ -94,7 +94,7 @@ export default function Page() {
           <Section gqlMap={horizonMap.arc.gql} />
           <Section gqlMap={horizonMap.arc.point.gql} />
           <SectionDivider />
-          <Section gqlMap={horizonMap.point.gql} />
+          <Section gqlMap={horizonMap.update.gql} />
         </SectionRow>
       </div>
       <div className='flex w-full flex-col space-y-[1rem] p-[2rem]'>

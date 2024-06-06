@@ -1,4 +1,4 @@
-import { useUnsplash } from '@/(controller)/(archive)/external/unsplash/main';
+import { useUnsplash } from '@/(model)/(controller)/(archive)/external/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
 import { FileElem } from '@/(model)/elements/file/main';
 import { SearchBar } from '@/(components)/(media)/search-bar/main';

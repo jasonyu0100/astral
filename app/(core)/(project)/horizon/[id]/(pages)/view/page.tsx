@@ -1,8 +1,8 @@
 'use client';
 
 import isVerseAuth from '@/(utils)/isAuth';
-import { PointView } from './view/view';
-import { PointSidebar } from './view/sidebar/main';
+import { HorizonViewView } from './view/view';
+import { HorizonViewSidebar } from './view/sidebar/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { exampleFileElem } from '@/(model)/elements/file/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
@@ -13,13 +13,13 @@ import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
 
 function Page() {
   return (
-    <PointView>
+    <HorizonViewView>
       <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[2rem]'>
-        <h1 className='text-lg font-bold text-slate-300'>Point - Hiatus</h1>
-        <h1 className='text-lg font-bold text-slate-300'>Point - Normal</h1>
-        <h1 className='text-lg font-bold text-slate-300'>Point - On Track</h1>
+        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
+        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1>
+        <h1 className='text-lg font-bold text-slate-300'>HorizonView - On Track</h1>
         <h1 className='text-lg font-bold text-slate-300'>
-          Point - In progress
+          HorizonView - In progress
         </h1>
         <HorizontalDivider />
         <TimerComponent />
@@ -36,7 +36,7 @@ function Page() {
         <HorizontalDivider />
         <div className='flex flex-col'>
           <h1 className='text-lg font-bold text-slate-300'>
-            Point - In progress
+            HorizonView - In progress
           </h1>
           <HorizontalDivider />
           <div className='flex flex-row items-center text-slate-300'>
@@ -63,8 +63,8 @@ function Page() {
           </button>
         </div>
       </div>
-      <PointSidebar />
-    </PointView>
+      <HorizonViewSidebar />
+    </HorizonViewView>
   );
 }
 

@@ -3,7 +3,7 @@ import { GalleryCollectionAdd } from '../../../../../../../../../../(components)
 import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/main';
 import { GalleryCollectionContext } from '@/(model)/gallery/collection/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { CollectionsHandlerContext } from '@/(controller)/(archive)/explorer/collections/main';
+import { CollectionsHandlerContext } from '@/(model)/(controller)/(archive)/explorer/collections/main';
 
 export function CollectionsGrid() {
   const collectionsHandler = useContext(CollectionsHandlerContext);
