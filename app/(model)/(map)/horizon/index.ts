@@ -8,15 +8,15 @@ import { forumPostGql } from '../../horizon/forum/post/main';
 import { postCommentGql } from '../../horizon/forum/post/comment/main';
 import { horizonPointGql } from '../../horizon/point/main';
 import { horizonGql } from '../../horizon/main';
-import { horizonDbWrapper } from '@/(db)/horizon/main';
-import { horizonArcDbWrapper } from '@/(db)/horizon/arc/main';
-import { arcPointDbWrapper } from '@/(db)/horizon/arc/point/main';
-import { horizonClusterDbWrapper } from '@/(db)/horizon/cluster/main';
-import { clusterUpdateDbWrapper } from '@/(db)/horizon/cluster/update/main';
-import { horizonforumDbWrapper } from '@/(db)/horizon/forum/main';
-import { forumPostDbWrapper } from '@/(db)/horizon/forum/post/main';
-import { postCommentDbWrapper } from '@/(db)/horizon/forum/post/comment/main';
-import { horizonPointDbWrapper } from '@/(db)/horizon/point/main';
+import { horizonDbWrapper } from '@/(model)/(db)/horizon/main';
+import { horizonArcDbWrapper } from '@/(model)/(db)/horizon/arc/main';
+import { arcPointDbWrapper } from '@/(model)/(db)/horizon/arc/point/main';
+import { horizonClusterDbWrapper } from '@/(model)/(db)/horizon/cluster/main';
+import { clusterUpdateDbWrapper } from '@/(model)/(db)/horizon/cluster/update/main';
+import { horizonforumDbWrapper } from '@/(model)/(db)/horizon/forum/main';
+import { forumPostDbWrapper } from '@/(model)/(db)/horizon/forum/post/main';
+import { postCommentDbWrapper } from '@/(model)/(db)/horizon/forum/post/comment/main';
+import { horizonPointDbWrapper } from '@/(model)/(db)/horizon/point/main';
 
 export const horizonMap = {
   children: ['arc', 'cluster', 'forum', 'point'],

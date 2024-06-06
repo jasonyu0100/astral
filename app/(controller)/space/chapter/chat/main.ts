@@ -1,4 +1,4 @@
-import { chapterChatDbWrapper } from '@/(db)/space/chapter/chat/main';
+import { chapterChatDbWrapper } from '@/(model)/(db)/space/chapter/chat/main';
 import { ChapterChatObj } from '@/(model)/space/chapter/chat/main';
 import { createContext, useMemo, useState } from 'react';
 

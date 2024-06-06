@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { userDbWrapper } from '@/(db)/user/main';
+import { userDbWrapper } from '@/(model)/(db)/user/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createUserObj } from '@/graphql/mutations';

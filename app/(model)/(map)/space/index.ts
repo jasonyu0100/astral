@@ -1,4 +1,4 @@
-import { reservationDbWrapper } from '@/(db)/user/reservation/main';
+import { reservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
 import { chatConversationGql } from '../../space/chapter/chat/conversation/main';
 import { conversationMessageGql } from '../../space/chapter/chat/conversation/message/main';
 import { chapterChatGql } from '../../space/chapter/chat/main';
@@ -10,19 +10,19 @@ import { chapterSceneGql } from '../../space/chapter/scene/main';
 import { verseCommentGql } from '../../space/chapter/verse/comment/main';
 import { chapterVerseGql } from '../../space/chapter/verse/main';
 import { spaceGql } from '../../space/main';
-import { spaceDbWrapper } from '@/(db)/space/main';
-import { spaceChapterDbWrapper } from '@/(db)/space/chapter/main';
-import { chapterChatDbWrapper } from '@/(db)/space/chapter/chat/main';
-import { chatConversationDbWrapper } from '@/(db)/space/chapter/chat/conversation/main';
-import { conversationMessageDbWrapper } from '@/(db)/space/chapter/chat/conversation/message/main';
-import { chapterRetroDbWrapper } from '@/(db)/space/chapter/retro/main';
-import { retroContributionDbWrapper } from '@/(db)/space/chapter/retro/contribution/main';
-import { chapterSceneDbWrapper } from '@/(db)/space/chapter/scene/main';
-import { sceneideaDbWrapper } from '@/(db)/space/chapter/scene/idea/main';
-import { chapterVerseDbWrapper } from '@/(db)/space/chapter/verse/main';
-import { verseCommentDbWrapper } from '@/(db)/space/chapter/verse/comment/main';
+import { spaceDbWrapper } from '@/(model)/(db)/space/main';
+import { spaceChapterDbWrapper } from '@/(model)/(db)/space/chapter/main';
+import { chapterChatDbWrapper } from '@/(model)/(db)/space/chapter/chat/main';
+import { chatConversationDbWrapper } from '@/(model)/(db)/space/chapter/chat/conversation/main';
+import { conversationMessageDbWrapper } from '@/(model)/(db)/space/chapter/chat/conversation/message/main';
+import { chapterRetroDbWrapper } from '@/(model)/(db)/space/chapter/retro/main';
+import { retroContributionDbWrapper } from '@/(model)/(db)/space/chapter/retro/contribution/main';
+import { chapterSceneDbWrapper } from '@/(model)/(db)/space/chapter/scene/main';
+import { sceneideaDbWrapper } from '@/(model)/(db)/space/chapter/scene/idea/main';
+import { chapterVerseDbWrapper } from '@/(model)/(db)/space/chapter/verse/main';
+import { verseCommentDbWrapper } from '@/(model)/(db)/space/chapter/verse/comment/main';
 import { chatMemberGql } from '@/(model)/space/chapter/chat/member/main';
-import { chatMemberDbWrapper } from '@/(db)/space/chapter/chat/member/main';
+import { chatMemberDbWrapper } from '@/(model)/(db)/space/chapter/chat/member/main';
 
 export const spaceMap = {
   children: ['chapter'],

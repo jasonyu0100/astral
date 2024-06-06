@@ -1,9 +1,9 @@
 import { galleryCollectionGql } from '../../gallery/collection/main';
 import { galleryGql } from '../../gallery/main';
 import { collectionResourceGql } from '../../gallery/collection/resource/main';
-import { galleryDbWrapper } from '@/(db)/gallery/main';
-import { galleryCollectionDbWrapper } from '@/(db)/gallery/collection/main';
-import { collectionResourceDbWrapper } from '@/(db)/gallery/collection/resource/main';
+import { galleryDbWrapper } from '@/(model)/(db)/gallery/main';
+import { galleryCollectionDbWrapper } from '@/(model)/(db)/gallery/collection/main';
+import { collectionResourceDbWrapper } from '@/(model)/(db)/gallery/collection/resource/main';
 
 export const galleryMap = {
   children: ['collection'],
