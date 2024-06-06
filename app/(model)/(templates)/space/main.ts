@@ -80,7 +80,7 @@ export enum SpaceTemplate {
 }
 
 
-export function getSpaceTemplates(variant: SpaceTemplate): TemplateChapterObj[] {
+export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
   switch (variant) {
     case SpaceTemplate.SONG:
       return songSpaceTemplate;
