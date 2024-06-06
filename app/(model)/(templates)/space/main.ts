@@ -1,21 +1,26 @@
-import { SpaceVariant } from '../../space/main';
-import { barTemplate } from './bar/main';
-import { customTemplate } from './custom/main';
-import { ideaTemplate } from './idea/main';
-import { songMixTemplate } from './mix/main';
-import { songSpaceTemplate } from './song/main';
+import { barTemplate } from './music/bar/main';
+import { customTemplate } from './general/custom/main';
+import { ideaTemplate } from './general/idea/main';
+import { songMixTemplate } from './music/mix/main';
+import { songSpaceTemplate } from './music/song/main';
 import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { SpaceChapterObj } from '../../space/chapter/main';
 import { SceneIdeaObj } from '../../space/chapter/scene/idea/main';
 import { ChapterVerseObj } from '../../space/chapter/verse/main';
 import { VerseCommentObj } from '../../space/chapter/verse/comment/main';
 
+// SPACE
+
+export type TemplateSpaceObj = TemplateChapterObj[];
+
+// CHAPTER
+
 export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx'>;
 export interface TemplateChapterObj extends _TemplateChapterObj {
-  chatTemplates?: TemplateChatObj;
-  sceneTemplates?: TemplateSceneObj;
-  verseTemplates?: TemplateSceneObj;
-  retroTemplates?: TemplateSceneObj;
+  chatTemplates: TemplateChatObj[];
+  sceneTemplates: TemplateSceneObj[];
+  verseTemplates: TemplateVerseObj[];
+  retroTemplates: TemplateRetroObj[];
 }
 
 // CHAT
@@ -64,19 +69,28 @@ export interface TemplateRetroObj extends _TemplateRetroObj {
   contributions?: _TemplateContributionObj[];
 }
 
-// GETTER
+// TEMPLATES
 
-export function getSpaceTemplate(variant: SpaceVariant): TemplateChapterObj[] {
+export enum SpaceTemplate {
+  MIX = 'MIX',
+  SONG = 'SONG',
+  BAR = 'BAR',
+  IDEA = 'IDEA',
+  CUSTOM = 'CUSTOM',
+}
+
+
+export function getSpaceTemplates(variant: SpaceTemplate): TemplateChapterObj[] {
   switch (variant) {
-    case SpaceVariant.SONG:
+    case SpaceTemplate.SONG:
       return songSpaceTemplate;
-    case SpaceVariant.MIX:
+    case SpaceTemplate.MIX:
       return songMixTemplate;
-    case SpaceVariant.BAR:
+    case SpaceTemplate.BAR:
       return barTemplate;
-    case SpaceVariant.IDEA:
+    case SpaceTemplate.IDEA:
       return ideaTemplate;
-    case SpaceVariant.CUSTOM:
+    case SpaceTemplate.CUSTOM:
       return customTemplate;
   }
   return customTemplate;

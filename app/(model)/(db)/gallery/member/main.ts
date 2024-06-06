@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GalleryMemberObj } from "@/(model)/gallery/collection/main";
+import { GalleryMemberObj } from "@/(model)/gallery/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createGalleryMemberObj, deleteGalleryMemberObj, updateGalleryMemberObj } from "@/graphql/mutations";
 import { listGalleryMemberObjs } from "@/graphql/queries";

@@ -6,10 +6,10 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesModalContext } from '../main';
 import { FileElem } from '@/(model)/elements/file/main';
-import { SpaceVariant } from '@/(model)/space/main';
 import {
+  SpaceTemplate,
   TemplateChapterObj,
-  getSpaceTemplate,
+  getSpaceTemplates,
 } from '@/(model)/(templates)/space/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
@@ -56,13 +56,13 @@ export function CreateSpaceModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileElem);
-  const [variant, changeVariant] = useState(SpaceVariant.SONG);
+  const [variant, changeVariant] = useState(SpaceTemplate.SONG);
   const [chapterTemplates, changeChapterTemplates] = useState(
     [] as TemplateChapterObj[],
   );
 
   useEffect(() => {
-    changeChapterTemplates(getSpaceTemplate(variant));
+    changeChapterTemplates(getSpaceTemplates(variant));
   }, [variant]);
 
   const pageOne: PageOneProps = {
@@ -76,7 +76,7 @@ export function CreateSpaceModal() {
 
   const pageTwo: PageTwoProps = {
     variant,
-    updateVariant: (variant: string) => changeVariant(variant as SpaceVariant),
+    updateVariant: (variant: string) => changeVariant(variant as SpaceTemplate),
     chapterTemplates,
     updateChapterTemplates: (templates: TemplateChapterObj[]) =>
       changeChapterTemplates(templates),

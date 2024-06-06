@@ -1,15 +1,30 @@
-import { userDbWrapper } from "@/(model)/(db)/user/main";
-import { userGql } from "../../user/main";
-import { reservationGql } from "../../user/reservation/main";
-import { reservationDbWrapper } from "@/(model)/(db)/user/reservation/main";
+import { userDbWrapper } from '@/(model)/(db)/user/main';
+import { userGql } from '../../user/main';
+import { reservationGql } from '../../user/reservation/main';
+import { reservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
+import { userCollaboratorGql } from '@/(model)/user/collaborator/main';
+import { use } from 'react';
+import { userCollaboratorDbWrapper } from '@/(model)/(db)/user/collaborator/main';
+import { userSupporterDbWrapper } from '@/(model)/(db)/user/supporter/main';
+import { userSupporterGql } from '@/(model)/user/supporter/main';
 
 export const userMap = {
-    children: ['reservation'],
-    gql: userGql,
-    db: userDbWrapper,
-    reservation: {
-        children: [],
-        gql: reservationGql,
-        db: reservationDbWrapper,
-    }
-}
+  children: ['reservation', 'collaborator', 'supporter'],
+  gql: userGql,
+  db: userDbWrapper,
+  collaborator: {
+    children: [],
+    gql: userCollaboratorGql,
+    db: userCollaboratorDbWrapper,
+  },
+  supporter: {
+    children: [],
+    gql: userSupporterGql,
+    db: userSupporterDbWrapper,
+  },
+  reservation: {
+    children: [],
+    gql: reservationGql,
+    db: reservationDbWrapper,
+  },
+};

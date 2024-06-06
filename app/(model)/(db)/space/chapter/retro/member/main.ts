@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { RetroMemberObj } from "@/(model)/gallery/collection/main";
+import { RetroMemberObj } from "@/(model)/space/chapter/retro/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createRetroMemberObj, deleteRetroMemberObj, updateRetroMemberObj } from "@/graphql/mutations";
 import { listRetroMemberObjs } from "@/graphql/queries";

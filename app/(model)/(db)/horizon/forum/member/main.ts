@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { ForumMemberObj } from "@/(model)/gallery/collection/main";
+import { ForumMemberObj } from "@/(model)/horizon/forum/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createForumMemberObj, deleteForumMemberObj, updateForumMemberObj } from "@/graphql/mutations";
 import { listForumMemberObjs } from "@/graphql/queries";

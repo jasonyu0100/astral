@@ -3,6 +3,7 @@ export interface ReservationObj {
   fname: string;
   lname: string;
   email: string;
+  role: string;
 }
 
 export const reservationGql = `
@@ -11,5 +12,6 @@ type ReservationObj {
   fname: String!
   lname: String!
   email: String!
+  role: String!
 }
 `

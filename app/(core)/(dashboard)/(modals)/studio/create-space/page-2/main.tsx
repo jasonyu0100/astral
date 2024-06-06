@@ -1,8 +1,8 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { SpaceVariant } from '@/(model)/space/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
+import { SpaceTemplate } from '@/(model)/(templates)/space/main';
 
 export function PageTwo() {
   const modalContext = useContext(CreateSpaceModalContext);
@@ -18,12 +18,12 @@ export function PageTwo() {
           updateVariant(e.target.value);
         }}
       >
-        <option value={SpaceVariant.BAR}>{SpaceVariant.BAR}</option>
-        <option value={SpaceVariant.MIX}>{SpaceVariant.MIX}</option>
-        <option value={SpaceVariant.SONG}>{SpaceVariant.SONG}</option>
-        <option value={SpaceVariant.CUSTOM}>{SpaceVariant.CUSTOM}</option>
+        <option value={SpaceTemplate.BAR}>{SpaceTemplate.BAR}</option>
+        <option value={SpaceTemplate.MIX}>{SpaceTemplate.MIX}</option>
+        <option value={SpaceTemplate.SONG}>{SpaceTemplate.SONG}</option>
+        <option value={SpaceTemplate.CUSTOM}>{SpaceTemplate.CUSTOM}</option>
       </FormSelect>
-      {variant === SpaceVariant.CUSTOM ? (
+      {variant === SpaceTemplate.CUSTOM ? (
         <div className='flex w-full flex-col'>
           {chapterTemplates.map((chapter, index) => (
             <div className='flex w-full flex-col space-y-[0.5rem]' key={index}>

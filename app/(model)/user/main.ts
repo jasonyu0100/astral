@@ -6,13 +6,15 @@ export interface UserObj {
   fname: string;
   lname: string;
   email: string;
+  profilePicture: FileElem;
+  role: string;
+  bio?: string;
+  created: string;
   customerId?: string;
   subscriptionId?: string;
   priceId?: string;
   passwordHash?: string;
   googleId?: string;
-  profilePicture: FileElem;
-  created: string;
 }
 
 export const userGql = `
@@ -20,27 +22,47 @@ type UserObj {
 	id: String!
 	fname: String!
 	lname: String!
-	passwordHash: String
 	email: String!
+	profilePicture: FileElem!
+  role: String!
+	created: String!
+  bio: String
+	passwordHash: String
 	googleId: String
-	profilePicture: FileElem
 	customerId: String
 	subscriptionId: String
 	priceId: String
-	created: String!
 }
 
 input CreateUserObjInput {
 	fname: String!
 	lname: String!
-	passwordHash: String
 	email: String!
+  profilePicture: FileElemInput!
+  role: String!
+	created: String!
+  bio: String
 	googleId: String
 	customerId: String
 	subscriptionId: String
 	priceId: String
-	created: String!
-  profilePicture: FileElemInput
+	passwordHash: String
+}
+
+input UpdateUserObjInput {
+	id: String!
+	fname: String
+	lname: String
+	passwordHash: String
+	email: String
+	googleId: String
+	customerId: String
+	subscriptionId: String
+	priceId: String
+  role: String
+	created: String
+  bio: String
+	profilePicture: FileElemInput
 }
 `;
 
@@ -51,6 +73,8 @@ export const exampleUser: UserObj = {
   fname: 'John',
   lname: 'Smith',
   email: 'email@example.com',
+  role: 'Musician',
+  bio: 'Been playing for X years',
   profilePicture: exampleProfileImageFileElem,
   created: new Date().toISOString(),
 };
@@ -63,6 +87,8 @@ export const exampleUsers: UserObj[] = [
     fname: 'John',
     lname: 'Smith',
     email: 'john@example.com',
+    role: 'Musician',
+    bio: 'Been playing for X years',
     profilePicture: exampleProfileImageFileElem,
     created: new Date().toISOString(),
   },
@@ -71,6 +97,8 @@ export const exampleUsers: UserObj[] = [
     fname: 'Jane',
     lname: 'Smith',
     email: 'jane@example.com',
+    role: 'Musician',
+    bio: 'Been playing for X years',
     profilePicture: exampleProfileImageFileElem,
     created: new Date().toISOString(),
   },

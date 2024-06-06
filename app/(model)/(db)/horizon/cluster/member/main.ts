@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { ClusterMemberObj } from "@/(model)/gallery/collection/main";
+import { ClusterMemberObj } from "@/(model)/horizon/cluster/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createClusterMemberObj, deleteClusterMemberObj, updateClusterMemberObj } from "@/graphql/mutations";
 import { listClusterMemberObjs } from "@/graphql/queries";

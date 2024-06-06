@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { VerseMemberObj } from "@/(model)/gallery/collection/main";
+import { VerseMemberObj } from "@/(model)/space/chapter/verse/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createVerseMemberObj, deleteVerseMemberObj, updateVerseMemberObj } from "@/graphql/mutations";
 import { listVerseMemberObjs } from "@/graphql/queries";

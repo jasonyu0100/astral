@@ -1,14 +1,5 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
-
-export enum SpaceVariant {
-  MIX = 'MIX',
-  SONG = 'SONG',
-  BAR = 'BAR',
-  IDEA = 'IDEA',
-  CUSTOM = 'CUSTOM',
-}
-
 export interface SpaceObj {
   id: string;
   userId: string;
@@ -16,7 +7,6 @@ export interface SpaceObj {
   description: string;
   time: string;
   thumbnail: FileElem;
-  variant: string;
 }
 
 export const spaceGql = `
@@ -27,7 +17,6 @@ type SpaceObj {
 	time: String!
 	description: String!
 	thumbnail: FileElem!
-	variant: String!
 }
 
 input UpdateSpaceChapterObjInput {
@@ -57,7 +46,6 @@ export const exampleSpace: SpaceObj = {
   description: 'Space Description',
   time: new Date().toISOString(),
   thumbnail: exampleFileElem,
-  variant: SpaceVariant.CUSTOM,
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -68,7 +56,6 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Description',
     time: new Date().toISOString(),
     thumbnail: exampleFileElem,
-    variant: SpaceVariant.CUSTOM,
   },
   {
     id: '1',
@@ -77,6 +64,5 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Description',
     time: new Date().toISOString(),
     thumbnail: exampleFileElem,
-    variant: SpaceVariant.CUSTOM,
   },
 ];

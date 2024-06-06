@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { HorizonMemberObj } from "@/(model)/gallery/collection/main";
+import { HorizonMemberObj } from "@/(model)/horizon/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createHorizonMemberObj, deleteHorizonMemberObj, updateHorizonMemberObj } from "@/graphql/mutations";
 import { listHorizonMemberObjs } from "@/graphql/queries";
