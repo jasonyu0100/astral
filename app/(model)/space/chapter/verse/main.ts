@@ -7,7 +7,7 @@ export interface ChapterVerseObj {
   chapterId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const chapterVerseGql = `
@@ -17,11 +17,11 @@ type ChapterVerseObj {
   chapterId: String!
   title: String!
   description: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const ChapterVerseContext = createContext<ChapterVerseObj>(
+export const ContextForChapterVerseObj = createContext<ChapterVerseObj>(
   {} as ChapterVerseObj,
 );
 
@@ -31,7 +31,7 @@ export const exampleChapterVerse: ChapterVerseObj = {
   chapterId: '0',
   title: 'Verse Example',
   description: 'Verse Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleChapterVerses: ChapterVerseObj[] = [
@@ -41,7 +41,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -49,7 +49,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -57,6 +57,6 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     chapterId: '0',
     title: 'Verse Example',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

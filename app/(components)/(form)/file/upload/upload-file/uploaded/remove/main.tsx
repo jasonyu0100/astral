@@ -1,4 +1,4 @@
-import { UploadHandlerContext } from '@/(model)/(controller)/elements/file/(upload)/single/main';
+import { UploadHandlerContext } from '@/(api)/(controller)/s3/single/main';
 import { useContext } from 'react';
 
 export function UploadedEntryRemove() {

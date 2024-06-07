@@ -6,7 +6,7 @@ export interface HorizonClusterObj {
   parentCluster?: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const horizonClusterGql = `
@@ -16,11 +16,11 @@ type HorizonClusterObj {
   parentCluster: String
   title: String!
   description: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const HorizonClusterContext = createContext<HorizonClusterObj>(
+export const ContextForHorizonClusterObj = createContext<HorizonClusterObj>(
   {} as HorizonClusterObj,
 );
 
@@ -30,7 +30,7 @@ export const exampleHorizonCluster: HorizonClusterObj = {
   parentCluster: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleHorizonClusters: HorizonClusterObj[] = [
@@ -40,7 +40,7 @@ export const exampleHorizonClusters: HorizonClusterObj[] = [
     parentCluster: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -48,7 +48,7 @@ export const exampleHorizonClusters: HorizonClusterObj[] = [
     parentCluster: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '3',
@@ -56,6 +56,6 @@ export const exampleHorizonClusters: HorizonClusterObj[] = [
     parentCluster: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

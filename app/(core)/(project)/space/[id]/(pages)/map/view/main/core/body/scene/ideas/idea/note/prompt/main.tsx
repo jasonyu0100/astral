@@ -36,7 +36,7 @@ export function NotePromptIdea() {
               className={`h-[50px] w-[50px] rounded-full ${effectFx['glow-md']}`}
             />
             <div className='w-[300px] rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-3 font-regular text-white'>
-              {idea.note?.text}
+              {idea.noteElem?.text}
             </div>
           </div>
         </div>

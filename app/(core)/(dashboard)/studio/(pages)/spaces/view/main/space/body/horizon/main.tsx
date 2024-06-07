@@ -1,11 +1,11 @@
 'use client';
 
 import { useContext } from "react";
-import { ExtendedSpaceContext } from "../../main";
 import { horizonMap } from "@/(core)/(project)/horizon/[id]/map";
+import { ContextForSpaceObj } from "@/(model)/space/main";
 
 export function SpaceHorizon() {
-  const { space } = useContext(ExtendedSpaceContext);
+  const space = useContext(ContextForSpaceObj);
 
   return (
     <div className='flex items-center w-[150px]'>

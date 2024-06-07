@@ -1,13 +1,13 @@
 import { FileElemVariant } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';
 import { CollectionResourceVideo } from '../video/main';
 
 export function CollectionResourceMedia() {
-  const resource = useContext(CollectionResourceContext);
-  const variant = resource?.file?.variant;
+  const resource = useContext(ContextForCollectionResource);
+  const variant = resource?.fileElem?.variant;
 
   return (
     <>

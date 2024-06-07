@@ -6,7 +6,7 @@ export function MomentInfo() {
   return (
     <div className='flex h-[40px] w-full flex-row items-center space-x-[2rem]'>
       <img
-        src={user.profilePicture?.src}
+        src={user.dp?.src}
         className='h-[40px] w-[40px] rounded-full'
       />
       <span className='text-md font-extraBold text-white'>

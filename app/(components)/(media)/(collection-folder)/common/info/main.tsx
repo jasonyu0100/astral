@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import {
-  GalleryCollectionContext,
-  CollectionResourcesContext,
+  ContextForGalleryCollectionObj,
 } from '@/(model)/gallery/collection/main';
+import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
 export function CollectionInfo({ empty }: { empty?: boolean }) {
-  const collection = useContext(GalleryCollectionContext);
-  const resources = useContext(CollectionResourcesContext);
+  const collection = useContext(ContextForGalleryCollectionObj);
+  const resourcesHandler = useContext(ResourcesHandlerContext);
+  const resources = resourcesHandler.resources;
 
   return (
     <div className='flex h-full flex-grow flex-col items-center justify-center space-y-[1rem] p-[1rem]'>

@@ -6,7 +6,8 @@ export interface ArcPointObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
+  idx: number;
 }
 
 export const arcPointGql = `
@@ -17,10 +18,13 @@ type ArcPointObj {
   title : String!
   description : String!
   time : String!
+  idx: Int!
 }
 `;
 
-export const ArcPointContext = createContext<ArcPointObj>({} as ArcPointObj);
+export const ContextForArcPointObj = createContext<ArcPointObj>(
+  {} as ArcPointObj,
+);
 
 export const exampleArcPoint: ArcPointObj = {
   id: '0',
@@ -28,7 +32,8 @@ export const exampleArcPoint: ArcPointObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
+  idx: 0,
 };
 
 export const exampleArcPoints: ArcPointObj[] = [
@@ -38,7 +43,8 @@ export const exampleArcPoints: ArcPointObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
+    idx: 0,
   },
   {
     id: '1',
@@ -46,7 +52,8 @@ export const exampleArcPoints: ArcPointObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
+    idx: 1,
   },
   {
     id: '2',
@@ -54,6 +61,7 @@ export const exampleArcPoints: ArcPointObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
+    idx: 2,
   },
 ];

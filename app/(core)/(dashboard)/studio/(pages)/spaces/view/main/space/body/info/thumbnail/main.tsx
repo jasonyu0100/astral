@@ -1,13 +1,16 @@
 import { useContext } from 'react';
-import { ExtendedSpaceContext } from '../../../main';
 import {
   SpaceCover,
   SpaceCoverVariant,
 } from '@/(components)/(element)/space/main';
 import { cn } from '@/(utils)/cn';
+import { ContextForHoverable } from '@/(logic)/contexts/hoverable/main';
+import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
+import { ContextForSpaceObj } from '@/(model)/space/main';
 
 export function SpaceInfoThumbnail() {
-  const { hover, index, space } = useContext(ExtendedSpaceContext);
+  const space = useContext(ContextForSpaceObj);
+  const { hovered } = useContext(ContextForHoverable);
 
   return (
     <div
@@ -15,9 +18,9 @@ export function SpaceInfoThumbnail() {
     >
       <SpaceCover
         variant={SpaceCoverVariant.EVENT_HORIZON}
-        file={space?.thumbnail}
+        fileElem={space?.thumbnail}
         className={cn({
-          'animate-spin': hover,
+          'animate-spin': hovered,
         })}
       />
     </div>

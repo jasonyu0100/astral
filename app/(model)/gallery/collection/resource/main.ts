@@ -20,10 +20,11 @@ export interface CollectionResourceObj {
   collectionId: string;
   title: string;
   description: string;
-  file?: FileElem;
-  note?: NoteElem;
-  link?: LinkElem;
+  fileElem?: FileElem;
+  noteElem?: NoteElem;
+  linkElem?: LinkElem;
   variant: string;
+  created: string;
 }
 
 export const collectionResourceGql = `
@@ -33,38 +34,16 @@ type CollectionResourceObj {
   collectionId: String!
   title: String!
   description: String!
-  file: FileElem
-  note: NoteElem
-  link: LinkElem
+  fileElem: FileElem
+  noteElem: NoteElem
+  linkElem: LinkElem
   variant: String!
-}
-
-input CreateCollectionResourceObjInput {
-	userId: String!
-	collectionId: String!
-	title: String!
-	description: String!
-	variant: String!
-  file: FileElemInput
-  note: NoteElemInput
-  link: LinkElemInput
-}
-
-input UpdateCollectionResourceObjInput {
-	userId: String!
-	collectionId: String!
-	title: String!
-	description: String!
-	variant: String!
-  file: FileElemInput
-  note: NoteElemInput
-  link: LinkElemInput
+  created: String!
 }
 `;
 
-export const CollectionResourceContext = createContext<CollectionResourceObj>(
-  {} as CollectionResourceObj,
-);
+export const ContextForCollectionResource =
+  createContext<CollectionResourceObj>({} as CollectionResourceObj);
 
 export const exampleCollectionResource: CollectionResourceObj = {
   id: '0',
@@ -72,20 +51,22 @@ export const exampleCollectionResource: CollectionResourceObj = {
   collectionId: '0',
   title: 'Example Resource',
   description: 'Example Resource Description',
-  file: exampleFileElem,
+  fileElem: exampleFileElem,
   variant: CollectionResourceVariant.FILE,
+  created: new Date().toISOString(),
 };
 
 export const exampleCollectionResources: CollectionResourceObj[] = [
-  ...exampleFileElems.map((file, i) => {
+  ...exampleFileElems.map((fileElem, i) => {
     return {
       id: i.toString(),
       userId: '0',
       collectionId: '0',
       title: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
-      file: file,
+      fileElem: fileElem,
       variant: CollectionResourceVariant.FILE,
+      created: new Date().toISOString(),
     };
   }),
 ];

@@ -18,9 +18,10 @@ export interface SceneIdeaObj {
   x: number;
   y: number;
   variant: string;
-  file?: FileElem;
-  note?: NoteElem;
-  link?: LinkElem;
+  fileElem?: FileElem;
+  noteElem?: NoteElem;
+  linkElem?: LinkElem;
+  created: string;
 }
 
 export const sceneIdeaGql = `
@@ -33,41 +34,16 @@ type SceneIdeaObj {
   x: Int!
   y: Int!
   variant: String!
-  file: FileElem
-  note: NoteElem
-  link: LinkElem
+  fileElem: FileElem
+  noteElem: NoteElem
+  linkElem: LinkElem
+  created: String!
 }
-
-input UpdateSceneIdeaObjInput {
-	id: String!
-	sceneId: String
-	title: String
-	description: String
-	x: Int
-	y: Int
-	variant: String
-  file: FileElemInput
-  note: NoteElemInput
-  link: LinkElemInput
-}
-
-input CreateSceneIdeaObjInput {
-	id: String!
-	sceneId: String
-	title: String
-	description: String
-	x: Int
-	y: Int
-	variant: String
-  file: FileElemInput
-  note: NoteElemInput
-  link: LinkElemInput
-}
-
-
 `;
 
-export const SceneIdeaContext = createContext<SceneIdeaObj>({} as SceneIdeaObj);
+export const ContextForSceneIdeaObj = createContext<SceneIdeaObj>(
+  {} as SceneIdeaObj,
+);
 
 export const exampleSceneIdea: SceneIdeaObj = {
   id: '0',
@@ -76,8 +52,9 @@ export const exampleSceneIdea: SceneIdeaObj = {
   description: 'Twinkle twinkle little star',
   x: 120,
   y: 120,
-  file: exampleFileElem,
+  fileElem: exampleFileElem,
   variant: CollectionResourceVariant.FILE,
+  created: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleSceneIdeas: SceneIdeaObj[] = [
@@ -88,8 +65,9 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     description: 'Twinkle twinkle little star',
     x: 120,
     y: 120,
-    file: exampleFileElem,
+    fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '1',
@@ -98,8 +76,9 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     description: 'Twinkle twinkle little star',
     x: 240,
     y: 120,
-    file: exampleFileElem,
+    fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '2',
@@ -108,7 +87,8 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     description: 'Twinkle twinkle little star',
     x: 360,
     y: 120,
-    file: exampleFileElem,
+    fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

@@ -6,11 +6,11 @@ import { MapHeaderDefaultBoardButton } from './default/main';
 import { MapHeaderAudioBoardButton } from './audio/main';
 import { MapHeaderVisualBoardButton } from './visual/main';
 import { useContext } from 'react';
-import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 
 export function ToggleDropdownList() {
   const { modalType, updateModalType } = useContext(MapContext);
-  const { toggle } = useContext(ToggleContext);
+  const { toggle } = useContext(ContextForTogglable);
   return (
     <div
       className={`absolute left-[-4rem] top-[4rem] z-50 flex h-[180px] w-[360px] flex-col bg-slate-900 ${modalType === MapModalType.IDEA && 'h-[240px]'} `}

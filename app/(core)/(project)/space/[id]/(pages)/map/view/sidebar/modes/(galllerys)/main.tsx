@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GalleryContext } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(model)/gallery/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { GallerysHandlerContext } from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
 import { SidebarHomeGalleryAdd } from '@/(components)/(media)/(gallery-folder)/sidebar/add/main';
@@ -17,9 +17,9 @@ export function SidebarGallerysInterface() {
           onClick={() => modalContext.createGallery.open()}
         />
         {gallerys.map((gallery) => (
-          <GalleryContext.Provider value={gallery} key={gallery.id}>
+          <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
             <SidebarHomeGallery key={gallery.id} />
-          </GalleryContext.Provider>
+          </ContextForGalleryObj.Provider>
         ))}
       </div>
       <p className='font-bold text-slate-500'>Back</p>

@@ -1,10 +1,10 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
+import { ContextForSpaceObj } from '@/(model)/space/main';
 import { useContext } from 'react';
-import { ExtendedSpaceContext } from '../../../main';
 
 export function SpaceCountPlay() {
-  const { hover, index, space } = useContext(ExtendedSpaceContext);
-  
+  const space = useContext(ContextForSpaceObj);
+
   return (
     <a href={spaceMap.space.id.storm.link(space.id)}>
       <svg

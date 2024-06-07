@@ -9,15 +9,15 @@ export function NetworkSidebarPointContents() {
       <HorizontalDivider />
 
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFileElem} />
+        <SpaceCover fileElem={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFileElem} />
+        <SpaceCover fileElem={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
-        <SpaceCover file={exampleFileElem} />
+        <SpaceCover fileElem={exampleFileElem} />
         <p className='text-lg font-bold text-slate-300'>Creative A</p>
       </div>
     </>

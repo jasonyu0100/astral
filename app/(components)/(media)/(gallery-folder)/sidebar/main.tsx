@@ -1,4 +1,4 @@
-import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
+import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
 import { useState } from 'react';
 import { GallerySidebarBack } from './back/main';
 import { GallerySidebarCover } from './front/main';
@@ -13,11 +13,11 @@ export function SidebarHomeGallery() {
   };
 
   return (
-    <FlipContext.Provider value={context}>
+    <ContextForFlippable.Provider value={context}>
       <GalleryContainer className="w-full">
         {flipped ? <GallerySidebarBack /> : <GallerySidebarCover />}
       </GalleryContainer>
-    </FlipContext.Provider>
+    </ContextForFlippable.Provider>
   );
 }
 

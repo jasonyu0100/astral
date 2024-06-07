@@ -1,16 +1,16 @@
-import { CollectionResourceContext } from "@/(model)/gallery/collection/resource/main";
+import { ContextForCollectionResource } from "@/(model)/gallery/collection/resource/main";
 import { EditResourceModalContext } from "@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceInfo() {
-  const resource = useContext(CollectionResourceContext);
+  const resource = useContext(ContextForCollectionResource);
   const modalContext = useContext(EditResourceModalContext);
   
   return (
     <div className='flex h-full w-full flex-col'>
       <p className='font-extraBold text-2xl text-slate-500'>{resource.title}</p>
       <p className='text-lg font-bold text-slate-400'>
-        {resource?.file?.fileType}
+        {resource?.fileElem?.ext}
       </p>
       <p className='text-md mt-[1rem] font-light text-slate-400'>
         {resource.description}

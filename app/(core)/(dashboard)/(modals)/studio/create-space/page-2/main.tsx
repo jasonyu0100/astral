@@ -81,7 +81,7 @@ export function PageTwo() {
                 onChange={(e) =>
                   updateChapterTemplates(
                     chapterTemplates.map((c, i) =>
-                      i === index ? { ...c, summary: e.target.value } : c,
+                      i === index ? { ...c, description: e.target.value } : c,
                     ),
                   )
                 }
@@ -97,7 +97,7 @@ export function PageTwo() {
                     ...chapterTemplates,
                     {
                       title: `Chapter ${chapterTemplates.length + 1}`,
-                      summary: '',
+                      description: '',
                     },
                   ])
                 }

@@ -1,4 +1,4 @@
-import { UploadsHandlerContext } from '@/(model)/(controller)/elements/file/(upload)/multiple/main';
+import { UploadsHandlerContext } from '@/(api)/(controller)/s3/multiple/main';
 import { useContext } from 'react';
 
 export function UploadedEntryRemove({ i }: { i: number }) {

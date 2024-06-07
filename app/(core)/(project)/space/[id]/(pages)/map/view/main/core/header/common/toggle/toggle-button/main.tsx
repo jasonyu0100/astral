@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { MapContext, MapModalType } from '../../../../../../../page';
 import { SoundIcon } from '../../icons/sound/main';
 import { VisualIcon } from '../../icons/visual/main';
-import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 import { NetworkIcon } from '../../icons/network/main';
 import { InfoIcon } from '../../icons/info/main';
 import { StarIcon } from '../../icons/star/main';
@@ -11,7 +11,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 
 export function ToggleButton() {
-  const { toggle } = useContext(ToggleContext);
+  const { toggle } = useContext(ContextForTogglable);
   const { modalType } = useContext(MapContext);
   return (
     <WrapperTooltip text={modalType}>

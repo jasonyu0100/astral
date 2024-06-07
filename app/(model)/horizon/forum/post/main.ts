@@ -6,7 +6,7 @@ export interface ForumPostObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const forumPostGql = `
@@ -16,11 +16,11 @@ type ForumPostObj {
   userId: String!
   title: String!
   description: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const ForumPostContext = createContext<ForumPostObj>({} as ForumPostObj);
+export const ContextForForumPostObj = createContext<ForumPostObj>({} as ForumPostObj);
 
 export const exampleForumPost: ForumPostObj = {
   id: '0',
@@ -28,7 +28,7 @@ export const exampleForumPost: ForumPostObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleForumPosts: ForumPostObj[] = [
@@ -38,7 +38,7 @@ export const exampleForumPosts: ForumPostObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -46,6 +46,6 @@ export const exampleForumPosts: ForumPostObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

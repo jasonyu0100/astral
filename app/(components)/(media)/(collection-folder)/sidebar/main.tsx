@@ -3,18 +3,18 @@ import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { GalleryCollectionContext, CollectionResourcesContext } from '@/(model)/gallery/collection/main';
-import { useResourcesHandler } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { ResourcesHandlerContext, useResourcesHandler } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCollection() {
   const { sidebarHandler } = useContext(MapSidebarContext);
-  const collection = useContext(GalleryCollectionContext);
+  const collection = useContext(ContextForGalleryCollectionObj);
   const user = useGlobalUser((state) => state.user);
-  const { resources } = useResourcesHandler(collection.id, user?.id);
+  const resourcesHandler = useResourcesHandler(collection.id, user?.id);
 
   return (
-    <CollectionResourcesContext.Provider value={resources}>
+    <ResourcesHandlerContext.Provider value={resourcesHandler}>
       <div
         className='w-full cursor-pointer'
         onClick={() => {
@@ -26,6 +26,6 @@ export function SidebarCollection() {
           <CollectionInfo />
         </CollectionContainer>
       </div>
-    </CollectionResourcesContext.Provider>
+    </ResourcesHandlerContext.Provider>
   );
 }

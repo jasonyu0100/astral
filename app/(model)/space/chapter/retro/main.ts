@@ -5,7 +5,7 @@ export interface ChapterRetroObj {
   chapterId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const chapterRetroGql = `
@@ -14,18 +14,20 @@ id: String!
 chapterId: String!
 title: String!
 description: String!
-time: String!
+created: String!
 }
-`
+`;
 
-export const ChapterRetroContext = createContext<ChapterRetroObj>({} as ChapterRetroObj);
+export const ContextForChapterRetroObj = createContext<ChapterRetroObj>(
+  {} as ChapterRetroObj,
+);
 
 export const exampleChapterRetro: ChapterRetroObj = {
   id: '0',
   chapterId: '0',
   title: 'May Retro',
   description: 'Productive month with new scenes and verses added into the mix',
-  time: new Date('2023-12-19').toISOString(),
+  created: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleChapterRetros: ChapterRetroObj[] = [
@@ -35,14 +37,14 @@ export const exampleChapterRetros: ChapterRetroObj[] = [
     title: 'May Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '1',
     chapterId: '0',
     title: 'June Retro',
     description: 'Not so productive month',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '2',
@@ -50,6 +52,6 @@ export const exampleChapterRetros: ChapterRetroObj[] = [
     title: 'July Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

@@ -6,7 +6,7 @@ export interface HorizonUpdateObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const horizonUpdateGql = `
@@ -16,11 +16,11 @@ type HorizonUpdateObj {
   userId: String!
   title: String!
   description: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const HorizonUpdateContext = createContext<HorizonUpdateObj>(
+export const ContextForHorizonUpdateObj = createContext<HorizonUpdateObj>(
   {} as HorizonUpdateObj,
 );
 
@@ -30,7 +30,7 @@ export const exampleHorizonUpdate: HorizonUpdateObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleHorizonUpdates: HorizonUpdateObj[] = [
@@ -40,7 +40,7 @@ export const exampleHorizonUpdates: HorizonUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Arc Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -48,7 +48,7 @@ export const exampleHorizonUpdates: HorizonUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Arc Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -56,6 +56,6 @@ export const exampleHorizonUpdates: HorizonUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Arc Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

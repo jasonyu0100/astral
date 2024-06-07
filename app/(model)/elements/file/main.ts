@@ -11,7 +11,7 @@ export enum FileElemVariant {
 export interface FileElem {
   id: string;
   src: string;
-  fileType: string;
+  ext: string;
   title: string;
   size: number;
   variant: string;
@@ -21,39 +21,30 @@ export const fileElemGql = `
 type FileElem {
   id: String!
   src: String
-  fileType: String
-  title: String
-  size: Int
-  variant: String
-}
-  
-input FileElemInput {
-  id: String!
-  src: String
-  fileType: String
+  ext: String
   title: String
   size: Int
   variant: String
 }
 `;
 
-export const FileElemContext = createContext<FileElem>({} as FileElem);
+export const ContextForFileElem = createContext<FileElem>({} as FileElem);
 
 export const exampleFileElem: FileElem = {
   id: '0',
   title: 'passion.png',
   size: 0,
   src: `/stock/passion.png`,
-  fileType: 'image/png',
+  ext: 'image/png',
   variant: FileElemVariant.IMAGE,
 };
 
-export const exampleProfileImageFileElem: FileElem = {
+export const exampleDisplayPictureFileElem: FileElem = {
   id: '0',
   title: 'avatar',
   size: 0,
   src: `/brand/icon-bg-sm.png`,
-  fileType: 'image/png',
+  ext: 'image/png',
   variant: FileElemVariant.IMAGE,
 };
 
@@ -63,7 +54,7 @@ export const exampleFileElems: FileElem[] = [
     title: 'passion.png',
     size: 0,
     src: `/stock/passion.png`,
-    fileType: 'image/png',
+    ext: 'image/png',
     variant: FileElemVariant.IMAGE,
   },
   {
@@ -71,7 +62,7 @@ export const exampleFileElems: FileElem[] = [
     title: 'nature.png',
     size: 0,
     src: `/stock/nature.png`,
-    fileType: 'image/png',
+    ext: 'image/png',
     variant: FileElemVariant.IMAGE,
   },
   {
@@ -79,7 +70,7 @@ export const exampleFileElems: FileElem[] = [
     title: 'launch.png',
     size: 0,
     src: `/stock/launch.png`,
-    fileType: 'image/png',
+    ext: 'image/png',
     variant: FileElemVariant.IMAGE,
   },
 ];

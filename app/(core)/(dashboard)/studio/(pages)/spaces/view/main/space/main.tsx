@@ -1,41 +1,37 @@
 'use client';
-import {
-  SpaceContext,
-  SpaceObj,
-} from '@/(model)/space/main';
+import { ContextForSpaceObj, SpaceObj } from '@/(model)/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';
 import { StudioSpaceMore } from './more/main';
 import { StudioSpaceBody } from './body/main';
-
-interface ExtendedSpaceContextObj {
-  space: SpaceObj;
-  index: number;
-  hover: boolean;
-}
-
-export const ExtendedSpaceContext = createContext<ExtendedSpaceContextObj>(
-  {} as ExtendedSpaceContextObj,
-);
+import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
+import { ContextForHoverable } from '@/(logic)/contexts/hoverable/main';
 
 export function StudioSpace({ index }: { index: number }) {
-  const space = useContext(SpaceContext);
   const [hover, changeHover] = useState(false);
 
   return (
-    <ExtendedSpaceContext.Provider value={{ space, index, hover }}>
-      <GlassAreaContainer
-        name={StudioSpace.name}
-        sizeFx='w-full h-[100px]'
-        glassFx={`${hover && glassFx['glass-10']}`}
-        className={`flex h-[100px] w-full flex-row items-center justify-between pl-[3rem] pr-[2rem] py-[1rem]`}
-        onMouseOver={() => changeHover(true)}
-        onMouseOut={() => changeHover(false)}
-      >
-        <StudioSpaceBody/>
-        <StudioSpaceMore />
-      </GlassAreaContainer>
-    </ExtendedSpaceContext.Provider>
+    <ContextForHoverable.Provider
+      value={{
+        hovered: hover,
+        onHover: () => changeHover(true),
+        onUnhover: () => changeHover(false),
+      }}
+    >
+      <ContextForIndexable.Provider value={{ index }}>
+        <GlassAreaContainer
+          name={StudioSpace.name}
+          sizeFx='w-full h-[100px]'
+          glassFx={`${hover && glassFx['glass-10']}`}
+          className={`flex h-[100px] w-full flex-row items-center justify-between py-[1rem] pl-[3rem] pr-[2rem]`}
+          onMouseOver={() => changeHover(true)}
+          onMouseOut={() => changeHover(false)}
+        >
+          <StudioSpaceBody />
+          <StudioSpaceMore />
+        </GlassAreaContainer>
+      </ContextForIndexable.Provider>
+    </ContextForHoverable.Provider>
   );
 }

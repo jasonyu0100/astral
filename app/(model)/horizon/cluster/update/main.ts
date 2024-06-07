@@ -6,7 +6,7 @@ export interface ClusterUpdateObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const clusterUpdateGql = `
@@ -16,11 +16,11 @@ type ClusterUpdateObj {
   userId: String!
   title : String!
   description : String!
-  time : String!
+  created: String!
 }
 `;
 
-export const ClusterUpdateContext = createContext<ClusterUpdateObj>(
+export const ContextForClusterUpdateObj = createContext<ClusterUpdateObj>(
   {} as ClusterUpdateObj,
 );
 
@@ -30,7 +30,7 @@ export const exampleClusterUpdate: ClusterUpdateObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleClusterUpdates: ClusterUpdateObj[] = [
@@ -40,7 +40,7 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -48,7 +48,7 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -56,6 +56,6 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

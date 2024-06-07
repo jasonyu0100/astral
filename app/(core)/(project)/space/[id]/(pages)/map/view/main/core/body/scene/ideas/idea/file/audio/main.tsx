@@ -59,7 +59,7 @@ export function FileAudioIdea() {
             </svg>
             <audio
               id='file-upload-audio'
-              src={idea.file?.src}
+              src={idea.fileElem?.src}
               className='aspect-square h-[100px] bg-black object-cover shadow-md'
             />
           </div>

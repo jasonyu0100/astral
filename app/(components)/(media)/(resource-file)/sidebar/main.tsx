@@ -1,5 +1,5 @@
 import { FileElem } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
 import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
@@ -7,7 +7,7 @@ import { ResourceContainer } from '../common/container/main';
 
 export function SidebarCollectionResource() {
   const ideasHandler = useContext(IdeasHandlerContext);
-  const resource = useContext(CollectionResourceContext);
+  const resource = useContext(ContextForCollectionResource);
 
   return (
     <ResourceContainer
@@ -18,7 +18,7 @@ export function SidebarCollectionResource() {
           resource.description,
           Math.random() * 500,
           Math.random() * 500,
-          resource?.file || ({} as FileElem),
+          resource?.fileElem || ({} as FileElem),
         );
       }}
     >

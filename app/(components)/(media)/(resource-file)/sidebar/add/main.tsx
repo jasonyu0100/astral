@@ -3,7 +3,9 @@ import { ResourceContainer } from '../../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: DivInputProps) {
   return (
-    <ResourceContainer {...props}
+    <ResourceContainer 
+      {...props}
+      onClick={() => {}} 
       className='h-[100px] p-[10px] flex-shrink-0'
     >
       <div className='flex aspect-square w-full items-center justify-center bg-black'>

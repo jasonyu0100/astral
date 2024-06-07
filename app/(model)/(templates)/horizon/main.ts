@@ -12,7 +12,7 @@ import { albumHorizonTemplate } from './album/main';
 import { bookHorizonTemplate } from './book/main';
 import { gameHorizonTemplate } from './game/main';
 
-export type _TemplateHorizonObj = Omit<HorizonForumObj, 'id' | 'horizonId' | 'time'>;
+export type _TemplateHorizonObj = Omit<HorizonForumObj, 'id' | 'horizonId' | 'created'>;
 export interface TemplateHorizonObj extends _TemplateHorizonObj {
   forums: TemplateForumObj[];
   arcs: TemplateArcObj[];

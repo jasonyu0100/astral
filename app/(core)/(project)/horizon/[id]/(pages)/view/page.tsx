@@ -25,12 +25,12 @@ function Page() {
         <TimerComponent />
         <HorizontalDivider />
         <div className='flex flex-row items-center text-slate-300'>
-          <ProfileCover file={exampleFileElem} />
+          <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH</p>
         </div>
         <HorizontalDivider />
         <div className='flex flex-row items-center text-slate-300'>
-          <ProfileCover file={exampleFileElem} />
+          <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH vs Headphones</p>
         </div>
         <HorizontalDivider />
@@ -40,11 +40,11 @@ function Page() {
           </h1>
           <HorizontalDivider />
           <div className='flex flex-row items-center text-slate-300'>
-            <ProfileCover file={exampleFileElem} />
+            <ProfileCover fileElem={exampleFileElem} />
             <p>BOB SMITH vs Headphones</p>
-            <ProfileCover file={exampleFileElem} />
+            <ProfileCover fileElem={exampleFileElem} />
             <p>BOB SMITH vs Headphones</p>
-            <ProfileCover file={exampleFileElem} />
+            <ProfileCover fileElem={exampleFileElem} />
             <p>BOB SMITH vs Headphones</p>
           </div>
           <GlassWindowFrame className='h-[500px] w-[500px]'>

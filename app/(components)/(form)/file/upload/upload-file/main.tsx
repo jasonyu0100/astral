@@ -1,6 +1,6 @@
 import {
   FileElem,
-  FileElemContext,
+  ContextForFileElem,
   FileElemVariant,
   getFileAccepts,
 } from '@/(model)/elements/file/main';
@@ -12,26 +12,26 @@ import { UploadFileAreaPlaceholder } from './area/placeholder/main';
 import { UploadFileLabel } from '../common/label/main';
 import {
   UploadHandlerContext,
-  useUploadHandler,
-} from '@/(model)/(controller)/elements/file/(upload)/single/main';
+  useS3UploadController,
+} from '@/(api)/(controller)/s3/single/main';
 import { UploadFileArea } from './area/main';
 import { UploadFileAreaInterface } from './area/upload/main';
 import { UploadWrapper } from '../common/wrapper/main';
 import { UploadedFile } from './uploaded/main';
 
 export function FormUploadFile({
-  defaultFile,
+  defaultFileElem: defaultFileElem,
   onChange,
   label,
   variant,
 }: {
-  defaultFile?: FileElem;
-  onChange: (file: FileElem) => void;
+  defaultFileElem?: FileElem;
+  onChange: (fileElem: FileElem) => void;
   label: string;
   variant?: FileElemVariant;
 }) {
-  const uploadHandler = useUploadHandler(defaultFile, variant);
-  const file = uploadHandler.file;
+  const uploadHandler = useS3UploadController(defaultFileElem, variant);
+  const file = uploadHandler.fileElem;
 
   useEffect(() => {
     onChange(file);
@@ -39,12 +39,12 @@ export function FormUploadFile({
 
   return (
     <UploadHandlerContext.Provider value={uploadHandler}>
-      <FileElemContext.Provider value={file} key={file.id}>
+      <ContextForFileElem.Provider value={file} key={file.id}>
         <UploadWrapper>
           <UploadFileLabel>{label}</UploadFileLabel>
           {file.id === undefined ? <UploadFileArea /> : <UploadedFile />}
         </UploadWrapper>
-      </FileElemContext.Provider>
+      </ContextForFileElem.Provider>
     </UploadHandlerContext.Provider>
   );
 }

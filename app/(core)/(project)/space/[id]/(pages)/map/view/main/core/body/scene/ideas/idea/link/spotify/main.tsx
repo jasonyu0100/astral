@@ -28,7 +28,7 @@ export function LinkSpotifyStar() {
           }}
         >
           <iframe
-            src={`${idea.link?.url}?utm_source=generator`}
+            src={`${idea.linkElem?.url}?utm_source=generator`}
             width='100%'
             height='100%'
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'

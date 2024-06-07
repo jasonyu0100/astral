@@ -1,9 +1,9 @@
+import { ContextForSpaceObj } from '@/(model)/space/main';
 import { useContext } from 'react';
-import { ExtendedSpaceContext } from '../../main';
 
 export function SpaceDay() {
-  const { space } = useContext(ExtendedSpaceContext);
-  const timeDiff = new Date().getTime() - new Date(space.time).getTime();
+  const space = useContext(ContextForSpaceObj);
+  const timeDiff = new Date().getTime() - new Date(space.created).getTime();
   const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
   return (

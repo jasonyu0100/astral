@@ -29,7 +29,7 @@ type LinkElemInput {
 }
 `;
 
-export const LinkElemContext = createContext<LinkElem>({} as LinkElem);
+export const ContextForLinkElem = createContext<LinkElem>({} as LinkElem);
 
 export const exampleLinkElem: LinkElem = {
   id: '0',

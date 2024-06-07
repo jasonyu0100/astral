@@ -5,7 +5,7 @@ export interface HorizonForumObj {
   horizonId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const horizonForumGql = `
@@ -14,11 +14,11 @@ type HorizonForumObj {
   horizonId: String!
   title: String!
   description: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const HorizonForumContext = createContext<HorizonForumObj>(
+export const ContextForHorizonForumObj = createContext<HorizonForumObj>(
   {} as HorizonForumObj,
 );
 
@@ -27,7 +27,7 @@ export const exampleHorizonForum: HorizonForumObj = {
   horizonId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleHorizonForums: HorizonForumObj[] = [
@@ -36,13 +36,13 @@ export const exampleHorizonForums: HorizonForumObj[] = [
     horizonId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
     horizonId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

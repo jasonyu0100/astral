@@ -1,13 +1,14 @@
 import { useContext } from 'react';
 import { FileElemVariant } from '@/(model)/elements/file/main';
-import { CollectionResourcesContext } from '@/(model)/gallery/collection/main';
+import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
-  const resources = useContext(CollectionResourcesContext);
+  const resourceHandler = useContext(ResourcesHandlerContext);
+  const resources = resourceHandler.resources;
   const visualResources = resources?.filter(
     (resource) =>
-      resource.file?.variant === FileElemVariant.IMAGE ||
-      resource.file?.variant === FileElemVariant.VIDEO,
+      resource.fileElem?.variant === FileElemVariant.IMAGE ||
+      resource.fileElem?.variant === FileElemVariant.VIDEO,
   );
 
   return (
@@ -49,16 +50,16 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
           {visualResources.slice(0, 4).map((resource) => (
             // eslint-disable-next-line react/jsx-key
             <>
-              {resource.file?.variant === FileElemVariant.IMAGE && (
+              {resource.fileElem?.variant === FileElemVariant.IMAGE && (
                 <img
                   className='aspect-square h-1/2 object-fill'
-                  src={resource?.file?.src}
+                  src={resource?.fileElem?.src}
                 />
               )}
-              {resource.file?.variant === FileElemVariant.VIDEO && (
+              {resource.fileElem?.variant === FileElemVariant.VIDEO && (
                 <video
                   className='aspect-square h-1/2 object-fill'
-                  src={resource?.file?.src}
+                  src={resource?.fileElem?.src}
                 />
               )}
             </>

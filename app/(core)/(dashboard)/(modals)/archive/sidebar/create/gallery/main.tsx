@@ -27,7 +27,7 @@ export function SidebarCreateGalleryModal() {
         <FormTitle>Create Gallery</FormTitle>
         <FormBody>
           <FormSearchImage
-            file={thumbnail}
+            fileElem={thumbnail}
             onChange={(file) => changeThumbnail(file)}
             label='Thumbnail'
           />

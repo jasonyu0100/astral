@@ -1,4 +1,4 @@
-import { exampleProfileImageFileElem } from '@/(model)/elements/file/main';
+import { exampleDisplayPictureFileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 
 export type TemplateUserObj = Omit<
@@ -24,28 +24,31 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
   switch (variant) {
     case UserTemplate.MUSICIAN:
       return {
+        displayName: 'Musician',
         fname: 'Musician',
         lname: 'Musician',
         email: 'music@music.com',
-        profilePicture: exampleProfileImageFileElem,
+        dp: exampleDisplayPictureFileElem,
         role: 'Musician',
         bio: 'I like music',
       };
     case UserTemplate.PRODUCER:
       return {
+        displayName: 'Musician',
         fname: 'Producer',
         lname: 'Producer',
         email: 'producing@music.com',
-        profilePicture: exampleProfileImageFileElem,
+        dp: exampleDisplayPictureFileElem,
         role: 'Producer',
         bio: 'I like producing',
       };
     case UserTemplate.SINGER:
       return {
+        displayName: 'Musician',
         fname: 'Singer',
         lname: 'Singer',
         email: 'singer@music.com',
-        profilePicture: exampleProfileImageFileElem,
+        dp: exampleDisplayPictureFileElem,
         role: 'Singer',
         bio: 'I like Singing',
       };

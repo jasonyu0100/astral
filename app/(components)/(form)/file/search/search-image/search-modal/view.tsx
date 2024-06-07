@@ -1,4 +1,4 @@
-import { useUnsplash } from '@/(model)/(controller)/(archive)/external/unsplash/main';
+import { useUnsplashController } from '@/(api)/(controller)/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
 import { FileElem } from '@/(model)/elements/file/main';
 import { SearchBar } from '@/(components)/(media)/search-bar/main';
@@ -8,15 +8,15 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ImageInputProps } from '@/(types)/props/main';
 import { SearchModalContext } from './main';
-import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
+import { ContextForFileChangable } from '@/(logic)/contexts/fileChange/main';
 
 export default function SearchModalView() {
-  const { file, onChange } = useContext(FileOnChangeContext);
+  const { fileElem: file, onChange } = useContext(ContextForFileChangable);
   const modalContext = useContext(SearchModalContext);
   const [images, changeImages] = useState<FileElem[]>([]);
   const [query, changeQuery] = useState('');
   const [selected, changeSelected] = useState({} as FileElem);
-  const { searchImage } = useUnsplash();
+  const { searchImage } = useUnsplashController();
 
   useEffect(() => {
     searchImage('stars').then((res) => {

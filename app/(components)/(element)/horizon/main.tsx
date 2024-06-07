@@ -5,10 +5,10 @@ import { DivInputProps } from '@/(types)/props/main';
 
 interface HorizonCoverProps extends DivInputProps {
   coverFx?: string;
-  file: FileElem;
+  fileElem: FileElem;
 }
 
-export function HorizonCover({ coverFx, file, ...props }: HorizonCoverProps) {
+export function HorizonCover({ coverFx, fileElem: fileElem, ...props }: HorizonCoverProps) {
   return (
     <GlassEffectWrapper
       className={props.className}
@@ -16,8 +16,8 @@ export function HorizonCover({ coverFx, file, ...props }: HorizonCoverProps) {
     >
       <img
         className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
-        src={file.src}
-        alt={file.title}
+        src={fileElem.src}
+        alt={fileElem.title}
       />
     </GlassEffectWrapper>
   );

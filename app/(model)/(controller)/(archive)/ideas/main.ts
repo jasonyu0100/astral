@@ -13,28 +13,21 @@ export interface IdeaActions {
     description: string,
     x: number,
     y: number,
-    file: FileElem,
+    fileElem: FileElem,
   ) => Promise<SceneIdeaObj>;
   createFromNote: (
     title: string,
     description: string,
     x: number,
     y: number,
-    note: NoteElem,
+    noteElem: NoteElem,
   ) => Promise<SceneIdeaObj>;
   createFromLink: (
     title: string,
     description: string,
     x: number,
     y: number,
-    link: LinkElem,
-  ) => Promise<SceneIdeaObj>;
-  createFromLog: (
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    log: LogElem,
+    linkElem: LinkElem,
   ) => Promise<SceneIdeaObj>;
   updateIdea: (ideaId: string, data: any) => void;
   updateIdeas: () => Promise<SceneIdeaObj[]>;
@@ -69,7 +62,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      file: FileElem,
+      fileElem: FileElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -81,7 +74,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
         description,
         x,
         y,
-        file,
+        fileElem,
       );
       alert('adsads')
       changeIdeas((prev) => [...prev, idea]);
@@ -93,7 +86,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      note: NoteElem,
+      noteElem: NoteElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -105,7 +98,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
         description,
         x,
         y,
-        note,
+        noteElem,
       );
       changeIdeas((prev) => [...prev, idea]);
       changeIdeaId(idea.id);
@@ -116,7 +109,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
       description: string,
       x: number,
       y: number,
-      link: LinkElem,
+      linkElem: LinkElem,
     ) => {
       if (partId === '') {
         alert('No Scene Active');
@@ -128,30 +121,7 @@ export const useIdeasHandler = (partId: string): IdeasHandler => {
         description,
         x,
         y,
-        link,
-      );
-      changeIdeas((prev) => [...prev, idea]);
-      changeIdeaId(idea.id);
-      return idea;
-    },
-    createFromLog: async (
-      title: string,
-      description: string,
-      x: number,
-      y: number,
-      log: LogElem,
-    ) => {
-      if (partId === '') {
-        alert('No Scene Active');
-        return {} as SceneIdeaObj;
-      }
-      const idea = await ideasGqlHelper.create.createFromLog(
-        partId,
-        title,
-        description,
-        x,
-        y,
-        log,
+        linkElem,
       );
       changeIdeas((prev) => [...prev, idea]);
       changeIdeaId(idea.id);

@@ -1,14 +1,15 @@
 'use client';
 
+import { ContextForSpaceObj } from '@/(model)/space/main';
 import { useContext } from 'react';
-import { ExtendedSpaceContext } from '../../main';
 
 export function SpaceDate() {
-  const { space } = useContext(ExtendedSpaceContext);
+  const space = useContext(ContextForSpaceObj);
+
   return (
     <div className='flex items-center w-[150px]'>
       <p className='text-lg font-bold text-slate-300'>
-        {new Date(space.time).toDateString()}
+        {new Date(space.created).toDateString()}
       </p>
     </div>
   );

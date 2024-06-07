@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { SpaceChapterContext } from '@/(model)/space/chapter/main';
+import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
@@ -13,9 +13,9 @@ export function DraftChaptersRow() {
   return (
     <ChaptersRowContainer>
       {chaptersHandler.chapters.map((chapter, index) => (
-        <SpaceChapterContext.Provider value={chapter} key={chapter.id}>
+        <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
           <ChapterContainer index={index} key={chapter.id} />
-        </SpaceChapterContext.Provider>
+        </ContextForSpaceChapterObj.Provider>
       ))}
       <ChaptersAdd onClick={() => addChapterModal.open()} />
     </ChaptersRowContainer>

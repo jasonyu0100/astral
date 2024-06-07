@@ -1,18 +1,11 @@
 import { createContext } from 'react';
 
-export enum ChapterSceneVariant {
-  VISUAL = 'VISUAL',
-  AUDIO = 'AUDIO',
-  MEMO = 'MEMO',
-  LINK = 'LINK',
-}
-
 export interface ChapterSceneObj {
   id: string;
   chapterId: string;
   title: string;
   description: string;
-  variant: string;
+  created: string;
 }
 
 export const chapterSceneGql = `
@@ -21,18 +14,20 @@ type ChapterSceneObj {
   chapterId: String!
   title: String!
   description: String!
-  variant: String!
-}`
+  created: String!
+}`;
+
+export const ContextForChapterSceneObj = createContext<ChapterSceneObj>(
+  {} as ChapterSceneObj,
+);
 
 export const exampleChapterScene: ChapterSceneObj = {
   id: '0',
   chapterId: '0',
   title: 'Idea Scene',
   description: 'Scene Description',
-  variant: ChapterSceneVariant.VISUAL,
+  created: new Date('2023-12-19').toISOString(),
 };
-
-export const ChapterSceneContext = createContext<ChapterSceneObj>({} as ChapterSceneObj);
 
 export const exampleChapterScenes: ChapterSceneObj[] = [
   {
@@ -40,20 +35,20 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     chapterId: '0',
     title: 'Idea Scene 1',
     description: 'Scene Description',
-    variant: ChapterSceneVariant.VISUAL,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '1',
     chapterId: '0',
     title: 'Idea Scene 2',
     description: 'Scene Description',
-    variant: ChapterSceneVariant.VISUAL,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '2',
     chapterId: '0',
     title: 'Idea Scene 3',
     description: 'Scene Description',
-    variant: ChapterSceneVariant.VISUAL,
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

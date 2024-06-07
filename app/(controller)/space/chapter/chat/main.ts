@@ -27,7 +27,7 @@ interface GatherActions {
 }
 
 interface CreateActions {
-  create: (title: string, summary: string) => Promise<ChapterChatObj>;
+  create: (title: string, description: string) => Promise<ChapterChatObj>;
   duplicate: (target: ChapterChatObj) => Promise<ChapterChatObj>;
 }
 
@@ -93,8 +93,8 @@ export const useControllerForChapterChats = (chapterId: string): ChapterChatsCon
   };
 
   const createActions: CreateActions = {
-    create: async (title: string, summary: string) => {
-      const newObj : Omit<ChapterChatObj, 'id'> = { chapterId, title, summary, time: new Date().toISOString() };
+    create: async (title: string, description: string) => {
+      const newObj : Omit<ChapterChatObj, 'id'> = { chapterId, title, description: description, created: new Date().toISOString() };
       const chat = await chapterChatDbWrapper.createObj(newObj);
       changeChats((prev) => [...prev, chat]);
       changeChatId(chat.id);

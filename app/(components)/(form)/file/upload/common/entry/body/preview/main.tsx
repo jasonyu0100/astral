@@ -1,11 +1,11 @@
 import {
-  FileElemContext,
+  ContextForFileElem,
   FileElemVariant,
 } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {
-  const file = useContext(FileElemContext);
+  const file = useContext(ContextForFileElem);
   return (
     <>
       {file.variant === FileElemVariant.AUDIO && (

@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem } from '@/(model)/elements/file/main';
-import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
@@ -16,10 +16,10 @@ export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);
   const resourcesHandler = useContext(ResourcesHandlerContext);
   const { opened, close } = modalContext.editResource;
-  const resource = useContext(CollectionResourceContext);
+  const resource = useContext(ContextForCollectionResource);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
-  const [file, changeFile] = useState(resource?.file || ({} as FileElem));
+  const [file, changeFile] = useState(resource?.fileElem || ({} as FileElem));
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>
@@ -28,7 +28,7 @@ export function ExplorerEditResourceModal() {
         <FormBody>
           <FormUploadFile
             label='File'
-            defaultFile={resource.file}
+            defaultFileElem={resource.fileElem}
             onChange={(file) => changeFile(file)}
           />
           <FormInput
@@ -50,7 +50,7 @@ export function ExplorerEditResourceModal() {
                   ...resource,
                   title,
                   description,
-                  file,
+                  fileElem: file,
                 })
                 .then(() => {
                   close();

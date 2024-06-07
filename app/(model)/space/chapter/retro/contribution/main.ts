@@ -17,7 +17,7 @@ export interface RetroContributionObj {
   verseId?: string;
   value: number;
   message: string;
-  time: string;
+  created: string;
 }
 
 export const retroContributionGql = `
@@ -31,11 +31,11 @@ type RetroContributionObj {
   verseId: String
   value: Int!
   message: String!
-  time: String!
+  created: String!
 }
 `;
 
-export const RetroContributionContext = createContext<RetroContributionObj>(
+export const ContextForRetroContributionObj = createContext<RetroContributionObj>(
   {} as RetroContributionObj,
 );
 
@@ -49,7 +49,7 @@ export const exampleRetroContribution: RetroContributionObj = {
   verseId: undefined,
   value: 11,
   message: 'Hello World',
-  time: new Date('2023-12-19').toISOString(),
+  created: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleRetroContributions: RetroContributionObj[] = [
@@ -63,7 +63,7 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     verseId: undefined,
     value: 11,
     message: 'Quality Addition',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
@@ -75,7 +75,7 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     verseId: undefined,
     value: 0,
     message: 'Unused Contribution',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
@@ -87,6 +87,6 @@ export const exampleRetroContributions: RetroContributionObj[] = [
     verseId: undefined,
     value: 6,
     message: 'Decent Conversation',
-    time: new Date('2023-12-19').toISOString(),
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

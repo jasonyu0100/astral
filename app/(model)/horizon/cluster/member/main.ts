@@ -4,6 +4,7 @@ export interface ClusterMemberObj {
   id: string;
   clusterId: string;
   userId: string;
+  created: string;
 }
 
 export const clusterMemberGql = `
@@ -11,10 +12,11 @@ type ClusterMemberObj {
   id: String!
   clusterId: String!
   userId: String!
+  created: String!
 }
 `;
 
-export const ClusterMemberObjContext = createContext<ClusterMemberObj>(
+export const ContextForClusterMemberObj = createContext<ClusterMemberObj>(
   {} as ClusterMemberObj,
 );
 
@@ -22,6 +24,7 @@ export const exampleClusterMember: ClusterMemberObj = {
   id: '0',
   clusterId: '0',
   userId: '0',
+  created: new Date().toISOString(),
 };
 
 export const exampleClusterMembers: ClusterMemberObj[] = [
@@ -29,15 +32,18 @@ export const exampleClusterMembers: ClusterMemberObj[] = [
     id: '0',
     clusterId: '0',
     userId: '0',
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     clusterId: '0',
     userId: '0',
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     clusterId: '0',
     userId: '0',
+    created: new Date().toISOString(),
   },
 ];

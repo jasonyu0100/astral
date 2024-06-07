@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { ExtendedSpaceContext } from '../../../../main';
+import { ContextForSpaceObj } from '@/(model)/space/main';
 
 export function SpaceInfoDetailTitle() {
-  const { space } = useContext(ExtendedSpaceContext);
+  const space = useContext(ContextForSpaceObj);
 
   return <p className='font-regular text-slate-300'>{space.title}</p>;
 }

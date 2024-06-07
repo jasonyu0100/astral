@@ -4,7 +4,7 @@ import {
 } from '@/(model)/elements/file/main';
 import {
   UploadHandlerContext,
-} from '@/(model)/(controller)/elements/file/(upload)/single/main';
+} from '@/(api)/(controller)/s3/single/main';
 import { useContext } from 'react';
 
 export function UploadFileAreaInterface() {

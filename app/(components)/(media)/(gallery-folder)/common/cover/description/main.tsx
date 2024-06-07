@@ -1,10 +1,10 @@
-import { GalleryContext } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(model)/gallery/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useContext } from 'react';
 
 export function ContainerDescription() {
   const user = useGlobalUser((state) => state.user);
-  const gallery = useContext(GalleryContext);
+  const gallery = useContext(ContextForGalleryObj);
   
   return (
     <div className='flex w-full flex-grow flex-col p-[1rem]'>

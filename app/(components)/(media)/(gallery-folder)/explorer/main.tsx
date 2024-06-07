@@ -2,7 +2,7 @@ import { GalleryExplorerFront } from './front/main';
 import { GalleryContainer } from '../common/container/main';
 import { useState } from 'react';
 import { GalleryExplorerBack } from './back/main';
-import { FlipContext } from '@/(logic)/internal/contexts/flip/main';
+import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
 
 export function ExplorerGallery() {
   const [flipped, changeFlipped] = useState(false);
@@ -13,10 +13,10 @@ export function ExplorerGallery() {
   };
 
   return (
-    <FlipContext.Provider value={context}>
+    <ContextForFlippable.Provider value={context}>
       <GalleryContainer className="w-[300px]">
         {flipped ? <GalleryExplorerBack /> : <GalleryExplorerFront />}
       </GalleryContainer>
-    </FlipContext.Provider>
+    </ContextForFlippable.Provider>
   );
 }

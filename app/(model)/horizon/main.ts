@@ -1,22 +1,14 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
 
-export enum HorizonVariant {
-  MIX = 'MIX',
-  SONG = 'SONG',
-  BAR = 'BAR',
-  IDEA = 'IDEA',
-  CUSTOM = 'CUSTOM',
-}
-
 export interface HorizonObj {
   id: string;
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
   thumbnail: FileElem;
-  variant: string;
+  category: string;
 }
 
 export const horizonGql = `
@@ -24,42 +16,23 @@ type HorizonObj {
   id: String!
   userId: String!
   title: String!
-  time: String!
+  created: String!
   description: String!
   thumbnail: FileElem!
-  variant: String!
-}
-  
-input CreateHorizonObjInput {
-	userId: String!
-	title: String!
-	time: String!
-	description: String!
-	variant: String!
-  thumbnail: FileElemInput
-}
-
-input UpdateHorizonObjInput {
-	id: String!
-	userId: String
-	title: String
-	time: String
-	description: String
-	variant: String
-  thumbnail: FileElemInput
+  category: String!
 }
 `;
 
-export const HorizonContext = createContext<HorizonObj>({} as HorizonObj);
+export const ContextForHorizonObj = createContext<HorizonObj>({} as HorizonObj);
 
 export const exampleHorizon: HorizonObj = {
   id: '0',
   userId: '0',
   title: 'Horizon Example',
   description: 'Horizon Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
   thumbnail: exampleFileElem,
-  variant: HorizonVariant.CUSTOM,
+  category: 'Horizon Category',
 };
 
 export const exampleHorizons: HorizonObj[] = [
@@ -68,17 +41,17 @@ export const exampleHorizons: HorizonObj[] = [
     userId: '0',
     title: 'Horizon Example',
     description: 'Horizon Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     thumbnail: exampleFileElem,
-    variant: HorizonVariant.CUSTOM,
+    category: 'Horizon Category',
   },
   {
     id: '1',
     userId: '0',
     title: 'Horizon Example',
     description: 'Horizon Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     thumbnail: exampleFileElem,
-    variant: HorizonVariant.CUSTOM,
+    category: 'Horizon Category',
   },
 ];

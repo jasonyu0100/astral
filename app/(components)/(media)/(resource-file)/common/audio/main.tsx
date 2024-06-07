@@ -1,8 +1,8 @@
-import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 
 export function CollectionResourceAudio() {
-  const resource = useContext(CollectionResourceContext);
+  const resource = useContext(ContextForCollectionResource);
 
   return (
     <div className='flex h-full w-full flex-shrink-0 flex-col'>

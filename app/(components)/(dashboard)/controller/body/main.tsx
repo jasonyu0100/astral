@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { DashboardBackground } from './background/main';
-import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 
 export function DashboardBody({ children }: { children?: React.ReactNode }) {
   const [hovered, changeHovered] = useState(false);
@@ -12,14 +12,14 @@ export function DashboardBody({ children }: { children?: React.ReactNode }) {
       onMouseEnter={() => changeHovered(true)}
       onMouseLeave={() => changeHovered(false)}
     >
-      <ToggleContext.Provider
+      <ContextForTogglable.Provider
         value={{ toggled: hovered, toggle: () => changeHovered(!hovered) }}
       >
         <DashboardBackground />
         <div className='absolute top-0 flex h-full w-full flex-col overflow-auto'>
           {children}
         </div>
-      </ToggleContext.Provider>
+      </ContextForTogglable.Provider>
     </div>
   );
 }

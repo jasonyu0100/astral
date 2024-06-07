@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 
 export function NetworkSidebarPointToggle() {
-    const { toggled, toggle } = useContext(ToggleContext)
+    const { toggled, toggle } = useContext(ContextForTogglable)
   return (
     <div className='flex w-full flex-col'>
       <div className='mt-auto flex flex-row  items-center justify-between'>

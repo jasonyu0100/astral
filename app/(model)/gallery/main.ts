@@ -6,6 +6,7 @@ export interface GalleryObj {
   title: string;
   description: string;
   thumbnail: FileElem;
+  created: string;
 }
 
 export const galleryGql = `
@@ -15,24 +16,11 @@ type GalleryObj {
   title: String!
   description: String!
   thumbnail: FileElem!
+  created: String!
 }
-
-input CreateGalleryObjInput {
-	userId: String!
-	title: String!
-	description: String!
-  thumbnail: FileElemInput
-}
-
-input UpdateGalleryObjInput {
-	id: String!
-	userId: String
-	title: String
-	description: String
-    thumbnail: FileElemInput
-}
-
 `;
+
+export const ContextForGalleryObj = createContext<GalleryObj>({} as GalleryObj);
 
 export const exampleGallery: GalleryObj = {
   id: '0',
@@ -40,9 +28,8 @@ export const exampleGallery: GalleryObj = {
   title: 'Example Gallery',
   description: 'Example Gallery Description',
   thumbnail: exampleFileElem,
+  created: new Date().toISOString(),
 };
-
-export const GalleryContext = createContext<GalleryObj>({} as GalleryObj);
 
 export const exampleGallerys: GalleryObj[] = [
   {
@@ -51,6 +38,7 @@ export const exampleGallerys: GalleryObj[] = [
     title: 'Example Gallery',
     description: 'Example Gallery Description',
     thumbnail: exampleFileElem,
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -58,5 +46,6 @@ export const exampleGallerys: GalleryObj[] = [
     title: 'Example Gallery',
     description: 'Example Gallery Description',
     thumbnail: exampleFileElem,
+    created: new Date().toISOString(),
   },
 ];

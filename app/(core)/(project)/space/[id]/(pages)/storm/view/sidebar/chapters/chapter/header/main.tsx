@@ -1,12 +1,12 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 import { useContext } from 'react';
-import { SpaceChapterContext } from '@/(model)/space/chapter/main';
+import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
 import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { StormChapterTitle } from './title/main';
 
 export function StormChapterHeader() {
-  const chapter = useContext(SpaceChapterContext);
+  const chapter = useContext(ContextForSpaceChapterObj);
   const chaptersHandler = useContext(ChaptersHandlerContext);
 
   return (

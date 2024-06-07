@@ -16,7 +16,7 @@ export interface ResourcesActions {
   createResourceFromFile: (
     name: string,
     description: string,
-    file: FileElem,
+    fileElem: FileElem,
   ) => Promise<CollectionResourceObj>;
   updateResource: (
     resourceId: string,
@@ -57,14 +57,14 @@ export const useResourcesHandler = (
     createResourceFromFile: async (
       name: string,
       description: string,
-      file: FileElem,
+      fileElem: FileElem,
     ) => {
       const resource = await resourcesGqlHelper.createFromFile(
         userId,
         collectionId,
         name,
         description,
-        file,
+        fileElem,
       );
       changeResources((prev) => [resource, ...prev]);
       changeResourceId(resource.id);

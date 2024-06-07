@@ -1,9 +1,9 @@
-import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
+import { ContextForFileChangable } from '@/(logic)/contexts/fileChange/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {
-  const { file, onChange } = useContext(FileOnChangeContext);
+  const { fileElem: file, onChange } = useContext(ContextForFileChangable);
 
   return (
     <div className='flex w-full flex-row items-center justify-between space-x-[2rem] border-b border-black bg-slate-50 pr-[2rem]'>
@@ -15,7 +15,7 @@ export function SearchImageListPreview() {
         />
         <div className='flex flex-col'>
           <p className='text-lg font-bold'>{file.title}</p>
-          <p className='text-sm text-slate-500'>{file.fileType}</p>
+          <p className='text-sm text-slate-500'>{file.ext}</p>
           <p className='text-md text-slate-500'>{file.size} bytes</p>
         </div>
       </div>

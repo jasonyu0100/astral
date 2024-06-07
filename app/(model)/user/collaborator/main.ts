@@ -4,6 +4,7 @@ export interface UserCollaboratorObj {
   id: string;
   userId: string;
   collaboratorId: string;
+  created: string;
 }
 
 export const userCollaboratorGql = `
@@ -11,10 +12,11 @@ type UserCollaboratorObj {
   id: String!
   userId: String!
   collaboratorId: String!
+  created: String!
 }
 `;
 
-export const UserCollaboratorObjContext = createContext<UserCollaboratorObj>(
+export const ContextForUserCollaboratorObj = createContext<UserCollaboratorObj>(
   {} as UserCollaboratorObj,
 );
 
@@ -22,6 +24,7 @@ export const exampleUserCollaborator: UserCollaboratorObj = {
   id: '0',
   collaboratorId: '0',
   userId: '0',
+  created: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleUserCollaborators: UserCollaboratorObj[] = [
@@ -29,15 +32,18 @@ export const exampleUserCollaborators: UserCollaboratorObj[] = [
     id: '0',
     collaboratorId: '0',
     userId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
     collaboratorId: '0',
     userId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
     collaboratorId: '0',
     userId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

@@ -20,7 +20,7 @@ export function EditProfileModal() {
       <FormContainer>
         <FormTitle>Profile</FormTitle>
         <FormBody>
-          <ImagePreview file={user.profilePicture} />
+          <ImagePreview fileElem={user.dp} />
           <h1 className="font-bold">First Name: {user.fname}</h1>
           <h1 className="font-bold">Last Name: {user.lname}</h1>
           <h1 className="font-bold">Email: {user.email}</h1>

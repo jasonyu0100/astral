@@ -6,7 +6,7 @@ export interface HorizonArcObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
   idx: number;
 }
 
@@ -17,12 +17,12 @@ type HorizonArcObj {
   userId: String!
   title: String!
   description: String!
-  time: String!
+  created: String!
   idx: Int!
 }
 `;
 
-export const HorizonArcContext = createContext<HorizonArcObj>(
+export const ContextForHorizonArcObj = createContext<HorizonArcObj>(
   {} as HorizonArcObj,
 );
 
@@ -32,7 +32,7 @@ export const exampleHorizonArc: HorizonArcObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
   idx: 0,
 };
 
@@ -43,7 +43,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     idx: 0,
   },
   {
@@ -52,7 +52,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     idx: 1,
   },
   {
@@ -61,7 +61,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     idx: 2,
   },
 ];

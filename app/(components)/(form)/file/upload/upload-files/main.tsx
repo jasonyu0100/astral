@@ -6,8 +6,8 @@ import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {
   UploadsHandlerContext,
-  useUploadsHandler,
-} from '@/(model)/(controller)/elements/file/(upload)/multiple/main';
+  useS3UploadsController,
+} from '@/(api)/(controller)/s3/multiple/main';
 import { UploadFilesList } from './list/main';
 import { UploadFilesArea } from './area/main';
 
@@ -20,7 +20,7 @@ export function FormUploadFiles({
   label: string;
   variant?: FileElemVariant;
 }) {
-  const uploadsHandler = useUploadsHandler(variant);
+  const uploadsHandler = useS3UploadsController(variant);
 
   useEffect(() => {
     onChange(uploadsHandler.files);

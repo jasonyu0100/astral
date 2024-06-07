@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { ToggleDropdownList } from './dropdown-list/main';
 import { ToggleButton } from './toggle-button/main';
-import { ToggleContext } from '@/(logic)/internal/contexts/toggle/main';
+import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 
 export function ToggleMapModalButton() {
   const [toggled, changeToggled] = useState(false);
 
   return (
-    <ToggleContext.Provider
+    <ContextForTogglable.Provider
       value={{ toggled: toggled, toggle: () => changeToggled(!toggled) }}
     >
       <ToggleButton />
       <div className='relative'>{toggled && <ToggleDropdownList />}</div>
-    </ToggleContext.Provider>
+    </ContextForTogglable.Provider>
   );
 }

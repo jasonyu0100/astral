@@ -1,9 +1,9 @@
-import { FileOnChangeContext } from "@/(logic)/internal/contexts/fileOnChange/main";
+import { ContextForFileChangable } from "@/(logic)/contexts/fileChange/main";
 import { SearchModalContext } from "@/(components)/(form)/file/search/search-image/search-modal/main";
 import { useContext } from "react";
 
 export function SearchButton() {
-    const { file } = useContext(FileOnChangeContext);
+    const { fileElem: file } = useContext(ContextForFileChangable);
     const modalContext = useContext(SearchModalContext);
 
   return (

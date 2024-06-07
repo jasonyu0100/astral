@@ -28,11 +28,11 @@ export function NoteQuoteIdea() {
           }}
         >
           <div className='flex h-[200px] w-[300px] items-center justify-center bg-black p-3'>
-            <p className="font-2xl text-white font-permanentMarker">{'"'}{idea.note?.text}{'"'}</p>
+            <p className="font-2xl text-white font-permanentMarker">{'"'}{idea.noteElem?.text}{'"'}</p>
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {idea.title} {idea.variant} {idea.note?.variant}
+              {idea.title} {idea.variant} {idea.noteElem?.variant}
             </p>
           </div>
         </div>

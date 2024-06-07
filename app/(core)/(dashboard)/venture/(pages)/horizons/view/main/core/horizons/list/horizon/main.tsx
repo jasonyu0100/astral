@@ -21,7 +21,7 @@ export function Horizon() {
             className='flex flex-col items-center space-y-[1rem]'
             href={horizonMap.horizon.id.field.link('0')}
           >
-            <HorizonCover file={exampleFileElem} />
+            <HorizonCover fileElem={exampleFileElem} />
           </Link>
           <div className='flex flex-col'>
             <p className='text-xl font-bold text-slate-300'>Horizon</p>

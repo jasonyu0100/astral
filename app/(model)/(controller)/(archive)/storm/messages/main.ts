@@ -1,8 +1,8 @@
 import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
-import { useOpenAI } from '../../external/openai/main';
+import { useOpenAIController } from '../../../../../(api)/(controller)/openai/main';
 import { messagesGqlHelper } from '../../../(db)/(archive-db)/messages/main';
-import { useGemini } from '../../external/gemini/main';
+import { useGeminiController } from '../../../../../(api)/(controller)/gemini/main';
 
 export interface MessageActions {
   createMessageFromUser: (text: string) => Promise<ConversationMessageObj>;
@@ -20,7 +20,7 @@ export interface MessagesHandler {
 export const MessagesHandlerContext = createContext({} as MessagesHandler);
 
 export const useMessagesHandler = (chatId: string, userId: string): MessagesHandler => {
-  const { getMessageResponse } = useGemini();
+  const { getMessageResponse } = useGeminiController();
   const [messages, changeMessages] = useState<ConversationMessageObj[]>([]);
   const [inputMessage, changeInputMessage] = useState('');
 

@@ -9,10 +9,10 @@ export enum SpaceCoverVariant {
 }
 interface SpaceCoverProps extends DivInputProps {
   variant?: SpaceCoverVariant;
-  file: FileElem;
+  fileElem: FileElem;
 }
 
-export function SpaceCover({ file, variant, ...props }: SpaceCoverProps) {
+export function SpaceCover({ fileElem: file, variant, ...props }: SpaceCoverProps) {
   return (
     <>
       {(variant === SpaceCoverVariant.PLAIN || variant === undefined) && (

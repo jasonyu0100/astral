@@ -1,10 +1,10 @@
-import { ConversationMessageContext } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
 import { StormScenenerChatMessage } from './them/main';
 import { StormYouChatMessage } from './you/main';
 import { useContext } from 'react';
 
 export function StormMessage() {
-  const message = useContext(ConversationMessageContext);
+  const message = useContext(ContextForConversationMessageObj);
 
   return (
     <>

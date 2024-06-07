@@ -1,9 +1,9 @@
-import { FileOnChangeContext } from '@/(logic)/internal/contexts/fileOnChange/main';
+import { ContextForFileChangable } from '@/(logic)/contexts/fileChange/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {
-  const { file, onChange } = useContext(FileOnChangeContext);
+  const { fileElem: file, onChange } = useContext(ContextForFileChangable);
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>

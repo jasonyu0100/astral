@@ -1,6 +1,6 @@
 import { MutableRefObject, useContext } from 'react';
 import {
-  SceneIdeaContext,
+  ContextForSceneIdeaObj,
   SceneIdeaVariant,
 } from '@/(model)/space/chapter/scene/idea/main';
 import { FileIdea } from './file/main';
@@ -14,7 +14,7 @@ export function MapIdea({
 }: {
   constraintsRef: MutableRefObject<null>;
 }) {
-  const idea = useContext(SceneIdeaContext);
+  const idea = useContext(ContextForSceneIdeaObj);
   const ideaMotionContext = useIdeaHandler(idea, constraintsRef);
 
   return (

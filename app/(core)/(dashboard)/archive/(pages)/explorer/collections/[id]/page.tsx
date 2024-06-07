@@ -1,7 +1,7 @@
 'use client';
 import { CollectionsResults } from './view/view';
 import {
-  GalleryContext,
+  ContextForGalleryObj,
 } from '@/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { useGalleryHandler } from '@/(model)/(controller)/(archive)/explorer/gallerys/gallery/main';
@@ -23,14 +23,14 @@ function Page({ params }: { params: { id: string } }) {
   const modalContext = useArchiveExplorerCreateModal();
 
   return (
-    <GalleryContext.Provider value={gallery}>
+    <ContextForGalleryObj.Provider value={gallery}>
       <CollectionsHandlerContext.Provider value={collectionsHandler}>
         <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
           <ExplorerModalView />
           <CollectionsResults />
         </ArchiveExplorerCreateModalContext.Provider>
       </CollectionsHandlerContext.Provider>
-    </GalleryContext.Provider>
+    </ContextForGalleryObj.Provider>
   );
 }
 

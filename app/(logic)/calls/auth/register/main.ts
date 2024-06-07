@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { userDbWrapper } from '@/(model)/(db)/user/main';
-import { FileElem, exampleProfileImageFileElem } from '@/(model)/elements/file/main';
+import { FileElem, exampleDisplayPictureFileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createUserObj } from '@/graphql/mutations';
 import { listUserObjs } from '@/graphql/queries';
@@ -47,7 +47,7 @@ export async function emailRegisterUser(
     email: email,
     passwordHash: passwordHash,
     created: new Date().toISOString(),
-    profilePicture: exampleProfileImageFileElem,
+    dp: exampleDisplayPictureFileElem,
   })
 
   return { status: true, data: user };

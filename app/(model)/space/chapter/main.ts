@@ -6,6 +6,7 @@ export interface SpaceChapterObj {
   title: string;
   summary: string;
   idx: number;
+  created: string;
 }
 
 export const spaceChapterGql = `
@@ -15,6 +16,7 @@ type SpaceChapterObj {
 	title: String!
 	description: String!
 	idx: Int!
+  created: String!
 }
   `;
 
@@ -24,9 +26,10 @@ export const exampleSpaceChapter: SpaceChapterObj = {
   title: 'Melody',
   summary: 'This is a description',
   idx: 0,
+  created: new Date('2023-12-19').toISOString(),
 };
 
-export const SpaceChapterContext = createContext<SpaceChapterObj>(
+export const ContextForSpaceChapterObj = createContext<SpaceChapterObj>(
   {} as SpaceChapterObj,
 );
 
@@ -37,6 +40,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     summary: 'Concept Description',
     spaceId: '0',
     idx: 0,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '1',
@@ -44,6 +48,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     summary: 'Beat Description',
     spaceId: '0',
     idx: 1,
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '2',
@@ -51,5 +56,6 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     summary: 'Melody Description',
     spaceId: '0',
     idx: 2,
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

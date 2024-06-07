@@ -6,7 +6,7 @@ export interface PostCommentObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
 }
 
 export const postCommentGql = `
@@ -16,11 +16,11 @@ type PostCommentObj {
   userId: String!
   title : String!
   description : String!
-  time : String!
+  created : String!
 }
 `;
 
-export const PostCommentContext = createContext<PostCommentObj>(
+export const ContextForPostCommentObj = createContext<PostCommentObj>(
   {} as PostCommentObj,
 );
 
@@ -30,7 +30,7 @@ export const examplePostComment: PostCommentObj = {
   userId: '0',
   title: 'Work from creativity',
   description: 'Arc Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const examplePostComments: PostCommentObj[] = [
@@ -40,7 +40,7 @@ export const examplePostComments: PostCommentObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -48,7 +48,7 @@ export const examplePostComments: PostCommentObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -56,6 +56,6 @@ export const examplePostComments: PostCommentObj[] = [
     userId: '0',
     title: 'Work from creativity',
     description: 'Verse Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
   },
 ];

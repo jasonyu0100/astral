@@ -22,7 +22,7 @@ export function SearchResult({
         },
       )}
     >
-      <img className='aspect-square w-full bg-black' src={result?.file?.src} />
+      <img className='aspect-square w-full bg-black' src={result?.fileElem?.src} />
       <div className='flex h-full w-full flex-col items-center justify-center'>
         <p className='w-full text-center text-xl font-bold text-black'>
           {result.title}

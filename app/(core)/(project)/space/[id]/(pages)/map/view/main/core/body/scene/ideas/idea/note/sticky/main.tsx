@@ -28,7 +28,7 @@ export function NoteStickyIdea() {
             className='h-[full] w-[full] bg-yellow-400 p-[10px]'
             style={{ height: '100%' }}
           >
-            <p>{idea.note?.text}</p>
+            <p>{idea.noteElem?.text}</p>
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>

@@ -22,7 +22,7 @@ export function PageOne() {
   return (
     <FormBody>
       <FormSearchImage
-        file={thumbnail}
+        fileElem={thumbnail}
         onChange={(file) => updateThumbnail(file)}
         label='Thumbnail'
       />

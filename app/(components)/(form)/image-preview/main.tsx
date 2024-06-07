@@ -1,15 +1,15 @@
 import { FileElem } from '@/(model)/elements/file/main';
 
-export function ImagePreview({ file }: { file: FileElem}) {
+export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem}) {
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>
       <div className='relative flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center rounded-full border-slate-300 bg-slate-100'>
-        {file?.src ? (
+        {fileElem?.src ? (
           <>
             <img
               className='h-[150px] w-[150px] flex-shrink-0 rounded-full bg-slate-300'
-              src={file?.src}
+              src={fileElem?.src}
             />
           </>
         ) : (
@@ -38,14 +38,14 @@ export function ImagePreview({ file }: { file: FileElem}) {
           </svg>
         )}
       </div>
-      {file?.src && (
+      {fileElem?.src && (
         <div className='ml-[3rem] flex flex-grow flex-col space-y-[1rem] py-[1rem]'>
           <p className='text-xl font-bold capitalize text-slate-500'>
-            {file?.title}
+            {fileElem?.title}
           </p>
           <div className='flex flex-row'>
             <p className='font-bold text-slate-300'>
-              {file?.variant}, {file?.size} bytes
+              {fileElem?.variant}, {fileElem?.size} bytes
             </p>
           </div>
         </div>

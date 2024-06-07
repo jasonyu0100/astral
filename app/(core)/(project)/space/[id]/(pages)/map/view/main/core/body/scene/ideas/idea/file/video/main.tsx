@@ -23,16 +23,16 @@ export function FileVideoIdea() {
             e.stopPropagation();
             activateIdea();
             const video = document.getElementById(
-              `file-upload-audio-${idea.file?.id}`,
+              `file-upload-audio-${idea.fileElem?.id}`,
             ) as HTMLVideoElement;
             video.play();
           }}
         >
           <video
-            id={`file-upload-audio-${idea.file?.id}`}
+            id={`file-upload-audio-${idea.fileElem?.id}`}
             onDrag={(e) => e.stopPropagation()}
             style={{ width: '100%', height: '100%' }}
-            src={idea.file?.src}
+            src={idea.fileElem?.src}
             title='YouTube video player'
           ></video>
           <div className='flex h-[50px] items-center'>

@@ -7,7 +7,7 @@ import { moodGalleryTemplate } from "./mood/main";
 import { reelGalleryTemplate } from "./reel/main";
 import { vibeGalleryTemplate } from "./vibe/main";
 
-export type _TemplateGalleryObj = Omit<GalleryObj, 'id' | 'userId'>
+export type _TemplateGalleryObj = Omit<GalleryObj, 'id' | 'userId' | 'created'>
 
 export interface TemplateGalleryObj extends _TemplateGalleryObj {
     collections: TemplateCollectionObj[];
@@ -15,7 +15,7 @@ export interface TemplateGalleryObj extends _TemplateGalleryObj {
 
 // COLLECTION
 
-export type _TemplateCollectionObj = Omit<GalleryCollectionObj, 'id' | 'galleryId'>
+export type _TemplateCollectionObj = Omit<GalleryCollectionObj, 'id' | 'galleryId' | 'created'>
 
 export interface TemplateCollectionObj extends _TemplateCollectionObj {
     resources: TemplateResourceObj[];
@@ -24,7 +24,7 @@ export interface TemplateCollectionObj extends _TemplateCollectionObj {
 
 // RESOURCE
 
-export type _TemplateResourceObj = Omit<CollectionResourceObj, 'id' | 'userId' | 'collectionId'>
+export type _TemplateResourceObj = Omit<CollectionResourceObj, 'id' | 'userId' | 'collectionId' | 'created'>
 
 export interface TemplateResourceObj extends _TemplateResourceObj {
 

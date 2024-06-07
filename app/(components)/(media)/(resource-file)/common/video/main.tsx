@@ -1,8 +1,8 @@
-import { CollectionResourceContext } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 
 export function CollectionResourceVideo() {
-  const resource = useContext(CollectionResourceContext);
+  const resource = useContext(ContextForCollectionResource);
 
   return (
     <div className='flex h-full w-full flex-col flex-shrink-0'>
@@ -19,7 +19,7 @@ export function CollectionResourceVideo() {
             video?.pause();
           }
         }}
-        src={resource?.file?.src}
+        src={resource?.fileElem?.src}
         className='aspect-square w-full cursor-pointer bg-black flex-shrink-0'
       />
       <p className='mt-[0.5rem] w-full font-extraBold text-xl'>

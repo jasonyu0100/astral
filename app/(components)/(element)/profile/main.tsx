@@ -5,10 +5,10 @@ import { DivInputProps } from '@/(types)/props/main';
 
 interface ProfileCoverProps extends DivInputProps {
   coverFx?: string;
-  file: FileElem;
+  fileElem: FileElem;
 }
 
-export function ProfileCover({ coverFx, file, ...props }: ProfileCoverProps) {
+export function ProfileCover({ coverFx, fileElem: fileElem, ...props }: ProfileCoverProps) {
   return (
     <GlassEffectWrapper
       className={props.className}
@@ -16,8 +16,8 @@ export function ProfileCover({ coverFx, file, ...props }: ProfileCoverProps) {
     >
       <img
         className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
-        src={file.src}
-        alt={file.title}
+        src={fileElem.src}
+        alt={fileElem.title}
       />
     </GlassEffectWrapper>
   );

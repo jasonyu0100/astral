@@ -3,7 +3,7 @@ import { TemplateFileElem, TemplateFileElems } from '../main';
 
 export const templateFileElem: TemplateFileElem = {
   src: '',
-  fileType: 'image/png',
+  ext: 'image/png',
   title: 'Image',
   size: 0,
   variant: FileElemVariant.IMAGE,
@@ -12,21 +12,21 @@ export const templateFileElem: TemplateFileElem = {
 export const templateFileElems: TemplateFileElems = [
   {
     src: '',
-    fileType: 'image/png',
+    ext: 'image/png',
     title: 'Image',
     size: 0,
     variant: FileElemVariant.IMAGE,
   },
   {
     src: '',
-    fileType: 'image/png',
+    ext: 'image/png',
     title: 'Image',
     size: 0,
     variant: FileElemVariant.IMAGE,
   },
   {
     src: '',
-    fileType: 'image/png',
+    ext: 'image/png',
     title: 'Image',
     size: 0,
     variant: FileElemVariant.IMAGE,

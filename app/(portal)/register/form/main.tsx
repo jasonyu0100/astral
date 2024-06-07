@@ -54,7 +54,7 @@ export function PortalRegisterForm() {
           const profilePicture: FileElem = {
             id: crypto.randomUUID(),
             src: resp.data.picture,
-            fileType: 'image/*',
+            ext: 'image/*',
             title: 'Profile Picture',
             size: 0,
             variant: FileElemVariant.IMAGE,

@@ -1,54 +1,51 @@
 import { createContext } from 'react';
 
-export enum ChatMemberVariant {
-  USER = 'You',
-  AGENT = 'Agent',
-}
-
 export interface ChatMemberObj {
   id: string;
   chatId: string;
-  variant: string;
+  agentId?: string;
   userId?: string;
+  created: string;
 }
 
 export const chatMemberGql = `
 type ChatMemberObj {
   id: String!
   chatId: String!
-  variant: String!
-  userId: String
+  agentId: String!
+  userId: String!
+  created: String!
 }
 `;
 
-export const ChatMemberObjContext = createContext<ChatMemberObj>(
+export const ContextForChatMemberObj = createContext<ChatMemberObj>(
   {} as ChatMemberObj,
 );
 
 export const exampleChatMember: ChatMemberObj = {
   id: '0',
   chatId: '0',
-  variant: ChatMemberVariant.USER,
   userId: '0',
+  created: new Date('2023-12-19').toISOString(),
 };
 
 export const exampleChatMembers: ChatMemberObj[] = [
   {
     id: '0',
     chatId: '0',
-    variant: ChatMemberVariant.USER,
     userId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
     chatId: '0',
-    variant: ChatMemberVariant.USER,
-    userId: '0',
+    agentId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
   {
     id: '0',
     chatId: '0',
-    variant: ChatMemberVariant.USER,
     userId: '0',
+    created: new Date('2023-12-19').toISOString(),
   },
 ];

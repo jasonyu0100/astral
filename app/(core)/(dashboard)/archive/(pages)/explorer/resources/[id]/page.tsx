@@ -1,11 +1,11 @@
 'use client';
 import { createContext } from 'react';
 import {
-  GalleryContext,
+  ContextForGalleryObj,
   GalleryObj,
 } from '@/(model)/gallery/main';
 import {
-  GalleryCollectionContext,
+  ContextForGalleryCollectionObj,
   GalleryCollectionObj,
 } from '@/(model)/gallery/collection/main';
 import isVerseAuth from '@/(utils)/isAuth';
@@ -37,8 +37,8 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <GalleryContext.Provider value={gallery}>
-        <GalleryCollectionContext.Provider value={collection}>
+      <ContextForGalleryObj.Provider value={gallery}>
+        <ContextForGalleryCollectionObj.Provider value={collection}>
           <ResourcesHandlerContext.Provider value={resourcesHandler}>
               <CraftTabs tab={CraftTabStage.Explorer} 
                 backUrl={archiveMap.archive.explorer.collections.id.link(gallery.id)}
@@ -48,8 +48,8 @@ function Page({ params }: { params: { id: string } }) {
                 <ResourcesView />
               </DashboardContent>
           </ResourcesHandlerContext.Provider>
-        </GalleryCollectionContext.Provider>
-      </GalleryContext.Provider>
+        </ContextForGalleryCollectionObj.Provider>
+      </ContextForGalleryObj.Provider>
     </ArchiveExplorerCreateModalContext.Provider>
   );
 }

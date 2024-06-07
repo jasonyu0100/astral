@@ -15,7 +15,7 @@ export const moodGalleryTemplate: TemplateGalleryObj = {
           title: 'Resource 1',
           description: 'This is a resource',
           variant: CollectionResourceVariant.FILE,
-          file: exampleFileElem,
+          fileElem: exampleFileElem,
         },
       ],
     },

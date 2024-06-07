@@ -29,7 +29,7 @@ input NoteElemInput {
 }
 `;
 
-export const NoteElemContext = createContext<NoteElem>({} as NoteElem);
+export const ContextForNoteElem = createContext<NoteElem>({} as NoteElem);
 
 export const exampleNoteElem: NoteElem = {
   id: '0',

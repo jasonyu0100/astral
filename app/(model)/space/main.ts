@@ -5,8 +5,9 @@ export interface SpaceObj {
   userId: string;
   title: string;
   description: string;
-  time: string;
+  created: string;
   thumbnail: FileElem;
+  category: string;
 }
 
 export const spaceGql = `
@@ -14,38 +15,23 @@ type SpaceObj {
 	id: String!
 	userId: String!
 	title: String!
-	time: String!
+	created: String!
 	description: String!
 	thumbnail: FileElem!
-}
-
-input UpdateSpaceChapterObjInput {
-	id: String!
-	spaceId: String
-	title: String
-	description: String
-	idx: Int
-  thumbnail: FileElemInput
-}
-
-input CreateSpaceChapterObjInput {
-	spaceId: String!
-	title: String!
-	description: String!
-	idx: Int!
-  thumbnail: FileElemInput!
+  category: String!
 }
 `;
 
-export const SpaceContext = createContext<SpaceObj>({} as SpaceObj);
+export const ContextForSpaceObj = createContext<SpaceObj>({} as SpaceObj);
 
 export const exampleSpace: SpaceObj = {
   id: '0',
   userId: '0',
   title: 'Space Example',
   description: 'Space Description',
-  time: new Date().toISOString(),
+  created: new Date().toISOString(),
   thumbnail: exampleFileElem,
+  category: 'Space Category',
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -54,15 +40,17 @@ export const exampleSpaces: SpaceObj[] = [
     userId: '0',
     title: 'Space Example',
     description: 'Space Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     thumbnail: exampleFileElem,
+    category: 'Space Category',
   },
   {
     id: '1',
     userId: '0',
     title: 'Space Example',
     description: 'Space Description',
-    time: new Date().toISOString(),
+    created: new Date().toISOString(),
     thumbnail: exampleFileElem,
+    category: 'Space Category',
   },
 ];

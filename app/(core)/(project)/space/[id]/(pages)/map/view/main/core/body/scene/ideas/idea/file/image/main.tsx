@@ -25,7 +25,7 @@ export function FileImageIdea() {
         >
           <img
             className='pointer-events-none aspect-square aspect-square w-full flex-shrink-0 border-[2px] border-slate-300'
-            src={idea?.file?.src}
+            src={idea?.fileElem?.src}
           />
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-black'>
