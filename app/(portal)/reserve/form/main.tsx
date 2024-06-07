@@ -7,7 +7,7 @@ import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import { portalModel } from '@/(portal)/(common)/model/main';
 import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
-import { reservePosition } from '@/(logic)/calls/auth/reserve/main';
+import { reservePosition } from '@/(logic)/auth/reserve/main';
 
 export function PortalReserveForm() {
   const { variant } = useContext(PolaroidContext);

@@ -21,6 +21,7 @@ interface ControllerState {
 
 interface StateActions {
   select: (obj: ChapterChatObj) => ChapterChatObj;  
+  deselect: () => void;
   sort: () => ChapterChatObj[];
   goStart: () => ChapterChatObj | undefined;
   goEnd: () => ChapterChatObj | undefined;
@@ -89,6 +90,9 @@ export const useControllerForChapterChats = (
     select: (obj: ChapterChatObj) => {
       changeId(obj.id);
       return obj;
+    },
+    deselect: () => {
+      changeId('');
     },
     sort: () => {
       return objs.sort((a, b) => {

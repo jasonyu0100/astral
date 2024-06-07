@@ -90,6 +90,9 @@ export const useControllerForChapterChats = (
       changeId(obj.id);
       return obj;
     },
+    deselect: () => {
+      changeId('');
+    },
     sort: () => {
       return objs.sort((a, b) => {
         return Date.parse(a.created) < Date.parse(b.created) ? -1 : 1;

@@ -16,7 +16,7 @@ import axios from 'axios';
 import {
   emailLoginUser,
   googleLoginUser,
-} from '@/(logic)/calls/auth/login/main';
+} from '@/(logic)/auth/login/main';
 import { UserObj } from '@/(model)/user/main';
 import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
 
