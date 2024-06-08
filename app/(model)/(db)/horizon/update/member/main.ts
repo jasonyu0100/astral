@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { HorizonUpdateMemberObj } from "@/(model)/horizon/update/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createHorizonUpdateMemberObj, deleteHorizonUpdateMemberObj, updateHorizonUpdateMemberObj } from "@/graphql/mutations";
 import { listHorizonUpdateMemberObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): HorizonUpdateMemberObj {
+function castSingle(obj: any) {
   return obj as HorizonUpdateMemberObj;
 }
 
-function castMultiple(objs: any[]): HorizonUpdateMemberObj[] {
+function castMultiple(objs: any[]) {
   return objs as HorizonUpdateMemberObj[];
 }
 
-async function getObj(key: string, value: string): Promise<HorizonUpdateMemberObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateMemberObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<HorizonUpdateMemberOb
   return castSingle(payload?.data?.listHorizonUpdateMemberObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<HorizonUpdateMemberObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateMemberObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<HorizonUpdateMemberO
   return castSingle(payload?.data?.listHorizonUpdateMemberObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<HorizonUpdateMemberObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateMemberObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<HorizonUpdateMember
   return castMultiple(payload?.data?.listHorizonUpdateMemberObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<HorizonUpdateMemberObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listHorizonUpdateMemberObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listHorizonUpdateMemberObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateMemberObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonUpdateMemberObj);
 } 
 
-interface HorizonUpdateMemberDbWrapper {
-    getObj: (key: string, value: string) => Promise<HorizonUpdateMemberObj>;
-    listObjs: (key: string, value: string) => Promise<HorizonUpdateMemberObj[]>;
-    createObj: (newObj: Omit<HorizonUpdateMemberObj, 'id'>) => Promise<HorizonUpdateMemberObj>;
-    updateObj: (id: string, updateObj: Partial<HorizonUpdateMemberObj>) => Promise<HorizonUpdateMemberObj>;
-    overwriteObj: (id: string, newObj: HorizonUpdateMemberObj) => Promise<HorizonUpdateMemberObj>;
-    deleteObj: (id: string) => Promise<HorizonUpdateMemberObj>;
-    getFromVariables: (variables: Object) => Promise<HorizonUpdateMemberObj>;
-    listFromVariables: (variables: Object) => Promise<HorizonUpdateMemberObj[]>;
-}
-
-export const horizonUpdateMemberDbWrapper: HorizonUpdateMemberDbWrapper = {
+export const horizonUpdateMemberDbWrapper: DbWrapper<HorizonUpdateMemberObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

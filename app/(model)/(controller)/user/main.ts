@@ -1,7 +1,25 @@
 import { userDbWrapper } from '@/(model)/(db)/user/main';
 import { UserObj } from '@/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
+import {
+  BaseCreateActions,
+  BaseDeleteActions,
+  BaseEditActions,
+  BaseGatherActions,
+  BaseStateActions,
+} from '../main';
 
+type TargetObj = UserObj;
+interface ControllerState {
+  userId: string;
+  user: TargetObj;
+}
+
+interface StateActions extends BaseStateActions<TargetObj> {}
+interface GatherActions extends BaseGatherActions<TargetObj> {}
+interface EditActions extends BaseEditActions<TargetObj> {}
+interface CreateActions extends BaseCreateActions<TargetObj> {}
+interface DeleteActions extends BaseDeleteActions<TargetObj> {}
 interface ControllerActions {
   stateActions: StateActions;
   gatherActions: GatherActions;
@@ -10,69 +28,47 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-interface ControllerState {
-  userId: string;
-  user: UserObj;
-}
-
-interface StateActions {
-}
-
-interface GatherActions {
-  get: () => Promise<UserObj>;
-}
-
-interface EditActions {
-  edit: (partialObj: Partial<UserObj>) => Promise<UserObj>;
-}
-
-interface CreateActions {
-  duplicate: () => Promise<UserObj>;
-}
-
-interface DeleteActions {
-  delete: () => Promise<UserObj>;
-}
-
-export interface ChapterChatsController {
+export interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-export const ContextForChapterChat = createContext({} as ChapterChatsController);
-
-export const useControllerForChapterChat = (targetId: string): ChapterChatsController => {
-  const [chapterChat, changeChapterChat] = useState<UserObj>({} as UserObj);
+const useControllerForUserObj = (targetId: string): Controller => {
+  const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
   const dbWrapper = userDbWrapper;
 
   const controllerState: ControllerState = {
     userId: targetId,
-    user: chapterChat,
-  }
-  
-  const stateActions : StateActions = {
+    user: obj,
+  };
+
+  const stateActions: StateActions = {
+    clear: () => {
+      changeObj({} as TargetObj);
+    }
   };
 
   const gatherActions: GatherActions = {
     get: async () => {
       const getObj = await dbWrapper.getObj('id', targetId);
-      changeChapterChat(getObj);
+      changeObj(getObj);
       return getObj;
     },
   };
 
   const createActions: CreateActions = {
     duplicate: async () => {
-      const copyObj = chapterChat as Omit<UserObj, 'id'>;
+      const copyObj = obj as Omit<TargetObj, 'id'>;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
       return newObj;
-    }
+    },
   };
 
   const editActions: EditActions = {
-    edit: async (partialObj: Partial<UserObj>) => {
-      const updatedObj = await dbWrapper.updateObj("id", partialObj);
+    edit: async (partialObj: Partial<TargetObj>) => {
+      const updatedObj = await dbWrapper.updateObj('id', partialObj);
+      changeObj(updatedObj);
       return updatedObj;
     },
   };
@@ -80,9 +76,10 @@ export const useControllerForChapterChat = (targetId: string): ChapterChatsContr
   const deleteActions: DeleteActions = {
     delete: async () => {
       const deletedObj = await dbWrapper.deleteObj(targetId);
+      changeObj({} as TargetObj);
       return deletedObj;
     },
-  }
+  };
 
   const controllerActions: ControllerActions = {
     deleteActions: deleteActions,
@@ -90,11 +87,11 @@ export const useControllerForChapterChat = (targetId: string): ChapterChatsContr
     gatherActions: gatherActions,
     createActions: createActions,
     editActions: editActions,
-  }
+  };
 
   useMemo(() => {
     if (!targetId) {
-      changeChapterChat({} as UserObj);
+      changeObj({} as TargetObj);
     } else {
       controllerActions.gatherActions.get();
     }
@@ -105,3 +102,6 @@ export const useControllerForChapterChat = (targetId: string): ChapterChatsContr
     actions: controllerActions,
   };
 };
+
+const ContextForUserObj = createContext({} as Controller);
+export { ContextForUserObj, useControllerForUserObj };

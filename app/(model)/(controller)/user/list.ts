@@ -1,9 +1,30 @@
-import { chapterChatDbWrapper } from '@/(model)/(db)/space/chapter/chat/main';
 import { userDbWrapper } from '@/(model)/(db)/user/main';
-import { FileElem } from '@/(model)/elements/file/main';
+import { exampleFileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
+import {
+  BaseListStateActions,
+  BaseListGatherActions,
+  BaseListCreateActions,
+  BaseListEditActions,
+  BaseListDeleteActions,
+} from '../list';
 
+type TargetObj = UserObj;
+interface ControllerState {
+  listId: string;
+  currentUser: TargetObj;
+  users: TargetObj[];
+  userId: string;
+  query: string;
+  queryResults: TargetObj[];
+}
+
+interface StateActions extends BaseListStateActions<TargetObj> {}
+interface GatherActions extends BaseListGatherActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface EditActions extends BaseListEditActions<TargetObj> {}
+interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
   stateActions: StateActions;
   gatherActions: GatherActions;
@@ -12,91 +33,46 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-interface ControllerState {
-  chapterId: string;
-  chapterChat?: UserObj;
-  chapterChats: UserObj[];
-  chapterChatId: string;
-  searchQuery: string;
-  searchResults: UserObj[];
-}
-
-interface StateActions {
-  select: (obj: UserObj) => UserObj;
-  sort: () => UserObj[];
-  goStart: () => UserObj | undefined;
-  goEnd: () => UserObj | undefined;
-  goNext: () => UserObj | undefined;
-  goPrev: () => UserObj | undefined;
-  search: () => UserObj[];
-}
-
-interface GatherActions {
-  list: () => Promise<UserObj[]>;
-  filterSearch: (search: string) => Promise<UserObj[]>;
-}
-
-interface CreateActions {
-  create: (
-    fname: string,
-    lname: string,
-    displayName: string,
-    email: string,
-    dp: FileElem,
-    role: string,
-    bio: string,
-  ) => Promise<UserObj>;
-  duplicate: (target: UserObj) => Promise<UserObj>;
-}
-
-interface EditActions {
-  edit: (id: string, partialObj: Partial<UserObj>) => Promise<UserObj>;
-}
-
-interface DeleteActions {
-  delete: (id: string) => Promise<UserObj>;
-  deleteMany: (ids: string[]) => Promise<UserObj[]>;
-}
-
-export interface ChapterChatsController {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-export const ContextForChapterChats = createContext(
-  {} as ChapterChatsController,
-);
-
-export const useControllerForChapterChatList = (
-  parentId: string,
-): ChapterChatsController => {
-  const [objs, changeObjs] = useState<UserObj[]>([]);
+const useControllerForTargetList = (listId: string): Controller => {
+  const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
-  const current = objs.filter((chat) => chat.id === id).at(0);
+  const [query, changeQuery] = useState<string>('');
+  const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
+  const currentObj =
+    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
   const dbWrapper = userDbWrapper;
 
-  // SEARCH
-  const [searchQuery, changeSearchQuery] = useState<string>('');
-  const [searchResults, changeSearchResults] = useState<UserObj[]>([]);
-
   const controllerState: ControllerState = {
-    chapterId: parentId,
-    chapterChats: objs,
-    chapterChatId: id,
-    chapterChat: current,
-    searchQuery,
-    searchResults,
+    listId: listId,
+    users: objs,
+    currentUser: currentObj,
+    userId: id,
+    query: query,
+    queryResults: queryResults,
   };
 
   const stateActions: StateActions = {
-    select: (obj: UserObj) => {
+    select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
     },
+    between(start: Date, end: Date) {
+      return objs.filter((obj) => {
+        const date = new Date(obj.created);
+        return date >= start && date <= end;
+      });
+    },
     sort: () => {
-      const sortedObjs = objs;
-      changeObjs(sortedObjs);
-      return sortedObjs;
+      return objs.sort((a, b) => {
+        const dateA = new Date(a.created);
+        const dateB = new Date(b.created);
+        return dateA < dateB ? -1 : 1;
+      });
     },
     goStart: () => {
       changeId(objs.at(0)?.id || '');
@@ -107,7 +83,7 @@ export const useControllerForChapterChatList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === parentId);
+      const currentIndex = objs.findIndex((obj) => obj.id === listId);
       const prevIndex = currentIndex - 1;
 
       if (prevIndex >= 0) {
@@ -130,30 +106,36 @@ export const useControllerForChapterChatList = (
       }
     },
     search: () => {
-      if (searchQuery === '') {
+      if (query === '') {
         return objs;
       } else {
         const results = objs.filter((obj) => {
-          const regex = new RegExp(searchQuery, 'i');
+          const regex = new RegExp(query, 'i');
           return regex.test(obj.email);
         });
-        changeSearchResults(results);
+        changeQueryResults(results);
         return results;
       }
     },
   };
 
   const gatherActions: GatherActions = {
-    list: async () => {
-      const objs = await dbWrapper.listObjs('chapterId', parentId);
+    gatherAll: async () => {
+      const objs = await dbWrapper.listAllObjs();
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    filterSearch: async (search: string) => {
+    gatherFilter: async () => {
+      const objs = await dbWrapper.listObjs('listId', listId);
+      changeObjs(objs);
+      changeId(objs.at(0)?.id || '');
+      return objs;
+    },
+    gatherSearch: async (search: string) => {
       const objs = await dbWrapper.listFromVariables({
         filter: {
-          chapterId: parentId,
+          chapterId: listId,
           title: {
             contains: search,
           },
@@ -166,43 +148,43 @@ export const useControllerForChapterChatList = (
   };
 
   const createActions: CreateActions = {
-    create: async (
-      fname: string,
-      lname: string,
-      displayName: string,
-      email: string,
-      dp: FileElem,
-      role: string,
-      bio: string,
-    ) => {
-      const createObj: Omit<UserObj, 'id'> = {
-        fname,
-        lname,
-        displayName,
-        email,
-        dp,
-        role,
-        bio,
+    create: async () => {
+      const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        fname: '',
+        lname: '',
+        displayName: '',
+        email: '',
+        dp: exampleFileElem,
+        role: '',
+        bio: '',
       };
       const newObj = await dbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       return newObj;
     },
-    duplicate: async (target: UserObj) => {
-      const copyObj = target as Omit<UserObj, 'id'>;
+    duplicate: async (target: TargetObj) => {
+      const copyObj = target as Omit<TargetObj, 'id'>;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
-      changeObjs((prev) => [...prev, newObj]);
+      const index = objs.findIndex((obj) => obj.id === target.id);
+      changeObjs((prev) => [
+        ...prev.slice(0, index),
+        newObj,
+        ...prev.slice(index),
+      ])
       changeId(newObj.id);
       return newObj;
     },
   };
 
   const editActions: EditActions = {
-    edit: async (id: string, partialObj: Partial<UserObj>) => {
+    edit: async (id: string, partialObj: Partial<TargetObj>) => {
       const updatedObj = await dbWrapper.updateObj(id, partialObj);
+      changeObjs((prev) =>
+        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+      );
       changeId(updatedObj.id);
       return updatedObj;
     },
@@ -234,15 +216,18 @@ export const useControllerForChapterChatList = (
   };
 
   useMemo(() => {
-    if (!parentId) {
+    if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.list();
+      controllerActions.gatherActions.gatherFilter();
     }
-  }, [controllerActions.gatherActions, parentId]);
+  }, [controllerActions.gatherActions, listId]);
 
   return {
     state: controllerState,
     actions: controllerActions,
   };
 };
+
+const ContextForUserObjList = createContext({} as Controller);
+export { ContextForUserObjList, useControllerForTargetList };

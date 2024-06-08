@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { VerseMemberObj } from "@/(model)/space/chapter/verse/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createVerseMemberObj, deleteVerseMemberObj, updateVerseMemberObj } from "@/graphql/mutations";
 import { listVerseMemberObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): VerseMemberObj {
+function castSingle(obj: any) {
   return obj as VerseMemberObj;
 }
 
-function castMultiple(objs: any[]): VerseMemberObj[] {
+function castMultiple(objs: any[]) {
   return objs as VerseMemberObj[];
 }
 
-async function getObj(key: string, value: string): Promise<VerseMemberObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listVerseMemberObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<VerseMemberObj> {
   return castSingle(payload?.data?.listVerseMemberObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<VerseMemberObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listVerseMemberObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<VerseMemberObj> {
   return castSingle(payload?.data?.listVerseMemberObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<VerseMemberObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listVerseMemberObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<VerseMemberObj[]> {
   return castMultiple(payload?.data?.listVerseMemberObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<VerseMemberObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listVerseMemberObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listVerseMemberObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listVerseMemberObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteVerseMemberObj);
 } 
 
-interface VerseMemberDbWrapper {
-    getObj: (key: string, value: string) => Promise<VerseMemberObj>;
-    listObjs: (key: string, value: string) => Promise<VerseMemberObj[]>;
-    createObj: (newObj: Omit<VerseMemberObj, 'id'>) => Promise<VerseMemberObj>;
-    updateObj: (id: string, updateObj: Partial<VerseMemberObj>) => Promise<VerseMemberObj>;
-    overwriteObj: (id: string, newObj: VerseMemberObj) => Promise<VerseMemberObj>;
-    deleteObj: (id: string) => Promise<VerseMemberObj>;
-    getFromVariables: (variables: Object) => Promise<VerseMemberObj>;
-    listFromVariables: (variables: Object) => Promise<VerseMemberObj[]>;
-}
-
-export const verseMemberDbWrapper: VerseMemberDbWrapper = {
+export const verseMemberDbWrapper: DbWrapper<VerseMemberObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

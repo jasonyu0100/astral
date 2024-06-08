@@ -1,31 +1,36 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { ChapterVerseObj } from "@/(model)/space/chapter/verse/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createChapterVerseObj, deleteChapterVerseObj, updateChapterVerseObj } from "@/graphql/mutations";
-import { listChapterVerseObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { DbWrapper } from '@/(model)/(db)/main';
+import { ChapterVerseObj } from '@/(model)/space/chapter/verse/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createChapterVerseObj,
+  deleteChapterVerseObj,
+  updateChapterVerseObj,
+} from '@/graphql/mutations';
+import { listChapterVerseObjs } from '@/graphql/queries';
 
-function castSingle(obj: any): ChapterVerseObj {
+function castSingle(obj: any) {
   return obj as ChapterVerseObj;
 }
 
-function castMultiple(objs: any[]): ChapterVerseObj[] {
+function castMultiple(objs: any[]) {
   return objs as ChapterVerseObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ChapterVerseObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      [key]: {
+        eq: value,
+      },
     },
   });
 
   return castSingle(payload?.data?.listChapterVerseObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ChapterVerseObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: variables,
@@ -34,7 +39,10 @@ async function getFromVariables(variables: Object): Promise<ChapterVerseObj> {
   return castSingle(payload?.data?.listChapterVerseObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ChapterVerseObj[]> {
+async function listObjs(
+  key: string,
+  value: string,
+) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: {
@@ -49,10 +57,21 @@ async function listObjs(key: string, value: string): Promise<ChapterVerseObj[]> 
   return castMultiple(payload?.data?.listChapterVerseObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ChapterVerseObj[]> {
+async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
-    variables: variables
+    variables: {},
+  });
+
+  return castMultiple(payload?.data?.listChapterVerseObjs?.items || []);
+}
+
+async function listFromVariables(
+  variables: Object,
+) {
+  const payload = await amplifyClient.graphql({
+    query: listChapterVerseObjs,
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listChapterVerseObjs?.items || []);
@@ -67,7 +86,7 @@ async function createObj(newObj: Omit<ChapterVerseObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createChapterVerseObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<ChapterVerseObj>) {
   const payload = await amplifyClient.graphql({
@@ -75,13 +94,13 @@ async function updateObj(id: string, updateObj: Partial<ChapterVerseObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateChapterVerseObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: ChapterVerseObj) {
   const payload = await amplifyClient.graphql({
@@ -89,14 +108,13 @@ async function overwriteObj(id: string, newObj: ChapterVerseObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateChapterVerseObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -104,31 +122,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteChapterVerseObj);
-} 
-
-interface ChapterVerseDbWrapper {
-    getObj: (key: string, value: string) => Promise<ChapterVerseObj>;
-    listObjs: (key: string, value: string) => Promise<ChapterVerseObj[]>;
-    createObj: (newObj: Omit<ChapterVerseObj, 'id'>) => Promise<ChapterVerseObj>;
-    updateObj: (id: string, updateObj: Partial<ChapterVerseObj>) => Promise<ChapterVerseObj>;
-    overwriteObj: (id: string, newObj: ChapterVerseObj) => Promise<ChapterVerseObj>;
-    deleteObj: (id: string) => Promise<ChapterVerseObj>;
-    getFromVariables: (variables: Object) => Promise<ChapterVerseObj>;
-    listFromVariables: (variables: Object) => Promise<ChapterVerseObj[]>;
 }
 
-export const chapterVerseDbWrapper: ChapterVerseDbWrapper = {
-    getObj,
-    listObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+export const chapterVerseDbWrapper: DbWrapper<ChapterVerseObj> = {
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

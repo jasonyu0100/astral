@@ -3,16 +3,17 @@ import { GalleryCollectionObj } from "@/(model)/gallery/collection/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createGalleryCollectionObj, deleteGalleryCollectionObj, updateGalleryCollectionObj } from "@/graphql/mutations";
 import { listGalleryCollectionObjs } from "@/graphql/queries";
+import { DbWrapper } from "../../main";
 
-function castSingle(obj: any): GalleryCollectionObj {
+function castSingle(obj: any) {
   return obj as GalleryCollectionObj;
 }
 
-function castMultiple(objs: any[]): GalleryCollectionObj[] {
+function castMultiple(objs: any[]) {
   return objs as GalleryCollectionObj[];
 }
 
-async function getObj(key: string, value: string): Promise<GalleryCollectionObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listGalleryCollectionObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<GalleryCollectionObj>
   return castSingle(payload?.data?.listGalleryCollectionObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<GalleryCollectionObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listGalleryCollectionObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<GalleryCollectionObj
   return castSingle(payload?.data?.listGalleryCollectionObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<GalleryCollectionObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listGalleryCollectionObjs,
     variables: {
@@ -49,7 +50,18 @@ async function listObjs(key: string, value: string): Promise<GalleryCollectionOb
   return castMultiple(payload?.data?.listGalleryCollectionObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<GalleryCollectionObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listGalleryCollectionObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listGalleryCollectionObjs?.items || []);
+}
+
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listGalleryCollectionObjs,
     variables: variables
@@ -111,20 +123,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteGalleryCollectionObj);
 } 
 
-interface GalleryCollectionDbWrapper {
-    getObj: (key: string, value: string) => Promise<GalleryCollectionObj>;
-    listObjs: (key: string, value: string) => Promise<GalleryCollectionObj[]>;
-    createObj: (newObj: Omit<GalleryCollectionObj, 'id'>) => Promise<GalleryCollectionObj>;
-    updateObj: (id: string, updateObj: Partial<GalleryCollectionObj>) => Promise<GalleryCollectionObj>;
-    overwriteObj: (id: string, newObj: GalleryCollectionObj) => Promise<GalleryCollectionObj>;
-    deleteObj: (id: string) => Promise<GalleryCollectionObj>;
-    getFromVariables: (variables: Object) => Promise<GalleryCollectionObj>;
-    listFromVariables: (variables: Object) => Promise<GalleryCollectionObj[]>;
-}
-
-export const galleryCollectionDbWrapper: GalleryCollectionDbWrapper = {
+export const galleryCollectionDbWrapper: DbWrapper<GalleryCollectionObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

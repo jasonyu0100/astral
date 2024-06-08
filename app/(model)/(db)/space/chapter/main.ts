@@ -3,16 +3,17 @@ import { SpaceChapterObj } from "@/(model)/space/chapter/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createSpaceChapterObj, deleteSpaceChapterObj, updateSpaceChapterObj } from "@/graphql/mutations";
 import { listSpaceChapterObjs } from "@/graphql/queries";
+import { DbWrapper } from "../../main";
 
-function castSingle(obj: any): SpaceChapterObj {
+function castSingle(obj: any) {
   return obj as SpaceChapterObj;
 }
 
-function castMultiple(objs: any[]): SpaceChapterObj[] {
+function castMultiple(objs: any[]) {
   return objs as SpaceChapterObj[];
 }
 
-async function getObj(key: string, value: string): Promise<SpaceChapterObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listSpaceChapterObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<SpaceChapterObj> {
   return castSingle(payload?.data?.listSpaceChapterObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<SpaceChapterObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listSpaceChapterObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<SpaceChapterObj> {
   return castSingle(payload?.data?.listSpaceChapterObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<SpaceChapterObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listSpaceChapterObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<SpaceChapterObj[]> 
   return castMultiple(payload?.data?.listSpaceChapterObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<SpaceChapterObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listSpaceChapterObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listSpaceChapterObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listSpaceChapterObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteSpaceChapterObj);
 } 
 
-interface SpaceChapterDbWrapper {
-    getObj: (key: string, value: string) => Promise<SpaceChapterObj>;
-    listObjs: (key: string, value: string) => Promise<SpaceChapterObj[]>;
-    createObj: (newObj: Omit<SpaceChapterObj, 'id'>) => Promise<SpaceChapterObj>;
-    updateObj: (id: string, updateObj: Partial<SpaceChapterObj>) => Promise<SpaceChapterObj>;
-    overwriteObj: (id: string, newObj: SpaceChapterObj) => Promise<SpaceChapterObj>;
-    deleteObj: (id: string) => Promise<SpaceChapterObj>;
-    getFromVariables: (variables: Object) => Promise<SpaceChapterObj>;
-    listFromVariables: (variables: Object) => Promise<SpaceChapterObj[]>;
-}
-
-export const spaceChapterDbWrapper: SpaceChapterDbWrapper = {
+export const spaceChapterDbWrapper: DbWrapper<SpaceChapterObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

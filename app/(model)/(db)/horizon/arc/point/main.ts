@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { ArcPointObj } from "@/(model)/horizon/arc/point/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createArcPointObj, deleteArcPointObj, updateArcPointObj } from "@/graphql/mutations";
 import { listArcPointObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): ArcPointObj {
+function castSingle(obj: any) {
   return obj as ArcPointObj;
 }
 
-function castMultiple(objs: any[]): ArcPointObj[] {
+function castMultiple(objs: any[]) {
   return objs as ArcPointObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ArcPointObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<ArcPointObj> {
   return castSingle(payload?.data?.listArcPointObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ArcPointObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<ArcPointObj> {
   return castSingle(payload?.data?.listArcPointObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ArcPointObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
     variables: {
@@ -49,10 +50,20 @@ async function listObjs(key: string, value: string): Promise<ArcPointObj[]> {
   return castMultiple(payload?.data?.listArcPointObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ArcPointObj[]> {
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
     variables: variables
+  });
+
+  return castMultiple(payload?.data?.listArcPointObjs?.items || []);
+}
+
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listArcPointObjs,
+    variables: {
+    },
   });
 
   return castMultiple(payload?.data?.listArcPointObjs?.items || []);
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteArcPointObj);
 } 
 
-interface ArcPointDbWrapper {
-    getObj: (key: string, value: string) => Promise<ArcPointObj>;
-    listObjs: (key: string, value: string) => Promise<ArcPointObj[]>;
-    createObj: (newObj: Omit<ArcPointObj, 'id'>) => Promise<ArcPointObj>;
-    updateObj: (id: string, updateObj: Partial<ArcPointObj>) => Promise<ArcPointObj>;
-    overwriteObj: (id: string, newObj: ArcPointObj) => Promise<ArcPointObj>;
-    deleteObj: (id: string) => Promise<ArcPointObj>;
-    getFromVariables: (variables: Object) => Promise<ArcPointObj>;
-    listFromVariables: (variables: Object) => Promise<ArcPointObj[]>;
-}
-
-export const arcPointDbWrapper: ArcPointDbWrapper = {
+export const arcPointDbWrapper: DbWrapper<ArcPointObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

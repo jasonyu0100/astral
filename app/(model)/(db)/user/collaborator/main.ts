@@ -3,16 +3,17 @@ import { UserCollaboratorObj } from "@/(model)/user/collaborator/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createUserCollaboratorObj, deleteUserCollaboratorObj, updateUserCollaboratorObj } from "@/graphql/mutations";
 import { listUserCollaboratorObjs } from "@/graphql/queries";
+import { DbWrapper } from "../../main";
 
-function castSingle(obj: any): UserCollaboratorObj {
+function castSingle(obj: any) {
   return obj as UserCollaboratorObj;
 }
 
-function castMultiple(objs: any[]): UserCollaboratorObj[] {
+function castMultiple(objs: any[]) {
   return objs as UserCollaboratorObj[];
 }
 
-async function getObj(key: string, value: string): Promise<UserCollaboratorObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listUserCollaboratorObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<UserCollaboratorObj> 
   return castSingle(payload?.data?.listUserCollaboratorObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<UserCollaboratorObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listUserCollaboratorObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<UserCollaboratorObj>
   return castSingle(payload?.data?.listUserCollaboratorObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<UserCollaboratorObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listUserCollaboratorObjs,
     variables: {
@@ -49,7 +50,18 @@ async function listObjs(key: string, value: string): Promise<UserCollaboratorObj
   return castMultiple(payload?.data?.listUserCollaboratorObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<UserCollaboratorObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listUserCollaboratorObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listUserCollaboratorObjs?.items || []);
+}
+
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listUserCollaboratorObjs,
     variables: variables
@@ -111,20 +123,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserCollaboratorObj);
 } 
 
-interface UserCollaboratorDbWrapper {
-    getObj: (key: string, value: string) => Promise<UserCollaboratorObj>;
-    listObjs: (key: string, value: string) => Promise<UserCollaboratorObj[]>;
-    createObj: (newObj: Omit<UserCollaboratorObj, 'id'>) => Promise<UserCollaboratorObj>;
-    updateObj: (id: string, updateObj: Partial<UserCollaboratorObj>) => Promise<UserCollaboratorObj>;
-    overwriteObj: (id: string, newObj: UserCollaboratorObj) => Promise<UserCollaboratorObj>;
-    deleteObj: (id: string) => Promise<UserCollaboratorObj>;
-    getFromVariables: (variables: Object) => Promise<UserCollaboratorObj>;
-    listFromVariables: (variables: Object) => Promise<UserCollaboratorObj[]>;
-}
-
-export const userCollaboratorDbWrapper: UserCollaboratorDbWrapper = {
+export const userCollaboratorDbWrapper: DbWrapper<UserCollaboratorObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

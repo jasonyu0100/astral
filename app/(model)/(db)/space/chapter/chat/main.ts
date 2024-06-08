@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { ChapterChatObj } from "@/(model)/space/chapter/chat/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createChapterChatObj, deleteChapterChatObj, updateChapterChatObj } from "@/graphql/mutations";
 import { listChapterChatObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): ChapterChatObj {
+function castSingle(obj: any) {
   return obj as ChapterChatObj;
 }
 
-function castMultiple(objs: any[]): ChapterChatObj[] {
+function castMultiple(objs: any[]) {
   return objs as ChapterChatObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ChapterChatObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listChapterChatObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<ChapterChatObj> {
   return castSingle(payload?.data?.listChapterChatObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ChapterChatObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listChapterChatObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<ChapterChatObj> {
   return castSingle(payload?.data?.listChapterChatObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ChapterChatObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listChapterChatObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<ChapterChatObj[]> {
   return castMultiple(payload?.data?.listChapterChatObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ChapterChatObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listChapterChatObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listChapterChatObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listChapterChatObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChapterChatObj);
 } 
 
-interface ChapterChatDbWrapper {
-    getObj: (key: string, value: string) => Promise<ChapterChatObj>;
-    listObjs: (key: string, value: string) => Promise<ChapterChatObj[]>;
-    createObj: (newObj: Omit<ChapterChatObj, 'id'>) => Promise<ChapterChatObj>;
-    updateObj: (id: string, updateObj: Partial<ChapterChatObj>) => Promise<ChapterChatObj>;
-    overwriteObj: (id: string, newObj: ChapterChatObj) => Promise<ChapterChatObj>;
-    deleteObj: (id: string) => Promise<ChapterChatObj>;
-    getFromVariables: (variables: Object) => Promise<ChapterChatObj>;
-    listFromVariables: (variables: Object) => Promise<ChapterChatObj[]>;
-}
-
-export const chapterChatDbWrapper: ChapterChatDbWrapper = {
+export const chapterChatDbWrapper: DbWrapper<ChapterChatObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

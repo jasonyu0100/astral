@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { ArcForumObj } from "@/(model)/horizon/arc/forum/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createArcForumObj, deleteArcForumObj, updateArcForumObj } from "@/graphql/mutations";
 import { listArcForumObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): ArcForumObj {
+function castSingle(obj: any) {
   return obj as ArcForumObj;
 }
 
-function castMultiple(objs: any[]): ArcForumObj[] {
+function castMultiple(objs: any[]) {
   return objs as ArcForumObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ArcForumObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listArcForumObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<ArcForumObj> {
   return castSingle(payload?.data?.listArcForumObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ArcForumObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listArcForumObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<ArcForumObj> {
   return castSingle(payload?.data?.listArcForumObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ArcForumObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listArcForumObjs,
     variables: {
@@ -49,10 +50,20 @@ async function listObjs(key: string, value: string): Promise<ArcForumObj[]> {
   return castMultiple(payload?.data?.listArcForumObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ArcForumObj[]> {
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listArcForumObjs,
     variables: variables
+  });
+
+  return castMultiple(payload?.data?.listArcForumObjs?.items || []);
+}
+
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listArcForumObjs,
+    variables: {
+    },
   });
 
   return castMultiple(payload?.data?.listArcForumObjs?.items || []);
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteArcForumObj);
 } 
 
-interface ArcForumDbWrapper {
-    getObj: (key: string, value: string) => Promise<ArcForumObj>;
-    listObjs: (key: string, value: string) => Promise<ArcForumObj[]>;
-    createObj: (newObj: Omit<ArcForumObj, 'id'>) => Promise<ArcForumObj>;
-    updateObj: (id: string, updateObj: Partial<ArcForumObj>) => Promise<ArcForumObj>;
-    overwriteObj: (id: string, newObj: ArcForumObj) => Promise<ArcForumObj>;
-    deleteObj: (id: string) => Promise<ArcForumObj>;
-    getFromVariables: (variables: Object) => Promise<ArcForumObj>;
-    listFromVariables: (variables: Object) => Promise<ArcForumObj[]>;
-}
-
-export const arcForumDbWrapper: ArcForumDbWrapper = {
+export const arcForumDbWrapper: DbWrapper<ArcForumObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

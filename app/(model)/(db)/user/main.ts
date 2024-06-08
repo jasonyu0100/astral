@@ -3,16 +3,17 @@ import { UserObj } from "@/(model)/user/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createUserObj, deleteUserObj, updateUserObj } from "@/graphql/mutations";
 import { listUserObjs } from "@/graphql/queries";
+import { DbWrapper } from "../main";
 
-function castSingle(obj: any): UserObj {
+function castSingle(obj: any) {
   return obj as UserObj;
 }
 
-function castMultiple(objs: any[]): UserObj[] {
+function castMultiple(objs: any[]) {
   return objs as UserObj[];
 }
 
-async function getObj(key: string, value: string): Promise<UserObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listUserObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<UserObj> {
   return castSingle(payload?.data?.listUserObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<UserObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listUserObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<UserObj> {
   return castSingle(payload?.data?.listUserObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<UserObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listUserObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<UserObj[]> {
   return castMultiple(payload?.data?.listUserObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<UserObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listUserObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listUserObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listUserObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserObj);
 } 
 
-interface UserDbWrapper {
-    getObj: (key: string, value: string) => Promise<UserObj>;
-    listObjs: (key: string, value: string) => Promise<UserObj[]>;
-    createObj: (newObj: Omit<UserObj, 'id'>) => Promise<UserObj>;
-    updateObj: (id: string, updateObj: Partial<UserObj>) => Promise<UserObj>;
-    overwriteObj: (id: string, newObj: UserObj) => Promise<UserObj>;
-    deleteObj: (id: string) => Promise<UserObj>;
-    getFromVariables: (variables: Object) => Promise<UserObj>;
-    listFromVariables: (variables: Object) => Promise<UserObj[]>;
-}
-
-export const userDbWrapper: UserDbWrapper = {
+export const userDbWrapper: DbWrapper<UserObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

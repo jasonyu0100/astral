@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { ForumMemberObj } from "@/(model)/horizon/arc/forum/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createForumMemberObj, deleteForumMemberObj, updateForumMemberObj } from "@/graphql/mutations";
 import { listForumMemberObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): ForumMemberObj {
+function castSingle(obj: any) {
   return obj as ForumMemberObj;
 }
 
-function castMultiple(objs: any[]): ForumMemberObj[] {
+function castMultiple(objs: any[]) {
   return objs as ForumMemberObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ForumMemberObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<ForumMemberObj> {
   return castSingle(payload?.data?.listForumMemberObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ForumMemberObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<ForumMemberObj> {
   return castSingle(payload?.data?.listForumMemberObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ForumMemberObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
     variables: {
@@ -49,7 +50,17 @@ async function listObjs(key: string, value: string): Promise<ForumMemberObj[]> {
   return castMultiple(payload?.data?.listForumMemberObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ForumMemberObj[]> {
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listForumMemberObjs,
+    variables: {
+    },
+  });
+
+  return castMultiple(payload?.data?.listForumMemberObjs?.items || []);
+}
+
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
     variables: variables
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteForumMemberObj);
 } 
 
-interface ForumMemberDbWrapper {
-    getObj: (key: string, value: string) => Promise<ForumMemberObj>;
-    listObjs: (key: string, value: string) => Promise<ForumMemberObj[]>;
-    createObj: (newObj: Omit<ForumMemberObj, 'id'>) => Promise<ForumMemberObj>;
-    updateObj: (id: string, updateObj: Partial<ForumMemberObj>) => Promise<ForumMemberObj>;
-    overwriteObj: (id: string, newObj: ForumMemberObj) => Promise<ForumMemberObj>;
-    deleteObj: (id: string) => Promise<ForumMemberObj>;
-    getFromVariables: (variables: Object) => Promise<ForumMemberObj>;
-    listFromVariables: (variables: Object) => Promise<ForumMemberObj[]>;
-}
-
-export const forumMemberDbWrapper: ForumMemberDbWrapper = {
+export const forumMemberDbWrapper: DbWrapper<ForumMemberObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,

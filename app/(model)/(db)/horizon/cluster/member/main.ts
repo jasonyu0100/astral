@@ -1,18 +1,19 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
+import { DbWrapper } from "@/(model)/(db)/main";
 import { ClusterMemberObj } from "@/(model)/horizon/cluster/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createClusterMemberObj, deleteClusterMemberObj, updateClusterMemberObj } from "@/graphql/mutations";
 import { listClusterMemberObjs } from "@/graphql/queries";
 
-function castSingle(obj: any): ClusterMemberObj {
+function castSingle(obj: any) {
   return obj as ClusterMemberObj;
 }
 
-function castMultiple(objs: any[]): ClusterMemberObj[] {
+function castMultiple(objs: any[]) {
   return objs as ClusterMemberObj[];
 }
 
-async function getObj(key: string, value: string): Promise<ClusterMemberObj> {
+async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listClusterMemberObjs,
     variables: {
@@ -25,7 +26,7 @@ async function getObj(key: string, value: string): Promise<ClusterMemberObj> {
   return castSingle(payload?.data?.listClusterMemberObjs);
 }
 
-async function getFromVariables(variables: Object): Promise<ClusterMemberObj> {
+async function getFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listClusterMemberObjs,
     variables: variables,
@@ -34,7 +35,7 @@ async function getFromVariables(variables: Object): Promise<ClusterMemberObj> {
   return castSingle(payload?.data?.listClusterMemberObjs);
 }
 
-async function listObjs(key: string, value: string): Promise<ClusterMemberObj[]> {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listClusterMemberObjs,
     variables: {
@@ -49,10 +50,20 @@ async function listObjs(key: string, value: string): Promise<ClusterMemberObj[]>
   return castMultiple(payload?.data?.listClusterMemberObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object): Promise<ClusterMemberObj[]> {
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listClusterMemberObjs,
     variables: variables
+  });
+
+  return castMultiple(payload?.data?.listClusterMemberObjs?.items || []);
+}
+
+async function listAllObjs() {
+  const payload = await amplifyClient.graphql({
+    query: listClusterMemberObjs,
+    variables: {
+    },
   });
 
   return castMultiple(payload?.data?.listClusterMemberObjs?.items || []);
@@ -111,20 +122,10 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterMemberObj);
 } 
 
-interface ClusterMemberDbWrapper {
-    getObj: (key: string, value: string) => Promise<ClusterMemberObj>;
-    listObjs: (key: string, value: string) => Promise<ClusterMemberObj[]>;
-    createObj: (newObj: Omit<ClusterMemberObj, 'id'>) => Promise<ClusterMemberObj>;
-    updateObj: (id: string, updateObj: Partial<ClusterMemberObj>) => Promise<ClusterMemberObj>;
-    overwriteObj: (id: string, newObj: ClusterMemberObj) => Promise<ClusterMemberObj>;
-    deleteObj: (id: string) => Promise<ClusterMemberObj>;
-    getFromVariables: (variables: Object) => Promise<ClusterMemberObj>;
-    listFromVariables: (variables: Object) => Promise<ClusterMemberObj[]>;
-}
-
-export const clusterMemberDbWrapper: ClusterMemberDbWrapper = {
+export const clusterMemberDbWrapper: DbWrapper<ClusterMemberObj> = {
     getObj,
     listObjs,
+    listAllObjs,
     createObj,
     updateObj,
     overwriteObj,
