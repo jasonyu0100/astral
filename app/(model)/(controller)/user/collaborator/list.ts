@@ -9,9 +9,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
+import { UserCollaboratorObj } from '@/(model)/user/collaborator/main';
+import { userCollaboratorDbWrapper } from '@/(model)/(db)/user/collaborator/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = UserCollaboratorObj;
+const gqlDbWrapper = userCollaboratorDbWrapper;
 interface ControllerState {
   listId: string;
   currentUser: TargetObj;
@@ -39,7 +41,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForTargetList = (listId: string): Controller => {
+const useControllerForUserCollaboratorList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -151,13 +153,8 @@ const useControllerForTargetList = (listId: string): Controller => {
     create: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        fname: '',
-        lname: '',
-        displayName: '',
-        email: '',
-        dp: exampleFileElem,
-        role: '',
-        bio: '',
+        userId: '',
+        collaboratorId: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -229,5 +226,5 @@ const useControllerForTargetList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserObjList = createContext({} as Controller);
-export { ContextForUserObjList, useControllerForTargetList };
+const ContextForUserCollaboratorList = createContext({} as Controller);
+export { ContextForUserCollaboratorList, useControllerForUserCollaboratorList };

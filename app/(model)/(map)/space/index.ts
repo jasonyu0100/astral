@@ -1,4 +1,4 @@
-import { reservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
+import { userReservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
 import { chatConversationGql } from '../../space/chapter/chat/conversation/main';
 import { conversationMessageGql } from '../../space/chapter/chat/conversation/message/main';
 import { chapterChatGql } from '../../space/chapter/chat/main';
@@ -17,7 +17,7 @@ import { conversationMessageDbWrapper } from '@/(model)/(db)/space/chapter/chat/
 import { spaceUpdateDbWrapper } from '@/(model)/(db)/space/update/main';
 import { spaceUpdateAddDbWrapper } from '@/(model)/(db)/space/update/add/main';
 import { chapterSceneDbWrapper } from '@/(model)/(db)/space/chapter/scene/main';
-import { sceneideaDbWrapper } from '@/(model)/(db)/space/chapter/scene/idea/main';
+import { sceneIdeaDbWrapper } from '@/(model)/(db)/space/chapter/scene/idea/main';
 import { chapterVerseDbWrapper } from '@/(model)/(db)/space/chapter/verse/main';
 import { verseCommentDbWrapper } from '@/(model)/(db)/space/chapter/verse/comment/main';
 import { chatMemberGql } from '@/(model)/space/chapter/chat/member/main';
@@ -85,7 +85,7 @@ export const spaceMap = {
       idea: {
         children: [],
         gql: sceneIdeaGql,
-        db: sceneideaDbWrapper,
+        db: sceneIdeaDbWrapper,
       },
     },
     verse: {

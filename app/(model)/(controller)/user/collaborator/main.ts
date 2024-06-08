@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { UserCollaboratorObj } from '@/(model)/user/collaborator/main';
+import { userCollaboratorDbWrapper } from '@/(model)/(db)/user/collaborator/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = UserCollaboratorObj;
+const gqlDbWrapper = userCollaboratorDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForUserCollaboratorMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForUserCollaboratorMain = createContext({} as Controller);
+export { ContextForUserCollaboratorMain, useControllerForUserCollaboratorMain };

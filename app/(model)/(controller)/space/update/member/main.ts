@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { SpaceUpdateMemberObj } from '@/(model)/space/update/member/main';
+import { spaceUpdateMemberDbWrapper } from '@/(model)/(db)/space/update/member/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = SpaceUpdateMemberObj;
+const gqlDbWrapper = spaceUpdateMemberDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForSpaceUpdateMemberMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForSpaceUpdateMemberMain = createContext({} as Controller);
+export { ContextForSpaceUpdateMemberMain, useControllerForSpaceUpdateMemberMain };

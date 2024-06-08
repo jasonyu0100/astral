@@ -9,9 +9,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
+import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { conversationMessageDbWrapper } from '@/(model)/(db)/space/chapter/chat/conversation/message/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = ConversationMessageObj;
+const gqlDbWrapper = conversationMessageDbWrapper;
 interface ControllerState {
   listId: string;
   currentUser: TargetObj;
@@ -39,7 +41,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForTargetList = (listId: string): Controller => {
+const useControllerForConversationMessageList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -151,13 +153,9 @@ const useControllerForTargetList = (listId: string): Controller => {
     create: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        fname: '',
-        lname: '',
-        displayName: '',
-        email: '',
-        dp: exampleFileElem,
-        role: '',
-        bio: '',
+        memberId: '',
+        conversationId: '',
+        message: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -229,5 +227,5 @@ const useControllerForTargetList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserObjList = createContext({} as Controller);
-export { ContextForUserObjList, useControllerForTargetList };
+const ContextForConversationMessageList = createContext({} as Controller);
+export { ContextForConversationMessageList, useControllerForConversationMessageList as useControllerForTargetList };

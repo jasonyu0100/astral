@@ -1,7 +1,7 @@
 import { userDbWrapper } from '@/(model)/(db)/user/main';
 import { userGql } from '../../user/main';
 import { userReservationGql } from '../../user/reservation/main';
-import { reservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
+import { userReservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
 import { userCollaboratorGql } from '@/(model)/user/collaborator/main';
 import { use } from 'react';
 import { userCollaboratorDbWrapper } from '@/(model)/(db)/user/collaborator/main';
@@ -25,6 +25,6 @@ export const userMap = {
   reservation: {
     children: [],
     gql: userReservationGql,
-    db: reservationDbWrapper,
+    db: userReservationDbWrapper,
   },
 };

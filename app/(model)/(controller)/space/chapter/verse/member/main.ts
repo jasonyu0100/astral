@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { VerseMemberObj } from '@/(model)/space/chapter/verse/member/main';
+import { verseMemberDbWrapper } from '@/(model)/(db)/space/chapter/verse/member/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = VerseMemberObj;
+const gqlDbWrapper = verseMemberDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForVerseMemberMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForVerseMemberMain = createContext({} as Controller);
+export { ContextForVerseMemberMain, useControllerForVerseMemberMain };

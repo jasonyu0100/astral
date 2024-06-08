@@ -9,9 +9,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
+import { UserReservationObj } from '@/(model)/user/reservation/main';
+import { userReservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = UserReservationObj;
+const gqlDbWrapper = userReservationDbWrapper;
 interface ControllerState {
   listId: string;
   currentUser: TargetObj;
@@ -39,7 +41,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForTargetList = (listId: string): Controller => {
+const useControllerForUserReservationList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -153,11 +155,8 @@ const useControllerForTargetList = (listId: string): Controller => {
         created: new Date().toISOString(),
         fname: '',
         lname: '',
-        displayName: '',
         email: '',
-        dp: exampleFileElem,
-        role: '',
-        bio: '',
+        role: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -229,5 +228,5 @@ const useControllerForTargetList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserObjList = createContext({} as Controller);
-export { ContextForUserObjList, useControllerForTargetList };
+const ContextForUserReservationList = createContext({} as Controller);
+export { ContextForUserReservationList, useControllerForUserReservationList };

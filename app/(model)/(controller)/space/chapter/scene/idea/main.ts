@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { SceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
+import { sceneIdeaDbWrapper } from '@/(model)/(db)/space/chapter/scene/idea/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = SceneIdeaObj;
+const gqlDbWrapper = sceneIdeaDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForSceneIdeaMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForSceneIdeaMain = createContext({} as Controller);
+export { ContextForSceneIdeaMain, useControllerForSceneIdeaMain };

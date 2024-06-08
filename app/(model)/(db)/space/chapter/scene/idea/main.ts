@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteSceneIdeaObj);
 } 
 
-export const sceneideaDbWrapper: GqlDbWrapper<SceneIdeaObj> = {
+export const sceneIdeaDbWrapper: GqlDbWrapper<SceneIdeaObj> = {
     getObj,
     listObjs,
     listAllObjs,

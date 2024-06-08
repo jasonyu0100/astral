@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserReservationObj);
 } 
 
-export const reservationDbWrapper: GqlDbWrapper<UserReservationObj> = {
+export const userReservationDbWrapper: GqlDbWrapper<UserReservationObj> = {
     getObj,
     listObjs,
     listAllObjs,

@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
+import { conversationMessageDbWrapper } from '@/(model)/(db)/space/chapter/chat/conversation/message/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = ConversationMessageObj;
+const gqlDbWrapper = conversationMessageDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForConversationMessageMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForConversationMessageMain = createContext({} as Controller);
+export { ContextForConversationMessageMain, useControllerForConversationMessageMain as useControllerForUserObj };
