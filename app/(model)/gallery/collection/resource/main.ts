@@ -42,7 +42,7 @@ type CollectionResourceObj {
 }
 `;
 
-export const ContextForCollectionResource =
+export const ContextForCollectionResourceObj =
   createContext<CollectionResourceObj>({} as CollectionResourceObj);
 
 export const exampleCollectionResource: CollectionResourceObj = {

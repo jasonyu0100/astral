@@ -1,6 +1,4 @@
-import { userDbWrapper } from '@/(model)/(db)/user/main';
 import { exampleFileElem } from '@/(model)/elements/file/main';
-import { UserObj } from '@/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
   BaseListStateActions,
@@ -9,9 +7,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
+import { CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { collectionResourceDbWrapper } from '@/(model)/(db)/gallery/collection/resource/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = CollectionResourceObj;
+const gqlDbWrapper = collectionResourceDbWrapper;
 interface ControllerState {
   listId: string;
   currentUser: TargetObj;
@@ -34,12 +34,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-interface Controller {
+export interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForTargetList = (listId: string): Controller => {
+const useControllerForCollectionResourceList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -111,7 +111,7 @@ const useControllerForTargetList = (listId: string): Controller => {
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.email);
+          return regex.test(obj.id);
         });
         changeQueryResults(results);
         return results;
@@ -150,14 +150,12 @@ const useControllerForTargetList = (listId: string): Controller => {
   const createActions: CreateActions = {
     create: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        fname: '',
-        lname: '',
-        displayName: '',
-        email: '',
-        dp: exampleFileElem,
-        role: '',
-        bio: '',
+        userId: '',
+        collectionId: '',
+        title: '',
+        description: '',
+        variant: '',
+        created: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -229,5 +227,5 @@ const useControllerForTargetList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserObjList = createContext({} as Controller);
-export { ContextForUserObjList, useControllerForTargetList };
+const ContextForCollectionResourceList = createContext({} as Controller);
+export { ContextForCollectionResourceList, useControllerForCollectionResourceList as useControllerForTargetList };

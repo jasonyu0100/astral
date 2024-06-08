@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { HorizonUpdateMemberObj } from '@/(model)/horizon/update/member/main';
+import { horizonUpdateMemberDbWrapper } from '@/(model)/(db)/horizon/update/member/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = HorizonUpdateMemberObj;
+const gqlDbWrapper = horizonUpdateMemberDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForHorizonUpdateMemberMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForHorizonUpdateMemberMain = createContext({} as Controller);
+export { ContextForHorizonUpdateMemberMain, useControllerForHorizonUpdateMemberMain };

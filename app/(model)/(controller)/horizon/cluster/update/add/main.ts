@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { ClusterUpdateAddObj } from '@/(model)/horizon/cluster/update/add/main';
+import { clusterUpdateAddDbWrapper } from '@/(model)/(db)/horizon/cluster/update/add/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = ClusterUpdateAddObj;
+const gqlDbWrapper = clusterUpdateAddDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForClusterUpdateListMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForClusterUpdateListMain = createContext({} as Controller);
+export { ContextForClusterUpdateListMain, useControllerForClusterUpdateListMain };

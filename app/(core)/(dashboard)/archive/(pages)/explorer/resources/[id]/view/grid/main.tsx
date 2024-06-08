@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../../../../../(components)/(media)/(resource-file)/explorer/add/main';
 import { ExplorerResource } from '../../../../../../../../../(components)/(media)/(resource-file)/explorer/main';
-import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
@@ -14,9 +14,9 @@ export function ResourcesGrid() {
     <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
       <div className='flex flex-row w-full flex-wrap gap-[2rem] '>
         {resources.map((resource) => (
-          <ContextForCollectionResource.Provider value={resource} key={resource.id}>
+          <ContextForCollectionResourceObj.Provider value={resource} key={resource.id}>
             <ExplorerResource key={resource.id} />
-          </ContextForCollectionResource.Provider>
+          </ContextForCollectionResourceObj.Provider>
         ))}
         <CollectionResourceAdd
           onClick={() => modalContext.createResource.open()}

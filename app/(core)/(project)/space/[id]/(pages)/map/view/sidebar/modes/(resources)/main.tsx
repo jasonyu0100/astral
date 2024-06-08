@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
-import { ContextForCollectionResource, CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj, CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource-file)/sidebar/add/main';
@@ -26,9 +26,9 @@ export function ResourcesInterface() {
           }}
         />
         {searchResults.map((resource) => (
-          <ContextForCollectionResource.Provider value={resource} key={resource.id}>
+          <ContextForCollectionResourceObj.Provider value={resource} key={resource.id}>
             <SidebarCollectionResource key={resource.id} />
-          </ContextForCollectionResource.Provider>
+          </ContextForCollectionResourceObj.Provider>
         ))}
       </div>
       <ResourcesFooter>

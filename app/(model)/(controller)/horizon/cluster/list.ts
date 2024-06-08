@@ -9,9 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
+import { ClusterUpdateObj } from '@/(model)/horizon/cluster/update/main';
+import { clusterUpdateDbWrapper } from '@/(model)/(db)/horizon/cluster/update/main';
+import { HorizonClusterObj } from '@/(model)/horizon/cluster/main';
+import { horizonClusterDbWrapper } from '@/(model)/(db)/horizon/cluster/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = HorizonClusterObj;
+const gqlDbWrapper = horizonClusterDbWrapper;
 interface ControllerState {
   listId: string;
   currentUser: TargetObj;
@@ -39,7 +43,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForTargetList = (listId: string): Controller => {
+const useControllerForHorizonClusterList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -111,7 +115,7 @@ const useControllerForTargetList = (listId: string): Controller => {
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.email);
+          return regex.test(obj.id);
         });
         changeQueryResults(results);
         return results;
@@ -151,13 +155,9 @@ const useControllerForTargetList = (listId: string): Controller => {
     create: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        fname: '',
-        lname: '',
-        displayName: '',
-        email: '',
-        dp: exampleFileElem,
-        role: '',
-        bio: '',
+        horizonId: '',
+        title: '',
+        description: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -229,5 +229,5 @@ const useControllerForTargetList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserObjList = createContext({} as Controller);
-export { ContextForUserObjList, useControllerForTargetList };
+const ContextForHorizonClusterList = createContext({} as Controller);
+export { ContextForHorizonClusterList, useControllerForHorizonClusterList as useControllerForClusterUpdateList };

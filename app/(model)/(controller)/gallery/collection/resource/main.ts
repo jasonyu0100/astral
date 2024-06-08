@@ -8,9 +8,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
+import { collectionResourceDbWrapper } from '@/(model)/(db)/gallery/collection/resource/main';
+import { CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 
-type TargetObj = UserObj;
-const gqlDbWrapper = userDbWrapper;
+type TargetObj = CollectionResourceObj;
+const gqlDbWrapper = collectionResourceDbWrapper;
 interface ControllerState {
   userId: string;
   user: TargetObj;
@@ -34,7 +36,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserObj = (targetId: string): Controller => {
+const useControllerForCollectionResourceMain = (targetId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -103,5 +105,5 @@ const useControllerForUserObj = (targetId: string): Controller => {
   };
 };
 
-const ContextForUserObj = createContext({} as Controller);
-export { ContextForUserObj, useControllerForUserObj };
+const ContextForCollectionResourceMain = createContext({} as Controller);
+export { ContextForCollectionResourceMain, useControllerForCollectionResourceMain as useControllerForCollectionResource };

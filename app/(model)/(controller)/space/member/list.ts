@@ -111,7 +111,7 @@ const useControllerForTargetList = (listId: string): Controller => {
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.email);
+          return regex.test(obj.id);
         });
         changeQueryResults(results);
         return results;

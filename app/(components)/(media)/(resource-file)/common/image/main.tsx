@@ -1,8 +1,8 @@
-import { ContextForCollectionResource } from "@/(model)/gallery/collection/resource/main";
+import { ContextForCollectionResourceObj } from "@/(model)/gallery/collection/resource/main";
 import { useContext } from "react";
 
 export function CollectionResourceImage() {
-  const resource = useContext(ContextForCollectionResource);
+  const resource = useContext(ContextForCollectionResourceObj);
 
   return (
     <div className='flex flex-col h-full w-full flex-shrink-0'>

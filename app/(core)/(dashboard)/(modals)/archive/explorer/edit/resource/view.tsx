@@ -8,7 +8,7 @@ import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem } from '@/(model)/elements/file/main';
-import { ContextForCollectionResource } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { EditResourceModalContext } from './main';
 import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 
@@ -16,7 +16,7 @@ export function ExplorerEditResourceModal() {
   const modalContext = useContext(EditResourceModalContext);
   const resourcesHandler = useContext(ResourcesHandlerContext);
   const { opened, close } = modalContext.editResource;
-  const resource = useContext(ContextForCollectionResource);
+  const resource = useContext(ContextForCollectionResourceObj);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
   const [file, changeFile] = useState(resource?.fileElem || ({} as FileElem));
