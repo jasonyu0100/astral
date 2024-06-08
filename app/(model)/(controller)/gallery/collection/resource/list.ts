@@ -148,7 +148,7 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    create: async () => {
+    createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: '',
         collectionId: '',

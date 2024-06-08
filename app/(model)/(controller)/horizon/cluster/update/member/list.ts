@@ -150,7 +150,7 @@ const useControllerForClusterUpdateMemberList = (listId: string): Controller => 
   };
 
   const createActions: CreateActions = {
-    create: async () => {
+    createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',

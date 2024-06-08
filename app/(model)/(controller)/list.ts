@@ -18,7 +18,7 @@ export interface BaseListGatherActions<TargetObj> {
 }
 
 export interface BaseListCreateActions<TargetObj> {
-  create: () => Promise<TargetObj>;
+  createEmpty: () => Promise<TargetObj>;
   duplicate: (target: TargetObj) => Promise<TargetObj>;
 }
 
