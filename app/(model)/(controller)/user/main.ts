@@ -8,8 +8,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(model)/(controller)/main';
-import { UserSupporterObj } from '@/(model)/user/supporter/main';
-import { userSupporterDbWrapper } from '@/(model)/(db)/user/supporter/main';
+import {
+  FileElem,
+  exampleDisplayPictureFileElem,
+} from '@/(model)/elements/file/main';
+import bcrypt from 'bcryptjs';
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
@@ -18,10 +22,29 @@ interface ControllerState {
   user: TargetObj;
 }
 
-interface StateActions extends BaseStateActions<TargetObj> {}
+interface StateActions extends BaseStateActions<TargetObj> {
+  checkEmail(email: string): Promise<boolean>;
+  loginFromEmail(email: string, password: string): Promise<TargetObj>;
+  loginFromGoogle(email: string, googleId: string): Promise<TargetObj>;
+}
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
-interface CreateActions extends BaseCreateActions<TargetObj> {}
+interface CreateActions extends BaseCreateActions<TargetObj> {
+  registerFromEmail(
+    fname: string,
+    lname: string,
+    role: string,
+    email: string,
+    password: string,
+  ): Promise<TargetObj>;
+  registerFromGoogle(
+    fname: string,
+    lname: string,
+    email: string,
+    googleId: string,
+    profilePicture: FileElem,
+  ): Promise<TargetObj>;
+}
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
 interface ControllerActions {
   stateActions: StateActions;
@@ -45,6 +68,83 @@ const useControllerForUserMain = (targetId: string): Controller => {
   };
 
   const stateActions: StateActions = {
+    checkEmail: async (email: string) => {
+      const users = await gqlDbWrapper.listFromVariables({
+        filter: {
+          email: {
+            eq: email,
+          },
+        },
+      });
+      return users.length > 0;
+    },
+    loginFromEmail: async (email: string, password: string) => {
+      const users = await gqlDbWrapper.listFromVariables({
+        filter: {
+          email: {
+            eq: email,
+          },
+        },
+      });
+
+      if (users.length === 0) {
+        throw new Error('Email is invalid');
+      } else {
+        const user = users[0];
+        user?.passwordHash && delete user.passwordHash;
+        if (user.subscriptionId === null) {
+          const timeDiff =
+            new Date().getTime() - new Date(user.created).getTime();
+          const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          if (0 < daysDifference && daysDifference < 14) {
+            throw new Error('Account trial is over');
+          }
+        } else {
+          const subscription = await stripe.subscriptions.retrieve(
+            user.subscriptionId,
+          );
+          if (subscription.plan.active !== true) {
+            throw new Error('Subscription is not active');
+          }
+        }
+        return user;
+      }
+    },
+    loginFromGoogle: async (email: string, googleId: string) => {
+      const users = await gqlDbWrapper.listFromVariables({
+        filter: {
+          email: {
+            eq: email,
+          },
+          googleId: {
+            eq: googleId,
+          },
+        },
+      });
+
+      if (users.length === 0) {
+        throw new Error('Email is invalid');
+      } else {
+        const user = users[0];
+        user?.passwordHash && delete user.passwordHash;
+        if (user.subscriptionId === null) {
+          const timeDiff =
+            new Date().getTime() - new Date(user.created).getTime();
+          const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          if (0 < daysDifference && daysDifference < 14) {
+            throw new Error('Account trial is over');
+          }
+        } else {
+          const subscription = await stripe.subscriptions.retrieve(
+            user.subscriptionId,
+          );
+          if (subscription.plan.active !== true) {
+            throw new Error('Subscription is not active');
+          }
+        }
+        return user;
+      }
+    },
     clear: () => {
       changeObj({} as TargetObj);
     },
@@ -64,6 +164,54 @@ const useControllerForUserMain = (targetId: string): Controller => {
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       return newObj;
+    },
+    registerFromEmail: async (
+      fname: string,
+      lname: string,
+      role: string,
+      email: string,
+      password: string,
+    ) => {
+      const emailCheck = await stateActions.checkEmail(email);
+      if (emailCheck) {
+        return {} as TargetObj;
+      }
+      const passwordHash = await bcrypt.hash(password, 10);
+      const user = await gqlDbWrapper.createObj({
+        fname: fname,
+        lname: lname,
+        email: email,
+        passwordHash: passwordHash,
+        created: new Date().toISOString(),
+        dp: exampleDisplayPictureFileElem,
+        displayName: `${fname} ${lname}`,
+        role: role,
+        bio: `${fname} ${lname} - ${role}`,
+      });
+      return user;
+    },
+    registerFromGoogle: async (
+      fname: string,
+      lname: string,
+      email: string,
+      googleId: string,
+      profilePicture: FileElem,
+    ) => {
+      const emailCheck = await stateActions.checkEmail(email);
+      if (emailCheck) {
+        return {} as TargetObj;
+      }
+      const user = await gqlDbWrapper.createObj({
+        fname: fname,
+        lname: lname,
+        email: email,
+        created: new Date().toISOString(),
+        dp: exampleDisplayPictureFileElem,
+        displayName: `${fname} ${lname}`,
+        role: '',
+        bio: `${fname} ${lname}`,
+      });
+      return user;
     },
   };
 
@@ -97,7 +245,7 @@ const useControllerForUserMain = (targetId: string): Controller => {
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [controllerActions.gatherActions, targetId]);
+  }, [targetId]);
 
   return {
     state: controllerState,
@@ -106,4 +254,4 @@ const useControllerForUserMain = (targetId: string): Controller => {
 };
 
 const ContextForUserMain = createContext({} as Controller);
-export { ContextForUserMain, useControllerForUserMain as useControllerForUserSupporterMain };
+export { ContextForUserMain, useControllerForUserMain };

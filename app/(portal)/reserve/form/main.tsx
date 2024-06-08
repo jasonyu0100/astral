@@ -7,10 +7,10 @@ import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import { portalModel } from '@/(portal)/(common)/model/main';
 import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
-import { reservePosition } from '@/(logic)/auth/reserve/main';
+import { useControllerForUserReservationMain } from '@/(model)/(controller)/user/reservation/main';
 
 export function PortalReserveForm() {
-  const { variant } = useContext(PolaroidContext);
+  const reservationController = useControllerForUserReservationMain('');
   const categories = portalModel.categories.example;
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
@@ -18,10 +18,10 @@ export function PortalReserveForm() {
   const [role, changeRole] = useState('');
 
   const attemptReserve = async () => {
-    reservePosition(fname, lname, email).then((res) => {
+    reservationController.actions.createActions.reserve(fname, lname, email, role).then(res => {
       alert('Position reserved.');
       window.location.href = '/';
-    });
+    })
   };
 
   return (

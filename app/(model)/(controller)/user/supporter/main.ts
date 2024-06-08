@@ -97,7 +97,7 @@ const useControllerForUserSupporterMain = (targetId: string): Controller => {
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [controllerActions.gatherActions, targetId]);
+  }, [targetId]);
 
   return {
     state: controllerState,
@@ -106,4 +106,4 @@ const useControllerForUserSupporterMain = (targetId: string): Controller => {
 };
 
 const ContextForUserSupporterMain = createContext({} as Controller);
-export { ContextForUserSupporterMain, useControllerForUserSupporterMain as useControllerForUserObj };
+export { ContextForUserSupporterMain, useControllerForUserSupporterMain };

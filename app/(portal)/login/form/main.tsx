@@ -13,14 +13,13 @@ import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import { PortalFormOrDivider } from '@/(portal)/(common)/container/form/or/main';
 import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import axios from 'axios';
-import {
-  emailLoginUser,
-  googleLoginUser,
-} from '@/(logic)/auth/login/main';
+import { emailLoginUser, googleLoginUser } from '@/(logic)/auth/login/main';
 import { UserObj } from '@/(model)/user/main';
 import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
+import { useControllerForUserMain } from '@/(model)/(controller)/user/main';
 
 export function PortalLoginForm() {
+  const userController = useControllerForUserMain('');
   const login = useGlobalUser((state) => state.login);
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
@@ -41,16 +40,13 @@ export function PortalLoginForm() {
         .then((resp) => {
           const email = resp.data.email;
           const googleId = resp.data.id;
-          googleLoginUser(email, googleId).then((res) => {
-            if (res.status) {
-              const user = res.data as UserObj;
+          userController.actions.stateActions
+            .loginFromGoogle(email, googleId)
+            .then((user) => {
               login(user);
               alert('Login Success');
               window.location.href = studioMap.studio.spaces.link;
-            } else {
-              alert(res.error);
-            }
-          });
+            });
         });
     },
     onError: (error) => {
@@ -60,16 +56,13 @@ export function PortalLoginForm() {
   });
 
   const attemptLogin = () => {
-    emailLoginUser(email, password).then((res) => {
-      if (res.status) {
-        const user = res.data as UserObj;
+    userController.actions.stateActions
+      .loginFromEmail(email, password)
+      .then((user) => {
         login(user);
         alert('Login Success');
         window.location.href = studioMap.studio.spaces.link;
-      } else {
-        alert(res.error);
-      }
-    });
+      });
   };
 
   return (

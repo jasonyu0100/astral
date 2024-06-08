@@ -97,7 +97,7 @@ const useControllerForChatMemberMain = (targetId: string): Controller => {
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [controllerActions.gatherActions, targetId]);
+  }, [targetId]);
 
   return {
     state: controllerState,

@@ -17,7 +17,7 @@ export default function Page() {
           flipped,
           index,
           transition,
-          variant,
+          variant: variant,
           polaroidHandler: _polaroidHandler,
         }}
       >

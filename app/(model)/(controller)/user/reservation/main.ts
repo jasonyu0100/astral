@@ -21,7 +21,9 @@ interface ControllerState {
 interface StateActions extends BaseStateActions<TargetObj> {}
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
-interface CreateActions extends BaseCreateActions<TargetObj> {}
+interface CreateActions extends BaseCreateActions<TargetObj> {
+  reserve: (fname: string, lname: string, email: string, role: string) => Promise<TargetObj>;
+}
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
 interface ControllerActions {
   stateActions: StateActions;
@@ -59,6 +61,19 @@ const useControllerForUserReservationMain = (targetId: string): Controller => {
   };
 
   const createActions: CreateActions = {
+    reserve: async (fname: string, lname: string, email: string, role: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        fname: fname,
+        lname: lname,
+        email: email,
+        role: role
+      };
+      console.log(createObj);
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      console.log(newObj);
+      return newObj;
+    },
     duplicate: async () => {
       const copyObj = obj as Omit<TargetObj, 'id'>;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
@@ -97,7 +112,7 @@ const useControllerForUserReservationMain = (targetId: string): Controller => {
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [controllerActions.gatherActions, targetId]);
+  }, [targetId]);
 
   return {
     state: controllerState,

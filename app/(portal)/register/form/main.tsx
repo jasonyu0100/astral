@@ -11,28 +11,22 @@ import { PortalFormActionContainer } from '@/(portal)/(common)/container/form/ac
 import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
 import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
 import { PortalForm } from '@/(portal)/(common)/container/form/main';
-import { PortalFormOrDivider } from '@/(portal)/(common)/container/form/or/main';
 import axios from 'axios';
 import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
-import {
-  emailRegisterUser,
-  googleRegisterUser,
-} from '@/(logic)/auth/register/main';
-import {
-  FileElem,
-  FileElemVariant,
-} from '@/(model)/elements/file/main';
-import { UserObj } from '@/(model)/user/main';
+import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
+import { useControllerForUserMain } from '@/(model)/(controller)/user/main';
 
 export function PortalRegisterForm() {
-  const { variant } = useContext(PolaroidContext);
+  const { variant: variant } = useContext(PolaroidContext);
+  const userController = useControllerForUserMain('');
   const register = useGlobalUser((state) => state.register);
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
   const [rePassword, changeRePassword] = useState('');
+  const [role, changeRole] = useState('user');
 
   const attemptGoogleRegister = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -60,22 +54,13 @@ export function PortalRegisterForm() {
             variant: FileElemVariant.IMAGE,
           };
           const email = resp.data.email;
-          googleRegisterUser(
-            fname,
-            lname,
-            email,
-            googleId,
-            profilePicture,
-          ).then((res) => {
-            if (res.status === true) {
-              const user = res.data as UserObj;
+          userController.actions.createActions
+            .registerFromGoogle(fname, lname, email, googleId, profilePicture)
+            .then((user) => {
               register(user);
               alert('Register Success');
               window.location.href = studioMap.studio.spaces.link;
-            } else {
-              alert(res.error);
-            }
-          });
+            });
         });
     },
     onError: (error) => {
@@ -85,16 +70,13 @@ export function PortalRegisterForm() {
   });
 
   const attemptRegister = () => {
-    emailRegisterUser(fname, lname, email, password).then((res) => {
-      if (res.status) {
-        const user = res.data as UserObj;
+    userController.actions.createActions
+      .registerFromEmail(fname, lname, role, email, password)
+      .then((user) => {
         register(user);
         alert('Register Success');
         window.location.href = studioMap.studio.spaces.link;
-      } else {
-        alert(res.error);
-      }
-    });
+      });
   };
 
   return (

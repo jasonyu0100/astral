@@ -97,7 +97,7 @@ const useControllerForConversationMessageMain = (targetId: string): Controller =
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [controllerActions.gatherActions, targetId]);
+  }, [targetId]);
 
   return {
     state: controllerState,
@@ -106,4 +106,4 @@ const useControllerForConversationMessageMain = (targetId: string): Controller =
 };
 
 const ContextForConversationMessageMain = createContext({} as Controller);
-export { ContextForConversationMessageMain, useControllerForConversationMessageMain as useControllerForUserObj };
+export { ContextForConversationMessageMain, useControllerForConversationMessageMain };
