@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 import React from 'react';
-import { MapSidebarPoint } from './point/main';
+import { MapSidebarEntry } from './entry/main';
 
 export function MapSidebar() {
   return (
@@ -11,9 +11,9 @@ export function MapSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <MapSidebarPoint>Marketing Group</MapSidebarPoint>
-      <MapSidebarPoint>Sales Group</MapSidebarPoint>
-      <MapSidebarPoint>Production Group</MapSidebarPoint>
+      <MapSidebarEntry>Marketing Group</MapSidebarEntry>
+      <MapSidebarEntry>Sales Group</MapSidebarEntry>
+      <MapSidebarEntry>Production Group</MapSidebarEntry>
 
     </GlassAreaContainer>
   );

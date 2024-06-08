@@ -4,7 +4,7 @@ import { HorizonArcObj } from '@/(model)/horizon/arc/main';
 import { ArcPointObj } from '@/(model)/horizon/arc/point/main';
 import { HorizonClusterObj } from '@/(model)/horizon/cluster/main';
 import { ClusterUpdateObj } from '@/(model)/horizon/cluster/update/main';
-import { HorizonForumObj } from '@/(model)/horizon/forum/main';
+import { ArcForumObj } from '@/(model)/horizon/arc/forum/main';
 import { HorizonUpdateObj } from '@/(model)/horizon/update/main';
 import { ForumPostObj } from '@/graphql/API';
 import { movieHorizonTemplate } from './movie/main';
@@ -12,7 +12,7 @@ import { albumHorizonTemplate } from './album/main';
 import { bookHorizonTemplate } from './book/main';
 import { gameHorizonTemplate } from './game/main';
 
-export type _TemplateHorizonObj = Omit<HorizonForumObj, 'id' | 'horizonId' | 'created'>;
+export type _TemplateHorizonObj = Omit<ArcForumObj, 'id' | 'horizonId' | 'created'>;
 export interface TemplateHorizonObj extends _TemplateHorizonObj {
   forums: TemplateForumObj[];
   arcs: TemplateArcObj[];
@@ -23,7 +23,7 @@ export interface TemplateHorizonObj extends _TemplateHorizonObj {
 // FORUM
 
 export type _TemplateForumObj = Omit<
-  HorizonForumObj,
+  ArcForumObj,
   'id' | 'horizonId' | 'time'
 >;
 export type _TemplatePostObj = Omit<

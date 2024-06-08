@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ShareContainer } from './container/main';
-import { ShareSidebar } from './sidebar/main';
+import { SeaSidebar } from './sidebar/main';
 import { MonthView } from './main/month/main';
-import { ShareSidebarPoint } from './sidebar/point/main';
+import { SidebarEntry } from './sidebar/entry/main';
 import { SeaContribution } from './main/contribution/main';
 import { SeaMain } from './main/main';
 
@@ -11,13 +11,13 @@ export function ShareView() {
 
   return (
     <ShareContainer>
-      <ShareSidebar>
-        <ShareSidebarPoint>Week 1</ShareSidebarPoint>
-        <ShareSidebarPoint>Week 2</ShareSidebarPoint>
-        <ShareSidebarPoint>Week 3</ShareSidebarPoint>
-        <ShareSidebarPoint>Week 4</ShareSidebarPoint>
-        <ShareSidebarPoint>Week 5</ShareSidebarPoint>
-      </ShareSidebar>
+      <SeaSidebar>
+        <SidebarEntry>Week 1</SidebarEntry>
+        <SidebarEntry>Week 2</SidebarEntry>
+        <SidebarEntry>Week 3</SidebarEntry>
+        <SidebarEntry>Week 4</SidebarEntry>
+        <SidebarEntry>Week 5</SidebarEntry>
+      </SeaSidebar>
       <SeaMain>
         <MonthView />
         <div className='flex flex-col overflow-auto max-w-[800px] items-center space-y-[2rem]'>

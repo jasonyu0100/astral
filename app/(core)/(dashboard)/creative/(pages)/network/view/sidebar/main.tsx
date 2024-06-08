@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx, borderFx } from '@/(style)/data';
-import { NetworkSidebarPoint } from './point/main';
+import { SidebarEntry } from './entry/main';
 
 export function NetworkSidebar() {
   return (
@@ -14,11 +14,11 @@ export function NetworkSidebar() {
     >
       <div className='flex flex-col  space-y-[1rem]'>
         <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-        <NetworkSidebarPoint />
-        <NetworkSidebarPoint />
-        <NetworkSidebarPoint />
+        <SidebarEntry />
+        <SidebarEntry />
+        <SidebarEntry />
         <p className='text-lg font-bold text-slate-300'>1 month ago</p>
-        <NetworkSidebarPoint />
+        <SidebarEntry />
       </div>
     </GlassAreaContainer>
   );

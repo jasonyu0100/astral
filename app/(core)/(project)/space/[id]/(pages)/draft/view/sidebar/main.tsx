@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
-import { DraftSidebarPoint } from './point/main';
+import { SidebarEntry } from './entry/main';
 
 export function DraftSidebar() {
   return (
@@ -10,9 +10,9 @@ export function DraftSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <DraftSidebarPoint>This is pretty good</DraftSidebarPoint>
-      <DraftSidebarPoint>I like what you did here</DraftSidebarPoint>
-      <DraftSidebarPoint>Have you looked into this artist?</DraftSidebarPoint>
+      <SidebarEntry>This is pretty good</SidebarEntry>
+      <SidebarEntry>I like what you did here</SidebarEntry>
+      <SidebarEntry>Have you looked into this artist?</SidebarEntry>
     </GlassAreaContainer>
   );
 }

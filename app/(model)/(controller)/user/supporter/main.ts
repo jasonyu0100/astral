@@ -64,7 +64,7 @@ export const useControllerForUserSupporter = (targetId: string): UserSupportersC
   const createActions: CreateActions = {
     duplicate: async () => {
       const copyObj = userSupporter as Omit<UserSupporterObj, 'id'>;
-      const datedCopy = { ...copyObj, time: new Date().toISOString() };
+      const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
       return newObj;
     }

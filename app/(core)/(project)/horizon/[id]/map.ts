@@ -3,17 +3,17 @@ const baseUrl = '/horizon';
 export const horizonMap = {
   horizon: {
     id: {
-      field: {
-        link: (id: string) => `${baseUrl}/${id}/field`,
+      story: {
+        link: (id: string) => `${baseUrl}/${id}/story`,
+      },
+      flow: {
+        link: (id: string) => `${baseUrl}/${id}/flow`,
       },
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      story: {
-        link: (id: string) => `${baseUrl}/${id}/story`,
-      },
-      view: {
-        link: (id: string) => `${baseUrl}/${id}/view`,
+      point: {
+        link: (id: string) => `${baseUrl}/${id}/point`,
       },
     },
     link: baseUrl,

@@ -1,0 +1,63 @@
+import { createContext } from 'react';
+
+export interface ClusterUpdateAddObj {
+  id: string;
+  updateId: string;
+  spaceUpdateId: string;
+  value: number;
+  message: string;
+  created: string;
+}
+
+export const clusterUpdateAddGql = `
+type ClusterUpdateAddObj {
+  id: String!
+  updateId: String!
+  spaceUpdateId: String!
+  value: Int!
+  message: String!
+  created: String!
+}
+`;
+
+export const ContextForClusterUpdateAddObj =
+  createContext<ClusterUpdateAddObj>(
+    {} as ClusterUpdateAddObj,
+  );
+
+export const exampleClusterUpdateAdd: ClusterUpdateAddObj = {
+  id: '0',
+  updateId: '0',
+  spaceUpdateId: '0',
+  value: 11,
+  message: 'Hello World',
+  created: new Date('2023-12-19').toISOString(),
+};
+
+export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] =
+  [
+    {
+      id: '0',
+      updateId: '0',
+      spaceUpdateId: '0',
+      value: 11,
+      message: 'Hello World',
+      created: new Date('2023-12-19').toISOString(),
+    },
+    {
+      id: '0',
+      updateId: '0',
+      spaceUpdateId: '0',
+      value: 11,
+      message: 'Hello World',
+      created: new Date('2023-12-19').toISOString(),
+    },
+    {
+      id: '0',
+      updateId: '0',
+      spaceUpdateId: '0',
+      value: 11,
+      message: 'Hello World',
+      created: new Date('2023-12-19').toISOString(),
+    },
+  ];

@@ -10,7 +10,7 @@ import { TabOrangeShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/sha
 
 export function TabThree({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Story;
+  const tabText = ReleaseTabStage.Map;
   const active = tab === tabText;
 
   return (

@@ -17,7 +17,7 @@ export function SeaContributionContents() {
           <h1 className='text-slate-300'>Hello World</h1>
           <img src={exampleFileElems[2].src} className='w-full max-w-[360px]' />
           <p className='text-xs font-bold text-slate-500'>
-            <a href={horizonMap.horizon.id.field.link('0')}>Horizon XYZ</a>
+            <a href={horizonMap.horizon.id.flow.link('0')}>Horizon XYZ</a>
             {'>'}
             <a href={spaceMap.space.id.storm.link('0')}>Space XYZ</a>
           </p>

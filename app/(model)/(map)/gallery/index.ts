@@ -12,7 +12,7 @@ export const galleryMap = {
   db: galleryDbWrapper,
   member: {
     children: [],
-    db: null,
+    db: galleryDbWrapper,
     gql: galleryMemberGql,
   },
   collection: {

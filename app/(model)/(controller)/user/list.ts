@@ -37,15 +37,20 @@ interface GatherActions {
 }
 
 interface CreateActions {
-  create: (fname: string, lname: string, email: string, profilePicture: FileElem, role: string, bio: string) => Promise<UserObj>;
+  create: (
+    fname: string,
+    lname: string,
+    displayName: string,
+    email: string,
+    dp: FileElem,
+    role: string,
+    bio: string,
+  ) => Promise<UserObj>;
   duplicate: (target: UserObj) => Promise<UserObj>;
 }
 
 interface EditActions {
-  edit: (
-    id: string,
-    partialObj: Partial<UserObj>,
-  ) => Promise<UserObj>;
+  edit: (id: string, partialObj: Partial<UserObj>) => Promise<UserObj>;
 }
 
 interface DeleteActions {
@@ -66,12 +71,8 @@ export const useControllerForChapterChatList = (
   parentId: string,
 ): ChapterChatsController => {
   const [objs, changeObjs] = useState<UserObj[]>([]);
-  const [id, changeId] = useState<string>(
-    objs?.at(0)?.id || '',
-  );
-  const current = objs
-    .filter((chat) => chat.id === id)
-    .at(0);
+  const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
+  const current = objs.filter((chat) => chat.id === id).at(0);
   const dbWrapper = userDbWrapper;
 
   // SEARCH
@@ -106,9 +107,7 @@ export const useControllerForChapterChatList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex(
-        (obj) => obj.id === parentId,
-      );
+      const currentIndex = objs.findIndex((obj) => obj.id === parentId);
       const prevIndex = currentIndex - 1;
 
       if (prevIndex >= 0) {
@@ -119,9 +118,7 @@ export const useControllerForChapterChatList = (
       return undefined;
     },
     goPrev: () => {
-      const currentIndex = objs.findIndex(
-        (obj) => obj.id === id,
-      );
+      const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
       if (nextIndex < objs.length) {
@@ -169,12 +166,21 @@ export const useControllerForChapterChatList = (
   };
 
   const createActions: CreateActions = {
-    create: async (fname: string, lname: string, email: string, profilePicture: FileElem, role: string, bio: string) => {
+    create: async (
+      fname: string,
+      lname: string,
+      displayName: string,
+      email: string,
+      dp: FileElem,
+      role: string,
+      bio: string,
+    ) => {
       const createObj: Omit<UserObj, 'id'> = {
         fname,
         lname,
+        displayName,
         email,
-        dp: profilePicture,
+        dp,
         role,
         bio,
         created: new Date().toISOString(),
@@ -186,7 +192,7 @@ export const useControllerForChapterChatList = (
     },
     duplicate: async (target: UserObj) => {
       const copyObj = target as Omit<UserObj, 'id'>;
-      const datedCopy = { ...copyObj, time: new Date().toISOString() };
+      const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
@@ -213,9 +219,7 @@ export const useControllerForChapterChatList = (
       const deletedObjs = await Promise.all(
         ids.map((id) => dbWrapper.deleteObj(id)),
       );
-      changeObjs((prev) =>
-        prev.filter((chat) => !ids.includes(chat.id)),
-      );
+      changeObjs((prev) => prev.filter((chat) => !ids.includes(chat.id)));
       changeId(objs.at(0)?.id || '');
       return deletedObjs;
     },

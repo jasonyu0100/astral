@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
-import { JournalSidebarPoint } from './point/main';
+import { SidebarEntry } from './entry/main';
 
 export function JournalSidebar() {
   return (
@@ -12,13 +12,13 @@ export function JournalSidebar() {
       glassFx={glassFx['glass-5']}
     >
       <p className='text-lg font-bold text-slate-500'>1 day ago</p>
-      <JournalSidebarPoint>Image Space</JournalSidebarPoint>
-      <JournalSidebarPoint />
+      <SidebarEntry>Image Space</SidebarEntry>
+      <SidebarEntry />
       <p className='text-lg font-bold text-slate-500'>1 week ago</p>
-      <JournalSidebarPoint />
+      <SidebarEntry />
       <p className='text-lg font-bold text-slate-500'>1 month ago</p>
-      <JournalSidebarPoint />
-      <JournalSidebarPoint />
+      <SidebarEntry />
+      <SidebarEntry />
     </GlassAreaContainer>
   );
 }

@@ -175,7 +175,7 @@ export const useControllerForChapterChats = (
       const createObj: Omit<ChapterChatObj, 'id'> = {
         chapterId: parentId,
         title,
-        description: summary,
+        description,
         created: new Date().toISOString(),
       };
       const newObj = await dbWrapper.createObj(createObj);
@@ -185,7 +185,7 @@ export const useControllerForChapterChats = (
     },
     duplicate: async (target: ChapterChatObj) => {
       const copyObj = target as Omit<ChapterChatObj, 'id'>;
-      const datedCopy = { ...copyObj, time: new Date().toISOString() };
+      const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);

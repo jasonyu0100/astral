@@ -10,7 +10,7 @@ import { ReleaseTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const releaseContext = useContext(ReleaseContext);
-  const tabText = ReleaseTabStage.Map;
+  const tabText = ReleaseTabStage.Flow;
   const active = tab === tabText;
 
   return (

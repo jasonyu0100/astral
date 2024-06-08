@@ -64,7 +64,7 @@ export const useControllerForChapterChat = (targetId: string): ChapterChatsContr
   const createActions: CreateActions = {
     duplicate: async () => {
       const copyObj = chapterChat as Omit<UserObj, 'id'>;
-      const datedCopy = { ...copyObj, time: new Date().toISOString() };
+      const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await dbWrapper.createObj(datedCopy);
       return newObj;
     }

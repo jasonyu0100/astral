@@ -10,10 +10,10 @@ interface ReleaseTabProps {
 }
 
 export enum ReleaseTabStage {
-  Field = 'Field',
-  Map = 'Map',
   Story = 'Story',
-  View = 'View',
+  Flow = 'Flow',
+  Map = 'Map',
+  Point = 'Point',
 }
 
 export function ReleaseTabs({ tab }: ReleaseTabProps) {
