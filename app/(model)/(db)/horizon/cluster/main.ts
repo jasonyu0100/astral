@@ -3,7 +3,7 @@ import { HorizonClusterObj } from "@/(model)/horizon/cluster/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createHorizonClusterObj, deleteHorizonClusterObj, updateHorizonClusterObj } from "@/graphql/mutations";
 import { listHorizonClusterObjs } from "@/graphql/queries";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
   return obj as HorizonClusterObj;
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonClusterObj);
 } 
 
-export const horizonClusterDbWrapper: DbWrapper<HorizonClusterObj> = {
+export const horizonClusterDbWrapper: GqlDbWrapper<HorizonClusterObj> = {
     getObj,
     listObjs,
     listAllObjs,

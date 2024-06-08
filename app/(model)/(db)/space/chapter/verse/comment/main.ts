@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { VerseCommentObj } from "@/(model)/space/chapter/verse/comment/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createVerseCommentObj, deleteVerseCommentObj, updateVerseCommentObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteVerseCommentObj);
 } 
 
-export const verseCommentDbWrapper: DbWrapper<VerseCommentObj> = {
+export const verseCommentDbWrapper: GqlDbWrapper<VerseCommentObj> = {
     getObj,
     listObjs,
     listAllObjs,

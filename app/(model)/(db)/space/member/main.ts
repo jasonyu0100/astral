@@ -3,7 +3,7 @@ import { SpaceMemberObj } from "@/(model)/space/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createSpaceMemberObj, deleteSpaceMemberObj, updateSpaceMemberObj } from "@/graphql/mutations";
 import { listSpaceMemberObjs } from "@/graphql/queries";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
   return obj as SpaceMemberObj;
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteSpaceMemberObj);
 } 
 
-export const spaceMemberDbWrapper: DbWrapper<SpaceMemberObj> = {
+export const spaceMemberDbWrapper: GqlDbWrapper<SpaceMemberObj> = {
     getObj,
     listObjs,
     listAllObjs,

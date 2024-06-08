@@ -1,7 +1,7 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
 import { UserReservationObj } from "@/(model)/user/reservation/main";
 import { gqlArgs } from "@/(utils)/clean";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 import { listUserReservationObjs } from "@/graphql/queries";
 import { createUserReservationObj, deleteUserReservationObj, updateUserReservationObj } from "@/graphql/mutations";
 
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserReservationObj);
 } 
 
-export const reservationDbWrapper: DbWrapper<UserReservationObj> = {
+export const reservationDbWrapper: GqlDbWrapper<UserReservationObj> = {
     getObj,
     listObjs,
     listAllObjs,

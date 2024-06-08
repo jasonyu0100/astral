@@ -3,7 +3,7 @@ import { GalleryCollectionObj } from "@/(model)/gallery/collection/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createGalleryCollectionObj, deleteGalleryCollectionObj, updateGalleryCollectionObj } from "@/graphql/mutations";
 import { listGalleryCollectionObjs } from "@/graphql/queries";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
   return obj as GalleryCollectionObj;
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteGalleryCollectionObj);
 } 
 
-export const galleryCollectionDbWrapper: DbWrapper<GalleryCollectionObj> = {
+export const galleryCollectionDbWrapper: GqlDbWrapper<GalleryCollectionObj> = {
     getObj,
     listObjs,
     listAllObjs,

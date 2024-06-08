@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { ClusterMemberObj } from "@/(model)/horizon/cluster/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createClusterMemberObj, deleteClusterMemberObj, updateClusterMemberObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterMemberObj);
 } 
 
-export const clusterMemberDbWrapper: DbWrapper<ClusterMemberObj> = {
+export const clusterMemberDbWrapper: GqlDbWrapper<ClusterMemberObj> = {
     getObj,
     listObjs,
     listAllObjs,

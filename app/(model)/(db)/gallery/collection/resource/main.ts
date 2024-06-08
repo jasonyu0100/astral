@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { CollectionResourceObj } from "@/(model)/gallery/collection/resource/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createCollectionResourceObj, deleteCollectionResourceObj, updateCollectionResourceObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteCollectionResourceObj);
 } 
 
-export const collectionResourceDbWrapper: DbWrapper<CollectionResourceObj> = {
+export const collectionResourceDbWrapper: GqlDbWrapper<CollectionResourceObj> = {
     getObj,
     listObjs,
     listAllObjs,

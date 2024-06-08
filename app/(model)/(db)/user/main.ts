@@ -3,7 +3,7 @@ import { UserObj } from "@/(model)/user/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createUserObj, deleteUserObj, updateUserObj } from "@/graphql/mutations";
 import { listUserObjs } from "@/graphql/queries";
-import { DbWrapper } from "../main";
+import { GqlDbWrapper } from "../main";
 
 function castSingle(obj: any) {
   return obj as UserObj;
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserObj);
 } 
 
-export const userDbWrapper: DbWrapper<UserObj> = {
+export const userDbWrapper: GqlDbWrapper<UserObj> = {
     getObj,
     listObjs,
     listAllObjs,

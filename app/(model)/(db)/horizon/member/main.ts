@@ -3,7 +3,7 @@ import { HorizonMemberObj } from "@/(model)/horizon/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createHorizonMemberObj, deleteHorizonMemberObj, updateHorizonMemberObj } from "@/graphql/mutations";
 import { listHorizonMemberObjs } from "@/graphql/queries";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
   return obj as HorizonMemberObj;
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonMemberObj);
 } 
 
-export const horizonMemberDbWrapper: DbWrapper<HorizonMemberObj> = {
+export const horizonMemberDbWrapper: GqlDbWrapper<HorizonMemberObj> = {
     getObj,
     listObjs,
     listAllObjs,

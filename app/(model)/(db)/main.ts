@@ -1,4 +1,4 @@
-export interface DbWrapper<TargetType> {
+export interface GqlDbWrapper<TargetType> {
     getObj: (key: string, value: string) => Promise<TargetType>;
     listObjs: (key: string, value: string) => Promise<TargetType[]>;
     listAllObjs(): Promise<TargetType[]>;

@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { PostCommentObj } from "@/(model)/horizon/arc/forum/post/comment/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createPostCommentObj, deletePostCommentObj, updatePostCommentObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deletePostCommentObj);
 } 
 
-export const postCommentDbWrapper: DbWrapper<PostCommentObj> = {
+export const postCommentDbWrapper: GqlDbWrapper<PostCommentObj> = {
     getObj,
     listObjs,
     listAllObjs,

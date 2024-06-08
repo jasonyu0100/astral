@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { ArcForumObj } from "@/(model)/horizon/arc/forum/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createArcForumObj, deleteArcForumObj, updateArcForumObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteArcForumObj);
 } 
 
-export const arcForumDbWrapper: DbWrapper<ArcForumObj> = {
+export const arcForumDbWrapper: GqlDbWrapper<ArcForumObj> = {
     getObj,
     listObjs,
     listAllObjs,

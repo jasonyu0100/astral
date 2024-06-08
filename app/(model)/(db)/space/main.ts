@@ -7,7 +7,7 @@ import {
   updateSpaceObj,
 } from '@/graphql/mutations';
 import { listSpaceObjs } from '@/graphql/queries';
-import { DbWrapper } from '../main';
+import { GqlDbWrapper } from '../main';
 
 function castSingle(obj: any) {
   return obj as SpaceObj;
@@ -125,7 +125,7 @@ async function deleteObj(id: string) {
 }
 
 
-export const spaceDbWrapper: DbWrapper<SpaceObj> = {
+export const spaceDbWrapper: GqlDbWrapper<SpaceObj> = {
   getObj,
   listObjs,
   listAllObjs,

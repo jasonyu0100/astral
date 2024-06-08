@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { DbWrapper } from '@/(model)/(db)/main';
+import { GqlDbWrapper } from '@/(model)/(db)/main';
 import { ChatMemberObj } from '@/(model)/space/chapter/chat/member/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
@@ -124,7 +124,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChatMemberObj);
 }
 
-export const chatMemberDbWrapper: DbWrapper<ChatMemberObj> = {
+export const chatMemberDbWrapper: GqlDbWrapper<ChatMemberObj> = {
   getObj,
   listObjs,
   listAllObjs,

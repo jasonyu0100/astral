@@ -3,7 +3,7 @@ import { UserSupporterObj } from "@/(model)/user/supporter/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createUserSupporterObj, deleteUserSupporterObj, updateUserSupporterObj } from "@/graphql/mutations";
 import { listUserSupporterObjs } from "@/graphql/queries";
-import { DbWrapper } from "../../main";
+import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
   return obj as UserSupporterObj;
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserSupporterObj);
 } 
 
-export const userSupporterDbWrapper: DbWrapper<UserSupporterObj> = {
+export const userSupporterDbWrapper: GqlDbWrapper<UserSupporterObj> = {
     getObj,
     listObjs,
     listAllObjs,

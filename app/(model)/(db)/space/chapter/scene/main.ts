@@ -1,5 +1,5 @@
 import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { DbWrapper } from "@/(model)/(db)/main";
+import { GqlDbWrapper } from "@/(model)/(db)/main";
 import { ChapterSceneObj } from "@/(model)/space/chapter/scene/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createChapterSceneObj, deleteChapterSceneObj, updateChapterSceneObj } from "@/graphql/mutations";
@@ -122,7 +122,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChapterSceneObj);
 } 
 
-export const chapterSceneDbWrapper: DbWrapper<ChapterSceneObj> = {
+export const chapterSceneDbWrapper: GqlDbWrapper<ChapterSceneObj> = {
     getObj,
     listObjs,
     listAllObjs,
