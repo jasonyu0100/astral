@@ -5,6 +5,7 @@ import { galleryDbWrapper } from '@/(model)/(db)/gallery/main';
 import { galleryCollectionDbWrapper } from '@/(model)/(db)/gallery/collection/main';
 import { collectionResourceDbWrapper } from '@/(model)/(db)/gallery/collection/resource/main';
 import { galleryMemberGql } from '@/(model)/gallery/member/main';
+import { galleryMemberDbWrapper } from '@/(model)/(db)/gallery/member/main';
 
 export const galleryMap = {
   children: ['collection', 'member'],
@@ -12,7 +13,7 @@ export const galleryMap = {
   db: galleryDbWrapper,
   member: {
     children: [],
-    db: galleryDbWrapper,
+    db: galleryMemberDbWrapper,
     gql: galleryMemberGql,
   },
   collection: {
