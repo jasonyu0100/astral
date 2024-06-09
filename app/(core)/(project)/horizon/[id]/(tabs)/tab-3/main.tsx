@@ -14,7 +14,7 @@ export function TabThree({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.story.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.map.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>
