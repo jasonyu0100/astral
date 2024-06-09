@@ -26,7 +26,7 @@ export const exampleChatMember: ChatMemberObj = {
   id: '0',
   chatId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleChatMembers: ChatMemberObj[] = [
@@ -34,18 +34,18 @@ export const exampleChatMembers: ChatMemberObj[] = [
     id: '0',
     chatId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     chatId: '0',
     agentId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     chatId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

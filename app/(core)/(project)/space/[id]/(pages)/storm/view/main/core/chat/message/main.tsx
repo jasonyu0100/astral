@@ -5,16 +5,11 @@ import { useContext } from 'react';
 import { ContextForChatMemberList } from '@/(model)/(controller)/space/chapter/chat/member/list';
 
 export function StormMessage() {
-  const chatMemberListController = useContext(ContextForChatMemberList);
-
   const message = useContext(ContextForConversationMessageObj);
-  const member = chatMemberListController.actions.stateActions.find(
-    message.memberId,
-  );
 
   return (
     <>
-      {member.userId === undefined ? (
+      {message.userId === undefined ? (
         <StormAgentChatMessage>{message.message}</StormAgentChatMessage>
       ) : (
         <StormYouChatMessage>{message.message}</StormYouChatMessage>

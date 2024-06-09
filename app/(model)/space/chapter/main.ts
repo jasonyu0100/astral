@@ -26,7 +26,7 @@ export const exampleSpaceChapter: SpaceChapterObj = {
   title: 'Melody',
   description: 'This is a description',
   idx: 0,
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const ContextForSpaceChapterObj = createContext<SpaceChapterObj>(
@@ -40,7 +40,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     description: 'Concept Description',
     spaceId: '0',
     idx: 0,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -48,7 +48,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     description: 'Beat Description',
     spaceId: '0',
     idx: 1,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -56,6 +56,6 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     description: 'Melody Description',
     spaceId: '0',
     idx: 2,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

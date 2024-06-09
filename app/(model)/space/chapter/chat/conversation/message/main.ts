@@ -1,7 +1,8 @@
 import { createContext } from 'react';
 export interface ConversationMessageObj {
   id: string;
-  memberId: string;
+  userId?: string;
+  agentId?: string;
   conversationId: string;
   created: string;
   message: string;
@@ -10,30 +11,32 @@ export interface ConversationMessageObj {
 export const conversationMessageGql = `
 type ConversationMessageObj {
   id: String!
-  memberId: String!
+  userId: String
+  agentId: String
   conversationId: String!
   created: String!
   message: String!
 }
 `;
 
-export const ContextForConversationMessageObj = createContext<ConversationMessageObj>(
-  {} as ConversationMessageObj,
-);
+export const ContextForConversationMessageObj =
+  createContext<ConversationMessageObj>({} as ConversationMessageObj);
 
 export const exampleConversationMessage: ConversationMessageObj = {
   id: '0',
   conversationId: '0',
-  memberId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  userId: '0',
+  agentId: '0',
+  created: new Date().toISOString(),
   message: 'Hello World',
 };
 
 export const exampleAgentConversationMessage: ConversationMessageObj = {
   id: '1',
   conversationId: '0',
-  memberId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  userId: '0',
+  agentId: '0',
+  created: new Date().toISOString(),
   message: 'Hello World',
 };
 
@@ -41,22 +44,25 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
   {
     id: '0',
     conversationId: '0',
-    memberId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    userId: '0',
+    agentId: '0',
+    created: new Date().toISOString(),
     message: 'Test Message',
   },
   {
     id: '1',
     conversationId: '0',
-    memberId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    userId: undefined,
+    agentId: '0',
+    created: new Date().toISOString(),
     message: 'Hello World',
   },
   {
     id: '2',
     conversationId: '0',
-    memberId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    userId: '0',
+    agentId: undefined,
+    created: new Date().toISOString(),
     message: 'Hello There',
   },
 ];

@@ -31,7 +31,7 @@ export const exampleClusterUpdateAdd: ClusterUpdateAddObj = {
   spaceUpdateId: '0',
   value: 11,
   message: 'Hello World',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] =
@@ -42,7 +42,7 @@ export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] =
       spaceUpdateId: '0',
       value: 11,
       message: 'Hello World',
-      created: new Date('2023-12-19').toISOString(),
+      created: new Date().toISOString(),
     },
     {
       id: '0',
@@ -50,7 +50,7 @@ export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] =
       spaceUpdateId: '0',
       value: 11,
       message: 'Hello World',
-      created: new Date('2023-12-19').toISOString(),
+      created: new Date().toISOString(),
     },
     {
       id: '0',
@@ -58,6 +58,6 @@ export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] =
       spaceUpdateId: '0',
       value: 11,
       message: 'Hello World',
-      created: new Date('2023-12-19').toISOString(),
+      created: new Date().toISOString(),
     },
   ];

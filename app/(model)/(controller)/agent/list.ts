@@ -1,6 +1,4 @@
-import { userDbWrapper } from '@/(model)/(db)/user/main';
 import { exampleFileElem } from '@/(model)/elements/file/main';
-import { UserObj } from '@/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
   BaseListStateActions,
@@ -9,11 +7,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(model)/(controller)/list';
-import { ConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
-import { conversationMessageDbWrapper } from '@/(model)/(db)/space/chapter/chat/conversation/message/main';
+import { agentDbWrapper } from '@/(model)/(db)/agent/main';
+import { AgentObj } from '@/(model)/agent/main';
 
-type TargetObj = ConversationMessageObj;
-const gqlDbWrapper = conversationMessageDbWrapper;
+type TargetObj = AgentObj;
+const gqlDbWrapper = agentDbWrapper;
 interface ControllerState {
   listId: string;
   currentObj: TargetObj;
@@ -25,16 +23,11 @@ interface ControllerState {
 interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
-  messageText: string;
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {
-  updateMessageText: (messageText: string) => void;
-}
+interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  sendMessage: (userId: string) => Promise<TargetObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -50,14 +43,11 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForConversationMessageList = (
-  listId: string,
-): Controller => {
+const useControllerForUserList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const [messageText, changeMessageText] = useState<string>('');
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
@@ -69,8 +59,7 @@ const useControllerForConversationMessageList = (
     more: {
       query: query,
       queryResults: queryResults,
-      messageText: messageText,
-    },
+    }
   };
 
   const stateActions: StateActions = {
@@ -140,12 +129,9 @@ const useControllerForConversationMessageList = (
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
     },
-    updateMessageText: function (newMessage: string): void {
-      changeMessageText(newMessage);
-    },
-    find: function (id: string): ConversationMessageObj {
-      throw new Error('Function not implemented.');
-    },
+    find: (id: string) => {
+      return objs.find((obj) => obj.id === id) || {} as TargetObj;
+    }
   };
 
   const gatherActions: GatherActions = {
@@ -180,9 +166,9 @@ const useControllerForConversationMessageList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
-        conversationId: '',
-        message: '',
+        name: '',
+        role: '',
+        bio: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -198,23 +184,10 @@ const useControllerForConversationMessageList = (
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ]);
+      ])
       changeId(newObj.id);
       return newObj;
     },
-    sendMessage: async (userId: string) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        conversationId: listId,
-        message: messageText,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
-      changeId(newObj.id);
-      changeMessageText('');
-      return newObj;
-    }
   };
 
   const editActions: EditActions = {
@@ -227,12 +200,10 @@ const useControllerForConversationMessageList = (
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(
-        objs.map((obj) => {
-          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-          return updatedObj;
-        }),
-      );
+      const updatedObjs = await Promise.all(objs.map((obj) => {
+        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+        return updatedObj;
+      }));
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -277,8 +248,5 @@ const useControllerForConversationMessageList = (
   };
 };
 
-const ContextForConversationMessageList = createContext({} as Controller);
-export {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-};
+const ContextForUserList = createContext({} as Controller);
+export { ContextForUserList, useControllerForUserList as useControllerForUserSupporterList };

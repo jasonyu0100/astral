@@ -24,7 +24,7 @@ export const ContextForVerseCommentObj = createContext<VerseCommentObj>(
 export const exampleVerseComment: VerseCommentObj = {
   id: '0',
   verseId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
   message: 'This is pretty good actually',
   userId: '0',
 };
@@ -32,7 +32,7 @@ export const exampleVerseComment: VerseCommentObj = {
 export const exampleAgentVerseComment: VerseCommentObj = {
   id: '1',
   verseId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
   message: 'A melody of words',
   userId: '0',
 };
@@ -41,21 +41,21 @@ export const exampleVerseComments: VerseCommentObj[] = [
   {
     id: '0',
     verseId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
     message: 'Test Message',
     userId: '0',
   },
   {
     id: '1',
     verseId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
     message: 'Hello World',
     userId: '0',
   },
   {
     id: '2',
     verseId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
     message: 'Hello There',
     userId: '0',
   },

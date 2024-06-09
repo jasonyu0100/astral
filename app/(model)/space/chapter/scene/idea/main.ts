@@ -54,7 +54,7 @@ export const exampleSceneIdea: SceneIdeaObj = {
   y: 120,
   fileElem: exampleFileElem,
   variant: CollectionResourceVariant.FILE,
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleSceneIdeas: SceneIdeaObj[] = [
@@ -67,7 +67,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     y: 120,
     fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
@@ -78,7 +78,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     y: 120,
     fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -89,6 +89,6 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     y: 120,
     fileElem: exampleFileElem,
     variant: CollectionResourceVariant.FILE,
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

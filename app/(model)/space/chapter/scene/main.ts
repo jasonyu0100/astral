@@ -26,7 +26,7 @@ export const exampleChapterScene: ChapterSceneObj = {
   chapterId: '0',
   title: 'Idea Scene',
   description: 'Scene Description',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleChapterScenes: ChapterSceneObj[] = [
@@ -35,20 +35,20 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     chapterId: '0',
     title: 'Idea Scene 1',
     description: 'Scene Description',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
     chapterId: '0',
     title: 'Idea Scene 2',
     description: 'Scene Description',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
     chapterId: '0',
     title: 'Idea Scene 3',
     description: 'Scene Description',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

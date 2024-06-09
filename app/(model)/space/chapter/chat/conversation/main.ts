@@ -11,7 +11,7 @@ export const exampleChatConversation: ChatConversationObj = {
   id: '0',
   chatId: '0',
   summary: "A conversation about the idea",
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const chatConversationGql = `
@@ -30,18 +30,18 @@ export const exampleChatConversations: ChatConversationObj[] = [
     id: '0',
     chatId: '0',
     summary: "Another conversation about the idea",
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
     chatId: '0',
     summary: "What's the meaning?",
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
     chatId: '0',
     summary: "What's the meaning?",
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

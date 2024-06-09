@@ -23,7 +23,7 @@ export const exampleChapterChat: ChapterChatObj = {
   chapterId: '0',
   title: 'The Idea',
   description: "What's the Idea",
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const ContextForChatObj = createContext<ChapterChatObj>({} as ChapterChatObj);
@@ -34,13 +34,13 @@ export const exampleChapterChats: ChapterChatObj[] = [
     chapterId: '0',
     title: 'The Idea',
     description: "What's the Idea",
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
     chapterId: '0',
     title: 'The Meaning',
     description: "What's the meaning?",
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

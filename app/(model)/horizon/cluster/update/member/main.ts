@@ -24,7 +24,7 @@ export const exampleClusterUpdateMember: ClusterUpdateMemberObj = {
   id: '0',
   updateId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleClusterUpdateMembers: ClusterUpdateMemberObj[] = [
@@ -32,18 +32,18 @@ export const exampleClusterUpdateMembers: ClusterUpdateMemberObj[] = [
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

@@ -30,7 +30,7 @@ export const exampleHorizonUpdateAdd: HorizonUpdateAddObj = {
   clusterUpdateId: '0',
   value: 11,
   message: 'Hello World',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
@@ -40,7 +40,7 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
     clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -48,7 +48,7 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
     clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -56,6 +56,6 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
     clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

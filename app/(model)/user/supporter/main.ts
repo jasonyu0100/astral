@@ -24,7 +24,7 @@ export const exampleUserSupporter: UserSupporterObj = {
   id: '0',
   supporterId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleUserSupporters: UserSupporterObj[] = [
@@ -32,18 +32,18 @@ export const exampleUserSupporters: UserSupporterObj[] = [
     id: '0',
     supporterId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     supporterId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     supporterId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

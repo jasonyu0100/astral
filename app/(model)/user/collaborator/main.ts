@@ -24,7 +24,7 @@ export const exampleUserCollaborator: UserCollaboratorObj = {
   id: '0',
   collaboratorId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleUserCollaborators: UserCollaboratorObj[] = [
@@ -32,18 +32,18 @@ export const exampleUserCollaborators: UserCollaboratorObj[] = [
     id: '0',
     collaboratorId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     collaboratorId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     collaboratorId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

@@ -27,7 +27,7 @@ export const exampleSpaceUpdate: SpaceUpdateObj = {
   spaceId: '0',
   title: 'May Retro',
   description: 'Productive month with new scenes and verses added into the mix',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleChapterRetros: SpaceUpdateObj[] = [
@@ -37,14 +37,14 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
     title: 'May Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '1',
     spaceId: '0',
     title: 'June Retro',
     description: 'Not so productive month',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '2',
@@ -52,6 +52,6 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
     title: 'July Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

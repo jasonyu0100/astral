@@ -24,7 +24,7 @@ export const exampleSpaceUpdateMember: SpaceUpdateMemberObj = {
   id: '0',
   updateId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleSpaceUpdateMembers: SpaceUpdateMemberObj[] = [
@@ -32,18 +32,18 @@ export const exampleSpaceUpdateMembers: SpaceUpdateMemberObj[] = [
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     updateId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

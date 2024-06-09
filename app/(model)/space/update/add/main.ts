@@ -49,7 +49,7 @@ export const exampleSpaceUpdateAdd: SpaceUpdateAddObj = {
   verseId: undefined,
   value: 11,
   message: 'Hello World',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
@@ -63,7 +63,7 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
     verseId: undefined,
     value: 11,
     message: 'Quality Addition',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -75,7 +75,7 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
     verseId: undefined,
     value: 0,
     message: 'Unused Contribution',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
@@ -87,6 +87,6 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
     verseId: undefined,
     value: 6,
     message: 'Decent Conversation',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];

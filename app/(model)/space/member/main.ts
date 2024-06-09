@@ -24,7 +24,7 @@ export const exampleSpaceMember: SpaceMemberObj = {
   id: '0',
   forumId: '0',
   userId: '0',
-  created: new Date('2023-12-19').toISOString(),
+  created: new Date().toISOString(),
 };
 
 export const exampleSpaceMembers: SpaceMemberObj[] = [
@@ -32,18 +32,18 @@ export const exampleSpaceMembers: SpaceMemberObj[] = [
     id: '0',
     forumId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     forumId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
   {
     id: '0',
     forumId: '0',
     userId: '0',
-    created: new Date('2023-12-19').toISOString(),
+    created: new Date().toISOString(),
   },
 ];
