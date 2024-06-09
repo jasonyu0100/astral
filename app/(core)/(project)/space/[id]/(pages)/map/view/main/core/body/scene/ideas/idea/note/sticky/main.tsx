@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
 
 export function NoteStickyIdea() {
-  const { idea, x, y, constraintsRef, activateIdea } =
-    useContext(IdeaHandlerContext);
-  const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === idea.id;
+  const sceneIdeaMainController = useContext(ContextForSceneIdeaMain);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj);
+  const idea = sceneIdeaMainController.state.obj;
+  const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 
   return (
     <>
@@ -20,7 +22,7 @@ export function NoteStickyIdea() {
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            activateIdea();
+            sceneIdeaListController.actions.stateActions.select(idea);
             e.stopPropagation();
           }}
         >

@@ -14,8 +14,8 @@ import { sceneIdeaDbWrapper } from '@/(model)/(db)/space/chapter/scene/idea/main
 type TargetObj = SceneIdeaObj;
 const gqlDbWrapper = sceneIdeaDbWrapper;
 interface ControllerState {
-  userId: string;
-  user: TargetObj;
+  objId: string;
+  obj: TargetObj;
 }
 
 interface StateActions extends BaseStateActions<TargetObj> {}
@@ -36,23 +36,26 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaMain = (targetId: string): Controller => {
+const useControllerForSceneIdeaMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
-    userId: targetId,
-    user: obj,
+    objId: objId,
+    obj: obj,
   };
 
   const stateActions: StateActions = {
     clear: () => {
       changeObj({} as TargetObj);
     },
+    update: (newObj: Partial<TargetObj>) => {
+      changeObj({ ...obj, ...newObj });
+    }
   };
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', targetId);
+      const getObj = await gqlDbWrapper.getObj('id', objId);
       changeObj(getObj);
       return getObj;
     },
@@ -73,11 +76,16 @@ const useControllerForSceneIdeaMain = (targetId: string): Controller => {
       changeObj(updatedObj);
       return updatedObj;
     },
+    sync: async () => {
+      const updatedObj = await gqlDbWrapper.updateObj('id', obj);
+      changeObj(updatedObj);
+      return updatedObj;
+    },
   };
 
   const deleteActions: DeleteActions = {
     delete: async () => {
-      const deletedObj = await gqlDbWrapper.deleteObj(targetId);
+      const deletedObj = await gqlDbWrapper.deleteObj(objId);
       changeObj({} as TargetObj);
       return deletedObj;
     },
@@ -92,12 +100,12 @@ const useControllerForSceneIdeaMain = (targetId: string): Controller => {
   };
 
   useMemo(() => {
-    if (!targetId) {
+    if (!objId) {
       changeObj({} as TargetObj);
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [targetId]);
+  }, [objId]);
 
   return {
     state: controllerState,

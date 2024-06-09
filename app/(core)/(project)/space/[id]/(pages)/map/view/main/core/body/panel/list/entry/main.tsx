@@ -1,17 +1,17 @@
 import { useContext } from 'react';
 import { ContextForChapterSceneObj } from '@/(model)/space/chapter/scene/main';
 import { cn } from '@/(utils)/cn';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function SceneListEntry({ index }: { index: number }) {
-  const partsHandler =
-    useContext(ScenesHandlerContext);
+  const sceneListController =
+    useContext(ContextForSceneIdeaList);
   const part = useContext(ContextForChapterSceneObj);
-  const active = part.id == partsHandler.partId;
+  const active = part.id == sceneListController.state.objId;
 
   return (
     <div
-      onClick={() => partsHandler.partActions.updateScene(part)}
+      onClick={() => sceneListController.actions.editActions.edit(part.id, part)}
       className='w-full flex cursor-pointer'
     >
       <p

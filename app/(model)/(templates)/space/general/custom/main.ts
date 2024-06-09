@@ -9,7 +9,7 @@ export const customTemplate: TemplateSpaceObj = {
   chapters: [
     {
       title: 'Chapter One [edit me]',
-      summary: 'The first chapter of the story.',
+      description: 'The first chapter of the story.',
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
@@ -17,7 +17,7 @@ export const customTemplate: TemplateSpaceObj = {
     },
     {
       title: 'Chapter Two [edit me]',
-      summary: 'The second chapter of the story.',
+      description: 'The second chapter of the story.',
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
@@ -25,7 +25,7 @@ export const customTemplate: TemplateSpaceObj = {
     },
     {
       title: 'Chapter Three [edit me]',
-      summary: 'The third chapter of the story.',
+      description: 'The third chapter of the story.',
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],

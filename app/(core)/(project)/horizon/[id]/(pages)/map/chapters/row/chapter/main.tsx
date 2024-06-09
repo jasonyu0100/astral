@@ -3,10 +3,10 @@ import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { cn } from '@/(utils)/cn';
 import { ChapterActiveText } from './active/main';
 import { ChapterInactiveText } from './inactive/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function ChapterContainer({
   children,
@@ -16,13 +16,13 @@ export function ChapterContainer({
   index: number;
 }) {
   const chapter = useContext(ContextForSpaceChapterObj);
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const active = chapter.id === chaptersHandler.chapterId;
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const active = chapter.id === chapterListController.state.objId;
 
   return (
     <WrapperTooltip text={`#${index + 1} - ${chapter.title}`}>
       <button
-        onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}
+        onClick={() => chapterListController.actions.stateActions.select(chapter)}
         className={cn({
           'animate-pulse-slow': active,
         })}
@@ -35,7 +35,7 @@ export function ChapterContainer({
           className='flex items-center justify-center'
         >
           <p className='text-white font-bold'>{children}</p>
-          {/* {active ? <ChapterActiveText /> : <ChapterInactiveText />} */}
+          {active ? <ChapterActiveText /> : <ChapterInactiveText />}
         </GlassAreaContainer>
       </button>
     </WrapperTooltip>

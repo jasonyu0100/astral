@@ -1,45 +1,34 @@
+import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
 import { createContext, useState } from 'react';
 
 export interface StarModalController {
-  addNoteStarModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  addLinkStarModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  addFileStarModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
+  addNoteStarModal: ContextForOpenableInterface;
+  addLinkStarModal: ContextForOpenableInterface;
+  addFileStarModal: ContextForOpenableInterface;
 }
 
 export const StarModalContext = createContext({} as StarModalController);
 
 export const useStarModal = (): StarModalController => {
-  const [showOne, changeShowOne] = useState(false);
-  const [showThree, changeShowThree] = useState(false);
-  const [showFour, changeShowFour] = useState(false);
+  const [one, setOne] = useState(false);
+  const [two, setTwo] = useState(false);
+  const [three, setThree] = useState(false);
 
   return {
     addNoteStarModal: {
-      opened: showOne,
-      open: () => changeShowOne(true),
-      close: () => changeShowOne(false),
+      opened: one,
+      open: () => setOne(true),
+      close: () => setOne(false),
     },
     addLinkStarModal: {
-      opened: showThree,
-      open: () => changeShowThree(true),
-      close: () => changeShowThree(false),
+      opened: two,
+      open: () => setTwo(true),
+      close: () => setTwo(false),
     },
     addFileStarModal: {
-      opened: showFour,
-      open: () => changeShowFour(true),
-      close: () => changeShowFour(false),
+      opened: three,
+      open: () => setThree(true),
+      close: () => setThree(false),
     },
   };
 };

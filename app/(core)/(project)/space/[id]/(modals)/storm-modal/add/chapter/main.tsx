@@ -8,11 +8,10 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function StormAddChapterModal() {
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chapters = chaptersHandler.chapters;
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const modalContext = useContext(StormModalContext);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -39,7 +38,7 @@ export function StormAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.createChapter(title, description, chapters.length);
+              chapterListController.actions.createActions.createChapter(title, description);
               modalContext.addChapterModal.close();
             }}
           >

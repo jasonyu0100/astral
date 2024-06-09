@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
-import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { CollectionsHandlerContext } from '@/(model)/(controller)/(archive)/explorer/collections/main';
+import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { SidebarCollection } from '@/(components)/(media)/(collection-folder)/sidebar/main';
 import { SidebarCollectionAdd } from '@/(components)/(media)/(collection-folder)/sidebar/add/main';
+import { ContextForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
 
 export function CollectionsInterface() {
-  const collectionsHandler = useContext(CollectionsHandlerContext);
-  const collections = collectionsHandler.collections;
-  const modalContext = useContext(ArchiveSidebarCreateModalContext);
+  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const modalContext = useContext(ContextForSidebarModals);
 
   return (
     <div className='flex h-full w-full flex-col'>
@@ -18,7 +17,7 @@ export function CollectionsInterface() {
             modalContext.createCollection.open();
           }}
         />
-        {collections.map((collection) => (
+        {collectionListController.state.objs.map((collection) => (
           <ContextForGalleryCollectionObj.Provider value={collection} key={collection.id}>
             <SidebarCollection key={collection.id} />
           </ContextForGalleryCollectionObj.Provider>

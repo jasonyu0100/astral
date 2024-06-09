@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function ChaptersRight() {
-  const chapterHandler = useContext(ChaptersHandlerContext);
+  const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
     <WrapperTooltip text={'Next'}>
       <button
         className='flex h-[30px] w-[30px] flex-shrink-0 items-center justify-center rounded-full'
-        onClick={() => chapterHandler.chapterActions.goToNextChapter()}
+        onClick={() => chapterListController.actions.stateActions.goNext()}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

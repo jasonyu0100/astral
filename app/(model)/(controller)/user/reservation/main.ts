@@ -10,12 +10,15 @@ import {
 } from '@/(model)/(controller)/main';
 import { UserReservationObj } from '@/(model)/user/reservation/main';
 import { userReservationDbWrapper } from '@/(model)/(db)/user/reservation/main';
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { gqlArgs } from '@/(utils)/clean';
+import { createUserReservationObj } from '@/graphql/mutations';
 
 type TargetObj = UserReservationObj;
 const gqlDbWrapper = userReservationDbWrapper;
 interface ControllerState {
-  userId: string;
-  user: TargetObj;
+  objId: string;
+  obj: TargetObj;
 }
 
 interface StateActions extends BaseStateActions<TargetObj> {}
@@ -38,23 +41,26 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserReservationMain = (targetId: string): Controller => {
+const useControllerForUserReservationMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
-    userId: targetId,
-    user: obj,
+    objId: objId,
+    obj: obj,
   };
 
   const stateActions: StateActions = {
     clear: () => {
       changeObj({} as TargetObj);
     },
+    update: (newObj: Partial<TargetObj>) => {
+      changeObj({ ...obj, ...newObj });
+    }
   };
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', targetId);
+      const getObj = await gqlDbWrapper.getObj('id', objId);
       changeObj(getObj);
       return getObj;
     },
@@ -69,9 +75,7 @@ const useControllerForUserReservationMain = (targetId: string): Controller => {
         email: email,
         role: role
       };
-      console.log(createObj);
       const newObj = await gqlDbWrapper.createObj(createObj);
-      console.log(newObj);
       return newObj;
     },
     duplicate: async () => {
@@ -88,11 +92,16 @@ const useControllerForUserReservationMain = (targetId: string): Controller => {
       changeObj(updatedObj);
       return updatedObj;
     },
+    sync: async () => {
+      const updatedObj = await gqlDbWrapper.updateObj('id', obj);
+      changeObj(updatedObj);
+      return updatedObj;
+    },
   };
 
   const deleteActions: DeleteActions = {
     delete: async () => {
-      const deletedObj = await gqlDbWrapper.deleteObj(targetId);
+      const deletedObj = await gqlDbWrapper.deleteObj(objId);
       changeObj({} as TargetObj);
       return deletedObj;
     },
@@ -107,12 +116,12 @@ const useControllerForUserReservationMain = (targetId: string): Controller => {
   };
 
   useMemo(() => {
-    if (!targetId) {
+    if (!objId) {
       changeObj({} as TargetObj);
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [targetId]);
+  }, [objId]);
 
   return {
     state: controllerState,

@@ -1,9 +1,9 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 import { useContext } from 'react';
 
 export function DraftChapterList() {
-  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const chaptersListController = useContext(ContextForSpaceChapterList);
 
   // TODO CLEAN UP
   return (
@@ -12,7 +12,7 @@ export function DraftChapterList() {
         <p className={`text-md font-bold text-slate-500`}>0. General</p>
       </div>
       <HorizontalDivider/>
-      {chaptersHandler.chapters.map((chapter, index) => (
+      {chaptersListController.state.objs.map((chapter, index) => (
         <div key={chapter.id}>
           <p className={`text-md font-bold text-slate-500`}>
             {index + 1}. {chapter.title}

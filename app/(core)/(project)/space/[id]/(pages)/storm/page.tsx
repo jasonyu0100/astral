@@ -1,27 +1,37 @@
 'use client';
 import { StormView } from './view/view';
-import {
-  ChaptersHandlerContext,
-  useChaptersHandler,
-} from '@/(model)/(controller)/(archive)/chapters/main';
-import {
-  ChatsHandlerContext,
-  useChatsHandler,
-} from '@/(model)/(controller)/(archive)/storm/chats/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
-import {
-  MessagesHandlerContext,
-  useMessagesHandler,
-} from '@/(model)/(controller)/(archive)/storm/messages/main';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import { useSpaceHandler } from '@/(model)/(controller)/(archive)/spaces/space/main';
 import {
   StormModalContext,
   useStormModal,
 } from '../../(modals)/storm-modal/main';
 import { StormModalView } from '@/(core)/(project)/space/[id]/(modals)/storm-modal/view';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { useControllerForSpaceList } from '@/(model)/(controller)/space/list';
+import { useControllerForSpaceMain } from '@/(model)/(controller)/space/main';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(model)/(controller)/space/chapter/list';
+import {
+  ContextForChapterChatList,
+  useControllerForChapterChatList,
+} from '@/(model)/(controller)/space/chapter/chat/list';
+import { useControllerForConversationMessageMain } from '@/(model)/(controller)/space/chapter/chat/conversation/message/main';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(model)/(controller)/space/chapter/chat/conversation/message/list';
+import {
+  ContextForChatConversationList,
+  useControllerForChatConversationList,
+} from '@/(model)/(controller)/space/chapter/chat/conversation/list';
+import {
+  ContextForChatMemberList,
+  useControllerForChatMemberList,
+} from '@/(model)/(controller)/space/chapter/chat/member/list';
 
 interface StormContextObj {}
 
@@ -31,34 +41,53 @@ export const StormContext = createContext<StormContextObj>(
 
 function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
-  const user = useGlobalUser((state) => state.user);
-  const { space } = useSpaceHandler(params.id);
-  const chaptersHandler = useChaptersHandler(params.id);
-  const chatsHandler = useChatsHandler(chaptersHandler.chapterId);
-  const messagesHandler = useMessagesHandler(chatsHandler.chatId, user.id);
+  const spaceMainController = useControllerForSpaceMain(params.id);
+  const chapterListController = useControllerForSpaceChapterList(
+    spaceMainController.state.objId,
+  );
+  const chatListController = useControllerForChapterChatList(
+    chapterListController.state.objId,
+  );
+  const chatMemberListController = useControllerForChatMemberList(
+    chatListController.state.objId,
+  );
+  const conversationListController = useControllerForChatConversationList(
+    chapterListController.state.objId,
+  );
+  const messageListController = useControllerForConversationMessageList(
+    conversationListController.state.objId,
+  );
 
   useEffect(() => {
-    if (space && space?.id) {
-      setSpace(space);
+    if (spaceMainController.state.obj) {
+      setSpace(spaceMainController.state.obj);
     }
-  }, [space]);
+  }, [spaceMainController.state.obj]);
 
   const context: StormContextObj = {};
   const modalContext = useStormModal();
 
   return (
-    <StormModalContext.Provider value={modalContext}>
-      <ChaptersHandlerContext.Provider value={chaptersHandler}>
-        <ChatsHandlerContext.Provider value={chatsHandler}>
-          <MessagesHandlerContext.Provider value={messagesHandler}>
-            <StormModalView />
-            <StormContext.Provider value={context}>
-              <StormView />
-            </StormContext.Provider>
-          </MessagesHandlerContext.Provider>
-        </ChatsHandlerContext.Provider>
-      </ChaptersHandlerContext.Provider>
-    </StormModalContext.Provider>
+    <ContextForSpaceChapterList.Provider value={chapterListController}>
+      <ContextForChapterChatList.Provider value={chatListController}>
+        <ContextForChatMemberList.Provider value={chatMemberListController}>
+          <ContextForChatConversationList.Provider
+            value={conversationListController}
+          >
+            <ContextForConversationMessageList.Provider
+              value={messageListController}
+            >
+              <StormModalContext.Provider value={modalContext}>
+                <StormModalView />
+              </StormModalContext.Provider>
+              <StormContext.Provider value={context}>
+                <StormView />
+              </StormContext.Provider>
+            </ContextForConversationMessageList.Provider>
+          </ContextForChatConversationList.Provider>
+        </ContextForChatMemberList.Provider>
+      </ContextForChapterChatList.Provider>
+    </ContextForSpaceChapterList.Provider>
   );
 }
 

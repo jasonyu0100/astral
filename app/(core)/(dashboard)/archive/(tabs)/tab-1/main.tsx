@@ -1,17 +1,17 @@
-import { TabGreenShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/green/main';
+import { TabBlueShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
 import { Tab } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/main';
 import { TabText } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/text/main';
 import { archiveMap } from '../../map';
 import { CraftTabStage } from '../main';
 
-export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = CraftTabStage.Search;
+export function TabOne({ tab }: { tab?: string }) {
+  const tabText = CraftTabStage.Explorer;
   const active = tab === tabText;
 
   return (
-    <Tab href={archiveMap.archive.search.link}>
+    <Tab href={archiveMap.archive.explorer.link}>
       <TabText active={active}>{tabText}</TabText>
-      <TabGreenShard active={active} />
+      <TabBlueShard active={active} />
     </Tab>
   );
 }

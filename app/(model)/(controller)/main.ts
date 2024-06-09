@@ -1,5 +1,6 @@
 export interface BaseStateActions<TargetObj> {
   clear: () => void;
+  update: (newObj: Partial<TargetObj>) => void;
 }
 
 export interface BaseGatherActions<TargetObj> {
@@ -8,6 +9,7 @@ export interface BaseGatherActions<TargetObj> {
 
 export interface BaseEditActions<TargetObj> {
   edit: (partialObj: Partial<TargetObj>) => Promise<TargetObj>;
+  sync: () => Promise<TargetObj>
 }
 
 export interface BaseCreateActions<TargetObj> {

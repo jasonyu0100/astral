@@ -68,6 +68,7 @@ export function PortalLoginForm() {
   return (
     <PortalForm>
       <PortalTextHeader />
+      <div className="p-[1rem]"/>
       <PortalFormBody>
         <PortalFormInput
           value={email}
@@ -88,9 +89,9 @@ export function PortalLoginForm() {
         <PortalFormAction onClick={() => attemptLogin()}>
           LOGIN
         </PortalFormAction>
-        <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
+        {/* <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
           Login with Google
-        </PortalFormGoogleAction>
+        </PortalFormGoogleAction> */}
         <PortalFormAltAction>
           Don{"'"}t have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>

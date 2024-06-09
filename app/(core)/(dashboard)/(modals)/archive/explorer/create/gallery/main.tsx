@@ -9,16 +9,27 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
-import { ArchiveExplorerCreateModalContext } from '../main';
-import { GallerysHandlerContext } from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
+import { useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerCreateGalleryModal() {
-  const modalContext = useContext(ArchiveExplorerCreateModalContext);
-  const { opened, close } = modalContext.createGallery;
-  const gallerysHandler = useContext(GallerysHandlerContext)
+  const user = useGlobalUser((state) => state.user);
+  const { opened, close } = useContext(ContextForOpenable);
+  const galleryListController = useControllerForGalleryList('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileElem);
+
+  async function createGallery() {
+    galleryListController.actions.createActions.createGallery(
+      user.id,
+      title,
+      description,
+      thumbnail,
+    );
+    close();
+  }
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>
@@ -44,14 +55,7 @@ export function ExplorerCreateGalleryModal() {
           />
         </FormBody>
         <FormFooter>
-          <FormButton
-            onClick={() => {
-              gallerysHandler.galleryActions.createGallery(title, description, thumbnail);
-              close();
-            }}
-          >
-            Create
-          </FormButton>
+          <FormButton onClick={createGallery}>Create</FormButton>
         </FormFooter>
       </FormContainer>
     </PolaroidModal>

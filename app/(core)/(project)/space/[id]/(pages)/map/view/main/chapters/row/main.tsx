@@ -1,26 +1,20 @@
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { useContext } from 'react';
-import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
+import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
 
 export function MapChaptersRow() {
-  const partsHandler = useContext(ScenesHandlerContext);
-  const parts = partsHandler.parts;
+  const sceneListController = useContext(ContextForChapterSceneList);
   const modalContext = useContext(MapModalContext);
   const { open } = modalContext.addSceneModal;
-  const chaptersHandler = useContext(ChaptersHandlerContext);
   const { addChapterModal } = useContext(MapModalContext);
-
-  // TODO CLEANUP
 
   return (
     <ChaptersRowContainer>
-      {parts.map((part, index) => (
-        <p className='mr-[3rem] font-bold text-slate-500'>{part.title}</p>
+      {sceneListController.state.objs.map((scene, index) => (
+        <p className='mr-[3rem] font-bold text-slate-500' key={index}>{scene.title}</p>
       ))}
       {/* {chaptersHandler.chapters.map((chapter, index) => (
         <ChapterContext.Provider value={chapter} key={chapter.id}>

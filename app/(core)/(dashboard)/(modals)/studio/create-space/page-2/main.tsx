@@ -75,7 +75,7 @@ export function PageTwo() {
                 </button>
               </div>
               <textarea
-                value={chapter.summary}
+                value={chapter.description}
                 placeholder='Enter your description...'
                 className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
                 onChange={(e) =>
@@ -96,6 +96,10 @@ export function PageTwo() {
                   updateChapterTemplates([
                     ...chapterTemplates,
                     {
+                      chatTemplates: [],
+                      sceneTemplates: [],
+                      verseTemplates: [],
+                      retroTemplates: [],
                       title: `Chapter ${chapterTemplates.length + 1}`,
                       description: '',
                     },
@@ -139,7 +143,7 @@ export function PageTwo() {
           {chapterTemplates.map((template, index) => (
             <p className='text-md overflow-hidden font-bold' key={index}>
               {index + 1}. {template.title} -{' '}
-              <span className='font-light'>{template.summary}</span>
+              <span className='font-light'>{template.description}</span>
             </p>
           ))}
         </div>

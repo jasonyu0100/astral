@@ -83,23 +83,20 @@ export function PortalRegisterForm() {
     <PortalForm>
       <PortalTextHeader />
       <PortalFormBody>
-        <div className='flex flex-row'>
-          <PortalFormInput
-            value={fname}
-            onChange={(e) => changeFname(e.target.value)}
-            placeholder={'first name'}
-            emoji='🎤'
-            type='text'
-          />
-          <div className='w-[40px]' />
-          <PortalFormInput
-            value={lname}
-            onChange={(e) => changeLname(e.target.value)}
-            placeholder={'last name'}
-            emoji='🎸'
-            type='text'
-          />
-        </div>
+        <PortalFormInput
+          value={fname}
+          onChange={(e) => changeFname(e.target.value)}
+          placeholder={'first name'}
+          emoji='🎤'
+          type='text'
+        />
+        <PortalFormInput
+          value={lname}
+          onChange={(e) => changeLname(e.target.value)}
+          placeholder={'last name'}
+          emoji='🎸'
+          type='text'
+        />
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
@@ -126,9 +123,9 @@ export function PortalRegisterForm() {
         <PortalFormAction onClick={() => attemptRegister()}>
           REGISTER
         </PortalFormAction>
-        <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
+        {/* <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
           Register with Google
-        </PortalFormGoogleAction>
+        </PortalFormGoogleAction> */}
         <PortalFormAltAction>
           Already have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.login.link}>

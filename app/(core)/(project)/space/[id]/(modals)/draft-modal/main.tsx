@@ -1,16 +1,9 @@
+import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
 import { createContext, useState } from 'react';
 
 export interface DraftModalController {
-  addChapterModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  addFileMomentModal: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
+  addChapterModal: ContextForOpenableInterface;
+  addFileMomentModal: ContextForOpenableInterface;
 }
 
 export const DraftModalContext = createContext({} as DraftModalController);

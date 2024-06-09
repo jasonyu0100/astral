@@ -80,18 +80,18 @@ export default function Page() {
         <div className="flex flex-row">
           <div className="flex flex-row">
             {currentNumber === CardNumber.Joker ? (
-              <img src={`/cards/Suit=Other, Number=${currentNumber}.png`} />
+              <img src={`/cards/Suit=Other, Number=${currentNumber}.png`} alt="" />
             ) : (
               <img
                 src={`/cards/Suit=${currentSuit}, Number=${currentNumber}.png`}
               />
             )}
-            <img src={`/cards/Suit=Other, Number=${currentColor}.png`} />
+            <img src={`/cards/Suit=Other, Number=${currentColor}.png`} alt="" />
           </div>
         </div>
         <div className="flex flex-col">
           <p className="font-bold">Number</p>
-          <select onChange={(e) => setCurrentNumber(e.target.value)}>
+          <select onChange={(e) => setCurrentNumber(e.target.value as CardNumber)}>
             {currentSuit === CardSuit.Other ? (
               <>
                 <option key={CardNumber.Joker}>{CardNumber.Joker}</option>
@@ -107,7 +107,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col">
           <p className="font-bold">Suit</p>
-          <select onChange={(e) => setCurrentSuit(e.target.value)}>
+          <select onChange={(e) => setCurrentSuit(e.target.value as CardSuit)}>
             {suitOrder.map((suit) => (
               <option key={suit}>{suit}</option>
             ))}
@@ -115,7 +115,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col">
           <p className="font-bold">Color</p>
-          <select onChange={(e) => setCurrentColor(e.target.value)}>
+          <select onChange={(e) => setCurrentColor(e.target.value as CardColor)}>
             {backColors.map((colors) => (
               <option key={colors}>{colors}</option>
             ))}

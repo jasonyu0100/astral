@@ -1,37 +1,29 @@
 'use client';
 import { createContext } from 'react';
 import { DraftView } from './view/view';
-import {
-  ChaptersHandlerContext,
-  useChaptersHandler,
-} from '@/(model)/(controller)/(archive)/chapters/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
   DraftModalContext,
   useDraftModal,
 } from '../../(modals)/draft-modal/main';
 import { DraftModalView } from '@/(core)/(project)/space/[id]/(modals)/draft-modal/view';
-
-interface DraftContextObj {}
-
-export const DraftContext = createContext<DraftContextObj>({} as DraftContextObj);
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(model)/(controller)/space/chapter/list';
 
 function Page({ params }: { params: { id: string } }) {
-  const chaptersHandler = useChaptersHandler(params.id);
-
-  const context: DraftContextObj = {};
+  const chapterListHandler = useControllerForSpaceChapterList(params.id);
 
   const modalContext = useDraftModal();
 
   return (
-    <DraftContext.Provider value={context}>
-      <ChaptersHandlerContext.Provider value={chaptersHandler}>
-          <DraftModalContext.Provider value={modalContext}>
-            <DraftModalView />
-            <DraftView />
-          </DraftModalContext.Provider>
-      </ChaptersHandlerContext.Provider>
-    </DraftContext.Provider>
+    <ContextForSpaceChapterList.Provider value={chapterListHandler}>
+      <DraftModalContext.Provider value={modalContext}>
+        <DraftModalView />
+        <DraftView />
+      </DraftModalContext.Provider>
+    </ContextForSpaceChapterList.Provider>
   );
 }
 

@@ -4,17 +4,15 @@ import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
-import { ResourcesHandlerContext, useResourcesHandler } from '@/(model)/(controller)/(archive)/explorer/resources/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export function SidebarCollection() {
   const { sidebarHandler } = useContext(MapSidebarContext);
   const collection = useContext(ContextForGalleryCollectionObj);
-  const user = useGlobalUser((state) => state.user);
-  const resourcesHandler = useResourcesHandler(collection.id, user?.id);
+  const resourceListController = useControllerForCollectionResourceList(collection.id);
 
   return (
-    <ResourcesHandlerContext.Provider value={resourcesHandler}>
+    <ContextForCollectionResourceList.Provider value={resourceListController}>
       <div
         className='w-full cursor-pointer'
         onClick={() => {
@@ -26,6 +24,6 @@ export function SidebarCollection() {
           <CollectionInfo />
         </CollectionContainer>
       </div>
-    </ResourcesHandlerContext.Provider>
+    </ContextForCollectionResourceList.Provider>
   );
 }

@@ -10,10 +10,10 @@ import { NoteElem, NoteElemVariant } from '@/(model)/elements/note/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function AddNoteStarModal() {
-  const ideasHandler = useContext(IdeasHandlerContext);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addNoteStarModal;
   const [variant, changeVariant] = useState<string>(NoteElemVariant.STICKY);
@@ -46,7 +46,7 @@ export function AddNoteStarModal() {
           <FormButton
             onClick={() => {
               close();
-              ideasHandler.ideaActions.createFromNote(title, description, 0, 0, {
+              sceneIdeaListController.actions.createActions.createFromNote(title, description, 0, 0, {
                 id: crypto.randomUUID(),
                 title: title,
                 text: text,

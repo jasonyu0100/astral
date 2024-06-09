@@ -8,17 +8,12 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { ChapterSceneVariant } from '@/(model)/space/chapter/scene/main';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
+import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
 
 export function MapAddSceneModal() {
-  const partsHandler = useContext(ScenesHandlerContext);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [variant, changeVariant] = useState(
-    ChapterSceneVariant.VISUAL as string,
-  );
   const modalContext = useContext(MapModalContext);
   const { opened, close } = modalContext.addSceneModal;
 
@@ -30,24 +25,6 @@ export function MapAddSceneModal() {
       <FormContainer>
         <FormTitle>Add Scene</FormTitle>
         <FormBody>
-          <FormSelect
-            title='Variant'
-            value={variant}
-            onChange={(e) => changeVariant(e.target.value)}
-          >
-            <option value={ChapterSceneVariant.VISUAL}>
-              {ChapterSceneVariant.VISUAL}
-            </option>
-            <option value={ChapterSceneVariant.LINK}>
-              {ChapterSceneVariant.LINK}
-            </option>
-            <option value={ChapterSceneVariant.AUDIO}>
-              {ChapterSceneVariant.AUDIO}
-            </option>
-            <option value={ChapterSceneVariant.MEMO}>
-              {ChapterSceneVariant.MEMO}
-            </option>
-          </FormSelect>
           <FormInput
             title='Name'
             value={title}
@@ -64,10 +41,9 @@ export function MapAddSceneModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              partsHandler.partActions.createScene(
+              sceneListController.actions.createActions.createScene(
                 title,
                 description,
-                variant,
               );
               close();
             }}

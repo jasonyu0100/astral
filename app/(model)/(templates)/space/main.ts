@@ -38,7 +38,7 @@ export type _TemplateConversationObj = Omit<SpaceChapterObj, 'id' | 'chatId' | '
 export type _TemplateMessageObj = Omit<ConversationMessageObj, 'id' | 'userId' | 'conversationId' | 'created'>;
 export interface TemplateChatObj extends _TemplateChatObj {
   title: string;
-  summary: string;
+  description: string;
   conversations?: TemplateConversationObj[];
 }
 

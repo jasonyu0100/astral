@@ -2,20 +2,16 @@ import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
 import { ContextForCollectionResourceObj, CollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
-import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource-file)/sidebar/add/main';
 import { SidebarCollectionResource } from '@/(components)/(media)/(resource-file)/sidebar/main';
+import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export const SidebarResourceContext = createContext({} as CollectionResourceObj);
 
-
-// TODO ADD SEARCH AND BREADCRUMB TO SIDEBAR RESOURCES
-
 export function ResourcesInterface() {
-  const resourcesHandler = useContext(ResourcesHandlerContext);
-  const searchResults = resourcesHandler.searchResults;
-  const modalContext = useContext(ArchiveSidebarCreateModalContext);
+  const resourceListController = useContext(ContextForCollectionResourceList);
+  const modalContext = useContext(ContextForSidebarModals);
 
   return (
     <div className='flex h-full w-full flex-col'>
@@ -25,7 +21,7 @@ export function ResourcesInterface() {
             modalContext.createResource.open();
           }}
         />
-        {searchResults.map((resource) => (
+        {resourceListController.state.queryResults.map((resource) => (
           <ContextForCollectionResourceObj.Provider value={resource} key={resource.id}>
             <SidebarCollectionResource key={resource.id} />
           </ContextForCollectionResourceObj.Provider>

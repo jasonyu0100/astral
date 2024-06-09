@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { FileElemVariant } from '@/(model)/elements/file/main';
-import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
-  const resourceHandler = useContext(ResourcesHandlerContext);
-  const resources = resourceHandler.resources;
+  const resourceListController = useContext(ContextForCollectionResourceList);
+  const resources = resourceListController.state.resources;
   const visualResources = resources?.filter(
     (resource) =>
       resource.fileElem?.variant === FileElemVariant.IMAGE ||
@@ -14,7 +14,7 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   return (
     <div className='aspect-square h-full overflow-hidden bg-black'>
       {empty === true ? (
-        <div className='h-full w-full flex justify-center items-center'>
+        <div className='flex h-full w-full items-center justify-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 25 25'
@@ -52,6 +52,7 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
             <>
               {resource.fileElem?.variant === FileElemVariant.IMAGE && (
                 <img
+                  alt='thumbnail'
                   className='aspect-square h-1/2 object-fill'
                   src={resource?.fileElem?.src}
                 />

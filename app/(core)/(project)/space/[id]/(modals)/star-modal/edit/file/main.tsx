@@ -13,13 +13,13 @@ import {
   FileElemVariant,
 } from '@/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addFileStarModal;
-  const ideasHandler = useContext(IdeasHandlerContext);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [title, changeTitle] = useState('' as string);
   const [variant, changeVariant] = useState<FileElemVariant>(FileElemVariant.IMAGE);
   const [file, changeFile] = useState({} as FileElem);
@@ -59,7 +59,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              ideasHandler.ideaActions.createFromFile(title, description, 0, 0, file);
+              sceneIdeaListController.actions.createActions.createFromFile(title, description, 0, 0, file);
               close();
             }}
           >

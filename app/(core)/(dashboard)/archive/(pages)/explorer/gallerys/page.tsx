@@ -3,27 +3,24 @@ import { GallerysView } from './view/view';
 import isVerseAuth from '@/(utils)/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
-  GallerysHandlerContext,
-  useGallerysHandler,
-} from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
-import {
-  ArchiveExplorerCreateModalContext,
-  useArchiveExplorerCreateModal,
+  ContextForExplorerModals,
+  useControllerForExplorerModals,
 } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { ExplorerModalView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
+import { ExplorerModalsView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
-  const gallerysHandler = useGallerysHandler(user.id);
-  const modalContext = useArchiveExplorerCreateModal();
+  const galleryListController = useControllerForGalleryList(user.id);
+  const modalContext = useControllerForExplorerModals();
 
   return (
-    <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-      <GallerysHandlerContext.Provider value={gallerysHandler}>
-        <ExplorerModalView />
+    <ContextForExplorerModals.Provider value={modalContext}>
+      <ContextForGalleryList.Provider value={galleryListController}>
+        <ExplorerModalsView />
         <GallerysView />
-      </GallerysHandlerContext.Provider>
-    </ArchiveExplorerCreateModalContext.Provider>
+      </ContextForGalleryList.Provider>
+    </ContextForExplorerModals.Provider>
   );
 }
 

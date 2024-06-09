@@ -8,16 +8,41 @@ import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
-import { ArchiveExplorerCreateModalContext } from '../main';
-import { CollectionsHandlerContext } from '@/(model)/(controller)/(archive)/explorer/collections/main';
+import { ContextForExplorerModals } from '../main';
+import {
+  ContextForGalleryCollectionList,
+  useControllerForGalleryCollectionList,
+} from '@/(model)/(controller)/gallery/collection/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerCreateCollectionModal() {
-  const collectionsHandler = useContext(CollectionsHandlerContext);
-  const modalContext = useContext(ArchiveExplorerCreateModalContext);
-  const { opened, close } = modalContext.createCollection;
+  const user = useGlobalUser((state) => state.user);
+  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const resourceListHandler = useContext(ContextForCollectionResourceList);
+  const { opened, close } = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [files, changeFiles] = useState([] as FileElem[]);
+
+  async function createCollection() {
+    collectionListController.actions.createActions
+      .createCollection(title, description)
+      .then((collection) => {
+        Promise.all(
+          files.map((f) =>
+            resourceListHandler.actions.createActions.createFromFile(
+              user.id,
+              `${collection.title} - ${f.title}`,
+              `${collection.title} - ${f.title}`,
+              f,
+            ),
+          ),
+        );
+        close();
+      });
+  }
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>
@@ -42,21 +67,9 @@ export function ExplorerCreateCollectionModal() {
           />
         </FormBody>
         <FormFooter>
-          <FormButton
-            onClick={() => {
-              collectionsHandler.collectionActions.createCollection(
-                title,
-                description,
-                files,
-              );
-              close();
-            }}
-          >
-            Create
-          </FormButton>
+          <FormButton onClick={createCollection}>Create</FormButton>
         </FormFooter>
       </FormContainer>
     </PolaroidModal>
   );
 }
-

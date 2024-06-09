@@ -2,24 +2,15 @@ import { GalleryObj } from '@/(model)/gallery/main';
 import { createContext, useState } from 'react';
 import { MapSidebarView } from './view';
 import { GalleryCollectionObj } from '@/(model)/gallery/collection/main';
-import {
-  GallerysHandlerContext,
-  useGallerysHandler,
-} from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
-  CollectionsHandlerContext,
-  useCollectionsHandler,
-} from '@/(model)/(controller)/(archive)/explorer/collections/main';
-import {
-  ResourcesHandlerContext,
-  useResourcesHandler,
-} from '@/(model)/(controller)/(archive)/explorer/resources/main';
-import {
-  ArchiveSidebarCreateModalContext,
-  useArchiveSidebarCreateModal,
+  ContextForSidebarModals,
+  useControllerForSidebarModals,
 } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { ArchiveSidebarCreateModalView } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/view';
+import { SidebarModalsView } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/view';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',
@@ -45,14 +36,12 @@ export const MapSidebarContext = createContext<MapSidebarContextObject>(
 export function MapSidebar() {
   const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
   const user = useGlobalUser((state) => state.user);
-  const gallerysHandler = useGallerysHandler(user?.id);
-  const collectionsHandler = useCollectionsHandler(
-    gallerysHandler.galleryId,
-    user?.id,
+  const galleryListController = useControllerForGalleryList(user?.id);
+  const collectionsHandler = useControllerForGalleryCollectionList(
+    galleryListController.state.objId,
   );
-  const resourcesHandler = useResourcesHandler(
-    collectionsHandler.collectionId,
-    user?.id,
+  const resourcesHandler = useControllerForCollectionResourceList(
+    collectionsHandler.state.objId,
   );
 
   const sidebarHandler: SidebarHandler = {
@@ -66,11 +55,11 @@ export function MapSidebar() {
       changeSidebarMode(SidebarMode.Resources);
     },
     goToGallery: (gallery: GalleryObj) => {
-      gallerysHandler.galleryActions.goToGallery(gallery);
+      galleryListController.actions.stateActions.select(gallery);
       changeSidebarMode(SidebarMode.Collections);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
-      collectionsHandler.collectionActions.goToCollection(collection);
+      collectionsHandler.actions.stateActions.select(collection);
       changeSidebarMode(SidebarMode.Resources);
     },
   };
@@ -80,20 +69,20 @@ export function MapSidebar() {
     sidebarHandler,
   };
 
-  const modalContext = useArchiveSidebarCreateModal();
+  const modalContext = useControllerForSidebarModals();
 
   return (
     <MapSidebarContext.Provider value={mapContext}>
-      <GallerysHandlerContext.Provider value={gallerysHandler}>
-        <CollectionsHandlerContext.Provider value={collectionsHandler}>
-          <ResourcesHandlerContext.Provider value={resourcesHandler}>
-            <ArchiveSidebarCreateModalContext.Provider value={modalContext}>
-              <ArchiveSidebarCreateModalView />
+      <ContextForGalleryList.Provider value={galleryListController}>
+        <ContextForGalleryCollectionList.Provider value={collectionsHandler}>
+          <ContextForCollectionResourceList.Provider value={resourcesHandler}>
+            <ContextForSidebarModals.Provider value={modalContext}>
+              <SidebarModalsView />
               <MapSidebarView />
-            </ArchiveSidebarCreateModalContext.Provider>
-          </ResourcesHandlerContext.Provider>
-        </CollectionsHandlerContext.Provider>
-      </GallerysHandlerContext.Provider>
+            </ContextForSidebarModals.Provider>
+          </ContextForCollectionResourceList.Provider>
+        </ContextForGalleryCollectionList.Provider>
+      </ContextForGalleryList.Provider>
     </MapSidebarContext.Provider>
   );
 }

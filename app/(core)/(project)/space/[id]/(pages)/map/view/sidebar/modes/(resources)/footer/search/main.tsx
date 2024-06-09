@@ -3,11 +3,10 @@ import { borderFx } from '@/(style)/data';
 import { SearchBarButton } from './button/main';
 import SearchBarInput from './input/main';
 import { useContext, useState } from 'react';
-import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export function CollectionHeaderSearch() {
-  const resourcesHandler = useContext(ResourcesHandlerContext)
-  const [query, changeQuery] = useState('');
+  const resourceListController = useContext(ContextForCollectionResourceList)
 
   return (
     <GlassAreaContainer
@@ -18,14 +17,14 @@ export function CollectionHeaderSearch() {
     >
       <SearchBarInput
         onChange={(e: any) => {
-          changeQuery(e.target.value);
+          resourceListController.actions.stateActions.updateQuery(e.target.value);
         }}
-        value={query}
+        value={resourceListController.state.query}
       />
       <SearchBarButton
         onClick={() => {
-          resourcesHandler.resourceActions.searchResources(query);
-          changeQuery('');
+          resourceListController.actions.stateActions.searchQuery();
+          resourceListController.actions.stateActions.updateQuery('');
         }}
       />
     </GlassAreaContainer>

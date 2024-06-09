@@ -8,10 +8,10 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function MapAddChapterModal() {
-  const chaptersHandler = useContext(ChaptersHandlerContext)
+  const chapterListController = useContext(ContextForSpaceChapterList)
   const modalContext = useContext(MapModalContext);
   const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
@@ -39,7 +39,7 @@ export function MapAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.createChapter(title, description, chaptersHandler.chapters.length);
+              chapterListController.actions.createActions.createChapter(title, description);
               close();
             }}
           >

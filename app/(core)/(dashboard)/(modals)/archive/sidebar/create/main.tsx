@@ -1,47 +1,36 @@
+import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
 import { createContext, useState } from 'react';
 
-export interface ArchiveSidebarCreateController {
-  createCollection: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  createGallery: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
-  createResource: {
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-  };
+export interface ContextForSidebarModalsInterface {
+  createCollection: ContextForOpenableInterface;
+  createGallery: ContextForOpenableInterface;
+  createResource: ContextForOpenableInterface;
 }
 
-export const ArchiveSidebarCreateModalContext = createContext(
-  {} as ArchiveSidebarCreateController,
+export const ContextForSidebarModals = createContext(
+  {} as ContextForSidebarModalsInterface,
 );
 
-export const useArchiveSidebarCreateModal = (): ArchiveSidebarCreateController => {
-  const [showOne, changeShowOne] = useState(false);
-  const [showThree, changeShowThree] = useState(false);
-  const [showFive, changeShowFive] = useState(false);
+export const useControllerForSidebarModals = (): ContextForSidebarModalsInterface => {
+  const [one, setOne] = useState(false);
+  const [two, setTwo] = useState(false);
+  const [three, setThree] = useState(false);
 
   return {
     createCollection: {
-      opened: showOne,
-      open: () => changeShowOne(true),
-      close: () => changeShowOne(false),
+      opened: one,
+      open: () => setOne(true),
+      close: () => setOne(false),
     },
     createGallery: {
-      opened: showThree,
-      open: () => changeShowThree(true),
-      close: () => changeShowThree(false),
+      opened: two,
+      open: () => setTwo(true),
+      close: () => setTwo(false),
     },
     createResource: {
-      opened: showFive,
-      open: () => changeShowFive(true),
-      close: () => changeShowFive(false),
+      opened: three,
+      open: () => setThree(true),
+      close: () => setThree(false),
     },
   };
 };

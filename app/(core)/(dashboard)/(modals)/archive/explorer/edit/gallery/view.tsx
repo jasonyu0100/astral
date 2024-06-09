@@ -7,11 +7,10 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
-import { EditGalleryModalContext } from './main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerEditGalleryModal() {
-  const modalContext = useContext(EditGalleryModalContext);
-  const { opened, close } = modalContext.editGallery;
+  const { opened, close } = useContext(ContextForOpenable);
   const resource = useContext(ContextForCollectionResourceObj);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);

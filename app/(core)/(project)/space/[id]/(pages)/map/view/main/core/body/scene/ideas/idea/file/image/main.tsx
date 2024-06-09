@@ -1,10 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
+import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
 
 export function FileImageIdea() {
-  const { idea, x, y, constraintsRef, activateIdea } =
-    useContext(IdeaHandlerContext);
+  const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj)
+  const idea = sceneIdeaMainController.state.obj;
+  const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 
   return (
     <>
@@ -19,7 +24,7 @@ export function FileImageIdea() {
           onClick={(e) => {
             e.stopPropagation();
             setTimeout(() => {
-              activateIdea();
+              sceneIdeaListController.actions.stateActions.select(idea);
             }, 300);
           }}
         >

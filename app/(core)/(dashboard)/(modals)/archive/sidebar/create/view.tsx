@@ -1,22 +1,29 @@
 import { useContext } from 'react';
-import { ArchiveSidebarCreateModalContext } from './main';
+import { ContextForSidebarModals } from './main';
 import { SidebarCreateCollectionModal } from './collection/main';
 import { SidebarCreateGalleryModal } from './gallery/main';
 import { SidebarCreateResourceModal } from './resource/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
-export function ArchiveSidebarCreateModalView() {
-  const modalContext = useContext(ArchiveSidebarCreateModalContext);
+export function SidebarModalsView() {
+  const modalContext = useContext(ContextForSidebarModals);
 
   return (
     <>
       {modalContext.createCollection && (
-        <SidebarCreateCollectionModal />
+        <ContextForOpenable.Provider value={modalContext.createCollection}>
+          <SidebarCreateCollectionModal />
+        </ContextForOpenable.Provider>
       )}
       {modalContext.createGallery && (
-        <SidebarCreateGalleryModal />
+        <ContextForOpenable.Provider value={modalContext.createGallery}>
+          <SidebarCreateGalleryModal />
+        </ContextForOpenable.Provider>
       )}
       {modalContext.createResource && (
-        <SidebarCreateResourceModal/>
+        <ContextForOpenable.Provider value={modalContext.createResource}>
+          <SidebarCreateResourceModal />
+        </ContextForOpenable.Provider>
       )}
     </>
   );

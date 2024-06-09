@@ -4,11 +4,11 @@ import { StormChatInputLeft } from './left/main';
 import { StormChatInputRight } from './right/main';
 import { StormChatMessageInput } from './text/main';
 import { useContext } from 'react';
-import { MessagesHandlerContext } from '@/(model)/(controller)/(archive)/storm/messages/main';
+import { ContextForConversationMessageList } from '@/(model)/(controller)/space/chapter/chat/conversation/message/list';
 
 
 export function StormChatInput() {
-  const messagesHandler = useContext(MessagesHandlerContext)
+  const messageListController = useContext(ContextForConversationMessageList)
 
   return (
     <GlassAreaContainer
@@ -19,8 +19,8 @@ export function StormChatInput() {
     >
       <StormChatInputLeft />
       <StormChatMessageInput
-        onChange={(e) => messagesHandler.messageActions.updateInputMessage(e.target.value)}
-        value={messagesHandler.inputMessage}
+        onChange={(e) => messageListController.messageActions.updateInputMessage(e.target.value)}
+        value={messageListController.inputMessage}
       />
       <StormChatInputRight/>
     </GlassAreaContainer>

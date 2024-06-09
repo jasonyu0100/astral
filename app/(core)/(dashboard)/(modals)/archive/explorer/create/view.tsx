@@ -1,23 +1,26 @@
-import { useContext } from 'react';
-import { ArchiveExplorerCreateModalContext } from './main';
+import { useContext, useState } from 'react';
+import { ContextForExplorerModals } from './main';
 import { ExplorerCreateCollectionModal } from './collection/main';
 import { ExplorerCreateGalleryModal } from './gallery/main';
 import { ExplorerCreateResourceModal } from './resource/main';
+import {
+  ContextForOpenable,
+} from '@/(logic)/contexts/openable/main';
 
-export function ExplorerModalView() {
-  const modalContext = useContext(ArchiveExplorerCreateModalContext);
+export function ExplorerModalsView() {
+  const modalContext = useContext(ContextForExplorerModals);
 
   return (
     <>
-      {modalContext.createCollection && (
+      <ContextForOpenable.Provider value={modalContext.createCollection}>
         <ExplorerCreateCollectionModal />
-      )}
-      {modalContext.createGallery && (
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={modalContext.createGallery}>
         <ExplorerCreateGalleryModal />
-      )}
-      {modalContext.createResource && (
-        <ExplorerCreateResourceModal/>
-      )}
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={modalContext.createResource}>
+        <ExplorerCreateResourceModal />
+      </ContextForOpenable.Provider>
     </>
   );
 }

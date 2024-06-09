@@ -1,15 +1,12 @@
 import { useContext } from 'react';
-import { ContextForChapterSceneObj } from '@/(model)/space/chapter/scene/main';
-import { SceneListEntry } from './entry/main';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function MapSceneList() {
-  const chaptersHandler = useContext(ChaptersHandlerContext)
-  const partsHandler = useContext(ScenesHandlerContext);
-  const parts = partsHandler.parts;
+  const chapterListController = useContext(ContextForSpaceChapterList)
+  const sceneListController = useContext(ContextForChapterSceneList);
   const modalContext = useContext(MapModalContext);
   const { open } = modalContext.addSceneModal;
 
@@ -21,7 +18,7 @@ export function MapSceneList() {
         <p className={`text-md font-bold text-slate-500`}>0. General</p>
       </div>
       <HorizontalDivider/>
-      {chaptersHandler.chapters.map((chapter, index) => (
+      {chapterListController.state.objs.map((chapter, index) => (
         <div key={chapter.id}>
           <p className={`text-md font-bold text-slate-500`}>
             {index+1}. {chapter.title}

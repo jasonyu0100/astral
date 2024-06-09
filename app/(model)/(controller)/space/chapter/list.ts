@@ -11,21 +11,27 @@ import {
 } from '@/(model)/(controller)/list';
 import { SpaceChapterObj } from '@/(model)/space/chapter/main';
 import { spaceChapterDbWrapper } from '@/(model)/(db)/space/chapter/main';
+import { Description } from '@radix-ui/react-dialog';
 
 type TargetObj = SpaceChapterObj;
 const gqlDbWrapper = spaceChapterDbWrapper;
 interface ControllerState {
   listId: string;
-  currentUser: TargetObj;
-  users: TargetObj[];
-  userId: string;
+  currentObj: TargetObj;
+  objs: TargetObj[];
+  objId: string;
   query: string;
   queryResults: TargetObj[];
 }
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createChapter(
+    title: string,
+    description: string,
+  ): Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -51,9 +57,9 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
 
   const controllerState: ControllerState = {
     listId: listId,
-    users: objs,
-    currentUser: currentObj,
-    userId: id,
+    objs: objs,
+    currentObj: currentObj,
+    objId: id,
     query: query,
     queryResults: queryResults,
   };
@@ -107,7 +113,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         return undefined;
       }
     },
-    search: () => {
+    searchQuery: () => {
       if (query === '') {
         return objs;
       } else {
@@ -119,6 +125,12 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         return results;
       }
     },
+    updateQuery: (newQuery: string) => {
+      changeQuery(newQuery);
+    },
+    checkActive: function (obj: TargetObj): boolean {
+      return obj.id === id;
+    }
   };
 
   const gatherActions: GatherActions = {
@@ -150,13 +162,26 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
+    createChapter: async (title: string, description: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        spaceId: listId,
+        title: title,
+        description: description,
+        idx: objs.length,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
+    },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: '',
         title: '',
-        summary: '',
-        idx: 0
+        description: '',
+        idx: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -172,7 +197,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -186,6 +211,14 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       );
       changeId(updatedObj.id);
       return updatedObj;
+    },
+    sync: async () => {
+      const updatedObjs = await Promise.all(objs.map((obj) => {
+        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+        return updatedObj;
+      }));
+      changeObjs(updatedObjs);
+      return updatedObjs;
     },
   };
 

@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
+import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function FileAudioIdea() {
-  const { idea, x, y, constraintsRef, activateIdea } =
-    useContext(IdeaHandlerContext);
-  const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === idea.id;
+  const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj)
+  const idea = sceneIdeaMainController.state.obj;
+  const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 
   return (
     <>
@@ -20,7 +22,7 @@ export function FileAudioIdea() {
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            activateIdea();
+            sceneIdeaListController.actions.stateActions.select(sceneIdeaMainController.state.obj);
             e.stopPropagation();
           }}
         >
@@ -59,13 +61,13 @@ export function FileAudioIdea() {
             </svg>
             <audio
               id='file-upload-audio'
-              src={idea.fileElem?.src}
+              src={sceneIdeaMainController.state.obj.fileElem?.src}
               className='aspect-square h-[100px] bg-black object-cover shadow-md'
             />
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {idea.title}
+              src={sceneIdeaMainController.state.obj.fileElem?.title}
             </p>
           </div>
         </div>

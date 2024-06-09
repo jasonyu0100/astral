@@ -8,11 +8,10 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { DraftModalContext } from '../../main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function DraftAddChapterModal() {
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chapters = chaptersHandler.chapters;
+  const chaptersHandler = useContext(ContextForSpaceChapterList);
   const modalContext = useContext(DraftModalContext);
   const { opened, close } = modalContext.addChapterModal;
   const [title, changeTitle] = useState('');
@@ -40,10 +39,9 @@ export function DraftAddChapterModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chaptersHandler.chapterActions.createChapter(
+              chaptersHandler.actions.createActions.createChapter(
                 title,
                 description,
-                chapters.length,
               );
               close();
             }}

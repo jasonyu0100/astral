@@ -4,33 +4,29 @@ import {
   ContextForGalleryObj,
 } from '@/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { useGalleryHandler } from '@/(model)/(controller)/(archive)/explorer/gallerys/gallery/main';
-import {
-  CollectionsHandlerContext,
-  useCollectionsHandler,
-} from '@/(model)/(controller)/(archive)/explorer/collections/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
-  useArchiveExplorerCreateModal,
-  ArchiveExplorerCreateModalContext,
+  useControllerForExplorerModals,
+  ContextForExplorerModals,
 } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { ExplorerModalView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
+import { ExplorerModalsView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
+import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
+import { ContextForGalleryMain, useControllerForGalleryMain } from '@/(model)/(controller)/gallery/main';
 
 function Page({ params }: { params: { id: string } }) {
-  const { gallery } = useGalleryHandler(params.id);
-  const user = useGlobalUser((state) => state.user);
-  const collectionsHandler = useCollectionsHandler(gallery.id, user?.id);
-  const modalContext = useArchiveExplorerCreateModal();
+  const galleryMainController = useControllerForGalleryMain(params.id);
+  const collectionListController = useControllerForGalleryCollectionList(galleryMainController.state.objId);
+  const modalContext = useControllerForExplorerModals();
 
   return (
-    <ContextForGalleryObj.Provider value={gallery}>
-      <CollectionsHandlerContext.Provider value={collectionsHandler}>
-        <ArchiveExplorerCreateModalContext.Provider value={modalContext}>
-          <ExplorerModalView />
+    <ContextForGalleryMain.Provider value={galleryMainController}>
+      <ContextForGalleryCollectionList.Provider value={collectionListController}>
+        <ContextForExplorerModals.Provider value={modalContext}>
+          <ExplorerModalsView />
           <CollectionsResults />
-        </ArchiveExplorerCreateModalContext.Provider>
-      </CollectionsHandlerContext.Provider>
-    </ContextForGalleryObj.Provider>
+        </ContextForExplorerModals.Provider>
+      </ContextForGalleryCollectionList.Provider>
+    </ContextForGalleryMain.Provider>
   );
 }
 

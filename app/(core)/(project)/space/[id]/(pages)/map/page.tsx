@@ -1,38 +1,33 @@
 'use client';
 import { createContext, useState } from 'react';
 import { MapView } from './view/view';
-import {
-  ChaptersHandlerContext,
-  useChaptersHandler,
-} from '@/(model)/(controller)/(archive)/chapters/main';
-import {
-  ScenesHandlerContext,
-  useScenesHandler,
-} from '@/(model)/(controller)/(archive)/scenes/main';
-import isVerseAuth from '@/(utils)/isAuth';
-import {
-  IdeasHandlerContext,
-  useIdeasHandler,
-} from '@/(model)/(controller)/(archive)/ideas/main';
-import {
-  MapModalContext,
-  useMapModal,
-} from '../../(modals)/map-modal/main';
+import { MapModalContext, useMapModal } from '../../(modals)/map-modal/main';
 import {
   StarModalContext,
   useStarModal,
 } from '@/(core)/(project)/space/[id]/(modals)/star-modal/main';
 import { StarModalView } from '@/(core)/(project)/space/[id]/(modals)/star-modal/view';
 import { MapModalView } from '@/(core)/(project)/space/[id]/(modals)/map-modal/view';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(model)/(controller)/space/chapter/list';
+import {
+  ContextForChapterSceneList,
+  useControllerForChapterSceneList,
+} from '@/(model)/(controller)/space/chapter/scene/list';
+import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import isVerseAuth from '@/(utils)/isAuth';
 
 interface MapContextObj {
   modalType: MapModalType;
   updateModalType: (multiModalType: MapModalType) => void;
 }
 
-export const MapContext = createContext<MapContextObj>(
-  {} as MapContextObj,
-);
+export const MapContext = createContext<MapContextObj>({} as MapContextObj);
 
 export enum MapModalType {
   DEFAULT = 'DEFAULT',
@@ -43,11 +38,13 @@ export enum MapModalType {
 }
 
 function Page({ params }: { params: { id: string } }) {
-  const chaptersHandler = useChaptersHandler(params.id);
-  const partsHandler = useScenesHandler(
-    chaptersHandler.chapterId,
+  const chapterListController = useControllerForSpaceChapterList(params.id);
+  const sceneListController = useControllerForChapterSceneList(
+    chapterListController.state.objId,
   );
-  const ideasHandler = useIdeasHandler(partsHandler.partId);
+  const ideaListController = useControllerForSceneIdeaList(
+    sceneListController.state.objId,
+  );
   const [modalType, changeModalType] = useState(MapModalType.DEFAULT);
 
   const context: MapContextObj = {
@@ -60,19 +57,19 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <MapContext.Provider value={context}>
-      <ChaptersHandlerContext.Provider value={chaptersHandler}>
-        <ScenesHandlerContext.Provider value={partsHandler}>
-          <IdeasHandlerContext.Provider value={ideasHandler}>
+      <ContextForSpaceChapterList.Provider value={chapterListController}>
+        <ContextForChapterSceneList.Provider value={sceneListController}>
+          <ContextForSceneIdeaList.Provider value={ideaListController}>
             <MapModalContext.Provider value={mapModalContext}>
               <MapModalView />
-              <StarModalContext.Provider value={starModalContext}>
-                <StarModalView />
-                <MapView />
-              </StarModalContext.Provider>
             </MapModalContext.Provider>
-          </IdeasHandlerContext.Provider>
-        </ScenesHandlerContext.Provider>
-      </ChaptersHandlerContext.Provider>
+            <StarModalContext.Provider value={starModalContext}>
+              <StarModalView />
+            </StarModalContext.Provider>
+            <MapView />
+          </ContextForSceneIdeaList.Provider>
+        </ContextForChapterSceneList.Provider>
+      </ContextForSpaceChapterList.Provider>
     </MapContext.Provider>
   );
 }

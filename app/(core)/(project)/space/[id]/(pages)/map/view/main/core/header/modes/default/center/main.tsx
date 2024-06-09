@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
 
 export function DefaultCenter() {
-  const partsHandler = useContext(ScenesHandlerContext);
-  const part = partsHandler.part;
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chapter = chaptersHandler.chapter;
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const part = sceneListController.state.currentObj;
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const chapter = chapterListController.state.currentObj;
   const headerTitle =
     part && chapter
       ? `${chapter?.title} - ${part?.title}`

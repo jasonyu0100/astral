@@ -8,7 +8,10 @@ export interface BaseListStateActions<TargetObj> {
   goEnd: () => TargetObj | undefined;
   goNext: () => TargetObj | undefined;
   goPrev: () => TargetObj | undefined;
-  search: () => TargetObj[];
+  searchQuery: () => TargetObj[];
+  updateQuery: (newQuery: string) => void;
+  checkActive: (obj: TargetObj) => boolean;
+  find: (id: string) => TargetObj;
 }
 
 export interface BaseListGatherActions<TargetObj> {
@@ -24,6 +27,7 @@ export interface BaseListCreateActions<TargetObj> {
 
 export interface BaseListEditActions<TargetObj> {
   edit: (id: string, partialObj: Partial<TargetObj>) => Promise<TargetObj>;
+  sync: () => Promise<TargetObj[]>;
 }
 
 export interface BaseListDeleteActions<TargetObj> {

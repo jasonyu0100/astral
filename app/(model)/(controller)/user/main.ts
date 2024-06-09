@@ -18,8 +18,8 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
 interface ControllerState {
-  userId: string;
-  user: TargetObj;
+  objId: string;
+  obj: TargetObj;
 }
 
 interface StateActions extends BaseStateActions<TargetObj> {
@@ -59,12 +59,12 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserMain = (targetId: string): Controller => {
+const useControllerForUserMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
-    userId: targetId,
-    user: obj,
+    objId: objId,
+    obj: obj,
   };
 
   const stateActions: StateActions = {
@@ -93,15 +93,14 @@ const useControllerForUserMain = (targetId: string): Controller => {
         const user = users[0];
         user?.passwordHash && delete user.passwordHash;
         if (user.subscriptionId === null) {
-          const timeDiff =
-            new Date().getTime() - new Date(user.created).getTime();
+          const timeDiff = new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (0 < daysDifference && daysDifference < 14) {
             throw new Error('Account trial is over');
           }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId,
+            user.subscriptionId
           );
           if (subscription.plan.active !== true) {
             throw new Error('Subscription is not active');
@@ -128,15 +127,14 @@ const useControllerForUserMain = (targetId: string): Controller => {
         const user = users[0];
         user?.passwordHash && delete user.passwordHash;
         if (user.subscriptionId === null) {
-          const timeDiff =
-            new Date().getTime() - new Date(user.created).getTime();
+          const timeDiff = new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (0 < daysDifference && daysDifference < 14) {
             throw new Error('Account trial is over');
           }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId,
+            user.subscriptionId
           );
           if (subscription.plan.active !== true) {
             throw new Error('Subscription is not active');
@@ -148,11 +146,14 @@ const useControllerForUserMain = (targetId: string): Controller => {
     clear: () => {
       changeObj({} as TargetObj);
     },
+    update: (newObj: Partial<TargetObj>) => {
+      changeObj({ ...obj, ...newObj });
+    }
   };
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', targetId);
+      const getObj = await gqlDbWrapper.getObj('id', objId);
       changeObj(getObj);
       return getObj;
     },
@@ -221,11 +222,16 @@ const useControllerForUserMain = (targetId: string): Controller => {
       changeObj(updatedObj);
       return updatedObj;
     },
+    sync: async () => {
+      const updatedObj = await gqlDbWrapper.updateObj('id', obj);
+      changeObj(updatedObj);
+      return updatedObj;
+    },
   };
 
   const deleteActions: DeleteActions = {
     delete: async () => {
-      const deletedObj = await gqlDbWrapper.deleteObj(targetId);
+      const deletedObj = await gqlDbWrapper.deleteObj(objId);
       changeObj({} as TargetObj);
       return deletedObj;
     },
@@ -240,12 +246,12 @@ const useControllerForUserMain = (targetId: string): Controller => {
   };
 
   useMemo(() => {
-    if (!targetId) {
+    if (!objId) {
       changeObj({} as TargetObj);
     } else {
       controllerActions.gatherActions.get();
     }
-  }, [targetId]);
+  }, [objId]);
 
   return {
     state: controllerState,

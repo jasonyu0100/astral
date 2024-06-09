@@ -111,7 +111,7 @@ export function MonthView() {
             <div className='flex w-full flex-row'>
               <FormSelect
                 title='Number'
-                onChange={(e) => setCurrentNumber(e.target.value)}
+                onChange={(e) => setCurrentNumber(e.target.value as CardNumber)}
               >
                 {currentSuit === CardSuit.Other ? (
                   <>
@@ -129,7 +129,7 @@ export function MonthView() {
               </FormSelect>
               <FormSelect
                 title='Suit'
-                onChange={(e) => setCurrentSuit(e.target.value)}
+                onChange={(e) => setCurrentSuit(e.target.value as CardSuit)}
               >
                 {suitOrder.map((suit) => (
                   <option key={suit}>{suit}</option>
@@ -137,7 +137,7 @@ export function MonthView() {
               </FormSelect>
               <FormSelect
                 title='Color'
-                onChange={(e) => setCurrentSuit(e.target.value)}
+                onChange={(e) => setCurrentColor(e.target.value as CardColor)}
               >
                 {backColors.map((colors) => (
                   <option key={colors}>{colors}</option>

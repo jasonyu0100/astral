@@ -1,12 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
-import { SpacesHandlerContext } from '@/(model)/(controller)/(archive)/spaces/main';
 import { ContextForSpaceObj } from '@/(model)/space/main';
+import { ContextForSpaceList } from '@/(model)/(controller)/space/list';
 
 export function SpacesMain() {
-  const spacesHandler = useContext(SpacesHandlerContext);
-  const spaces = spacesHandler.spaces;
+  const spaceListHandler = useContext(ContextForSpaceList);
 
   return (
     <GlassAreaContainer
@@ -15,7 +14,7 @@ export function SpacesMain() {
       className={`divide-y-[1px] divide-slate-500 divide-opacity-30 overflow-auto`}
     >
       <div className="w-full flex flex-col">
-        {spaces?.map((space, index) => (
+        {spaceListHandler.state.spaces?.map((space, index) => (
           <ContextForSpaceObj.Provider value={space} key={space.id}>
             <StudioSpace index={index} key={space.id} />
           </ContextForSpaceObj.Provider>

@@ -2,18 +2,18 @@ import { FileElem } from '@/(model)/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 import { ResourceContainer } from '../common/container/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function SidebarCollectionResource() {
-  const ideasHandler = useContext(IdeasHandlerContext);
+  const sceneIdeasController = useContext(ContextForSceneIdeaList);
   const resource = useContext(ContextForCollectionResourceObj);
 
   return (
     <ResourceContainer
       className='h-[100px] p-[10px] flex-shrink-0'
       onClick={() => {
-        ideasHandler.ideaActions.createFromFile(
+        sceneIdeasController.actions.createActions.createFromFile(
           resource.title,
           resource.description,
           Math.random() * 500,

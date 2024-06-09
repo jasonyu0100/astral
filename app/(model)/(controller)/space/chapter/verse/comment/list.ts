@@ -16,9 +16,9 @@ type TargetObj = VerseCommentObj;
 const gqlDbWrapper = verseCommentDbWrapper;
 interface ControllerState {
   listId: string;
-  currentUser: TargetObj;
-  users: TargetObj[];
-  userId: string;
+  currentObj: TargetObj;
+  objs: TargetObj[];
+  objId: string;
   query: string;
   queryResults: TargetObj[];
 }
@@ -51,9 +51,9 @@ const useControllerForVerseCommentList = (listId: string): Controller => {
 
   const controllerState: ControllerState = {
     listId: listId,
-    users: objs,
-    currentUser: currentObj,
-    userId: id,
+    objs: objs,
+    currentObj: currentObj,
+    objId: id,
     query: query,
     queryResults: queryResults,
   };
@@ -107,7 +107,7 @@ const useControllerForVerseCommentList = (listId: string): Controller => {
         return undefined;
       }
     },
-    search: () => {
+    searchQuery: () => {
       if (query === '') {
         return objs;
       } else {
@@ -119,6 +119,12 @@ const useControllerForVerseCommentList = (listId: string): Controller => {
         return results;
       }
     },
+    updateQuery: (newQuery: string) => {
+      changeQuery(newQuery);
+    },
+    checkActive: function (obj: TargetObj): boolean {
+      return obj.id === id;
+    }
   };
 
   const gatherActions: GatherActions = {
@@ -185,6 +191,14 @@ const useControllerForVerseCommentList = (listId: string): Controller => {
       );
       changeId(updatedObj.id);
       return updatedObj;
+    },
+    sync: async () => {
+      const updatedObjs = await Promise.all(objs.map((obj) => {
+        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+        return updatedObj;
+      }));
+      changeObjs(updatedObjs);
+      return updatedObjs;
     },
   };
 

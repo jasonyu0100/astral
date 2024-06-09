@@ -13,7 +13,9 @@ import {
 } from '@/(model)/(templates)/space/main';
 import { PageOne } from './page-1/main';
 import { PageTwo } from './page-2/main';
-import { SpacesHandlerContext } from '@/(model)/(controller)/(archive)/spaces/main';
+import { ContextForSpaceList } from '@/(model)/(controller)/space/list';
+import { ContextForPagable } from '@/(logic)/contexts/pagination/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export interface CreateSpaceModalContextObj {
   pageOne: PageOneProps;
@@ -50,9 +52,9 @@ function Pages({ page }: { page: number }) {
 }
 
 export function CreateSpaceModal() {
-  const spacesHandler = useContext(SpacesHandlerContext);
-  const modalContext = useContext(SpacesModalContext);
-  const { opened, close, page, updatePage } = modalContext.createSpaceModal;
+  const spaceListController = useContext(ContextForSpaceList);
+  const { page, updatePage } = useContext(ContextForPagable);
+  const { opened, close } = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileElem);
@@ -62,7 +64,7 @@ export function CreateSpaceModal() {
   );
 
   useEffect(() => {
-    changeChapterTemplates(getSpaceTemplates(variant));
+    // changeChapterTemplates(getSpaceTemplates(variant));
   }, [variant]);
 
   const pageOne: PageOneProps = {
@@ -81,6 +83,17 @@ export function CreateSpaceModal() {
     updateChapterTemplates: (templates: TemplateChapterObj[]) =>
       changeChapterTemplates(templates),
   };
+
+  function createSpace() {
+    // spaceListController.actions.createActions.createEmpty(
+    //   title,
+    //   description,
+    //   thumbnail,
+    //   variant,
+    //   chapterTemplates,
+    // );
+    close();
+  }
 
   function ModalFooter() {
     switch (page) {
@@ -107,20 +120,7 @@ export function CreateSpaceModal() {
             >
               Prev
             </FormButton>
-            <FormButton
-              onClick={() => {
-                spacesHandler.spaceActions.createSpace(
-                  title,
-                  description,
-                  thumbnail,
-                  variant,
-                  chapterTemplates,
-                );
-                close();
-              }}
-            >
-              Create
-            </FormButton>
+            <FormButton onClick={createSpace}>Create</FormButton>
           </FormFooter>
         );
     }

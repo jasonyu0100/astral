@@ -31,15 +31,15 @@ function Section({ gqlMap }: { gqlMap: string }) {
 }
 
 export default function Page() {
-  const models = {
+  const models: { [key: string]: any } = {
     archive: galleryMap,
     elements: elementsMap,
     horizon: horizonMap,
     space: spaceMap,
     user: userMap,
   };
-  const [currentId, setCurrentId] = useState('user');
-  const [modelObj, setModelObj] = useState(models.user);
+  const [currentId, setCurrentId] = useState<any>('user');
+  const [modelObj, setModelObj] = useState<any>(models.user);
 
   return (
     <div className='h-full w-full flex-col p-[3rem]'>
@@ -49,7 +49,8 @@ export default function Page() {
           <select
             className='bg-black font-bold text-white'
             onChange={(e) => {
-              setModelObj(models[e.target.value.toString()]);
+              const key = e.target.value.toString();
+              setModelObj(models[key]);
               setCurrentId(e.target.value);
             }}
           >
@@ -64,7 +65,7 @@ export default function Page() {
         <div className='flex flex-col p-[1rem]'>
           <p className='font-bold text-white'>Table: {currentId}</p>
           <div className='flex flex-row space-x-[1rem]'>
-            {modelObj.children.map((cm, index) => (
+            {modelObj.children.map((cm : any) => (
               <button
                 value={cm}
                 key={cm}

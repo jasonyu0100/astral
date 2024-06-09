@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { IdeaHandlerContext } from '@/(model)/(controller)/(archive)/ideas/idea/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
 
 export function FileVideoIdea() {
-  const { idea, x, y, constraintsRef, activateIdea } =
-    useContext(IdeaHandlerContext);
-  const ideasHandler = useContext(IdeasHandlerContext);
-  const active = ideasHandler.ideaId === idea.id;
+  const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj)
+  const idea = sceneIdeaMainController.state.obj;
+  const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 
   return (
     <>
@@ -21,7 +23,7 @@ export function FileVideoIdea() {
           className='flex aspect-[16/9] h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
             e.stopPropagation();
-            activateIdea();
+            sceneIdeaListController.actions.stateActions.select(idea);
             const video = document.getElementById(
               `file-upload-audio-${idea.fileElem?.id}`,
             ) as HTMLVideoElement;

@@ -5,15 +5,15 @@ import {
 } from 'framer-motion';
 import { MutableRefObject, createContext, useMemo } from 'react';
 
-export interface FramerMotionXYObj {
+export interface ContextForMotionObjInterface {
   x: MotionValue<number>;
   y: MotionValue<number>;
   constraintsRef: MutableRefObject<null>;
 }
 
-export const ContextForFrameMotionXYObj = createContext({} as FramerMotionXYObj);
+export const ContextForMotionObj = createContext({} as ContextForMotionObjInterface);
 
-export const useFramerMotionObj = (
+export const useControllerForMotionObj = (
   initialX: number,
   initialY: number,
   updateX: (x: number) => void,

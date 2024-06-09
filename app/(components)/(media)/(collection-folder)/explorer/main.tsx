@@ -7,22 +7,21 @@ import { useContext } from 'react';
 import {
   ContextForGalleryCollectionObj,
 } from '@/(model)/gallery/collection/main';
-import { ResourcesHandlerContext, useResourcesHandler } from '@/(model)/(controller)/(archive)/explorer/resources/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export function ExplorerCollection() {
   const collection = useContext(ContextForGalleryCollectionObj);
-  const user = useGlobalUser((state) => state.user);
-  const resourcesHandler = useResourcesHandler(collection.id, user?.id);
+  const resourceListController = useControllerForCollectionResourceList(collection.id);
 
   return (
-    <ResourcesHandlerContext.Provider value={resourcesHandler}>
+    <ContextForCollectionResourceList.Provider value={resourceListController}>
       <Link href={archiveMap.archive.explorer.resources.id.link(collection.id)}>
         <CollectionContainer className="w-[300px]">
           <CollectionThumbnail />
           <CollectionInfo />
         </CollectionContainer>
       </Link>
-    </ResourcesHandlerContext.Provider>
+    </ContextForCollectionResourceList.Provider>
   );
 }

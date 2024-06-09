@@ -6,24 +6,21 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import {
-  LinkElem,
-  LinkElemVariant,
-} from '@/(model)/elements/link/main';
+import { LinkElem, LinkElemVariant } from '@/(model)/elements/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);
   const { opened, close } = modalContext.addLinkStarModal;
-  const ideasHandler = useContext(IdeasHandlerContext);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [variant, changeVariant] = useState<string>(LinkElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
-  const [description, changeDescription] = useState<string>("");
+  const [description, changeDescription] = useState<string>('');
   const [start, changeStart] = useState('0');
   const [end, changeEnd] = useState('10');
 
@@ -77,7 +74,12 @@ export function AddLinkStarModal() {
             value={title}
             onChange={(e) => changeTitle(e.target.value)}
           />
-          <FormTextArea placeholder="Description" title="Description" value={description} onChange={(e) => changeDescription(e.target.value)} />
+          <FormTextArea
+            placeholder='Description'
+            title='Description'
+            value={description}
+            onChange={(e) => changeDescription(e.target.value)}
+          />
           {variant === LinkElemVariant.YOUTUBE && (
             <>
               <FormInput
@@ -120,19 +122,31 @@ export function AddLinkStarModal() {
           <FormButton
             onClick={() => {
               if (variant === LinkElemVariant.YOUTUBE) {
-                ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
-                  id: '0',
-                  title: 'passion.png',
-                  url: `https://www.youtube.com/embed/${youtubeId}`,
-                  variant: LinkElemVariant.YOUTUBE,
-                } as LinkElem);
+                sceneIdeaListController.actions.createActions.createFromLink(
+                  title,
+                  description,
+                  0,
+                  0,
+                  {
+                    id: '0',
+                    title: `Youtube ${youtubeId}`,
+                    url: `https://www.youtube.com/embed/${youtubeId}`,
+                    variant: LinkElemVariant.YOUTUBE,
+                  } as LinkElem,
+                );
               } else if (variant === LinkElemVariant.SPOTIFY) {
-                ideasHandler.ideaActions.createFromLink(title, description, 0, 0, {
-                  id: '0',
-                  title: 'passion.png',
-                  url: `https://open.spotify.com/embed/track/${spotifyId}`,
-                  variant: LinkElemVariant.SPOTIFY,
-                } as LinkElem);
+                sceneIdeaListController.actions.createActions.createFromLink(
+                  title,
+                  description,
+                  0,
+                  0,
+                  {
+                    id: '0',
+                    title: `Spotify ${spotifyId}`,
+                    url: `https://open.spotify.com/embed/track/${spotifyId}`,
+                    variant: LinkElemVariant.SPOTIFY,
+                  } as LinkElem,
+                );
               }
               close();
             }}

@@ -4,7 +4,7 @@ export interface SpaceChapterObj {
   id: string;
   spaceId: string;
   title: string;
-  summary: string;
+  description: string;
   idx: number;
   created: string;
 }
@@ -24,7 +24,7 @@ export const exampleSpaceChapter: SpaceChapterObj = {
   id: '0',
   spaceId: '0',
   title: 'Melody',
-  summary: 'This is a description',
+  description: 'This is a description',
   idx: 0,
   created: new Date('2023-12-19').toISOString(),
 };
@@ -37,7 +37,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
   {
     id: '0',
     title: 'Concept',
-    summary: 'Concept Description',
+    description: 'Concept Description',
     spaceId: '0',
     idx: 0,
     created: new Date('2023-12-19').toISOString(),
@@ -45,7 +45,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
   {
     id: '1',
     title: 'Beat',
-    summary: 'Beat Description',
+    description: 'Beat Description',
     spaceId: '0',
     idx: 1,
     created: new Date('2023-12-19').toISOString(),
@@ -53,7 +53,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
   {
     id: '2',
     title: 'Melody',
-    summary: 'Melody Description',
+    description: 'Melody Description',
     spaceId: '0',
     idx: 2,
     created: new Date('2023-12-19').toISOString(),

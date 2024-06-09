@@ -1,12 +1,12 @@
+import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 import { useContext } from 'react';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
-import { ChatsHandlerContext } from '@/(model)/(controller)/(archive)/storm/chats/main';
 
 export default function HeaderTitle() {
-  const chatsHandler = useContext(ChatsHandlerContext);
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chat = chatsHandler.chat
-  const chapter = chaptersHandler.chapter;
+  const chatListController = useContext(ContextForChapterChatList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const chat = chatListController.state.currentObj
+  const chapter = chapterListController.state.currentObj;
   
 
   const headerTitle =

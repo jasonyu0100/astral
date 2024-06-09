@@ -7,23 +7,33 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import {
-  FileElem,
-  FileElemVariant,
-} from '@/(model)/elements/file/main';
+import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { ArchiveSidebarCreateModalContext } from '../main';
-import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCreateResourceModal() {
-  const resourcesHandler = useContext(ResourcesHandlerContext);
-  const modalContext = useContext(ArchiveSidebarCreateModalContext);
-  const { opened, close } = modalContext.createResource;
+  const collectionObj = useContext(ContextForGalleryCollectionObj);
+  const resourceListHandler = useControllerForCollectionResourceList(
+    collectionObj.id,
+  );
+  const user = useGlobalUser((state) => state.user);
+  const { opened, close } = useContext(ContextForOpenable);
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileElem);
   const [variant, changeVariant] = useState(FileElemVariant.IMAGE);
+
+  function createResource() {
+    resourceListHandler.actions.createActions
+      .createFromFile(user.id, name, description, file)
+      .then(() => {
+        close();
+      });
+  }
 
   return (
     <PolaroidModal isOpen={opened} onClose={() => close()}>
@@ -58,14 +68,7 @@ export function SidebarCreateResourceModal() {
           />
         </FormBody>
         <FormFooter>
-          <FormButton
-            onClick={() => {
-              resourcesHandler.resourceActions.createResourceFromFile(name, description, file);
-              close();
-            }}
-          >
-            Upload
-          </FormButton>
+          <FormButton onClick={createResource}>Upload</FormButton>
         </FormFooter>
       </FormContainer>
     </PolaroidModal>

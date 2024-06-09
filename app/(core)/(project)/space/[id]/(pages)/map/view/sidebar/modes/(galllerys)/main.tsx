@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { ContextForGalleryObj } from '@/(model)/gallery/main';
-import { ArchiveSidebarCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { GallerysHandlerContext } from '@/(model)/(controller)/(archive)/explorer/gallerys/main';
+import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { SidebarHomeGalleryAdd } from '@/(components)/(media)/(gallery-folder)/sidebar/add/main';
 import { SidebarHomeGallery } from '@/(components)/(media)/(gallery-folder)/sidebar/main';
+import { ContextForGalleryList } from '@/(model)/(controller)/gallery/list';
 
 export function SidebarGallerysInterface() {
-  const gallerysHandler = useContext(GallerysHandlerContext);
-  const gallerys = gallerysHandler.gallerys;
-  const modalContext = useContext(ArchiveSidebarCreateModalContext);
+  const galleryListController = useContext(ContextForGalleryList);
+  const modalContext = useContext(ContextForSidebarModals);
 
   return (
     <div className='flex h-full w-full flex-col'>
@@ -16,7 +15,7 @@ export function SidebarGallerysInterface() {
         <SidebarHomeGalleryAdd
           onClick={() => modalContext.createGallery.open()}
         />
-        {gallerys.map((gallery) => (
+        {galleryListController.state.objs.map((gallery) => (
           <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
             <SidebarHomeGallery key={gallery.id} />
           </ContextForGalleryObj.Provider>

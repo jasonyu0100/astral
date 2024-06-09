@@ -1,5 +1,5 @@
 import { userDbWrapper } from '@/(model)/(db)/user/main';
-import { exampleFileElem } from '@/(model)/elements/file/main';
+import { exampleFileElem, FileElem } from '@/(model)/elements/file/main';
 import { UserObj } from '@/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
@@ -16,16 +16,18 @@ type TargetObj = GalleryCollectionObj;
 const gqlDbWrapper = galleryCollectionDbWrapper;
 interface ControllerState {
   listId: string;
-  currentUser: TargetObj;
-  users: TargetObj[];
-  userId: string;
+  currentObj: TargetObj;
+  objs: TargetObj[];
+  objId: string;
   query: string;
   queryResults: TargetObj[];
 }
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createCollection: (title: string, description: string) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -51,9 +53,9 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
 
   const controllerState: ControllerState = {
     listId: listId,
-    users: objs,
-    currentUser: currentObj,
-    userId: id,
+    objs: objs,
+    currentObj: currentObj,
+    objId: id,
     query: query,
     queryResults: queryResults,
   };
@@ -107,7 +109,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
         return undefined;
       }
     },
-    search: () => {
+    searchQuery: () => {
       if (query === '') {
         return objs;
       } else {
@@ -119,6 +121,12 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
         return results;
       }
     },
+    updateQuery: (newQuery: string) => {
+      changeQuery(newQuery);
+    },
+    checkActive: function (obj: TargetObj): boolean {
+      return obj.id === id;
+    }
   };
 
   const gatherActions: GatherActions = {
@@ -150,6 +158,15 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
+    createCollection(title, description) {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        galleryId: listId,
+        title: title,
+        description: description,
+      };
+      return gqlDbWrapper.createObj(createObj);
+    },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -185,6 +202,14 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
       );
       changeId(updatedObj.id);
       return updatedObj;
+    },
+    sync: async () => {
+      const updatedObjs = await Promise.all(objs.map((obj) => {
+        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+        return updatedObj;
+      }));
+      changeObjs(updatedObjs);
+      return updatedObjs;
     },
   };
 

@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import { StormMessage } from './message/main';
 import { ContextForConversationMessageObj } from '@/(model)/space/chapter/chat/conversation/message/main';
-import { MessagesHandlerContext } from '@/(model)/(controller)/(archive)/storm/messages/main';
+import { ContextForConversationMessageList } from '@/(model)/(controller)/space/chapter/chat/conversation/message/list';
 
 export function StormChat() {
-  const messagesHandler = useContext(MessagesHandlerContext)
-  const messages = messagesHandler.messages
+  const messageListController = useContext(ContextForConversationMessageList)
   
   return (
     <div
@@ -13,7 +12,7 @@ export function StormChat() {
       style={{ height: '100%' }}
     >
       <div className='flex w-full max-w-[900px] flex-col space-y-[1rem] py-[2rem]'>
-        {messages.map((message) => (
+        {messageListController.state.objs.map((message) => (
           <ContextForConversationMessageObj.Provider value={message} key={message.id}>
             <StormMessage key={message.id}/>
           </ContextForConversationMessageObj.Provider>

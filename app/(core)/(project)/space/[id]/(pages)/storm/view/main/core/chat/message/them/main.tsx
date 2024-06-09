@@ -1,4 +1,4 @@
-export function StormScenenerChatMessage({
+export function StormAgentChatMessage({
   children,
 }: {
   children?: React.ReactNode;

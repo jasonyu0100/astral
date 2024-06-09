@@ -2,13 +2,12 @@ import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/add/main';
 import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/main';
 import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
-import { ArchiveExplorerCreateModalContext } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { CollectionsHandlerContext } from '@/(model)/(controller)/(archive)/explorer/collections/main';
+import { ContextForExplorerModals } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
+import { ContextForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
 
 export function CollectionsGrid() {
-  const collectionsHandler = useContext(CollectionsHandlerContext);
-  const modalContext = useContext(ArchiveExplorerCreateModalContext);
-  const collections = collectionsHandler.collections;
+  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const modalContext = useContext(ContextForExplorerModals);
 
   return (
     <div
@@ -16,7 +15,7 @@ export function CollectionsGrid() {
       style={{ height: '100%' }}
     >
       <div className='flex w-full flex-row flex-wrap gap-[2rem]'>
-        {collections.map((collection) => (
+        {collectionListController.state.objs.map((collection) => (
           <ContextForGalleryCollectionObj.Provider value={collection} key={collection.id}>
             <ExplorerCollection key={collection.id} />
           </ContextForGalleryCollectionObj.Provider>

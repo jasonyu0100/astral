@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
-import { ScenesHandlerContext } from '@/(model)/(controller)/(archive)/scenes/main';
+import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function VisualCenter() {
-  const partsHandler = useContext(ScenesHandlerContext);
-  const part = partsHandler.part;
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chapter = chaptersHandler.chapter;
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const sceneObj = sceneListController.state.currentObj;
+  const chapter = chapterListController.state.currentObj;
   const headerTitle =
-    part && chapter
-      ? `${part?.title} - ${chapter?.title}`
+    sceneObj && chapter
+      ? `${sceneObj?.title} - ${chapter?.title}`
       : 'None';
 
   return (

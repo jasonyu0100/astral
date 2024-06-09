@@ -9,11 +9,11 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ChatsHandlerContext } from '@/(model)/(controller)/(archive)/storm/chats/main';
+import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
 
 export function StormAddChatModal() {
   const modalContext = useContext(StormModalContext);
-  const chatsHandler = useContext(ChatsHandlerContext);
+  const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
 
@@ -43,7 +43,7 @@ export function StormAddChatModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              chatsHandler.chatActions.createChat(title, summary);
+              chatListController.actions.createActions.createChat(title, summary);
               modalContext.addChatModal.close();
             }}
           >

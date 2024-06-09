@@ -4,11 +4,10 @@ import { useContext } from 'react';
 import { StormChapterAdd } from './chapter/add/main';
 import { StormChapter } from './chapter/main';
 import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function StormSidebarChapters() {
-  const chaptersHandler = useContext(ChaptersHandlerContext);
-  const chapters = chaptersHandler.chapters;
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const modalContext = useContext(StormModalContext);
 
   return (
@@ -18,7 +17,7 @@ export function StormSidebarChapters() {
         sizeFx='h-full w-full'
         className='flex flex-col overflow-auto'
       >
-        {chapters.map((chapter) => (
+        {chapterListController.state.objs.map((chapter) => (
           <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
             <StormChapter key={chapter.id}/>
           </ContextForSpaceChapterObj.Provider>

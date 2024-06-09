@@ -15,7 +15,7 @@ export function SpacesHeader() {
         <SpacesAlbumInfo />
         <SpacesHeaderAction
           onClick={() => {
-            spacesModal.createSpaceModal.open();
+            spacesModal.createSpace.openable.open();
           }}
         />
       </GlassWindowContents>

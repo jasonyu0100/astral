@@ -9,13 +9,12 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
-import { EditResourceModalContext } from './main';
-import { ResourcesHandlerContext } from '@/(model)/(controller)/(archive)/explorer/resources/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
 
 export function ExplorerEditResourceModal() {
-  const modalContext = useContext(EditResourceModalContext);
-  const resourcesHandler = useContext(ResourcesHandlerContext);
-  const { opened, close } = modalContext.editResource;
+  const resourceListController = useContext(ContextForCollectionResourceList);
+  const { opened, close } = useContext(ContextForOpenable);
   const resource = useContext(ContextForCollectionResourceObj);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
@@ -45,9 +44,8 @@ export function ExplorerEditResourceModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              resourcesHandler.resourceActions
-                .updateResource(resource.id, {
-                  ...resource,
+              resourceListController.actions.editActions
+                .edit(resource.id, {
                   title,
                   description,
                   fileElem: file,
@@ -62,8 +60,8 @@ export function ExplorerEditResourceModal() {
           <FormButton
             variant={ButtonVariant.SECONDARY}
             onClick={() => {
-              resourcesHandler.resourceActions
-                .deleteResource(resource.id)
+              resourceListController.actions.deleteActions
+                .delete(resource.id)
                 .then(() => {
                   close();
                 });

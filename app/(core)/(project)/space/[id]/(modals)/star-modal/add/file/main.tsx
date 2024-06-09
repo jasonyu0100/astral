@@ -10,12 +10,12 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { IdeasHandlerContext } from '@/(model)/(controller)/(archive)/ideas/main';
+import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function AddFileStarModal() {
-  const modalContext = useContext(StarModalContext);
-  const { opened, close } = modalContext.addFileStarModal;
-  const ideasHandler = useContext(IdeasHandlerContext);
+  const { opened, close } = useContext(ContextForOpenable);
+  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
   const [variant, changeVariant] = useState<FileElemVariant>(FileElemVariant.IMAGE);
@@ -32,6 +32,7 @@ export function AddFileStarModal() {
             <option value={FileElemVariant.VIDEO}>VIDEO</option>
           </FormSelect>
           <FormInput title='Name' value={title} onChange={(e) => changeTitle(e.target.value)} />
+          <FormInput title='Description' value={description} onChange={(e) => changeDescription(e.target.value)} />
           <FormUploadFile
             label={'File'}
             onChange={(file) => changeFile(file)}
@@ -41,7 +42,7 @@ export function AddFileStarModal() {
         <FormFooter>
           <FormButton
             onClick={() => {
-              ideasHandler.ideaActions.createFromFile(title, description, 0, 0, file);
+              sceneIdeaListController.actions.createActions.createFromFile(title, description, 0, 0, file);
               close();
             }}
           >

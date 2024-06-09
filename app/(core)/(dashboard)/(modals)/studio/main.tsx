@@ -1,13 +1,12 @@
+import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
+import { ContextForPagableInterface } from '@/(logic)/contexts/pagination/main';
 import { createContext, useEffect, useState } from 'react';
 
 export interface SpacesModalController {
-  createSpaceModal: {
-    page: number;
-    opened: boolean;
-    open: () => void;
-    close: () => void;
-    updatePage: (page: number) => void;
-  };
+  createSpace: {
+    pagable: ContextForPagableInterface;
+    openable: ContextForOpenableInterface;
+  }
 }
 
 export const SpacesModalContext = createContext({} as SpacesModalController);
@@ -21,12 +20,16 @@ export const useSpacesModal = (): SpacesModalController => {
   }, [showOne]);
 
   return {
-    createSpaceModal: {
-      page,
-      opened: showOne,
-      open: () => changeOne(true),
-      close: () => changeOne(false),
-      updatePage: (page: number) => changePage(page),
+    createSpace: {
+      openable: {
+        opened: showOne,
+        open: () => changeOne(true),
+        close: () => changeOne(false),
+      },
+      pagable: {
+        page,
+        updatePage: (page: number) => changePage(page),
+      },
     },
   };
 };
