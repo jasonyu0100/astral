@@ -11,7 +11,7 @@ interface ReleaseTabProps {
 
 export enum ReleaseTabStage {
   Story = 'Story',
-  Flow = 'Flow',
+  Field = 'Field',
   Map = 'Map',
   Point = 'Point',
 }

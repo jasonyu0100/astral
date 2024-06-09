@@ -12,7 +12,6 @@ import { ChaptersLeft } from './chapters/left/main';
 import { ChaptersRowContainer } from './chapters/row/main';
 import { ChapterContainer } from './chapters/row/chapter/main';
 import { ChaptersRight } from './chapters/right/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 
 function MapSpace() {

@@ -58,7 +58,7 @@ function Page() {
                   className='w-full max-w-[360px]'
                 />
                 <p className='text-xs font-bold text-slate-500'>
-                  <a href={horizonMap.horizon.id.flow.link('0')}>
+                  <a href={horizonMap.horizon.id.field.link('0')}>
                     Horizon XYZ
                   </a>
                   {'>'}
@@ -91,7 +91,7 @@ function Page() {
                   className='w-full max-w-[360px]'
                 />
                 <p className='text-xs font-bold text-slate-500'>
-                  <a href={horizonMap.horizon.id.flow.link('0')}>
+                  <a href={horizonMap.horizon.id.field.link('0')}>
                     Horizon XYZ
                   </a>
                   {'>'}

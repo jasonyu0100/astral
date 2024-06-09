@@ -9,11 +9,6 @@ import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
-import { ChaptersContainer } from './chapters/main';
-import { ChaptersRowContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/main';
-import { ChaptersLeft } from './chapters/left/main';
-import { ChaptersRight } from './chapters/right/main';
-import { ChapterContainer } from './chapters/row/chapter/main';
 
 function DecisionMatrix() {
   return (
@@ -214,15 +209,6 @@ function Page() {
             </div>
           </div>
           </div>
-          <ChaptersContainer>
-            <ChaptersLeft />
-            <ChaptersRowContainer>
-              <ChapterContainer index={1} >A. Formal</ChapterContainer>
-              <ChapterContainer index={1} >B. Casual</ChapterContainer>
-              <ChapterContainer index={1} >C. Smart Casual</ChapterContainer>
-            </ChaptersRowContainer>
-            <ChaptersRight />
-          </ChaptersContainer>
         </div>
       </StoryView>
     </>

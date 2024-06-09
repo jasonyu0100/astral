@@ -6,8 +6,8 @@ export const horizonMap = {
       story: {
         link: (id: string) => `${baseUrl}/${id}/story`,
       },
-      flow: {
-        link: (id: string) => `${baseUrl}/${id}/flow`,
+      field: {
+        link: (id: string) => `${baseUrl}/${id}/field`,
       },
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
