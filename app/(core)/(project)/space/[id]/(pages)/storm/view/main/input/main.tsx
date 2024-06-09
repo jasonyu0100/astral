@@ -6,23 +6,26 @@ import { StormChatMessageInput } from './text/main';
 import { useContext } from 'react';
 import { ContextForConversationMessageList } from '@/(model)/(controller)/space/chapter/chat/conversation/message/list';
 
-
 export function StormChatInput() {
-  const messageListController = useContext(ContextForConversationMessageList)
+  const messageListController = useContext(ContextForConversationMessageList);
 
   return (
     <GlassAreaContainer
       name={StormChatInput.name}
       sizeFx='h-[80px] w-full'
       glassFx={glassFx['glass-5']}
-      className={`flex flex-row justify-center items-center px-[1rem]`}
+      className={`flex flex-row items-center justify-center px-[1rem]`}
     >
       <StormChatInputLeft />
       <StormChatMessageInput
-        onChange={(e) => messageListController.messageActions.updateInputMessage(e.target.value)}
-        value={messageListController.inputMessage}
+        onChange={(e) =>
+          messageListController.actions.stateActions.updateMessageText(
+            e.target.value,
+          )
+        }
+        value={messageListController.state.more.messageText}
       />
-      <StormChatInputRight/>
+      <StormChatInputRight />
     </GlassAreaContainer>
   );
 }

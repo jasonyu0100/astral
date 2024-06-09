@@ -2,15 +2,19 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 import { useContext } from 'react';
 import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
-import { ChaptersHandlerContext } from '@/(model)/(controller)/(archive)/chapters/main';
 import { StormChapterTitle } from './title/main';
+import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
 
 export function StormChapterHeader() {
   const chapter = useContext(ContextForSpaceChapterObj);
-  const chaptersHandler = useContext(ChaptersHandlerContext);
+  const chaptersListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <button onClick={() => chaptersHandler.chapterActions.goToChapter(chapter)}>
+    <button
+      onClick={() =>
+        chaptersListController.actions.stateActions.select(chapter)
+      }
+    >
       <GlassAreaContainer
         name={StormChapterHeader.name}
         sizeFx='w-full py-[0.5rem]'

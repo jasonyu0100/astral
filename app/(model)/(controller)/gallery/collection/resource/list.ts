@@ -123,11 +123,11 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
         return results;
       }
     },
-    updateQuery: (newQuery: string) => {
-      changeQuery(newQuery);
-    },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
+    },
+    find: (id: string) => {
+      return objs.find((obj) => obj.id === id) || {} as TargetObj;
     }
   };
 

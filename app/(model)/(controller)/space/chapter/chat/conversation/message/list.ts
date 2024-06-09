@@ -19,13 +19,22 @@ interface ControllerState {
   currentObj: TargetObj;
   objs: TargetObj[];
   objId: string;
-  query: string;
-  queryResults: TargetObj[];
+  more: ControllerMoreState;
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {}
+interface ControllerMoreState {
+  query: string;
+  queryResults: TargetObj[];
+  messageText: string;
+}
+
+interface StateActions extends BaseListStateActions<TargetObj> {
+  updateMessageText: (messageText: string) => void;
+}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  sendMessage: (userId: string) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -41,11 +50,14 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForConversationMessageList = (listId: string): Controller => {
+const useControllerForConversationMessageList = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
+  const [messageText, changeMessageText] = useState<string>('');
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
@@ -54,8 +66,11 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
     objs: objs,
     currentObj: currentObj,
     objId: id,
-    query: query,
-    queryResults: queryResults,
+    more: {
+      query: query,
+      queryResults: queryResults,
+      messageText: messageText,
+    },
   };
 
   const stateActions: StateActions = {
@@ -124,7 +139,13 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
     },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
-    }
+    },
+    updateMessageText: function (newMessage: string): void {
+      changeMessageText(newMessage);
+    },
+    find: function (id: string): ConversationMessageObj {
+      throw new Error('Function not implemented.');
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -161,7 +182,7 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
         created: new Date().toISOString(),
         memberId: '',
         conversationId: '',
-        message: ''
+        message: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -177,10 +198,23 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
+    sendMessage: async (userId: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        memberId: userId,
+        conversationId: listId,
+        message: messageText,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      changeMessageText('');
+      return newObj;
+    }
   };
 
   const editActions: EditActions = {
@@ -193,10 +227,12 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -242,4 +278,7 @@ const useControllerForConversationMessageList = (listId: string): Controller => 
 };
 
 const ContextForConversationMessageList = createContext({} as Controller);
-export { ContextForConversationMessageList, useControllerForConversationMessageList };
+export {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+};

@@ -2,15 +2,15 @@ import { useContext } from 'react';
 import { StormChatIcon } from './avatar/main';
 import StormChapterIndicator from '../header/indicator/main';
 import { ContextForChatObj } from '@/(model)/space/chapter/chat/main';
-import { ChatsHandlerContext } from '@/(model)/(controller)/(archive)/storm/chats/main';
+import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
 
 export function StormChapterChat() {
   const chat = useContext(ContextForChatObj);
-  const chatsHandler = useContext(ChatsHandlerContext);
-  const active = chat.id === chatsHandler.chatId;
+  const chatListController = useContext(ContextForChapterChatList);
+  const active = chatListController.actions.stateActions.checkActive(chat);
 
   return (
-    <button onClick={() => chatsHandler.chatActions.selectChat(chat)}>
+    <button onClick={() => chatListController.actions.stateActions.select(chat)}>
       <div className='flex w-full flex-row items-center pr-[1rem]'>
         <StormChatIcon />
         {active ? (

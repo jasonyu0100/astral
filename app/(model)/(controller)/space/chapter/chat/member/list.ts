@@ -19,6 +19,10 @@ interface ControllerState {
   currentObj: TargetObj;
   objs: TargetObj[];
   objId: string;
+  more: ControllerMoreState;
+}
+
+interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
 }
@@ -54,8 +58,10 @@ const useControllerForChatMemberList = (listId: string): Controller => {
     objs: objs,
     currentObj: currentObj,
     objId: id,
-    query: query,
-    queryResults: queryResults,
+    more: {
+      query: query,
+      queryResults: queryResults,
+    }
   };
 
   const stateActions: StateActions = {

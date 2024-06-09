@@ -20,6 +20,10 @@ interface ControllerState {
   currentObj: TargetObj;
   objs: TargetObj[];
   objId: string;
+  more: ControllerMoreState;
+}
+
+interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
 }
@@ -60,8 +64,10 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     objs: objs,
     currentObj: currentObj,
     objId: id,
-    query: query,
-    queryResults: queryResults,
+    more: {
+      query: query,
+      queryResults: queryResults,
+    }
   };
 
   const stateActions: StateActions = {
@@ -130,6 +136,9 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
+    },
+    find: (id: string) => {
+      return objs.find((obj) => obj.id === id) || {} as TargetObj;
     }
   };
 
