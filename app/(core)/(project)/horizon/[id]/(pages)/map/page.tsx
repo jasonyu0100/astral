@@ -7,11 +7,6 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { ChaptersContainer } from './chapters/main';
-import { ChaptersLeft } from './chapters/left/main';
-import { ChaptersRowContainer } from './chapters/row/main';
-import { ChapterContainer } from './chapters/row/chapter/main';
-import { ChaptersRight } from './chapters/right/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 
 function MapSpace() {
