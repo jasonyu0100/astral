@@ -1,5 +1,9 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx } from '@/(style)/data';
+import { useEffect, useState } from 'react';
 
 export function TimerComponent() {
   const originalTime = 10000; // 100 x 100
@@ -26,78 +30,77 @@ export function TimerComponent() {
   });
 
   return (
-    <div className="w-full h-full p-[3rem]">
-      <div className="flex flex-col space-y-[3rem] bg-blue-200 p-[3rem] rounded-lg">
-        <div className="text-black flex space-y-[1rem] flex-col items-center p-[3rem] bg-slate-100 rounded-full">
-          <p className="transition-opacity text-3xl w-full flex justify-center">
-            {days} days : {hours} hrs :{" "}
-            <span className="flex justify-center w-[3rem] px-[0.5rem]">
+    <GlassWindowFrame className='flex flex-col space-y-[1rem] overflow-hidden rounded-[3rem] p-[2rem] py-[2rem] animate-pulse-slow'>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      <GlassWindowFrame className='flex flex-col items-center overflow-hidden rounded-[1rem] p-[3rem] font-bold text-white text-opacity-80 h-[20rem]'>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+        <GlassWindowContents className="flex flex-col items-center space-y-[1rem] justify-center">
+          <p className='flex w-full justify-center text-3xl transition-opacity'>
+            {days} days : {hours} hrs :{' '}
+            <span className='flex w-[3rem] justify-center px-[0.5rem]'>
               {minutes}
             </span>
-            m :{" "}
-            <span className="flex justify-center w-[3rem] px-[0.5rem]">
+            m :{' '}
+            <span className='flex w-[3rem] justify-center px-[0.5rem]'>
               {seconds}
             </span>
             s
           </p>
-          <div className="flex flex-row space-x-[1rem]">
-            <p className="font-bold text-lg">
-              Dilation: {timeDilation}
-            </p>
+          <div className='flex flex-row space-x-[1rem]'>
+            <p className='text-lg font-bold'>Time Dilation: {timeDilation}x</p>
           </div>
-          <div className="flex flex-col items-center">
+          {/* <div className='flex flex-col items-center'>
             <p>Days : {days}</p>
             <p>Hours : {hours}</p>
             <p>Minutes : {minutes}</p>
             <p>Seconds : {seconds}</p>
-          </div>
+          </div> */}
+        </GlassWindowContents>
+      </GlassWindowFrame>
+      <div className='flex flex-row justify-between rounded-md px-[5rem] py-[3rem] text-white text-opacity-50 font-extraBold text-lg z-50'>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(0)}
+        >
+          Pause
         </div>
-        <div className="flex flex-row justify-between rounded-md border-blue-300 border-[3px]">
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(1)}
-          >
-            1x
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(2)}
-          >
-            2x
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(5)}
-          >
-            5x
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(0)}
-          >
-            Pause
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(100)}
-          >
-            100x
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(-1)}
-          >
-            -1x
-          </div>
-          <div
-            className="bg-blue-500 w-[200px] h-[200px] border-blue-300 border-[3px] justify-center items-center flex cursor-pointer"
-            onClick={() => changeTimeDilation(-1)}
-          >
-            -2x
-          </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(1)}
+        >
+          1x
+        </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(2)}
+        >
+          2x
+        </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(5)}
+        >
+          5x
+        </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(100)}
+        >
+          10x
+        </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(100)}
+        >
+          20x
+        </div>
+        <div
+          className='flex  cursor-pointer items-center justify-center '
+          onClick={() => changeTimeDilation(100)}
+        >
+          100x
         </div>
       </div>
-    </div>
+    </GlassWindowFrame>
   );
 }
-

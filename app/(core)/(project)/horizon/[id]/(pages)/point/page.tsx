@@ -14,17 +14,16 @@ import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
 function Page() {
   return (
     <HorizonViewView>
-      <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[2rem]'>
-        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
-        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1>
-        <h1 className='text-lg font-bold text-slate-300'>HorizonView - On Track</h1>
-        <h1 className='text-lg font-bold text-slate-300'>
+      <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
+        {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
+        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1> */}
+        <h1 className='text-lg font-bold text-slate-300 animate-pulse'>HorizonView - On Track</h1>
+        <br/>
+        {/* <h1 className='text-lg font-bold text-slate-300'>
           HorizonView - In progress
-        </h1>
-        <HorizontalDivider />
+        </h1> */}
         <TimerComponent />
-        <HorizontalDivider />
-        <div className='flex flex-row items-center text-slate-300'>
+        {/* <div className='flex flex-row items-center text-slate-300'>
           <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH</p>
         </div>
@@ -61,7 +60,7 @@ function Page() {
           <button className='bg-white p-[1rem] text-black'>
             Create Contest
           </button>
-        </div>
+        </div> */}
       </div>
       <HorizonViewSidebar />
     </HorizonViewView>

@@ -11,11 +11,17 @@ export function HorizonViewSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <p className='text-sm font-bold text-slate-500'>21 hours ago</p>
+      <SidebarEntry/>
+      <p className='text-sm font-bold text-slate-500'>2 days ago</p>
       <SidebarEntry/>
       <SidebarEntry/>
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
       <SidebarEntry/>
+      <SidebarEntry/>
+      <p className='text-sm font-bold text-slate-500'>7 days ago</p>
+      <SidebarEntry/>
+      <SidebarEntry/>
+      <p className='text-sm font-bold text-slate-500'>1 month ago</p>
       <SidebarEntry/>
       <SidebarEntry/>
     </GlassAreaContainer>
