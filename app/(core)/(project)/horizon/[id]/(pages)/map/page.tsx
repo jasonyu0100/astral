@@ -116,16 +116,6 @@ function Page() {
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             </GlassWindowFrame>{' '}
           </div>
-          <ChaptersContainer>
-            <ChaptersLeft />
-            <ChaptersRowContainer>
-              <ChapterContainer index={1}>Group A</ChapterContainer>
-              <ChapterContainer index={1}>Group B</ChapterContainer>
-              <ChapterContainer index={1}>Group C</ChapterContainer>
-              <ChapterContainer index={1}>Group D</ChapterContainer>
-            </ChaptersRowContainer>
-            <ChaptersRight />
-          </ChaptersContainer>
         </div>
         <MapSidebar />
       </MapView>
