@@ -8,8 +8,6 @@ import {
   useStormModal,
 } from '../../(modals)/storm-modal/main';
 import { StormModalView } from '@/(core)/(project)/space/[id]/(modals)/storm-modal/view';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { useControllerForSpaceList } from '@/(model)/(controller)/space/list';
 import { useControllerForSpaceMain } from '@/(model)/(controller)/space/main';
 import {
   ContextForSpaceChapterList,
