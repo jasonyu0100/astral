@@ -7,7 +7,10 @@ import {
   useControllerForExplorerModals,
 } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { ExplorerModalsView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
-import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import {
+  ContextForGalleryList,
+  useControllerForGalleryList,
+} from '@/(model)/(controller)/gallery/list';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -15,12 +18,12 @@ function Page() {
   const modalContext = useControllerForExplorerModals();
 
   return (
-    <ContextForExplorerModals.Provider value={modalContext}>
-      <ContextForGalleryList.Provider value={galleryListController}>
+    <ContextForGalleryList.Provider value={galleryListController}>
+      <ContextForExplorerModals.Provider value={modalContext}>
         <ExplorerModalsView />
-        <GallerysView />
-      </ContextForGalleryList.Provider>
-    </ContextForExplorerModals.Provider>
+      </ContextForExplorerModals.Provider>
+      <GallerysView />
+    </ContextForGalleryList.Provider>
   );
 }
 

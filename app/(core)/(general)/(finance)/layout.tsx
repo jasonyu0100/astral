@@ -5,6 +5,8 @@ import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
 import { SupportCentralView } from '../(common)/central/main';
+import { Suspense } from 'react';
+import { PortalBackground } from '@/(portal)/(common)/background/main';
 
 export default function Layout({
   children,
@@ -15,7 +17,7 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <>
+    <Suspense fallback={<PortalBackground/>}>
       <Topbar />
       <DashboardController>
         <DashboardSidebarView minimised />
@@ -23,6 +25,6 @@ export default function Layout({
           <SupportCentralView>{children}</SupportCentralView>
         </DashboardBody>
       </DashboardController>
-    </>
+    </Suspense>
   );
 }

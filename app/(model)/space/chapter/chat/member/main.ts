@@ -3,7 +3,6 @@ import { createContext } from 'react';
 export interface ChatMemberObj {
   id: string;
   chatId: string;
-  agentId?: string;
   userId?: string;
   created: string;
 }
@@ -12,7 +11,6 @@ export const chatMemberGql = `
 type ChatMemberObj {
   id: String!
   chatId: String!
-  agentId: String!
   userId: String!
   created: String!
 }
@@ -39,7 +37,6 @@ export const exampleChatMembers: ChatMemberObj[] = [
   {
     id: '0',
     chatId: '0',
-    agentId: '0',
     created: new Date().toISOString(),
   },
   {

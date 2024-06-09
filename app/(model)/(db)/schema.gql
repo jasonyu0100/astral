@@ -1,16 +1,3 @@
-type AgentObj {
-	id: String!
-	name: String!
-	role: String!
-	bio: String!
-	created: String!
-}
-
-type AgentObjConnection {
-	items: [AgentObj]
-	nextToken: String
-}
-
 type ArcForumObj {
 	id: String!
 	arcId: String!
@@ -95,7 +82,6 @@ type ChatConversationObjConnection {
 type ChatMemberObj {
 	id: String!
 	chatId: String!
-	agentId: String
 	userId: String
 	created: String!
 }
@@ -178,7 +164,6 @@ type CollectionResourceObjConnection {
 type ConversationMessageObj {
 	id: String!
 	userId: String
-	agentId: String
 	conversationId: String!
 	created: String!
 	message: String!
@@ -187,13 +172,6 @@ type ConversationMessageObj {
 type ConversationMessageObjConnection {
 	items: [ConversationMessageObj]
 	nextToken: String
-}
-
-input CreateAgentObjInput {
-	name: String!
-	role: String!
-	bio: String!
-	created: String!
 }
 
 input CreateArcForumObjInput {
@@ -243,7 +221,6 @@ input CreateChatConversationObjInput {
 
 input CreateChatMemberObjInput {
 	chatId: String!
-	agentId: String
 	userId: String
 	created: String!
 }
@@ -291,7 +268,6 @@ input CreateCollectionResourceObjInput {
 input CreateConversationMessageObjInput {
 	id: String!
 	userId: String
-	agentId: String
 	conversationId: String!
 	created: String!
 	message: String!
@@ -503,10 +479,6 @@ input CreateVerseMemberObjInput {
 	verseId: String!
 	userId: String!
 	created: String!
-}
-
-input DeleteAgentObjInput {
-	id: String!
 }
 
 input DeleteArcForumObjInput {
@@ -1000,14 +972,6 @@ type SpaceUpdateObjConnection {
 	nextToken: String
 }
 
-input TableAgentObjFilterInput {
-	id: TableStringFilterInput
-	name: TableStringFilterInput
-	role: TableStringFilterInput
-	bio: TableStringFilterInput
-	created: TableStringFilterInput
-}
-
 input TableArcForumObjFilterInput {
 	id: TableStringFilterInput
 	arcId: TableStringFilterInput
@@ -1068,7 +1032,6 @@ input TableChatConversationObjFilterInput {
 input TableChatMemberObjFilterInput {
 	id: TableStringFilterInput
 	chatId: TableStringFilterInput
-	agentId: TableStringFilterInput
 	userId: TableStringFilterInput
 	created: TableStringFilterInput
 }
@@ -1118,7 +1081,6 @@ input TableCollectionResourceObjFilterInput {
 input TableConversationMessageObjFilterInput {
 	id: TableStringFilterInput
 	userId: TableStringFilterInput
-	agentId: TableStringFilterInput
 	conversationId: TableStringFilterInput
 	created: TableStringFilterInput
 	message: TableStringFilterInput
@@ -1403,14 +1365,6 @@ input TableVerseMemberObjFilterInput {
 	created: TableStringFilterInput
 }
 
-input UpdateAgentObjInput {
-	id: String!
-	name: String
-	role: String
-	bio: String
-	created: String
-}
-
 input UpdateArcForumObjInput {
 	id: String!
 	arcId: String
@@ -1465,7 +1419,6 @@ input UpdateChatConversationObjInput {
 input UpdateChatMemberObjInput {
 	id: String!
 	chatId: String
-	agentId: String
 	userId: String
 	created: String
 }
@@ -1515,7 +1468,6 @@ input UpdateCollectionResourceObjInput {
 input UpdateConversationMessageObjInput {
 	id: String!
 	userId: String
-	agentId: String
 	conversationId: String
 	created: String
 	message: String
@@ -1958,9 +1910,6 @@ type Mutation {
 	createArcForumObj(input: CreateArcForumObjInput!): ArcForumObj
 	updateArcForumObj(input: UpdateArcForumObjInput!): ArcForumObj
 	deleteArcForumObj(input: DeleteArcForumObjInput!): ArcForumObj
-	createAgentObj(input: CreateAgentObjInput!): AgentObj
-	updateAgentObj(input: UpdateAgentObjInput!): AgentObj
-	deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
 }
 
 type Query {
@@ -2043,8 +1992,6 @@ type Query {
 	listClusterUpdateMemberObjs(filter: TableClusterUpdateMemberObjFilterInput, limit: Int, nextToken: String): ClusterUpdateMemberObjConnection
 	getArcForumObj(id: String!): ArcForumObj
 	listArcForumObjs(filter: TableArcForumObjFilterInput, limit: Int, nextToken: String): ArcForumObjConnection
-	getAgentObj(id: String!): AgentObj
-	listAgentObjs(filter: TableAgentObjFilterInput, limit: Int, nextToken: String): AgentObjConnection
 }
 
 type Subscription {
@@ -2123,7 +2070,6 @@ type Subscription {
 	onCreateConversationMessageObj(
 		id: String,
 		userId: String,
-		agentId: String,
 		conversationId: String,
 		created: String
 	): ConversationMessageObj
@@ -2131,7 +2077,6 @@ type Subscription {
 	onUpdateConversationMessageObj(
 		id: String,
 		userId: String,
-		agentId: String,
 		conversationId: String,
 		created: String
 	): ConversationMessageObj
@@ -2139,10 +2084,9 @@ type Subscription {
 	onDeleteConversationMessageObj(
 		id: String,
 		userId: String,
-		agentId: String,
 		conversationId: String,
 		created: String
-	): ConversationMessageObj
+): ConversationMessageObj
 		@aws_subscribe(mutations: ["deleteConversationMessageObj"])
 	onCreateChatConversationObj(
 		id: String,
@@ -2816,28 +2760,4 @@ type Subscription {
 		created: String
 	): ArcForumObj
 		@aws_subscribe(mutations: ["deleteArcForumObj"])
-	onCreateAgentObj(
-		id: String,
-		name: String,
-		role: String,
-		bio: String,
-		created: String
-	): AgentObj
-		@aws_subscribe(mutations: ["createAgentObj"])
-	onUpdateAgentObj(
-		id: String,
-		name: String,
-		role: String,
-		bio: String,
-		created: String
-	): AgentObj
-		@aws_subscribe(mutations: ["updateAgentObj"])
-	onDeleteAgentObj(
-		id: String,
-		name: String,
-		role: String,
-		bio: String,
-		created: String
-	): AgentObj
-		@aws_subscribe(mutations: ["deleteAgentObj"])
 }

@@ -10,16 +10,16 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/(model)/(controller)/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCreateResourceModal() {
-  const collectionObj = useContext(ContextForGalleryCollectionObj);
-  const resourceListHandler = useControllerForCollectionResourceList(
-    collectionObj.id,
-  );
+  const resourceListHandler = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);
   const { opened, close } = useContext(ContextForOpenable);
   const [name, changeName] = useState('');

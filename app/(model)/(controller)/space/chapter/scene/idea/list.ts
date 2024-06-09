@@ -311,7 +311,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
     } else {
       controllerActions.gatherActions.gatherFilter();
     }
-  }, [controllerActions.gatherActions, listId]);
+  }, [listId]);
 
   return {
     state: controllerState,

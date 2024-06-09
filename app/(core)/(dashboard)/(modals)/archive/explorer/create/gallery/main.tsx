@@ -9,14 +9,14 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem } from '@/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
-import { useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerCreateGalleryModal() {
   const user = useGlobalUser((state) => state.user);
   const { opened, close } = useContext(ContextForOpenable);
-  const galleryListController = useControllerForGalleryList('');
+  const galleryListController = useContext(ContextForGalleryList);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileElem);

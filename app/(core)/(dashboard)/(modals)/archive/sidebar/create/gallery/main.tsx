@@ -12,12 +12,12 @@ import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-im
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ContextForSidebarModals } from '../main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCreateGalleryModal() {
   const { opened, close } = useContext(ContextForOpenable);
-  const galleryListController = useControllerForGalleryList('');
+  const galleryListController = useContext(ContextForGalleryList);
   const userId = useGlobalUser((state) => state.user.id);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
