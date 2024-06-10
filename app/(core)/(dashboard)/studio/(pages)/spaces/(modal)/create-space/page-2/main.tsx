@@ -5,23 +5,23 @@ import { ContextForPageTwo } from '../main';
 import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 
 export function PageTwo() {
-  const { variant, updateVariant, chapterTemplates, updateChapterTemplates } = useContext(ContextForPageTwo)
+  const { variant, updateVariant, templateSpaceChapters: chapterTemplates, updateTemplateSpaceChapters: updateChapterTemplates } = useContext(ContextForPageTwo)
 
   return (
     <FormBody>
       <FormSelect
-        title='Variant'
+        title='Chapters'
         value={variant}
         onChange={(e) => {
           updateVariant(e.target.value);
         }}
       >
+        <option value={SpaceTemplate.DEFAULT}>{SpaceTemplate.DEFAULT}</option>
         <option value={SpaceTemplate.BAR}>{SpaceTemplate.BAR}</option>
         <option value={SpaceTemplate.MIX}>{SpaceTemplate.MIX}</option>
         <option value={SpaceTemplate.SONG}>{SpaceTemplate.SONG}</option>
-        <option value={SpaceTemplate.CUSTOM}>{SpaceTemplate.CUSTOM}</option>
       </FormSelect>
-      {variant === SpaceTemplate.CUSTOM ? (
+      {variant === SpaceTemplate.DEFAULT ? (
         <div className='flex w-full flex-col'>
           {chapterTemplates.map((chapter, index) => (
             <div className='flex w-full flex-col space-y-[0.5rem]' key={index}>

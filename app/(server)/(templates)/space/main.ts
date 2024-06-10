@@ -84,7 +84,7 @@ export enum SpaceTemplate {
   SONG = 'SONG',
   BAR = 'BAR',
   IDEA = 'IDEA',
-  CUSTOM = 'CUSTOM',
+  DEFAULT = 'DEFAULT',
 }
 
 
@@ -98,7 +98,7 @@ export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
       return barTemplate;
     case SpaceTemplate.IDEA:
       return ideaTemplate;
-    case SpaceTemplate.CUSTOM:
+    case SpaceTemplate.DEFAULT:
       return customTemplate;
   }
   return customTemplate;

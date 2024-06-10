@@ -16,6 +16,7 @@ export function PageOne() {
     description,
     updateDescription,
     thumbnail,
+    category, updateCategory,
     updateThumbnail,
   } = useContext(ContextForPageOne);
 
@@ -39,6 +40,11 @@ export function PageOne() {
         value={description}
         onChange={(e) => updateDescription(e.target.value)}
         style={{ resize: 'none' }}
+      />
+      <FormInput
+        title='Category'
+        value={category}
+        onChange={(e) => updateCategory(e.target.value)}
       />
     </FormBody>
   );

@@ -1,5 +1,5 @@
 import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { exampleFileElem, FileElem } from '@/(server)/(model)/elements/file/main';
 import { UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
@@ -11,6 +11,7 @@ import {
 } from '@/(server)/(controller)/list';
 import { SpaceObj } from '@/(server)/(model)/space/main';
 import { spaceDbWrapper } from '@/(server)/(db)/space/main';
+import { TemplateChapterObj } from '@/(server)/(templates)/space/main';
 
 type TargetObj = SpaceObj;
 const gqlDbWrapper = spaceDbWrapper;
@@ -25,7 +26,16 @@ interface ControllerState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createFromTemplate(
+    title: string,
+    description: string,
+    userId: string,
+    thumbnail: FileElem,
+    category: string,
+    templateSpaceChapters: TemplateChapterObj[],
+  ): Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -126,8 +136,8 @@ const useControllerForSpaceList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -138,7 +148,7 @@ const useControllerForSpaceList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('userId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -166,7 +176,7 @@ const useControllerForSpaceList = (listId: string): Controller => {
         title: '',
         description: '',
         thumbnail: exampleFileElem,
-        category: ''
+        category: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -182,7 +192,28 @@ const useControllerForSpaceList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromTemplate: async (
+      title: string,
+      description: string,
+      userId: string,
+      thumbnail: FileElem,
+      category: string,
+      templateSpaceChapters: TemplateChapterObj[],
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        title: title,
+        description: description,
+        thumbnail: exampleFileElem,
+        category: category,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       return newObj;
     },
@@ -198,10 +229,12 @@ const useControllerForSpaceList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -247,4 +280,4 @@ const useControllerForSpaceList = (listId: string): Controller => {
 };
 
 const ContextForSpaceList = createContext({} as Controller);
-export { ContextForSpaceList , useControllerForSpaceList };
+export { ContextForSpaceList, useControllerForSpaceList };
