@@ -1,4 +1,4 @@
-import { DraftModalContext } from '@/(core)/(project)/space/[id]/(modals)/draft-modal/main';
+import { DraftModalContext } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/main';
 import { useContext } from 'react';
 import { DraftHeaderAddButton } from './add/main';
 

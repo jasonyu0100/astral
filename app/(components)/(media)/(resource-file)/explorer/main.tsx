@@ -1,26 +1,21 @@
-import { useState } from 'react';
-import { CollectionResourceInfo } from '../common/info/main';
+import { CollectionResourceInfo } from './info/main';
 import { ResourceContainer } from '../common/container/main';
 import { CollectionResourceMedia } from '../common/media/main';
-import {
-  EditResourceModalContext,
-  useEditResourceModal,
-} from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/main';
-import { ExplorerEditResourceModal } from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/resource/view';
+import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
 
 export function ExplorerResource() {
-  const modalContext = useEditResourceModal();
-  const [flipped, changeFlipped] = useState(false);
+  const flippableController = useControllerForFlippable();
 
   return (
-    <EditResourceModalContext.Provider value={modalContext}>
-      <ExplorerEditResourceModal />
-      <ResourceContainer
-        onClick={() => changeFlipped(!flipped)}
-        className='h-[250px] p-[20px]'
-      >
-        {flipped ? <CollectionResourceInfo /> : <CollectionResourceMedia />}
-      </ResourceContainer>
-    </EditResourceModalContext.Provider>
+    <ResourceContainer
+      onClick={flippableController.flip}
+      className='h-[250px] p-[20px]'
+    >
+      {flippableController.flipped ? (
+        <CollectionResourceInfo />
+      ) : (
+        <CollectionResourceMedia />
+      )}
+    </ResourceContainer>
   );
 }

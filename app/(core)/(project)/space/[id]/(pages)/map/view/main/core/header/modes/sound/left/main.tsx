@@ -1,6 +1,6 @@
 import {
   StarModalContext,
-} from '@/(core)/(project)/space/[id]/(modals)/star-modal/main';
+} from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/idea/main';
 import { useContext } from 'react';
 import { ToggleMapModalButton } from '../../../common/toggle/main';
 

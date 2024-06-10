@@ -11,7 +11,7 @@ export function GalleryExplorerFront() {
   return (
     <>
       <GalleryThumbnail />
-      <Link href={archiveMap.archive.explorer.collections.id.link(gallery.id)}>
+      <Link href={archiveMap.archive.explorer.gallery.id.link(gallery.id)}>
         <ContainerDescription />
       </Link>
     </>

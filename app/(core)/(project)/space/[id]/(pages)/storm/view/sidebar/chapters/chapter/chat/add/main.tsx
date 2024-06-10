@@ -1,28 +1,34 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import {
+  ContextForOpenable,
+  useControllerForOpenable,
+} from '@/(logic)/contexts/openable/main';
 
-import { useContext } from 'react';
-import { StormModalContext } from '../../../../../../../../(modals)/storm-modal/main';
+import { StormAddChatModal } from '../../../../../../(modal)/add/chat/main';
 
 export function StormChapterChatAdd() {
-  const { addChatModal: newChat } = useContext(StormModalContext);
+  const openableController = useControllerForOpenable();
 
   return (
     <>
+      <ContextForOpenable.Provider value={openableController}>
+        <StormAddChatModal />
+      </ContextForOpenable.Provider>
       <button
         className='flex w-full flex-row items-center space-x-[1rem]'
-        onClick={() => newChat.open()}
+        onClick={openableController.open}
       >
         <GlassAreaContainer
           name={StormChapterChatAdd.name}
           sizeFx='w-[50px] h-[50px] rounded-full overflow-hidden'
           glassFx='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
-          className={`flex flex-col justify-center items-center`}
+          className={`flex flex-col items-center justify-center`}
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='32'
             height='32'
-            className="w-1/2 h-1/2"
+            className='h-1/2 w-1/2'
             viewBox='0 0 32 32'
             fill='none'
           >

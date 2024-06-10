@@ -8,14 +8,14 @@ import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
 import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/main';
 
 export function GallerySidebarBack() {
-  const { flip } = useContext(ContextForFlippable);
+  const flippableController = useContext(ContextForFlippable);
   const gallery = useContext(ContextForGalleryObj);
   const { sidebarHandler } = useContext(MapSidebarContext);
 
   return (
     <div
       className='flex w-full flex-grow flex-col p-[1rem]'
-      onClick={() => flip()}
+      onClick={() => flippableController.flip()}
     >
       <div
         className='w-full'

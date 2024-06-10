@@ -8,33 +8,35 @@ import { useContext } from 'react';
 import { ProfileModalContext } from '../profile-modal/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ImagePreview } from '@/(components)/(form)/image-preview/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function EditProfileModal() {
-  const user = useGlobalUser((state) => state.user)
+  const user = useGlobalUser((state) => state.user);
   const logout = useGlobalUser((state) => state.logout);
-  const modalContext = useContext(ProfileModalContext);
-  const { opened, close } = modalContext.editProfileModal;
+  const openableCOntroller = useContext(ContextForOpenable);
 
   return (
-    <PolaroidModal isOpen={opened} onClose={() => close()}>
-      <FormContainer>
-        <FormTitle>Profile</FormTitle>
-        <FormBody>
-          <ImagePreview fileElem={user.dp} />
-          <h1 className="font-bold">First Name: {user.fname}</h1>
-          <h1 className="font-bold">Last Name: {user.lname}</h1>
-          <h1 className="font-bold">Email: {user.email}</h1>
-        </FormBody>
-        <FormFooter>
-          <FormButton
-            onClick={() => {
-              logout();
-            }}
-          >
-            Logout
-          </FormButton>
-        </FormFooter>
-      </FormContainer>
-    </PolaroidModal>
+    <ContextForOpenable.Provider value={openableCOntroller}>
+      <PolaroidModal>
+        <FormContainer>
+          <FormTitle>Profile</FormTitle>
+          <FormBody>
+            <ImagePreview fileElem={user.dp} />
+            <h1 className='font-bold'>First Name: {user.fname}</h1>
+            <h1 className='font-bold'>Last Name: {user.lname}</h1>
+            <h1 className='font-bold'>Email: {user.email}</h1>
+          </FormBody>
+          <FormFooter>
+            <FormButton
+              onClick={() => {
+                logout();
+              }}
+            >
+              Logout
+            </FormButton>
+          </FormFooter>
+        </FormContainer>
+      </PolaroidModal>
+    </ContextForOpenable.Provider>
   );
 }

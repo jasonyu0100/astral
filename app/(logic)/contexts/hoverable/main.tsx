@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export interface ContextForHoverableInterface {
   hovered: boolean;
@@ -11,3 +11,13 @@ export const ContextForHoverable = createContext({
   onHover: () => {},
   onUnhover: () => {},
 });
+
+export const useControllerForHoverable = () => {
+  const [hovered, setHovered] = useState(false);
+
+  return {
+    hovered,
+    onHover: () => setHovered(true),
+    onUnhover: () => setHovered(false),
+  };
+}

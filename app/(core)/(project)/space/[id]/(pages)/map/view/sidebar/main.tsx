@@ -6,8 +6,8 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForSidebarModals,
   useControllerForSidebarModals,
-} from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
-import { SidebarModalsView } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/view';
+} from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/(modals)/create/main';
+import { SidebarModalsView } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/(modals)/create/view';
 import { ContextForGalleryList, useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';

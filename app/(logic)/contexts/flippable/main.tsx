@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 interface ContextForFlippableInterface {
   flipped: boolean;
@@ -9,3 +9,12 @@ export const ContextForFlippable = createContext({
   flipped: false,
   flip: () => {},
 } as ContextForFlippableInterface);
+
+export const useControllerForFlippable = () => {
+  const [flipped, setFlipped] = useState(false);
+
+  return {
+    flipped,
+    flip: () => setFlipped(!flipped),
+  };
+}

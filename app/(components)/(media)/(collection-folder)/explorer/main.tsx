@@ -16,7 +16,7 @@ export function ExplorerCollection() {
 
   return (
     <ContextForCollectionResourceList.Provider value={resourceListController}>
-      <Link href={archiveMap.archive.explorer.resources.id.link(collection.id)}>
+      <Link href={archiveMap.archive.explorer.collection.id.link(collection.id)}>
         <CollectionContainer className="w-[300px]">
           <CollectionThumbnail />
           <CollectionInfo />

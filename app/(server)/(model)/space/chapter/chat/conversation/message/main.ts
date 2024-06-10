@@ -2,6 +2,7 @@ import { createContext } from 'react';
 export interface ConversationMessageObj {
   id: string;
   userId?: string;
+  agentId?: string;
   conversationId: string;
   created: string;
   message: string;
@@ -11,6 +12,7 @@ export const conversationMessageGql = `
 type ConversationMessageObj {
   id: String!
   userId: String
+  agentId: String
   conversationId: String!
   created: String!
   message: String!
@@ -24,6 +26,7 @@ export const exampleConversationMessage: ConversationMessageObj = {
   id: '0',
   conversationId: '0',
   userId: '0',
+  agentId: undefined,
   created: new Date().toISOString(),
   message: 'Hello World',
 };
@@ -31,7 +34,8 @@ export const exampleConversationMessage: ConversationMessageObj = {
 export const exampleAgentConversationMessage: ConversationMessageObj = {
   id: '1',
   conversationId: '0',
-  userId: '0',
+  userId: undefined,
+  agentId: '0',
   created: new Date().toISOString(),
   message: 'Hello World',
 };
@@ -41,6 +45,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     id: '0',
     conversationId: '0',
     userId: '0',
+    agentId: undefined,
     created: new Date().toISOString(),
     message: 'Test Message',
   },
@@ -55,6 +60,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     id: '2',
     conversationId: '0',
     userId: '0',
+    agentId: undefined,
     created: new Date().toISOString(),
     message: 'Hello There',
   },

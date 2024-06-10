@@ -3,7 +3,7 @@ import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
-import { DraftModalContext } from '@/(core)/(project)/space/[id]/(modals)/draft-modal/main';
+import { DraftModalContext } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function DraftChaptersRow() {

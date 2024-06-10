@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export interface ContextForOpenableInterface {
     opened: boolean;
@@ -11,3 +11,13 @@ export const ContextForOpenable = createContext({
     open: () => {},
     close: () => {},
 });
+
+export const useControllerForOpenable = () => {
+    const [opened, setOpened] = useState(false);
+
+    return {
+        opened,
+        open: () => setOpened(true),
+        close: () => setOpened(false),
+    };
+}

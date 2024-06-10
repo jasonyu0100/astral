@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
 import { ContextForCollectionResourceObj, CollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
-import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
+import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/(modals)/create/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource-file)/sidebar/add/main';
 import { SidebarCollectionResource } from '@/(components)/(media)/(resource-file)/sidebar/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';

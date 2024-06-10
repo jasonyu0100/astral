@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
-import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
+import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/(modals)/create/main';
 import { SidebarHomeGalleryAdd } from '@/(components)/(media)/(gallery-folder)/sidebar/add/main';
 import { SidebarHomeGallery } from '@/(components)/(media)/(gallery-folder)/sidebar/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';

@@ -1,6 +1,6 @@
 import {
   StarModalContext,
-} from '@/(core)/(project)/space/[id]/(modals)/star-modal/main';
+} from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/idea/main';
 import { MapHeaderFileButton } from './file/main';
 import { MapHeaderLinkButton } from './link/main';
 import { MapHeaderNoteButton } from './note/main';

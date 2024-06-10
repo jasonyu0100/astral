@@ -1,34 +1,38 @@
-import { AgentObj } from '@/(model)/agent/main';
+import { AgentObj } from '@/(server)/(model)/agent/main';
+import { exampleDisplayPictureFileElem } from '@/(server)/(model)/elements/file/main';
 
 export type TemplateAgentObj = Omit<AgentObj, 'id' | 'created'>;
 
 // TEMPLATES
 
-export enum UserTemplate {
+export enum AgentTemplate {
   MUSICIAN = 'Musician',
   PRODUCER = 'Producer',
   SINGER = 'Singer',
 }
 
-export function getUserTemplates(variant: UserTemplate): TemplateAgentObj {
+export function getAgentTemplates(variant: AgentTemplate): TemplateAgentObj {
   switch (variant) {
-    case UserTemplate.MUSICIAN:
+    case AgentTemplate.MUSICIAN:
       return {
         name: 'Musician',
         role: 'Musician',
         bio: 'I like music',
+        dp: exampleDisplayPictureFileElem,
       };
-    case UserTemplate.PRODUCER:
+    case AgentTemplate.PRODUCER:
       return {
         name: 'Producer',
         role: 'Producer',
         bio: 'I like music',
+        dp: exampleDisplayPictureFileElem,
       };
-    case UserTemplate.SINGER:
+    case AgentTemplate.SINGER:
       return {
         name: 'Singer',
         role: 'Singer',
         bio: 'I like music',
+        dp: exampleDisplayPictureFileElem,
       };
   }
 }

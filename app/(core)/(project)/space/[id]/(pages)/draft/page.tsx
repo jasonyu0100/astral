@@ -5,8 +5,8 @@ import isVerseAuth from '@/(utils)/isAuth';
 import {
   DraftModalContext,
   useDraftModal,
-} from '../../(modals)/draft-modal/main';
-import { DraftModalView } from '@/(core)/(project)/space/[id]/(modals)/draft-modal/view';
+} from './(modal)/main';
+import { DraftModalView } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/view';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,

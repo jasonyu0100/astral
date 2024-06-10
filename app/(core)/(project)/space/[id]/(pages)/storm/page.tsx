@@ -3,11 +3,6 @@ import { StormView } from './view/view';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import {
-  StormModalContext,
-  useStormModal,
-} from '../../(modals)/storm-modal/main';
-import { StormModalView } from '@/(core)/(project)/space/[id]/(modals)/storm-modal/view';
 import { useControllerForSpaceMain } from '@/(server)/(controller)/space/main';
 import {
   ContextForSpaceChapterList,
@@ -62,9 +57,6 @@ function Page({ params }: { params: { id: string } }) {
     }
   }, [spaceMainController.state.obj]);
 
-  const context: StormContextObj = {};
-  const modalContext = useStormModal();
-
   return (
     <ContextForSpaceChapterList.Provider value={chapterListController}>
       <ContextForChapterChatList.Provider value={chatListController}>
@@ -75,12 +67,7 @@ function Page({ params }: { params: { id: string } }) {
             <ContextForConversationMessageList.Provider
               value={messageListController}
             >
-              <StormModalContext.Provider value={modalContext}>
-                <StormModalView />
-              </StormModalContext.Provider>
-              <StormContext.Provider value={context}>
-                <StormView />
-              </StormContext.Provider>
+              <StormView />
             </ContextForConversationMessageList.Provider>
           </ContextForChatConversationList.Provider>
         </ContextForChatMemberList.Provider>

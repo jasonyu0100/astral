@@ -7,26 +7,23 @@ import { GalleryBackDescription } from '../../common/back/description/main';
 import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
-import { ExplorerEditGalleryModal } from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/gallery/view';
-import {
-  EditGalleryModalContext,
-  useEditGalleryModal,
-} from '@/(core)/(dashboard)/(modals)/archive/explorer/edit/gallery/main';
+import { ExplorerEditGalleryModal } from '@/(core)/(dashboard)/archive/(pages)/explorer/(modals)/edit/gallery/main';
+import { ContextForOpenable, useControllerForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function GalleryExplorerBack() {
-  const { flip } = useContext(ContextForFlippable);
+  const flippableController = useContext(ContextForFlippable);
+  const openableController = useControllerForOpenable();
   const gallery = useContext(ContextForGalleryObj);
-  const modalContext = useEditGalleryModal();
 
   return (
-    <EditGalleryModalContext.Provider value={modalContext}>
+    <ContextForOpenable.Provider value={openableController}>
       <ExplorerEditGalleryModal />
       <div
         className='flex h-full w-full flex-col p-[1rem]'
-        onClick={() => flip()}
+        onClick={() => flippableController.flip()}
       >
         <Link
-          href={archiveMap.archive.explorer.collections.id.link(gallery.id)}
+          href={archiveMap.archive.explorer.gallery.id.link(gallery.id)}
         >
           <GalleryBackTitle />
         </Link>
@@ -34,6 +31,6 @@ export function GalleryExplorerBack() {
         <GalleryBackDescription />
         <GalleryBackEdit />
       </div>
-    </EditGalleryModalContext.Provider>
+    </ContextForOpenable.Provider>
   );
 }

@@ -1,31 +1,32 @@
 import { useContext } from 'react';
-import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForOpenable, useControllerForOpenable } from '@/(logic)/contexts/openable/main';
+import { MapAddChapterModal } from '../../../../../../(modal)/add/chapter/main';
 
 export function MapSceneList() {
-  const chapterListController = useContext(ContextForSpaceChapterList)
-  const sceneListController = useContext(ContextForChapterSceneList);
-  const modalContext = useContext(MapModalContext);
-  const { open } = modalContext.addSceneModal;
-
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const openableController = useControllerForOpenable();
 
   // TODO CLEAN UP
   return (
-    <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
-      <div>
-        <p className={`text-md font-bold text-slate-500`}>0. General</p>
-      </div>
-      <HorizontalDivider/>
-      {chapterListController.state.objs.map((chapter, index) => (
-        <div key={chapter.id}>
-          <p className={`text-md font-bold text-slate-500`}>
-            {index+1}. {chapter.title}
-          </p>
+    <>
+      <ContextForOpenable.Provider value={openableController}>
+        <MapAddChapterModal />
+      </ContextForOpenable.Provider>
+      <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
+        <div>
+          <p className={`text-md font-bold text-slate-500`}>0. General</p>
         </div>
-      ))}
-      {/* {parts.map((part, index) => (
+        <HorizontalDivider />
+        {chapterListController.state.objs.map((chapter, index) => (
+          <div key={chapter.id}>
+            <p className={`text-md font-bold text-slate-500`}>
+              {index + 1}. {chapter.title}
+            </p>
+          </div>
+        ))}
+        {/* {parts.map((part, index) => (
         <SceneContext.Provider
           value={part}
           key={part.id}
@@ -43,6 +44,7 @@ export function MapSceneList() {
           Add Page
         </p>
       </div> */}
-    </div>
+      </div>
+    </>
   );
 }

@@ -4,21 +4,22 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { useContext, useState } from 'react';
 import { GameStateContext } from '../../contexts/main';
+import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
 
 export function QuadrantB() {
   const { gameState, setGameState } = useContext(GameStateContext);
-  const [flipped, changeFlipped] = useState(false);
+  const flippableController = useControllerForFlippable();
   const anti = gameState.anti;
 
   return (
-    <div onClick={() => changeFlipped(!flipped)}>
+    <div onClick={flippableController.flip}>
       <GlassWindowFrame
       name="Quadrant B"
         className='aspect-square h-[20rem] w-[20rem]'
         borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
       >
         <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
-          {flipped ? (
+          {flippableController.flipped ? (
             <>
               <p>B</p>
               <p>{`{{A, J}, {9, 5}}`}</p>
