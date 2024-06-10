@@ -37,6 +37,7 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromFile: (
     userId: string,
+    collectionId: string,
     title: string,
     description: string,
     fileElem: FileElem,
@@ -57,8 +58,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForResourceList = (initialListId: string): Controller => {
-  const [listId, changeListId] = useState<string>(initialListId);
+const useControllerForResourceList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -78,9 +78,6 @@ const useControllerForResourceList = (initialListId: string): Controller => {
   };
 
   const stateActions: StateActions = {
-    updateListId: (newListId: string) => {
-      changeListId(newListId);
-    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
@@ -183,13 +180,14 @@ const useControllerForResourceList = (initialListId: string): Controller => {
   const createActions: CreateActions = {
     createFromFile: async (
       userId: string,
+      collectionId: string,
       title: string,
       description: string,
       fileElem: FileElem,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
-        collectionId: listId,
+        collectionId: collectionId,
         title: title,
         description: description,
         variant: CollectionResourceVariant.FILE,

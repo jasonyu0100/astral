@@ -101,10 +101,8 @@ const useControllerForGalleryCollectionMain = (objId: string): Controller => {
 
   useMemo(() => {
     if (!objId) {
-      console.log('NOTHING')
       changeObj({} as TargetObj);
     } else {
-      console.log('SOMETHING')
       controllerActions.gatherActions.get();
     }
   }, [objId]);

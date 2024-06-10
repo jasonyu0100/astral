@@ -14,21 +14,23 @@ export function ResourcesGrid() {
   const openableController = useControllerForOpenable();
 
   return (
-    <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-      <div className='flex w-full flex-row flex-wrap gap-[2rem] '>
-        {resourcesHandler.state.objs.map((resource) => (
-          <ContextForCollectionResourceObj.Provider
-            value={resource}
-            key={resource.id}
-          >
-            <ExplorerResource key={resource.id} />
-          </ContextForCollectionResourceObj.Provider>
-        ))}
-        <ContextForOpenable.Provider value={openableController}>
-          <ExplorerCreateResourceModal />
-        </ContextForOpenable.Provider>
-        <CollectionResourceAdd onClick={() => openableController.open()} />
+    <>
+      <ContextForOpenable.Provider value={openableController}>
+        <ExplorerCreateResourceModal />
+      </ContextForOpenable.Provider>
+      <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
+        <div className='flex w-full flex-row flex-wrap gap-[2rem] '>
+          {resourcesHandler.state.objs.map((resource) => (
+            <ContextForCollectionResourceObj.Provider
+              value={resource}
+              key={resource.id}
+            >
+              <ExplorerResource key={resource.id} />
+            </ContextForCollectionResourceObj.Provider>
+          ))}
+          <CollectionResourceAdd onClick={() => openableController.open()} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

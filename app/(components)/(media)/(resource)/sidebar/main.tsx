@@ -22,7 +22,7 @@ export function SidebarCollectionResource() {
         );
       }}
     >
-      <CollectionResourceMedia />
+      <CollectionResourceMedia className="p-[5px]"/>
     </ResourceContainer>
   );
 }

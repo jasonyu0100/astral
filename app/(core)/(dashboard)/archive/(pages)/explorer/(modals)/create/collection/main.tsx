@@ -16,6 +16,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 export function ExplorerCreateCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const collectionListController = useContext(ContextForGalleryCollectionList);
+  const [listId, changeListId] = useState('' as string);
   const resourceListHandler = useControllerForCollectionResourceList('');
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
@@ -25,19 +26,21 @@ export function ExplorerCreateCollectionModal() {
   async function createCollection() {
     collectionListController.actions.createActions
       .createCollection(title, description)
-      .then((collection) => {
-        resourceListHandler.actions.stateActions.updateListId(collection.id);
-        Promise.all(
+      .then(async (collection) => {
+        await Promise.all(
           files.map((f) =>
             resourceListHandler.actions.createActions.createFromFile(
               user.id,
+              collection.id,
               `${collection.title} - ${f.title}`,
               `${collection.title} - ${f.title}`,
               f,
             ),
           ),
-        );
-        openableController.close();
+        ).then((files) => {
+          console.log(files);
+          openableController.close();
+        });
       });
   }
 

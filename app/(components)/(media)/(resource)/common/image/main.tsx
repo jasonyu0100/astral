@@ -8,9 +8,9 @@ export function CollectionResourceImage() {
     <div className='flex flex-col h-full w-full flex-shrink-0'>
       <img
         src={resource?.fileElem?.src}
-        className='aspect-square w-full cursor-pointer bg-black flex-shrink-0'
+        className='aspect-square w-full cursor-pointer bg-black flex-shrink-0 border-black border-[1px] rounded'
       />
-      <p className='w-full font-extraBold text-xl mt-[1rem] text-center'>{resource.title}</p>
+      <p className='w-full font-extraBold mt-[0.5rem] text-center'>{resource.title}</p>
     </div>
   );
 }

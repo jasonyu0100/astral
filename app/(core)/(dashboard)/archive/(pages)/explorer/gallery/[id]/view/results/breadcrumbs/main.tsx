@@ -4,9 +4,10 @@ import { CollectionBreadcrumbItem } from '../../../../../(common)/breadcrumb/ite
 import { CollectionBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
 import { useContext } from 'react';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+import { ContextForGalleryMain } from '@/(server)/(controller)/gallery/main';
 
 export function CollectionsBreadcrumbs() {
-  const gallery = useContext(ContextForGalleryObj);
+  const galleryMainController = useContext(ContextForGalleryMain);
 
   return (
     <CollectionBreadcrumbs>
@@ -19,9 +20,9 @@ export function CollectionsBreadcrumbs() {
       <CollectionBreadcrumbDivider />
       <CollectionBreadcrumbItem
         active={true}
-        href={archiveMap.archive.explorer.gallery.id.link(gallery.id)}
+        href={archiveMap.archive.explorer.gallery.id.link(galleryMainController.state.objId)}
       >
-        {gallery.title}
+        {galleryMainController.state.obj.title}
       </CollectionBreadcrumbItem>
     </CollectionBreadcrumbs>
   );

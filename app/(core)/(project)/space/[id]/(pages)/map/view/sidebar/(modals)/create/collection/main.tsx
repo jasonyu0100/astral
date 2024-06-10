@@ -10,7 +10,10 @@ import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/(server)/(controller)/gallery/collection/resource/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCreateCollectionModal() {
@@ -25,19 +28,20 @@ export function SidebarCreateCollectionModal() {
   async function createCollection() {
     collectionListController.actions.createActions
       .createCollection(title, description)
-      .then((collection) => {
-        resourceListHandler.actions.stateActions.updateListId(collection.id);
-        Promise.all(
+      .then(async (collection) => {
+        await Promise.all(
           files.map((f) =>
             resourceListHandler.actions.createActions.createFromFile(
               user.id,
+              collection.id,
               `${collection.title} - ${f.title}`,
               `${collection.title} - ${f.title}`,
               f,
             ),
           ),
-        );
-        openableController.close();
+        ).then(() => {
+          openableController.close();
+        });
       });
   }
 

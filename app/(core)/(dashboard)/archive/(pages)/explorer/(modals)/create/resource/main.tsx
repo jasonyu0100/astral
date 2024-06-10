@@ -18,8 +18,10 @@ import {
 } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
 
 export function ExplorerCreateResourceModal() {
+  const collectionMainController = useContext(ContextForGalleryCollectionMain);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
@@ -30,7 +32,7 @@ export function ExplorerCreateResourceModal() {
 
   async function createResource() {
     resourceListController.actions.createActions
-      .createFromFile(user.id, name, description, file)
+      .createFromFile(user.id, collectionMainController.state.objId, name, description, file)
       .then(() => {
         openableController.close();
       });

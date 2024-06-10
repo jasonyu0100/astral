@@ -11,16 +11,16 @@ export function CollectionInfo({ empty }: { empty?: boolean }) {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
-    <div className='flex h-full flex-grow flex-col items-center justify-center space-y-[1rem] p-[1rem]'>
+    <div className='flex flex-grow flex-col items-center justify-center mt-[1rem]'>
       {empty ? (
         <>
-          <div className='text-xl font-bold text-slate-400'>
-            Add
+          <div className='text-lg font-bold text-slate-400'>
+            Add Collection
           </div>
         </>
       ) : (
         <>
-          <div className='text-xl font-bold text-slate-400'>
+          <div className='text-lg font-bold text-slate-400'>
             {collection.title} ({resourceListController.state.objs.length})
           </div>
           <div className='text-md font-light text-slate-400'>

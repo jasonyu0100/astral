@@ -75,9 +75,6 @@ const useControllerForConversationMessageList = (
   };
 
   const stateActions: StateActions = {
-    updateListId: (newListId: string) => {
-      changeListId(newListId);
-    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;

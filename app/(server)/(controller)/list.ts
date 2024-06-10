@@ -12,7 +12,6 @@ export interface BaseListStateActions<TargetObj> {
   updateQuery: (newQuery: string) => void;
   checkActive: (obj: TargetObj) => boolean;
   find: (id: string) => TargetObj;
-  updateListId: (newListId: string) => void;
 }
 
 export interface BaseListGatherActions<TargetObj> {

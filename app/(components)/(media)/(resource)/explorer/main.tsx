@@ -9,12 +9,12 @@ export function ExplorerResource() {
   return (
     <ResourceContainer
       onClick={flippableController.flip}
-      className='h-[250px] p-[20px]'
+      className='h-[250px]'
     >
       {flippableController.flipped ? (
-        <CollectionResourceInfo />
+        <CollectionResourceInfo className="p-[10px]"/>
       ) : (
-        <CollectionResourceMedia />
+        <CollectionResourceMedia className="p-[10px]"/>
       )}
     </ResourceContainer>
   );

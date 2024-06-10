@@ -47,8 +47,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSceneList = (initialListId: string): Controller => {
-  const [listId, changeListId] = useState<string>(initialListId);
+const useControllerForChapterSceneList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -68,9 +67,6 @@ const useControllerForChapterSceneList = (initialListId: string): Controller => 
   };
 
   const stateActions: StateActions = {
-    updateListId: (newListId: string) => {
-      changeListId(newListId);
-    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;

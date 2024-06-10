@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { ChapterChatObj } from "@/(server)/(model)/space/chapter/chat/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createChapterChatObj, deleteChapterChatObj, updateChapterChatObj } from "@/graphql/mutations";
-import { listChapterChatObjs } from "@/graphql/queries";
+import { getChapterChatObj, listChapterChatObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as ChapterChatObj;
