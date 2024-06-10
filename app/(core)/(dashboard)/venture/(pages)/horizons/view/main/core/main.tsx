@@ -1,17 +1,17 @@
-import { HorizonsListContainer } from "./horizons/main";
+import { HorizonsListContainer } from './horizons/main';
 
 export function HorizonsCore() {
   return (
-    <div
-      className='flex flex-col overflow-auto w-full h-full'
-    >
-      <HorizonsListContainer />
-      <HorizonsListContainer />
-      <HorizonsListContainer />
-      <HorizonsListContainer />
-      <HorizonsListContainer />
-      <HorizonsListContainer />
-      <HorizonsListContainer />
+    <div className='h-full w-full overflow-auto p-[1rem]'>
+      <div className={`flex w-full flex-col`}>
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+        <HorizonsListContainer />
+      </div>
     </div>
   );
 }

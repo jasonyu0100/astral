@@ -8,7 +8,7 @@ export function NetworkMain() {
     <GlassAreaContainer
       name={NetworkMain.name}
       sizeFx='h-full flex-grow'
-      className='flex flex-col'
+      className='flex flex-col overflow-hidden'
     >
       <NetworkSearch />
       <NetworkResults />

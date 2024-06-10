@@ -9,7 +9,7 @@ export function SpaceHorizon() {
 
   return (
     <div className='flex items-center w-[150px]'>
-      <a href={`${horizonMap.horizon.id.field.link("0")}`} className='text-lg font-bold text-slate-300'>Horizon</a>
+      <a href={`${horizonMap.horizon.id.story.link("0")}`} className='text-lg font-bold text-slate-300'>Horizon</a>
     </div>
   );
 }

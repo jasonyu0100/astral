@@ -1,5 +1,5 @@
 import { HorizonsCore } from './core/main';
-import { HorizonsHeader } from './core/header/main';
+import { HorizonsFooter } from './core/header/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { HorizonsSearch } from './core/search/main';
 
@@ -8,11 +8,11 @@ export function HorizonsMain() {
     <GlassAreaContainer
       name={HorizonsMain.name}
       sizeFx='h-full flex-grow'
-      className='flex flex-col'
+      className='flex flex-col overflow-hidden'
     >
       <HorizonsSearch />
       <HorizonsCore />
-      <HorizonsHeader />
+      <HorizonsFooter />
     </GlassAreaContainer>
   );
 }

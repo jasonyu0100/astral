@@ -8,17 +8,16 @@ interface ProfileCoverProps extends DivInputProps {
   fileElem: FileElem;
 }
 
-export function ProfileCover({ coverFx, fileElem: fileElem, ...props }: ProfileCoverProps) {
+export function ProfileCover({
+  coverFx,
+  fileElem: fileElem,
+  ...props
+}: ProfileCoverProps) {
   return (
-    <GlassEffectWrapper
-      className={props.className}
-      roundedFx={roundedFx['rounded-full']}
-    >
-      <img
-        className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
-        src={fileElem.src}
-        alt={fileElem.title}
-      />
-    </GlassEffectWrapper>
+    <img
+      className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
+      src={fileElem.src}
+      alt={fileElem.title}
+    />
   );
 }

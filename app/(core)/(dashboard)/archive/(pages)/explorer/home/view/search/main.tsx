@@ -5,7 +5,7 @@ import { glassFx, borderFx, roundedFx } from '@/(style)/data';
 
 export function GallerysSearch() {
   return (
-    <div className='w-full p-[2rem]'>
+    <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
         name={GallerysSearch.name}
         className='h-[4rem] w-full flex-shrink-0'

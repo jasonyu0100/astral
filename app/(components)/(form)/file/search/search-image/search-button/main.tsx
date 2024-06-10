@@ -16,9 +16,8 @@ export function SearchButton() {
         <SearchModalView />
       </ContextForOpenable.Provider>
       <button
-        className='relative mb-3 h-[100px] border-b border-black bg-slate-50 p-4'
-        onClick={openableController.open}
-      >
+        className='relative mb-[1rem] border-b border-black bg-slate-50 p-[1rem]'
+        onClick={openableController.open}>
         <div className='flex h-full w-full flex-row items-center space-x-[1rem]'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -44,7 +43,7 @@ export function SearchButton() {
               />
             </g>
           </svg>
-          <p className='mt-1 text-lg font-bold text-slate-500'>
+          <p className='text-lg font-bold text-slate-500'>
             {fileChangableController.fileElem.title === undefined
               ? 'No image selected'
               : fileChangableController.fileElem.title}

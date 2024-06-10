@@ -81,13 +81,13 @@ interface SearchImageProps extends ImageInputProps {
 function SearchImage({ image, active, ...props }: SearchImageProps) {
   return (
     <div
-      className={`p-[3px] ${active ? 'bg-blue-500' : 'bg-white'}`}
+      className={`border-[1px] border-white ${active ? 'border-purple-500' : 'border-white'}`}
       style={{ width: '33.33%' }}
     >
       <img
         src={image?.src}
         alt={image.title}
-        className={cn(`aspect-square  w-full shadow-slate-300/30`)}
+        className={"aspect-square  w-full object-cover bg-black"}
         {...props}
       />
     </div>

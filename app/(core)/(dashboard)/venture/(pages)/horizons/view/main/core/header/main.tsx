@@ -1,10 +1,10 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';
 
-export function HorizonsHeader() {
+export function HorizonsFooter() {
   return (
     <GlassAreaContainer
-      name={HorizonsHeader.name}
+      name={HorizonsFooter.name}
       sizeFx='w-full h-[4rem]'
       glassFx={glassFx['glass-5']}
       className='flex flex-row items-center justify-between px-[50px]'
@@ -37,7 +37,7 @@ export function HorizonsHeader() {
             </g>
           </svg>
         </button>
-        <p className='text-2xl font-bold text-slate-300'>2024 Q1</p>{' '}
+        <p className='text-md font-bold text-slate-300'>2024 Q1</p>{' '}
         <button>
           <svg
             xmlns='http://www.w3.org/2000/svg'

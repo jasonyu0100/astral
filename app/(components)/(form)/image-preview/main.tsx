@@ -8,7 +8,7 @@ export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem}) {
         {fileElem?.src ? (
           <>
             <img
-              className='h-[150px] w-[150px] flex-shrink-0 rounded-full bg-slate-300'
+              className='h-[150px] w-[150px] flex-shrink-0 rounded-full bg-black object-cover border-white border-[0.5rem] shadow-md'
               src={fileElem?.src}
             />
           </>

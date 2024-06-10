@@ -20,21 +20,23 @@ import {
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
 
 export function SidebarCreateResourceModal() {
   const resourceListHandler = useContext(ContextForCollectionResourceList);
+  const collectMainController = useContext(ContextForGalleryCollectionMain);
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
-  const [name, changeName] = useState('');
+  const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileElem);
   const [variant, changeVariant] = useState(FileElemVariant.IMAGE);
 
   function createResource() {
     resourceListHandler.actions.createActions
-      .createFromFile(user.id, name, description, file)
+      .createFromFile(user.id, collectMainController.state.objId, title, description, file)
       .then(() => {
-        close();
+        openableController.close();
       });
   }
 
@@ -60,8 +62,8 @@ export function SidebarCreateResourceModal() {
             />
             <FormInput
               title='Title'
-              value={name}
-              onChange={(e) => changeName(e.target.value)}
+              value={title}
+              onChange={(e) => changeTitle(e.target.value)}
             />
             <FormTextArea
               title='Description'

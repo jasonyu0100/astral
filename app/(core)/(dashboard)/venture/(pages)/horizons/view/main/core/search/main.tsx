@@ -6,10 +6,8 @@ import { HorizonsSearchInput } from './input/main';
 
 export function HorizonsSearch() {
   return (
-    <GlassWindowFrame name={HorizonsSearch.name}
-      className='w-full px-[2rem] pb-[2rem] pt-[2rem]'
-    >
+    <div className="shadow-glow p-[2rem]">
       <HorizonsSearchInput/>
-    </GlassWindowFrame>
+    </div>
   );
 }

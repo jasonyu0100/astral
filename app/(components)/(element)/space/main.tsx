@@ -12,7 +12,11 @@ interface SpaceCoverProps extends DivInputProps {
   fileElem: FileElem;
 }
 
-export function SpaceCover({ fileElem: file, variant, ...props }: SpaceCoverProps) {
+export function SpaceCover({
+  fileElem: file,
+  variant,
+  ...props
+}: SpaceCoverProps) {
   return (
     <>
       {(variant === SpaceCoverVariant.PLAIN || variant === undefined) && (
@@ -23,16 +27,11 @@ export function SpaceCover({ fileElem: file, variant, ...props }: SpaceCoverProp
         />
       )}
       {variant === SpaceCoverVariant.EVENT_HORIZON && (
-        <GlassEffectWrapper
-          className={props.className}
-          roundedFx={roundedFx['rounded-full']}
-        >
-          <img
-            className={`h-[50px] w-[50px] flex-shrink-0 rounded-full border-[4px] border-slate-950 bg-slate-950 pt-[2px]`}
-            src={file.src}
-            alt={file.title}
-          />
-        </GlassEffectWrapper>
+        <img
+          className={`h-[50px] w-[50px] flex-shrink-0 rounded-full border-[4px] border-slate-950 bg-slate-950 pt-[2px]`}
+          src={file.src}
+          alt={file.title}
+        />
       )}
     </>
   );

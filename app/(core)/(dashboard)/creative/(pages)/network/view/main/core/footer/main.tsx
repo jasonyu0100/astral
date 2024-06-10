@@ -5,11 +5,11 @@ export function NetworkFooter() {
   return (
     <GlassAreaContainer
       name={NetworkFooter.name}
-      sizeFx='w-full h-[4rem]'
+      sizeFx='w-full h-[2rem]'
       className='flex flex-shrink-0 flex-row items-center justify-center'
       glassFx={glassFx['glass-5']}
     >
-      <p className='font-bold text-slate-300'>200 results</p>
+      <p className='font-bold text-sm text-slate-300'>200 results</p>
     </GlassAreaContainer>
   );
 }
