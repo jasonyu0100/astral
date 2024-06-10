@@ -9,14 +9,23 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { CreateSpaceModalView } from '../../(modal)/create-space/main';
+import {
+  ContextForPagable,
+  useControllerForPagable,
+} from '@/(logic)/contexts/pagination/main';
 
 export function SpacesHeader() {
   const openableController = useControllerForOpenable();
+  const pageableController = useControllerForPagable();
 
   return (
     <>
-    <ContextForOpenable.Provider value={openableController}>
-      
+      <ContextForOpenable.Provider value={openableController}>
+        <ContextForPagable.Provider value={pageableController}>
+          <CreateSpaceModalView />
+        </ContextForPagable.Provider>
+      </ContextForOpenable.Provider>
       <GlassWindowFrame
         className='w-full px-[4rem] py-[2rem]'
         name={SpacesHeader.name}
@@ -31,7 +40,6 @@ export function SpacesHeader() {
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
-    </ContextForOpenable.Provider>
     </>
   );
 }

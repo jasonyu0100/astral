@@ -3,7 +3,7 @@ import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {
-  const { fileElem: file, onChange } = useContext(ContextForFileChangable);
+  const { fileElem: file, updateFileElem: onChange } = useContext(ContextForFileChangable);
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>

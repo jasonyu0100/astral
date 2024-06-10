@@ -21,10 +21,10 @@ export function FormSearchImage({
   onChange: (fileElem: FileElem) => void;
   label: string;
 }) {
-  const openableController = useControllerForOpenable();
-
   return (
-    <ContextForFileChangable.Provider value={{ fileElem, onChange }}>
+    <ContextForFileChangable.Provider
+      value={{ fileElem, updateFileElem: onChange }}
+    >
       <div className='flex flex-col bg-white'>
         <SearchImageLabel>{label}</SearchImageLabel>
         {fileElem.id === undefined && <SearchButton />}

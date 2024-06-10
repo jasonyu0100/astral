@@ -19,6 +19,8 @@ export function PageOne() {
     updateThumbnail,
   } = useContext(ContextForPageOne);
 
+  
+
   return (
     <FormBody>
       <FormSearchImage

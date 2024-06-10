@@ -33,7 +33,7 @@ export interface PageTwoContextInterface {
 export const ContextForPageOne = createContext({} as PageOneContextInterface);
 export const ContextForPageTwo = createContext({} as PageTwoContextInterface);
 
-export function CreateSpaceModal() {
+export function CreateSpaceModalView() {
   const pagableController = useContext(ContextForPagable);
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');

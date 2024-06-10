@@ -60,7 +60,7 @@ export default function SearchModalView() {
             <button
               className='h-[100px] w-full bg-black text-xl font-bold text-slate-300'
               onClick={() => {
-                fileChangable.onChange(selected);
+                fileChangable.updateFileElem(selected);
                 openableController.close();
               }}
             >

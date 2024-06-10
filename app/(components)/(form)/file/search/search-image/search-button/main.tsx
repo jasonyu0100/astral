@@ -1,11 +1,14 @@
 import { ContextForFileChangable } from '@/(logic)/contexts/fileChangable/main';
 import { useContext } from 'react';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import {
+  ContextForOpenable,
+  useControllerForOpenable,
+} from '@/(logic)/contexts/openable/main';
 import SearchModalView from '../(modal)/view';
 
 export function SearchButton() {
   const fileChangableController = useContext(ContextForFileChangable);
-  const openableController = useContext(ContextForOpenable);
+  const openableController = useControllerForOpenable();
 
   return (
     <>
@@ -42,7 +45,9 @@ export function SearchButton() {
             </g>
           </svg>
           <p className='mt-1 text-lg font-bold text-slate-500'>
-            {fileChangableController.fileElem.title === undefined ? 'No image selected' : fileChangableController.fileElem.title}
+            {fileChangableController.fileElem.title === undefined
+              ? 'No image selected'
+              : fileChangableController.fileElem.title}
           </p>
         </div>
       </button>

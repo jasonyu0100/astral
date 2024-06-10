@@ -6,13 +6,9 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
-import {
-  ContextForGalleryList,
-  useControllerForGalleryList,
-} from '@/(server)/(controller)/gallery/list';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import {
@@ -47,7 +43,7 @@ export function ExplorerCreateGalleryModal() {
             <FormBody>
               <FormSearchImage
                 fileElem={fileChangableController.fileElem}
-                onChange={fileChangableController.onChange}
+                onChange={fileChangableController.updateFileElem}
                 label='Thumbnail'
               />
               <FormInput

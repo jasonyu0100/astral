@@ -3,26 +3,26 @@ import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {
-  const { fileElem: file, onChange } = useContext(ContextForFileChangable);
+  const { fileElem: fileElem, updateFileElem: updateFileElem } = useContext(ContextForFileChangable);
 
   return (
     <div className='flex w-full flex-row items-center justify-between space-x-[2rem] border-b border-black bg-slate-50 pr-[2rem]'>
       <div className='flex flex-row items-center space-x-[2rem]'>
         <img
-          src={file.src}
-          alt={file.title}
+          src={fileElem.src}
+          alt={fileElem.title}
           className='aspect-square h-[100px] bg-black shadow-md'
         />
         <div className='flex flex-col'>
-          <p className='text-lg font-bold'>{file.title}</p>
-          <p className='text-sm text-slate-500'>{file.ext}</p>
-          <p className='text-md text-slate-500'>{file.size} bytes</p>
+          <p className='text-lg font-bold'>{fileElem.title}</p>
+          <p className='text-sm text-slate-500'>{fileElem.ext}</p>
+          <p className='text-md text-slate-500'>{fileElem.size} bytes</p>
         </div>
       </div>
       <button
         className='h-[30px] w-[30px] rounded-full'
         onClick={() => {
-          onChange({} as FileElem);
+          updateFileElem({} as FileElem);
         }}
       >
         <svg
