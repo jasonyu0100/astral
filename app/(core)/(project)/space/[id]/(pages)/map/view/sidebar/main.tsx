@@ -21,8 +21,8 @@ interface SidebarHandler {
   goToHomeView: () => void;
   goToGalleryView: () => void;
   goToCollectionView: () => void;
-  goToGallery: (section: GalleryObj) => void;
-  goToCollection: (section: GalleryCollectionObj) => void;
+  goToGallery: (gallery: GalleryObj) => void;
+  goToCollection: (collection: GalleryCollectionObj) => void;
 }
 export interface MapSidebarContextObject {
   sidebarMode: SidebarMode;

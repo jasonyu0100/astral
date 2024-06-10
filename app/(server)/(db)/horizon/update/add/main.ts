@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { HorizonUpdateAddObj } from "@/(server)/(model)/horizon/update/add/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createHorizonUpdateAddObj, deleteHorizonUpdateAddObj, updateHorizonUpdateAddObj } from "@/graphql/mutations";
-import { listHorizonUpdateAddObjs } from "@/graphql/queries";
+import { getHorizonUpdateAddObj, listHorizonUpdateAddObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as HorizonUpdateAddObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listHorizonUpdateAddObjs,
+    query: getHorizonUpdateAddObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listHorizonUpdateAddObjs);
+  return castSingle(payload?.data?.getHorizonUpdateAddObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listHorizonUpdateAddObjs,
+    query: getHorizonUpdateAddObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listHorizonUpdateAddObjs);
+  return castSingle(payload?.data?.getHorizonUpdateAddObj);
 }
 
 async function listObjs(key: string, value: string) {

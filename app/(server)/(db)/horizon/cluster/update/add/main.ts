@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { ClusterUpdateAddObj } from "@/(server)/(model)/horizon/cluster/update/add/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createClusterUpdateAddObj, deleteClusterUpdateAddObj, updateClusterUpdateAddObj } from "@/graphql/mutations";
-import { listClusterUpdateAddObjs } from "@/graphql/queries";
+import { getClusterUpdateAddObj, listClusterUpdateAddObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as ClusterUpdateAddObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listClusterUpdateAddObjs,
+    query: getClusterUpdateAddObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listClusterUpdateAddObjs);
+  return castSingle(payload?.data?.getClusterUpdateAddObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listClusterUpdateAddObjs,
+    query: getClusterUpdateAddObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listClusterUpdateAddObjs);
+  return castSingle(payload?.data?.getClusterUpdateAddObj);
 }
 
 async function listObjs(key: string, value: string) {

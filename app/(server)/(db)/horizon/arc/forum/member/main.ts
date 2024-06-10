@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { ForumMemberObj } from "@/(server)/(model)/horizon/arc/forum/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createForumMemberObj, deleteForumMemberObj, updateForumMemberObj } from "@/graphql/mutations";
-import { listForumMemberObjs } from "@/graphql/queries";
+import { getForumMemberObj, listForumMemberObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as ForumMemberObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listForumMemberObjs,
+    query: getForumMemberObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listForumMemberObjs);
+  return castSingle(payload?.data?.getForumMemberObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listForumMemberObjs,
+    query: getForumMemberObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listForumMemberObjs);
+  return castSingle(payload?.data?.getForumMemberObj);
 }
 
 async function listObjs(key: string, value: string) {

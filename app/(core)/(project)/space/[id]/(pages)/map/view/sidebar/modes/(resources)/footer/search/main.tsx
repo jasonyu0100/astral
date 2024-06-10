@@ -19,7 +19,7 @@ export function CollectionHeaderSearch() {
         onChange={(e: any) => {
           resourceListController.actions.stateActions.updateQuery(e.target.value);
         }}
-        value={resourceListController.state.query}
+        value={resourceListController.state.more.query}
       />
       <SearchBarButton
         onClick={() => {

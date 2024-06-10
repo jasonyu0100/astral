@@ -1,4 +1,8 @@
-import { exampleFileElem, FileElem, FileElemVariant } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/(model)/elements/file/main';
 import { createContext, useMemo, useState } from 'react';
 import {
   BaseListStateActions,
@@ -7,17 +11,23 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { CollectionResourceObj, CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
+import {
+  CollectionResourceObj,
+  CollectionResourceVariant,
+} from '@/(server)/(model)/gallery/collection/resource/main';
 import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
-import { createFromFile } from './shared';
 
 type TargetObj = CollectionResourceObj;
 const gqlDbWrapper = collectionResourceDbWrapper;
 interface ControllerState {
-  collectionId: string;
-  currentResource: TargetObj;
-  resources: TargetObj[];
-  resourceId: string;
+  listId: string;
+  currentObj: TargetObj;
+  objs: TargetObj[];
+  objId: string;
+  more: ControllerMoreState;
+}
+
+interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
 }
@@ -25,7 +35,12 @@ interface ControllerState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromFile: createFromFile;
+  createFromFile: (
+    userId: string,
+    title: string,
+    description: string,
+    fileElem: FileElem,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -42,7 +57,8 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForCollectionResourceList = (listId: string): Controller => {
+const useControllerForResourceList = (initialListId: string): Controller => {
+  const [listId, changeListId] = useState<string>(initialListId);
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -51,15 +67,20 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
   const controllerState: ControllerState = {
-    collectionId: listId,
-    resources: objs,
-    currentResource: currentObj,
-    resourceId: id,
-    query: query,
-    queryResults: queryResults,
+    listId: listId,
+    objs: objs,
+    currentObj: currentObj,
+    objId: id,
+    more: {
+      query: query,
+      queryResults: queryResults,
+    },
   };
 
   const stateActions: StateActions = {
+    updateListId: (newListId: string) => {
+      changeListId(newListId);
+    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
@@ -127,8 +148,8 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -139,7 +160,7 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('collectionId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -160,7 +181,12 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createFromFile: async (userId: string, title: string, description: string, fileElem: FileElem) => {
+    createFromFile: async (
+      userId: string,
+      title: string,
+      description: string,
+      fileElem: FileElem,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         collectionId: listId,
@@ -182,7 +208,7 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
         title: '',
         description: '',
         variant: '',
-        created: ''
+        created: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -198,7 +224,7 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -214,10 +240,12 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -263,4 +291,7 @@ const useControllerForCollectionResourceList = (listId: string): Controller => {
 };
 
 const ContextForCollectionResourceList = createContext({} as Controller);
-export { ContextForCollectionResourceList, useControllerForCollectionResourceList };
+export {
+  ContextForCollectionResourceList,
+  useControllerForResourceList as useControllerForCollectionResourceList,
+};

@@ -25,13 +25,16 @@ export function ExplorerCreateGalleryModal() {
   const fileChangableController = useControllerForFileChangable();
 
   async function createGallery() {
-    galleryListController.actions.createActions.createGallery(
-      user.id,
-      title,
-      description,
-      fileChangableController.fileElem,
-    );
-    openableController.close();
+    galleryListController.actions.createActions
+      .createGallery(
+        user.id,
+        title,
+        description,
+        fileChangableController.fileElem,
+      )
+      .then(() => {
+        openableController.close();
+      });
   }
 
   return (

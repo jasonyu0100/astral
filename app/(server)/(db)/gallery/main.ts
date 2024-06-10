@@ -2,7 +2,7 @@ import { amplifyClient } from "@/(api)/aws/graphql/main";
 import { GalleryObj } from "@/(server)/(model)/gallery/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createGalleryObj, deleteGalleryObj, updateGalleryObj } from "@/graphql/mutations";
-import { listGalleryObjs } from "@/graphql/queries";
+import { getGalleryObj, listGalleryObjs } from "@/graphql/queries";
 import { GqlDbWrapper } from "../main";
 
 function castSingle(obj: any) {
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listGalleryObjs,
+    query: getGalleryObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listGalleryObjs);
+  return castSingle(payload?.data?.getGalleryObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listGalleryObjs,
+    query: getGalleryObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listGalleryObjs);
+  return castSingle(payload?.data?.getGalleryObj);
 }
 
 async function listObjs(key: string, value: string) {

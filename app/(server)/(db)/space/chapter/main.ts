@@ -2,7 +2,7 @@ import { amplifyClient } from "@/(api)/aws/graphql/main";
 import { SpaceChapterObj } from "@/(server)/(model)/space/chapter/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createSpaceChapterObj, deleteSpaceChapterObj, updateSpaceChapterObj } from "@/graphql/mutations";
-import { listSpaceChapterObjs } from "@/graphql/queries";
+import { getSpaceChapterObj, listSpaceChapterObjs } from "@/graphql/queries";
 import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceChapterObjs,
+    query: getSpaceChapterObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listSpaceChapterObjs);
+  return castSingle(payload?.data?.getSpaceChapterObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceChapterObjs,
+    query: getSpaceChapterObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listSpaceChapterObjs);
+  return castSingle(payload?.data?.getSpaceChapterObj);
 }
 
 async function listObjs(key: string, value: string) {

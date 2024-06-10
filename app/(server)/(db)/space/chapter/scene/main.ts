@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { ChapterSceneObj } from "@/(server)/(model)/space/chapter/scene/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createChapterSceneObj, deleteChapterSceneObj, updateChapterSceneObj } from "@/graphql/mutations";
-import { listChapterSceneObjs } from "@/graphql/queries";
+import { getChapterSceneObj, listChapterSceneObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as ChapterSceneObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChapterSceneObjs,
+    query: getChapterSceneObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listChapterSceneObjs);
+  return castSingle(payload?.data?.getChapterSceneObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listChapterSceneObjs,
+    query: getChapterSceneObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listChapterSceneObjs);
+  return castSingle(payload?.data?.getChapterSceneObj);
 }
 
 async function listObjs(key: string, value: string) {

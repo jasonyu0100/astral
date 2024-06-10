@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { SpaceUpdateMemberObj } from "@/(server)/(model)/space/update/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createSpaceUpdateMemberObj, deleteSpaceUpdateMemberObj, updateSpaceUpdateMemberObj } from "@/graphql/mutations";
-import { listSpaceUpdateMemberObjs } from "@/graphql/queries";
+import { getSpaceUpdateMemberObj, listSpaceUpdateMemberObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as SpaceUpdateMemberObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceUpdateMemberObjs,
+    query: getSpaceUpdateMemberObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listSpaceUpdateMemberObjs);
+  return castSingle(payload?.data?.getSpaceUpdateMemberObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceUpdateMemberObjs,
+    query: getSpaceUpdateMemberObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listSpaceUpdateMemberObjs);
+  return castSingle(payload?.data?.getSpaceUpdateMemberObj);
 }
 
 async function listObjs(key: string, value: string) {

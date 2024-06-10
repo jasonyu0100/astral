@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { VerseMemberObj } from "@/(server)/(model)/space/chapter/verse/member/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createVerseMemberObj, deleteVerseMemberObj, updateVerseMemberObj } from "@/graphql/mutations";
-import { listVerseMemberObjs } from "@/graphql/queries";
+import { getVerseMemberObj, listVerseMemberObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as VerseMemberObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listVerseMemberObjs,
+    query: getVerseMemberObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listVerseMemberObjs);
+  return castSingle(payload?.data?.getVerseMemberObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listVerseMemberObjs,
+    query: getVerseMemberObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listVerseMemberObjs);
+  return castSingle(payload?.data?.getVerseMemberObj);
 }
 
 async function listObjs(key: string, value: string) {

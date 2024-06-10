@@ -1,10 +1,15 @@
 import { useContext } from 'react';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { ContextForGalleryCollectionMain, useControllerForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
+  const collection = useContext(ContextForGalleryObj)
   const resourceListController = useContext(ContextForCollectionResourceList);
-  const resources = resourceListController.state.resources;
+  const resources = resourceListController.state.objs;
+  
   const visualResources = resources?.filter(
     (resource) =>
       resource.fileElem?.variant === FileElemVariant.IMAGE ||

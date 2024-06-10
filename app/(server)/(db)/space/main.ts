@@ -30,7 +30,7 @@ async function getObj(key: string, value: string) {
   return castSingle(payload?.data?.listSpaceObjs);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: listSpaceObjs,
     variables: variables,

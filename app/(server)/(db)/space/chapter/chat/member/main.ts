@@ -7,7 +7,7 @@ import {
   deleteChatMemberObj,
   updateChatMemberObj,
 } from '@/graphql/mutations';
-import { listChatMemberObjs } from '@/graphql/queries';
+import { getChatMemberObj, listChatMemberObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ChatMemberObj;
@@ -19,24 +19,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChatMemberObjs,
+    query: getChatMemberObj,
     variables: {
-      [key]: {
-        eq: value,
-      },
+      id: value
     },
   });
 
-  return castSingle(payload?.data?.listChatMemberObjs);
+  return castSingle(payload?.data?.getChatMemberObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listChatMemberObjs,
+    query: getChatMemberObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listChatMemberObjs);
+  return castSingle(payload?.data?.getChatMemberObj);
 }
 
 async function listObjs(key: string, value: string) {

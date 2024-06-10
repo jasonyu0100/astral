@@ -51,8 +51,9 @@ interface Controller {
 }
 
 const useControllerForConversationMessageList = (
-  listId: string,
+  initialId: string,
 ): Controller => {
+  const [listId, changeListId] = useState<string>('');
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -74,6 +75,9 @@ const useControllerForConversationMessageList = (
   };
 
   const stateActions: StateActions = {
+    updateListId: (newListId: string) => {
+      changeListId(newListId);
+    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
@@ -100,7 +104,7 @@ const useControllerForConversationMessageList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === listId);
+      const currentIndex = objs.findIndex((obj) => obj.id === initialId);
       const prevIndex = currentIndex - 1;
 
       if (prevIndex >= 0) {
@@ -156,7 +160,7 @@ const useControllerForConversationMessageList = (
       return objs;
     },
     gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('listId', initialId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -164,7 +168,7 @@ const useControllerForConversationMessageList = (
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
         filter: {
-          chapterId: listId,
+          chapterId: initialId,
           title: {
             contains: search,
           },
@@ -206,7 +210,7 @@ const useControllerForConversationMessageList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        conversationId: listId,
+        conversationId: initialId,
         message: messageText,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -264,12 +268,12 @@ const useControllerForConversationMessageList = (
   };
 
   useMemo(() => {
-    if (!listId) {
+    if (!initialId) {
       changeObjs([]);
     } else {
       controllerActions.gatherActions.gatherFilter();
     }
-  }, [listId]);
+  }, [initialId]);
 
   return {
     state: controllerState,

@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { PostCommentObj } from "@/(server)/(model)/horizon/arc/forum/post/comment/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createPostCommentObj, deletePostCommentObj, updatePostCommentObj } from "@/graphql/mutations";
-import { listPostCommentObjs } from "@/graphql/queries";
+import { getPostCommentObj, listPostCommentObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as PostCommentObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listPostCommentObjs,
+    query: getPostCommentObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listPostCommentObjs);
+  return castSingle(payload?.data?.getPostCommentObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listPostCommentObjs,
+    query: getPostCommentObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listPostCommentObjs);
+  return castSingle(payload?.data?.getPostCommentObj);
 }
 
 async function listObjs(key: string, value: string) {

@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/add/main';
-import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/main';
+import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection)/explorer/add/main';
+import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection)/explorer/main';
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import {

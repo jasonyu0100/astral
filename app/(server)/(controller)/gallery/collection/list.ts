@@ -47,7 +47,8 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForGalleryCollectionList = (listId: string): Controller => {
+const useControllerForGalleryCollectionList = (initialListId: string): Controller => {
+  const [listId, changeListId] = useState<string>(initialListId);
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -67,6 +68,9 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
   };
 
   const stateActions: StateActions = {
+    updateListId: (newListId: string) => {
+      changeListId(newListId);
+    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
@@ -146,7 +150,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('galleryId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -167,14 +171,17 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createCollection(title, description) {
+    createCollection: async (title, description) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         galleryId: listId,
         title: title,
         description: description,
       };
-      return gqlDbWrapper.createObj(createObj);
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
     },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {

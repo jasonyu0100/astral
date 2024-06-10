@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChapterChatObjs,
+    query: getChapterChatObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listChapterChatObjs);
+  return castSingle(payload?.data?.getChapterChatObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listChapterChatObjs,
+    query: getChapterChatObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listChapterChatObjs);
+  return castSingle(payload?.data?.getChapterChatObj);
 }
 
 async function listObjs(key: string, value: string) {

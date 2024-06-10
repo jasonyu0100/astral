@@ -45,7 +45,8 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateList = (listId: string): Controller => {
+const useControllerForClusterUpdateList = (initialListId: string): Controller => {
+  const [listId, changeListId] = useState<string>(initialListId);
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -65,6 +66,9 @@ const useControllerForClusterUpdateList = (listId: string): Controller => {
   };
 
   const stateActions: StateActions = {
+    updateListId: (newListId: string) => {
+      changeListId(newListId);
+    },
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;

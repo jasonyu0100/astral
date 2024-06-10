@@ -2,7 +2,7 @@ import { amplifyClient } from "@/(api)/aws/graphql/main";
 import { UserSupporterObj } from "@/(server)/(model)/user/supporter/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createUserSupporterObj, deleteUserSupporterObj, updateUserSupporterObj } from "@/graphql/mutations";
-import { listUserSupporterObjs } from "@/graphql/queries";
+import { getUserSupporterObj, listUserSupporterObjs } from "@/graphql/queries";
 import { GqlDbWrapper } from "../../main";
 
 function castSingle(obj: any) {
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listUserSupporterObjs,
+    query: getUserSupporterObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listUserSupporterObjs);
+  return castSingle(payload?.data?.getUserSupporterObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listUserSupporterObjs,
+    query: getUserSupporterObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listUserSupporterObjs);
+  return castSingle(payload?.data?.getUserSupporterObj);
 }
 
 async function listObjs(key: string, value: string) {

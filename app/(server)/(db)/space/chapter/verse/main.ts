@@ -7,7 +7,7 @@ import {
   deleteChapterVerseObj,
   updateChapterVerseObj,
 } from '@/graphql/mutations';
-import { listChapterVerseObjs } from '@/graphql/queries';
+import { getChapterVerseObj, listChapterVerseObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ChapterVerseObj;
@@ -19,24 +19,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChapterVerseObjs,
+    query: getChapterVerseObj,
     variables: {
-      [key]: {
-        eq: value,
-      },
+      id: value
     },
   });
 
-  return castSingle(payload?.data?.listChapterVerseObjs);
+  return castSingle(payload?.data?.getChapterVerseObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listChapterVerseObjs,
+    query: getChapterVerseObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listChapterVerseObjs);
+  return castSingle(payload?.data?.getChapterVerseObj);
 }
 
 async function listObjs(

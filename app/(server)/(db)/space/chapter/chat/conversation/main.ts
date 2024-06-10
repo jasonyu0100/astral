@@ -3,7 +3,7 @@ import { GqlDbWrapper } from "@/(server)/(db)/main";
 import { ChatConversationObj } from "@/(server)/(model)/space/chapter/chat/conversation/main";
 import { gqlArgs } from "@/(utils)/clean";
 import { createChatConversationObj, deleteChatConversationObj, updateChatConversationObj } from "@/graphql/mutations";
-import { listChatConversationObjs } from "@/graphql/queries";
+import { getChatConversationObj, listChatConversationObjs } from "@/graphql/queries";
 
 function castSingle(obj: any) {
   return obj as ChatConversationObj;
@@ -15,24 +15,22 @@ function castMultiple(objs: any[]) {
 
 async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChatConversationObjs,
+    query: getChatConversationObj,
     variables: {
-        [key]: {
-          eq: value,
-        },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listChatConversationObjs);
+  return castSingle(payload?.data?.getChatConversationObj);
 }
 
-async function getFromVariables(variables: Object) {
+async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: listChatConversationObjs,
+    query: getChatConversationObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.listChatConversationObjs);
+  return castSingle(payload?.data?.getChatConversationObj);
 }
 
 async function listObjs(key: string, value: string) {

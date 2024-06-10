@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
-import { GalleryExplorerAdd } from '@/(components)/(media)/(gallery-folder)/explorer/add/main';
-import { ExplorerGallery } from '@/(components)/(media)/(gallery-folder)/explorer/main';
+import { GalleryExplorerAdd } from '@/(components)/(media)/(gallery)/explorer/add/main';
+import { ExplorerGallery } from '@/(components)/(media)/(gallery)/explorer/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ExplorerCreateGalleryModal } from '../../../../(modals)/create/gallery/main';
 import {
@@ -25,7 +25,7 @@ export function GallerysGrid() {
               <ExplorerGallery key={gallery.id} />
             </ContextForGalleryObj.Provider>
           ))}
-          <GalleryExplorerAdd onClick={() => openableController.open()} />
+          <GalleryExplorerAdd onClick={openableController.open} />
         </div>
       </div>
     </>

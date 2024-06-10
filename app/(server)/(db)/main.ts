@@ -6,6 +6,6 @@ export interface GqlDbWrapper<TargetType> {
     updateObj: (id: string, updateObj: Partial<TargetType>) => Promise<TargetType>;
     overwriteObj: (id: string, newObj: TargetType) => Promise<TargetType>;
     deleteObj: (id: string) => Promise<TargetType>;
-    getFromVariables: (variables: Object) => Promise<TargetType>;
-    listFromVariables: (variables: Object) => Promise<TargetType[]>;
+    getFromVariables: (variables: any) => Promise<TargetType>;
+    listFromVariables: (variables: any) => Promise<TargetType[]>;
 }

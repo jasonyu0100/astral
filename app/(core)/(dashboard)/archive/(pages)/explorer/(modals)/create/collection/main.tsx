@@ -9,14 +9,14 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerCreateCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const collectionListController = useContext(ContextForGalleryCollectionList);
-  const resourceListHandler = useContext(ContextForCollectionResourceList);
+  const resourceListHandler = useControllerForCollectionResourceList('');
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -26,6 +26,7 @@ export function ExplorerCreateCollectionModal() {
     collectionListController.actions.createActions
       .createCollection(title, description)
       .then((collection) => {
+        resourceListHandler.actions.stateActions.updateListId(collection.id);
         Promise.all(
           files.map((f) =>
             resourceListHandler.actions.createActions.createFromFile(
