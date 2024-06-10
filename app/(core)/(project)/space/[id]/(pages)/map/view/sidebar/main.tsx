@@ -1,16 +1,16 @@
-import { GalleryObj } from '@/(model)/gallery/main';
+import { GalleryObj } from '@/(server)/(model)/gallery/main';
 import { createContext, useState } from 'react';
 import { MapSidebarView } from './view';
-import { GalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForSidebarModals,
   useControllerForSidebarModals,
 } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { SidebarModalsView } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/view';
-import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
-import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
+import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',

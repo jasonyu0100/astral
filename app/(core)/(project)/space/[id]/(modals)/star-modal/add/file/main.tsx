@@ -8,9 +8,9 @@ import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
+import { FileElem, FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function AddFileStarModal() {

@@ -7,7 +7,7 @@ import {
 } from '../../../(modals)/studio/main';
 import { SpacesModalView } from '@/(core)/(dashboard)/(modals)/studio/view';
 import { StudioSpacesView } from './view/view';
-import { ContextForSpaceList, useControllerForSpaceList } from '@/(model)/(controller)/space/list';
+import { ContextForSpaceList, useControllerForSpaceList } from '@/(server)/(controller)/space/list';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);

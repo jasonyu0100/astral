@@ -1,4 +1,4 @@
-import { ContextForGalleryObj } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useContext } from 'react';
 import { ContainerDescription } from '../../common/cover/description/main';
 import { GalleryThumbnail } from '../../common/cover/thumbnail/main';

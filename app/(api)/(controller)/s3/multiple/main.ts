@@ -3,7 +3,7 @@ import {
   FileElem,
   FileElemVariant,
   getFileVariantFromMimeType,
-} from '../../../../(model)/elements/file/main';
+} from '../../../../(server)/(model)/elements/file/main';
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { generateUploadURL } from '@/(api)/aws/s3/main';
 

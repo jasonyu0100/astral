@@ -6,7 +6,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerEditGalleryModal() {

@@ -1,6 +1,6 @@
 'use client';
 
-import { ContextForSpaceObj } from '@/(model)/space/main';
+import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
 import { useContext } from 'react';
 
 export function SpaceDate() {

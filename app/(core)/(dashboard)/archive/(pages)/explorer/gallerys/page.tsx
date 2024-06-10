@@ -10,7 +10,7 @@ import { ExplorerModalsView } from '@/(core)/(dashboard)/(modals)/archive/explor
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/(model)/(controller)/gallery/list';
+} from '@/(server)/(controller)/gallery/list';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);

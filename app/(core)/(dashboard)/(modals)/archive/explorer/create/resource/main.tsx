@@ -7,13 +7,13 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileElem, FileElemVariant } from '@/(model)/elements/file/main';
+import { FileElem, FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { FormSelect } from '@/(components)/(form)/select/main';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryCollectionMain } from '@/(model)/(controller)/gallery/collection/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
 
 export function ExplorerCreateResourceModal() {
   const resourceListController = useContext(ContextForCollectionResourceList)

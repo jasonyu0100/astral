@@ -10,7 +10,7 @@ import { DraftModalView } from '@/(core)/(project)/space/[id]/(modals)/draft-mod
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(model)/(controller)/space/chapter/list';
+} from '@/(server)/(controller)/space/chapter/list';
 
 function Page({ params }: { params: { id: string } }) {
   const chapterListHandler = useControllerForSpaceChapterList(params.id);

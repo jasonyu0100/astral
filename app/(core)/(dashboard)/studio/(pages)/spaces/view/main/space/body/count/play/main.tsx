@@ -1,5 +1,5 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForSpaceObj } from '@/(model)/space/main';
+import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
 import { useContext } from 'react';
 
 export function SpaceCountPlay() {

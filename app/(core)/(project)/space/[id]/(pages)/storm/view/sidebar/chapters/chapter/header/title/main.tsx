@@ -1,6 +1,6 @@
-import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
+import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { cn } from '@/(utils)/cn';
 import React, { useContext } from 'react';
 

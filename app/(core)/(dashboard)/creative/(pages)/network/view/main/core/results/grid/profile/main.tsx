@@ -1,6 +1,6 @@
 'use client';
 
-import { FileElem } from "@/(model)/elements/file/main";
+import { FileElem } from "@/(server)/(model)/elements/file/main";
 import { cn } from "@/(utils)/cn";
 
 export function CreativeProfile({ result, index } : { result: FileElem, index: number }) {

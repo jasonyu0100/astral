@@ -1,6 +1,6 @@
 import {
   FileElem,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import React, { createContext } from 'react';
 import SearchModalView from '@/(components)/(form)/file/search/search-image/search-modal/view';
 import { ContextForFileChangable } from '@/(logic)/contexts/fileChange/main';

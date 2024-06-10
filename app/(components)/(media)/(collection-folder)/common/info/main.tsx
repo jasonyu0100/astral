@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import {
   ContextForGalleryCollectionObj,
-} from '@/(model)/gallery/collection/main';
-import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+} from '@/(server)/(model)/gallery/collection/main';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function CollectionInfo({ empty }: { empty?: boolean }) {
   const collection = useContext(ContextForGalleryCollectionObj);

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextForGalleryObj } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
 
 export function GalleryThumbnail() {

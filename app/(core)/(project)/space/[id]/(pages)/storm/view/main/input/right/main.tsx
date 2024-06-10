@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { StormMessageInputSend } from "./send/main";
-import { ContextForConversationMessageList } from "@/(model)/(controller)/space/chapter/chat/conversation/message/list";
+import { ContextForConversationMessageList } from "@/(server)/(controller)/space/chapter/chat/conversation/message/list";
 import { useGlobalUser } from "@/(logic)/internal/store/user/main";
 
 export function StormChatInputRight() {

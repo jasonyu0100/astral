@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
 import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
 import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
-import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 
 export function MapChaptersRow() {
   const sceneListController = useContext(ContextForChapterSceneList);

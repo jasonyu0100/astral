@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { MapModalContext } from '@/(core)/(project)/space/[id]/(modals)/map-modal/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function MapSceneList() {
   const chapterListController = useContext(ContextForSpaceChapterList)

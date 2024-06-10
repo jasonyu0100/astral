@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { horizonMap } from "@/(core)/(project)/horizon/[id]/map";
-import { ContextForSpaceObj } from "@/(model)/space/main";
+import { ContextForSpaceObj } from "@/(server)/(model)/space/main";
 
 export function SpaceHorizon() {
   const space = useContext(ContextForSpaceObj);

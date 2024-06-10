@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { ContextForChapterSceneObj } from '@/(model)/space/chapter/scene/main';
+import { ContextForChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 import { cn } from '@/(utils)/cn';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function SceneListEntry({ index }: { index: number }) {
   const sceneListController =

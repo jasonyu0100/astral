@@ -8,28 +8,28 @@ import {
   useStormModal,
 } from '../../(modals)/storm-modal/main';
 import { StormModalView } from '@/(core)/(project)/space/[id]/(modals)/storm-modal/view';
-import { useControllerForSpaceMain } from '@/(model)/(controller)/space/main';
+import { useControllerForSpaceMain } from '@/(server)/(controller)/space/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(model)/(controller)/space/chapter/list';
+} from '@/(server)/(controller)/space/chapter/list';
 import {
   ContextForChapterChatList,
   useControllerForChapterChatList,
-} from '@/(model)/(controller)/space/chapter/chat/list';
-import { useControllerForConversationMessageMain } from '@/(model)/(controller)/space/chapter/chat/conversation/message/main';
+} from '@/(server)/(controller)/space/chapter/chat/list';
+import { useControllerForConversationMessageMain } from '@/(server)/(controller)/space/chapter/chat/conversation/message/main';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/(model)/(controller)/space/chapter/chat/conversation/message/list';
+} from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
 import {
   ContextForChatConversationList,
   useControllerForChatConversationList,
-} from '@/(model)/(controller)/space/chapter/chat/conversation/list';
+} from '@/(server)/(controller)/space/chapter/chat/conversation/list';
 import {
   ContextForChatMemberList,
   useControllerForChatMemberList,
-} from '@/(model)/(controller)/space/chapter/chat/member/list';
+} from '@/(server)/(controller)/space/chapter/chat/member/list';
 
 interface StormContextObj {}
 

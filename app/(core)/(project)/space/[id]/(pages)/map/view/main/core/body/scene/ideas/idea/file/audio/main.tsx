@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
-import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaMain } from '@/(server)/(controller)/space/chapter/scene/idea/main';
 import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function FileAudioIdea() {
   const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);

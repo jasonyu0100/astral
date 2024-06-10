@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
-import { ContextForSpaceList } from '@/(model)/(controller)/space/list';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function SoundCenter() {
   const ideaListController = useContext(ContextForSceneIdeaList);

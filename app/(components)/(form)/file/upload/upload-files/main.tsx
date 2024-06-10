@@ -1,7 +1,7 @@
 import {
   FileElem,
   FileElemVariant,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import React, { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import {

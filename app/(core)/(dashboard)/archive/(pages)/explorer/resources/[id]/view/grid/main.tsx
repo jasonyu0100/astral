@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../../../../../(components)/(media)/(resource-file)/explorer/add/main';
 import { ExplorerResource } from '../../../../../../../../../(components)/(media)/(resource-file)/explorer/main';
-import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForExplorerModals } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function ResourcesGrid() {
   const resourcesHandler = useContext(ContextForCollectionResourceList);

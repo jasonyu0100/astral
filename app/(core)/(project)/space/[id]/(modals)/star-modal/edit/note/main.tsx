@@ -6,11 +6,11 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { NoteElem, NoteElemVariant } from '@/(model)/elements/note/main';
+import { NoteElem, NoteElemVariant } from '@/(server)/(model)/elements/note/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormInput } from '@/(components)/(form)/input/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function AddNoteStarModal() {

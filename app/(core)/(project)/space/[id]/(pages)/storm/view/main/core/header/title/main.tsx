@@ -1,5 +1,5 @@
-import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useContext } from 'react';
 
 export default function HeaderTitle() {

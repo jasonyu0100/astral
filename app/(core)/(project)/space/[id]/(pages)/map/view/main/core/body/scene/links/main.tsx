@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function MapLinks() {
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);

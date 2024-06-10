@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { ContextForSidebarModals } from '@/(core)/(dashboard)/(modals)/archive/sidebar/create/main';
 import { SidebarCollection } from '@/(components)/(media)/(collection-folder)/sidebar/main';
 import { SidebarCollectionAdd } from '@/(components)/(media)/(collection-folder)/sidebar/add/main';
-import { ContextForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
+import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 
 export function CollectionsInterface() {
   const collectionListController = useContext(ContextForGalleryCollectionList);

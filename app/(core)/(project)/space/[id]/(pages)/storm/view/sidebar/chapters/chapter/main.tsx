@@ -1,13 +1,13 @@
-import { ContextForSpaceChapterObj } from '@/(model)/space/chapter/main';
+import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { StormChapterChatAdd } from './chat/add/main';
 import { StormChapterChat } from './chat/main';
 import { StormChapterHeader } from './header/main';
 import { useContext } from 'react';
-import { ContextForChatObj } from '@/(model)/space/chapter/chat/main';
+import { ContextForChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { ActiveChapterHeaderContainer } from './header/container/active/main';
 import { InactiveChapterHeaderContainer } from './header/container/inactive/main';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
-import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 
 export function StormChapter() {
   const chapter = useContext(ContextForSpaceChapterObj);

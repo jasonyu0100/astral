@@ -1,5 +1,5 @@
 'use client';
-import { ContextForSpaceObj, SpaceObj } from '@/(model)/space/main';
+import { ContextForSpaceObj, SpaceObj } from '@/(server)/(model)/space/main';
 import { createContext, useContext, useState } from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';

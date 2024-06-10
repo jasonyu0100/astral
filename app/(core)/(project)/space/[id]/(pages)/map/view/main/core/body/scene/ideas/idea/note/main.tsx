@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ContextForSceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { NoteElemVariant } from '@/(model)/elements/note/main';
+import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { NoteElemVariant } from '@/(server)/(model)/elements/note/main';
 import { NotePromptIdea } from './prompt/main';
 import { NoteStickyIdea } from './sticky/main';
 import { NoteQuoteIdea } from './quote/main';

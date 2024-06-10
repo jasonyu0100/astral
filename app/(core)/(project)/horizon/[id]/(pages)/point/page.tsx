@@ -4,7 +4,7 @@ import isVerseAuth from '@/(utils)/isAuth';
 import { HorizonViewView } from './view/view';
 import { HorizonViewSidebar } from './view/sidebar/main';
 import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFileElem } from '@/(model)/elements/file/main';
+import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';

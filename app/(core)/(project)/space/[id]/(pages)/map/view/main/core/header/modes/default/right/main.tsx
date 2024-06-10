@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { MapSaveButton } from '../../../common/save/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function DefaultRight() {
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);

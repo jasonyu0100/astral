@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ContextForSceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { LinkElemVariant } from '@/(model)/elements/link/main';
+import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { LinkElemVariant } from '@/(server)/(model)/elements/link/main';
 import { LinkSpotifyStar } from './spotify/main';
 import { LinkYouTubeStar } from './youtube/main';
 

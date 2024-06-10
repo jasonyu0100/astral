@@ -1,7 +1,7 @@
 import React from 'react';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { SpaceCover } from '@/(components)/(element)/space/main';
-import { exampleFileElem } from '@/(model)/elements/file/main';
+import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 
 export function NetworkSidebarPointContents() {
   return (

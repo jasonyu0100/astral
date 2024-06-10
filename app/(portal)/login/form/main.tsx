@@ -14,9 +14,9 @@ import { PortalFormOrDivider } from '@/(portal)/(common)/container/form/or/main'
 import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import axios from 'axios';
 import { emailLoginUser, googleLoginUser } from '@/(logic)/auth/login/main';
-import { UserObj } from '@/(model)/user/main';
+import { UserObj } from '@/(server)/(model)/user/main';
 import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
-import { useControllerForUserMain } from '@/(model)/(controller)/user/main';
+import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 
 export function PortalLoginForm() {
   const userController = useControllerForUserMain('');

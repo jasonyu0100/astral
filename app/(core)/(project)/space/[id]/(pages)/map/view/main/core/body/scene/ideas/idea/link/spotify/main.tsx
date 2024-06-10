@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaMain } from '@/(model)/(controller)/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaMain } from '@/(server)/(controller)/space/chapter/scene/idea/main';
 
 export function LinkSpotifyStar() {
   const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);

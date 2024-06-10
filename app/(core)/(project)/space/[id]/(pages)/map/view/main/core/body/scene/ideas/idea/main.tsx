@@ -2,14 +2,14 @@ import { MutableRefObject, useContext } from 'react';
 import {
   ContextForSceneIdeaObj,
   SceneIdeaVariant,
-} from '@/(model)/space/chapter/scene/idea/main';
+} from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { FileIdea } from './file/main';
 import { LinkIdea } from './link/main';
 import { NoteIdea } from './note/main';
 import {
   ContextForSceneIdeaMain,
   useControllerForSceneIdeaMain,
-} from '@/(model)/(controller)/space/chapter/scene/idea/main';
+} from '@/(server)/(controller)/space/chapter/scene/idea/main';
 import {
   ContextForMotionObj,
   useControllerForMotionObj,

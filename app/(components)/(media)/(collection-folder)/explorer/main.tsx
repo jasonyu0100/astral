@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import {
   ContextForGalleryCollectionObj,
-} from '@/(model)/gallery/collection/main';
+} from '@/(server)/(model)/gallery/collection/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function ExplorerCollection() {
   const collection = useContext(ContextForGalleryCollectionObj);

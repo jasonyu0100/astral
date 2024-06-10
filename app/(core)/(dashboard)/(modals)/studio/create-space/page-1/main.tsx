@@ -6,7 +6,7 @@ import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-im
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 
 export function PageOne() {
   const modalContext = useContext(CreateSpaceModalContext);

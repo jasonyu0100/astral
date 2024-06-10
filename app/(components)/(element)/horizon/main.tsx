@@ -1,6 +1,6 @@
 import { GlassEffectWrapper } from '@/(components)/(glass)/effect/main';
 import { roundedFx } from '@/(style)/data';
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { DivInputProps } from '@/(types)/props/main';
 
 interface HorizonCoverProps extends DivInputProps {

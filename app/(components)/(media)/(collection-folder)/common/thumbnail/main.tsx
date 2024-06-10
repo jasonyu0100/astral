@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { FileElemVariant } from '@/(model)/elements/file/main';
-import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const resourceListController = useContext(ContextForCollectionResourceList);

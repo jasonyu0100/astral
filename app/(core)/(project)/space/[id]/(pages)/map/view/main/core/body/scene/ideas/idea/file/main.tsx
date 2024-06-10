@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ContextForSceneIdeaObj } from '@/(model)/space/chapter/scene/idea/main';
-import { FileElemVariant } from '@/(model)/elements/file/main';
+import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { FileAudioIdea } from './audio/main';
 import { FileImageIdea } from './image/main';
 import { FileVideoIdea } from './video/main';

@@ -9,7 +9,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StormModalContext } from '../../main';
-import { ContextForChapterChatList } from '@/(model)/(controller)/space/chapter/chat/list';
+import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 
 export function StormAddChatModal() {
   const modalContext = useContext(StormModalContext);

@@ -1,7 +1,7 @@
 import {
   ContextForFileElem,
   FileElemVariant,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {

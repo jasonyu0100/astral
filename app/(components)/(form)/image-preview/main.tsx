@@ -1,4 +1,4 @@
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 
 export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem}) {
 

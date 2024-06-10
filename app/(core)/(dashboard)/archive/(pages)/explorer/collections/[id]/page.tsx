@@ -2,7 +2,7 @@
 import { CollectionsResults } from './view/view';
 import {
   ContextForGalleryObj,
-} from '@/(model)/gallery/main';
+} from '@/(server)/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
@@ -10,8 +10,8 @@ import {
   ContextForExplorerModals,
 } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
 import { ExplorerModalsView } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/view';
-import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
-import { ContextForGalleryMain, useControllerForGalleryMain } from '@/(model)/(controller)/gallery/main';
+import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { ContextForGalleryMain, useControllerForGalleryMain } from '@/(server)/(controller)/gallery/main';
 
 function Page({ params }: { params: { id: string } }) {
   const galleryMainController = useControllerForGalleryMain(params.id);

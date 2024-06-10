@@ -7,7 +7,7 @@ import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import { PortalTextHeader } from '@/(portal)/(common)/container/form/text-header/main';
 import { portalModel } from '@/(portal)/(common)/model/main';
 import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
-import { useControllerForUserReservationMain } from '@/(model)/(controller)/user/reservation/main';
+import { useControllerForUserReservationMain } from '@/(server)/(controller)/user/reservation/main';
 
 export function PortalReserveForm() {
   const reservationController = useControllerForUserReservationMain('');

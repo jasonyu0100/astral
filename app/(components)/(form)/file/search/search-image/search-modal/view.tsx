@@ -1,6 +1,6 @@
 import { useUnsplashController } from '@/(api)/(controller)/unsplash/main';
 import { useContext, useEffect, useState } from 'react';
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { SearchBar } from '@/(components)/(media)/search-bar/main';
 import { cn } from '@/(utils)/cn';
 import { FormBody } from '@/(components)/(form)/body/main';

@@ -1,4 +1,4 @@
-import { ContextForGalleryObj } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useContext } from 'react';
 import { GalleryBackEdit } from '../../common/back/edit/main';
 import { GalleryBackDescription } from '../../common/back/description/main';

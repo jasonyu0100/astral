@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/add/main';
 import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection-folder)/explorer/main';
-import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
+import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { ContextForExplorerModals } from '@/(core)/(dashboard)/(modals)/archive/explorer/create/main';
-import { ContextForGalleryCollectionList } from '@/(model)/(controller)/gallery/collection/list';
+import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 
 export function CollectionsGrid() {
   const collectionListController = useContext(ContextForGalleryCollectionList);

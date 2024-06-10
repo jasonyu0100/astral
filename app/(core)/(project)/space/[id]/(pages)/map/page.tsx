@@ -11,15 +11,15 @@ import { MapModalView } from '@/(core)/(project)/space/[id]/(modals)/map-modal/v
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(model)/(controller)/space/chapter/list';
+} from '@/(server)/(controller)/space/chapter/list';
 import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
-} from '@/(model)/(controller)/space/chapter/scene/list';
+} from '@/(server)/(controller)/space/chapter/scene/list';
 import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
-} from '@/(model)/(controller)/space/chapter/scene/idea/list';
+} from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import isVerseAuth from '@/(utils)/isAuth';
 
 interface MapContextObj {

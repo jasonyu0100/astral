@@ -2,7 +2,7 @@ import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { useContext } from 'react';
 import { CreateSpaceModalContext } from '../main';
-import { SpaceTemplate } from '@/(model)/(templates)/space/main';
+import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 
 export function PageTwo() {
   const modalContext = useContext(CreateSpaceModalContext);

@@ -8,7 +8,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { MapModalContext } from '../../main';
-import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 
 export function MapAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);

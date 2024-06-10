@@ -1,5 +1,5 @@
 import { ContextForFileChangable } from '@/(logic)/contexts/fileChange/main';
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {

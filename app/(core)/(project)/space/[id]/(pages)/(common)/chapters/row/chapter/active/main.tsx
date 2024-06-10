@@ -1,4 +1,4 @@
-import { ContextForSpaceChapterObj } from "@/(model)/space/chapter/main";
+import { ContextForSpaceChapterObj } from "@/(server)/(model)/space/chapter/main";
 import { useContext } from "react";
 
 export function ChapterActiveText() {

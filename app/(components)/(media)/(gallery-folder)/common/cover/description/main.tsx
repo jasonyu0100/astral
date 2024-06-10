@@ -1,4 +1,4 @@
-import { ContextForGalleryObj } from '@/(model)/gallery/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useContext } from 'react';
 

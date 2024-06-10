@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from "react";
-import { ContextForSpaceObj } from "@/(model)/space/main";
+import { ContextForSpaceObj } from "@/(server)/(model)/space/main";
 
 export function SpaceGenre() {
   const space = useContext(ContextForSpaceObj);

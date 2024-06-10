@@ -1,7 +1,7 @@
 import {
   FileElemVariant,
   getFileAccepts,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import {
   UploadHandlerContext,
 } from '@/(api)/(controller)/s3/single/main';

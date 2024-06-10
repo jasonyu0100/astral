@@ -6,11 +6,11 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { StarModalContext } from '../../main';
-import { LinkElem, LinkElemVariant } from '@/(model)/elements/link/main';
+import { LinkElem, LinkElemVariant } from '@/(server)/(model)/elements/link/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function AddLinkStarModal() {
   const modalContext = useContext(StarModalContext);

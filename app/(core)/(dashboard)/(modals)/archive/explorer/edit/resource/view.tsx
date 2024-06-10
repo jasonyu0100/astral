@@ -7,10 +7,10 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FileElem } from '@/(model)/elements/file/main';
-import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function ExplorerEditResourceModal() {
   const resourceListController = useContext(ContextForCollectionResourceList);

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import MapHeaderTitle from '../../../common/title/main';
-import { ContextForChapterSceneList } from '@/(model)/(controller)/space/chapter/scene/list';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function InfoCenter() {
   const sceneListController = useContext(ContextForChapterSceneList);

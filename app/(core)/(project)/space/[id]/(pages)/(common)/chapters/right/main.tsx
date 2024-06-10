@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function ChaptersRight() {
   const chapterListController = useContext(ContextForSpaceChapterList);

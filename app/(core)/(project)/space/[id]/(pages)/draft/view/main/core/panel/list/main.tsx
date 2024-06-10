@@ -1,5 +1,5 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ContextForSpaceChapterList } from '@/(model)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useContext } from 'react';
 
 export function DraftChapterList() {

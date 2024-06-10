@@ -1,9 +1,9 @@
-import { FileElem } from '@/(model)/elements/file/main';
-import { ContextForCollectionResourceObj } from '@/(model)/gallery/collection/resource/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceMedia } from '../common/media/main';
 import { ResourceContainer } from '../common/container/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function SidebarCollectionResource() {
   const sceneIdeasController = useContext(ContextForSceneIdeaList);

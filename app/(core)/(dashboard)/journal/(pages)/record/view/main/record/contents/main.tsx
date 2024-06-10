@@ -4,7 +4,7 @@ import { GlassWindowPane } from "@/(components)/(glass)/window/pane/main";
 import { spaceMap } from "@/(core)/(project)/space/[id]/map";
 import { horizonMap } from "@/(core)/(project)/horizon/[id]/map";
 import { glassFx } from "@/(style)/data";
-import { exampleFileElems } from "@/(model)/elements/file/main";
+import { exampleFileElems } from "@/(server)/(model)/elements/file/main";
 
 export function JournalHeaderContents() {
   return (

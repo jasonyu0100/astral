@@ -6,13 +6,13 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileElem } from '@/(model)/elements/file/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 import { DisplayImagePreview } from '@/(components)/(form)/file/search/search-image/display-image-preview/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { ContextForSidebarModals } from '../main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryList, useControllerForGalleryList } from '@/(model)/(controller)/gallery/list';
+import { ContextForGalleryList, useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function SidebarCreateGalleryModal() {

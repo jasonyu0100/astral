@@ -1,8 +1,8 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { useContext } from 'react';
 import { StudioSpace } from './space/main';
-import { ContextForSpaceObj } from '@/(model)/space/main';
-import { ContextForSpaceList } from '@/(model)/(controller)/space/list';
+import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
+import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 
 export function SpacesMain() {
   const spaceListHandler = useContext(ContextForSpaceList);

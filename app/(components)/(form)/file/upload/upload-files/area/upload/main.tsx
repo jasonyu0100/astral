@@ -1,4 +1,4 @@
-import { getFileAccepts, FileElemVariant } from "@/(model)/elements/file/main";
+import { getFileAccepts, FileElemVariant } from "@/(server)/(model)/elements/file/main";
 import { UploadsHandlerContext } from "@/(api)/(controller)/s3/multiple/main";
 import { useContext } from "react";
 

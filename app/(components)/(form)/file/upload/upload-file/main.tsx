@@ -3,7 +3,7 @@ import {
   ContextForFileElem,
   FileElemVariant,
   getFileAccepts,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import React, { useEffect } from 'react';
 import { UploadedFileEntry } from '../common/entry/main';
 import { UploadedFileEntryBody } from '../common/entry/body/main';

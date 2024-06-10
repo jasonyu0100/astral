@@ -6,7 +6,7 @@ import {
 import { cn } from '@/(utils)/cn';
 import { ContextForHoverable } from '@/(logic)/contexts/hoverable/main';
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForSpaceObj } from '@/(model)/space/main';
+import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
 
 export function SpaceInfoThumbnail() {
   const space = useContext(ContextForSpaceObj);

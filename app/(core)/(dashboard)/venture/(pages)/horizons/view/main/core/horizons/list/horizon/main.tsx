@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { exampleFileElem } from '@/(model)/elements/file/main';
+import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import Link from 'next/link';
 
 export function Horizon() {

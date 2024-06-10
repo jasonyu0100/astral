@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { ContextForGalleryCollectionObj } from '@/(model)/gallery/collection/main';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(model)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function SidebarCollection() {
   const { sidebarHandler } = useContext(MapSidebarContext);

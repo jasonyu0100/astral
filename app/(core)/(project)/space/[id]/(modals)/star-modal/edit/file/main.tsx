@@ -11,10 +11,10 @@ import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/ma
 import {
   FileElem,
   FileElemVariant,
-} from '@/(model)/elements/file/main';
+} from '@/(server)/(model)/elements/file/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTextArea } from '@/(components)/(form)/area/main';
-import { ContextForSceneIdeaList } from '@/(model)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function AddFileStarModal() {
   const modalContext = useContext(StarModalContext);
