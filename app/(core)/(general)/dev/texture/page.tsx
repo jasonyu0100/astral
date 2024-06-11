@@ -13,6 +13,8 @@ import {
 import { VideoCircle } from './video/circle/main';
 import { VideoHorizontal } from './video/wide/main';
 import { VideoVertical } from './video/vertical/main';
+import { TimeNumberIdea } from './time/main';
+import { StickyColor, StickyTextIdea } from './sticky/main';
 
 export default function Page() {
   return (
@@ -93,32 +95,18 @@ export default function Page() {
           <div className='flex w-full flex-col space-y-[1rem]'>
             <p className='text-3xl font-bold text-white'>Time</p>
             <div className='flex flex-row space-x-[1rem]'>
-              <GlassWindowFrame className='aspect-square h-[20rem] animate-pulse-slow shadow-glow'>
-                <GlassWindowContents className='flex h-full w-full flex-col items-center justify-center p-[1rem]'>
-                  <p className='text-2xl font-bold text-white'>20:38</p>
-                  <p className='text-md font-bold text-white'>4/06/24</p>
-                </GlassWindowContents>
-              </GlassWindowFrame>{' '}
+              <TimeNumberIdea/>
             </div>
           </div>
           <div className='flex w-full flex-col space-y-[1rem]'>
             <p className='text-3xl font-bold text-white'>Sticky</p>
             <div className='flex flex-row space-x-[1rem]'>
-              <GlassWindowFrame className='h-[10rem] w-[10rem] animate-pulse-slow bg-yellow-300 shadow-glow'>
-                <GlassWindowContents className='flex w-full flex-col p-[1rem]'>
-                  <p className='font-light'>hello world</p>
-                </GlassWindowContents>
-              </GlassWindowFrame>
-              <GlassWindowFrame className='h-[10rem] w-[10rem] animate-pulse-slow bg-green-500 shadow-glow '>
-                <GlassWindowContents className='flex w-full flex-col p-[1rem]'>
-                  <p className='font-light'>hello world</p>
-                </GlassWindowContents>
-              </GlassWindowFrame>
-              <GlassWindowFrame className='h-[10rem] w-[10rem] animate-pulse-slow bg-purple-500 shadow-glow '>
-                <GlassWindowContents className='flex w-full flex-col p-[1rem]'>
-                  <p className='font-light'>hello world</p>
-                </GlassWindowContents>
-              </GlassWindowFrame>
+              <StickyTextIdea color={StickyColor.BLACK}>Hello World</StickyTextIdea>
+              <StickyTextIdea color={StickyColor.BLUE}>Hello World</StickyTextIdea>
+              <StickyTextIdea color={StickyColor.YELLOW}>Hello World</StickyTextIdea>
+              <StickyTextIdea color={StickyColor.PINK}>Hello World</StickyTextIdea>
+              <StickyTextIdea color={StickyColor.PURPLE}>Hello World</StickyTextIdea>
+              <StickyTextIdea color={StickyColor.WHITE}>Hello World</StickyTextIdea>
             </div>
           </div>
           <div className='flex w-full flex-col space-y-[1rem]'>

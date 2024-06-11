@@ -14,12 +14,11 @@ export function SidebarEntry({
     <GlassWindowFrame
       name='temp'
       borderFx={borderFx['border-around']}
-      className='min-h-[10rem] bg-black p-[1rem]'
+      className='p-[1rem]'
+      roundedFx={roundedFx.rounded}
     >
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
       <GlassWindowContents className='flex flex-row'>
-        <ColorfulText seed={children?.toString()}>
-          {children?.toString()}
-        </ColorfulText>
       </GlassWindowContents>
     </GlassWindowFrame>
   );

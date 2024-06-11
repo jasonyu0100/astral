@@ -12,9 +12,12 @@ export function JournalSidebar() {
       glassFx={glassFx['glass-5']}
     >
       <p className='text-lg font-bold text-slate-500'>1 day ago</p>
-      <SidebarEntry>Image Space</SidebarEntry>
       <SidebarEntry />
-      <p className='text-lg font-bold text-slate-500'>1 week ago</p>
+      <SidebarEntry />
+      <SidebarEntry />
+      <SidebarEntry />
+      <p className='text-lg font-bold text-slate-500'>5 days ago</p>
+      <SidebarEntry />
       <SidebarEntry />
       <p className='text-lg font-bold text-slate-500'>1 month ago</p>
       <SidebarEntry />
