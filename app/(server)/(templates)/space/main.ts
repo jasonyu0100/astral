@@ -1,5 +1,5 @@
 import { barTemplate } from './music/bar/main';
-import { customTemplate } from './general/custom/main';
+import { defaultTemplate } from './general/custom/main';
 import { ideaTemplate } from './general/idea/main';
 import { songMixTemplate } from './music/mix/main';
 import { songSpaceTemplate } from './music/song/main';
@@ -9,6 +9,7 @@ import { SceneIdeaObj } from '../../(model)/space/chapter/scene/idea/main';
 import { ChapterVerseObj } from '../../(model)/space/chapter/verse/main';
 import { VerseCommentObj } from '../../(model)/space/chapter/verse/comment/main';
 import { SpaceObj } from '@/(server)/(model)/space/main';
+import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 
 // SPACE
 
@@ -23,12 +24,11 @@ export interface TemplateSpaceObj extends _TemplateSpaceObj{
 
 // CHAPTER
 
-export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx' | 'created'>;
+export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx' | 'created' | 'userId'>;
 export interface TemplateChapterObj extends _TemplateChapterObj {
   chatTemplates: TemplateChatObj[];
   sceneTemplates: TemplateSceneObj[];
   verseTemplates: TemplateVerseObj[];
-  retroTemplates: TemplateRetroObj[];
 }
 
 // CHAT
@@ -52,10 +52,10 @@ export interface TemplateMessageObj extends _TemplateMessageObj {
 
 // SCENE
 
-export type _TemplateSceneObj = Omit<SpaceChapterObj, 'id' | 'chapterId' >;
+export type _TemplateSceneObj = Omit<ChapterSceneObj, 'id' | 'chapterId' >;
 export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId' >;
 
-export interface TemplateSceneObj {
+export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
 }
 
@@ -66,15 +66,6 @@ export type _TemplateCommentObj = Omit<VerseCommentObj, 'id' | 'userId' | 'verse
 
 export interface TemplateVerseObj extends _TemplateVerseObj {
   comments?: _TemplateCommentObj[];
-}
-
-// RETRO
-
-export type _TemplateRetroObj = Omit<SpaceChapterObj, 'id' | 'chapterId' >;
-export type _TemplateContributionObj = Omit<SpaceChapterObj, 'id' | 'retroId' | 'time' >;
-
-export interface TemplateRetroObj extends _TemplateRetroObj {
-  contributions?: _TemplateContributionObj[];
 }
 
 // TEMPLATES
@@ -99,7 +90,7 @@ export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
     case SpaceTemplate.IDEA:
       return ideaTemplate;
     case SpaceTemplate.DEFAULT:
-      return customTemplate;
+      return defaultTemplate;
   }
-  return customTemplate;
+  return defaultTemplate;
 }

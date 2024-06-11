@@ -12,7 +12,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Incubation',
@@ -21,7 +20,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Illumination',
@@ -30,7 +28,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Evaluation',
@@ -39,7 +36,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Planning',
@@ -48,7 +44,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Execution',
@@ -57,7 +52,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Reflection',
@@ -66,7 +60,6 @@ export const ideaTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
   ],
 };

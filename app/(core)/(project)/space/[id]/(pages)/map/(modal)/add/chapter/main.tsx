@@ -9,10 +9,12 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function MapAddChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
+  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
@@ -42,6 +44,7 @@ export function MapAddChapterModal() {
                 chapterListController.actions.createActions.createChapter(
                   title,
                   description,
+                  user.id
                 );
                 openableController.close();
               }}

@@ -2,7 +2,7 @@ import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
 import { TemplateChapterObj, TemplateSpaceObj } from '../../main';
 
-export const customTemplate: TemplateSpaceObj = {
+export const defaultTemplate: TemplateSpaceObj = {
   title: 'Custom [edit me]',
   description: 'A custom template for a space.',
   category: 'General',
@@ -13,7 +13,6 @@ export const customTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Chapter Two [edit me]',
@@ -21,7 +20,6 @@ export const customTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Chapter Three [edit me]',
@@ -29,7 +27,6 @@ export const customTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
   ],
 };

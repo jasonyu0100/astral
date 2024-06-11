@@ -12,10 +12,12 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function StormAddChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useControllerForOpenable();
+  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
@@ -45,6 +47,7 @@ export function StormAddChapterModal() {
                 chapterListController.actions.createActions.createChapter(
                   title,
                   description,
+                  user.id
                 );
                 openableController.close();
               }}

@@ -30,7 +30,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createChat(title: string, summary: string): Promise<TargetObj>;
+  createChat(title: string, summary: string, userId: string, chapterId: string): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -146,6 +146,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+            console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -167,10 +168,11 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createChat: async (title: string, description: string) => {
+    createChat: async (title: string, description: string, userId: string, chapterId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chapterId: listId,
+        userId: userId,
+        chapterId: chapterId,
         title: title,
         description: description
       };
@@ -184,7 +186,8 @@ const useControllerForChapterChatList = (listId: string): Controller => {
         created: new Date().toISOString(),
         chapterId: '',
         title: '',
-        description: ''
+        description: '',
+        userId: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

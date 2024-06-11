@@ -12,9 +12,12 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function MapAddSceneModal() {
+  const chapterListController = useContext(ContextForChapterSceneList);
   const sceneListController = useContext(ContextForChapterSceneList);
+  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const openableController = useControllerForOpenable();
@@ -44,6 +47,9 @@ export function MapAddSceneModal() {
                 sceneListController.actions.createActions.createScene(
                   title,
                   description,
+                  user.id,
+                  chapterListController.state.objId
+                  
                 );
                 openableController.close();
               }}

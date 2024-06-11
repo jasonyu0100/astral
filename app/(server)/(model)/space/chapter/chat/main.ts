@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 export interface ChapterChatObj {
   id: string;
+  userId: string;
   chapterId: string;
   title: string;
   description: string;
@@ -11,26 +12,31 @@ export interface ChapterChatObj {
 export const chapterChatGql = `
 type ChapterChatObj {
   id: String!
+  userId: String!
   chapterId: String!
   title: String!
   description: String!
   created: String!
 }
-`
+`;
 
 export const exampleChapterChat: ChapterChatObj = {
   id: '0',
+  userId: '0',
   chapterId: '0',
   title: 'The Idea',
   description: "What's the Idea",
   created: new Date().toISOString(),
 };
 
-export const ContextForChatObj = createContext<ChapterChatObj>({} as ChapterChatObj);
+export const ContextForChatObj = createContext<ChapterChatObj>(
+  {} as ChapterChatObj,
+);
 
 export const exampleChapterChats: ChapterChatObj[] = [
   {
     id: '0',
+    userId: '0',
     chapterId: '0',
     title: 'The Idea',
     description: "What's the Idea",
@@ -38,6 +44,7 @@ export const exampleChapterChats: ChapterChatObj[] = [
   },
   {
     id: '1',
+    userId: '0',
     chapterId: '0',
     title: 'The Meaning',
     description: "What's the meaning?",

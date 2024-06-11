@@ -11,6 +11,7 @@ import {
 } from '@/(server)/(controller)/list';
 import { ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
+import assert from 'assert';
 
 type TargetObj = ChapterVerseObj;
 const gqlDbWrapper = chapterVerseDbWrapper;
@@ -29,7 +30,9 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createVerse(title: string, summary: string, userId: string, chapterId: string): Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -61,7 +64,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -132,8 +135,8 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -144,6 +147,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -171,7 +175,20 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
         userId: '',
         chapterId: '',
         title: '',
-        description: ''
+        description: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createVerse: async (title: string, description: string, userId: string, chapterId: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        chapterId: chapterId,
+        title: title,
+        description: description,
+        userId: userId
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -187,7 +204,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -203,10 +220,12 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -252,4 +271,4 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
 };
 
 const ContextForChapterVerseList = createContext({} as Controller);
-export { ContextForChapterVerseList, useControllerForChapterVerseList as useControllerForTargetList };
+export { ContextForChapterVerseList, useControllerForChapterVerseList };

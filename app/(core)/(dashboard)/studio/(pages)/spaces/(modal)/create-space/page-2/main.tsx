@@ -97,7 +97,6 @@ export function PageTwo() {
                       chatTemplates: [],
                       sceneTemplates: [],
                       verseTemplates: [],
-                      retroTemplates: [],
                       title: `Chapter ${chapterTemplates.length + 1}`,
                       description: '',
                     },

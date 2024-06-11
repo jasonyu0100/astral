@@ -34,6 +34,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createChapter(
     title: string,
     description: string,
+    userId: string,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -150,6 +151,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+            console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -171,10 +173,11 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createChapter: async (title: string, description: string) => {
+    createChapter: async (title: string, description: string, userId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: listId,
+        userId: userId,
         title: title,
         description: description,
         idx: objs.length,
@@ -191,6 +194,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         title: '',
         description: '',
         idx: 0,
+        userId: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

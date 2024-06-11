@@ -18,7 +18,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Build-up',
@@ -27,7 +26,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Drop 1',
@@ -36,7 +34,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Breakdown',
@@ -45,7 +42,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Build-up',
@@ -54,7 +50,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Drop 2',
@@ -63,7 +58,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Breakdown/Build-up',
@@ -72,7 +66,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Drop 3 (Final Drop)',
@@ -81,7 +74,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Outro',
@@ -90,7 +82,6 @@ export const songSpaceTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
   ],
 };

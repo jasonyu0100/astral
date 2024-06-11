@@ -10,7 +10,6 @@ import {
   CardSuit,
   CardNumber,
 } from '@/(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
-import { VideoHorizontal } from '../../../../(components)/(idea)/(video)/screen/wide/main';
 import {
   ScreenVideoIdea,
   ScreenVideoIdeaSize,

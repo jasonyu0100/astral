@@ -17,6 +17,13 @@ import { ContextForPagable } from '@/(logic)/contexts/pagination/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { useControllerForChapterVerseMain } from '@/(server)/(controller)/space/chapter/verse/main';
+import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
+import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import { SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 
 export interface PageOneContextInterface {
   title: string;
@@ -41,19 +48,21 @@ export const ContextForPageTwo = createContext({} as PageTwoContextInterface);
 
 export function CreateSpaceModalView() {
   const spaceListController = useContext(ContextForSpaceList);
+  const chapterListController = useControllerForSpaceChapterList('');
+  const chatListController = useControllerForChapterChatList('');
+  const sceneListController = useControllerForChapterSceneList('');
+  const verseListController = useControllerForChapterVerseList('');
+
   const pagableController = useContext(ContextForPagable);
   const openableController = useContext(ContextForOpenable);
-  const user = useGlobalUser(state => state.user);
+  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState('');
   const [thumbnail, changeThumbnail] = useState({} as FileElem);
   const [template, changeTemplate] = useState(SpaceTemplate.DEFAULT);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
-    [] as TemplateChapterObj[]
-  );
-  const [templateSpace, changeTemplateSpace] = useState(
-    {} as TemplateSpaceObj
+    [] as TemplateChapterObj[],
   );
 
   useEffect(() => {
@@ -64,7 +73,7 @@ export function CreateSpaceModalView() {
     title,
     updateTitle: (title: string) => changeTitle(title),
     description,
-    category, 
+    category,
     updateCategory: (category: string) => changeCategory(category),
     updateDescription: (description: string) => changeDescription(description),
     thumbnail,
@@ -73,21 +82,165 @@ export function CreateSpaceModalView() {
 
   const pageTwo: PageTwoContextInterface = {
     variant: template,
-    updateVariant: (variant: string) => changeTemplate(variant as SpaceTemplate),
+    updateVariant: (variant: string) =>
+      changeTemplate(variant as SpaceTemplate),
     templateSpaceChapters: templateSpaceChapters,
     updateTemplateSpaceChapters: (templates: TemplateChapterObj[]) =>
       changeTemplateSpaceChapters(templates),
   };
 
-  function createSpace() {
-    spaceListController.actions.createActions.createFromTemplate(
-      title,
-      description,
-      user.id,
-      thumbnail,
-      category,
-      templateSpaceChapters,
+  async function createChapters(templateSpaceChapters: TemplateChapterObj[]) {
+    const chapters = await Promise.all(
+      templateSpaceChapters.map((templateChapter) => {
+        const chapter =
+          chapterListController.actions.createActions.createChapter(
+            templateChapter.title,
+            templateChapter.description,
+            user.id,
+          );
+        return chapter;
+      }),
     );
+
+    return chapters;
+  }
+
+  async function createChats(
+    chapters: SpaceChapterObj[],
+    templateSpaceChapters: TemplateChapterObj[],
+  ) {
+    console.assert(
+      chapters.length === templateSpaceChapters.length,
+      'Chapters and template chapters must be the same length',
+    );
+    const chats = await Promise.all(
+      chapters.map(async (chapter, index) => {
+        const templateChapter = templateSpaceChapters.at(index);
+        if (templateChapter) {
+          console.assert(false, 'not implemented');
+          const chats = await Promise.all(
+            templateChapter.chatTemplates.map((templateChat) => {
+              const chat = chatListController.actions.createActions.createChat(
+                templateChat.title,
+                templateChat.description,
+                user.id,
+                chapter.id,
+              );
+              return chat;
+            }),
+          );
+          return chats;
+        } else {
+          const chat = chatListController.actions.createActions.createChat(
+            chapter.title,
+            chapter.description,
+            user.id,
+            chapter.id,
+          );
+          return [chat];
+        }
+      }),
+    );
+
+    return chats;
+  }
+
+  async function createScenes(
+    chapters: SpaceChapterObj[],
+    templateSpaceChapters: TemplateChapterObj[],
+  ) {
+    console.assert(
+      chapters.length === templateSpaceChapters.length,
+      'Chapters and template chapters must be the same length',
+    );
+    const scenes = await Promise.all(
+      chapters.map(async (chapter, index) => {
+        const templateChapter = templateSpaceChapters.at(index);
+        if (templateChapter) {
+          console.assert(false, 'not implemented');
+          const scenes = await Promise.all(
+            templateChapter.sceneTemplates.map((templateScene) => {
+              const scene =
+                sceneListController.actions.createActions.createScene(
+                  templateScene.title,
+                  templateScene.description,
+                  user.id,
+                  chapter.id,
+                );
+              return scene;
+            }),
+          );
+          return scenes;
+        } else {
+          const scene = sceneListController.actions.createActions.createScene(
+            chapter.title,
+            chapter.description,
+            user.id,
+            chapter.id,
+          );
+          return [scene];
+        }
+      }),
+    );
+
+    return scenes;
+  }
+
+  async function createVerses(
+    chapters: SpaceChapterObj[],
+    templateSpaceChapters: TemplateChapterObj[],
+  ) {
+    console.assert(
+      chapters.length === templateSpaceChapters.length,
+      'Chapters and template chapters must be the same length',
+    );
+    const verses = await Promise.all(
+      chapters.map(async (chapter, index) => {
+        const templateChapter = templateSpaceChapters.at(index);
+        if (templateChapter) {
+          console.assert(false, 'not implemented');
+          const verses = await Promise.all(
+            templateChapter.verseTemplates.map((templateVerse) => {
+              const verse =
+                verseListController.actions.createActions.createVerse(
+                  templateVerse.title,
+                  templateVerse.description,
+                  user.id,
+                  chapter.id,
+                );
+              return verse;
+            }),
+          );
+          return verses;
+        } else {
+          const verse = verseListController.actions.createActions.createVerse(
+            chapter.title,
+            chapter.description,
+            user.id,
+            chapter.id,
+          );
+          return [verse];
+        }
+      }),
+    );
+
+    return verses;
+  }
+
+  async function createSpace() {
+    spaceListController.actions.createActions
+      .createFromTemplate(title, description, user.id, thumbnail, category)
+      .then(async (space) => {
+        console.log(space)
+        const chapters = await createChapters(templateSpaceChapters);
+        console.log(chapters)
+        const chats = await createChats(chapters, templateSpaceChapters);
+        console.log(chats)
+        const scenes = await createScenes(chapters, templateSpaceChapters);
+        console.log(scenes)
+        const verses = await createChats(chapters, templateSpaceChapters);
+        console.log(verses)
+      });
     openableController.close();
   }
 

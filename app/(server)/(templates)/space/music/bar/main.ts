@@ -14,7 +14,6 @@ export const barTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Bass',
@@ -23,7 +22,6 @@ export const barTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Mids',
@@ -32,7 +30,6 @@ export const barTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Vocals',
@@ -41,7 +38,6 @@ export const barTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Effects',
@@ -50,7 +46,6 @@ export const barTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
   ],
 };

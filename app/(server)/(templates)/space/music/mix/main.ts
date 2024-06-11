@@ -14,7 +14,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 2',
@@ -23,7 +22,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 3',
@@ -32,7 +30,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 4',
@@ -41,7 +38,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 5',
@@ -50,7 +46,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 6',
@@ -59,7 +54,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 7',
@@ -68,7 +62,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
     {
       title: 'Track 8',
@@ -77,7 +70,6 @@ export const songMixTemplate: TemplateSpaceObj = {
       chatTemplates: [],
       sceneTemplates: [],
       verseTemplates: [],
-      retroTemplates: [],
     },
   ],
 };

@@ -171,6 +171,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+            console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');

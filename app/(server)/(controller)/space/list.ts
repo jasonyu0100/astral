@@ -33,7 +33,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     thumbnail: FileElem,
     category: string,
-    templateSpaceChapters: TemplateChapterObj[],
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -202,14 +201,13 @@ const useControllerForSpaceList = (listId: string): Controller => {
       userId: string,
       thumbnail: FileElem,
       category: string,
-      templateSpaceChapters: TemplateChapterObj[],
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         title: title,
         description: description,
-        thumbnail: exampleFileElem,
+        thumbnail: thumbnail,
         category: category,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

@@ -2,6 +2,7 @@ import { createContext } from 'react';
 
 export interface SpaceChapterObj {
   id: string;
+  userId: string;
   spaceId: string;
   title: string;
   description: string;
@@ -12,6 +13,7 @@ export interface SpaceChapterObj {
 export const spaceChapterGql = `
 type SpaceChapterObj {
 	id: String!
+  userId: String!
 	spaceId: String!
 	title: String!
 	description: String!
@@ -22,6 +24,7 @@ type SpaceChapterObj {
 
 export const exampleSpaceChapter: SpaceChapterObj = {
   id: '0',
+  userId: '0',
   spaceId: '0',
   title: 'Melody',
   description: 'This is a description',
@@ -36,6 +39,7 @@ export const ContextForSpaceChapterObj = createContext<SpaceChapterObj>(
 export const exampleSpaceChapters: SpaceChapterObj[] = [
   {
     id: '0',
+    userId: '0',
     title: 'Concept',
     description: 'Concept Description',
     spaceId: '0',
@@ -44,6 +48,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
   },
   {
     id: '1',
+    userId: '0',
     title: 'Beat',
     description: 'Beat Description',
     spaceId: '0',
@@ -52,6 +57,7 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
   },
   {
     id: '2',
+    userId: '0',
     title: 'Melody',
     description: 'Melody Description',
     spaceId: '0',

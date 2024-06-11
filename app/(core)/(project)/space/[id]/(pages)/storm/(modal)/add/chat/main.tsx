@@ -10,8 +10,11 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { use, useContext, useState } from 'react';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 
 export function StormAddChatModal() {
+  const user = useGlobalUser((state) => state.user);
+  const chapterListController = useContext(ContextForChapterChatList);
   const openableController = useContext(ContextForOpenable);
   const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');
@@ -44,6 +47,8 @@ export function StormAddChatModal() {
                 chatListController.actions.createActions.createChat(
                   title,
                   summary,
+                  user.id,
+                  chapterListController.state.objId
                 );
                 openableController.close();
               }}

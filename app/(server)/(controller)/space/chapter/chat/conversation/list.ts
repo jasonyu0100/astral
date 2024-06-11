@@ -144,6 +144,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+            console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -169,7 +170,8 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         chatId: '',
-        summary: ''
+        summary: '',
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

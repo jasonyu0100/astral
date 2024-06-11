@@ -30,7 +30,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createScene(title: string, desription: string): Promise<TargetObj>;
+  createScene(title: string, desription: string, userId: string, chapterId: string): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -146,6 +146,7 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
+      console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -167,12 +168,13 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createScene: async (title, description) => {
+    createScene: async (title, description, userId, chapterId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chapterId: listId,
+        chapterId: chapterId,
         title: title,
-        description: description
+        description: description,
+        userId: userId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -184,7 +186,8 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
         created: new Date().toISOString(),
         chapterId: '',
         title: '',
-        description: ''
+        description: '',
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
