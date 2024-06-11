@@ -28,8 +28,6 @@ export function CollectionContainer({ children, ...props }: InputProps) {
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
   );
-  console.log(resourceListController.state.objs);
-
   return (
     <ContextForGalleryCollectionMain.Provider value={collectionMainController}>
       <ContextForCollectionResourceList.Provider value={resourceListController}>

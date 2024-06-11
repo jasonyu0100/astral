@@ -4,7 +4,7 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { exampleFileElem, FileElem } from '@/(server)/(model)/elements/file/main';
 import {
   getSpaceTemplates,
   SpaceTemplate,
@@ -24,6 +24,7 @@ import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { SpaceObj } from '@/(server)/(model)/space/main';
 
 export interface PageOneContextInterface {
   title: string;
@@ -59,7 +60,7 @@ export function CreateSpaceModalView() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState('');
-  const [thumbnail, changeThumbnail] = useState({} as FileElem);
+  const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [template, changeTemplate] = useState(SpaceTemplate.DEFAULT);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
@@ -89,14 +90,15 @@ export function CreateSpaceModalView() {
       changeTemplateSpaceChapters(templates),
   };
 
-  async function createChapters(templateSpaceChapters: TemplateChapterObj[]) {
+  async function createChapters(space: SpaceObj, templateSpaceChapters: TemplateChapterObj[]) {
     const chapters = await Promise.all(
-      templateSpaceChapters.map((templateChapter) => {
+      templateSpaceChapters.map(async (templateChapter) => {
         const chapter =
-          chapterListController.actions.createActions.createChapter(
+          await chapterListController.actions.createActions.createChapter(
             templateChapter.title,
             templateChapter.description,
             user.id,
+            space.id,
           );
         return chapter;
       }),
@@ -116,11 +118,11 @@ export function CreateSpaceModalView() {
     const chats = await Promise.all(
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter) {
+        if (templateChapter && templateChapter.chatTemplates.length > 0) {
           console.assert(false, 'not implemented');
           const chats = await Promise.all(
-            templateChapter.chatTemplates.map((templateChat) => {
-              const chat = chatListController.actions.createActions.createChat(
+            templateChapter.chatTemplates.map(async (templateChat) => {
+              const chat = await chatListController.actions.createActions.createChat(
                 templateChat.title,
                 templateChat.description,
                 user.id,
@@ -131,7 +133,7 @@ export function CreateSpaceModalView() {
           );
           return chats;
         } else {
-          const chat = chatListController.actions.createActions.createChat(
+          const chat = await chatListController.actions.createActions.createChat(
             chapter.title,
             chapter.description,
             user.id,
@@ -156,12 +158,12 @@ export function CreateSpaceModalView() {
     const scenes = await Promise.all(
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter) {
+        if (templateChapter && templateChapter.sceneTemplates.length > 0) {
           console.assert(false, 'not implemented');
           const scenes = await Promise.all(
-            templateChapter.sceneTemplates.map((templateScene) => {
+            templateChapter.sceneTemplates.map(async (templateScene) => {
               const scene =
-                sceneListController.actions.createActions.createScene(
+                await sceneListController.actions.createActions.createScene(
                   templateScene.title,
                   templateScene.description,
                   user.id,
@@ -172,7 +174,7 @@ export function CreateSpaceModalView() {
           );
           return scenes;
         } else {
-          const scene = sceneListController.actions.createActions.createScene(
+          const scene = await sceneListController.actions.createActions.createScene(
             chapter.title,
             chapter.description,
             user.id,
@@ -197,12 +199,12 @@ export function CreateSpaceModalView() {
     const verses = await Promise.all(
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter) {
+        if (templateChapter && templateChapter.verseTemplates.length > 0) {
           console.assert(false, 'not implemented');
           const verses = await Promise.all(
-            templateChapter.verseTemplates.map((templateVerse) => {
+            templateChapter.verseTemplates.map(async (templateVerse) => {
               const verse =
-                verseListController.actions.createActions.createVerse(
+                await verseListController.actions.createActions.createVerse(
                   templateVerse.title,
                   templateVerse.description,
                   user.id,
@@ -213,7 +215,7 @@ export function CreateSpaceModalView() {
           );
           return verses;
         } else {
-          const verse = verseListController.actions.createActions.createVerse(
+          const verse = await verseListController.actions.createActions.createVerse(
             chapter.title,
             chapter.description,
             user.id,
@@ -231,15 +233,15 @@ export function CreateSpaceModalView() {
     spaceListController.actions.createActions
       .createFromTemplate(title, description, user.id, thumbnail, category)
       .then(async (space) => {
-        console.log(space)
-        const chapters = await createChapters(templateSpaceChapters);
-        console.log(chapters)
-        const chats = await createChats(chapters, templateSpaceChapters);
-        console.log(chats)
+        console.log("SPACE", space)
+        const chapters = await createChapters(space, templateSpaceChapters);
+        console.log("CHAPTERS", chapters)
         const scenes = await createScenes(chapters, templateSpaceChapters);
-        console.log(scenes)
-        const verses = await createChats(chapters, templateSpaceChapters);
-        console.log(verses)
+        console.log("SCENES", scenes)
+        const verses = await createVerses(chapters, templateSpaceChapters);
+        console.log("VERSES", verses)
+        const chats = await createChats(chapters, templateSpaceChapters);
+        console.log("CHATS", chats)
       });
     openableController.close();
   }

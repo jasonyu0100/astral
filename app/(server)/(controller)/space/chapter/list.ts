@@ -35,6 +35,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     title: string,
     description: string,
     userId: string,
+    spaceId: string,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -173,7 +174,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createChapter: async (title: string, description: string, userId: string) => {
+    createChapter: async (title: string, description: string, userId: string, spaceId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: listId,

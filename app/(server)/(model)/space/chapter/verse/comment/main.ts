@@ -12,7 +12,7 @@ type VerseCommentObj {
   id: String!
   userId: String
   verseId: String!
-  time: String!
+  created: String!
   message: String!
 }
 `;

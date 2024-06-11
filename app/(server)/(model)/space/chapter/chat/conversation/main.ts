@@ -22,7 +22,7 @@ type ChatConversationObj {
   userId: String!
   chatId: String!
   summary: String!
-  time: String!
+  created: String!
 }
 `
 

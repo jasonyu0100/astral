@@ -1,3 +1,17 @@
+type AgentObj {
+	id: String!
+	name: String!
+	dp: FileElem!
+	role: String!
+	created: String!
+	bio: String!
+}
+
+type AgentObjConnection {
+	items: [AgentObj]
+	nextToken: String
+}
+
 type ArcForumObj {
 	id: String!
 	arcId: String!
@@ -29,6 +43,7 @@ type ArcPointObjConnection {
 
 type ChapterChatObj {
 	id: String!
+	userId: String!
 	chapterId: String!
 	title: String!
 	description: String!
@@ -42,10 +57,11 @@ type ChapterChatObjConnection {
 
 type ChapterSceneObj {
 	id: String!
+	userId: String!
 	chapterId: String!
 	title: String!
 	description: String!
-	variant: String!
+	created: String!
 }
 
 type ChapterSceneObjConnection {
@@ -69,6 +85,7 @@ type ChapterVerseObjConnection {
 
 type ChatConversationObj {
 	id: String!
+	userId: String!
 	chatId: String!
 	summary: String!
 	created: String!
@@ -164,6 +181,7 @@ type CollectionResourceObjConnection {
 type ConversationMessageObj {
 	id: String!
 	userId: String
+	agentId: String
 	conversationId: String!
 	created: String!
 	message: String!
@@ -172,6 +190,13 @@ type ConversationMessageObj {
 type ConversationMessageObjConnection {
 	items: [ConversationMessageObj]
 	nextToken: String
+}
+
+input CreateAgentObjInput {
+	name: String!
+	role: String!
+	created: String!
+	bio: String!
 }
 
 input CreateArcForumObjInput {
@@ -192,6 +217,7 @@ input CreateArcPointObjInput {
 }
 
 input CreateChapterChatObjInput {
+	userId: String!
 	chapterId: String!
 	title: String!
 	description: String!
@@ -200,9 +226,10 @@ input CreateChapterChatObjInput {
 
 input CreateChapterSceneObjInput {
 	chapterId: String!
+	userId: String!
 	title: String!
 	description: String!
-	variant: String!
+	created: String!
 }
 
 input CreateChapterVerseObjInput {
@@ -215,6 +242,7 @@ input CreateChapterVerseObjInput {
 
 input CreateChatConversationObjInput {
 	chatId: String!
+	userId: String!
 	summary: String!
 	created: String!
 }
@@ -268,6 +296,7 @@ input CreateCollectionResourceObjInput {
 input CreateConversationMessageObjInput {
 	id: String!
 	userId: String
+	agentId: String
 	conversationId: String!
 	created: String!
 	message: String!
@@ -386,10 +415,10 @@ input CreateSceneIdeaObjInput {
 
 input CreateSpaceChapterObjInput {
 	spaceId: String!
+	userId: String!
 	title: String!
 	description: String!
 	idx: Int!
-	thumbnail: FileElemInput!
 	created: String!
 }
 
@@ -402,6 +431,7 @@ input CreateSpaceMemberObjInput {
 input CreateSpaceObjInput {
 	userId: String!
 	title: String!
+	thumbnail: FileElemInput
 	created: String!
 	description: String!
 	category: String!
@@ -479,6 +509,10 @@ input CreateVerseMemberObjInput {
 	verseId: String!
 	userId: String!
 	created: String!
+}
+
+input DeleteAgentObjInput {
+	id: String!
 }
 
 input DeleteArcForumObjInput {
@@ -892,9 +926,10 @@ type SpaceChapterObj {
 	id: String!
 	spaceId: String!
 	title: String!
+	userId: String!
 	description: String!
 	idx: Int!
-	time: String!
+	created: String!
 }
 
 type SpaceChapterObjConnection {
@@ -972,6 +1007,14 @@ type SpaceUpdateObjConnection {
 	nextToken: String
 }
 
+input TableAgentObjFilterInput {
+	id: TableStringFilterInput
+	name: TableStringFilterInput
+	role: TableStringFilterInput
+	created: TableStringFilterInput
+	bio: TableStringFilterInput
+}
+
 input TableArcForumObjFilterInput {
 	id: TableStringFilterInput
 	arcId: TableStringFilterInput
@@ -999,6 +1042,7 @@ input TableBooleanFilterInput {
 
 input TableChapterChatObjFilterInput {
 	id: TableStringFilterInput
+	userId: TableStringFilterInput
 	chapterId: TableStringFilterInput
 	title: TableStringFilterInput
 	description: TableStringFilterInput
@@ -1007,10 +1051,11 @@ input TableChapterChatObjFilterInput {
 
 input TableChapterSceneObjFilterInput {
 	id: TableStringFilterInput
+	userId: TableStringFilterInput
 	chapterId: TableStringFilterInput
 	title: TableStringFilterInput
 	description: TableStringFilterInput
-	variant: TableStringFilterInput
+	created: TableStringFilterInput
 }
 
 input TableChapterVerseObjFilterInput {
@@ -1024,6 +1069,7 @@ input TableChapterVerseObjFilterInput {
 
 input TableChatConversationObjFilterInput {
 	id: TableStringFilterInput
+	userId: TableStringFilterInput
 	chatId: TableStringFilterInput
 	summary: TableStringFilterInput
 	created: TableStringFilterInput
@@ -1081,6 +1127,7 @@ input TableCollectionResourceObjFilterInput {
 input TableConversationMessageObjFilterInput {
 	id: TableStringFilterInput
 	userId: TableStringFilterInput
+	agentId: TableStringFilterInput
 	conversationId: TableStringFilterInput
 	created: TableStringFilterInput
 	message: TableStringFilterInput
@@ -1246,6 +1293,7 @@ input TableSceneIdeaObjFilterInput {
 input TableSpaceChapterObjFilterInput {
 	id: TableStringFilterInput
 	spaceId: TableStringFilterInput
+	userId: TableStringFilterInput
 	title: TableStringFilterInput
 	description: TableStringFilterInput
 	idx: TableIntFilterInput
@@ -1365,6 +1413,14 @@ input TableVerseMemberObjFilterInput {
 	created: TableStringFilterInput
 }
 
+input UpdateAgentObjInput {
+	id: String!
+	name: String
+	role: String
+	created: String
+	bio: String
+}
+
 input UpdateArcForumObjInput {
 	id: String!
 	arcId: String
@@ -1386,6 +1442,7 @@ input UpdateArcPointObjInput {
 
 input UpdateChapterChatObjInput {
 	id: String!
+	userId: String
 	chapterId: String
 	title: String
 	description: String
@@ -1394,10 +1451,11 @@ input UpdateChapterChatObjInput {
 
 input UpdateChapterSceneObjInput {
 	id: String!
+	userId: String
 	chapterId: String
 	title: String
 	description: String
-	variant: String
+	created: String
 }
 
 input UpdateChapterVerseObjInput {
@@ -1411,6 +1469,7 @@ input UpdateChapterVerseObjInput {
 
 input UpdateChatConversationObjInput {
 	id: String!
+	userId: String
 	chatId: String
 	summary: String
 	created: String
@@ -1468,6 +1527,7 @@ input UpdateCollectionResourceObjInput {
 input UpdateConversationMessageObjInput {
 	id: String!
 	userId: String
+	agentId: String
 	conversationId: String
 	created: String
 	message: String
@@ -1600,6 +1660,7 @@ input UpdateSceneIdeaObjInput {
 
 input UpdateSpaceChapterObjInput {
 	id: String!
+	userId: String
 	spaceId: String
 	title: String
 	description: String
@@ -1619,6 +1680,7 @@ input UpdateSpaceObjInput {
 	id: String!
 	userId: String
 	title: String
+	thumbnail: FileElemInput
 	created: String
 	description: String
 	category: String
@@ -1823,9 +1885,6 @@ type Mutation {
 	createHorizonArcObj(input: CreateHorizonArcObjInput!): HorizonArcObj
 	updateHorizonArcObj(input: UpdateHorizonArcObjInput!): HorizonArcObj
 	deleteHorizonArcObj(input: DeleteHorizonArcObjInput!): HorizonArcObj
-	createChapterChatObj(input: CreateChapterChatObjInput!): ChapterChatObj
-	updateChapterChatObj(input: UpdateChapterChatObjInput!): ChapterChatObj
-	deleteChapterChatObj(input: DeleteChapterChatObjInput!): ChapterChatObj
 	createHorizonObj(input: CreateHorizonObjInput!): HorizonObj
 	updateHorizonObj(input: UpdateHorizonObjInput!): HorizonObj
 	deleteHorizonObj(input: DeleteHorizonObjInput!): HorizonObj
@@ -1910,6 +1969,12 @@ type Mutation {
 	createArcForumObj(input: CreateArcForumObjInput!): ArcForumObj
 	updateArcForumObj(input: UpdateArcForumObjInput!): ArcForumObj
 	deleteArcForumObj(input: DeleteArcForumObjInput!): ArcForumObj
+	createAgentObj(input: CreateAgentObjInput!): AgentObj
+	updateAgentObj(input: UpdateAgentObjInput!): AgentObj
+	deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
+	createChapterChatObj(input: CreateChapterChatObjInput!): ChapterChatObj
+	updateChapterChatObj(input: UpdateChapterChatObjInput!): ChapterChatObj
+	deleteChapterChatObj(input: DeleteChapterChatObjInput!): ChapterChatObj
 }
 
 type Query {
@@ -1934,8 +1999,6 @@ type Query {
 	listPostCommentObjs(filter: TablePostCommentObjFilterInput, limit: Int, nextToken: String): PostCommentObjConnection
 	getHorizonArcObj(id: String!): HorizonArcObj
 	listHorizonArcObjs(filter: TableHorizonArcObjFilterInput, limit: Int, nextToken: String): HorizonArcObjConnection
-	getChapterChatObj(id: String!): ChapterChatObj
-	listChapterChatObjs(filter: TableChapterChatObjFilterInput, limit: Int, nextToken: String): ChapterChatObjConnection
 	getHorizonObj(id: String!): HorizonObj
 	listHorizonObjs(filter: TableHorizonObjFilterInput, limit: Int, nextToken: String): HorizonObjConnection
 	getCollectionResourceObj(id: String!): CollectionResourceObj
@@ -1992,6 +2055,10 @@ type Query {
 	listClusterUpdateMemberObjs(filter: TableClusterUpdateMemberObjFilterInput, limit: Int, nextToken: String): ClusterUpdateMemberObjConnection
 	getArcForumObj(id: String!): ArcForumObj
 	listArcForumObjs(filter: TableArcForumObjFilterInput, limit: Int, nextToken: String): ArcForumObjConnection
+	getAgentObj(id: String!): AgentObj
+	listAgentObjs(filter: TableAgentObjFilterInput, limit: Int, nextToken: String): AgentObjConnection
+	getChapterChatObj(id: String!): ChapterChatObj
+	listChapterChatObjs(filter: TableChapterChatObjFilterInput, limit: Int, nextToken: String): ChapterChatObjConnection
 }
 
 type Subscription {
@@ -2086,7 +2153,7 @@ type Subscription {
 		userId: String,
 		conversationId: String,
 		created: String
-): ConversationMessageObj
+	): ConversationMessageObj
 		@aws_subscribe(mutations: ["deleteConversationMessageObj"])
 	onCreateChatConversationObj(
 		id: String,
@@ -2229,30 +2296,6 @@ type Subscription {
 		created: String
 	): HorizonArcObj
 		@aws_subscribe(mutations: ["deleteHorizonArcObj"])
-	onCreateChapterChatObj(
-		id: String,
-		chapterId: String,
-		title: String,
-		summary: String,
-		created: String
-	): ChapterChatObj
-		@aws_subscribe(mutations: ["createChapterChatObj"])
-	onUpdateChapterChatObj(
-		id: String,
-		chapterId: String,
-		title: String,
-		summary: String,
-		created: String
-	): ChapterChatObj
-		@aws_subscribe(mutations: ["updateChapterChatObj"])
-	onDeleteChapterChatObj(
-		id: String,
-		chapterId: String,
-		title: String,
-		summary: String,
-		created: String
-	): ChapterChatObj
-		@aws_subscribe(mutations: ["deleteChapterChatObj"])
 	onCreateHorizonObj(
 		id: String,
 		userId: String,
@@ -2760,4 +2803,52 @@ type Subscription {
 		created: String
 	): ArcForumObj
 		@aws_subscribe(mutations: ["deleteArcForumObj"])
+	onCreateAgentObj(
+		id: String,
+		name: String,
+		role: String,
+		created: String,
+		bio: String
+	): AgentObj
+		@aws_subscribe(mutations: ["createAgentObj"])
+	onUpdateAgentObj(
+		id: String,
+		name: String,
+		role: String,
+		created: String,
+		bio: String
+	): AgentObj
+		@aws_subscribe(mutations: ["updateAgentObj"])
+	onDeleteAgentObj(
+		id: String,
+		name: String,
+		role: String,
+		created: String,
+		bio: String
+	): AgentObj
+		@aws_subscribe(mutations: ["deleteAgentObj"])
+	onCreateChapterChatObj(
+		id: String,
+		userId: String,
+		chapterId: String,
+		title: String,
+		description: String
+	): ChapterChatObj
+		@aws_subscribe(mutations: ["createChapterChatObj"])
+	onUpdateChapterChatObj(
+		id: String,
+		userId: String,
+		chapterId: String,
+		title: String,
+		description: String
+	): ChapterChatObj
+		@aws_subscribe(mutations: ["updateChapterChatObj"])
+	onDeleteChapterChatObj(
+		id: String,
+		userId: String,
+		chapterId: String,
+		title: String,
+		description: String
+	): ChapterChatObj
+		@aws_subscribe(mutations: ["deleteChapterChatObj"])
 }

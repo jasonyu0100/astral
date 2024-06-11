@@ -38,7 +38,6 @@ export function ExplorerCreateCollectionModal() {
             ),
           ),
         ).then((files) => {
-          console.log(files);
           openableController.close();
         });
       });

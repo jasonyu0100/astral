@@ -11,8 +11,10 @@ import { DraftModalContext } from '../../main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 
 export function DraftAddChapterModal() {
+  const spaceMainController = useContext(ContextForSpaceMain);
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser(state => state.user)
@@ -45,9 +47,10 @@ export function DraftAddChapterModal() {
                 chaptersHandler.actions.createActions.createChapter(
                   title,
                   description,
-                  user.id
+                  user.id,
+                  spaceMainController.state.objId
                 );
-                close();
+                openableController.close();
               }}
             >
               Add
