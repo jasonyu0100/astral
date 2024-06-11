@@ -233,15 +233,15 @@ export function CreateSpaceModalView() {
     spaceListController.actions.createActions
       .createFromTemplate(title, description, user.id, thumbnail, category)
       .then(async (space) => {
-        console.log("SPACE", space)
+        console.log("SPACE CREATED", space)
         const chapters = await createChapters(space, templateSpaceChapters);
-        console.log("CHAPTERS", chapters)
+        console.log("CHAPTERS CREATED", chapters)
         const scenes = await createScenes(chapters, templateSpaceChapters);
-        console.log("SCENES", scenes)
+        console.log("SCENES CREATED", scenes)
         const verses = await createVerses(chapters, templateSpaceChapters);
-        console.log("VERSES", verses)
+        console.log("VERSES CREATED", verses)
         const chats = await createChats(chapters, templateSpaceChapters);
-        console.log("CHATS", chats)
+        console.log("CHATS CREATED", chats)
       });
     openableController.close();
   }

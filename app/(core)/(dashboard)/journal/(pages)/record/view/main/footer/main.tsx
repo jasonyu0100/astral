@@ -5,7 +5,7 @@ import { roundedFx, glassFx } from '@/(style)/data';
 import { useState, useEffect } from 'react';
 
 export function JournalMainFooter() {
-  const originalTime = 10000; // 100 x 100
+  const [originalTime, setOriginalTime] = useState(10000); // 100 x 100
   const [timeDilation, changeTimeDilation] = useState(1);
   const [timeElapsed, changeTimeElapsed] = useState(0);
   const currentTime = originalTime - timeElapsed;
@@ -13,6 +13,14 @@ export function JournalMainFooter() {
   const hours = Math.floor(currentTime / 60 / 60) % 24;
   const minutes = Math.floor(currentTime / 60) % 60;
   const seconds = currentTime % 60;
+
+  useEffect(() => {
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0);
+    const originalTime = new Date();
+    const timeElapsed = Math.round((midnight.getTime() - originalTime.getTime()) / 1000);
+    setOriginalTime(timeElapsed);
+  }, [])
 
   useEffect(() => {
     const duration =
