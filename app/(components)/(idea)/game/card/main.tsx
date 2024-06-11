@@ -1,5 +1,5 @@
 import { ImageInputProps } from '@/(types)/props/main';
-import { CardNumber, CardSuit } from '../../../(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
+import { CardNumber, CardSuit } from '../../../../(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
 
 interface CardInputProps extends ImageInputProps {
   suit: CardSuit;

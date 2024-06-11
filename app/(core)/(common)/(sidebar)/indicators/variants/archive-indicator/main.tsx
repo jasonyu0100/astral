@@ -5,6 +5,7 @@ import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorGreenJewel } from '../../indicator/jewel/green/main';
 import { DashboardSidebarContext } from '@/(core)/(common)/(sidebar)/main';
 import { useContext } from 'react';
+import { IndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
 
 export function ArchiveIndicator() {
   const { minimised, indicator } = useContext(DashboardSidebarContext);
@@ -15,11 +16,11 @@ export function ArchiveIndicator() {
     <>
       {minimised ? (
         <DashboardSidebarIndicator href={archiveMap.archive.explorer.link}>
-          <IndicatorGreenJewel active={active} />
+          <IndicatorOrangeJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
         <DashboardSidebarIndicator href={archiveMap.archive.explorer.link}>
-          <IndicatorGreenJewel active={active} />
+          <IndicatorOrangeJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
       )}

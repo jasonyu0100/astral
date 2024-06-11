@@ -2,10 +2,32 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { DivInputProps } from '@/(types)/props/main';
 
-export function WidePolaroid({ ...props }: DivInputProps) {
+export enum PolaroidImageIdeaSize {
+  Normal = 'normal',
+  Wide = 'wide',
+}
+
+interface PolaroidImageIdeaProps extends DivInputProps {
+  size: PolaroidImageIdeaSize;
+}
+
+export function PolaroidImageIdea({ size, ...props }: PolaroidImageIdeaProps) {
+  function getAspect(size: PolaroidImageIdeaSize) {
+    switch (size) {
+      case PolaroidImageIdeaSize.Normal:
+        return 'aspect-[13/16]';
+      case PolaroidImageIdeaSize.Wide:
+        return 'aspect-[16/13]';
+    }
+  }
+
+  const aspect = getAspect(size);
+
   return (
     <div {...props}>
-      <GlassWindowFrame className='aspect-[16/13] h-[20rem] shadow-md z-50 bg-white p-[1rem] pb-[3rem]  shadow-glow'>
+      <GlassWindowFrame
+        className={`z-50 h-[20rem] bg-white p-[1rem] pb-[3rem] shadow-glow ${aspect}`}
+      >
         <GlassWindowContents className='flex w-full flex-col'>
           <div className='w-full overflow-hidden bg-black'>
             <img

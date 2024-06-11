@@ -4,12 +4,12 @@ import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
 import { useControllerForTogglable } from '@/(logic)/contexts/togglable/main';
 import { DivInputProps } from '@/(types)/props/main';
 
-export function RecordAudioIdea() {
+export function VinylAudioIdea() {
   const flippableController = useControllerForFlippable();
   const togglableController = useControllerForTogglable();
 
   return (
-    <GlassWindowFrame className='h-[20rem] animate-pulse-slow'>
+    <GlassWindowFrame className='h-[15rem] animate-pulse-slow'>
       <GlassWindowContents
         className='absolute flex h-full flex-row'
         onClick={() => {
@@ -30,11 +30,11 @@ export function RecordAudioIdea() {
   );
 }
 
-export function RecordAudioClosedIdea({ ...props }: DivInputProps) {
+export function VinylAudioClosedIdea({ ...props }: DivInputProps) {
   const flippableController = useControllerForFlippable();
   return (
     <div {...props}>
-      <GlassWindowFrame className='z-50 aspect-square h-[20rem] border-[10px] border-white shadow-md'>
+      <GlassWindowFrame className='z-50 aspect-square h-[15rem] border-[10px] border-white shadow-md'>
         <GlassWindowContents
           className='flex h-full flex-row'
           onClick={flippableController.flip}

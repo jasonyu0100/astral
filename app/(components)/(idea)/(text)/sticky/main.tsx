@@ -1,12 +1,12 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 
-export enum StickySize {
+export enum StickyNoteSize {
   SQUARE = 'SQUARE',
   RECTANGLE = 'RECTANGLE',
 }
 
-export enum StickyColor {
+export enum StickyNoteColor {
   BLACK = 'black',
   WHITE = 'white',
   YELLOW = 'yellow',
@@ -16,48 +16,48 @@ export enum StickyColor {
   PINK = 'pink',
 }
 
-export function StickyTextIdea({ color, size, children }: { color: StickyColor, size: StickySize, children: React.ReactNode }) {
-  function getAspect(size: StickySize) {
+export function StickyNoteTextIdea({ color, size, children }: { color: StickyNoteColor, size: StickyNoteSize, children: React.ReactNode }) {
+  function getAspect(size: StickyNoteSize) {
     switch (size) {
-      case StickySize.SQUARE:
+      case StickyNoteSize.SQUARE:
         return 'aspect-[1/1]';
-      case StickySize.RECTANGLE:
+      case StickyNoteSize.RECTANGLE:
         return 'aspect-[16/9]';
       default:
         return 'aspect-[1/1]';
     }
   }
-  function getBackgroundColor(color: StickyColor) {
+  function getBackgroundColor(color: StickyNoteColor) {
     switch (color) {
-      case StickyColor.BLACK:
+      case StickyNoteColor.BLACK:
         return 'bg-black';
-      case StickyColor.WHITE:
+      case StickyNoteColor.WHITE:
         return 'bg-white';
-      case StickyColor.YELLOW:
+      case StickyNoteColor.YELLOW:
         return 'bg-yellow-500';
-      case StickyColor.PURPLE:
+      case StickyNoteColor.PURPLE:
         return 'bg-violet-500';
-      case StickyColor.GREEN:
+      case StickyNoteColor.GREEN:
         return 'bg-green-500';
-      case StickyColor.BLUE:
+      case StickyNoteColor.BLUE:
         return 'bg-blue-500';
-      case StickyColor.PINK:
+      case StickyNoteColor.PINK:
         return 'bg-pink-500';
       default:
         return 'bg-yellow-500';
     }
   }
   
-  function getTextColor(color: StickyColor) {
+  function getTextColor(color: StickyNoteColor) {
     switch (color) {
-      case StickyColor.BLACK:
+      case StickyNoteColor.BLACK:
         return 'text-white';
-      case StickyColor.WHITE:
-      case StickyColor.YELLOW:
-      case StickyColor.PURPLE:
-      case StickyColor.GREEN:
-      case StickyColor.BLUE:
-      case StickyColor.PINK:
+      case StickyNoteColor.WHITE:
+      case StickyNoteColor.YELLOW:
+      case StickyNoteColor.PURPLE:
+      case StickyNoteColor.GREEN:
+      case StickyNoteColor.BLUE:
+      case StickyNoteColor.PINK:
         return 'text-black';
       default:
         return 'text-black';

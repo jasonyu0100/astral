@@ -5,6 +5,7 @@ import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
 import { DashboardSidebarContext } from '@/(core)/(common)/(sidebar)/main';
 import { useContext } from 'react';
+import { IndicatorGreenJewel } from '../../indicator/jewel/green/main';
 
 export function JournalIndicator() {
   const { minimised, indicator } = useContext(DashboardSidebarContext);
@@ -15,11 +16,11 @@ export function JournalIndicator() {
     <>
       {minimised ? (
         <DashboardSidebarIndicator href={journalMap.journal.record.link}>
-          <IndicatorOrangeJewel active={active} />
+          <IndicatorGreenJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
         <DashboardSidebarIndicator href={journalMap.journal.record.link}>
-          <IndicatorOrangeJewel active={active} />
+          <IndicatorGreenJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
       )}
