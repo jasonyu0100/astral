@@ -17,6 +17,16 @@ export enum StickyColor {
 }
 
 export function StickyTextIdea({ color, size, children }: { color: StickyColor, size: StickySize, children: React.ReactNode }) {
+  function getAspect(size: StickySize) {
+    switch (size) {
+      case StickySize.SQUARE:
+        return 'aspect-[1/1]';
+      case StickySize.RECTANGLE:
+        return 'aspect-[16/9]';
+      default:
+        return 'aspect-[1/1]';
+    }
+  }
   function getBackgroundColor(color: StickyColor) {
     switch (color) {
       case StickyColor.BLACK:
@@ -56,9 +66,10 @@ export function StickyTextIdea({ color, size, children }: { color: StickyColor, 
 
   const textColor = getTextColor(color);
   const backgroundColor = getBackgroundColor(color);
+  const aspect = getAspect(size);
 
   return (
-    <GlassWindowFrame className='h-[10rem] w-[10rem] animate-pulse-slow bg-green-500 shadow-glow '>
+    <GlassWindowFrame className={`h-[15rem] animate-pulse-slow bg-green-500 shadow-glow ${aspect}`}>
       <GlassWindowContents
         className={`flex w-full flex-col p-[1rem] ${backgroundColor}`}
       >

@@ -11,13 +11,13 @@ export function JournalEntry() {
       roundedFx={roundedFx['rounded']}
     >
       <GlassWindowContents>
-        <div className='p-[1rem]'>
+        {/* <div className='p-[1rem]'>
           <p className='text-lg font-bold text-slate-500'>
             Make a journal record
           </p>
           <p className='font-bold text-slate-500'>25/5/2022</p>
-        </div>
-        <GlassWindowFrame className='h-[15rem] w-full'>
+        </div> */}
+        <GlassWindowFrame className='h-[10rem] w-full'>
           <GlassWindowContents>
             <textarea
               className='h-full w-full font-bold text-md bg-transparent p-[1rem] text-slate-500 outline-none'

@@ -7,9 +7,7 @@ export function JournalMainFooter() {
     return <GlassWindowFrame className='h-[5rem] w-full flex-shrink-0 shadow-glow'>
         <GlassWindowContents className='flex flex-row items-center px-[2rem]'>
           <div className='flex w-1/3 flex-row justify-start  space-x-[1rem]'>
-            <p className='text-3xl font-bold text-slate-300'>Fri 26th</p>
-            <p className='text-3xl font-bold text-slate-300'>|</p>
-            <p className='text-3xl font-bold text-slate-300'>23:59:59</p>
+            <p className='text-xl font-bold text-slate-300'>23h : 59m : 59s</p>
           </div>
           <div className='flex w-1/3 flex-row justify-center space-x-[1rem] '>
             <GlassWindowFrame
@@ -23,9 +21,8 @@ export function JournalMainFooter() {
             </GlassWindowFrame>
           </div>
           <div className='flex w-1/3 flex-row justify-end  space-x-[1rem]'>
-            <p className='text-3xl font-bold text-slate-300'>16 / 50</p>
+            <p className='text-xl font-bold text-slate-300'>16 / 50</p>
           </div>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
 }

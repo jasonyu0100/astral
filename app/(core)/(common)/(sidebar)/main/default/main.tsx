@@ -15,10 +15,10 @@ export function DashboardSidebarDefault() {
       <HorizontalDivider className='my-[1rem] mb-[2rem]' />
       <DashboardSidebarIndicators>
         <SpaceIndicator />
-        <ArchiveIndicator />
         <JournalIndicator />
-        {/* <CreativeIndicator />
-        <VentureIndicator /> */}
+        <ArchiveIndicator />
+        <CreativeIndicator />
+        <VentureIndicator />
       </DashboardSidebarIndicators>
     </DashboardSidebarDefaultContainer>
   );

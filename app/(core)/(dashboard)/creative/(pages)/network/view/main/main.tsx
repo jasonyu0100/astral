@@ -12,7 +12,6 @@ export function NetworkMain() {
     >
       <NetworkSearch />
       <NetworkResults />
-      <NetworkFooter />
     </GlassAreaContainer>
   );
 }

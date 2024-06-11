@@ -12,7 +12,6 @@ export function HorizonsMain() {
     >
       <HorizonsSearch />
       <HorizonsCore />
-      <HorizonsFooter />
     </GlassAreaContainer>
   );
 }
