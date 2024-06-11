@@ -31,24 +31,6 @@ export function JournalMainFooter() {
     <GlassWindowFrame className='h-[5rem] w-full flex-shrink-0 shadow-glow'>
       <GlassWindowContents className='flex flex-row items-center px-[2rem]'>
         <div className='flex w-1/3 flex-row items-center justify-start space-x-[1rem]'>
-          <GlassWindowFrame roundedFx={roundedFx['rounded-full']}>
-            <GlassWindowContents
-              className='flex w-[12rem] items-center justify-center p-[1rem]'
-              onClick={() => changeTimeDilation(1)}
-            >
-              <p className='flex w-full font-bold animate-pulse-slow justify-center text-xl text-slate-300 transition-opacity'>
-                {String(hours).padStart(2, '0')} :{' '}
-                <span className='flex w-[2rem] justify-center px-[4px]'>
-                  {String(minutes).padStart(2, '0')}
-                </span>
-                m :{' '}
-                <span className='flex w-[2rem] justify-center px-[4px]'>
-                  {String(seconds).padStart(2, '0')}
-                </span>
-                s
-              </p>
-            </GlassWindowContents>
-          </GlassWindowFrame>
           <GlassWindowFrame
             className='aspect-square h-[1rem] w-[1rem]'
             roundedFx={roundedFx['rounded-full']}
@@ -60,6 +42,24 @@ export function JournalMainFooter() {
               <p className='text-3xl font-bold text-slate-300'>-</p>
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
+          </GlassWindowFrame>
+          <GlassWindowFrame roundedFx={roundedFx['rounded-full']}>
+            <GlassWindowContents
+              className='flex w-[12rem] items-center justify-center p-[1rem]'
+              onClick={() => changeTimeDilation(1)}
+            >
+              <p className='flex w-full animate-pulse-slow justify-center text-xl font-bold text-slate-300 transition-opacity'>
+                {String(hours).padStart(2, '0')} :{' '}
+                <span className='flex w-[2rem] justify-center px-[4px]'>
+                  {String(minutes).padStart(2, '0')}
+                </span>
+                m :{' '}
+                <span className='flex w-[2rem] justify-center px-[4px]'>
+                  {String(seconds).padStart(2, '0')}
+                </span>
+                s
+              </p>
+            </GlassWindowContents>
           </GlassWindowFrame>
           <GlassWindowFrame
             className='aspect-square h-[1rem] w-[1rem]'
