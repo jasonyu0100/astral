@@ -21,8 +21,8 @@ export function DashboardSidebarMinimised() {
         <SpaceIndicator />
         <ArchiveIndicator />
         <JournalIndicator />
-        <CreativeIndicator />
-        <VentureIndicator />
+        {/* <CreativeIndicator />
+        <VentureIndicator /> */}
       </DashboardSidebarIndicators>
     </DashboardSidebarMinimisedContainer>
   );

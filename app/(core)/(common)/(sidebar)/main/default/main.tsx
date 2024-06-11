@@ -17,8 +17,8 @@ export function DashboardSidebarDefault() {
         <SpaceIndicator />
         <ArchiveIndicator />
         <JournalIndicator />
-        <CreativeIndicator />
-        <VentureIndicator />
+        {/* <CreativeIndicator />
+        <VentureIndicator /> */}
       </DashboardSidebarIndicators>
     </DashboardSidebarDefaultContainer>
   );
