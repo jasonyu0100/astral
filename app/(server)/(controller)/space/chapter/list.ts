@@ -176,7 +176,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     createChapter: async (title: string, description: string, userId: string, spaceId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        spaceId: listId,
+        spaceId: spaceId,
         userId: userId,
         title: title,
         description: description,
