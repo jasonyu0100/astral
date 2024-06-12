@@ -9,6 +9,7 @@ export default function Page() {
       <FormattedLink href={devMap.dev.fonts.link}>Fonts</FormattedLink>
       <FormattedLink href={devMap.dev.tables.link}>Models</FormattedLink>
       <FormattedLink href={devMap.dev.explore.link}>Explore</FormattedLink>
+      <FormattedLink href={devMap.dev.explore.selection}>Selection</FormattedLink>
     </div>
   );
 }

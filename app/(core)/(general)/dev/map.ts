@@ -14,6 +14,9 @@ export const devMap = {
     explore: {
       link: `${baseUrl}/explore`,
     },
+    selection: {
+      link: `${baseUrl}/selection`,
+    },
     link: `${baseUrl}`,
   },
 };

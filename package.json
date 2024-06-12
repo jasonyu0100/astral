@@ -67,6 +67,7 @@
     "react-day-picker": "^8.10.0",
     "react-dom": "^18.2.0",
     "react-resizable-panels": "^2.0.3",
+    "react-selecto": "^1.26.3",
     "seedrandom": "^3.0.5",
     "sonner": "^1.4.0",
     "stripe": "^14.16.0",
