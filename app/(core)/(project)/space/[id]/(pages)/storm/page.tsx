@@ -3,7 +3,10 @@ import { StormView } from './view/view';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import { useControllerForSpaceMain } from '@/(server)/(controller)/space/main';
+import {
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/(server)/(controller)/space/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -58,21 +61,23 @@ function Page({ params }: { params: { id: string } }) {
   }, [spaceMainController.state.obj]);
 
   return (
-    <ContextForSpaceChapterList.Provider value={chapterListController}>
-      <ContextForChapterChatList.Provider value={chatListController}>
-        <ContextForChatMemberList.Provider value={chatMemberListController}>
-          <ContextForChatConversationList.Provider
-            value={conversationListController}
-          >
-            <ContextForConversationMessageList.Provider
-              value={messageListController}
+    <ContextForSpaceMain.Provider value={spaceMainController}>
+      <ContextForSpaceChapterList.Provider value={chapterListController}>
+        <ContextForChapterChatList.Provider value={chatListController}>
+          <ContextForChatMemberList.Provider value={chatMemberListController}>
+            <ContextForChatConversationList.Provider
+              value={conversationListController}
             >
-              <StormView />
-            </ContextForConversationMessageList.Provider>
-          </ContextForChatConversationList.Provider>
-        </ContextForChatMemberList.Provider>
-      </ContextForChapterChatList.Provider>
-    </ContextForSpaceChapterList.Provider>
+              <ContextForConversationMessageList.Provider
+                value={messageListController}
+              >
+                <StormView />
+              </ContextForConversationMessageList.Provider>
+            </ContextForChatConversationList.Provider>
+          </ContextForChatMemberList.Provider>
+        </ContextForChapterChatList.Provider>
+      </ContextForSpaceChapterList.Provider>
+    </ContextForSpaceMain.Provider>
   );
 }
 

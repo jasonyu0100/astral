@@ -18,7 +18,7 @@ import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 export function StormAddChapterModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const openableController = useControllerForOpenable();
+  const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
