@@ -52,7 +52,6 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  console.log('adsadsadsadsdsaads', objs);
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 

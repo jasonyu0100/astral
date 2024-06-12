@@ -152,8 +152,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-            console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('spaceId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;

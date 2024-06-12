@@ -95,9 +95,6 @@ const useControllerForUserMain = (objId: string): Controller => {
         if (user.subscriptionId === null) {
           const timeDiff = new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (0 < daysDifference && daysDifference < 14) {
-            throw new Error('Account trial is over');
-          }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
             user.subscriptionId
