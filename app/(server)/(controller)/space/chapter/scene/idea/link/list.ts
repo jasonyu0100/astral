@@ -1,9 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import {
-  exampleFileElem,
-  FileElem,
-} from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
   BaseListStateActions,
@@ -12,16 +6,11 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import {
-  SceneIdeaObj,
-  SceneIdeaVariant,
-} from '@/(server)/(model)/space/chapter/scene/idea/main';
-import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
-import { LinkElem } from '@/(server)/(model)/elements/link/main';
-import { NoteElem } from '@/(server)/(model)/elements/note/main';
+import { IdeaLinkObj } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
 
-type TargetObj = SceneIdeaObj;
-const gqlDbWrapper = sceneIdeaDbWrapper;
+type TargetObj = IdeaLinkObj;
+const gqlDbWrapper = ideaLinkDbWrapper;
 interface ControllerState {
   listId: string;
   currentObj: TargetObj;
@@ -37,29 +26,7 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromFile: (
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    fileElem: FileElem,
-  ) => Promise<TargetObj>;
-  createFromLink: (
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    linkElem: LinkElem,
-  ) => Promise<TargetObj>;
-  createFromNote: (
-    title: string,
-    description: string,
-    x: number,
-    y: number,
-    noteElem: NoteElem,
-  ) => Promise<TargetObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -91,7 +58,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    },
+    }
   };
 
   const stateActions: StateActions = {
@@ -162,8 +129,8 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
-    },
+      return objs.find((obj) => obj.id === id) || {} as TargetObj;
+    }
   };
 
   const gatherActions: GatherActions = {
@@ -174,7 +141,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-      console.assert(false, 'not implemented');
+            console.assert(false, "not implemented");
       const objs = await gqlDbWrapper.listObjs('listId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -196,74 +163,12 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createFromFile(title, description, x, y, fileElem) {
-      const createObj: Omit<TargetObj, 'id'> = {
-        userId: '',
-        created: new Date().toISOString(),
-        sceneId: listId,
-        title: title,
-        description: description,
-        x: x,
-        y: y,
-        fileElem: fileElem,
-        variant: SceneIdeaVariant.FILE,
-        width: 100,
-        height: 100,
-        scale: 1,
-        rotation: 0,
-      };
-      return gqlDbWrapper.createObj(createObj);
-    },
-    createFromLink(title, description, x, y, linkElem) {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        sceneId: listId,
-        title: title,
-        description: description,
-        x: x,
-        y: y,
-        linkElem: linkElem,
-        variant: SceneIdeaVariant.LINK,
-        width: 100,
-        height: 100,
-        scale: 1,
-        rotation: 0,
-        userId: ''
-      };
-      return gqlDbWrapper.createObj(createObj);
-    },
-    createFromNote(title, description, x, y, noteElem) {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        sceneId: listId,
-        title: title,
-        description: description,
-        x: x,
-        y: y,
-        noteElem: noteElem,
-        variant: SceneIdeaVariant.NOTE,
-        width: 100,
-        height: 100,
-        scale: 1,
-        rotation: 0,
-        userId: ''
-      };
-      return gqlDbWrapper.createObj(createObj);
-    },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: '',
-        title: '',
-        description: '',
-        x: 0,
-        y: 0,
-        variant: '',
-        width: 100,
-        height: 100,
-        scale: 1,
-        rotation: 0,
-        userId: ''
+        startId: '',
+        endId: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -295,12 +200,10 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(
-        objs.map((obj) => {
-          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-          return updatedObj;
-        }),
-      );
+      const updatedObjs = await Promise.all(objs.map((obj) => {
+        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+        return updatedObj;
+      }));
       changeObjs(updatedObjs);
       return updatedObjs;
     },

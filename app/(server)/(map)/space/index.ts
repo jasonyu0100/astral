@@ -29,6 +29,10 @@ import { spaceUpdateMemberGql } from '@/(server)/(model)/space/update/member/mai
 import { spaceUpdateMemberDbWrapper } from '@/(server)/(db)/space/update/member/main';
 import { spaceUpdateAddGql } from '@/(server)/(model)/space/update/add/main';
 import { spaceMemberDbWrapper } from '@/(server)/(db)/space/member/main';
+import { sceneStackGql } from '@/(server)/(model)/space/chapter/scene/stack/main';
+import { ideaLinkGql } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
+import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
 
 export const spaceMap = {
   children: ['chapter', 'member', 'update'],
@@ -83,10 +87,20 @@ export const spaceMap = {
       db: chapterSceneDbWrapper,
       children: ['idea'],
       idea: {
-        children: [],
+        children: ['link'],
         gql: sceneIdeaGql,
         db: sceneIdeaDbWrapper,
+        link: {
+          children: [],
+          gql: ideaLinkGql,
+          db: ideaLinkDbWrapper,
+        }
       },
+      stack: {
+        children: [],
+        gql: sceneStackGql,
+        db: sceneStackDbWrapper,
+      }
     },
     verse: {
       gql: chapterVerseGql,
