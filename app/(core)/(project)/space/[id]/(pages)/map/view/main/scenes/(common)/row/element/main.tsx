@@ -4,11 +4,11 @@ import { useContext } from 'react';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { cn } from '@/(utils)/cn';
-import { ChapterActiveText } from './active/main';
-import { ChapterInactiveText } from './inactive/main';
+import { ElementActiveText } from './active/main';
+import { ElementInactiveText } from './inactive/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
-export function ChapterContainer({ index, children }: { children?: React.ReactNode, index: number }) {
+export function ElementContainer({ index, children }: { children?: React.ReactNode, index: number }) {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active = chapter.id === chapterListController.state.objId;
@@ -22,7 +22,7 @@ export function ChapterContainer({ index, children }: { children?: React.ReactNo
         })}
       >
         <GlassAreaContainer
-          name={ChapterContainer.name}
+          name={ElementContainer.name}
           sizeFx='w-[200px] h-[40px]'
           glassFx={
             active ? glassFx['glass-10'] : glassFx['glass-5']
@@ -30,8 +30,7 @@ export function ChapterContainer({ index, children }: { children?: React.ReactNo
           roundedFx={roundedFx['rounded-full']}
           className='flex items-center justify-center'
         >
-          <p className="text-white font-bold">{children}</p>
-          {/* {active ? <ChapterActiveText /> : <ChapterInactiveText />} */}
+          {active ? <ElementActiveText /> : <ElementInactiveText />}
         </GlassAreaContainer>
       </button>
     </WrapperTooltip>

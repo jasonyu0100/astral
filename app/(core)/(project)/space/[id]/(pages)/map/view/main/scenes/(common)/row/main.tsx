@@ -1,4 +1,4 @@
-export function ChaptersRowContainer({
+export function ScenesRowContainer({
   children,
 }: {
   children?: React.ReactNode;

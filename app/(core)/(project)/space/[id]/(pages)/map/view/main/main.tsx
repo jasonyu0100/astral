@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 import { MapCore } from './core/main';
-import { MapChapters } from './chapters/main';
+import { MapScenes } from './scenes/main';
 
 export function MapMain() {
   return (
@@ -11,7 +11,7 @@ export function MapMain() {
       className={`flex flex-col`}
     >
       <MapCore />
-      <MapChapters />
+      <MapScenes />
     </GlassAreaContainer>
   );
 }

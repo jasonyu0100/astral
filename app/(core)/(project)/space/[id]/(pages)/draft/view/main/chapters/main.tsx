@@ -1,23 +1,23 @@
-import { ChaptersLeft } from '../../../../(common)/chapters/left/main';
-import { ChaptersRight } from '../../../../(common)/chapters/right/main';
-import { ChaptersContainer } from '../../../../(common)/chapters/main';
+import { ScenesGoLeftAction } from '../../../../map/view/main/scenes/(common)/left/main';
+import { ScenesGoRightAction } from '../../../../map/view/main/scenes/(common)/right/main';
+import { ScenesContainer } from '../../../../map/view/main/scenes/container/main';
 import { DraftChaptersRow } from './row/main';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import ChaptersAdd from '../../../../(common)/chapters/row/add/main';
-import { ChapterContainer } from '../../../../(common)/chapters/row/chapter/main';
-import { ChaptersRowContainer } from '../../../../(common)/chapters/row/main';
+import ScenesAdd from '../../../../map/view/main/scenes/(common)/row/add/main';
+import { ElementContainer } from '../../../../map/view/main/scenes/(common)/row/element/main';
+import { ScenesRowContainer } from '../../../../map/view/main/scenes/(common)/row/main';
 
 export function DraftChapters() {
   return (
-    <ChaptersContainer>
-      <ChaptersLeft />
-      <ChaptersRowContainer>
-            <ChapterContainer index={1}>Verse 1.0</ChapterContainer>
-            <ChapterContainer index={1}>Verse 1.1</ChapterContainer>
-            <ChapterContainer index={1}>Verse 2.0</ChapterContainer>
-        <ChaptersAdd onClick={() => {}} />
-      </ChaptersRowContainer>
-      <ChaptersRight />
-    </ChaptersContainer>
+    <ScenesContainer>
+      <ScenesGoLeftAction />
+      <ScenesRowContainer>
+            <ElementContainer index={1}>Verse 1.0</ElementContainer>
+            <ElementContainer index={1}>Verse 1.1</ElementContainer>
+            <ElementContainer index={1}>Verse 2.0</ElementContainer>
+        <ScenesAdd onClick={() => {}} />
+      </ScenesRowContainer>
+      <ScenesGoRightAction />
+    </ScenesContainer>
   );
 }

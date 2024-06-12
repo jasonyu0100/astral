@@ -17,10 +17,10 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 export function MapAddSceneModal() {
   const chapterListController = useContext(ContextForChapterSceneList);
   const sceneListController = useContext(ContextForChapterSceneList);
+  const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const openableController = useControllerForOpenable();
 
   return (
     <ContextForOpenable.Provider value={openableController}>

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import ChaptersAdd from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/add/main';
-import { ChapterContainer } from '@/(core)/(project)/space/[id]/(pages)/(common)/chapters/row/chapter/main';
-import { ChaptersRowContainer } from '../../../../../(common)/chapters/row/main';
+import ScenesAdd from '@/(core)/(project)/space/[id]/(pages)/map/view/main/scenes/(common)/row/add/main';
+import { ElementContainer } from '@/(core)/(project)/space/[id]/(pages)/map/view/main/scenes/(common)/row/element/main';
+import { ScenesRowContainer } from '../../../../../map/view/main/scenes/(common)/row/main';
 import { DraftModalContext } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
@@ -11,13 +11,13 @@ export function DraftChaptersRow() {
   const { addChapterModal } = useContext(DraftModalContext);
 
   return (
-    <ChaptersRowContainer>
+    <ScenesRowContainer>
       {chapterListController.state.objs.map((chapter, index) => (
         <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
-          <ChapterContainer index={index} key={chapter.id} />
+          <ElementContainer index={index} key={chapter.id} />
         </ContextForSpaceChapterObj.Provider>
       ))}
-      <ChaptersAdd onClick={() => addChapterModal.open()} />
-    </ChaptersRowContainer>
+      <ScenesAdd onClick={() => addChapterModal.open()} />
+    </ScenesRowContainer>
   );
 }
