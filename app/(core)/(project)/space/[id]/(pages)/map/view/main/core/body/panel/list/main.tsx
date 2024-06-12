@@ -1,14 +1,17 @@
 import { useContext } from 'react';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForOpenable, useControllerForOpenable } from '@/(logic)/contexts/openable/main';
+import {
+  ContextForOpenable,
+  useControllerForOpenable,
+} from '@/(logic)/contexts/openable/main';
 import { MapAddChapterModal } from '../../../../../../(modal)/add/chapter/main';
 
 export function MapSceneList() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useControllerForOpenable();
+  const activeId = chapterListController.state.objId;
 
-  // TODO CLEAN UP
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
@@ -17,29 +20,22 @@ export function MapSceneList() {
       <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
         {chapterListController.state.objs.map((chapter, index) => (
           <div key={chapter.id}>
-            <p className={`text-md font-bold text-slate-500`}>
+            <p
+              className={`text-md font-bold ${activeId === chapter.id ? 'animate-pulse-slow text-slate-300' : 'text-slate-500'}`}
+            >
               {index + 1}. {chapter.title}
             </p>
           </div>
         ))}
-        {/* {parts.map((part, index) => (
-        <SceneContext.Provider
-          value={part}
-          key={part.id}
+        <HorizontalDivider />
+        <button
+          className='flex w-full cursor-pointer'
+          onClick={openableController.open}
         >
-          <SceneListEntry index={index} key={part.id} />
-        </SceneContext.Provider>
-      ))}
-      <div
-        className='flex w-full cursor-pointer'
-        onClick={() => {
-          open();
-        }}
-      >
-        <p className={`text-md animate-pulse-slow font-bold text-slate-500`}>
-          Add Page
-        </p>
-      </div> */}
+          <p className={`text-md animate-pulse-slow font-bold text-slate-500`}>
+            Add Chapter
+          </p>
+        </button>
       </div>
     </>
   );

@@ -14,6 +14,10 @@ import {
   useControllerForSceneIdeaList,
 } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import isVerseAuth from '@/(utils)/isAuth';
+import {
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/(server)/(controller)/space/main';
 
 interface MapContextObj {
   modalType: MapModalType;
@@ -31,7 +35,10 @@ export enum MapModalType {
 }
 
 function Page({ params }: { params: { id: string } }) {
-  const chapterListController = useControllerForSpaceChapterList(params.id);
+  const spaceMainController = useControllerForSpaceMain(params.id);
+  const chapterListController = useControllerForSpaceChapterList(
+    spaceMainController.state.objId,
+  );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
   );
@@ -47,13 +54,15 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <MapContext.Provider value={context}>
-      <ContextForSpaceChapterList.Provider value={chapterListController}>
-        <ContextForChapterSceneList.Provider value={sceneListController}>
-          <ContextForSceneIdeaList.Provider value={ideaListController}>
-            <MapView />
-          </ContextForSceneIdeaList.Provider>
-        </ContextForChapterSceneList.Provider>
-      </ContextForSpaceChapterList.Provider>
+      <ContextForSpaceMain.Provider value={spaceMainController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForChapterSceneList.Provider value={sceneListController}>
+            <ContextForSceneIdeaList.Provider value={ideaListController}>
+              <MapView />
+            </ContextForSceneIdeaList.Provider>
+          </ContextForChapterSceneList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceMain.Provider>
     </MapContext.Provider>
   );
 }
