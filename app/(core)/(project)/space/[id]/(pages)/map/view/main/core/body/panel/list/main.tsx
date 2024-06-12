@@ -15,10 +15,6 @@ export function MapSceneList() {
         <MapAddChapterModal />
       </ContextForOpenable.Provider>
       <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
-        <div>
-          <p className={`text-md font-bold text-slate-500`}>0. General</p>
-        </div>
-        <HorizontalDivider />
         {chapterListController.state.objs.map((chapter, index) => (
           <div key={chapter.id}>
             <p className={`text-md font-bold text-slate-500`}>

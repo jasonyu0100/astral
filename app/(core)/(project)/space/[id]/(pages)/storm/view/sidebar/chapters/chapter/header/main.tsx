@@ -17,7 +17,7 @@ export function StormChapterHeader() {
     >
       <GlassAreaContainer
         name={StormChapterHeader.name}
-        sizeFx='w-full py-[0.5rem]'
+        sizeFx='w-full pt-[1rem]'
         className={`flex items-center justify-between`}
       >
         <StormChapterTitle />

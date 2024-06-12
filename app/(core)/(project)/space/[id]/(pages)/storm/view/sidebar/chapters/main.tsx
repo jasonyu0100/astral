@@ -16,7 +16,6 @@ export function StormSidebarChapters() {
       <ContextForOpenable.Provider value={openableController}>
         <StormAddChapterModal />
       </ContextForOpenable.Provider>
-      <div style={{ width: '100%', height: '100%' }}>
         <GlassAreaContainer
           name={StormSidebarChapters.name}
           sizeFx='h-full w-full'
@@ -32,7 +31,6 @@ export function StormSidebarChapters() {
           ))}
           <StormChapterAdd onClick={openableController.open} />
         </GlassAreaContainer>
-      </div>
     </>
   );
 }
