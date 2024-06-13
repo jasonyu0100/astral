@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { SpaceUpdateObj } from '@/(server)/(model)/space/update/main';
+import { spaceUpdateModel, SpaceUpdateObj } from '@/(server)/(model)/space/update/main';
 import { spaceUpdateDbWrapper } from '@/(server)/(db)/space/update/main';
 
 type TargetObj = SpaceUpdateObj;
 const gqlDbWrapper = spaceUpdateDbWrapper;
+const listIdKey = spaceUpdateModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -144,12 +146,20 @@ const useControllerForSpaceUpdateList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
             console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -242,7 +252,7 @@ const useControllerForSpaceUpdateList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

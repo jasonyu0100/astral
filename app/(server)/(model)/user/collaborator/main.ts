@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface UserCollaboratorObj {
   id: string;
@@ -47,3 +48,12 @@ export const exampleUserCollaborators: UserCollaboratorObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const userCollaboratorModel : ModelInterface<UserCollaboratorObj> = {
+  name: 'collaborator',
+  gql: userCollaboratorGql,
+  example: exampleUserCollaborator,
+  examples: exampleUserCollaborators,
+  parentKey: 'userId',
+  children: [],
+};

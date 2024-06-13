@@ -13,6 +13,7 @@ import { userCollaboratorDbWrapper } from '@/(server)/(db)/user/collaborator/mai
 
 type TargetObj = UserCollaboratorObj;
 const gqlDbWrapper = userCollaboratorDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

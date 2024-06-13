@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleDisplayPictureFileElem } from '../elements/file/main';
+import { ModelInterface } from '../main';
 
 export interface AgentObj {
   id: string;
@@ -58,3 +59,12 @@ export const exampleAgents: AgentObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const agentModel: ModelInterface<AgentObj> = {
+  name: 'Agent',
+  example: exampleAgent,
+  examples: exampleAgents,
+  gql: agentGql,
+  children: ['collection', 'member'],
+  parentKey: '',
+}

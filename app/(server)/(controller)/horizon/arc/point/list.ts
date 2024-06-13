@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ArcPointObj } from '@/(server)/(model)/horizon/arc/point/main';
+import { arcPointModel, ArcPointObj } from '@/(server)/(model)/horizon/arc/point/main';
 import { arcPointDbWrapper } from '@/(server)/(db)/horizon/arc/point/main';
 
 type TargetObj = ArcPointObj;
 const gqlDbWrapper = arcPointDbWrapper;
+const listIdKey = arcPointModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -144,12 +146,20 @@ const useControllerForArcPointList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
             console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -245,7 +255,7 @@ const useControllerForArcPointList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

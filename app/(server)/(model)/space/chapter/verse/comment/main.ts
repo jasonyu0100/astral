@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 export interface VerseCommentObj {
   id: string;
@@ -60,3 +61,12 @@ export const exampleVerseComments: VerseCommentObj[] = [
     userId: '0',
   },
 ];
+
+export const verseCommentModel: ModelInterface<VerseCommentObj> = {
+  name: 'comment',
+  example: exampleVerseComment,
+  examples: exampleVerseComments,
+  gql: verseCommentGql,
+  children: [],
+  parentKey: 'verseId',
+}

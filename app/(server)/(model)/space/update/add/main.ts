@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export enum SpaceUpdateAddVariant {
@@ -90,3 +91,12 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const spaceUpdateAddModel : ModelInterface<SpaceUpdateAddObj> = {
+  name: 'add',
+  gql: spaceUpdateAddGql,
+  example: exampleSpaceUpdateAdd,
+  examples: exampleSpaceUpdateAdds,
+  parentKey: 'updateId',
+  children: [],
+}

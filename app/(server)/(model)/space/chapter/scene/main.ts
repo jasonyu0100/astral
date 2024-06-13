@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ChapterSceneObj {
@@ -58,3 +59,12 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const chapterSceneModel: ModelInterface<ChapterSceneObj> = {
+  name: 'scene',
+  gql: chapterSceneGql,
+  example: exampleChapterScene,
+  examples: exampleChapterScenes,
+  parentKey: 'chapterId',
+  children: ['idea'],
+}

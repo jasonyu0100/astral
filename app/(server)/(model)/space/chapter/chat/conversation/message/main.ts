@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 export interface ConversationMessageObj {
   id: string;
@@ -72,3 +73,12 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     message: 'Hello There',
   },
 ];
+
+export const conversationMessageModel: ModelInterface<ConversationMessageObj> = {
+  name: 'message',
+  gql: conversationMessageGql,
+  example: exampleConversationMessage,
+  examples: exampleConversationMessages,
+  parentKey: 'conversationId',
+  children: [],
+}

@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
+import { ModelInterface } from '../main';
 export interface GalleryObj {
   id: string;
   userId: string;
@@ -49,3 +50,12 @@ export const exampleGallerys: GalleryObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const galleryModel: ModelInterface<GalleryObj> = {
+  name: 'Gallery',
+  example: exampleGallery,
+  examples: exampleGallerys,
+  gql: galleryGql,
+  children: ['collection', 'member'],
+  parentKey: 'userId',
+}

@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { CollectionResourceObj } from './resource/main';
+import { ModelInterface } from '../../main';
 
 export interface GalleryCollectionObj {
   id: string;
@@ -53,3 +54,12 @@ export const exampleGalleryCollections: GalleryCollectionObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const galleryCollectionModel: ModelInterface<GalleryCollectionObj> = {
+  name: 'collection',
+  example: exampleGalleryCollection,
+  examples: exampleGalleryCollections,
+  gql: galleryCollectionGql,
+  children: ['resource'],
+  parentKey: 'galleryId',
+}

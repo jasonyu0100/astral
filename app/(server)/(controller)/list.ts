@@ -16,7 +16,8 @@ export interface BaseListStateActions<TargetObj> {
 
 export interface BaseListGatherActions<TargetObj> {
   gatherAll: () => Promise<TargetObj[]>;
-  gatherFilter: () => Promise<TargetObj[]>;
+  gatherLatest: () => Promise<TargetObj[]>;
+  gatherEarliest: () => Promise<TargetObj[]>;
   gatherSearch: (search: string) => Promise<TargetObj[]>;
 }
 

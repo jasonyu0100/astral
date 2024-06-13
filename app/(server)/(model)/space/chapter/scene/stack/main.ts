@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface SceneStackObj {
@@ -58,3 +59,12 @@ export const exampleSceneIdeas: SceneStackObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const sceneStackModel: ModelInterface<SceneStackObj> = {
+  name: 'stack',
+  gql: sceneStackGql,
+  example: exampleSceneStack,
+  examples: exampleSceneIdeas,
+  parentKey: 'sceneId',
+  children: [],
+}

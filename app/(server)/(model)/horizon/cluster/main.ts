@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface HorizonClusterObj {
   id: string;
@@ -59,3 +60,13 @@ export const exampleHorizonClusters: HorizonClusterObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const horizonClusterModel: ModelInterface<HorizonClusterObj> = {
+
+  name: 'cluster',
+  gql: horizonClusterGql,
+  parentKey: 'horizonId',
+  example: exampleHorizonCluster,
+  examples: exampleHorizonClusters,
+  children: ['update', 'member']
+}

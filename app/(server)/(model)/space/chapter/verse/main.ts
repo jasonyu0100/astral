@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../../../elements/file/main';
+import { ModelInterface } from '@/(server)/(model)/main';
 
 export interface ChapterVerseObj {
   id: string;
@@ -60,3 +61,12 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const chapterVerseModel: ModelInterface<ChapterVerseObj> = {
+  name: 'verse',
+  parentKey: 'chapterId',
+  example: exampleChapterVerse,
+  examples: exampleChapterVerses,
+  gql: chapterVerseGql,
+  children: ['comment', 'member'],
+};

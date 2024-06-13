@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface HorizonArcObj {
   id: string;
@@ -65,3 +66,12 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     idx: 2,
   },
 ];
+
+export const horizonArcModel: ModelInterface<HorizonArcObj> = {
+  name: 'arc',
+  gql: horizonArcGql,
+  example: exampleHorizonArc,
+  examples: exampleHorizonArcs,
+  parentKey: 'horizonId',
+  children: ['point', 'forum'],
+}

@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ClusterUpdateObj {
@@ -59,3 +60,12 @@ export const exampleClusterUpdates: ClusterUpdateObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const clusterUpdateModel: ModelInterface<ClusterUpdateObj> = {
+  name: 'update',
+  example: exampleClusterUpdate,
+  gql: clusterUpdateGql,
+  examples: exampleClusterUpdates,
+  parentKey: 'clusterId',
+  children: ['add', 'member']
+}

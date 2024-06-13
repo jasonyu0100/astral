@@ -13,6 +13,7 @@ import { verseMemberDbWrapper } from '@/(server)/(db)/space/chapter/verse/member
 
 type TargetObj = VerseMemberObj;
 const gqlDbWrapper = verseMemberDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

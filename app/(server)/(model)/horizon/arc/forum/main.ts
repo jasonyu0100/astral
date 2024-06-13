@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ArcForumObj {
@@ -46,3 +47,12 @@ export const exampleArcForums: ArcForumObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const arcForumModel: ModelInterface<ArcForumObj> = {
+  name: 'arcForum',
+  gql: arcForumGql,
+  example: exampleArcForum,
+  examples: exampleArcForums,
+  children: ['post', 'member'],
+  parentKey: 'arcId',
+};

@@ -9,12 +9,14 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
+import { chapterVerseModel, ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import assert from 'assert';
 
 type TargetObj = ChapterVerseObj;
 const gqlDbWrapper = chapterVerseDbWrapper;
+const listIdKey = chapterVerseModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -147,12 +149,20 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
       console.assert(false, 'not implemented');
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -261,7 +271,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

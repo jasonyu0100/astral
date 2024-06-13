@@ -13,6 +13,7 @@ import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
 
 type TargetObj = UserSupporterObj;
 const gqlDbWrapper = userSupporterDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

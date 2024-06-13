@@ -16,6 +16,7 @@ import { createUserReservationObj } from '@/graphql/mutations';
 
 type TargetObj = UserReservationObj;
 const gqlDbWrapper = userReservationDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

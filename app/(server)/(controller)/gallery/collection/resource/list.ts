@@ -12,6 +12,7 @@ import {
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
 import {
+  collectionResourceModel,
   CollectionResourceObj,
   CollectionResourceVariant,
 } from '@/(server)/(model)/gallery/collection/resource/main';
@@ -19,6 +20,8 @@ import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/
 
 type TargetObj = CollectionResourceObj;
 const gqlDbWrapper = collectionResourceDbWrapper;
+const listIdKey = collectionResourceModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -157,11 +160,19 @@ const useControllerForResourceList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('collectionId', listId);
+    gatherLatest: async () => {
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -279,7 +290,7 @@ const useControllerForResourceList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import { chapterChatModel, ChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { chapterChatDbWrapper } from '@/(server)/(db)/space/chapter/chat/main';
 
 type TargetObj = ChapterChatObj;
 const gqlDbWrapper = chapterChatDbWrapper;
+const listIdKey = chapterChatModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -30,7 +32,12 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createChat(title: string, summary: string, userId: string, chapterId: string): Promise<TargetObj>;
+  createChat(
+    title: string,
+    summary: string,
+    userId: string,
+    chapterId: string,
+  ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -55,7 +62,6 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -64,7 +70,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -135,8 +141,8 @@ const useControllerForChapterChatList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -146,11 +152,18 @@ const useControllerForChapterChatList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('chapterId', listId);
+    gatherLatest: async () => {
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -168,13 +181,18 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createChat: async (title: string, description: string, userId: string, chapterId: string) => {
+    createChat: async (
+      title: string,
+      description: string,
+      userId: string,
+      chapterId: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         chapterId: chapterId,
         title: title,
-        description: description
+        description: description,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -187,7 +205,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
         chapterId: '',
         title: '',
         description: '',
-        userId: ''
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -219,10 +237,12 @@ const useControllerForChapterChatList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -257,7 +277,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherEarliest()
     }
   }, [listId]);
 

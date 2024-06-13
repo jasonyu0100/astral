@@ -1,8 +1,9 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface HorizonMemberObj {
   id: string;
-  forumId: string;
+  horizonId: string;
   userId: string;
   created: string;
 }
@@ -10,7 +11,7 @@ export interface HorizonMemberObj {
 export const horizonMemberGql = `
 type HorizonMemberObj {
   id: String!
-  forumId: String!
+  horizonId: String!
   userId: String!
   created: String!
 }
@@ -22,7 +23,7 @@ export const ContextForHorizonMemberObj = createContext<HorizonMemberObj>(
 
 export const exampleHorizonMember: HorizonMemberObj = {
   id: '0',
-  forumId: '0',
+  horizonId: '0',
   userId: '0',
   created: new Date().toISOString(),
 };
@@ -30,20 +31,29 @@ export const exampleHorizonMember: HorizonMemberObj = {
 export const exampleHorizonMembers: HorizonMemberObj[] = [
   {
     id: '0',
-    forumId: '0',
+    horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    forumId: '0',
+    horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    forumId: '0',
+    horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
 ];
+
+export const horizonMemberModel: ModelInterface<HorizonMemberObj> = {
+  name: 'member',
+  gql: horizonMemberGql,
+  example: exampleHorizonMember,
+  examples: exampleHorizonMembers,
+  parentKey: 'horizonId',
+  children: [],
+}

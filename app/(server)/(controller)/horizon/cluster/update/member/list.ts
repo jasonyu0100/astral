@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ClusterUpdateMemberObj } from '@/(server)/(model)/horizon/cluster/update/member/main';
+import { clusterUpdateMemberModel, ClusterUpdateMemberObj } from '@/(server)/(model)/horizon/cluster/update/member/main';
 import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/update/member/main';
 
 type TargetObj = ClusterUpdateMemberObj;
 const gqlDbWrapper = clusterUpdateMemberDbWrapper;
+const listIdKey = clusterUpdateMemberModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -144,12 +146,20 @@ const useControllerForClusterUpdateMemberList = (listId: string): Controller => 
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
             console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -241,7 +251,7 @@ const useControllerForClusterUpdateMemberList = (listId: string): Controller => 
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

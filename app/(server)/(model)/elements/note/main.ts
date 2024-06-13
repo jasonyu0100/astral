@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export enum NoteElemVariant {
   STICKY = 'STICKY',
@@ -58,3 +59,12 @@ export const exampleNoteElems: NoteElem[] = [
     variant: NoteElemVariant.STICKY,
   },
 ];
+
+export const noteElemModel: ModelInterface<NoteElem> = {
+  example: exampleNoteElem,
+  examples: exampleNoteElems,
+  gql: noteElemGql,
+  name: 'note',
+  children: [],
+  parentKey: 'id',
+}

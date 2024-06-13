@@ -1,6 +1,6 @@
 import { userDbWrapper } from '@/(server)/(db)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
+import { userModel, UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
   BaseListStateActions,
@@ -14,6 +14,8 @@ import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
 
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
+const listIdKey = userModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -144,12 +146,20 @@ const useControllerForUserList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
             console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -246,7 +256,7 @@ const useControllerForUserList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

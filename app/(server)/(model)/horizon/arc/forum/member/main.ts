@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ForumMemberObj {
@@ -47,3 +48,12 @@ export const exampleForumMembers: ForumMemberObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const forumMemberModel: ModelInterface<ForumMemberObj> = {
+  name: 'member',
+  gql: forumMemberGql,
+  example: exampleForumMember,
+  examples: exampleForumMembers,
+  parentKey: 'forumId',
+  children: [],
+}

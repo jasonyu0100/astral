@@ -13,6 +13,7 @@ import { postCommentDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/com
 
 type TargetObj = PostCommentObj;
 const gqlDbWrapper = postCommentDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

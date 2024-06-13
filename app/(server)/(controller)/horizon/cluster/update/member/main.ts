@@ -13,6 +13,7 @@ import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/up
 
 type TargetObj = ClusterUpdateMemberObj;
 const gqlDbWrapper = clusterUpdateMemberDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

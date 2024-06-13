@@ -13,6 +13,7 @@ import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link
 
 type TargetObj = IdeaLinkObj;
 const gqlDbWrapper = ideaLinkDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

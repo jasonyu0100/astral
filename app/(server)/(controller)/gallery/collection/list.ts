@@ -9,11 +9,14 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { galleryCollectionModel, GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { galleryCollectionDbWrapper } from '@/(server)/(db)/gallery/collection/main';
+import { galleryModel } from '@/(server)/(model)/gallery/main';
 
 type TargetObj = GalleryCollectionObj;
 const gqlDbWrapper = galleryCollectionDbWrapper;
+const listIdKey = galleryCollectionModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -146,11 +149,19 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('galleryId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -255,7 +266,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

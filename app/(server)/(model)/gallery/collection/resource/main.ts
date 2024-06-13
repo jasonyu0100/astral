@@ -6,6 +6,7 @@ import {
 } from '../../../elements/file/main';
 import { LinkElem } from '../../../elements/link/main';
 import { NoteElem } from '../../../elements/note/main';
+import { ModelInterface } from '@/(server)/(model)/main';
 
 export enum CollectionResourceVariant {
   FILE = 'FILE',
@@ -70,3 +71,12 @@ export const exampleCollectionResources: CollectionResourceObj[] = [
     };
   }),
 ];
+
+export const collectionResourceModel: ModelInterface<CollectionResourceObj> = {
+  name: 'resource',
+  example: exampleCollectionResource,
+  examples: exampleCollectionResources,
+  gql: collectionResourceGql,
+  children: [],
+  parentKey: 'collectionId',
+}

@@ -9,12 +9,14 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { spaceChapterModel, SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { spaceChapterDbWrapper } from '@/(server)/(db)/space/chapter/main';
 import { Description } from '@radix-ui/react-dialog';
 
 type TargetObj = SpaceChapterObj;
 const gqlDbWrapper = spaceChapterDbWrapper;
+const listIdKey = spaceChapterModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -152,11 +154,19 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('spaceId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -265,7 +275,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

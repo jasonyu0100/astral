@@ -1,28 +1,24 @@
-import { galleryCollectionGql } from '../../(model)/gallery/collection/main';
-import { galleryGql } from '../../(model)/gallery/main';
-import { collectionResourceGql } from '../../(model)/gallery/collection/resource/main';
+import { galleryCollectionGql, galleryCollectionModel } from '../../(model)/gallery/collection/main';
+import { galleryGql, galleryModel } from '../../(model)/gallery/main';
+import { collectionResourceGql, collectionResourceModel } from '../../(model)/gallery/collection/resource/main';
 import { galleryDbWrapper } from '@/(server)/(db)/gallery/main';
 import { galleryCollectionDbWrapper } from '@/(server)/(db)/gallery/collection/main';
 import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
-import { galleryMemberGql } from '@/(server)/(model)/gallery/member/main';
+import { galleryMemberGql, galleryMemberModel } from '@/(server)/(model)/gallery/member/main';
 import { galleryMemberDbWrapper } from '@/(server)/(db)/gallery/member/main';
 
 export const galleryMap = {
-  children: ['collection', 'member'],
-  gql: galleryGql,
+  model: galleryModel,
   db: galleryDbWrapper,
   member: {
-    children: [],
+    model: galleryMemberModel,
     db: galleryMemberDbWrapper,
-    gql: galleryMemberGql,
   },
   collection: {
-    children: ['resource'],
-    gql: galleryCollectionGql,
+    model: galleryCollectionModel,
     db: galleryCollectionDbWrapper,
     resource: {
-      children: [],
-      gql: collectionResourceGql,
+      model: collectionResourceModel,
       db: collectionResourceDbWrapper,
     },
   },

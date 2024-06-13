@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ArcPointObj {
@@ -71,3 +72,12 @@ export const exampleArcPoints: ArcPointObj[] = [
     idx: 2,
   },
 ];
+
+export const arcPointModel: ModelInterface<ArcPointObj> = {
+  example: exampleArcPoint,
+  examples: exampleArcPoints,
+  gql: arcPointGql,
+  name: 'point',
+  children: [],
+  parentKey: 'arcId',
+}

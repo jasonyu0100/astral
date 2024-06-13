@@ -13,6 +13,7 @@ import { horizonUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/update/mem
 
 type TargetObj = HorizonUpdateMemberObj;
 const gqlDbWrapper = horizonUpdateMemberDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

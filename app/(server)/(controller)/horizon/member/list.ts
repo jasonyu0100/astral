@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { HorizonMemberObj } from '@/(server)/(model)/horizon/member/main';
+import { horizonMemberModel, HorizonMemberObj } from '@/(server)/(model)/horizon/member/main';
 import { horizonMemberDbWrapper } from '@/(server)/(db)/horizon/member/main';
 
 type TargetObj = HorizonMemberObj;
 const gqlDbWrapper = horizonMemberDbWrapper;
+const listIdKey = horizonMemberModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -144,12 +146,20 @@ const useControllerForHorizonMemberList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
             console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -170,7 +180,7 @@ const useControllerForHorizonMemberList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        forumId: '',
+        horizonId: '',
         userId: ''
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -241,7 +251,7 @@ const useControllerForHorizonMemberList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

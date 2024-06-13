@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export enum LinkElemVariant {
   WEBSITE = 'WEBSITE',
@@ -37,3 +38,33 @@ export const exampleLinkElem: LinkElem = {
   url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
   variant: LinkElemVariant.YOUTUBE,
 };
+
+export const exampleLinkElems: LinkElem[] = [
+  {
+    id: '0',
+    title: 'passion.png',
+    url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
+    variant: LinkElemVariant.YOUTUBE,
+  },
+  {
+    id: '0',
+    title: 'passion.png',
+    url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
+    variant: LinkElemVariant.YOUTUBE,
+  },
+  {
+    id: '0',
+    title: 'passion.png',
+    url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
+    variant: LinkElemVariant.YOUTUBE,
+  },
+];
+
+export const linkElemModel: ModelInterface<LinkElem> = {
+  name: 'link',
+  example: exampleLinkElem,
+  examples: exampleLinkElems,
+  gql: linkElemGql,
+  parentKey: '',
+  children: [],
+}

@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ChatMemberObj {
@@ -46,3 +47,12 @@ export const exampleChatMembers: ChatMemberObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const chatMemberModel: ModelInterface<ChatMemberObj> = {
+  name: 'member',
+  gql: chatMemberGql,
+  example: exampleChatMember,
+  examples: exampleChatMembers,
+  parentKey: 'chatId',
+  children: [],
+}

@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface ForumPostObj {
@@ -20,7 +21,9 @@ type ForumPostObj {
 }
 `;
 
-export const ContextForForumPostObj = createContext<ForumPostObj>({} as ForumPostObj);
+export const ContextForForumPostObj = createContext<ForumPostObj>(
+  {} as ForumPostObj,
+);
 
 export const exampleForumPost: ForumPostObj = {
   id: '0',
@@ -49,3 +52,12 @@ export const exampleForumPosts: ForumPostObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const forumPostModel: ModelInterface<ForumPostObj> = {
+  name: 'forumPost',
+  gql: forumPostGql,
+  example: exampleForumPost,
+  examples: exampleForumPosts,
+  children: ['comment'],
+  parentKey: 'forumId',
+};

@@ -1,14 +1,14 @@
 import { userReservationDbWrapper } from '@/(server)/(db)/user/reservation/main';
-import { chatConversationGql } from '../../(model)/space/chapter/chat/conversation/main';
-import { conversationMessageGql } from '../../(model)/space/chapter/chat/conversation/message/main';
-import { chapterChatGql } from '../../(model)/space/chapter/chat/main';
-import { spaceChapterGql } from '../../(model)/space/chapter/main';
-import { spaceUpdateGql } from '../../(model)/space/update/main';
-import { sceneIdeaGql } from '../../(model)/space/chapter/scene/idea/main';
-import { chapterSceneGql } from '../../(model)/space/chapter/scene/main';
-import { verseCommentGql } from '../../(model)/space/chapter/verse/comment/main';
-import { chapterVerseGql } from '../../(model)/space/chapter/verse/main';
-import { spaceGql } from '../../(model)/space/main';
+import { chatConversationGql, chatConversationModel } from '../../(model)/space/chapter/chat/conversation/main';
+import { conversationMessageGql, conversationMessageModel } from '../../(model)/space/chapter/chat/conversation/message/main';
+import { chapterChatGql, chapterChatModel } from '../../(model)/space/chapter/chat/main';
+import { spaceChapterGql, spaceChapterModel } from '../../(model)/space/chapter/main';
+import { spaceUpdateGql, spaceUpdateModel } from '../../(model)/space/update/main';
+import { sceneIdeaGql, sceneIdeaModel } from '../../(model)/space/chapter/scene/idea/main';
+import { chapterSceneGql, chapterSceneModel } from '../../(model)/space/chapter/scene/main';
+import { verseCommentGql, verseCommentModel } from '../../(model)/space/chapter/verse/comment/main';
+import { chapterVerseGql, chapterVerseModel } from '../../(model)/space/chapter/verse/main';
+import { spaceGql, spaceModel } from '../../(model)/space/main';
 import { spaceDbWrapper } from '@/(server)/(db)/space/main';
 import { spaceChapterDbWrapper } from '@/(server)/(db)/space/chapter/main';
 import { chapterChatDbWrapper } from '@/(server)/(db)/space/chapter/chat/main';
@@ -20,101 +20,84 @@ import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main'
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
-import { chatMemberGql } from '@/(server)/(model)/space/chapter/chat/member/main';
+import { chatMemberGql, chatMemberModel } from '@/(server)/(model)/space/chapter/chat/member/main';
 import { chatMemberDbWrapper } from '@/(server)/(db)/space/chapter/chat/member/main';
-import { spaceMemberGql } from '@/(server)/(model)/space/member/main';
-import { verseMemberGql } from '@/(server)/(model)/space/chapter/verse/member/main';
+import { spaceMemberGql, spaceMemberModel } from '@/(server)/(model)/space/member/main';
+import { verseMemberGql, verseMemberModel } from '@/(server)/(model)/space/chapter/verse/member/main';
 import { verseMemberDbWrapper } from '@/(server)/(db)/space/chapter/verse/member/main';
-import { spaceUpdateMemberGql } from '@/(server)/(model)/space/update/member/main';
+import { spaceUpdateMemberGql, spaceUpdateMemberModel } from '@/(server)/(model)/space/update/member/main';
 import { spaceUpdateMemberDbWrapper } from '@/(server)/(db)/space/update/member/main';
-import { spaceUpdateAddGql } from '@/(server)/(model)/space/update/add/main';
+import { spaceUpdateAddGql, spaceUpdateAddModel } from '@/(server)/(model)/space/update/add/main';
 import { spaceMemberDbWrapper } from '@/(server)/(db)/space/member/main';
 import { sceneStackGql } from '@/(server)/(model)/space/chapter/scene/stack/main';
-import { ideaLinkGql } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { ideaLinkGql, ideaLinkModel } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
 import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
 import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
 
 export const spaceMap = {
-  children: ['chapter', 'member', 'update'],
-  gql: spaceGql,
+  model: spaceModel,
   db: spaceDbWrapper,
   member: {
-    children: [],
-    gql: spaceMemberGql,
+    model: spaceMemberModel,
     db: spaceMemberDbWrapper,
   },
   update: {
-    gql: spaceUpdateGql,
+    model: spaceUpdateModel,
     db: spaceUpdateDbWrapper,
-    children: ['add', 'member'],
     member: {
-      children: [],
+      model: spaceUpdateMemberModel,
       db: spaceUpdateMemberDbWrapper,
-      gql: spaceUpdateMemberGql,
     },
     add: {
-      children: [],
+      model: spaceUpdateAddModel,
       db: spaceUpdateAddDbWrapper,
-      gql: spaceUpdateAddGql,
     },
   },
   chapter: {
-    gql: spaceChapterGql,
     db: spaceChapterDbWrapper,
-    children: ['chat', 'scene', 'verse'],
+    model: spaceChapterModel,
     chat: {
-      gql: chapterChatGql,
       db: chapterChatDbWrapper,
-      children: ['conversation', 'member'],
+      model: chapterChatModel,
       member: {
-        children: [],
+        model: chatMemberModel,
         db: chatMemberDbWrapper,
-        gql: chatMemberGql,
       },
       conversation: {
-        gql: chatConversationGql,
         db: chatConversationDbWrapper,
-        children: ['message'],
+        model: chatConversationModel,
         message: {
-          children: [],
-          gql: conversationMessageGql,
+          model: conversationMessageModel,
           db: conversationMessageDbWrapper,
         },
       },
     },
     scene: {
-      gql: chapterSceneGql,
+      model: chapterSceneModel,
       db: chapterSceneDbWrapper,
-      children: ['idea'],
       idea: {
-        children: ['link'],
-        gql: sceneIdeaGql,
+        model: sceneIdeaModel,
         db: sceneIdeaDbWrapper,
         link: {
-          children: [],
-          gql: ideaLinkGql,
+          model: ideaLinkModel,
           db: ideaLinkDbWrapper,
-        }
+        },
       },
       stack: {
-        children: [],
-        gql: sceneStackGql,
+        model: sceneStackGql,
         db: sceneStackDbWrapper,
-      }
+      },
     },
     verse: {
-      gql: chapterVerseGql,
       db: chapterVerseDbWrapper,
-      children: ['comment', 'member'],
+      model: chapterVerseModel,
       member: {
-        children: [],
         db: verseMemberGql,
-        gql: verseMemberDbWrapper,
+        model: verseMemberModel,
       },
       comment: {
-        children: [],
+        model: verseCommentModel,
         db: verseCommentDbWrapper,
-        gql: verseCommentGql,
       },
     },
   },

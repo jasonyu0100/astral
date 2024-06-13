@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface SpaceUpdateMemberObj {
@@ -47,3 +48,12 @@ export const exampleSpaceUpdateMembers: SpaceUpdateMemberObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const spaceUpdateMemberModel : ModelInterface<SpaceUpdateMemberObj> = {
+  name: 'update',
+  gql: spaceUpdateMemberGql,
+  example: exampleSpaceUpdateMember,
+  examples: exampleSpaceUpdateMembers,
+  parentKey: 'updateId',
+  children: [],
+}

@@ -65,7 +65,7 @@ export default function Page() {
         <div className='flex flex-col p-[1rem]'>
           <p className='font-bold text-white'>Table: {currentId}</p>
           <div className='flex flex-row space-x-[1rem]'>
-            {modelObj.children.map((cm : any) => (
+            {modelObj.model.children.map((cm : any) => (
               <button
                 value={cm}
                 key={cm}
@@ -83,7 +83,7 @@ export default function Page() {
       </div>
 
       <div className='flex flex-row space-x-[3rem]'>
-        <Section gqlMap={modelObj.gql} />
+        <Section gqlMap={modelObj.model.gql} />
         <div className='flex h-[5rem] w-[10rem] items-center justify-center bg-slate-300 bg-opacity-30'>
           <a className='text-3xl text-white' href={`/dev/db/${currentId}`}>
             {currentId} dataview

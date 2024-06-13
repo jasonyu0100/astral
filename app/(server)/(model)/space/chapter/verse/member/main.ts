@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface VerseMemberObj {
@@ -47,3 +48,12 @@ export const exampleVerseMembers: VerseMemberObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const verseMemberModel: ModelInterface<VerseMemberObj> = {
+  name: 'member',
+  gql: verseMemberGql,
+  example: exampleVerseMember,
+  examples: exampleVerseMembers,
+  parentKey: 'verseId',
+  children: [],
+}

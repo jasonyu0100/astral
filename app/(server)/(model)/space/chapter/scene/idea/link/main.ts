@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface IdeaLinkObj {
@@ -53,3 +54,12 @@ export const exampleIdeaLinks: IdeaLinkObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const ideaLinkModel: ModelInterface<IdeaLinkObj> = {
+  name: 'link',
+  gql: ideaLinkGql,
+  example: exampleIdeaLink,
+  examples: exampleIdeaLinks,
+  parentKey: 'sceneId',
+  children: [],
+}

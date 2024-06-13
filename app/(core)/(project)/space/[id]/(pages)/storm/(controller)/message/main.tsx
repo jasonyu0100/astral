@@ -22,7 +22,7 @@ export function useControllerForChatMessageSend() {
     }
   }
 
-  function getMessageHistory(messages: ConversationMessageObj[]) {
+  function getMessageHistory() {
     const messageHistory = messageListController.state.objs.map((message) => {
       return formatMessage(message);
     });

@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
+import { chatConversationModel, ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { chatConversationDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/main';
 
 type TargetObj = ChatConversationObj;
 const gqlDbWrapper = chatConversationDbWrapper;
+const listIdKey = chatConversationModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -93,17 +95,6 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === listId);
-      const prevIndex = currentIndex - 1;
-
-      if (prevIndex >= 0) {
-        const prevObj = objs[prevIndex];
-        changeId(prevObj.id);
-        return prevObj;
-      }
-      return undefined;
-    },
-    goPrev: () => {
       const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
@@ -114,6 +105,18 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       } else {
         return undefined;
       }
+    },
+    goPrev: () => {
+      const currentIndex = objs.findIndex((obj) => obj.id === listId);
+      const prevIndex = currentIndex - 1;
+
+      if (prevIndex >= 0) {
+        const prevObj = objs[prevIndex];
+        changeId(prevObj.id);
+        return prevObj;
+      }
+      return undefined;
+
     },
     searchQuery: () => {
       if (query === '') {
@@ -145,11 +148,19 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('chatId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -259,9 +270,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter().then((objs) => {
-        changeObjs(controllerActions.stateActions.sorted(objs));
-      });
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [listId]);
 

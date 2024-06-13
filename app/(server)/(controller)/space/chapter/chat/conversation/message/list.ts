@@ -9,11 +9,13 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { conversationMessageModel, ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { conversationMessageDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/message/main';
 
 type TargetObj = ConversationMessageObj;
 const gqlDbWrapper = conversationMessageDbWrapper;
+const listIdKey = conversationMessageModel.parentKey;
+
 interface ControllerState {
   listId: string;
   currentObj?: TargetObj;
@@ -158,11 +160,19 @@ const useControllerForConversationMessageList = (
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherFilter: async () => {
+    gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('conversationId', initialId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
+    },
+    gatherEarliest: async () => {
+      console.assert(false, 'not implemented');
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const reverseObjs = objs.reverse();
+      changeObjs(reverseObjs);
+      changeId(reverseObjs.at(0)?.id || '');
+      return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
@@ -285,7 +295,7 @@ const useControllerForConversationMessageList = (
     if (!initialId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [initialId]);
 

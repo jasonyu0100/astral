@@ -13,6 +13,7 @@ import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/mai
 
 type TargetObj = SceneIdeaObj;
 const gqlDbWrapper = sceneIdeaDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

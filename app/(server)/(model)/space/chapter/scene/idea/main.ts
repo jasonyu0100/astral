@@ -6,6 +6,7 @@ import { LinkElem } from '@/(server)/(model)/elements/link/main';
 import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
 import { NoteElem } from '@/(server)/(model)/elements/note/main';
 import { createContext } from 'react';
+import { ModelInterface } from '@/(server)/(model)/main';
 
 export enum SceneIdeaVariant {
   FILE = 'FILE',
@@ -135,3 +136,12 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const sceneIdeaModel: ModelInterface<SceneIdeaObj> = {
+  name: 'scene',
+  gql: sceneIdeaGql,
+  example: exampleSceneIdea,
+  examples: exampleSceneIdeas,
+  parentKey: 'sceneId',
+  children: ['link']
+};

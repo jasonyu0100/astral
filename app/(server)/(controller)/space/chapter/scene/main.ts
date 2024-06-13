@@ -13,6 +13,7 @@ import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main'
 
 type TargetObj = ChapterSceneObj;
 const gqlDbWrapper = chapterSceneDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

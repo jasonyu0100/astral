@@ -13,6 +13,7 @@ import { galleryCollectionDbWrapper } from '@/(server)/(db)/gallery/collection/m
 
 type TargetObj = GalleryCollectionObj;
 const gqlDbWrapper = galleryCollectionDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

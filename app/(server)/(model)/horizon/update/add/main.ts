@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface HorizonUpdateAddObj {
@@ -59,3 +60,12 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const horizonUpdateAddModel: ModelInterface<HorizonUpdateAddObj> = {
+  name: 'add',
+  gql: horizonUpdateAddGql,
+  example: exampleHorizonUpdateAdd,
+  examples: exampleHorizonUpdateAdds,
+  parentKey: 'updateId',
+  children: [],
+}

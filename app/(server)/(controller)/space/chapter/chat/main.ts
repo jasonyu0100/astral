@@ -13,6 +13,7 @@ import { chapterChatDbWrapper } from '@/(server)/(db)/space/chapter/chat/main';
 
 type TargetObj = ChapterChatObj;
 const gqlDbWrapper = chapterChatDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

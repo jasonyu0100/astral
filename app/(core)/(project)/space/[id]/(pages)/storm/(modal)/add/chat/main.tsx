@@ -11,10 +11,11 @@ import { use, useContext, useState } from 'react';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 
 export function StormAddChatModal() {
   const user = useGlobalUser((state) => state.user);
-  const chapterListController = useContext(ContextForChapterChatList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');

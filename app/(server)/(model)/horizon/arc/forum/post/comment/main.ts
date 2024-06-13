@@ -1,3 +1,4 @@
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export interface PostCommentObj {
@@ -59,3 +60,12 @@ export const examplePostComments: PostCommentObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const postCommentModel: ModelInterface<PostCommentObj> = {
+  name: 'postComment',
+  gql: postCommentGql,
+  example: examplePostComment,
+  examples: examplePostComments,
+  children: [],
+  parentKey: 'postId',
+}

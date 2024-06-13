@@ -13,6 +13,7 @@ import { arcForumDbWrapper } from '@/(server)/(db)/horizon/arc/forum/main';
 
 type TargetObj = ArcForumObj;
 const gqlDbWrapper = arcForumDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

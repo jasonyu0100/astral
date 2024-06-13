@@ -13,6 +13,7 @@ import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comme
 
 type TargetObj = VerseCommentObj;
 const gqlDbWrapper = verseCommentDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

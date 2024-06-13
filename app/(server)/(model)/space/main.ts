@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
+import { ModelInterface } from '../main';
 export interface SpaceObj {
   id: string;
   userId: string;
@@ -54,3 +55,12 @@ export const exampleSpaces: SpaceObj[] = [
     category: 'Space Category',
   },
 ];
+
+export const spaceModel: ModelInterface<SpaceObj> = {
+  name: 'space',
+  gql: spaceGql,
+  example: exampleSpace,
+  examples: exampleSpaces,
+  parentKey: 'userId',
+  children: ['chapter', 'member', 'update'],
+}

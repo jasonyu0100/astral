@@ -13,6 +13,7 @@ import { arcPointDbWrapper } from '@/(server)/(db)/horizon/arc/point/main';
 
 type TargetObj = ArcPointObj;
 const gqlDbWrapper = arcPointDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

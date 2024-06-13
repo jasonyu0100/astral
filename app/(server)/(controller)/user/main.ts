@@ -21,7 +21,6 @@ interface ControllerState {
   objId: string;
   obj: TargetObj;
 }
-
 interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;

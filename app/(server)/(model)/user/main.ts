@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleDisplayPictureFileElem } from '../elements/file/main';
+import { ModelInterface } from '../main';
 
 export interface UserObj {
   id: string;
@@ -108,3 +109,12 @@ export const exampleUsers: UserObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const userModel : ModelInterface<UserObj> = {
+  name: 'user',
+  parentKey: '',
+  children: ['reservation', 'supporter', 'collaborator'],
+  gql: userGql,
+  example: exampleUser,
+  examples: exampleUsers,
+}

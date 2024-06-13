@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface SpaceChapterObj {
   id: string;
@@ -65,3 +66,12 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const spaceChapterModel: ModelInterface<SpaceChapterObj> = {
+  name: 'chapter',
+  gql: spaceChapterGql,
+  example: exampleSpaceChapter,
+  examples: exampleSpaceChapters,
+  parentKey: 'spaceId',
+  children: ['chat', 'scene', 'verse'],
+};

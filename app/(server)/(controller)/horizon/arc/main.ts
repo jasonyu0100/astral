@@ -13,6 +13,7 @@ import { horizonArcDbWrapper } from '@/(server)/(db)/horizon/arc/main';
 
 type TargetObj = HorizonArcObj;
 const gqlDbWrapper = horizonArcDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

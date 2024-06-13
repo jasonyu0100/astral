@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export interface UserReservationObj {
   id: string;
@@ -58,3 +59,12 @@ export const exampleUserReservations: UserReservationObj[] = [
     created: new Date().toISOString(),
   },
 ];
+
+export const userReservationModel: ModelInterface<UserReservationObj> = {
+  name: 'reservation',
+  gql: userReservationGql,
+  example: exampleUserReservation,
+  examples: exampleUserReservations,
+  parentKey: 'role',
+  children: [],
+}

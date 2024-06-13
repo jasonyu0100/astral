@@ -13,6 +13,7 @@ import { forumMemberDbWrapper } from '@/(server)/(db)/horizon/arc/forum/member/m
 
 type TargetObj = ForumMemberObj;
 const gqlDbWrapper = forumMemberDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

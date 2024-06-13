@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { ModelInterface } from '../../main';
 
 export enum FileElemVariant {
   IMAGE = 'IMAGE',
@@ -74,6 +75,16 @@ export const exampleFileElems: FileElem[] = [
     variant: FileElemVariant.IMAGE,
   },
 ];
+
+export const fileElemModel: ModelInterface<FileElem> = {
+  name: 'file',
+  example: exampleFileElem,
+  examples: exampleFileElems,
+  gql: fileElemGql,
+  children: [],
+  parentKey: '',
+}
+
 export function getFileAccepts(variant: FileElemVariant) {
   switch (variant) {
     case FileElemVariant.IMAGE:

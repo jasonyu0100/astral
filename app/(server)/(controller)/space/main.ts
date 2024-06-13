@@ -13,6 +13,7 @@ import { spaceDbWrapper } from '@/(server)/(db)/space/main';
 
 type TargetObj = SpaceObj;
 const gqlDbWrapper = spaceDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;

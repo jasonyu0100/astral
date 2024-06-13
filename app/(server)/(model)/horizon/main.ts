@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
+import { ModelInterface } from '../main';
 
 export interface HorizonObj {
   id: string;
@@ -55,3 +56,12 @@ export const exampleHorizons: HorizonObj[] = [
     category: 'Horizon Category',
   },
 ];
+
+export const horizonModel: ModelInterface<HorizonObj> = {
+  name: 'horizon',
+  gql: horizonGql,
+  example: exampleHorizon,
+  examples: exampleHorizons,
+  parentKey: 'userId',
+  children: ['arc', 'cluster', 'update', 'member'],
+}

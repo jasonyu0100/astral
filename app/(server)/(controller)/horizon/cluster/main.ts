@@ -13,6 +13,7 @@ import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
 
 type TargetObj = HorizonClusterObj;
 const gqlDbWrapper = horizonClusterDbWrapper;
+
 interface ControllerState {
   objId: string;
   obj: TargetObj;
