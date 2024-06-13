@@ -48,7 +48,7 @@ function Page({ params }: { params: { id: string } }) {
     chatListController.state.objId,
   );
   const conversationListController = useControllerForChatConversationList(
-    chapterListController.state.objId,
+    chatListController.state.objId,
   );
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,

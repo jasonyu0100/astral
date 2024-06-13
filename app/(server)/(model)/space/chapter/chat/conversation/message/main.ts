@@ -4,6 +4,7 @@ export interface ConversationMessageObj {
   userId?: string;
   agentId?: string;
   conversationId: string;
+  chatId: string;
   created: string;
   message: string;
 }
@@ -14,6 +15,7 @@ type ConversationMessageObj {
   userId: String
   agentId: String
   conversationId: String!
+  chatId: String!
   created: String!
   message: String!
 }
@@ -25,6 +27,7 @@ export const ContextForConversationMessageObj =
 export const exampleConversationMessage: ConversationMessageObj = {
   id: '0',
   conversationId: '0',
+  chatId: '0',
   userId: '0',
   agentId: undefined,
   created: new Date().toISOString(),
@@ -34,6 +37,7 @@ export const exampleConversationMessage: ConversationMessageObj = {
 export const exampleAgentConversationMessage: ConversationMessageObj = {
   id: '1',
   conversationId: '0',
+  chatId: '0',
   userId: undefined,
   agentId: '0',
   created: new Date().toISOString(),
@@ -43,6 +47,7 @@ export const exampleAgentConversationMessage: ConversationMessageObj = {
 export const exampleConversationMessages: ConversationMessageObj[] = [
   {
     id: '0',
+    chatId: '0',
     conversationId: '0',
     userId: '0',
     agentId: undefined,
@@ -51,6 +56,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
   },
   {
     id: '1',
+    chatId: '0',
     conversationId: '0',
     userId: undefined,
     created: new Date().toISOString(),
@@ -58,6 +64,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
   },
   {
     id: '2',
+    chatId: '0',
     conversationId: '0',
     userId: '0',
     agentId: undefined,

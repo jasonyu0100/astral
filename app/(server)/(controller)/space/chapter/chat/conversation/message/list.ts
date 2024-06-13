@@ -16,7 +16,7 @@ type TargetObj = ConversationMessageObj;
 const gqlDbWrapper = conversationMessageDbWrapper;
 interface ControllerState {
   listId: string;
-  currentObj: TargetObj;
+  currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
@@ -25,15 +25,15 @@ interface ControllerState {
 interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
-  messageText: string;
+  inputMessageText: string;
 }
 
 interface StateActions extends BaseListStateActions<TargetObj> {
-  updateMessageText: (messageText: string) => void;
+  updateInputMessageText: (messageText: string) => void;
 }
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  sendMessage: (userId: string) => Promise<TargetObj>;
+  sendMessage: (userId: string, chatId: string, conversationId: string) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -58,9 +58,10 @@ const useControllerForConversationMessageList = (
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const [messageText, changeMessageText] = useState<string>('');
+  const [inputMessageText, changeInputMessageText] = useState<string>('');
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -70,7 +71,7 @@ const useControllerForConversationMessageList = (
     more: {
       query: query,
       queryResults: queryResults,
-      messageText: messageText,
+      inputMessageText: inputMessageText,
     },
   };
 
@@ -85,8 +86,8 @@ const useControllerForConversationMessageList = (
         return date >= start && date <= end;
       });
     },
-    sort: () => {
-      return objs.sort((a, b) => {
+    sorted: (objs: TargetObj[]) => {
+      return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
@@ -141,8 +142,8 @@ const useControllerForConversationMessageList = (
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
     },
-    updateMessageText: function (newMessage: string): void {
-      changeMessageText(newMessage);
+    updateInputMessageText: function (newMessage: string): void {
+      changeInputMessageText(newMessage);
     },
     find: function (id: string): ConversationMessageObj {
       throw new Error('Function not implemented.');
@@ -157,7 +158,7 @@ const useControllerForConversationMessageList = (
       return objs;
     },
     gatherFilter: async () => {
-      const objs = await gqlDbWrapper.listObjs('listId', initialId);
+      const objs = await gqlDbWrapper.listObjs('conversationId', initialId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -183,6 +184,7 @@ const useControllerForConversationMessageList = (
         created: new Date().toISOString(),
         userId: '',
         conversationId: '',
+        chatId: '',
         message: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -203,17 +205,18 @@ const useControllerForConversationMessageList = (
       changeId(newObj.id);
       return newObj;
     },
-    sendMessage: async (userId: string) => {
+    sendMessage: async (userId: string, chatId: string, conversationId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        conversationId: initialId,
-        message: messageText,
+        conversationId: conversationId,
+        chatId: chatId,
+        message: inputMessageText,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
-      changeMessageText('');
+      changeInputMessageText('');
       return newObj;
     }
   };

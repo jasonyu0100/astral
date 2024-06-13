@@ -3,7 +3,7 @@ import { createContext, useMemo, useState } from 'react';
 export interface BaseListStateActions<TargetObj> {
   select: (obj: TargetObj) => TargetObj;
   between: (start: Date, end: Date) => TargetObj[];
-  sort: () => TargetObj[];
+  sorted: (objs: TargetObj[]) => TargetObj[];
   goStart: () => TargetObj | undefined;
   goEnd: () => TargetObj | undefined;
   goNext: () => TargetObj | undefined;

@@ -16,7 +16,7 @@ type TargetObj = ChatConversationObj;
 const gqlDbWrapper = chatConversationDbWrapper;
 interface ControllerState {
   listId: string;
-  currentObj: TargetObj;
+  currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
@@ -29,7 +29,9 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createConversation: (userId: string, chatId: string) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -51,7 +53,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
-    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+    objs.filter((chat) => chat.id === id).at(0);
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -61,7 +63,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -75,8 +77,8 @@ const useControllerForChatConversationList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sort: () => {
-      return objs.sort((a, b) => {
+    sorted: (objs: TargetObj[]) => {
+      return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
@@ -133,7 +135,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
     },
     find: function (id: string): TargetObj {
       return objs.find((obj) => obj.id === id) as TargetObj;
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -144,8 +146,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-            console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('chatId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -187,10 +188,25 @@ const useControllerForChatConversationList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
+    createConversation: async (
+      userId: string,
+      chatId: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        chatId: chatId,
+        summary: '',
+        userId: userId,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
+    }
   };
 
   const editActions: EditActions = {
@@ -203,10 +219,12 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -241,7 +259,9 @@ const useControllerForChatConversationList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFilter();
+      controllerActions.gatherActions.gatherFilter().then((objs) => {
+        changeObjs(controllerActions.stateActions.sorted(objs));
+      });
     }
   }, [listId]);
 

@@ -19,11 +19,11 @@ export function StormChatInput() {
       <StormChatInputLeft />
       <StormChatMessageInput
         onChange={(e) =>
-          messageListController.actions.stateActions.updateMessageText(
+          messageListController.actions.stateActions.updateInputMessageText(
             e.target.value,
           )
         }
-        value={messageListController.state.more.messageText}
+        value={messageListController.state.more.inputMessageText}
       />
       <StormChatInputRight />
     </GlassAreaContainer>

@@ -9,7 +9,7 @@ export function MapHeaderIdea() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <ContextForSceneIdeaObj.Provider value={ideaListController.state.currentObj}>
+    <ContextForSceneIdeaObj.Provider value={ideaListController.state.currentObj || {} as SceneIdeaObj}>
       <MapHeaderIdeaLeft />
       <MapHeaderIdeaCenter />
       <MapHeaderIdeaRight />

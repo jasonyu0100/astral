@@ -15,7 +15,6 @@ export function DraftMoments() {
         sizeFx='flex-grow h-full'
         className={`overflow-auto p-[2rem] space-y-[3rem]`}
       >
-        {/* TODO */}
         <div className='flex flex-col h-full w-full items-center justify-center'>
           <GlassWindowFrame className="h-[300px] w-[500px]">
             <GlassWindowPane glassFx={glassFx['glass-5']}/>
@@ -38,7 +37,6 @@ export function DraftMoments() {
             <GlassWindowPane glassFx={glassFx['glass-5']}/>
           </GlassWindowFrame>
         </div> */}
-
       </GlassAreaContainer>
     </div>
   );

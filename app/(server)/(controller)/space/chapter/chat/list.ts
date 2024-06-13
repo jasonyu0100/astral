@@ -16,7 +16,7 @@ type TargetObj = ChapterChatObj;
 const gqlDbWrapper = chapterChatDbWrapper;
 interface ControllerState {
   listId: string;
-  currentObj: TargetObj;
+  currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
@@ -55,6 +55,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
+
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -77,8 +78,8 @@ const useControllerForChapterChatList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sort: () => {
-      return objs.sort((a, b) => {
+    sorted: (objs: TargetObj[]) => {
+      return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
@@ -146,8 +147,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
       return objs;
     },
     gatherFilter: async () => {
-            console.assert(false, "not implemented");
-      const objs = await gqlDbWrapper.listObjs('listId', listId);
+      const objs = await gqlDbWrapper.listObjs('chapterId', listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -177,7 +177,6 @@ const useControllerForChapterChatList = (listId: string): Controller => {
         description: description
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      console.log('adsadsadsdsa', newObj);
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       return newObj;

@@ -16,7 +16,7 @@ type TargetObj = GalleryCollectionObj;
 const gqlDbWrapper = galleryCollectionDbWrapper;
 interface ControllerState {
   listId: string;
-  currentObj: TargetObj;
+  currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
@@ -55,6 +55,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
+
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -77,8 +78,8 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sort: () => {
-      return objs.sort((a, b) => {
+    sorted: (objs: TargetObj[]) => {
+      return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
