@@ -19,7 +19,7 @@ export function Horizon() {
         <div className='flex flex-row items-center space-x-[1rem]'>
           <Link
             className='flex flex-col items-center space-y-[1rem]'
-            href={horizonMap.horizon.id.story.link('0')}
+            href={horizonMap.horizon.id.forum.link('0')}
           >
             <HorizonCover fileElem={exampleFileElem} />
           </Link>

@@ -11,8 +11,8 @@ interface SpaceTabProps {
 
 export enum SpaceTabStage {
   Storm = 'Storm',
-  Map = 'Map',
-  Draft = 'Draft',
+  Board = 'Board',
+  Verse = 'Verse',
   Sea = 'Sea',
 }
 

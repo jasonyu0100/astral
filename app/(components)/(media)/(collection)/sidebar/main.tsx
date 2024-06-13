@@ -1,4 +1,4 @@
-import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/main';
+import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
 import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';

@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from "@/(components)/(glass)/area/main";
-import { MapScenes } from "../../../map/view/main/scenes/main";
-import { MapCore } from "../../../map/view/main/core/main";
-import { MapMain } from "../../../map/view/main/main";
+import { MapScenes } from "../../../board/view/main/scenes/main";
+import { MapCore } from "../../../board/view/main/core/main";
+import { MapMain } from "../../../board/view/main/main";
 import { GlassWindowFrame } from "@/(components)/(glass)/window/main";
 
 export function SeaMain({ children } : { children?: React.ReactNode}) {

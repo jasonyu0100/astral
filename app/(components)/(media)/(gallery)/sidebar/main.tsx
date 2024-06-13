@@ -5,7 +5,7 @@ import {
 import { useContext } from 'react';
 import { GallerySidebarCover } from './front/main';
 import { GalleryContainer } from '../common/container/main';
-import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/map/view/sidebar/main';
+import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 
 export function SidebarHomeGallery() {
