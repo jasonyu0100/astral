@@ -15,7 +15,6 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 function Page() {
   return (
     <HorizonViewView>
-      <HorizonViewSidebar />
       <div className='h-full w-full'>
         <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
           {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
@@ -68,6 +67,7 @@ function Page() {
         </div> */}
         </div>
       </div>
+      <HorizonViewSidebar />
     </HorizonViewView>
   );
 }

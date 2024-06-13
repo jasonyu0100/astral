@@ -68,7 +68,7 @@ function Page() {
         <div className='flex h-full w-full flex-col'>
           <GlassWindowFrame
             name='temp'
-            className='h-[5rem] w-full'
+            className='h-[4rem] w-full'
           >
             <GlassWindowContents className='flex flex-row'></GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
