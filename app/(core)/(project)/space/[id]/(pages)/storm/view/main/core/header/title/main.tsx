@@ -9,7 +9,6 @@ export default function HeaderTitle() {
   const chapter = chapterListController.state.currentObj;
   
 
-  const headerTitle =
-    chapter && chat ? `${chapter.title} - ${chat.title}` : 'None';
+  const headerTitle = chat ? `${chat.title}` : 'None';
   return <p className='text-lg font-bold text-slate-300'>{headerTitle}</p>;
 }

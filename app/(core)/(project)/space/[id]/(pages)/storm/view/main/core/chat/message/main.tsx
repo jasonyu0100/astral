@@ -9,7 +9,7 @@ export function StormMessage() {
 
   return (
     <>
-      {message.userId === undefined ? (
+      {message.agentId !== null ? (
         <StormAgentChatMessage>{message.message}</StormAgentChatMessage>
       ) : (
         <StormYouChatMessage>{message.message}</StormYouChatMessage>

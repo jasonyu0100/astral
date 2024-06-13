@@ -33,7 +33,8 @@ interface StateActions extends BaseListStateActions<TargetObj> {
 }
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  sendMessage: (userId: string, chatId: string, conversationId: string) => Promise<TargetObj>;
+  sendUserMessage: (userId: string, chatId: string, conversationId: string) => Promise<TargetObj>;
+  sendAgentMessage: (agentId: string, chatId: string, conversationId: string, message: string) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -205,7 +206,7 @@ const useControllerForConversationMessageList = (
       changeId(newObj.id);
       return newObj;
     },
-    sendMessage: async (userId: string, chatId: string, conversationId: string) => {
+    sendUserMessage: async (userId: string, chatId: string, conversationId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
@@ -217,6 +218,19 @@ const useControllerForConversationMessageList = (
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       changeInputMessageText('');
+      return newObj;
+    },
+    sendAgentMessage: async (agentId: string, chatId: string, conversationId: string, message: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        agentId: agentId,
+        conversationId: conversationId,
+        chatId: chatId,
+        message: message,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
       return newObj;
     }
   };
