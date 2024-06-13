@@ -1,5 +1,6 @@
 import { BoardScene } from './scene/main';
 import { BoardPanel } from './panel/main';
+import { BoardSidebar } from '../../../sidebar/main';
 
 export function BoardBody() {
   return (

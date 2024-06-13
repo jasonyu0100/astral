@@ -6,7 +6,7 @@ export function StormSidebar() {
   return (
     <GlassAreaContainer
       name={StormSidebar.name}
-      sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
+      sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center p-[1rem]`}
     >

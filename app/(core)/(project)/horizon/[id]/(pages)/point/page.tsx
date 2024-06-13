@@ -10,20 +10,25 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
 import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 
 function Page() {
   return (
     <HorizonViewView>
-      <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
-        {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
+      <HorizonViewSidebar />
+      <div className='h-full w-full'>
+        <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
+          {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
         <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1> */}
-        <h1 className='text-lg font-bold text-slate-300 animate-pulse'>HorizonView - On Track</h1>
-        <br/>
-        {/* <h1 className='text-lg font-bold text-slate-300'>
+          <h1 className='animate-pulse text-lg font-bold text-slate-300'>
+            HorizonView - On Track
+          </h1>
+          <br />
+          {/* <h1 className='text-lg font-bold text-slate-300'>
           HorizonView - In progress
         </h1> */}
-        <TimerComponent />
-        {/* <div className='flex flex-row items-center text-slate-300'>
+          <TimerComponent />
+          {/* <div className='flex flex-row items-center text-slate-300'>
           <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH</p>
         </div>
@@ -61,8 +66,8 @@ function Page() {
             Create Contest
           </button>
         </div> */}
+        </div>
       </div>
-      <HorizonViewSidebar />
     </HorizonViewView>
   );
 }

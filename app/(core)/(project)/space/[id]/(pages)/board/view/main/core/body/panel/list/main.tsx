@@ -6,6 +6,7 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { BoardAddChapterModal } from '../../../../../../(modal)/add/chapter/main';
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 
 export function BoardSceneList() {
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -21,7 +22,7 @@ export function BoardSceneList() {
         {chapterListController.state.objs.map((chapter, index) => (
           <div key={chapter.id}>
             <p
-              className={`text-md font-bold ${activeId === chapter.id ? 'animate-pulse-slow text-slate-300' : 'text-slate-500'}`}
+              className={`text-sm font-bold ${activeId === chapter.id ? 'animate-pulse-slow text-slate-300' : 'text-slate-500'}`}
             >
               {index + 1}. {chapter.title}
             </p>

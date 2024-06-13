@@ -7,7 +7,7 @@ export function JournalSidebar() {
   return (
     <GlassAreaContainer
       name={JournalSidebar.name}
-      sizeFx='max-w-[360px] min-w-[240px] w-1/4 h-full'
+      sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full'
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >

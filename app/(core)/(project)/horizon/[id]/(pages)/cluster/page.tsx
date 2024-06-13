@@ -44,6 +44,10 @@ function Page() {
     <>
       <MapView>
         <div className='flex h-full w-full flex-col'>
+          <GlassWindowFrame name='temp' className='h-[5rem] w-full'>
+            <GlassWindowContents className='flex flex-row'></GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
+          </GlassWindowFrame>
           <div className='h-full flex-grow overflow-auto p-[3rem]'>
             <GlassWindowFrame
               className='p-[3rem]'
@@ -90,7 +94,7 @@ function Page() {
                     </div>
                     <div className='flex flex-row'>
                       <div className='flex flex-col'>
-                        <p className='text-slate-500 font-bold'>
+                        <p className='font-bold text-slate-500'>
                           Formation Map
                         </p>
                         <MapSpace />
@@ -100,7 +104,7 @@ function Page() {
                       </div>
                       <HorizontalSeperator />
                       <div className='flex flex-col'>
-                        <p className='text-slate-500 font-bold'>
+                        <p className='font-bold text-slate-500'>
                           Contribution Map
                         </p>
                         <ContributionMap />

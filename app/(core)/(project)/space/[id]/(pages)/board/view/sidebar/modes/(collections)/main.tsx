@@ -11,7 +11,7 @@ export function CollectionsInterface() {
 
   return (
     <div className='flex h-full w-full flex-col'>
-      <div className='flex w-full flex-row flex-wrap space-y-[2rem] overflow-auto pr-[1rem]'>
+      <div className='flex w-full flex-row flex-wrap space-y-[2rem] overflow-auto'>
         <SidebarCollectionAdd
           onClick={() => {
             modalContext.createCollection.open();

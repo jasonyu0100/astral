@@ -9,7 +9,6 @@ export function VerseMoments() {
 
   return (
     <div className='flex w-full flex-row' style={{ height: '100%' }}>
-      <VersePanel />
       <GlassAreaContainer
         name={VerseMoments.name}
         sizeFx='flex-grow h-full'
@@ -38,6 +37,7 @@ export function VerseMoments() {
           </GlassWindowFrame>
         </div> */}
       </GlassAreaContainer>
+      <VersePanel />
     </div>
   );
 }
