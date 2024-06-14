@@ -9,12 +9,12 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { useContext, useState } from 'react';
 
-export function SpaceBoardAddSceneModal() {
+export function SpaceVerseAddVerseModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const verseListController = useContext(ContextForChapterVerseList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
@@ -24,7 +24,7 @@ export function SpaceBoardAddSceneModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Scene</FormTitle>
+          <FormTitle>Add Verse</FormTitle>
           <FormBody>
             <FormInput
               title='Name'
@@ -42,7 +42,7 @@ export function SpaceBoardAddSceneModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                sceneListController.actions.createActions.createScene(
+                verseListController.actions.createActions.createVerse(
                   title,
                   description,
                   user.id,

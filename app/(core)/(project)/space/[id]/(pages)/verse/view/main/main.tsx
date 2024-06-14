@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-import { VerseCore } from './core/main';
+import { SpaceVerseCore } from './core/main';
+import { SpaceVerseChapterNavigation } from './navigation/main';
 
 export function SpaceVerseMain() {
   return (
@@ -9,7 +10,8 @@ export function SpaceVerseMain() {
       sizeFx='h-full flex-grow'
       className={`flex flex-col`}
     >
-      <VerseCore />
+      <SpaceVerseCore />
+      <SpaceVerseChapterNavigation />
     </GlassAreaContainer>
   );
 }

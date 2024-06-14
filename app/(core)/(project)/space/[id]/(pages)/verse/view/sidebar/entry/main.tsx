@@ -13,7 +13,7 @@ export function SpaceVerseSidebarEntry({
       name='temp'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
-      className='p-[2rem]'
+      className='p-[1rem]'
     >
       <GlassWindowContents className='flex flex-row'>
         <p className='text-white'>{children}</p>

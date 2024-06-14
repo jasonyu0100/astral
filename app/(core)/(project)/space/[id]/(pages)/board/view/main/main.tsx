@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { SpaceBoardBodyCore } from './core/main';
-import { BoardBoardBodyScenes } from './scenes/main';
+import { SpaceBoardChapterNavigation } from './navigation/main';
 
 export function SpaceBoardMain() {
   return (
@@ -10,7 +10,7 @@ export function SpaceBoardMain() {
       className={`flex flex-col`}
     >
       <SpaceBoardBodyCore />
-      <BoardBoardBodyScenes />
+      <SpaceBoardChapterNavigation />
     </GlassAreaContainer>
   );
 }

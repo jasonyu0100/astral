@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
+import { SpaceVerseCoreContents } from './contents/main';
 import { SpaceVerseHeader } from './header/main';
-import { SpaceVerseList } from './list/main';
 
-export function VerseCore() {
+export function SpaceVerseCore() {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
-        name={VerseCore.name}
+        name={SpaceVerseCore.name}
         sizeFx='w-full h-full'
         className={`flex flex-col`}
       >
         <SpaceVerseHeader />
-        <SpaceVerseList />
+        <SpaceVerseCoreContents />
       </GlassAreaContainer>
     </div>
   );
