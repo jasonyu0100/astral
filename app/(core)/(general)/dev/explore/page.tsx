@@ -65,7 +65,7 @@ export default function Page() {
         <div className='flex flex-col p-[1rem]'>
           <p className='font-bold text-white'>Table: {currentId}</p>
           <div className='flex flex-row space-x-[1rem]'>
-            {modelObj.model.children.map((cm : any) => (
+            {modelObj.model.children.map((cm: any) => (
               <button
                 value={cm}
                 key={cm}

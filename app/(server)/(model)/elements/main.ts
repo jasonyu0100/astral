@@ -1,10 +1,10 @@
-import { ModelInterface } from "../main";
+import { ModelInterface } from '../main';
 
 export const elementModel: ModelInterface<any> = {
-    name: 'element',
-    gql: '',
-    example: {},
-    examples: [],
-    parentKey: '',
-    children: ['file', 'note', 'link'],
-}
+  name: 'element',
+  gql: '',
+  example: {},
+  examples: [],
+  parentKey: '',
+  children: ['file', 'note', 'link'],
+};

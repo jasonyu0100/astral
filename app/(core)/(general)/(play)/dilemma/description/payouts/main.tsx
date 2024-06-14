@@ -1,5 +1,6 @@
 export function Payouts() {
-    return <div className='flex flex-col'>
+  return (
+    <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-300'>Payouts</p>
       <br />
       <p className='text-md font-bold text-slate-500'>
@@ -24,4 +25,5 @@ export function Payouts() {
         Flip - Resolves ? into a positive or negative payout
       </p>
     </div>
+  );
 }

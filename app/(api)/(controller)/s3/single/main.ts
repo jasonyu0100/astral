@@ -24,7 +24,7 @@ export const UploadHandlerContext = createContext({} as UploadHandlerObj);
 export const useS3UploadController = (
   defaultFileElem?: FileElem,
   variant?: FileElemVariant,
-) : UploadHandlerObj => {
+): UploadHandlerObj => {
   const [file, changeFile] = useState({} as FileElem);
 
   const uploadActions: UploadActions = {

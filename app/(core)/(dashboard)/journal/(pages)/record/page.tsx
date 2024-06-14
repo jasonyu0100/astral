@@ -6,9 +6,7 @@ import { JournalView } from './view/view';
 function Page() {
   const user = useGlobalUser((state) => state.user);
 
-  return (
-    <JournalView/>
-  );
+  return <JournalView />;
 }
 
 export default isVerseAuth(Page);

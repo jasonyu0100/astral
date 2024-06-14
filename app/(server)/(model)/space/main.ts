@@ -63,4 +63,4 @@ export const spaceModel: ModelInterface<SpaceObj> = {
   examples: exampleSpaces,
   parentKey: 'userId',
   children: ['chapter', 'member', 'update'],
-}
+};

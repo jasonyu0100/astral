@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { spaceChapterModel, SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import {
+  spaceChapterModel,
+  SpaceChapterObj,
+} from '@/(server)/(model)/space/chapter/main';
 import { spaceChapterDbWrapper } from '@/(server)/(db)/space/chapter/main';
 import { Description } from '@radix-ui/react-dialog';
 
@@ -63,7 +66,6 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -72,7 +74,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -143,8 +145,8 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -184,7 +186,12 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createChapter: async (title: string, description: string, userId: string, spaceId: string) => {
+    createChapter: async (
+      title: string,
+      description: string,
+      userId: string,
+      spaceId: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: spaceId,
@@ -205,7 +212,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         title: '',
         description: '',
         idx: 0,
-        userId: ''
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -237,10 +244,12 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

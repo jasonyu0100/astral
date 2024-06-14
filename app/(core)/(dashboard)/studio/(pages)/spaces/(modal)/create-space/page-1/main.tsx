@@ -16,11 +16,10 @@ export function PageOne() {
     description,
     updateDescription,
     thumbnail,
-    category, updateCategory,
+    category,
+    updateCategory,
     updateThumbnail,
   } = useContext(ContextForPageOne);
-
-  
 
   return (
     <FormBody>

@@ -7,8 +7,10 @@ export function SpaceDay() {
   const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
   return (
-    <div className='flex items-center w-[150px]'>
-      <p className='text-lg font-bold text-slate-300'>Day {daysDifference+1}</p>
+    <div className='flex w-[150px] items-center'>
+      <p className='text-lg font-bold text-slate-300'>
+        Day {daysDifference + 1}
+      </p>
     </div>
   );
 }

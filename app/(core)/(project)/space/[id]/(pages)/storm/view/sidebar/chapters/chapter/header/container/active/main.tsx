@@ -17,8 +17,7 @@ export function ActiveChapterHeaderContainer({
       roundedFx={roundedFx['rounded-sm']}
     >
       <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-
-          {children}
+        {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

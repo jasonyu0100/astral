@@ -83,7 +83,7 @@ export const fileElemModel: ModelInterface<FileElem> = {
   gql: fileElemGql,
   children: [],
   parentKey: '',
-}
+};
 
 export function getFileAccepts(variant: FileElemVariant) {
   switch (variant) {
@@ -115,4 +115,3 @@ export function getFileVariantFromMimeType(mimeType: string): FileElemVariant {
   }
   return FileElemVariant.TXT;
 }
-

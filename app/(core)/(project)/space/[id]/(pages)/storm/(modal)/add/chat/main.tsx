@@ -49,7 +49,7 @@ export function StormAddChatModal() {
                   title,
                   summary,
                   user.id,
-                  chapterListController.state.objId
+                  chapterListController.state.objId,
                 );
                 openableController.close();
               }}

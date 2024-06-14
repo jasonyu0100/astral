@@ -7,7 +7,7 @@ export function GallerysView() {
   return (
     <GallerysContainer>
       <GallerysSearch />
-      <GallerysResults/>
+      <GallerysResults />
     </GallerysContainer>
   );
 }

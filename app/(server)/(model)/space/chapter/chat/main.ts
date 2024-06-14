@@ -60,4 +60,4 @@ export const chapterChatModel: ModelInterface<ChapterChatObj> = {
   examples: exampleChapterChats,
   parentKey: 'chapterId',
   children: ['conversation', 'member'],
-}
+};

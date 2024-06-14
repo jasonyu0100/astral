@@ -21,8 +21,7 @@ export function Phases() {
       <p className='text-md font-bold text-slate-500'>
         Play 3 - Play final card in a quadrant
       </p>
-      <p className='text-md font-bold text-slate-500'>
-      </p>
+      <p className='text-md font-bold text-slate-500'></p>
       <p className='text-md font-bold text-slate-500'>
         Reveal - Reveal cards one by one the quadrants
       </p>

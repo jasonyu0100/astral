@@ -6,7 +6,7 @@ export function gqlArgs(obj: any) {
 
 export function removeEmpty(obj: any) {
   // Recursively remove empty field
-  if (obj === undefined || obj === null) return undefined
+  if (obj === undefined || obj === null) return undefined;
   return Object.keys(obj)
     .filter(function (k) {
       return obj[k] != null;
@@ -19,7 +19,7 @@ export function removeEmpty(obj: any) {
 
 export function removeTypename(obj: any): any {
   // Recursively remove typename
-  if (obj === undefined || obj === null) return undefined
+  if (obj === undefined || obj === null) return undefined;
   if (typeof obj !== 'object' || obj === null) {
     return obj;
   }

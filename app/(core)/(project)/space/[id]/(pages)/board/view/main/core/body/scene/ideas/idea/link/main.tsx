@@ -9,9 +9,12 @@ export function LinkIdea() {
 
   return (
     <>
-      {star.linkElem?.variant === LinkElemVariant.SPOTIFY && <LinkSpotifyStar />}
-      {star.linkElem?.variant === LinkElemVariant.YOUTUBE && <LinkYouTubeStar />}
+      {star.linkElem?.variant === LinkElemVariant.SPOTIFY && (
+        <LinkSpotifyStar />
+      )}
+      {star.linkElem?.variant === LinkElemVariant.YOUTUBE && (
+        <LinkYouTubeStar />
+      )}
     </>
   );
 }
-

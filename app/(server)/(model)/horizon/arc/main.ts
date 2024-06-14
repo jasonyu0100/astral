@@ -74,4 +74,4 @@ export const horizonArcModel: ModelInterface<HorizonArcObj> = {
   examples: exampleHorizonArcs,
   parentKey: 'horizonId',
   children: ['point', 'forum'],
-}
+};

@@ -14,7 +14,7 @@ export function QuadrantB() {
   return (
     <div onClick={flippableController.flip}>
       <GlassWindowFrame
-      name="Quadrant B"
+        name='Quadrant B'
         className='aspect-square h-[20rem] w-[20rem]'
         borderFx={`${borderFx['border-l']} ${borderFx['border-t']}`}
       >
@@ -36,7 +36,8 @@ export function QuadrantB() {
             <>
               <p>B</p>
               <p>
-                ({gameState.quadrants.quadrantB.payoutA}, {gameState.quadrants.quadrantB.payoutB})
+                ({gameState.quadrants.quadrantB.payoutA},{' '}
+                {gameState.quadrants.quadrantB.payoutB})
               </p>
               <p>??</p>
             </>

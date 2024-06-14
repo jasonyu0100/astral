@@ -5,7 +5,7 @@ import { BoardSidebar } from '../../../sidebar/main';
 export function BoardBody() {
   return (
     <div style={{ width: '100%', height: '100%' }} className='flex flex-row'>
-      <BoardScene/>
+      <BoardScene />
       <BoardPanel />
     </div>
   );

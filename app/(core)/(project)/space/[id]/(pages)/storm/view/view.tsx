@@ -7,7 +7,7 @@ export function StormView() {
   return (
     <StormContainer>
       <StormSidebar />
-      <StormMain/>
+      <StormMain />
     </StormContainer>
   );
 }

@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { ArcPointObj } from "@/(server)/(model)/horizon/arc/point/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createArcPointObj, deleteArcPointObj, updateArcPointObj } from "@/graphql/mutations";
-import { getArcPointObj, listArcPointObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { ArcPointObj } from '@/(server)/(model)/horizon/arc/point/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createArcPointObj,
+  deleteArcPointObj,
+  updateArcPointObj,
+} from '@/graphql/mutations';
+import { getArcPointObj, listArcPointObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ArcPointObj;
@@ -51,7 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listArcPointObjs?.items || []);
@@ -60,8 +64,7 @@ async function listFromVariables(variables: Object) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listArcPointObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<ArcPointObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createArcPointObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<ArcPointObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<ArcPointObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateArcPointObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: ArcPointObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: ArcPointObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateArcPointObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteArcPointObj);
-} 
+}
 
 export const arcPointDbWrapper: GqlDbWrapper<ArcPointObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

@@ -4,7 +4,10 @@ import { BoardModalType } from '@/(core)/(project)/space/[id]/(pages)/board/page
 
 export function BoardHeaderVisualBoardButton({ ...props }: ButtonInputProps) {
   return (
-    <button className='flex h-[4rem] w-full flex-row items-center hover:bg-slate-950' {...props}>
+    <button
+      className='flex h-[4rem] w-full flex-row items-center hover:bg-slate-950'
+      {...props}
+    >
       <div className='flex h-[4rem] w-[4rem] flex-shrink-0 flex-col items-center justify-center border-r border-slate-500 border-opacity-30'>
         <VisualIcon className='h-1/2 w-1/2' />
       </div>

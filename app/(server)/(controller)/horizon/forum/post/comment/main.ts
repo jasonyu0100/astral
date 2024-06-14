@@ -51,7 +51,7 @@ const useControllerForPostCommentMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {

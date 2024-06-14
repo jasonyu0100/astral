@@ -5,8 +5,8 @@ import { CollectionContainer } from '../../common/container/main';
 
 export function SidebarCollectionAdd({ ...props }: DivInputProps) {
   return (
-    <CollectionContainer className="w-full">
-      <div {...props} className="h-full cursor-pointer">
+    <CollectionContainer className='w-full'>
+      <div {...props} className='h-full cursor-pointer'>
         <CollectionThumbnail empty />
       </div>
       <CollectionInfo empty />

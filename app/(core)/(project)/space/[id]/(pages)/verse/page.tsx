@@ -2,10 +2,7 @@
 import { createContext } from 'react';
 import { VerseView } from './view/view';
 import isVerseAuth from '@/(utils)/isAuth';
-import {
-  VerseModalContext,
-  useVerseModal,
-} from './(modal)/main';
+import { VerseModalContext, useVerseModal } from './(modal)/main';
 import { VerseModalView } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/view';
 import {
   ContextForSpaceChapterList,

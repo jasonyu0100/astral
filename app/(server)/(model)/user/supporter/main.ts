@@ -49,7 +49,7 @@ export const exampleUserSupporters: UserSupporterObj[] = [
   },
 ];
 
-export const userSupporterModel : ModelInterface<UserSupporterObj> = {
+export const userSupporterModel: ModelInterface<UserSupporterObj> = {
   name: 'supporter',
   gql: userSupporterGql,
   example: exampleUserSupporter,

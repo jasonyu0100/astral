@@ -67,4 +67,4 @@ export const linkElemModel: ModelInterface<LinkElem> = {
   gql: linkElemGql,
   parentKey: '',
   children: [],
-}
+};

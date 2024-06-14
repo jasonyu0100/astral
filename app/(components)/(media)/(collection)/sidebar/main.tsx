@@ -1,17 +1,12 @@
-import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
+import { BoardSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
+import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import {
-  ContextForCollectionResourceList,
-  useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
-import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
 
 export function SidebarCollection() {
-  const { sidebarHandler } = useContext(MapSidebarContext);
+  const { sidebarHandler } = useContext(BoardSidebarContext);
   const collection = useContext(ContextForGalleryCollectionObj);
 
   return (

@@ -5,9 +5,9 @@ import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/s
 import { ContextForSceneIdeaMain } from '@/(server)/(controller)/space/chapter/scene/idea/main';
 
 export function FileVideoIdea() {
-  const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);
+  const sceneIdeaMainController = useContext(ContextForSceneIdeaMain);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
-  const { x, y, constraintsRef } = useContext(ContextForMotionObj)
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj);
   const idea = sceneIdeaMainController.state.obj;
   const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 

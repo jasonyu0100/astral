@@ -17,7 +17,7 @@ export function Force() {
     if (authorised) {
       setAuthorised(true);
     }
-  }, [])
+  }, []);
 
   return (
     <div className='flex flex-col'>

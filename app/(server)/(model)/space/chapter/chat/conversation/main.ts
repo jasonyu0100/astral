@@ -1,5 +1,5 @@
-import { ModelInterface } from "@/(server)/(model)/main";
-import { createContext } from "react";
+import { ModelInterface } from '@/(server)/(model)/main';
+import { createContext } from 'react';
 
 export interface ChatConversationObj {
   id: string;
@@ -13,7 +13,7 @@ export const exampleChatConversation: ChatConversationObj = {
   id: '0',
   userId: '0',
   chatId: '0',
-  summary: "A conversation about the idea",
+  summary: 'A conversation about the idea',
   created: new Date().toISOString(),
 };
 
@@ -25,16 +25,18 @@ type ChatConversationObj {
   summary: String!
   created: String!
 }
-`
+`;
 
-export const ContextForChatConversationObj = createContext<ChatConversationObj>({} as ChatConversationObj);
+export const ContextForChatConversationObj = createContext<ChatConversationObj>(
+  {} as ChatConversationObj,
+);
 
 export const exampleChatConversations: ChatConversationObj[] = [
   {
     id: '0',
     userId: '0',
     chatId: '0',
-    summary: "Another conversation about the idea",
+    summary: 'Another conversation about the idea',
     created: new Date().toISOString(),
   },
   {
@@ -60,4 +62,4 @@ export const chatConversationModel: ModelInterface<ChatConversationObj> = {
   examples: exampleChatConversations,
   parentKey: 'chatId',
   children: ['message'],
-}
+};

@@ -5,7 +5,7 @@ import { ButtonInputProps } from '@/(types)/props/main';
 export function GalleryExplorerAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <GalleryContainer className="w-[300px]">
+      <GalleryContainer className='w-[300px]'>
         <GalleryExplorerAddCover />
       </GalleryContainer>
     </button>

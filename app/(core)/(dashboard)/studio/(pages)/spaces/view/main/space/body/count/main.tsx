@@ -9,11 +9,7 @@ export function SpaceCount() {
   const { hovered } = useContext(ContextForHoverable);
   return (
     <div className='flex w-[50px] items-center justify-center'>
-      {hovered ? (
-        <SpaceCountPlay/>
-      ) : (
-        <SpaceCountCount/>
-      )}
+      {hovered ? <SpaceCountPlay /> : <SpaceCountCount />}
     </div>
   );
 }

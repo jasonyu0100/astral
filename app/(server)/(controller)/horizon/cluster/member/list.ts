@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { clusterMemberModel, ClusterMemberObj } from '@/(server)/(model)/horizon/cluster/member/main';
+import {
+  clusterMemberModel,
+  ClusterMemberObj,
+} from '@/(server)/(model)/horizon/cluster/member/main';
 import { clusterMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/member/main';
 
 type TargetObj = ClusterMemberObj;
@@ -55,7 +58,6 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -64,7 +66,7 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -135,8 +137,8 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -147,7 +149,7 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -181,7 +183,7 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         clusterId: '',
-        userId: ''
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -197,7 +199,7 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -213,10 +215,12 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -262,4 +266,7 @@ const useControllerForClusterMemberList = (listId: string): Controller => {
 };
 
 const ContextForClusterMemberList = createContext({} as Controller);
-export { ContextForClusterMemberList, useControllerForClusterMemberList as useControllerForTargetList };
+export {
+  ContextForClusterMemberList,
+  useControllerForClusterMemberList as useControllerForTargetList,
+};

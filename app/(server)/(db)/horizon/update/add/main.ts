@@ -1,9 +1,16 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { HorizonUpdateAddObj } from "@/(server)/(model)/horizon/update/add/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createHorizonUpdateAddObj, deleteHorizonUpdateAddObj, updateHorizonUpdateAddObj } from "@/graphql/mutations";
-import { getHorizonUpdateAddObj, listHorizonUpdateAddObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { HorizonUpdateAddObj } from '@/(server)/(model)/horizon/update/add/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createHorizonUpdateAddObj,
+  deleteHorizonUpdateAddObj,
+  updateHorizonUpdateAddObj,
+} from '@/graphql/mutations';
+import {
+  getHorizonUpdateAddObj,
+  listHorizonUpdateAddObjs,
+} from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as HorizonUpdateAddObj;
@@ -51,8 +58,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateAddObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listHorizonUpdateAddObjs?.items || []);
@@ -61,7 +67,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateAddObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listHorizonUpdateAddObjs?.items || []);
@@ -76,7 +82,7 @@ async function createObj(newObj: Omit<HorizonUpdateAddObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createHorizonUpdateAddObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<HorizonUpdateAddObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +90,13 @@ async function updateObj(id: string, updateObj: Partial<HorizonUpdateAddObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateHorizonUpdateAddObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: HorizonUpdateAddObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +104,13 @@ async function overwriteObj(id: string, newObj: HorizonUpdateAddObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateHorizonUpdateAddObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +118,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteHorizonUpdateAddObj);
-} 
+}
 
 export const horizonUpdateAddDbWrapper: GqlDbWrapper<HorizonUpdateAddObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

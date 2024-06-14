@@ -7,7 +7,9 @@ export function DefaultRight() {
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      <BoardSaveButton onClick={() => sceneIdeaListController.actions.editActions.sync()} />
+      <BoardSaveButton
+        onClick={() => sceneIdeaListController.actions.editActions.sync()}
+      />
     </div>
   );
 }

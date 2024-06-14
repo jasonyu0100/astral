@@ -56,4 +56,4 @@ export const clusterMemberModel: ModelInterface<ClusterMemberObj> = {
   examples: exampleClusterMembers,
   parentKey: 'clusterId',
   children: [],
-}
+};

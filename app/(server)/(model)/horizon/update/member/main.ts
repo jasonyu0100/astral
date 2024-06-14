@@ -17,9 +17,8 @@ type HorizonUpdateMemberObj {
 }
 `;
 
-export const ContextForHorizonUpdateMemberObj = createContext<HorizonUpdateMemberObj>(
-  {} as HorizonUpdateMemberObj,
-);
+export const ContextForHorizonUpdateMemberObj =
+  createContext<HorizonUpdateMemberObj>({} as HorizonUpdateMemberObj);
 
 export const exampleHorizonUpdateMember: HorizonUpdateMemberObj = {
   id: '0',
@@ -49,11 +48,12 @@ export const exampleHorizonUpdateMembers: HorizonUpdateMemberObj[] = [
   },
 ];
 
-export const horizonUpdateMemberModel: ModelInterface<HorizonUpdateMemberObj> = {
-  name: 'member',
-  gql: horizonUpdateMemberGql,
-  example: exampleHorizonUpdateMember,
-  examples: exampleHorizonUpdateMembers,
-  parentKey: 'updateId',
-  children: [],
-}
+export const horizonUpdateMemberModel: ModelInterface<HorizonUpdateMemberObj> =
+  {
+    name: 'member',
+    gql: horizonUpdateMemberGql,
+    example: exampleHorizonUpdateMember,
+    examples: exampleHorizonUpdateMembers,
+    parentKey: 'updateId',
+    children: [],
+  };

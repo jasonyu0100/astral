@@ -18,9 +18,11 @@ export function JournalMainFooter() {
     const midnight = new Date();
     midnight.setHours(24, 0, 0, 0);
     const originalTime = new Date();
-    const timeElapsed = Math.round((midnight.getTime() - originalTime.getTime()) / 1000);
+    const timeElapsed = Math.round(
+      (midnight.getTime() - originalTime.getTime()) / 1000,
+    );
     setOriginalTime(timeElapsed);
-  }, [])
+  }, []);
 
   useEffect(() => {
     const duration =

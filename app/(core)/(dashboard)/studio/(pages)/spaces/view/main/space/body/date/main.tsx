@@ -7,7 +7,7 @@ export function SpaceDate() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <div className='flex items-center w-[150px]'>
+    <div className='flex w-[150px] items-center'>
       <p className='text-lg font-bold text-slate-300'>
         {new Date(space.created).toDateString()}
       </p>

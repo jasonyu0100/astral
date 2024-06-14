@@ -1,7 +1,7 @@
-import { QuadrantA } from "../../quadrant/a/main";
-import { QuadrantB } from "../../quadrant/b/main";
-import { QuadrantP1 } from "../../quadrant/p1/main";
-import { QuadrantP2 } from "../../quadrant/p2/main";
+import { QuadrantA } from '../../quadrant/a/main';
+import { QuadrantB } from '../../quadrant/b/main';
+import { QuadrantP1 } from '../../quadrant/p1/main';
+import { QuadrantP2 } from '../../quadrant/p2/main';
 
 export function GameBoard() {
   return (

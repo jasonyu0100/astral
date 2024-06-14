@@ -13,7 +13,10 @@ import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
 import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import axios from 'axios';
 import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
-import { FileElem, FileElemVariant } from '@/(server)/(model)/elements/file/main';
+import {
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/(model)/elements/file/main';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 

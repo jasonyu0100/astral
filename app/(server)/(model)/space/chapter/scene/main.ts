@@ -67,4 +67,4 @@ export const chapterSceneModel: ModelInterface<ChapterSceneObj> = {
   examples: exampleChapterScenes,
   parentKey: 'chapterId',
   children: ['idea'],
-}
+};

@@ -69,4 +69,4 @@ export const verseCommentModel: ModelInterface<VerseCommentObj> = {
   gql: verseCommentGql,
   children: [],
   parentKey: 'verseId',
-}
+};

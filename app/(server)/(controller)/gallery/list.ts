@@ -1,5 +1,8 @@
 import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem, FileElem } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+} from '@/(server)/(model)/elements/file/main';
 import { UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
@@ -32,7 +35,12 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createGallery: (userId: string, title: string, description: string, thumbnail: FileElem) => Promise<TargetObj>;
+  createGallery: (
+    userId: string,
+    title: string,
+    description: string,
+    thumbnail: FileElem,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -57,7 +65,6 @@ const useControllerForGalleryList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -66,7 +73,7 @@ const useControllerForGalleryList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -137,8 +144,8 @@ const useControllerForGalleryList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -213,7 +220,7 @@ const useControllerForGalleryList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -229,10 +236,12 @@ const useControllerForGalleryList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

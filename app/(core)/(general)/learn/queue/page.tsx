@@ -1,5 +1,5 @@
-"use client";
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
 export default function Page() {
   const [queue, setQueue] = useState<number[]>([1, 1, 1, 1]);
@@ -18,19 +18,19 @@ export default function Page() {
   }
 
   return (
-    <div className="flex flex-col w-full p-[3rem] space-y-[1rem] overflow-auto">
-      <div className="flex flex-col items-center p-[1rem] rounded-md">
+    <div className='flex w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
+      <div className='flex flex-col items-center rounded-md p-[1rem]'>
         <button
-          className="flex items-center justify-center bg-blue-300 w-[50px] h-[50px] p-[1rem] font-bold border-b-[2px] border-white"
+          className='flex h-[50px] w-[50px] items-center justify-center border-b-[2px] border-white bg-blue-300 p-[1rem] font-bold'
           onClick={() => {
             setQueue([...shuffleArrayImmutable(queue), ...queue]);
           }}
         >
           W
         </button>
-        <div className="flex flex-row">
+        <div className='flex flex-row'>
           <button
-            className="flex items-center justify-center bg-blue-300 w-[50px] h-[50px] p-[1rem] font-bold border-r-[2px] border-white"
+            className='flex h-[50px] w-[50px] items-center justify-center border-r-[2px] border-white bg-blue-300 p-[1rem] font-bold'
             onClick={() =>
               setQueue([...queue, Math.floor(1 + Math.random() * 100)])
             }
@@ -38,7 +38,7 @@ export default function Page() {
             A
           </button>
           <button
-            className="flex items-center justify-center bg-blue-300 w-[50px] h-[50px] p-[1rem] font-bold"
+            className='flex h-[50px] w-[50px] items-center justify-center bg-blue-300 p-[1rem] font-bold'
             onClick={() => {
               setQueue(queue.toSorted());
             }}
@@ -46,10 +46,10 @@ export default function Page() {
             S
           </button>
           <button
-            className="flex items-center justify-center bg-blue-300 w-[50px] h-[50px] p-[1rem] font-bold border-l-[2px] border-white"
+            className='flex h-[50px] w-[50px] items-center justify-center border-l-[2px] border-white bg-blue-300 p-[1rem] font-bold'
             onClick={() => {
-              let stack: number[] = [];
-              let num = queue.shift();
+              const stack: number[] = [];
+              const num = queue.shift();
               if (num) {
                 stack.push(num);
                 while (queue.at(0) === num && queue.shift()) {
@@ -63,14 +63,14 @@ export default function Page() {
           </button>
         </div>
       </div>
-      <div className="w-full h-[1px] bg-slate-500"></div>
-      <div className="space-y-[1rem] py-[2rem]">
+      <div className='h-[1px] w-full bg-slate-500'></div>
+      <div className='space-y-[1rem] py-[2rem]'>
         {queue.map((item, i) => (
           <Container size={item} key={i} />
         ))}
       </div>
-      <div className="w-full h-[1px] bg-slate-500"></div>
-      <div className="space-y-[1rem] py-[2rem]">
+      <div className='h-[1px] w-full bg-slate-500'></div>
+      <div className='space-y-[1rem] py-[2rem]'>
         {history.map((item, i) => (
           <Container size={item} key={i} />
         ))}
@@ -82,7 +82,7 @@ export default function Page() {
 export function Container({ size }: { size: number }) {
   return (
     <div
-      className={`flex flex-col flex-shrink-0 w-full bg-slate-300 rounded-md p-[1rem]`}
+      className={`flex w-full flex-shrink-0 flex-col rounded-md bg-slate-300 p-[1rem]`}
       style={{ height: 50 * size }}
     >
       Size: {size}

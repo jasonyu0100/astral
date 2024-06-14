@@ -1,6 +1,6 @@
-import { SvgInputProps } from "@/(types)/props/main";
+import { SvgInputProps } from '@/(types)/props/main';
 
-export function NetworkIcon({...props}: SvgInputProps) {
+export function NetworkIcon({ ...props }: SvgInputProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'

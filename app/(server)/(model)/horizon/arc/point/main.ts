@@ -80,4 +80,4 @@ export const arcPointModel: ModelInterface<ArcPointObj> = {
   name: 'point',
   children: [],
   parentKey: 'arcId',
-}
+};

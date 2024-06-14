@@ -79,4 +79,4 @@ export const collectionResourceModel: ModelInterface<CollectionResourceObj> = {
   gql: collectionResourceGql,
   children: [],
   parentKey: 'collectionId',
-}
+};

@@ -18,8 +18,7 @@ export function DashboardBackground() {
             'animate-breathe-fast from-40% to-80%': toggled,
           },
         )}
-      >
-      </div>
+      ></div>
     </>
   );
 }

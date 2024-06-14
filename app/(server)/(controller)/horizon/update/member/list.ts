@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { horizonUpdateMemberModel, HorizonUpdateMemberObj } from '@/(server)/(model)/horizon/update/member/main';
+import {
+  horizonUpdateMemberModel,
+  HorizonUpdateMemberObj,
+} from '@/(server)/(model)/horizon/update/member/main';
 import { horizonUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/update/member/main';
 
 type TargetObj = HorizonUpdateMemberObj;
@@ -47,14 +50,15 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateMemberList = (listId: string): Controller => {
+const useControllerForHorizonUpdateMemberList = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
-
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -64,7 +68,7 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -135,8 +139,8 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -147,7 +151,7 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -181,7 +185,7 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',
-        userId: ''
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -197,7 +201,7 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -213,10 +217,12 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -262,4 +268,7 @@ const useControllerForHorizonUpdateMemberList = (listId: string): Controller => 
 };
 
 const ContextForHorizonUpdateMember = createContext({} as Controller);
-export { ContextForHorizonUpdateMember, useControllerForHorizonUpdateMemberList as useControllerForTargetList };
+export {
+  ContextForHorizonUpdateMember,
+  useControllerForHorizonUpdateMemberList as useControllerForTargetList,
+};

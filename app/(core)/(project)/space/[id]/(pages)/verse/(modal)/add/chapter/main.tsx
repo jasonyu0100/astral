@@ -17,7 +17,7 @@ export function VerseAddChapterModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
-  const user = useGlobalUser(state => state.user)
+  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 
@@ -48,7 +48,7 @@ export function VerseAddChapterModal() {
                   title,
                   description,
                   user.id,
-                  spaceMainController.state.objId
+                  spaceMainController.state.objId,
                 );
                 openableController.close();
               }}

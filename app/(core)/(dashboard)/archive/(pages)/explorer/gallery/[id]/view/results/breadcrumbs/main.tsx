@@ -20,7 +20,9 @@ export function CollectionsBreadcrumbs() {
       <CollectionBreadcrumbDivider />
       <CollectionBreadcrumbItem
         active={true}
-        href={archiveMap.archive.explorer.gallery.id.link(galleryMainController.state.objId)}
+        href={archiveMap.archive.explorer.gallery.id.link(
+          galleryMainController.state.objId,
+        )}
       >
         {galleryMainController.state.obj.title}
       </CollectionBreadcrumbItem>

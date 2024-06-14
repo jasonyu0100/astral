@@ -18,7 +18,10 @@ export function CollectionsInterface() {
           }}
         />
         {collectionListController.state.objs.map((collection) => (
-          <ContextForGalleryCollectionObj.Provider value={collection} key={collection.id}>
+          <ContextForGalleryCollectionObj.Provider
+            value={collection}
+            key={collection.id}
+          >
             <SidebarCollection key={collection.id} />
           </ContextForGalleryCollectionObj.Provider>
         ))}

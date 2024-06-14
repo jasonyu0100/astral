@@ -13,10 +13,15 @@ export function PolaroidModal({ children }: PolaroidModalProps) {
   const openableController = useContext(ContextForOpenable);
 
   return (
-    <ModalOverlay isOpen={openableController.opened} onClose={openableController.close}>
+    <ModalOverlay
+      isOpen={openableController.opened}
+      onClose={openableController.close}
+    >
       <ModalContainerWrapper>
         <PolaroidModalContainer>{children}</PolaroidModalContainer>
-        <PolaroidModalCloseButton onClick={openableController.close}>FLIP ME</PolaroidModalCloseButton>
+        <PolaroidModalCloseButton onClick={openableController.close}>
+          FLIP ME
+        </PolaroidModalCloseButton>
       </ModalContainerWrapper>
     </ModalOverlay>
   );

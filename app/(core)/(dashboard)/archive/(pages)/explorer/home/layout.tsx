@@ -13,7 +13,6 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
     <>
       <CraftTabs tab={CraftTabStage.Explorer} />
       <DashboardContent>{children}</DashboardContent>
-      </>
+    </>
   );
 }
-

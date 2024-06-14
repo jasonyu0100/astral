@@ -16,7 +16,3 @@ export function NoteIdea() {
     </>
   );
 }
-
-
-
-

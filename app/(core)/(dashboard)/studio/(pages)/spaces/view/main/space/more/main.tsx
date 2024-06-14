@@ -1,9 +1,16 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export function StudioSpaceMore() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="w-[50px] h-[50px] outline-none">
+      <DropdownMenuTrigger className='h-[50px] w-[50px] outline-none'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           className='h-3/4 w-3/4'
@@ -34,11 +41,13 @@ export function StudioSpaceMore() {
           </g>
         </svg>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-slate-800 border-none outline-none text-white rounded-none">
+      <DropdownMenuContent className='rounded-none border-none bg-slate-800 text-white outline-none'>
         <DropdownMenuLabel>Space</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => alert("TODO")}>Open</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => alert("TODO")}>Remove</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => alert('TODO')}>Open</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => alert('TODO')}>
+          Remove
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

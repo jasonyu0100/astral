@@ -4,8 +4,13 @@ import { PortalGalleryTitle } from './title/main';
 import { PolaroidContext } from '../../handler/polaroid/main';
 
 export function PortalGalleryView() {
-  const { transition, index, categories, variant: variant, polaroidHandler } =
-    useContext(PolaroidContext);
+  const {
+    transition,
+    index,
+    categories,
+    variant: variant,
+    polaroidHandler,
+  } = useContext(PolaroidContext);
 
   return (
     <div

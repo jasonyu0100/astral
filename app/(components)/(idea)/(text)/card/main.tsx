@@ -46,9 +46,7 @@ export function CardTextIdea({ size, ...props }: CardTextIdeaProps) {
               nisi ut aliquip ex ea commodo consequat.
             </p>
           ) : (
-            <p className='font-extraBold text-xl uppercase text-black'>
-              TBD
-            </p>
+            <p className='font-extraBold text-xl uppercase text-black'>TBD</p>
           )}
         </GlassWindowContents>
       </GlassWindowFrame>

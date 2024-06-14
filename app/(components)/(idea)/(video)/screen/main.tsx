@@ -14,7 +14,7 @@ interface ScreenVideoIdeaProps extends DivInputProps {
   size: ScreenVideoIdeaSize;
 }
 
-export function ScreenVideoIdea({ size, ...props } : ScreenVideoIdeaProps) {
+export function ScreenVideoIdea({ size, ...props }: ScreenVideoIdeaProps) {
   const togglableController = useControllerForTogglable();
 
   function getAspect(size: ScreenVideoIdeaSize) {

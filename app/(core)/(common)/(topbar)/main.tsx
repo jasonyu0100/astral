@@ -38,15 +38,11 @@ export function Topbar() {
         </TopbarLeftGroup>
         <TopbarRightGroup>
           <div className='flex flex-row space-x-[1rem]'>
-            <TopbarIconLink
-              onClick={() => settingsOpenableController.open()}
-            >
+            <TopbarIconLink onClick={() => settingsOpenableController.open()}>
               <SettingsIcon />
             </TopbarIconLink>
           </div>
-          <TopbarAvatar
-            onClick={() => profileOpenableController.open()}
-          />
+          <TopbarAvatar onClick={() => profileOpenableController.open()} />
         </TopbarRightGroup>
       </TopbarContainer>
     </>

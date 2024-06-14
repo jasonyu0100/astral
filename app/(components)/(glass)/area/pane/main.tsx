@@ -1,7 +1,11 @@
 interface GlassAreaPaneProps {
-    glassFx?: string;
+  glassFx?: string;
 }
 
 export function GlassAreaPane({ glassFx: glassFx }: GlassAreaPaneProps) {
-    return <div className={`absolute top-0 left-0 w-full h-full flex-shrink-0 ${glassFx}`}></div>
+  return (
+    <div
+      className={`absolute left-0 top-0 h-full w-full flex-shrink-0 ${glassFx}`}
+    ></div>
+  );
 }

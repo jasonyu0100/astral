@@ -74,11 +74,12 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
   },
 ];
 
-export const conversationMessageModel: ModelInterface<ConversationMessageObj> = {
-  name: 'message',
-  gql: conversationMessageGql,
-  example: exampleConversationMessage,
-  examples: exampleConversationMessages,
-  parentKey: 'conversationId',
-  children: [],
-}
+export const conversationMessageModel: ModelInterface<ConversationMessageObj> =
+  {
+    name: 'message',
+    gql: conversationMessageGql,
+    example: exampleConversationMessage,
+    examples: exampleConversationMessages,
+    parentKey: 'conversationId',
+    children: [],
+  };

@@ -1,6 +1,9 @@
 import { ventureMap } from '@/(core)/(dashboard)/venture/map';
 import { IndicatorSilverJewel } from '../../indicator/jewel/silver/main';
-import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main';
+import {
+  IndicatorProps,
+  DashboardSidebarIndicator,
+} from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { DashboardSidebarContext } from '@/(core)/(common)/(sidebar)/main';

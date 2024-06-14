@@ -1,4 +1,4 @@
-import { Horizon } from "./horizon/main";
+import { Horizon } from './horizon/main';
 
 export function HorizonsList() {
   return (

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function Page() {
   const [layerNum, changeLayerNum] = useState(2);
@@ -39,31 +39,31 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col p-[3rem]">
-      <div className="flex flex-col w-[10rem] space-y-[1rem]">
-        <p className="font-bold">Create</p>
+    <div className='flex flex-col p-[3rem]'>
+      <div className='flex w-[10rem] flex-col space-y-[1rem]'>
+        <p className='font-bold'>Create</p>
         <p>
           {x}, {y}, {z}
         </p>
         <input
-          type="range"
-          min="-1000"
-          max="1000"
-          placeholder="Enter X"
+          type='range'
+          min='-1000'
+          max='1000'
+          placeholder='Enter X'
           onChange={(e) => setX(parseInt(e.target.value))}
         />
         <input
-          type="range"
-          min="-1000"
-          max="1000"
-          placeholder="Enter Y"
+          type='range'
+          min='-1000'
+          max='1000'
+          placeholder='Enter Y'
           onChange={(e) => setY(parseInt(e.target.value))}
         />
         <input
-          type="range"
-          min="-1000"
-          max="1000"
-          placeholder="Enter Z"
+          type='range'
+          min='-1000'
+          max='1000'
+          placeholder='Enter Z'
           onChange={(e) => setZ(parseInt(e.target.value))}
         />
         <button
@@ -75,8 +75,8 @@ export default function Page() {
           Add Node
         </button>
       </div>
-      <div className="flex flex-col w-[10rem] space-y-[1rem]">
-        <p className="font-bold">Link</p>
+      <div className='flex w-[10rem] flex-col space-y-[1rem]'>
+        <p className='font-bold'>Link</p>
         <select>
           {dictionaryToArrayOfObjects(nodes).map((arr) => {
             const { key, value } = arr;
@@ -91,9 +91,9 @@ export default function Page() {
         <button>Connect</button>
         <button>Next</button>
       </div>
-      <div className="flex flex-col w-[10rem] space-y-[1rem]">
-        <p className="font-bold">List {count}</p>
-        <div className="flex flex-col">
+      <div className='flex w-[10rem] flex-col space-y-[1rem]'>
+        <p className='font-bold'>List {count}</p>
+        <div className='flex flex-col'>
           {dictionaryToArrayOfObjects(nodes).map((arr) => {
             const { key, value } = arr;
             return (
@@ -104,9 +104,9 @@ export default function Page() {
           })}
         </div>
       </div>
-      <div className="flex flex-col w-[10rem] space-y-[1rem]">
-        <p className="font-bold">Map</p>
-        <div className="w-[10rem] h-[10rem] bg-black" />
+      <div className='flex w-[10rem] flex-col space-y-[1rem]'>
+        <p className='font-bold'>Map</p>
+        <div className='h-[10rem] w-[10rem] bg-black' />
       </div>
     </div>
   );

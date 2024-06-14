@@ -51,7 +51,7 @@ const useControllerForClusterUpdateMemberMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -115,4 +115,7 @@ const useControllerForClusterUpdateMemberMain = (objId: string): Controller => {
 };
 
 const ContextForClusterUpdateMemberMain = createContext({} as Controller);
-export { ContextForClusterUpdateMemberMain, useControllerForClusterUpdateMemberMain };
+export {
+  ContextForClusterUpdateMemberMain,
+  useControllerForClusterUpdateMemberMain,
+};

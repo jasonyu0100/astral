@@ -7,7 +7,7 @@ interface UserStore {
   user: UserObj;
   login: (user: UserObj) => void;
   register: (user: UserObj) => void;
-  update (user: UserObj): void;
+  update(user: UserObj): void;
   logout: () => void;
 }
 

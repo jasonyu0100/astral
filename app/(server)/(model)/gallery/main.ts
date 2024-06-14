@@ -58,4 +58,4 @@ export const galleryModel: ModelInterface<GalleryObj> = {
   gql: galleryGql,
   children: ['collection', 'member'],
   parentKey: 'userId',
-}
+};

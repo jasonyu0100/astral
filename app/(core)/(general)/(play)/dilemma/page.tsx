@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <GameStateContext.Provider value={{ gameState, setGameState }}>
-      <DilemmaUi/>
+      <DilemmaUi />
     </GameStateContext.Provider>
   );
 }

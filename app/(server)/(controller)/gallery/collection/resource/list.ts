@@ -69,7 +69,6 @@ const useControllerForResourceList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,

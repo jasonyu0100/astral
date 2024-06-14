@@ -1,15 +1,15 @@
+import { BoardSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
 import {
   ContextForFlippable,
   useControllerForFlippable,
 } from '@/(logic)/contexts/flippable/main';
-import { useContext } from 'react';
-import { GallerySidebarCover } from './front/main';
-import { GalleryContainer } from '../common/container/main';
-import { MapSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+import { useContext } from 'react';
+import { GalleryContainer } from '../common/container/main';
+import { GallerySidebarCover } from './front/main';
 
 export function SidebarHomeGallery() {
-  const { sidebarHandler } = useContext(MapSidebarContext);
+  const { sidebarHandler } = useContext(BoardSidebarContext);
   const gallery = useContext(ContextForGalleryObj);
   const flippableController = useControllerForFlippable();
 

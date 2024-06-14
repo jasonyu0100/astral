@@ -6,18 +6,20 @@ import { useContext, useState } from 'react';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export function CollectionHeaderSearch() {
-  const resourceListController = useContext(ContextForCollectionResourceList)
+  const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
     <GlassAreaContainer
       name={CollectionHeaderSearch.name}
       sizeFx='flex-grow h-[3rem]'
       borderFx={`${borderFx['border-b']}`}
-      className={"flex"}
+      className={'flex'}
     >
       <SearchBarInput
         onChange={(e: any) => {
-          resourceListController.actions.stateActions.updateQuery(e.target.value);
+          resourceListController.actions.stateActions.updateQuery(
+            e.target.value,
+          );
         }}
         value={resourceListController.state.more.query}
       />

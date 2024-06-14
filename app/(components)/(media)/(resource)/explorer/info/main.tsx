@@ -7,7 +7,7 @@ import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/coll
 import { DivInputProps } from '@/(types)/props/main';
 import { useContext } from 'react';
 
-export function CollectionResourceInfo({ ...props} : DivInputProps) {
+export function CollectionResourceInfo({ ...props }: DivInputProps) {
   const resource = useContext(ContextForCollectionResourceObj);
   const openableController = useControllerForOpenable();
 
@@ -16,10 +16,12 @@ export function CollectionResourceInfo({ ...props} : DivInputProps) {
       <ContextForOpenable.Provider value={openableController}>
         <ExplorerEditResourceModal />
       </ContextForOpenable.Provider>
-      <div className={`h-full w-full overflow-auto p-[10px] ${props.className}`}>
+      <div
+        className={`h-full w-full overflow-auto p-[10px] ${props.className}`}
+      >
         <div className='w-full flex-col space-y-[1rem]'>
           <button
-            className='mt-aut mt-auto w-full bg-black p-[0.5rem] font-bold text-slate-300 rounded'
+            className='mt-aut mt-auto w-full rounded bg-black p-[0.5rem] font-bold text-slate-300'
             onClick={() => openableController.open()}
           >
             EDIT

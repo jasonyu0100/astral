@@ -1,10 +1,10 @@
-import { GlassWindowContents } from "@/(components)/(glass)/window/contents/main";
-import { GlassWindowFrame } from "@/(components)/(glass)/window/main";
-import { GlassWindowPane } from "@/(components)/(glass)/window/pane/main";
-import { spaceMap } from "@/(core)/(project)/space/[id]/map";
-import { horizonMap } from "@/(core)/(project)/horizon/[id]/map";
-import { glassFx } from "@/(style)/data";
-import { exampleFileElems } from "@/(server)/(model)/elements/file/main";
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { spaceMap } from '@/(core)/(project)/space/[id]/map';
+import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
+import { glassFx } from '@/(style)/data';
+import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 
 export function SeaContributionContents() {
   return (

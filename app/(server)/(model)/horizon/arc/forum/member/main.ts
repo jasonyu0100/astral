@@ -56,4 +56,4 @@ export const forumMemberModel: ModelInterface<ForumMemberObj> = {
   examples: exampleForumMembers,
   parentKey: 'forumId',
   children: [],
-}
+};

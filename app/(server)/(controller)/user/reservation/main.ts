@@ -26,7 +26,12 @@ interface StateActions extends BaseStateActions<TargetObj> {}
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
 interface CreateActions extends BaseCreateActions<TargetObj> {
-  reserve: (fname: string, lname: string, email: string, role: string) => Promise<TargetObj>;
+  reserve: (
+    fname: string,
+    lname: string,
+    email: string,
+    role: string,
+  ) => Promise<TargetObj>;
 }
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -56,7 +61,7 @@ const useControllerForUserReservationMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -68,13 +73,18 @@ const useControllerForUserReservationMain = (objId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    reserve: async (fname: string, lname: string, email: string, role: string) => {
+    reserve: async (
+      fname: string,
+      lname: string,
+      email: string,
+      role: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         fname: fname,
         lname: lname,
         email: email,
-        role: role
+        role: role,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       return newObj;

@@ -1,4 +1,7 @@
-import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main';
+import {
+  IndicatorProps,
+  DashboardSidebarIndicator,
+} from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorPurpleJewel } from '../../indicator/jewel/purple/main';

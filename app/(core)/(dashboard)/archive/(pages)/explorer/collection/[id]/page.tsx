@@ -15,7 +15,10 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/(controller)/gallery/main';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/(server)/(controller)/gallery/collection/resource/list';
 
 function Page({ params }: { params: { id: string } }) {
   const collectionMainController = useControllerForGalleryCollectionMain(

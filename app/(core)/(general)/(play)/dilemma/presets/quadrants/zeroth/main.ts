@@ -1,4 +1,4 @@
-import { Quadrants } from "../../../types/quadrants/main";
+import { Quadrants } from '../../../types/quadrants/main';
 
 export const zerothQuadrants: Quadrants = {
   quadrantA: {

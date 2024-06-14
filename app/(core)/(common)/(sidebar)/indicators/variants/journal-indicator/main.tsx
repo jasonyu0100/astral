@@ -1,5 +1,8 @@
 import { journalMap } from '@/(core)/(dashboard)/journal/map';
-import { IndicatorProps, DashboardSidebarIndicator } from '../../indicator/main';
+import {
+  IndicatorProps,
+  DashboardSidebarIndicator,
+} from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorOrangeJewel } from '../../indicator/jewel/orange/main';

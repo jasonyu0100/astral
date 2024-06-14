@@ -57,8 +57,15 @@ export default function App() {
         snappable={true}
         rotatable={true}
         snapDirections={{ top: true, left: true, bottom: true, right: true }}
-        elementSnapDirections={{"top":true,"left":true,"bottom":true,"right":true,"center":true,"middle":true}}
-        elementGuidelines={[".element1", ".element2", ".element3"]}
+        elementSnapDirections={{
+          top: true,
+          left: true,
+          bottom: true,
+          right: true,
+          center: true,
+          middle: true,
+        }}
+        elementGuidelines={['.element1', '.element2', '.element3']}
         bounds={{ left: 0, top: 0, right: 0, bottom: 0, position: 'css' }}
         verticalGuidelines={[0, 100, 200, 400, 500]}
         horizontalGuidelines={[0, 100, 200, 400, 500]}

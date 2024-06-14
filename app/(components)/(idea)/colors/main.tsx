@@ -1,6 +1,6 @@
-import { GlassWindowContents } from "@/(components)/(glass)/window/contents/main";
-import { GlassWindowFrame } from "@/(components)/(glass)/window/main";
-import { roundedFx } from "@/(style)/data";
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { roundedFx } from '@/(style)/data';
 
 export function Colors() {
   return (

@@ -1,15 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  glassFx,
-  roundedFx,
-  borderFx,
-} from '@/(style)/data';
+import { glassFx, roundedFx, borderFx } from '@/(style)/data';
 
-export function BaseView({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function BaseView({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={BaseView.name}

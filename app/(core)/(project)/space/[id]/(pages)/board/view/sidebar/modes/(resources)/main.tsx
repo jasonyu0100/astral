@@ -1,13 +1,18 @@
 import { createContext, useContext } from 'react';
 import { ResourcesFooter } from './footer/main';
 import { CollectionHeaderSearch } from './footer/search/main';
-import { ContextForCollectionResourceObj, CollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import {
+  ContextForCollectionResourceObj,
+  CollectionResourceObj,
+} from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource)/sidebar/add/main';
 import { SidebarCollectionResource } from '@/(components)/(media)/(resource)/sidebar/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 
-export const SidebarResourceContext = createContext({} as CollectionResourceObj);
+export const SidebarResourceContext = createContext(
+  {} as CollectionResourceObj,
+);
 
 export function ResourcesInterface() {
   const resourceListController = useContext(ContextForCollectionResourceList);
@@ -22,7 +27,10 @@ export function ResourcesInterface() {
           }}
         />
         {resourceListController.state.more.queryResults.map((resource) => (
-          <ContextForCollectionResourceObj.Provider value={resource} key={resource.id}>
+          <ContextForCollectionResourceObj.Provider
+            value={resource}
+            key={resource.id}
+          >
             <SidebarCollectionResource key={resource.id} />
           </ContextForCollectionResourceObj.Provider>
         ))}

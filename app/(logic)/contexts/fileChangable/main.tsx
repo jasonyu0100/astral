@@ -10,11 +10,12 @@ export const ContextForFileChangable = createContext(
   {} as ContextForFileChangableInterface,
 );
 
-export const useControllerForFileChangable = () : ContextForFileChangableInterface => {
-  const [fileElem, setFileElem] = useState({} as FileElem);
+export const useControllerForFileChangable =
+  (): ContextForFileChangableInterface => {
+    const [fileElem, setFileElem] = useState({} as FileElem);
 
-  return {
-    fileElem,
-    updateFileElem: (fileElem: FileElem) => setFileElem(fileElem),
+    return {
+      fileElem,
+      updateFileElem: (fileElem: FileElem) => setFileElem(fileElem),
+    };
   };
-};

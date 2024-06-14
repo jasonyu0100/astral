@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { ClusterUpdateObj } from "@/(server)/(model)/horizon/cluster/update/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createClusterUpdateObj, deleteClusterUpdateObj, updateClusterUpdateObj } from "@/graphql/mutations";
-import { getClusterUpdateObj, listClusterUpdateObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { ClusterUpdateObj } from '@/(server)/(model)/horizon/cluster/update/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createClusterUpdateObj,
+  deleteClusterUpdateObj,
+  updateClusterUpdateObj,
+} from '@/graphql/mutations';
+import { getClusterUpdateObj, listClusterUpdateObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ClusterUpdateObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listClusterUpdateObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listClusterUpdateObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listClusterUpdateObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listClusterUpdateObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<ClusterUpdateObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createClusterUpdateObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<ClusterUpdateObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<ClusterUpdateObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateClusterUpdateObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: ClusterUpdateObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: ClusterUpdateObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateClusterUpdateObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteClusterUpdateObj);
-} 
+}
 
 export const clusterUpdateDbWrapper: GqlDbWrapper<ClusterUpdateObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

@@ -27,8 +27,12 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   );
 
   return (
-    <GlassWindowFrame className='aspect-[3/2] w-full' borderFx={borderFx['border-all']} roundedFx={roundedFx['rounded-xs']}>
-      <GlassWindowPane glassFx={glassFx['glass-5']}/>
+    <GlassWindowFrame
+      className='aspect-[3/2] w-full'
+      borderFx={borderFx['border-all']}
+      roundedFx={roundedFx['rounded-xs']}
+    >
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
       <GlassWindowContents>
         {empty === true ? (
           <div className='flex h-full w-full items-center justify-center'>

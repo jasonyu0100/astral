@@ -18,10 +18,12 @@ export function PortalReserveForm() {
   const [role, changeRole] = useState('');
 
   const attemptReserve = async () => {
-    reservationController.actions.createActions.reserve(fname, lname, email, role).then(res => {
-      alert('Position reserved.');
-      window.location.href = '/';
-    })
+    reservationController.actions.createActions
+      .reserve(fname, lname, email, role)
+      .then((res) => {
+        alert('Position reserved.');
+        window.location.href = '/';
+      });
   };
 
   return (
@@ -56,7 +58,9 @@ export function PortalReserveForm() {
           }}
         >
           {categories.map((category) => (
-            <option value={category} key={category}>⭐ {category}</option>
+            <option value={category} key={category}>
+              ⭐ {category}
+            </option>
           ))}
         </PortalFormSelect>
       </PortalFormBody>

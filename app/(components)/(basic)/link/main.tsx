@@ -6,7 +6,10 @@ interface FormattedLinkProps extends LinkInputProps {
 
 export function FormattedLink({ children, ...props }: FormattedLinkProps) {
   return (
-    <a href={props.href.toString()} className='text-lg font-bold text-slate-500'>
+    <a
+      href={props.href.toString()}
+      className='text-lg font-bold text-slate-500'
+    >
       {children}
     </a>
   );

@@ -7,7 +7,9 @@ export function BoardHeaderIdeaCenter() {
 
   return (
     <div className='flex w-1/3 flex-row justify-center'>
-      <BoardHeaderTitle>{idea.variant} - {idea.title}</BoardHeaderTitle>
+      <BoardHeaderTitle>
+        {idea.variant} - {idea.title}
+      </BoardHeaderTitle>
     </div>
   );
 }

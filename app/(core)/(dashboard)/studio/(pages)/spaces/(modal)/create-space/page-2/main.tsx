@@ -5,7 +5,12 @@ import { ContextForPageTwo } from '../main';
 import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 
 export function PageTwo() {
-  const { variant, updateVariant, templateSpaceChapters: chapterTemplates, updateTemplateSpaceChapters: updateChapterTemplates } = useContext(ContextForPageTwo)
+  const {
+    variant,
+    updateVariant,
+    templateSpaceChapters: chapterTemplates,
+    updateTemplateSpaceChapters: updateChapterTemplates,
+  } = useContext(ContextForPageTwo);
 
   return (
     <FormBody>

@@ -34,7 +34,13 @@ export function SidebarCreateResourceModal() {
 
   function createResource() {
     resourceListHandler.actions.createActions
-      .createFromFile(user.id, collectMainController.state.objId, title, description, file)
+      .createFromFile(
+        user.id,
+        collectMainController.state.objId,
+        title,
+        description,
+        file,
+      )
       .then(() => {
         openableController.close();
       });

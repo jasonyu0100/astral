@@ -17,7 +17,7 @@ export function StormChat() {
     >
       <div className='flex w-full max-w-[900px] flex-col space-y-[1rem] py-[2rem]'>
         {conversationObj && (
-          <div className='justify-between flex w-full flex-row items-center'>
+          <div className='flex w-full flex-row items-center justify-between'>
             <div className='flex'>
               <p
                 className='text-md font-bold text-slate-500'

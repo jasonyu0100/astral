@@ -11,7 +11,10 @@ import {
 } from '@/(server)/(controller)/list';
 import { ClusterUpdateObj } from '@/(server)/(model)/horizon/cluster/update/main';
 import { clusterUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/main';
-import { horizonClusterModel, HorizonClusterObj } from '@/(server)/(model)/horizon/cluster/main';
+import {
+  horizonClusterModel,
+  HorizonClusterObj,
+} from '@/(server)/(model)/horizon/cluster/main';
 import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
 
 type TargetObj = HorizonClusterObj;
@@ -57,7 +60,6 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -66,7 +68,7 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -137,8 +139,8 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -149,7 +151,7 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -184,7 +186,7 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
         created: new Date().toISOString(),
         horizonId: '',
         title: '',
-        description: ''
+        description: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -200,7 +202,7 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -216,10 +218,12 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -265,4 +269,7 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
 };
 
 const ContextForHorizonClusterList = createContext({} as Controller);
-export { ContextForHorizonClusterList, useControllerForHorizonClusterList as useControllerForClusterUpdateList };
+export {
+  ContextForHorizonClusterList,
+  useControllerForHorizonClusterList as useControllerForClusterUpdateList,
+};

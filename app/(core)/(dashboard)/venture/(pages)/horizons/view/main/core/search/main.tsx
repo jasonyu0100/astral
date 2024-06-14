@@ -6,8 +6,8 @@ import { HorizonsSearchInput } from './input/main';
 
 export function HorizonsSearch() {
   return (
-    <div className="shadow-glow p-[2rem]">
-      <HorizonsSearchInput/>
+    <div className='p-[2rem] shadow-glow'>
+      <HorizonsSearchInput />
     </div>
   );
 }

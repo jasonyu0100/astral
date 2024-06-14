@@ -5,9 +5,5 @@ import { VerseModalContext } from './main';
 export function VerseModalView() {
   const modalContext = useContext(VerseModalContext);
 
-  return (
-    <>
-      {modalContext.addChapterModal.opened && <VerseAddChapterModal />}
-    </>
-  );
+  return <>{modalContext.addChapterModal.opened && <VerseAddChapterModal />}</>;
 }

@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { chapterChatModel, ChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import {
+  chapterChatModel,
+  ChapterChatObj,
+} from '@/(server)/(model)/space/chapter/chat/main';
 import { chapterChatDbWrapper } from '@/(server)/(db)/space/chapter/chat/main';
 
 type TargetObj = ChapterChatObj;
@@ -277,7 +280,7 @@ const useControllerForChapterChatList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherEarliest()
+      controllerActions.gatherActions.gatherEarliest();
     }
   }, [listId]);
 

@@ -1,7 +1,10 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { stripeNewBillingSession, stripeProcessSubscription } from '@/(api)/stripe/main';
+import {
+  stripeNewBillingSession,
+  stripeProcessSubscription,
+} from '@/(api)/stripe/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -13,7 +16,7 @@ export default function Page() {
 
   useEffect(() => {
     if (user.customerId === null || user.priceId === undefined) {
-      processSubscription()
+      processSubscription();
     } else {
       window.location.href = '/stripe/billing/existing';
     }
@@ -28,7 +31,7 @@ export default function Page() {
   async function processSubscription() {
     stripeProcessSubscription(sessionId, user.id).then((user) => {
       update(user);
-      alert("Processed Subscription")
+      alert('Processed Subscription');
     });
   }
 

@@ -3,7 +3,9 @@ import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function DisplayImagePreview() {
-  const { fileElem: file, updateFileElem: onChange } = useContext(ContextForFileChangable);
+  const { fileElem: file, updateFileElem: onChange } = useContext(
+    ContextForFileChangable,
+  );
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>
@@ -32,8 +34,11 @@ export function DisplayImagePreview() {
                 width='24'
                 height='24'
               >
-                <rect width='24' height='24' fill='#D9D9D9' 
-                className="fill-slate-300 opacity-30"
+                <rect
+                  width='24'
+                  height='24'
+                  fill='#D9D9D9'
+                  className='fill-slate-300 opacity-30'
                 />
               </mask>
               <g mask='url(#mask0_3173_13)'>

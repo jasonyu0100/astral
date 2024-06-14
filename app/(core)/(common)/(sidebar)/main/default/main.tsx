@@ -11,7 +11,7 @@ import { VentureIndicator } from '../../indicators/variants/venture-indicator/ma
 export function DashboardSidebarDefault() {
   return (
     <DashboardSidebarDefaultContainer>
-      <DashboardSidebarTopOverview/>
+      <DashboardSidebarTopOverview />
       <HorizontalDivider className='my-[1rem] mb-[2rem]' />
       <DashboardSidebarIndicators>
         <SpaceIndicator />

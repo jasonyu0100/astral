@@ -1,9 +1,16 @@
-import { DivInputProps } from "@/(types)/props/main";
+import { DivInputProps } from '@/(types)/props/main';
 
 interface GlassPaneProps extends DivInputProps {
-    glassFx?: string;
+  glassFx?: string;
 }
 
-export function GlassWindowPane({ glassFx: glassFx, ...props }: GlassPaneProps) {
-    return <div className={`absolute top-0 left-0 w-full h-full flex-shrink-0 ${glassFx} ${props.className}`}></div>
+export function GlassWindowPane({
+  glassFx: glassFx,
+  ...props
+}: GlassPaneProps) {
+  return (
+    <div
+      className={`absolute left-0 top-0 h-full w-full flex-shrink-0 ${glassFx} ${props.className}`}
+    ></div>
+  );
 }

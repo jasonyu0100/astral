@@ -20,7 +20,7 @@ export default function isVerseAuth(Component: any) {
     }
 
     useEffect(() => {
-      checkMobile()
+      checkMobile();
     }, []);
 
     return <Component {...props} />;

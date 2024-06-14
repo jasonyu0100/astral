@@ -6,7 +6,7 @@ import { ButtonInputProps } from '@/(types)/props/main';
 export function GalleryCollectionAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <CollectionContainer className="w-[300px]">
+      <CollectionContainer className='w-[300px]'>
         <CollectionThumbnail empty />
         <CollectionInfo empty />
       </CollectionContainer>

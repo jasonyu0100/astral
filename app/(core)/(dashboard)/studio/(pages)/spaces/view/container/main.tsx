@@ -13,7 +13,7 @@ export function StudioSpacesContainer({
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
-      className="flex flex-col"
+      className='flex flex-col'
     >
       {children}
     </GlassAreaContainer>

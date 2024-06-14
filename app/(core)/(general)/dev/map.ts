@@ -17,10 +17,10 @@ export const devMap = {
     selection: {
       link: `${baseUrl}/selection`,
     },
-    "single-idea": {
+    'single-idea': {
       link: `${baseUrl}/single-idea`,
     },
-    "group-idea": {
+    'group-idea': {
       link: `${baseUrl}/group-idea`,
     },
     link: `${baseUrl}`,

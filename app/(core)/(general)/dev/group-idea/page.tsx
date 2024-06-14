@@ -33,7 +33,7 @@ export default function App() {
           throttleDrag={1}
           edgeDraggable={false}
           startDragRotate={0}
-          bounds={{"left":0,"top":0,"right":0,"bottom":0,"position":"css"}}
+          bounds={{ left: 0, top: 0, right: 0, bottom: 0, position: 'css' }}
           throttleDragRotate={0}
           scalable={true}
           keepRatio={true}

@@ -1,4 +1,4 @@
-import { QuadrantState } from "./quadrant/main";
+import { QuadrantState } from './quadrant/main';
 
 export interface Quadrants {
   quadrantA: QuadrantState;

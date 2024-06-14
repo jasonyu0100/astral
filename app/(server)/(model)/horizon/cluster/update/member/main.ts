@@ -17,9 +17,8 @@ type ClusterUpdateMemberObj {
 }
 `;
 
-export const ContextForClusterUpdateMemberObj = createContext<ClusterUpdateMemberObj>(
-  {} as ClusterUpdateMemberObj,
-);
+export const ContextForClusterUpdateMemberObj =
+  createContext<ClusterUpdateMemberObj>({} as ClusterUpdateMemberObj);
 
 export const exampleClusterUpdateMember: ClusterUpdateMemberObj = {
   id: '0',
@@ -49,11 +48,12 @@ export const exampleClusterUpdateMembers: ClusterUpdateMemberObj[] = [
   },
 ];
 
-export const clusterUpdateMemberModel: ModelInterface<ClusterUpdateMemberObj> = {
-  name: 'member',
-  gql: clusterUpdateMemberGql,
-  example: exampleClusterUpdateMember,
-  examples: exampleClusterUpdateMembers,
-  parentKey: 'updateId',
-  children: [],
-}
+export const clusterUpdateMemberModel: ModelInterface<ClusterUpdateMemberObj> =
+  {
+    name: 'member',
+    gql: clusterUpdateMemberGql,
+    example: exampleClusterUpdateMember,
+    examples: exampleClusterUpdateMembers,
+    parentKey: 'updateId',
+    children: [],
+  };

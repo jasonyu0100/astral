@@ -9,7 +9,7 @@ export function SeaSidebar({ children }: { children?: React.ReactNode }) {
       className={`flex flex-col space-y-[1rem] p-[1rem] `}
       glassFx={glassFx['glass-5']}
     >
-      <div className="flex flex-col w-full overflow-auto space-y-[1rem]">
+      <div className='flex w-full flex-col space-y-[1rem] overflow-auto'>
         {children}
       </div>
     </GlassAreaContainer>

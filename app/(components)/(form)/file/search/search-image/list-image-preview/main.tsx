@@ -3,7 +3,9 @@ import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {
-  const { fileElem: fileElem, updateFileElem: updateFileElem } = useContext(ContextForFileChangable);
+  const { fileElem: fileElem, updateFileElem: updateFileElem } = useContext(
+    ContextForFileChangable,
+  );
 
   return (
     <div className='flex w-full flex-row items-center justify-between space-x-[2rem] border-b border-black bg-slate-50 pr-[2rem]'>

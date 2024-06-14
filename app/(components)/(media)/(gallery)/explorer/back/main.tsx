@@ -8,7 +8,10 @@ import { GalleryBackAuthor } from '../../common/back/author/main';
 import { GalleryBackTitle } from '../../common/back/title/main';
 import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
 import { ExplorerEditGalleryModal } from '@/(core)/(dashboard)/archive/(pages)/explorer/(modals)/edit/gallery/main';
-import { ContextForOpenable, useControllerForOpenable } from '@/(logic)/contexts/openable/main';
+import {
+  ContextForOpenable,
+  useControllerForOpenable,
+} from '@/(logic)/contexts/openable/main';
 
 export function GalleryExplorerBack() {
   const flippableController = useContext(ContextForFlippable);
@@ -22,9 +25,7 @@ export function GalleryExplorerBack() {
         className='flex h-full w-full flex-col p-[1rem]'
         onClick={() => flippableController.flip()}
       >
-        <Link
-          href={archiveMap.archive.explorer.gallery.id.link(gallery.id)}
-        >
+        <Link href={archiveMap.archive.explorer.gallery.id.link(gallery.id)}>
           <GalleryBackTitle />
         </Link>
         <GalleryBackAuthor />

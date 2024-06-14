@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { chatConversationModel, ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
+import {
+  chatConversationModel,
+  ChatConversationObj,
+} from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { chatConversationDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/main';
 
 type TargetObj = ChatConversationObj;
@@ -54,8 +57,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const currentObj =
-    objs.filter((chat) => chat.id === id).at(0);
+  const currentObj = objs.filter((chat) => chat.id === id).at(0);
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -116,7 +118,6 @@ const useControllerForChatConversationList = (listId: string): Controller => {
         return prevObj;
       }
       return undefined;
-
     },
     searchQuery: () => {
       if (query === '') {
@@ -203,10 +204,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       changeId(newObj.id);
       return newObj;
     },
-    createConversation: async (
-      userId: string,
-      chatId: string,
-    ) => {
+    createConversation: async (userId: string, chatId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         chatId: chatId,
@@ -217,7 +215,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       return newObj;
-    }
+    },
   };
 
   const editActions: EditActions = {

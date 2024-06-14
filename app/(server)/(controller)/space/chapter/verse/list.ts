@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { chapterVerseModel, ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
+import {
+  chapterVerseModel,
+  ChapterVerseObj,
+} from '@/(server)/(model)/space/chapter/verse/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import assert from 'assert';
 
@@ -33,7 +36,12 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createVerse(title: string, summary: string, userId: string, chapterId: string): Promise<TargetObj>;
+  createVerse(
+    title: string,
+    summary: string,
+    userId: string,
+    chapterId: string,
+  ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -57,7 +65,6 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
-
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -193,13 +200,18 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
       changeId(newObj.id);
       return newObj;
     },
-    createVerse: async (title: string, description: string, userId: string, chapterId: string) => {
+    createVerse: async (
+      title: string,
+      description: string,
+      userId: string,
+      chapterId: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         chapterId: chapterId,
         title: title,
         description: description,
-        userId: userId
+        userId: userId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

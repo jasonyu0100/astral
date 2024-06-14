@@ -17,9 +17,8 @@ type SpaceUpdateMemberObj {
 }
 `;
 
-export const ContextForSpaceUpdateMemberObj = createContext<SpaceUpdateMemberObj>(
-  {} as SpaceUpdateMemberObj,
-);
+export const ContextForSpaceUpdateMemberObj =
+  createContext<SpaceUpdateMemberObj>({} as SpaceUpdateMemberObj);
 
 export const exampleSpaceUpdateMember: SpaceUpdateMemberObj = {
   id: '0',
@@ -49,11 +48,11 @@ export const exampleSpaceUpdateMembers: SpaceUpdateMemberObj[] = [
   },
 ];
 
-export const spaceUpdateMemberModel : ModelInterface<SpaceUpdateMemberObj> = {
+export const spaceUpdateMemberModel: ModelInterface<SpaceUpdateMemberObj> = {
   name: 'update',
   gql: spaceUpdateMemberGql,
   example: exampleSpaceUpdateMember,
   examples: exampleSpaceUpdateMembers,
   parentKey: 'updateId',
   children: [],
-}
+};

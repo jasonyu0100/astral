@@ -1,6 +1,6 @@
 export function ResourcesFooter({ children }: { children?: React.ReactNode }) {
   return (
-    <div className='flex w-full flex-shrink-0 flex-row items-center justify-between mt-auto h-[80px]'>
+    <div className='mt-auto flex h-[80px] w-full flex-shrink-0 flex-row items-center justify-between'>
       {children}
     </div>
   );

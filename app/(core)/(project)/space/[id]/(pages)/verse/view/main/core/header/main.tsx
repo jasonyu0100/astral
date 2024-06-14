@@ -1,9 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  
-  borderFx,
-  glassFx,
-} from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { VerseHeaderLeft } from './left/main';
 import { VerseHeaderMiddle } from './middle/main';
 import { VerseHeaderRight } from './right/main';

@@ -6,7 +6,9 @@ import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebarView indicator={DashboardSidebarIndicatorType.Creative} />
+      <DashboardSidebarView
+        indicator={DashboardSidebarIndicatorType.Creative}
+      />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

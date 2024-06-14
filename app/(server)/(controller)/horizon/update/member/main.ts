@@ -51,7 +51,7 @@ const useControllerForHorizonUpdateMemberMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -115,4 +115,7 @@ const useControllerForHorizonUpdateMemberMain = (objId: string): Controller => {
 };
 
 const ContextForHorizonUpdateMemberMain = createContext({} as Controller);
-export { ContextForHorizonUpdateMemberMain, useControllerForHorizonUpdateMemberMain };
+export {
+  ContextForHorizonUpdateMemberMain,
+  useControllerForHorizonUpdateMemberMain,
+};

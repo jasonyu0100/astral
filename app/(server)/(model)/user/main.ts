@@ -110,11 +110,11 @@ export const exampleUsers: UserObj[] = [
   },
 ];
 
-export const userModel : ModelInterface<UserObj> = {
+export const userModel: ModelInterface<UserObj> = {
   name: 'user',
   parentKey: '',
   children: ['reservation', 'supporter', 'collaborator'],
   gql: userGql,
   example: exampleUser,
   examples: exampleUsers,
-}
+};

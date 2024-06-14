@@ -92,11 +92,12 @@ const useControllerForUserMain = (objId: string): Controller => {
         const user = users[0];
         user?.passwordHash && delete user.passwordHash;
         if (user.subscriptionId === null) {
-          const timeDiff = new Date().getTime() - new Date(user.created).getTime();
+          const timeDiff =
+            new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         } else {
           const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId
+            user.subscriptionId,
           );
           if (subscription.plan.active !== true) {
             throw new Error('Subscription is not active');
@@ -123,14 +124,15 @@ const useControllerForUserMain = (objId: string): Controller => {
         const user = users[0];
         user?.passwordHash && delete user.passwordHash;
         if (user.subscriptionId === null) {
-          const timeDiff = new Date().getTime() - new Date(user.created).getTime();
+          const timeDiff =
+            new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (0 < daysDifference && daysDifference < 14) {
             throw new Error('Account trial is over');
           }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId
+            user.subscriptionId,
           );
           if (subscription.plan.active !== true) {
             throw new Error('Subscription is not active');
@@ -144,7 +146,7 @@ const useControllerForUserMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {

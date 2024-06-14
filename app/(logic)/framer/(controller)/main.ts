@@ -11,7 +11,9 @@ export interface ContextForMotionObjInterface {
   constraintsRef: MutableRefObject<null>;
 }
 
-export const ContextForMotionObj = createContext({} as ContextForMotionObjInterface);
+export const ContextForMotionObj = createContext(
+  {} as ContextForMotionObjInterface,
+);
 
 export const useControllerForMotionObj = (
   initialX: number,

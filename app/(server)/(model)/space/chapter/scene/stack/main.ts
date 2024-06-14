@@ -67,4 +67,4 @@ export const sceneStackModel: ModelInterface<SceneStackObj> = {
   examples: exampleSceneIdeas,
   parentKey: 'sceneId',
   children: [],
-}
+};

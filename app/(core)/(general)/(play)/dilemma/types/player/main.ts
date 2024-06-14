@@ -1,4 +1,4 @@
-import { Card } from "../card/main";
+import { Card } from '../card/main';
 
 export interface Player {
   name: string;

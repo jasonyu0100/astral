@@ -4,15 +4,16 @@ import { cn } from '@/(utils)/cn';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function SceneListEntry({ index }: { index: number }) {
-  const sceneListController =
-    useContext(ContextForSceneIdeaList);
+  const sceneListController = useContext(ContextForSceneIdeaList);
   const part = useContext(ContextForChapterSceneObj);
   const active = part.id == sceneListController.state.objId;
 
   return (
     <div
-      onClick={() => sceneListController.actions.editActions.edit(part.id, part)}
-      className='w-full flex cursor-pointer'
+      onClick={() =>
+        sceneListController.actions.editActions.edit(part.id, part)
+      }
+      className='flex w-full cursor-pointer'
     >
       <p
         className={cn(`text-md font-bold`, {
@@ -20,7 +21,7 @@ export function SceneListEntry({ index }: { index: number }) {
           'text-slate-500': !active,
         })}
       >
-        {index+1}. {part.title}
+        {index + 1}. {part.title}
       </p>
     </div>
   );

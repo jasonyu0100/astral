@@ -1,11 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function NetworkContainer({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function NetworkContainer({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
       name={NetworkContainer.name}

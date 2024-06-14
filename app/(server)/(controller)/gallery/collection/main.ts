@@ -51,7 +51,7 @@ const useControllerForGalleryCollectionMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -115,4 +115,7 @@ const useControllerForGalleryCollectionMain = (objId: string): Controller => {
 };
 
 const ContextForGalleryCollectionMain = createContext({} as Controller);
-export { ContextForGalleryCollectionMain, useControllerForGalleryCollectionMain };
+export {
+  ContextForGalleryCollectionMain,
+  useControllerForGalleryCollectionMain,
+};

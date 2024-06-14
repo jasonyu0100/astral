@@ -4,7 +4,10 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { exampleFileElem, FileElem } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+} from '@/(server)/(model)/elements/file/main';
 import {
   getSpaceTemplates,
   SpaceTemplate,
@@ -90,7 +93,10 @@ export function CreateSpaceModalView() {
       changeTemplateSpaceChapters(templates),
   };
 
-  async function createChapters(space: SpaceObj, templateSpaceChapters: TemplateChapterObj[]) {
+  async function createChapters(
+    space: SpaceObj,
+    templateSpaceChapters: TemplateChapterObj[],
+  ) {
     const chapters = await Promise.all(
       templateSpaceChapters.map(async (templateChapter) => {
         const chapter =
@@ -122,23 +128,25 @@ export function CreateSpaceModalView() {
           console.assert(false, 'not implemented');
           const chats = await Promise.all(
             templateChapter.chatTemplates.map(async (templateChat) => {
-              const chat = await chatListController.actions.createActions.createChat(
-                templateChat.title,
-                templateChat.description,
-                user.id,
-                chapter.id,
-              );
+              const chat =
+                await chatListController.actions.createActions.createChat(
+                  templateChat.title,
+                  templateChat.description,
+                  user.id,
+                  chapter.id,
+                );
               return chat;
             }),
           );
           return chats;
         } else {
-          const chat = await chatListController.actions.createActions.createChat(
-            chapter.title,
-            chapter.description,
-            user.id,
-            chapter.id,
-          );
+          const chat =
+            await chatListController.actions.createActions.createChat(
+              chapter.title,
+              chapter.description,
+              user.id,
+              chapter.id,
+            );
           return [chat];
         }
       }),
@@ -174,12 +182,13 @@ export function CreateSpaceModalView() {
           );
           return scenes;
         } else {
-          const scene = await sceneListController.actions.createActions.createScene(
-            chapter.title,
-            chapter.description,
-            user.id,
-            chapter.id,
-          );
+          const scene =
+            await sceneListController.actions.createActions.createScene(
+              chapter.title,
+              chapter.description,
+              user.id,
+              chapter.id,
+            );
           return [scene];
         }
       }),
@@ -215,12 +224,13 @@ export function CreateSpaceModalView() {
           );
           return verses;
         } else {
-          const verse = await verseListController.actions.createActions.createVerse(
-            chapter.title,
-            chapter.description,
-            user.id,
-            chapter.id,
-          );
+          const verse =
+            await verseListController.actions.createActions.createVerse(
+              chapter.title,
+              chapter.description,
+              user.id,
+              chapter.id,
+            );
           return [verse];
         }
       }),
@@ -233,15 +243,15 @@ export function CreateSpaceModalView() {
     spaceListController.actions.createActions
       .createFromTemplate(title, description, user.id, thumbnail, category)
       .then(async (space) => {
-        console.log("SPACE CREATED", space)
+        console.log('SPACE CREATED', space);
         const chapters = await createChapters(space, templateSpaceChapters);
-        console.log("CHAPTERS CREATED", chapters)
+        console.log('CHAPTERS CREATED', chapters);
         const scenes = await createScenes(chapters, templateSpaceChapters);
-        console.log("SCENES CREATED", scenes)
+        console.log('SCENES CREATED', scenes);
         const verses = await createVerses(chapters, templateSpaceChapters);
-        console.log("VERSES CREATED", verses)
+        console.log('VERSES CREATED', verses);
         const chats = await createChats(chapters, templateSpaceChapters);
-        console.log("CHATS CREATED", chats)
+        console.log('CHATS CREATED', chats);
       });
     openableController.close();
   }

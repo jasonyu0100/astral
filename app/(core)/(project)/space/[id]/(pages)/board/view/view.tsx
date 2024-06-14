@@ -5,7 +5,7 @@ import { BoardContainer } from './container/main';
 export function BoardView() {
   return (
     <BoardContainer>
-      <BoardMain/>
+      <BoardMain />
       <BoardSidebar />
     </BoardContainer>
   );

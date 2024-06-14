@@ -13,13 +13,13 @@ export function BaseSidebar() {
       borderFx={borderFx['border-r']}
     >
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-      <SidebarEntry/>
-      <SidebarEntry/>
-      <SidebarEntry/>
+      <SidebarEntry />
+      <SidebarEntry />
+      <SidebarEntry />
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-      <SidebarEntry/>
+      <SidebarEntry />
       <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-      <SidebarEntry/>
+      <SidebarEntry />
     </GlassAreaContainer>
   );
 }

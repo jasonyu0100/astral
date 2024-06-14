@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateAddModel, ClusterUpdateAddObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import {
+  clusterUpdateAddModel,
+  ClusterUpdateAddObj,
+} from '@/(server)/(model)/horizon/cluster/update/add/main';
 import { clusterUpdateAddDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
 import { clusterUpdateModel } from '@/(server)/(model)/horizon/cluster/update/main';
 
@@ -56,7 +59,6 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -65,7 +67,7 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -136,8 +138,8 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -148,7 +150,7 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -184,7 +186,7 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
         updateId: '',
         spaceUpdateId: '',
         value: 0,
-        message: ''
+        message: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -200,7 +202,7 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -216,10 +218,12 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

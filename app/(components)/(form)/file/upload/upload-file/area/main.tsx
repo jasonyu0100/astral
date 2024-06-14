@@ -1,5 +1,5 @@
-import { UploadFileAreaPlaceholder } from "./placeholder/main";
-import { UploadFileAreaInterface } from "./upload/main";
+import { UploadFileAreaPlaceholder } from './placeholder/main';
+import { UploadFileAreaInterface } from './upload/main';
 
 export function UploadFileArea() {
   return (

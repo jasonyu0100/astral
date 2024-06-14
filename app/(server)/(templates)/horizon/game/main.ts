@@ -8,4 +8,3 @@ export const gameHorizonTemplate: TemplateHorizonObj = {
   clusters: [],
   updates: [],
 };
-

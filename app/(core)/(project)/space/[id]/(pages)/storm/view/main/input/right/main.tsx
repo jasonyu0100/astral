@@ -10,7 +10,7 @@ import { useControllerForChatMessageSend } from '../../../../(controller)/messag
 
 export function StormChatInputRight() {
   const { sendMessage } = useControllerForChatMessageSend();
-  
+
   return (
     <div className='flex h-[50px] w-[100px] flex-shrink-0 flex-row items-center justify-evenly'>
       {/* <StormMessageInputVoice /> */}

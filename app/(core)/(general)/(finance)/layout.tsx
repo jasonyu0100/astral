@@ -17,7 +17,7 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <Suspense fallback={<PortalBackground/>}>
+    <Suspense fallback={<PortalBackground />}>
       <Topbar />
       <DashboardController>
         <DashboardSidebarView minimised />

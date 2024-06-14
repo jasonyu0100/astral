@@ -56,4 +56,4 @@ export const horizonMemberModel: ModelInterface<HorizonMemberObj> = {
   examples: exampleHorizonMembers,
   parentKey: 'horizonId',
   children: [],
-}
+};

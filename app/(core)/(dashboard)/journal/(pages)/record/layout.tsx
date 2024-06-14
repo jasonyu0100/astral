@@ -1,4 +1,7 @@
-import { JournalTabStage, LinkTabs } from '@/(core)/(dashboard)/journal/(tabs)/main';
+import {
+  JournalTabStage,
+  LinkTabs,
+} from '@/(core)/(dashboard)/journal/(tabs)/main';
 
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 

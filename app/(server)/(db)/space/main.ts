@@ -124,7 +124,6 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteSpaceObj);
 }
 
-
 export const spaceDbWrapper: GqlDbWrapper<SpaceObj> = {
   getObj,
   listObjs,

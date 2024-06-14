@@ -16,7 +16,15 @@ export enum StickyNoteColor {
   PINK = 'pink',
 }
 
-export function StickyNoteTextIdea({ color, size, children }: { color: StickyNoteColor, size: StickyNoteSize, children: React.ReactNode }) {
+export function StickyNoteTextIdea({
+  color,
+  size,
+  children,
+}: {
+  color: StickyNoteColor;
+  size: StickyNoteSize;
+  children: React.ReactNode;
+}) {
   function getAspect(size: StickyNoteSize) {
     switch (size) {
       case StickyNoteSize.SQUARE:
@@ -47,7 +55,7 @@ export function StickyNoteTextIdea({ color, size, children }: { color: StickyNot
         return 'bg-yellow-500';
     }
   }
-  
+
   function getTextColor(color: StickyNoteColor) {
     switch (color) {
       case StickyNoteColor.BLACK:
@@ -69,7 +77,9 @@ export function StickyNoteTextIdea({ color, size, children }: { color: StickyNot
   const aspect = getAspect(size);
 
   return (
-    <GlassWindowFrame className={`h-[15rem] animate-pulse-slow bg-green-500 shadow-glow ${aspect}`}>
+    <GlassWindowFrame
+      className={`h-[15rem] animate-pulse-slow bg-green-500 shadow-glow ${aspect}`}
+    >
       <GlassWindowContents
         className={`flex w-full flex-col p-[1rem] ${backgroundColor}`}
       >

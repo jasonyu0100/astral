@@ -49,11 +49,11 @@ export const exampleSpaceMembers: SpaceMemberObj[] = [
   },
 ];
 
-export const spaceMemberModel : ModelInterface<SpaceMemberObj> = {
+export const spaceMemberModel: ModelInterface<SpaceMemberObj> = {
   name: 'member',
   gql: spaceMemberGql,
   example: exampleSpaceMember,
   examples: exampleSpaceMembers,
   parentKey: 'spaceId',
   children: [],
-}
+};

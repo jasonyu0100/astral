@@ -1,7 +1,11 @@
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-export function HorizonsContainer({ children }: { children?: React.ReactNode }) {
+export function HorizonsContainer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassAreaContainer
       name={HorizonsContainer.name}

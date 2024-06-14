@@ -4,9 +4,7 @@ import { ResourceContainer } from '../../common/container/main';
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <ResourceContainer
-        className='h-[250px] p-[20px]'
-      >
+      <ResourceContainer className='h-[250px] p-[20px]'>
         <div className='flex aspect-square w-full items-center justify-center rounded bg-black'>
           <svg
             xmlns='http://www.w3.org/2000/svg'

@@ -87,7 +87,7 @@ function SearchImage({ image, active, ...props }: SearchImageProps) {
       <img
         src={image?.src}
         alt={image.title}
-        className={"aspect-square  w-full object-cover bg-black"}
+        className={'aspect-square  w-full bg-black object-cover'}
         {...props}
       />
     </div>

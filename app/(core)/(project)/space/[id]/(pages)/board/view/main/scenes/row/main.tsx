@@ -26,10 +26,10 @@ export function BoardScenesRow() {
           </p>
         ))}
         {sceneListController.state.objs.map((scene, index) => (
-        <ContextForChapterSceneObj.Provider value={scene} key={scene.id}>
-          <ElementContainer index={index} key={scene.id} />
-        </ContextForChapterSceneObj.Provider>
-      ))}
+          <ContextForChapterSceneObj.Provider value={scene} key={scene.id}>
+            <ElementContainer index={index} key={scene.id} />
+          </ContextForChapterSceneObj.Provider>
+        ))}
         <ScenesAdd onClick={() => openableController.open()} />
       </ScenesRowContainer>
     </>

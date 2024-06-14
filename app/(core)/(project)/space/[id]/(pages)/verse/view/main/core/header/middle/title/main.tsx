@@ -5,5 +5,5 @@ export default function VerseHeaderTitle() {
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const title = chaptersHandler.state.currentObj?.title || '';
 
-  return <div className='text-lg font-extraBold text-slate-300'>{title}</div>;
+  return <div className='font-extraBold text-lg text-slate-300'>{title}</div>;
 }

@@ -3,14 +3,18 @@ import { devMap } from './map';
 
 export default function Page() {
   return (
-    <div className='flex flex-col p-[2rem] space-y-[1rem]'>
+    <div className='flex flex-col space-y-[1rem] p-[2rem]'>
       <h1 className='text-2xl font-bold text-white'>DEVELOP</h1>
       <FormattedLink href={devMap.dev.texture.link}>Texture</FormattedLink>
       <FormattedLink href={devMap.dev.fonts.link}>Fonts</FormattedLink>
       <FormattedLink href={devMap.dev.tables.link}>Models</FormattedLink>
       <FormattedLink href={devMap.dev.explore.link}>Explore</FormattedLink>
-      <FormattedLink href={devMap.dev['single-idea'].link}>Selection</FormattedLink>
-      <FormattedLink href={devMap.dev['group-idea'].link}>Selection</FormattedLink>
+      <FormattedLink href={devMap.dev['single-idea'].link}>
+        Selection
+      </FormattedLink>
+      <FormattedLink href={devMap.dev['group-idea'].link}>
+        Selection
+      </FormattedLink>
     </div>
   );
 }

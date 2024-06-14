@@ -7,9 +7,11 @@ export default function Page() {
   const user = useGlobalUser((state) => state.user);
 
   async function openExistingCustomerBillingSession() {
-    stripeExistingBillingSession(user.customerId || "").then(billingSession => {
-      window.location.href = billingSession.url;
-    });
+    stripeExistingBillingSession(user.customerId || '').then(
+      (billingSession) => {
+        window.location.href = billingSession.url;
+      },
+    );
   }
 
   return (

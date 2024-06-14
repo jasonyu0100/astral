@@ -12,7 +12,7 @@ import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery
 export function ResourcesBreadcrumbs() {
   const galleryMainController = useContext(ContextForGalleryMain);
   const collectionMainController = useContext(ContextForGalleryCollectionMain);
-  
+
   return (
     <CollectionBreadcrumbs>
       <CollectionBreadcrumbItem
@@ -24,14 +24,18 @@ export function ResourcesBreadcrumbs() {
       <CollectionBreadcrumbDivider />
       <CollectionBreadcrumbItem
         active={false}
-        href={archiveMap.archive.explorer.gallery.id.link(galleryMainController.state.objId)}
+        href={archiveMap.archive.explorer.gallery.id.link(
+          galleryMainController.state.objId,
+        )}
       >
         {galleryMainController.state.obj.title}
       </CollectionBreadcrumbItem>
       <CollectionBreadcrumbDivider />
       <CollectionBreadcrumbItem
         active={true}
-        href={archiveMap.archive.explorer.collection.id.link(collectionMainController.state.objId)}
+        href={archiveMap.archive.explorer.collection.id.link(
+          collectionMainController.state.objId,
+        )}
       >
         {collectionMainController.state.obj.title}
       </CollectionBreadcrumbItem>

@@ -24,7 +24,9 @@ interface BoardContextObj {
   updateModalType: (multiModalType: BoardModalType) => void;
 }
 
-export const BoardContext = createContext<BoardContextObj>({} as BoardContextObj);
+export const BoardContext = createContext<BoardContextObj>(
+  {} as BoardContextObj,
+);
 
 export enum BoardModalType {
   DEFAULT = 'DEFAULT',

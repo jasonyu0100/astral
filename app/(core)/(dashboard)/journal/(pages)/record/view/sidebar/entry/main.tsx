@@ -5,11 +5,7 @@ import { borderFx, roundedFx, glassFx } from '@/(style)/data';
 import React from 'react';
 import { ColorfulText } from '@/(components)/(text)/colorful/main';
 
-export function SidebarEntry({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function SidebarEntry({ children }: { children?: React.ReactNode }) {
   return (
     <GlassWindowFrame
       name='temp'
@@ -18,8 +14,7 @@ export function SidebarEntry({
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowPane glassFx={glassFx['glass-5']} />
-      <GlassWindowContents className='flex flex-row'>
-      </GlassWindowContents>
+      <GlassWindowContents className='flex flex-row'></GlassWindowContents>
     </GlassWindowFrame>
   );
 }

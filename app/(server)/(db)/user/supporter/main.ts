@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { UserSupporterObj } from "@/(server)/(model)/user/supporter/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createUserSupporterObj, deleteUserSupporterObj, updateUserSupporterObj } from "@/graphql/mutations";
-import { getUserSupporterObj, listUserSupporterObjs } from "@/graphql/queries";
-import { GqlDbWrapper } from "../../main";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { UserSupporterObj } from '@/(server)/(model)/user/supporter/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createUserSupporterObj,
+  deleteUserSupporterObj,
+  updateUserSupporterObj,
+} from '@/graphql/mutations';
+import { getUserSupporterObj, listUserSupporterObjs } from '@/graphql/queries';
+import { GqlDbWrapper } from '../../main';
 
 function castSingle(obj: any) {
   return obj as UserSupporterObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listUserSupporterObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listUserSupporterObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listUserSupporterObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listUserSupporterObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<UserSupporterObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createUserSupporterObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<UserSupporterObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<UserSupporterObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateUserSupporterObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: UserSupporterObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: UserSupporterObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateUserSupporterObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteUserSupporterObj);
-} 
+}
 
 export const userSupporterDbWrapper: GqlDbWrapper<UserSupporterObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

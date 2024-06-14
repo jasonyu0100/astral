@@ -66,7 +66,7 @@ export const usePolaroid = () => {
 
   useEffect(() => {
     if (!flipped) {
-      let temp = window.setInterval(
+      const temp = window.setInterval(
         _polaroidHandler.transitionPolaroid,
         duration,
       );

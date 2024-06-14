@@ -1,4 +1,4 @@
-import { Quadrants } from "../../../types/quadrants/main";
+import { Quadrants } from '../../../types/quadrants/main';
 
 export const defaultQuadrants: Quadrants = {
   quadrantA: {
@@ -18,4 +18,3 @@ export const defaultQuadrants: Quadrants = {
     payoutB: 2,
   },
 };
-

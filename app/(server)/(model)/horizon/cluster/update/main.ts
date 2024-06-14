@@ -67,5 +67,5 @@ export const clusterUpdateModel: ModelInterface<ClusterUpdateObj> = {
   gql: clusterUpdateGql,
   examples: exampleClusterUpdates,
   parentKey: 'clusterId',
-  children: ['add', 'member']
-}
+  children: ['add', 'member'],
+};

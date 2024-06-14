@@ -18,10 +18,8 @@ export default function Layout({
     <>
       <Topbar />
       <DashboardController>
-        <DashboardSidebarView minimised backUrl={learnMap.learn.link}/>
-        <DashboardBody>
-          {children}
-        </DashboardBody>
+        <DashboardSidebarView minimised backUrl={learnMap.learn.link} />
+        <DashboardBody>{children}</DashboardBody>
       </DashboardController>
     </>
   );

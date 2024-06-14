@@ -6,22 +6,23 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 
 export function VerseMoments() {
-
   return (
     <div className='flex w-full flex-row' style={{ height: '100%' }}>
       <GlassAreaContainer
         name={VerseMoments.name}
         sizeFx='flex-grow h-full'
-        className={`overflow-auto p-[2rem] space-y-[3rem]`}
+        className={`space-y-[3rem] overflow-auto p-[2rem]`}
       >
-        <div className='flex flex-col h-full w-full items-center justify-center'>
-          <GlassWindowFrame className="h-[300px] w-[500px]">
-            <GlassWindowPane glassFx={glassFx['glass-5']}/>
+        <div className='flex h-full w-full flex-col items-center justify-center'>
+          <GlassWindowFrame className='h-[300px] w-[500px]'>
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
-          <br/>
-          <div className="flex flex-col space-y-[1rem]">
+          <br />
+          <div className='flex flex-col space-y-[1rem]'>
             <div className='font-bold text-slate-500'>Verse 1.0</div>
-            <div className='font-bold text-slate-500'>A quick verse drop that I made on the weekend</div>
+            <div className='font-bold text-slate-500'>
+              A quick verse drop that I made on the weekend
+            </div>
           </div>
         </div>
         {/* <div className='flex flex-col space-y-[1rem]'>

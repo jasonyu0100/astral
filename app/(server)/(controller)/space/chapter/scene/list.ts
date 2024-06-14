@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { chapterSceneModel, ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
+import {
+  chapterSceneModel,
+  ChapterSceneObj,
+} from '@/(server)/(model)/space/chapter/scene/main';
 import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main';
 
 type TargetObj = ChapterSceneObj;
@@ -32,7 +35,12 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createScene(title: string, desription: string, userId: string, chapterId: string): Promise<TargetObj>;
+  createScene(
+    title: string,
+    desription: string,
+    userId: string,
+    chapterId: string,
+  ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -57,7 +65,6 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -66,7 +73,7 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -137,8 +144,8 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -149,7 +156,7 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-      console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -214,7 +221,7 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -230,10 +237,12 @@ const useControllerForChapterSceneList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

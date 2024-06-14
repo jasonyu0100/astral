@@ -2,8 +2,10 @@ import { ButtonInputProps } from '@/(types)/props/main';
 
 export function StormChapterAdd({ ...props }: ButtonInputProps) {
   return (
-    <button className='flex w-full mt-[1rem]' {...props}>
-      <p className='font-extraBold text-xl text-slate-400 animate-pulse-slow'>Add Chapter</p>
+    <button className='mt-[1rem] flex w-full' {...props}>
+      <p className='animate-pulse-slow font-extraBold text-xl text-slate-400'>
+        Add Chapter
+      </p>
     </button>
   );
 }

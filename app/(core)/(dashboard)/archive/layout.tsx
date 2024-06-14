@@ -6,10 +6,8 @@ import { DashboardSidebarIndicatorType } from '@/(core)/(common)/(sidebar)/indic
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebarView indicator={DashboardSidebarIndicatorType.Archive}/>
-      <DashboardBody>
-        {children}
-      </DashboardBody>
+      <DashboardSidebarView indicator={DashboardSidebarIndicatorType.Archive} />
+      <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );
 }

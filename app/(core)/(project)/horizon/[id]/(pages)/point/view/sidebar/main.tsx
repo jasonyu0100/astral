@@ -12,18 +12,18 @@ export function HorizonViewSidebar() {
       glassFx={glassFx['glass-5']}
     >
       <p className='text-sm font-bold text-slate-500'>21 hours ago</p>
-      <SidebarEntry/>
+      <SidebarEntry />
       <p className='text-sm font-bold text-slate-500'>2 days ago</p>
-      <SidebarEntry/>
-      <SidebarEntry/>
-      <SidebarEntry/>
-      <SidebarEntry/>
+      <SidebarEntry />
+      <SidebarEntry />
+      <SidebarEntry />
+      <SidebarEntry />
       <p className='text-sm font-bold text-slate-500'>7 days ago</p>
-      <SidebarEntry/>
-      <SidebarEntry/>
+      <SidebarEntry />
+      <SidebarEntry />
       <p className='text-sm font-bold text-slate-500'>1 month ago</p>
-      <SidebarEntry/>
-      <SidebarEntry/>
+      <SidebarEntry />
+      <SidebarEntry />
     </GlassAreaContainer>
   );
 }

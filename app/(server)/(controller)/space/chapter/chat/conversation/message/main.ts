@@ -51,7 +51,7 @@ const useControllerForConversationMessageMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -115,4 +115,7 @@ const useControllerForConversationMessageMain = (objId: string): Controller => {
 };
 
 const ContextForConversationMessageMain = createContext({} as Controller);
-export { ContextForConversationMessageMain, useControllerForConversationMessageMain };
+export {
+  ContextForConversationMessageMain,
+  useControllerForConversationMessageMain,
+};

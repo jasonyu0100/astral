@@ -5,7 +5,7 @@ import { useContext } from 'react';
 export function ContainerDescription() {
   const user = useGlobalUser((state) => state.user);
   const gallery = useContext(ContextForGalleryObj);
-  
+
   return (
     <div className='flex w-full flex-grow flex-col p-[1rem]'>
       <div className='animate-pulse font-extraBold text-xl text-slate-300'>

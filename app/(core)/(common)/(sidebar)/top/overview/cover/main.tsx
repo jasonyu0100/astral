@@ -8,7 +8,7 @@ import { DashboardSidebarContext } from '../../../main';
 export function DashboardSidebarTopOveriewCover() {
   const { indicator, minimised } = useContext(DashboardSidebarContext);
   const active = !indicator;
-  const space = useGlobalSpace(state => state.space);
+  const space = useGlobalSpace((state) => state.space);
 
   return (
     <div className='relative flex-shrink-0'>
@@ -41,7 +41,7 @@ export function DashboardSidebarTopOveriewCover() {
         </svg>
       ) : (
         <img
-          src={space?.thumbnail?.src || "/brand/icon-bg-sm.png"}
+          src={space?.thumbnail?.src || '/brand/icon-bg-sm.png'}
           className={cn('h-[2.5rem] w-[2.5rem] rounded-full', {
             [effectFx['glow-lg']]: active,
           })}

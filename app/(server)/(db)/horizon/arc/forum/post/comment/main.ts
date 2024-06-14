@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { PostCommentObj } from "@/(server)/(model)/horizon/arc/forum/post/comment/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createPostCommentObj, deletePostCommentObj, updatePostCommentObj } from "@/graphql/mutations";
-import { getPostCommentObj, listPostCommentObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { PostCommentObj } from '@/(server)/(model)/horizon/arc/forum/post/comment/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createPostCommentObj,
+  deletePostCommentObj,
+  updatePostCommentObj,
+} from '@/graphql/mutations';
+import { getPostCommentObj, listPostCommentObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as PostCommentObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listPostCommentObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listPostCommentObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listPostCommentObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listPostCommentObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<PostCommentObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createPostCommentObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<PostCommentObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<PostCommentObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updatePostCommentObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: PostCommentObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: PostCommentObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updatePostCommentObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deletePostCommentObj);
-} 
+}
 
 export const postCommentDbWrapper: GqlDbWrapper<PostCommentObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

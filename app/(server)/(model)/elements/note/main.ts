@@ -67,4 +67,4 @@ export const noteElemModel: ModelInterface<NoteElem> = {
   name: 'note',
   children: [],
   parentKey: 'id',
-}
+};

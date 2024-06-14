@@ -1,6 +1,4 @@
-import {
-  StarModalContext,
-} from '@/(core)/(project)/space/[id]/(pages)/board/(modal)/idea/main';
+import { StarModalContext } from '@/(core)/(project)/space/[id]/(pages)/board/(modal)/idea/main';
 import { BoardHeaderFileButton } from './file/main';
 import { BoardHeaderLinkButton } from './link/main';
 import { BoardHeaderNoteButton } from './note/main';
@@ -12,7 +10,7 @@ export function DefaultLeft() {
 
   return (
     <div className='flex w-1/3 flex-row'>
-      <ToggleBoardModalButton/>
+      <ToggleBoardModalButton />
       <BoardHeaderFileButton
         onClick={() => modalContext.addFileStarModal.open()}
       />

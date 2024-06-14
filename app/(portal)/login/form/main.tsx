@@ -68,7 +68,7 @@ export function PortalLoginForm() {
   return (
     <PortalForm>
       <PortalTextHeader />
-      <div className="p-[1rem]"/>
+      <div className='p-[1rem]' />
       <PortalFormBody>
         <PortalFormInput
           value={email}

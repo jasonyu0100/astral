@@ -49,7 +49,7 @@ export const exampleUserCollaborators: UserCollaboratorObj[] = [
   },
 ];
 
-export const userCollaboratorModel : ModelInterface<UserCollaboratorObj> = {
+export const userCollaboratorModel: ModelInterface<UserCollaboratorObj> = {
   name: 'collaborator',
   gql: userCollaboratorGql,
   example: exampleUserCollaborator,

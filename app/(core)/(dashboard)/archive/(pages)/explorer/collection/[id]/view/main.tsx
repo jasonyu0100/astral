@@ -7,7 +7,7 @@ import { ResourcesSearch } from './search/main';
 export function ResourcesBody() {
   return (
     <ResourcesContainer>
-      <ResourcesSearch/>
+      <ResourcesSearch />
       <ResourcesGrid />
       <ResourcesBreadcrumbs />
     </ResourcesContainer>

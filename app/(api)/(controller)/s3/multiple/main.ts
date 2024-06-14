@@ -1,15 +1,14 @@
-import { createContext, useState } from 'react';
+import { generateUploadURL } from '@/(api)/aws/s3/main';
 import {
   FileElem,
   FileElemVariant,
   getFileVariantFromMimeType,
-} from '../../../../(server)/(model)/elements/file/main';
-import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { generateUploadURL } from '@/(api)/aws/s3/main';
+} from '@/(server)/(model)/elements/file/main';
+import { ChangeEvent, createContext, useState } from 'react';
 
 export interface UploadsActions {
   clearFile: (i: number) => void;
-  uploadFiles: (event: any) => Promise<void>;
+  uploadFiles: (event: ChangeEvent<HTMLInputElement>) => Promise<void>;
 }
 
 export interface UploadsHandlerObj {
@@ -20,17 +19,21 @@ export interface UploadsHandlerObj {
 
 export const UploadsHandlerContext = createContext({} as UploadsHandlerObj);
 
-export const useS3UploadsController = (variant ?: FileElemVariant) : UploadsHandlerObj => {
+export const useS3UploadsController = (
+  variant?: FileElemVariant,
+): UploadsHandlerObj => {
   const [files, changeFiles] = useState<FileElem[]>([]);
 
   const uploadsActions: UploadsActions = {
     clearFile: (i) =>
       changeFiles((prev) => prev.filter((_, index) => index !== i)),
-    uploadFiles: async (event: any) => {
+    uploadFiles: async (event) => {
       // get file attributes
-      const files: any[] = Array.from(event.target.files);
+      const files: File[] = event.target.files
+        ? Array.from(event.target.files)
+        : [];
       const payload: FileElem[] = [];
-      for (let file of files) {
+      for (const file of files) {
         const fileName = file.name;
         const fileType = file.type;
         const fileSize = file.size;

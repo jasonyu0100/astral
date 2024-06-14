@@ -1,9 +1,4 @@
-import {
-  glassFx,
-  
-  roundedFx,
-  borderFx,
-} from '@/(style)/data';
+import { glassFx, roundedFx, borderFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
 export function StormContainer({ children }: { children?: React.ReactNode }) {

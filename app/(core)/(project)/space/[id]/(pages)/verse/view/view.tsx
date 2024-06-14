@@ -5,7 +5,7 @@ import { VerseContainer } from './container/main';
 export function VerseView() {
   return (
     <VerseContainer>
-      <VerseMain/>
+      <VerseMain />
       <VerseSidebar />
     </VerseContainer>
   );

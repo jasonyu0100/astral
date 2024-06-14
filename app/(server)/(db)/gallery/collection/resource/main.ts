@@ -1,9 +1,16 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { CollectionResourceObj } from "@/(server)/(model)/gallery/collection/resource/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createCollectionResourceObj, deleteCollectionResourceObj, updateCollectionResourceObj } from "@/graphql/mutations";
-import { getCollectionResourceObj, listCollectionResourceObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { CollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createCollectionResourceObj,
+  deleteCollectionResourceObj,
+  updateCollectionResourceObj,
+} from '@/graphql/mutations';
+import {
+  getCollectionResourceObj,
+  listCollectionResourceObjs,
+} from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as CollectionResourceObj;
@@ -51,8 +58,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listCollectionResourceObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listCollectionResourceObjs?.items || []);
@@ -61,7 +67,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listCollectionResourceObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listCollectionResourceObjs?.items || []);
@@ -76,21 +82,24 @@ async function createObj(newObj: Omit<CollectionResourceObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createCollectionResourceObj);
-} 
+}
 
-async function updateObj(id: string, updateObj: Partial<CollectionResourceObj>) {
+async function updateObj(
+  id: string,
+  updateObj: Partial<CollectionResourceObj>,
+) {
   const payload = await amplifyClient.graphql({
     query: updateCollectionResourceObj,
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateCollectionResourceObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: CollectionResourceObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +107,13 @@ async function overwriteObj(id: string, newObj: CollectionResourceObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateCollectionResourceObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,14 +121,15 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteCollectionResourceObj);
-} 
+}
 
-export const collectionResourceDbWrapper: GqlDbWrapper<CollectionResourceObj> = {
+export const collectionResourceDbWrapper: GqlDbWrapper<CollectionResourceObj> =
+  {
     getObj,
     listObjs,
     listAllObjs,
@@ -130,4 +139,4 @@ export const collectionResourceDbWrapper: GqlDbWrapper<CollectionResourceObj> = 
     deleteObj,
     getFromVariables,
     listFromVariables,
-}
+  };

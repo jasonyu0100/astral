@@ -23,22 +23,13 @@ const gameActions = () => {
   // Deadlocks
   // Flips
 
-  function calculateSums() {
+  function calculateSums() {}
 
-  }
+  function calculateOutcome() {}
 
-  function calculateOutcome() {
-    
-  }
+  function calculateTax() {}
 
-
-  function calculateTax() {
-
-  }
-
-  function flip() {
-
-  }
+  function flip() {}
 
   function followPlay(player: Player, card: Card) {
     // Check if player has card

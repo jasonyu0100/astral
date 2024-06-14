@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { conversationMessageModel, ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import {
+  conversationMessageModel,
+  ConversationMessageObj,
+} from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { conversationMessageDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/message/main';
 
 type TargetObj = ConversationMessageObj;
@@ -35,8 +38,17 @@ interface StateActions extends BaseListStateActions<TargetObj> {
 }
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  sendUserMessage: (userId: string, chatId: string, conversationId: string) => Promise<TargetObj>;
-  sendAgentMessage: (agentId: string, chatId: string, conversationId: string, message: string) => Promise<TargetObj>;
+  sendUserMessage: (
+    userId: string,
+    chatId: string,
+    conversationId: string,
+  ) => Promise<TargetObj>;
+  sendAgentMessage: (
+    agentId: string,
+    chatId: string,
+    conversationId: string,
+    message: string,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -64,7 +76,6 @@ const useControllerForConversationMessageList = (
   const [inputMessageText, changeInputMessageText] = useState<string>('');
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
-
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -216,7 +227,11 @@ const useControllerForConversationMessageList = (
       changeId(newObj.id);
       return newObj;
     },
-    sendUserMessage: async (userId: string, chatId: string, conversationId: string) => {
+    sendUserMessage: async (
+      userId: string,
+      chatId: string,
+      conversationId: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
@@ -230,7 +245,12 @@ const useControllerForConversationMessageList = (
       changeInputMessageText('');
       return newObj;
     },
-    sendAgentMessage: async (agentId: string, chatId: string, conversationId: string, message: string) => {
+    sendAgentMessage: async (
+      agentId: string,
+      chatId: string,
+      conversationId: string,
+      message: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         agentId: agentId,
@@ -242,7 +262,7 @@ const useControllerForConversationMessageList = (
       changeObjs((prev) => [...prev, newObj]);
       changeId(newObj.id);
       return newObj;
-    }
+    },
   };
 
   const editActions: EditActions = {

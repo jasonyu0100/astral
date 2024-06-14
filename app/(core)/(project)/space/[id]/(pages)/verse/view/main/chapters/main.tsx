@@ -12,9 +12,9 @@ export function VerseChapters() {
     <ScenesContainer>
       <ScenesGoLeftAction />
       <ScenesRowContainer>
-            <ElementContainer index={1}>Verse 1.0</ElementContainer>
-            <ElementContainer index={1}>Verse 1.1</ElementContainer>
-            <ElementContainer index={1}>Verse 2.0</ElementContainer>
+        <ElementContainer index={1}>Verse 1.0</ElementContainer>
+        <ElementContainer index={1}>Verse 1.1</ElementContainer>
+        <ElementContainer index={1}>Verse 2.0</ElementContainer>
         <ScenesAdd onClick={() => {}} />
       </ScenesRowContainer>
       <ScenesGoRightAction />

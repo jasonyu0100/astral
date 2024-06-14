@@ -14,11 +14,11 @@ export function GameDescription() {
     <div className='flex flex-col space-y-[1rem]'>
       <Abstract />
       <Terminology />
-      <Payouts/>
-      <Phases/>
-      <Misc/>
-      <Meta/>
-      {access && <Force/>}
+      <Payouts />
+      <Phases />
+      <Misc />
+      <Meta />
+      {access && <Force />}
     </div>
   );
 }

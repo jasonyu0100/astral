@@ -47,7 +47,7 @@ export function BoardAddChapterModal() {
                   title,
                   description,
                   user.id,
-                  spaceMainController.state.objId
+                  spaceMainController.state.objId,
                 );
                 openableController.close();
               }}

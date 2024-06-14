@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 
 export function NetworkSidebarPointToggle() {
-    const { toggled, toggle } = useContext(ContextForTogglable)
+  const { toggled, toggle } = useContext(ContextForTogglable);
   return (
     <div className='flex w-full flex-col'>
       <div className='mt-auto flex flex-row  items-center justify-between'>
@@ -12,10 +12,7 @@ export function NetworkSidebarPointToggle() {
             <p className='text-md font-bold text-slate-400'>John Smith</p>
           </div>
         </div>
-        <button
-          className='h-[50px] w-[50px]'
-          onClick={() => toggle()}
-        >
+        <button className='h-[50px] w-[50px]' onClick={() => toggle()}>
           {toggled ? (
             <svg
               xmlns='http://www.w3.org/2000/svg'

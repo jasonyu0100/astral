@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { ForumMemberObj } from "@/(server)/(model)/horizon/arc/forum/member/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createForumMemberObj, deleteForumMemberObj, updateForumMemberObj } from "@/graphql/mutations";
-import { getForumMemberObj, listForumMemberObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { ForumMemberObj } from '@/(server)/(model)/horizon/arc/forum/member/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createForumMemberObj,
+  deleteForumMemberObj,
+  updateForumMemberObj,
+} from '@/graphql/mutations';
+import { getForumMemberObj, listForumMemberObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ForumMemberObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listForumMemberObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listForumMemberObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listForumMemberObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<ForumMemberObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createForumMemberObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<ForumMemberObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<ForumMemberObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateForumMemberObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: ForumMemberObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: ForumMemberObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateForumMemberObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteForumMemberObj);
-} 
+}
 
 export const forumMemberDbWrapper: GqlDbWrapper<ForumMemberObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

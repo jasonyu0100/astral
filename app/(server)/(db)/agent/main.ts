@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { GqlDbWrapper } from "../main";
-import { createAgentObj, updateAgentObj, deleteAgentObj } from "@/graphql/mutations";
-import { getAgentObj, listAgentObjs } from "@/graphql/queries";
-import { AgentObj } from "@/(server)/(model)/agent/main";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { gqlArgs } from '@/(utils)/clean';
+import { GqlDbWrapper } from '../main';
+import {
+  createAgentObj,
+  updateAgentObj,
+  deleteAgentObj,
+} from '@/graphql/mutations';
+import { getAgentObj, listAgentObjs } from '@/graphql/queries';
+import { AgentObj } from '@/(server)/(model)/agent/main';
 
 function castSingle(obj: any) {
   return obj as AgentObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listAgentObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listAgentObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listAgentObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listAgentObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<AgentObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createAgentObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<AgentObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<AgentObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateAgentObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: AgentObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: AgentObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateAgentObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteAgentObj);
-} 
+}
 
 export const agentDbWrapper: GqlDbWrapper<AgentObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

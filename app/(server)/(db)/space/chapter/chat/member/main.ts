@@ -21,7 +21,7 @@ async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: getChatMemberObj,
     variables: {
-      id: value
+      id: value,
     },
   });
 

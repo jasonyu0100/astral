@@ -11,7 +11,7 @@ export function SidebarCollectionResource() {
 
   return (
     <ResourceContainer
-      className='h-[100px] p-[10px] flex-shrink-0'
+      className='h-[100px] flex-shrink-0 p-[10px]'
       onClick={() => {
         sceneIdeasController.actions.createActions.createFromFile(
           resource.title,
@@ -22,7 +22,7 @@ export function SidebarCollectionResource() {
         );
       }}
     >
-      <CollectionResourceMedia className="p-[5px]"/>
+      <CollectionResourceMedia className='p-[5px]' />
     </ResourceContainer>
   );
 }

@@ -1,5 +1,5 @@
-import { ContextForChapterSceneObj } from "@/(server)/(model)/space/chapter/scene/main";
-import { useContext } from "react";
+import { ContextForChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
+import { useContext } from 'react';
 
 export function ElementInactiveText() {
   const scene = useContext(ContextForChapterSceneObj);

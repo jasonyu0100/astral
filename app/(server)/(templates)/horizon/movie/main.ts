@@ -8,4 +8,3 @@ export const movieHorizonTemplate: TemplateHorizonObj = {
   clusters: [],
   updates: [],
 };
-

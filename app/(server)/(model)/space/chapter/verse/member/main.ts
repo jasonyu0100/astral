@@ -56,4 +56,4 @@ export const verseMemberModel: ModelInterface<VerseMemberObj> = {
   examples: exampleVerseMembers,
   parentKey: 'verseId',
   children: [],
-}
+};

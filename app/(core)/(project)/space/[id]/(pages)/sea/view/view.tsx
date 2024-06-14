@@ -20,7 +20,7 @@ export function ShareView() {
       </SeaSidebar>
       <SeaMain>
         <MonthView />
-        <div className='flex flex-col overflow-auto max-w-[800px] items-center space-y-[2rem]'>
+        <div className='flex max-w-[800px] flex-col items-center space-y-[2rem] overflow-auto'>
           <SeaContribution />
           <SeaContribution />
           <SeaContribution />

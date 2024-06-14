@@ -1,8 +1,4 @@
-import {
-  glassFx,
-  borderFx,
-  
-} from '@/(style)/data';
+import { glassFx, borderFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { HeaderAdd } from './add/main';
 import HeaderTitle from './title/main';

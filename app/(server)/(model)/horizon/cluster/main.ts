@@ -62,11 +62,10 @@ export const exampleHorizonClusters: HorizonClusterObj[] = [
 ];
 
 export const horizonClusterModel: ModelInterface<HorizonClusterObj> = {
-
   name: 'cluster',
   gql: horizonClusterGql,
   parentKey: 'horizonId',
   example: exampleHorizonCluster,
   examples: exampleHorizonClusters,
-  children: ['update', 'member']
-}
+  children: ['update', 'member'],
+};

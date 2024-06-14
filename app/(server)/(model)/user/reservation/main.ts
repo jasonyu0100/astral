@@ -67,4 +67,4 @@ export const userReservationModel: ModelInterface<UserReservationObj> = {
   examples: exampleUserReservations,
   parentKey: 'role',
   children: [],
-}
+};

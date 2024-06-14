@@ -22,10 +22,7 @@ export interface TemplateHorizonObj extends _TemplateHorizonObj {
 
 // FORUM
 
-export type _TemplateForumObj = Omit<
-  ArcForumObj,
-  'id' | 'horizonId' | 'time'
->;
+export type _TemplateForumObj = Omit<ArcForumObj, 'id' | 'horizonId' | 'time'>;
 export type _TemplatePostObj = Omit<
   ForumPostObj,
   'id' | 'forumId' | 'userId' | 'time'
@@ -61,16 +58,17 @@ export interface TemplateArcObj {
 }
 
 // CLUSTER
-export type _TemplateClusterObj = Omit<HorizonClusterObj, 'id' | 'horizonId' | 'time'>;
+export type _TemplateClusterObj = Omit<
+  HorizonClusterObj,
+  'id' | 'horizonId' | 'time'
+>;
 
 export type _TemplateUpdateObj = Omit<
   ClusterUpdateObj,
   'id' | 'clusterId' | 'userId' | 'time'
 >;
 
-export interface TemplateUpdateObj extends _TemplateUpdateObj {
-
-}
+export interface TemplateUpdateObj extends _TemplateUpdateObj {}
 
 export interface TemplateClusterObj extends _TemplateClusterObj {
   updates: TemplateUpdateObj[];
@@ -78,11 +76,12 @@ export interface TemplateClusterObj extends _TemplateClusterObj {
 
 // UPDATE
 
-export type _TemplateHorizonUpdateObj = Omit<HorizonUpdateObj, 'id' | 'horizonId' | 'userId' | 'time'>;
+export type _TemplateHorizonUpdateObj = Omit<
+  HorizonUpdateObj,
+  'id' | 'horizonId' | 'userId' | 'time'
+>;
 
-export interface TemplateHorizonUpdateObj extends _TemplateHorizonUpdateObj {
-
-}
+export interface TemplateHorizonUpdateObj extends _TemplateHorizonUpdateObj {}
 
 // TEMPLATES
 
@@ -93,7 +92,9 @@ export enum HorizonTemplate {
   GAME = 'GAME',
 }
 
-export function getHorizonTemplates(variant: HorizonTemplate): TemplateHorizonObj {
+export function getHorizonTemplates(
+  variant: HorizonTemplate,
+): TemplateHorizonObj {
   switch (variant) {
     case HorizonTemplate.MOVIE:
       return movieHorizonTemplate;

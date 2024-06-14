@@ -10,8 +10,8 @@ export function VerseMain() {
       sizeFx='h-full flex-grow'
       className={`flex flex-col`}
     >
-      <VerseCore/>
-      <VerseChapters/>
+      <VerseCore />
+      <VerseChapters />
     </GlassAreaContainer>
   );
 }

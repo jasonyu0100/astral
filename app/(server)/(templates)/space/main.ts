@@ -13,9 +13,12 @@ import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 
 // SPACE
 
-export type _TemplateSpaceObj = Omit<SpaceObj, 'id' | 'userId' | 'created' | 'thumbnail'>;
+export type _TemplateSpaceObj = Omit<
+  SpaceObj,
+  'id' | 'userId' | 'created' | 'thumbnail'
+>;
 
-export interface TemplateSpaceObj extends _TemplateSpaceObj{
+export interface TemplateSpaceObj extends _TemplateSpaceObj {
   title: string;
   description: string;
   category: string;
@@ -24,7 +27,10 @@ export interface TemplateSpaceObj extends _TemplateSpaceObj{
 
 // CHAPTER
 
-export type _TemplateChapterObj = Omit<SpaceChapterObj, 'id' | 'spaceId' | 'idx' | 'created' | 'userId'>;
+export type _TemplateChapterObj = Omit<
+  SpaceChapterObj,
+  'id' | 'spaceId' | 'idx' | 'created' | 'userId'
+>;
 export interface TemplateChapterObj extends _TemplateChapterObj {
   chatTemplates: TemplateChatObj[];
   sceneTemplates: TemplateSceneObj[];
@@ -33,9 +39,18 @@ export interface TemplateChapterObj extends _TemplateChapterObj {
 
 // CHAT
 
-export type _TemplateChatObj = Omit<SpaceChapterObj, 'id' | 'chapterId' | 'created' >;
-export type _TemplateConversationObj = Omit<SpaceChapterObj, 'id' | 'chatId' | 'created' >;
-export type _TemplateMessageObj = Omit<ConversationMessageObj, 'id' | 'userId' | 'conversationId' | 'created'>;
+export type _TemplateChatObj = Omit<
+  SpaceChapterObj,
+  'id' | 'chapterId' | 'created'
+>;
+export type _TemplateConversationObj = Omit<
+  SpaceChapterObj,
+  'id' | 'chatId' | 'created'
+>;
+export type _TemplateMessageObj = Omit<
+  ConversationMessageObj,
+  'id' | 'userId' | 'conversationId' | 'created'
+>;
 export interface TemplateChatObj extends _TemplateChatObj {
   title: string;
   description: string;
@@ -46,14 +61,12 @@ export interface TemplateConversationObj extends _TemplateConversationObj {
   messages?: TemplateMessageObj[];
 }
 
-export interface TemplateMessageObj extends _TemplateMessageObj {
-
-}
+export interface TemplateMessageObj extends _TemplateMessageObj {}
 
 // SCENE
 
-export type _TemplateSceneObj = Omit<ChapterSceneObj, 'id' | 'chapterId' >;
-export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId' >;
+export type _TemplateSceneObj = Omit<ChapterSceneObj, 'id' | 'chapterId'>;
+export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
@@ -61,8 +74,11 @@ export interface TemplateSceneObj extends _TemplateSceneObj {
 
 // VERSE
 
-export type _TemplateVerseObj = Omit<ChapterVerseObj, 'id' | 'chapterId' >;
-export type _TemplateCommentObj = Omit<VerseCommentObj, 'id' | 'userId' | 'verseId' | 'time'>;
+export type _TemplateVerseObj = Omit<ChapterVerseObj, 'id' | 'chapterId'>;
+export type _TemplateCommentObj = Omit<
+  VerseCommentObj,
+  'id' | 'userId' | 'verseId' | 'time'
+>;
 
 export interface TemplateVerseObj extends _TemplateVerseObj {
   comments?: _TemplateCommentObj[];
@@ -77,7 +93,6 @@ export enum SpaceTemplate {
   IDEA = 'IDEA',
   DEFAULT = 'DEFAULT',
 }
-
 
 export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
   switch (variant) {

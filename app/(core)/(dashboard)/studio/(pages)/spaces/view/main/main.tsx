@@ -13,7 +13,7 @@ export function SpacesMain() {
       name={SpacesMain.name}
       className={`divide-y-[1px] divide-slate-500 divide-opacity-30 overflow-auto`}
     >
-      <div className="w-full flex flex-col">
+      <div className='flex w-full flex-col'>
         {spaceListHandler.state.spaces?.map((space, index) => (
           <ContextForSpaceObj.Provider value={space} key={space.id}>
             <StudioSpace index={index} key={space.id} />

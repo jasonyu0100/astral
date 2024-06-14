@@ -12,10 +12,11 @@ import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-        <CraftTabs tab={CraftTabStage.Explorer} 
-         backUrl={archiveMap.archive.explorer.home.link}
-        />
-        <DashboardContent>{children}</DashboardContent>
+      <CraftTabs
+        tab={CraftTabStage.Explorer}
+        backUrl={archiveMap.archive.explorer.home.link}
+      />
+      <DashboardContent>{children}</DashboardContent>
     </>
   );
 }

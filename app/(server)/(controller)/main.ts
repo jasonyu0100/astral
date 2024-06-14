@@ -9,7 +9,7 @@ export interface BaseGatherActions<TargetObj> {
 
 export interface BaseEditActions<TargetObj> {
   edit: (partialObj: Partial<TargetObj>) => Promise<TargetObj>;
-  sync: () => Promise<TargetObj>
+  sync: () => Promise<TargetObj>;
 }
 
 export interface BaseCreateActions<TargetObj> {

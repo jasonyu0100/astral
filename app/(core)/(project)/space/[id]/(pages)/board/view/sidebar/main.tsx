@@ -8,9 +8,18 @@ import {
   useControllerForSidebarModals,
 } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/main';
 import { SidebarModalsView } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/view';
-import { ContextForGalleryList, useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { ContextForGalleryCollectionList, useControllerForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList, useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForGalleryList,
+  useControllerForGalleryList,
+} from '@/(server)/(controller)/gallery/list';
+import {
+  ContextForGalleryCollectionList,
+  useControllerForGalleryCollectionList,
+} from '@/(server)/(controller)/gallery/collection/list';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/(server)/(controller)/gallery/collection/resource/list';
 
 export enum SidebarMode {
   Gallerys = 'Gallerys',

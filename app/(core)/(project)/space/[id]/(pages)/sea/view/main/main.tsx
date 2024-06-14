@@ -1,14 +1,13 @@
-import { GlassAreaContainer } from "@/(components)/(glass)/area/main";
-import { GlassWindowFrame } from "@/(components)/(glass)/window/main";
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 
-export function SeaMain({ children } : { children?: React.ReactNode}) {
-    return <GlassWindowFrame
+export function SeaMain({ children }: { children?: React.ReactNode }) {
+  return (
+    <GlassWindowFrame
       name={SeaMain.name}
-      className={`flex flex-col  h-full flex-grow p-[2rem] `}
+      className={`flex h-full  flex-grow flex-col p-[2rem] `}
     >
-        <div className="overflow-auto flex flex-col">
-
-            {children}
-        </div>
+      <div className='flex flex-col overflow-auto'>{children}</div>
     </GlassWindowFrame>
+  );
 }

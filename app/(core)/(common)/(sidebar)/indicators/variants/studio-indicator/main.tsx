@@ -1,8 +1,6 @@
 import { DashboardSidebarIndicatorType } from '../../indicator/main';
 import { IndicatorBlueJewel } from '../../indicator/jewel/blue/main';
-import {
-  DashboardSidebarIndicator,
-} from '../../indicator/main';
+import { DashboardSidebarIndicator } from '../../indicator/main';
 import { IndicatorText } from '../../indicator/text/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useContext } from 'react';

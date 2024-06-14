@@ -48,8 +48,7 @@ export function BoardAddSceneModal() {
                   title,
                   description,
                   user.id,
-                  chapterListController.state.objId
-                  
+                  chapterListController.state.objId,
                 );
                 openableController.close();
               }}

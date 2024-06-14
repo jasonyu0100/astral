@@ -67,4 +67,4 @@ export const agentModel: ModelInterface<AgentObj> = {
   gql: agentGql,
   children: ['collection', 'member'],
   parentKey: '',
-}
+};

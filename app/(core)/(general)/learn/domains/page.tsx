@@ -1,5 +1,5 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState } from 'react';
 
 export function Stage({
   stage,
@@ -9,9 +9,9 @@ export function Stage({
   domain: string | null;
 }) {
   return (
-    <div className="p-[1rem] bg-slate-300">
-      <p className="font-bold">Stage: {stage}</p>
-      <a href={`https://www.${domain}`} target="_blank">
+    <div className='bg-slate-300 p-[1rem]'>
+      <p className='font-bold'>Stage: {stage}</p>
+      <a href={`https://www.${domain}`} target='_blank'>
         {domain}
       </a>
     </div>
@@ -27,39 +27,39 @@ export default function Page() {
   //   "8XU",
   // ]
 
-  const style = "2XU";
+  const style = '2XU';
   const [capacity, setCapacity] = useState(9);
   const [domains, setDomains] = useState([
     null,
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
+    '.',
   ]);
 
   useEffect(() => {
     setDomains([
       null,
-      "mermaidbound.au",
-      "vidup.ai",
-      "ouros.media",
-      "famillia.co",
-      "audioromes.com",
-      "cosmosweb.co",
-      "verses.digital",
-      "pulsar.club",
-      "dilemma.live",
+      'mermaidbound.au',
+      'vidup.ai',
+      'ouros.media',
+      'famillia.co',
+      'audioromes.com',
+      'cosmosweb.co',
+      'verses.digital',
+      'pulsar.club',
+      'dilemma.live',
     ]);
   }, []);
 
   return (
-    <div className="w-full h-full p-[1rem]">
-      <p className="font-bold">ID: J22</p>
+    <div className='h-full w-full p-[1rem]'>
+      <p className='font-bold'>ID: J22</p>
       {/* 
       <p className="font-bold">Style: ##</p>
       <p className="font-bold">Style: TBD</p>
@@ -69,11 +69,11 @@ export default function Page() {
       <p className="font-bold">Style: 77U</p>
       <p className="font-bold">Style: 8XU</p> 
       */}
-      <p className="font-bold">P-Cap: {capacity}</p>
-      <p className="font-bold">Style: {style}</p>
+      <p className='font-bold'>P-Cap: {capacity}</p>
+      <p className='font-bold'>Style: {style}</p>
       {/* <p className="font-bold">Feel: {feel[style]}</p> */}
       <br />
-      <div className="flex flex-col space-y-[1rem]">
+      <div className='flex flex-col space-y-[1rem]'>
         <Stage stage={1} domain={domains[1]} />
         {capacity > 1 && (
           <>

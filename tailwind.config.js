@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       colors: {},
       boxShadow: {
-        'glow': '-15px 15px 50px 0px rgba(255, 255, 255, 0.15)',
+        glow: '-15px 15px 50px 0px rgba(255, 255, 255, 0.15)',
       },
       fontFamily: {
         thin: ['var(--font-creato-thin)'],

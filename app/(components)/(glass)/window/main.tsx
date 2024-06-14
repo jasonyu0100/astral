@@ -1,4 +1,4 @@
-import { DivInputProps } from "@/(types)/props/main";
+import { DivInputProps } from '@/(types)/props/main';
 
 interface GlassWindowFrameProps extends DivInputProps {
   name?: string;

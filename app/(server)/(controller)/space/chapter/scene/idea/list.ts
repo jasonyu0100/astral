@@ -86,7 +86,6 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -240,7 +239,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         height: 100,
         scale: 1,
         rotation: 0,
-        userId: ''
+        userId: '',
       };
       return gqlDbWrapper.createObj(createObj);
     },
@@ -258,7 +257,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         height: 100,
         scale: 1,
         rotation: 0,
-        userId: ''
+        userId: '',
       };
       return gqlDbWrapper.createObj(createObj);
     },
@@ -275,7 +274,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         height: 100,
         scale: 1,
         rotation: 0,
-        userId: ''
+        userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

@@ -9,7 +9,10 @@ import {
   BaseStateActions,
 } from '@/(server)/(controller)/main';
 import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
-import { CollectionResourceObj, CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
+import {
+  CollectionResourceObj,
+  CollectionResourceVariant,
+} from '@/(server)/(model)/gallery/collection/resource/main';
 
 type TargetObj = CollectionResourceObj;
 const gqlDbWrapper = collectionResourceDbWrapper;
@@ -50,7 +53,7 @@ const useControllerForCollectionResourceMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -114,4 +117,7 @@ const useControllerForCollectionResourceMain = (objId: string): Controller => {
 };
 
 const ContextForCollectionResourceMain = createContext({} as Controller);
-export { ContextForCollectionResourceMain, useControllerForCollectionResourceMain };
+export {
+  ContextForCollectionResourceMain,
+  useControllerForCollectionResourceMain,
+};

@@ -56,4 +56,4 @@ export const galleryMemberModel: ModelInterface<GalleryMemberObj> = {
   examples: exampleGalleryMembers,
   parentKey: 'galleryId',
   children: [],
-}
+};

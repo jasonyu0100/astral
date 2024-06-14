@@ -62,4 +62,4 @@ export const ideaLinkModel: ModelInterface<IdeaLinkObj> = {
   examples: exampleIdeaLinks,
   parentKey: 'sceneId',
   children: [],
-}
+};

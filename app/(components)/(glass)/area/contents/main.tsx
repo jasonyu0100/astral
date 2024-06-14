@@ -1,10 +1,13 @@
-import { DivInputProps } from "@/(types)/props/main";
+import { DivInputProps } from '@/(types)/props/main';
 
 interface GlassAreaContentsProps extends DivInputProps {
   children?: React.ReactNode;
 }
 
-export function GlassAreaContents({ children, ...props }: GlassAreaContentsProps) {
+export function GlassAreaContents({
+  children,
+  ...props
+}: GlassAreaContentsProps) {
   return (
     <div
       {...props}

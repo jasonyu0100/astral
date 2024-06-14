@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { chatMemberModel, ChatMemberObj } from '@/(server)/(model)/space/chapter/chat/member/main';
+import {
+  chatMemberModel,
+  ChatMemberObj,
+} from '@/(server)/(model)/space/chapter/chat/member/main';
 import { chatMemberDbWrapper } from '@/(server)/(db)/space/chapter/chat/member/main';
 
 type TargetObj = ChatMemberObj;
@@ -55,7 +58,6 @@ const useControllerForChatMemberList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -64,7 +66,7 @@ const useControllerForChatMemberList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -135,8 +137,8 @@ const useControllerForChatMemberList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -179,7 +181,7 @@ const useControllerForChatMemberList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chatId: ''
+        chatId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -195,7 +197,7 @@ const useControllerForChatMemberList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -211,10 +213,12 @@ const useControllerForChatMemberList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

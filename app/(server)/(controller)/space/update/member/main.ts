@@ -51,7 +51,7 @@ const useControllerForSpaceUpdateMemberMain = (objId: string): Controller => {
     },
     update: (newObj: Partial<TargetObj>) => {
       changeObj({ ...obj, ...newObj });
-    }
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -115,4 +115,7 @@ const useControllerForSpaceUpdateMemberMain = (objId: string): Controller => {
 };
 
 const ContextForSpaceUpdateMemberMain = createContext({} as Controller);
-export { ContextForSpaceUpdateMemberMain, useControllerForSpaceUpdateMemberMain };
+export {
+  ContextForSpaceUpdateMemberMain,
+  useControllerForSpaceUpdateMemberMain,
+};

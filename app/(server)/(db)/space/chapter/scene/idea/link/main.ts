@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { IdeaLinkObj } from "@/(server)/(model)/space/chapter/scene/idea/link/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createIdeaLinkObj, deleteIdeaLinkObj, updateIdeaLinkObj } from "@/graphql/mutations";
-import { getIdeaLinkObj, listIdeaLinkObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { IdeaLinkObj } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createIdeaLinkObj,
+  deleteIdeaLinkObj,
+  updateIdeaLinkObj,
+} from '@/graphql/mutations';
+import { getIdeaLinkObj, listIdeaLinkObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as IdeaLinkObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listIdeaLinkObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listIdeaLinkObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listIdeaLinkObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listIdeaLinkObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<IdeaLinkObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createIdeaLinkObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<IdeaLinkObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<IdeaLinkObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateIdeaLinkObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: IdeaLinkObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: IdeaLinkObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateIdeaLinkObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteIdeaLinkObj);
-} 
+}
 
 export const ideaLinkDbWrapper: GqlDbWrapper<IdeaLinkObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

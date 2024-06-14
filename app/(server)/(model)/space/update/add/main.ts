@@ -92,11 +92,11 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
   },
 ];
 
-export const spaceUpdateAddModel : ModelInterface<SpaceUpdateAddObj> = {
+export const spaceUpdateAddModel: ModelInterface<SpaceUpdateAddObj> = {
   name: 'add',
   gql: spaceUpdateAddGql,
   example: exampleSpaceUpdateAdd,
   examples: exampleSpaceUpdateAdds,
   parentKey: 'updateId',
   children: [],
-}
+};

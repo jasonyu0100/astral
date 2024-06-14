@@ -21,7 +21,7 @@ async function getObj(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: getChapterVerseObj,
     variables: {
-      id: value
+      id: value,
     },
   });
 
@@ -37,10 +37,7 @@ async function getFromVariables(variables: any) {
   return castSingle(payload?.data?.getChapterVerseObj);
 }
 
-async function listObjs(
-  key: string,
-  value: string,
-) {
+async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: {
@@ -64,9 +61,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listChapterVerseObjs?.items || []);
 }
 
-async function listFromVariables(
-  variables: Object,
-) {
+async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: variables,

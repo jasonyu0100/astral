@@ -1,4 +1,3 @@
-
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { StormHeader } from './header/main';
 import { StormChat } from './chat/main';

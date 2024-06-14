@@ -1,13 +1,9 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  glassFx,
-  roundedFx,
-} from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { ButtonInputProps } from '@/(types)/props/main';
 
 interface ScenesAddInputProps extends ButtonInputProps {
   children?: React.ReactNode;
-
 }
 
 export default function ScenesAdd({ children, ...props }: ScenesAddInputProps) {

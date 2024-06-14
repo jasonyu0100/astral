@@ -27,9 +27,7 @@ export function GlassAreaContainer({
         borderFx || ''
       } ${roundedFx || ''}`}
     >
-      <GlassAreaPane
-        glassFx={glassFx || ''}
-      />
+      <GlassAreaPane glassFx={glassFx || ''} />
       <GlassAreaContents {...props}>{children}</GlassAreaContents>
     </div>
   );

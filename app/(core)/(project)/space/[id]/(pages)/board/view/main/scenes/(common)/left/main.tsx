@@ -6,7 +6,7 @@ export function ScenesGoLeftAction() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <WrapperTooltip text={"Prev"}>
+    <WrapperTooltip text={'Prev'}>
       <button
         className='flex h-[30px] w-[30px] flex-shrink-0 items-center justify-center rounded-full'
         onClick={() => chapterListController.actions.stateActions.goPrev()}

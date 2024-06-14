@@ -27,7 +27,7 @@ const nextConfig = {
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NPM_AUTH_TOKEN: process.env.NPM_AUTH_TOKEN,
-    LOOM_API_KEY: process.env.LOOM_API_KEY
+    LOOM_API_KEY: process.env.LOOM_API_KEY,
   },
 };
 

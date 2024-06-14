@@ -68,4 +68,4 @@ export const horizonUpdateAddModel: ModelInterface<HorizonUpdateAddObj> = {
   examples: exampleHorizonUpdateAdds,
   parentKey: 'updateId',
   children: [],
-}
+};

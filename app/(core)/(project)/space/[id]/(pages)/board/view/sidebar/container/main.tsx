@@ -1,7 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 
-export function BoardSidebarContainer({ children }: { children?: React.ReactNode }) {
+export function BoardSidebarContainer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassAreaContainer
       name={BoardSidebarContainer.name}

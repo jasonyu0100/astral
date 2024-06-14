@@ -1,5 +1,8 @@
 import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem, FileElem } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+} from '@/(server)/(model)/elements/file/main';
 import { UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 import {
@@ -59,7 +62,6 @@ const useControllerForSpaceList = (listId: string): Controller => {
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
-
 
   const controllerState: ControllerState = {
     listId: listId,

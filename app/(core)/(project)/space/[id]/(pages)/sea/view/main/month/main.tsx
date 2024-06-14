@@ -6,7 +6,10 @@ import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormButton } from '@/(components)/(form)/button/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { Card } from '../../../../../../../../../(components)/(idea)/game/card/main';
-import { Dice, DiceFace } from '../../../../../../../../../(components)/(idea)/game/dice/main';
+import {
+  Dice,
+  DiceFace,
+} from '../../../../../../../../../(components)/(idea)/game/dice/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
@@ -192,7 +195,9 @@ export function MonthView() {
         >
           DEAL CARDS
         </button>
-        <p className='text-lg font-bold text-slate-300 font-permanentMarker'>January</p>
+        <p className='font-permanentMarker text-lg font-bold text-slate-300'>
+          January
+        </p>
         <div className='flex flex-col space-y-[1rem]'>
           <GlassWindowFrame>
             <GlassWindowContents className='flex flex-row p-[1rem]'>

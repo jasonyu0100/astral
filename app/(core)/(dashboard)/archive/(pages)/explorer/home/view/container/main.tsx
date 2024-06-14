@@ -1,11 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  glassFx,
-  roundedFx,
-  borderFx,
-} from '@/(style)/data';
+import { glassFx, roundedFx, borderFx } from '@/(style)/data';
 
-export function GallerysContainer({ children }: { children?: React.ReactNode }) {
+export function GallerysContainer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassAreaContainer
       name={GallerysContainer.name}
@@ -15,7 +15,7 @@ export function GallerysContainer({ children }: { children?: React.ReactNode }) 
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
-        {children}
+      {children}
     </GlassAreaContainer>
   );
 }

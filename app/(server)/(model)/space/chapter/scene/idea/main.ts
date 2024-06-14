@@ -143,5 +143,5 @@ export const sceneIdeaModel: ModelInterface<SceneIdeaObj> = {
   example: exampleSceneIdea,
   examples: exampleSceneIdeas,
   parentKey: 'sceneId',
-  children: ['link']
+  children: ['link'],
 };

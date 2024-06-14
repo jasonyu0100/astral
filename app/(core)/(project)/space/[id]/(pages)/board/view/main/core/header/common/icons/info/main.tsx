@@ -5,7 +5,7 @@ export function InfoIcon({ ...props }: SvgInputProps) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      className="w-1/2 h-1/2"
+      className='h-1/2 w-1/2'
       fill='none'
     >
       <mask

@@ -6,7 +6,7 @@ export function CollectionsResults() {
   return (
     <CollectionsContainer>
       <CollectionsSearch />
-      <CollectionsContent/>
+      <CollectionsContent />
     </CollectionsContainer>
   );
 }

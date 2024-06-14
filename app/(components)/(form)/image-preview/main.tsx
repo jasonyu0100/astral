@@ -1,7 +1,6 @@
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 
-export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem}) {
-
+export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem }) {
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>
       <div className='relative flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center rounded-full border-slate-300 bg-slate-100'>

@@ -18,9 +18,7 @@ export default function Layout({
       <Topbar />
       <DashboardController>
         <DashboardSidebarView minimised />
-        <DashboardBody>
-          {children}
-        </DashboardBody>
+        <DashboardBody>{children}</DashboardBody>
       </DashboardController>
     </>
   );

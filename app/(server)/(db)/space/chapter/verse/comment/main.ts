@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { VerseCommentObj } from "@/(server)/(model)/space/chapter/verse/comment/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createVerseCommentObj, deleteVerseCommentObj, updateVerseCommentObj } from "@/graphql/mutations";
-import { getVerseCommentObj, listVerseCommentObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { VerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createVerseCommentObj,
+  deleteVerseCommentObj,
+  updateVerseCommentObj,
+} from '@/graphql/mutations';
+import { getVerseCommentObj, listVerseCommentObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as VerseCommentObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listVerseCommentObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listVerseCommentObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listVerseCommentObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listVerseCommentObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<VerseCommentObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createVerseCommentObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<VerseCommentObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<VerseCommentObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateVerseCommentObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: VerseCommentObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: VerseCommentObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateVerseCommentObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteVerseCommentObj);
-} 
+}
 
 export const verseCommentDbWrapper: GqlDbWrapper<VerseCommentObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

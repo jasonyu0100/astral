@@ -18,7 +18,7 @@ export function ResourceContainer({ children, onClick, ...props }: InputProps) {
         props.className,
       )}
     >
-      <GlassWindowContents 
+      <GlassWindowContents
         className={cn(`flex flex-col items-center`)}
         onClick={onClick}
       >

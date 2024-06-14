@@ -4,6 +4,8 @@ export function InactiveChapterHeaderContainer({
   children?: React.ReactNode;
 }) {
   return (
-    <div className='flex flex-col justify-center space-y-[1rem] h-[4rem]'>{children}</div>
+    <div className='flex h-[4rem] flex-col justify-center space-y-[1rem]'>
+      {children}
+    </div>
   );
 }

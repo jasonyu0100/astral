@@ -14,7 +14,6 @@ export function MapSidebar() {
       <MapSidebarEntry>Marketing Group</MapSidebarEntry>
       <MapSidebarEntry>Sales Group</MapSidebarEntry>
       <MapSidebarEntry>Production Group</MapSidebarEntry>
-
     </GlassAreaContainer>
   );
 }

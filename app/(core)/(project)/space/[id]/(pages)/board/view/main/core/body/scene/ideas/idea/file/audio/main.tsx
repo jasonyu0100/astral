@@ -5,9 +5,9 @@ import { ContextForMotionObj } from '@/(logic)/framer/(controller)/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
 export function FileAudioIdea() {
-  const sceneIdeaMainController =useContext(ContextForSceneIdeaMain);
+  const sceneIdeaMainController = useContext(ContextForSceneIdeaMain);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
-  const { x, y, constraintsRef } = useContext(ContextForMotionObj)
+  const { x, y, constraintsRef } = useContext(ContextForMotionObj);
   const idea = sceneIdeaMainController.state.obj;
   const active = sceneIdeaListController.actions.stateActions.checkActive(idea);
 
@@ -22,7 +22,9 @@ export function FileAudioIdea() {
         <div
           className='flex h-full w-full flex-shrink-0 flex-col'
           onClick={(e) => {
-            sceneIdeaListController.actions.stateActions.select(sceneIdeaMainController.state.obj);
+            sceneIdeaListController.actions.stateActions.select(
+              sceneIdeaMainController.state.obj,
+            );
             e.stopPropagation();
           }}
         >

@@ -68,4 +68,4 @@ export const postCommentModel: ModelInterface<PostCommentObj> = {
   examples: examplePostComments,
   children: [],
   parentKey: 'postId',
-}
+};

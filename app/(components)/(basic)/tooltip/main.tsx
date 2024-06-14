@@ -16,10 +16,15 @@ export function WrapperTooltip({
       onMouseEnter={() => changeHover(true)}
       onMouseLeave={() => changeHover(false)}
     >
-      <div className={cn('absolute top-[-50px] p-[0.5rem] font-bold text-slate-300 outline-none text-center w-[200px]', {
-        'visible animate-pulse': hover,
-        'invisible': !hover,
-      })}>
+      <div
+        className={cn(
+          'absolute top-[-50px] w-[200px] p-[0.5rem] text-center font-bold text-slate-300 outline-none',
+          {
+            'visible animate-pulse': hover,
+            invisible: !hover,
+          },
+        )}
+      >
         {text}
       </div>
       {children}

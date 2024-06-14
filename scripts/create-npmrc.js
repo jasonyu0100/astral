@@ -18,7 +18,6 @@ registry=https://registry.npmjs.com/
 @cosmos-dev:registry=https://registry.npmjs.org/
 `;
 
-
 // Write the content to the .npmrc file
 fs.writeFileSync('.npmrc', npmrcContent);
 

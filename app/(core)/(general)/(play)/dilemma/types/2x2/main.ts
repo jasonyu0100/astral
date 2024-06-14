@@ -1,7 +1,7 @@
-import { Phase } from "../phase/main";
-import { Player } from "../player/main";
-import { Quadrants } from "../quadrants/main";
-import { QuadrantPosition } from "../quadrants/quadrant/main";
+import { Phase } from '../phase/main';
+import { Player } from '../player/main';
+import { Quadrants } from '../quadrants/main';
+import { QuadrantPosition } from '../quadrants/quadrant/main';
 
 export interface TwoByTwo {
   quadrants: Quadrants;
@@ -24,5 +24,4 @@ export interface TwoByTwo {
 
 export interface TwoByTwoResolution {
   // step
-  
 }

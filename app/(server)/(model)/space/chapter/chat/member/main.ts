@@ -55,4 +55,4 @@ export const chatMemberModel: ModelInterface<ChatMemberObj> = {
   examples: exampleChatMembers,
   parentKey: 'chatId',
   children: [],
-}
+};

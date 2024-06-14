@@ -2,7 +2,8 @@ import { LinkProps } from 'next/link';
 export interface ButtonInputProps
   extends React.ComponentPropsWithoutRef<'button'> {}
 
-export interface HyperLinkInputProps extends React.ComponentPropsWithoutRef<'a'> {}
+export interface HyperLinkInputProps
+  extends React.ComponentPropsWithoutRef<'a'> {}
 
 export interface LinkInputProps extends LinkProps {}
 

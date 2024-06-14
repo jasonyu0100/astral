@@ -8,7 +8,11 @@ interface HorizonCoverProps extends DivInputProps {
   fileElem: FileElem;
 }
 
-export function HorizonCover({ coverFx, fileElem: fileElem, ...props }: HorizonCoverProps) {
+export function HorizonCover({
+  coverFx,
+  fileElem: fileElem,
+  ...props
+}: HorizonCoverProps) {
   return (
     <GlassEffectWrapper
       className={props.className}

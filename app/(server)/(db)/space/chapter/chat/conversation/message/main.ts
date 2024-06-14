@@ -1,9 +1,16 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { ConversationMessageObj } from "@/(server)/(model)/space/chapter/chat/conversation/message/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createConversationMessageObj, deleteConversationMessageObj, updateConversationMessageObj } from "@/graphql/mutations";
-import { getConversationMessageObj, listConversationMessageObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createConversationMessageObj,
+  deleteConversationMessageObj,
+  updateConversationMessageObj,
+} from '@/graphql/mutations';
+import {
+  getConversationMessageObj,
+  listConversationMessageObjs,
+} from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as ConversationMessageObj;
@@ -51,8 +58,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listConversationMessageObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
@@ -61,7 +67,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listConversationMessageObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
@@ -76,21 +82,24 @@ async function createObj(newObj: Omit<ConversationMessageObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createConversationMessageObj);
-} 
+}
 
-async function updateObj(id: string, updateObj: Partial<ConversationMessageObj>) {
+async function updateObj(
+  id: string,
+  updateObj: Partial<ConversationMessageObj>,
+) {
   const payload = await amplifyClient.graphql({
     query: updateConversationMessageObj,
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateConversationMessageObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: ConversationMessageObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +107,13 @@ async function overwriteObj(id: string, newObj: ConversationMessageObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateConversationMessageObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,14 +121,15 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteConversationMessageObj);
-} 
+}
 
-export const conversationMessageDbWrapper: GqlDbWrapper<ConversationMessageObj> = {
+export const conversationMessageDbWrapper: GqlDbWrapper<ConversationMessageObj> =
+  {
     getObj,
     listObjs,
     listAllObjs,
@@ -130,4 +139,4 @@ export const conversationMessageDbWrapper: GqlDbWrapper<ConversationMessageObj> 
     deleteObj,
     getFromVariables,
     listFromVariables,
-}
+  };

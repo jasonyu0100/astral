@@ -1,4 +1,7 @@
-import { FileElem, FileElemVariant } from '@/(server)/(model)/elements/file/main';
+import {
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/(model)/elements/file/main';
 import { useEffect } from 'react';
 
 export const useUnsplashController = () => {
@@ -40,14 +43,14 @@ export const useUnsplashController = () => {
       );
       const data = await resp.json();
       return data.results.map((result: any) => {
-        const fileObj : FileElem = {
+        const fileObj: FileElem = {
           id: crypto.randomUUID(),
           src: result.urls.raw,
           ext: 'image/*',
           title: result.alt_description,
           size: 0,
           variant: FileElemVariant.IMAGE,
-        }
+        };
         return fileObj;
       });
     } catch (e) {

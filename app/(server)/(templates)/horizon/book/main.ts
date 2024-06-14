@@ -8,4 +8,3 @@ export const bookHorizonTemplate: TemplateHorizonObj = {
   clusters: [],
   updates: [],
 };
-

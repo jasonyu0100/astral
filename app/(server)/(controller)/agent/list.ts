@@ -1,5 +1,8 @@
 import { agentDbWrapper } from '@/(server)/(db)/agent/main';
-import { exampleDisplayPictureFileElem, exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleDisplayPictureFileElem,
+  exampleFileElem,
+} from '@/(server)/(model)/elements/file/main';
 import { agentModel, AgentObj } from '@/(server)/(model)/agent/main';
 import { createContext, useMemo, useState } from 'react';
 import {
@@ -53,7 +56,6 @@ const useControllerForAgentList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -62,7 +64,7 @@ const useControllerForAgentList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -133,8 +135,8 @@ const useControllerForAgentList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -145,7 +147,7 @@ const useControllerForAgentList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -181,7 +183,7 @@ const useControllerForAgentList = (listId: string): Controller => {
         name: '',
         dp: exampleDisplayPictureFileElem,
         role: '',
-        bio: ''
+        bio: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -197,7 +199,7 @@ const useControllerForAgentList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -213,10 +215,12 @@ const useControllerForAgentList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },
@@ -262,4 +266,7 @@ const useControllerForAgentList = (listId: string): Controller => {
 };
 
 const ContextForAgentList = createContext({} as Controller);
-export { ContextForAgentList, useControllerForAgentList as useControllerForAgentSupporterList };
+export {
+  ContextForAgentList,
+  useControllerForAgentList as useControllerForAgentSupporterList,
+};

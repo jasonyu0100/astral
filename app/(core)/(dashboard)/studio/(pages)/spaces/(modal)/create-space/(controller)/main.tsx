@@ -1,3 +1,1 @@
-export function useCreateSpaceController() {
-    
-}
+export function useCreateSpaceController() {}

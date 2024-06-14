@@ -9,7 +9,10 @@ import {
   BaseListEditActions,
   BaseListDeleteActions,
 } from '@/(server)/(controller)/list';
-import { arcPointModel, ArcPointObj } from '@/(server)/(model)/horizon/arc/point/main';
+import {
+  arcPointModel,
+  ArcPointObj,
+} from '@/(server)/(model)/horizon/arc/point/main';
 import { arcPointDbWrapper } from '@/(server)/(db)/horizon/arc/point/main';
 
 type TargetObj = ArcPointObj;
@@ -55,7 +58,6 @@ const useControllerForArcPointList = (listId: string): Controller => {
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
 
-
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
@@ -64,7 +66,7 @@ const useControllerForArcPointList = (listId: string): Controller => {
     more: {
       query: query,
       queryResults: queryResults,
-    }
+    },
   };
 
   const stateActions: StateActions = {
@@ -135,8 +137,8 @@ const useControllerForArcPointList = (listId: string): Controller => {
       return obj.id === id;
     },
     find: (id: string) => {
-      return objs.find((obj) => obj.id === id) || {} as TargetObj;
-    }
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -147,7 +149,7 @@ const useControllerForArcPointList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-            console.assert(false, "not implemented");
+      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
@@ -185,7 +187,7 @@ const useControllerForArcPointList = (listId: string): Controller => {
         userId: '',
         title: '',
         description: '',
-        idx: 0
+        idx: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -201,7 +203,7 @@ const useControllerForArcPointList = (listId: string): Controller => {
         ...prev.slice(0, index),
         newObj,
         ...prev.slice(index),
-      ])
+      ]);
       changeId(newObj.id);
       return newObj;
     },
@@ -217,10 +219,12 @@ const useControllerForArcPointList = (listId: string): Controller => {
       return updatedObj;
     },
     sync: async () => {
-      const updatedObjs = await Promise.all(objs.map((obj) => {
-        const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
-        return updatedObj;
-      }));
+      const updatedObjs = await Promise.all(
+        objs.map((obj) => {
+          const updatedObj = gqlDbWrapper.updateObj(obj.id, obj);
+          return updatedObj;
+        }),
+      );
       changeObjs(updatedObjs);
       return updatedObjs;
     },

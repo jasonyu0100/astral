@@ -1,9 +1,13 @@
-import { amplifyClient } from "@/(api)/aws/graphql/main";
-import { GqlDbWrapper } from "@/(server)/(db)/main";
-import { SceneStackObj } from "@/(server)/(model)/space/chapter/scene/stack/main";
-import { gqlArgs } from "@/(utils)/clean";
-import { createSceneStackObj, deleteSceneStackObj, updateSceneStackObj } from "@/graphql/mutations";
-import { getSceneStackObj, listSceneStackObjs } from "@/graphql/queries";
+import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { GqlDbWrapper } from '@/(server)/(db)/main';
+import { SceneStackObj } from '@/(server)/(model)/space/chapter/scene/stack/main';
+import { gqlArgs } from '@/(utils)/clean';
+import {
+  createSceneStackObj,
+  deleteSceneStackObj,
+  updateSceneStackObj,
+} from '@/graphql/mutations';
+import { getSceneStackObj, listSceneStackObjs } from '@/graphql/queries';
 
 function castSingle(obj: any) {
   return obj as SceneStackObj;
@@ -51,8 +55,7 @@ async function listObjs(key: string, value: string) {
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
     query: listSceneStackObjs,
-    variables: {
-    },
+    variables: {},
   });
 
   return castMultiple(payload?.data?.listSceneStackObjs?.items || []);
@@ -61,7 +64,7 @@ async function listAllObjs() {
 async function listFromVariables(variables: Object) {
   const payload = await amplifyClient.graphql({
     query: listSceneStackObjs,
-    variables: variables
+    variables: variables,
   });
 
   return castMultiple(payload?.data?.listSceneStackObjs?.items || []);
@@ -76,7 +79,7 @@ async function createObj(newObj: Omit<SceneStackObj, 'id'>) {
   });
 
   return castSingle(payload?.data?.createSceneStackObj);
-} 
+}
 
 async function updateObj(id: string, updateObj: Partial<SceneStackObj>) {
   const payload = await amplifyClient.graphql({
@@ -84,13 +87,13 @@ async function updateObj(id: string, updateObj: Partial<SceneStackObj>) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(updateObj)
-    },
+        ...gqlArgs(updateObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateSceneStackObj);
-} 
+}
 
 async function overwriteObj(id: string, newObj: SceneStackObj) {
   const payload = await amplifyClient.graphql({
@@ -98,14 +101,13 @@ async function overwriteObj(id: string, newObj: SceneStackObj) {
     variables: {
       input: {
         id: id,
-        ...gqlArgs(newObj)
-    },
+        ...gqlArgs(newObj),
+      },
     },
   });
 
   return castSingle(payload?.data?.updateSceneStackObj);
-} 
-
+}
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
@@ -113,21 +115,21 @@ async function deleteObj(id: string) {
     variables: {
       input: {
         id: id,
-    },
+      },
     },
   });
 
   return castSingle(payload?.data?.deleteSceneStackObj);
-} 
+}
 
 export const sceneStackDbWrapper: GqlDbWrapper<SceneStackObj> = {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-}
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

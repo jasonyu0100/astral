@@ -9,9 +9,7 @@ export function InfoCenter() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapter = chapterListController.state.currentObj;
   const headerTitle =
-    sceneObj && chapter
-      ? `${sceneObj?.title} - ${chapter?.title}`
-      : 'None';
+    sceneObj && chapter ? `${sceneObj?.title} - ${chapter?.title}` : 'None';
 
   return (
     <div className='flex w-1/3 flex-row justify-center'>

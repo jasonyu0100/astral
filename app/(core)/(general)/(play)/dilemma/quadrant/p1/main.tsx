@@ -13,7 +13,7 @@ export function QuadrantP1() {
   return (
     <div onClick={() => setRevealed(!revealed)}>
       <GlassWindowFrame
-      name="Quadrant P1"
+        name='Quadrant P1'
         className='aspect-square h-[20rem] w-[20rem]'
         borderFx={`${borderFx['border-l']} ${borderFx['border-b']}`}
       >
@@ -35,7 +35,8 @@ export function QuadrantP1() {
             <>
               <p>P1</p>
               <p>
-                ({gameState.quadrants.quadrantP1.payoutA - anti}, {gameState.quadrants.quadrantP1.payoutB - anti})
+                ({gameState.quadrants.quadrantP1.payoutA - anti},{' '}
+                {gameState.quadrants.quadrantP1.payoutB - anti})
               </p>
               <p>+o</p>
             </>
