@@ -1,7 +1,7 @@
+import { UserObj } from '@/(server)/(model)/user/main';
+import Cookies from 'js-cookie';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import Cookies from 'js-cookie';
-import { UserObj } from '@/(server)/(model)/user/main';
 
 interface UserStore {
   user: UserObj;
@@ -22,41 +22,41 @@ const getUserCookie = () => {
 const useUserStore = create<UserStore>()(
   devtools((set) => ({
     user: getUserCookie(),
-    login: (user: any) => {
+    login: (user: UserObj) => {
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
         expires: 7,
       });
       // Mutate state synchronously
-      set((state: { user: any }) => ({
+      set((state: { user: UserObj }) => ({
         user: {
           ...state.user,
           ...user,
         },
       }));
     },
-    register: (user: any) => {
+    register: (user: UserObj) => {
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
         expires: 7,
       });
       // Mutate state synchronously
-      set((state: { user: any }) => ({
+      set((state: { user: UserObj }) => ({
         user: {
           ...state.user,
           ...user,
         },
       }));
     },
-    update: (user: any) => {
+    update: (user: UserObj) => {
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
         expires: 7,
       });
-      set((state: { user: any }) => ({
+      set((state: { user: UserObj }) => ({
         user: {
           ...state.user,
           ...user,
@@ -73,5 +73,7 @@ const useUserStore = create<UserStore>()(
     },
   })),
 );
+
+// TODO ZUSTAND HAS HYRDATION ISSUES
 
 export const useGlobalUser = useUserStore;

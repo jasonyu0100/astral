@@ -1,7 +1,7 @@
+import { SpaceObj } from '@/(server)/(model)/space/main';
+import Cookies from 'js-cookie';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-import Cookies from 'js-cookie';
-import { SpaceObj } from '@/(server)/(model)/space/main';
 
 interface SpaceStore {
   space: SpaceObj;
@@ -19,14 +19,14 @@ const getSpaceCookie = () => {
 const useSpaceStore = create<SpaceStore>()(
   devtools((set) => ({
     space: getSpaceCookie(),
-    setSpace: (space: any) => {
+    setSpace: (space: SpaceObj) => {
       // Update local storage
       Cookies.set('space', JSON.stringify(space), {
         sameSite: 'strict',
         expires: 7,
       });
       // Mutate state synchronously
-      set((state: { space: any }) => ({
+      set((state: { space: SpaceObj }) => ({
         space: {
           ...state.space,
           ...space,

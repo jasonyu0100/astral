@@ -1,6 +1,8 @@
 'use client';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { SpaceObj } from '@/(server)/(model)/space/main';
+import { UserObj } from '@/(server)/(model)/user/main';
 import { cn } from '@/(utils)/cn';
 import { useContext, useEffect, useState } from 'react';
 import { ContextForDashboardSidebar } from '../../../main';
@@ -10,12 +12,12 @@ export function DashboardSidebarTopOverviewInfo() {
   const active = !dashboardSidebar.indicator;
   const user = useGlobalUser((state) => state.user);
   const space = useGlobalSpace((state) => state.space);
-  const [title, changeTitle] = useState('Untitled');
-  const [name, changeName] = useState('No Author');
+  const [stateUser, setStateUser] = useState({} as UserObj);
+  const [stateSpace, setStateSpace] = useState({} as SpaceObj);
 
   useEffect(() => {
-    changeTitle(space?.title || 'Untitled');
-    changeName(`${user?.fname || ''} ${user?.lname || ''}`);
+    setStateUser(user);
+    setStateSpace(space);
   }, [space, user]);
 
   return (
@@ -34,14 +36,14 @@ export function DashboardSidebarTopOverviewInfo() {
           'h-[25px] overflow-hidden overflow-ellipsis text-xl font-bold leading-7 text-slate-300',
         )}
       >
-        {title}
+        {stateSpace.title || 'Untitled'}
       </p>
       <p
         className={cn(
           'h-[25px] text-base font-normal leading-normal text-slate-300',
         )}
       >
-        {name}
+        {stateUser.displayName || 'No Author'}
       </p>
     </div>
   );
