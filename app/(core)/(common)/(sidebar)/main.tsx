@@ -1,7 +1,7 @@
 'use client';
-import { DashboardSidebarMinimised } from './main/minimised/main';
 import { createContext } from 'react';
 import { DashboardSidebarDefault } from './main/default/main';
+import { DashboardSidebarMinimised } from './main/minimised/main';
 
 export interface DashboardSidebarContextObj {
   indicator?: string;
@@ -9,7 +9,7 @@ export interface DashboardSidebarContextObj {
   backUrl?: string;
 }
 
-export const DashboardSidebarContext = createContext(
+export const ContextForDashboardSidebar = createContext(
   {} as DashboardSidebarContextObj,
 );
 
@@ -23,10 +23,10 @@ export function DashboardSidebarView({
   backUrl?: string;
 }) {
   return (
-    <DashboardSidebarContext.Provider
+    <ContextForDashboardSidebar.Provider
       value={{ indicator: indicator, minimised: minimised, backUrl: backUrl }}
     >
       {minimised ? <DashboardSidebarMinimised /> : <DashboardSidebarDefault />}
-    </DashboardSidebarContext.Provider>
+    </ContextForDashboardSidebar.Provider>
   );
 }

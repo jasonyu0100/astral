@@ -1,22 +1,21 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
+import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { useContext, useState } from 'react';
-import { StarModalContext } from '../../main';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import {
   FileElem,
   FileElemVariant,
 } from '@/(server)/(model)/elements/file/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useContext, useState } from 'react';
 
-export function AddFileStarModal() {
+export function SpaceBoardAddFileIdeaModal() {
   const openableController = useContext(ContextForOpenable);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [title, changeTitle] = useState('' as string);

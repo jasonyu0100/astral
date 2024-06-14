@@ -1,32 +1,29 @@
-import { useState } from 'react';
-import { ShareContainer } from './container/main';
-import { SeaSidebar } from './sidebar/main';
+import { SpaceSeaContainer } from './container/main';
+import { SpaceSeaContribution } from './main/contribution/main';
+import { SpaceSeaMain } from './main/main';
 import { MonthView } from './main/month/main';
-import { SidebarEntry } from './sidebar/entry/main';
-import { SeaContribution } from './main/contribution/main';
-import { SeaMain } from './main/main';
+import { SpaceSeaSidebarEntry } from './sidebar/entry/main';
+import { SpaceSeaSidebar } from './sidebar/main';
 
-export function ShareView() {
-  const [showTestModal, changeShowTestModal] = useState(true);
-
+export function SpaceSeaShareView() {
   return (
-    <ShareContainer>
-      <SeaSidebar>
-        <SidebarEntry>Week 1</SidebarEntry>
-        <SidebarEntry>Week 2</SidebarEntry>
-        <SidebarEntry>Week 3</SidebarEntry>
-        <SidebarEntry>Week 4</SidebarEntry>
-        <SidebarEntry>Week 5</SidebarEntry>
-      </SeaSidebar>
-      <SeaMain>
+    <SpaceSeaContainer>
+      <SpaceSeaSidebar>
+        <SpaceSeaSidebarEntry>Week 1</SpaceSeaSidebarEntry>
+        <SpaceSeaSidebarEntry>Week 2</SpaceSeaSidebarEntry>
+        <SpaceSeaSidebarEntry>Week 3</SpaceSeaSidebarEntry>
+        <SpaceSeaSidebarEntry>Week 4</SpaceSeaSidebarEntry>
+        <SpaceSeaSidebarEntry>Week 5</SpaceSeaSidebarEntry>
+      </SpaceSeaSidebar>
+      <SpaceSeaMain>
         <MonthView />
         <div className='flex max-w-[800px] flex-col items-center space-y-[2rem] overflow-auto'>
-          <SeaContribution />
-          <SeaContribution />
-          <SeaContribution />
-          <SeaContribution />
+          <SpaceSeaContribution />
+          <SpaceSeaContribution />
+          <SpaceSeaContribution />
+          <SpaceSeaContribution />
         </div>
-      </SeaMain>
-    </ShareContainer>
+      </SpaceSeaMain>
+    </SpaceSeaContainer>
   );
 }

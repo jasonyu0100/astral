@@ -1,11 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-import { useContext } from 'react';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import { StormChapterTitle } from './title/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { useContext } from 'react';
+import { SpaceStormHeaderTitle } from './title/main';
 
-export function StormChapterHeader() {
+export function SpaceStormChapterHeader() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chaptersListController = useContext(ContextForSpaceChapterList);
 
@@ -16,11 +16,11 @@ export function StormChapterHeader() {
       }
     >
       <GlassAreaContainer
-        name={StormChapterHeader.name}
+        name={SpaceStormChapterHeader.name}
         sizeFx='w-full pt-[1rem]'
         className={`flex items-center justify-between`}
       >
-        <StormChapterTitle />
+        <SpaceStormHeaderTitle />
       </GlassAreaContainer>
     </button>
   );

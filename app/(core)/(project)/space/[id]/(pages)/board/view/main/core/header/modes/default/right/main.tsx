@@ -1,8 +1,8 @@
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { useContext } from 'react';
 import { BoardSaveButton } from '../../../common/save/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 
-export function DefaultRight() {
+export function SpaceBoardDefaultRight() {
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
 
   return (

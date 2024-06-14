@@ -1,10 +1,10 @@
 'use client';
 
-import { Topbar } from '@/(core)/(common)/(topbar)/main';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
-import { createContext } from 'react';
-import { ventureMap } from '@/(core)/(dashboard)/venture/map';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
+import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
+import { ventureMap } from '@/(core)/(dashboard)/venture/map';
+import { createContext } from 'react';
 
 interface ReleaseContextObj {
   releaseId: string;
@@ -24,7 +24,7 @@ export default function Layout({
 }) {
   return (
     <ReleaseContext.Provider value={{ releaseId: params.id }}>
-      <Topbar />
+      <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView
           minimised

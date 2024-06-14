@@ -1,4 +1,4 @@
-export function HeaderAdd() {
+export function SpaceStormHeaderAdd() {
   return (
     <div className='h-[30px] w-[30px]'>
       <svg

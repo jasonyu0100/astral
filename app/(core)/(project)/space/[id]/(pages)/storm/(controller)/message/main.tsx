@@ -88,7 +88,7 @@ export function useControllerForChatMessageSend() {
           agentResponse,
           conversation,
         );
-        return;
+        return newAgentMessage;
       }
     }
 
@@ -101,6 +101,8 @@ export function useControllerForChatMessageSend() {
       agentResponse,
       newConversation,
     );
+
+    return newAgentMessage;
   }
 
   return {

@@ -1,15 +1,12 @@
-import React from 'react';
-import { ResourcesBreadcrumbs } from './breadcrumbs/main';
-import { ResourcesGrid } from './grid/main';
-import { ResourcesContainer } from './container/main';
-import { ResourcesSearch } from './search/main';
+import { ExplorerCollectionResourcesContainer } from './container/main';
+import { ExplorerColllectionResourcesResults } from './results/main';
+import { ExplorerCollectionResourcesSearch } from './search/main';
 
-export function ResourcesBody() {
+export function ExplorerCollectionResources() {
   return (
-    <ResourcesContainer>
-      <ResourcesSearch />
-      <ResourcesGrid />
-      <ResourcesBreadcrumbs />
-    </ResourcesContainer>
+    <ExplorerCollectionResourcesContainer>
+      <ExplorerCollectionResourcesSearch />
+      <ExplorerColllectionResourcesResults />
+    </ExplorerCollectionResourcesContainer>
   );
 }

@@ -1,14 +1,14 @@
-import { ScenesGoLeftAction } from './(common)/left/main';
-import { ScenesGoRightAction } from './(common)/right/main';
-import { ScenesContainer } from './container/main';
+import { NavigationTimelineGoLeftAction } from './(common)/left/main';
+import { NavigationTimelineGoRightAction } from './(common)/right/main';
+import { NavigationTimelineContainer } from './container/main';
 import { BoardScenesRow } from './row/main';
 
-export function BoardScenes() {
+export function BoardBoardBodyScenes() {
   return (
-    <ScenesContainer>
-      <ScenesGoLeftAction />
+    <NavigationTimelineContainer>
+      <NavigationTimelineGoLeftAction />
       <BoardScenesRow />
-      <ScenesGoRightAction />
-    </ScenesContainer>
+      <NavigationTimelineGoRightAction />
+    </NavigationTimelineContainer>
   );
 }

@@ -1,13 +1,13 @@
-import { VerseModalContext } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/main';
+import { SpaceVerseModalContext } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/main';
 import { useContext } from 'react';
-import { VerseHeaderAddButton } from './add/main';
+import { SpaceVerseRightAdd } from './add/main';
 
-export function VerseHeaderRight() {
-  const modalContext = useContext(VerseModalContext);
+export function SpaceVerseHeaderRight() {
+  const modalContext = useContext(SpaceVerseModalContext);
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      <VerseHeaderAddButton
+      <SpaceVerseRightAdd
         onClick={() => modalContext.addFileMomentModal.open()}
       />
     </div>

@@ -1,22 +1,22 @@
-import { HorizonsSidebarLabel } from '../(common)/label/main';
-import { HorizonsSidebarList } from '../(common)/list/main';
-import { HorizonsSidebarOption } from '../(common)/list/option/main';
+import { VentureHorizonsSidebarLabel } from '../(common)/label/main';
+import { VentureHorizonsSidebarList } from '../(common)/list/main';
+import { VentureHorizonsSidebarOption } from '../(common)/list/option/main';
 
-export function HorizonsSidebarDegree() {
+export function VentureHorizonsSidebarDegree() {
   return (
     <div className='flex flex-col'>
-      <HorizonsSidebarLabel>Degree</HorizonsSidebarLabel>
-      <HorizonsSidebarList>
-        <HorizonsSidebarOption>1st</HorizonsSidebarOption>
-        <HorizonsSidebarOption>2nd</HorizonsSidebarOption>
-        <HorizonsSidebarOption>3rd</HorizonsSidebarOption>
-        <HorizonsSidebarOption>4th</HorizonsSidebarOption>
-        <HorizonsSidebarOption>5th</HorizonsSidebarOption>
-        <HorizonsSidebarOption>6th</HorizonsSidebarOption>
-        <HorizonsSidebarOption>7th</HorizonsSidebarOption>
-        <HorizonsSidebarOption>8th</HorizonsSidebarOption>
-        <HorizonsSidebarOption>9th</HorizonsSidebarOption>
-      </HorizonsSidebarList>
+      <VentureHorizonsSidebarLabel>Degree</VentureHorizonsSidebarLabel>
+      <VentureHorizonsSidebarList>
+        <VentureHorizonsSidebarOption>1st</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>2nd</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>3rd</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>4th</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>5th</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>6th</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>7th</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>8th</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>9th</VentureHorizonsSidebarOption>
+      </VentureHorizonsSidebarList>
     </div>
   );
 }

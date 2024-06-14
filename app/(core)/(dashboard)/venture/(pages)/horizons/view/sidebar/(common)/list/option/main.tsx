@@ -1,15 +1,15 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function HorizonsSidebarOption({
+export function VentureHorizonsSidebarOption({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame
-      name={HorizonsSidebarOption.name}
+      name={VentureHorizonsSidebarOption.name}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
       className='px-[1rem] py-[0.5rem]'

@@ -1,4 +1,4 @@
-export function InactiveChapterHeaderContainer({
+export function SpaceStormInactiveContainer({
   children,
 }: {
   children?: React.ReactNode;

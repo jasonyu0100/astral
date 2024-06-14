@@ -1,11 +1,11 @@
 'use client';
-import { GallerysView } from './view/view';
-import isVerseAuth from '@/(utils)/isAuth';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/(server)/(controller)/gallery/list';
+import isVerseAuth from '@/(utils)/isAuth';
+import { ExplorerHomeGallerysView } from './view/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -13,7 +13,7 @@ function Page() {
 
   return (
     <ContextForGalleryList.Provider value={galleryListController}>
-      <GallerysView />
+      <ExplorerHomeGallerysView />
     </ContextForGalleryList.Provider>
   );
 }

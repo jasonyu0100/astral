@@ -1,12 +1,12 @@
-import { JournalMain } from './main/main';
-import { JournalSidebar } from './sidebar/main';
-import { JournalContainer } from './container/main';
+import { JournalRecordContainer } from './container/main';
+import { JournalRecordMain } from './main/main';
+import { JournalRecordSidebar } from './sidebar/main';
 
-export function JournalView() {
+export function JournalRecordView() {
   return (
-    <JournalContainer>
-      <JournalMain />
-      <JournalSidebar />
-    </JournalContainer>
+    <JournalRecordContainer>
+      <JournalRecordMain />
+      <JournalRecordSidebar />
+    </JournalRecordContainer>
   );
 }

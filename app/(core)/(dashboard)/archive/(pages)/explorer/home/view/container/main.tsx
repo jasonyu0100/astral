@@ -1,14 +1,14 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, roundedFx, borderFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function GallerysContainer({
+export function ExplorerHomeGallerysContainer({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={GallerysContainer.name}
+      name={ExplorerHomeGallerysContainer.name}
       sizeFx='flex-grow h-full'
       className={`"flex flex-col"`}
       glassFx={glassFx['glass-5']}

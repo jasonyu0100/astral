@@ -1,13 +1,13 @@
 'use client';
-import { GallerysContainer } from './container/main';
-import { GallerysSearch } from './search/main';
-import { GallerysResults } from './results/main';
+import { ExplorerHomeGallerysContainer } from './container/main';
+import { ExplorerHomeGallerysResults } from './results/main';
+import { ExplorerHomeGallerysSearch } from './search/main';
 
-export function GallerysView() {
+export function ExplorerHomeGallerysView() {
   return (
-    <GallerysContainer>
-      <GallerysSearch />
-      <GallerysResults />
-    </GallerysContainer>
+    <ExplorerHomeGallerysContainer>
+      <ExplorerHomeGallerysSearch />
+      <ExplorerHomeGallerysResults />
+    </ExplorerHomeGallerysContainer>
   );
 }

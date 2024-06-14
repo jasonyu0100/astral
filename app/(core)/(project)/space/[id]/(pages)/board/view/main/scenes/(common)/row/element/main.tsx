@@ -1,12 +1,10 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, borderFx, roundedFx } from '@/(style)/data';
-import { useContext } from 'react';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
-import { cn } from '@/(utils)/cn';
-import { ElementActiveText } from './active/main';
-import { ElementInactiveText } from './inactive/main';
+import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { glassFx, roundedFx } from '@/(style)/data';
+import { cn } from '@/(utils)/cn';
+import { useContext } from 'react';
 
 export function ElementContainer({
   index,
@@ -36,7 +34,7 @@ export function ElementContainer({
           roundedFx={roundedFx['rounded-full']}
           className='flex items-center justify-center'
         >
-          {active ? <ElementActiveText /> : <ElementInactiveText />}
+          {children}
         </GlassAreaContainer>
       </button>
     </WrapperTooltip>

@@ -1,13 +1,13 @@
 'use client';
-import { StormSidebar } from './sidebar/main';
-import { StormContainer } from './container/main';
-import { StormMain } from './main/main';
+import { SpaceStormContainer } from './container/main';
+import { SpaceStormMain } from './main/main';
+import { SpaceStormSidebar } from './sidebar/main';
 
-export function StormView() {
+export function SpaceStormView() {
   return (
-    <StormContainer>
-      <StormSidebar />
-      <StormMain />
-    </StormContainer>
+    <SpaceStormContainer>
+      <SpaceStormSidebar />
+      <SpaceStormMain />
+    </SpaceStormContainer>
   );
 }

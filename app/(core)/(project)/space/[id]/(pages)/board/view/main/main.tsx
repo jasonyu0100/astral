@@ -1,18 +1,16 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { SpaceBoardBodyCore } from './core/main';
+import { BoardBoardBodyScenes } from './scenes/main';
 
-import { BoardCore } from './core/main';
-import { BoardScenes } from './scenes/main';
-import { BoardSidebar } from '../sidebar/main';
-
-export function BoardMain() {
+export function SpaceBoardMain() {
   return (
     <GlassAreaContainer
-      name={BoardMain.name}
+      name={SpaceBoardMain.name}
       sizeFx='h-full flex-grow'
       className={`flex flex-col`}
     >
-      <BoardCore />
-      <BoardScenes />
+      <SpaceBoardBodyCore />
+      <BoardBoardBodyScenes />
     </GlassAreaContainer>
   );
 }

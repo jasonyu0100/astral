@@ -1,12 +1,12 @@
-import { VerseMain } from './main/main';
-import { VerseSidebar } from './sidebar/main';
-import { VerseContainer } from './container/main';
+import { SpaceVerseContainer } from './container/main';
+import { SpaceVerseMain } from './main/main';
+import { SpaceVerseSidebar } from './sidebar/main';
 
-export function VerseView() {
+export function SpaceVerseView() {
   return (
-    <VerseContainer>
-      <VerseMain />
-      <VerseSidebar />
-    </VerseContainer>
+    <SpaceVerseContainer>
+      <SpaceVerseMain />
+      <SpaceVerseSidebar />
+    </SpaceVerseContainer>
   );
 }

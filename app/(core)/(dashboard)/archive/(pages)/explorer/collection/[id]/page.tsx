@@ -1,10 +1,8 @@
 'use client';
-import isVerseAuth from '@/(utils)/isAuth';
-import { ResourcesView } from './view/view';
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 import {
-  CraftTabs,
-  CraftTabStage,
+  ArchiveTabs,
+  ArchiveTabStage,
 } from '@/(core)/(dashboard)/archive/(tabs)/main';
 import { archiveMap } from '@/(core)/(dashboard)/archive/map';
 import {
@@ -12,13 +10,15 @@ import {
   useControllerForGalleryCollectionMain,
 } from '@/(server)/(controller)/gallery/collection/main';
 import {
-  ContextForGalleryMain,
-  useControllerForGalleryMain,
-} from '@/(server)/(controller)/gallery/main';
-import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
 } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForGalleryMain,
+  useControllerForGalleryMain,
+} from '@/(server)/(controller)/gallery/main';
+import isVerseAuth from '@/(utils)/isAuth';
+import { ExplorerCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const collectionMainController = useControllerForGalleryCollectionMain(
@@ -39,14 +39,14 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForCollectionResourceList.Provider
           value={resourceListController}
         >
-          <CraftTabs
-            tab={CraftTabStage.Explorer}
+          <ArchiveTabs
+            tab={ArchiveTabStage.Explorer}
             backUrl={archiveMap.archive.explorer.gallery.id.link(
               galleryMainController.state.obj.id,
             )}
           />
           <DashboardContent>
-            <ResourcesView />
+            <ExplorerCollectionResources />
           </DashboardContent>
         </ContextForCollectionResourceList.Provider>
       </ContextForGalleryCollectionMain.Provider>

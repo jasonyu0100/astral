@@ -1,12 +1,11 @@
-import React from 'react';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, borderFx } from '@/(style)/data';
-import { SidebarEntry } from './entry/main';
+import { borderFx, glassFx } from '@/(style)/data';
+import { CreativeNetworkSidebarEntry } from './entry/main';
 
-export function NetworkSidebar() {
+export function CreativeNetworkSidebar() {
   return (
     <GlassAreaContainer
-      name={NetworkSidebar.name}
+      name={CreativeNetworkSidebar.name}
       sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full'
       className={`flex flex-col overflow-auto p-[1rem]`}
       glassFx={glassFx['glass-5']}
@@ -14,11 +13,11 @@ export function NetworkSidebar() {
     >
       <div className='flex flex-col  space-y-[1rem]'>
         <p className='text-lg font-bold text-slate-300'>12 days ago</p>
-        <SidebarEntry />
-        <SidebarEntry />
-        <SidebarEntry />
+        <CreativeNetworkSidebarEntry />
+        <CreativeNetworkSidebarEntry />
+        <CreativeNetworkSidebarEntry />
         <p className='text-lg font-bold text-slate-300'>1 month ago</p>
-        <SidebarEntry />
+        <CreativeNetworkSidebarEntry />
       </div>
     </GlassAreaContainer>
   );

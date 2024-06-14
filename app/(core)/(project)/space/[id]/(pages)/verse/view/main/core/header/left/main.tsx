@@ -1,9 +1,9 @@
-import { VerseHeaderListButton } from './list/main';
+import { SpaceVerseHeaderList } from './list/main';
 
-export function VerseHeaderLeft() {
+export function SpaceVerseHeaderLeft() {
   return (
     <div className='flex w-1/3 flex-row'>
-      <VerseHeaderListButton />
+      <SpaceVerseHeaderList />
     </div>
   );
 }

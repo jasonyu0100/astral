@@ -1,13 +1,13 @@
-import { DefaultCenter } from './center/main';
-import { DefaultLeft } from './left/main';
-import { DefaultRight } from './right/main';
+import { SpaceBoardDefaultCenter } from './center/main';
+import { SpaceBoardDefaultLeft } from './left/main';
+import { SpaceBoardDefaultRight } from './right/main';
 
 export function BoardHeaderDefault() {
   return (
     <>
-      <DefaultLeft />
-      <DefaultCenter />
-      <DefaultRight />
+      <SpaceBoardDefaultLeft />
+      <SpaceBoardDefaultCenter />
+      <SpaceBoardDefaultRight />
     </>
   );
 }

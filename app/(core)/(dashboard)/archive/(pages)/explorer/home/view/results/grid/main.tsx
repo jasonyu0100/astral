@@ -1,15 +1,15 @@
-import { useContext } from 'react';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { GalleryExplorerAdd } from '@/(components)/(media)/(gallery)/explorer/add/main';
 import { ExplorerGallery } from '@/(components)/(media)/(gallery)/explorer/main';
-import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { ExplorerCreateGalleryModal } from '../../../../(modals)/create/gallery/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+import { useContext } from 'react';
+import { ExplorerCreateGalleryModal } from '../../../../(modals)/create/gallery/main';
 
-export function GallerysGrid() {
+export function ExplorerHomeGallerysGrid() {
   const galleryListController = useContext(ContextForGalleryList);
   const openableController = useControllerForOpenable();
 

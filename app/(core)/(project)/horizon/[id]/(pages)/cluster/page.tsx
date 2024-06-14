@@ -1,13 +1,13 @@
 'use client';
 
-import isVerseAuth from '@/(utils)/isAuth';
-import { MapView } from './view/view';
-import { MapSidebar } from './view/sidebar/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import isVerseAuth from '@/(utils)/isAuth';
+import { HorizonClusterSidebar } from './view/sidebar/main';
+import { HorizonClusterView } from './view/view';
 
 function MapSpace() {
   return (
@@ -42,8 +42,8 @@ function ContributionMap() {
 function Page() {
   return (
     <>
-      <MapView>
-        <MapSidebar />
+      <HorizonClusterView>
+        <HorizonClusterSidebar />
         <div className='flex h-full w-full flex-col'>
           <GlassWindowFrame name='temp' className='h-[4rem] w-full'>
             <GlassWindowContents className='flex flex-row'></GlassWindowContents>
@@ -122,7 +122,7 @@ function Page() {
             </GlassWindowFrame>{' '}
           </div>
         </div>
-      </MapView>
+      </HorizonClusterView>
     </>
   );
 }

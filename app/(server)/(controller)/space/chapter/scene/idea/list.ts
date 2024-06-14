@@ -1,25 +1,20 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
 import {
-  exampleFileElem,
-  FileElem,
-} from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
-import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { LinkElem } from '@/(server)/(model)/elements/link/main';
+import { NoteElem } from '@/(server)/(model)/elements/note/main';
 import {
   sceneIdeaModel,
   SceneIdeaObj,
   SceneIdeaVariant,
 } from '@/(server)/(model)/space/chapter/scene/idea/main';
-import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
-import { LinkElem } from '@/(server)/(model)/elements/link/main';
-import { NoteElem } from '@/(server)/(model)/elements/note/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SceneIdeaObj;
 const gqlDbWrapper = sceneIdeaDbWrapper;

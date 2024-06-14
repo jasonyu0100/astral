@@ -1,18 +1,19 @@
 import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { StormAgentChatMessage } from './them/main';
-import { StormYouChatMessage } from './you/main';
 import { useContext } from 'react';
-import { ContextForChatMemberList } from '@/(server)/(controller)/space/chapter/chat/member/list';
+import { SpaceStormAgentChatMessage } from './agent/main';
+import { SpaceStormUserChatMessage } from './user/main';
 
-export function StormMessage() {
+export function SpaceStormChatMessage() {
   const message = useContext(ContextForConversationMessageObj);
 
   return (
     <>
       {message.agentId !== null ? (
-        <StormAgentChatMessage>{message.message}</StormAgentChatMessage>
+        <SpaceStormAgentChatMessage>
+          {message.message}
+        </SpaceStormAgentChatMessage>
       ) : (
-        <StormYouChatMessage>{message.message}</StormYouChatMessage>
+        <SpaceStormUserChatMessage>{message.message}</SpaceStormUserChatMessage>
       )}
     </>
   );

@@ -6,7 +6,7 @@ import {
 
 import { StormAddChatModal } from '../../../../../../(modal)/add/chat/main';
 
-export function StormChapterChatAdd() {
+export function SpaceStormChatAdd() {
   const openableController = useControllerForOpenable();
 
   return (
@@ -19,7 +19,7 @@ export function StormChapterChatAdd() {
         onClick={openableController.open}
       >
         <GlassAreaContainer
-          name={StormChapterChatAdd.name}
+          name={SpaceStormChatAdd.name}
           sizeFx='w-[50px] h-[50px] rounded-full overflow-hidden'
           glassFx='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
           className={`flex flex-col items-center justify-center`}

@@ -1,13 +1,13 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx } from '@/(style)/data';
-import { HorizonsSidebarDegree } from './degree/main';
-import { HorizonsSidebarGuild } from './guild/main';
-import { HorizonsSidebarScale } from './scale/main';
+import { VentureHorizonsSidebarDegree } from './degree/main';
+import { VentureHorizonsSidebarGuild } from './guild/main';
+import { VentureHorizonsSidebarScale } from './scale/main';
 
-export function HorizonsSidebar() {
+export function VentureHorizonsSidebar() {
   return (
     <GlassAreaContainer
-      name={HorizonsSidebar.name}
+      name={VentureHorizonsSidebar.name}
       sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full'
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
@@ -15,9 +15,9 @@ export function HorizonsSidebar() {
     >
       <div className='flex h-full w-full flex-col overflow-auto pr-[1rem]'>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <HorizonsSidebarScale />
-          <HorizonsSidebarGuild />
-          <HorizonsSidebarDegree />
+          <VentureHorizonsSidebarScale />
+          <VentureHorizonsSidebarGuild />
+          <VentureHorizonsSidebarDegree />
         </div>
       </div>
     </GlassAreaContainer>

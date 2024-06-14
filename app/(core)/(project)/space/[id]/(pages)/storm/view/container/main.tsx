@@ -1,10 +1,14 @@
-import { glassFx, roundedFx, borderFx } from '@/(style)/data';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function StormContainer({ children }: { children?: React.ReactNode }) {
+export function SpaceStormContainer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassAreaContainer
-      name={StormContainer.name}
+      name={SpaceStormContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
       className={`flex`}

@@ -1,4 +1,4 @@
-export function HorizonsSidebarLabel({
+export function VentureHorizonsSidebarLabel({
   children,
 }: {
   children?: React.ReactNode;

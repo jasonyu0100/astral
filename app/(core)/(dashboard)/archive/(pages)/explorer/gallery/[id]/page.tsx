@@ -1,7 +1,4 @@
 'use client';
-import { CollectionsResults } from './view/view';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
-import isVerseAuth from '@/(utils)/isAuth';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
@@ -10,6 +7,8 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/(controller)/gallery/main';
+import isVerseAuth from '@/(utils)/isAuth';
+import { ExplorerGalleryCollections } from './view/view';
 
 function Page({ params }: { params: { id: string } }) {
   const galleryMainController = useControllerForGalleryMain(params.id);
@@ -22,7 +21,7 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForGalleryCollectionList.Provider
         value={collectionListController}
       >
-        <CollectionsResults />
+        <ExplorerGalleryCollections />
       </ContextForGalleryCollectionList.Provider>
     </ContextForGalleryMain.Provider>
   );

@@ -2,13 +2,12 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, borderFx, roundedFx } from '@/(style)/data';
-import React from 'react';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function StorySidebar() {
+export function HorizonStorySidebar() {
   return (
     <GlassAreaContainer
-      name={StorySidebar.name}
+      name={HorizonStorySidebar.name}
       sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full flex-shrink-0'
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}

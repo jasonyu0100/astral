@@ -1,17 +1,17 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
-import { StormChapter } from '../../../main';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { SpaceStormSidebarChapter } from '../../../main';
 
-export function ActiveChapterHeaderContainer({
+export function SpaceStormContainerActive({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame
-      name={StormChapter.name}
+      name={SpaceStormSidebarChapter.name}
       className='mb-[1rem]'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-sm']}

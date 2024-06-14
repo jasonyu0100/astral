@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import { StormChatIcon } from './avatar/main';
-import StormChapterIndicator from '../header/indicator/main';
-import { ContextForChatObj } from '@/(server)/(model)/space/chapter/chat/main';
-import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
+import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { ContextForChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import { useContext } from 'react';
+import SpaceStormHeaderIndicator from '../header/indicator/main';
 
 export function StormChapterChat() {
   const chat = useContext(ContextForChatObj);
@@ -21,7 +20,7 @@ export function StormChapterChat() {
             <p className='text-lg font-bold text-slate-500'>
               {index + 1}. {chat.title}
             </p>
-            <StormChapterIndicator />
+            <SpaceStormHeaderIndicator />
           </div>
         ) : (
           <p className='text-lg font-bold text-slate-500'>

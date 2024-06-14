@@ -1,15 +1,17 @@
 import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
 import { createContext, useState } from 'react';
 
-export interface StarModalController {
+export interface SceneIdeaModalController {
   addNoteStarModal: ContextForOpenableInterface;
   addLinkStarModal: ContextForOpenableInterface;
   addFileStarModal: ContextForOpenableInterface;
 }
 
-export const StarModalContext = createContext({} as StarModalController);
+export const SceneIdeaModalContext = createContext(
+  {} as SceneIdeaModalController,
+);
 
-export const useStarModal = (): StarModalController => {
+export const useSceneIdeaModal = (): SceneIdeaModalController => {
   const [one, setOne] = useState(false);
   const [two, setTwo] = useState(false);
   const [three, setThree] = useState(false);

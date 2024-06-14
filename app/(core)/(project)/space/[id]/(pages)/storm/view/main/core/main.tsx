@@ -1,17 +1,17 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { StormHeader } from './header/main';
-import { StormChat } from './chat/main';
+import { SpaceStormChat } from './chat/main';
+import { SpaceStormHeader } from './header/main';
 
-export function StormCore() {
+export function SpaceStormCore() {
   return (
     <div className='w-full' style={{ height: '100%' }}>
       <GlassAreaContainer
-        name={StormCore.name}
+        name={SpaceStormCore.name}
         sizeFx='w-full h-full'
         className={`flex flex-col items-center`}
       >
-        <StormHeader />
-        <StormChat />
+        <SpaceStormHeader />
+        <SpaceStormChat />
       </GlassAreaContainer>
     </div>
   );

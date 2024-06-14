@@ -1,15 +1,14 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { roundedFx, glassFx } from '@/(style)/data';
-import { useState, useEffect } from 'react';
+import { glassFx, roundedFx } from '@/(style)/data';
+import { useEffect, useState } from 'react';
 
-export function JournalMainFooter() {
+export function JournalRecordFooter() {
   const [originalTime, setOriginalTime] = useState(10000); // 100 x 100
   const [timeDilation, changeTimeDilation] = useState(1);
   const [timeElapsed, changeTimeElapsed] = useState(0);
   const currentTime = originalTime - timeElapsed;
-  const days = Math.floor(currentTime / 60 / 60 / 24);
   const hours = Math.floor(currentTime / 60 / 60) % 24;
   const minutes = Math.floor(currentTime / 60) % 60;
   const seconds = currentTime % 60;

@@ -4,7 +4,7 @@ export enum DayColor {
   Green = 'bg-green-500',
 }
 
-export function DayView({ color }: { color: DayColor }) {
+export function MonthDayView({ color }: { color: DayColor }) {
   return (
     <div
       className={`h-[50px] w-[50px] border border-blue-300 bg-blue-500 ${color}`}

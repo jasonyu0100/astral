@@ -1,8 +1,6 @@
-import { TabThree } from './tab-3/main';
-import { TabOne } from './tab-1/main';
-import { TabTwo } from './tab-2/main';
 import { Tabs } from '../../../../(components)/(dashboard)/tabs/main';
 import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main';
+import { TabOne } from './tab-1/main';
 
 export enum SpaceTabStages {
   Spaces = 'Spaces',
@@ -19,8 +17,6 @@ export function SpacesTabs({ tab }: SpacesTabProps) {
     <Tabs>
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} />
-        <TabThree tab={tab} /> */}
       </TabsRow>
     </Tabs>
   );

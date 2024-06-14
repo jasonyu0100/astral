@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import BoardHeaderTitle from '../../../common/title/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { useContext } from 'react';
+import BoardHeaderTitle from '../../../common/title/main';
 
-export function DefaultCenter() {
+export function SpaceBoardDefaultCenter() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const part = sceneListController.state.currentObj;
   const chapterListController = useContext(ContextForSpaceChapterList);

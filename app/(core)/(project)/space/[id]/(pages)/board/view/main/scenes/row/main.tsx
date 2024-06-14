@@ -1,14 +1,14 @@
-import { useContext } from 'react';
-import ScenesAdd from '@/(core)/(project)/space/[id]/(pages)/board/view/main/scenes/(common)/row/add/main';
+import NavigationTimelineAdd from '@/(core)/(project)/space/[id]/(pages)/board/view/main/scenes/(common)/row/add/main';
 import { ElementContainer } from '@/(core)/(project)/space/[id]/(pages)/board/view/main/scenes/(common)/row/element/main';
-import { ScenesRowContainer } from '../(common)/row/main';
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { ContextForChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
-import { BoardAddSceneModal } from '../../../../(modal)/add/scene/main';
+import { useContext } from 'react';
+import { ScenesRowContainer } from '../(common)/row/main';
+import { SpaceBoardAddSceneModal } from '../../../../(modal)/add/scene/main';
 
 export function BoardScenesRow() {
   const sceneListController = useContext(ContextForChapterSceneList);
@@ -17,7 +17,7 @@ export function BoardScenesRow() {
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <BoardAddSceneModal />
+        <SpaceBoardAddSceneModal />
       </ContextForOpenable.Provider>
       <ScenesRowContainer>
         {sceneListController.state.objs.map((scene, index) => (
@@ -30,7 +30,7 @@ export function BoardScenesRow() {
             <ElementContainer index={index} key={scene.id} />
           </ContextForChapterSceneObj.Provider>
         ))}
-        <ScenesAdd onClick={() => openableController.open()} />
+        <NavigationTimelineAdd onClick={() => openableController.open()} />
       </ScenesRowContainer>
     </>
   );

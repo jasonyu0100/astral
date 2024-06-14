@@ -1,10 +1,10 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
+import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 import { useContext } from 'react';
 import { ContextForPageTwo } from '../main';
-import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 
-export function PageTwo() {
+export function CreateSpaceModalPageTwo() {
   const {
     variant,
     updateVariant,

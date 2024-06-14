@@ -1,16 +1,16 @@
-import { HorizonsSidebarLabel } from '../(common)/label/main';
-import { HorizonsSidebarList } from '../(common)/list/main';
-import { HorizonsSidebarOption } from '../(common)/list/option/main';
+import { VentureHorizonsSidebarLabel } from '../(common)/label/main';
+import { VentureHorizonsSidebarList } from '../(common)/list/main';
+import { VentureHorizonsSidebarOption } from '../(common)/list/option/main';
 
-export function HorizonsSidebarGuild() {
+export function VentureHorizonsSidebarGuild() {
   return (
     <div className='flex flex-col'>
-      <HorizonsSidebarLabel>Guild</HorizonsSidebarLabel>
-      <HorizonsSidebarList>
-        <HorizonsSidebarOption>Music</HorizonsSidebarOption>
-        <HorizonsSidebarOption>Art</HorizonsSidebarOption>
-        <HorizonsSidebarOption>Film</HorizonsSidebarOption>
-      </HorizonsSidebarList>
+      <VentureHorizonsSidebarLabel>Guild</VentureHorizonsSidebarLabel>
+      <VentureHorizonsSidebarList>
+        <VentureHorizonsSidebarOption>Music</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>Art</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>Film</VentureHorizonsSidebarOption>
+      </VentureHorizonsSidebarList>
     </div>
   );
 }

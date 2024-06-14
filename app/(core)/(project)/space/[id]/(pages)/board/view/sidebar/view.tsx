@@ -1,10 +1,10 @@
-import { BoardSidebarBody } from './modes/main';
-import { BoardSidebarContainer } from './container/main';
+import { SpaceBoardSidebarContainer } from './container/main';
+import { SpaceBoardSidebarBody } from './modes/main';
 
-export function BoardSidebarView() {
+export function SpaceBoardSidebarView() {
   return (
-    <BoardSidebarContainer>
-      <BoardSidebarBody />
-    </BoardSidebarContainer>
+    <SpaceBoardSidebarContainer>
+      <SpaceBoardSidebarBody />
+    </SpaceBoardSidebarContainer>
   );
 }

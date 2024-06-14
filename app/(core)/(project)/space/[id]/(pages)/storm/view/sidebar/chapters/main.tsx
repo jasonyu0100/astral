@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { useContext } from 'react';
-import { StormChapterAdd } from './add/main';
-import { StormChapter } from './chapter/main';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { useContext } from 'react';
 import { StormAddChapterModal } from '../../../(modal)/add/chapter/main';
+import { SpaceStormChapterAdd } from './add/main';
+import { SpaceStormSidebarChapter } from './chapter/main';
 
-export function StormSidebarChapters() {
+export function SpaceStormSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useControllerForOpenable();
 
@@ -20,16 +20,16 @@ export function StormSidebarChapters() {
         <StormAddChapterModal />
       </ContextForOpenable.Provider>
       <GlassAreaContainer
-        name={StormSidebarChapters.name}
+        name={SpaceStormSidebarChapters.name}
         sizeFx='h-full w-full'
         className='flex flex-col overflow-auto'
       >
         {chapterListController.state.objs.map((chapter) => (
           <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
-            <StormChapter key={chapter.id} />
+            <SpaceStormSidebarChapter key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
-        <StormChapterAdd
+        <SpaceStormChapterAdd
           onClick={() => {
             openableController.open();
           }}

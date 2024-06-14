@@ -1,21 +1,20 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { useContext, useState } from 'react';
-import { StarModalContext } from '../../main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import {
   LinkElem,
   LinkElemVariant,
 } from '@/(server)/(model)/elements/link/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { useContext, useState } from 'react';
 
-export function AddLinkStarModal() {
+export function SpaceBoardAddLinkIdeaModal() {
   const openableController = useContext(ContextForOpenable);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [variant, changeVariant] = useState<string>(LinkElemVariant.YOUTUBE);
@@ -23,13 +22,13 @@ export function AddLinkStarModal() {
   const [spotifyId, changeSpotifyId] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
   const [description, changeDescription] = useState<string>('');
-  const [start, changeStart] = useState('0');
-  const [end, changeEnd] = useState('10');
+  // const [start, changeStart] = useState('0');
+  // const [end, changeEnd] = useState('10');
 
   function extractVideoId(url: string) {
     // Regular expression pattern to match YouTube video IDs
     const pattern =
-      /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      /(?:youtube\.com\/(?:[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 
     // Find the video ID using the regular expression pattern
     const match = url.match(pattern);
@@ -107,6 +106,12 @@ export function AddLinkStarModal() {
               title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
+            />
+            <FormInput
+              placeholder='Description'
+              title='Description'
+              value={description}
+              onChange={(e) => changeDescription(e.target.value)}
             />
             {variant === LinkElemVariant.YOUTUBE && (
               <>

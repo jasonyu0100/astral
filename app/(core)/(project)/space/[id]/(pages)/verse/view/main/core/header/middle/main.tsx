@@ -1,9 +1,9 @@
-import VerseHeaderTitle from './title/main';
+import SpaceVerseMiddleTitle from './title/main';
 
-export function VerseHeaderMiddle() {
+export function SpaceVerseHeaderMiddle() {
   return (
     <div className='flex w-1/3 flex-row justify-center'>
-      <VerseHeaderTitle />
+      <SpaceVerseMiddleTitle />
     </div>
   );
 }

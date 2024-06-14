@@ -1,15 +1,14 @@
-import { createContext, useMemo, useState } from 'react';
+import { generateUploadURL } from '@/(api)/aws/s3/main';
 import {
   FileElem,
   FileElemVariant,
   getFileVariantFromMimeType,
-} from '../../../../(server)/(model)/elements/file/main';
-import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { generateUploadURL } from '@/(api)/aws/s3/main';
+} from '@/(server)/(model)/elements/file/main';
+import { ChangeEvent, createContext, useMemo, useState } from 'react';
 
 export interface UploadActions {
   clearFile: () => void;
-  uploadFile: (event: any) => Promise<void>;
+  uploadFile: (event: ChangeEvent<HTMLInputElement>) => Promise<void>;
 }
 
 export interface UploadHandlerObj {
@@ -29,8 +28,11 @@ export const useS3UploadController = (
 
   const uploadActions: UploadActions = {
     clearFile: () => changeFile({} as FileElem),
-    uploadFile: async (event: any) => {
-      const file = event.target.files[0];
+    uploadFile: async (event) => {
+      const files: File[] = event.target.files
+        ? Array.from(event.target.files)
+        : [];
+      const file = files[0];
       const fileName = file.name;
       const fileType = file.type;
       const fileSize = file.size;

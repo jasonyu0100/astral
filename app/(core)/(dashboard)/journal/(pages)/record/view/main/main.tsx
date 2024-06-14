@@ -1,51 +1,15 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
-import {
-  exampleFileElem,
-  exampleFileElems,
-} from '@/(server)/(model)/elements/file/main';
-import { JournalEntry } from './entry/main';
-import { JournalPip } from './pip/main';
-import { JournalRecord } from './record/main';
-import { JournalMainFooter } from './footer/main';
-import {
-  StickyNoteTextIdea,
-  StickyNoteColor,
-  StickyNoteSize,
-} from '@/(components)/(idea)/(text)/sticky/main';
-import {
-  CardSuit,
-  CardNumber,
-} from '@/(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import {
-  VinylAudioClosedIdea,
-  VinylAudioIdea,
-} from '@/(components)/(idea)/(audio)/vinyl/main';
-import {
-  PolaroidImageIdea,
-  PolaroidImageIdeaSize,
-} from '@/(components)/(idea)/(image)/polaroid/main';
-import {
-  CardTextIdea,
-  CardTextIdeaSize,
-} from '@/(components)/(idea)/(text)/card/main';
-import {
-  ScreenVideoIdea,
-  ScreenVideoIdeaSize,
-} from '@/(components)/(idea)/(video)/screen/main';
-import { Colors } from '@/(components)/(idea)/colors/main';
+import { roundedFx } from '@/(style)/data';
+import { JournalRecordEntry } from './entry/main';
+import { JournalRecordField } from './field/main';
+import { JournalRecordFooter } from './footer/main';
+import { JournalRecordPip } from './pip/main';
 
-export function JournalMain() {
+export function JournalRecordMain() {
   return (
     <GlassAreaContainer
-      name={JournalMain.name}
+      name={JournalRecordMain.name}
       sizeFx='h-full flex-grow '
       className='flex flex-col'
       roundedFx={roundedFx['rounded']}
@@ -55,9 +19,9 @@ export function JournalMain() {
           <p className='text-3xl font-bold text-white'>Friday, 11 June</p>
           <HorizontalDivider />
           <div className='flex w-3/4 max-w-[800px] flex-col items-center space-y-[2rem]'>
-            <JournalEntry />
+            <JournalRecordEntry />
             <HorizontalDivider />
-            <JournalRecord>
+            <JournalRecordField>
               <div className='flex w-full flex-col items-center space-y-[3rem] py-[1rem]'>
                 <div className='w-full overflow-auto'>
                   <p className='text-xl font-bold italic text-slate-300'>
@@ -85,9 +49,9 @@ export function JournalMain() {
                   </div>
                 </div>
               </div>
-            </JournalRecord>
-            <JournalPip />
-            <JournalRecord>
+            </JournalRecordField>
+            <JournalRecordPip />
+            <JournalRecordField>
               <div className='flex w-full flex-col items-center space-y-[3rem] py-[1rem]'>
                 <div className='w-full overflow-auto'>
                   <p className='text-xl font-bold italic text-slate-300'>
@@ -115,15 +79,15 @@ export function JournalMain() {
                   </div>
                 </div>
               </div>
-            </JournalRecord>
-            <JournalPip />
-            <JournalRecord />
-            <JournalPip />
-            <JournalRecord />
+            </JournalRecordField>
+            <JournalRecordPip />
+            <JournalRecordField />
+            <JournalRecordPip />
+            <JournalRecordField />
           </div>
         </div>
       </div>
-      <JournalMainFooter />
+      <JournalRecordFooter />
     </GlassAreaContainer>
   );
 }

@@ -1,24 +1,24 @@
 'use client';
 
-import isVerseAuth from '@/(utils)/isAuth';
-import { BaseView } from './view/view';
+import { ProfileCover } from '@/(components)/(element)/profile/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { ProfileCover } from '@/(components)/(element)/profile/main';
+import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import {
   exampleFileElem,
   exampleFileElems,
 } from '@/(server)/(model)/elements/file/main';
-import { BaseSidebar } from './view/sidebar/main';
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import isVerseAuth from '@/(utils)/isAuth';
 import { horizonMap } from '../../map';
+import { HorizonForumSidebar } from './view/sidebar/main';
+import { HorizonForumView } from './view/view';
 
 function Page() {
   return (
-    <BaseView>
-      <BaseSidebar />
+    <HorizonForumView>
+      <HorizonForumSidebar />
       <div className='h-full flex-grow'>
         <GlassWindowFrame name='temp' className='h-[4rem] w-full'>
           <GlassWindowContents className='flex flex-row'></GlassWindowContents>
@@ -112,7 +112,7 @@ function Page() {
           </div>
         </div>
       </div>
-    </BaseView>
+    </HorizonForumView>
   );
 }
 

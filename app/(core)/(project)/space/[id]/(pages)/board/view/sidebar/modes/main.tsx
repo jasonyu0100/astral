@@ -1,16 +1,22 @@
 import { useContext } from 'react';
-import { BoardSidebarContext, SidebarMode } from '../main';
-import { CollectionsInterface } from './(collections)/main';
-import { SidebarGallerysInterface } from './(galllerys)/main';
-import { ResourcesInterface } from './(resources)/main';
+import { SpaceBoardSidebarContext, SpaceBoardSidebarMode } from '../main';
+import { SpaceBoardGalleryCollectionsMode } from './(gallery)/main';
+import { SpaceBoardSidebarHomeGallerysMode } from './(home)/main';
+import { SpaceBoardCollectionResourcesMode } from './(resources)/main';
 
-export function BoardSidebarBody() {
-  const { sidebarMode } = useContext(BoardSidebarContext);
+export function SpaceBoardSidebarBody() {
+  const { sidebarMode } = useContext(SpaceBoardSidebarContext);
   return (
     <div className='flex h-full w-full flex-col pt-[1rem]'>
-      {sidebarMode === SidebarMode.Gallerys && <SidebarGallerysInterface />}
-      {sidebarMode === SidebarMode.Collections && <CollectionsInterface />}
-      {sidebarMode === SidebarMode.Resources && <ResourcesInterface />}
+      {sidebarMode === SpaceBoardSidebarMode.Gallerys && (
+        <SpaceBoardSidebarHomeGallerysMode />
+      )}
+      {sidebarMode === SpaceBoardSidebarMode.Collections && (
+        <SpaceBoardGalleryCollectionsMode />
+      )}
+      {sidebarMode === SpaceBoardSidebarMode.Resources && (
+        <SpaceBoardCollectionResourcesMode />
+      )}
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 
-export function HorizonsFooter() {
+export function VentureHorizonsFooter() {
   return (
     <GlassAreaContainer
-      name={HorizonsFooter.name}
+      name={VentureHorizonsFooter.name}
       sizeFx='w-full h-[4rem]'
       glassFx={glassFx['glass-5']}
       className='flex flex-row items-center justify-between px-[50px]'

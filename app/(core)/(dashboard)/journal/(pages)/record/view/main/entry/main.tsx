@@ -1,11 +1,9 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function JournalEntry() {
+export function JournalRecordEntry() {
   return (
     <GlassWindowFrame
       className='w-full max-w-[1000px]'

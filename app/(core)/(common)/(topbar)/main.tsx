@@ -1,21 +1,21 @@
 'use client';
-import { TopbarAvatar } from './container/right-group/avatar/main';
-import { TopbarContainer } from './container/main';
-import { TopbarIconLink } from './container/right-group/icon-link/main';
-import { TopbarLogo } from './container/left-group/logo/main';
-import { TopbarRightGroup } from './container/right-group/main';
-import { SettingsIcon } from './(common)/icons/settings/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { TopbarLink } from './container/left-group/link/main';
-import { TopbarLeftGroup } from './container/left-group/main';
+import { EditProfileModal } from '@/(core)/(modals)/edit-profile/main';
+import { SettingsModal } from '@/(core)/(modals)/edit-settings/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
-import { EditProfileModal } from '@/(core)/(modals)/edit-profile/main';
-import { SettingsModal } from '@/(core)/(modals)/edit-settings/main';
+import { SettingsIcon } from './(common)/icons/settings/main';
+import { DashboardTopbarContainer } from './container/main';
+import { TopbarLink } from './left-group/link/main';
+import { TopbarLogo } from './left-group/logo/main';
+import { TopbarLeftGroup } from './left-group/main';
+import { TopbarAvatar } from './right-group/avatar/main';
+import { TopbarIconLink } from './right-group/icon-link/main';
+import { TopbarRightGroup } from './right-group/main';
 
-export function Topbar() {
+export function DashboardTopbar() {
   const profileOpenableController = useControllerForOpenable();
   const settingsOpenableController = useControllerForOpenable();
 
@@ -27,7 +27,7 @@ export function Topbar() {
       <ContextForOpenable.Provider value={settingsOpenableController}>
         <SettingsModal />
       </ContextForOpenable.Provider>
-      <TopbarContainer>
+      <DashboardTopbarContainer>
         <TopbarLogo href={studioMap.studio.spaces.link} />
         <TopbarLeftGroup>
           <TopbarLink href={studioMap.studio.spaces.link}>HOME</TopbarLink>
@@ -44,7 +44,7 @@ export function Topbar() {
           </div>
           <TopbarAvatar onClick={() => profileOpenableController.open()} />
         </TopbarRightGroup>
-      </TopbarContainer>
+      </DashboardTopbarContainer>
     </>
   );
 }

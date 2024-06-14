@@ -1,4 +1,4 @@
-export function HorizonsSidebarList({
+export function VentureHorizonsSidebarList({
   children,
 }: {
   children?: React.ReactNode;

@@ -1,7 +1,7 @@
 import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 
-export function SeaContributionHeader() {
+export function SpaceSeaContributionHeader() {
   return (
     <div className='flex flex-row items-center space-x-[1rem] p-[1rem]'>
       <ProfileCover fileElem={exampleFileElem} />

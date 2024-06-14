@@ -1,14 +1,16 @@
 import { ContextForOpenableInterface } from '@/(logic)/contexts/openable/main';
 import { createContext, useState } from 'react';
 
-export interface VerseModalController {
+export interface SpaceVerseModalController {
   addChapterModal: ContextForOpenableInterface;
   addFileMomentModal: ContextForOpenableInterface;
 }
 
-export const VerseModalContext = createContext({} as VerseModalController);
+export const SpaceVerseModalContext = createContext(
+  {} as SpaceVerseModalController,
+);
 
-export const useVerseModal = (): VerseModalController => {
+export const useSpaceVerseModal = (): SpaceVerseModalController => {
   const [showOne, changeShowOne] = useState(false);
   const [showTwo, changeShowTwo] = useState(false);
 

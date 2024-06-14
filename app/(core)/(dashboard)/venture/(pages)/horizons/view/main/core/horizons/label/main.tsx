@@ -1,4 +1,4 @@
-export function HorizonsListLabel({
+export function VentureHorizonsListLabel({
   children,
 }: {
   children?: React.ReactNode;

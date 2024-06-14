@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { SceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
+import { SceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SceneIdeaObj;
 const gqlDbWrapper = sceneIdeaDbWrapper;

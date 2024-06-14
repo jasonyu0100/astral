@@ -1,25 +1,24 @@
 'use client';
-import { createContext } from 'react';
-import { VerseView } from './view/view';
-import isVerseAuth from '@/(utils)/isAuth';
-import { VerseModalContext, useVerseModal } from './(modal)/main';
-import { VerseModalView } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/view';
+import { SpaceVerseModalView } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/view';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
+import isVerseAuth from '@/(utils)/isAuth';
+import { SpaceVerseModalContext, useSpaceVerseModal } from './(modal)/main';
+import { SpaceVerseView } from './view/view';
 
 function Page({ params }: { params: { id: string } }) {
   const chapterListHandler = useControllerForSpaceChapterList(params.id);
 
-  const modalContext = useVerseModal();
+  const modalContext = useSpaceVerseModal();
 
   return (
     <ContextForSpaceChapterList.Provider value={chapterListHandler}>
-      <VerseModalContext.Provider value={modalContext}>
-        <VerseModalView />
-        <VerseView />
-      </VerseModalContext.Provider>
+      <SpaceVerseModalContext.Provider value={modalContext}>
+        <SpaceVerseModalView />
+        <SpaceVerseView />
+      </SpaceVerseModalContext.Provider>
     </ContextForSpaceChapterList.Provider>
   );
 }

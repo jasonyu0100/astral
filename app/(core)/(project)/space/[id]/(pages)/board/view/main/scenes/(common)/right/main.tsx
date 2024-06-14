@@ -1,8 +1,8 @@
-import { useContext } from 'react';
 import { WrapperTooltip } from '@/(components)/(basic)/tooltip/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useContext } from 'react';
 
-export function ScenesGoRightAction() {
+export function NavigationTimelineGoRightAction() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (

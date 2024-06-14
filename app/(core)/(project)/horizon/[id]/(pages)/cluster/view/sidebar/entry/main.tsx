@@ -1,9 +1,13 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function MapSidebarEntry({ children }: { children?: React.ReactNode }) {
+export function HorizonClusterSidebarEntry({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassWindowFrame
       name='temp'

@@ -1,13 +1,13 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { cn } from '@/(utils)/cn';
 import { useContext, useEffect, useState } from 'react';
-import { DashboardSidebarContext } from '../../../main';
+import { ContextForDashboardSidebar } from '../../../main';
 
 export function DashboardSidebarTopOverviewInfo() {
-  const { indicator, minimised } = useContext(DashboardSidebarContext);
-  const active = !indicator;
+  const dashboardSidebar = useContext(ContextForDashboardSidebar);
+  const active = !dashboardSidebar.indicator;
   const user = useGlobalUser((state) => state.user);
   const space = useGlobalSpace((state) => state.space);
   const [title, changeTitle] = useState('Untitled');

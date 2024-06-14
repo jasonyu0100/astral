@@ -1,15 +1,15 @@
-import { useContext, useState } from 'react';
-import { GalleryCollectionAdd } from '../../../../../../../../../../(components)/(media)/(collection)/explorer/add/main';
-import { ExplorerCollection } from '../../../../../../../../../../(components)/(media)/(collection)/explorer/main';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { GalleryCollectionAdd } from '@/(components)/(media)/(collection)/explorer/add/main';
+import { ExplorerCollection } from '@/(components)/(media)/(collection)/explorer/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { useContext } from 'react';
 import { ExplorerCreateCollectionModal } from '../../../../../(modals)/create/collection/main';
 
-export function CollectionsGrid() {
+export function ExplorerGalleryCollectionsGrid() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const openableController = useControllerForOpenable();
 

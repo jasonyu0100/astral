@@ -1,17 +1,16 @@
-import { HorizonsCore } from './core/main';
-import { HorizonsFooter } from './core/header/main';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { VentureHorizonsCore } from './core/main';
 import { HorizonsSearch } from './core/search/main';
 
-export function HorizonsMain() {
+export function VentureHorizonsMain() {
   return (
     <GlassAreaContainer
-      name={HorizonsMain.name}
+      name={VentureHorizonsMain.name}
       sizeFx='h-full flex-grow'
       className='flex flex-col overflow-hidden'
     >
       <HorizonsSearch />
-      <HorizonsCore />
+      <VentureHorizonsCore />
     </GlassAreaContainer>
   );
 }

@@ -1,11 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, borderFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { FormInputProps } from '@/(types)/props/main';
 
-export function StormChatMessageInput({ ...props }: FormInputProps) {
+export function SpaceStormInputText({ ...props }: FormInputProps) {
   return (
     <GlassAreaContainer
-      name={StormChatMessageInput.name}
+      name={SpaceStormInputText.name}
       sizeFx='max-w-[600px] flex-grow h-[50px]'
       glassFx={glassFx['glass-10']}
       roundedFx={roundedFx['rounded-full']}

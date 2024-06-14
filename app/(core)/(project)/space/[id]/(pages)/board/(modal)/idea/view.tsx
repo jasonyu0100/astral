@@ -1,23 +1,23 @@
-import { useContext } from 'react';
-import { AddNoteStarModal } from './add/note/main';
-import { StarModalContext } from './main';
-import { AddFileStarModal } from './add/file/main';
-import { AddLinkStarModal } from './add/link/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useContext } from 'react';
+import { SpaceBoardAddFileIdeaModal } from './add/file/main';
+import { SpaceBoardAddLinkIdeaModal } from './add/link/main';
+import { SpaceBoardAddNoteIdeaModal } from './add/note/main';
+import { SceneIdeaModalContext } from './main';
 
-export function StarModalView() {
-  const modalContext = useContext(StarModalContext);
+export function SceneIdeaModalView() {
+  const modalContext = useContext(SceneIdeaModalContext);
 
   return (
     <>
       <ContextForOpenable.Provider value={modalContext.addNoteStarModal}>
-        <AddNoteStarModal />
+        <SpaceBoardAddNoteIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={modalContext.addFileStarModal}>
-        <AddFileStarModal />
+        <SpaceBoardAddFileIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={modalContext.addLinkStarModal}>
-        <AddLinkStarModal />
+        <SpaceBoardAddLinkIdeaModal />
       </ContextForOpenable.Provider>
     </>
   );

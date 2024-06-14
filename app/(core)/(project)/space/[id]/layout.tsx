@@ -1,7 +1,7 @@
 'use client';
-import { Topbar } from '@/(core)/(common)/(topbar)/main';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
+import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
 import { createContext } from 'react';
 
 interface CreativeSpacesContextObj {
@@ -22,7 +22,7 @@ export default function Layout({
 }) {
   return (
     <CreativeSpacesContext.Provider value={{ spaceId: params.id }}>
-      <Topbar />
+      <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView minimised />
         {children}

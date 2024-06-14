@@ -5,12 +5,6 @@ export const journalMap = {
     record: {
       link: `${baseUrl}/record`,
     },
-    social: {
-      link: `${baseUrl}/social`,
-    },
-    explore: {
-      link: `${baseUrl}/explore`,
-    },
     link: `${baseUrl}`,
   },
 };

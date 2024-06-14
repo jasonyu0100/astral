@@ -1,19 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-import { useEffect, useState } from 'react';
-import { DayColor, DayView } from './day/main';
-import { FeltModal } from '@/(components)/(modal)/felt/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormButton } from '@/(components)/(form)/button/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { Card } from '../../../../../../../../../(components)/(idea)/game/card/main';
-import {
-  Dice,
-  DiceFace,
-} from '../../../../../../../../../(components)/(idea)/game/dice/main';
+import { FormSelect } from '@/(components)/(form)/select/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { Card } from '@/(components)/(idea)/game/card/main';
+import { Dice, DiceFace } from '@/(components)/(idea)/game/dice/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { FeltModal } from '@/(components)/(modal)/felt/main';
 import { glassFx } from '@/(style)/data';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { useEffect, useState } from 'react';
+import { DayColor, MonthDayView } from './day/main';
 
 export enum CardSuit {
   Other = 'Other',
@@ -50,7 +48,6 @@ export enum CardColor {
 export function MonthView() {
   const days = 31;
   const [activeDays, changeActiveDays] = useState({});
-
   const [cards, setCards] = useState([]);
   const suitOrder = [
     CardSuit.Other,
@@ -156,35 +153,35 @@ export function MonthView() {
         <div className='flex h-full w-full flex-row space-x-[4rem]'>
           <div className='flex flex-col'>
             <div className='flex w-[500px] flex-row flex-wrap'>
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Yellow} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Green} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Yellow} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Green} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
-              <DayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Yellow} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Green} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Yellow} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Green} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
+              <MonthDayView color={DayColor.Blue} />
             </div>
           </div>
         </div>

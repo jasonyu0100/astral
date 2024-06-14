@@ -1,22 +1,21 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
+import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { FormUploadFiles } from '@/(components)/(form)/file/upload/upload-files/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { FileElem } from '@/(server)/(model)/elements/file/main';
-import { useContext, useState } from 'react';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { useContext, useState } from 'react';
 
 export function ExplorerCreateCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const collectionListController = useContext(ContextForGalleryCollectionList);
-  const [listId, changeListId] = useState('' as string);
   const resourceListHandler = useControllerForCollectionResourceList('');
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
@@ -37,7 +36,7 @@ export function ExplorerCreateCollectionModal() {
               f,
             ),
           ),
-        ).then((files) => {
+        ).then(() => {
           openableController.close();
         });
       });

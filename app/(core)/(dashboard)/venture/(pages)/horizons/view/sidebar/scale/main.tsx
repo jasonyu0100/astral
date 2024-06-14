@@ -1,16 +1,16 @@
-import { HorizonsSidebarLabel } from '../(common)/label/main';
-import { HorizonsSidebarList } from '../(common)/list/main';
-import { HorizonsSidebarOption } from '../(common)/list/option/main';
+import { VentureHorizonsSidebarLabel } from '../(common)/label/main';
+import { VentureHorizonsSidebarList } from '../(common)/list/main';
+import { VentureHorizonsSidebarOption } from '../(common)/list/option/main';
 
-export function HorizonsSidebarScale() {
+export function VentureHorizonsSidebarScale() {
   return (
     <div className='flex flex-col'>
-      <HorizonsSidebarLabel>Scale</HorizonsSidebarLabel>
-      <HorizonsSidebarList>
-        <HorizonsSidebarOption>Local</HorizonsSidebarOption>
-        <HorizonsSidebarOption>Group</HorizonsSidebarOption>
-        <HorizonsSidebarOption>Cluster</HorizonsSidebarOption>
-      </HorizonsSidebarList>
+      <VentureHorizonsSidebarLabel>Scale</VentureHorizonsSidebarLabel>
+      <VentureHorizonsSidebarList>
+        <VentureHorizonsSidebarOption>Local</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>Group</VentureHorizonsSidebarOption>
+        <VentureHorizonsSidebarOption>Cluster</VentureHorizonsSidebarOption>
+      </VentureHorizonsSidebarList>
     </div>
   );
 }

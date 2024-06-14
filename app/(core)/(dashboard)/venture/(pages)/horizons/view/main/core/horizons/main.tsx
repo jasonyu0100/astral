@@ -1,11 +1,9 @@
 'use client';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { borderFx, glassFx } from '@/(style)/data';
-import { Horizon } from './list/horizon/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { HorizonsList } from './list/main';
-import { HorizonsListLabel } from './label/main';
+import { borderFx } from '@/(style)/data';
+import { VentureHorizonsListLabel } from './label/main';
+import { VentureHorizonsList } from './list/main';
 
 export function HorizonsListContainer() {
   return (
@@ -15,8 +13,8 @@ export function HorizonsListContainer() {
       borderFx={borderFx['border-r']}
     >
       <GlassWindowContents className={`flex h-full w-full flex-col`}>
-        <HorizonsListLabel>List Name</HorizonsListLabel>
-        <HorizonsList />
+        <VentureHorizonsListLabel>List Name</VentureHorizonsListLabel>
+        <VentureHorizonsList />
       </GlassWindowContents>
     </GlassWindowFrame>
   );

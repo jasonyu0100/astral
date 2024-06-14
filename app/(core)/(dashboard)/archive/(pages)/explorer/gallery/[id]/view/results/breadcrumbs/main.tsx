@@ -1,31 +1,30 @@
 import { archiveMap } from '@/(core)/(dashboard)/archive/map';
-import { CollectionBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
-import { CollectionBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
-import { CollectionBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
-import { useContext } from 'react';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { ContextForGalleryMain } from '@/(server)/(controller)/gallery/main';
+import { useContext } from 'react';
+import { ArchiveExplorerBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
+import { ArchiveExplorerBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
+import { ArchiveExplorerBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
 
-export function CollectionsBreadcrumbs() {
+export function ExplorerGalleryCollectionsBreadcrumbs() {
   const galleryMainController = useContext(ContextForGalleryMain);
 
   return (
-    <CollectionBreadcrumbs>
-      <CollectionBreadcrumbItem
+    <ArchiveExplorerBreadcrumbs>
+      <ArchiveExplorerBreadcrumbItem
         href={archiveMap.archive.explorer.link}
         active={false}
       >
         Home
-      </CollectionBreadcrumbItem>
-      <CollectionBreadcrumbDivider />
-      <CollectionBreadcrumbItem
+      </ArchiveExplorerBreadcrumbItem>
+      <ArchiveExplorerBreadcrumbDivider />
+      <ArchiveExplorerBreadcrumbItem
         active={true}
         href={archiveMap.archive.explorer.gallery.id.link(
           galleryMainController.state.objId,
         )}
       >
         {galleryMainController.state.obj.title}
-      </CollectionBreadcrumbItem>
-    </CollectionBreadcrumbs>
+      </ArchiveExplorerBreadcrumbItem>
+    </ArchiveExplorerBreadcrumbs>
   );
 }

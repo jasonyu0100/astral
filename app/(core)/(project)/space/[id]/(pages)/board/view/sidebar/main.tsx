@@ -1,17 +1,9 @@
-import { GalleryObj } from '@/(server)/(model)/gallery/main';
-import { createContext, useState } from 'react';
-import { BoardSidebarView } from './view';
-import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForSidebarModals,
   useControllerForSidebarModals,
-} from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/main';
-import { SidebarModalsView } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/view';
-import {
-  ContextForGalleryList,
-  useControllerForGalleryList,
-} from '@/(server)/(controller)/gallery/list';
+} from '@/(core)/(project)/space/[id]/(pages)/board/(modal)/sidebar/main';
+import { SidebarModalsView } from '@/(core)/(project)/space/[id]/(pages)/board/(modal)/sidebar/view';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
@@ -20,30 +12,41 @@ import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
 } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForGalleryList,
+  useControllerForGalleryList,
+} from '@/(server)/(controller)/gallery/list';
+import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { GalleryObj } from '@/(server)/(model)/gallery/main';
+import { createContext, useState } from 'react';
+import { SpaceBoardSidebarView } from './view';
 
-export enum SidebarMode {
+export enum SpaceBoardSidebarMode {
   Gallerys = 'Gallerys',
   Collections = 'Collections',
   Resources = 'Resources',
 }
-interface SidebarHandler {
+interface SpaceBoardSidebarHandler {
   goToHomeView: () => void;
   goToGalleryView: () => void;
   goToCollectionView: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
 }
-export interface BoardSidebarContextObject {
-  sidebarMode: SidebarMode;
-  sidebarHandler: SidebarHandler;
+export interface SpaceBoardSidebarContextObject {
+  sidebarMode: SpaceBoardSidebarMode;
+  sidebarHandler: SpaceBoardSidebarHandler;
 }
 
-export const BoardSidebarContext = createContext<BoardSidebarContextObject>(
-  {} as BoardSidebarContextObject,
-);
+export const SpaceBoardSidebarContext =
+  createContext<SpaceBoardSidebarContextObject>(
+    {} as SpaceBoardSidebarContextObject,
+  );
 
-export function BoardSidebar() {
-  const [sidebarMode, changeSidebarMode] = useState(SidebarMode.Gallerys);
+export function SpaceBoardSidebar() {
+  const [sidebarMode, changeSidebarMode] = useState(
+    SpaceBoardSidebarMode.Gallerys,
+  );
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionsHandler = useControllerForGalleryCollectionList(
@@ -53,27 +56,27 @@ export function BoardSidebar() {
     collectionsHandler.state.objId,
   );
 
-  const sidebarHandler: SidebarHandler = {
+  const sidebarHandler: SpaceBoardSidebarHandler = {
     goToHomeView: () => {
-      changeSidebarMode(SidebarMode.Gallerys);
+      changeSidebarMode(SpaceBoardSidebarMode.Gallerys);
     },
     goToGalleryView: () => {
-      changeSidebarMode(SidebarMode.Collections);
+      changeSidebarMode(SpaceBoardSidebarMode.Collections);
     },
     goToCollectionView: () => {
-      changeSidebarMode(SidebarMode.Resources);
+      changeSidebarMode(SpaceBoardSidebarMode.Resources);
     },
     goToGallery: (gallery: GalleryObj) => {
       galleryListController.actions.stateActions.select(gallery);
-      changeSidebarMode(SidebarMode.Collections);
+      changeSidebarMode(SpaceBoardSidebarMode.Collections);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
       collectionsHandler.actions.stateActions.select(collection);
-      changeSidebarMode(SidebarMode.Resources);
+      changeSidebarMode(SpaceBoardSidebarMode.Resources);
     },
   };
 
-  const boardContext: BoardSidebarContextObject = {
+  const boardContext: SpaceBoardSidebarContextObject = {
     sidebarMode,
     sidebarHandler,
   };
@@ -81,17 +84,17 @@ export function BoardSidebar() {
   const modalContext = useControllerForSidebarModals();
 
   return (
-    <BoardSidebarContext.Provider value={boardContext}>
+    <SpaceBoardSidebarContext.Provider value={boardContext}>
       <ContextForGalleryList.Provider value={galleryListController}>
         <ContextForGalleryCollectionList.Provider value={collectionsHandler}>
           <ContextForCollectionResourceList.Provider value={resourcesHandler}>
             <ContextForSidebarModals.Provider value={modalContext}>
               <SidebarModalsView />
-              <BoardSidebarView />
+              <SpaceBoardSidebarView />
             </ContextForSidebarModals.Provider>
           </ContextForCollectionResourceList.Provider>
         </ContextForGalleryCollectionList.Provider>
       </ContextForGalleryList.Provider>
-    </BoardSidebarContext.Provider>
+    </SpaceBoardSidebarContext.Provider>
   );
 }

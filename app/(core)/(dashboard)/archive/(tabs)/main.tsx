@@ -1,18 +1,18 @@
-import { TabOne } from './tab-1/main';
+import { TabsBackButton } from '@/(components)/(dashboard)/tabs/tabs-row/back-button/main';
 import { Tabs } from '../../../../(components)/(dashboard)/tabs/main';
 import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main';
-import { TabsBackButton } from '@/(components)/(dashboard)/tabs/tabs-row/back-button/main';
 import { studioMap } from '../../studio/map';
+import { TabOne } from './tab-1/main';
 
-export enum CraftTabStage {
+export enum ArchiveTabStage {
   Explorer = 'Explorer',
 }
-interface CraftTabs {
+interface ArchiveTabsInput {
   backUrl?: string;
   tab?: string;
 }
 
-export function CraftTabs({ tab, backUrl }: CraftTabs) {
+export function ArchiveTabs({ tab, backUrl }: ArchiveTabsInput) {
   return (
     <Tabs>
       <TabsBackButton href={backUrl ? backUrl : studioMap.studio.spaces.link} />

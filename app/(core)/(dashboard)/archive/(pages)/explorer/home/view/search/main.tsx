@@ -1,13 +1,13 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, borderFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function GallerysSearch() {
+export function ExplorerHomeGallerysSearch() {
   return (
     <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
-        name={GallerysSearch.name}
+        name={ExplorerHomeGallerysSearch.name}
         className='h-[4rem] w-full flex-shrink-0'
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}

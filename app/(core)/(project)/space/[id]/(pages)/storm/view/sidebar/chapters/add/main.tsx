@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(types)/props/main';
 
-export function StormChapterAdd({ ...props }: ButtonInputProps) {
+export function SpaceStormChapterAdd({ ...props }: ButtonInputProps) {
   return (
     <button className='mt-[1rem] flex w-full' {...props}>
       <p className='animate-pulse-slow font-extraBold text-xl text-slate-400'>

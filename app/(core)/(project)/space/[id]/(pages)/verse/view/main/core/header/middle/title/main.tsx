@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useContext } from 'react';
 
-export default function VerseHeaderTitle() {
+export default function SpaceVerseMiddleTitle() {
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const title = chaptersHandler.state.currentObj?.title || '';
 

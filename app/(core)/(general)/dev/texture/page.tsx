@@ -1,28 +1,13 @@
 'use client';
-import React from 'react';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { Colors } from '@/(components)/(idea)/colors/main';
 import { Card } from '@/(components)/(idea)/game/card/main';
 import { Dice, DiceFace } from '@/(components)/(idea)/game/dice/main';
 import {
-  CardSuit,
   CardNumber,
+  CardSuit,
 } from '@/(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
-import {
-  ScreenVideoIdea,
-  ScreenVideoIdeaSize,
-} from '../../../../(components)/(idea)/(video)/screen/main';
-import {
-  StickyNoteColor,
-  StickyNoteSize,
-  StickyNoteTextIdea,
-} from '../../../../(components)/(idea)/(text)/sticky/main';
-import {
-  CardTextIdea,
-  CardTextIdeaSize,
-} from '../../../../(components)/(idea)/(text)/card/main';
 import {
   VinylAudioClosedIdea,
   VinylAudioIdea,
@@ -31,7 +16,14 @@ import {
   PolaroidImageIdea,
   PolaroidImageIdeaSize,
 } from '../../../../(components)/(idea)/(image)/polaroid/main';
-import { Colors } from '@/(components)/(idea)/colors/main';
+import {
+  CardTextIdea,
+  CardTextIdeaSize,
+} from '../../../../(components)/(idea)/(text)/card/main';
+import {
+  ScreenVideoIdea,
+  ScreenVideoIdeaSize,
+} from '../../../../(components)/(idea)/(video)/screen/main';
 
 export default function Page() {
   return (

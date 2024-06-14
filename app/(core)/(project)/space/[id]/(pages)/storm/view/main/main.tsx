@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { StormCore } from './core/main';
-import { StormChatInput } from './input/main';
+import { SpaceStormCore } from './core/main';
+import { SpaceStormInput } from './input/main';
 
-export function StormMain() {
+export function SpaceStormMain() {
   return (
     <GlassAreaContainer
-      name={StormMain.name}
+      name={SpaceStormMain.name}
       sizeFx='flex-grow h-full'
       className={`flex flex-col`}
     >
-      <StormCore />
-      <StormChatInput />
+      <SpaceStormCore />
+      <SpaceStormInput />
     </GlassAreaContainer>
   );
 }

@@ -1,33 +1,32 @@
 'use client';
-import { StormView } from './view/view';
-import isVerseAuth from '@/(utils)/isAuth';
-import { createContext, useEffect } from 'react';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import {
-  ContextForSpaceMain,
-  useControllerForSpaceMain,
-} from '@/(server)/(controller)/space/main';
-import {
-  ContextForSpaceChapterList,
-  useControllerForSpaceChapterList,
-} from '@/(server)/(controller)/space/chapter/list';
-import {
-  ContextForChapterChatList,
-  useControllerForChapterChatList,
-} from '@/(server)/(controller)/space/chapter/chat/list';
-import { useControllerForConversationMessageMain } from '@/(server)/(controller)/space/chapter/chat/conversation/message/main';
-import {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-} from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
 import {
   ContextForChatConversationList,
   useControllerForChatConversationList,
 } from '@/(server)/(controller)/space/chapter/chat/conversation/list';
 import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
+import {
+  ContextForChapterChatList,
+  useControllerForChapterChatList,
+} from '@/(server)/(controller)/space/chapter/chat/list';
+import {
   ContextForChatMemberList,
   useControllerForChatMemberList,
 } from '@/(server)/(controller)/space/chapter/chat/member/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(server)/(controller)/space/chapter/list';
+import {
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/(server)/(controller)/space/main';
+import isVerseAuth from '@/(utils)/isAuth';
+import { createContext, useEffect } from 'react';
+import { SpaceStormView } from './view/view';
 
 interface StormContextObj {}
 
@@ -71,7 +70,7 @@ function Page({ params }: { params: { id: string } }) {
               <ContextForConversationMessageList.Provider
                 value={messageListController}
               >
-                <StormView />
+                <SpaceStormView />
               </ContextForConversationMessageList.Provider>
             </ContextForChatConversationList.Provider>
           </ContextForChatMemberList.Provider>

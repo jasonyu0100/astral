@@ -1,23 +1,23 @@
 'use client';
-import { createContext, useState } from 'react';
-import { BoardView } from './view/view';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
 import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
 } from '@/(server)/(controller)/space/chapter/scene/list';
 import {
-  ContextForSceneIdeaList,
-  useControllerForSceneIdeaList,
-} from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import isVerseAuth from '@/(utils)/isAuth';
-import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
+import isVerseAuth from '@/(utils)/isAuth';
+import { createContext, useState } from 'react';
+import { SpaceBoardView } from './view/main';
 
 interface BoardContextObj {
   modalType: BoardModalType;
@@ -60,7 +60,7 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
             <ContextForSceneIdeaList.Provider value={ideaListController}>
-              <BoardView />
+              <SpaceBoardView />
             </ContextForSceneIdeaList.Provider>
           </ContextForChapterSceneList.Provider>
         </ContextForSpaceChapterList.Provider>

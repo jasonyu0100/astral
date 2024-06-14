@@ -1,10 +1,10 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, roundedFx, borderFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function BaseView({ children }: { children?: React.ReactNode }) {
+export function HorizonForumView({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      name={BaseView.name}
+      name={HorizonForumView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}

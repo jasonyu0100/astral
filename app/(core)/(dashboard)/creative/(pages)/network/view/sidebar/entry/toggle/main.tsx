@@ -1,7 +1,7 @@
-import { useContext } from 'react';
 import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
+import { useContext } from 'react';
 
-export function NetworkSidebarPointToggle() {
+export function CreativeNetworkSidebarEntryToggle() {
   const { toggled, toggle } = useContext(ContextForTogglable);
   return (
     <div className='flex w-full flex-col'>

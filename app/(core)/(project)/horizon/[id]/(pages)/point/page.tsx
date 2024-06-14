@@ -1,20 +1,13 @@
 'use client';
 
-import isVerseAuth from '@/(utils)/isAuth';
-import { HorizonViewView } from './view/view';
-import { HorizonViewSidebar } from './view/sidebar/main';
-import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx } from '@/(style)/data';
 import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import isVerseAuth from '@/(utils)/isAuth';
+import { HorizonPointSidebar } from './view/sidebar/main';
+import { HorizonPointView } from './view/view';
 
 function Page() {
   return (
-    <HorizonViewView>
+    <HorizonPointView>
       <div className='h-full w-full'>
         <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
           {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
@@ -67,8 +60,8 @@ function Page() {
         </div> */}
         </div>
       </div>
-      <HorizonViewSidebar />
-    </HorizonViewView>
+      <HorizonPointSidebar />
+    </HorizonPointView>
   );
 }
 

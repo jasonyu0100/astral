@@ -1,20 +1,20 @@
-import { createContext, useContext } from 'react';
-import { ResourcesFooter } from './footer/main';
-import { CollectionHeaderSearch } from './footer/search/main';
-import {
-  ContextForCollectionResourceObj,
-  CollectionResourceObj,
-} from '@/(server)/(model)/gallery/collection/resource/main';
-import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/(modals)/create/main';
 import { CollectionResourceAdd } from '@/(components)/(media)/(resource)/sidebar/add/main';
 import { SidebarCollectionResource } from '@/(components)/(media)/(resource)/sidebar/main';
+import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/board/(modal)/sidebar/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  CollectionResourceObj,
+  ContextForCollectionResourceObj,
+} from '@/(server)/(model)/gallery/collection/resource/main';
+import { createContext, useContext } from 'react';
+import { Footer } from './footer/main';
+import { CollectionHeaderSearch } from './footer/search/view';
 
 export const SidebarResourceContext = createContext(
   {} as CollectionResourceObj,
 );
 
-export function ResourcesInterface() {
+export function SpaceBoardCollectionResourcesMode() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   const modalContext = useContext(ContextForSidebarModals);
 
@@ -35,9 +35,9 @@ export function ResourcesInterface() {
           </ContextForCollectionResourceObj.Provider>
         ))}
       </div>
-      <ResourcesFooter>
+      <Footer>
         <CollectionHeaderSearch />
-      </ResourcesFooter>
+      </Footer>
     </div>
   );
 }

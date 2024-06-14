@@ -1,10 +1,9 @@
-import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { cn } from '@/(utils)/cn';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-export function StormChapterTitle() {
+export function SpaceStormHeaderTitle() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active =

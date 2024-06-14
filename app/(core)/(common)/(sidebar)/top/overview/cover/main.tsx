@@ -1,18 +1,18 @@
 'use client';
-import { effectFx } from '@/(style)/data';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
+import { effectFx } from '@/(style)/data';
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
-import { DashboardSidebarContext } from '../../../main';
+import { ContextForDashboardSidebar } from '../../../main';
 
 export function DashboardSidebarTopOveriewCover() {
-  const { indicator, minimised } = useContext(DashboardSidebarContext);
-  const active = !indicator;
+  const dashboardSidebar = useContext(ContextForDashboardSidebar);
+  const active = !dashboardSidebar.indicator;
   const space = useGlobalSpace((state) => state.space);
 
   return (
     <div className='relative flex-shrink-0'>
-      {minimised ? (
+      {dashboardSidebar.minimised ? (
         <svg
           className='h-full w-full'
           xmlns='http://www.w3.org/2000/svg'

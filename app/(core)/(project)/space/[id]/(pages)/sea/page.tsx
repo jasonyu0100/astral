@@ -1,9 +1,9 @@
 'use client';
 import isVerseAuth from '@/(utils)/isAuth';
-import { ShareView } from './view/view';
+import { SpaceSeaShareView } from './view/view';
 
 function Page() {
-  return <ShareView />;
+  return <SpaceSeaShareView />;
 }
 
 export default isVerseAuth(Page);

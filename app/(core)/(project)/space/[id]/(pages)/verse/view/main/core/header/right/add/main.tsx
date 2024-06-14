@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(types)/props/main';
 
-export function VerseHeaderAddButton({ ...props }: ButtonInputProps) {
+export function SpaceVerseRightAdd({ ...props }: ButtonInputProps) {
   return (
     <button
       className='flex h-[4rem] w-[4rem] items-center justify-center hover:bg-slate-950'

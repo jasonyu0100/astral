@@ -1,20 +1,20 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx } from '@/(style)/data';
-import { VerseHeaderLeft } from './left/main';
-import { VerseHeaderMiddle } from './middle/main';
-import { VerseHeaderRight } from './right/main';
+import { glassFx } from '@/(style)/data';
+import { SpaceVerseHeaderLeft } from './left/main';
+import { SpaceVerseHeaderMiddle } from './middle/main';
+import { SpaceVerseHeaderRight } from './right/main';
 
-export function VerseHeader() {
+export function SpaceVerseHeader() {
   return (
     <GlassAreaContainer
-      name={VerseHeader.name}
+      name={SpaceVerseHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
       className={`flex items-center justify-between space-x-[1rem]`}
     >
-      <VerseHeaderLeft />
-      <VerseHeaderMiddle />
-      <VerseHeaderRight />
+      <SpaceVerseHeaderLeft />
+      <SpaceVerseHeaderMiddle />
+      <SpaceVerseHeaderRight />
     </GlassAreaContainer>
   );
 }

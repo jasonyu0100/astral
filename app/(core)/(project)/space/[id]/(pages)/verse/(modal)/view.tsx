@@ -1,9 +1,11 @@
 import { useContext } from 'react';
-import { VerseAddChapterModal } from './add/chapter/main';
-import { VerseModalContext } from './main';
+import { SpaceVerseAddChapterModal } from './add/chapter/main';
+import { SpaceVerseModalContext } from './main';
 
-export function VerseModalView() {
-  const modalContext = useContext(VerseModalContext);
+export function SpaceVerseModalView() {
+  const modalContext = useContext(SpaceVerseModalContext);
 
-  return <>{modalContext.addChapterModal.opened && <VerseAddChapterModal />}</>;
+  return (
+    <>{modalContext.addChapterModal.opened && <SpaceVerseAddChapterModal />}</>
+  );
 }

@@ -1,4 +1,4 @@
-export function StormHeaderMiddle({
+export function SpaceStormHeaderMiddle({
   children,
 }: {
   children?: React.ReactNode;

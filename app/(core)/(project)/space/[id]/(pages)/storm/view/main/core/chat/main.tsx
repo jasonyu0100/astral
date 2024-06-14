@@ -1,11 +1,10 @@
-import { useContext } from 'react';
-import { StormMessage } from './message/main';
-import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForChatConversationList } from '@/(server)/(controller)/space/chapter/chat/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
+import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { useContext } from 'react';
+import { SpaceStormChatMessage } from './message/main';
 
-export function StormChat() {
+export function SpaceStormChat() {
   const conversationListController = useContext(ContextForChatConversationList);
   const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
@@ -51,7 +50,7 @@ export function StormChat() {
             value={message}
             key={message.id}
           >
-            <StormMessage key={message.id} />
+            <SpaceStormChatMessage key={message.id} />
           </ContextForConversationMessageObj.Provider>
         ))}
       </div>

@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 
-import { VerseHeader } from './header/main';
-import { VerseMoments } from './moments/main';
+import { SpaceVerseHeader } from './header/main';
+import { SpaceVerseList } from './list/main';
 
 export function VerseCore() {
   return (
@@ -11,8 +11,8 @@ export function VerseCore() {
         sizeFx='w-full h-full'
         className={`flex flex-col`}
       >
-        <VerseHeader />
-        <VerseMoments />
+        <SpaceVerseHeader />
+        <SpaceVerseList />
       </GlassAreaContainer>
     </div>
   );

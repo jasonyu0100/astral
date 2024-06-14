@@ -1,10 +1,9 @@
 'use client';
-import { Topbar } from '@/(core)/(common)/(topbar)/main';
+import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
-import { DashboardContent } from '@/(components)/(dashboard)/content/main';
-import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
-import { SupportCentralView } from '../(common)/central/main';
+import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
+import { CentralWindowContainer } from '../(common)/central/main';
 
 export default function Layout({
   children,
@@ -16,11 +15,11 @@ export default function Layout({
 }) {
   return (
     <>
-      <Topbar />
+      <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView minimised />
         <DashboardBody>
-          <SupportCentralView>{children}</SupportCentralView>
+          <CentralWindowContainer>{children}</CentralWindowContainer>
         </DashboardBody>
       </DashboardController>
     </>

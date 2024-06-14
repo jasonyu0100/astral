@@ -1,4 +1,4 @@
-export function SupportCentralView({
+export function CentralWindowContainer({
   children,
 }: {
   children?: React.ReactNode;
