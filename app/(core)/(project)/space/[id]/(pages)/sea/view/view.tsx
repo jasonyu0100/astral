@@ -1,7 +1,9 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx } from '@/(style)/data';
 import { SpaceSeaContainer } from './container/main';
-import { SpaceSeaContribution } from './main/contribution/main';
 import { SpaceSeaMain } from './main/main';
-import { MonthView } from './main/month/main';
 import { SpaceSeaSidebarEntry } from './sidebar/entry/main';
 import { SpaceSeaSidebar } from './sidebar/main';
 
@@ -16,13 +18,27 @@ export function SpaceSeaShareView() {
         <SpaceSeaSidebarEntry>Week 5</SpaceSeaSidebarEntry>
       </SpaceSeaSidebar>
       <SpaceSeaMain>
-        <MonthView />
-        <div className='flex max-w-[800px] flex-col items-center space-y-[2rem] overflow-auto'>
-          <SpaceSeaContribution />
-          <SpaceSeaContribution />
-          <SpaceSeaContribution />
-          <SpaceSeaContribution />
+        <div className='flex flex-grow flex-row' style={{ height: '50%' }}>
+          <GlassWindowFrame className='h-full w-[300px]'>
+            <GlassWindowContents className='p-[2rem]'>
+              <p className='font-bold text-white'>General progress</p>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']}></GlassWindowPane>
+          </GlassWindowFrame>
+          <GlassWindowFrame className='h-full w-[300px]'>
+            <GlassWindowContents></GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']}></GlassWindowPane>
+          </GlassWindowFrame>
+          <GlassWindowFrame className='h-full w-[300px]'>
+            <GlassWindowContents></GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']}></GlassWindowPane>
+          </GlassWindowFrame>
         </div>
+        {/* <MonthView /> */}
+        {/* <SpaceSeaContribution />
+          <SpaceSeaContribution />
+          <SpaceSeaContribution />
+          <SpaceSeaContribution /> */}
       </SpaceSeaMain>
     </SpaceSeaContainer>
   );
