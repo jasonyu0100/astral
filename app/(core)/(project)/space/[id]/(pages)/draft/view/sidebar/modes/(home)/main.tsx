@@ -26,10 +26,13 @@ export function SpaceDraftSidebarHomeGallerysMode() {
               >
                 <GlassWindowContents
                   onClick={() => sidebarController.actions.goToGallery(gallery)}
-                  className='flex w-full cursor-pointer flex-row space-x-[1rem] p-[1rem]'
+                  className='flex w-full cursor-pointer flex-col space-y-[1rem] bg-black p-[1rem]'
                 >
-                  <p className='w-full font-extraBold text-lg text-slate-300'>
-                    /{gallery.title}
+                  <p className='text-md w-full font-bold text-slate-300'>
+                    {gallery.title}
+                  </p>
+                  <p className='text-md w-full font-bold text-slate-300'>
+                    {gallery.description}
                   </p>
                 </GlassWindowContents>
                 <GlassWindowPane glassFx={glassFx['glass-5']} />
