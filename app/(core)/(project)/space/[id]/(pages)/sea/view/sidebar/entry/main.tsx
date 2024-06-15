@@ -13,10 +13,10 @@ export function SpaceSeaSidebarEntry({
       name='temp'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
-      className='p-[1rem]'
+      className='flex- flex p-[1rem]'
     >
-      <GlassWindowContents className='flex flex-row'>
-        <p className='text-white'>{children}</p>
+      <GlassWindowContents className='flex flex-col'>
+        {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

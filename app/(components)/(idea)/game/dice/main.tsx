@@ -1,8 +1,4 @@
 import { ImageInputProps } from '@/(types)/props/main';
-import {
-  CardNumber,
-  CardSuit,
-} from '../../../../(core)/(project)/space/[id]/(pages)/sea/view/main/month/main';
 
 export enum DiceFace {
   One = '1',

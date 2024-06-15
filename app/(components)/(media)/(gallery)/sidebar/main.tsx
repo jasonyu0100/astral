@@ -1,4 +1,4 @@
-import { SpaceBoardSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
+import { SpaceDraftSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/draft/view/sidebar/main';
 import {
   ContextForFlippable,
   useControllerForFlippable,
@@ -9,7 +9,7 @@ import { GalleryContainer } from '../common/container/main';
 import { GallerySidebarCover } from './front/main';
 
 export function SidebarHomeGallery() {
-  const { sidebarHandler } = useContext(SpaceBoardSidebarContext);
+  const { sidebarHandler } = useContext(SpaceDraftSidebarContext);
   const gallery = useContext(ContextForGalleryObj);
   const flippableController = useControllerForFlippable();
 

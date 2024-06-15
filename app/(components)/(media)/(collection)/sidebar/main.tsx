@@ -1,4 +1,4 @@
-import { SpaceBoardSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/board/view/sidebar/main';
+import { SpaceDraftSidebarContext } from '@/(core)/(project)/space/[id]/(pages)/draft/view/sidebar/main';
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { useContext } from 'react';
 import { CollectionContainer } from '../common/container/main';
@@ -6,7 +6,7 @@ import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 
 export function SidebarCollection() {
-  const { sidebarHandler } = useContext(SpaceBoardSidebarContext);
+  const { sidebarHandler } = useContext(SpaceDraftSidebarContext);
   const collection = useContext(ContextForGalleryCollectionObj);
 
   return (

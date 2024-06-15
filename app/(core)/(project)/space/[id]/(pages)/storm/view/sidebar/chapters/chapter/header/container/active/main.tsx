@@ -19,7 +19,7 @@ export function SpaceStormContainerActive({
       <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
         {children}
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }
