@@ -23,7 +23,9 @@ interface Controller {
 export function useControllerForTimer(
   initialTimerDuration?: number,
 ): Controller {
-  const [timerDuration, setTimerDuration] = useState(initialTimerDuration); // 100 x 100
+  const [timerDuration, setTimerDuration] = useState(
+    initialTimerDuration || 10000,
+  );
   const [timeDilation, setTimeDilation] = useState(1);
   const [timeElapsed, setTimeElapsed] = useState(0);
   const currentTime = timerDuration - timeElapsed;
@@ -47,7 +49,8 @@ export function useControllerForTimer(
 
   useEffect(() => {
     if (initialTimerDuration) {
-      resetTimer(initialTimerDuration);
+      setTimeElapsed(0);
+      setTimerDuration(initialTimerDuration);
     } else {
       const midnight = new Date();
       midnight.setHours(24, 0, 0, 0);
@@ -55,7 +58,8 @@ export function useControllerForTimer(
       const timeElapsed = Math.round(
         (midnight.getTime() - originalTime.getTime()) / 1000,
       );
-      resetTimer(timeElapsed);
+      setTimeElapsed(0);
+      setTimerDuration(timeElapsed);
     }
   }, [initialTimerDuration]);
 
