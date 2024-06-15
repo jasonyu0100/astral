@@ -25,7 +25,9 @@ export function SpaceDraftNavigationRow() {
             <SpaceDraftRowElement index={index} key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
-        <SpaceDraftRowAdd onClick={() => openableController.open()} />
+        <SpaceDraftRowAdd onClick={() => openableController.open()}>
+          Add Chapter
+        </SpaceDraftRowAdd>
       </SpaceDraftRowContainer>
     </>
   );

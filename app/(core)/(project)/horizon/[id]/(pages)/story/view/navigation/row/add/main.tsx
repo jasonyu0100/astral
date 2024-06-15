@@ -6,14 +6,14 @@ interface NavigationTimelineInputProps extends ButtonInputProps {
   children?: React.ReactNode;
 }
 
-export default function SpaceSeaRowAdd({
+export default function HorizonStoryRowAdd({
   children,
   ...props
 }: NavigationTimelineInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
-        name={SpaceSeaRowAdd.name}
+        name={HorizonStoryRowAdd.name}
         sizeFx='w-[200px] h-[40px]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}

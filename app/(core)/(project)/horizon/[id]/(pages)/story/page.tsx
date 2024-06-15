@@ -4,14 +4,18 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(server)/(controller)/space/chapter/list';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import isVerseAuth from '@/(utils)/isAuth';
 import { HorizonStoryView } from './view/main';
-import { HorizonStorySidebar } from './view/sidebar/main';
 
 function Page() {
+  const chapterListController = useControllerForSpaceChapterList('');
   return (
-    <>
+    <ContextForSpaceChapterList.Provider value={chapterListController}>
       <HorizonStoryView>
         <div className='flex h-full w-full flex-col'>
           <GlassWindowFrame name='temp' className='h-[4rem] w-full'>
@@ -158,9 +162,9 @@ function Page() {
             </div>
           </div>
         </div>
-        <HorizonStorySidebar />
+        {/* <HorizonStorySidebar /> */}
       </HorizonStoryView>
-    </>
+    </ContextForSpaceChapterList.Provider>
   );
 }
 

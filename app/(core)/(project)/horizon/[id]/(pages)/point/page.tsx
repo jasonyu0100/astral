@@ -4,11 +4,20 @@ import { TimerComponent } from '@/(core)/(dev)/learn/timer/component/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { HorizonPointView } from './view/main';
 import { HorizonPointSidebar } from './view/sidebar/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx } from '@/(style)/data';
 
 function Page() {
   return (
     <HorizonPointView>
+      <HorizonPointSidebar />
       <div className='h-full w-full'>
+        <GlassWindowFrame name='temp' className='h-[4rem] w-full'>
+          <GlassWindowContents className='flex flex-row'></GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        </GlassWindowFrame>
         <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
           {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
         <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1> */}
@@ -60,7 +69,6 @@ function Page() {
         </div> */}
         </div>
       </div>
-      <HorizonPointSidebar />
     </HorizonPointView>
   );
 }

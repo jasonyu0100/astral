@@ -25,7 +25,9 @@ export function SpaceFlowNavigationRow() {
             <SpaceFlowRowElement index={index} key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
-        <SpaceFlowRowAdd onClick={() => openableController.open()} />
+        <SpaceFlowRowAdd onClick={() => openableController.open()}>
+          Add Chapter
+        </SpaceFlowRowAdd>
       </SpaceFlowRowContainer>
     </>
   );
