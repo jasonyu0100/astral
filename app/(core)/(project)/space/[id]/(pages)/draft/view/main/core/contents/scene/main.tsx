@@ -3,10 +3,10 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { SpaceDraftSceneIdeas } from './ideas/main';
 import { SpaceDraftSceneLinks } from './links/main';
 
-export function SpaceDraftScene() {
+export function SpaceDraftContentsScene() {
   return (
     <GlassAreaContainer
-      name={SpaceDraftScene.name}
+      name={SpaceDraftContentsScene.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
     >

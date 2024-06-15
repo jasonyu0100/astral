@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 
-export function SpaceDraftTools() {
+export function SpaceDraftContentsTools() {
   return (
     <div className='px-[1rem] py-[1rem]'>
       <GlassWindowFrame className='w-[3rem]' roundedFx={roundedFx.rounded}>
