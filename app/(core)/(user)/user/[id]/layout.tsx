@@ -28,7 +28,10 @@ export default function Layout({
     <ContextForProfile.Provider value={{ userId: params.id }}>
       <DashboardTopbar />
       <DashboardController>
-        <DashboardSidebarView minimised backUrl={studioMap.studio.link} />
+        <DashboardSidebarView
+          minimised
+          backUrl={studioMap.studio.spaces.link}
+        />
         <DashboardBody>
           <UserTabs tab={UserTabStage.Profile} />
           <DashboardContent>{children}</DashboardContent>

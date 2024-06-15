@@ -36,25 +36,15 @@ export function JournalRecordFooter() {
       }
     }, duration);
   });
+
   return (
     <GlassWindowFrame className='h-[5rem] w-full flex-shrink-0 shadow-glow'>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
       <GlassWindowContents className='flex flex-row items-center px-[2rem]'>
         <div className='flex w-1/3 flex-row items-center justify-start space-x-[1rem]'>
-          <GlassWindowFrame
-            className='aspect-square h-[1rem] w-[1rem]'
-            roundedFx={roundedFx['rounded-full']}
-          >
-            <GlassWindowContents
-              className='flex items-center justify-center'
-              onClick={() => changeTimeDilation(1)}
-            >
-              <p className='text-3xl font-bold text-slate-300'>-</p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-5']} />
-          </GlassWindowFrame>
           <GlassWindowFrame roundedFx={roundedFx['rounded-full']}>
             <GlassWindowContents
-              className='flex w-[12rem] items-center justify-center p-[1rem]'
+              className='flex items-center justify-center p-[1rem]'
               onClick={() => changeTimeDilation(1)}
             >
               <p className='flex w-full animate-pulse-slow justify-center text-xl font-bold text-slate-300 transition-opacity'>
@@ -71,7 +61,19 @@ export function JournalRecordFooter() {
             </GlassWindowContents>
           </GlassWindowFrame>
           <GlassWindowFrame
-            className='aspect-square h-[1rem] w-[1rem]'
+            className='aspect-square h-[2rem] w-[2rem]'
+            roundedFx={roundedFx['rounded-full']}
+          >
+            <GlassWindowContents
+              className='flex items-center justify-center'
+              onClick={() => changeTimeDilation(1)}
+            >
+              <p className='text-3xl font-bold text-slate-300'>-</p>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
+          </GlassWindowFrame>
+          <GlassWindowFrame
+            className='aspect-square h-[2rem] w-[2rem]'
             roundedFx={roundedFx['rounded-full']}
           >
             <GlassWindowContents
@@ -91,7 +93,7 @@ export function JournalRecordFooter() {
             <GlassWindowContents className='flex items-center justify-center'>
               <p className='text-3xl font-bold text-slate-300'>+</p>
             </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-5']} />
+            <GlassWindowPane glassFx={glassFx['glass-20']} />
           </GlassWindowFrame>
         </div>
         <div className='flex w-1/3 flex-row justify-end  space-x-[1rem]'>

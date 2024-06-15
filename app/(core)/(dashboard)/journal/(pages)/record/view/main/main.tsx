@@ -1,10 +1,9 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { roundedFx } from '@/(style)/data';
-import { JournalRecordEntry } from './entry/main';
-import { JournalRecordField } from './field/main';
+import { JournalRecordEntry } from './core/entry/main';
+import { JournalRecordField } from './core/field/main';
+import { JournalRecordPip } from './core/pip/main';
 import { JournalRecordFooter } from './footer/main';
-import { JournalRecordPip } from './pip/main';
 
 export function JournalRecordMain() {
   return (
@@ -12,7 +11,6 @@ export function JournalRecordMain() {
       name={JournalRecordMain.name}
       sizeFx='h-full flex-grow '
       className='flex flex-col'
-      roundedFx={roundedFx['rounded']}
     >
       <div className='h-full flex-grow overflow-auto'>
         <div className='flex flex-grow flex-col items-center space-y-[2rem] p-[1rem]'>
