@@ -13,7 +13,7 @@ export function SpaceDraftSidebarHomeGallerysMode() {
 
   return (
     <div className='flex h-full w-full flex-col'>
-      <p className='mb-[1rem] font-bold text-white'>HOME</p>
+      <p className='mb-[1rem] cursor-pointer font-bold text-white'>HOME</p>
       <HorizontalDivider />
       <br />
       <div className='flex h-full w-full flex-col overflow-auto'>
@@ -26,7 +26,7 @@ export function SpaceDraftSidebarHomeGallerysMode() {
               >
                 <GlassWindowContents
                   onClick={() => sidebarController.actions.goToGallery(gallery)}
-                  className='flex w-full flex-row space-x-[1rem] p-[1rem]'
+                  className='flex w-full cursor-pointer flex-row space-x-[1rem] p-[1rem]'
                 >
                   <p className='w-full font-extraBold text-lg text-slate-300'>
                     /{gallery.title}

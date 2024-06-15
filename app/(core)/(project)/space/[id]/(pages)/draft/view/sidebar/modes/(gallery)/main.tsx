@@ -1,32 +1,53 @@
-import { SidebarCollectionAdd } from '@/(components)/(media)/(collection)/sidebar/add/main';
-import { SidebarCollection } from '@/(components)/(media)/(collection)/sidebar/main';
-import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/sidebar/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceDraftSidebarContext } from '../../main';
 
 export function SpaceDraftGalleryCollectionsMode() {
-  const collectionListController = useContext(ContextForGalleryCollectionList);
-  const modalContext = useContext(ContextForSidebarModals);
-  const { actions: sidebarHandler } = useContext(SpaceDraftSidebarContext);
+  const galleryListController = useContext(ContextForGalleryList);
+  const collectionsListController = useContext(ContextForGalleryCollectionList);
+  const sidebarController = useContext(SpaceDraftSidebarContext);
 
   return (
-    <div className='flex h-full w-full flex-col pr-[1rem] '>
-      <div className='flex w-full flex-row flex-wrap space-y-[2rem]'>
-        {collectionListController.state.objs.map((collection) => (
-          <ContextForGalleryCollectionObj.Provider
-            value={collection}
-            key={collection.id}
-          >
-            <SidebarCollection key={collection.id} />
-          </ContextForGalleryCollectionObj.Provider>
-        ))}
-        <SidebarCollectionAdd
-          onClick={() => {
-            modalContext.createCollection.open();
-          }}
-        />
+    <div className='flex h-full w-full flex-col'>
+      <p
+        className='mb-[1rem] cursor-pointer font-bold text-white'
+        onClick={() => {
+          sidebarController.actions.goToHomeView();
+        }}
+      >
+        HOME / {galleryListController.state.currentObj?.title}
+      </p>
+      <HorizontalDivider />
+      <br />
+      <div className='flex h-full w-full flex-col overflow-auto'>
+        <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
+          {collectionsListController.state.objs.map((collection) => (
+            <div style={{ width: 'calc(50% - 0.5rem)' }}>
+              <GlassWindowFrame
+                className='aspect-square w-full flex-shrink-0'
+                roundedFx={roundedFx.rounded}
+              >
+                <GlassWindowContents
+                  onClick={() =>
+                    sidebarController.actions.goToCollection(collection)
+                  }
+                  className='flex w-full cursor-pointer flex-row space-x-[1rem] p-[1rem]'
+                >
+                  <p className='w-full font-extraBold text-lg text-slate-300'>
+                    /{collection.title}
+                  </p>
+                </GlassWindowContents>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
