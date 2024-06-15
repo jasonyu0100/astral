@@ -4,7 +4,7 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
 import isVerseAuth from '@/(utils)/isAuth';
-import { SpaceSeaShareView } from './view/view';
+import { SpaceSeaShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const chapterListController = useControllerForSpaceChapterList(params.id);

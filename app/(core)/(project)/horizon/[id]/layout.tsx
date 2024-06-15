@@ -6,12 +6,12 @@ import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
 import { ventureMap } from '@/(core)/(dashboard)/venture/map';
 import { createContext } from 'react';
 
-interface ReleaseContextObj {
+interface HorizonContextObj {
   releaseId: string;
 }
 
-export const ReleaseContext = createContext<ReleaseContextObj>(
-  {} as ReleaseContextObj,
+export const ContextForHorizon = createContext<HorizonContextObj>(
+  {} as HorizonContextObj,
 );
 
 export default function Layout({
@@ -19,11 +19,10 @@ export default function Layout({
   params,
 }: {
   children?: React.ReactNode;
-
   params: { id: string };
 }) {
   return (
-    <ReleaseContext.Provider value={{ releaseId: params.id }}>
+    <ContextForHorizon.Provider value={{ releaseId: params.id }}>
       <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView
@@ -32,6 +31,6 @@ export default function Layout({
         />
         {children}
       </DashboardController>
-    </ReleaseContext.Provider>
+    </ContextForHorizon.Provider>
   );
 }

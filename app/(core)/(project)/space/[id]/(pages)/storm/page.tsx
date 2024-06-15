@@ -26,7 +26,7 @@ import {
 } from '@/(server)/(controller)/space/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect } from 'react';
-import { SpaceStormView } from './view/view';
+import { SpaceStormView } from './view/main';
 
 interface StormContextObj {}
 

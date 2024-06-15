@@ -6,8 +6,8 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import isVerseAuth from '@/(utils)/isAuth';
+import { HorizonClusterView } from './view/main';
 import { HorizonClusterSidebar } from './view/sidebar/main';
-import { HorizonClusterView } from './view/view';
 
 function MapSpace() {
   return (

@@ -12,8 +12,8 @@ import {
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import isVerseAuth from '@/(utils)/isAuth';
 import { horizonMap } from '../../map';
+import { HorizonForumView } from './view/main';
 import { HorizonForumSidebar } from './view/sidebar/main';
-import { HorizonForumView } from './view/view';
 
 function Page() {
   return (

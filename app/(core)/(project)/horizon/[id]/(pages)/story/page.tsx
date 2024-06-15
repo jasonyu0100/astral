@@ -6,8 +6,8 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalSeperator } from '@/(components)/(line)/seperator/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import isVerseAuth from '@/(utils)/isAuth';
+import { HorizonStoryView } from './view/main';
 import { HorizonStorySidebar } from './view/sidebar/main';
-import { HorizonStoryView } from './view/view';
 
 function Page() {
   return (

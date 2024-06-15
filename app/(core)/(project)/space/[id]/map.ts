@@ -1,20 +1,22 @@
+const baseUrl = `/space`;
+
 export const spaceMap = {
   space: {
     id: {
       storm: {
-        link: (id: string) => `/space/${id}/storm`,
+        link: (id: string) => `${baseUrl}/${id}/storm`,
       },
       draft: {
-        link: (id: string) => `/space/${id}/draft`,
+        link: (id: string) => `${baseUrl}/${id}/draft`,
       },
       flow: {
-        link: (id: string) => `/space/${id}/flow`,
+        link: (id: string) => `${baseUrl}/${id}/flow`,
       },
       sea: {
-        link: (id: string) => `/space/${id}/sea`,
+        link: (id: string) => `${baseUrl}/${id}/sea`,
       },
-      link: (id: string) => `/space/${id}`,
+      link: (id: string) => `${baseUrl}/${id}`,
     },
-    link: '/space',
+    link: baseUrl,
   },
 };

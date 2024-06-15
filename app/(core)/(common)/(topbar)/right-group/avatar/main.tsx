@@ -1,16 +1,17 @@
 'use client';
-import { ButtonProps } from '@/components/ui/button';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { LinkInputProps } from '@/(types)/props/main';
+import Link from 'next/link';
 
-export function TopbarAvatar({ ...props }: ButtonProps) {
+export function TopbarAvatar({ ...props }: LinkInputProps) {
   const user = useGlobalUser((state) => state.user);
 
   return (
-    <button className='flex h-full items-center' {...props}>
+    <Link className='flex h-full items-center' aria-current='page' {...props}>
       <img
         className='h-[2.5rem] w-[2.5rem] animate-pulse-slow rounded-full'
         src={'/brand/icon-bg-sm.png' || user?.dp?.src}
       />
-    </button>
+    </Link>
   );
 }

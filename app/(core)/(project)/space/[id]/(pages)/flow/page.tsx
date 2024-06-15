@@ -10,7 +10,7 @@ import {
 } from '@/(server)/(controller)/space/chapter/verse/list';
 import isVerseAuth from '@/(utils)/isAuth';
 import { SpaceFlowModalContext, useSpaceFlowModal } from './(modal)/main';
-import { SpaceFlowView } from './view/view';
+import { SpaceFlowView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const chapterListController = useControllerForSpaceChapterList(params.id);

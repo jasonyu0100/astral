@@ -1,9 +1,9 @@
 'use client';
 
-import { TimerComponent } from '@/(core)/(general)/learn/timer/component/main';
+import { TimerComponent } from '@/(core)/(dev)/learn/timer/component/main';
 import isVerseAuth from '@/(utils)/isAuth';
+import { HorizonPointView } from './view/main';
 import { HorizonPointSidebar } from './view/sidebar/main';
-import { HorizonPointView } from './view/view';
 
 function Page() {
   return (

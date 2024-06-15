@@ -3,18 +3,18 @@
 import { Tab } from '@/(components)/(dashboard)/tabs/tabs-row/tab/main';
 import { TabOrangeShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/(components)/(dashboard)/tabs/tabs-row/tab/text/main';
+import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
-import { ContextForHorizon } from '../../layout';
-import { horizonMap } from '../../map';
-import { ReleaseTabStage } from '../main';
+import { userProfileMap } from '../../map';
+import { UserTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
-  const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.Cluster;
+  const userObj = useContext(ContextForUserObj);
+  const tabText = UserTabStage.Spaces;
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.cluster.link(releaseContext.releaseId)}>
+    <Tab href={userProfileMap.horizons.link(userObj.id)}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>
