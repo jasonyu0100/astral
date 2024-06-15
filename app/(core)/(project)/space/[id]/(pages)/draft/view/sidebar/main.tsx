@@ -26,7 +26,7 @@ export enum SpaceDraftSidebarMode {
   Collections = 'Collections',
   Resources = 'Resources',
 }
-interface SpaceDraftSidebarHandler {
+interface SpaceDraftSidebarActions {
   goToHomeView: () => void;
   goToGalleryView: () => void;
   goToCollectionView: () => void;
@@ -34,8 +34,8 @@ interface SpaceDraftSidebarHandler {
   goToCollection: (collection: GalleryCollectionObj) => void;
 }
 export interface SpaceDraftSidebarContextObject {
-  sidebarMode: SpaceDraftSidebarMode;
-  sidebarHandler: SpaceDraftSidebarHandler;
+  mode: SpaceDraftSidebarMode;
+  actions: SpaceDraftSidebarActions;
 }
 
 export const SpaceDraftSidebarContext =
@@ -56,7 +56,7 @@ export function SpaceDraftSidebar() {
     collectionsHandler.state.objId,
   );
 
-  const sidebarHandler: SpaceDraftSidebarHandler = {
+  const sidebarHandler: SpaceDraftSidebarActions = {
     goToHomeView: () => {
       changeSidebarMode(SpaceDraftSidebarMode.Gallerys);
     },
@@ -77,8 +77,8 @@ export function SpaceDraftSidebar() {
   };
 
   const boardContext: SpaceDraftSidebarContextObject = {
-    sidebarMode,
-    sidebarHandler,
+    mode: sidebarMode,
+    actions: sidebarHandler,
   };
 
   const modalContext = useControllerForSidebarModals();

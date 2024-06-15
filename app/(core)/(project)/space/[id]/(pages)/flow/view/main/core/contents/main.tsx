@@ -1,5 +1,6 @@
 import { SpaceFlowList } from './display/main';
 import { SpaceFlowListOverlay } from './overlay/main';
+import { SpaceFlowCoreTools } from './tools/main';
 
 export function SpaceFlowCoreContents() {
   return (
@@ -18,6 +19,12 @@ export function SpaceFlowCoreContents() {
         className='absolute flex flex-row'
       >
         <SpaceFlowList />
+      </div>
+      <div
+        style={{ width: '100%', height: '100%' }}
+        className='absolute flex flex-row justify-end'
+      >
+        <SpaceFlowCoreTools />
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import { GalleryContainer } from '../common/container/main';
 import { GallerySidebarCover } from './front/main';
 
 export function SidebarHomeGallery() {
-  const { sidebarHandler } = useContext(SpaceDraftSidebarContext);
+  const { actions: sidebarHandler } = useContext(SpaceDraftSidebarContext);
   const gallery = useContext(ContextForGalleryObj);
   const flippableController = useControllerForFlippable();
 

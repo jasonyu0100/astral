@@ -17,13 +17,8 @@ export function SpaceDraftCollectionResourcesMode() {
   const modalContext = useContext(ContextForSidebarModals);
 
   return (
-    <div className='flex h-full w-full flex-col'>
-      <div className='flex w-full flex-row flex-wrap gap-[2rem] overflow-auto'>
-        <CollectionResourceAdd
-          onClick={() => {
-            modalContext.createResource.open();
-          }}
-        />
+    <div className='flex h-full w-full flex-col  overflow-auto pr-[1rem]'>
+      <div className='flex w-full flex-row flex-wrap gap-[2rem]'>
         {resourceListController.state.more.queryResults.map((resource) => (
           <ContextForCollectionResourceObj.Provider
             value={resource}
@@ -32,6 +27,11 @@ export function SpaceDraftCollectionResourcesMode() {
             <SidebarCollectionResource key={resource.id} />
           </ContextForCollectionResourceObj.Provider>
         ))}
+        <CollectionResourceAdd
+          onClick={() => {
+            modalContext.createResource.open();
+          }}
+        />
       </div>
     </div>
   );

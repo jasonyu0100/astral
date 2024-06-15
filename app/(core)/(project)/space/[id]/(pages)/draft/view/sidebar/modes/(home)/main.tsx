@@ -1,25 +1,42 @@
-import { SidebarHomeGalleryAdd } from '@/(components)/(media)/(gallery)/sidebar/add/main';
-import { SidebarHomeGallery } from '@/(components)/(media)/(gallery)/sidebar/main';
-import { ContextForSidebarModals } from '@/(core)/(project)/space/[id]/(pages)/draft/(modal)/sidebar/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
+import { SpaceDraftSidebarContext } from '../../main';
 
 export function SpaceDraftSidebarHomeGallerysMode() {
   const galleryListController = useContext(ContextForGalleryList);
-  const modalContext = useContext(ContextForSidebarModals);
+  const sidebarController = useContext(SpaceDraftSidebarContext);
 
   return (
-    <div className='flex h-full w-full flex-col pr-[1rem]'>
-      <div className='flex w-full flex-row flex-wrap space-y-[2rem] overflow-auto'>
-        <SidebarHomeGalleryAdd
-          onClick={() => modalContext.createGallery.open()}
-        />
-        {galleryListController.state.objs.map((gallery) => (
-          <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
-            <SidebarHomeGallery key={gallery.id} />
-          </ContextForGalleryObj.Provider>
-        ))}
+    <div className='flex h-full w-full flex-col'>
+      <p className='mb-[1rem] font-bold text-white'>HOME</p>
+      <HorizontalDivider />
+      <br />
+      <div className='flex h-full w-full flex-col overflow-auto'>
+        <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
+          {galleryListController.state.objs.map((gallery) => (
+            <div style={{ width: 'calc(50% - 0.5rem)' }}>
+              <GlassWindowFrame
+                className='aspect-square w-full flex-shrink-0'
+                roundedFx={roundedFx.rounded}
+              >
+                <GlassWindowContents
+                  onClick={() => sidebarController.actions.goToGallery(gallery)}
+                  className='flex w-full flex-row space-x-[1rem] p-[1rem]'
+                >
+                  <p className='w-full font-extraBold text-lg text-slate-300'>
+                    /{gallery.title}
+                  </p>
+                </GlassWindowContents>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { GalleryThumbnail } from '../../common/cover/thumbnail/main';
 
 export function GallerySidebarCover() {
   const gallery = useContext(ContextForGalleryObj);
-  const { sidebarHandler } = useContext(SpaceDraftSidebarContext);
+  const { actions: sidebarHandler } = useContext(SpaceDraftSidebarContext);
 
   return (
     <div>

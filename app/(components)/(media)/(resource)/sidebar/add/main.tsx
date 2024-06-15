@@ -1,11 +1,11 @@
-import { ButtonInputProps, DivInputProps } from '@/(types)/props/main';
+import { ButtonInputProps } from '@/(types)/props/main';
 import { ResourceContainer } from '../../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
-      <ResourceContainer className='h-[100px] flex-shrink-0 p-[10px]'>
-        <div className='flex aspect-square w-full items-center justify-center rounded bg-black'>
+      <ResourceContainer className='w-full flex-shrink-0 p-[10px]'>
+        <div className='flex aspect-square w-full items-center justify-center bg-black'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 25 25'

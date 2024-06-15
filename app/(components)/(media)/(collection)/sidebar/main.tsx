@@ -6,7 +6,7 @@ import { CollectionInfo } from '../common/info/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 
 export function SidebarCollection() {
-  const { sidebarHandler } = useContext(SpaceDraftSidebarContext);
+  const { actions: sidebarHandler } = useContext(SpaceDraftSidebarContext);
   const collection = useContext(ContextForGalleryCollectionObj);
 
   return (

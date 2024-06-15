@@ -1,9 +1,9 @@
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { useContext } from 'react';
-import { CollectionResourceMedia } from '../common/media/main';
 import { ResourceContainer } from '../common/container/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { CollectionResourceMedia } from '../common/media/main';
 
 export function SidebarCollectionResource() {
   const sceneIdeasController = useContext(ContextForSceneIdeaList);
@@ -11,7 +11,7 @@ export function SidebarCollectionResource() {
 
   return (
     <ResourceContainer
-      className='h-[100px] flex-shrink-0 p-[10px]'
+      className='w-full flex-shrink-0'
       onClick={() => {
         sceneIdeasController.actions.createActions.createFromFile(
           resource.title,
@@ -22,7 +22,7 @@ export function SidebarCollectionResource() {
         );
       }}
     >
-      <CollectionResourceMedia className='p-[5px]' />
+      <CollectionResourceMedia className='p-[10px]' />
     </ResourceContainer>
   );
 }
