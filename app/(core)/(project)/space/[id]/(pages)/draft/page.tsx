@@ -1,4 +1,17 @@
 'use client';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import {
+  ContextForGalleryCollectionList,
+  useControllerForGalleryCollectionList,
+} from '@/(server)/(controller)/gallery/collection/list';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/(server)/(controller)/gallery/collection/resource/list';
+import {
+  ContextForGalleryList,
+  useControllerForGalleryList,
+} from '@/(server)/(controller)/gallery/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -15,26 +28,30 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
+import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { GalleryObj } from '@/(server)/(model)/gallery/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useState } from 'react';
 import { SpaceDraftView } from './view/main';
 
-interface BoardContextObj {
-  modalType: BoardModalType;
-  updateModalType: (multiModalType: BoardModalType) => void;
+export enum PaletteState {
+  HOME = 'Home',
+  GALLERY = 'Gallery',
+  COLLECTION = 'Collection',
+}
+interface PaletteActions {
+  goToHome: () => void;
+  goToGallery: (gallery: GalleryObj) => void;
+  goToCollection: (collection: GalleryCollectionObj) => void;
+}
+export interface PaletteController {
+  state: PaletteState;
+  actions: PaletteActions;
 }
 
-export const BoardContext = createContext<BoardContextObj>(
-  {} as BoardContextObj,
+export const ContextForPaletteController = createContext<PaletteController>(
+  {} as PaletteController,
 );
-
-export enum BoardModalType {
-  DEFAULT = 'DEFAULT',
-  IDEA = 'IDEA',
-  AUDIO = 'AUDIO',
-  VISUAL = 'VISUAL',
-  TEXT = 'TEXT',
-}
 
 function Page({ params }: { params: { id: string } }) {
   const spaceMainController = useControllerForSpaceMain(params.id);
@@ -47,25 +64,59 @@ function Page({ params }: { params: { id: string } }) {
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,
   );
-  const [modalType, changeModalType] = useState(BoardModalType.DEFAULT);
 
-  const context: BoardContextObj = {
-    modalType: modalType,
-    updateModalType: (modalType) => changeModalType(modalType),
+  const user = useGlobalUser((state) => state.user);
+  const galleryListController = useControllerForGalleryList(user?.id);
+  const collectionsHandler = useControllerForGalleryCollectionList(
+    galleryListController.state.objId,
+  );
+  const resourcesHandler = useControllerForCollectionResourceList(
+    collectionsHandler.state.objId,
+  );
+
+  const [paletteMode, changePaletteMode] = useState(PaletteState.HOME);
+
+  const sidebarHandler: PaletteActions = {
+    goToHome: () => {
+      changePaletteMode(PaletteState.HOME);
+    },
+    goToGallery: (gallery: GalleryObj) => {
+      galleryListController.actions.stateActions.select(gallery);
+      changePaletteMode(PaletteState.GALLERY);
+    },
+    goToCollection: (collection: GalleryCollectionObj) => {
+      collectionsHandler.actions.stateActions.select(collection);
+      changePaletteMode(PaletteState.COLLECTION);
+    },
+  };
+
+  const palleteController: PaletteController = {
+    state: paletteMode,
+    actions: sidebarHandler,
   };
 
   return (
-    <BoardContext.Provider value={context}>
+    <ContextForPaletteController.Provider value={palleteController}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
             <ContextForSceneIdeaList.Provider value={ideaListController}>
-              <SpaceDraftView />
+              <ContextForGalleryList.Provider value={galleryListController}>
+                <ContextForGalleryCollectionList.Provider
+                  value={collectionsHandler}
+                >
+                  <ContextForCollectionResourceList.Provider
+                    value={resourcesHandler}
+                  >
+                    <SpaceDraftView />
+                  </ContextForCollectionResourceList.Provider>
+                </ContextForGalleryCollectionList.Provider>
+              </ContextForGalleryList.Provider>
             </ContextForSceneIdeaList.Provider>
           </ContextForChapterSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
-    </BoardContext.Provider>
+    </ContextForPaletteController.Provider>
   );
 }
 

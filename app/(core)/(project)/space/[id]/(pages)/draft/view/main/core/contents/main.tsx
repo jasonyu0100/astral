@@ -2,9 +2,8 @@ import {
   ContextForTogglable,
   useControllerForTogglable,
 } from '@/(logic)/contexts/togglable/main';
-import { SpaceDraftContentsDrawerDefault } from './drawer/default/main';
-import { SpaceDraftContentsDrawerExpanded } from './drawer/expanded/main';
 import { SpaceDraftContentsList } from './list/main';
+import { SpaceDraftContentsPalette } from './palette/main';
 import { SpaceDraftContentsScene } from './scene/main';
 import { SpaceDraftContentsTools } from './tools/main';
 
@@ -39,23 +38,19 @@ export function SpaceDraftCoreContents() {
           style={{ width: '100%', height: '100%' }}
           className='absolute flex items-end px-[1rem]'
         >
-          {togglableDrawerController.toggled ? (
-            <SpaceDraftContentsDrawerExpanded
-              onToggle={() => {
-                togglableDrawerController.toggle();
-                togglableListController.updateToggle(true);
-                togglableToolsController.updateToggle(true);
-              }}
-            />
-          ) : (
-            <SpaceDraftContentsDrawerDefault
-              onToggle={() => {
-                togglableDrawerController.toggle();
-                togglableListController.updateToggle(false);
-                togglableToolsController.updateToggle(false);
-              }}
-            />
-          )}
+          <SpaceDraftContentsPalette
+            toggled={togglableDrawerController.toggled}
+            onExpand={() => {
+              togglableDrawerController.toggle();
+              togglableListController.updateToggle(false);
+              togglableToolsController.updateToggle(false);
+            }}
+            onCollapse={() => {
+              togglableDrawerController.toggle();
+              togglableListController.updateToggle(true);
+              togglableToolsController.updateToggle(true);
+            }}
+          />
         </div>
       </ContextForTogglable.Provider>
     </div>
