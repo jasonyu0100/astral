@@ -1,4 +1,4 @@
-import { SpaceFlowList } from './display/main';
+import { SpaceFlowContentsDisplay } from './display/main';
 import { SpaceFlowListOverlay } from './overlay/main';
 import { SpaceFlowCoreTools } from './tools/main';
 
@@ -18,7 +18,7 @@ export function SpaceFlowCoreContents() {
         style={{ width: '100%', height: '100%' }}
         className='absolute flex flex-row'
       >
-        <SpaceFlowList />
+        <SpaceFlowContentsDisplay />
       </div>
       <div
         style={{ width: '100%', height: '100%' }}

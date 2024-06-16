@@ -3,14 +3,17 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
+import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { glassFx } from '@/(style)/data';
+import { useContext } from 'react';
 
-export function SpaceFlowList() {
+export function SpaceFlowContentsDisplay() {
   const flippableController = useControllerForFlippable();
+  const verseListController = useContext(ContextForChapterVerseList);
 
   return (
     <GlassAreaContainer
-      name={SpaceFlowList.name}
+      name={SpaceFlowContentsDisplay.name}
       sizeFx='flex-grow h-full'
       className={`space-y-[3rem] overflow-auto p-[2rem]`}
     >
@@ -33,10 +36,11 @@ export function SpaceFlowList() {
                 </div>
                 <div className='p flex flex-col space-y-[1rem]'>
                   <div className='font-permanentMarker text-2xl text-black'>
-                    Verse 1.0
+                    {verseListController.state.currentObj?.title || 'None'}
                   </div>
                   <div className='font-bold text-slate-500'>
-                    A quick melody I made over the weekend
+                    {verseListController.state.currentObj?.description ||
+                      'None'}
                   </div>
                 </div>
               </GlassWindowContents>
