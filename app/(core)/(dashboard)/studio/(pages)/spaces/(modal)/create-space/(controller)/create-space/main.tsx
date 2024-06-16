@@ -40,13 +40,14 @@ export const useControllerForCreateSpace = () => {
     templateSpaceChapters: TemplateChapterObj[],
   ) {
     const chapters = await Promise.all(
-      templateSpaceChapters.map(async (templateChapter) => {
+      templateSpaceChapters.map(async (templateChapter, index) => {
         const chapter =
           await chapterListController.actions.createActions.createChapter(
             templateChapter.title,
             templateChapter.description,
             user.id,
             space.id,
+            index,
           );
         return chapter;
       }),

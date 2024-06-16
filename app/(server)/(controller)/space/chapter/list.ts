@@ -1,20 +1,16 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { spaceChapterDbWrapper } from '@/(server)/(db)/space/chapter/main';
 import {
   spaceChapterModel,
   SpaceChapterObj,
 } from '@/(server)/(model)/space/chapter/main';
-import { spaceChapterDbWrapper } from '@/(server)/(db)/space/chapter/main';
-import { Description } from '@radix-ui/react-dialog';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SpaceChapterObj;
 const gqlDbWrapper = spaceChapterDbWrapper;
@@ -41,6 +37,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     description: string,
     userId: string,
     spaceId: string,
+    idx?: number,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -158,6 +155,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     },
     gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('spaceId', listId);
+
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -191,6 +189,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       description: string,
       userId: string,
       spaceId: string,
+      idx?: number,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -198,7 +197,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         userId: userId,
         title: title,
         description: description,
-        idx: objs.length,
+        idx: idx || objs.length,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
