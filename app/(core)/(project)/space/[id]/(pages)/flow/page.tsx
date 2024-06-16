@@ -5,6 +5,10 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
 import {
+  ContextForVerseCommentList,
+  useControllerForVerseCommentList,
+} from '@/(server)/(controller)/space/chapter/verse/comment/list';
+import {
   ContextForChapterVerseList,
   useControllerForChapterVerseList,
 } from '@/(server)/(controller)/space/chapter/verse/list';
@@ -17,16 +21,21 @@ function Page({ params }: { params: { id: string } }) {
   const verseListController = useControllerForChapterVerseList(
     chapterListController.state.objId,
   );
+  const commentListController = useControllerForVerseCommentList(
+    verseListController.state.objId,
+  );
 
   const modalContext = useSpaceFlowModal();
 
   return (
     <ContextForSpaceChapterList.Provider value={chapterListController}>
       <ContextForChapterVerseList.Provider value={verseListController}>
-        <SpaceFlowModalContext.Provider value={modalContext}>
-          <SpaceFlowModalView />
-          <SpaceFlowView />
-        </SpaceFlowModalContext.Provider>
+        <ContextForVerseCommentList.Provider value={commentListController}>
+          <SpaceFlowModalContext.Provider value={modalContext}>
+            <SpaceFlowModalView />
+            <SpaceFlowView />
+          </SpaceFlowModalContext.Provider>
+        </ContextForVerseCommentList.Provider>
       </ContextForChapterVerseList.Provider>
     </ContextForSpaceChapterList.Provider>
   );

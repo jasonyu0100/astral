@@ -2,14 +2,15 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
+import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
+import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
 import { glassFx, roundedFx } from '@/(style)/data';
+import { useContext } from 'react';
 
-export function SpaceFlowSidebarEntry({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function SpaceFlowSidebarEntry() {
   const flippableController = useControllerForFlippable();
+  const commentObj = useContext(ContextForVerseCommentObj);
+  const user = useControllerForUserMain(commentObj.userId);
 
   return (
     <GlassWindowFrame
@@ -25,7 +26,7 @@ export function SpaceFlowSidebarEntry({
           >
             <div className='w-full'>
               <p className='font-permanentMarker  text-lg text-slate-300'>
-                John
+                {user.state.obj.displayName}
               </p>
             </div>
           </GlassWindowContents>
@@ -38,9 +39,7 @@ export function SpaceFlowSidebarEntry({
         >
           <>
             <div className='text-md list-disc font-bold text-white'>
-              <li>This needs work</li>
-              <li>Sounds good</li>
-              <li>Pretty Good</li>
+              {commentObj.message}
             </div>
           </>
         </GlassWindowContents>

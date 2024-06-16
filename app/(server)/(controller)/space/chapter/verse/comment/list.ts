@@ -1,19 +1,16 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
 import {
   verseCommentModel,
   VerseCommentObj,
 } from '@/(server)/(model)/space/chapter/verse/comment/main';
-import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = VerseCommentObj;
 const gqlDbWrapper = verseCommentDbWrapper;
@@ -34,7 +31,13 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createComment: (
+    userId: string,
+    verseId: string,
+    message: string,
+  ) => Promise<VerseCommentObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -185,6 +188,18 @@ const useControllerForVerseCommentList = (listId: string): Controller => {
         userId: '',
         verseId: '',
         message: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createComment: async (userId: string, verseId: string, message: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        verseId: verseId,
+        message: message,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
