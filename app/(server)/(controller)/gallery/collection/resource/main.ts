@@ -53,7 +53,7 @@ const useControllerForCollectionResourceMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

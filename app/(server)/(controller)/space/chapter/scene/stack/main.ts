@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { IdeaLinkObj } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
 import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
+import { IdeaLinkObj } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaLinkObj;
 const gqlDbWrapper = ideaLinkDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForSceneIdeaMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

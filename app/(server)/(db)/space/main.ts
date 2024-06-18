@@ -6,7 +6,7 @@ import {
   deleteSpaceObj,
   updateSpaceObj,
 } from '@/graphql/mutations';
-import { listSpaceObjs } from '@/graphql/queries';
+import { getSpaceObj, listSpaceObjs } from '@/graphql/queries';
 import { GqlDbWrapper } from '../main';
 
 function castSingle(obj: any) {
@@ -17,17 +17,15 @@ function castMultiple(objs: any[]) {
   return objs as SpaceObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceObjs,
+    query: getSpaceObj,
     variables: {
-      [key]: {
-        eq: value,
-      },
+      id: value,
     },
   });
 
-  return castSingle(payload?.data?.listSpaceObjs);
+  return castSingle(payload?.data?.getSpaceObj);
 }
 
 async function getFromVariables(variables: any) {

@@ -4,8 +4,8 @@ import { GlassWindowContents } from '../(glass)/window/contents/main';
 import { GlassWindowFrame } from '../(glass)/window/main';
 import { GlassWindowPane } from '../(glass)/window/pane/main';
 
-export function TimerComponent() {
-  const timerController = useControllerForTimer();
+export function TimerComponent({ hours }: { hours?: number }) {
+  const timerController = useControllerForTimer(hours);
   return (
     <>
       <div className='flex flex-row items-center justify-start'>

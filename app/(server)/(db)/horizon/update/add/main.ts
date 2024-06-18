@@ -20,7 +20,7 @@ function castMultiple(objs: any[]) {
   return objs as HorizonUpdateAddObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getHorizonUpdateAddObj,
     variables: {

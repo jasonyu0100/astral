@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { UserCollaboratorObj } from '@/(server)/(model)/user/collaborator/main';
 import { userCollaboratorDbWrapper } from '@/(server)/(db)/user/collaborator/main';
+import { UserCollaboratorObj } from '@/(server)/(model)/user/collaborator/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserCollaboratorObj;
 const gqlDbWrapper = userCollaboratorDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForUserCollaboratorMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

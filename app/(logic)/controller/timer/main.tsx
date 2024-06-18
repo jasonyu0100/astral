@@ -20,16 +20,12 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export function useControllerForTimer(
-  initialTimerDuration?: number,
-): Controller {
-  const [timerDuration, setTimerDuration] = useState(
-    initialTimerDuration || 10000,
-  );
+export function useControllerForTimer(initialHours?: number): Controller {
+  const [timerDuration, setTimerDuration] = useState(initialHours || 60);
   const [timeDilation, setTimeDilation] = useState(1);
   const [timeElapsed, setTimeElapsed] = useState(0);
   const currentTime = timerDuration - timeElapsed;
-  const hours = Math.floor(currentTime / 60 / 60) % 24;
+  const hours = Math.floor(currentTime / 60 / 60);
   const minutes = Math.floor(currentTime / 60) % 60;
   const seconds = currentTime % 60;
 
@@ -48,9 +44,9 @@ export function useControllerForTimer(
   }
 
   useEffect(() => {
-    if (initialTimerDuration) {
+    if (initialHours) {
       setTimeElapsed(0);
-      setTimerDuration(initialTimerDuration);
+      setTimerDuration(initialHours * 60 * 60);
     } else {
       const midnight = new Date();
       midnight.setHours(24, 0, 0, 0);
@@ -61,7 +57,7 @@ export function useControllerForTimer(
       setTimeElapsed(0);
       setTimerDuration(timeElapsed);
     }
-  }, [initialTimerDuration]);
+  }, [initialHours]);
 
   useEffect(() => {
     const duration =

@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,11 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { UserReservationObj } from '@/(server)/(model)/user/reservation/main';
 import { userReservationDbWrapper } from '@/(server)/(db)/user/reservation/main';
-import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { gqlArgs } from '@/(utils)/clean';
-import { createUserReservationObj } from '@/graphql/mutations';
+import { UserReservationObj } from '@/(server)/(model)/user/reservation/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserReservationObj;
 const gqlDbWrapper = userReservationDbWrapper;
@@ -66,7 +61,7 @@ const useControllerForUserReservationMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

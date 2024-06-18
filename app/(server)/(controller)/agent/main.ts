@@ -1,6 +1,3 @@
-import { agentDbWrapper } from '@/(server)/(db)/agent/main';
-import { AgentObj } from '@/(server)/(model)/agent/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,6 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
+import { agentDbWrapper } from '@/(server)/(db)/agent/main';
+import { AgentObj } from '@/(server)/(model)/agent/main';
+import { createContext, useMemo, useState } from 'react';
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 type TargetObj = AgentObj;
@@ -54,7 +54,7 @@ const useControllerForAgentMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

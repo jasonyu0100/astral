@@ -20,7 +20,7 @@ function castMultiple(objs: any[]) {
   return objs as GalleryCollectionObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getGalleryCollectionObj,
     variables: {

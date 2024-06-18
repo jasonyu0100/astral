@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { ClusterUpdateMemberObj } from '@/(server)/(model)/horizon/cluster/update/member/main';
 import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/update/member/main';
+import { ClusterUpdateMemberObj } from '@/(server)/(model)/horizon/cluster/update/member/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ClusterUpdateMemberObj;
 const gqlDbWrapper = clusterUpdateMemberDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForClusterUpdateMemberMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

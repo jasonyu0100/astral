@@ -6,7 +6,7 @@ import {
   deleteHorizonObj,
   updateHorizonObj,
 } from '@/graphql/mutations';
-import { listHorizonObjs, getHorizonObj } from '@/graphql/queries';
+import { getHorizonObj, listHorizonObjs } from '@/graphql/queries';
 import { GqlDbWrapper } from '../main';
 
 function castSingle(obj: any) {
@@ -17,7 +17,7 @@ function castMultiple(objs: any[]) {
   return objs as HorizonObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getHorizonObj,
     variables: {

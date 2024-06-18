@@ -1,16 +1,16 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { UserReservationObj } from '@/(server)/(model)/user/reservation/main';
 import { gqlArgs } from '@/(utils)/clean';
-import { GqlDbWrapper } from '../../main';
-import {
-  getUserReservationObj,
-  listUserReservationObjs,
-} from '@/graphql/queries';
 import {
   createUserReservationObj,
   deleteUserReservationObj,
   updateUserReservationObj,
 } from '@/graphql/mutations';
+import {
+  getUserReservationObj,
+  listUserReservationObjs,
+} from '@/graphql/queries';
+import { GqlDbWrapper } from '../../main';
 
 function castSingle(obj: any) {
   return obj as UserReservationObj;
@@ -20,7 +20,7 @@ function castMultiple(objs: any[]) {
   return objs as UserReservationObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getUserReservationObj,
     variables: {

@@ -1,15 +1,12 @@
 import { TimerComponent } from '@/(components)/(timer)/main';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
+import { useContext } from 'react';
 
-export function SpaceStormHeaderRight({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function SpaceStormHeaderRight() {
+  const spaceController = useContext(ContextForSpaceMain);
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      {children}
-
-      <TimerComponent />
+      <TimerComponent hours={spaceController.state.obj.hours} />
     </div>
   );
 }

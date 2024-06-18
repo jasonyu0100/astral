@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
+import { ChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ChapterVerseObj;
 const gqlDbWrapper = chapterVerseDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForChapterVerseMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

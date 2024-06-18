@@ -7,7 +7,6 @@ import {
   updateUserCollaboratorObj,
 } from '@/graphql/mutations';
 import {
-  getUser,
   getUserCollaboratorObj,
   listUserCollaboratorObjs,
 } from '@/graphql/queries';
@@ -21,7 +20,7 @@ function castMultiple(objs: any[]) {
   return objs as UserCollaboratorObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getUserCollaboratorObj,
     variables: {

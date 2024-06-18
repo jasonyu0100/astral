@@ -12,11 +12,16 @@ import {
   ContextForChapterVerseList,
   useControllerForChapterVerseList,
 } from '@/(server)/(controller)/space/chapter/verse/list';
+import {
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/(server)/(controller)/space/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { SpaceFlowModalContext, useSpaceFlowModal } from './(modal)/main';
 import { SpaceFlowView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
+  const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(params.id);
   const verseListController = useControllerForChapterVerseList(
     chapterListController.state.objId,
@@ -28,16 +33,18 @@ function Page({ params }: { params: { id: string } }) {
   const modalContext = useSpaceFlowModal();
 
   return (
-    <ContextForSpaceChapterList.Provider value={chapterListController}>
-      <ContextForChapterVerseList.Provider value={verseListController}>
-        <ContextForVerseCommentList.Provider value={commentListController}>
-          <SpaceFlowModalContext.Provider value={modalContext}>
-            <SpaceFlowModalView />
-            <SpaceFlowView />
-          </SpaceFlowModalContext.Provider>
-        </ContextForVerseCommentList.Provider>
-      </ContextForChapterVerseList.Provider>
-    </ContextForSpaceChapterList.Provider>
+    <ContextForSpaceMain.Provider value={spaceController}>
+      <ContextForSpaceChapterList.Provider value={chapterListController}>
+        <ContextForChapterVerseList.Provider value={verseListController}>
+          <ContextForVerseCommentList.Provider value={commentListController}>
+            <SpaceFlowModalContext.Provider value={modalContext}>
+              <SpaceFlowModalView />
+              <SpaceFlowView />
+            </SpaceFlowModalContext.Provider>
+          </ContextForVerseCommentList.Provider>
+        </ContextForChapterVerseList.Provider>
+      </ContextForSpaceChapterList.Provider>
+    </ContextForSpaceMain.Provider>
   );
 }
 

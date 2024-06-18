@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { ForumPostObj } from '@/(server)/(model)/horizon/arc/forum/post/main';
 import { forumPostDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/main';
+import { ForumPostObj } from '@/(server)/(model)/horizon/arc/forum/post/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ForumPostObj;
 const gqlDbWrapper = forumPostDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForForumPostMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

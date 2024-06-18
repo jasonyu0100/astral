@@ -1,13 +1,13 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
+import { AgentObj } from '@/(server)/(model)/agent/main';
 import { gqlArgs } from '@/(utils)/clean';
-import { GqlDbWrapper } from '../main';
 import {
   createAgentObj,
-  updateAgentObj,
   deleteAgentObj,
+  updateAgentObj,
 } from '@/graphql/mutations';
 import { getAgentObj, listAgentObjs } from '@/graphql/queries';
-import { AgentObj } from '@/(server)/(model)/agent/main';
+import { GqlDbWrapper } from '../main';
 
 function castSingle(obj: any) {
   return obj as AgentObj;
@@ -17,7 +17,7 @@ function castMultiple(objs: any[]) {
   return objs as AgentObj[];
 }
 
-async function getObj(key: string, value: string) {
+async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
     query: getAgentObj,
     variables: {

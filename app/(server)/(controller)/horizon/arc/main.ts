@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { HorizonArcObj } from '@/(server)/(model)/horizon/arc/main';
 import { horizonArcDbWrapper } from '@/(server)/(db)/horizon/arc/main';
+import { HorizonArcObj } from '@/(server)/(model)/horizon/arc/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonArcObj;
 const gqlDbWrapper = horizonArcDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForHorizonArcMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },

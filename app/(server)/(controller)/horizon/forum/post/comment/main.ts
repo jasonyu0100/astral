@@ -1,6 +1,3 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -8,8 +5,9 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { PostCommentObj } from '@/(server)/(model)/horizon/arc/forum/post/comment/main';
 import { postCommentDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/comment/main';
+import { PostCommentObj } from '@/(server)/(model)/horizon/arc/forum/post/comment/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostCommentObj;
 const gqlDbWrapper = postCommentDbWrapper;
@@ -56,7 +54,7 @@ const useControllerForPostCommentMain = (objId: string): Controller => {
 
   const gatherActions: GatherActions = {
     get: async () => {
-      const getObj = await gqlDbWrapper.getObj('id', objId);
+      const getObj = await gqlDbWrapper.getObj(objId);
       changeObj(getObj);
       return getObj;
     },
