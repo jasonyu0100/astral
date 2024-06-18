@@ -26,11 +26,18 @@ export function SpaceDraftSidebarHomeGallerysMode() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       </div>
-      <div className='flex h-full w-full flex-col overflow-auto p-[1rem]'>
+      <GlassWindowFrame className='h-[3rem] w-full flex-shrink-0'>
+        <GlassWindowContents className='flex h-full w-full items-center px-[1rem]'>
+          <p className='cursor-pointer text-sm font-bold text-slate-500'>
+            Gallerys
+          </p>
+        </GlassWindowContents>
+      </GlassWindowFrame>
+      <div className='flex h-full w-full flex-col overflow-auto px-[1rem]'>
         <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
           {galleryListController.state.objs.map((gallery) => (
             <>
-              <p className='text-md w-full font-bold text-slate-300'>
+              <p className='w-full text-lg font-bold text-slate-300'>
                 {gallery.title}
               </p>
               <GlassWindowFrame
@@ -39,8 +46,13 @@ export function SpaceDraftSidebarHomeGallerysMode() {
               >
                 <GlassWindowContents
                   onClick={() => sidebarController.actions.goToGallery(gallery)}
-                  className='flex w-full cursor-pointer flex-col space-y-[1rem] p-[1rem]'
-                ></GlassWindowContents>
+                  className='flex w-full cursor-pointer flex-col space-y-[1rem]'
+                >
+                  <img
+                    src={gallery.thumbnail.src}
+                    className='h-full w-full object-cover'
+                  />
+                </GlassWindowContents>
                 <GlassWindowPane glassFx={glassFx['glass-5']} />
               </GlassWindowFrame>
             </>

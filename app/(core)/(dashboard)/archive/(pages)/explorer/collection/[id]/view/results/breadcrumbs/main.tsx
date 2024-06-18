@@ -16,7 +16,7 @@ export function ExplorerCollectionResourcesBreadcrumbs() {
         href={archiveMap.archive.explorer.link}
         active={false}
       >
-        Home
+        Gallerys
       </ArchiveExplorerBreadcrumbItem>
       <ArchiveExplorerBreadcrumbDivider />
       <ArchiveExplorerBreadcrumbItem

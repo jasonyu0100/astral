@@ -47,7 +47,7 @@ export function SpaceDraftGalleryCollectionsMode() {
         <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
           {collectionsListController.state.objs.map((collection) => (
             <>
-              <p className='text-md w-full font-bold text-slate-300'>
+              <p className='w-full text-lg font-bold text-slate-300'>
                 {collection.title}
               </p>
               <GlassWindowFrame

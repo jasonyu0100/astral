@@ -58,7 +58,7 @@ export function SpaceDraftCollectionResourcesMode() {
         <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
           {resourceListController.state.objs.map((resource) => (
             <>
-              <p className='text-md w-full font-bold text-slate-300'>
+              <p className='w-full text-lg font-bold text-slate-300'>
                 {resource.title}
               </p>
               <GlassWindowFrame
