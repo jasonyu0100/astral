@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { createContext } from 'react';
 import { FileElem, exampleFileElem } from '../elements/file/main';
 import { ModelInterface } from '../main';
@@ -9,6 +10,8 @@ export interface SpaceObj {
   description: string;
   created: string;
   thumbnail: FileElem;
+  hours: number;
+  target: string;
   category: string;
 }
 
@@ -22,6 +25,8 @@ type SpaceObj {
 	description: String!
 	thumbnail: FileElem!
   category: String!
+  hours: Int!
+  target: String!
 }
 `;
 
@@ -36,6 +41,8 @@ export const exampleSpace: SpaceObj = {
   created: new Date().toISOString(),
   thumbnail: exampleFileElem,
   category: 'Space Category',
+  hours: 10,
+  target: moment(new Date()).add(7, 'd').toISOString(),
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -48,6 +55,8 @@ export const exampleSpaces: SpaceObj[] = [
     created: new Date().toISOString(),
     thumbnail: exampleFileElem,
     category: 'Space Category',
+    hours: 10,
+    target: moment(new Date()).add(7, 'd').toISOString(),
   },
   {
     id: '1',
@@ -58,6 +67,8 @@ export const exampleSpaces: SpaceObj[] = [
     created: new Date().toISOString(),
     thumbnail: exampleFileElem,
     category: 'Space Category',
+    hours: 10,
+    target: moment(new Date()).add(7, 'd').toISOString(),
   },
 ];
 

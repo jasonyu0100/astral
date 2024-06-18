@@ -1,13 +1,24 @@
 import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
+import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForPageThree } from '../(controller)/create-space/main';
+import { DatePicker } from './datepicker/main';
 
 export function CreateSpaceModalPageThree() {
-  const { hours, updateHours, collaborators, updateCollaborators } =
-    useContext(ContextForPageThree);
+  const {
+    hours,
+    updateHours,
+    collaborators,
+    updateCollaborators,
+    target,
+    updateTarget,
+  } = useContext(ContextForPageThree);
 
   return (
     <FormBody>
@@ -27,16 +38,26 @@ export function CreateSpaceModalPageThree() {
           />
         </div>
       </div>
+      <DatePicker date={target} onChange={updateTarget} />
       <FormSelect title={'Collaborators'}>
         <option>Collaborator A</option>
         <option>Collaborator B</option>
         <option>Collaborator C</option>
       </FormSelect>
-      <div className='flex flex-row space-x-[1rem]'>
-        {exampleFileElems.map((fileElem) => (
-          <ProfileCover fileElem={fileElem} />
-        ))}
-      </div>
+      <GlassWindowFrame className='p-[1rem]'>
+        <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
+            {exampleFileElems.map((fileElem) => (
+              <div className='flex flex-row items-center space-x-[1rem] font-bold'>
+                <ProfileCover fileElem={fileElem} />
+                <p>First name</p>
+                <p>Last name</p>
+              </div>
+            ))}
+          </div>
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      </GlassWindowFrame>
     </FormBody>
   );
 }

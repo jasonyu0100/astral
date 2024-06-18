@@ -16,6 +16,7 @@ import {
   SpaceTemplate,
   TemplateChapterObj,
 } from '@/(server)/(templates)/space/main';
+import moment from 'moment';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
@@ -36,6 +37,8 @@ export interface PageTwo {
 export interface PageThree {
   hours: number;
   updateHours: (hours: number) => void;
+  target: string;
+  updateTarget: (target: string) => void;
   collaborators: string[];
   updateCollaborators: (collaborators: string[]) => void;
 }
@@ -64,6 +67,9 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [goalHours, changeGoalHours] = useState(100);
+  const [targetDate, changeTargetDate] = useState(
+    moment(new Date()).add(1, 'week').toISOString(),
+  );
   const [collaborators, changeCollaborators] = useState<string[]>([]);
   const [templateProject, changeTemplateProject] = useState(
     SpaceTemplate.DEFAULT,
@@ -278,6 +284,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const pageThree: PageThree = {
     hours: goalHours,
     updateHours: (hours: number) => changeGoalHours(hours),
+    target: targetDate,
+    updateTarget: (target: string) => changeTargetDate(target),
     collaborators,
     updateCollaborators: (collaborators: string[]) =>
       changeCollaborators(collaborators),

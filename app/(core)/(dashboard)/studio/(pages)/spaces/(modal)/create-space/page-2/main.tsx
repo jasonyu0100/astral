@@ -29,9 +29,9 @@ export function CreateSpaceModalPageTwo() {
       {variant === SpaceTemplate.DEFAULT ? (
         <div className='flex w-full flex-col'>
           {templateSpaceChapters.map((chapter, index) => (
-            <div className='flex w-full flex-col space-y-[0.5rem]' key={index}>
+            <div className='flex w-full flex-col' key={index}>
               <div className='flex flex-row items-center'>
-                <p className='text-md mr-2 font-bold'>{index + 1}.</p>
+                <p className='text-md font-bold'>{index + 1}.</p>
                 <input
                   placeholder='Enter your title...'
                   className='text-md w-auto rounded px-1 font-bold outline-none'
@@ -141,7 +141,7 @@ export function CreateSpaceModalPageTwo() {
           </div>
         </div>
       ) : (
-        <div className='flex w-full flex-col space-y-[1rem] bg-slate-50 p-2'>
+        <div className='flex w-full flex-col space-y-[1rem]'>
           {templateSpaceChapters.map((template, index) => (
             <p className='text-md overflow-hidden font-bold' key={index}>
               {index + 1}. {template.title} -{' '}
