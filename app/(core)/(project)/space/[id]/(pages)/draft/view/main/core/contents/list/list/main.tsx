@@ -47,7 +47,7 @@ export function SpaceDraftSceneList() {
               <p
                 className={`text-md font-bold ${activeId === scene.id ? 'animate-pulse-slow text-slate-400' : 'text-slate-500'}`}
               >
-                {index + 1}. {scene.title}
+                {scene.title}
               </p>
             </GlassWindowContents>
           </GlassWindowFrame>

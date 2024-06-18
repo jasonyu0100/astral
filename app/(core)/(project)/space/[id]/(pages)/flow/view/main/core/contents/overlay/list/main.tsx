@@ -20,9 +20,9 @@ export function SpaceFlowList() {
       <ContextForOpenable.Provider value={openableController}>
         <SpaceFlowAddVerseModal />
       </ContextForOpenable.Provider>
-      <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[1rem] p-[1rem]'>
+      <div className='flex h-full w-full flex-shrink-0 flex-col space-y-[0.5rem] p-[1rem]'>
         <div className='flex w-full flex-row items-center space-x-[1rem]'>
-          <p className={`text-lg font-bold text-slate-400`}>Verses</p>
+          <p className={`text-md font-bold text-slate-400`}>Verses</p>
           <GlassWindowFrame
             roundedFx={roundedFx['rounded']}
             className='h-[1rem] w-[1rem]'
@@ -31,7 +31,7 @@ export function SpaceFlowList() {
               className='flex cursor-pointer items-center justify-center'
               onClick={openableController.open}
             >
-              <p className={`text-md font-bold text-slate-400`}>+</p>
+              <p className={`text-sm font-bold text-slate-400`}>+</p>
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
@@ -45,9 +45,9 @@ export function SpaceFlowList() {
               }
             >
               <p
-                className={`text-md font-bold ${activeId === verse.id ? 'animate-pulse-slow text-slate-400' : 'text-slate-500'}`}
+                className={`text-sm font-bold ${activeId === verse.id ? 'animate-pulse-slow text-slate-400' : 'text-slate-500'}`}
               >
-                {index + 1}. {verse.title}
+                {verse.title}
               </p>
             </GlassWindowContents>
           </GlassWindowFrame>

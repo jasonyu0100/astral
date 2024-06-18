@@ -32,13 +32,9 @@ export function SpaceDraftRowElement({
       >
         {children}
         {active ? (
-          <p className='font-bold text-slate-300'>
-            {index + 1}. {chapter.title}
-          </p>
+          <p className='font-bold text-slate-300'>{chapter.title}</p>
         ) : (
-          <p className='font-bold text-slate-500'>
-            {index + 1}. {chapter.title}
-          </p>
+          <p className='font-bold text-slate-500'>{chapter.title}</p>
         )}
       </GlassAreaContainer>
     </button>

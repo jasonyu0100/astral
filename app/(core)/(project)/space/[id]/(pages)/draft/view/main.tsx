@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { SpaceDraftMain } from './main/main';
+import { SpaceDraftSidebar } from './sidebar/main';
 
 export function SpaceDraftView() {
   return (
@@ -13,7 +14,7 @@ export function SpaceDraftView() {
       roundedFx={roundedFx['rounded-container-sm']}
     >
       <SpaceDraftMain />
-      {/* <SpaceDraftSidebar /> */}
+      <SpaceDraftSidebar />
     </GlassAreaContainer>
   );
 }

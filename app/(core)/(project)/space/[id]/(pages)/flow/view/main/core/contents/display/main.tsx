@@ -1,10 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
-import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceFlowContentsDisplay() {
@@ -17,7 +14,26 @@ export function SpaceFlowContentsDisplay() {
       sizeFx='flex-grow h-full'
       className={`space-y-[3rem] overflow-auto p-[2rem]`}
     >
-      <div className='flex h-full w-full flex-col items-center justify-center space-y-[2rem] p-[2rem]'>
+      <div className='flex w-full flex-grow flex-col items-center space-y-[2rem]'>
+        {verseListController.state.objs.map((obj) => (
+          <>
+            <div className='flex w-[400px] flex-col space-y-[1rem]'>
+              <img
+                className='aspect-square h-[400px] border-[1rem] border-white object-cover'
+                src='https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+              />
+              <div className='space-y-[0.5rem] px-[0.5rem]'>
+                <p className='text-lg font-bold text-white'>
+                  Verse - {obj.title}
+                </p>
+                <p className=' text-white'>{obj.description}</p>
+              </div>
+            </div>
+            <HorizontalDivider />
+          </>
+        ))}
+      </div>
+      {/* <div className='flex h-full w-full flex-col items-center justify-center space-y-[2rem] p-[2rem]'>
         <GlassWindowFrame className='aspect-[10/13] h-full flex-shrink-0 bg-white'>
           {flippableController.flipped ? (
             <>
@@ -54,7 +70,7 @@ export function SpaceFlowContentsDisplay() {
         >
           FLIP ME
         </p>
-      </div>
+      </div> */}
     </GlassAreaContainer>
   );
 }

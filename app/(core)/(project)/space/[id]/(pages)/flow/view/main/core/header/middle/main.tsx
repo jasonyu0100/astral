@@ -6,7 +6,7 @@ export function SpaceFlowHeaderMiddle() {
   return (
     <div className='flex w-1/3 flex-row justify-center'>
       <p className='text-lg font-bold text-slate-300'>
-        Verse - {verseListController.state?.currentObj?.title || 'None'}
+        {verseListController.state?.currentObj?.title || 'None'}
       </p>
     </div>
   );

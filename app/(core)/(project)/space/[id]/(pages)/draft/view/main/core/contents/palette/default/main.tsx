@@ -23,26 +23,24 @@ export function SpaceDraftContentsPaletteDefault({
 
   return (
     <div className='flex w-full flex-col'>
-      <div className='flex w-full items-center space-x-[1rem] p-[1rem]'>
+      <div className='flex w-full cursor-pointer items-center space-x-[1rem] px-[1rem] py-[0.5rem] text-sm font-bold text-slate-300'>
         {[
           PaletteState.HOME,
           PaletteState.GALLERY,
           PaletteState.COLLECTION,
         ].includes(paletteController.state) && (
           <p
-            className='cursor-pointer font-bold text-slate-300'
             onClick={() => {
               paletteController.actions.goToHome();
             }}
           >
-            HOME
+            Home
           </p>
         )}
         {[PaletteState.GALLERY, PaletteState.COLLECTION].includes(
           paletteController.state,
         ) && (
           <p
-            className='cursor-pointer font-bold text-slate-300 '
             onClick={() => {
               galleryListController.state.currentObj &&
                 paletteController.actions.goToGallery(
@@ -55,7 +53,6 @@ export function SpaceDraftContentsPaletteDefault({
         )}
         {[PaletteState.COLLECTION].includes(paletteController.state) && (
           <p
-            className='cursor-pointer font-bold text-slate-300'
             onClick={() => {
               collectionListController.state.currentObj &&
                 paletteController.actions.goToCollection(
@@ -66,7 +63,7 @@ export function SpaceDraftContentsPaletteDefault({
             / {collectionListController.state.currentObj?.title}
           </p>
         )}
-        <svg
+        {/* <svg
           xmlns='http://www.w3.org/2000/svg'
           onClick={() => onToggle()}
           className='h-[2rem] w-[2rem] cursor-pointer'
@@ -89,14 +86,14 @@ export function SpaceDraftContentsPaletteDefault({
               fill='#CBD5E1'
             />
           </g>
-        </svg>
+        </svg> */}
       </div>
       <GlassWindowFrame
-        className='h-[10rem] w-full overflow-auto'
-        roundedFx={roundedFx['rounded-container']}
+        className='h-[7rem] w-full overflow-auto'
+        roundedFx={roundedFx['rounded']}
         borderFx={borderFx['border-around']}
       >
-        <GlassWindowContents className='pb-[1rem space-x-[1rem flex w-full cursor-pointer flex-row'>
+        <GlassWindowContents className='space-x-[1rem flex w-full cursor-pointer flex-row'>
           {paletteController.state === PaletteState.HOME && (
             <>
               {galleryListController.state.objs.length === 0 && (
@@ -104,7 +101,7 @@ export function SpaceDraftContentsPaletteDefault({
               )}
               {galleryListController.state.objs.map((gallery) => (
                 <div
-                  className='flex aspect-square h-full cursor-pointer items-center justify-center bg-black'
+                  className='flex aspect-square h-full cursor-pointer items-center justify-center border-r-[1px] border-slate-300 border-opacity-30'
                   onClick={() => {
                     paletteController.actions.goToGallery(gallery);
                   }}
