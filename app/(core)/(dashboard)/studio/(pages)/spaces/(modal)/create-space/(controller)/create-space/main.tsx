@@ -1,4 +1,5 @@
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
@@ -47,6 +48,7 @@ interface CreateSpaceController {
 
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
+  const galleryListController = useContext(ContextForGalleryList);
   const chapterListController = useControllerForSpaceChapterList('');
   const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
@@ -211,6 +213,14 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   async function createSpace() {
+    const gallery =
+      await galleryListController.actions.createActions.createGallery(
+        user.id,
+        title,
+        description,
+        thumbnail,
+      );
+    console.log('GALLERY CREATED', gallery);
     const space =
       await spaceListController.actions.createActions.createFromTemplate(
         title,
@@ -218,6 +228,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         user.id,
         thumbnail,
         templateProject,
+        gallery.id,
       );
 
     console.log('SPACE CREATED', space);
@@ -228,7 +239,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     const verses = await createVerses(chapters, templateSpaceChapters);
     console.log('VERSES CREATED', verses);
     const chats = await createChats(chapters, templateSpaceChapters);
-    console.log('CHATS CREATED', chats);
+    console.log('chats created', chats);
+    console.log('GALLERY CREATED', verses);
+    console.log('chats created', chats);
+
     return space;
   }
 

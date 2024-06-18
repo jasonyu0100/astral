@@ -1,14 +1,9 @@
-import { FileElem } from '@/(server)/(model)/elements/file/main';
-import React, { createContext } from 'react';
-import SearchModalView from '@/(components)/(form)/file/search/search-image/(modal)/view';
 import { ContextForFileChangable } from '@/(logic)/contexts/fileChangable/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { createContext } from 'react';
+import { DisplayImagePreview } from './display-image-preview/main';
 import { SearchImageLabel } from './label/main';
 import { SearchButton } from './search-button/main';
-import { DisplayImagePreview } from './display-image-preview/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
 
 export const SearchImageContext = createContext({});
 

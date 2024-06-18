@@ -76,6 +76,10 @@ type ChapterVerseObj {
   title: String!
   description: String!
   created: String!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
 }
 
 type ChapterVerseObjConnection {
@@ -167,8 +171,8 @@ type CollectionResourceObj {
   title: String!
   description: String!
   fileElem: FileElem
-  noteElem: NoteElem
-  linkElem: LinkElem
+  textElem: TextElem
+  urlElem: UrlElem
   variant: String!
   created: String!
 }
@@ -239,6 +243,10 @@ input CreateChapterVerseObjInput {
   title: String!
   description: String!
   created: String!
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input CreateChatConversationObjInput {
@@ -290,8 +298,8 @@ input CreateCollectionResourceObjInput {
   created: String!
   variant: String!
   fileElem: FileElemInput
-  noteElem: NoteElemInput
-  linkElem: LinkElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input CreateConversationMessageObjInput {
@@ -422,8 +430,8 @@ input CreateSceneIdeaObjInput {
   rotation: Int!
   variant: String!
   fileElem: FileElemInput
-  noteElem: NoteElemInput
-  linkElem: LinkElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
   created: String!
 }
 
@@ -452,6 +460,7 @@ input CreateSpaceMemberObjInput {
 
 input CreateSpaceObjInput {
   userId: String!
+  galleryId: String!
   title: String!
   thumbnail: FileElemInput
   created: String!
@@ -893,14 +902,14 @@ type IdeaLinkObjConnection {
   nextToken: String
 }
 
-type LinkElem {
+type UrlElem {
   id: String!
   url: String
   title: String
   variant: String
 }
 
-input LinkElemInput {
+input UrlElemInput {
   id: String!
   url: String
   title: String
@@ -917,14 +926,14 @@ input ModelSizeInput {
   between: [Int]
 }
 
-type NoteElem {
+type TextElem {
   id: String!
   title: String
   text: String
   variant: String
 }
 
-input NoteElemInput {
+input TextElemInput {
   id: String!
   title: String
   text: String
@@ -961,8 +970,8 @@ type SceneIdeaObj {
   rotation: Int!
   variant: String!
   fileElem: FileElem
-  noteElem: NoteElem
-  linkElem: LinkElem
+  textElem: TextElem
+  urlElem: UrlElem
   created: String!
 }
 
@@ -1014,6 +1023,7 @@ type SpaceMemberObjConnection {
 
 type SpaceObj {
   id: String!
+  galleryId: String!
   userId: String!
   title: String!
   created: String!
@@ -1128,6 +1138,7 @@ input TableChapterVerseObjFilterInput {
   title: TableStringFilterInput
   description: TableStringFilterInput
   created: TableStringFilterInput
+  variant: TableStringFilterInput
 }
 
 input TableChatConversationObjFilterInput {
@@ -1396,6 +1407,7 @@ input TableSpaceMemberObjFilterInput {
 
 input TableSpaceObjFilterInput {
   id: TableStringFilterInput
+  galleryId: TableStringFilterInput
   userId: TableStringFilterInput
   title: TableStringFilterInput
   created: TableStringFilterInput
@@ -1552,6 +1564,10 @@ input UpdateChapterVerseObjInput {
   title: String
   description: String
   created: String
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input UpdateChatConversationObjInput {
@@ -1755,8 +1771,8 @@ input UpdateSceneIdeaObjInput {
   scale: Float
   variant: String
   fileElem: FileElemInput
-  noteElem: NoteElemInput
-  linkElem: LinkElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
   created: String
 }
 
@@ -1790,6 +1806,7 @@ input UpdateSpaceMemberObjInput {
 input UpdateSpaceObjInput {
   id: String!
   userId: String
+  galleryId: String
   title: String
   thumbnail: FileElemInput
   created: String

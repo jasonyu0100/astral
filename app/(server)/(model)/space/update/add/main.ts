@@ -2,16 +2,20 @@ import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
 export enum SpaceUpdateAddVariant {
-  CONVERSATION = 'CONVERSATION', // WHAT CONVERSATIONS WERE MADE
-  IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
+  CHAPTER = 'CHAPTER', // WHAT CHAPTERS WERE MADE
+  CHAT = 'CHAT', // WHAT CHATS WERE MADE
   SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
   VERSE = 'VERSE', // WHAT WORK WAS DONE
+  CONVERSATION = 'CONVERSATION', // WHAT CONVERSATIONS WERE MADE
+  IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
 }
 
 export interface SpaceUpdateAddObj {
   id: string;
   updateId: string;
   variant: string;
+  chapterId?: string;
+  chatId?: string;
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
@@ -27,6 +31,8 @@ type SpaceUpdateAddObj {
   updateId: String!
   variant: String!
   conversationId: String
+  chapterId: String
+  chatId: String
   ideaId: String
   sceneId: String
   verseId: String

@@ -1,15 +1,15 @@
 import {
-  FileElem,
-  FileElemVariant,
-} from '@/(server)/(model)/elements/file/main';
-import React, { useEffect } from 'react';
-import { UploadFileLabel } from '../common/label/main';
-import {
   UploadsHandlerContext,
   useS3UploadsController,
 } from '@/(api)/(controller)/s3/multiple/main';
-import { UploadFilesList } from './list/main';
+import {
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/(model)/elements/file/main';
+import { useEffect } from 'react';
+import { UploadFileLabel } from '../common/label/main';
 import { UploadFilesArea } from './area/main';
+import { UploadFilesList } from './list/main';
 
 export function FormUploadFiles({
   onChange,

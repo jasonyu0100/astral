@@ -1,22 +1,16 @@
 import {
-  FileElem,
-  ContextForFileElem,
-  FileElemVariant,
-  getFileAccepts,
-} from '@/(server)/(model)/elements/file/main';
-import React, { useEffect } from 'react';
-import { UploadedFileEntry } from '../common/entry/main';
-import { UploadedFileEntryBody } from '../common/entry/body/main';
-import { UploadedEntryRemove } from './uploaded/remove/main';
-import { UploadFileAreaPlaceholder } from './area/placeholder/main';
-import { UploadFileLabel } from '../common/label/main';
-import {
   UploadHandlerContext,
   useS3UploadController,
 } from '@/(api)/(controller)/s3/single/main';
-import { UploadFileArea } from './area/main';
-import { UploadFileAreaInterface } from './area/upload/main';
+import {
+  ContextForFileElem,
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/(model)/elements/file/main';
+import { useEffect } from 'react';
+import { UploadFileLabel } from '../common/label/main';
 import { UploadWrapper } from '../common/wrapper/main';
+import { UploadFileArea } from './area/main';
 import { UploadedFile } from './uploaded/main';
 
 export function FormUploadFile({

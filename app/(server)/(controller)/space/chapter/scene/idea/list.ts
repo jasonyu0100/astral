@@ -7,12 +7,12 @@ import {
 } from '@/(server)/(controller)/list';
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
-import { LinkElem } from '@/(server)/(model)/elements/link/main';
-import { NoteElem } from '@/(server)/(model)/elements/note/main';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { TextElem } from '@/(server)/(model)/elements/text/main';
+import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import {
   sceneIdeaModel,
   SceneIdeaObj,
-  SceneIdeaVariant,
 } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -48,14 +48,14 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     description: string,
     x: number,
     y: number,
-    linkElem: LinkElem,
+    urlElem: UrlElem,
   ) => Promise<TargetObj>;
-  createFromNote: (
+  createFromText: (
     title: string,
     description: string,
     x: number,
     y: number,
-    noteElem: NoteElem,
+    textElem: TextElem,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -217,7 +217,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         x: x,
         y: y,
         fileElem: fileElem,
-        variant: SceneIdeaVariant.FILE,
+        variant: ElementVariant.FILE,
         width: 100,
         height: 100,
         scale: 1,
@@ -225,7 +225,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromLink(title, description, x, y, linkElem) {
+    createFromLink(title, description, x, y, urlElem) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: listId,
@@ -233,8 +233,8 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         description: description,
         x: x,
         y: y,
-        linkElem: linkElem,
-        variant: SceneIdeaVariant.LINK,
+        urlElem: urlElem,
+        variant: ElementVariant.URL,
         width: 100,
         height: 100,
         scale: 1,
@@ -243,7 +243,7 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromNote(title, description, x, y, noteElem) {
+    createFromText(title, description, x, y, textElem) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: listId,
@@ -251,8 +251,8 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         description: description,
         x: x,
         y: y,
-        noteElem: noteElem,
-        variant: SceneIdeaVariant.NOTE,
+        textElem: textElem,
+        variant: ElementVariant.TEXT,
         width: 100,
         height: 100,
         scale: 1,

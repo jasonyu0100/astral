@@ -1,19 +1,19 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
+import {
+  ContextForTogglable,
+  useControllerForTogglable,
+} from '@/(logic)/contexts/togglable/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { useState } from 'react';
 import { CreativeNetworkSidebarEntryContents } from './content/main';
 import { CreativeNetworkSidebarEntryToggle } from './toggle/main';
 
 export function CreativeNetworkSidebarEntry() {
-  const [expanded, changeExpanded] = useState(false);
+  const togglableController = useControllerForTogglable();
 
   return (
-    <ContextForTogglable.Provider
-      value={{ toggled: expanded, toggle: () => changeExpanded(!expanded) }}
-    >
+    <ContextForTogglable.Provider value={togglableController}>
       <GlassWindowFrame
         name={CreativeNetworkSidebarEntry.name}
         className='min-h-[80px] w-full p-[15px]'
@@ -22,7 +22,9 @@ export function CreativeNetworkSidebarEntry() {
       >
         <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
           <CreativeNetworkSidebarEntryToggle />
-          {expanded && <CreativeNetworkSidebarEntryContents />}
+          {togglableController.toggled && (
+            <CreativeNetworkSidebarEntryContents />
+          )}
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>

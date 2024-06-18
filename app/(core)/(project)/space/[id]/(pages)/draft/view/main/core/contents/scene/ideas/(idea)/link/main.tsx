@@ -1,18 +1,18 @@
-import { LinkElemVariant } from '@/(server)/(model)/elements/link/main';
+import { UrlElemVariant } from '@/(server)/(model)/elements/url/main';
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext } from 'react';
 import { SpaceDraftLinkSpotifyIdea } from './spotify/main';
 import { SpaceDraftLinkYouTubeIdea } from './youtube/main';
 
-export function SpaceDraftLinkIdea() {
+export function SpaceDraftUrlIdea() {
   const star = useContext(ContextForSceneIdeaObj);
 
   return (
     <>
-      {star.linkElem?.variant === LinkElemVariant.SPOTIFY && (
+      {star.urlElem?.variant === UrlElemVariant.SPOTIFY && (
         <SpaceDraftLinkSpotifyIdea />
       )}
-      {star.linkElem?.variant === LinkElemVariant.YOUTUBE && (
+      {star.urlElem?.variant === UrlElemVariant.YOUTUBE && (
         <SpaceDraftLinkYouTubeIdea />
       )}
     </>

@@ -1,7 +1,7 @@
 import { elementModel } from '@/(server)/(model)/elements/main';
 import { fileElemGql } from '../../(model)/elements/file/main';
-import { linkElemGql, linkElemModel } from '../../(model)/elements/link/main';
-import { noteElemGql, noteElemModel } from '../../(model)/elements/note/main';
+import { textElemModel } from '../../(model)/elements/text/main';
+import { urlElemModel } from '../../(model)/elements/url/main';
 
 export const elementsMap = {
   model: elementModel,
@@ -11,9 +11,9 @@ export const elementsMap = {
     db: null,
   },
   note: {
-    model: noteElemModel,
+    model: textElemModel,
   },
   link: {
-    model: linkElemModel,
+    model: urlElemModel,
   },
 };

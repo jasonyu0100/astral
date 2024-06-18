@@ -1,6 +1,9 @@
-import { createContext } from 'react';
-import { FileElem, exampleFileElem } from '../../../elements/file/main';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { TextElem } from '@/(server)/(model)/elements/text/main';
+import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import { ModelInterface } from '@/(server)/(model)/main';
+import { FileElem } from '@/graphql/API';
+import { createContext } from 'react';
 
 export interface ChapterVerseObj {
   id: string;
@@ -9,6 +12,10 @@ export interface ChapterVerseObj {
   title: string;
   description: string;
   created: string;
+  variant: string;
+  fileElem?: FileElem;
+  textElem?: TextElem;
+  urlElem?: UrlElem;
 }
 
 export const chapterVerseGql = `
@@ -19,6 +26,10 @@ type ChapterVerseObj {
   title: String!
   description: String!
   created: String!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
 }
 `;
 
@@ -33,6 +44,7 @@ export const exampleChapterVerse: ChapterVerseObj = {
   title: 'Verse Example',
   description: 'Verse Description',
   created: new Date().toISOString(),
+  variant: ElementVariant.FILE,
 };
 
 export const exampleChapterVerses: ChapterVerseObj[] = [
@@ -43,6 +55,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     title: 'Verse Example',
     description: 'Verse Description',
     created: new Date().toISOString(),
+    variant: ElementVariant.FILE,
   },
   {
     id: '1',
@@ -51,6 +64,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     title: 'Verse Example',
     description: 'Verse Description',
     created: new Date().toISOString(),
+    variant: ElementVariant.FILE,
   },
   {
     id: '2',
@@ -59,6 +73,7 @@ export const exampleChapterVerses: ChapterVerseObj[] = [
     title: 'Verse Example',
     description: 'Verse Description',
     created: new Date().toISOString(),
+    variant: ElementVariant.FILE,
   },
 ];
 

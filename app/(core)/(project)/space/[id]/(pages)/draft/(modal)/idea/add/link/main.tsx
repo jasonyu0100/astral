@@ -8,16 +8,13 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import {
-  LinkElem,
-  LinkElemVariant,
-} from '@/(server)/(model)/elements/link/main';
+import { UrlElem, UrlElemVariant } from '@/(server)/(model)/elements/url/main';
 import { useContext, useState } from 'react';
 
-export function SpaceDraftAddLinkIdeaModal() {
+export function SpaceDraftAddUrlIdeaModal() {
   const openableController = useContext(ContextForOpenable);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
-  const [variant, changeVariant] = useState<string>(LinkElemVariant.YOUTUBE);
+  const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
@@ -57,7 +54,7 @@ export function SpaceDraftAddLinkIdeaModal() {
   }
 
   function create() {
-    if (variant === LinkElemVariant.YOUTUBE) {
+    if (variant === UrlElemVariant.YOUTUBE) {
       sceneIdeaListController.actions.createActions.createFromLink(
         title,
         description,
@@ -67,10 +64,10 @@ export function SpaceDraftAddLinkIdeaModal() {
           id: crypto.randomUUID(),
           title: `Youtube ${youtubeId}`,
           url: `https://www.youtube.com/embed/${youtubeId}`,
-          variant: LinkElemVariant.YOUTUBE,
-        } as LinkElem,
+          variant: UrlElemVariant.YOUTUBE,
+        } as UrlElem,
       );
-    } else if (variant === LinkElemVariant.SPOTIFY) {
+    } else if (variant === UrlElemVariant.SPOTIFY) {
       sceneIdeaListController.actions.createActions.createFromLink(
         title,
         description,
@@ -80,8 +77,8 @@ export function SpaceDraftAddLinkIdeaModal() {
           id: crypto.randomUUID(),
           title: `Spotify ${spotifyId}`,
           url: `https://open.spotify.com/embed/track/${spotifyId}`,
-          variant: LinkElemVariant.SPOTIFY,
-        } as LinkElem,
+          variant: UrlElemVariant.SPOTIFY,
+        } as UrlElem,
       );
     }
     close();
@@ -98,8 +95,8 @@ export function SpaceDraftAddLinkIdeaModal() {
               value={variant}
               onChange={(e) => changeVariant(e.target.value)}
             >
-              <option value={LinkElemVariant.YOUTUBE}>YouTube</option>
-              <option value={LinkElemVariant.SPOTIFY}>Spotify</option>
+              <option value={UrlElemVariant.YOUTUBE}>YouTube</option>
+              <option value={UrlElemVariant.SPOTIFY}>Spotify</option>
             </FormSelect>
             <FormInput
               placeholder='Title'
@@ -113,7 +110,7 @@ export function SpaceDraftAddLinkIdeaModal() {
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
             />
-            {variant === LinkElemVariant.YOUTUBE && (
+            {variant === UrlElemVariant.YOUTUBE && (
               <>
                 <FormInput
                   placeholder='https://www.youtube.com/watch?v=EcomZGuMZis'
@@ -131,7 +128,7 @@ export function SpaceDraftAddLinkIdeaModal() {
                 />
               </>
             )}
-            {variant === LinkElemVariant.SPOTIFY && (
+            {variant === UrlElemVariant.SPOTIFY && (
               <>
                 <FormInput
                   placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'

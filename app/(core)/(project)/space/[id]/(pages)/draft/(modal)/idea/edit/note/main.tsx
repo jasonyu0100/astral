@@ -10,27 +10,27 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import {
-  NoteElem,
-  NoteElemVariant,
-} from '@/(server)/(model)/elements/note/main';
+  TextElem,
+  TextElemVariant,
+} from '@/(server)/(model)/elements/text/main';
 import { useContext, useState } from 'react';
 
-export function SpaceDraftEditNoteIdeaModal() {
+export function SpaceDraftEditTextIdeaModal() {
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const openableController = useContext(ContextForOpenable);
-  const [variant, changeVariant] = useState<string>(NoteElemVariant.STICKY);
+  const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
   const [text, changeText] = useState<string>('');
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
 
   function create() {
     sceneIdeaListController.actions.createActions
-      .createFromNote(title, description, 0, 0, {
+      .createFromText(title, description, 0, 0, {
         id: crypto.randomUUID(),
         title: title,
         text: text,
         variant: variant,
-      } as NoteElem)
+      } as TextElem)
       .then(() => {
         close();
       });
@@ -47,9 +47,9 @@ export function SpaceDraftEditNoteIdeaModal() {
               value={variant}
               onChange={(e) => changeVariant(e.target.value)}
             >
-              <option value={NoteElemVariant.STICKY}>Sticky Note</option>
-              <option value={NoteElemVariant.PROMPT}>Prompt</option>
-              <option value={NoteElemVariant.QUOTE}>Quote</option>
+              <option value={TextElemVariant.STICKY}>Sticky Note</option>
+              <option value={TextElemVariant.PROMPT}>Prompt</option>
+              <option value={TextElemVariant.QUOTE}>Quote</option>
             </FormSelect>
             <FormInput
               placeholder='Title'

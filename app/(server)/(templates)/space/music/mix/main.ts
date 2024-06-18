@@ -1,6 +1,4 @@
-import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
-import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
-import { TemplateChapterObj, TemplateSpaceObj } from '../../main';
+import { TemplateSpaceObj } from '../../main';
 
 export const songMixTemplate: TemplateSpaceObj = {
   title: 'Mix Template',

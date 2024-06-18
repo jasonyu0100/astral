@@ -184,6 +184,7 @@ const useControllerForSpaceUpdateList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        userId: '',
         spaceId: '',
         title: '',
         description: '',

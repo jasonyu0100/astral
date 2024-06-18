@@ -1,19 +1,11 @@
-import { useContext } from 'react';
-import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
-import {
-  ContextForCollectionResourceList,
-  useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import {
-  ContextForGalleryCollectionMain,
-  useControllerForGalleryCollectionMain,
-} from '@/(server)/(controller)/gallery/collection/main';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { useContext } from 'react';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
   const collection = useContext(ContextForGalleryObj);

@@ -1,6 +1,6 @@
-import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
-import { TemplateGalleryObj } from '../main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { TemplateGalleryObj } from '../main';
 
 export const vibeGalleryTemplate: TemplateGalleryObj = {
   title: 'Vibe Gallery',
@@ -14,7 +14,7 @@ export const vibeGalleryTemplate: TemplateGalleryObj = {
         {
           title: 'Resource 1',
           description: 'This is a resource',
-          variant: CollectionResourceVariant.FILE,
+          variant: ElementVariant.FILE,
           fileElem: exampleFileElem,
         },
       ],

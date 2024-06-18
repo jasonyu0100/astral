@@ -1,10 +1,10 @@
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import { DivInputProps } from '@/(types)/props/main';
 import { useContext } from 'react';
 import { CollectionResourceAudio } from '../audio/main';
 import { CollectionResourceImage } from '../image/main';
 import { CollectionResourceVideo } from '../video/main';
-import { DivInputProps } from '@/(types)/props/main';
 
 export function CollectionResourceMedia({ ...props }: DivInputProps) {
   const resource = useContext(ContextForCollectionResourceObj);

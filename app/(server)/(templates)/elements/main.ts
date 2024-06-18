@@ -1,22 +1,22 @@
 // FILE
 
 import { FileElem } from '@/(server)/(model)/elements/file/main';
-import { LinkElem } from '@/(server)/(model)/elements/link/main';
-import { NoteElem } from '@/(server)/(model)/elements/note/main';
+import { TextElem } from '@/(server)/(model)/elements/text/main';
+import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import { templateFileElems } from './file/main';
-import { templateLinkElems } from './link/main';
-import { templateNoteElems } from './note/main';
+import { templateTextElems } from './text/main';
+import { templateUrlElems } from './url/main';
 
 export type TemplateFileElem = Omit<FileElem, 'id'>;
 export type TemplateFileElems = TemplateFileElem[];
 
 // LINK
-export type TemplateLinkElem = Omit<LinkElem, 'id'>;
-export type TemplateLinkElems = TemplateLinkElem[];
+export type TemplateUrlElem = Omit<UrlElem, 'id'>;
+export type TemplateUrlElems = TemplateUrlElem[];
 
 // NOTE
-export type TemplateNoteElem = Omit<NoteElem, 'id'>;
-export type TemplateNoteElems = TemplateNoteElem[];
+export type TemplateTextElem = Omit<TextElem, 'id'>;
+export type TemplateTextElems = TemplateTextElem[];
 
 // TEMPLATE
 
@@ -31,9 +31,9 @@ export function getElemTemplates(variant: TemplateElemVariant) {
     case TemplateElemVariant.FILE:
       return templateFileElems;
     case TemplateElemVariant.LINK:
-      return templateLinkElems;
+      return templateUrlElems;
     case TemplateElemVariant.NOTE:
-      return templateNoteElems;
+      return templateTextElems;
   }
   return templateFileElems;
 }

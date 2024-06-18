@@ -35,6 +35,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     thumbnail: FileElem,
     category: string,
+    galleryId: string,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -191,6 +192,7 @@ const useControllerForSpaceList = (listId: string): Controller => {
         description: '',
         thumbnail: exampleFileElem,
         category: '',
+        galleryId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -216,6 +218,7 @@ const useControllerForSpaceList = (listId: string): Controller => {
       userId: string,
       thumbnail: FileElem,
       category: string,
+      galleryId: string,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -224,6 +227,7 @@ const useControllerForSpaceList = (listId: string): Controller => {
         description: description,
         thumbnail: thumbnail,
         category: category,
+        galleryId: galleryId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

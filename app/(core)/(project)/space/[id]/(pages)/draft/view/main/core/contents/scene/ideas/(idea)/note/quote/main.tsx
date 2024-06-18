@@ -29,13 +29,13 @@ export function SpaceDraftNoteQuoteIdea() {
           <div className='flex h-[200px] w-[300px] items-center justify-center bg-black p-3'>
             <p className='font-2xl font-permanentMarker text-white'>
               {'"'}
-              {idea.noteElem?.text}
+              {idea.textElem?.text}
               {'"'}
             </p>
           </div>
           <div className='flex h-[50px] items-center'>
             <p className='w-full text-center font-bold text-slate-300'>
-              {idea.title} {idea.variant} {idea.noteElem?.variant}
+              {idea.title} {idea.variant} {idea.textElem?.variant}
             </p>
           </div>
         </div>

@@ -1,6 +1,12 @@
 import { ModelInterface } from '../main';
 
-export const elementModel: ModelInterface<any> = {
+export enum ElementVariant {
+  FILE = 'FILE',
+  TEXT = 'NOTE',
+  URL = 'URL',
+}
+
+export const elementModel: ModelInterface<unknown> = {
   name: 'element',
   gql: '',
   example: {},

@@ -29,7 +29,7 @@ export function SpaceDraftLinkSpotifyIdea() {
           }}
         >
           <iframe
-            src={`${idea.linkElem?.url}?utm_source=generator`}
+            src={`${idea.urlElem?.url}?utm_source=generator`}
             width='100%'
             height='100%'
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'

@@ -1,28 +1,27 @@
 import { createContext } from 'react';
 import { ModelInterface } from '../../main';
 
-export enum LinkElemVariant {
-  WEBSITE = 'WEBSITE',
+export enum UrlElemVariant {
   YOUTUBE = 'YOUTUBE',
   SPOTIFY = 'SPOTIFY',
 }
 
-export interface LinkElem {
+export interface UrlElem {
   id: string;
   url: string;
   title: string;
   variant: string;
 }
 
-export const linkElemGql = `
-type LinkElem {
+export const urlElemGql = `
+type UrlElem {
   id: String!
   url: String
   title: String
   variant: String
 }
 
-type LinkElemInput {
+type UrlElemInput {
   id: String!
   url: String
   title: String
@@ -30,41 +29,41 @@ type LinkElemInput {
 }
 `;
 
-export const ContextForLinkElem = createContext<LinkElem>({} as LinkElem);
+export const ContextForUrlElem = createContext<UrlElem>({} as UrlElem);
 
-export const exampleLinkElem: LinkElem = {
+export const exampleUrlElem: UrlElem = {
   id: '0',
   title: 'passion.png',
   url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-  variant: LinkElemVariant.YOUTUBE,
+  variant: UrlElemVariant.YOUTUBE,
 };
 
-export const exampleLinkElems: LinkElem[] = [
+export const exampleUrlElems: UrlElem[] = [
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: LinkElemVariant.YOUTUBE,
+    variant: UrlElemVariant.YOUTUBE,
   },
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: LinkElemVariant.YOUTUBE,
+    variant: UrlElemVariant.YOUTUBE,
   },
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: LinkElemVariant.YOUTUBE,
+    variant: UrlElemVariant.YOUTUBE,
   },
 ];
 
-export const linkElemModel: ModelInterface<LinkElem> = {
+export const urlElemModel: ModelInterface<UrlElem> = {
   name: 'link',
-  example: exampleLinkElem,
-  examples: exampleLinkElems,
-  gql: linkElemGql,
+  example: exampleUrlElem,
+  examples: exampleUrlElems,
+  gql: urlElemGql,
   parentKey: '',
   children: [],
 };

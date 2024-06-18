@@ -5,7 +5,6 @@ export enum FileElemVariant {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
   AUDIO = 'AUDIO',
-  TXT = 'TXT',
   ANY = 'ANY',
 }
 
@@ -26,6 +25,16 @@ type FileElem {
   title: String
   size: Int
   variant: String
+}
+
+input FileElemInput {
+  id: String!
+  src: String
+  ext: String
+  title: String
+  size: Int
+  variant: String
+
 }
 `;
 
@@ -93,8 +102,6 @@ export function getFileAccepts(variant: FileElemVariant) {
       return 'video/*';
     case FileElemVariant.AUDIO:
       return 'audio/*';
-    case FileElemVariant.TXT:
-      return '.txt';
     default:
       return '*';
   }
@@ -111,7 +118,7 @@ export function getFileVariantFromMimeType(mimeType: string): FileElemVariant {
     return FileElemVariant.AUDIO;
   }
   if (mimeType.includes('text')) {
-    return FileElemVariant.TXT;
+    return FileElemVariant.IMAGE;
   }
-  return FileElemVariant.TXT;
+  return FileElemVariant.IMAGE;
 }

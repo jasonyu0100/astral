@@ -2,17 +2,12 @@ import {
   FileElem,
   exampleFileElem,
 } from '@/(server)/(model)/elements/file/main';
-import { LinkElem } from '@/(server)/(model)/elements/link/main';
-import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
-import { NoteElem } from '@/(server)/(model)/elements/note/main';
-import { createContext } from 'react';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { TextElem } from '@/(server)/(model)/elements/text/main';
+import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import { ModelInterface } from '@/(server)/(model)/main';
+import { createContext } from 'react';
 
-export enum SceneIdeaVariant {
-  FILE = 'FILE',
-  LINK = 'LINK',
-  NOTE = 'NOTE',
-}
 export interface SceneIdeaObj {
   id: string;
   userId: string;
@@ -29,8 +24,8 @@ export interface SceneIdeaObj {
   rotation: number;
   variant: string;
   fileElem?: FileElem;
-  noteElem?: NoteElem;
-  linkElem?: LinkElem;
+  textElem?: TextElem;
+  urlElem?: UrlElem;
   created: string;
 }
 
@@ -51,8 +46,8 @@ type SceneIdeaObj {
   rotation: Int!
   variant: String!
   fileElem: FileElem
-  noteElem: NoteElem
-  linkElem: LinkElem
+  textElem: TextElem
+  urlElem: urlElem
   created: String!
 }
 `;
@@ -76,7 +71,7 @@ export const exampleSceneIdea: SceneIdeaObj = {
   scale: 1,
   rotation: 0,
   fileElem: exampleFileElem,
-  variant: CollectionResourceVariant.FILE,
+  variant: ElementVariant.FILE,
   created: new Date().toISOString(),
 };
 
@@ -96,7 +91,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     scale: 1,
     rotation: 0,
     fileElem: exampleFileElem,
-    variant: CollectionResourceVariant.FILE,
+    variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },
   {
@@ -114,7 +109,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     scale: 1,
     rotation: 0,
     fileElem: exampleFileElem,
-    variant: CollectionResourceVariant.FILE,
+    variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },
   {
@@ -132,7 +127,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     scale: 1,
     rotation: 0,
     fileElem: exampleFileElem,
-    variant: CollectionResourceVariant.FILE,
+    variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },
 ];

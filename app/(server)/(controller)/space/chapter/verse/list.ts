@@ -195,6 +195,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
         chapterId: '',
         title: '',
         description: '',
+        variant: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
@@ -213,6 +214,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
         title: title,
         description: description,
         userId: userId,
+        variant: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

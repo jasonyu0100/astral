@@ -1,28 +1,28 @@
 import { createContext } from 'react';
 import { ModelInterface } from '../../main';
 
-export enum NoteElemVariant {
+export enum TextElemVariant {
   STICKY = 'STICKY',
   PROMPT = 'PROMPT',
   QUOTE = 'QUOTE',
 }
 
-export interface NoteElem {
+export interface TextElem {
   id: string;
   title: string;
   text: string;
   variant: string;
 }
 
-export const noteElemGql = `
-type NoteElem {
+export const textElemGql = `
+type TextElem {
   id: String!
   title: String
   text: String
   variant: String
 }
 
-input NoteElemInput {
+input TextElemInput {
   id: String!
   title: String
   text: String
@@ -30,40 +30,40 @@ input NoteElemInput {
 }
 `;
 
-export const ContextForNoteElem = createContext<NoteElem>({} as NoteElem);
+export const ContextForTextElem = createContext<TextElem>({} as TextElem);
 
-export const exampleNoteElem: NoteElem = {
+export const exampleTextElem: TextElem = {
   id: '0',
   title: 'Example Sticky',
   text: 'How do I write poetry?',
-  variant: NoteElemVariant.STICKY,
+  variant: TextElemVariant.STICKY,
 };
 
-export const exampleNoteElems: NoteElem[] = [
+export const exampleTextElems: TextElem[] = [
   {
     id: '0',
     text: 'How do I write poetry?',
     title: 'Example Sticky',
-    variant: NoteElemVariant.STICKY,
+    variant: TextElemVariant.STICKY,
   },
   {
     id: '0',
     text: 'How do I write poetry?',
     title: 'Example Sticky',
-    variant: NoteElemVariant.STICKY,
+    variant: TextElemVariant.STICKY,
   },
   {
     id: '0',
     text: 'How do I write poetry?',
     title: 'Example Sticky',
-    variant: NoteElemVariant.STICKY,
+    variant: TextElemVariant.STICKY,
   },
 ];
 
-export const noteElemModel: ModelInterface<NoteElem> = {
-  example: exampleNoteElem,
-  examples: exampleNoteElems,
-  gql: noteElemGql,
+export const textElemModel: ModelInterface<TextElem> = {
+  example: exampleTextElem,
+  examples: exampleTextElems,
+  gql: textElemGql,
   name: 'note',
   children: [],
   parentKey: 'id',

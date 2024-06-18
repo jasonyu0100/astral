@@ -1,4 +1,4 @@
-import { TemplateChapterObj, TemplateSpaceObj } from '../../main';
+import { TemplateSpaceObj } from '../../main';
 
 export const ideaTemplate: TemplateSpaceObj = {
   title: 'Idea Generation',

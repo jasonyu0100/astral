@@ -1,21 +1,21 @@
-import { barTemplate } from './music/bar/main';
-import { defaultTemplate } from './general/custom/main';
-import { ideaTemplate } from './general/idea/main';
-import { songMixTemplate } from './music/mix/main';
-import { songSpaceTemplate } from './music/song/main';
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
+import { SpaceObj } from '@/(server)/(model)/space/main';
 import { SpaceChapterObj } from '../../(model)/space/chapter/main';
 import { SceneIdeaObj } from '../../(model)/space/chapter/scene/idea/main';
-import { ChapterVerseObj } from '../../(model)/space/chapter/verse/main';
 import { VerseCommentObj } from '../../(model)/space/chapter/verse/comment/main';
-import { SpaceObj } from '@/(server)/(model)/space/main';
-import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
+import { ChapterVerseObj } from '../../(model)/space/chapter/verse/main';
+import { defaultTemplate } from './general/custom/main';
+import { ideaTemplate } from './general/idea/main';
+import { barTemplate } from './music/bar/main';
+import { songMixTemplate } from './music/mix/main';
+import { songSpaceTemplate } from './music/song/main';
 
 // SPACE
 
 export type _TemplateSpaceObj = Omit<
   SpaceObj,
-  'id' | 'userId' | 'created' | 'thumbnail'
+  'id' | 'userId' | 'created' | 'thumbnail' | 'galleryId'
 >;
 
 export interface TemplateSpaceObj extends _TemplateSpaceObj {

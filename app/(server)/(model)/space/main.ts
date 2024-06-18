@@ -4,6 +4,7 @@ import { ModelInterface } from '../main';
 export interface SpaceObj {
   id: string;
   userId: string;
+  galleryId: string;
   title: string;
   description: string;
   created: string;
@@ -15,6 +16,7 @@ export const spaceGql = `
 type SpaceObj {
 	id: String!
 	userId: String!
+  galleryId: String!
 	title: String!
 	created: String!
 	description: String!
@@ -28,6 +30,7 @@ export const ContextForSpaceObj = createContext<SpaceObj>({} as SpaceObj);
 export const exampleSpace: SpaceObj = {
   id: '0',
   userId: '0',
+  galleryId: '0',
   title: 'Space Example',
   description: 'Space Description',
   created: new Date().toISOString(),
@@ -39,6 +42,7 @@ export const exampleSpaces: SpaceObj[] = [
   {
     id: '0',
     userId: '0',
+    galleryId: '0',
     title: 'Space Example',
     description: 'Space Description',
     created: new Date().toISOString(),
@@ -48,6 +52,7 @@ export const exampleSpaces: SpaceObj[] = [
   {
     id: '1',
     userId: '0',
+    galleryId: '0',
     title: 'Space Example',
     description: 'Space Description',
     created: new Date().toISOString(),

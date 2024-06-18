@@ -4,6 +4,7 @@ import { ModelInterface } from '../../main';
 export interface SpaceUpdateObj {
   id: string;
   spaceId: string;
+  userId: string;
   title: string;
   description: string;
   created: string;
@@ -12,6 +13,7 @@ export interface SpaceUpdateObj {
 export const spaceUpdateGql = `
 type SpaceUpdateObj {
   id: String!
+  userId: String!
   spaceId: String!
   title: String!
   description: String!
@@ -25,6 +27,7 @@ export const ContextForSpaceUpdateObj = createContext<SpaceUpdateObj>(
 
 export const exampleSpaceUpdate: SpaceUpdateObj = {
   id: '0',
+  userId: '0',
   spaceId: '0',
   title: 'May Retro',
   description: 'Productive month with new scenes and verses added into the mix',
@@ -34,6 +37,7 @@ export const exampleSpaceUpdate: SpaceUpdateObj = {
 export const exampleChapterRetros: SpaceUpdateObj[] = [
   {
     id: '0',
+    userId: '0',
     spaceId: '0',
     title: 'May Retro',
     description:
@@ -42,6 +46,7 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
   },
   {
     id: '1',
+    userId: '0',
     spaceId: '0',
     title: 'June Retro',
     description: 'Not so productive month',
@@ -49,6 +54,7 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
   },
   {
     id: '2',
+    userId: '0',
     spaceId: '0',
     title: 'July Retro',
     description:

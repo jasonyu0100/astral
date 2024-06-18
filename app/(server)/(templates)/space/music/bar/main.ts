@@ -1,6 +1,4 @@
-import { TemplateChapterObj, TemplateSpaceObj } from '../../main';
-import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
-import { CollectionResourceVariant } from '@/(server)/(model)/gallery/collection/resource/main';
+import { TemplateSpaceObj } from '../../main';
 
 export const barTemplate: TemplateSpaceObj = {
   title: 'Bar Template',

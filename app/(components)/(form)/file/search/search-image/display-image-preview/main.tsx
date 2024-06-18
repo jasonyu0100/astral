@@ -9,11 +9,11 @@ export function DisplayImagePreview() {
 
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>
-      <div className='relative flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center rounded-full border-slate-300 bg-slate-100'>
+      <div className='relative flex-shrink items-center justify-center rounded-full'>
         {file?.src ? (
           <>
             <img
-              className='h-[150px] w-[150px] flex-shrink-0 rounded-full bg-black object-cover shadow-md'
+              className='aspect-square h-[100px] flex-shrink-0 rounded-full bg-black object-cover'
               src={file?.src}
               onClick={() => onChange({} as FileElem)}
             />

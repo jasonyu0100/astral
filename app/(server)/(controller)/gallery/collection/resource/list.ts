@@ -7,10 +7,10 @@ import {
 } from '@/(server)/(controller)/list';
 import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
 import {
   collectionResourceModel,
   CollectionResourceObj,
-  CollectionResourceVariant,
 } from '@/(server)/(model)/gallery/collection/resource/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -202,7 +202,7 @@ const useControllerForResourceList = (listId: string): Controller => {
         collectionId: collectionId,
         title: title,
         description: description,
-        variant: CollectionResourceVariant.FILE,
+        variant: ElementVariant.FILE,
         created: new Date().toISOString(),
         fileElem: fileElem,
       };

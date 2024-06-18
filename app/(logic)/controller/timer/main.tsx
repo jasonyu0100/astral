@@ -78,8 +78,8 @@ export function useControllerForTimer(
   });
 
   const actions = {
-    updateTimerDuration: (time) => setTimerDuration(time),
-    updateTimeDilation: (time) => setTimeDilation(time),
+    updateTimerDuration: (time: number) => setTimerDuration(time),
+    updateTimeDilation: (time: number) => setTimeDilation(time),
     resetTimer: resetTimer,
   };
 

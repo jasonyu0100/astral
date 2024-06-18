@@ -1,19 +1,13 @@
+import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 import {
   FileElem,
   exampleFileElem,
   exampleFileElems,
 } from '../../../elements/file/main';
-import { LinkElem } from '../../../elements/link/main';
-import { NoteElem } from '../../../elements/note/main';
-import { ModelInterface } from '@/(server)/(model)/main';
-
-export enum CollectionResourceVariant {
-  FILE = 'FILE',
-  LOG = 'LOG',
-  NOTE = 'NOTE',
-  LINK = 'LINK',
-}
+import { TextElem } from '../../../elements/text/main';
+import { UrlElem } from '../../../elements/url/main';
 
 export interface CollectionResourceObj {
   id: string;
@@ -22,8 +16,8 @@ export interface CollectionResourceObj {
   title: string;
   description: string;
   fileElem?: FileElem;
-  noteElem?: NoteElem;
-  linkElem?: LinkElem;
+  textElem?: TextElem;
+  urlElem?: UrlElem;
   variant: string;
   created: string;
 }
@@ -36,8 +30,8 @@ type CollectionResourceObj {
   title: String!
   description: String!
   fileElem: FileElem
-  noteElem: NoteElem
-  linkElem: LinkElem
+  textElem: TextElem
+  urlElem: UrlElem
   variant: String!
   created: String!
 }
@@ -53,7 +47,7 @@ export const exampleCollectionResource: CollectionResourceObj = {
   title: 'Example Resource',
   description: 'Example Resource Description',
   fileElem: exampleFileElem,
-  variant: CollectionResourceVariant.FILE,
+  variant: ElementVariant.FILE,
   created: new Date().toISOString(),
 };
 
@@ -66,7 +60,7 @@ export const exampleCollectionResources: CollectionResourceObj[] = [
       title: `Resource ${i}`,
       description: `Example Resource Description ${i}`,
       fileElem: fileElem,
-      variant: CollectionResourceVariant.FILE,
+      variant: ElementVariant.FILE,
       created: new Date().toISOString(),
     };
   }),

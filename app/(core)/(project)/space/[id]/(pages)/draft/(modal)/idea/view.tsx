@@ -1,8 +1,8 @@
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useContext } from 'react';
 import { SpaceDraftAddFileIdeaModal } from './add/file/main';
-import { SpaceDraftAddLinkIdeaModal } from './add/link/main';
-import { SpaceDraftAddNoteIdeaModal } from './add/note/main';
+import { SpaceDraftAddUrlIdeaModal } from './add/link/main';
+import { SpaceDraftAddTextIdeaModal } from './add/note/main';
 import { SceneIdeaModalContext } from './main';
 
 export function SceneIdeaModalView() {
@@ -11,13 +11,13 @@ export function SceneIdeaModalView() {
   return (
     <>
       <ContextForOpenable.Provider value={modalContext.addNoteStarModal}>
-        <SpaceDraftAddNoteIdeaModal />
+        <SpaceDraftAddTextIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={modalContext.addFileStarModal}>
         <SpaceDraftAddFileIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={modalContext.addLinkStarModal}>
-        <SpaceDraftAddLinkIdeaModal />
+        <SpaceDraftAddUrlIdeaModal />
       </ContextForOpenable.Provider>
     </>
   );
