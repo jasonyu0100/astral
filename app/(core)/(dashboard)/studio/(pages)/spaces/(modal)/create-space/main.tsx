@@ -3,6 +3,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
+import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForPagable } from '@/(logic)/contexts/pagination/main';
 import { useContext } from 'react';
@@ -69,8 +70,9 @@ export function CreateSpaceModalView() {
             </FormButton>
             <FormButton
               onClick={() => {
-                createSpace().then(() => {
+                createSpace().then((spaceObj) => {
                   openableController.close();
+                  window.open(spaceMap.space.id.storm.link(spaceObj.id));
                 });
               }}
             >

@@ -5,8 +5,8 @@ import { SpaceSeaSidebar } from './sidebar/main';
 export function SpaceSeaShareView() {
   return (
     <SpaceSeaContainer>
+      <SpaceSeaMain />
       <SpaceSeaSidebar />
-      <SpaceSeaMain></SpaceSeaMain>
     </SpaceSeaContainer>
   );
 }

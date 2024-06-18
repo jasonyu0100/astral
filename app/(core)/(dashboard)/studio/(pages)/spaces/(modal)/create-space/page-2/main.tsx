@@ -7,15 +7,15 @@ import { ContextForPageTwo } from '../(controller)/create-space/main';
 export function CreateSpaceModalPageTwo() {
   const {
     variant,
-    updateVariant,
-    templateSpaceChapters,
-    updateTemplateSpaceChapters,
+    updateTemplateProject: updateVariant,
+    templateProjectChapters: templateSpaceChapters,
+    updateTemplateProjectChapters: updateTemplateSpaceChapters,
   } = useContext(ContextForPageTwo);
 
   return (
     <FormBody>
       <FormSelect
-        title='Chapters'
+        title='Project'
         value={variant}
         onChange={(e) => {
           updateVariant(e.target.value);

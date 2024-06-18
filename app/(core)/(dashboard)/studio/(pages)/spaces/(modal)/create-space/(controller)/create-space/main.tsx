@@ -19,8 +19,6 @@ import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
   updateTitle: (title: string) => void;
-  category: string;
-  updateCategory: (category: string) => void;
   description: string;
   updateDescription: (description: string) => void;
   thumbnail: FileElem;
@@ -29,9 +27,9 @@ export interface PageOne {
 
 export interface PageTwo {
   variant: string;
-  updateVariant: (variant: string) => void;
-  templateSpaceChapters: TemplateChapterObj[];
-  updateTemplateSpaceChapters: (templates: TemplateChapterObj[]) => void;
+  updateTemplateProject: (variant: string) => void;
+  templateProjectChapters: TemplateChapterObj[];
+  updateTemplateProjectChapters: (templates: TemplateChapterObj[]) => void;
 }
 
 export interface PageThree {}
@@ -40,7 +38,14 @@ export const ContextForPageOne = createContext({} as PageOne);
 export const ContextForPageTwo = createContext({} as PageTwo);
 export const ContextForPageThree = createContext({} as PageThree);
 
-export const useControllerForCreateSpace = () => {
+interface CreateSpaceController {
+  pageOne: PageOne;
+  pageTwo: PageTwo;
+  pageThree: PageThree;
+  createSpace: () => Promise<SpaceObj>;
+}
+
+export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
   const chapterListController = useControllerForSpaceChapterList('');
   const chatListController = useControllerForChapterChatList('');
@@ -50,9 +55,10 @@ export const useControllerForCreateSpace = () => {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [category, changeCategory] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
-  const [template, changeTemplate] = useState(SpaceTemplate.DEFAULT);
+  const [templateProject, changeTemplateProject] = useState(
+    SpaceTemplate.DEFAULT,
+  );
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
   );
@@ -107,8 +113,8 @@ export const useControllerForCreateSpace = () => {
         } else {
           const chat =
             await chatListController.actions.createActions.createChat(
-              chapter.title,
-              chapter.description,
+              'untitled',
+              '',
               user.id,
               chapter.id,
             );
@@ -149,8 +155,8 @@ export const useControllerForCreateSpace = () => {
         } else {
           const scene =
             await sceneListController.actions.createActions.createScene(
-              chapter.title,
-              chapter.description,
+              'untitled',
+              '',
               user.id,
               chapter.id,
             );
@@ -205,43 +211,46 @@ export const useControllerForCreateSpace = () => {
   }
 
   async function createSpace() {
-    const spaceObj = await spaceListController.actions.createActions
-      .createFromTemplate(title, description, user.id, thumbnail, category)
-      .then(async (space) => {
-        console.log('SPACE CREATED', space);
-        const chapters = await createChapters(space, templateSpaceChapters);
-        console.log('CHAPTERS CREATED', chapters);
-        const scenes = await createScenes(chapters, templateSpaceChapters);
-        console.log('SCENES CREATED', scenes);
-        const verses = await createVerses(chapters, templateSpaceChapters);
-        console.log('VERSES CREATED', verses);
-        const chats = await createChats(chapters, templateSpaceChapters);
-        console.log('CHATS CREATED', chats);
-      });
-    return spaceObj;
+    const space =
+      await spaceListController.actions.createActions.createFromTemplate(
+        title,
+        description,
+        user.id,
+        thumbnail,
+        templateProject,
+      );
+
+    console.log('SPACE CREATED', space);
+    const chapters = await createChapters(space, templateSpaceChapters);
+    console.log('CHAPTERS CREATED', chapters);
+    const scenes = await createScenes(chapters, templateSpaceChapters);
+    console.log('SCENES CREATED', scenes);
+    const verses = await createVerses(chapters, templateSpaceChapters);
+    console.log('VERSES CREATED', verses);
+    const chats = await createChats(chapters, templateSpaceChapters);
+    console.log('CHATS CREATED', chats);
+    return space;
   }
 
   useEffect(() => {
-    changeTemplateSpaceChapters(getSpaceTemplates(template).chapters);
-  }, [template]);
+    changeTemplateSpaceChapters(getSpaceTemplates(templateProject).chapters);
+  }, [templateProject]);
 
   const pageOne: PageOne = {
     title,
     updateTitle: (title: string) => changeTitle(title),
     description,
-    category,
-    updateCategory: (category: string) => changeCategory(category),
     updateDescription: (description: string) => changeDescription(description),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
   };
 
   const pageTwo: PageTwo = {
-    variant: template,
-    updateVariant: (variant: string) =>
-      changeTemplate(variant as SpaceTemplate),
-    templateSpaceChapters: templateSpaceChapters,
-    updateTemplateSpaceChapters: (templates: TemplateChapterObj[]) =>
+    variant: templateProject,
+    updateTemplateProject: (variant: string) =>
+      changeTemplateProject(variant as SpaceTemplate),
+    templateProjectChapters: templateSpaceChapters,
+    updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
       changeTemplateSpaceChapters(templates),
   };
 
