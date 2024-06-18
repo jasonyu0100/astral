@@ -466,6 +466,8 @@ input CreateSpaceObjInput {
   created: String!
   description: String!
   category: String!
+  hours: Int!
+  target: String!
 }
 
 input CreateSpaceUpdateAddObjInput {
@@ -1030,6 +1032,8 @@ type SpaceObj {
   description: String!
   thumbnail: FileElem!
   category: String!
+  hours: Int!
+  target: String!
 }
 
 type SpaceObjConnection {
@@ -1413,6 +1417,8 @@ input TableSpaceObjFilterInput {
   created: TableStringFilterInput
   description: TableStringFilterInput
   category: TableStringFilterInput
+  hours: TableIntFilterInput
+  target: TableStringFilterInput
 }
 
 input TableSpaceUpdateAddObjFilterInput {
@@ -1812,6 +1818,8 @@ input UpdateSpaceObjInput {
   created: String
   description: String
   category: String
+  hours: Int
+  target: String
 }
 
 input UpdateSpaceUpdateAddObjInput {

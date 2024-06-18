@@ -66,8 +66,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
-  const [goalHours, changeGoalHours] = useState(100);
-  const [targetDate, changeTargetDate] = useState(
+  const [hours, changeHours] = useState(100);
+  const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
   const [collaborators, changeCollaborators] = useState<string[]>([]);
@@ -242,6 +242,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         thumbnail,
         templateProject,
         gallery.id,
+        hours,
+        target,
       );
 
     console.log('SPACE CREATED', space);
@@ -282,10 +284,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageThree: PageThree = {
-    hours: goalHours,
-    updateHours: (hours: number) => changeGoalHours(hours),
-    target: targetDate,
-    updateTarget: (target: string) => changeTargetDate(target),
+    hours: hours,
+    updateHours: (hours: number) => changeHours(hours),
+    target: target,
+    updateTarget: (target: string) => changeTarget(target),
     collaborators,
     updateCollaborators: (collaborators: string[]) =>
       changeCollaborators(collaborators),

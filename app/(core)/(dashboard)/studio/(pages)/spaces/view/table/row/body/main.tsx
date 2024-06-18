@@ -1,7 +1,8 @@
 import { StudioSpaceRowCount } from './count/main';
 import { StudioSpacesRowDate } from './date/main';
-import { StudioSpacesRowDay } from './day/main';
+import { StudioSpacesRowDaysLeft } from './day/main';
 import { StudioSpacesRowHorizon } from './horizon/main';
+import { StudioSpacesRowHours } from './hours/main';
 import { SpaceInfo } from './info/main';
 
 export function StudioSpacesRowContents() {
@@ -10,7 +11,8 @@ export function StudioSpacesRowContents() {
       <StudioSpaceRowCount />
       <SpaceInfo />
       <StudioSpacesRowHorizon />
-      <StudioSpacesRowDay />
+      <StudioSpacesRowDaysLeft />
+      <StudioSpacesRowHours />
       <StudioSpacesRowDate />
     </div>
   );
