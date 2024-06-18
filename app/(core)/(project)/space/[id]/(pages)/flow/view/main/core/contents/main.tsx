@@ -7,9 +7,6 @@ export function SpaceFlowCoreContents() {
       className='relative flex flex-col'
     >
       <SpaceFlowContentsDisplay />
-      {/* <div style={{ height: '50%', top: '0%' }} className='absolute'>
-        <SpaceFlowListOverlay />
-      </div> */}
       {/* <div
         style={{ height: '50%', top: '50%' }}
         className='absolute flex flex-row justify-end'

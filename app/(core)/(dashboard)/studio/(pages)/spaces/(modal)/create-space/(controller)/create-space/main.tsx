@@ -33,7 +33,12 @@ export interface PageTwo {
   updateTemplateProjectChapters: (templates: TemplateChapterObj[]) => void;
 }
 
-export interface PageThree {}
+export interface PageThree {
+  hours: number;
+  updateHours: (hours: number) => void;
+  collaborators: string[];
+  updateCollaborators: (collaborators: string[]) => void;
+}
 
 export const ContextForPageOne = createContext({} as PageOne);
 export const ContextForPageTwo = createContext({} as PageTwo);
@@ -58,6 +63,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
+  const [goalHours, changeGoalHours] = useState(100);
+  const [collaborators, changeCollaborators] = useState<string[]>([]);
   const [templateProject, changeTemplateProject] = useState(
     SpaceTemplate.DEFAULT,
   );
@@ -268,7 +275,13 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       changeTemplateSpaceChapters(templates),
   };
 
-  const pageThree: PageThree = {};
+  const pageThree: PageThree = {
+    hours: goalHours,
+    updateHours: (hours: number) => changeGoalHours(hours),
+    collaborators,
+    updateCollaborators: (collaborators: string[]) =>
+      changeCollaborators(collaborators),
+  };
 
   return {
     pageOne,

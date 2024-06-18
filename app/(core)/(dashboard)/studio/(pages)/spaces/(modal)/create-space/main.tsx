@@ -43,7 +43,7 @@ export function CreateSpaceModalView() {
             <FormButton
               variant={ButtonVariant.SECONDARY}
               onClick={() => {
-                pagableController.updatePage(1);
+                pagableController.updatePage(0);
               }}
             >
               Prev

@@ -3,7 +3,7 @@ import { SpaceInfoDetailTitle } from './title/main';
 
 export function SpaceInfoDetail() {
   return (
-    <div className='flex flex-col justify-center'>
+    <div className='flex w-full flex-col justify-center text-ellipsis'>
       <SpaceInfoDetailAuthor />
       <SpaceInfoDetailTitle />
     </div>

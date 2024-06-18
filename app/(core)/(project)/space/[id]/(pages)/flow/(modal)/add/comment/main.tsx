@@ -22,7 +22,7 @@ export function SpaceFlowAddVerseCommentModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Verse Comment</FormTitle>
+          <FormTitle>Add Comment</FormTitle>
           <FormBody>
             <FormTextArea
               title='Message'

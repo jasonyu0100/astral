@@ -8,7 +8,7 @@ interface ProfileCoverProps extends DivInputProps {
 
 export function ProfileCover({
   coverFx,
-  fileElem: fileElem,
+  fileElem,
   ...props
 }: ProfileCoverProps) {
   return (

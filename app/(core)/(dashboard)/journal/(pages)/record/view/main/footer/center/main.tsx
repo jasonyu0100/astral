@@ -1,7 +1,6 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { roundedFx } from '@/(style)/data';
 
 export function JournalRecordFooterCenter() {
   return (
@@ -10,10 +9,9 @@ export function JournalRecordFooterCenter() {
         className='aspect-square h-[3rem] w-[3rem]'
         roundedFx={roundedFx['rounded-full']}
       >
-        <GlassWindowContents className='flex items-center justify-center'>
+        <GlassWindowContents className='flex items-center justify-center bg-blue-500'>
           <p className='text-3xl font-bold text-slate-300'>+</p>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-20']} />
       </GlassWindowFrame>
     </div>
   );
