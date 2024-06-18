@@ -1,16 +1,16 @@
-import { createContext, useMemo, useState } from 'react';
 import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
 import {
   ideaLinkModel,
   IdeaLinkObj,
 } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
-import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaLinkObj;
 const gqlDbWrapper = ideaLinkDbWrapper;
@@ -77,11 +77,16 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sorted: (objs: TargetObj[]) => {
+    sortedViaDate: (objs: TargetObj[]) => {
       return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
+      });
+    },
+    sortedViaComparison: (objs, comparison) => {
+      return objs.toSorted((a, b) => {
+        return comparison(a, b) ? -1 : 1;
       });
     },
     goStart: () => {

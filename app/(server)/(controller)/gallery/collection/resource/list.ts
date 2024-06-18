@@ -1,22 +1,18 @@
 import {
-  exampleFileElem,
-  FileElem,
-  FileElemVariant,
-} from '@/(server)/(model)/elements/file/main';
-import { createContext, useMemo, useState } from 'react';
-import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import {
   collectionResourceModel,
   CollectionResourceObj,
   CollectionResourceVariant,
 } from '@/(server)/(model)/gallery/collection/resource/main';
-import { collectionResourceDbWrapper } from '@/(server)/(db)/gallery/collection/resource/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = CollectionResourceObj;
 const gqlDbWrapper = collectionResourceDbWrapper;
@@ -91,11 +87,16 @@ const useControllerForResourceList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sorted: (objs: TargetObj[]) => {
+    sortedViaDate: (objs: TargetObj[]) => {
       return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
+      });
+    },
+    sortedViaComparison: (objs, comparison) => {
+      return objs.toSorted((a, b) => {
+        return comparison(a, b) ? -1 : 1;
       });
     },
     goStart: () => {

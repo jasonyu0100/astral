@@ -1,16 +1,14 @@
+import {
+  BaseListCreateActions,
+  BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
+} from '@/(server)/(controller)/list';
 import { userDbWrapper } from '@/(server)/(db)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { userModel, UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
-import {
-  BaseListStateActions,
-  BaseListGatherActions,
-  BaseListCreateActions,
-  BaseListEditActions,
-  BaseListDeleteActions,
-} from '@/(server)/(controller)/list';
-import { UserSupporterObj } from '@/(server)/(model)/user/supporter/main';
-import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
 
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
@@ -77,11 +75,16 @@ const useControllerForUserList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sorted: (objs: TargetObj[]) => {
+    sortedViaDate: (objs: TargetObj[]) => {
       return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
+      });
+    },
+    sortedViaComparison: (objs, comparison) => {
+      return objs.toSorted((a, b) => {
+        return comparison(a, b) ? -1 : 1;
       });
     },
     goStart: () => {

@@ -15,8 +15,30 @@ import {
   SpaceTemplate,
   TemplateChapterObj,
 } from '@/(server)/(templates)/space/main';
-import { useContext, useEffect, useState } from 'react';
-import { PageOneInterface, PageTwoInterface } from '../../main';
+import { createContext, useContext, useEffect, useState } from 'react';
+export interface PageOne {
+  title: string;
+  updateTitle: (title: string) => void;
+  category: string;
+  updateCategory: (category: string) => void;
+  description: string;
+  updateDescription: (description: string) => void;
+  thumbnail: FileElem;
+  updateThumbnail: (thumbnail: FileElem) => void;
+}
+
+export interface PageTwo {
+  variant: string;
+  updateVariant: (variant: string) => void;
+  templateSpaceChapters: TemplateChapterObj[];
+  updateTemplateSpaceChapters: (templates: TemplateChapterObj[]) => void;
+}
+
+export interface PageThree {}
+
+export const ContextForPageOne = createContext({} as PageOne);
+export const ContextForPageTwo = createContext({} as PageTwo);
+export const ContextForPageThree = createContext({} as PageThree);
 
 export const useControllerForCreateSpace = () => {
   const spaceListController = useContext(ContextForSpaceList);
@@ -203,7 +225,7 @@ export const useControllerForCreateSpace = () => {
     changeTemplateSpaceChapters(getSpaceTemplates(template).chapters);
   }, [template]);
 
-  const pageOne: PageOneInterface = {
+  const pageOne: PageOne = {
     title,
     updateTitle: (title: string) => changeTitle(title),
     description,
@@ -214,7 +236,7 @@ export const useControllerForCreateSpace = () => {
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
   };
 
-  const pageTwo: PageTwoInterface = {
+  const pageTwo: PageTwo = {
     variant: template,
     updateVariant: (variant: string) =>
       changeTemplate(variant as SpaceTemplate),
@@ -223,9 +245,12 @@ export const useControllerForCreateSpace = () => {
       changeTemplateSpaceChapters(templates),
   };
 
+  const pageThree: PageThree = {};
+
   return {
     pageOne,
     pageTwo,
+    pageThree,
     createSpace,
   };
 };

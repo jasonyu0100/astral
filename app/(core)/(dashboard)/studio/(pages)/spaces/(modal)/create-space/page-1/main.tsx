@@ -3,7 +3,7 @@ import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { useContext } from 'react';
-import { ContextForPageOne } from '../main';
+import { ContextForPageOne } from '../(controller)/create-space/main';
 
 export function CreateSpaceModalPageOne() {
   const {

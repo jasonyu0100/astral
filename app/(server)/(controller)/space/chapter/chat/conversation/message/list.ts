@@ -1,19 +1,16 @@
-import { userDbWrapper } from '@/(server)/(db)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { UserObj } from '@/(server)/(model)/user/main';
-import { createContext, useMemo, useState } from 'react';
 import {
-  BaseListStateActions,
-  BaseListGatherActions,
   BaseListCreateActions,
-  BaseListEditActions,
   BaseListDeleteActions,
+  BaseListEditActions,
+  BaseListGatherActions,
+  BaseListStateActions,
 } from '@/(server)/(controller)/list';
+import { conversationMessageDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/message/main';
 import {
   conversationMessageModel,
   ConversationMessageObj,
 } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { conversationMessageDbWrapper } from '@/(server)/(db)/space/chapter/chat/conversation/message/main';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ConversationMessageObj;
 const gqlDbWrapper = conversationMessageDbWrapper;
@@ -100,11 +97,16 @@ const useControllerForConversationMessageList = (
         return date >= start && date <= end;
       });
     },
-    sorted: (objs: TargetObj[]) => {
+    sortedViaDate: (objs: TargetObj[]) => {
       return objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
+      });
+    },
+    sortedViaComparison: (objs, comparison) => {
+      return objs.toSorted((a, b) => {
+        return comparison(a, b) ? -1 : 1;
       });
     },
     goStart: () => {

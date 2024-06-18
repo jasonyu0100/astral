@@ -2,14 +2,14 @@ import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 import { useContext } from 'react';
-import { ContextForPageTwo } from '../main';
+import { ContextForPageTwo } from '../(controller)/create-space/main';
 
 export function CreateSpaceModalPageTwo() {
   const {
     variant,
     updateVariant,
-    templateSpaceChapters: chapterTemplates,
-    updateTemplateSpaceChapters: updateChapterTemplates,
+    templateSpaceChapters,
+    updateTemplateSpaceChapters,
   } = useContext(ContextForPageTwo);
 
   return (
@@ -28,7 +28,7 @@ export function CreateSpaceModalPageTwo() {
       </FormSelect>
       {variant === SpaceTemplate.DEFAULT ? (
         <div className='flex w-full flex-col'>
-          {chapterTemplates.map((chapter, index) => (
+          {templateSpaceChapters.map((chapter, index) => (
             <div className='flex w-full flex-col space-y-[0.5rem]' key={index}>
               <div className='flex flex-row items-center'>
                 <p className='text-md mr-2 font-bold'>{index + 1}.</p>
@@ -37,8 +37,8 @@ export function CreateSpaceModalPageTwo() {
                   className='text-md w-auto rounded px-1 font-bold outline-none'
                   value={chapter.title}
                   onChange={(e) =>
-                    updateChapterTemplates(
-                      chapterTemplates.map((c, i) =>
+                    updateTemplateSpaceChapters(
+                      templateSpaceChapters.map((c, i) =>
                         i === index ? { ...c, title: e.target.value } : c,
                       ),
                     )
@@ -47,8 +47,8 @@ export function CreateSpaceModalPageTwo() {
                 <button
                   className='ml-auto mr-[15px] h-[30px] w-[30px] rounded-full border-[1px] border-slate-300'
                   onClick={() =>
-                    updateChapterTemplates(
-                      chapterTemplates.filter((_, i) => i !== index),
+                    updateTemplateSpaceChapters(
+                      templateSpaceChapters.filter((_, i) => i !== index),
                     )
                   }
                 >
@@ -82,8 +82,8 @@ export function CreateSpaceModalPageTwo() {
                 placeholder='Enter your description...'
                 className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
                 onChange={(e) =>
-                  updateChapterTemplates(
-                    chapterTemplates.map((c, i) =>
+                  updateTemplateSpaceChapters(
+                    templateSpaceChapters.map((c, i) =>
                       i === index ? { ...c, description: e.target.value } : c,
                     ),
                   )
@@ -96,13 +96,13 @@ export function CreateSpaceModalPageTwo() {
               <button
                 className='h-[30px] w-[30px] rounded-full border-[1px] border-slate-300'
                 onClick={() =>
-                  updateChapterTemplates([
-                    ...chapterTemplates,
+                  updateTemplateSpaceChapters([
+                    ...templateSpaceChapters,
                     {
                       chatTemplates: [],
                       sceneTemplates: [],
                       verseTemplates: [],
-                      title: `Chapter ${chapterTemplates.length + 1}`,
+                      title: `Chapter ${templateSpaceChapters.length + 1}`,
                       description: '',
                     },
                   ])
@@ -142,7 +142,7 @@ export function CreateSpaceModalPageTwo() {
         </div>
       ) : (
         <div className='flex w-full flex-col space-y-[1rem] bg-slate-50 p-2'>
-          {chapterTemplates.map((template, index) => (
+          {templateSpaceChapters.map((template, index) => (
             <p className='text-md overflow-hidden font-bold' key={index}>
               {index + 1}. {template.title} -{' '}
               <span className='font-light'>{template.description}</span>

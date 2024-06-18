@@ -85,12 +85,25 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
         return date >= start && date <= end;
       });
     },
-    sorted: (objs: TargetObj[]) => {
-      return objs.toSorted((a, b) => {
+    sortedViaDate: (objs: TargetObj[]) => {
+      // LARGEST TO SMALLEST
+      const sortedObjs = objs.toSorted((a, b) => {
         const dateA = new Date(a.created);
         const dateB = new Date(b.created);
         return dateA < dateB ? -1 : 1;
       });
+      changeObjs(sortedObjs);
+      changeId(sortedObjs.at(0)?.id || '');
+      return sortedObjs;
+    },
+    sortedViaComparison: (objs, comparison) => {
+      // SMALLEST TO LARGEST
+      const sortedObjs = objs.toSorted((a, b) => {
+        return comparison(a, b) ? 1 : -1;
+      });
+      changeObjs(sortedObjs);
+      changeId(sortedObjs.at(0)?.id || '');
+      return sortedObjs;
     },
     goStart: () => {
       changeId(objs.at(0)?.id || '');
@@ -155,7 +168,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     },
     gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs('spaceId', listId);
-
+      objs.sort((a, b) => a.idx - b.idx);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
@@ -283,7 +296,11 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherLatest().then((objs) => {
+        controllerActions.stateActions.sortedViaComparison(objs, (a, b) => {
+          return a.idx - b.idx;
+        });
+      });
     }
   }, [listId]);
 

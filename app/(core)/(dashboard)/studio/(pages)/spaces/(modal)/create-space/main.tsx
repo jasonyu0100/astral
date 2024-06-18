@@ -5,36 +5,20 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForPagable } from '@/(logic)/contexts/pagination/main';
-import { FileElem } from '@/(server)/(model)/elements/file/main';
-import { TemplateChapterObj } from '@/(server)/(templates)/space/main';
-import { createContext, useContext } from 'react';
-import { useControllerForCreateSpace } from './(controller)/create-space/main';
+import { useContext } from 'react';
+import {
+  ContextForPageOne,
+  ContextForPageThree,
+  ContextForPageTwo,
+  useControllerForCreateSpace,
+} from './(controller)/create-space/main';
 import { CreateSpaceModalPageOne } from './page-1/main';
 import { CreateSpaceModalPageTwo } from './page-2/main';
-
-export interface PageOneInterface {
-  title: string;
-  updateTitle: (title: string) => void;
-  category: string;
-  updateCategory: (category: string) => void;
-  description: string;
-  updateDescription: (description: string) => void;
-  thumbnail: FileElem;
-  updateThumbnail: (thumbnail: FileElem) => void;
-}
-
-export interface PageTwoInterface {
-  variant: string;
-  updateVariant: (variant: string) => void;
-  templateSpaceChapters: TemplateChapterObj[];
-  updateTemplateSpaceChapters: (templates: TemplateChapterObj[]) => void;
-}
-
-export const ContextForPageOne = createContext({} as PageOneInterface);
-export const ContextForPageTwo = createContext({} as PageTwoInterface);
+import { CreateSpaceModalPageThree } from './page-3/main';
 
 export function CreateSpaceModalView() {
-  const { pageOne, pageTwo, createSpace } = useControllerForCreateSpace();
+  const { pageOne, pageTwo, pageThree, createSpace } =
+    useControllerForCreateSpace();
   const pagableController = useContext(ContextForPagable);
   const openableController = useContext(ContextForOpenable);
 
@@ -58,7 +42,27 @@ export function CreateSpaceModalView() {
             <FormButton
               variant={ButtonVariant.SECONDARY}
               onClick={() => {
-                pagableController.updatePage(0);
+                pagableController.updatePage(1);
+              }}
+            >
+              Prev
+            </FormButton>
+            <FormButton
+              onClick={() => {
+                pagableController.updatePage(2);
+              }}
+            >
+              Next
+            </FormButton>
+          </FormFooter>
+        );
+      case 2:
+        return (
+          <FormFooter>
+            <FormButton
+              variant={ButtonVariant.SECONDARY}
+              onClick={() => {
+                pagableController.updatePage(1);
               }}
             >
               Prev
@@ -93,6 +97,11 @@ export function CreateSpaceModalView() {
                 <ContextForPageTwo.Provider value={pageTwo}>
                   <CreateSpaceModalPageTwo />
                 </ContextForPageTwo.Provider>
+              )}
+              {pagableController.page === 2 && (
+                <ContextForPageThree.Provider value={pageThree}>
+                  <CreateSpaceModalPageThree />
+                </ContextForPageThree.Provider>
               )}
             </>
             <ModalFooter />

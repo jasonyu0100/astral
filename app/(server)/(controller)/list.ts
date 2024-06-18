@@ -1,9 +1,11 @@
-import { createContext, useMemo, useState } from 'react';
-
 export interface BaseListStateActions<TargetObj> {
   select: (obj: TargetObj) => TargetObj;
   between: (start: Date, end: Date) => TargetObj[];
-  sorted: (objs: TargetObj[]) => TargetObj[];
+  sortedViaDate: (objs: TargetObj[]) => TargetObj[];
+  sortedViaComparison: (
+    objs: TargetObj[],
+    comparison: (a: TargetObj, b: TargetObj) => number,
+  ) => TargetObj[];
   goStart: () => TargetObj | undefined;
   goEnd: () => TargetObj | undefined;
   goNext: () => TargetObj | undefined;
