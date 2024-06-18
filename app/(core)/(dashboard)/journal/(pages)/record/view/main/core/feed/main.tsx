@@ -1,9 +1,11 @@
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { JournalRecordField } from '../field/main';
-import { JournalRecordPip } from './pip/main';
 
 export function JournalRecordFeed() {
   return (
-    <div className='flex w-3/4 max-w-[800px] flex-col items-center space-y-[2rem]'>
+    <div className='flex w-full flex-col items-center space-y-[2rem]'>
+      <p className='text-sm font-bold italic text-slate-500'>30 minutes ago</p>
+      <HorizontalDivider />
       <JournalRecordField>
         <div className='flex w-full flex-col items-center space-y-[3rem] py-[1rem]'>
           <div className='w-full overflow-auto'>
@@ -33,7 +35,6 @@ export function JournalRecordFeed() {
           </div>
         </div>
       </JournalRecordField>
-      <JournalRecordPip />
       <JournalRecordField>
         <div className='flex w-full flex-col items-center space-y-[3rem] py-[1rem]'>
           <div className='w-full overflow-auto'>
@@ -63,9 +64,10 @@ export function JournalRecordFeed() {
           </div>
         </div>
       </JournalRecordField>
-      <JournalRecordPip />
+      <p className='text-sm font-bold italic text-slate-500'>30 minutes ago</p>
+      <HorizontalDivider />
       <JournalRecordField />
-      <JournalRecordPip />
+      <JournalRecordField />
       <JournalRecordField />
     </div>
   );
