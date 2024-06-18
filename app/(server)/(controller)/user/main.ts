@@ -90,7 +90,10 @@ const useControllerForUserMain = (objId: string): Controller => {
         throw new Error('Email is invalid');
       } else {
         const user = users[0];
-        const check = await bcrypt.compare(password, user.passwordHash);
+        const check = bcrypt.compare(
+          password,
+          user.passwordHash,
+        ) as unknown as boolean;
         if (!check) {
           throw new Error('Password is invalid');
         } else if (user.subscriptionId === null) {
@@ -190,6 +193,7 @@ const useControllerForUserMain = (objId: string): Controller => {
         displayName: `${fname} ${lname}`,
         role: role,
         bio: `${fname} ${lname} - ${role}`,
+        journalId: '',
       });
       return user;
     },
@@ -213,6 +217,7 @@ const useControllerForUserMain = (objId: string): Controller => {
         displayName: `${fname} ${lname}`,
         role: '',
         bio: `${fname} ${lname}`,
+        journalId: '',
       });
       return user;
     },

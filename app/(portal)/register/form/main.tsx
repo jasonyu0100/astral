@@ -7,28 +7,29 @@ import { PortalFormActionContainer } from '@/(portal)/(common)/container/form/ac
 import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
 import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
 import { PortalForm } from '@/(portal)/(common)/container/form/main';
-import { PolaroidContext } from '@/(portal)/(common)/handler/polaroid/main';
+import { useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 import {
+  exampleFileElem,
   FileElem,
   FileElemVariant,
 } from '@/(server)/(model)/elements/file/main';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 import { portalMap } from '../../map';
 
 export function PortalRegisterForm() {
-  const { variant: variant } = useContext(PolaroidContext);
   const userController = useControllerForUserMain('');
+  const galleryListController = useControllerForGalleryList('');
   const register = useGlobalUser((state) => state.register);
   const [fname, changeFname] = useState('');
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
   const [rePassword, changeRePassword] = useState('');
-  const [role, changeRole] = useState('user');
+  const [role, changeRole] = useState('');
 
   const attemptGoogleRegister = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -76,8 +77,19 @@ export function PortalRegisterForm() {
       .registerFromEmail(fname, lname, role, email, password)
       .then((user) => {
         register(user);
-        alert('Register Success');
-        window.location.href = studioMap.studio.spaces.link;
+        galleryListController.actions.createActions
+          .createGallery(user.id, 'Journal', 'My journal', exampleFileElem)
+          .then((gallery) => {
+            userController.actions.editActions
+              .edit({
+                ...user,
+                journalId: gallery.id,
+              })
+              .then(() => {
+                alert('Register Success');
+                window.location.href = studioMap.studio.spaces.link;
+              });
+          });
       });
   };
 
@@ -97,6 +109,13 @@ export function PortalRegisterForm() {
           onChange={(e) => changeLname(e.target.value)}
           placeholder={'last name'}
           emoji='🎸'
+          type='text'
+        />
+        <PortalFormInput
+          value={role}
+          onChange={(e) => changeRole(e.target.value)}
+          placeholder='Role'
+          emoji='🎧'
           type='text'
         />
         <PortalFormInput

@@ -10,6 +10,7 @@ export type TemplateUserObj = Omit<
   | 'priceId'
   | 'googleId'
   | 'created'
+  | 'journalId'
 >;
 
 // TEMPLATES
