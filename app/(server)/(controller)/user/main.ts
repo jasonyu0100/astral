@@ -90,11 +90,16 @@ const useControllerForUserMain = (objId: string): Controller => {
         throw new Error('Email is invalid');
       } else {
         const user = users[0];
-        user?.passwordHash && delete user.passwordHash;
-        if (user.subscriptionId === null) {
+        const check = await bcrypt.compare(password, user.passwordHash);
+        if (!check) {
+          throw new Error('Password is invalid');
+        } else if (user.subscriptionId === null) {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          if (daysDifference > 50) {
+            throw new Error('Account trial is over');
+          }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
             user.subscriptionId,
@@ -122,7 +127,6 @@ const useControllerForUserMain = (objId: string): Controller => {
         throw new Error('Email is invalid');
       } else {
         const user = users[0];
-        user?.passwordHash && delete user.passwordHash;
         if (user.subscriptionId === null) {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();

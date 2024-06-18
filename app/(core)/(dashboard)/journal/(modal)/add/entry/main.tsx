@@ -14,7 +14,7 @@ import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapte
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
-export function DashboardJournalAddVerseModal() {
+export function DashboardJournalAddResourceModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const verseListController = useContext(ContextForChapterVerseList);
   const openableController = useContext(ContextForOpenable);
@@ -27,7 +27,7 @@ export function DashboardJournalAddVerseModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Verse</FormTitle>
+          <FormTitle>Add Journal Entry</FormTitle>
           <FormBody>
             <FormInput
               title='Name'

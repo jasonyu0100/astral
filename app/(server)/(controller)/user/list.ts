@@ -189,6 +189,7 @@ const useControllerForUserList = (listId: string): Controller => {
         dp: exampleFileElem,
         role: '',
         bio: '',
+        journalId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);

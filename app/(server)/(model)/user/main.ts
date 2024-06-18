@@ -7,6 +7,7 @@ export interface UserObj {
   fname: string;
   lname: string;
   displayName: string;
+  journalId: string;
   email: string;
   dp: FileElem;
   role: string;
@@ -23,6 +24,7 @@ export const userGql = `
 type UserObj {
 	id: String!
   displayName: String!
+  journalId: String!
 	fname: String!
 	lname: String!
 	email: String!
@@ -36,37 +38,6 @@ type UserObj {
 	subscriptionId: String
 	priceId: String
 }
-
-input CreateUserObjInput {
-	fname: String!
-	lname: String!
-	email: String!
-  profilePicture: FileElemInput!
-  role: String!
-	created: String!
-  bio: String
-	googleId: String
-	customerId: String
-	subscriptionId: String
-	priceId: String
-	passwordHash: String
-}
-
-input UpdateUserObjInput {
-	id: String!
-	fname: String
-	lname: String
-	passwordHash: String
-	email: String
-	googleId: String
-	customerId: String
-	subscriptionId: String
-	priceId: String
-  role: String
-	created: String
-  bio: String
-	profilePicture: FileElemInput
-}
 `;
 
 export type SafeUserObj = Omit<UserObj, 'passwordHash'>;
@@ -76,6 +47,7 @@ export const ContextForUserObj = createContext<UserObj>({} as UserObj);
 export const exampleUser: UserObj = {
   id: '0',
   displayName: 'John Smith',
+  journalId: '0',
   fname: 'John',
   lname: 'Smith',
   email: 'email@example.com',
@@ -89,6 +61,7 @@ export const exampleUsers: UserObj[] = [
   {
     id: '1',
     displayName: 'John Smith',
+    journalId: '0',
     fname: 'John',
     lname: 'Smith',
     email: 'john@example.com',
@@ -100,6 +73,8 @@ export const exampleUsers: UserObj[] = [
   {
     id: '2',
     displayName: 'John Smith',
+    journalId: '0',
+
     fname: 'Jane',
     lname: 'Smith',
     email: 'jane@example.com',
