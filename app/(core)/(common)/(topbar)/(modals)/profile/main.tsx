@@ -7,6 +7,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { portalMap } from '@/(portal)/map';
 import { UserObj } from '@/(server)/(model)/user/main';
 import { useContext, useEffect, useState } from 'react';
 
@@ -35,6 +36,7 @@ export function EditProfileModal() {
             <FormButton
               onClick={() => {
                 logout();
+                window.location.href = portalMap.portal.login.link;
               }}
             >
               Logout

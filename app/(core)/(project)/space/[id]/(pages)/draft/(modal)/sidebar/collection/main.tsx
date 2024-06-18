@@ -10,11 +10,13 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpaceDraftCreateCollectionModal() {
   const user = useGlobalUser((state) => state.user);
+  const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const resourceListHandler = useControllerForCollectionResourceList('');
   const openableController = useContext(ContextForOpenable);
@@ -24,7 +26,7 @@ export function SpaceDraftCreateCollectionModal() {
 
   async function createCollection() {
     collectionListController.actions.createActions
-      .createCollection(title, description)
+      .createCollection(title, description, galleryListController.state.objId)
       .then(async (collection) => {
         await Promise.all(
           files.map((f) =>

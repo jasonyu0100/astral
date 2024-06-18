@@ -85,7 +85,7 @@ export function PortalRegisterForm() {
                 ...user,
                 journalId: gallery.id,
               })
-              .then(() => {
+              .then((user) => {
                 alert('Register Success');
                 window.location.href = studioMap.studio.spaces.link;
               });

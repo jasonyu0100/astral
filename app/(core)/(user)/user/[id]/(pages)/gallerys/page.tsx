@@ -15,7 +15,7 @@ function Page() {
           <div className='w-1/3 p-[3rem]'>
             <img
               className='aspect-square w-full rounded-full'
-              src={user.dp.src}
+              src={user.dp?.src}
             />
             <h1 className='text-white'>
               {user.fname} {user.lname}

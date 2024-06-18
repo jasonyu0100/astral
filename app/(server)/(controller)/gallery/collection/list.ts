@@ -32,7 +32,11 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createCollection: (title: string, description: string) => Promise<TargetObj>;
+  createCollection: (
+    title: string,
+    description: string,
+    galleryId: string,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -182,10 +186,10 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createCollection: async (title, description) => {
+    createCollection: async (title, description, galleryId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        galleryId: listId,
+        galleryId: galleryId,
         title: title,
         description: description,
       };
