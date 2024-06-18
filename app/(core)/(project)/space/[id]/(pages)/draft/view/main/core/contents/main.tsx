@@ -2,7 +2,6 @@ import {
   ContextForTogglable,
   useControllerForTogglable,
 } from '@/(logic)/contexts/togglable/main';
-import { SpaceDraftContentsPalette } from './palette/main';
 import { SpaceDraftContentsScene } from './scene/main';
 import { SpaceDraftContentsTools } from './tools/main';
 
@@ -27,7 +26,7 @@ export function SpaceDraftCoreContents() {
           <SpaceDraftContentsTools />
         </div>
       </ContextForTogglable.Provider>
-      <ContextForTogglable.Provider value={togglableDrawerController}>
+      {/* <ContextForTogglable.Provider value={togglableDrawerController}>
         <div
           style={{ width: '100%', height: '100%' }}
           className='absolute flex items-end p-[1rem] opacity-80'
@@ -46,7 +45,7 @@ export function SpaceDraftCoreContents() {
             }}
           />
         </div>
-      </ContextForTogglable.Provider>
+      </ContextForTogglable.Provider> */}
     </div>
   );
 }
