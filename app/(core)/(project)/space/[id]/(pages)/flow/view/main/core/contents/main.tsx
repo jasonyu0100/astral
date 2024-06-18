@@ -7,12 +7,6 @@ export function SpaceFlowCoreContents() {
       className='relative flex flex-col'
     >
       <SpaceFlowContentsDisplay />
-      {/* <div
-        style={{ height: '50%', top: '50%' }}
-        className='absolute flex flex-row justify-end'
-      >
-        <SpaceFlowCoreTools />
-      </div> */}
     </div>
   );
 }
