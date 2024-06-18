@@ -14,7 +14,7 @@ import { CreateSpaceModalView } from '../../(modal)/create-space/main';
 import { StudioSpacesHeaderAdd } from './add/main';
 import { StudioSpacesHeaderInfo } from './info/main';
 
-export function SpacesHeader() {
+export function StudioSpacesHeader() {
   const openableController = useControllerForOpenable();
   const pageableController = useControllerForPagable();
 
@@ -27,7 +27,7 @@ export function SpacesHeader() {
       </ContextForOpenable.Provider>
       <GlassWindowFrame
         className='w-full px-[4rem] py-[2rem]'
-        name={SpacesHeader.name}
+        name={StudioSpacesHeader.name}
       >
         <GlassWindowContents className='flex flex-row items-center'>
           <StudioSpacesHeaderInfo />

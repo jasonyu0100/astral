@@ -13,7 +13,7 @@ export function SpaceInfoThumbnail() {
 
   return (
     <div
-      className={`relative flex h-[50px] w-[50px] items-center justify-center`}
+      className={`flex h-[50px] w-[50px] flex-shrink-0 items-center justify-center`}
     >
       <SpaceCover
         variant={SpaceCoverVariant.EVENT_HORIZON}
