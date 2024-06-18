@@ -22,14 +22,12 @@ import { createContext, useState } from 'react';
 import { SpaceDraftSidebarView } from './view';
 
 export enum SpaceDraftSidebarMode {
-  Gallerys = 'Gallerys',
-  Collections = 'Collections',
-  Resources = 'Resources',
+  Home = 'Home',
+  Gallery = 'Gallery',
+  Collection = 'Collection',
 }
 interface SpaceDraftSidebarActions {
-  goToHomeView: () => void;
-  goToGalleryView: () => void;
-  goToCollectionView: () => void;
+  goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
 }
@@ -44,9 +42,7 @@ export const SpaceDraftSidebarContext =
   );
 
 export function SpaceDraftSidebar() {
-  const [sidebarMode, changeSidebarMode] = useState(
-    SpaceDraftSidebarMode.Gallerys,
-  );
+  const [sidebarMode, changeSidebarMode] = useState(SpaceDraftSidebarMode.Home);
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionsHandler = useControllerForGalleryCollectionList(
@@ -57,22 +53,16 @@ export function SpaceDraftSidebar() {
   );
 
   const sidebarHandler: SpaceDraftSidebarActions = {
-    goToHomeView: () => {
-      changeSidebarMode(SpaceDraftSidebarMode.Gallerys);
-    },
-    goToGalleryView: () => {
-      changeSidebarMode(SpaceDraftSidebarMode.Collections);
-    },
-    goToCollectionView: () => {
-      changeSidebarMode(SpaceDraftSidebarMode.Resources);
+    goToHome: () => {
+      changeSidebarMode(SpaceDraftSidebarMode.Home);
     },
     goToGallery: (gallery: GalleryObj) => {
       galleryListController.actions.stateActions.select(gallery);
-      changeSidebarMode(SpaceDraftSidebarMode.Collections);
+      changeSidebarMode(SpaceDraftSidebarMode.Gallery);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
       collectionsHandler.actions.stateActions.select(collection);
-      changeSidebarMode(SpaceDraftSidebarMode.Resources);
+      changeSidebarMode(SpaceDraftSidebarMode.Collection);
     },
   };
 

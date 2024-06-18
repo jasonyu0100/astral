@@ -11,13 +11,13 @@ export function SpaceDraftSidebarView() {
   return (
     <SpaceDraftSidebarContainer>
       <>
-        {sidebarMode === SpaceDraftSidebarMode.Gallerys && (
+        {sidebarMode === SpaceDraftSidebarMode.Home && (
           <SpaceDraftSidebarHomeGallerysMode />
         )}
-        {sidebarMode === SpaceDraftSidebarMode.Collections && (
+        {sidebarMode === SpaceDraftSidebarMode.Gallery && (
           <SpaceDraftGalleryCollectionsMode />
         )}
-        {sidebarMode === SpaceDraftSidebarMode.Resources && (
+        {sidebarMode === SpaceDraftSidebarMode.Collection && (
           <SpaceDraftCollectionResourcesMode />
         )}
       </>
