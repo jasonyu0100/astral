@@ -1,8 +1,8 @@
+import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { ElementVariant } from '@/(server)/(model)/elements/main';
 import { TextElem } from '@/(server)/(model)/elements/text/main';
 import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import { ModelInterface } from '@/(server)/(model)/main';
-import { FileElem } from '@/graphql/API';
 import { createContext } from 'react';
 
 export interface ChapterVerseObj {

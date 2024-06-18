@@ -6,6 +6,8 @@ import {
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
+import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { ElementVariant } from '@/(server)/(model)/elements/main';
 import {
   chapterVerseModel,
   ChapterVerseObj,
@@ -37,6 +39,13 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     summary: string,
     userId: string,
     chapterId: string,
+  ): Promise<TargetObj>;
+  createVerseFromFile(
+    title: string,
+    summary: string,
+    userId: string,
+    chapterId: string,
+    fileElem: FileElem,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -215,6 +224,27 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
         description: description,
         userId: userId,
         variant: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      changeObjs((prev) => [...prev, newObj]);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createVerseFromFile: async (
+      title: string,
+      description: string,
+      userId: string,
+      chapterId: string,
+      fileElem: FileElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        chapterId: chapterId,
+        title: title,
+        description: description,
+        userId: userId,
+        variant: ElementVariant.FILE,
+        fileElem: fileElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       changeObjs((prev) => [...prev, newObj]);
