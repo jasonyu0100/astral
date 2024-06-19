@@ -7,12 +7,14 @@ import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main
 import { ContextForChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 import { ContextForChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
 import { useContext } from 'react';
-import { SpaceSeaCardChapter } from './variants/chapter/main';
-import { SpaceSeaCardChat } from './variants/chat/main';
-import { SpaceSeaCardScene } from './variants/scene/main';
-import { SpaceSeaCardVerse } from './variants/verse/main';
+import { SpaceSeaCardChapter } from '../../variants/chapter/main';
+import { SpaceSeaCardChat } from '../../variants/chat/main';
+import { SpaceSeaCardConversation } from '../../variants/conversation/main';
+import { SpaceSeaCardIdea } from '../../variants/idea/main';
+import { SpaceSeaCardScene } from '../../variants/scene/main';
+import { SpaceSeaCardVerse } from '../../variants/verse/main';
 
-export function SpaceSeaCards() {
+export function SpaceSeaWorkCards() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const chatListController = useContext(ContextForChapterChatList);
@@ -40,6 +42,8 @@ export function SpaceSeaCards() {
           <SpaceSeaCardVerse />
         </ContextForChapterVerseObj.Provider>
       ))}
+      <SpaceSeaCardIdea />
+      <SpaceSeaCardConversation />
     </div>
   );
 }

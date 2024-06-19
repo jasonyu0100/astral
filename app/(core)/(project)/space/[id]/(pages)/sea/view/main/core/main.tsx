@@ -1,14 +1,11 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ChapterUpdateAddVariant } from '@/(server)/(model)/space/chapter/update/add/main';
-import { useState } from 'react';
 import { SpaceFlowCore } from '../../../../flow/view/main/core/main';
-import { SpaceSeaCards } from './cards/main';
+import { SpaceSeaAddedCards } from './cards/list/added/main';
+import { SpaceSeaWorkCards } from './cards/list/work/main';
 import { SpaceSeaCardEdit } from './edit/main';
 
 export function SpaceSeaCore() {
-  const [current, currentVariant] = useState(ChapterUpdateAddVariant.CHAPTER);
-
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
@@ -20,10 +17,10 @@ export function SpaceSeaCore() {
           <SpaceSeaCardEdit />
           <HorizontalDivider />
           <p className='text-xl font-bold text-slate-300'>Work</p>
-          <SpaceSeaCards />
+          <SpaceSeaWorkCards />
           <HorizontalDivider />
-          <p className='text-xl font-bold text-slate-300'>Complete</p>
-          <SpaceSeaCards />
+          <p className='text-xl font-bold text-slate-300'>Added</p>
+          <SpaceSeaAddedCards />
         </div>
       </GlassAreaContainer>
     </div>
