@@ -12,11 +12,11 @@ import {
   listHorizonUpdateAddObjs,
 } from '@/graphql/queries';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as HorizonUpdateAddObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as HorizonUpdateAddObj[];
 }
 
@@ -31,6 +31,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getHorizonUpdateAddObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getHorizonUpdateAddObj,
@@ -64,7 +65,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listHorizonUpdateAddObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listHorizonUpdateAddObjs,
     variables: variables,

@@ -10,13 +10,13 @@ export function SpaceSeaUnaddedCard({
 }) {
   return (
     <GlassWindowFrame
-      className='aspect-[9/13] w-[200px]'
+      className='aspect-[9/13] w-[150px] flex-shrink-0'
       roundedFx={roundedFx.rounded}
     >
-      <GlassWindowContents className='flex flex-col p-[2rem] font-bold text-white'>
+      <GlassWindowContents className='flex flex-col'>
         {children}
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

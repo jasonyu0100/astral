@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
-export enum SpaceUpdateAddVariant {
+export enum ChapterUpdateAddVariant {
   CHAPTER = 'CHAPTER', // WHAT CHAPTERS WERE MADE
   CHAT = 'CHAT', // WHAT CHATS WERE MADE
   SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
@@ -10,10 +10,11 @@ export enum SpaceUpdateAddVariant {
   IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
 }
 
-export interface SpaceUpdateAddObj {
+export interface ChapterUpdateAddObj {
   id: string;
   updateId: string;
   variant: string;
+  included: boolean;
   chapterId?: string;
   chatId?: string;
   conversationId?: string;
@@ -25,31 +26,33 @@ export interface SpaceUpdateAddObj {
   created: string;
 }
 
-export const spaceUpdateAddGql = `
-type SpaceUpdateAddObj {
+export const chapterUpdateAddGql = `
+type ChapterUpdateAddObj {
   id: String!
   updateId: String!
   variant: String!
+  included: Boolean!
   conversationId: String
   chapterId: String
   chatId: String
   ideaId: String
   sceneId: String
   verseId: String
-  value: Int!
   message: String!
   created: String!
+  value: Int!
 }
 `;
 
-export const ContextForSpaceUpdateAddObj = createContext<SpaceUpdateAddObj>(
-  {} as SpaceUpdateAddObj,
+export const ContextForChapterUpdateAddObj = createContext<ChapterUpdateAddObj>(
+  {} as ChapterUpdateAddObj,
 );
 
-export const exampleSpaceUpdateAdd: SpaceUpdateAddObj = {
+export const exampleChapterUpdateAdd: ChapterUpdateAddObj = {
   id: '0',
+  included: true,
   updateId: '0',
-  variant: SpaceUpdateAddVariant.CONVERSATION,
+  variant: ChapterUpdateAddVariant.CONVERSATION,
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
@@ -59,11 +62,12 @@ export const exampleSpaceUpdateAdd: SpaceUpdateAddObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
+export const exampleChapterUpdateAdds: ChapterUpdateAddObj[] = [
   {
     id: '0',
+    included: true,
     updateId: '0',
-    variant: SpaceUpdateAddVariant.CONVERSATION,
+    variant: ChapterUpdateAddVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -75,7 +79,8 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
   {
     id: '0',
     updateId: '0',
-    variant: SpaceUpdateAddVariant.CONVERSATION,
+    included: true,
+    variant: ChapterUpdateAddVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -87,7 +92,8 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
   {
     id: '0',
     updateId: '0',
-    variant: SpaceUpdateAddVariant.CONVERSATION,
+    included: true,
+    variant: ChapterUpdateAddVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -98,11 +104,11 @@ export const exampleSpaceUpdateAdds: SpaceUpdateAddObj[] = [
   },
 ];
 
-export const spaceUpdateAddModel: ModelInterface<SpaceUpdateAddObj> = {
+export const chapterUpdateAddModel: ModelInterface<ChapterUpdateAddObj> = {
   name: 'add',
-  gql: spaceUpdateAddGql,
-  example: exampleSpaceUpdateAdd,
-  examples: exampleSpaceUpdateAdds,
+  gql: chapterUpdateAddGql,
+  example: exampleChapterUpdateAdd,
+  examples: exampleChapterUpdateAdds,
   parentKey: 'updateId',
   children: [],
 };

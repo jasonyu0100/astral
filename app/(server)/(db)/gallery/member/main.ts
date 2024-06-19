@@ -9,11 +9,11 @@ import {
 import { getGalleryMemberObj, listGalleryMemberObjs } from '@/graphql/queries';
 import { GqlDbWrapper } from '../../main';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as GalleryMemberObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as GalleryMemberObj[];
 }
 
@@ -28,6 +28,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getGalleryMemberObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getGalleryMemberObj,
@@ -61,7 +62,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listGalleryMemberObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listGalleryMemberObjs,
     variables: variables,

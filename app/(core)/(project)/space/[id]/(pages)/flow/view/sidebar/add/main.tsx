@@ -22,7 +22,6 @@ export function SpaceFlowSidebarAdd({
         onClick={onClick}
       >
         <p className='text-xl font-bold text-slate-300'>New Comment</p>
-        <p className='font-bold text-slate-500'>What do you think?</p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

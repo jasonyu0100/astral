@@ -34,10 +34,7 @@ export function SpaceFlowSidebar() {
             <HorizontalDivider />
             {commentListController.state.objs.map((comment) => (
               <ContextForVerseCommentObj.Provider value={comment}>
-                <SpaceFlowSidebarComment>
-                  <p className='text-xl font-bold text-slate-300'>Jason Yu</p>
-                  <p className='font-bold text-slate-500'>{comment.message}</p>
-                </SpaceFlowSidebarComment>
+                <SpaceFlowSidebarComment></SpaceFlowSidebarComment>
               </ContextForVerseCommentObj.Provider>
             ))}
           </div>

@@ -9,11 +9,11 @@ import {
 import { getSpaceObj, listSpaceObjs } from '@/graphql/queries';
 import { GqlDbWrapper } from '../main';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as SpaceObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as SpaceObj[];
 }
 
@@ -28,6 +28,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getSpaceObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: listSpaceObjs,
@@ -61,7 +62,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listSpaceObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listSpaceObjs,
     variables: variables,

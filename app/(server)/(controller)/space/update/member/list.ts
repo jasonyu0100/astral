@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { spaceUpdateMemberDbWrapper } from '@/(server)/(db)/space/update/member/main';
+import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
 import {
-  spaceUpdateMemberModel,
-  SpaceUpdateMemberObj,
-} from '@/(server)/(model)/space/update/member/main';
+  ChapterUpdateMemberObj,
+  chapterUpdateMemberModel,
+} from '@/(server)/(model)/space/chapter/update/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpaceUpdateMemberObj;
-const gqlDbWrapper = spaceUpdateMemberDbWrapper;
-const listIdKey = spaceUpdateMemberModel.parentKey;
+type TargetObj = ChapterUpdateMemberObj;
+const gqlDbWrapper = chapterUpdateMemberDbWrapper;
+const listIdKey = chapterUpdateMemberModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceUpdateMemberList = (listId: string): Controller => {
+const useControllerForChapterUpdateMemberList = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -285,5 +287,5 @@ const useControllerForSpaceUpdateMemberList = (listId: string): Controller => {
 const ContextForSpaceUpdateMemberList = createContext({} as Controller);
 export {
   ContextForSpaceUpdateMemberList,
-  useControllerForSpaceUpdateMemberList,
+  useControllerForChapterUpdateMemberList as useControllerForSpaceUpdateMemberList,
 };

@@ -204,7 +204,6 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',
-        spaceUpdateId: '',
         value: 0,
         message: '',
       };

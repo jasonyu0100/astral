@@ -127,7 +127,6 @@ type ClusterMemberObjConnection {
 type ClusterUpdateAddObj {
   id: String!
   updateId: String!
-  spaceUpdateId: String!
   value: Int!
   message: String!
   created: String!
@@ -270,7 +269,6 @@ input CreateClusterMemberObjInput {
 
 input CreateClusterUpdateAddObjInput {
   updateId: String!
-  spaceUpdateId: String!
   value: Int!
   message: String!
   created: String!
@@ -1143,7 +1141,6 @@ input TableClusterMemberObjFilterInput {
 input TableClusterUpdateAddObjFilterInput {
   id: TableStringFilterInput
   updateId: TableStringFilterInput
-  spaceUpdateId: TableStringFilterInput
   value: TableIntFilterInput
   message: TableStringFilterInput
   created: TableStringFilterInput
@@ -1589,7 +1586,6 @@ input UpdateClusterMemberObjInput {
 input UpdateClusterUpdateAddObjInput {
   id: String!
   updateId: String
-  spaceUpdateId: String
   value: Int
   message: String
   created: String
@@ -3148,7 +3144,6 @@ type Subscription {
   onCreateClusterUpdateAddObj(
     id: String
     updateId: String
-    spaceUpdateId: String
     value: Int
     message: String
   ): ClusterUpdateAddObj
@@ -3156,7 +3151,6 @@ type Subscription {
   onUpdateClusterUpdateAddObj(
     id: String
     updateId: String
-    spaceUpdateId: String
     value: Int
     message: String
   ): ClusterUpdateAddObj
@@ -3164,7 +3158,6 @@ type Subscription {
   onDeleteClusterUpdateAddObj(
     id: String
     updateId: String
-    spaceUpdateId: String
     value: Int
     message: String
   ): ClusterUpdateAddObj

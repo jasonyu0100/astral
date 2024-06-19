@@ -9,11 +9,11 @@ import {
 } from '@/graphql/mutations';
 import { getIdeaLinkObj, listIdeaLinkObjs } from '@/graphql/queries';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as IdeaLinkObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as IdeaLinkObj[];
 }
 
@@ -28,6 +28,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getIdeaLinkObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getIdeaLinkObj,
@@ -61,7 +62,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listIdeaLinkObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listIdeaLinkObjs,
     variables: variables,

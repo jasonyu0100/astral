@@ -1,44 +1,44 @@
 import { createContext } from 'react';
-import { ModelInterface } from '../../main';
+import { ModelInterface } from '../../../main';
 
-export interface SpaceUpdateObj {
+export interface ChapterUpdateObj {
   id: string;
-  spaceId: string;
+  chapterId: string;
   userId: string;
   title: string;
   description: string;
   created: string;
 }
 
-export const spaceUpdateGql = `
-type SpaceUpdateObj {
+export const chapterUpdateGql = `
+type ChapterUpdateObj {
   id: String!
   userId: String!
-  spaceId: String!
+  chapterId: String!
   title: String!
   description: String!
   created: String!
 }
 `;
 
-export const ContextForSpaceUpdateObj = createContext<SpaceUpdateObj>(
-  {} as SpaceUpdateObj,
+export const ContextForChapterUpdateObj = createContext<ChapterUpdateObj>(
+  {} as ChapterUpdateObj,
 );
 
-export const exampleSpaceUpdate: SpaceUpdateObj = {
+export const exampleChapterUpdate: ChapterUpdateObj = {
   id: '0',
   userId: '0',
-  spaceId: '0',
+  chapterId: '0',
   title: 'May Retro',
   description: 'Productive month with new scenes and verses added into the mix',
   created: new Date().toISOString(),
 };
 
-export const exampleChapterRetros: SpaceUpdateObj[] = [
+export const exampleChapterUpdates: ChapterUpdateObj[] = [
   {
     id: '0',
     userId: '0',
-    spaceId: '0',
+    chapterId: '0',
     title: 'May Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
@@ -47,7 +47,7 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
   {
     id: '1',
     userId: '0',
-    spaceId: '0',
+    chapterId: '0',
     title: 'June Retro',
     description: 'Not so productive month',
     created: new Date().toISOString(),
@@ -55,7 +55,7 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
   {
     id: '2',
     userId: '0',
-    spaceId: '0',
+    chapterId: '0',
     title: 'July Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
@@ -63,11 +63,11 @@ export const exampleChapterRetros: SpaceUpdateObj[] = [
   },
 ];
 
-export const spaceUpdateModel: ModelInterface<SpaceUpdateObj> = {
-  name: 'spaceUpdate',
-  gql: spaceUpdateGql,
-  example: exampleSpaceUpdate,
-  examples: exampleChapterRetros,
-  parentKey: 'spaceId',
+export const chapterUpdateModel: ModelInterface<ChapterUpdateObj> = {
+  name: 'chapterUpdate',
+  gql: chapterUpdateGql,
+  example: exampleChapterUpdate,
+  examples: exampleChapterUpdates,
+  parentKey: 'chapterId',
   children: ['add', 'member'],
 };

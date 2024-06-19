@@ -9,11 +9,11 @@ import {
 } from '@/graphql/mutations';
 import { getChapterVerseObj, listChapterVerseObjs } from '@/graphql/queries';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as ChapterVerseObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as ChapterVerseObj[];
 }
 
@@ -28,6 +28,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getChapterVerseObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getChapterVerseObj,
@@ -61,7 +62,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listChapterVerseObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listChapterVerseObjs,
     variables: variables,

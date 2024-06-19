@@ -1,11 +1,11 @@
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
-import { ContextForChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import { ContextForChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { useContext } from 'react';
 import SpaceStormHeaderIndicator from '../header/indicator/main';
 
 export function StormChapterChat() {
-  const chat = useContext(ContextForChatObj);
+  const chat = useContext(ContextForChapterChatObj);
   const index = useContext(ContextForIndexable);
   const chatListController = useContext(ContextForChapterChatList);
   const active = chatListController.actions.stateActions.checkActive(chat);

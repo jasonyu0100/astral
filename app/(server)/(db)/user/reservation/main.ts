@@ -12,11 +12,11 @@ import {
 } from '@/graphql/queries';
 import { GqlDbWrapper } from '../../main';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as UserReservationObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as UserReservationObj[];
 }
 
@@ -31,6 +31,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getUserReservationObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getUserReservationObj,
@@ -64,7 +65,7 @@ async function listObjs(key: string, value: string) {
   return castMultiple(payload?.data?.listUserReservationObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listUserReservationObjs,
     variables: variables,

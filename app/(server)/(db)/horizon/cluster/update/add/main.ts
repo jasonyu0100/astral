@@ -12,11 +12,11 @@ import {
   listClusterUpdateAddObjs,
 } from '@/graphql/queries';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as ClusterUpdateAddObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as ClusterUpdateAddObj[];
 }
 
@@ -31,6 +31,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getClusterUpdateAddObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getClusterUpdateAddObj,
@@ -64,7 +65,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listClusterUpdateAddObjs,
     variables: variables,

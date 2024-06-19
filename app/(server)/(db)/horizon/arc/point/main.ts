@@ -9,11 +9,11 @@ import {
 } from '@/graphql/mutations';
 import { getArcPointObj, listArcPointObjs } from '@/graphql/queries';
 
-function castSingle(obj: any) {
+function castSingle(obj: unknown) {
   return obj as ArcPointObj;
 }
 
-function castMultiple(objs: any[]) {
+function castMultiple(objs: unknown[]) {
   return objs as ArcPointObj[];
 }
 
@@ -28,6 +28,7 @@ async function getObj(value: string) {
   return castSingle(payload?.data?.getArcPointObj);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
     query: getArcPointObj,
@@ -52,7 +53,7 @@ async function listObjs(key: string, value: string) {
   return castMultiple(payload?.data?.listArcPointObjs?.items || []);
 }
 
-async function listFromVariables(variables: Object) {
+async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
     query: listArcPointObjs,
     variables: variables,

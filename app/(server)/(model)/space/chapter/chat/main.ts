@@ -30,7 +30,7 @@ export const exampleChapterChat: ChapterChatObj = {
   created: new Date().toISOString(),
 };
 
-export const ContextForChatObj = createContext<ChapterChatObj>(
+export const ContextForChapterChatObj = createContext<ChapterChatObj>(
   {} as ChapterChatObj,
 );
 

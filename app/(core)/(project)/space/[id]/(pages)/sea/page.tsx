@@ -24,7 +24,7 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
 import {
-  ContextForSpaceUpdateList,
+  ContextForChapterUpdateList,
   useControllerForSpaceUpdateList,
 } from '@/(server)/(controller)/space/update/list';
 import isVerseAuth from '@/(utils)/isAuth';
@@ -52,7 +52,7 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForSpaceMain.Provider value={spaceController}>
-      <ContextForSpaceUpdateList.Provider value={updateListController}>
+      <ContextForChapterUpdateList.Provider value={updateListController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterChatList.Provider value={chatListController}>
             <ContextForChatConversationList.Provider
@@ -68,7 +68,7 @@ function Page({ params }: { params: { id: string } }) {
             </ContextForChatConversationList.Provider>
           </ContextForChapterChatList.Provider>
         </ContextForSpaceChapterList.Provider>
-      </ContextForSpaceUpdateList.Provider>
+      </ContextForChapterUpdateList.Provider>
     </ContextForSpaceMain.Provider>
   );
 }

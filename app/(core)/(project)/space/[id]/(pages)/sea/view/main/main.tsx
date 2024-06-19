@@ -12,7 +12,6 @@ export function SpaceSeaMain() {
       <SpaceSeaHeader />
       <SpaceSeaCore />
       <SpaceSeaChapterNavigation />
-      {/* <SpaceSeaFooter /> */}
     </GlassWindowFrame>
   );
 }

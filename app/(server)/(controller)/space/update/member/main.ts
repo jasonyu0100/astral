@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { spaceUpdateMemberDbWrapper } from '@/(server)/(db)/space/update/member/main';
-import { SpaceUpdateMemberObj } from '@/(server)/(model)/space/update/member/main';
+import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
+import { ChapterUpdateMemberObj } from '@/(server)/(model)/space/chapter/update/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpaceUpdateMemberObj;
-const gqlDbWrapper = spaceUpdateMemberDbWrapper;
+type TargetObj = ChapterUpdateMemberObj;
+const gqlDbWrapper = chapterUpdateMemberDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceUpdateMemberMain = (objId: string): Controller => {
+const useControllerForChapterUpdateMemberMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -115,5 +115,5 @@ const useControllerForSpaceUpdateMemberMain = (objId: string): Controller => {
 const ContextForSpaceUpdateMemberMain = createContext({} as Controller);
 export {
   ContextForSpaceUpdateMemberMain,
-  useControllerForSpaceUpdateMemberMain,
+  useControllerForChapterUpdateMemberMain as useControllerForSpaceUpdateMemberMain,
 };
