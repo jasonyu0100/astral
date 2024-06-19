@@ -179,14 +179,16 @@ const useControllerForResourceList = (listId: string): Controller => {
     },
     gatherLatest: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      changeObjs(objs);
-      changeId(objs.at(0)?.id || '');
-      return objs;
+      const sortedObjs = stateActions.sortedViaDate(objs);
+      changeObjs(sortedObjs);
+      changeId(sortedObjs.at(0)?.id || '');
+      return sortedObjs;
     },
     gatherEarliest: async () => {
       console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const reverseObjs = objs.reverse();
+      const sortedObjs = stateActions.sortedViaDate(objs);
+      const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;

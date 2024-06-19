@@ -17,7 +17,6 @@ const gqlDbWrapper = conversationMessageDbWrapper;
 const listIdKey = conversationMessageModel.parentKey;
 
 interface ControllerState {
-  listId: string;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -66,7 +65,6 @@ interface Controller {
 const useControllerForConversationMessageList = (
   initialId: string,
 ): Controller => {
-  const [listId, changeListId] = useState<string>('');
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -77,7 +75,6 @@ const useControllerForConversationMessageList = (
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
-    listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
@@ -190,13 +187,14 @@ const useControllerForConversationMessageList = (
       return objs;
     },
     gatherLatest: async () => {
-      const objs = await gqlDbWrapper.listObjs('conversationId', initialId);
-      changeObjs(objs);
-      changeId(objs.at(0)?.id || '');
-      return objs;
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
+      const sortedObjs = stateActions.sortedViaDate(objs);
+      changeObjs(sortedObjs);
+      changeId(sortedObjs.at(0)?.id || '');
+      return sortedObjs;
     },
     gatherEarliest: async () => {
-      const objs = await gqlDbWrapper.listObjs('conversationId', initialId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
       const reverseObjs = objs.reverse();
       changeObjs(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');

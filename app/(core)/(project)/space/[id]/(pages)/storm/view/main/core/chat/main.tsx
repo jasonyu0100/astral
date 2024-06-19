@@ -23,7 +23,7 @@ export function SpaceStormChat() {
               <p
                 className='text-md cursor-pointer font-bold text-slate-500'
                 onClick={() => {
-                  conversationListController.actions.stateActions.goPrev();
+                  conversationListController.actions.stateActions.goNext();
                 }}
               >
                 BEFORE
@@ -38,7 +38,7 @@ export function SpaceStormChat() {
               <p
                 className='text-md cursor-pointer font-bold text-slate-500'
                 onClick={() => {
-                  conversationListController.actions.stateActions.goNext();
+                  conversationListController.actions.stateActions.goPrev();
                 }}
               >
                 AFTER
