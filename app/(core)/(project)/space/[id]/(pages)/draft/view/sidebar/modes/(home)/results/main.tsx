@@ -1,12 +1,10 @@
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useContext } from 'react';
-import { SpaceDraftSidebarContext } from '../../../main';
 import { SpaceDraftGalleryThumbnail } from './thumbnail/main';
 
 export function SpaceDraftGallerysResults() {
   const galleryListController = useContext(ContextForGalleryList);
-  const sidebarController = useContext(SpaceDraftSidebarContext);
 
   return (
     <div className='flex h-full w-full flex-col overflow-auto px-[1rem]'>

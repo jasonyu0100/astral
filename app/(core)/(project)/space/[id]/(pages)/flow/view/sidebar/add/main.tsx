@@ -1,22 +1,30 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
-export function SpaceFlowSidebarAdd({ onClick }: { onClick: () => void }) {
+export function SpaceFlowSidebarAdd({
+  onClick,
+  children,
+}: {
+  onClick: () => void;
+  children?: React.ReactNode;
+}) {
   return (
     <GlassWindowFrame
       name='temp'
+      borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
-      className='aspect-[13/9] w-full flex-shrink-0'
+      className='flex- flex p-[1rem]'
     >
       <GlassWindowContents
+        className='flex cursor-pointer flex-col'
         onClick={onClick}
-        className='flex h-full w-full cursor-pointer flex-col items-center justify-center overflow-auto p-[1rem]'
       >
-        <p className='font-permanentMarker  text-5xl text-slate-300'>+</p>
+        <p className='text-xl font-bold text-slate-300'>New Comment</p>
+        <p className='font-bold text-slate-500'>What do you think?</p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }
