@@ -270,7 +270,4 @@ const useControllerForSpaceUpdateList = (listId: string): Controller => {
 };
 
 const ContextForSpaceUpdateList = createContext({} as Controller);
-export {
-  ContextForSpaceUpdateList,
-  useControllerForSpaceUpdateList as useControllerForTargetList,
-};
+export { ContextForSpaceUpdateList, useControllerForSpaceUpdateList };

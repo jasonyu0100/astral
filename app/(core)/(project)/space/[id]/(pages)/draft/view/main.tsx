@@ -13,8 +13,8 @@ export function SpaceDraftView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
-      <SpaceDraftMain />
       <SpaceDraftSidebar />
+      <SpaceDraftMain />
     </GlassAreaContainer>
   );
 }

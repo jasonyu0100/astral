@@ -6,7 +6,7 @@ export function CreativeNetworkSidebar() {
   return (
     <GlassAreaContainer
       name={CreativeNetworkSidebar.name}
-      sizeFx='max-w-[300px] min-w-[200px] w-1/4 h-full'
+      sizeFx='w-[300px] h-full'
       className={`flex flex-col overflow-auto p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}

@@ -22,7 +22,7 @@ export function SpaceStormSidebarChapters() {
       <GlassAreaContainer
         name={SpaceStormSidebarChapters.name}
         sizeFx='h-full w-full'
-        className='flex flex-col overflow-auto'
+        className='flex flex-col overflow-auto p-[1rem]'
       >
         {chapterListController.state.objs.map((chapter) => (
           <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>

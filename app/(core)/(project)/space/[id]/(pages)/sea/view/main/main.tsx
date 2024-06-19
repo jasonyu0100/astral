@@ -1,5 +1,5 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import SpaceSeaCore from './core/main';
+import { SpaceSeaCore } from './core/main';
 import { SpaceSeaFooter } from './footer/main';
 import { SpaceSeaHeader } from './header/main';
 

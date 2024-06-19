@@ -5,7 +5,7 @@ import { glassFx, roundedFx } from '@/(style)/data';
 
 export function SpaceDraftGallerysSearch() {
   return (
-    <div className='flex h-[4rem] items-center justify-center p-[1rem] shadow-glow'>
+    <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
       <GlassWindowFrame
         className='h-[2rem] w-full flex-shrink-0'
         roundedFx={roundedFx['rounded']}

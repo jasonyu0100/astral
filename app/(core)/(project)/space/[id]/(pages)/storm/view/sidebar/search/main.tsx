@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 
-export function SpaceDraftResourcesSearch() {
+export function SpaceStormChatSearch() {
   return (
     <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
       <GlassWindowFrame
