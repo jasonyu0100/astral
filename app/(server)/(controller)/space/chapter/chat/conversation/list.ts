@@ -111,7 +111,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       }
     },
     goPrev: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === listId);
+      const currentIndex = objs.findIndex((obj) => obj.id === id);
       const prevIndex = currentIndex - 1;
 
       if (prevIndex >= 0) {

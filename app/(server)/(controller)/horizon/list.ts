@@ -96,17 +96,6 @@ const useControllerForHorizonList = (listId: string): Controller => {
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === listId);
-      const prevIndex = currentIndex - 1;
-
-      if (prevIndex >= 0) {
-        const prevObj = objs[prevIndex];
-        changeId(prevObj.id);
-        return prevObj;
-      }
-      return undefined;
-    },
-    goPrev: () => {
       const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
@@ -114,6 +103,18 @@ const useControllerForHorizonList = (listId: string): Controller => {
         const nextObj = objs[nextIndex];
         changeId(nextObj.id);
         return nextObj;
+      } else {
+        return undefined;
+      }
+    },
+    goPrev: () => {
+      const currentIndex = objs.findIndex((obj) => obj.id === id);
+      const prevIndex = currentIndex - 1;
+
+      if (prevIndex >= 0) {
+        const prevObj = objs[prevIndex];
+        changeId(prevObj.id);
+        return prevObj;
       } else {
         return undefined;
       }

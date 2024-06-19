@@ -1,7 +1,7 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { SpaceSeaCore } from './core/main';
-import { SpaceSeaFooter } from './footer/main';
 import { SpaceSeaHeader } from './header/main';
+import { SpaceSeaChapterNavigation } from './navigation/main';
 
 export function SpaceSeaMain() {
   return (
@@ -11,7 +11,8 @@ export function SpaceSeaMain() {
     >
       <SpaceSeaHeader />
       <SpaceSeaCore />
-      <SpaceSeaFooter />
+      <SpaceSeaChapterNavigation />
+      {/* <SpaceSeaFooter /> */}
     </GlassWindowFrame>
   );
 }
