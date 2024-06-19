@@ -164,8 +164,21 @@ const useControllerForConversationMessageList = (
     updateInputMessageText: function (newMessage: string): void {
       changeInputMessageText(newMessage);
     },
-    find: function (id: string): TargetObj {
-      return objs.find((obj) => obj.id === id) as TargetObj;
+    find: (id: string) => {
+      return objs.find((obj) => obj.id === id) || ({} as TargetObj);
+    },
+    pushFront: (obj: TargetObj) => {
+      changeObjs((prev) => [obj, ...prev]);
+    },
+    pushBack: (obj: TargetObj) => {
+      changeObjs((prev) => [...prev, obj]);
+    },
+    pushIndex: (obj: TargetObj, index: number) => {
+      changeObjs((prev) => [
+        ...prev.slice(0, index),
+        obj,
+        ...prev.slice(index),
+      ]);
     },
   };
 
@@ -214,7 +227,7 @@ const useControllerForConversationMessageList = (
         message: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
+      stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
@@ -223,11 +236,7 @@ const useControllerForConversationMessageList = (
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
-      changeObjs((prev) => [
-        ...prev.slice(0, index),
-        newObj,
-        ...prev.slice(index),
-      ]);
+      stateActions.pushIndex(newObj, index);
       changeId(newObj.id);
       return newObj;
     },
@@ -244,7 +253,7 @@ const useControllerForConversationMessageList = (
         message: inputMessageText,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
+      stateActions.pushBack(newObj);
       changeId(newObj.id);
       changeInputMessageText('');
       return newObj;
@@ -263,7 +272,7 @@ const useControllerForConversationMessageList = (
         message: message,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
+      stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },

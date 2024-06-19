@@ -151,6 +151,19 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
     find: (id: string) => {
       return objs.find((obj) => obj.id === id) || ({} as TargetObj);
     },
+    pushFront: (obj: TargetObj) => {
+      changeObjs((prev) => [obj, ...prev]);
+    },
+    pushBack: (obj: TargetObj) => {
+      changeObjs((prev) => [...prev, obj]);
+    },
+    pushIndex: (obj: TargetObj, index: number) => {
+      changeObjs((prev) => [
+        ...prev.slice(0, index),
+        obj,
+        ...prev.slice(index),
+      ]);
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -198,7 +211,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
         description: description,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
+      stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
@@ -210,7 +223,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
         description: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      changeObjs((prev) => [...prev, newObj]);
+      stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
@@ -219,11 +232,7 @@ const useControllerForGalleryCollectionList = (listId: string): Controller => {
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
-      changeObjs((prev) => [
-        ...prev.slice(0, index),
-        newObj,
-        ...prev.slice(index),
-      ]);
+      stateActions.pushIndex(newObj, index);
       changeId(newObj.id);
       return newObj;
     },
