@@ -3,14 +3,14 @@
 import { Tab } from '@/(components)/(dashboard)/tabs/tabs-row/tab/main';
 import { TabBlueShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/(components)/(dashboard)/tabs/tabs-row/tab/text/main';
-import { spaceMap } from '../../map';
-import { CreativeSpacesContext } from '../../layout';
 import { useContext } from 'react';
+import { CreativeSpacesContext } from '../../layout';
+import { spaceMap } from '../../map';
 import { SpaceTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Storm;
+  const tabText = SpaceTabStage.storm;
   const active = tab === tabText;
 
   return (

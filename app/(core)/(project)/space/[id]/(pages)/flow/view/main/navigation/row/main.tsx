@@ -1,4 +1,3 @@
-import SpaceFlowRowAdd from '@/(core)/(project)/space/[id]/(pages)/draft/view/main/navigation/row/add/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -25,9 +24,6 @@ export function SpaceFlowNavigationRow() {
             <SpaceFlowRowElement index={index} key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
-        <SpaceFlowRowAdd onClick={() => openableController.open()}>
-          Add Chapter
-        </SpaceFlowRowAdd>
       </SpaceFlowRowContainer>
     </>
   );

@@ -9,24 +9,12 @@ export function TimerComponent({ hours }: { hours?: number }) {
   return (
     <>
       <div className='flex flex-row items-center justify-start'>
-        <GlassWindowFrame
-          className='aspect-square h-[1.5rem] w-[1.5rem]'
-          roundedFx={roundedFx['rounded-full']}
-        >
-          <GlassWindowContents
-            className='flex cursor-pointer items-center justify-center'
-            onClick={() => timerController.actions.updateTimeDilation(1)}
-          >
-            <p className='text-xl font-bold text-slate-300'>-</p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-5']} />
-        </GlassWindowFrame>
         <GlassWindowFrame roundedFx={roundedFx['rounded-full']}>
           <GlassWindowContents
             className='flex items-center justify-center p-[1rem]'
             onClick={() => timerController.actions.updateTimeDilation(1)}
           >
-            <p className='text-md flex w-full justify-center font-bold text-slate-500 transition-opacity'>
+            <p className='flex w-full justify-center text-lg font-bold text-slate-500 transition-opacity'>
               {String(timerController.state.hours).padStart(2, '0')}h :{' '}
               <span className='flex w-[1.5rem] justify-center px-[2px]'>
                 {String(timerController.state.minutes).padStart(2, '0')}
@@ -45,9 +33,21 @@ export function TimerComponent({ hours }: { hours?: number }) {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
+            onClick={() => timerController.actions.updateTimeDilation(1)}
+          >
+            <p className='text-xl font-bold text-slate-500'>-</p>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        </GlassWindowFrame>
+        <GlassWindowFrame
+          className='aspect-square h-[1.5rem] w-[1.5rem]'
+          roundedFx={roundedFx['rounded-full']}
+        >
+          <GlassWindowContents
+            className='flex cursor-pointer items-center justify-center'
             onClick={() => timerController.actions.updateTimeDilation(100)}
           >
-            <p className='text-xl font-bold text-slate-300'>+</p>
+            <p className='text-xl font-bold text-slate-500'>+</p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>

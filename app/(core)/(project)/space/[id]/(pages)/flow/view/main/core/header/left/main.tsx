@@ -20,22 +20,12 @@ export function SpaceFlowHeaderLeft() {
         <SpaceFlowAddVerseModal />
       </ContextForOpenable.Provider>
       <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
-        <select className='w-[10rem] border-b-[1px] border-slate-300 border-opacity-30 bg-transparent py-[0.5rem] font-bold text-slate-500 outline-none'>
-          {verseListController.state.objs.map((verse) => (
-            <option className='text-md font-bold text-slate-500'>
-              {verse.title}
-            </option>
-          ))}
-        </select>
-        <GlassWindowFrame
-          className='aspect-square h-[1.5rem] w-[1.5rem]'
-          roundedFx={roundedFx['rounded-full']}
-        >
+        <GlassWindowFrame roundedFx={roundedFx['rounded-full']}>
           <GlassWindowContents
-            className='flex cursor-pointer items-center justify-center'
+            className='flex cursor-pointer items-center justify-center px-[1rem]'
             onClick={openableController.open}
           >
-            <p className='text-xl font-bold text-slate-300'>+</p>
+            <p className='text-xl font-bold text-slate-500'>new verse</p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>

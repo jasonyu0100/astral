@@ -10,7 +10,7 @@ import { SpaceTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Draft;
+  const tabText = SpaceTabStage.draft;
   const active = tab === tabText;
 
   return (

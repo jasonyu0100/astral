@@ -10,7 +10,7 @@ import { SpaceTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Flow;
+  const tabText = SpaceTabStage.flow;
   const active = tab === tabText;
 
   return (
