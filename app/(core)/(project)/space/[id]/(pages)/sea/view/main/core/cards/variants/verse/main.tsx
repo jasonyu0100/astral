@@ -4,15 +4,11 @@ import { SpaceSeaUnaddedCard } from '../../card/main';
 
 export function SpaceSeaCardVerse() {
   const verse = useContext(ContextForChapterVerseObj);
+
   return (
     <SpaceSeaUnaddedCard>
-      <p>Verse - {verse.title}</p>
-      <br />
-      <ul className='list-disc pl-[1rem] text-sm font-medium'>
-        <li>Comment A</li>
-        <li>Comment A</li>
-        <li>Comment A</li>
-      </ul>
+      <p className='text-sm font-bold text-slate-300'>{verse.title}</p>
+      <p className='text-xs font-light text-slate-300'>New Verse</p>
     </SpaceSeaUnaddedCard>
   );
 }

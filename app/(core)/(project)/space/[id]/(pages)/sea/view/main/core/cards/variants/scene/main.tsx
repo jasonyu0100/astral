@@ -7,13 +7,8 @@ export function SpaceSeaCardScene() {
 
   return (
     <SpaceSeaUnaddedCard>
-      <p>Scene - {scene.title}</p>
-      <br />
-      <ul className='list-disc text-sm font-medium'>
-        <li>Idea A</li>
-        <li>Idea B</li>
-        <li>Idea C</li>
-      </ul>
+      <p className='text-sm font-bold text-slate-300'>{scene.title}</p>
+      <p className='text-xs font-light text-slate-300'>New Scene</p>
     </SpaceSeaUnaddedCard>
   );
 }

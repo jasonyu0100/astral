@@ -7,13 +7,8 @@ export function SpaceSeaCardChat() {
 
   return (
     <SpaceSeaUnaddedCard>
-      <p>Chat - {chat.title}</p>
-      <br />
-      <ul className='list-disc text-sm font-medium'>
-        <li>Conversation A</li>
-        <li>Conversation A</li>
-        <li>Conversation A</li>
-      </ul>
+      <p className='text-sm font-bold text-slate-300'>{chat.title}</p>
+      <p className='text-xs font-light text-slate-300'>New Chat</p>
     </SpaceSeaUnaddedCard>
   );
 }
