@@ -330,7 +330,7 @@ const useControllerForChapterVerseList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherEarliest();
     }
   }, [listId]);
 
