@@ -5,7 +5,7 @@ import { ventureMap } from '../../map';
 import { ProjectTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = ProjectTabStage.Horizons;
+  const tabText = ProjectTabStage.horizons;
   const active = tab === tabText;
 
   return (

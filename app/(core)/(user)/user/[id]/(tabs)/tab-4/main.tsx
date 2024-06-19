@@ -10,7 +10,7 @@ import { UserTabStage } from '../main';
 
 export function TabFour({ tab }: { tab?: string }) {
   const userObj = useContext(ContextForUserObj);
-  const tabText = UserTabStage.Horizons;
+  const tabText = UserTabStage.horizons;
   const active = tab === tabText;
 
   return (

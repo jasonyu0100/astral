@@ -2,7 +2,6 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
 import { SpaceStormHeaderLeft } from './left/main';
 import { SpaceStormHeaderMiddle } from './middle/main';
-import SpaceStormHeaderMiddleTitle from './middle/title/main';
 import { SpaceStormHeaderRight } from './right/main';
 
 export function SpaceStormHeader() {
@@ -13,13 +12,9 @@ export function SpaceStormHeader() {
       glassFx={glassFx['glass-5']}
       className={`flex items-center justify-between space-x-[1rem] px-[1rem]`}
     >
-      <SpaceStormHeaderLeft>
-        <SpaceStormHeaderMiddleTitle />
-      </SpaceStormHeaderLeft>
-      <SpaceStormHeaderMiddle>
-        <SpaceStormHeaderMiddleTitle />
-      </SpaceStormHeaderMiddle>
-      <SpaceStormHeaderRight></SpaceStormHeaderRight>
+      <SpaceStormHeaderLeft />
+      <SpaceStormHeaderMiddle />
+      <SpaceStormHeaderRight />
     </GlassAreaContainer>
   );
 }

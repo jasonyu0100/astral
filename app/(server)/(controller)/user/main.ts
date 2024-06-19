@@ -13,6 +13,7 @@ import {
 import { UserObj } from '@/(server)/(model)/user/main';
 import bcrypt from 'bcryptjs';
 import { createContext, useMemo, useState } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 type TargetObj = UserObj;
@@ -90,10 +91,9 @@ const useControllerForUserMain = (objId: string): Controller => {
         throw new Error('Email is invalid');
       } else {
         const user = users[0];
-        const check = bcrypt.compare(
-          password,
-          user.passwordHash,
-        ) as unknown as boolean;
+        const check = user.passwordHash
+          ? (bcrypt.compare(password, user.passwordHash) as unknown as boolean)
+          : false;
         if (!check) {
           throw new Error('Password is invalid');
         } else if (user.subscriptionId === null) {
@@ -201,8 +201,10 @@ const useControllerForUserMain = (objId: string): Controller => {
       fname: string,
       lname: string,
       email: string,
-      googleId: string,
-      profilePicture: FileElem,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _googleId: string,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _profilePicture: FileElem,
     ) => {
       const emailCheck = await stateActions.checkEmail(email);
       if (emailCheck) {

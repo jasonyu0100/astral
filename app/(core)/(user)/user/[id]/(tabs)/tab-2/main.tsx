@@ -10,7 +10,7 @@ import { UserTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const userObj = useContext(ContextForUserObj);
-  const tabText = UserTabStage.Gallerys;
+  const tabText = UserTabStage.gallerys;
   const active = tab === tabText;
 
   return (

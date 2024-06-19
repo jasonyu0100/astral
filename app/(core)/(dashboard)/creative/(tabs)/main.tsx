@@ -5,7 +5,7 @@ import { ventureMap } from '../../venture/map';
 import { TabOne } from './tab-1/main';
 
 export enum CreativeTabStage {
-  Network = 'Network',
+  network = 'network',
 }
 interface CreativeTabProps {
   tab?: string;

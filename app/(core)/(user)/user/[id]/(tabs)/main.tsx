@@ -10,10 +10,10 @@ interface UserTabProps {
 }
 
 export enum UserTabStage {
-  Profile = 'Profile',
-  Gallerys = 'Gallerys',
-  Spaces = 'Spaces',
-  Horizons = 'Horizons',
+  profile = 'profile',
+  gallerys = 'gallerys',
+  spaces = 'spaces',
+  horizons = 'horizons',
 }
 
 export function UserTabs({ tab }: UserTabProps) {

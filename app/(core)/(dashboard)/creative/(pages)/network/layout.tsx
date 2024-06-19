@@ -5,7 +5,7 @@ import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <CreativeTabs tab={CreativeTabStage.Network} />
+      <CreativeTabs tab={CreativeTabStage.network} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

@@ -10,7 +10,7 @@ import { ReleaseTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.Story;
+  const tabText = ReleaseTabStage.story;
   const active = tab === tabText;
 
   return (

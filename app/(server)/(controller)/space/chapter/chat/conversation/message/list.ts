@@ -22,6 +22,7 @@ interface ControllerState {
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
+  index: number;
 }
 
 interface ControllerMoreState {
@@ -72,13 +73,15 @@ const useControllerForConversationMessageList = (
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const [inputMessageText, changeInputMessageText] = useState<string>('');
   const currentObj =
-    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+  const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
+    index: index,
     more: {
       query: query,
       queryResults: queryResults,
@@ -161,8 +164,8 @@ const useControllerForConversationMessageList = (
     updateInputMessageText: function (newMessage: string): void {
       changeInputMessageText(newMessage);
     },
-    find: function (id: string): ConversationMessageObj {
-      throw new Error('Function not implemented.');
+    find: function (id: string): TargetObj {
+      return objs.find((obj) => obj.id === id) as TargetObj;
     },
   };
 
@@ -180,8 +183,7 @@ const useControllerForConversationMessageList = (
       return objs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
-      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const objs = await gqlDbWrapper.listObjs('conversationId', initialId);
       const reverseObjs = objs.reverse();
       changeObjs(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
@@ -317,7 +319,7 @@ const useControllerForConversationMessageList = (
     if (!initialId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherEarliest();
     }
   }, [initialId]);
 

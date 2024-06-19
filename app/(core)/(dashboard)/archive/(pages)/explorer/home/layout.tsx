@@ -7,7 +7,7 @@ import {
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <ArchiveTabs tab={ArchiveTabStage.Explorer} />
+      <ArchiveTabs tab={ArchiveTabStage.explorer} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

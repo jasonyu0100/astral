@@ -5,7 +5,7 @@ import { studioMap } from '../../studio/map';
 import { TabOne } from './tab-1/main';
 
 export enum ArchiveTabStage {
-  Explorer = 'Explorer',
+  explorer = 'explorer',
 }
 interface ArchiveTabsInput {
   backUrl?: string;

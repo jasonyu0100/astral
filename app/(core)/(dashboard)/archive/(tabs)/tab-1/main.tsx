@@ -5,7 +5,7 @@ import { archiveMap } from '../../map';
 import { ArchiveTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = ArchiveTabStage.Explorer;
+  const tabText = ArchiveTabStage.explorer;
   const active = tab === tabText;
 
   return (

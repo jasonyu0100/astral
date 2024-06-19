@@ -22,6 +22,7 @@ interface ControllerState {
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
+  index: number;
 }
 
 interface ControllerMoreState {
@@ -55,12 +56,14 @@ const useControllerForChatConversationList = (listId: string): Controller => {
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj = objs.filter((chat) => chat.id === id).at(0);
+  const index = objs.findIndex((chat) => chat.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
+    index: index,
     more: {
       query: query,
       queryResults: queryResults,
@@ -152,13 +155,12 @@ const useControllerForChatConversationList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-      const objs = await gqlDbWrapper.listObjs('chatId', listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       changeObjs(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const reverseObjs = objs.reverse();
       changeObjs(reverseObjs);
@@ -270,7 +272,7 @@ const useControllerForChatConversationList = (listId: string): Controller => {
     if (!listId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherEarliest();
     }
   }, [listId]);
 

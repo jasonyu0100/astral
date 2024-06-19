@@ -6,5 +6,9 @@ export default function SpaceStormHeaderMiddleTitle() {
   const chat = chatListController.state.currentObj;
 
   const headerTitle = chat ? `${chat.title}` : 'None';
-  return <p className='text-lg font-bold text-slate-300'>{headerTitle}</p>;
+  return (
+    <p className='text-lg font-bold text-slate-300'>
+      chat - {headerTitle || 'untitled'}
+    </p>
+  );
 }

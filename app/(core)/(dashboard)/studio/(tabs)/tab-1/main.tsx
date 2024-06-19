@@ -5,7 +5,7 @@ import { studioMap } from '../../map';
 import { SpaceTabStages } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = SpaceTabStages.Spaces;
+  const tabText = SpaceTabStages.spaces;
   const active = tab === tabText;
 
   return (

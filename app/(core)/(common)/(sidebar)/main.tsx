@@ -6,8 +6,10 @@ import { DashboardSidebarDefaultContainer } from './main/container/default/main'
 import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';
 import { DashboardSidebarIndicators } from './main/indicators/main';
 import { ArchiveIndicator } from './main/indicators/variants/archive-indicator/main';
+import { CreativeIndicator } from './main/indicators/variants/creative-indicator/main';
 import { JournalIndicator } from './main/indicators/variants/journal-indicator/main';
 import { SpaceIndicator } from './main/indicators/variants/studio-indicator/main';
+import { VentureIndicator } from './main/indicators/variants/venture-indicator/main';
 import { DashboardSidebarTopBack } from './top/back/main';
 import { DashboardSidebarTopOverview } from './top/overview/main';
 
@@ -44,8 +46,8 @@ export function DashboardSidebarView({
             <SpaceIndicator />
             <JournalIndicator />
             <ArchiveIndicator />
-            {/* <CreativeIndicator />
-            <VentureIndicator /> */}
+            <CreativeIndicator />
+            <VentureIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarMinimisedContainer>
       ) : (
@@ -56,8 +58,8 @@ export function DashboardSidebarView({
             <SpaceIndicator />
             <JournalIndicator />
             <ArchiveIndicator />
-            {/* <CreativeIndicator />
-        <VentureIndicator /> */}
+            <CreativeIndicator />
+            <VentureIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarDefaultContainer>
       )}

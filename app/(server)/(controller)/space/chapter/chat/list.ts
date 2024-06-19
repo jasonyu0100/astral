@@ -22,6 +22,7 @@ interface ControllerState {
   objs: TargetObj[];
   objId: string;
   more: ControllerMoreState;
+  index: number;
 }
 
 interface ControllerMoreState {
@@ -61,12 +62,14 @@ const useControllerForChapterChatList = (listId: string): Controller => {
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+  const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
+    index: index,
     more: {
       query: query,
       queryResults: queryResults,

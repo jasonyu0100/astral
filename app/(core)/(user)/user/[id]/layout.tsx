@@ -33,7 +33,7 @@ export default function Layout({
           backUrl={studioMap.studio.spaces.link}
         />
         <DashboardBody>
-          <UserTabs tab={UserTabStage.Profile} />
+          <UserTabs tab={UserTabStage.profile} />
           <DashboardContent>{children}</DashboardContent>
         </DashboardBody>
       </DashboardController>

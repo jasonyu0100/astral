@@ -10,7 +10,7 @@ import { ReleaseTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.Cluster;
+  const tabText = ReleaseTabStage.cluster;
   const active = tab === tabText;
 
   return (

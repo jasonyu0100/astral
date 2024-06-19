@@ -10,7 +10,7 @@ import { ReleaseTabStage } from '../main';
 
 export function TabFour({ tab }: { tab?: string }) {
   const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.Point;
+  const tabText = ReleaseTabStage.point;
   const active = tab === tabText;
 
   return (

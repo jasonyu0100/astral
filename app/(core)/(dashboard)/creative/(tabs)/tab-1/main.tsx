@@ -5,7 +5,7 @@ import { creativeMap } from '../../map';
 import { CreativeTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = CreativeTabStage.Network;
+  const tabText = CreativeTabStage.network;
   const active = tab === tabText;
 
   return (
