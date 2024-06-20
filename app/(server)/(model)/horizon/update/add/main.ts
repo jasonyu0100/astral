@@ -1,44 +1,39 @@
 import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
-export interface HorizonUpdateAddObj {
+export interface HorizonUpdateItemObj {
   id: string;
   updateId: string;
-  clusterUpdateId: string;
   value: number;
   message: string;
   created: string;
 }
 
-export const horizonUpdateAddGql = `
-type HorizonUpdateAddObj {
+export const horizonUpdateItemGql = `
+type HorizonUpdateItemObj {
   id: String!
   updateId: String!
-  clusterUpdateId: String!
   value: Int!
   message: String!
   created: String!
 }
 `;
 
-export const ContextForHorizonUpdateAddObj = createContext<HorizonUpdateAddObj>(
-  {} as HorizonUpdateAddObj,
-);
+export const ContextForHorizonUpdateItemObj =
+  createContext<HorizonUpdateItemObj>({} as HorizonUpdateItemObj);
 
-export const exampleHorizonUpdateAdd: HorizonUpdateAddObj = {
+export const exampleHorizonUpdateItem: HorizonUpdateItemObj = {
   id: '0',
   updateId: '0',
-  clusterUpdateId: '0',
   value: 11,
   message: 'Hello World',
   created: new Date().toISOString(),
 };
 
-export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
+export const exampleHorizonUpdateItems: HorizonUpdateItemObj[] = [
   {
     id: '0',
     updateId: '0',
-    clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
     created: new Date().toISOString(),
@@ -46,7 +41,6 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
   {
     id: '0',
     updateId: '0',
-    clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
     created: new Date().toISOString(),
@@ -54,18 +48,17 @@ export const exampleHorizonUpdateAdds: HorizonUpdateAddObj[] = [
   {
     id: '0',
     updateId: '0',
-    clusterUpdateId: '0',
     value: 11,
     message: 'Hello World',
     created: new Date().toISOString(),
   },
 ];
 
-export const horizonUpdateAddModel: ModelInterface<HorizonUpdateAddObj> = {
+export const horizonUpdateItemModel: ModelInterface<HorizonUpdateItemObj> = {
   name: 'add',
-  gql: horizonUpdateAddGql,
-  example: exampleHorizonUpdateAdd,
-  examples: exampleHorizonUpdateAdds,
+  gql: horizonUpdateItemGql,
+  example: exampleHorizonUpdateItem,
+  examples: exampleHorizonUpdateItems,
   parentKey: 'updateId',
   children: [],
 };

@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { HorizonUpdateAddObj } from '@/(server)/(model)/horizon/update/add/main';
+import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/add/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createHorizonUpdateAddObj,
@@ -13,11 +13,11 @@ import {
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as HorizonUpdateAddObj;
+  return obj as HorizonUpdateItemObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonUpdateAddObj[];
+  return objs as HorizonUpdateItemObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listHorizonUpdateAddObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<HorizonUpdateAddObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonUpdateItemObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createHorizonUpdateAddObj,
     variables: {
@@ -85,7 +85,7 @@ async function createObj(newObj: Omit<HorizonUpdateAddObj, 'id'>) {
   return castSingle(payload?.data?.createHorizonUpdateAddObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<HorizonUpdateAddObj>) {
+async function updateObj(id: string, updateObj: Partial<HorizonUpdateItemObj>) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonUpdateAddObj,
     variables: {
@@ -99,7 +99,7 @@ async function updateObj(id: string, updateObj: Partial<HorizonUpdateAddObj>) {
   return castSingle(payload?.data?.updateHorizonUpdateAddObj);
 }
 
-async function overwriteObj(id: string, newObj: HorizonUpdateAddObj) {
+async function overwriteObj(id: string, newObj: HorizonUpdateItemObj) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonUpdateAddObj,
     variables: {
@@ -126,7 +126,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonUpdateAddObj);
 }
 
-export const horizonUpdateAddDbWrapper: GqlDbWrapper<HorizonUpdateAddObj> = {
+export const horizonUpdateItemDbWrapper: GqlDbWrapper<HorizonUpdateItemObj> = {
   getObj,
   listObjs,
   listAllObjs,

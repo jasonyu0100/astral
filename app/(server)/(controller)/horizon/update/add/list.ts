@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonUpdateAddDbWrapper } from '@/(server)/(db)/horizon/update/add/main';
+import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/add/main';
 import {
-  horizonUpdateAddModel,
-  HorizonUpdateAddObj,
+  horizonUpdateItemModel,
+  HorizonUpdateItemObj,
 } from '@/(server)/(model)/horizon/update/add/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateAddObj;
-const gqlDbWrapper = horizonUpdateAddDbWrapper;
-const listIdKey = horizonUpdateAddModel.parentKey;
+type TargetObj = HorizonUpdateItemObj;
+const gqlDbWrapper = horizonUpdateItemDbWrapper;
+const listIdKey = horizonUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateAddList = (listId: string): Controller => {
+const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -204,7 +204,6 @@ const useControllerForHorizonUpdateAddList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',
-        clusterUpdateId: '',
         value: 0,
         message: '',
       };
@@ -284,5 +283,8 @@ const useControllerForHorizonUpdateAddList = (listId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateAddList = createContext({} as Controller);
-export { ContextForHorizonUpdateAddList, useControllerForHorizonUpdateAddList };
+const ContextForHorizonUpdateItemList = createContext({} as Controller);
+export {
+  ContextForHorizonUpdateItemList as ContextForHorizonUpdateItemList,
+  useControllerForHorizonUpdateItemList as useControllerForHorizonUpdateItemList,
+};

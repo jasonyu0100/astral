@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { clusterUpdateAddDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
-import { ClusterUpdateAddObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
+import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateAddObj;
-const gqlDbWrapper = clusterUpdateAddDbWrapper;
+type TargetObj = ClusterUpdateItemObj;
+const gqlDbWrapper = clusterUpdateItemDbWrapper;
 
 interface ControllerState {
   objId: string;

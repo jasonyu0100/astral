@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
-export enum ChapterUpdateAddVariant {
+export enum ChapterUpdateItemVariant {
   CHAPTER = 'CHAPTER', // WHAT CHAPTERS WERE MADE
   CHAT = 'CHAT', // WHAT CHATS WERE MADE
   SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
@@ -10,7 +10,7 @@ export enum ChapterUpdateAddVariant {
   IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
 }
 
-export interface ChapterUpdateAddObj {
+export interface ChapterUpdateItemObj {
   id: string;
   updateId: string;
   variant: string;
@@ -26,8 +26,8 @@ export interface ChapterUpdateAddObj {
   created: string;
 }
 
-export const chapterUpdateAddGql = `
-type ChapterUpdateAddObj {
+export const chapterUpdateItemGql = `
+type ChapterUpdateItemObj {
   id: String!
   updateId: String!
   variant: String!
@@ -44,15 +44,14 @@ type ChapterUpdateAddObj {
 }
 `;
 
-export const ContextForChapterUpdateAddObj = createContext<ChapterUpdateAddObj>(
-  {} as ChapterUpdateAddObj,
-);
+export const ContextForChapterUpdateItemObj =
+  createContext<ChapterUpdateItemObj>({} as ChapterUpdateItemObj);
 
-export const exampleChapterUpdateAdd: ChapterUpdateAddObj = {
+export const exampleChapterUpdateItem: ChapterUpdateItemObj = {
   id: '0',
   included: true,
   updateId: '0',
-  variant: ChapterUpdateAddVariant.CONVERSATION,
+  variant: ChapterUpdateItemVariant.CONVERSATION,
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
@@ -62,12 +61,12 @@ export const exampleChapterUpdateAdd: ChapterUpdateAddObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleChapterUpdateAdds: ChapterUpdateAddObj[] = [
+export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
   {
     id: '0',
     included: true,
     updateId: '0',
-    variant: ChapterUpdateAddVariant.CONVERSATION,
+    variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -80,7 +79,7 @@ export const exampleChapterUpdateAdds: ChapterUpdateAddObj[] = [
     id: '0',
     updateId: '0',
     included: true,
-    variant: ChapterUpdateAddVariant.CONVERSATION,
+    variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -93,7 +92,7 @@ export const exampleChapterUpdateAdds: ChapterUpdateAddObj[] = [
     id: '0',
     updateId: '0',
     included: true,
-    variant: ChapterUpdateAddVariant.CONVERSATION,
+    variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -104,11 +103,11 @@ export const exampleChapterUpdateAdds: ChapterUpdateAddObj[] = [
   },
 ];
 
-export const chapterUpdateAddModel: ModelInterface<ChapterUpdateAddObj> = {
+export const chapterUpdateItemModel: ModelInterface<ChapterUpdateItemObj> = {
   name: 'add',
-  gql: chapterUpdateAddGql,
-  example: exampleChapterUpdateAdd,
-  examples: exampleChapterUpdateAdds,
+  gql: chapterUpdateItemGql,
+  example: exampleChapterUpdateItem,
+  examples: exampleChapterUpdateItems,
   parentKey: 'updateId',
   children: [],
 };

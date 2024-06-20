@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ClusterUpdateAddObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createClusterUpdateAddObj,
@@ -13,11 +13,11 @@ import {
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as ClusterUpdateAddObj;
+  return obj as ClusterUpdateItemObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ClusterUpdateAddObj[];
+  return objs as ClusterUpdateItemObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ClusterUpdateAddObj, 'id'>) {
+async function createObj(newObj: Omit<ClusterUpdateItemObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createClusterUpdateAddObj,
     variables: {
@@ -85,7 +85,7 @@ async function createObj(newObj: Omit<ClusterUpdateAddObj, 'id'>) {
   return castSingle(payload?.data?.createClusterUpdateAddObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ClusterUpdateAddObj>) {
+async function updateObj(id: string, updateObj: Partial<ClusterUpdateItemObj>) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateAddObj,
     variables: {
@@ -99,7 +99,7 @@ async function updateObj(id: string, updateObj: Partial<ClusterUpdateAddObj>) {
   return castSingle(payload?.data?.updateClusterUpdateAddObj);
 }
 
-async function overwriteObj(id: string, newObj: ClusterUpdateAddObj) {
+async function overwriteObj(id: string, newObj: ClusterUpdateItemObj) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateAddObj,
     variables: {
@@ -126,7 +126,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterUpdateAddObj);
 }
 
-export const clusterUpdateAddDbWrapper: GqlDbWrapper<ClusterUpdateAddObj> = {
+export const clusterUpdateItemDbWrapper: GqlDbWrapper<ClusterUpdateItemObj> = {
   getObj,
   listObjs,
   listAllObjs,

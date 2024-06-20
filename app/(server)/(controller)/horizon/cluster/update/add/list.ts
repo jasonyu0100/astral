@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateAddDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
+import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
 import {
-  clusterUpdateAddModel,
-  ClusterUpdateAddObj,
+  clusterUpdateItemModel,
+  ClusterUpdateItemObj,
 } from '@/(server)/(model)/horizon/cluster/update/add/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateAddObj;
-const gqlDbWrapper = clusterUpdateAddDbWrapper;
-const listIdKey = clusterUpdateAddModel.parentKey;
+type TargetObj = ClusterUpdateItemObj;
+const gqlDbWrapper = clusterUpdateItemDbWrapper;
+const listIdKey = clusterUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateAddList = (listId: string): Controller => {
+const useControllerForClusterUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -283,5 +283,8 @@ const useControllerForClusterUpdateAddList = (listId: string): Controller => {
   };
 };
 
-const ContextForClusterUpdateAddList = createContext({} as Controller);
-export { ContextForClusterUpdateAddList, useControllerForClusterUpdateAddList };
+const ContextForClusterUpdateItemList = createContext({} as Controller);
+export {
+  ContextForClusterUpdateItemList as ContextForClusterUpdateItemList,
+  useControllerForClusterUpdateItemList as useControllerForClusterUpdateItemList,
+};

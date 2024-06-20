@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ChapterUpdateAddObj } from '@/(server)/(model)/space/chapter/update/add/main';
+import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/add/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChapterUpdateAddObj,
@@ -13,11 +13,11 @@ import {
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as ChapterUpdateAddObj;
+  return obj as ChapterUpdateItemObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ChapterUpdateAddObj[];
+  return objs as ChapterUpdateItemObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listChapterUpdateAddObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ChapterUpdateAddObj, 'id'>) {
+async function createObj(newObj: Omit<ChapterUpdateItemObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createChapterUpdateAddObj,
     variables: {
@@ -85,7 +85,7 @@ async function createObj(newObj: Omit<ChapterUpdateAddObj, 'id'>) {
   return castSingle(payload?.data?.createChapterUpdateAddObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ChapterUpdateAddObj>) {
+async function updateObj(id: string, updateObj: Partial<ChapterUpdateItemObj>) {
   const payload = await amplifyClient.graphql({
     query: updateChapterUpdateAddObj,
     variables: {
@@ -99,7 +99,7 @@ async function updateObj(id: string, updateObj: Partial<ChapterUpdateAddObj>) {
   return castSingle(payload?.data?.updateChapterUpdateAddObj);
 }
 
-async function overwriteObj(id: string, newObj: ChapterUpdateAddObj) {
+async function overwriteObj(id: string, newObj: ChapterUpdateItemObj) {
   const payload = await amplifyClient.graphql({
     query: updateChapterUpdateAddObj,
     variables: {
@@ -126,7 +126,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChapterUpdateAddObj);
 }
 
-export const chapterUpdateAddDbWrapper: GqlDbWrapper<ChapterUpdateAddObj> = {
+export const chapterUpdateItemDbWrapper: GqlDbWrapper<ChapterUpdateItemObj> = {
   getObj,
   listObjs,
   listAllObjs,

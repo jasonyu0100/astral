@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
-export interface ClusterUpdateAddObj {
+export interface ClusterUpdateItemObj {
   id: string;
   updateId: string;
   value: number;
@@ -9,8 +9,8 @@ export interface ClusterUpdateAddObj {
   created: string;
 }
 
-export const clusterUpdateAddGql = `
-type ClusterUpdateAddObj {
+export const clusterUpdateItemGql = `
+type ClusterUpdateItemObj {
   id: String!
   updateId: String!
   value: Int!
@@ -19,11 +19,10 @@ type ClusterUpdateAddObj {
 }
 `;
 
-export const ContextForClusterUpdateAddObj = createContext<ClusterUpdateAddObj>(
-  {} as ClusterUpdateAddObj,
-);
+export const ContextForClusterUpdateItemObj =
+  createContext<ClusterUpdateItemObj>({} as ClusterUpdateItemObj);
 
-export const exampleClusterUpdateAdd: ClusterUpdateAddObj = {
+export const exampleClusterUpdateItem: ClusterUpdateItemObj = {
   id: '0',
   updateId: '0',
   value: 11,
@@ -31,7 +30,7 @@ export const exampleClusterUpdateAdd: ClusterUpdateAddObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] = [
+export const exampleClusterUpdateItems: ClusterUpdateItemObj[] = [
   {
     id: '0',
     updateId: '0',
@@ -55,11 +54,11 @@ export const exampleClusterUpdateAdds: ClusterUpdateAddObj[] = [
   },
 ];
 
-export const clusterUpdateAddModel: ModelInterface<ClusterUpdateAddObj> = {
+export const clusterUpdateItemModel: ModelInterface<ClusterUpdateItemObj> = {
   name: 'add',
-  gql: clusterUpdateAddGql,
-  example: exampleClusterUpdateAdd,
-  examples: exampleClusterUpdateAdds,
+  gql: clusterUpdateItemGql,
+  example: exampleClusterUpdateItem,
+  examples: exampleClusterUpdateItems,
   parentKey: 'updateId',
   children: [],
 };

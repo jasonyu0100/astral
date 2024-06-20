@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { chapterUpdateAddDbWrapper } from '@/(server)/(db)/space/chapter/update/add/main';
+import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/add/main';
 import {
-  chapterUpdateAddModel,
-  ChapterUpdateAddObj,
+  chapterUpdateItemModel,
+  ChapterUpdateItemObj,
 } from '@/(server)/(model)/space/chapter/update/add/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterUpdateAddObj;
-const gqlDbWrapper = chapterUpdateAddDbWrapper;
-const listIdKey = chapterUpdateAddModel.parentKey;
+type TargetObj = ChapterUpdateItemObj;
+const gqlDbWrapper = chapterUpdateItemDbWrapper;
+const listIdKey = chapterUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterUpdateAddList = (listId: string): Controller => {
+const useControllerForChapterUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -285,5 +285,8 @@ const useControllerForChapterUpdateAddList = (listId: string): Controller => {
   };
 };
 
-const ContextForSpaceUpdateAddList = createContext({} as Controller);
-export { ContextForSpaceUpdateAddList, useControllerForChapterUpdateAddList };
+const ContextForSpaceUpdateItemList = createContext({} as Controller);
+export {
+  ContextForSpaceUpdateItemList as ContextForSpaceUpdateItemList,
+  useControllerForChapterUpdateItemList as useControllerForChapterUpdateItemList,
+};

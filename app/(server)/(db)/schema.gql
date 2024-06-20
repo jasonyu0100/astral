@@ -378,7 +378,6 @@ input CreateHorizonObjInput {
 
 input CreateHorizonUpdateAddObjInput {
   updateId: String!
-  clusterUpdateId: String!
   value: Int!
   message: String!
   created: String!
@@ -466,31 +465,6 @@ input CreateSpaceObjInput {
   category: String!
   hours: Int!
   target: String!
-}
-
-input CreateSpaceUpdateAddObjInput {
-  updateId: String!
-  variant: String!
-  conversationId: String
-  ideaId: String
-  sceneId: String
-  verseId: String
-  value: Int!
-  message: String!
-  created: String!
-}
-
-input CreateSpaceUpdateMemberObjInput {
-  updateId: String!
-  userId: String!
-  created: String!
-}
-
-input CreateSpaceUpdateObjInput {
-  spaceId: String!
-  title: String!
-  description: String!
-  created: String!
 }
 
 input CreateUserCollaboratorObjInput {
@@ -675,18 +649,6 @@ input DeleteSpaceObjInput {
   id: String!
 }
 
-input DeleteSpaceUpdateAddObjInput {
-  id: String!
-}
-
-input DeleteSpaceUpdateMemberObjInput {
-  id: String!
-}
-
-input DeleteSpaceUpdateObjInput {
-  id: String!
-}
-
 input DeleteUserCollaboratorObjInput {
   id: String!
 }
@@ -853,7 +815,6 @@ type HorizonObjConnection {
 type HorizonUpdateAddObj {
   id: String!
   updateId: String!
-  clusterUpdateId: String!
   value: Int!
   message: String!
   created: String!
@@ -1009,49 +970,6 @@ type SpaceObj {
 
 type SpaceObjConnection {
   items: [SpaceObj]
-  nextToken: String
-}
-
-type SpaceUpdateAddObj {
-  id: String!
-  updateId: String!
-  variant: String!
-  conversationId: String
-  ideaId: String
-  sceneId: String
-  verseId: String
-  value: Int!
-  message: String!
-  created: String!
-}
-
-type SpaceUpdateAddObjConnection {
-  items: [SpaceUpdateAddObj]
-  nextToken: String
-}
-
-type SpaceUpdateMemberObj {
-  id: String!
-  updateId: String!
-  userId: String!
-  created: String!
-}
-
-type SpaceUpdateMemberObjConnection {
-  items: [SpaceUpdateMemberObj]
-  nextToken: String
-}
-
-type SpaceUpdateObj {
-  id: String!
-  spaceId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-type SpaceUpdateObjConnection {
-  items: [SpaceUpdateObj]
   nextToken: String
 }
 
@@ -1270,7 +1188,6 @@ input TableHorizonObjFilterInput {
 input TableHorizonUpdateAddObjFilterInput {
   id: TableStringFilterInput
   updateId: TableStringFilterInput
-  clusterUpdateId: TableStringFilterInput
   value: TableIntFilterInput
   message: TableStringFilterInput
   created: TableStringFilterInput
@@ -1389,34 +1306,6 @@ input TableSpaceObjFilterInput {
   category: TableStringFilterInput
   hours: TableIntFilterInput
   target: TableStringFilterInput
-}
-
-input TableSpaceUpdateAddObjFilterInput {
-  id: TableStringFilterInput
-  updateId: TableStringFilterInput
-  variant: TableStringFilterInput
-  conversationId: TableStringFilterInput
-  ideaId: TableStringFilterInput
-  sceneId: TableStringFilterInput
-  verseId: TableStringFilterInput
-  value: TableIntFilterInput
-  message: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableSpaceUpdateMemberObjFilterInput {
-  id: TableStringFilterInput
-  updateId: TableStringFilterInput
-  userId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableSpaceUpdateObjFilterInput {
-  id: TableStringFilterInput
-  spaceId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
 }
 
 input TableStringFilterInput {
@@ -1706,7 +1595,6 @@ input UpdateHorizonObjInput {
 input UpdateHorizonUpdateAddObjInput {
   id: String!
   updateId: String
-  clusterUpdateId: String
   value: Int
   message: String
   created: String
@@ -1804,34 +1692,6 @@ input UpdateSpaceObjInput {
   category: String
   hours: Int
   target: String
-}
-
-input UpdateSpaceUpdateAddObjInput {
-  id: String!
-  updateId: String
-  variant: String
-  conversationId: String
-  ideaId: String
-  sceneId: String
-  verseId: String
-  value: Int
-  message: String
-  created: String
-}
-
-input UpdateSpaceUpdateMemberObjInput {
-  id: String!
-  updateId: String
-  userId: String
-  created: String
-}
-
-input UpdateSpaceUpdateObjInput {
-  id: String!
-  spaceId: String
-  title: String
-  description: String
-  created: String
 }
 
 input UpdateUserCollaboratorObjInput {
@@ -2123,27 +1983,6 @@ type Mutation {
   deleteUserReservationObj(
     input: DeleteUserReservationObjInput!
   ): UserReservationObj
-  createSpaceUpdateObj(input: CreateSpaceUpdateObjInput!): SpaceUpdateObj
-  updateSpaceUpdateObj(input: UpdateSpaceUpdateObjInput!): SpaceUpdateObj
-  deleteSpaceUpdateObj(input: DeleteSpaceUpdateObjInput!): SpaceUpdateObj
-  createSpaceUpdateMemberObj(
-    input: CreateSpaceUpdateMemberObjInput!
-  ): SpaceUpdateMemberObj
-  updateSpaceUpdateMemberObj(
-    input: UpdateSpaceUpdateMemberObjInput!
-  ): SpaceUpdateMemberObj
-  deleteSpaceUpdateMemberObj(
-    input: DeleteSpaceUpdateMemberObjInput!
-  ): SpaceUpdateMemberObj
-  createSpaceUpdateAddObj(
-    input: CreateSpaceUpdateAddObjInput!
-  ): SpaceUpdateAddObj
-  updateSpaceUpdateAddObj(
-    input: UpdateSpaceUpdateAddObjInput!
-  ): SpaceUpdateAddObj
-  deleteSpaceUpdateAddObj(
-    input: DeleteSpaceUpdateAddObjInput!
-  ): SpaceUpdateAddObj
   createHorizonUpdateAddObj(
     input: CreateHorizonUpdateAddObjInput!
   ): HorizonUpdateAddObj
@@ -2379,24 +2218,6 @@ type Query {
     limit: Int
     nextToken: String
   ): UserReservationObjConnection
-  getSpaceUpdateObj(id: String!): SpaceUpdateObj
-  listSpaceUpdateObjs(
-    filter: TableSpaceUpdateObjFilterInput
-    limit: Int
-    nextToken: String
-  ): SpaceUpdateObjConnection
-  getSpaceUpdateMemberObj(id: String!): SpaceUpdateMemberObj
-  listSpaceUpdateMemberObjs(
-    filter: TableSpaceUpdateMemberObjFilterInput
-    limit: Int
-    nextToken: String
-  ): SpaceUpdateMemberObjConnection
-  getSpaceUpdateAddObj(id: String!): SpaceUpdateAddObj
-  listSpaceUpdateAddObjs(
-    filter: TableSpaceUpdateAddObjFilterInput
-    limit: Int
-    nextToken: String
-  ): SpaceUpdateAddObjConnection
   getHorizonUpdateAddObj(id: String!): HorizonUpdateAddObj
   listHorizonUpdateAddObjs(
     filter: TableHorizonUpdateAddObjFilterInput
@@ -3033,73 +2854,9 @@ type Subscription {
     email: String
     role: String
   ): UserReservationObj @aws_subscribe(mutations: ["deleteUserReservationObj"])
-  onCreateSpaceUpdateObj(
-    id: String
-    spaceId: String
-    title: String
-    description: String
-    created: String
-  ): SpaceUpdateObj @aws_subscribe(mutations: ["createSpaceUpdateObj"])
-  onUpdateSpaceUpdateObj(
-    id: String
-    spaceId: String
-    title: String
-    description: String
-    created: String
-  ): SpaceUpdateObj @aws_subscribe(mutations: ["updateSpaceUpdateObj"])
-  onDeleteSpaceUpdateObj(
-    id: String
-    spaceId: String
-    title: String
-    description: String
-    created: String
-  ): SpaceUpdateObj @aws_subscribe(mutations: ["deleteSpaceUpdateObj"])
-  onCreateSpaceUpdateMemberObj(
-    id: String
-    updateId: String
-    userId: String
-    created: String
-  ): SpaceUpdateMemberObj
-    @aws_subscribe(mutations: ["createSpaceUpdateMemberObj"])
-  onUpdateSpaceUpdateMemberObj(
-    id: String
-    updateId: String
-    userId: String
-    created: String
-  ): SpaceUpdateMemberObj
-    @aws_subscribe(mutations: ["updateSpaceUpdateMemberObj"])
-  onDeleteSpaceUpdateMemberObj(
-    id: String
-    updateId: String
-    userId: String
-    created: String
-  ): SpaceUpdateMemberObj
-    @aws_subscribe(mutations: ["deleteSpaceUpdateMemberObj"])
-  onCreateSpaceUpdateAddObj(
-    id: String
-    updateId: String
-    variant: String
-    conversationId: String
-    ideaId: String
-  ): SpaceUpdateAddObj @aws_subscribe(mutations: ["createSpaceUpdateAddObj"])
-  onUpdateSpaceUpdateAddObj(
-    id: String
-    updateId: String
-    variant: String
-    conversationId: String
-    ideaId: String
-  ): SpaceUpdateAddObj @aws_subscribe(mutations: ["updateSpaceUpdateAddObj"])
-  onDeleteSpaceUpdateAddObj(
-    id: String
-    updateId: String
-    variant: String
-    conversationId: String
-    ideaId: String
-  ): SpaceUpdateAddObj @aws_subscribe(mutations: ["deleteSpaceUpdateAddObj"])
   onCreateHorizonUpdateAddObj(
     id: String
     updateId: String
-    clusterUpdateId: String
     value: Int
     message: String
   ): HorizonUpdateAddObj
@@ -3107,7 +2864,6 @@ type Subscription {
   onUpdateHorizonUpdateAddObj(
     id: String
     updateId: String
-    clusterUpdateId: String
     value: Int
     message: String
   ): HorizonUpdateAddObj
@@ -3115,7 +2871,6 @@ type Subscription {
   onDeleteHorizonUpdateAddObj(
     id: String
     updateId: String
-    clusterUpdateId: String
     value: Int
     message: String
   ): HorizonUpdateAddObj

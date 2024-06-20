@@ -285,7 +285,4 @@ const useControllerForChapterUpdateList = (listId: string): Controller => {
 };
 
 const ContextForChapterUpdateList = createContext({} as Controller);
-export {
-  ContextForChapterUpdateList,
-  useControllerForChapterUpdateList as useControllerForSpaceUpdateList,
-};
+export { ContextForChapterUpdateList, useControllerForChapterUpdateList };

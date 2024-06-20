@@ -16,6 +16,10 @@ import {
   useControllerForChapterSceneList,
 } from '@/(server)/(controller)/space/chapter/scene/list';
 import {
+  ContextForChapterUpdateList,
+  useControllerForChapterUpdateList,
+} from '@/(server)/(controller)/space/chapter/update/list';
+import {
   ContextForChapterVerseList,
   useControllerForChapterVerseList,
 } from '@/(server)/(controller)/space/chapter/verse/list';
@@ -23,16 +27,12 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
-import {
-  ContextForChapterUpdateList,
-  useControllerForSpaceUpdateList,
-} from '@/(server)/(controller)/space/update/list';
 import isVerseAuth from '@/(utils)/isAuth';
 import { SpaceSeaShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const spaceController = useControllerForSpaceMain(params.id);
-  const updateListController = useControllerForSpaceUpdateList(params.id);
+  const updateListController = useControllerForChapterUpdateList(params.id);
 
   // UPDATEs
 
