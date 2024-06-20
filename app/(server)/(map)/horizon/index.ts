@@ -13,13 +13,13 @@ import { horizonUpdateDbWrapper } from '@/(server)/(db)/horizon/update/main';
 import { horizonUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/update/member/main';
 import { forumMemberModel } from '@/(server)/(model)/horizon/arc/forum/member/main';
 import { clusterMemberModel } from '@/(server)/(model)/horizon/cluster/member/main';
-import { clusterUpdateItemModel } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import { clusterUpdateItemModel } from '@/(server)/(model)/horizon/cluster/update/item/main';
 import {
   clusterUpdateMemberGql,
   clusterUpdateMemberModel,
 } from '@/(server)/(model)/horizon/cluster/update/member/main';
 import { horizonMemberModel } from '@/(server)/(model)/horizon/member/main';
-import { horizonUpdateItemModel } from '@/(server)/(model)/horizon/update/add/main';
+import { horizonUpdateItemModel } from '@/(server)/(model)/horizon/update/item/main';
 import { horizonUpdateMemberModel } from '@/(server)/(model)/horizon/update/member/main';
 import { arcForumModel } from '../../(model)/horizon/arc/forum/main';
 import { postCommentGql } from '../../(model)/horizon/arc/forum/post/comment/main';
@@ -72,7 +72,7 @@ export const horizonMap = {
     update: {
       model: clusterUpdateModel,
       db: clusterUpdateDbWrapper,
-      add: {
+      item: {
         model: clusterUpdateItemModel,
         db: clusterUpdateDbWrapper,
       },
@@ -85,7 +85,7 @@ export const horizonMap = {
   update: {
     model: horizonUpdateModel,
     db: horizonUpdateDbWrapper,
-    add: {
+    item: {
       model: horizonUpdateItemModel,
       db: horizonUpdateDbWrapper,
     },

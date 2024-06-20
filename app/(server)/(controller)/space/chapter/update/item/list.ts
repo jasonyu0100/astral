@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/add/main';
+import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
 import {
-  horizonUpdateItemModel,
-  HorizonUpdateItemObj,
-} from '@/(server)/(model)/horizon/update/add/main';
+  chapterUpdateItemModel,
+  ChapterUpdateItemObj,
+} from '@/(server)/(model)/space/chapter/update/add/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateItemObj;
-const gqlDbWrapper = horizonUpdateItemDbWrapper;
-const listIdKey = horizonUpdateItemModel.parentKey;
+type TargetObj = ChapterUpdateItemObj;
+const gqlDbWrapper = chapterUpdateItemDbWrapper;
+const listIdKey = chapterUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
+const useControllerForChapterUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -204,8 +204,10 @@ const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',
+        variant: '',
         value: 0,
         message: '',
+        included: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -283,8 +285,8 @@ const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateItemList = createContext({} as Controller);
+const ContextForSpaceUpdateItemList = createContext({} as Controller);
 export {
-  ContextForHorizonUpdateItemList as ContextForHorizonUpdateItemList,
-  useControllerForHorizonUpdateItemList as useControllerForHorizonUpdateItemList,
+  ContextForSpaceUpdateItemList as ContextForSpaceUpdateItemList,
+  useControllerForChapterUpdateItemList as useControllerForChapterUpdateItemList,
 };

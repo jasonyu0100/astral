@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/add/main';
+import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/item/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createHorizonUpdateAddObj,

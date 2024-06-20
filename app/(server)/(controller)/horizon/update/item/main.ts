@@ -5,8 +5,8 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/add/main';
-import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/add/main';
+import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/item/main';
+import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonUpdateItemObj;

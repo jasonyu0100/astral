@@ -5,8 +5,8 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
-import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
+import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ClusterUpdateItemObj;

@@ -69,5 +69,5 @@ export const chapterUpdateModel: ModelInterface<ChapterUpdateObj> = {
   example: exampleChapterUpdate,
   examples: exampleChapterUpdates,
   parentKey: 'chapterId',
-  children: ['add', 'member'],
+  children: ['item', 'member'],
 };

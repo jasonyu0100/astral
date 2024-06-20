@@ -7,7 +7,7 @@ import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
 import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main';
 import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
-import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/add/main';
+import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
 import { chapterUpdateDbWrapper } from '@/(server)/(db)/space/chapter/update/main';
 import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
 import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
@@ -52,7 +52,7 @@ export const spaceMap = {
         model: chapterUpdateMemberModel,
         db: chapterUpdateMemberDbWrapper,
       },
-      add: {
+      item: {
         model: chapterUpdateItemModel,
         db: chapterUpdateItemDbWrapper,
       },

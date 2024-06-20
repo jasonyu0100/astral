@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/add/main';
+import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
 import {
-  chapterUpdateItemModel,
-  ChapterUpdateItemObj,
-} from '@/(server)/(model)/space/chapter/update/add/main';
+  clusterUpdateItemModel,
+  ClusterUpdateItemObj,
+} from '@/(server)/(model)/horizon/cluster/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterUpdateItemObj;
-const gqlDbWrapper = chapterUpdateItemDbWrapper;
-const listIdKey = chapterUpdateItemModel.parentKey;
+type TargetObj = ClusterUpdateItemObj;
+const gqlDbWrapper = clusterUpdateItemDbWrapper;
+const listIdKey = clusterUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterUpdateItemList = (listId: string): Controller => {
+const useControllerForClusterUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -204,10 +204,8 @@ const useControllerForChapterUpdateItemList = (listId: string): Controller => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         updateId: '',
-        variant: '',
         value: 0,
         message: '',
-        included: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -285,8 +283,8 @@ const useControllerForChapterUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForSpaceUpdateItemList = createContext({} as Controller);
+const ContextForClusterUpdateItemList = createContext({} as Controller);
 export {
-  ContextForSpaceUpdateItemList as ContextForSpaceUpdateItemList,
-  useControllerForChapterUpdateItemList as useControllerForChapterUpdateItemList,
+  ContextForClusterUpdateItemList as ContextForClusterUpdateItemList,
+  useControllerForClusterUpdateItemList as useControllerForClusterUpdateItemList,
 };

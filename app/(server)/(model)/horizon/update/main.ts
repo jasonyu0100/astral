@@ -67,5 +67,5 @@ export const horizonUpdateModel: ModelInterface<HorizonUpdateObj> = {
   gql: horizonUpdateGql,
   parentKey: 'horizonId',
   name: 'update',
-  children: ['add', 'member'],
+  children: ['item', 'member'],
 };

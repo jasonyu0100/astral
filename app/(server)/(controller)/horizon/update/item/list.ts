@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/add/main';
+import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/item/main';
 import {
-  clusterUpdateItemModel,
-  ClusterUpdateItemObj,
-} from '@/(server)/(model)/horizon/cluster/update/add/main';
+  horizonUpdateItemModel,
+  HorizonUpdateItemObj,
+} from '@/(server)/(model)/horizon/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateItemObj;
-const gqlDbWrapper = clusterUpdateItemDbWrapper;
-const listIdKey = clusterUpdateItemModel.parentKey;
+type TargetObj = HorizonUpdateItemObj;
+const gqlDbWrapper = horizonUpdateItemDbWrapper;
+const listIdKey = horizonUpdateItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateItemList = (listId: string): Controller => {
+const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -283,8 +283,8 @@ const useControllerForClusterUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForClusterUpdateItemList = createContext({} as Controller);
+const ContextForHorizonUpdateItemList = createContext({} as Controller);
 export {
-  ContextForClusterUpdateItemList as ContextForClusterUpdateItemList,
-  useControllerForClusterUpdateItemList as useControllerForClusterUpdateItemList,
+  ContextForHorizonUpdateItemList as ContextForHorizonUpdateItemList,
+  useControllerForHorizonUpdateItemList as useControllerForHorizonUpdateItemList,
 };

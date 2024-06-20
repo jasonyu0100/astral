@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/add/main';
+import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/item/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createClusterUpdateAddObj,
