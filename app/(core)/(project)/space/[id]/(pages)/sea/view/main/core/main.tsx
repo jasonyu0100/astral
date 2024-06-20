@@ -12,7 +12,6 @@ export function SpaceSeaCore() {
       >
         <div className='flex h-full w-full flex-col justify-center space-y-[2rem] p-[4rem]'>
           <SpaceSeaCardEdit />
-          {/* <SpaceSeaWorkCards /> */}
         </div>
       </GlassAreaContainer>
     </div>

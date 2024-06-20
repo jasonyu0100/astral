@@ -1,13 +1,17 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { useContext, useState } from 'react';
+import { EditContext } from '../../main';
+import { SpaceSeaItemFormHeader } from './header/main';
 
-export function SpaceSeaEditForm() {
+export function SpaceSeaItemForm() {
+  const { updateComplete } = useContext(EditContext);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const updateItemListController = useContext(ContextForChapterItemList);
   const current = updateItemListController.state.currentObj;
   const [title, setTitle] = useState(current.title);
@@ -15,20 +19,7 @@ export function SpaceSeaEditForm() {
 
   return (
     <div className='flex h-full flex-grow flex-col justify-around space-y-[1rem]'>
-      <div className='flex flex-col'>
-        <p className='mb-[1rem] text-sm font-bold text-slate-300'>
-          {updateItemListController.state.index + 1} of{' '}
-          {updateItemListController.state.objs.length}
-        </p>
-        <p className='text-xl font-bold text-slate-300'>
-          {updateItemListController.state.currentObj.variant} UPDATE
-        </p>
-        <p className='text-sm font-light text-slate-300'>
-          {getFormattedAMPM(
-            new Date(updateItemListController.state.currentObj?.created),
-          )}
-        </p>
-      </div>
+      <SpaceSeaItemFormHeader />
       <br />
       <p className='text-lg text-slate-300'>Title</p>
       <GlassWindowFrame
@@ -74,7 +65,13 @@ export function SpaceSeaEditForm() {
           className='h-[3rem] w-[200px]'
           roundedFx={roundedFx['rounded']}
         >
-          <GlassWindowContents className='flex items-center justify-center bg-blue-500'>
+          <GlassWindowContents
+            className='flex cursor-pointer items-center justify-center bg-blue-500'
+            onClick={() => {
+              updateItemListController.actions.stateActions.goNext();
+              updateComplete(false);
+            }}
+          >
             <p className='font-bold text-white'>Save</p>
           </GlassWindowContents>
           <GlassAreaPane glassFx={glassFx['glass-5']} />
