@@ -11,7 +11,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import {
   FileElem,
   FileElemVariant,
@@ -29,8 +29,7 @@ export function SpaceDraftAddFileIdeaModal() {
   );
   const [file, changeFile] = useState({} as FileElem);
   const user = useGlobalUser((state) => state.user);
-  const updateListController =
-    useControllerForChapterUpdateItemListFromChapters('');
+  const updateListController = useControllerForChapterItemList('');
 
   async function createFileIdea() {
     const idea =

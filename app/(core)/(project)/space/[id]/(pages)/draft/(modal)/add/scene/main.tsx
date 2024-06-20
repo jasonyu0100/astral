@@ -10,7 +10,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useContext, useState } from 'react';
 
 export function SpaceDraftAddSceneModal() {
@@ -18,8 +18,7 @@ export function SpaceDraftAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const updateListController =
-    useControllerForChapterUpdateItemListFromChapters('');
+  const updateListController = useControllerForChapterItemList('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 

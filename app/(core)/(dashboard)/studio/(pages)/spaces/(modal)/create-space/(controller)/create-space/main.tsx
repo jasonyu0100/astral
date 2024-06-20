@@ -3,7 +3,7 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 import {
@@ -64,8 +64,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
   const verseListController = useControllerForChapterVerseList('');
-  const updateItemListController =
-    useControllerForChapterUpdateItemListFromChapters('');
+  const updateItemListController = useControllerForChapterItemList('');
 
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
@@ -246,8 +245,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         } else {
           const verse =
             await verseListController.actions.createActions.createVerse(
-              chapter.title,
-              chapter.description,
+              'untitled',
+              '',
               user.id,
               chapter.id,
             );

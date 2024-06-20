@@ -11,7 +11,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useContext, useState } from 'react';
 
 export function StormAddChatModal() {
@@ -21,8 +21,7 @@ export function StormAddChatModal() {
   const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
-  const updateListController =
-    useControllerForChapterUpdateItemListFromChapters('');
+  const updateListController = useControllerForChapterItemList('');
 
   async function createChat() {
     const chat = await chatListController.actions.createActions.createChat(

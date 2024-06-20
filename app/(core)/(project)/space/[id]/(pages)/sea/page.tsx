@@ -4,13 +4,9 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
 import {
-  ContextForChapterUpdateItemFromChaptersList,
-  useControllerForChapterUpdateItemListFromChapters,
+  ContextForChapterItemList,
+  useControllerForChapterItemList,
 } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
-import {
-  ContextForChapterUpdateList,
-  useControllerForChapterUpdateList,
-} from '@/(server)/(controller)/space/chapter/update/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -20,26 +16,18 @@ import { SpaceSeaShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const spaceController = useControllerForSpaceMain(params.id);
-  const updateListController = useControllerForChapterUpdateList(params.id);
-
-  // UPDATEs
-
   const chapterListController = useControllerForSpaceChapterList(params.id);
-  const itemListController = useControllerForChapterUpdateItemListFromChapters(
+  const updateItemListController = useControllerForChapterItemList(
     chapterListController.state.objId,
   );
 
   return (
     <ContextForSpaceMain.Provider value={spaceController}>
-      <ContextForChapterUpdateList.Provider value={updateListController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterUpdateItemFromChaptersList.Provider
-            value={itemListController}
-          >
-            <SpaceSeaShareView />
-          </ContextForChapterUpdateItemFromChaptersList.Provider>
-        </ContextForSpaceChapterList.Provider>
-      </ContextForChapterUpdateList.Provider>
+      <ContextForSpaceChapterList.Provider value={chapterListController}>
+        <ContextForChapterItemList.Provider value={updateItemListController}>
+          <SpaceSeaShareView />
+        </ContextForChapterItemList.Provider>
+      </ContextForSpaceChapterList.Provider>
     </ContextForSpaceMain.Provider>
   );
 }

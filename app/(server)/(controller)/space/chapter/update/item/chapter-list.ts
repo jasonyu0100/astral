@@ -77,9 +77,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterUpdateItemListFromChapters = (
-  listId: string,
-): Controller => {
+const useControllerForChapterItemList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -286,7 +284,7 @@ const useControllerForChapterUpdateItemListFromChapters = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterUpdateItemVariant.CHAT,
+        variant: ChapterUpdateItemVariant.SCENE,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -419,10 +417,5 @@ const useControllerForChapterUpdateItemListFromChapters = (
   };
 };
 
-const ContextForChapterUpdateItemFromChaptersList = createContext(
-  {} as Controller,
-);
-export {
-  ContextForChapterUpdateItemFromChaptersList,
-  useControllerForChapterUpdateItemListFromChapters,
-};
+const ContextForChapterItemList = createContext({} as Controller);
+export { ContextForChapterItemList, useControllerForChapterItemList };

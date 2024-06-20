@@ -10,7 +10,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
@@ -23,8 +23,7 @@ export function SpaceFlowAddVerseModal() {
   const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController =
-    useControllerForChapterUpdateItemListFromChapters('');
+  const updateListController = useControllerForChapterItemList('');
 
   async function createVerse() {
     const verse =
