@@ -1,5 +1,5 @@
-import { ButtonInputProps, DivInputProps } from '@/(types)/props/main';
-import { ResourceContainer } from '../../common/container/main';
+import { ButtonInputProps } from '@/(types)/props/main';
+import { ResourceContainer } from '../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {
   return (

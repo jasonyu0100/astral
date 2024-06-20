@@ -1,11 +1,10 @@
-import { GalleryExplorerFront } from './front/main';
-import { GalleryContainer } from '../common/container/main';
-import { useState } from 'react';
-import { GalleryExplorerBack } from './back/main';
 import {
   ContextForFlippable,
   useControllerForFlippable,
 } from '@/(logic)/contexts/flippable/main';
+import { GalleryExplorerBack } from './back/main';
+import { GalleryContainer } from './common/container/main';
+import { GalleryExplorerFront } from './front/main';
 
 export function ExplorerGallery() {
   const flippableController = useControllerForFlippable();

@@ -1,5 +1,5 @@
-import { CollectionResourceAdd } from '@/(components)/(media)/(resource)/explorer/add/main';
-import { ExplorerResource } from '@/(components)/(media)/(resource)/explorer/main';
+import { CollectionResourceAdd } from '@/(core)/(dashboard)/archive/(pages)/explorer/(common)/resource/add/main';
+import { ExplorerResource } from '@/(core)/(dashboard)/archive/(pages)/explorer/(common)/resource/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,

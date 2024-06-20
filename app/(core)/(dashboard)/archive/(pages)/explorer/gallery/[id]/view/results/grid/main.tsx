@@ -1,5 +1,3 @@
-import { GalleryCollectionAdd } from '@/(components)/(media)/(collection)/explorer/add/main';
-import { ExplorerCollection } from '@/(components)/(media)/(collection)/explorer/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -7,6 +5,8 @@ import {
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { useContext } from 'react';
+import { GalleryCollectionAdd } from '../../../../../(common)/collection/add/main';
+import { ExplorerCollection } from '../../../../../(common)/collection/main';
 import { ExplorerCreateCollectionModal } from '../../../../../(modals)/create/collection/main';
 
 export function ExplorerGalleryCollectionsGrid() {

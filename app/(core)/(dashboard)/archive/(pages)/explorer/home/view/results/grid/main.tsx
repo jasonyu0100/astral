@@ -1,5 +1,5 @@
-import { GalleryExplorerAdd } from '@/(components)/(media)/(gallery)/explorer/add/main';
-import { ExplorerGallery } from '@/(components)/(media)/(gallery)/explorer/main';
+import { GalleryExplorerAdd } from '@/(core)/(dashboard)/archive/(pages)/explorer/(common)/gallery/add/main';
+import { ExplorerGallery } from '@/(core)/(dashboard)/archive/(pages)/explorer/(common)/gallery/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
