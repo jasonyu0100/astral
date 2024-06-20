@@ -35,12 +35,21 @@ export function SpaceSeaWorkCards() {
   }
 
   return (
-    <div className='flex w-full flex-row flex-wrap gap-[1rem] pb-[2rem]'>
-      {updateItemListController.state.objs.map((updateItem) => (
-        <ContextForChapterUpdateItemObj.Provider value={updateItem}>
-          {renderCard(updateItem)}
-        </ContextForChapterUpdateItemObj.Provider>
-      ))}
+    <div className='relative flex w-full flex-row flex-wrap gap-[1rem] pb-[2rem]'>
+      {updateItemListController.state.objs
+        .filter((item) => !item.added)
+        .map((updateItem, index) => (
+          <div
+            className='cursor-pointer'
+            onClick={() =>
+              updateItemListController.actions.stateActions.select(updateItem)
+            }
+          >
+            <ContextForChapterUpdateItemObj.Provider value={updateItem}>
+              {renderCard(updateItem)}
+            </ContextForChapterUpdateItemObj.Provider>
+          </div>
+        ))}
     </div>
   );
 }

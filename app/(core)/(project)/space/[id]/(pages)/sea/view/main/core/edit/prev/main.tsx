@@ -1,6 +1,6 @@
 import { ButtonInputProps } from '@/(types)/props/main';
 
-export function SpaceSeaEditNext({ ...props }: ButtonInputProps) {
+export function SpaceSeaEditPrev({ ...props }: ButtonInputProps) {
   return (
     <button
       className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-blue-500'
@@ -13,18 +13,24 @@ export function SpaceSeaEditNext({ ...props }: ButtonInputProps) {
         fill='none'
       >
         <mask
-          id='mask0_3270_3507'
+          id='mask0_3274_1787'
           maskUnits='userSpaceOnUse'
           x='0'
           y='0'
-          width='24'
-          height='24'
+          width='25'
+          height='25'
         >
-          <rect width='24' height='24' fill='#D9D9D9' />
+          <rect
+            x='0.541992'
+            y='0.848572'
+            width='24'
+            height='24'
+            fill='#D9D9D9'
+          />
         </mask>
-        <g mask='url(#mask0_3270_3507)'>
+        <g mask='url(#mask0_3274_1787)'>
           <path
-            d='M16.175 13H4V11H16.175L10.575 5.4L12 4L20 12L12 20L10.575 18.6L16.175 13Z'
+            d='M8.36699 13.8486L13.967 19.4486L12.542 20.8486L4.54199 12.8486L12.542 4.84857L13.967 6.24857L8.36699 11.8486H20.542V13.8486H8.36699Z'
             fill='#CBD5E1'
           />
         </g>
