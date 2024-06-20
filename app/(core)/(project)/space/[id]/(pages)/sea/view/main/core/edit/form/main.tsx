@@ -14,15 +14,21 @@ export function SpaceSeaEditForm() {
   const [description, setDescription] = useState(current.description);
 
   return (
-    <div className='flex h-full flex-grow flex-col justify-around space-y-[1rem] p-[1rem]'>
-      <p className='text-xl font-bold text-slate-300'>
-        {updateItemListController.state.currentObj.variant} UPDATE
-      </p>
-      <p className='text-xl font-light text-slate-300'>
-        {getFormattedAMPM(
-          new Date(updateItemListController.state.currentObj?.created),
-        )}
-      </p>
+    <div className='flex h-full flex-grow flex-col justify-around space-y-[1rem]'>
+      <div className='flex flex-col'>
+        <p className='mb-[1rem] text-sm font-bold text-slate-300'>
+          {updateItemListController.state.index + 1} of{' '}
+          {updateItemListController.state.objs.length}
+        </p>
+        <p className='text-xl font-bold text-slate-300'>
+          {updateItemListController.state.currentObj.variant} UPDATE
+        </p>
+        <p className='text-sm font-light text-slate-300'>
+          {getFormattedAMPM(
+            new Date(updateItemListController.state.currentObj?.created),
+          )}
+        </p>
+      </div>
       <br />
       <p className='text-lg text-slate-300'>Title</p>
       <GlassWindowFrame

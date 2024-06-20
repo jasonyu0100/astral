@@ -101,9 +101,7 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
     },
     sortedViaComparison: (objs, comparison) => {
       // SMALLEST TO LARGEST
-      const sortedObjs = objs.toSorted((a, b) => {
-        return comparison(a, b) ? 1 : -1;
-      });
+      const sortedObjs = objs.sort(comparison);
       changeObjs(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
@@ -311,9 +309,13 @@ const useControllerForSpaceChapterList = (listId: string): Controller => {
       changeObjs([]);
     } else {
       controllerActions.gatherActions.gatherLatest().then((objs) => {
-        controllerActions.stateActions.sortedViaComparison(objs, (a, b) => {
-          return a.idx - b.idx;
-        });
+        controllerActions.stateActions.sortedViaComparison(
+          objs,
+          (a: SpaceChapterObj, b: SpaceChapterObj) => a.idx - b.idx,
+        );
+        // console.log(ordered);
+        // changeObjs(ordered);
+        // changeId(ordered.at(0)?.id || '');
       });
     }
   }, [listId]);
