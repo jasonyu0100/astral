@@ -2,15 +2,16 @@ import { FormBody } from '@/(components)/(form)/body/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { SpaceTemplate } from '@/(server)/(templates)/space/main';
 import { useContext } from 'react';
-import { ContextForPageTwo } from '../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 
 export function CreateSpaceModalPageTwo() {
+  const { pageTwo } = useContext(ContextForCreateSpace);
   const {
     variant,
     updateTemplateProject: updateVariant,
     templateProjectChapters: templateSpaceChapters,
     updateTemplateProjectChapters: updateTemplateSpaceChapters,
-  } = useContext(ContextForPageTwo);
+  } = pageTwo;
 
   return (
     <FormBody>

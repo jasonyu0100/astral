@@ -54,6 +54,8 @@ interface CreateSpaceController {
   createSpace: () => Promise<SpaceObj>;
 }
 
+export const ContextForCreateSpace = createContext({} as CreateSpaceController);
+
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
   const galleryListController = useContext(ContextForGalleryList);

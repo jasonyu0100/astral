@@ -7,10 +7,11 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForPageThree } from '../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 import { DatePicker } from './datepicker/main';
 
 export function CreateSpaceModalPageThree() {
+  const { pageThree } = useContext(ContextForCreateSpace);
   const {
     hours,
     updateHours,
@@ -18,7 +19,7 @@ export function CreateSpaceModalPageThree() {
     updateCollaborators,
     target,
     updateTarget,
-  } = useContext(ContextForPageThree);
+  } = pageThree;
 
   return (
     <FormBody>
