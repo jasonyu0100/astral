@@ -9,7 +9,7 @@ import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update
 import {
   chapterUpdateItemModel,
   ChapterUpdateItemObj,
-} from '@/(server)/(model)/space/chapter/update/add/main';
+} from '@/(server)/(model)/space/chapter/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ChapterUpdateItemObj;
@@ -206,7 +206,7 @@ const useControllerForChapterUpdateItemList = (listId: string): Controller => {
         updateId: '',
         variant: '',
         value: 0,
-        message: '',
+        description: '',
         included: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

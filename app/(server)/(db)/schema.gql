@@ -69,6 +69,49 @@ type ChapterSceneObjConnection {
   nextToken: String
 }
 
+type ChapterUpdateItemMemberObj {
+  id: String!
+  itemId: String!
+  userId: String!
+  created: String!
+}
+
+type ChapterUpdateItemMemberObjConnection {
+  items: [ChapterUpdateItemMemberObj]
+  nextToken: String
+}
+
+type ChapterUpdateItemObj {
+  id: String!
+  userId: String!
+  updateId: String!
+  title: String!
+  description: String!
+  created: String!
+  included: Boolean!
+  variant: String!
+  conversationId: String
+  chapterId: String
+  chatId: String
+  ideaId: String
+  sceneId: String
+  verseId: String
+}
+
+type ChapterUpdateItemObjConnection {
+  items: [ChapterUpdateItemObj]
+  nextToken: String
+}
+
+type ChapterUpdateObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
 type ChapterVerseObj {
   id: String!
   chapterId: String!
@@ -234,6 +277,28 @@ input CreateChapterSceneObjInput {
   title: String!
   description: String!
   created: String!
+}
+
+input CreateChapterUpdateItemMemberObjInput {
+  itemId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateChapterUpdateItemObjInput {
+  userId: String!
+  updateId: String!
+  title: String!
+  description: String!
+  created: String!
+  included: Boolean!
+  variant: String!
+  conversationId: String
+  chapterId: String
+  chatId: String
+  ideaId: String
+  sceneId: String
+  verseId: String
 }
 
 input CreateChapterVerseObjInput {
@@ -534,6 +599,14 @@ input DeleteChapterChatObjInput {
 }
 
 input DeleteChapterSceneObjInput {
+  id: String!
+}
+
+input DeleteChapterUpdateItemMemberObjInput {
+  id: String!
+}
+
+input DeleteChapterUpdateItemObjInput {
   id: String!
 }
 
@@ -1024,6 +1097,30 @@ input TableChapterSceneObjFilterInput {
   created: TableStringFilterInput
 }
 
+input TableChapterUpdateItemMemberObjFilterInput {
+  id: TableStringFilterInput
+  itemId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterUpdateItemObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  updateId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  included: TableBooleanFilterInput
+  variant: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  chatId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  verseId: TableStringFilterInput
+}
+
 input TableChapterVerseObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
@@ -1435,6 +1532,30 @@ input UpdateChapterSceneObjInput {
   title: String
   description: String
   created: String
+}
+
+input UpdateChapterUpdateItemMemberObjInput {
+  id: String!
+  itemId: String
+  userId: String
+  created: String
+}
+
+input UpdateChapterUpdateItemObjInput {
+  id: String!
+  userId: String
+  updateId: String
+  title: String
+  description: String
+  created: String
+  included: Boolean
+  variant: String
+  conversationId: String
+  chapterId: String
+  chatId: String
+  ideaId: String
+  sceneId: String
+  verseId: String
 }
 
 input UpdateChapterVerseObjInput {
@@ -2034,6 +2155,24 @@ type Mutation {
   createSceneStackObj(input: CreateSceneStackObjInput!): SceneStackObj
   updateSceneStackObj(input: UpdateSceneStackObjInput!): SceneStackObj
   deleteSceneStackObj(input: DeleteSceneStackObjInput!): SceneStackObj
+  createChapterUpdateItemObj(
+    input: CreateChapterUpdateItemObjInput!
+  ): ChapterUpdateItemObj
+  updateChapterUpdateItemObj(
+    input: UpdateChapterUpdateItemObjInput!
+  ): ChapterUpdateItemObj
+  deleteChapterUpdateItemObj(
+    input: DeleteChapterUpdateItemObjInput!
+  ): ChapterUpdateItemObj
+  createChapterUpdateItemMemberObj(
+    input: CreateChapterUpdateItemMemberObjInput!
+  ): ChapterUpdateItemMemberObj
+  updateChapterUpdateItemMemberObj(
+    input: UpdateChapterUpdateItemMemberObjInput!
+  ): ChapterUpdateItemMemberObj
+  deleteChapterUpdateItemMemberObj(
+    input: DeleteChapterUpdateItemMemberObjInput!
+  ): ChapterUpdateItemMemberObj
 }
 
 type Query {
@@ -2272,6 +2411,18 @@ type Query {
     limit: Int
     nextToken: String
   ): SceneStackObjConnection
+  getChapterUpdateItemObj(id: String!): ChapterUpdateItemObj
+  listChapterUpdateItemObjs(
+    filter: TableChapterUpdateItemObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterUpdateItemObjConnection
+  getChapterUpdateItemMemberObj(id: String!): ChapterUpdateItemMemberObj
+  listChapterUpdateItemMemberObjs(
+    filter: TableChapterUpdateItemMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterUpdateItemMemberObjConnection
 }
 
 type Subscription {
@@ -3043,4 +3194,49 @@ type Subscription {
     description: String
     created: String
   ): SceneStackObj @aws_subscribe(mutations: ["deleteSceneStackObj"])
+  onCreateChapterUpdateItemObj(
+    id: String
+    userId: String
+    updateId: String
+    title: String
+    description: String
+  ): ChapterUpdateItemObj
+    @aws_subscribe(mutations: ["createChapterUpdateItemObj"])
+  onUpdateChapterUpdateItemObj(
+    id: String
+    userId: String
+    updateId: String
+    title: String
+    description: String
+  ): ChapterUpdateItemObj
+    @aws_subscribe(mutations: ["updateChapterUpdateItemObj"])
+  onDeleteChapterUpdateItemObj(
+    id: String
+    userId: String
+    updateId: String
+    title: String
+    description: String
+  ): ChapterUpdateItemObj
+    @aws_subscribe(mutations: ["deleteChapterUpdateItemObj"])
+  onCreateChapterUpdateItemMemberObj(
+    id: String
+    itemId: String
+    userId: String
+    created: String
+  ): ChapterUpdateItemMemberObj
+    @aws_subscribe(mutations: ["createChapterUpdateItemMemberObj"])
+  onUpdateChapterUpdateItemMemberObj(
+    id: String
+    itemId: String
+    userId: String
+    created: String
+  ): ChapterUpdateItemMemberObj
+    @aws_subscribe(mutations: ["updateChapterUpdateItemMemberObj"])
+  onDeleteChapterUpdateItemMemberObj(
+    id: String
+    itemId: String
+    userId: String
+    created: String
+  ): ChapterUpdateItemMemberObj
+    @aws_subscribe(mutations: ["deleteChapterUpdateItemMemberObj"])
 }

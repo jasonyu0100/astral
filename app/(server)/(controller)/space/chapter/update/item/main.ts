@@ -6,7 +6,7 @@ import {
   BaseStateActions,
 } from '@/(server)/(controller)/main';
 import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
-import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/add/main';
+import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ChapterUpdateItemObj;

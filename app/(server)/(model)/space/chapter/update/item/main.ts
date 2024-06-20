@@ -12,35 +12,37 @@ export enum ChapterUpdateItemVariant {
 
 export interface ChapterUpdateItemObj {
   id: string;
+  userId: string;
   updateId: string;
-  variant: string;
+  title: string;
+  description: string;
+  created: string;
   included: boolean;
+  variant: string;
   chapterId?: string;
   chatId?: string;
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
   verseId?: string;
-  value: number;
-  message: string;
-  created: string;
 }
 
 export const chapterUpdateItemGql = `
 type ChapterUpdateItemObj {
   id: String!
+  userId: String!
   updateId: String!
-  variant: String!
+  title: String!
+  description: String!
+  created: String!
   included: Boolean!
+  variant: String!
   conversationId: String
   chapterId: String
   chatId: String
   ideaId: String
   sceneId: String
   verseId: String
-  message: String!
-  created: String!
-  value: Int!
 }
 `;
 
@@ -49,6 +51,10 @@ export const ContextForChapterUpdateItemObj =
 
 export const exampleChapterUpdateItem: ChapterUpdateItemObj = {
   id: '0',
+  userId: '0',
+  title: '',
+  description: 'Hello World',
+  created: new Date().toISOString(),
   included: true,
   updateId: '0',
   variant: ChapterUpdateItemVariant.CONVERSATION,
@@ -56,14 +62,15 @@ export const exampleChapterUpdateItem: ChapterUpdateItemObj = {
   ideaId: undefined,
   sceneId: undefined,
   verseId: undefined,
-  value: 11,
-  message: 'Hello World',
-  created: new Date().toISOString(),
 };
 
 export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
   {
     id: '0',
+    userId: '0',
+    title: '',
+    description: 'Hello World',
+    created: new Date().toISOString(),
     included: true,
     updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
@@ -71,35 +78,34 @@ export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
     ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
-    value: 11,
-    message: 'Quality Addition',
-    created: new Date().toISOString(),
   },
   {
     id: '0',
-    updateId: '0',
+    userId: '0',
+    title: '',
+    description: 'Hello World',
+    created: new Date().toISOString(),
     included: true,
+    updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
-    value: 0,
-    message: 'Unused Contribution',
-    created: new Date().toISOString(),
   },
   {
     id: '0',
-    updateId: '0',
+    userId: '0',
+    title: '',
+    description: 'Hello World',
+    created: new Date().toISOString(),
     included: true,
+    updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
     verseId: undefined,
-    value: 6,
-    message: 'Decent Conversation',
-    created: new Date().toISOString(),
   },
 ];
 

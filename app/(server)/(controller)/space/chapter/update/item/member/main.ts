@@ -5,11 +5,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
-import { ChapterUpdateMemberObj } from '@/(server)/(model)/space/chapter/update/member/main';
+import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/item/member/main';
+import { ChapterUpdateItemMemberObj } from '@/(server)/(model)/space/chapter/update/item/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterUpdateMemberObj;
+type TargetObj = ChapterUpdateItemMemberObj;
 const gqlDbWrapper = chapterUpdateMemberDbWrapper;
 
 interface ControllerState {

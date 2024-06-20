@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/add/main';
+import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createChapterUpdateAddObj,

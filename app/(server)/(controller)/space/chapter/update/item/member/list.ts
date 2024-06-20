@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
+import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/item/member/main';
 import {
-  ChapterUpdateMemberObj,
-  chapterUpdateMemberModel,
-} from '@/(server)/(model)/space/chapter/update/member/main';
+  ChapterUpdateItemMemberObj,
+  chapterUpdateMemberItemModel,
+} from '@/(server)/(model)/space/chapter/update/item/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterUpdateMemberObj;
+type TargetObj = ChapterUpdateItemMemberObj;
 const gqlDbWrapper = chapterUpdateMemberDbWrapper;
-const listIdKey = chapterUpdateMemberModel.parentKey;
+const listIdKey = chapterUpdateMemberItemModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -205,7 +205,7 @@ const useControllerForChapterUpdateMemberList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        updateId: '',
+        itemId: '',
         userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

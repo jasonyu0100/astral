@@ -8,8 +8,8 @@ import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/mai
 import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main';
 import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
 import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
+import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/item/member/main';
 import { chapterUpdateDbWrapper } from '@/(server)/(db)/space/chapter/update/main';
-import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/member/main';
 import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import { spaceDbWrapper } from '@/(server)/(db)/space/main';
@@ -17,8 +17,8 @@ import { spaceMemberDbWrapper } from '@/(server)/(db)/space/member/main';
 import { chatMemberModel } from '@/(server)/(model)/space/chapter/chat/member/main';
 import { ideaLinkModel } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
 import { sceneStackGql } from '@/(server)/(model)/space/chapter/scene/stack/main';
-import { chapterUpdateItemModel } from '@/(server)/(model)/space/chapter/update/add/main';
-import { chapterUpdateMemberModel } from '@/(server)/(model)/space/chapter/update/member/main';
+import { chapterUpdateItemModel } from '@/(server)/(model)/space/chapter/update/item/main';
+import { chapterUpdateMemberItemModel } from '@/(server)/(model)/space/chapter/update/item/member/main';
 import {
   verseMemberGql,
   verseMemberModel,
@@ -49,7 +49,7 @@ export const spaceMap = {
       model: chapterUpdateModel,
       db: chapterUpdateDbWrapper,
       member: {
-        model: chapterUpdateMemberModel,
+        model: chapterUpdateMemberItemModel,
         db: chapterUpdateMemberDbWrapper,
       },
       item: {
