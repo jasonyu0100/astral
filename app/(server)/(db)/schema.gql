@@ -84,17 +84,17 @@ type ChapterUpdateItemMemberObjConnection {
 type ChapterUpdateItemObj {
   id: String!
   userId: String!
-  updateId: String!
+  chapterId: String!
+  updateId: String
+  added: Boolean!
   title: String!
   description: String!
   created: String!
-  included: Boolean!
   variant: String!
-  conversationId: String
-  chapterId: String
   chatId: String
-  ideaId: String
+  conversationId: String
   sceneId: String
+  ideaId: String
   verseId: String
 }
 
@@ -110,6 +110,11 @@ type ChapterUpdateObj {
   title: String!
   description: String!
   created: String!
+}
+
+type ChapterUpdateObjConnection {
+  items: [ChapterUpdateObj]
+  nextToken: String
 }
 
 type ChapterVerseObj {
@@ -287,18 +292,26 @@ input CreateChapterUpdateItemMemberObjInput {
 
 input CreateChapterUpdateItemObjInput {
   userId: String!
-  updateId: String!
+  chapterId: String!
+  updateId: String
+  added: Boolean!
   title: String!
   description: String!
   created: String!
-  included: Boolean!
   variant: String!
-  conversationId: String
-  chapterId: String
   chatId: String
-  ideaId: String
+  conversationId: String
   sceneId: String
+  ideaId: String
   verseId: String
+}
+
+input CreateChapterUpdateObjInput {
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  created: String!
 }
 
 input CreateChapterVerseObjInput {
@@ -607,6 +620,10 @@ input DeleteChapterUpdateItemMemberObjInput {
 }
 
 input DeleteChapterUpdateItemObjInput {
+  id: String!
+}
+
+input DeleteChapterUpdateObjInput {
   id: String!
 }
 
@@ -1111,7 +1128,7 @@ input TableChapterUpdateItemObjFilterInput {
   title: TableStringFilterInput
   description: TableStringFilterInput
   created: TableStringFilterInput
-  included: TableBooleanFilterInput
+  added: TableBooleanFilterInput
   variant: TableStringFilterInput
   conversationId: TableStringFilterInput
   chapterId: TableStringFilterInput
@@ -1119,6 +1136,15 @@ input TableChapterUpdateItemObjFilterInput {
   ideaId: TableStringFilterInput
   sceneId: TableStringFilterInput
   verseId: TableStringFilterInput
+}
+
+input TableChapterUpdateObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
 }
 
 input TableChapterVerseObjFilterInput {
@@ -1548,7 +1574,7 @@ input UpdateChapterUpdateItemObjInput {
   title: String
   description: String
   created: String
-  included: Boolean
+  added: Boolean
   variant: String
   conversationId: String
   chapterId: String
@@ -1556,6 +1582,15 @@ input UpdateChapterUpdateItemObjInput {
   ideaId: String
   sceneId: String
   verseId: String
+}
+
+input UpdateChapterUpdateObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  title: String
+  description: String
+  created: String
 }
 
 input UpdateChapterVerseObjInput {
@@ -2173,6 +2208,9 @@ type Mutation {
   deleteChapterUpdateItemMemberObj(
     input: DeleteChapterUpdateItemMemberObjInput!
   ): ChapterUpdateItemMemberObj
+  createChapterUpdateObj(input: CreateChapterUpdateObjInput!): ChapterUpdateObj
+  updateChapterUpdateObj(input: UpdateChapterUpdateObjInput!): ChapterUpdateObj
+  deleteChapterUpdateObj(input: DeleteChapterUpdateObjInput!): ChapterUpdateObj
 }
 
 type Query {
@@ -2423,6 +2461,12 @@ type Query {
     limit: Int
     nextToken: String
   ): ChapterUpdateItemMemberObjConnection
+  getChapterUpdateObj(id: String!): ChapterUpdateObj
+  listChapterUpdateObjs(
+    filter: TableChapterUpdateObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterUpdateObjConnection
 }
 
 type Subscription {
@@ -3239,4 +3283,25 @@ type Subscription {
     created: String
   ): ChapterUpdateItemMemberObj
     @aws_subscribe(mutations: ["deleteChapterUpdateItemMemberObj"])
+  onCreateChapterUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterUpdateObj @aws_subscribe(mutations: ["createChapterUpdateObj"])
+  onUpdateChapterUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterUpdateObj @aws_subscribe(mutations: ["updateChapterUpdateObj"])
+  onDeleteChapterUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterUpdateObj @aws_subscribe(mutations: ["deleteChapterUpdateObj"])
 }

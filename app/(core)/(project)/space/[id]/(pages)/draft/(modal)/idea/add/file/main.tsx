@@ -8,7 +8,10 @@ import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import {
   FileElem,
   FileElemVariant,
@@ -17,6 +20,7 @@ import { useContext, useState } from 'react';
 
 export function SpaceDraftAddFileIdeaModal() {
   const openableController = useContext(ContextForOpenable);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
@@ -24,6 +28,27 @@ export function SpaceDraftAddFileIdeaModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
+  const user = useGlobalUser((state) => state.user);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
+
+  async function createFileIdea() {
+    const idea =
+      await sceneIdeaListController.actions.createActions.createFromFile(
+        title,
+        description,
+        0,
+        0,
+        file,
+      );
+    await updateListController.actions.createActions.createFromChapterSceneIdea(
+      user.id,
+      chapterListController.state.objId,
+      sceneIdeaListController.state.objId,
+      idea.id,
+    );
+    openableController.close();
+  }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
@@ -57,20 +82,7 @@ export function SpaceDraftAddFileIdeaModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                sceneIdeaListController.actions.createActions.createFromFile(
-                  title,
-                  description,
-                  0,
-                  0,
-                  file,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createFileIdea}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

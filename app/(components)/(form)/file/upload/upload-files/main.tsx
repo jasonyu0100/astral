@@ -1,5 +1,5 @@
 import {
-  UploadsHandlerContext,
+  ContextForUploadsController,
   useS3UploadsController,
 } from '@/(api)/(controller)/s3/multiple/main';
 import {
@@ -27,12 +27,12 @@ export function FormUploadFiles({
   }, [uploadsHandler.files]);
 
   return (
-    <UploadsHandlerContext.Provider value={uploadsHandler}>
+    <ContextForUploadsController.Provider value={uploadsHandler}>
       <div className='flex flex-col bg-white'>
         <UploadFileLabel>{label}</UploadFileLabel>
         <UploadFilesArea />
         {uploadsHandler.files.length > 0 && <UploadFilesList />}
       </div>
-    </UploadsHandlerContext.Provider>
+    </ContextForUploadsController.Provider>
   );
 }

@@ -1,13 +1,13 @@
-import { UploadsHandlerContext } from '@/(api)/(controller)/s3/multiple/main';
+import { ContextForUploadsController } from '@/(api)/(controller)/s3/multiple/main';
 import { useContext } from 'react';
 
 export function UploadedEntryRemove({ i }: { i: number }) {
-  const uploadsHandler = useContext(UploadsHandlerContext);
+  const uploadsHandler = useContext(ContextForUploadsController);
 
   return (
     <button
       className='h-[30px] w-[30px] flex-shrink-0 rounded-full'
-      onClick={() => uploadsHandler.uploadsActions.clearFile(i)}
+      onClick={() => uploadsHandler.actions.clearFile(i)}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'

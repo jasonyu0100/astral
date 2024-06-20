@@ -50,10 +50,10 @@ export const exampleChapterUpdateItemMembers: ChapterUpdateItemMemberObj[] = [
 
 export const chapterUpdateMemberItemModel: ModelInterface<ChapterUpdateItemMemberObj> =
   {
-    name: 'update',
+    name: 'member',
     gql: chapterUpdateItemMemberGql,
     example: exampleChapterUpdateItemMember,
     examples: exampleChapterUpdateItemMembers,
-    parentKey: 'updateId',
+    parentKey: 'itemId',
     children: [],
   };

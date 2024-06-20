@@ -13,13 +13,13 @@ export enum ChapterUpdateItemVariant {
 export interface ChapterUpdateItemObj {
   id: string;
   userId: string;
-  updateId: string;
+  chapterId: string;
+  updateId?: string;
+  added: boolean;
   title: string;
   description: string;
   created: string;
-  included: boolean;
   variant: string;
-  chapterId?: string;
   chatId?: string;
   conversationId?: string;
   sceneId?: string;
@@ -31,17 +31,17 @@ export const chapterUpdateItemGql = `
 type ChapterUpdateItemObj {
   id: String!
   userId: String!
-  updateId: String!
+  chapterId: String!
+  updateId: String
+  added: Boolean!
   title: String!
   description: String!
   created: String!
-  included: Boolean!
   variant: String!
-  conversationId: String
-  chapterId: String
   chatId: String
-  ideaId: String
+  conversationId: String
   sceneId: String
+  ideaId: String
   verseId: String
 }
 `;
@@ -52,11 +52,12 @@ export const ContextForChapterUpdateItemObj =
 export const exampleChapterUpdateItem: ChapterUpdateItemObj = {
   id: '0',
   userId: '0',
+  chapterId: '0',
+  added: true,
+  updateId: '0',
   title: '',
   description: 'Hello World',
   created: new Date().toISOString(),
-  included: true,
-  updateId: '0',
   variant: ChapterUpdateItemVariant.CONVERSATION,
   conversationId: '0',
   ideaId: undefined,
@@ -68,10 +69,11 @@ export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
   {
     id: '0',
     userId: '0',
+    chapterId: '',
+    added: false,
     title: '',
     description: 'Hello World',
     created: new Date().toISOString(),
-    included: true,
     updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
@@ -82,10 +84,11 @@ export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
   {
     id: '0',
     userId: '0',
+    chapterId: '',
     title: '',
+    added: false,
     description: 'Hello World',
     created: new Date().toISOString(),
-    included: true,
     updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
@@ -96,10 +99,11 @@ export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
   {
     id: '0',
     userId: '0',
+    chapterId: '',
     title: '',
+    added: false,
     description: 'Hello World',
     created: new Date().toISOString(),
-    included: true,
     updateId: '0',
     variant: ChapterUpdateItemVariant.CONVERSATION,
     conversationId: '0',
@@ -110,10 +114,10 @@ export const exampleChapterUpdateItems: ChapterUpdateItemObj[] = [
 ];
 
 export const chapterUpdateItemModel: ModelInterface<ChapterUpdateItemObj> = {
-  name: 'add',
+  name: 'item',
   gql: chapterUpdateItemGql,
   example: exampleChapterUpdateItem,
   examples: exampleChapterUpdateItems,
   parentKey: 'updateId',
-  children: [],
+  children: ['member'],
 };

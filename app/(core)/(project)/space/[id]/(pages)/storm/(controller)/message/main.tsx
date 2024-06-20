@@ -3,6 +3,8 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForChatConversationList } from '@/(server)/(controller)/space/chapter/chat/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { useContext } from 'react';
@@ -10,9 +12,12 @@ import { useContext } from 'react';
 export function useControllerForChatMessageSend() {
   const user = useGlobalUser((state) => state.user);
   const openAi = useOpenAIController();
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
   const chatListController = useContext(ContextForChapterChatList);
   const conversationListController = useContext(ContextForChatConversationList);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -39,10 +44,18 @@ export function useControllerForChatMessageSend() {
   }
 
   async function createNewConversation() {
-    return await conversationListController.actions.createActions.createConversation(
+    const conversation =
+      await conversationListController.actions.createActions.createConversation(
+        user.id,
+        chatListController.state.objId,
+      );
+    await updateListController.actions.createActions.createFromChapterChatConversation(
       user.id,
+      chapterListController.state.objId,
       chatListController.state.objId,
+      conversation.id,
     );
+    return conversation;
   }
 
   async function sendUserMessage(conversation: ChatConversationObj) {
@@ -80,7 +93,6 @@ export function useControllerForChatMessageSend() {
     if (conversation !== undefined) {
       const conversationStatus = checkConversationStatus(conversation);
       if (conversationStatus) {
-        alert('ADDING TO EXISTING CONVERSATION');
         const newUserMessage = await sendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(newUserMessage);
         const newAgentMessage = await sendAgentMessage(
@@ -92,7 +104,7 @@ export function useControllerForChatMessageSend() {
       }
     }
 
-    alert('NEW CONVERSATION');
+    alert('New Conversation');
     const newConversation = await createNewConversation();
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(newUserMessage);

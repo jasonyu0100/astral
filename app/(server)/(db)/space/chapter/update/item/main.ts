@@ -3,13 +3,13 @@ import { GqlDbWrapper } from '@/(server)/(db)/main';
 import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
-  createChapterUpdateAddObj,
-  deleteChapterUpdateAddObj,
-  updateChapterUpdateAddObj,
+  createChapterUpdateItemObj,
+  deleteChapterUpdateItemObj,
+  updateChapterUpdateItemObj,
 } from '@/graphql/mutations';
 import {
-  getChapterUpdateAddObj,
-  listChapterUpdateAddObjs,
+  getChapterUpdateItemObj,
+  listChapterUpdateItemObjs,
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
@@ -22,28 +22,28 @@ function castMultiple(objs: unknown[]) {
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getChapterUpdateAddObj,
+    query: getChapterUpdateItemObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getChapterUpdateAddObj);
+  return castSingle(payload?.data?.getChapterUpdateItemObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getChapterUpdateAddObj,
+    query: getChapterUpdateItemObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getChapterUpdateAddObj);
+  return castSingle(payload?.data?.getChapterUpdateItemObj);
 }
 
 async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listChapterUpdateAddObjs,
+    query: listChapterUpdateItemObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,41 +53,41 @@ async function listObjs(key: string, value: string) {
     },
   });
 
-  return castMultiple(payload?.data?.listChapterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listChapterUpdateItemObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listChapterUpdateAddObjs,
+    query: listChapterUpdateItemObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listChapterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listChapterUpdateItemObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listChapterUpdateAddObjs,
+    query: listChapterUpdateItemObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listChapterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listChapterUpdateItemObjs?.items || []);
 }
 
 async function createObj(newObj: Omit<ChapterUpdateItemObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createChapterUpdateAddObj,
+    query: createChapterUpdateItemObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createChapterUpdateAddObj);
+  return castSingle(payload?.data?.createChapterUpdateItemObj);
 }
 
 async function updateObj(id: string, updateObj: Partial<ChapterUpdateItemObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateChapterUpdateAddObj,
+    query: updateChapterUpdateItemObj,
     variables: {
       input: {
         id: id,
@@ -96,12 +96,12 @@ async function updateObj(id: string, updateObj: Partial<ChapterUpdateItemObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateChapterUpdateAddObj);
+  return castSingle(payload?.data?.updateChapterUpdateItemObj);
 }
 
 async function overwriteObj(id: string, newObj: ChapterUpdateItemObj) {
   const payload = await amplifyClient.graphql({
-    query: updateChapterUpdateAddObj,
+    query: updateChapterUpdateItemObj,
     variables: {
       input: {
         id: id,
@@ -110,12 +110,12 @@ async function overwriteObj(id: string, newObj: ChapterUpdateItemObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateChapterUpdateAddObj);
+  return castSingle(payload?.data?.updateChapterUpdateItemObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteChapterUpdateAddObj,
+    query: deleteChapterUpdateItemObj,
     variables: {
       input: {
         id: id,
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteChapterUpdateAddObj);
+  return castSingle(payload?.data?.deleteChapterUpdateItemObj);
 }
 
 export const chapterUpdateItemDbWrapper: GqlDbWrapper<ChapterUpdateItemObj> = {

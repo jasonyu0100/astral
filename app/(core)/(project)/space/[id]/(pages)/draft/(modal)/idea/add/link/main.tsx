@@ -7,13 +7,20 @@ import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { UrlElem, UrlElemVariant } from '@/(server)/(model)/elements/url/main';
 import { useContext, useState } from 'react';
 
 export function SpaceDraftAddUrlIdeaModal() {
+  const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
@@ -53,9 +60,9 @@ export function SpaceDraftAddUrlIdeaModal() {
     }
   }
 
-  function create() {
-    if (variant === UrlElemVariant.YOUTUBE) {
-      sceneIdeaListController.actions.createActions.createFromLink(
+  async function createIdeaFromYouTube() {
+    const idea =
+      await sceneIdeaListController.actions.createActions.createFromLink(
         title,
         description,
         0,
@@ -67,8 +74,17 @@ export function SpaceDraftAddUrlIdeaModal() {
           variant: UrlElemVariant.YOUTUBE,
         } as UrlElem,
       );
-    } else if (variant === UrlElemVariant.SPOTIFY) {
-      sceneIdeaListController.actions.createActions.createFromLink(
+    await updateListController.actions.createActions.createFromChapterSceneIdea(
+      user.id,
+      chapterListController.state.objId,
+      sceneIdeaListController.state.objId,
+      idea.id,
+    );
+  }
+
+  async function createIdeaFromSpotify() {
+    const idea =
+      await sceneIdeaListController.actions.createActions.createFromLink(
         title,
         description,
         0,
@@ -80,8 +96,21 @@ export function SpaceDraftAddUrlIdeaModal() {
           variant: UrlElemVariant.SPOTIFY,
         } as UrlElem,
       );
+    await updateListController.actions.createActions.createFromChapterSceneIdea(
+      user.id,
+      chapterListController.state.objId,
+      sceneIdeaListController.state.objId,
+      idea.id,
+    );
+  }
+
+  async function createIdea() {
+    if (variant === UrlElemVariant.YOUTUBE) {
+      await createIdeaFromYouTube();
+    } else if (variant === UrlElemVariant.SPOTIFY) {
+      await createIdeaFromSpotify();
     }
-    close();
+    openableController.close();
   }
 
   return (
@@ -149,7 +178,7 @@ export function SpaceDraftAddUrlIdeaModal() {
             )}
           </FormBody>
           <FormFooter>
-            <FormButton onClick={create}>Add</FormButton>
+            <FormButton onClick={createIdea}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

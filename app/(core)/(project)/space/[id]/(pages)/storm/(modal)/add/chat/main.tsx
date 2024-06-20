@@ -11,6 +11,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useContext, useState } from 'react';
 
 export function StormAddChatModal() {
@@ -20,7 +21,23 @@ export function StormAddChatModal() {
   const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
 
+  async function createChat() {
+    const chat = await chatListController.actions.createActions.createChat(
+      title,
+      summary,
+      user.id,
+      chapterListController.state.objId,
+    );
+    await updateListController.actions.createActions.createFromChapterChat(
+      user.id,
+      chapterListController.state.objId,
+      chat.id,
+    );
+    openableController.close();
+  }
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
@@ -43,19 +60,7 @@ export function StormAddChatModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                chatListController.actions.createActions.createChat(
-                  title,
-                  summary,
-                  user.id,
-                  chapterListController.state.objId,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createChat}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

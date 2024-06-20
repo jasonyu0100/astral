@@ -6,7 +6,7 @@ import {
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { StormAddChapterModal } from '../../../(modal)/add/chapter/main';
+import { SpaceStormAddChapterModal } from '../../../(modal)/add/chapter/main';
 import { SpaceStormChapterAdd } from './add/main';
 import { SpaceStormSidebarChapter } from './chapter/main';
 
@@ -17,7 +17,7 @@ export function SpaceStormSidebarChapters() {
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <StormAddChapterModal />
+        <SpaceStormAddChapterModal />
       </ContextForOpenable.Provider>
       <GlassAreaContainer
         name={SpaceStormSidebarChapters.name}

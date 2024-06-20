@@ -10,6 +10,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
@@ -22,6 +23,25 @@ export function SpaceFlowAddVerseModal() {
   const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
+
+  async function createVerse() {
+    const verse =
+      await verseListController.actions.createActions.createVerseFromFile(
+        title,
+        description,
+        user.id,
+        chapterListController.state.objId,
+        file,
+      );
+    await updateListController.actions.createActions.createFromChapterVerse(
+      user.id,
+      chapterListController.state.objId,
+      verse.id,
+    );
+    openableController.close();
+  }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
@@ -47,20 +67,7 @@ export function SpaceFlowAddVerseModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                verseListController.actions.createActions.createVerseFromFile(
-                  title,
-                  description,
-                  user.id,
-                  chapterListController.state.objId,
-                  file,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createVerse}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

@@ -9,6 +9,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
@@ -16,9 +17,26 @@ export function SpaceDraftAddChapterModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+
+  async function createChapter() {
+    const chapter =
+      await chapterListController.actions.createActions.createChapter(
+        title,
+        description,
+        user.id,
+        spaceMainController.state.objId,
+      );
+    await updateListController.actions.createActions.createFromChapter(
+      user.id,
+      chapter.id,
+    );
+    openableController.close();
+  }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
@@ -41,19 +59,7 @@ export function SpaceDraftAddChapterModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                chapterListController.actions.createActions.createChapter(
-                  title,
-                  description,
-                  user.id,
-                  spaceMainController.state.objId,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createChapter}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

@@ -9,16 +9,34 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
 export function SpaceSeaAddChapterModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
-  const chaptersHandler = useContext(ContextForSpaceChapterList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+
+  async function createChapter() {
+    const chapter =
+      await chapterListController.actions.createActions.createChapter(
+        title,
+        description,
+        user.id,
+        spaceMainController.state.objId,
+      );
+    await updateListController.actions.createActions.createFromChapter(
+      user.id,
+      chapter.id,
+    );
+    openableController.close();
+  }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
@@ -41,19 +59,7 @@ export function SpaceSeaAddChapterModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                chaptersHandler.actions.createActions.createChapter(
-                  title,
-                  description,
-                  user.id,
-                  spaceMainController.state.objId,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createChapter}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

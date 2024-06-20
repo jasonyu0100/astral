@@ -6,25 +6,25 @@ import {
 } from '@/(server)/(model)/elements/file/main';
 import { ChangeEvent, createContext, useState } from 'react';
 
-export interface UploadsActions {
+interface Actions {
   clearFile: (i: number) => void;
   uploadFiles: (event: ChangeEvent<HTMLInputElement>) => Promise<void>;
 }
 
-export interface UploadsHandlerObj {
-  files: FileElem[];
-  variant?: FileElemVariant;
-  uploadsActions: UploadsActions;
-}
+export const ContextForUploadsController = createContext({} as Controller);
 
-export const UploadsHandlerContext = createContext({} as UploadsHandlerObj);
+interface Controller {
+  files: FileElem[];
+  actions: Actions;
+  variant?: FileElemVariant;
+}
 
 export const useS3UploadsController = (
   variant?: FileElemVariant,
-): UploadsHandlerObj => {
+): Controller => {
   const [files, changeFiles] = useState<FileElem[]>([]);
 
-  const uploadsActions: UploadsActions = {
+  const actions: Actions = {
     clearFile: (i) =>
       changeFiles((prev) => prev.filter((_, index) => index !== i)),
     uploadFiles: async (event) => {
@@ -70,6 +70,6 @@ export const useS3UploadsController = (
   return {
     files,
     variant,
-    uploadsActions,
+    actions,
   };
 };

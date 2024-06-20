@@ -7,14 +7,14 @@ import {
 } from '@/(server)/(controller)/list';
 import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
 import {
-  chapterUpdateItemModel,
   ChapterUpdateItemObj,
+  ChapterUpdateItemVariant,
 } from '@/(server)/(model)/space/chapter/update/item/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ChapterUpdateItemObj;
 const gqlDbWrapper = chapterUpdateItemDbWrapper;
-const listIdKey = chapterUpdateItemModel.parentKey;
+const listIdKey = 'chapterId';
 
 interface ControllerState {
   listId: string;
@@ -32,7 +32,36 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createFromChapter: (userId: string, chapterId: string) => Promise<TargetObj>;
+  createFromChapterChat: (
+    userId: string,
+    chapterId: string,
+    chatId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterScene: (
+    userId: string,
+    chapterId: string,
+    sceneId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterVerse: (
+    userId: string,
+    chapterId: string,
+    verseId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterChatConversation: (
+    userId: string,
+    chapterId: string,
+    chatId: string,
+    conversationId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterSceneIdea: (
+    userId: string,
+    chapterId: string,
+    sceneId: string,
+    ideaId: string,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -48,7 +77,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterUpdateItemList = (listId: string): Controller => {
+const useControllerForChapterUpdateItemListFromChapters = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -215,6 +246,108 @@ const useControllerForChapterUpdateItemList = (listId: string): Controller => {
       changeId(newObj.id);
       return newObj;
     },
+    createFromChapter: async (userId, chapterId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.CHAPTER,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterChat: async (userId, chapterId, chatId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        chatId: chatId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.CHAT,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterScene: async (userId, chapterId, sceneId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        sceneId: sceneId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.CHAT,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterVerse: async (userId, chapterId, verseId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        verseId: verseId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.VERSE,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterChatConversation: async (
+      userId,
+      chapterId,
+      chatId,
+      conversationId,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        chatId: chatId,
+        conversationId: conversationId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.CONVERSATION,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterSceneIdea: async (userId, chapterId, sceneId, ideaId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        sceneId: sceneId,
+        ideaId: ideaId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterUpdateItemVariant.IDEA,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
     duplicate: async (target: TargetObj) => {
       const copyObj = target as Omit<TargetObj, 'id'>;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
@@ -286,8 +419,10 @@ const useControllerForChapterUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForSpaceUpdateItemList = createContext({} as Controller);
+const ContextForChapterUpdateItemFromChaptersList = createContext(
+  {} as Controller,
+);
 export {
-  ContextForSpaceUpdateItemList as ContextForSpaceUpdateItemList,
-  useControllerForChapterUpdateItemList as useControllerForChapterUpdateItemList,
+  ContextForChapterUpdateItemFromChaptersList,
+  useControllerForChapterUpdateItemListFromChapters,
 };

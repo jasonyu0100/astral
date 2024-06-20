@@ -10,6 +10,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useContext, useState } from 'react';
 
 export function SpaceDraftAddSceneModal() {
@@ -17,8 +18,26 @@ export function SpaceDraftAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
+  const updateListController =
+    useControllerForChapterUpdateItemListFromChapters('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+
+  async function createScene() {
+    const scene = await sceneListController.actions.createActions.createScene(
+      title,
+      description,
+      user.id,
+      chapterListController.state.objId,
+    );
+    await updateListController.actions.createActions.createFromChapterScene(
+      user.id,
+      chapterListController.state.objId,
+      scene.id,
+    );
+
+    openableController.close();
+  }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
@@ -40,19 +59,7 @@ export function SpaceDraftAddSceneModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                sceneListController.actions.createActions.createScene(
-                  title,
-                  description,
-                  user.id,
-                  chapterListController.state.objId,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createScene}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

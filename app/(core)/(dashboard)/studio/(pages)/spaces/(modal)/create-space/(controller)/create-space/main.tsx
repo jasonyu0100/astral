@@ -3,6 +3,7 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { useControllerForChapterUpdateItemListFromChapters } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 import {
@@ -63,6 +64,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
   const verseListController = useControllerForChapterVerseList('');
+  const updateItemListController =
+    useControllerForChapterUpdateItemListFromChapters('');
 
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
@@ -94,6 +97,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             space.id,
             index,
           );
+        await updateItemListController.actions.createActions.createFromChapter(
+          user.id,
+          chapter.id,
+        );
         return chapter;
       }),
     );
@@ -123,6 +130,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
+              await updateItemListController.actions.createActions.createFromChapterChat(
+                user.id,
+                chapter.id,
+                chat.id,
+              );
               return chat;
             }),
           );
@@ -135,6 +147,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
+          await updateItemListController.actions.createActions.createFromChapterChat(
+            user.id,
+            chapter.id,
+            chat.id,
+          );
           return [chat];
         }
       }),
@@ -165,6 +182,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
+              await updateItemListController.actions.createActions.createFromChapterScene(
+                user.id,
+                chapter.id,
+                scene.id,
+              );
               return scene;
             }),
           );
@@ -177,6 +199,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
+          await updateItemListController.actions.createActions.createFromChapterScene(
+            user.id,
+            chapter.id,
+            scene.id,
+          );
           return [scene];
         }
       }),
@@ -207,6 +234,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
+              await updateItemListController.actions.createActions.createFromChapterVerse(
+                user.id,
+                chapter.id,
+                verse.id,
+              );
               return verse;
             }),
           );
@@ -219,6 +251,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
+          await updateItemListController.actions.createActions.createFromChapterVerse(
+            user.id,
+            chapter.id,
+            verse.id,
+          );
           return [verse];
         }
       }),

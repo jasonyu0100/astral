@@ -18,6 +18,15 @@ export function SpaceFlowAddVerseCommentModal() {
   const user = useGlobalUser((state) => state.user);
   const [message, changeMessage] = useState('');
 
+  async function createComment() {
+    commentListController.actions.createActions.createComment(
+      user.id,
+      verseListController.state.objId,
+      message,
+    );
+    openableController.close();
+  }
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
@@ -33,18 +42,7 @@ export function SpaceFlowAddVerseCommentModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                commentListController.actions.createActions.createComment(
-                  user.id,
-                  verseListController.state.objId,
-                  message,
-                );
-                openableController.close();
-              }}
-            >
-              Add
-            </FormButton>
+            <FormButton onClick={createComment}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>
