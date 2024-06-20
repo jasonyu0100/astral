@@ -4,5 +4,5 @@ import { useContext } from 'react';
 export function StudioSpacesRowCountText() {
   const index = useContext(ContextForIndexable);
 
-  return <p className='font-extraBold text-xl text-slate-300'>#{index + 1}</p>;
+  return <p className='text-lg font-light text-slate-300'>{index + 1}</p>;
 }

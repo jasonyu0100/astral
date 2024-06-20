@@ -27,16 +27,16 @@ export function SpaceSeaSidebar() {
           <SpaceSeaSidebarAdd onClick={openableController.open} />
           <HorizontalDivider />
           <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Initial Work</p>
-            <p className='font-bold text-slate-500'>Jun 15 to Jun 27</p>
+            <p className='text-xl font-bold text-slate-300'>Studio Session</p>
+            <p className='font-bold text-slate-500'>Jun 15</p>
           </SpaceSeaSidebarEntry>
           <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Initial Work</p>
-            <p className='font-bold text-slate-500'>Jun 15 to Jun 27</p>
+            <p className='text-xl font-bold text-slate-300'>Revision</p>
+            <p className='font-bold text-slate-500'>Jun 16 to Jun 27</p>
           </SpaceSeaSidebarEntry>
           <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Initial Work</p>
-            <p className='font-bold text-slate-500'>Jun 15 to Jun 27</p>
+            <p className='text-xl font-bold text-slate-300'>Performance</p>
+            <p className='font-bold text-slate-500'>Jun 27 to Jun 30</p>
           </SpaceSeaSidebarEntry>
         </div>
       </GlassAreaContainer>

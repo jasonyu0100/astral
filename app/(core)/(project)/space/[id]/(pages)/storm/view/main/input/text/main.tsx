@@ -16,7 +16,7 @@ export function SpaceStormInputText({ ...props }: FormInputProps) {
       borderFx={borderFx['border-around']}
     >
       <input
-        className={`h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-bold text-slate-300 outline-none`}
+        className={`h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-light text-slate-300 outline-none`}
         placeholder='Type a message...'
         {...props}
       />

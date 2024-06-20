@@ -4,9 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { SpaceDraftAddIcon } from './add/main';
 import { SpaceDraftCursorIcon } from './cursor/main';
-import { SpaceDraftFolderIcon } from './folder/main';
 import { SpaceDraftGroupIcon } from './group/main';
-import { SpaceDraftJournalIcon } from './journal/main';
 import { SpaceDraftSaveIcon } from './save/main';
 
 export function SpaceDraftToolsTop() {
@@ -17,8 +15,8 @@ export function SpaceDraftToolsTop() {
           <SpaceDraftCursorIcon />
           <SpaceDraftAddIcon />
           <SpaceDraftGroupIcon />
-          <SpaceDraftFolderIcon />
-          <SpaceDraftJournalIcon />
+          {/* <SpaceDraftFolderIcon /> */}
+          {/* <SpaceDraftJournalIcon /> */}
           <SpaceDraftSaveIcon />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />

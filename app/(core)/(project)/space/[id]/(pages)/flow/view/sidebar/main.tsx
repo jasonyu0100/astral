@@ -9,17 +9,23 @@ import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/vers
 import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceFlowAddVerseCommentModal } from '../../(modal)/add/comment/main';
-import { SpaceFlowSidebarAdd } from './add/main';
+import { SpaceFlowAddVerseModal } from '../../(modal)/add/verse/main';
+import { SpaceFlowSidebarAddComment } from './add/comment/main';
+import { SpaceFlowSidebarAddVerse } from './add/verse/main';
 import { SpaceFlowSidebarComment } from './comment/main';
 
 export function SpaceFlowSidebar() {
-  const openableController = useControllerForOpenable();
+  const commentOpenableController = useControllerForOpenable();
+  const verseOpenableController = useControllerForOpenable();
   const commentListController = useContext(ContextForVerseCommentList);
 
   return (
     <>
-      <ContextForOpenable.Provider value={openableController}>
+      <ContextForOpenable.Provider value={commentOpenableController}>
         <SpaceFlowAddVerseCommentModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={verseOpenableController}>
+        <SpaceFlowAddVerseModal />
       </ContextForOpenable.Provider>
       <GlassAreaContainer
         name={SpaceFlowSidebar.name}
@@ -30,13 +36,16 @@ export function SpaceFlowSidebar() {
       >
         <div className='h-full w-full overflow-auto  pr-[1rem]'>
           <div className='flex flex-col space-y-[1rem]'>
-            <SpaceFlowSidebarAdd onClick={openableController.open} />
+            <SpaceFlowSidebarAddVerse onClick={verseOpenableController.open} />
             <HorizontalDivider />
             {commentListController.state.objs.map((comment) => (
               <ContextForVerseCommentObj.Provider value={comment}>
                 <SpaceFlowSidebarComment></SpaceFlowSidebarComment>
               </ContextForVerseCommentObj.Provider>
             ))}
+            <SpaceFlowSidebarAddComment
+              onClick={commentOpenableController.open}
+            />
           </div>
         </div>
       </GlassAreaContainer>

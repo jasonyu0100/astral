@@ -8,7 +8,7 @@ export function StudioSpacesRowDaysLeft() {
 
   return (
     <div className='flex items-center justify-center'>
-      <p className='text-lg font-bold text-slate-300'>
+      <p className='text-sm font-bold text-slate-300'>
         {daysDifference + 1} days left
       </p>
     </div>

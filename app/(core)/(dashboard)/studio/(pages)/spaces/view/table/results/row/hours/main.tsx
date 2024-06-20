@@ -6,7 +6,7 @@ export function StudioSpacesRowHoursLeft() {
 
   return (
     <div className='flex flex-row items-center justify-center'>
-      <p className='text-lg font-bold text-slate-300'>{space.hours} hours</p>
+      <p className='text-sm font-bold text-slate-300'>{space.hours} hours</p>
     </div>
   );
 }

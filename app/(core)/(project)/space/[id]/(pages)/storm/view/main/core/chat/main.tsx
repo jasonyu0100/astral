@@ -26,7 +26,7 @@ export function SpaceStormChat() {
                   conversationListController.actions.stateActions.goNext();
                 }}
               >
-                BEFORE
+                PREV
               </p>
             </div>
             <div className='flex'>
@@ -41,7 +41,7 @@ export function SpaceStormChat() {
                   conversationListController.actions.stateActions.goPrev();
                 }}
               >
-                AFTER
+                NEXT
               </p>
             </div>
           </div>
