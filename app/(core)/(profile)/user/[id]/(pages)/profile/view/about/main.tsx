@@ -14,10 +14,10 @@ export function ProfileAbout() {
 
   return (
     <GlassWindowFrame
-      className='h-full flex-shrink-0 p-[2rem] px-[3rem]'
+      className='h-full flex-shrink-0 p-[2rem]'
       borderFx={borderFx['border-r']}
     >
-      <GlassWindowContents className='flex h-full w-full flex-col items-center space-y-[2rem]'>
+      <GlassWindowContents className='flex h-full w-full flex-col items-center space-y-[1.5rem]'>
         <img
           className='aspect-square h-[250px] w-[250px] rounded-full'
           src={user.dp?.src || exampleFileElem.src}
@@ -30,21 +30,11 @@ export function ProfileAbout() {
             {user.email || 'creative@verses.digital'}
           </p>
         </div>
-        <GlassWindowFrame
-          className='h-[3rem] w-full'
-          roundedFx={roundedFx.rounded}
-          borderFx={borderFx['border-around']}
-        >
-          <GlassWindowContents className='flex h-full w-full items-center justify-center'>
-            <p className='font-bold text-slate-300'>Edit Profile</p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
         <div className='flex w-full flex-row items-center justify-center space-x-[1rem]'>
           <p
             className='cursor-pointer font-bold text-white'
             onClick={() => {
-              controller.setPage(ProfilePage.Followers);
+              controller.setPage(ProfilePage.Backers);
             }}
           >
             100 Backers
@@ -53,19 +43,54 @@ export function ProfileAbout() {
           <p
             className='cursor-pointer font-bold text-white'
             onClick={() => {
-              controller.setPage(ProfilePage.Connects);
+              controller.setPage(ProfilePage.Connections);
             }}
           >
             100 Connections
           </p>
         </div>
-        <HorizontalDivider />
+        <GlassWindowFrame
+          className='h-[3rem] w-full flex-shrink-0'
+          roundedFx={roundedFx.rounded}
+          borderFx={borderFx['border-around']}
+        >
+          <GlassWindowContents className='flex h-full w-full items-center justify-center'>
+            <p className='font-bold text-slate-300'>Edit Profile</p>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        </GlassWindowFrame>
+        <HorizontalDivider />{' '}
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-white'>Bio: {user.bio}</p>
-          <p className='text-white'>Email: {user.email}</p>
-          <p className='text-white'>Role: {user.role}</p>
+          <p className='text-sm text-white'>
+            <span className='font-bold'>role - </span>
+            {user.role}
+          </p>
+        </div>
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <p className='text-wrap max-w-[250px] text-sm font-light text-white'>
+            A collaborative workflow that adapts to your creativity. For
+            creatives by creatives, verses (formerly cosmos) is a creative suite
+            based out of Sydney, AU.
+          </p>
         </div>
         <HorizontalDivider />
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <p className='font-bold text-slate-300'>Horizons</p>
+          <div className='flex flex-row items-center space-x-[0.5rem]'>
+            <img
+              src={exampleFileElem.src}
+              className='h-[2rem] w-[2rem] rounded border-[1px] border-slate-300 border-opacity-30'
+            ></img>
+            <img
+              src={exampleFileElem.src}
+              className='h-[2rem] w-[2rem] rounded border-[1px] border-slate-300 border-opacity-30'
+            ></img>
+            <img
+              src={exampleFileElem.src}
+              className='h-[2rem] w-[2rem] rounded border-[1px] border-slate-300 border-opacity-30'
+            ></img>
+          </div>
+        </div>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

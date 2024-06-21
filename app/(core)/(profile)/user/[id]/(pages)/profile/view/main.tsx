@@ -4,12 +4,13 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { createContext, Dispatch, SetStateAction, useState } from 'react';
 import { ProfileAbout } from './about/main';
-import { ProfileUserConnectsMain } from './connects/main';
-import { ProfileUserFollowersMain } from './followers/main';
+import { ProfileUserFollowersMain } from './backers/main';
+import { ProfileUserConnectsMain } from './connections/main';
+import { ProfileUserGeneralMain } from './general/main';
 
 export enum ProfilePage {
-  Followers = 'Followers',
-  Connects = 'Connects',
+  Backers = 'Backers',
+  Connections = 'Connections',
   General = 'General',
 }
 
@@ -42,9 +43,9 @@ export function ProfileUserView() {
         <div className='h-full flex-grow'>
           <GlassWindowFrame className='flex h-full w-full flex-col'>
             <GlassWindowContents className='flex h-full w-full flex-col'>
-              {page === ProfilePage.Followers && <ProfileUserFollowersMain />}
-              {page === ProfilePage.Connects && <ProfileUserConnectsMain />}
-              {page === ProfilePage.General && <></>}
+              {page === ProfilePage.Backers && <ProfileUserFollowersMain />}
+              {page === ProfilePage.Connections && <ProfileUserConnectsMain />}
+              {page === ProfilePage.General && <ProfileUserGeneralMain />}
             </GlassWindowContents>
           </GlassWindowFrame>
         </div>
