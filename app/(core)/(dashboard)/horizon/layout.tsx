@@ -6,7 +6,9 @@ import { DashboardBody } from '../../../(components)/(dashboard)/controller/body
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebarView indicator={DashboardSidebarIndicatorType.Horizon} />
+      <DashboardSidebarView
+        indicator={DashboardSidebarIndicatorType.Explorer}
+      />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

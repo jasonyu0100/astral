@@ -45,9 +45,9 @@ export function DashboardSidebarView({
           <DashboardSidebarIndicators>
             <SpaceIndicator />
             <JournalIndicator />
-            <ArchiveIndicator />
             <VentureIndicator />
             <NetworkIndicator />
+            <ArchiveIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarMinimisedContainer>
       ) : (
@@ -57,9 +57,9 @@ export function DashboardSidebarView({
           <DashboardSidebarIndicators>
             <SpaceIndicator />
             <JournalIndicator />
-            <ArchiveIndicator />
             <VentureIndicator />
             <NetworkIndicator />
+            <ArchiveIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarDefaultContainer>
       )}

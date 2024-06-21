@@ -20,8 +20,8 @@ export function DashboardSidebarIndicator({ children, ...props }: InputProps) {
 }
 export enum DashboardSidebarIndicatorType {
   Studio = 'Studio',
-  Archive = 'Archive',
+  Vault = 'Vault',
   Journal = 'Journal',
   Network = 'Network',
-  Horizon = 'Horizon',
+  Explorer = 'Explorer',
 }
