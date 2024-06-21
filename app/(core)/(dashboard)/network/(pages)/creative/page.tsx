@@ -1,18 +1,20 @@
 'use client';
 import {
-  ContextForUserList,
-  useControllerForUserList,
-} from '@/(server)/(controller)/user/list';
+  ContextForUserPrivateList,
+  useControllerForUserPrivateList,
+} from '@/(server)/(controller)/user/private-list';
 import isVerseAuth from '@/(utils)/isAuth';
 import { CreativeNetworkView } from './view/view';
 
 function Page() {
-  const userListController = useControllerForUserList(false);
+  const userListController = useControllerForUserPrivateList(true);
+
+  console.log(userListController);
 
   return (
-    <ContextForUserList.Provider value={userListController}>
-      <CreativeNetworkView />;
-    </ContextForUserList.Provider>
+    <ContextForUserPrivateList.Provider value={userListController}>
+      <CreativeNetworkView />
+    </ContextForUserPrivateList.Provider>
   );
 }
 

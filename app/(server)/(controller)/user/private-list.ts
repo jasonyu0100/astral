@@ -287,8 +287,5 @@ const useControllerForUserPrivateList = (
   };
 };
 
-const ContextForUserList = createContext({} as Controller);
-export {
-  ContextForUserList,
-  useControllerForUserPrivateList as useControllerForUserList,
-};
+const ContextForUserPrivateList = createContext({} as Controller);
+export { ContextForUserPrivateList, useControllerForUserPrivateList };
