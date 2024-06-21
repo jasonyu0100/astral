@@ -227,11 +227,12 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           const verses = await Promise.all(
             templateChapter.verseTemplates.map(async (templateVerse) => {
               const verse =
-                await verseListController.actions.createActions.createVerse(
+                await verseListController.actions.createActions.createVerseFromFile(
                   templateVerse.title,
                   templateVerse.description,
                   user.id,
                   chapter.id,
+                  exampleFileElem,
                 );
               await updateItemListController.actions.createActions.createFromChapterVerse(
                 user.id,
@@ -244,11 +245,12 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           return verses;
         } else {
           const verse =
-            await verseListController.actions.createActions.createVerse(
+            await verseListController.actions.createActions.createVerseFromFile(
               'untitled',
               '',
               user.id,
               chapter.id,
+              exampleFileElem,
             );
           await updateItemListController.actions.createActions.createFromChapterVerse(
             user.id,

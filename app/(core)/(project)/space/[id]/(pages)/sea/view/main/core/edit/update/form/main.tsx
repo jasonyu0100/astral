@@ -3,6 +3,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
@@ -28,9 +29,9 @@ export function SpaceSeaUpdateForm() {
           {getFormattedAMPM(new Date())}
         </p>
       </div>
-      <div className='h-full w-full overflow-auto'>
+      <div className='h-full w-full overflow-auto p-[1rem]'>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-lg text-slate-300'>Title</p>
+          <p className='text-md font-bold text-slate-300'>Title</p>
           <GlassWindowFrame
             className='h-[3rem] w-full'
             borderFx={borderFx['border-around']}
@@ -45,7 +46,7 @@ export function SpaceSeaUpdateForm() {
             </GlassWindowContents>
             <GlassAreaPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
-          <p className='text-lg text-slate-300'>Description</p>
+          <p className='text-md font-bold text-slate-300'>Description</p>
           <GlassWindowFrame
             className='w-full'
             borderFx={borderFx['border-around']}
@@ -62,25 +63,35 @@ export function SpaceSeaUpdateForm() {
             </GlassWindowContents>
             <GlassAreaPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
-          <p className='text-lg text-slate-300'>Linked</p>
+          <p className='text-md font-bold text-slate-300'>Linked</p>
           <div className='flex flex-col'>
             {updateItemListController.state.objs
               .filter((obj) => obj.added)
               .map((item, index) => (
                 <div className='text-sm text-slate-300'>
-                  {index + 1}. {item.variant} {item.title}
+                  {index + 1}. {item.variant.toLowerCase()} update -{' '}
+                  {item.title}
                 </div>
               ))}
           </div>
-          <p className='text-lg text-slate-300'>Unlinked</p>
+          <p className='text-md font-bold text-slate-300'>Unlinked</p>
           <div className='flex flex-col'>
             {updateItemListController.state.objs
               .filter((obj) => !obj.added)
               .map((item, index) => (
                 <div className='text-sm text-slate-300'>
-                  {index + 1}. {item.variant}
+                  - {item.variant.toLowerCase()} update
                 </div>
               ))}
+          </div>
+          <p className='text-md font-bold text-slate-300'>Collabs</p>
+          <div className='flex flex-row flex-wrap gap-[0.5rem]'>
+            {exampleFileElems.map((fileElem) => (
+              <img
+                className='h-[2rem] w-[2rem] rounded-full object-cover'
+                src={fileElem.src}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ export function SpaceSeaItemForm() {
     <div className='flex h-full flex-grow flex-col justify-around space-y-[1rem]'>
       <SpaceSeaItemFormHeader />
       <br />
-      <p className='text-lg text-slate-300'>Title</p>
+      <p className='text-md font-bold text-slate-300'>Title</p>
       <GlassWindowFrame
         className='h-[3rem] w-full'
         borderFx={borderFx['border-around']}
@@ -50,7 +50,7 @@ export function SpaceSeaItemForm() {
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
-      <p className='text-lg text-slate-300'>Description</p>
+      <p className='text-md font-bold text-slate-300'>Description</p>
       <GlassWindowFrame
         className='w-full'
         borderFx={borderFx['border-around']}
@@ -65,11 +65,11 @@ export function SpaceSeaItemForm() {
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
-      <p className='text-lg text-slate-300'>Collabs</p>
-      <div className='flex flex-row flex-wrap gap-[1rem]'>
+      <p className='text-md font-bold text-slate-300'>Collabs</p>
+      <div className='flex flex-row flex-wrap gap-[0.5rem]'>
         {exampleFileElems.map((fileElem) => (
           <img
-            className='h-[3rem] w-[3rem] rounded-full object-cover'
+            className='h-[2rem] w-[2rem] rounded-full object-cover'
             src={fileElem.src}
           />
         ))}
