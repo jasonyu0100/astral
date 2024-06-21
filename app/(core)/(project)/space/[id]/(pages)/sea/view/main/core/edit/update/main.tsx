@@ -3,6 +3,7 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { ContextForChapterUpdateList } from '@/(server)/(controller)/space/chapter/update/list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChapterUpdateObj } from '@/(server)/(model)/space/chapter/update/main';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSeaEditPrev } from '../(common)/icon/prev/main';
@@ -22,6 +23,7 @@ export const ContextForUpdateEdit = createContext({} as Controller);
 export function SpaceSeaEditUpdateForm() {
   const { updateComplete } = useContext(EditContext);
   const user = useGlobalUser((state) => state.user);
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const updateListController = useContext(ContextForChapterUpdateList);
   const updateItemListController = useContext(ContextForChapterItemList);
@@ -34,6 +36,7 @@ export function SpaceSeaEditUpdateForm() {
     const update = await updateListController.actions.createActions
       .createUpdate(
         user.id,
+        spaceController.state.objId,
         chapterListController.state.objId,
         title,
         description,
@@ -42,7 +45,6 @@ export function SpaceSeaEditUpdateForm() {
         updateItemListController.state.objs.map(async (item) => {
           return updateItemListController.actions.editActions.edit(item.id, {
             updateId: update.id,
-            added: true,
           });
         });
       });

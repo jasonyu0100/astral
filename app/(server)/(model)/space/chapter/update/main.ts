@@ -3,6 +3,7 @@ import { ModelInterface } from '../../../main';
 
 export interface ChapterUpdateObj {
   id: string;
+  spaceId: string;
   chapterId: string;
   userId: string;
   title: string;
@@ -13,6 +14,7 @@ export interface ChapterUpdateObj {
 export const chapterUpdateGql = `
 type ChapterUpdateObj {
   id: String!
+  spaceId: String!
   userId: String!
   chapterId: String!
   title: String!
@@ -27,6 +29,7 @@ export const ContextForChapterUpdateObj = createContext<ChapterUpdateObj>(
 
 export const exampleChapterUpdate: ChapterUpdateObj = {
   id: '0',
+  spaceId: '0',
   userId: '0',
   chapterId: '0',
   title: 'May Retro',
@@ -37,6 +40,7 @@ export const exampleChapterUpdate: ChapterUpdateObj = {
 export const exampleChapterUpdates: ChapterUpdateObj[] = [
   {
     id: '0',
+    spaceId: '0',
     userId: '0',
     chapterId: '0',
     title: 'May Retro',
@@ -46,6 +50,7 @@ export const exampleChapterUpdates: ChapterUpdateObj[] = [
   },
   {
     id: '1',
+    spaceId: '0',
     userId: '0',
     chapterId: '0',
     title: 'June Retro',
@@ -54,6 +59,7 @@ export const exampleChapterUpdates: ChapterUpdateObj[] = [
   },
   {
     id: '2',
+    spaceId: '0',
     userId: '0',
     chapterId: '0',
     title: 'July Retro',

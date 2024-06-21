@@ -62,13 +62,25 @@ export function SpaceSeaUpdateForm() {
             </GlassWindowContents>
             <GlassAreaPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
-          <p className='text-lg text-slate-300'>Linked Items</p>
+          <p className='text-lg text-slate-300'>Linked</p>
           <div className='flex flex-col'>
-            {updateItemListController.state.objs.map((item, index) => (
-              <div className='text-sm text-slate-300'>
-                {index + 1}. {item.variant} {item.title}
-              </div>
-            ))}
+            {updateItemListController.state.objs
+              .filter((obj) => obj.added)
+              .map((item, index) => (
+                <div className='text-sm text-slate-300'>
+                  {index + 1}. {item.variant} {item.title}
+                </div>
+              ))}
+          </div>
+          <p className='text-lg text-slate-300'>Unlinked</p>
+          <div className='flex flex-col'>
+            {updateItemListController.state.objs
+              .filter((obj) => !obj.added)
+              .map((item, index) => (
+                <div className='text-sm text-slate-300'>
+                  {index + 1}. {item.variant}
+                </div>
+              ))}
           </div>
         </div>
       </div>

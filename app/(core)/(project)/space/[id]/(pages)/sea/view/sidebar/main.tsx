@@ -1,16 +1,17 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForChapterUpdateList } from '@/(server)/(controller)/space/chapter/update/list';
 import { glassFx } from '@/(style)/data';
+import { useContext } from 'react';
 import { SpaceSeaAddUpdateModal } from '../../(modal)/add/update/main';
-import { SpaceSeaSidebarAdd } from './add/main';
 import { SpaceSeaSidebarEntry } from './entry/main';
 
 export function SpaceSeaSidebar() {
   const openableController = useControllerForOpenable();
+  const updateListController = useContext(ContextForChapterUpdateList);
 
   return (
     <>
@@ -24,20 +25,14 @@ export function SpaceSeaSidebar() {
         glassFx={glassFx['glass-5']}
       >
         <div className='flex w-full flex-col space-y-[1rem] overflow-auto'>
-          <SpaceSeaSidebarAdd onClick={openableController.open} />
-          <HorizontalDivider />
-          <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Studio Session</p>
-            <p className='font-bold text-slate-500'>Jun 15</p>
-          </SpaceSeaSidebarEntry>
-          <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Revision</p>
-            <p className='font-bold text-slate-500'>Jun 16 to Jun 27</p>
-          </SpaceSeaSidebarEntry>
-          <SpaceSeaSidebarEntry>
-            <p className='text-xl font-bold text-slate-300'>Performance</p>
-            <p className='font-bold text-slate-500'>Jun 27 to Jun 30</p>
-          </SpaceSeaSidebarEntry>
+          {updateListController.state.objs.map((update) => (
+            <SpaceSeaSidebarEntry>
+              <p className='text-xl font-bold text-slate-300'>{update.title}</p>
+              <p className='font-bold text-slate-500'>
+                {new Date(update.created).toLocaleDateString()}
+              </p>
+            </SpaceSeaSidebarEntry>
+          ))}
         </div>
       </GlassAreaContainer>
     </>

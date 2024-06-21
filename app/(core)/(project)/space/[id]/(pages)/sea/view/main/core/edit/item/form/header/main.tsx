@@ -13,7 +13,7 @@ export function SpaceSeaItemFormHeader() {
         {updateItemListController.state.objs.length}
       </p>
       <p className='text-xl font-bold text-slate-300'>
-        {current.variant} UPDATE - {current?.added ? 'Added' : 'Not Added'}
+        {current.variant} UPDATE {current?.added && '- Added'}
       </p>
       <p className='text-sm font-light text-slate-300'>
         {getFormattedAMPM(new Date(current.created))}

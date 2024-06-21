@@ -30,15 +30,14 @@ export function SpaceSeaCardEdit() {
             {complete ? <SpaceSeaEditUpdateForm /> : <SpaceSeaEditItemForm />}
           </>
         ) : (
-          <>
-            <p className='font-bold text-slate-300'>
-              {' '}
+          <div className='flex flex-row'>
+            <p className='text-xl font-bold text-slate-300'>
               No updates available since{' '}
               {getFormattedDate(
                 new Date(updateListController.state.currentObj?.created),
               )}
             </p>
-          </>
+          </div>
         )}
       </EditContext.Provider>
     </>

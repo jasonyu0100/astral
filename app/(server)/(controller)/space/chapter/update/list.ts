@@ -35,6 +35,7 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createUpdate: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     title: string,
     description: string,
@@ -213,19 +214,21 @@ const useControllerForChapterUpdateList = (listId: string): Controller => {
         chapterId: '',
         title: '',
         description: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
-    createUpdate: async (userId, chapterId, title, description) => {
+    createUpdate: async (userId, spaceId, chapterId, title, description) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         chapterId: chapterId,
         title: title,
         description: description,
+        spaceId: spaceId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
