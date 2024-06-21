@@ -6,14 +6,23 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { UserObj } from '@/(server)/(model)/user/main';
 import { SettingsIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { TopbarAvatar } from './avatar/main';
 import { TopbarIconLink } from './icon-link/main';
 
 export function TopbarRightGroup() {
   const user = useGlobalUser((state) => state.user);
+  const [stateUser, setStateUser] = useState({} as UserObj);
+
   const profileOpenableController = useControllerForOpenable();
   const settingsOpenableController = useControllerForOpenable();
+
+  useEffect(() => {
+    setStateUser(user);
+  }, [user]);
+
   return (
     <>
       <ContextForOpenable.Provider value={profileOpenableController}>
@@ -28,7 +37,7 @@ export function TopbarRightGroup() {
             <SettingsIcon />
           </TopbarIconLink>
         </div>
-        <TopbarAvatar href={userProfileMap.profile.link(user.id)} />
+        <TopbarAvatar href={userProfileMap.profile.link(stateUser.id)} />
       </div>
     </>
   );

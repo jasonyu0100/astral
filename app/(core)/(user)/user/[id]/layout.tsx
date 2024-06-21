@@ -1,12 +1,9 @@
 'use client';
-import { DashboardContent } from '@/(components)/(dashboard)/content/main';
-import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
 import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { createContext } from 'react';
-import { UserTabs, UserTabStage } from './(tabs)/main';
 
 export interface ContextForProfileInterface {
   userId: string;
@@ -32,10 +29,7 @@ export default function Layout({
           minimised
           backUrl={studioMap.studio.spaces.link}
         />
-        <DashboardBody>
-          <UserTabs tab={UserTabStage.profile} />
-          <DashboardContent>{children}</DashboardContent>
-        </DashboardBody>
+        {children}
       </DashboardController>
     </ContextForProfile.Provider>
   );

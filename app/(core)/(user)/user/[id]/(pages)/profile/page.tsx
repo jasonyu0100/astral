@@ -1,20 +1,27 @@
 'use client';
 
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import {
+  ContextForUserMain,
+  useControllerForUserMain,
+} from '@/(server)/(controller)/user/main';
 import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
+import { useContext } from 'react';
+import { ContextForProfile } from '../../layout';
 import { ProfileUserView } from '../../view/main';
 
 function Page() {
-  const user = useGlobalUser((state) => state.user);
+  const profileContext = useContext(ContextForProfile);
+  const userController = useControllerForUserMain(profileContext.userId);
+  const user = userController.state.obj;
 
   return (
-    <ContextForUserObj.Provider value={user}>
-      <ProfileUserView>
-        <div className='flex h-full w-full flex-row'>
-          <div className='w-1/3 p-[3rem]'>
+    <ContextForUserMain.Provider value={userController}>
+      <ContextForUserObj.Provider value={user}>
+        <ProfileUserView>
+          <div className='flex h-full w-full flex-row'>
             <img
-              className='aspect-square w-full rounded-full'
+              className='aspect-square h-[200px] w-[200px] rounded-full'
               src={user.dp?.src}
             />
             <h1 className='text-white'>
@@ -29,12 +36,9 @@ function Page() {
               <h1 className='text-white'>100 Collaborators</h1>
             </div>
           </div>
-          <div className='w-1/3'>
-            <h1 className='text-white'>Hello World</h1>
-          </div>
-        </div>
-      </ProfileUserView>
-    </ContextForUserObj.Provider>
+        </ProfileUserView>
+      </ContextForUserObj.Provider>
+    </ContextForUserMain.Provider>
   );
 }
 
