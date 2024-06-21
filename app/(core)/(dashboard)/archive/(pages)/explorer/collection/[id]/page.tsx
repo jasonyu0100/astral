@@ -40,7 +40,7 @@ function Page({ params }: { params: { id: string } }) {
           value={resourceListController}
         >
           <ArchiveTabs
-            tab={ArchiveTabStage.explorer}
+            tab={ArchiveTabStage.Explorer}
             backUrl={archiveMap.archive.explorer.gallery.id.link(
               galleryMainController.state.obj.id,
             )}

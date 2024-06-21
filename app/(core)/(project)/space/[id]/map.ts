@@ -3,17 +3,17 @@ const baseUrl = `/space`;
 export const spaceMap = {
   space: {
     id: {
-      storm: {
-        link: (id: string) => `${baseUrl}/${id}/storm`,
+      chat: {
+        link: (id: string) => `${baseUrl}/${id}/chat`,
       },
-      draft: {
-        link: (id: string) => `${baseUrl}/${id}/draft`,
+      map: {
+        link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      flow: {
-        link: (id: string) => `${baseUrl}/${id}/flow`,
+      verse: {
+        link: (id: string) => `${baseUrl}/${id}/verse`,
       },
-      sea: {
-        link: (id: string) => `${baseUrl}/${id}/sea`,
+      session: {
+        link: (id: string) => `${baseUrl}/${id}/session`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

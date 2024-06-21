@@ -6,7 +6,7 @@ export function StudioSpacesRowCountPlay() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <a href={spaceMap.space.id.storm.link(space.id)}>
+    <a href={spaceMap.space.id.chat.link(space.id)}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-[30px] w-[30px]'

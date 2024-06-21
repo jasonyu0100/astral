@@ -10,11 +10,11 @@ import { SpaceTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.storm;
+  const tabText = SpaceTabStage.Chat;
   const active = tab === tabText;
 
   return (
-    <Tab href={spaceMap.space.id.storm.link(spaceContext.spaceId)}>
+    <Tab href={spaceMap.space.id.chat.link(spaceContext.spaceId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

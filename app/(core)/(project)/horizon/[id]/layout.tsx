@@ -3,7 +3,7 @@
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
 import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
-import { ventureMap } from '@/(core)/(dashboard)/venture/map';
+import { ventureMap } from '@/(core)/(dashboard)/horizon/map';
 import { createContext } from 'react';
 
 interface HorizonContextObj {
@@ -27,7 +27,7 @@ export default function Layout({
       <DashboardController>
         <DashboardSidebarView
           minimised
-          backUrl={ventureMap.venture.horizons.link}
+          backUrl={ventureMap.venture.projects.link}
         />
         {children}
       </DashboardController>

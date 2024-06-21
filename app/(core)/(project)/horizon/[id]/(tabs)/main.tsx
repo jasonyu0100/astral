@@ -10,10 +10,10 @@ interface ReleaseTabProps {
 }
 
 export enum ReleaseTabStage {
-  forum = 'forum',
-  story = 'story',
-  cluster = 'cluster',
-  point = 'point',
+  Area = 'Area',
+  Board = 'Board',
+  Chart = 'Chart',
+  Lead = 'Lead',
 }
 
 export function ReleaseTabs({ tab }: ReleaseTabProps) {

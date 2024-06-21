@@ -3,7 +3,7 @@ import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main
 import { TabOne } from './tab-1/main';
 
 export enum SpaceTabStages {
-  spaces = 'spaces',
+  Spaces = 'Spaces',
   two = 'two',
   three = 'three',
 }

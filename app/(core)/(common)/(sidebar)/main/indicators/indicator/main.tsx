@@ -22,6 +22,6 @@ export enum DashboardSidebarIndicatorType {
   Studio = 'Studio',
   Archive = 'Archive',
   Journal = 'Journal',
-  Creative = 'Creative',
-  Venture = 'Venture',
+  Network = 'Network',
+  Horizon = 'Horizon',
 }

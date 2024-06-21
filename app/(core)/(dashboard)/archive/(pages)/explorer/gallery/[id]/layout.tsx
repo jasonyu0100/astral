@@ -9,7 +9,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <ArchiveTabs
-        tab={ArchiveTabStage.explorer}
+        tab={ArchiveTabStage.Explorer}
         backUrl={archiveMap.archive.explorer.home.link}
       />
       <DashboardContent>{children}</DashboardContent>

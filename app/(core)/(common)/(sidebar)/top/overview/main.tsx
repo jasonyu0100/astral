@@ -1,6 +1,6 @@
 'use client';
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -13,7 +13,7 @@ export function DashboardSidebarTopOverview() {
   useEffect(() => {
     changeUrl(
       space.id
-        ? spaceMap.space.id.storm.link(space.id)
+        ? spaceMap.space.id.chat.link(space.id)
         : studioMap.studio.spaces.link,
     );
   }, [space]);

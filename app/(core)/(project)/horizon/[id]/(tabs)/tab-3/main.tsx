@@ -10,11 +10,11 @@ import { ReleaseTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.cluster;
+  const tabText = ReleaseTabStage.Chart;
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.cluster.link(releaseContext.releaseId)}>
+    <Tab href={horizonMap.horizon.id.chart.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

@@ -10,10 +10,10 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  storm = 'storm',
-  draft = 'draft',
-  flow = 'flow',
-  sea = 'sea',
+  Chat = 'Chat',
+  Map = 'Map',
+  Verse = 'Verse',
+  Session = 'Session',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {

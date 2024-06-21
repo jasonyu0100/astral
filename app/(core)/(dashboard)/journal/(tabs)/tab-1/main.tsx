@@ -5,7 +5,7 @@ import { journalMap } from '../../map';
 import { JournalTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = JournalTabStage.record;
+  const tabText = JournalTabStage.Entry;
   const active = tab === tabText;
 
   return (
