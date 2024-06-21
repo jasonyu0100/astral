@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/item/main';
-import { HorizonUpdateItemObj } from '@/(server)/(model)/horizon/update/item/main';
+import { horizonSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/session/update/main';
+import { HorizonSessionUpdateObj } from '@/(server)/(model)/horizon/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateItemObj;
-const gqlDbWrapper = horizonUpdateItemDbWrapper;
+type TargetObj = HorizonSessionUpdateObj;
+const gqlDbWrapper = horizonSessionUpdateDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,9 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateItemMain = (objId: string): Controller => {
+const useControllerForHorizonSessionUpdateMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,8 +114,8 @@ const useControllerForHorizonUpdateItemMain = (objId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateItemMain = createContext({} as Controller);
+const ContextForHorizonSessionUpdateMain = createContext({} as Controller);
 export {
-  ContextForHorizonUpdateItemMain as ContextForHorizonUpdateItemMain,
-  useControllerForHorizonUpdateItemMain as useControllerForHorizonUpdateItemMain,
+  ContextForHorizonSessionUpdateMain as ContextForHorizonSessionUpdateMain,
+  useControllerForHorizonSessionUpdateMain as useControllerForHorizonSessionUpdateMain,
 };

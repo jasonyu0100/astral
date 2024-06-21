@@ -1,10 +1,10 @@
 import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
-import { ContextForChapterUpdateList } from '@/(server)/(controller)/space/chapter/update/list';
+import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
-import { ChapterUpdateObj } from '@/(server)/(model)/space/chapter/update/main';
+import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSeaEditPrev } from '../(common)/icon/prev/main';
 import { EditContext } from '../main';
@@ -15,7 +15,7 @@ interface Controller {
   setTitle: (value: string) => void;
   description: string;
   setDescription: (value: string) => void;
-  saveUpdate: () => Promise<ChapterUpdateObj>;
+  saveUpdate: () => Promise<ChapterSessionObj>;
 }
 
 export const ContextForUpdateEdit = createContext({} as Controller);
@@ -25,29 +25,29 @@ export function SpaceSeaEditUpdateForm() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const updateListController = useContext(ContextForChapterUpdateList);
-  const updateItemListController = useContext(ContextForChapterItemList);
+  const updateListController = useContext(ContextForChapterSessionList);
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
   const currentUpdate =
-    updateItemListController.state.currentObj || ({} as ChapterUpdateObj);
+    sessionUpdateListController.state.currentObj || ({} as ChapterSessionObj);
   const [title, setTitle] = useState(currentUpdate.title);
   const [description, setDescription] = useState(currentUpdate.description);
 
-  async function saveUpdate() {
-    const update = await updateListController.actions.createActions
-      .createUpdate(
+  async function saveUpdate(): Promise<ChapterSessionObj> {
+    const update =
+      await updateListController.actions.createActions.createUpdate(
         user.id,
         spaceController.state.objId,
         chapterListController.state.objId,
         title,
         description,
-      )
-      .then((update) => {
-        updateItemListController.state.objs.map(async (item) => {
-          return updateItemListController.actions.editActions.edit(item.id, {
-            updateId: update.id,
-          });
-        });
+      );
+    sessionUpdateListController.state.objs.map(async (item) => {
+      return sessionUpdateListController.actions.editActions.edit(item.id, {
+        sessionId: update.id,
       });
+    });
     return update;
   }
 
@@ -65,10 +65,10 @@ export function SpaceSeaEditUpdateForm() {
         <SpaceSeaEditPrev
           onClick={() => {
             updateComplete(false);
-            if (updateItemListController.state.index === 0) {
+            if (sessionUpdateListController.state.index === 0) {
               chapterListController.actions.stateActions.goPrev();
             } else {
-              updateItemListController.actions.stateActions.goPrev();
+              sessionUpdateListController.actions.stateActions.goPrev();
             }
           }}
         />

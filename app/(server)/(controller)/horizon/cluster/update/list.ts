@@ -7,14 +7,14 @@ import {
 } from '@/(server)/(controller)/list';
 import { clusterUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/main';
 import {
-  clusterUpdateModel,
-  ClusterUpdateObj,
-} from '@/(server)/(model)/horizon/cluster/update/main';
+  horizonGroupSessionModel,
+  HorizonGroupSessionObj,
+} from '@/(server)/(model)/horizon/group/session/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateObj;
+type TargetObj = HorizonGroupSessionObj;
 const gqlDbWrapper = clusterUpdateDbWrapper;
-const listIdKey = clusterUpdateModel.parentKey;
+const listIdKey = horizonGroupSessionModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -203,7 +203,7 @@ const useControllerForClusterUpdateList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        clusterId: '',
+        groupId: '',
         userId: '',
         title: '',
         description: '',

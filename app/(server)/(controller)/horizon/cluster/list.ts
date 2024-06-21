@@ -7,14 +7,14 @@ import {
 } from '@/(server)/(controller)/list';
 import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
 import {
-  horizonClusterModel,
-  HorizonClusterObj,
-} from '@/(server)/(model)/horizon/cluster/main';
+  horizonGroupModel,
+  HorizonGroupObj,
+} from '@/(server)/(model)/horizon/group/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonClusterObj;
+type TargetObj = HorizonGroupObj;
 const gqlDbWrapper = horizonClusterDbWrapper;
-const listIdKey = horizonClusterModel.parentKey;
+const listIdKey = horizonGroupModel.parentKey;
 
 interface ControllerState {
   listId: string;

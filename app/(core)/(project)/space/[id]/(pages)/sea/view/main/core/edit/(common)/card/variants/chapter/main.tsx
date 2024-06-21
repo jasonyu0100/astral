@@ -1,12 +1,12 @@
 import { useControllerForSpaceChapterMain } from '@/(server)/(controller)/space/chapter/main';
-import { ContextForChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { useContext } from 'react';
 import { SpaceSeaEditCard } from '../../main';
 
 export function SpaceSeaCardChapter() {
-  const updateItem = useContext(ContextForChapterUpdateItemObj);
+  const sessionUpdate = useContext(ContextForChapterSessionUpdateObj);
   const chapterController = useControllerForSpaceChapterMain(
-    updateItem.chapterId,
+    sessionUpdate.chapterId,
   );
 
   return (

@@ -1,5 +1,5 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { HorizonClusterObj } from '@/(server)/(model)/horizon/cluster/main';
+import { HorizonGroupObj } from '@/(server)/(model)/horizon/group/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createHorizonClusterObj,
@@ -13,11 +13,11 @@ import {
 import { GqlDbWrapper } from '../../main';
 
 function castSingle(obj: unknown) {
-  return obj as HorizonClusterObj;
+  return obj as HorizonGroupObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonClusterObj[];
+  return objs as HorizonGroupObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listHorizonClusterObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<HorizonClusterObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonGroupObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createHorizonClusterObj,
     variables: {
@@ -85,7 +85,7 @@ async function createObj(newObj: Omit<HorizonClusterObj, 'id'>) {
   return castSingle(payload?.data?.createHorizonClusterObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<HorizonClusterObj>) {
+async function updateObj(id: string, updateObj: Partial<HorizonGroupObj>) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonClusterObj,
     variables: {
@@ -99,7 +99,7 @@ async function updateObj(id: string, updateObj: Partial<HorizonClusterObj>) {
   return castSingle(payload?.data?.updateHorizonClusterObj);
 }
 
-async function overwriteObj(id: string, newObj: HorizonClusterObj) {
+async function overwriteObj(id: string, newObj: HorizonGroupObj) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonClusterObj,
     variables: {
@@ -126,7 +126,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonClusterObj);
 }
 
-export const horizonClusterDbWrapper: GqlDbWrapper<HorizonClusterObj> = {
+export const horizonClusterDbWrapper: GqlDbWrapper<HorizonGroupObj> = {
   getObj,
   listObjs,
   listAllObjs,

@@ -1,16 +1,21 @@
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
+import { ChapterSessionUpdateObj } from '@/graphql/API';
 import { useContext } from 'react';
 
 export function SpaceSeaItemFormHeader() {
-  const updateItemListController = useContext(ContextForChapterItemList);
-  const current = updateItemListController.state.currentObj;
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
+  const current =
+    sessionUpdateListController.state.currentObj ||
+    ({} as ChapterSessionUpdateObj);
 
   return (
     <div className='flex flex-col'>
       <p className='mb-[1rem] text-sm font-bold text-slate-300'>
-        {updateItemListController.state.index + 1} of{' '}
-        {updateItemListController.state.objs.length}
+        {sessionUpdateListController.state.index + 1} of{' '}
+        {sessionUpdateListController.state.objs.length}
       </p>
       <p className='text-xl font-bold text-slate-300'>
         {current.variant.toLowerCase()} update

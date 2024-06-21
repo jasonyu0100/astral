@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ClusterMemberObj } from '@/(server)/(model)/horizon/cluster/member/main';
+import { HorizonGroupMemberObj } from '@/(server)/(model)/horizon/group/member/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createClusterMemberObj,
@@ -10,11 +10,11 @@ import {
 import { getClusterMemberObj, listClusterMemberObjs } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as ClusterMemberObj;
+  return obj as HorizonGroupMemberObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ClusterMemberObj[];
+  return objs as HorizonGroupMemberObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +71,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listClusterMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ClusterMemberObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonGroupMemberObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createClusterMemberObj,
     variables: {
@@ -82,7 +82,10 @@ async function createObj(newObj: Omit<ClusterMemberObj, 'id'>) {
   return castSingle(payload?.data?.createClusterMemberObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ClusterMemberObj>) {
+async function updateObj(
+  id: string,
+  updateObj: Partial<HorizonGroupMemberObj>,
+) {
   const payload = await amplifyClient.graphql({
     query: updateClusterMemberObj,
     variables: {
@@ -96,7 +99,7 @@ async function updateObj(id: string, updateObj: Partial<ClusterMemberObj>) {
   return castSingle(payload?.data?.updateClusterMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: ClusterMemberObj) {
+async function overwriteObj(id: string, newObj: HorizonGroupMemberObj) {
   const payload = await amplifyClient.graphql({
     query: updateClusterMemberObj,
     variables: {
@@ -123,7 +126,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterMemberObj);
 }
 
-export const clusterMemberDbWrapper: GqlDbWrapper<ClusterMemberObj> = {
+export const clusterMemberDbWrapper: GqlDbWrapper<HorizonGroupMemberObj> = {
   getObj,
   listObjs,
   listAllObjs,

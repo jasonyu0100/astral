@@ -9,35 +9,31 @@ import { clusterMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/member/m
 import { clusterUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/main';
 import { horizonDbWrapper } from '@/(server)/(db)/horizon/main';
 import { horizonMemberDbWrapper } from '@/(server)/(db)/horizon/member/main';
-import { horizonUpdateDbWrapper } from '@/(server)/(db)/horizon/update/main';
-import { horizonUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/update/member/main';
+import { horizonSessionDbWrapper } from '@/(server)/(db)/horizon/session/main';
+import { horizonSessionUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/session/update/member/main';
 import { forumMemberModel } from '@/(server)/(model)/horizon/arc/forum/member/main';
-import { clusterMemberModel } from '@/(server)/(model)/horizon/cluster/member/main';
-import { clusterUpdateItemModel } from '@/(server)/(model)/horizon/cluster/update/item/main';
+import { horizonGroupMemberModel } from '@/(server)/(model)/horizon/group/member/main';
+import { horizonGroupSessionUpdateModel } from '@/(server)/(model)/horizon/group/session/update/main';
 import {
-  clusterUpdateMemberGql,
-  clusterUpdateMemberModel,
-} from '@/(server)/(model)/horizon/cluster/update/member/main';
+  horizonGroupSessionUpdateMemberGql,
+  horizonGroupSessionUpdateMemberModel,
+} from '@/(server)/(model)/horizon/group/session/update/member/main';
 import { horizonMemberModel } from '@/(server)/(model)/horizon/member/main';
-import { horizonUpdateItemModel } from '@/(server)/(model)/horizon/update/item/main';
-import { horizonUpdateMemberModel } from '@/(server)/(model)/horizon/update/member/main';
+import { horizonSessionUpdateModel } from '@/(server)/(model)/horizon/session/update/main';
+import { horizonSessionUpdateMemberModel } from '@/(server)/(model)/horizon/session/update/member/main';
 import { arcForumModel } from '../../(model)/horizon/arc/forum/main';
 import { postCommentGql } from '../../(model)/horizon/arc/forum/post/comment/main';
 import { forumPostModel } from '../../(model)/horizon/arc/forum/post/main';
 import { horizonArcModel } from '../../(model)/horizon/arc/main';
 import { arcPointModel } from '../../(model)/horizon/arc/point/main';
-import { horizonClusterModel } from '../../(model)/horizon/cluster/main';
-import { clusterUpdateModel } from '../../(model)/horizon/cluster/update/main';
+import { horizonGroupModel } from '../../(model)/horizon/group/main';
+import { horizonGroupSessionModel } from '../../(model)/horizon/group/session/main';
 import { horizonModel } from '../../(model)/horizon/main';
-import { horizonUpdateModel } from '../../(model)/horizon/update/main';
+import { horizonSessionModel } from '../../(model)/horizon/session/main';
 
 export const horizonMap = {
   model: horizonModel,
   db: horizonDbWrapper,
-  member: {
-    model: horizonMemberModel,
-    db: horizonMemberDbWrapper,
-  },
   arc: {
     model: horizonArcModel,
     db: horizonArcDbWrapper,
@@ -62,36 +58,40 @@ export const horizonMap = {
       },
     },
   },
-  cluster: {
-    model: horizonClusterModel,
+  group: {
+    model: horizonGroupModel,
     db: horizonClusterDbWrapper,
     member: {
-      model: clusterMemberModel,
+      model: horizonGroupMemberModel,
       db: clusterMemberDbWrapper,
     },
-    update: {
-      model: clusterUpdateModel,
+    session: {
+      model: horizonGroupSessionModel,
       db: clusterUpdateDbWrapper,
-      item: {
-        model: clusterUpdateItemModel,
+      update: {
+        model: horizonGroupSessionUpdateModel,
         db: clusterUpdateDbWrapper,
       },
       member: {
-        model: clusterUpdateMemberModel,
-        db: clusterUpdateMemberGql,
+        model: horizonGroupSessionUpdateMemberModel,
+        db: horizonGroupSessionUpdateMemberGql,
       },
     },
   },
-  update: {
-    model: horizonUpdateModel,
-    db: horizonUpdateDbWrapper,
-    item: {
-      model: horizonUpdateItemModel,
-      db: horizonUpdateDbWrapper,
+  session: {
+    model: horizonSessionModel,
+    db: horizonSessionDbWrapper,
+    update: {
+      model: horizonSessionUpdateModel,
+      db: horizonSessionDbWrapper,
+      member: {
+        model: horizonSessionUpdateMemberModel,
+        db: horizonSessionUpdateMemberDbWrapper,
+      },
     },
-    member: {
-      model: horizonUpdateMemberModel,
-      db: horizonUpdateMemberDbWrapper,
-    },
+  },
+  member: {
+    model: horizonMemberModel,
+    db: horizonMemberDbWrapper,
   },
 };

@@ -3,7 +3,7 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 import {
@@ -64,7 +64,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
   const verseListController = useControllerForChapterVerseList('');
-  const updateItemListController = useControllerForChapterItemList('');
+  const sessionUpdateListController = useControllerForChapterItemList('');
 
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
@@ -96,7 +96,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             space.id,
             index,
           );
-        await updateItemListController.actions.createActions.createFromChapter(
+        await sessionUpdateListController.actions.createActions.createFromChapter(
           user.id,
           chapter.id,
         );
@@ -129,7 +129,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
-              await updateItemListController.actions.createActions.createFromChapterChat(
+              await sessionUpdateListController.actions.createActions.createFromChapterChat(
                 user.id,
                 chapter.id,
                 chat.id,
@@ -146,7 +146,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
-          await updateItemListController.actions.createActions.createFromChapterChat(
+          await sessionUpdateListController.actions.createActions.createFromChapterChat(
             user.id,
             chapter.id,
             chat.id,
@@ -181,7 +181,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
-              await updateItemListController.actions.createActions.createFromChapterScene(
+              await sessionUpdateListController.actions.createActions.createFromChapterScene(
                 user.id,
                 chapter.id,
                 scene.id,
@@ -198,7 +198,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
-          await updateItemListController.actions.createActions.createFromChapterScene(
+          await sessionUpdateListController.actions.createActions.createFromChapterScene(
             user.id,
             chapter.id,
             scene.id,
@@ -234,7 +234,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   chapter.id,
                   exampleFileElem,
                 );
-              await updateItemListController.actions.createActions.createFromChapterVerse(
+              await sessionUpdateListController.actions.createActions.createFromChapterVerse(
                 user.id,
                 chapter.id,
                 verse.id,
@@ -252,7 +252,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               chapter.id,
               exampleFileElem,
             );
-          await updateItemListController.actions.createActions.createFromChapterVerse(
+          await sessionUpdateListController.actions.createActions.createFromChapterVerse(
             user.id,
             chapter.id,
             verse.id,

@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateItemDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
+import { horizonGroupSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
 import {
-  clusterUpdateItemModel,
-  ClusterUpdateItemObj,
-} from '@/(server)/(model)/horizon/cluster/update/item/main';
+  horizonGroupSessionUpdateModel,
+  HorizonGroupSessionUpdateObj,
+} from '@/(server)/(model)/horizon/group/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateItemObj;
-const gqlDbWrapper = clusterUpdateItemDbWrapper;
-const listIdKey = clusterUpdateItemModel.parentKey;
+type TargetObj = HorizonGroupSessionUpdateObj;
+const gqlDbWrapper = horizonGroupSessionUpdateDbWrapper;
+const listIdKey = horizonGroupSessionUpdateModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateItemList = (listId: string): Controller => {
+const useControllerForGroupSessionUpdateList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -203,7 +203,7 @@ const useControllerForClusterUpdateItemList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        updateId: '',
+        sessionId: '',
         value: 0,
         message: '',
       };
@@ -283,8 +283,8 @@ const useControllerForClusterUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForClusterUpdateItemList = createContext({} as Controller);
+const ContextForGroupSessionUpdateList = createContext({} as Controller);
 export {
-  ContextForClusterUpdateItemList as ContextForClusterUpdateItemList,
-  useControllerForClusterUpdateItemList as useControllerForClusterUpdateItemList,
+  ContextForGroupSessionUpdateList as ContextForGroupSessionUpdateList,
+  useControllerForGroupSessionUpdateList as useControllerForGroupSessionUpdateList,
 };

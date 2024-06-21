@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonUpdateItemDbWrapper } from '@/(server)/(db)/horizon/update/item/main';
+import { horizonSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/session/update/main';
 import {
-  horizonUpdateItemModel,
-  HorizonUpdateItemObj,
-} from '@/(server)/(model)/horizon/update/item/main';
+  horizonSessionUpdateModel,
+  HorizonSessionUpdateObj,
+} from '@/(server)/(model)/horizon/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateItemObj;
-const gqlDbWrapper = horizonUpdateItemDbWrapper;
-const listIdKey = horizonUpdateItemModel.parentKey;
+type TargetObj = HorizonSessionUpdateObj;
+const gqlDbWrapper = horizonSessionUpdateDbWrapper;
+const listIdKey = horizonSessionUpdateModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
+const useControllerForHorizonSessionUpdateList = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -203,7 +205,7 @@ const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        updateId: '',
+        sessionId: '',
         value: 0,
         message: '',
       };
@@ -283,8 +285,8 @@ const useControllerForHorizonUpdateItemList = (listId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateItemList = createContext({} as Controller);
+const ContextForHorizonSessionUpdateList = createContext({} as Controller);
 export {
-  ContextForHorizonUpdateItemList as ContextForHorizonUpdateItemList,
-  useControllerForHorizonUpdateItemList as useControllerForHorizonUpdateItemList,
+  ContextForHorizonSessionUpdateList as ContextForHorizonSessionUpdateList,
+  useControllerForHorizonSessionUpdateList as useControllerForHorizonSessionUpdateList,
 };

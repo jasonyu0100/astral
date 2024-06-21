@@ -2,7 +2,7 @@ import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
@@ -13,14 +13,16 @@ import { ContextForUpdateEdit } from '../main';
 export function SpaceSeaUpdateForm() {
   const { updateComplete } = useContext(EditContext);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const updateItemListController = useContext(ContextForChapterItemList);
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
   const updateEditController = useContext(ContextForUpdateEdit);
 
   return (
     <div className='flex h-full flex-grow flex-col justify-between space-y-[1rem]'>
       <div className='flex flex-col'>
         <p className='mb-[1rem] text-sm font-bold text-slate-300'>
-          {updateItemListController.state.objs.length} updates
+          {sessionUpdateListController.state.objs.length} updates
         </p>
         <p className='text-xl font-bold text-slate-300'>
           {chapterListController.state.currentObj?.title}
@@ -65,7 +67,7 @@ export function SpaceSeaUpdateForm() {
           </GlassWindowFrame>
           <p className='text-md font-bold text-slate-300'>Linked</p>
           <div className='flex flex-col'>
-            {updateItemListController.state.objs
+            {sessionUpdateListController.state.objs
               .filter((obj) => obj.added)
               .map((item, index) => (
                 <div className='text-sm text-slate-300'>
@@ -76,7 +78,7 @@ export function SpaceSeaUpdateForm() {
           </div>
           <p className='text-md font-bold text-slate-300'>Unlinked</p>
           <div className='flex flex-col'>
-            {updateItemListController.state.objs
+            {sessionUpdateListController.state.objs
               .filter((obj) => !obj.added)
               .map((item, index) => (
                 <div className='text-sm text-slate-300'>

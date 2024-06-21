@@ -7,9 +7,9 @@ import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
 import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main';
 import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
-import { chapterUpdateItemDbWrapper } from '@/(server)/(db)/space/chapter/update/item/main';
-import { chapterUpdateMemberDbWrapper } from '@/(server)/(db)/space/chapter/update/item/member/main';
-import { chapterUpdateDbWrapper } from '@/(server)/(db)/space/chapter/update/main';
+import { ChapterSessionDbWrapper } from '@/(server)/(db)/space/chapter/session/main';
+import { chapterSessionUpdateDbWrapper } from '@/(server)/(db)/space/chapter/session/update/main';
+import { ChapterSessionMemberDbWrapper } from '@/(server)/(db)/space/chapter/session/update/member/main';
 import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import { spaceDbWrapper } from '@/(server)/(db)/space/main';
@@ -17,8 +17,8 @@ import { spaceMemberDbWrapper } from '@/(server)/(db)/space/member/main';
 import { chatMemberModel } from '@/(server)/(model)/space/chapter/chat/member/main';
 import { ideaLinkModel } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
 import { sceneStackGql } from '@/(server)/(model)/space/chapter/scene/stack/main';
-import { chapterUpdateItemModel } from '@/(server)/(model)/space/chapter/update/item/main';
-import { chapterUpdateMemberItemModel } from '@/(server)/(model)/space/chapter/update/item/member/main';
+import { chapterSessionUpdateModel } from '@/(server)/(model)/space/chapter/session/update/main';
+import { ChapterSessionMemberItemModel } from '@/(server)/(model)/space/chapter/session/update/member/main';
 import {
   verseMemberGql,
   verseMemberModel,
@@ -30,7 +30,7 @@ import { chapterChatModel } from '../../(model)/space/chapter/chat/main';
 import { spaceChapterModel } from '../../(model)/space/chapter/main';
 import { sceneIdeaModel } from '../../(model)/space/chapter/scene/idea/main';
 import { chapterSceneModel } from '../../(model)/space/chapter/scene/main';
-import { chapterUpdateModel } from '../../(model)/space/chapter/update/main';
+import { chapterSessionModel } from '../../(model)/space/chapter/session/main';
 import { verseCommentModel } from '../../(model)/space/chapter/verse/comment/main';
 import { chapterVerseModel } from '../../(model)/space/chapter/verse/main';
 import { spaceModel } from '../../(model)/space/main';
@@ -45,16 +45,16 @@ export const spaceMap = {
   chapter: {
     db: spaceChapterDbWrapper,
     model: spaceChapterModel,
-    update: {
-      model: chapterUpdateModel,
-      db: chapterUpdateDbWrapper,
-      member: {
-        model: chapterUpdateMemberItemModel,
-        db: chapterUpdateMemberDbWrapper,
-      },
-      item: {
-        model: chapterUpdateItemModel,
-        db: chapterUpdateItemDbWrapper,
+    session: {
+      model: chapterSessionModel,
+      db: ChapterSessionDbWrapper,
+      update: {
+        model: chapterSessionUpdateModel,
+        db: chapterSessionUpdateDbWrapper,
+        member: {
+          model: ChapterSessionMemberItemModel,
+          db: ChapterSessionMemberDbWrapper,
+        },
       },
     },
     chat: {

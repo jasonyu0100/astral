@@ -1,5 +1,5 @@
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
-import { ContextForChapterUpdateList } from '@/(server)/(controller)/space/chapter/update/list';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSeaEditItemForm } from './item/main';
@@ -14,8 +14,12 @@ export const EditContext = createContext({} as Context);
 
 export function SpaceSeaCardEdit() {
   const [complete, setComplete] = useState(false);
-  const updateItemListController = useContext(ContextForChapterItemList);
-  const updateListController = useContext(ContextForChapterUpdateList);
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
+  const current =
+    sessionUpdateListController.state.currentObj ||
+    ({} as ChapterSessionUpdateObj);
 
   const context = {
     complete,
@@ -25,7 +29,7 @@ export function SpaceSeaCardEdit() {
   return (
     <>
       <EditContext.Provider value={context}>
-        {updateItemListController.state.objs.length > 0 ? (
+        {sessionUpdateListController.state.objs.length > 0 ? (
           <>
             {complete ? <SpaceSeaEditUpdateForm /> : <SpaceSeaEditItemForm />}
           </>
@@ -33,9 +37,7 @@ export function SpaceSeaCardEdit() {
           <div className='flex flex-row'>
             <p className='text-xl font-bold text-slate-300'>
               No updates available since{' '}
-              {getFormattedDate(
-                new Date(updateListController.state.currentObj?.created),
-              )}
+              {getFormattedDate(new Date(current?.created))}
             </p>
           </div>
         )}

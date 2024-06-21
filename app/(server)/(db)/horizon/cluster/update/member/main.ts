@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ClusterUpdateMemberObj } from '@/(server)/(model)/horizon/cluster/update/member/main';
+import { HorizonGroupSessionUpdateMemberObj } from '@/(server)/(model)/horizon/group/session/update/member/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createClusterUpdateMemberObj,
@@ -13,11 +13,11 @@ import {
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as ClusterUpdateMemberObj;
+  return obj as HorizonGroupSessionUpdateMemberObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ClusterUpdateMemberObj[];
+  return objs as HorizonGroupSessionUpdateMemberObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,9 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listClusterUpdateMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ClusterUpdateMemberObj, 'id'>) {
+async function createObj(
+  newObj: Omit<HorizonGroupSessionUpdateMemberObj, 'id'>,
+) {
   const payload = await amplifyClient.graphql({
     query: createClusterUpdateMemberObj,
     variables: {
@@ -87,7 +89,7 @@ async function createObj(newObj: Omit<ClusterUpdateMemberObj, 'id'>) {
 
 async function updateObj(
   id: string,
-  updateObj: Partial<ClusterUpdateMemberObj>,
+  updateObj: Partial<HorizonGroupSessionUpdateMemberObj>,
 ) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateMemberObj,
@@ -102,7 +104,10 @@ async function updateObj(
   return castSingle(payload?.data?.updateClusterUpdateMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: ClusterUpdateMemberObj) {
+async function overwriteObj(
+  id: string,
+  newObj: HorizonGroupSessionUpdateMemberObj,
+) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateMemberObj,
     variables: {
@@ -129,7 +134,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterUpdateMemberObj);
 }
 
-export const clusterUpdateMemberDbWrapper: GqlDbWrapper<ClusterUpdateMemberObj> =
+export const clusterUpdateMemberDbWrapper: GqlDbWrapper<HorizonGroupSessionUpdateMemberObj> =
   {
     getObj,
     listObjs,

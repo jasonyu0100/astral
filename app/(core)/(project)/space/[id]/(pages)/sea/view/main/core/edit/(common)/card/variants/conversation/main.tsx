@@ -1,15 +1,17 @@
 import { useControllerForChatConversationMain } from '@/(server)/(controller)/space/chapter/chat/conversation/main';
 import { useControllerForChapterChatMain } from '@/(server)/(controller)/space/chapter/chat/main';
-import { ContextForChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 import { SpaceSeaEditCard } from '../../main';
 
 export function SpaceSeaCardConversation() {
-  const updateItem = useContext(ContextForChapterUpdateItemObj);
-  const chatController = useControllerForChapterChatMain(updateItem.chatId);
+  const sessionUpdate = useContext(ContextForChapterSessionUpdateObj);
+  const chatController = useControllerForChapterChatMain(
+    sessionUpdate?.chatId || '',
+  );
   const conversationController = useControllerForChatConversationMain(
-    updateItem.conversationId,
+    sessionUpdate?.conversationId || '',
   );
 
   return (

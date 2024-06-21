@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { ClusterUpdateItemObj } from '@/(server)/(model)/horizon/cluster/update/item/main';
+import { HorizonGroupSessionUpdateObj } from '@/(server)/(model)/horizon/group/session/update/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
   createClusterUpdateAddObj,
@@ -13,11 +13,11 @@ import {
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as ClusterUpdateItemObj;
+  return obj as HorizonGroupSessionUpdateObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ClusterUpdateItemObj[];
+  return objs as HorizonGroupSessionUpdateObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +74,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ClusterUpdateItemObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonGroupSessionUpdateObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createClusterUpdateAddObj,
     variables: {
@@ -85,7 +85,10 @@ async function createObj(newObj: Omit<ClusterUpdateItemObj, 'id'>) {
   return castSingle(payload?.data?.createClusterUpdateAddObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ClusterUpdateItemObj>) {
+async function updateObj(
+  id: string,
+  updateObj: Partial<HorizonGroupSessionUpdateObj>,
+) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateAddObj,
     variables: {
@@ -99,7 +102,7 @@ async function updateObj(id: string, updateObj: Partial<ClusterUpdateItemObj>) {
   return castSingle(payload?.data?.updateClusterUpdateAddObj);
 }
 
-async function overwriteObj(id: string, newObj: ClusterUpdateItemObj) {
+async function overwriteObj(id: string, newObj: HorizonGroupSessionUpdateObj) {
   const payload = await amplifyClient.graphql({
     query: updateClusterUpdateAddObj,
     variables: {
@@ -126,14 +129,15 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteClusterUpdateAddObj);
 }
 
-export const clusterUpdateItemDbWrapper: GqlDbWrapper<ClusterUpdateItemObj> = {
-  getObj,
-  listObjs,
-  listAllObjs,
-  createObj,
-  updateObj,
-  overwriteObj,
-  deleteObj,
-  getFromVariables,
-  listFromVariables,
-};
+export const horizonGroupSessionUpdateDbWrapper: GqlDbWrapper<HorizonGroupSessionUpdateObj> =
+  {
+    getObj,
+    listObjs,
+    listAllObjs,
+    createObj,
+    updateObj,
+    overwriteObj,
+    deleteObj,
+    getFromVariables,
+    listFromVariables,
+  };

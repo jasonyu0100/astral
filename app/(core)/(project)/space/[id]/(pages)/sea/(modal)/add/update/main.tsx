@@ -21,7 +21,7 @@ export function SpaceSeaAddUpdateModal() {
   const [title, changeTitle] = useState('');
   const [message, changeMessage] = useState('');
 
-  async function addChapterUpdate() {
+  async function addChapterSession() {
     openableController.close();
   }
 
@@ -64,7 +64,7 @@ export function SpaceSeaAddUpdateModal() {
             </GlassWindowFrame>
           </FormBody>
           <FormFooter>
-            <FormButton onClick={() => addChapterUpdate()}>Add</FormButton>
+            <FormButton onClick={() => addChapterSession()}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

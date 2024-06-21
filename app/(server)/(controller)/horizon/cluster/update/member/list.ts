@@ -7,14 +7,14 @@ import {
 } from '@/(server)/(controller)/list';
 import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/update/member/main';
 import {
-  clusterUpdateMemberModel,
-  ClusterUpdateMemberObj,
-} from '@/(server)/(model)/horizon/cluster/update/member/main';
+  horizonGroupSessionUpdateMemberModel,
+  HorizonGroupSessionUpdateMemberObj,
+} from '@/(server)/(model)/horizon/group/session/update/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ClusterUpdateMemberObj;
+type TargetObj = HorizonGroupSessionUpdateMemberObj;
 const gqlDbWrapper = clusterUpdateMemberDbWrapper;
-const listIdKey = clusterUpdateMemberModel.parentKey;
+const listIdKey = horizonGroupSessionUpdateMemberModel.parentKey;
 
 interface ControllerState {
   listId: string;

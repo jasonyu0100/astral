@@ -1,7 +1,7 @@
 import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
-import { ChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import {
   createContext,
   Dispatch,
@@ -20,7 +20,7 @@ interface Controller {
   setTitle: Dispatch<SetStateAction<string>>;
   description: string;
   setDescription: Dispatch<SetStateAction<string>>;
-  updateItem: () => Promise<ChapterUpdateItemObj>;
+  SessionUpdate: () => Promise<ChapterSessionUpdateObj>;
 }
 
 export const ContextForItemEdit = createContext({} as Controller);
@@ -28,14 +28,17 @@ export const ContextForItemEdit = createContext({} as Controller);
 export function SpaceSeaEditItemForm() {
   const { updateComplete } = useContext(EditContext);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const updateItemListController = useContext(ContextForChapterItemList);
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
   const currentItem =
-    updateItemListController.state.currentObj || ({} as ChapterUpdateItemObj);
+    sessionUpdateListController.state.currentObj ||
+    ({} as ChapterSessionUpdateObj);
   const [title, setTitle] = useState(currentItem.title);
   const [description, setDescription] = useState(currentItem.description);
 
-  async function updateItem() {
-    const update = await updateItemListController.actions.editActions.edit(
+  async function SessionUpdate() {
+    const update = await sessionUpdateListController.actions.editActions.edit(
       currentItem?.id,
       {
         title: title,
@@ -51,19 +54,19 @@ export function SpaceSeaEditItemForm() {
     setTitle,
     description,
     setDescription,
-    updateItem,
+    SessionUpdate,
   };
 
   return (
     <ContextForItemEdit.Provider value={context}>
       <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
-        {updateItemListController.state.index > 0 && (
+        {sessionUpdateListController.state.index > 0 && (
           <SpaceSeaEditPrev
             onClick={() => {
-              if (updateItemListController.state.index === 0) {
+              if (sessionUpdateListController.state.index === 0) {
                 chapterListController.actions.stateActions.goPrev();
               } else {
-                updateItemListController.actions.stateActions.goPrev();
+                sessionUpdateListController.actions.stateActions.goPrev();
               }
             }}
           />
@@ -71,11 +74,11 @@ export function SpaceSeaEditItemForm() {
         <VerticalDivider />
         <SpaceSeaItemForm />
         <VerticalDivider />
-        {updateItemListController.state.index !==
-        updateItemListController.state.objs.length - 1 ? (
+        {sessionUpdateListController.state.index !==
+        sessionUpdateListController.state.objs.length - 1 ? (
           <SpaceSeaEditNext
             onClick={() => {
-              updateItemListController.actions.stateActions.goNext();
+              sessionUpdateListController.actions.stateActions.goNext();
             }}
           />
         ) : (

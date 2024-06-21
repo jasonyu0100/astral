@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { horizonUpdateDbWrapper } from '@/(server)/(db)/horizon/update/main';
-import { HorizonUpdateObj } from '@/(server)/(model)/horizon/update/main';
+import { horizonSessionDbWrapper } from '@/(server)/(db)/horizon/session/main';
+import { HorizonSessionObj } from '@/(server)/(model)/horizon/session/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateObj;
-const gqlDbWrapper = horizonUpdateDbWrapper;
+type TargetObj = HorizonSessionObj;
+const gqlDbWrapper = horizonSessionDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateMain = (objId: string): Controller => {
+const useControllerForHorizonSessionMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForHorizonUpdateMain = (objId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateMain = createContext({} as Controller);
-export { ContextForHorizonUpdateMain, useControllerForHorizonUpdateMain };
+const ContextForHorizonSessionMain = createContext({} as Controller);
+export { ContextForHorizonSessionMain, useControllerForHorizonSessionMain };

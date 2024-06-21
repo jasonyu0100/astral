@@ -1,7 +1,7 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
+import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
@@ -12,20 +12,22 @@ import { SpaceSeaItemFormHeader } from './header/main';
 export function SpaceSeaItemForm() {
   const { updateComplete } = useContext(EditContext);
   const itemEditController = useContext(ContextForItemEdit);
-  const updateItemListController = useContext(ContextForChapterItemList);
-  const current = updateItemListController.state.currentObj;
+  const sessionUpdateListController = useContext(
+    ContextForChapterSessionUpdateList,
+  );
+  const current = sessionUpdateListController.state.currentObj;
 
   async function handleUpdate() {
     if (
-      updateItemListController.state.index ===
-      updateItemListController.state.objs.length - 1
+      sessionUpdateListController.state.index ===
+      sessionUpdateListController.state.objs.length - 1
     ) {
-      itemEditController.updateItem().then(() => {
+      itemEditController.SessionUpdate().then(() => {
         updateComplete(true);
       });
     } else {
-      itemEditController.updateItem().then(() => {
-        updateItemListController.actions.stateActions.goNext();
+      itemEditController.SessionUpdate().then(() => {
+        sessionUpdateListController.actions.stateActions.goNext();
         updateComplete(false);
       });
     }

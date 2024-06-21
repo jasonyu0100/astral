@@ -1,15 +1,13 @@
 import { useControllerForChapterChatMain } from '@/(server)/(controller)/space/chapter/chat/main';
-import { useControllerForSpaceChapterMain } from '@/(server)/(controller)/space/chapter/main';
-import { ContextForChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { useContext } from 'react';
 import { SpaceSeaEditCard } from '../../main';
 
 export function SpaceSeaCardChat() {
-  const updateItem = useContext(ContextForChapterUpdateItemObj);
-  const chapterController = useControllerForSpaceChapterMain(
-    updateItem.chapterId,
+  const sessionUpdate = useContext(ContextForChapterSessionUpdateObj);
+  const chatController = useControllerForChapterChatMain(
+    sessionUpdate?.chatId || '',
   );
-  const chatController = useControllerForChapterChatMain(updateItem.chatId);
 
   return (
     <SpaceSeaEditCard>

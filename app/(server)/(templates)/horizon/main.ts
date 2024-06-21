@@ -1,16 +1,16 @@
 // HORIZON
 
+import { ArcForumObj } from '@/(server)/(model)/horizon/arc/forum/main';
 import { HorizonArcObj } from '@/(server)/(model)/horizon/arc/main';
 import { ArcPointObj } from '@/(server)/(model)/horizon/arc/point/main';
-import { HorizonClusterObj } from '@/(server)/(model)/horizon/cluster/main';
-import { ClusterUpdateObj } from '@/(server)/(model)/horizon/cluster/update/main';
-import { ArcForumObj } from '@/(server)/(model)/horizon/arc/forum/main';
-import { HorizonUpdateObj } from '@/(server)/(model)/horizon/update/main';
+import { HorizonGroupObj } from '@/(server)/(model)/horizon/group/main';
+import { HorizonGroupSessionObj } from '@/(server)/(model)/horizon/group/session/main';
+import { HorizonSessionObj } from '@/(server)/(model)/horizon/session/main';
 import { ForumPostObj } from '@/graphql/API';
-import { movieHorizonTemplate } from './movie/main';
 import { albumHorizonTemplate } from './album/main';
 import { bookHorizonTemplate } from './book/main';
 import { gameHorizonTemplate } from './game/main';
+import { movieHorizonTemplate } from './movie/main';
 
 export type _TemplateHorizonObj = Omit<ArcForumObj, 'id' | 'arcId' | 'created'>;
 export interface TemplateHorizonObj extends _TemplateHorizonObj {
@@ -59,12 +59,12 @@ export interface TemplateArcObj {
 
 // CLUSTER
 export type _TemplateClusterObj = Omit<
-  HorizonClusterObj,
+  HorizonGroupObj,
   'id' | 'horizonId' | 'time'
 >;
 
 export type _TemplateUpdateObj = Omit<
-  ClusterUpdateObj,
+  HorizonGroupSessionObj,
   'id' | 'clusterId' | 'userId' | 'time'
 >;
 
@@ -76,12 +76,12 @@ export interface TemplateClusterObj extends _TemplateClusterObj {
 
 // UPDATE
 
-export type _TemplateHorizonUpdateObj = Omit<
-  HorizonUpdateObj,
+export type _TemplateHorizonSessionObj = Omit<
+  HorizonSessionObj,
   'id' | 'horizonId' | 'userId' | 'time'
 >;
 
-export interface TemplateHorizonUpdateObj extends _TemplateHorizonUpdateObj {}
+export interface TemplateHorizonSessionObj extends _TemplateHorizonSessionObj {}
 
 // TEMPLATES
 

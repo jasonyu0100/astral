@@ -6,10 +6,10 @@ import {
   BaseStateActions,
 } from '@/(server)/(controller)/main';
 import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
-import { HorizonClusterObj } from '@/(server)/(model)/horizon/cluster/main';
+import { HorizonGroupObj } from '@/(server)/(model)/horizon/group/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonClusterObj;
+type TargetObj = HorizonGroupObj;
 const gqlDbWrapper = horizonClusterDbWrapper;
 
 interface ControllerState {

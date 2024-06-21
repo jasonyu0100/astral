@@ -1,11 +1,13 @@
 import { useControllerForChapterVerseMain } from '@/(server)/(controller)/space/chapter/verse/main';
-import { ContextForChapterUpdateItemObj } from '@/(server)/(model)/space/chapter/update/item/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { useContext } from 'react';
 import { SpaceSeaEditCard } from '../../main';
 
 export function SpaceSeaCardVerse() {
-  const updateItem = useContext(ContextForChapterUpdateItemObj);
-  const verseController = useControllerForChapterVerseMain(updateItem.verseId);
+  const sessionUpdate = useContext(ContextForChapterSessionUpdateObj);
+  const verseController = useControllerForChapterVerseMain(
+    sessionUpdate?.verseId || '',
+  );
 
   return (
     <SpaceSeaEditCard>

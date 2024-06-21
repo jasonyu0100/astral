@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonUpdateDbWrapper } from '@/(server)/(db)/horizon/update/main';
+import { horizonSessionDbWrapper } from '@/(server)/(db)/horizon/session/main';
 import {
-  horizonUpdateModel,
-  HorizonUpdateObj,
-} from '@/(server)/(model)/horizon/update/main';
+  horizonSessionModel,
+  HorizonSessionObj,
+} from '@/(server)/(model)/horizon/session/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonUpdateObj;
-const gqlDbWrapper = horizonUpdateDbWrapper;
-const listIdKey = horizonUpdateModel.parentKey;
+type TargetObj = HorizonSessionObj;
+const gqlDbWrapper = horizonSessionDbWrapper;
+const listIdKey = horizonSessionModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonUpdateList = (listId: string): Controller => {
+const useControllerForHorizonSessionList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -284,5 +284,5 @@ const useControllerForHorizonUpdateList = (listId: string): Controller => {
   };
 };
 
-const ContextForHorizonUpdateList = createContext({} as Controller);
-export { ContextForHorizonUpdateList, useControllerForHorizonUpdateList };
+const ContextForHorizonSessionList = createContext({} as Controller);
+export { ContextForHorizonSessionList, useControllerForHorizonSessionList };
