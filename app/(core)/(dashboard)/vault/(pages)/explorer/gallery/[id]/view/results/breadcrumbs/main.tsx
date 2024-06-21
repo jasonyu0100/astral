@@ -1,0 +1,30 @@
+import { vaultMap } from '@/(core)/(dashboard)/vault/map';
+import { ContextForGalleryMain } from '@/(server)/(controller)/gallery/main';
+import { useContext } from 'react';
+import { ArchiveExplorerBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
+import { ArchiveExplorerBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
+import { ArchiveExplorerBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
+
+export function ExplorerGalleryCollectionsBreadcrumbs() {
+  const galleryMainController = useContext(ContextForGalleryMain);
+
+  return (
+    <ArchiveExplorerBreadcrumbs>
+      <ArchiveExplorerBreadcrumbItem
+        href={vaultMap.vault.explorer.link}
+        active={false}
+      >
+        Gallerys
+      </ArchiveExplorerBreadcrumbItem>
+      <ArchiveExplorerBreadcrumbDivider />
+      <ArchiveExplorerBreadcrumbItem
+        active={true}
+        href={vaultMap.vault.explorer.gallery.id.link(
+          galleryMainController.state.objId,
+        )}
+      >
+        {galleryMainController.state.obj.title}
+      </ArchiveExplorerBreadcrumbItem>
+    </ArchiveExplorerBreadcrumbs>
+  );
+}

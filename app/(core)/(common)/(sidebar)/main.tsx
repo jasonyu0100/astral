@@ -5,11 +5,10 @@ import { createContext } from 'react';
 import { DashboardSidebarDefaultContainer } from './main/container/default/main';
 import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';
 import { DashboardSidebarIndicators } from './main/indicators/main';
-import { ArchiveIndicator } from './main/indicators/variants/archive/main';
-import { VentureIndicator } from './main/indicators/variants/horizon/main';
 import { JournalIndicator } from './main/indicators/variants/journal/main';
 import { NetworkIndicator } from './main/indicators/variants/network/main';
 import { SpaceIndicator } from './main/indicators/variants/studio/main';
+import { VaultIndicator } from './main/indicators/variants/vault/main';
 import { DashboardSidebarTopBack } from './top/back/main';
 import { DashboardSidebarTopOverview } from './top/overview/main';
 
@@ -45,9 +44,9 @@ export function DashboardSidebarView({
           <DashboardSidebarIndicators>
             <SpaceIndicator />
             <JournalIndicator />
-            <VentureIndicator />
+            {/* <ExplorerIndicator /> */}
             <NetworkIndicator />
-            <ArchiveIndicator />
+            <VaultIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarMinimisedContainer>
       ) : (
@@ -57,9 +56,9 @@ export function DashboardSidebarView({
           <DashboardSidebarIndicators>
             <SpaceIndicator />
             <JournalIndicator />
-            <VentureIndicator />
+            {/* <ExplorerIndicator /> */}
             <NetworkIndicator />
-            <ArchiveIndicator />
+            <VaultIndicator />
           </DashboardSidebarIndicators>
         </DashboardSidebarDefaultContainer>
       )}
