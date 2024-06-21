@@ -17,7 +17,7 @@ const gqlDbWrapper = forumPostDbWrapper;
 const listIdKey = forumPostModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -48,7 +48,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForForumPostList = (listId: string): Controller => {
+const useControllerForForumPostList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

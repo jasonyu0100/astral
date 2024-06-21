@@ -19,7 +19,7 @@ const gqlDbWrapper = chapterVerseDbWrapper;
 const listIdKey = chapterVerseModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -64,7 +64,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterVerseList = (listId: string): Controller => {
+const useControllerForChapterVerseList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

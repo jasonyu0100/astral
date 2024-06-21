@@ -17,7 +17,7 @@ const gqlDbWrapper = chatConversationDbWrapper;
 const listIdKey = chatConversationModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -50,7 +50,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChatConversationList = (listId: string): Controller => {
+const useControllerForChatConversationList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

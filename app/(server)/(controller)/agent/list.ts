@@ -15,7 +15,7 @@ const gqlDbWrapper = agentDbWrapper;
 const listIdKey = agentModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -46,7 +46,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForAgentList = (listId: string): Controller => {
+const useControllerForAgentList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

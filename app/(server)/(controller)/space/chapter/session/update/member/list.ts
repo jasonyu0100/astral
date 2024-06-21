@@ -17,7 +17,7 @@ const gqlDbWrapper = ChapterSessionMemberDbWrapper;
 const listIdKey = ChapterSessionMemberItemModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;

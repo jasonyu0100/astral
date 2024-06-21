@@ -21,7 +21,7 @@ const gqlDbWrapper = sceneIdeaDbWrapper;
 const listIdKey = sceneIdeaModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -38,6 +38,7 @@ interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromFile: (
+    sceneId: string,
     title: string,
     description: string,
     x: number,
@@ -45,6 +46,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     fileElem: FileElem,
   ) => Promise<TargetObj>;
   createFromLink: (
+    sceneId: string,
     title: string,
     description: string,
     x: number,
@@ -52,6 +54,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     urlElem: UrlElem,
   ) => Promise<TargetObj>;
   createFromText: (
+    sceneId: string,
     title: string,
     description: string,
     x: number,
@@ -74,7 +77,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaList = (listId: string): Controller => {
+const useControllerForSceneIdeaList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -226,11 +231,11 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
   };
 
   const createActions: CreateActions = {
-    createFromFile(title, description, x, y, fileElem) {
+    createFromFile(sceneId, title, description, x, y, fileElem) {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: '',
         created: new Date().toISOString(),
-        sceneId: listId,
+        sceneId: sceneId,
         title: title,
         description: description,
         x: x,
@@ -244,10 +249,10 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromLink(title, description, x, y, urlElem) {
+    createFromLink(sceneId, title, description, x, y, urlElem) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sceneId: listId,
+        sceneId: sceneId,
         title: title,
         description: description,
         x: x,
@@ -262,10 +267,10 @@ const useControllerForSceneIdeaList = (listId: string): Controller => {
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromText(title, description, x, y, textElem) {
+    createFromText(sceneId, title, description, x, y, textElem) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sceneId: listId,
+        sceneId: sceneId,
         title: title,
         description: description,
         x: x,

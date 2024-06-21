@@ -19,7 +19,7 @@ const gqlDbWrapper = collectionResourceDbWrapper;
 const listIdKey = collectionResourceModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -58,7 +58,9 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForResourceList = (listId: string): Controller => {
+const useControllerForResourceList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

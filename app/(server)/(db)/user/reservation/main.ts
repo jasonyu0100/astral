@@ -50,7 +50,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listUserReservationObjs?.items || []);
 }
 
-async function listObjs(key: string, value: string) {
+async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
     query: listUserReservationObjs,
     variables: {

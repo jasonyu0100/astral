@@ -17,7 +17,7 @@ const gqlDbWrapper = ChapterSessionDbWrapper;
 const listIdKey = chapterSessionModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -56,7 +56,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionList = (listId: string): Controller => {
+const useControllerForChapterSessionList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

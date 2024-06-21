@@ -18,7 +18,7 @@ const gqlDbWrapper = spaceDbWrapper;
 const listIdKey = spaceModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentSpace: TargetObj;
   spaces: TargetObj[];
   userId: string;
@@ -55,7 +55,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceList = (listId: string): Controller => {
+const useControllerForSpaceList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

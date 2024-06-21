@@ -17,7 +17,7 @@ const gqlDbWrapper = horizonSessionUpdateMemberDbWrapper;
 const listIdKey = horizonSessionUpdateMemberModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;

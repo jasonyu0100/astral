@@ -18,7 +18,7 @@ const gqlDbWrapper = galleryDbWrapper;
 const listIdKey = galleryModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -56,7 +56,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForGalleryList = (listId: string): Controller => {
+const useControllerForGalleryList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

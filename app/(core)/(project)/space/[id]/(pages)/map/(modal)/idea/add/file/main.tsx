@@ -34,6 +34,7 @@ export function SpaceMapAddFileIdeaModal() {
   async function createFileIdea() {
     const idea =
       await sceneIdeaListController.actions.createActions.createFromFile(
+        sceneIdeaListController.state.objId,
         title,
         description,
         0,

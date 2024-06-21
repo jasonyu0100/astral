@@ -10,6 +10,7 @@ export interface UserObj {
   journalId: string;
   email: string;
   dp: FileElem;
+  private: boolean;
   role: string;
   bio: string;
   created: string;
@@ -31,6 +32,7 @@ type UserObj {
 	dp: FileElem!
   role: String!
 	created: String!
+  private: Boolean!
   bio: String
 	passwordHash: String
 	googleId: String
@@ -53,6 +55,7 @@ export const exampleUser: UserObj = {
   email: 'email@example.com',
   role: 'Musician',
   bio: 'Been playing for X years',
+  private: false,
   dp: exampleDisplayPictureFileElem,
   created: new Date().toISOString(),
 };
@@ -66,6 +69,7 @@ export const exampleUsers: UserObj[] = [
     lname: 'Smith',
     email: 'john@example.com',
     role: 'Musician',
+    private: false,
     bio: 'Been playing for X years',
     dp: exampleDisplayPictureFileElem,
     created: new Date().toISOString(),
@@ -74,7 +78,7 @@ export const exampleUsers: UserObj[] = [
     id: '2',
     displayName: 'John Smith',
     journalId: '0',
-
+    private: false,
     fname: 'Jane',
     lname: 'Smith',
     email: 'jane@example.com',

@@ -5,16 +5,14 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { postCommentDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/comment/main';
-import {
-  postCommentModel,
-  PostCommentObj,
-} from '@/(server)/(model)/horizon/arc/forum/post/comment/main';
+import { userDbWrapper } from '@/(server)/(db)/user/main';
+import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { UserObj } from '@/(server)/(model)/user/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = PostCommentObj;
-const gqlDbWrapper = postCommentDbWrapper;
-const listIdKey = postCommentModel.parentKey;
+type TargetObj = UserObj;
+const gqlDbWrapper = userDbWrapper;
+const listIdKey = 'private';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -48,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostCommentList = (
+const useControllerForUserPrivateList = (
   listId: string | boolean | number,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -170,7 +168,6 @@ const useControllerForPostCommentList = (
       return objs;
     },
     gatherLatest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
@@ -178,7 +175,6 @@ const useControllerForPostCommentList = (
       return sortedObjs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
@@ -205,10 +201,15 @@ const useControllerForPostCommentList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        postId: '',
-        userId: '',
-        title: '',
-        description: '',
+        fname: '',
+        lname: '',
+        displayName: '',
+        email: '',
+        dp: exampleFileElem,
+        role: '',
+        bio: '',
+        journalId: '',
+        private: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -286,5 +287,8 @@ const useControllerForPostCommentList = (
   };
 };
 
-const ContextForPostCommentList = createContext({} as Controller);
-export { ContextForPostCommentList, useControllerForPostCommentList };
+const ContextForUserList = createContext({} as Controller);
+export {
+  ContextForUserList,
+  useControllerForUserPrivateList as useControllerForUserList,
+};

@@ -17,7 +17,7 @@ const gqlDbWrapper = userConnectionDbWrapper;
 const listIdKey = userConnectionModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -48,7 +48,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserConnectionList = (listId: string): Controller => {
+const useControllerForUserConnectionList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');

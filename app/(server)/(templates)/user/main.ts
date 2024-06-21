@@ -11,6 +11,7 @@ export type TemplateUserObj = Omit<
   | 'googleId'
   | 'created'
   | 'journalId'
+  | 'private'
 >;
 
 // TEMPLATES

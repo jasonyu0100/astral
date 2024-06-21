@@ -15,7 +15,7 @@ const gqlDbWrapper = userDbWrapper;
 const listIdKey = userModel.parentKey;
 
 interface ControllerState {
-  listId: string;
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -46,7 +46,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserList = (listId: string): Controller => {
+const useControllerForUserList = (
+  listId: string | boolean | number,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -209,6 +211,7 @@ const useControllerForUserList = (listId: string): Controller => {
         role: '',
         bio: '',
         journalId: '',
+        private: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -287,7 +290,4 @@ const useControllerForUserList = (listId: string): Controller => {
 };
 
 const ContextForUserList = createContext({} as Controller);
-export {
-  ContextForUserList,
-  useControllerForUserList as useControllerForUserSupporterList,
-};
+export { ContextForUserList, useControllerForUserList };

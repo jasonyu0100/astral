@@ -38,7 +38,7 @@ async function getFromVariables(variables: any) {
   return castSingle(payload?.data?.getArcForumObj);
 }
 
-async function listObjs(key: string, value: string) {
+async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
     query: listArcForumObjs,
     variables: {
