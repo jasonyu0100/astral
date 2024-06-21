@@ -1,21 +1,35 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterItemList } from '@/(server)/(controller)/space/chapter/update/item/chapter-list';
 import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { EditContext } from '../../main';
+import { ContextForItemEdit } from '../main';
 import { SpaceSeaItemFormHeader } from './header/main';
 
 export function SpaceSeaItemForm() {
   const { updateComplete } = useContext(EditContext);
-  const chapterListController = useContext(ContextForSpaceChapterList);
+  const itemEditController = useContext(ContextForItemEdit);
   const updateItemListController = useContext(ContextForChapterItemList);
   const current = updateItemListController.state.currentObj;
-  const [title, setTitle] = useState(current.title);
-  const [description, setDescription] = useState(current.description);
+
+  async function handleUpdate() {
+    if (
+      updateItemListController.state.index ===
+      updateItemListController.state.objs.length - 1
+    ) {
+      itemEditController.updateItem().then(() => {
+        updateComplete(true);
+      });
+    } else {
+      itemEditController.updateItem().then(() => {
+        updateItemListController.actions.stateActions.goNext();
+        updateComplete(false);
+      });
+    }
+  }
 
   return (
     <div className='flex h-full flex-grow flex-col justify-around space-y-[1rem]'>
@@ -30,8 +44,8 @@ export function SpaceSeaItemForm() {
         <GlassWindowContents>
           <input
             className='h-full w-full bg-transparent p-[1rem] font-bold text-white outline-none'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={itemEditController.title}
+            onChange={(e) => itemEditController.setTitle(e.target.value)}
           />
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
@@ -45,8 +59,8 @@ export function SpaceSeaItemForm() {
         <GlassWindowContents>
           <textarea
             className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-white outline-none'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={itemEditController.description}
+            onChange={(e) => itemEditController.setDescription(e.target.value)}
           />
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
@@ -67,12 +81,9 @@ export function SpaceSeaItemForm() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center bg-blue-500'
-            onClick={() => {
-              updateItemListController.actions.stateActions.goNext();
-              updateComplete(false);
-            }}
+            onClick={handleUpdate}
           >
-            <p className='font-bold text-white'>Save</p>
+            <p className='font-bold text-white'>Update</p>
           </GlassWindowContents>
           <GlassAreaPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>

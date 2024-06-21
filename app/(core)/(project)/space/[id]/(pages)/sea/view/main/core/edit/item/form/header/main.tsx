@@ -4,6 +4,7 @@ import { useContext } from 'react';
 
 export function SpaceSeaItemFormHeader() {
   const updateItemListController = useContext(ContextForChapterItemList);
+  const current = updateItemListController.state.currentObj;
 
   return (
     <div className='flex flex-col'>
@@ -12,12 +13,10 @@ export function SpaceSeaItemFormHeader() {
         {updateItemListController.state.objs.length}
       </p>
       <p className='text-xl font-bold text-slate-300'>
-        {updateItemListController.state.currentObj.variant} UPDATE
+        {current.variant} UPDATE - {current?.added ? 'Added' : 'Not Added'}
       </p>
       <p className='text-sm font-light text-slate-300'>
-        {getFormattedAMPM(
-          new Date(updateItemListController.state.currentObj?.created),
-        )}
+        {getFormattedAMPM(new Date(current.created))}
       </p>
     </div>
   );

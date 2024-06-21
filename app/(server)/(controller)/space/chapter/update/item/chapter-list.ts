@@ -197,15 +197,15 @@ const useControllerForChapterItemList = (listId: string): Controller => {
       return objs;
     },
     gatherLatest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const sortedObjs = stateActions.sortedViaDate(objs);
+      const sortedObjs = stateActions
+        .sortedViaDate(objs)
+        .filter((obj) => !obj.updateId);
       changeObjs(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
@@ -361,7 +361,7 @@ const useControllerForChapterItemList = (listId: string): Controller => {
     edit: async (id: string, partialObj: Partial<TargetObj>) => {
       const updatedObj = await gqlDbWrapper.updateObj(id, partialObj);
       changeObjs((prev) =>
-        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+        prev.map((obj) => (obj.id === id ? updatedObj : obj)),
       );
       changeId(updatedObj.id);
       return updatedObj;
