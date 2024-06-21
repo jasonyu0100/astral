@@ -11,6 +11,7 @@ import {
 } from '@/(core)/(profile)/(finance)/support/page';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { portalMap } from '@/(portal)/map';
 import Link from 'next/link';
 import { useContext } from 'react';
 
@@ -42,6 +43,8 @@ export function SettingsModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
+                alert('Logging out');
+                window.location.href = portalMap.portal.login.link;
                 logout();
               }}
             >
