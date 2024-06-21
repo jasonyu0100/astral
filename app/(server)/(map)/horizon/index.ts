@@ -4,9 +4,9 @@ import { postCommentDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/com
 import { forumPostDbWrapper } from '@/(server)/(db)/horizon/arc/forum/post/main';
 import { horizonArcDbWrapper } from '@/(server)/(db)/horizon/arc/main';
 import { arcPointDbWrapper } from '@/(server)/(db)/horizon/arc/point/main';
-import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
-import { clusterMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/member/main';
-import { clusterUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/main';
+import { horizonGroupDbWrapper } from '@/(server)/(db)/horizon/group/main';
+import { horizonGroupMemberDbWrapper } from '@/(server)/(db)/horizon/group/member/main';
+import { horizonGroupSessionDbWrapper } from '@/(server)/(db)/horizon/group/update/main';
 import { horizonDbWrapper } from '@/(server)/(db)/horizon/main';
 import { horizonMemberDbWrapper } from '@/(server)/(db)/horizon/member/main';
 import { horizonSessionDbWrapper } from '@/(server)/(db)/horizon/session/main';
@@ -60,17 +60,17 @@ export const horizonMap = {
   },
   group: {
     model: horizonGroupModel,
-    db: horizonClusterDbWrapper,
+    db: horizonGroupDbWrapper,
     member: {
       model: horizonGroupMemberModel,
-      db: clusterMemberDbWrapper,
+      db: horizonGroupMemberDbWrapper,
     },
     session: {
       model: horizonGroupSessionModel,
-      db: clusterUpdateDbWrapper,
+      db: horizonGroupSessionDbWrapper,
       update: {
         model: horizonGroupSessionUpdateModel,
-        db: clusterUpdateDbWrapper,
+        db: horizonGroupSessionDbWrapper,
       },
       member: {
         model: horizonGroupSessionUpdateMemberModel,

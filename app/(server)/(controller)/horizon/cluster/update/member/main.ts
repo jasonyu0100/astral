@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/update/member/main';
+import { horizonGroupSessionUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/group/update/member/main';
 import { HorizonGroupSessionUpdateMemberObj } from '@/(server)/(model)/horizon/group/session/update/member/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupSessionUpdateMemberObj;
-const gqlDbWrapper = clusterUpdateMemberDbWrapper;
+const gqlDbWrapper = horizonGroupSessionUpdateMemberDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,9 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateMemberMain = (objId: string): Controller => {
+const useControllerForHorizonGroupSessionMemberMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,8 +114,8 @@ const useControllerForClusterUpdateMemberMain = (objId: string): Controller => {
   };
 };
 
-const ContextForClusterUpdateMemberMain = createContext({} as Controller);
+const ContextForHorizonGroupSessionMemberMain = createContext({} as Controller);
 export {
-  ContextForClusterUpdateMemberMain,
-  useControllerForClusterUpdateMemberMain,
+  ContextForHorizonGroupSessionMemberMain,
+  useControllerForHorizonGroupSessionMemberMain,
 };

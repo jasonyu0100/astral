@@ -1,49 +1,49 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { UserCollaboratorObj } from '@/(server)/(model)/user/collaborator/main';
+import { UserConnectionObj } from '@/(server)/(model)/user/connection/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
-  createUserCollaboratorObj,
-  deleteUserCollaboratorObj,
-  updateUserCollaboratorObj,
+  createUserConnectionObj,
+  deleteUserConnectionObj,
+  updateUserConnectionObj,
 } from '@/graphql/mutations';
 import {
-  getUserCollaboratorObj,
-  listUserCollaboratorObjs,
+  getUserConnectionObj,
+  listUserConnectionObjs,
 } from '@/graphql/queries';
 import { GqlDbWrapper } from '../../main';
 
 function castSingle(obj: unknown) {
-  return obj as UserCollaboratorObj;
+  return obj as UserConnectionObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as UserCollaboratorObj[];
+  return objs as UserConnectionObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getUserCollaboratorObj,
+    query: getUserConnectionObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getUserCollaboratorObj);
+  return castSingle(payload?.data?.getUserConnectionObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getUserCollaboratorObj,
+    query: getUserConnectionObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getUserCollaboratorObj);
+  return castSingle(payload?.data?.getUserConnectionObj);
 }
 
 async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listUserCollaboratorObjs,
+    query: listUserConnectionObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,41 +53,41 @@ async function listObjs(key: string, value: string) {
     },
   });
 
-  return castMultiple(payload?.data?.listUserCollaboratorObjs?.items || []);
+  return castMultiple(payload?.data?.listUserConnectionObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listUserCollaboratorObjs,
+    query: listUserConnectionObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listUserCollaboratorObjs?.items || []);
+  return castMultiple(payload?.data?.listUserConnectionObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listUserCollaboratorObjs,
+    query: listUserConnectionObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listUserCollaboratorObjs?.items || []);
+  return castMultiple(payload?.data?.listUserConnectionObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<UserCollaboratorObj, 'id'>) {
+async function createObj(newObj: Omit<UserConnectionObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createUserCollaboratorObj,
+    query: createUserConnectionObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createUserCollaboratorObj);
+  return castSingle(payload?.data?.createUserConnectionObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<UserCollaboratorObj>) {
+async function updateObj(id: string, updateObj: Partial<UserConnectionObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateUserCollaboratorObj,
+    query: updateUserConnectionObj,
     variables: {
       input: {
         id: id,
@@ -96,12 +96,12 @@ async function updateObj(id: string, updateObj: Partial<UserCollaboratorObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateUserCollaboratorObj);
+  return castSingle(payload?.data?.updateUserConnectionObj);
 }
 
-async function overwriteObj(id: string, newObj: UserCollaboratorObj) {
+async function overwriteObj(id: string, newObj: UserConnectionObj) {
   const payload = await amplifyClient.graphql({
-    query: updateUserCollaboratorObj,
+    query: updateUserConnectionObj,
     variables: {
       input: {
         id: id,
@@ -110,12 +110,12 @@ async function overwriteObj(id: string, newObj: UserCollaboratorObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateUserCollaboratorObj);
+  return castSingle(payload?.data?.updateUserConnectionObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteUserCollaboratorObj,
+    query: deleteUserConnectionObj,
     variables: {
       input: {
         id: id,
@@ -123,10 +123,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteUserCollaboratorObj);
+  return castSingle(payload?.data?.deleteUserConnectionObj);
 }
 
-export const userCollaboratorDbWrapper: GqlDbWrapper<UserCollaboratorObj> = {
+export const userConnectionDbWrapper: GqlDbWrapper<UserConnectionObj> = {
   getObj,
   listObjs,
   listAllObjs,

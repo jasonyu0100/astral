@@ -1,46 +1,46 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
-import { UserSupporterObj } from '@/(server)/(model)/user/supporter/main';
+import { UserBackerObj } from '@/(server)/(model)/user/backer/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
-  createUserSupporterObj,
-  deleteUserSupporterObj,
-  updateUserSupporterObj,
+  createUserBackerObj,
+  deleteUserBackerObj,
+  updateUserBackerObj,
 } from '@/graphql/mutations';
-import { getUserSupporterObj, listUserSupporterObjs } from '@/graphql/queries';
+import { getUserBackerObj, listUserBackerObjs } from '@/graphql/queries';
 import { GqlDbWrapper } from '../../main';
 
 function castSingle(obj: unknown) {
-  return obj as UserSupporterObj;
+  return obj as UserBackerObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as UserSupporterObj[];
+  return objs as UserBackerObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getUserSupporterObj,
+    query: getUserBackerObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getUserSupporterObj);
+  return castSingle(payload?.data?.getUserBackerObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getUserSupporterObj,
+    query: getUserBackerObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getUserSupporterObj);
+  return castSingle(payload?.data?.getUserBackerObj);
 }
 
 async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listUserSupporterObjs,
+    query: listUserBackerObjs,
     variables: {
       filter: {
         [key]: {
@@ -50,41 +50,41 @@ async function listObjs(key: string, value: string) {
     },
   });
 
-  return castMultiple(payload?.data?.listUserSupporterObjs?.items || []);
+  return castMultiple(payload?.data?.listUserBackerObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listUserSupporterObjs,
+    query: listUserBackerObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listUserSupporterObjs?.items || []);
+  return castMultiple(payload?.data?.listUserBackerObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listUserSupporterObjs,
+    query: listUserBackerObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listUserSupporterObjs?.items || []);
+  return castMultiple(payload?.data?.listUserBackerObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<UserSupporterObj, 'id'>) {
+async function createObj(newObj: Omit<UserBackerObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createUserSupporterObj,
+    query: createUserBackerObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createUserSupporterObj);
+  return castSingle(payload?.data?.createUserBackerObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<UserSupporterObj>) {
+async function updateObj(id: string, updateObj: Partial<UserBackerObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateUserSupporterObj,
+    query: updateUserBackerObj,
     variables: {
       input: {
         id: id,
@@ -93,12 +93,12 @@ async function updateObj(id: string, updateObj: Partial<UserSupporterObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateUserSupporterObj);
+  return castSingle(payload?.data?.updateUserBackerObj);
 }
 
-async function overwriteObj(id: string, newObj: UserSupporterObj) {
+async function overwriteObj(id: string, newObj: UserBackerObj) {
   const payload = await amplifyClient.graphql({
-    query: updateUserSupporterObj,
+    query: updateUserBackerObj,
     variables: {
       input: {
         id: id,
@@ -107,12 +107,12 @@ async function overwriteObj(id: string, newObj: UserSupporterObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateUserSupporterObj);
+  return castSingle(payload?.data?.updateUserBackerObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteUserSupporterObj,
+    query: deleteUserBackerObj,
     variables: {
       input: {
         id: id,
@@ -120,10 +120,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteUserSupporterObj);
+  return castSingle(payload?.data?.deleteUserBackerObj);
 }
 
-export const userSupporterDbWrapper: GqlDbWrapper<UserSupporterObj> = {
+export const userBackerDbWrapper: GqlDbWrapper<UserBackerObj> = {
   getObj,
   listObjs,
   listAllObjs,

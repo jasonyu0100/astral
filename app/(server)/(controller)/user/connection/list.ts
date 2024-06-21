@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
+import { userConnectionDbWrapper } from '@/(server)/(db)/user/connection/main';
 import {
-  userSupporterModel,
-  UserSupporterObj,
-} from '@/(server)/(model)/user/supporter/main';
+  userConnectionModel,
+  UserConnectionObj,
+} from '@/(server)/(model)/user/connection/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserSupporterObj;
-const gqlDbWrapper = userSupporterDbWrapper;
-const listIdKey = userSupporterModel.parentKey;
+type TargetObj = UserConnectionObj;
+const gqlDbWrapper = userConnectionDbWrapper;
+const listIdKey = userConnectionModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserSupporterList = (listId: string): Controller => {
+const useControllerForUserConnectionList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -203,8 +203,8 @@ const useControllerForUserSupporterList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        supporterId: '',
         userId: '',
+        connectionId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -282,5 +282,5 @@ const useControllerForUserSupporterList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserSupporterList = createContext({} as Controller);
-export { ContextForUserSupporterList, useControllerForUserSupporterList };
+const ContextForUserConnectionList = createContext({} as Controller);
+export { ContextForUserConnectionList, useControllerForUserConnectionList };

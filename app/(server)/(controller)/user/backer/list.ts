@@ -5,16 +5,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { userCollaboratorDbWrapper } from '@/(server)/(db)/user/collaborator/main';
+import { userBackerDbWrapper } from '@/(server)/(db)/user/backer/main';
 import {
-  userCollaboratorModel,
-  UserCollaboratorObj,
-} from '@/(server)/(model)/user/collaborator/main';
+  UserBackerObj,
+  userBackerModel,
+} from '@/(server)/(model)/user/backer/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserCollaboratorObj;
-const gqlDbWrapper = userCollaboratorDbWrapper;
-const listIdKey = userCollaboratorModel.parentKey;
+type TargetObj = UserBackerObj;
+const gqlDbWrapper = userBackerDbWrapper;
+const listIdKey = userBackerModel.parentKey;
 
 interface ControllerState {
   listId: string;
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserCollaboratorList = (listId: string): Controller => {
+const useControllerForUserBackerList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -203,8 +203,8 @@ const useControllerForUserCollaboratorList = (listId: string): Controller => {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        backerId: '',
         userId: '',
-        collaboratorId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -282,5 +282,5 @@ const useControllerForUserCollaboratorList = (listId: string): Controller => {
   };
 };
 
-const ContextForUserCollaboratorList = createContext({} as Controller);
-export { ContextForUserCollaboratorList, useControllerForUserCollaboratorList };
+const ContextForUserBackerList = createContext({} as Controller);
+export { ContextForUserBackerList, useControllerForUserBackerList };

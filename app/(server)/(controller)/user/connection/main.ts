@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { userCollaboratorDbWrapper } from '@/(server)/(db)/user/collaborator/main';
-import { UserCollaboratorObj } from '@/(server)/(model)/user/collaborator/main';
+import { userConnectionDbWrapper } from '@/(server)/(db)/user/connection/main';
+import { UserConnectionObj } from '@/(server)/(model)/user/connection/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserCollaboratorObj;
-const gqlDbWrapper = userCollaboratorDbWrapper;
+type TargetObj = UserConnectionObj;
+const gqlDbWrapper = userConnectionDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserCollaboratorMain = (objId: string): Controller => {
+const useControllerForUserConnectionMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForUserCollaboratorMain = (objId: string): Controller => {
   };
 };
 
-const ContextForUserCollaboratorMain = createContext({} as Controller);
-export { ContextForUserCollaboratorMain, useControllerForUserCollaboratorMain };
+const ContextForUserConnectionMain = createContext({} as Controller);
+export { ContextForUserConnectionMain, useControllerForUserConnectionMain };

@@ -5,7 +5,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/cluster/update/member/main';
+import { horizonGroupSessionUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/group/update/member/main';
 import {
   horizonGroupSessionUpdateMemberModel,
   HorizonGroupSessionUpdateMemberObj,
@@ -13,7 +13,7 @@ import {
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupSessionUpdateMemberObj;
-const gqlDbWrapper = clusterUpdateMemberDbWrapper;
+const gqlDbWrapper = horizonGroupSessionUpdateMemberDbWrapper;
 const listIdKey = horizonGroupSessionUpdateMemberModel.parentKey;
 
 interface ControllerState {
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateMemberList = (
+const useControllerForHorizonGroupSessionMemberList = (
   listId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -284,8 +284,8 @@ const useControllerForClusterUpdateMemberList = (
   };
 };
 
-const ContextForClusterUpdateMemberList = createContext({} as Controller);
+const ContextForHorizonGroupSessionMemberList = createContext({} as Controller);
 export {
-  ContextForClusterUpdateMemberList,
-  useControllerForClusterUpdateMemberList,
+  ContextForHorizonGroupSessionMemberList,
+  useControllerForHorizonGroupSessionMemberList,
 };

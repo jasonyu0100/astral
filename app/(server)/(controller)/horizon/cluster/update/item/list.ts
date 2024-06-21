@@ -5,7 +5,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonGroupSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
+import { horizonGroupSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/group/update/item/main';
 import {
   horizonGroupSessionUpdateModel,
   HorizonGroupSessionUpdateObj,

@@ -47,7 +47,7 @@ export function ProfileAbout() {
               controller.setPage(ProfilePage.Followers);
             }}
           >
-            100 Followers
+            100 Backers
           </p>
           <div className='h-[0.5rem] w-[0.5rem] rounded-full bg-slate-500' />
           <p
@@ -56,7 +56,7 @@ export function ProfileAbout() {
               controller.setPage(ProfilePage.Connects);
             }}
           >
-            100 Connects
+            100 Connections
           </p>
         </div>
         <HorizontalDivider />

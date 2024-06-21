@@ -1,49 +1,49 @@
 import { amplifyClient } from '@/(api)/aws/graphql/main';
 import { GqlDbWrapper } from '@/(server)/(db)/main';
-import { HorizonGroupSessionUpdateObj } from '@/(server)/(model)/horizon/group/session/update/main';
+import { HorizonGroupSessionObj } from '@/(server)/(model)/horizon/group/session/main';
 import { gqlArgs } from '@/(utils)/clean';
 import {
-  createClusterUpdateAddObj,
-  deleteClusterUpdateAddObj,
-  updateClusterUpdateAddObj,
+  createHorizonGroupSessionObj,
+  deleteHorizonGroupSessionObj,
+  updateHorizonGroupSessionObj,
 } from '@/graphql/mutations';
 import {
-  getClusterUpdateAddObj,
-  listClusterUpdateAddObjs,
+  getHorizonGroupSessionObj,
+  listHorizonGroupSessionObjs,
 } from '@/graphql/queries';
 
 function castSingle(obj: unknown) {
-  return obj as HorizonGroupSessionUpdateObj;
+  return obj as HorizonGroupSessionObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonGroupSessionUpdateObj[];
+  return objs as HorizonGroupSessionObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getClusterUpdateAddObj,
+    query: getHorizonGroupSessionObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getClusterUpdateAddObj);
+  return castSingle(payload?.data?.getHorizonGroupSessionObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getClusterUpdateAddObj,
+    query: getHorizonGroupSessionObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getClusterUpdateAddObj);
+  return castSingle(payload?.data?.getHorizonGroupSessionObj);
 }
 
 async function listObjs(key: string, value: string) {
   const payload = await amplifyClient.graphql({
-    query: listClusterUpdateAddObjs,
+    query: listHorizonGroupSessionObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,44 +53,44 @@ async function listObjs(key: string, value: string) {
     },
   });
 
-  return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listHorizonGroupSessionObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listClusterUpdateAddObjs,
+    query: listHorizonGroupSessionObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listHorizonGroupSessionObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listClusterUpdateAddObjs,
+    query: listHorizonGroupSessionObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listClusterUpdateAddObjs?.items || []);
+  return castMultiple(payload?.data?.listHorizonGroupSessionObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<HorizonGroupSessionUpdateObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonGroupSessionObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createClusterUpdateAddObj,
+    query: createHorizonGroupSessionObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createClusterUpdateAddObj);
+  return castSingle(payload?.data?.createHorizonGroupSessionObj);
 }
 
 async function updateObj(
   id: string,
-  updateObj: Partial<HorizonGroupSessionUpdateObj>,
+  updateObj: Partial<HorizonGroupSessionObj>,
 ) {
   const payload = await amplifyClient.graphql({
-    query: updateClusterUpdateAddObj,
+    query: updateHorizonGroupSessionObj,
     variables: {
       input: {
         id: id,
@@ -99,12 +99,12 @@ async function updateObj(
     },
   });
 
-  return castSingle(payload?.data?.updateClusterUpdateAddObj);
+  return castSingle(payload?.data?.updateHorizonGroupSessionObj);
 }
 
-async function overwriteObj(id: string, newObj: HorizonGroupSessionUpdateObj) {
+async function overwriteObj(id: string, newObj: HorizonGroupSessionObj) {
   const payload = await amplifyClient.graphql({
-    query: updateClusterUpdateAddObj,
+    query: updateHorizonGroupSessionObj,
     variables: {
       input: {
         id: id,
@@ -113,12 +113,12 @@ async function overwriteObj(id: string, newObj: HorizonGroupSessionUpdateObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateClusterUpdateAddObj);
+  return castSingle(payload?.data?.updateHorizonGroupSessionObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteClusterUpdateAddObj,
+    query: deleteHorizonGroupSessionObj,
     variables: {
       input: {
         id: id,
@@ -126,10 +126,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteClusterUpdateAddObj);
+  return castSingle(payload?.data?.deleteHorizonGroupSessionObj);
 }
 
-export const horizonGroupSessionUpdateDbWrapper: GqlDbWrapper<HorizonGroupSessionUpdateObj> =
+export const horizonGroupSessionDbWrapper: GqlDbWrapper<HorizonGroupSessionObj> =
   {
     getObj,
     listObjs,

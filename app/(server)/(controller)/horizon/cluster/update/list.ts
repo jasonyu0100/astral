@@ -5,7 +5,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { clusterUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/main';
+import { horizonGroupSessionDbWrapper } from '@/(server)/(db)/horizon/group/update/main';
 import {
   horizonGroupSessionModel,
   HorizonGroupSessionObj,
@@ -13,7 +13,7 @@ import {
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupSessionObj;
-const gqlDbWrapper = clusterUpdateDbWrapper;
+const gqlDbWrapper = horizonGroupSessionDbWrapper;
 const listIdKey = horizonGroupSessionModel.parentKey;
 
 interface ControllerState {
@@ -48,7 +48,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForClusterUpdateList = (listId: string): Controller => {
+const useControllerForHorizonGroupSessionList = (
+  listId: string,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -284,5 +286,8 @@ const useControllerForClusterUpdateList = (listId: string): Controller => {
   };
 };
 
-const ContextForClusterUpdateList = createContext({} as Controller);
-export { ContextForClusterUpdateList, useControllerForClusterUpdateList };
+const ContextForHorizonGroupSessionList = createContext({} as Controller);
+export {
+  ContextForHorizonGroupSessionList,
+  useControllerForHorizonGroupSessionList,
+};

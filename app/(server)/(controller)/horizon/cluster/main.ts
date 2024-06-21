@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
+import { horizonGroupDbWrapper } from '@/(server)/(db)/horizon/group/main';
 import { HorizonGroupObj } from '@/(server)/(model)/horizon/group/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupObj;
-const gqlDbWrapper = horizonClusterDbWrapper;
+const gqlDbWrapper = horizonGroupDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonClusterMain = (objId: string): Controller => {
+const useControllerForHorizonGroupMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForHorizonClusterMain = (objId: string): Controller => {
   };
 };
 
-const ContextForHorizonClusterMain = createContext({} as Controller);
-export { ContextForHorizonClusterMain, useControllerForHorizonClusterMain };
+const ContextForHorizonGroupMain = createContext({} as Controller);
+export { ContextForHorizonGroupMain, useControllerForHorizonGroupMain };

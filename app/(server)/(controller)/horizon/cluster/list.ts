@@ -5,7 +5,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/(controller)/list';
-import { horizonClusterDbWrapper } from '@/(server)/(db)/horizon/cluster/main';
+import { horizonGroupDbWrapper } from '@/(server)/(db)/horizon/group/main';
 import {
   horizonGroupModel,
   HorizonGroupObj,
@@ -13,7 +13,7 @@ import {
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupObj;
-const gqlDbWrapper = horizonClusterDbWrapper;
+const gqlDbWrapper = horizonGroupDbWrapper;
 const listIdKey = horizonGroupModel.parentKey;
 
 interface ControllerState {
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonClusterList = (listId: string): Controller => {
+const useControllerForHorizonGroupList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -283,8 +283,8 @@ const useControllerForHorizonClusterList = (listId: string): Controller => {
   };
 };
 
-const ContextForHorizonClusterList = createContext({} as Controller);
+const ContextForHorizonGroupList = createContext({} as Controller);
 export {
-  ContextForHorizonClusterList,
-  useControllerForHorizonClusterList as useControllerForClusterUpdateList,
+  ContextForHorizonGroupList,
+  useControllerForHorizonGroupList as useControllerForClusterUpdateList,
 };

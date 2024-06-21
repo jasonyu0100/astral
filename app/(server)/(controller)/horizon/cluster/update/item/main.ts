@@ -5,7 +5,7 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { horizonGroupSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/cluster/update/item/main';
+import { horizonGroupSessionUpdateDbWrapper } from '@/(server)/(db)/horizon/group/update/item/main';
 import { HorizonGroupSessionUpdateObj } from '@/(server)/(model)/horizon/group/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 

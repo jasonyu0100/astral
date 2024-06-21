@@ -1,22 +1,22 @@
+import { userBackerDbWrapper } from '@/(server)/(db)/user/backer/main';
+import { userConnectionDbWrapper } from '@/(server)/(db)/user/connection/main';
 import { userDbWrapper } from '@/(server)/(db)/user/main';
+import { userReservationDbWrapper } from '@/(server)/(db)/user/reservation/main';
+import { userBackerModel } from '@/(server)/(model)/user/backer/main';
+import { userConnectionModel } from '@/(server)/(model)/user/connection/main';
 import { userModel } from '../../(model)/user/main';
 import { userReservationModel } from '../../(model)/user/reservation/main';
-import { userCollaboratorModel } from '@/(server)/(model)/user/collaborator/main';
-import { userSupporterModel } from '@/(server)/(model)/user/supporter/main';
-import { userCollaboratorDbWrapper } from '@/(server)/(db)/user/collaborator/main';
-import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
-import { userReservationDbWrapper } from '@/(server)/(db)/user/reservation/main';
 
 export const userMap = {
   model: userModel,
   db: userDbWrapper,
-  collaborator: {
-    model: userCollaboratorModel,
-    db: userCollaboratorDbWrapper,
+  connection: {
+    model: userConnectionModel,
+    db: userConnectionDbWrapper,
   },
-  supporter: {
-    model: userSupporterModel,
-    db: userSupporterDbWrapper,
+  backer: {
+    model: userBackerModel,
+    db: userBackerDbWrapper,
   },
   reservation: {
     model: userReservationModel,

@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { userSupporterDbWrapper } from '@/(server)/(db)/user/supporter/main';
-import { UserSupporterObj } from '@/(server)/(model)/user/supporter/main';
+import { userBackerDbWrapper } from '@/(server)/(db)/user/backer/main';
+import { UserBackerObj } from '@/(server)/(model)/user/backer/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserSupporterObj;
-const gqlDbWrapper = userSupporterDbWrapper;
+type TargetObj = UserBackerObj;
+const gqlDbWrapper = userBackerDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserSupporterMain = (objId: string): Controller => {
+const useControllerForUserBackerMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForUserSupporterMain = (objId: string): Controller => {
   };
 };
 
-const ContextForUserSupporterMain = createContext({} as Controller);
-export { ContextForUserSupporterMain, useControllerForUserSupporterMain };
+const ContextForUserBackerMain = createContext({} as Controller);
+export { ContextForUserBackerMain, useControllerForUserBackerMain };
