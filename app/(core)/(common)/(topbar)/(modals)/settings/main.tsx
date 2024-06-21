@@ -4,11 +4,11 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { stripeMap } from '@/(core)/(user)/(finance)/stripe/map';
+import { stripeMap } from '@/(core)/(profile)/(finance)/stripe/map';
 import {
   getPlanName,
   getPlanPrice,
-} from '@/(core)/(user)/(finance)/support/page';
+} from '@/(core)/(profile)/(finance)/support/page';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import Link from 'next/link';
