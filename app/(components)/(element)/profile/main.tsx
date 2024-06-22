@@ -1,4 +1,7 @@
-import { FileElem } from '@/(server)/(model)/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+} from '@/(server)/(model)/elements/file/main';
 import { DivInputProps } from '@/(types)/props/main';
 
 interface ProfileCoverProps extends DivInputProps {
@@ -13,9 +16,9 @@ export function ProfileCover({
 }: ProfileCoverProps) {
   return (
     <img
-      className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
-      src={fileElem.src}
-      alt={fileElem.title}
+      className={`h-[50px] w-[50px] flex-shrink-0 rounded-full ${coverFx || ''} ${props.className}`}
+      src={fileElem?.src || exampleFileElem.src}
+      alt={fileElem?.title}
     />
   );
 }

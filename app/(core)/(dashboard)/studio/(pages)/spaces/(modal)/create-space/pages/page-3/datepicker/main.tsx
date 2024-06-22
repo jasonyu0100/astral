@@ -29,7 +29,7 @@ export function DatePicker({
 
   return (
     <div className='flex w-full flex-col'>
-      <label className='mb-1 text-xs font-bold text-slate-400'>Date</label>
+      <label className='mb-1 text-xs font-bold text-slate-400'>Target</label>
       <div className='relative inline-block h-[4rem] border-b-[1px] border-slate-500 outline-none'>
         <input
           type='text'

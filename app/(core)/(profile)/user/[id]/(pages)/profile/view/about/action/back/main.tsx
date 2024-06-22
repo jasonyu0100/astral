@@ -19,16 +19,14 @@ export function ProfileAboutBackAction() {
     ).length > 0;
 
   async function addBacker() {
-    const invitation =
-      await backerListController.actions.createActions.createConnection(
-        currentUser.id,
-        user.id,
-      );
-    const acceptance =
-      await backerListController.actions.createActions.createConnection(
-        user.id,
-        currentUser.id,
-      );
+    await backerListController.actions.createActions.createConnection(
+      currentUser.id,
+      user.id,
+    );
+    await backerListController.actions.createActions.createConnection(
+      user.id,
+      currentUser.id,
+    );
   }
 
   async function removeBacker() {

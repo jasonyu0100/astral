@@ -12,8 +12,8 @@ export function StudioSpacesRow() {
       <StudioSpacesRowNumber />
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />
-      <StudioSpacesRowHoursLeft />
       <StudioSpacesRowDaysLeft />
+      <StudioSpacesRowHoursLeft />
       <StudioSpacesRowDate />
       <StudioSpacesRowMore />
     </div>

@@ -1,6 +1,7 @@
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 import { SpaceObj } from '@/(server)/(model)/space/main';
+import { createContext } from 'react';
 import { SpaceChapterObj } from '../../(model)/space/chapter/main';
 import { SceneIdeaObj } from '../../(model)/space/chapter/scene/idea/main';
 import { VerseCommentObj } from '../../(model)/space/chapter/verse/comment/main';
@@ -44,6 +45,10 @@ export interface TemplateChapterObj extends _TemplateChapterObj {
   sceneTemplates: TemplateSceneObj[];
   verseTemplates: TemplateVerseObj[];
 }
+
+export const ContextForTemplateChapter = createContext(
+  {} as TemplateChapterObj,
+);
 
 // CHAT
 
@@ -95,24 +100,24 @@ export interface TemplateVerseObj extends _TemplateVerseObj {
 // TEMPLATES
 
 export enum SpaceTemplate {
-  MIX = 'MIX',
-  SONG = 'SONG',
-  BAR = 'BAR',
-  IDEA = 'IDEA',
-  DEFAULT = 'DEFAULT',
+  Mix = 'Mix',
+  Melody = 'Melody',
+  Song = 'Song',
+  Brainstorm = 'Brainstorm',
+  Project = 'Project',
 }
 
 export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
   switch (variant) {
-    case SpaceTemplate.SONG:
+    case SpaceTemplate.Melody:
       return songSpaceTemplate;
-    case SpaceTemplate.MIX:
+    case SpaceTemplate.Mix:
       return songMixTemplate;
-    case SpaceTemplate.BAR:
+    case SpaceTemplate.Song:
       return barTemplate;
-    case SpaceTemplate.IDEA:
+    case SpaceTemplate.Brainstorm:
       return ideaTemplate;
-    case SpaceTemplate.DEFAULT:
+    case SpaceTemplate.Project:
       return defaultTemplate;
   }
   return defaultTemplate;

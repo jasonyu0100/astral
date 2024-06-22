@@ -22,10 +22,12 @@ import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
   updateTitle: (title: string) => void;
-  description: string;
-  updateDescription: (description: string) => void;
   thumbnail: FileElem;
   updateThumbnail: (thumbnail: FileElem) => void;
+  collaborators: string[];
+  updateCollaborators: (collaborators: string[]) => void;
+  category: string;
+  updateCategory: (category: string) => void;
 }
 
 export interface PageTwo {
@@ -36,12 +38,12 @@ export interface PageTwo {
 }
 
 export interface PageThree {
+  description: string;
+  updateDescription: (description: string) => void;
   hours: number;
   updateHours: (hours: number) => void;
   target: string;
   updateTarget: (target: string) => void;
-  collaborators: string[];
-  updateCollaborators: (collaborators: string[]) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -69,6 +71,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+  const [category, changeCategory] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(100);
   const [target, changeTarget] = useState(
@@ -76,7 +79,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   );
   const [collaborators, changeCollaborators] = useState<string[]>([]);
   const [templateProject, changeTemplateProject] = useState(
-    SpaceTemplate.DEFAULT,
+    SpaceTemplate.Project,
   );
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
@@ -280,7 +283,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         description,
         user.id,
         thumbnail,
-        templateProject,
+        category,
         gallery.id,
         hours,
         target,
@@ -308,10 +311,13 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const pageOne: PageOne = {
     title,
     updateTitle: (title: string) => changeTitle(title),
-    description,
-    updateDescription: (description: string) => changeDescription(description),
+    category,
+    updateCategory: (category: string) => changeCategory(category),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
+    collaborators,
+    updateCollaborators: (collaborators: string[]) =>
+      changeCollaborators(collaborators),
   };
 
   const pageTwo: PageTwo = {
@@ -324,13 +330,12 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageThree: PageThree = {
+    description,
+    updateDescription: (description: string) => changeDescription(description),
     hours: hours,
     updateHours: (hours: number) => changeHours(hours),
     target: target,
     updateTarget: (target: string) => changeTarget(target),
-    collaborators,
-    updateCollaborators: (collaborators: string[]) =>
-      changeCollaborators(collaborators),
   };
 
   return {

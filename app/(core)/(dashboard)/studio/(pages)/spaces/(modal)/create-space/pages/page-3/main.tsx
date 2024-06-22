@@ -1,30 +1,34 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
+import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
-import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
-import { DatePicker } from './datepicker/main';
 
 export function CreateSpaceModalPageThree() {
   const { pageThree } = useContext(ContextForCreateSpace);
   const {
     hours,
     updateHours,
-    collaborators,
-    updateCollaborators,
+    description,
+    updateDescription,
     target,
     updateTarget,
   } = pageThree;
 
   return (
     <FormBody>
+      {/* <DatePicker date={target} onChange={updateTarget} /> */}
+      <FormTextArea
+        title='Description'
+        placeholder='a brief description of the space...'
+        rows={5}
+        value={description}
+        onChange={(e) => updateDescription(e.target.value)}
+        style={{ resize: 'none' }}
+      />
       <div className='flex w-full flex-col'>
-        <label className='mb-1 text-xs font-bold text-slate-400'>Hours</label>
+        <label className='mb-1 text-xs font-bold text-slate-400'>
+          Estimate
+        </label>
         <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
           <input
             type='number'
@@ -39,26 +43,6 @@ export function CreateSpaceModalPageThree() {
           />
         </div>
       </div>
-      <DatePicker date={target} onChange={updateTarget} />
-      <FormSelect title={'Collaborators'}>
-        <option>Collaborator A</option>
-        <option>Collaborator B</option>
-        <option>Collaborator C</option>
-      </FormSelect>
-      <GlassWindowFrame className='p-[1rem]'>
-        <GlassWindowContents className='flex flex-col space-y-[1rem]'>
-          <div className='flex flex-col space-y-[1rem]'>
-            {exampleFileElems.map((fileElem) => (
-              <div className='flex flex-row items-center space-x-[1rem] font-bold'>
-                <ProfileCover fileElem={fileElem} />
-                <p>First name</p>
-                <p>Last name</p>
-              </div>
-            ))}
-          </div>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
     </FormBody>
   );
 }
