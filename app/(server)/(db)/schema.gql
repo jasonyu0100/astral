@@ -494,6 +494,8 @@ input CreateSpaceObjInput {
   category: String!
   hours: Int!
   target: String!
+  completed: Boolean!
+  starred: Boolean!
 }
 
 input CreateUserBackerObjInput {
@@ -1079,6 +1081,8 @@ type SpaceObj {
   category: String!
   hours: Int!
   target: String!
+  completed: Boolean!
+  starred: Boolean!
 }
 
 type SpaceObjConnection {
@@ -1453,6 +1457,8 @@ input TableSpaceObjFilterInput {
   category: TableStringFilterInput
   hours: TableIntFilterInput
   target: TableStringFilterInput
+  completed: TableBooleanFilterInput
+  starred: TableBooleanFilterInput
 }
 
 input TableStringFilterInput {
@@ -1888,6 +1894,8 @@ input UpdateSpaceObjInput {
   category: String
   hours: Int
   target: String
+  starred: Boolean
+  completed: Boolean
 }
 
 input UpdateUserBackerObjInput {

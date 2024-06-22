@@ -7,7 +7,7 @@ import isVerseAuth from '@/(utils)/isAuth';
 import { CreativeNetworkView } from './view/view';
 
 function Page() {
-  const userListController = useControllerForUserPrivateList(true);
+  const userListController = useControllerForUserPrivateList(false);
 
   console.log(userListController);
 

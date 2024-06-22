@@ -275,7 +275,7 @@ const useControllerForChapterSessionUpdateList = (
   };
 
   useMemo(() => {
-    if (!listId) {
+    if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
       controllerActions.gatherActions.gatherLatest();

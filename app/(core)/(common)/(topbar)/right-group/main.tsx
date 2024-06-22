@@ -1,5 +1,5 @@
-import { EditProfileModal } from '@/(core)/(common)/(topbar)/(modals)/profile/main';
 import { SettingsModal } from '@/(core)/(common)/(topbar)/(modals)/settings/main';
+import { EditProfileModal } from '@/(core)/(profile)/user/[id]/(pages)/profile/(modals)/profile/main';
 import { userProfileMap } from '@/(core)/(profile)/user/[id]/map';
 import {
   ContextForOpenable,
