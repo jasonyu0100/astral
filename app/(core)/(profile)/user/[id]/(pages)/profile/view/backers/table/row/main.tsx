@@ -1,5 +1,5 @@
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { UserProfileConnectionsRowNumber } from './number/main';
+import { UserProfileConnectionsRowNumber } from '../../../connections/table/row/number/main';
 
 export function UserProfileBackersTableRow() {
   return (

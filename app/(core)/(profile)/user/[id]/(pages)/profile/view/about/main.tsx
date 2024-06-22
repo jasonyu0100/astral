@@ -2,15 +2,23 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../main';
 
 export function ProfileAbout() {
+  const loggedInUser = useGlobalUser((state) => state.user);
+  const [stateUser, setStateUser] = useState(loggedInUser);
   const user = useContext(ContextForUserObj);
   const controller = useContext(ContextForProfilePage);
+  const admin = stateUser.id === user.id;
+
+  useEffect(() => {
+    setStateUser(loggedInUser);
+  }, [loggedInUser]);
 
   return (
     <GlassWindowFrame
@@ -49,16 +57,29 @@ export function ProfileAbout() {
             100 Connections
           </p>
         </div>
-        <GlassWindowFrame
-          className='h-[3rem] w-full flex-shrink-0'
-          roundedFx={roundedFx.rounded}
-          borderFx={borderFx['border-around']}
-        >
-          <GlassWindowContents className='flex h-full w-full items-center justify-center'>
-            <p className='font-bold text-slate-300'>Edit Profile</p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
+        {admin ? (
+          <GlassWindowFrame
+            className='h-[3rem] w-full flex-shrink-0'
+            roundedFx={roundedFx.rounded}
+            borderFx={borderFx['border-around']}
+          >
+            <GlassWindowContents className='flex h-full w-full items-center justify-center'>
+              <p className='font-bold text-slate-300'>Edit Profile</p>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          </GlassWindowFrame>
+        ) : (
+          <GlassWindowFrame
+            className='h-[3rem] w-full flex-shrink-0'
+            roundedFx={roundedFx.rounded}
+            borderFx={borderFx['border-around']}
+          >
+            <GlassWindowContents className='flex h-full w-full items-center justify-center'>
+              <p className='font-bold text-slate-300'>Connect / Back</p>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          </GlassWindowFrame>
+        )}
         <HorizontalDivider />{' '}
         <div className='flex w-full flex-col space-y-[1rem]'>
           <p className='text-sm text-white'>
