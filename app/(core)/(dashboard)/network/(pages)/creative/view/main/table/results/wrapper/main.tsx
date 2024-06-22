@@ -1,5 +1,7 @@
 'use client';
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import {
   ContextForHoverable,
   useControllerForHoverable,
@@ -15,17 +17,22 @@ export function CreativeNetworkRowWrapper({
 
   return (
     <ContextForHoverable.Provider value={hoverableController}>
-      <GlassAreaContainer
-        name={CreativeNetworkRowWrapper.name}
-        sizeFx='w-full h-[7rem]'
-        glassFx={`${hoverableController.hovered && glassFx['glass-10']}`}
-        roundedFx={roundedFx.rounded}
-        className={`flex flex-row items-center justify-between`}
+      <div
+        className='w-full'
         onMouseOver={() => hoverableController.onHover()}
         onMouseOut={() => hoverableController.onUnhover()}
       >
-        {children}
-      </GlassAreaContainer>
+        <GlassWindowFrame className='w-full' roundedFx={roundedFx.rounded}>
+          <GlassWindowContents
+            className={`flex h-full w-full flex-row items-center justify-between`}
+          >
+            {children}
+          </GlassWindowContents>
+          <GlassWindowPane
+            glassFx={`${hoverableController.hovered && glassFx['glass-10']}`}
+          />
+        </GlassWindowFrame>
+      </div>
     </ContextForHoverable.Provider>
   );
 }

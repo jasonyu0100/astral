@@ -2,7 +2,7 @@ import { CreativeNetworkRowAbout } from './about/main';
 import { CreativeNetworkRowActivity } from './activity/main';
 import { CreativeNetworkRowBacks } from './backs/main';
 import { CreativeNetworkRowCollabs } from './collabs/main';
-import { CreativeNetworkRowNumber } from './count/main';
+import { CreativeNetworkRowNumber } from './number/main';
 import { CreativeNetworkRowRole } from './role/main';
 
 export function CreativeNetworkTableRow() {

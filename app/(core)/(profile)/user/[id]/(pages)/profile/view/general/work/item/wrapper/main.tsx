@@ -6,9 +6,9 @@ import {
   ContextForHoverable,
   useControllerForHoverable,
 } from '@/(logic)/contexts/hoverable/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 
-export function StudioSpacesRowWrapper({
+export function ProfileUserRowWrapper({
   children,
 }: {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ export function StudioSpacesRowWrapper({
         onMouseOver={() => hoverableController.onHover()}
         onMouseOut={() => hoverableController.onUnhover()}
       >
-        <GlassWindowFrame className='w-full' roundedFx={roundedFx.rounded}>
+        <GlassWindowFrame className='w-full'>
           <GlassWindowContents
             className={`flex h-full w-full flex-row items-center justify-between`}
           >
