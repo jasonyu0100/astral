@@ -25,12 +25,19 @@ export function SpaceMapAddTextIdeaModal() {
 
   function create() {
     sceneIdeaListController.actions.createActions
-      .createFromText(title, description, 0, 0, {
-        id: crypto.randomUUID(),
-        title: title,
-        text: text,
-        variant: variant,
-      } as TextElem)
+      .createFromText(
+        sceneIdeaListController.state.objId,
+        title,
+        description,
+        0,
+        0,
+        {
+          id: crypto.randomUUID(),
+          title: title,
+          text: text,
+          variant: variant,
+        } as TextElem,
+      )
       .then(() => {
         openableController.close();
       });

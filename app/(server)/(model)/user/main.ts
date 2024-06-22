@@ -46,6 +46,8 @@ export type SafeUserObj = Omit<UserObj, 'passwordHash'>;
 
 export const ContextForUserObj = createContext<UserObj>({} as UserObj);
 
+export const ContextForCurrentUserObj = createContext<UserObj>({} as UserObj);
+
 export const exampleUser: UserObj = {
   id: '0',
   displayName: 'John Smith',

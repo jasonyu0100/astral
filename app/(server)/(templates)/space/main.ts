@@ -15,7 +15,15 @@ import { songSpaceTemplate } from './music/song/main';
 
 export type _TemplateSpaceObj = Omit<
   SpaceObj,
-  'id' | 'userId' | 'created' | 'thumbnail' | 'galleryId' | 'hours' | 'target'
+  | 'id'
+  | 'userId'
+  | 'created'
+  | 'thumbnail'
+  | 'galleryId'
+  | 'hours'
+  | 'target'
+  | 'starred'
+  | 'completed'
 >;
 
 export interface TemplateSpaceObj extends _TemplateSpaceObj {

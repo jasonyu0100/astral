@@ -8,7 +8,7 @@ import { StudioSpacesRowNumber } from './number/main';
 
 export function StudioSpacesRow() {
   return (
-    <div className='grid w-full grid-cols-7'>
+    <div className='grid w-full grid-cols-7 py-[2rem]'>
       <StudioSpacesRowNumber />
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />

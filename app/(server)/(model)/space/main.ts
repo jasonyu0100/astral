@@ -14,6 +14,7 @@ export interface SpaceObj {
   target: string;
   category: string;
   completed: boolean;
+  starred: boolean;
 }
 
 export const spaceGql = `
@@ -29,6 +30,7 @@ type SpaceObj {
   hours: Int!
   target: String!
   completed: Boolean!
+  starred: Boolean!
 }
 `;
 
@@ -46,6 +48,7 @@ export const exampleSpace: SpaceObj = {
   hours: 10,
   target: moment(new Date()).add(7, 'd').toISOString(),
   completed: false,
+  starred: false,
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -61,6 +64,7 @@ export const exampleSpaces: SpaceObj[] = [
     hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
     completed: false,
+    starred: false,
   },
   {
     id: '1',
@@ -74,6 +78,7 @@ export const exampleSpaces: SpaceObj[] = [
     hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
     completed: false,
+    starred: false,
   },
 ];
 

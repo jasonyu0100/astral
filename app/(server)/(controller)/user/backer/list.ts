@@ -32,7 +32,12 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createConnection: (
+    userId: string,
+    backerId: string,
+  ) => Promise<UserBackerObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -207,6 +212,17 @@ const useControllerForUserBackerList = (
         created: new Date().toISOString(),
         backerId: '',
         userId: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createConnection: async (userId: string, backerId: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        backerId: backerId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

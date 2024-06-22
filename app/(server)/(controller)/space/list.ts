@@ -215,6 +215,8 @@ const useControllerForSpaceList = (
         galleryId: '',
         hours: 100,
         target: '',
+        completed: false,
+        starred: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -250,6 +252,8 @@ const useControllerForSpaceList = (
         galleryId: galleryId,
         hours: hours,
         target: target,
+        completed: false,
+        starred: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
