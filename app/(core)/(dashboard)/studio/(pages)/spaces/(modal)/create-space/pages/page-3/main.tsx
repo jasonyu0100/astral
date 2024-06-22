@@ -27,7 +27,7 @@ export function CreateSpaceModalPageThree() {
       />
       <div className='flex w-full flex-col'>
         <label className='mb-1 text-xs font-bold text-slate-400'>
-          Estimate
+          Estimated hours
         </label>
         <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
           <input
