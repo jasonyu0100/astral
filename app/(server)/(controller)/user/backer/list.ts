@@ -175,7 +175,6 @@ const useControllerForUserBackerList = (
       return objs;
     },
     gatherLatest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);

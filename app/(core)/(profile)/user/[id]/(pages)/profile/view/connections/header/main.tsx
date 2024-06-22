@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForProfilePage, ProfilePage } from '../../main';
+import { ContextForProfilePage, ProfilePage } from '../../../page';
 
 export function UserProfileConnectionsHeader() {
   const profilePage = useContext(ContextForProfilePage);

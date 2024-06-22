@@ -2,12 +2,9 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import {
-  ContextForCurrentUserObj,
-  ContextForUserObj,
-} from '@/(server)/(model)/user/main';
 import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
+import { ContextForProfilePage } from '../../page';
 import { ProfileAboutBackAction } from './action/back/main';
 import { ProfileAboutConnectAction } from './action/connect/main';
 import { ProfileAboutEditAction } from './action/edit/main';
@@ -17,9 +14,7 @@ import { ProfileAboutFollowing } from './following/main';
 import { ProfileAboutHorizons } from './horizons/main';
 
 export function ProfileAbout() {
-  const currentUser = useContext(ContextForCurrentUserObj);
-  const user = useContext(ContextForUserObj);
-  const admin = currentUser.id === user.id;
+  const { admin } = useContext(ContextForProfilePage);
 
   return (
     <GlassWindowFrame

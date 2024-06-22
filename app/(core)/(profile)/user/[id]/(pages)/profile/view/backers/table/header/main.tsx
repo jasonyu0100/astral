@@ -4,7 +4,7 @@ export function UserProfileFollowersTableHeader() {
       <p className='text-center font-bold text-slate-300'>#</p>
       <p className='px-[0.5rem] font-bold text-slate-300'>about</p>
       <p className='text-center font-bold text-slate-300'></p>
-      <p className='font-bold text-slate-300'>role</p>
+      <p className='font-bold text-slate-300'></p>
       <p className='text-center font-bold text-slate-300'></p>
       <p className='text-center font-bold text-slate-300'></p>
     </div>

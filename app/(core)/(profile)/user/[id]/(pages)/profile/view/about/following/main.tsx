@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextForProfilePage, ProfilePage } from '../../main';
+import { ContextForProfilePage, ProfilePage } from '../../../page';
 
 export function ProfileAboutFollowing() {
   const controllerForProfilePage = useContext(ContextForProfilePage);
