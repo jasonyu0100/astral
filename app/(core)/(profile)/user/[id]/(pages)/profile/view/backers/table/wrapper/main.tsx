@@ -8,7 +8,7 @@ import {
 } from '@/(logic)/contexts/hoverable/main';
 import { glassFx } from '@/(style)/data';
 
-export function ProfileUserRowWrapper({
+export function UserProfileBackersRowWrapper({
   children,
 }: {
   children: React.ReactNode;

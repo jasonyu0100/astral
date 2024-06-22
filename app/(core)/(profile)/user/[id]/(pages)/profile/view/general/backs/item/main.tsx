@@ -1,6 +1,6 @@
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 
-export function ProfileUserBacksItem() {
+export function UserProfileBacksItem() {
   return (
     <div className='flex flex-col space-y-[1rem]'>
       <img

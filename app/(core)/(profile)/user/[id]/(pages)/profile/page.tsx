@@ -8,7 +8,7 @@ import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { useContext } from 'react';
 import { ContextForProfile } from '../../layout';
-import { ProfileUserView } from './view/main';
+import { UserProfileView } from './view/main';
 
 function Page() {
   const profileContext = useContext(ContextForProfile);
@@ -18,7 +18,7 @@ function Page() {
   return (
     <ContextForUserMain.Provider value={userController}>
       <ContextForUserObj.Provider value={user}>
-        <ProfileUserView />
+        <UserProfileView />
       </ContextForUserObj.Provider>
     </ContextForUserMain.Provider>
   );

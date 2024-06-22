@@ -1,11 +1,10 @@
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { UserProfileConnectionsRowNumber } from './number/main';
 
-export function UserProfileFollowersTableRow() {
+export function UserProfileBackersTableRow() {
   return (
     <div className='grid w-full grid-cols-6 items-center border-slate-300 border-opacity-30 py-[2rem]'>
-      <div className='flex justify-center'>
-        <p className='text-lg font-bold text-white'>1</p>
-      </div>
+      <UserProfileConnectionsRowNumber />
       <div className='flex flex-row items-center space-x-[2rem]'>
         <img
           src={exampleFileElem.src}

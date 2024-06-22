@@ -2,7 +2,7 @@ import { userProfileMap } from '@/(core)/(profile)/user/[id]/map';
 import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
 
-export function UserProfileNumberPlay() {
+export function UserProfileConnectionsNumberPlay() {
   const user = useContext(ContextForUserObj);
 
   return (

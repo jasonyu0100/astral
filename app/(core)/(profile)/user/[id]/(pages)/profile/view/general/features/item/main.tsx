@@ -1,6 +1,6 @@
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 
-export function ProfileUserFeatureItem() {
+export function UserProfileFeatureItem() {
   return (
     <div className='flex flex-col space-y-[1rem]'>
       <img src={exampleFileElem.src} className='h-[10rem] w-[10rem]'></img>

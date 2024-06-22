@@ -5,7 +5,7 @@ import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../../main';
 
-export function ProfileUserFollowersHeader() {
+export function UserProfileFollowersHeader() {
   const profilePage = useContext(ContextForProfilePage);
 
   return (

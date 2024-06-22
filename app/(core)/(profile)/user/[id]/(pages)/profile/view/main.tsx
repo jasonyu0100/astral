@@ -4,9 +4,9 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { createContext, Dispatch, SetStateAction, useState } from 'react';
 import { ProfileAbout } from './about/main';
-import { ProfileUserFollowersMain } from './backers/main';
-import { ProfileUserConnectsMain } from './connections/main';
-import { ProfileUserGeneralMain } from './general/main';
+import { UserProfileFollowersMain } from './backers/main';
+import { UserProfileConnectsMain } from './connections/main';
+import { UserProfileGeneralMain } from './general/main';
 
 export enum ProfilePage {
   Backers = 'Backers',
@@ -21,7 +21,7 @@ interface Controller {
 
 export const ContextForProfilePage = createContext({} as Controller);
 
-export function ProfileUserView() {
+export function UserProfileView() {
   const [page, setPage] = useState(ProfilePage.General);
 
   const context = {
@@ -32,7 +32,7 @@ export function ProfileUserView() {
   return (
     <ContextForProfilePage.Provider value={context}>
       <GlassAreaContainer
-        name={ProfileUserView.name}
+        name={UserProfileView.name}
         sizeFx='flex-grow h-full'
         className={`flex`}
         glassFx={glassFx['glass-5']}
@@ -43,9 +43,9 @@ export function ProfileUserView() {
         <div className='h-full flex-grow'>
           <GlassWindowFrame className='flex h-full w-full flex-col'>
             <GlassWindowContents className='flex h-full w-full flex-col'>
-              {page === ProfilePage.Backers && <ProfileUserFollowersMain />}
-              {page === ProfilePage.Connections && <ProfileUserConnectsMain />}
-              {page === ProfilePage.General && <ProfileUserGeneralMain />}
+              {page === ProfilePage.Backers && <UserProfileFollowersMain />}
+              {page === ProfilePage.Connections && <UserProfileConnectsMain />}
+              {page === ProfilePage.General && <UserProfileGeneralMain />}
             </GlassWindowContents>
           </GlassWindowFrame>
         </div>

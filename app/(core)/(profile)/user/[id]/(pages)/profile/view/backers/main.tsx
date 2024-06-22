@@ -1,19 +1,31 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ProfileUserFollowersHeader } from './header/main';
+import { UserProfileFollowersHeader } from './header/main';
 import { UserProfileFollowersTableHeader } from './table/header/main';
-import { UserProfileFollowersTableRow } from './table/row/main';
+import { UserProfileBackersTableRow } from './table/row/main';
+import { UserProfileBackersRowWrapper } from './table/wrapper/main';
 
-export function ProfileUserFollowersMain() {
+export function UserProfileFollowersMain() {
   return (
     <>
-      <ProfileUserFollowersHeader />
-      <div className='w-full overflow-auto p-[3rem]'>
+      <UserProfileFollowersHeader />
+      <div className='w-full overflow-auto p-[2rem]'>
         <UserProfileFollowersTableHeader />
         <HorizontalDivider />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
+        <UserProfileBackersRowWrapper>
+          <UserProfileBackersTableRow />
+        </UserProfileBackersRowWrapper>
+        <UserProfileBackersRowWrapper>
+          <UserProfileBackersTableRow />
+        </UserProfileBackersRowWrapper>
+        <UserProfileBackersRowWrapper>
+          <UserProfileBackersTableRow />
+        </UserProfileBackersRowWrapper>
+        <UserProfileBackersRowWrapper>
+          <UserProfileBackersTableRow />
+        </UserProfileBackersRowWrapper>
+        <UserProfileBackersRowWrapper>
+          <UserProfileBackersTableRow />
+        </UserProfileBackersRowWrapper>
       </div>
     </>
   );

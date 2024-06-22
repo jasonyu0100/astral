@@ -1,19 +1,31 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ProfileUserConnectionsHeader } from './header/main';
+import { UserProfileConnectionsHeader } from './header/main';
 import { UserProfileFollowersTableHeader } from './table/header/main';
 import { UserProfileFollowersTableRow } from './table/row/main';
+import { UserProfileConnectionsRowWrapper } from './table/wrapper/main';
 
-export function ProfileUserConnectsMain() {
+export function UserProfileConnectsMain() {
   return (
     <>
-      <ProfileUserConnectionsHeader />
-      <div className='w-full overflow-auto p-[3rem]'>
+      <UserProfileConnectionsHeader />
+      <div className='w-full overflow-auto p-[2rem]'>
         <UserProfileFollowersTableHeader />
         <HorizontalDivider />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
-        <UserProfileFollowersTableRow />
+        <UserProfileConnectionsRowWrapper>
+          <UserProfileFollowersTableRow />
+        </UserProfileConnectionsRowWrapper>
+        <UserProfileConnectionsRowWrapper>
+          <UserProfileFollowersTableRow />
+        </UserProfileConnectionsRowWrapper>
+        <UserProfileConnectionsRowWrapper>
+          <UserProfileFollowersTableRow />
+        </UserProfileConnectionsRowWrapper>
+        <UserProfileConnectionsRowWrapper>
+          <UserProfileFollowersTableRow />
+        </UserProfileConnectionsRowWrapper>
+        <UserProfileConnectionsRowWrapper>
+          <UserProfileFollowersTableRow />
+        </UserProfileConnectionsRowWrapper>
       </div>
     </>
   );
