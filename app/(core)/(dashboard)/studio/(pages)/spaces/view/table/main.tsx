@@ -9,7 +9,7 @@ export function StudioSpacesTable() {
       name={StudioSpacesTable.name}
       className={`divide-y-[1px] divide-slate-500 divide-opacity-30 overflow-auto`}
     >
-      <div className='flex w-full flex-col space-y-[1rem]'>
+      <div className='flex w-full flex-col'>
         <StudioSpacesTableHeader />
         <StudioSpacesTableResults />
       </div>

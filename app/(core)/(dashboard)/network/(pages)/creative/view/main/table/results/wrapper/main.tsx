@@ -6,7 +6,7 @@ import {
 } from '@/(logic)/contexts/hoverable/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 
-export function StudioSpacesRowWrapper({
+export function CreativeNetworkRowWrapper({
   children,
 }: {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ export function StudioSpacesRowWrapper({
   return (
     <ContextForHoverable.Provider value={hoverableController}>
       <GlassAreaContainer
-        name={StudioSpacesRowWrapper.name}
+        name={CreativeNetworkRowWrapper.name}
         sizeFx='w-full h-[7rem]'
         glassFx={`${hoverableController.hovered && glassFx['glass-10']}`}
         roundedFx={roundedFx.rounded}

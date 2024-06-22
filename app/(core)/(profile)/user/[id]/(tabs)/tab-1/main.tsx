@@ -10,7 +10,7 @@ import { UserTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
   const userContext = useContext(ContextForProfile);
-  const tabText = UserTabStage.profile;
+  const tabText = UserTabStage.Profile;
   const active = tab === tabText;
 
   return (

@@ -1,12 +1,12 @@
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
+import { userProfileMap } from '@/(core)/(profile)/user/[id]/map';
+import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowCountPlay() {
-  const space = useContext(ContextForSpaceObj);
+export function CreativeNetworkNumberPlay() {
+  const user = useContext(ContextForUserObj);
 
   return (
-    <a href={spaceMap.space.id.chat.link(space.id)}>
+    <a href={userProfileMap.profile.link(user.id)}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-[30px] w-[30px]'

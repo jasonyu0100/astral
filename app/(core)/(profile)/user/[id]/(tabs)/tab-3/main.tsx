@@ -10,7 +10,7 @@ import { UserTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const userContext = useContext(ContextForProfile);
-  const tabText = UserTabStage.spaces;
+  const tabText = UserTabStage.Spaces;
   const active = tab === tabText;
 
   return (

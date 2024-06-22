@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { CreativeNetworkResults } from './results/main';
 import { CreativeNetworkSearch } from './search/main';
+import { CreativeNetworkTable } from './table/main';
 
 export function CreativeNetworkMain() {
   return (
@@ -10,7 +10,7 @@ export function CreativeNetworkMain() {
       className='flex flex-col overflow-hidden'
     >
       <CreativeNetworkSearch />
-      <CreativeNetworkResults />
+      <CreativeNetworkTable />
     </GlassAreaContainer>
   );
 }

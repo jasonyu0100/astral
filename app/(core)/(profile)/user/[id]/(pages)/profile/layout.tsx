@@ -6,7 +6,7 @@ import { UserTabs, UserTabStage } from '../../(tabs)/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardBody>
-      <UserTabs tab={UserTabStage.profile} />
+      <UserTabs tab={UserTabStage.Profile} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

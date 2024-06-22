@@ -7,7 +7,7 @@ export function ProfileUserConnectsMain() {
   return (
     <>
       <ProfileUserConnectionsHeader />
-      <div className='w-full p-[3rem]'>
+      <div className='w-full overflow-auto p-[3rem]'>
         <UserProfileFollowersTableHeader />
         <HorizontalDivider />
         <UserProfileFollowersTableRow />
