@@ -3,8 +3,8 @@ import { StudioSpacesRowDate } from './date/main';
 import { StudioSpacesRowDaysLeft } from './day/main';
 import { StudioSpacesRowHoursLeft } from './hours/main';
 import { StudioSpacesRowInfo } from './info/main';
-import { StudioSpacesRowMore } from './more/main';
 import { StudioSpacesRowNumber } from './number/main';
+import { StudioSpacesRowTarget } from './target/main';
 
 export function StudioSpacesRow() {
   return (
@@ -15,7 +15,7 @@ export function StudioSpacesRow() {
       <StudioSpacesRowDaysLeft />
       <StudioSpacesRowHoursLeft />
       <StudioSpacesRowDate />
-      <StudioSpacesRowMore />
+      <StudioSpacesRowTarget />
     </div>
   );
 }
