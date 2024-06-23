@@ -39,6 +39,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     title: string,
     description: string,
+    duration: number,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -217,13 +218,21 @@ const useControllerForChapterSessionList = (
         title: '',
         description: '',
         spaceId: '',
+        duration: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
-    createUpdate: async (userId, spaceId, chapterId, title, description) => {
+    createUpdate: async (
+      userId,
+      spaceId,
+      chapterId,
+      title,
+      description,
+      duration,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
@@ -231,6 +240,7 @@ const useControllerForChapterSessionList = (
         title: title,
         description: description,
         spaceId: spaceId,
+        duration: duration,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

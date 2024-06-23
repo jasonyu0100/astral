@@ -2,33 +2,43 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
+import { useControllerForUserConnectionTermsList } from '@/(server)/(controller)/user/connection/terms/list';
 import {
   ContextForCurrentUserObj,
   ContextForUserObj,
 } from '@/(server)/(model)/user/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutConnectAction() {
   const currentUser = useContext(ContextForCurrentUserObj);
   const user = useContext(ContextForUserObj);
   const connectionListController = useContext(ContextForUserConnectionList);
+  const connectionTermsListController =
+    useControllerForUserConnectionTermsList('');
   const connected =
     connectionListController.state.objs.filter(
       (connection) => connection.connectionId === user.id,
     ).length > 0;
 
   async function addConnection() {
-    const invitation =
-      await connectionListController.actions.createActions.createConnection(
-        currentUser.id,
-        user.id,
+    const terms =
+      await connectionTermsListController.actions.createActions.createTerms(
+        'Connection terms',
+        '1 year',
+        moment().add(1, 'year').toISOString(),
       );
-    const acceptance =
-      await connectionListController.actions.createActions.createConnection(
-        user.id,
-        currentUser.id,
-      );
+    await connectionListController.actions.createActions.createConnection(
+      currentUser.id,
+      user.id,
+      terms.id,
+    );
+    await connectionListController.actions.createActions.createConnection(
+      user.id,
+      currentUser.id,
+      terms.id,
+    );
   }
 
   async function removeConnection() {
@@ -38,8 +48,14 @@ export function ProfileAboutConnectAction() {
           connection.connectionId === user.id || connection.userId === user.id,
       )
       .map((connection) => connection.id);
-    const invitation =
+    const connections =
       await connectionListController.actions.deleteActions.deleteMany(ids);
+
+    connections.map(async (connection) => {
+      await connectionTermsListController.actions.deleteActions.delete(
+        connection.termsId,
+      );
+    });
   }
 
   return (

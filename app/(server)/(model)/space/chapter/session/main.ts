@@ -7,6 +7,7 @@ export interface ChapterSessionObj {
   chapterId: string;
   userId: string;
   title: string;
+  duration: number;
   description: string;
   created: string;
 }
@@ -18,6 +19,7 @@ type ChapterSessionObj {
   userId: String!
   chapterId: String!
   title: String!
+  duration: Int!
   description: String!
   created: String!
 }
@@ -32,6 +34,7 @@ export const exampleChapterSession: ChapterSessionObj = {
   spaceId: '0',
   userId: '0',
   chapterId: '0',
+  duration: 0,
   title: 'May Retro',
   description: 'Productive month with new scenes and verses added into the mix',
   created: new Date().toISOString(),
@@ -43,6 +46,7 @@ export const exampleChapterSessions: ChapterSessionObj[] = [
     spaceId: '0',
     userId: '0',
     chapterId: '0',
+    duration: 0,
     title: 'May Retro',
     description:
       'Productive month with new scenes and verses added into the mix',
@@ -53,6 +57,7 @@ export const exampleChapterSessions: ChapterSessionObj[] = [
     spaceId: '0',
     userId: '0',
     chapterId: '0',
+    duration: 0,
     title: 'June Retro',
     description: 'Not so productive month',
     created: new Date().toISOString(),
@@ -62,6 +67,7 @@ export const exampleChapterSessions: ChapterSessionObj[] = [
     spaceId: '0',
     userId: '0',
     chapterId: '0',
+    duration: 0,
     title: 'July Retro',
     description:
       'Productive month with new scenes and verses added into the mix',

@@ -2,6 +2,7 @@ import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
+import { DatePicker } from './datepicker/main';
 
 export function CreateSpaceModalPageThree() {
   const { pageThree } = useContext(ContextForCreateSpace);
@@ -16,7 +17,6 @@ export function CreateSpaceModalPageThree() {
 
   return (
     <FormBody>
-      {/* <DatePicker date={target} onChange={updateTarget} /> */}
       <FormTextArea
         title='Description'
         placeholder='a brief description of the space...'
@@ -25,6 +25,7 @@ export function CreateSpaceModalPageThree() {
         onChange={(e) => updateDescription(e.target.value)}
         style={{ resize: 'none' }}
       />
+      <DatePicker date={target} onChange={updateTarget} />
       <div className='flex w-full flex-col'>
         <label className='mb-1 text-xs font-bold text-slate-400'>
           Estimated hours

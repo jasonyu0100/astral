@@ -5,6 +5,7 @@ export interface UserConnectionObj {
   id: string;
   userId: string;
   connectionId: string;
+  termsId: string;
   created: string;
 }
 
@@ -14,6 +15,7 @@ type UserConnectionObj {
   userId: String!
   connectionId: String!
   created: String!
+  termsId: String!
 }
 `;
 
@@ -26,6 +28,7 @@ export const exampleUserConnection: UserConnectionObj = {
   connectionId: '0',
   userId: '0',
   created: new Date().toISOString(),
+  termsId: '0',
 };
 
 export const exampleUserConnections: UserConnectionObj[] = [
@@ -34,18 +37,21 @@ export const exampleUserConnections: UserConnectionObj[] = [
     connectionId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     connectionId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     connectionId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
 ];
 

@@ -3,7 +3,7 @@ import { SpaceSessionUpdateFormCollaborators } from './collabs/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
 import { SpaceSessionUpdateHeader } from './header/main';
 import { SpaceSessionUpdateFormMore } from './more/main';
-import { SpaceSessionUpdateFormPercent } from './percent/main';
+import { SpaceSessionUpdateFormContribution } from './percent/main';
 
 export function SpaceSessionUpdateForm() {
   return (
@@ -13,7 +13,7 @@ export function SpaceSessionUpdateForm() {
           <SpaceSessionUpdateHeader />
           <div className='flex w-full flex-col space-y-[1rem]'>
             <SpaceSessionUpdateFormDetails />
-            <SpaceSessionUpdateFormPercent />
+            <SpaceSessionUpdateFormContribution />
             <SpaceSessionUpdateFormCollaborators />
             <br />
             <SpaceSessionUpdateFormMore />

@@ -6,6 +6,7 @@ export interface HorizonMemberObj {
   horizonId: string;
   userId: string;
   created: string;
+  termsId: string;
 }
 
 export const horizonMemberGql = `
@@ -14,6 +15,7 @@ type HorizonMemberObj {
   horizonId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 `;
 
@@ -26,6 +28,7 @@ export const exampleHorizonMember: HorizonMemberObj = {
   horizonId: '0',
   userId: '0',
   created: new Date().toISOString(),
+  termsId: '0',
 };
 
 export const exampleHorizonMembers: HorizonMemberObj[] = [
@@ -34,18 +37,21 @@ export const exampleHorizonMembers: HorizonMemberObj[] = [
     horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     horizonId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
 ];
 

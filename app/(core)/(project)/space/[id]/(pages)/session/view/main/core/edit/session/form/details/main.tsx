@@ -1,17 +1,11 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForUpdateEdit } from '../../main';
 
 export function SpaceSessionUpdateFormDetails() {
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
-  );
   const updateEditController = useContext(ContextForUpdateEdit);
 
   return (

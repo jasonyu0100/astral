@@ -207,6 +207,7 @@ const useControllerForHorizonGroupMemberList = (
         created: new Date().toISOString(),
         groupId: '',
         userId: '',
+        termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

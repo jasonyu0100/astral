@@ -7,23 +7,25 @@ import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link
 import { sceneIdeaDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/main';
 import { chapterSceneDbWrapper } from '@/(server)/(db)/space/chapter/scene/main';
 import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
+import { ChapterSessionContributorDbWrapper } from '@/(server)/(db)/space/chapter/session/contributor/main';
 import { ChapterSessionDbWrapper } from '@/(server)/(db)/space/chapter/session/main';
 import { chapterSessionUpdateDbWrapper } from '@/(server)/(db)/space/chapter/session/update/main';
-import { ChapterSessionMemberDbWrapper } from '@/(server)/(db)/space/chapter/session/update/member/main';
 import { verseCommentDbWrapper } from '@/(server)/(db)/space/chapter/verse/comment/main';
 import { chapterVerseDbWrapper } from '@/(server)/(db)/space/chapter/verse/main';
 import { spaceDbWrapper } from '@/(server)/(db)/space/main';
 import { spaceMemberDbWrapper } from '@/(server)/(db)/space/member/main';
+import { spaceMemberTermsDbWrapper } from '@/(server)/(db)/space/member/terms/main';
 import { chatMemberModel } from '@/(server)/(model)/space/chapter/chat/member/main';
 import { ideaLinkModel } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
 import { sceneStackGql } from '@/(server)/(model)/space/chapter/scene/stack/main';
+import { ChapterSessionContributorModel } from '@/(server)/(model)/space/chapter/session/contributor/main';
 import { chapterSessionUpdateModel } from '@/(server)/(model)/space/chapter/session/update/main';
-import { ChapterSessionMemberItemModel } from '@/(server)/(model)/space/chapter/session/update/member/main';
 import {
   verseMemberGql,
   verseMemberModel,
 } from '@/(server)/(model)/space/chapter/verse/member/main';
 import { spaceMemberModel } from '@/(server)/(model)/space/member/main';
+import { spaceMemberTermsModel } from '@/(server)/(model)/space/member/terms/main';
 import { chatConversationModel } from '../../(model)/space/chapter/chat/conversation/main';
 import { conversationMessageModel } from '../../(model)/space/chapter/chat/conversation/message/main';
 import { chapterChatModel } from '../../(model)/space/chapter/chat/main';
@@ -41,6 +43,10 @@ export const spaceMap = {
   member: {
     model: spaceMemberModel,
     db: spaceMemberDbWrapper,
+    terms: {
+      model: spaceMemberTermsModel,
+      db: spaceMemberTermsDbWrapper,
+    },
   },
   chapter: {
     db: spaceChapterDbWrapper,
@@ -51,10 +57,10 @@ export const spaceMap = {
       update: {
         model: chapterSessionUpdateModel,
         db: chapterSessionUpdateDbWrapper,
-        member: {
-          model: ChapterSessionMemberItemModel,
-          db: ChapterSessionMemberDbWrapper,
-        },
+      },
+      contributor: {
+        model: ChapterSessionContributorModel,
+        db: ChapterSessionContributorDbWrapper,
       },
     },
     chat: {

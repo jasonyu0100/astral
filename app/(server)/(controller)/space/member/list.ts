@@ -205,8 +205,9 @@ const useControllerForSpaceMemberList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        forumId: '',
         userId: '',
+        spaceId: '',
+        formId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

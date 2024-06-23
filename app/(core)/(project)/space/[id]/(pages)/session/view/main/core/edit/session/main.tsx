@@ -15,6 +15,8 @@ interface Controller {
   description: string;
   setDescription: (value: string) => void;
   saveUpdate: () => Promise<ChapterSessionObj>;
+  percent: number;
+  setPercent: (value: number) => void;
 }
 
 export const ContextForUpdateEdit = createContext({} as Controller);
@@ -32,8 +34,11 @@ export function SpaceSessionEditSessionForm() {
     sessionUpdateListController.state.currentObj || ({} as ChapterSessionObj);
   const [title, setTitle] = useState(currentUpdate.title);
   const [description, setDescription] = useState(currentUpdate.description);
+  const [percent, setPercent] = useState(0);
 
   async function saveUpdate(): Promise<ChapterSessionObj> {
+    const duration =
+      (percent / 100) * (spaceController.state.obj.hours * 60 * 1000);
     const update =
       await updateListController.actions.createActions.createUpdate(
         user.id,
@@ -41,6 +46,7 @@ export function SpaceSessionEditSessionForm() {
         chapterListController.state.objId,
         title,
         description,
+        duration,
       );
     sessionUpdateListController.state.objs.map(async (item) => {
       return sessionUpdateListController.actions.editActions.edit(item.id, {
@@ -55,6 +61,8 @@ export function SpaceSessionEditSessionForm() {
     setTitle,
     description,
     setDescription,
+    percent,
+    setPercent,
     saveUpdate,
   };
 

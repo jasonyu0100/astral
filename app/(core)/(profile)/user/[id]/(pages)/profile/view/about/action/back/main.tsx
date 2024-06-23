@@ -2,30 +2,41 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
+import { useControllerForUserBackerTermsList } from '@/(server)/(controller)/user/backer/terms/list';
 import {
   ContextForCurrentUserObj,
   ContextForUserObj,
 } from '@/(server)/(model)/user/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutBackAction() {
   const currentUser = useContext(ContextForCurrentUserObj);
   const user = useContext(ContextForUserObj);
   const backerListController = useContext(ContextForUserBackerList);
+  const backerTermsListController = useControllerForUserBackerTermsList('');
   const connected =
     backerListController.state.objs.filter(
       (backer) => backer.backerId === user.id,
     ).length > 0;
 
   async function addBacker() {
+    const terms =
+      await backerTermsListController.actions.createActions.createTerms(
+        'Backer terms',
+        '1 year',
+        moment().add(1, 'year').toISOString(),
+      );
     await backerListController.actions.createActions.createConnection(
       currentUser.id,
       user.id,
+      terms.id,
     );
     await backerListController.actions.createActions.createConnection(
       user.id,
       currentUser.id,
+      terms.id,
     );
   }
 
@@ -35,8 +46,14 @@ export function ProfileAboutBackAction() {
         (backer) => backer.backerId === user.id || backer.userId === user.id,
       )
       .map((backer) => backer.id);
-    const invitation =
+    const backings =
       await backerListController.actions.deleteActions.deleteMany(ids);
+
+    backings.map(async (backing) => {
+      await backerTermsListController.actions.deleteActions.delete(
+        backing.termsId,
+      );
+    });
   }
 
   return (

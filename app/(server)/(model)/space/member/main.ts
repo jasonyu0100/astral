@@ -3,17 +3,19 @@ import { ModelInterface } from '../../main';
 
 export interface SpaceMemberObj {
   id: string;
-  forumId: string;
+  spaceId: string;
   userId: string;
   created: string;
+  formId: string;
 }
 
 export const spaceMemberGql = `
 type SpaceMemberObj {
   id: String!
-  forumId: String!
+  spaceId: String!
   userId: String!
   created: String!
+  formId: String!
 }
 `;
 
@@ -23,29 +25,33 @@ export const ContextForSpaceMemberObj = createContext<SpaceMemberObj>(
 
 export const exampleSpaceMember: SpaceMemberObj = {
   id: '0',
-  forumId: '0',
+  spaceId: '0',
   userId: '0',
   created: new Date().toISOString(),
+  formId: '0',
 };
 
 export const exampleSpaceMembers: SpaceMemberObj[] = [
   {
     id: '0',
-    forumId: '0',
+    spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    formId: '0',
   },
   {
     id: '0',
-    forumId: '0',
+    spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    formId: '0',
   },
   {
     id: '0',
-    forumId: '0',
+    spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    formId: '0',
   },
 ];
 

@@ -6,21 +6,24 @@ import { horizonArcDbWrapper } from '@/(server)/(db)/horizon/arc/main';
 import { arcPointDbWrapper } from '@/(server)/(db)/horizon/arc/point/main';
 import { horizonGroupDbWrapper } from '@/(server)/(db)/horizon/group/main';
 import { horizonGroupMemberDbWrapper } from '@/(server)/(db)/horizon/group/member/main';
-import { horizonGroupSessionDbWrapper } from '@/(server)/(db)/horizon/group/update/main';
+import { horizonGroupSessionDbWrapper } from '@/(server)/(db)/horizon/group/session/main';
 import { horizonDbWrapper } from '@/(server)/(db)/horizon/main';
 import { horizonMemberDbWrapper } from '@/(server)/(db)/horizon/member/main';
+import { horizonMemberTermsDbWrapper } from '@/(server)/(db)/horizon/member/terms/main';
+import { horizonSessionContributorDbWrapper } from '@/(server)/(db)/horizon/session/contributor/main';
 import { horizonSessionDbWrapper } from '@/(server)/(db)/horizon/session/main';
-import { horizonSessionUpdateMemberDbWrapper } from '@/(server)/(db)/horizon/session/update/member/main';
 import { forumMemberModel } from '@/(server)/(model)/horizon/arc/forum/member/main';
 import { horizonGroupMemberModel } from '@/(server)/(model)/horizon/group/member/main';
-import { horizonGroupSessionUpdateModel } from '@/(server)/(model)/horizon/group/session/update/main';
+import { horizonGroupMemberTermsModel } from '@/(server)/(model)/horizon/group/member/terms/main';
 import {
-  horizonGroupSessionUpdateMemberGql,
-  horizonGroupSessionUpdateMemberModel,
-} from '@/(server)/(model)/horizon/group/session/update/member/main';
+  horizonGroupSessionContributorGql,
+  horizonGroupSessionContributorModel,
+} from '@/(server)/(model)/horizon/group/session/contributor/main';
+import { horizonGroupSessionUpdateModel } from '@/(server)/(model)/horizon/group/session/update/main';
 import { horizonMemberModel } from '@/(server)/(model)/horizon/member/main';
+import { horizonMemberTermsModel } from '@/(server)/(model)/horizon/member/terms/main';
+import { horizonSessionContributorModel } from '@/(server)/(model)/horizon/session/contributor/main';
 import { horizonSessionUpdateModel } from '@/(server)/(model)/horizon/session/update/main';
-import { horizonSessionUpdateMemberModel } from '@/(server)/(model)/horizon/session/update/member/main';
 import { arcForumModel } from '../../(model)/horizon/arc/forum/main';
 import { postCommentGql } from '../../(model)/horizon/arc/forum/post/comment/main';
 import { forumPostModel } from '../../(model)/horizon/arc/forum/post/main';
@@ -64,6 +67,10 @@ export const horizonMap = {
     member: {
       model: horizonGroupMemberModel,
       db: horizonGroupMemberDbWrapper,
+      terms: {
+        model: horizonGroupMemberTermsModel,
+        db: horizonGroupMemberDbWrapper,
+      },
     },
     session: {
       model: horizonGroupSessionModel,
@@ -72,9 +79,9 @@ export const horizonMap = {
         model: horizonGroupSessionUpdateModel,
         db: horizonGroupSessionDbWrapper,
       },
-      member: {
-        model: horizonGroupSessionUpdateMemberModel,
-        db: horizonGroupSessionUpdateMemberGql,
+      contributor: {
+        model: horizonGroupSessionContributorModel,
+        db: horizonGroupSessionContributorGql,
       },
     },
   },
@@ -85,13 +92,17 @@ export const horizonMap = {
       model: horizonSessionUpdateModel,
       db: horizonSessionDbWrapper,
       member: {
-        model: horizonSessionUpdateMemberModel,
-        db: horizonSessionUpdateMemberDbWrapper,
+        model: horizonSessionContributorModel,
+        db: horizonSessionContributorDbWrapper,
       },
     },
   },
   member: {
     model: horizonMemberModel,
     db: horizonMemberDbWrapper,
+    terms: {
+      model: horizonMemberTermsModel,
+      db: horizonMemberTermsDbWrapper,
+    },
   },
 };

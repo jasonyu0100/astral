@@ -69,11 +69,24 @@ type ChapterSceneObjConnection {
   nextToken: String
 }
 
+type ChapterSessionContributorObj {
+  id: String!
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
+type ChapterSessionContributorObjConnection {
+  items: [ChapterSessionContributorObj]
+  nextToken: String
+}
+
 type ChapterSessionObj {
   id: String!
   spaceId: String!
   userId: String!
   chapterId: String!
+  duration: Int!
   title: String!
   description: String!
   created: String!
@@ -234,10 +247,17 @@ input CreateChapterSceneObjInput {
   created: String!
 }
 
+input CreateChapterSessionContributorObjInput {
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
 input CreateChapterSessionObjInput {
   spaceId: String!
   userId: String!
   chapterId: String!
+  duration: Int!
   title: String!
   description: String!
   created: String!
@@ -359,6 +379,14 @@ input CreateHorizonGroupMemberObjInput {
   groupId: String!
   userId: String!
   created: String!
+  termsId: String!
+}
+
+input CreateHorizonGroupMemberTermsObjInput {
+  title: String!
+  description: String!
+  created: String!
+  end: String!
 }
 
 input CreateHorizonGroupObjInput {
@@ -366,6 +394,12 @@ input CreateHorizonGroupObjInput {
   parentId: String
   title: String!
   description: String!
+  created: String!
+}
+
+input CreateHorizonGroupSessionContributorObjInput {
+  sessionId: String!
+  userId: String!
   created: String!
 }
 
@@ -394,6 +428,14 @@ input CreateHorizonMemberObjInput {
   horizonId: String!
   userId: String!
   created: String!
+  termsId: String!
+}
+
+input CreateHorizonMemberTermsObjInput {
+  title: String!
+  description: String!
+  created: String!
+  end: String!
 }
 
 input CreateHorizonObjInput {
@@ -403,6 +445,12 @@ input CreateHorizonObjInput {
   description: String!
   category: String!
   thumbnail: FileElemInput!
+}
+
+input CreateHorizonSessionContributorObjInput {
+  sessionId: String!
+  userId: String!
+  created: String!
 }
 
 input CreateHorizonSessionObjInput {
@@ -484,6 +532,13 @@ input CreateSpaceMemberObjInput {
   created: String!
 }
 
+input CreateSpaceMemberTermsObjInput {
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
 input CreateSpaceObjInput {
   userId: String!
   galleryId: String!
@@ -502,6 +557,14 @@ input CreateUserBackerObjInput {
   backerId: String!
   userId: String!
   created: String!
+  termsId: String!
+}
+
+input CreateUserBackerTermsObjInput {
+  title: String!
+  description: String!
+  created: String!
+  end: String!
 }
 
 input CreateUserCollaboratorObjInput {
@@ -514,6 +577,14 @@ input CreateUserConnectionObjInput {
   userId: String!
   connectionId: String!
   created: String!
+  termsId: String!
+}
+
+input CreateUserConnectionTermsObjInput {
+  title: String!
+  description: String!
+  created: String!
+  end: String!
 }
 
 input CreateUserObjInput {
@@ -581,6 +652,10 @@ input DeleteChapterSceneObjInput {
   id: String!
 }
 
+input DeleteChapterSessionContributorObjInput {
+  id: String!
+}
+
 input DeleteChapterSessionObjInput {
   id: String!
 }
@@ -641,7 +716,15 @@ input DeleteHorizonGroupMemberObjInput {
   id: String!
 }
 
+input DeleteHorizonGroupMemberTermsObjInput {
+  id: String!
+}
+
 input DeleteHorizonGroupObjInput {
+  id: String!
+}
+
+input DeleteHorizonGroupSessionContributorObjInput {
   id: String!
 }
 
@@ -661,7 +744,15 @@ input DeleteHorizonMemberObjInput {
   id: String!
 }
 
+input DeleteHorizonMemberTermsObjInput {
+  id: String!
+}
+
 input DeleteHorizonObjInput {
+  id: String!
+}
+
+input DeleteHorizonSessionContributorObjInput {
   id: String!
 }
 
@@ -701,6 +792,10 @@ input DeleteSpaceMemberObjInput {
   id: String!
 }
 
+input DeleteSpaceMemberTermsObjInput {
+  id: String!
+}
+
 input DeleteSpaceObjInput {
   id: String!
 }
@@ -709,11 +804,19 @@ input DeleteUserBackerObjInput {
   id: String!
 }
 
+input DeleteUserBackerTermsObjInput {
+  id: String!
+}
+
 input DeleteUserCollaboratorObjInput {
   id: String!
 }
 
 input DeleteUserConnectionObjInput {
+  id: String!
+}
+
+input DeleteUserConnectionTermsObjInput {
   id: String!
 }
 
@@ -840,10 +943,24 @@ type HorizonGroupMemberObj {
   groupId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 
 type HorizonGroupMemberObjConnection {
   items: [HorizonGroupMemberObj]
+  nextToken: String
+}
+
+type HorizonGroupMemberTermsObj {
+  id: String!
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
+type HorizonGroupMemberTermsObjConnection {
+  items: [HorizonGroupMemberTermsObj]
   nextToken: String
 }
 
@@ -858,6 +975,18 @@ type HorizonGroupObj {
 
 type HorizonGroupObjConnection {
   items: [HorizonGroupObj]
+  nextToken: String
+}
+
+type HorizonGroupSessionContributorObj {
+  id: String!
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
+type HorizonGroupSessionContributorObjConnection {
+  items: [HorizonGroupSessionContributorObj]
   nextToken: String
 }
 
@@ -905,10 +1034,24 @@ type HorizonMemberObj {
   horizonId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 
 type HorizonMemberObjConnection {
   items: [HorizonMemberObj]
+  nextToken: String
+}
+
+type HorizonMemberTermsObj {
+  id: String!
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
+type HorizonMemberTermsObjConnection {
+  items: [HorizonMemberTermsObj]
   nextToken: String
 }
 
@@ -924,6 +1067,18 @@ type HorizonObj {
 
 type HorizonObjConnection {
   items: [HorizonObj]
+  nextToken: String
+}
+
+type HorizonSessionContributorObj {
+  id: String!
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
+type HorizonSessionContributorObjConnection {
+  items: [HorizonSessionContributorObj]
   nextToken: String
 }
 
@@ -1063,10 +1218,24 @@ type SpaceMemberObj {
   spaceId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 
 type SpaceMemberObjConnection {
   items: [SpaceMemberObj]
+  nextToken: String
+}
+
+type SpaceMemberTermsObj {
+  id: String!
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
+type SpaceMemberTermsObjConnection {
+  items: [SpaceMemberTermsObj]
   nextToken: String
 }
 
@@ -1141,10 +1310,18 @@ input TableChapterSceneObjFilterInput {
   created: TableStringFilterInput
 }
 
+input TableChapterSessionContributorObjFilterInput {
+  id: TableStringFilterInput
+  sessionId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
 input TableChapterSessionObjFilterInput {
   id: TableStringFilterInput
   spaceId: TableStringFilterInput
   userId: TableStringFilterInput
+  duration: TableIntFilterInput
   chapterId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
@@ -1285,6 +1462,15 @@ input TableHorizonGroupMemberObjFilterInput {
   groupId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
+  termsId: TableStringFilterInput
+}
+
+input TableHorizonGroupMemberTermsObjFilterInput {
+  id: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  end: TableStringFilterInput
 }
 
 input TableHorizonGroupObjFilterInput {
@@ -1293,6 +1479,13 @@ input TableHorizonGroupObjFilterInput {
   parentId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableHorizonGroupSessionContributorObjFilterInput {
+  id: TableStringFilterInput
+  sessionId: TableStringFilterInput
+  userId: TableStringFilterInput
   created: TableStringFilterInput
 }
 
@@ -1325,6 +1518,15 @@ input TableHorizonMemberObjFilterInput {
   horizonId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
+  termsId: TableStringFilterInput
+}
+
+input TableHorizonMemberTermsObjFilterInput {
+  id: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  end: TableStringFilterInput
 }
 
 input TableHorizonObjFilterInput {
@@ -1334,6 +1536,13 @@ input TableHorizonObjFilterInput {
   created: TableStringFilterInput
   description: TableStringFilterInput
   category: TableStringFilterInput
+}
+
+input TableHorizonSessionContributorObjFilterInput {
+  id: TableStringFilterInput
+  sessionId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
 }
 
 input TableHorizonSessionObjFilterInput {
@@ -1445,6 +1654,15 @@ input TableSpaceMemberObjFilterInput {
   spaceId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
+  termsId: TableStringFilterInput
+}
+
+input TableSpaceMemberTermsObjFilterInput {
+  id: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  end: TableStringFilterInput
 }
 
 input TableSpaceObjFilterInput {
@@ -1481,6 +1699,15 @@ input TableUserBackerObjFilterInput {
   backerId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
+  termsId: TableStringFilterInput
+}
+
+input TableUserBackerTermsObjFilterInput {
+  id: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  end: TableStringFilterInput
 }
 
 input TableUserCollaboratorObjFilterInput {
@@ -1495,6 +1722,15 @@ input TableUserConnectionObjFilterInput {
   userId: TableStringFilterInput
   connectionId: TableStringFilterInput
   created: TableStringFilterInput
+  termsId: TableStringFilterInput
+}
+
+input TableUserConnectionTermsObjFilterInput {
+  id: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  end: TableStringFilterInput
 }
 
 input TableUserObjFilterInput {
@@ -1605,11 +1841,19 @@ input UpdateChapterSceneObjInput {
   created: String
 }
 
+input UpdateChapterSessionContributorObjInput {
+  id: String!
+  sessionId: String
+  userId: String
+  created: String
+}
+
 input UpdateChapterSessionObjInput {
   id: String!
   spaceId: String
   userId: String
   chapterId: String
+  duration: Int
   title: String
   description: String
   created: String
@@ -1742,6 +1986,15 @@ input UpdateHorizonGroupMemberObjInput {
   groupId: String
   userId: String
   created: String
+  termsId: String
+}
+
+input UpdateHorizonGroupMemberTermsObjInput {
+  id: String!
+  title: String
+  description: String
+  created: String
+  end: String
 }
 
 input UpdateHorizonGroupObjInput {
@@ -1750,6 +2003,13 @@ input UpdateHorizonGroupObjInput {
   parentId: String
   title: String
   description: String
+  created: String
+}
+
+input UpdateHorizonGroupSessionContributorObjInput {
+  id: String!
+  sessionId: String
+  userId: String
   created: String
 }
 
@@ -1782,6 +2042,15 @@ input UpdateHorizonMemberObjInput {
   horizonId: String
   userId: String
   created: String
+  termsId: String
+}
+
+input UpdateHorizonMemberTermsObjInput {
+  id: String!
+  title: String
+  description: String
+  created: String
+  end: String
 }
 
 input UpdateHorizonObjInput {
@@ -1792,6 +2061,13 @@ input UpdateHorizonObjInput {
   description: String
   thumbnail: FileElemInput
   category: String
+}
+
+input UpdateHorizonSessionContributorObjInput {
+  id: String!
+  sessionId: String
+  userId: String
+  created: String
 }
 
 input UpdateHorizonSessionObjInput {
@@ -1881,6 +2157,15 @@ input UpdateSpaceMemberObjInput {
   spaceId: String
   userId: String
   created: String
+  termsId: String
+}
+
+input UpdateSpaceMemberTermsObjInput {
+  id: String!
+  title: String
+  description: String
+  created: String
+  end: String
 }
 
 input UpdateSpaceObjInput {
@@ -1903,6 +2188,15 @@ input UpdateUserBackerObjInput {
   backerId: String
   userId: String
   created: String
+  termsId: String
+}
+
+input UpdateUserBackerTermsObjInput {
+  id: String!
+  title: String
+  description: String
+  created: String
+  end: String
 }
 
 input UpdateUserCollaboratorObjInput {
@@ -1917,6 +2211,15 @@ input UpdateUserConnectionObjInput {
   userId: String
   connectionId: String
   created: String
+  termsId: String
+}
+
+input UpdateUserConnectionTermsObjInput {
+  id: String!
+  title: String
+  description: String
+  created: String
+  end: String
 }
 
 input UpdateUserObjInput {
@@ -1988,10 +2291,24 @@ type UserBackerObj {
   backerId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 
 type UserBackerObjConnection {
   items: [UserBackerObj]
+  nextToken: String
+}
+
+type UserBackerTermsObj {
+  id: String!
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
+type UserBackerTermsObjConnection {
+  items: [UserBackerTermsObj]
   nextToken: String
 }
 
@@ -2012,10 +2329,24 @@ type UserConnectionObj {
   userId: String!
   connectionId: String!
   created: String!
+  termsId: String!
 }
 
 type UserConnectionObjConnection {
   items: [UserConnectionObj]
+  nextToken: String
+}
+
+type UserConnectionTermsObj {
+  id: String!
+  title: String!
+  description: String!
+  created: String!
+  end: String!
+}
+
+type UserConnectionTermsObjConnection {
+  items: [UserConnectionTermsObj]
   nextToken: String
 }
 
@@ -2315,7 +2646,7 @@ type Mutation {
     input: UpdateHorizonGroupMemberObjInput!
   ): HorizonGroupMemberObj
   deleteHorizonGroupMemberObj(
-    input: DeleteHorizonGroupMemberObjInput!
+    input: DeleteHorizonGroupMemberObjInput
   ): HorizonGroupMemberObj
   createUserBackerObj(input: CreateUserBackerObjInput!): UserBackerObj
   updateUserBackerObj(input: UpdateUserBackerObjInput!): UserBackerObj
@@ -2329,6 +2660,78 @@ type Mutation {
   deleteUserConnectionObj(
     input: DeleteUserConnectionObjInput!
   ): UserConnectionObj
+  createUserConnectionTermsObj(
+    input: CreateUserConnectionTermsObjInput!
+  ): UserConnectionTermsObj
+  updateUserConnectionTermsObj(
+    input: UpdateUserConnectionTermsObjInput!
+  ): UserConnectionTermsObj
+  deleteUserConnectionTermsObj(
+    input: DeleteUserConnectionTermsObjInput!
+  ): UserConnectionTermsObj
+  createUserBackerTermsObj(
+    input: CreateUserBackerTermsObjInput!
+  ): UserBackerTermsObj
+  updateUserBackerTermsObj(
+    input: UpdateUserBackerTermsObjInput!
+  ): UserBackerTermsObj
+  deleteUserBackerTermsObj(
+    input: DeleteUserBackerTermsObjInput!
+  ): UserBackerTermsObj
+  createHorizonGroupMemberTermsObj(
+    input: CreateHorizonGroupMemberTermsObjInput!
+  ): HorizonGroupMemberTermsObj
+  updateHorizonGroupMemberTermsObj(
+    input: UpdateHorizonGroupMemberTermsObjInput!
+  ): HorizonGroupMemberTermsObj
+  deleteHorizonGroupMemberTermsObj(
+    input: DeleteHorizonGroupMemberTermsObjInput!
+  ): HorizonGroupMemberTermsObj
+  createSpaceMemberTermsObj(
+    input: CreateSpaceMemberTermsObjInput!
+  ): SpaceMemberTermsObj
+  updateSpaceMemberTermsObj(
+    input: UpdateSpaceMemberTermsObjInput!
+  ): SpaceMemberTermsObj
+  deleteSpaceMemberTermsObj(
+    input: DeleteSpaceMemberTermsObjInput!
+  ): SpaceMemberTermsObj
+  createHorizonMemberTermsObj(
+    input: CreateHorizonMemberTermsObjInput!
+  ): HorizonMemberTermsObj
+  updateHorizonMemberTermsObj(
+    input: UpdateHorizonMemberTermsObjInput!
+  ): HorizonMemberTermsObj
+  deleteHorizonMemberTermsObj(
+    input: DeleteHorizonMemberTermsObjInput!
+  ): HorizonMemberTermsObj
+  createHorizonSessionContributorObj(
+    input: CreateHorizonSessionContributorObjInput!
+  ): HorizonSessionContributorObj
+  updateHorizonSessionContributorObj(
+    input: UpdateHorizonSessionContributorObjInput!
+  ): HorizonSessionContributorObj
+  deleteHorizonSessionContributorObj(
+    input: DeleteHorizonSessionContributorObjInput!
+  ): HorizonSessionContributorObj
+  createChapterSessionContributorObj(
+    input: CreateChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  updateChapterSessionContributorObj(
+    input: UpdateChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  deleteChapterSessionContributorObj(
+    input: DeleteChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  createHorizonGroupSessionContributorObj(
+    input: CreateHorizonGroupSessionContributorObjInput!
+  ): HorizonGroupSessionContributorObj
+  updateHorizonGroupSessionContributorObj(
+    input: UpdateHorizonGroupSessionContributorObjInput!
+  ): HorizonGroupSessionContributorObj
+  deleteHorizonGroupSessionContributorObj(
+    input: DeleteHorizonGroupSessionContributorObjInput!
+  ): HorizonGroupSessionContributorObj
 }
 
 type Query {
@@ -2599,6 +3002,56 @@ type Query {
     limit: Int
     nextToken: String
   ): UserConnectionObjConnection
+  getUserConnectionTermsObj(id: String!): UserConnectionTermsObj
+  listUserConnectionTermsObjs(
+    filter: TableUserConnectionTermsObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserConnectionTermsObjConnection
+  getUserBackerTermsObj(id: String!): UserBackerTermsObj
+  listUserBackerTermsObjs(
+    filter: TableUserBackerTermsObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserBackerTermsObjConnection
+  getHorizonGroupMemberTermsObj(id: String!): HorizonGroupMemberTermsObj
+  listHorizonGroupMemberTermsObjs(
+    filter: TableHorizonGroupMemberTermsObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonGroupMemberTermsObjConnection
+  getSpaceMemberTermsObj(id: String!): SpaceMemberTermsObj
+  listSpaceMemberTermsObjs(
+    filter: TableSpaceMemberTermsObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceMemberTermsObjConnection
+  getHorizonMemberTermsObj(id: String!): HorizonMemberTermsObj
+  listHorizonMemberTermsObjs(
+    filter: TableHorizonMemberTermsObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonMemberTermsObjConnection
+  getHorizonSessionContributorObj(id: String!): HorizonSessionContributorObj
+  listHorizonSessionContributorObjs(
+    filter: TableHorizonSessionContributorObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonSessionContributorObjConnection
+  getChapterSessionContributorObj(id: String!): ChapterSessionContributorObj
+  listChapterSessionContributorObjs(
+    filter: TableChapterSessionContributorObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSessionContributorObjConnection
+  getHorizonGroupSessionContributorObj(
+    id: String!
+  ): HorizonGroupSessionContributorObj
+  listHorizonGroupSessionContributorObjs(
+    filter: TableHorizonGroupSessionContributorObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonGroupSessionContributorObjConnection
 }
 
 type Subscription {
@@ -3487,4 +3940,184 @@ type Subscription {
     connectionId: String
     created: String
   ): UserConnectionObj @aws_subscribe(mutations: ["deleteUserConnectionObj"])
+  onCreateUserConnectionTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserConnectionTermsObj
+    @aws_subscribe(mutations: ["createUserConnectionTermsObj"])
+  onUpdateUserConnectionTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserConnectionTermsObj
+    @aws_subscribe(mutations: ["updateUserConnectionTermsObj"])
+  onDeleteUserConnectionTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserConnectionTermsObj
+    @aws_subscribe(mutations: ["deleteUserConnectionTermsObj"])
+  onCreateUserBackerTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserBackerTermsObj @aws_subscribe(mutations: ["createUserBackerTermsObj"])
+  onUpdateUserBackerTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserBackerTermsObj @aws_subscribe(mutations: ["updateUserBackerTermsObj"])
+  onDeleteUserBackerTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): UserBackerTermsObj @aws_subscribe(mutations: ["deleteUserBackerTermsObj"])
+  onCreateHorizonGroupMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonGroupMemberTermsObj
+    @aws_subscribe(mutations: ["createHorizonGroupMemberTermsObj"])
+  onUpdateHorizonGroupMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonGroupMemberTermsObj
+    @aws_subscribe(mutations: ["updateHorizonGroupMemberTermsObj"])
+  onDeleteHorizonGroupMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonGroupMemberTermsObj
+    @aws_subscribe(mutations: ["deleteHorizonGroupMemberTermsObj"])
+  onCreateSpaceMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): SpaceMemberTermsObj
+    @aws_subscribe(mutations: ["createSpaceMemberTermsObj"])
+  onUpdateSpaceMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): SpaceMemberTermsObj
+    @aws_subscribe(mutations: ["updateSpaceMemberTermsObj"])
+  onDeleteSpaceMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): SpaceMemberTermsObj
+    @aws_subscribe(mutations: ["deleteSpaceMemberTermsObj"])
+  onCreateHorizonMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonMemberTermsObj
+    @aws_subscribe(mutations: ["createHorizonMemberTermsObj"])
+  onUpdateHorizonMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonMemberTermsObj
+    @aws_subscribe(mutations: ["updateHorizonMemberTermsObj"])
+  onDeleteHorizonMemberTermsObj(
+    id: String
+    title: String
+    description: String
+    created: String
+    end: String
+  ): HorizonMemberTermsObj
+    @aws_subscribe(mutations: ["deleteHorizonMemberTermsObj"])
+  onCreateHorizonSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonSessionContributorObj
+    @aws_subscribe(mutations: ["createHorizonSessionContributorObj"])
+  onUpdateHorizonSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonSessionContributorObj
+    @aws_subscribe(mutations: ["updateHorizonSessionContributorObj"])
+  onDeleteHorizonSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonSessionContributorObj
+    @aws_subscribe(mutations: ["deleteHorizonSessionContributorObj"])
+  onCreateChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["createChapterSessionContributorObj"])
+  onUpdateChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["updateChapterSessionContributorObj"])
+  onDeleteChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["deleteChapterSessionContributorObj"])
+  onCreateHorizonGroupSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonGroupSessionContributorObj
+    @aws_subscribe(mutations: ["createHorizonGroupSessionContributorObj"])
+  onUpdateHorizonGroupSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonGroupSessionContributorObj
+    @aws_subscribe(mutations: ["updateHorizonGroupSessionContributorObj"])
+  onDeleteHorizonGroupSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): HorizonGroupSessionContributorObj
+    @aws_subscribe(mutations: ["deleteHorizonGroupSessionContributorObj"])
 }

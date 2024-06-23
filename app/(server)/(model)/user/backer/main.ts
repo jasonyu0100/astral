@@ -6,14 +6,16 @@ export interface UserBackerObj {
   userId: string;
   backerId: string;
   created: string;
+  termsId: string;
 }
 
 export const userBackerGql = `
 type UserBackerObj {
   id: String!
-  backerId: String!
   userId: String!
+  backerId: String!
   created: String!
+  termsId: String!
 }
 `;
 
@@ -26,6 +28,7 @@ export const exampleUserBacker: UserBackerObj = {
   backerId: '0',
   userId: '0',
   created: new Date().toISOString(),
+  termsId: '0',
 };
 
 export const exampleUserBackers: UserBackerObj[] = [
@@ -34,18 +37,21 @@ export const exampleUserBackers: UserBackerObj[] = [
     backerId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     backerId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
   {
     id: '0',
     backerId: '0',
     userId: '0',
     created: new Date().toISOString(),
+    termsId: '0',
   },
 ];
 
