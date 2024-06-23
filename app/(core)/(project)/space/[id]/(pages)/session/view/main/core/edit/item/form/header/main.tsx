@@ -13,7 +13,7 @@ export function SpaceSessionItemFormHeader() {
 
   return (
     <div className='flex flex-col'>
-      <p className='mb-[1rem] text-sm font-bold text-slate-300'>
+      <p className='text-sm font-bold text-slate-300'>
         {sessionUpdateListController.state.index + 1} of{' '}
         {sessionUpdateListController.state.objs.length}
       </p>

@@ -9,7 +9,7 @@ export function SpaceSessionCore() {
         sizeFx='w-full h-full'
         className={`flex flex-col overflow-auto`}
       >
-        <div className='flex h-full w-full flex-col justify-center space-y-[2rem] p-[4rem]'>
+        <div className='flex h-full w-full flex-col justify-center space-y-[2rem] p-[2rem]'>
           <SpaceSessionCardEdit />
         </div>
       </GlassAreaContainer>

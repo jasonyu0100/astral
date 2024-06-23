@@ -3,7 +3,7 @@ import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/sessio
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSessionEditItemForm } from './item/main';
-import { SpaceSessionEditUpdateForm } from './update/main';
+import { SpaceSessionEditSessionForm } from './session/main';
 
 interface Context {
   complete: boolean;
@@ -32,7 +32,7 @@ export function SpaceSessionCardEdit() {
         {sessionUpdateListController.state.objs.length > 0 ? (
           <>
             {complete ? (
-              <SpaceSessionEditUpdateForm />
+              <SpaceSessionEditSessionForm />
             ) : (
               <SpaceSessionEditItemForm />
             )}

@@ -1,4 +1,3 @@
-import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
@@ -20,7 +19,7 @@ interface Controller {
 
 export const ContextForUpdateEdit = createContext({} as Controller);
 
-export function SpaceSessionEditUpdateForm() {
+export function SpaceSessionEditSessionForm() {
   const { updateComplete } = useContext(EditContext);
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
@@ -65,16 +64,22 @@ export function SpaceSessionEditUpdateForm() {
         <SpaceSessionEditPrev
           onClick={() => {
             updateComplete(false);
-            if (sessionUpdateListController.state.index === 0) {
-              chapterListController.actions.stateActions.goPrev();
-            } else {
-              sessionUpdateListController.actions.stateActions.goPrev();
-            }
           }}
         />
-        <VerticalDivider />
         <SpaceSessionUpdateForm />
-        <VerticalDivider />
+        {chapterListController.state.index <
+        chapterListController.state.objs.length - 1 ? (
+          <div className='w-[3rem]'>
+            {/* <SpaceSessionEditNext
+              onClick={() => {
+                chapterListController.actions.stateActions.goNext();
+                updateComplete(false);
+              }}
+            /> */}
+          </div>
+        ) : (
+          <div className='w-[3rem]'></div>
+        )}
       </div>
     </ContextForUpdateEdit.Provider>
   );

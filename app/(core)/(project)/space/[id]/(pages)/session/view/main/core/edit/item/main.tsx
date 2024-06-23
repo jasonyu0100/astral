@@ -1,4 +1,3 @@
-import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
@@ -60,7 +59,7 @@ export function SpaceSessionEditItemForm() {
   return (
     <ContextForItemEdit.Provider value={context}>
       <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
-        {sessionUpdateListController.state.index > 0 && (
+        {sessionUpdateListController.state.index > 0 ? (
           <SpaceSessionEditPrev
             onClick={() => {
               if (sessionUpdateListController.state.index === 0) {
@@ -70,10 +69,10 @@ export function SpaceSessionEditItemForm() {
               }
             }}
           />
+        ) : (
+          <div className='w-[3rem]'></div>
         )}
-        <VerticalDivider />
         <SpaceSessionItemForm />
-        <VerticalDivider />
         {sessionUpdateListController.state.index !==
         sessionUpdateListController.state.objs.length - 1 ? (
           <SpaceSessionEditNext

@@ -1,5 +1,5 @@
 export interface ModelInterface<TargetObj> {
-  name: any;
+  name: string;
   gql: string;
   example: TargetObj;
   examples: TargetObj[];
