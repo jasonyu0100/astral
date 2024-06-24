@@ -20,7 +20,7 @@ export function SpaceSessionUpdateFormMore() {
     <div className='flex flex-col space-y-[1rem]'>
       <p className='text-xs font-bold text-slate-300'>Updates</p>
       <div className='flex w-full flex-col divide-y-[1px] divide-slate-300 divide-opacity-30'>
-        {added.map((item, index) => (
+        {added.map((item) => (
           <GlassWindowFrame className='w-full'>
             <GlassWindowContents className='p-[0.5rem] text-xs text-slate-500'>
               {item.variant.toLowerCase()} {item.title}
@@ -28,7 +28,7 @@ export function SpaceSessionUpdateFormMore() {
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
         ))}
-        {notAdded.map((item, index) => (
+        {notAdded.map((item) => (
           <GlassWindowFrame className='w-full'>
             <GlassWindowContents className='p-[0.5rem] text-xs text-slate-500'>
               {item.variant.toLowerCase()} update

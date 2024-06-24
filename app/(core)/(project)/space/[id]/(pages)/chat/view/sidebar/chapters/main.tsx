@@ -19,22 +19,29 @@ export function SpaceChatSidebarChapters() {
       <ContextForOpenable.Provider value={openableController}>
         <SpaceChatAddChapterModal />
       </ContextForOpenable.Provider>
-      <GlassAreaContainer
-        name={SpaceChatSidebarChapters.name}
-        sizeFx='h-full w-full'
-        className='flex flex-col overflow-auto p-[1rem]'
-      >
-        {chapterListController.state.objs.map((chapter) => (
-          <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
-            <SpaceChatSidebarChapter key={chapter.id} />
-          </ContextForSpaceChapterObj.Provider>
-        ))}
-        <SpaceChatChapterAdd
-          onClick={() => {
-            openableController.open();
-          }}
-        />
-      </GlassAreaContainer>
+      <div style={{ height: '100%', width: '100%' }}>
+        <GlassAreaContainer
+          name={SpaceChatSidebarChapters.name}
+          sizeFx='h-full w-full'
+          className='flex flex-col overflow-auto p-[1rem]'
+        >
+          <div className='flex w-full flex-col'>
+            {chapterListController.state.objs.map((chapter) => (
+              <ContextForSpaceChapterObj.Provider
+                value={chapter}
+                key={chapter.id}
+              >
+                <SpaceChatSidebarChapter key={chapter.id} />
+              </ContextForSpaceChapterObj.Provider>
+            ))}
+            <SpaceChatChapterAdd
+              onClick={() => {
+                openableController.open();
+              }}
+            />
+          </div>
+        </GlassAreaContainer>
+      </div>
     </>
   );
 }
