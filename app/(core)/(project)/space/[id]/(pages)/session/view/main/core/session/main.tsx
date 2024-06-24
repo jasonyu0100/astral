@@ -1,9 +1,10 @@
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterSessionContributorList } from '@/(server)/(controller)/space/chapter/session/contributor/list';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
+import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSessionEditPrev } from '../(common)/icon/prev/main';
 import { EditContext } from '../edit/main';
@@ -17,24 +18,30 @@ interface Controller {
   saveUpdate: () => Promise<ChapterSessionObj>;
   percent: number;
   setPercent: (value: number) => void;
+  contributorIds: string[];
+  setContributorIds: (value: string[]) => void;
 }
 
-export const ContextForUpdateEdit = createContext({} as Controller);
+export const ContextForSessionForm = createContext({} as Controller);
 
 export function SpaceSessionEditSessionForm() {
   const { updateComplete } = useContext(EditContext);
-  const user = useGlobalUser((state) => state.user);
+  const user = useContext(ContextForCurrentUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const updateListController = useContext(ContextForChapterSessionList);
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );
+  const contributorListController =
+    useControllerForChapterSessionContributorList('');
   const currentUpdate =
     sessionUpdateListController.state.currentObj || ({} as ChapterSessionObj);
+
   const [title, setTitle] = useState(currentUpdate.title);
   const [description, setDescription] = useState(currentUpdate.description);
   const [percent, setPercent] = useState(0);
+  const [contributorIds, setContributorIds] = useState<string[]>([]);
 
   async function saveUpdate(): Promise<ChapterSessionObj> {
     const duration =
@@ -48,7 +55,15 @@ export function SpaceSessionEditSessionForm() {
         description,
         duration,
       );
-    sessionUpdateListController.state.objs.map(async (item) => {
+    await Promise.all(
+      contributorIds.map((contributorId) => {
+        return contributorListController.actions.createActions.createContributor(
+          contributorId,
+          sessionUpdateListController.state.objId,
+        );
+      }),
+    );
+    await sessionUpdateListController.state.objs.map(async (item) => {
       return sessionUpdateListController.actions.editActions.edit(item.id, {
         sessionId: update.id,
       });
@@ -64,10 +79,12 @@ export function SpaceSessionEditSessionForm() {
     percent,
     setPercent,
     saveUpdate,
+    contributorIds,
+    setContributorIds,
   };
 
   return (
-    <ContextForUpdateEdit.Provider value={context}>
+    <ContextForSessionForm.Provider value={context}>
       <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
         <SpaceSessionEditPrev
           onClick={() => {
@@ -89,6 +106,6 @@ export function SpaceSessionEditSessionForm() {
           <div className='w-[3rem]'></div>
         )}
       </div>
-    </ContextForUpdateEdit.Provider>
+    </ContextForSessionForm.Provider>
   );
 }

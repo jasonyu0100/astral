@@ -6,7 +6,7 @@ import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/spac
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { EditContext } from '../../../../edit/main';
-import { ContextForUpdateEdit } from '../../../main';
+import { ContextForSessionForm } from '../../../main';
 
 export function SpaceSessionUpdateFormSave() {
   const { updateComplete } = useContext(EditContext);
@@ -14,7 +14,7 @@ export function SpaceSessionUpdateFormSave() {
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );
-  const updateEditController = useContext(ContextForUpdateEdit);
+  const updateEditController = useContext(ContextForSessionForm);
 
   return (
     <div className='flex w-full flex-row justify-end'>
@@ -27,7 +27,6 @@ export function SpaceSessionUpdateFormSave() {
           onClick={() => {
             updateEditController.saveUpdate().then(() => {
               chapterListController.actions.stateActions.goNext();
-              updateComplete(false);
             });
           }}
         >

@@ -22,7 +22,7 @@ interface Controller {
   SessionUpdate: () => Promise<ChapterSessionUpdateObj>;
 }
 
-export const ContextForItemEdit = createContext({} as Controller);
+export const ContextForUpdateForm = createContext({} as Controller);
 
 export function SpaceSessionUpdate() {
   const { updateComplete } = useContext(EditContext);
@@ -57,7 +57,7 @@ export function SpaceSessionUpdate() {
   };
 
   return (
-    <ContextForItemEdit.Provider value={context}>
+    <ContextForUpdateForm.Provider value={context}>
       <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
         {sessionUpdateListController.state.index > 0 ? (
           <SpaceSessionEditPrev
@@ -88,6 +88,6 @@ export function SpaceSessionUpdate() {
           />
         )}
       </div>
-    </ContextForItemEdit.Provider>
+    </ContextForUpdateForm.Provider>
   );
 }

@@ -3,10 +3,10 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForUpdateEdit } from '../../main';
+import { ContextForSessionForm } from '../../main';
 
 export function SpaceSessionUpdateFormContribution() {
-  const updateEditController = useContext(ContextForUpdateEdit);
+  const updateEditController = useContext(ContextForSessionForm);
   const { percent, setPercent } = updateEditController;
 
   return (

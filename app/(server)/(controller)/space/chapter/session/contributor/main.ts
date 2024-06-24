@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionMemberMain = (
+const useControllerForChapterSessionContributorMain = (
   objId: string,
 ): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
@@ -114,8 +114,8 @@ const useControllerForChapterSessionMemberMain = (
   };
 };
 
-const ContextForSpaceUpdateMemberMain = createContext({} as Controller);
+const ContextForSpaceSessionContributorMain = createContext({} as Controller);
 export {
-  ContextForSpaceUpdateMemberMain,
-  useControllerForChapterSessionMemberMain as useControllerForSpaceUpdateMemberMain,
+  ContextForSpaceSessionContributorMain,
+  useControllerForChapterSessionContributorMain,
 };

@@ -1,5 +1,6 @@
+import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSessionEditSessionForm } from '../session/main';
@@ -13,13 +14,11 @@ interface Context {
 export const EditContext = createContext({} as Context);
 
 export function SpaceSessionCardEdit() {
-  const [complete, setComplete] = useState(false);
-  const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
-  );
-  const current =
-    sessionUpdateListController.state.currentObj ||
-    ({} as ChapterSessionUpdateObj);
+  const [complete, setComplete] = useState(true);
+  const updateListController = useContext(ContextForChapterSessionUpdateList);
+  const sessionListController = useContext(ContextForChapterSessionList);
+  const latestSession =
+    sessionListController.state.currentObj || ({} as ChapterSessionObj);
 
   const context = {
     complete,
@@ -29,7 +28,7 @@ export function SpaceSessionCardEdit() {
   return (
     <>
       <EditContext.Provider value={context}>
-        {sessionUpdateListController.state.objs.length > 0 ? (
+        {updateListController.state.objs.length > 0 ? (
           <>
             {complete ? (
               <SpaceSessionEditSessionForm />
@@ -41,7 +40,7 @@ export function SpaceSessionCardEdit() {
           <div className='flex flex-row'>
             <p className='text-xl font-bold text-slate-300'>
               No updates available since{' '}
-              {getFormattedDate(new Date(current?.created))}
+              {getFormattedDate(new Date(latestSession?.created))}
             </p>
           </div>
         )}

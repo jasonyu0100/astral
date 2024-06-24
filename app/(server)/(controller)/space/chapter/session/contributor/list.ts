@@ -32,7 +32,9 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createContributor: (userId: string, sessionId: string) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -48,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionMemberList = (
+const useControllerForChapterSessionContributorList = (
   listId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -213,6 +215,17 @@ const useControllerForChapterSessionMemberList = (
       changeId(newObj.id);
       return newObj;
     },
+    createContributor: async (userId: string, sessionId: string) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        sessionId: sessionId,
+        userId: userId,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
     duplicate: async (target: TargetObj) => {
       const copyObj = target as Omit<TargetObj, 'id'>;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
@@ -284,8 +297,8 @@ const useControllerForChapterSessionMemberList = (
   };
 };
 
-const ContextForSpaceUpdateMemberList = createContext({} as Controller);
+const ContextForSpaceSessionContributorList = createContext({} as Controller);
 export {
-  ContextForSpaceUpdateMemberList,
-  useControllerForChapterSessionMemberList as useControllerForSpaceUpdateMemberList,
+  ContextForSpaceSessionContributorList,
+  useControllerForChapterSessionContributorList,
 };

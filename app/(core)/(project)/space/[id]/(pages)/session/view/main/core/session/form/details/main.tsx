@@ -3,10 +3,10 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForUpdateEdit } from '../../main';
+import { ContextForSessionForm } from '../../main';
 
 export function SpaceSessionUpdateFormDetails() {
-  const updateEditController = useContext(ContextForUpdateEdit);
+  const updateEditController = useContext(ContextForSessionForm);
 
   return (
     <div className='flex flex-col space-y-[1rem]'>

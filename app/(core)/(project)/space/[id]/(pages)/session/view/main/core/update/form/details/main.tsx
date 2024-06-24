@@ -4,16 +4,16 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForItemEdit } from '../../main';
+import { ContextForUpdateForm } from '../../main';
 
 export function SpaceSessionUpdateFormDetails() {
-  const itemEditController = useContext(ContextForItemEdit);
+  const itemEditController = useContext(ContextForUpdateForm);
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );
 
   return (
-    <div className='flex h-full w-full flex-col space-y-[1rem]'>
+    <div className='flex w-full flex-col space-y-[1rem]'>
       {/* <p className='text-xs font-bold text-slate-300'>Title</p>
       <GlassWindowFrame
         className='h-[3rem] w-full'

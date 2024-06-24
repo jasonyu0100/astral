@@ -1,3 +1,4 @@
+import { useControllerForUserConnectionTermsMain } from '@/(server)/(controller)/user/connection/terms/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
@@ -9,33 +10,42 @@ import { UserProfileConnectionsRowNumber } from './number/main';
 export function UserProfileFollowersTableRow() {
   const { admin } = useContext(ContextForProfilePage);
   const connectionObj = useContext(ContextForUserConnectionObj);
-  const connectionController = useControllerForUserMain(
+  const userController = useControllerForUserMain(
     admin ? connectionObj.connectionId : connectionObj.userId,
   );
-  const connection = connectionController.state.obj;
+  const user = userController.state.obj;
+  const termsController = useControllerForUserConnectionTermsMain(
+    connectionObj.termsId,
+  );
 
   return (
-    <ContextForUserObj.Provider value={connection}>
+    <ContextForUserObj.Provider value={user}>
       <div className='grid w-full grid-cols-6 items-center border-slate-300 border-opacity-30 py-[2rem]'>
         <UserProfileConnectionsRowNumber />
         <div className='flex flex-row items-center space-x-[2rem]'>
           <img
-            src={connection?.dp?.src || exampleFileElem.src}
+            src={user?.dp?.src || exampleFileElem.src}
             className='h-[3rem] w-[3rem] rounded-full object-cover'
           />
           <div className='flex flex-col justify-center'>
-            <p className='text-lg font-bold text-white'>
-              {connection.displayName}
-            </p>
-            <p className='font-light text-white'>{connection.email}</p>
+            <p className='text-lg font-bold text-white'>{user.displayName}</p>
+            <p className='font-light text-white'>{user.email}</p>
           </div>
         </div>
         <div></div>
         <div className='flex'>
-          <p className='text-lg font-bold text-white'>{connection.role}</p>
+          <p className='text-lg font-bold text-white'>{user.role}</p>
         </div>
-        <div className='flex justify-center'></div>
-        <div className='flex justify-center'></div>
+        <div className='flex justify-center'>
+          <p className='text-lg font-bold text-white'>
+            {new Date(termsController.state.obj.end).toDateString()}
+          </p>
+        </div>
+        <div className='flex justify-center'>
+          <p className='text-lg font-bold text-white'>
+            {termsController.state.obj.description}
+          </p>
+        </div>
       </div>
     </ContextForUserObj.Provider>
   );

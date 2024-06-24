@@ -5,11 +5,11 @@ import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/spac
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { EditContext } from '../../../../edit/main';
-import { ContextForItemEdit } from '../../../main';
+import { ContextForUpdateForm } from '../../../main';
 
 export function SpaceSessionUpdateFormUpdate() {
   const { updateComplete } = useContext(EditContext);
-  const itemEditController = useContext(ContextForItemEdit);
+  const itemEditController = useContext(ContextForUpdateForm);
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );

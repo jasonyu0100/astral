@@ -27,36 +27,32 @@ export function SpaceSessionUpdateForm() {
   return (
     <div className='h-full w-full max-w-[800px] overflow-auto border-l-[1px] border-r-[1px] border-slate-500 border-opacity-30'>
       <div className='h-full w-full px-[4rem]'>
-        <div className='flex h-full flex-grow flex-col justify-around space-y-[2rem]'>
+        <div className='flex h-full w-full flex-col space-y-[2rem]'>
           <SpaceSessionUpdateFormHeader />
-          <HorizontalDivider />
-          <div className='flex h-full w-full flex-col space-y-[2rem]'>
-            <div className='flex flex-col space-y-[1rem]'>
-              <ContextForChapterSessionUpdateObj.Provider value={current}>
-                {current.variant === ChapterSessionUpdateVariant.VERSE && (
-                  <SpaceSessionUpdatePreviewVerse />
-                )}
-                {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
-                  <SpaceSessionUpdatePreviewChapter />
-                )}
-                {current.variant === ChapterSessionUpdateVariant.CHAT && (
-                  <SpaceSessionUpdatePreviewChat />
-                )}
-                {current.variant ===
-                  ChapterSessionUpdateVariant.CONVERSATION && (
-                  <SpaceSessionUpdatePreviewConversation />
-                )}
-                {current.variant === ChapterSessionUpdateVariant.IDEA && (
-                  <SpaceSessionUpdatePreviewIdea />
-                )}
-                {current.variant === ChapterSessionUpdateVariant.SCENE && (
-                  <SpaceSessionUpdatePreviewScene />
-                )}
-              </ContextForChapterSessionUpdateObj.Provider>
-            </div>
+          <div className='flex flex-col space-y-[1rem]'>
+            <ContextForChapterSessionUpdateObj.Provider value={current}>
+              {current.variant === ChapterSessionUpdateVariant.VERSE && (
+                <SpaceSessionUpdatePreviewVerse />
+              )}
+              {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
+                <SpaceSessionUpdatePreviewChapter />
+              )}
+              {current.variant === ChapterSessionUpdateVariant.CHAT && (
+                <SpaceSessionUpdatePreviewChat />
+              )}
+              {current.variant === ChapterSessionUpdateVariant.CONVERSATION && (
+                <SpaceSessionUpdatePreviewConversation />
+              )}
+              {current.variant === ChapterSessionUpdateVariant.IDEA && (
+                <SpaceSessionUpdatePreviewIdea />
+              )}
+              {current.variant === ChapterSessionUpdateVariant.SCENE && (
+                <SpaceSessionUpdatePreviewScene />
+              )}
+            </ContextForChapterSessionUpdateObj.Provider>
             <HorizontalDivider />
-            <SpaceSessionUpdateFormDetails />
           </div>
+          <SpaceSessionUpdateFormDetails />
           <SpaceSessionUpdateFormUpdate />
         </div>
       </div>
