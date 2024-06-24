@@ -12,10 +12,12 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
 export function ChatAddChatModal() {
   const user = useGlobalUser((state) => state.user);
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const chatListController = useContext(ContextForChapterChatList);
@@ -32,6 +34,7 @@ export function ChatAddChatModal() {
     );
     await updateListController.actions.createActions.createFromChapterChat(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       chat.id,
     );

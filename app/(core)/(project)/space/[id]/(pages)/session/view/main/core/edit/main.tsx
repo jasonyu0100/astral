@@ -2,8 +2,8 @@ import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/spac
 import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { createContext, useContext, useState } from 'react';
-import { SpaceSessionEditItemForm } from './item/main';
-import { SpaceSessionEditSessionForm } from './session/main';
+import { SpaceSessionEditSessionForm } from '../session/main';
+import { SpaceSessionUpdate } from '../update/main';
 
 interface Context {
   complete: boolean;
@@ -34,7 +34,7 @@ export function SpaceSessionCardEdit() {
             {complete ? (
               <SpaceSessionEditSessionForm />
             ) : (
-              <SpaceSessionEditItemForm />
+              <SpaceSessionUpdate />
             )}
           </>
         ) : (

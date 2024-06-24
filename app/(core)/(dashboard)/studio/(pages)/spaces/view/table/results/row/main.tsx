@@ -1,9 +1,9 @@
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowDate } from './date/main';
-import { StudioSpacesRowDaysLeft } from './day/main';
-import { StudioSpacesRowHoursLeft } from './hours/main';
+import { StudioSpacesRowDays } from './day/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
+import { StudioSpacesRowStat } from './stat/main';
 import { StudioSpacesRowTarget } from './target/main';
 
 export function StudioSpacesRow() {
@@ -12,8 +12,8 @@ export function StudioSpacesRow() {
       <StudioSpacesRowNumber />
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />
-      <StudioSpacesRowDaysLeft />
-      <StudioSpacesRowHoursLeft />
+      <StudioSpacesRowStat />
+      <StudioSpacesRowDays />
       <StudioSpacesRowDate />
       <StudioSpacesRowTarget />
     </div>

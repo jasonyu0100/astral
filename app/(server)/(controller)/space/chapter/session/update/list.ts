@@ -211,6 +211,7 @@ const useControllerForChapterSessionUpdateList = (
         description: '',
         created: new Date().toISOString(),
         variant: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

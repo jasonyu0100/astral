@@ -12,6 +12,7 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import {
   FileElem,
   FileElemVariant,
@@ -19,6 +20,7 @@ import {
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddFileIdeaModal() {
+  const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
@@ -43,6 +45,7 @@ export function SpaceMapAddFileIdeaModal() {
       );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       sceneIdeaListController.state.objId,
       idea.id,

@@ -14,7 +14,7 @@ import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
 export function SpaceSessionAddChapterModal() {
-  const spaceMainController = useContext(ContextForSpaceMain);
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
@@ -28,10 +28,11 @@ export function SpaceSessionAddChapterModal() {
         title,
         description,
         user.id,
-        spaceMainController.state.objId,
+        spaceController.state.objId,
       );
     await updateListController.actions.createActions.createFromChapter(
       user.id,
+      spaceController.state.objId,
       chapter.id,
     );
     openableController.close();

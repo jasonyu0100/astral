@@ -11,10 +11,12 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/(model)/elements/url/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddUrlIdeaModal() {
+  const spaceController = useContext(ContextForSpaceMain);
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -76,6 +78,7 @@ export function SpaceMapAddUrlIdeaModal() {
       );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       sceneIdeaListController.state.objId,
       idea.id,
@@ -99,6 +102,7 @@ export function SpaceMapAddUrlIdeaModal() {
       );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       sceneIdeaListController.state.objId,
       idea.id,

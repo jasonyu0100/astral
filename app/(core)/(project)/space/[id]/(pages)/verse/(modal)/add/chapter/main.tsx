@@ -32,6 +32,7 @@ export function SpaceVerseAddChapterModal() {
       );
     await updateListController.actions.createActions.createFromChapter(
       user.id,
+      spaceMainController.state.objId,
       chapter.id,
     );
     openableController.close();

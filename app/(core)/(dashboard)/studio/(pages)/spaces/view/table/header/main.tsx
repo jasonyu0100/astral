@@ -5,10 +5,9 @@ export function StudioSpacesTableHeader() {
         <p className='text-center font-bold text-slate-500'>#</p>
         <p className='px-[0.5rem] font-bold text-slate-500'>title</p>
         <p className='text-center font-bold text-slate-500'>category</p>
-        <p className='text-center font-bold text-slate-500'>day</p>
-        <p className='text-center font-bold text-slate-500'>hrs</p>
-        <p className='text-center font-bold text-slate-500'>start</p>
-        <p className='text-center font-bold text-slate-500'>eta</p>
+        <p className='text-center font-bold text-slate-500'></p>
+        <p className='text-center font-bold text-slate-500'></p>
+        <p className='text-center font-bold text-slate-500'></p>
       </div>
     </div>
   );

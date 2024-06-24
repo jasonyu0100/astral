@@ -6,7 +6,7 @@ export interface SpaceMemberObj {
   spaceId: string;
   userId: string;
   created: string;
-  formId: string;
+  termsId: string;
 }
 
 export const spaceMemberGql = `
@@ -15,7 +15,7 @@ type SpaceMemberObj {
   spaceId: String!
   userId: String!
   created: String!
-  formId: String!
+  termsId: String!
 }
 `;
 
@@ -28,7 +28,7 @@ export const exampleSpaceMember: SpaceMemberObj = {
   spaceId: '0',
   userId: '0',
   created: new Date().toISOString(),
-  formId: '0',
+  termsId: '0',
 };
 
 export const exampleSpaceMembers: SpaceMemberObj[] = [
@@ -37,21 +37,21 @@ export const exampleSpaceMembers: SpaceMemberObj[] = [
     spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    formId: '0',
+    termsId: '0',
   },
   {
     id: '0',
     spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    formId: '0',
+    termsId: '0',
   },
   {
     id: '0',
     spaceId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    formId: '0',
+    termsId: '0',
   },
 ];
 

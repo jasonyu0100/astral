@@ -12,10 +12,12 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpaceVerseAddVerseModal() {
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const verseListController = useContext(ContextForChapterVerseList);
   const openableController = useContext(ContextForOpenable);
@@ -36,6 +38,7 @@ export function SpaceVerseAddVerseModal() {
       );
     await updateListController.actions.createActions.createFromChapterVerse(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       verse.id,
     );

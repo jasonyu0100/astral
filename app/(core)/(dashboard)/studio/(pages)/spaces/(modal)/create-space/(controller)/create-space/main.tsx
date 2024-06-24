@@ -6,6 +6,8 @@ import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
+import { useControllerForSpaceMemberList } from '@/(server)/(controller)/space/member/list';
+import { useControllerForSpaceMemberTermsList } from '@/(server)/(controller)/space/member/terms/list';
 import {
   exampleFileElem,
   FileElem,
@@ -24,8 +26,8 @@ export interface PageOne {
   updateTitle: (title: string) => void;
   thumbnail: FileElem;
   updateThumbnail: (thumbnail: FileElem) => void;
-  collaborators: string[];
-  updateCollaborators: (collaborators: string[]) => void;
+  memberIds: string[];
+  updateMemberIds: (memberIds: string[]) => void;
   category: string;
   updateCategory: (category: string) => void;
 }
@@ -67,6 +69,9 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const sceneListController = useControllerForChapterSceneList('');
   const verseListController = useControllerForChapterVerseList('');
   const sessionUpdateListController = useControllerForChapterItemList('');
+  const spaceMembersListController = useControllerForSpaceMemberList('');
+  const spaceMembersTermsListController =
+    useControllerForSpaceMemberTermsList('');
 
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
@@ -77,7 +82,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
-  const [collaborators, changeCollaborators] = useState<string[]>([]);
+  const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateProject, changeTemplateProject] = useState(
     SpaceTemplate.Project,
   );
@@ -101,6 +106,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           );
         await sessionUpdateListController.actions.createActions.createFromChapter(
           user.id,
+          space.id,
           chapter.id,
         );
         return chapter;
@@ -111,6 +117,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   async function createChats(
+    space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
   ) {
@@ -134,6 +141,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                 );
               await sessionUpdateListController.actions.createActions.createFromChapterChat(
                 user.id,
+                space.id,
                 chapter.id,
                 chat.id,
               );
@@ -151,6 +159,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             );
           await sessionUpdateListController.actions.createActions.createFromChapterChat(
             user.id,
+            space.id,
             chapter.id,
             chat.id,
           );
@@ -163,6 +172,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   async function createScenes(
+    space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
   ) {
@@ -186,6 +196,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                 );
               await sessionUpdateListController.actions.createActions.createFromChapterScene(
                 user.id,
+                space.id,
                 chapter.id,
                 scene.id,
               );
@@ -203,6 +214,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             );
           await sessionUpdateListController.actions.createActions.createFromChapterScene(
             user.id,
+            space.id,
             chapter.id,
             scene.id,
           );
@@ -215,6 +227,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   async function createVerses(
+    space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
   ) {
@@ -239,6 +252,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                 );
               await sessionUpdateListController.actions.createActions.createFromChapterVerse(
                 user.id,
+                space.id,
                 chapter.id,
                 verse.id,
               );
@@ -257,6 +271,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             );
           await sessionUpdateListController.actions.createActions.createFromChapterVerse(
             user.id,
+            space.id,
             chapter.id,
             verse.id,
           );
@@ -266,6 +281,27 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     );
 
     return verses;
+  }
+
+  async function createMembers(space: SpaceObj, members: string[]) {
+    const memberObjs = await Promise.all(
+      members.map(async (memberId) => {
+        const terms =
+          await spaceMembersTermsListController.actions.createActions.createTerms(
+            'Member terms',
+            '1 year',
+            moment().add(1, 'year').toISOString(),
+          );
+        const member =
+          await spaceMembersListController.actions.createActions.createMember(
+            memberId,
+            space.id,
+            terms.id,
+          );
+        return member;
+      }),
+    );
+    return memberObjs;
   }
 
   async function createSpace() {
@@ -292,11 +328,13 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('SPACE CREATED', space);
     const chapters = await createChapters(space, templateSpaceChapters);
     console.log('CHAPTERS CREATED', chapters);
-    const scenes = await createScenes(chapters, templateSpaceChapters);
+    const members = await createMembers(space, memberIds);
+    console.log('MEMBERS CREATED', members);
+    const scenes = await createScenes(space, chapters, templateSpaceChapters);
     console.log('SCENES CREATED', scenes);
-    const verses = await createVerses(chapters, templateSpaceChapters);
+    const verses = await createVerses(space, chapters, templateSpaceChapters);
     console.log('VERSES CREATED', verses);
-    const chats = await createChats(chapters, templateSpaceChapters);
+    const chats = await createChats(space, chapters, templateSpaceChapters);
     console.log('chats created', chats);
     console.log('GALLERY CREATED', verses);
     console.log('chats created', chats);
@@ -315,9 +353,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateCategory: (category: string) => changeCategory(category),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
-    collaborators,
-    updateCollaborators: (collaborators: string[]) =>
-      changeCollaborators(collaborators),
+    memberIds: memberIds,
+    updateMemberIds: (members: string[]) => changeMemberIds(members),
   };
 
   const pageTwo: PageTwo = {

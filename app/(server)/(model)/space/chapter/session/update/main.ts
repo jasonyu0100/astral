@@ -13,6 +13,7 @@ export enum ChapterSessionUpdateVariant {
 export interface ChapterSessionUpdateObj {
   id: string;
   userId: string;
+  spaceId: string;
   chapterId: string;
   sessionId?: string;
   added: boolean;
@@ -32,6 +33,7 @@ type ChapterSessionUpdateObj {
   id: String!
   userId: String!
   chapterId: String!
+  spaceId: String!
   sessionId: String
   added: Boolean!
   title: String!
@@ -52,6 +54,7 @@ export const ContextForChapterSessionUpdateObj =
 export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
   id: '0',
   userId: '0',
+  spaceId: '0',
   chapterId: '0',
   added: true,
   sessionId: '0',
@@ -69,6 +72,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
   {
     id: '0',
     userId: '0',
+    spaceId: '0',
     chapterId: '',
     added: false,
     title: '',
@@ -84,6 +88,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
   {
     id: '0',
     userId: '0',
+    spaceId: '0',
     chapterId: '',
     title: '',
     added: false,
@@ -99,6 +104,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
   {
     id: '0',
     userId: '0',
+    spaceId: '0',
     chapterId: '',
     title: '',
     added: false,

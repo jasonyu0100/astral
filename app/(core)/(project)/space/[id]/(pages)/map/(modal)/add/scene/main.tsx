@@ -11,9 +11,11 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddSceneModal() {
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
@@ -31,6 +33,7 @@ export function SpaceMapAddSceneModal() {
     );
     await updateListController.actions.createActions.createFromChapterScene(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       scene.id,
     );

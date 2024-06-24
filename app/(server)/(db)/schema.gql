@@ -112,6 +112,7 @@ type ChapterSessionUpdateMemberObjConnection {
 type ChapterSessionUpdateObj {
   id: String!
   userId: String!
+  spaceId: String!
   chapterId: String!
   sessionId: String
   added: Boolean!
@@ -271,6 +272,7 @@ input CreateChapterSessionUpdateMemberObjInput {
 
 input CreateChapterSessionUpdateObjInput {
   userId: String!
+  spaceId: String!
   chapterId: String!
   sessionId: String
   added: Boolean!
@@ -530,6 +532,7 @@ input CreateSpaceMemberObjInput {
   spaceId: String!
   userId: String!
   created: String!
+  termsId: String!
 }
 
 input CreateSpaceMemberTermsObjInput {
@@ -1337,6 +1340,7 @@ input TableChapterSessionUpdateMemberObjFilterInput {
 
 input TableChapterSessionUpdateObjFilterInput {
   id: TableStringFilterInput
+  spaceId: TableStringFilterInput
   userId: TableStringFilterInput
   chapterId: TableStringFilterInput
   sessionId: TableStringFilterInput
@@ -1868,6 +1872,7 @@ input UpdateChapterSessionUpdateMemberObjInput {
 
 input UpdateChapterSessionUpdateObjInput {
   id: String!
+  spaceId: String
   userId: String
   chapterId: String
   sessionId: String

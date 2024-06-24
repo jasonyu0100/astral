@@ -7,7 +7,7 @@ export function SpaceSessionHeaderMiddle() {
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
       <p className='text-lg font-light text-slate-300'>
-        update - {chapterListController.state.currentObj?.title}
+        session - {chapterListController.state.currentObj?.title}
       </p>
       <SpaceSessionExpandIcon />
     </div>

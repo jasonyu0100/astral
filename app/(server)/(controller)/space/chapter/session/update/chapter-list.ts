@@ -33,30 +33,39 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromChapter: (userId: string, chapterId: string) => Promise<TargetObj>;
+  createFromChapter: (
+    userId: string,
+    spaceId: string,
+    chapterId: string,
+  ) => Promise<TargetObj>;
   createFromChapterChat: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     chatId: string,
   ) => Promise<TargetObj>;
   createFromChapterScene: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     sceneId: string,
   ) => Promise<TargetObj>;
   createFromChapterVerse: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     verseId: string,
   ) => Promise<TargetObj>;
   createFromChapterChatConversation: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     chatId: string,
     conversationId: string,
   ) => Promise<TargetObj>;
   createFromChapterSceneIdea: (
     userId: string,
+    spaceId: string,
     chapterId: string,
     sceneId: string,
     ideaId: string,
@@ -240,19 +249,21 @@ const useControllerForChapterSessionUpdateLlist = (
         description: '',
         created: new Date().toISOString(),
         variant: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapter: async (userId, chapterId) => {
+    createFromChapter: async (userId, spaceId, chapterId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         added: false,
         title: '',
         description: '',
+        spaceId: spaceId,
         created: new Date().toISOString(),
         variant: ChapterSessionUpdateVariant.CHAPTER,
       };
@@ -261,12 +272,13 @@ const useControllerForChapterSessionUpdateLlist = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterChat: async (userId, chapterId, chatId) => {
+    createFromChapterChat: async (userId, spaceId, chapterId, chatId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         chatId: chatId,
         added: false,
+        spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
@@ -277,12 +289,13 @@ const useControllerForChapterSessionUpdateLlist = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterScene: async (userId, chapterId, sceneId) => {
+    createFromChapterScene: async (userId, spaceId, chapterId, sceneId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         sceneId: sceneId,
         added: false,
+        spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
@@ -293,12 +306,13 @@ const useControllerForChapterSessionUpdateLlist = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterVerse: async (userId, chapterId, verseId) => {
+    createFromChapterVerse: async (userId, spaceId, chapterId, verseId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         verseId: verseId,
         added: false,
+        spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
@@ -311,6 +325,7 @@ const useControllerForChapterSessionUpdateLlist = (
     },
     createFromChapterChatConversation: async (
       userId,
+      spaceId,
       chapterId,
       chatId,
       conversationId,
@@ -318,6 +333,7 @@ const useControllerForChapterSessionUpdateLlist = (
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
+        spaceId: spaceId,
         chatId: chatId,
         conversationId: conversationId,
         added: false,
@@ -331,10 +347,17 @@ const useControllerForChapterSessionUpdateLlist = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterSceneIdea: async (userId, chapterId, sceneId, ideaId) => {
+    createFromChapterSceneIdea: async (
+      userId,
+      spaceId,
+      chapterId,
+      sceneId,
+      ideaId,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
+        spaceId: spaceId,
         sceneId: sceneId,
         ideaId: ideaId,
         added: false,

@@ -10,7 +10,7 @@ export function StudioSpacesRowDate() {
   return (
     <div className='flex items-center justify-center'>
       <p className='text-sm font-bold text-slate-300'>
-        {(new Date(space.created)).toLocaleDateString()}
+        {getFormattedDate(new Date(space.created))}
       </p>
     </div>
   );

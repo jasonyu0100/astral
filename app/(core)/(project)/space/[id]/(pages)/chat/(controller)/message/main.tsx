@@ -5,6 +5,7 @@ import { ContextForConversationMessageList } from '@/(server)/(controller)/space
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { useContext } from 'react';
@@ -12,6 +13,7 @@ import { useContext } from 'react';
 export function useControllerForChatMessageSend() {
   const user = useGlobalUser((state) => state.user);
   const openAi = useOpenAIController();
+  const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
   const chatListController = useContext(ContextForChapterChatList);
@@ -50,6 +52,7 @@ export function useControllerForChatMessageSend() {
       );
     await updateListController.actions.createActions.createFromChapterChatConversation(
       user.id,
+      spaceController.state.objId,
       chapterListController.state.objId,
       chatListController.state.objId,
       conversation.id,
