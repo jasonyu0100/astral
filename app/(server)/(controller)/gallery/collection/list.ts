@@ -183,7 +183,6 @@ const useControllerForGalleryCollectionList = (
       return sortedObjs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
@@ -292,7 +291,7 @@ const useControllerForGalleryCollectionList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherEarliest();
     }
   }, [listId]);
 

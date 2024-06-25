@@ -9,18 +9,16 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { useControllerForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddResourceModal() {
   const user = useGlobalUser((state) => state.user);
   const [journalId, setJournalId] = useState('' as string);
-  const collectionListController = useControllerForGalleryCollectionList(
-    user.journalId,
-  );
-  const resourceListController = useControllerForCollectionResourceList('');
+  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useContext(ContextForOpenable);
   const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('');

@@ -72,26 +72,29 @@ export function PortalRegisterForm() {
     },
   });
 
-  const attemptRegister = () => {
-    userController.actions.createActions
-      .registerFromEmail(fname, lname, role, email, password)
-      .then((user) => {
-        register(user);
-        galleryListController.actions.createActions
-          .createGallery(user.id, 'Journal', 'My journal', exampleFileElem)
-          .then((gallery) => {
-            userController.actions.editActions
-              .edit({
-                ...user,
-                journalId: gallery.id,
-              })
-              .then((user) => {
-                alert('Register Success');
-                window.location.href = studioMap.studio.spaces.link;
-              });
-          });
-      });
-  };
+  async function attemptRegister() {
+    const user = await userController.actions.createActions.registerFromEmail(
+      fname,
+      lname,
+      role,
+      email,
+      password,
+    );
+    const journal =
+      await galleryListController.actions.createActions.createGallery(
+        user.id,
+        'Journal',
+        'My journal',
+        exampleFileElem,
+      );
+    const update = await userController.actions.editActions.edit({
+      ...user,
+      journalId: journal.id,
+    });
+    register(update);
+    alert('Register Success');
+    window.location.href = studioMap.studio.spaces.link;
+  }
 
   return (
     <PortalForm>
