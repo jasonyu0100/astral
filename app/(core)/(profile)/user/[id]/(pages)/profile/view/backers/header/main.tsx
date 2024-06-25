@@ -36,7 +36,6 @@ export function UserProfileBackersHeader() {
           </div>
         </div>
       </GlassWindowContents>
-      {/* <GlassWindowPane glassFx={glassFx['glass-5']} /> */}
     </GlassWindowFrame>
   );
 }

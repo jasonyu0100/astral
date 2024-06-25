@@ -1,22 +1,22 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
-import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../../../page';
+import { ContextForConnections } from '../main';
 
 export function UserProfileConnectionsHeader() {
+  const connectionsController = useContext(ContextForConnections);
   const profilePage = useContext(ContextForProfilePage);
   const userConectionList = useContext(ContextForUserConnectionList);
 
   return (
-    <GlassWindowFrame className='flex h-[4rem]'>
+    <GlassWindowFrame className='flex py-[1rem]'>
       <GlassWindowContents className='flex h-full w-full flex-row items-center justify-center'>
         <div className='flex w-full flex-row px-[2rem]'>
           <div className='flex w-1/3 flex-row'>
             <p
-              className='cursor-pointer text-lg font-light text-slate-300'
+              className='text-md cursor-pointer font-light text-slate-300'
               onClick={() => {
                 profilePage.setPage(ProfilePage.General);
               }}
@@ -25,18 +25,17 @@ export function UserProfileConnectionsHeader() {
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-center'>
-            <p className='text-lg font-light text-slate-300'>
-              {ProfilePage.Connections}
+            <p className='text-md font-light text-slate-300'>
+              {connectionsController.view}
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-end'>
-            <p className='text-lg font-light text-slate-300'>
+            <p className='text-md font-light text-slate-300'>
               {userConectionList.state.objs.length} / 100
             </p>
           </div>
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }
