@@ -3,12 +3,10 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
-  const collection = useContext(ContextForGalleryObj);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const resources = resourceListController.state.objs;
 
@@ -60,19 +58,18 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
           </div>
         ) : (
           <div className='flex h-full w-full flex-row flex-wrap'>
-            {visualResources.slice(0, 4).map((resource) => (
-              // eslint-disable-next-line react/jsx-key
+            {visualResources.map((resource) => (
               <>
                 {resource.fileElem?.variant === FileElemVariant.IMAGE && (
                   <img
                     alt='thumbnail'
-                    className='aspect-square h-1/2 object-fill'
+                    className='aspect-square h-1/2 object-contain'
                     src={resource?.fileElem?.src}
                   />
                 )}
                 {resource.fileElem?.variant === FileElemVariant.VIDEO && (
                   <video
-                    className='aspect-square h-1/2 object-fill'
+                    className='aspect-square h-1/2 object-contain'
                     src={resource?.fileElem?.src}
                   />
                 )}

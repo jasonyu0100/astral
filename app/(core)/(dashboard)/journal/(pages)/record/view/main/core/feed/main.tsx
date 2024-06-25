@@ -12,6 +12,9 @@ export function JournalRecordFeed() {
 
   return (
     <div className='flex w-full flex-row flex-wrap items-center gap-[2rem]'>
+      {resourceListController.state.objs.length === 0 && (
+        <p className='text-lg text-slate-500'>No Entries</p>
+      )}
       {resourceListController.state.objs.map((resource) => (
         <div className='flex flex-col items-center space-y-[1rem]'>
           <GlassWindowFrame borderFx={borderFx['border-around']}>
