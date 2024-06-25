@@ -1,14 +1,14 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
+import { ContextForCurrentSpaceObj } from '@/(server)/(model)/space/main';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { DashboardSidebarTopOveriewCover } from './cover/main';
 import { DashboardSidebarTopOverviewInfo } from './info/main';
 
 export function DashboardSidebarTopOverview() {
-  const space = useGlobalSpace((state) => state.space);
+  const space = useContext(ContextForCurrentSpaceObj);
   const [url, changeUrl] = useState(studioMap.studio.spaces.link);
   useEffect(() => {
     changeUrl(

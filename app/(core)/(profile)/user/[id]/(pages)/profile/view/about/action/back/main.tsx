@@ -4,24 +4,47 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
 import { useControllerForUserBackerTermsList } from '@/(server)/(controller)/user/backer/terms/list';
 import {
-  ContextForCurrentUserObj,
-  ContextForUserObj,
+  ContextForLoggedInUserObj,
+  ContextForProfileUserObj,
 } from '@/(server)/(model)/user/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutBackAction() {
-  const currentUser = useContext(ContextForCurrentUserObj);
-  const user = useContext(ContextForUserObj);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const profileUser = useContext(ContextForProfileUserObj);
   const backerListController = useContext(ContextForUserBackerList);
   const backerTermsListController = useControllerForUserBackerTermsList('');
-  const connected =
-    backerListController.state.objs.filter(
-      (backer) => backer.backerId === user.id,
-    ).length > 0;
+  const userBacked = checkLoggedInBacking();
+  const mutualBacking = checkMutualBacking();
 
-  async function addBacker() {
+  function checkLoggedInBacking() {
+    const fromLoggedIn =
+      backerListController.state.objs.filter(
+        (link) =>
+          link.userId === loggedInUser.id && link.backerId === profileUser.id,
+      ).length > 0;
+    return fromLoggedIn;
+  }
+
+  function checkMutualBacking() {
+    const fromLoggedIn =
+      backerListController.state.objs.filter(
+        (link) =>
+          link.userId === loggedInUser.id && link.backerId === profileUser.id,
+      ).length > 0;
+    const fromProfile =
+      backerListController.state.objs.filter(
+        (link) =>
+          link.userId === profileUser.id && link.backerId === loggedInUser.id,
+      ).length > 0;
+    return fromLoggedIn && fromProfile;
+  }
+
+  async function addOneWayBacking() {
+    // NO PERMISSION NEEDED
+    alert('One Way Backing');
     const terms =
       await backerTermsListController.actions.createActions.createTerms(
         'Backer terms',
@@ -29,22 +52,16 @@ export function ProfileAboutBackAction() {
         moment().add(1, 'year').toISOString(),
       );
     await backerListController.actions.createActions.createConnection(
-      currentUser.id,
-      user.id,
-      terms.id,
-    );
-    await backerListController.actions.createActions.createConnection(
-      user.id,
-      currentUser.id,
+      loggedInUser.id, // initiator
+      profileUser.id, // receiver
       terms.id,
     );
   }
 
-  async function removeBacker() {
+  async function removeOneWayBacking() {
+    alert('Removing One Way Backing');
     const ids = backerListController.state.objs
-      .filter(
-        (backer) => backer.backerId === user.id || backer.userId === user.id,
-      )
+      .filter((backer) => backer.userId === loggedInUser.id)
       .map((backer) => backer.id);
     const backings =
       await backerListController.actions.deleteActions.deleteMany(ids);
@@ -65,15 +82,19 @@ export function ProfileAboutBackAction() {
       <GlassWindowContents
         className='flex h-full w-full cursor-pointer items-center justify-center'
         onClick={() => {
-          if (connected) {
-            removeBacker();
+          if (userBacked) {
+            removeOneWayBacking();
           } else {
-            addBacker();
+            addOneWayBacking();
           }
         }}
       >
         <p className='font-bold text-slate-300'>
-          {connected ? 'Backed' : 'Back'}
+          {userBacked ? (
+            <>{mutualBacking ? 'Backed' : 'Mutual Backing'}</>
+          ) : (
+            'Back'
+          )}
         </p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

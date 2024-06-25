@@ -1,15 +1,15 @@
-import { ContextForUserObj } from '@/(server)/(model)/user/main';
+import { ContextForProfileUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
 
 export function ProfileAboutBio() {
-  const user = useContext(ContextForUserObj);
+  const profileUser = useContext(ContextForProfileUserObj);
 
   return (
     <>
       <div className='flex w-full flex-col space-y-[1rem]'>
         <p className='text-sm text-white'>
           <span className='font-bold'>role - </span>
-          {user.role}
+          {profileUser.role}
         </p>
       </div>
       <div className='flex w-full flex-col space-y-[1rem]'>

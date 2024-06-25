@@ -12,7 +12,7 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/(controller)/gallery/main';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { JournalRecordView } from './view/view';
 
@@ -27,7 +27,7 @@ function Page() {
   );
 
   return (
-    <ContextForCurrentUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForGalleryMain.Provider value={galleryController}>
         <ContextForGalleryCollectionList.Provider
           value={collectionListController}
@@ -39,7 +39,7 @@ function Page() {
           </ContextForCollectionResourceList.Provider>
         </ContextForGalleryCollectionList.Provider>
       </ContextForGalleryMain.Provider>
-    </ContextForCurrentUserObj.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

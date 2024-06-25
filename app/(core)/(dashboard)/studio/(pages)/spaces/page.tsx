@@ -8,7 +8,7 @@ import {
   ContextForSpaceList,
   useControllerForSpaceList,
 } from '@/(server)/(controller)/space/list';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { StudioSpacesView } from './view/view';
 
@@ -18,13 +18,13 @@ function Page() {
   const galleryListController = useControllerForGalleryList(user.id);
 
   return (
-    <ContextForCurrentUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceList.Provider value={spaceListController}>
         <ContextForGalleryList.Provider value={galleryListController}>
           <StudioSpacesView />
         </ContextForGalleryList.Provider>
       </ContextForSpaceList.Provider>
-    </ContextForCurrentUserObj.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

@@ -14,8 +14,8 @@ import {
   useControllerForUserMain,
 } from '@/(server)/(controller)/user/main';
 import {
-  ContextForCurrentUserObj,
-  ContextForUserObj,
+  ContextForLoggedInUserObj,
+  ContextForProfileUserObj,
 } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import {
@@ -61,10 +61,10 @@ function Page() {
   };
 
   return (
-    <ContextForProfilePage.Provider value={context}>
-      <ContextForUserMain.Provider value={userController}>
-        <ContextForCurrentUserObj.Provider value={loggedInUser}>
-          <ContextForUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForProfileUserObj.Provider value={user}>
+        <ContextForProfilePage.Provider value={context}>
+          <ContextForUserMain.Provider value={userController}>
             <ContextForUserConnectionList.Provider
               value={connectListController}
             >
@@ -72,10 +72,10 @@ function Page() {
                 <UserProfileView />
               </ContextForUserBackerList.Provider>
             </ContextForUserConnectionList.Provider>
-          </ContextForUserObj.Provider>
-        </ContextForCurrentUserObj.Provider>
-      </ContextForUserMain.Provider>
-    </ContextForProfilePage.Provider>
+          </ContextForUserMain.Provider>
+        </ContextForProfilePage.Provider>
+      </ContextForProfileUserObj.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

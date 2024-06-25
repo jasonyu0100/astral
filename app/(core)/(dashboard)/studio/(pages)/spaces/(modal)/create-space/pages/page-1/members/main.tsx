@@ -6,7 +6,7 @@ import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
 } from '@/(server)/(controller)/user/connection/list';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
 import { CreateSpaceAddCollaborator } from './add/main';
@@ -16,9 +16,9 @@ import { CreateSpaceCollaborator } from './member/main';
 export function CreateSpaceMembers() {
   const { pageOne } = useContext(ContextForCreateSpace);
   const { memberIds, updateMemberIds } = pageOne;
-  const currentUser = useContext(ContextForCurrentUserObj);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const connectListController = useControllerForUserConnectionList(
-    currentUser.id,
+    loggedInUser.id,
   );
 
   const togglableController = useControllerForTogglable();

@@ -4,25 +4,40 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
 import { useControllerForUserConnectionTermsList } from '@/(server)/(controller)/user/connection/terms/list';
 import {
-  ContextForCurrentUserObj,
-  ContextForUserObj,
+  ContextForLoggedInUserObj,
+  ContextForProfileUserObj,
 } from '@/(server)/(model)/user/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutConnectAction() {
-  const currentUser = useContext(ContextForCurrentUserObj);
-  const user = useContext(ContextForUserObj);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const profileUser = useContext(ContextForProfileUserObj);
   const connectionListController = useContext(ContextForUserConnectionList);
   const connectionTermsListController =
     useControllerForUserConnectionTermsList('');
-  const connected =
-    connectionListController.state.objs.filter(
-      (connection) => connection.connectionId === user.id,
-    ).length > 0;
+  const mutualConnected = checkMutualConnected();
 
-  async function addConnection() {
+  function checkMutualConnected() {
+    const fromLoggedIn =
+      connectionListController.state.objs.filter(
+        (connection) =>
+          connection.userId === loggedInUser.id &&
+          connection.connectionId === profileUser.id,
+      ).length > 0;
+    const fromProfile =
+      connectionListController.state.objs.filter(
+        (connection) =>
+          connection.connectionId === profileUser.id &&
+          connection.userId === loggedInUser.id,
+      ).length > 0;
+    return fromLoggedIn && fromProfile;
+  }
+
+  async function addTwoWayConnection() {
+    // PERMISSION NEEDED
+    alert('Two Way Connnection');
     const terms =
       await connectionTermsListController.actions.createActions.createTerms(
         'Connection terms',
@@ -30,22 +45,24 @@ export function ProfileAboutConnectAction() {
         moment().add(1, 'year').toISOString(),
       );
     await connectionListController.actions.createActions.createConnection(
-      currentUser.id,
-      user.id,
+      loggedInUser.id, // initiator
+      profileUser.id, // receiver
       terms.id,
     );
     await connectionListController.actions.createActions.createConnection(
-      user.id,
-      currentUser.id,
+      profileUser.id, // initiator
+      loggedInUser.id, // receiver
       terms.id,
     );
   }
 
-  async function removeConnection() {
+  async function removeTwoWayConnection() {
+    alert('Removing Two Way Connection');
     const ids = connectionListController.state.objs
       .filter(
         (connection) =>
-          connection.connectionId === user.id || connection.userId === user.id,
+          connection.connectionId === profileUser.id ||
+          connection.userId === profileUser.id,
       )
       .map((connection) => connection.id);
     const connections =
@@ -67,15 +84,15 @@ export function ProfileAboutConnectAction() {
       <GlassWindowContents
         className='flex h-full w-full cursor-pointer items-center justify-center'
         onClick={() => {
-          if (connected) {
-            removeConnection();
+          if (mutualConnected) {
+            removeTwoWayConnection();
           } else {
-            addConnection();
+            addTwoWayConnection();
           }
         }}
       >
         <p className='font-bold text-slate-300'>
-          {connected ? 'Connected' : 'Connect'}
+          {mutualConnected ? 'Connected' : 'Connect'}
         </p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

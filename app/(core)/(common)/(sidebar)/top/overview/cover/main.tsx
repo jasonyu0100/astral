@@ -1,5 +1,5 @@
 'use client';
-import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
+import { ContextForCurrentSpaceObj } from '@/(server)/(model)/space/main';
 import { effectFx } from '@/(style)/data';
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
@@ -8,7 +8,7 @@ import { ContextForDashboardSidebar } from '../../../main';
 export function DashboardSidebarTopOveriewCover() {
   const dashboardSidebar = useContext(ContextForDashboardSidebar);
   const active = !dashboardSidebar.indicator;
-  const space = useGlobalSpace((state) => state.space);
+  const currentSpace = useContext(ContextForCurrentSpaceObj);
 
   return (
     <div className='relative flex-shrink-0'>
@@ -41,7 +41,7 @@ export function DashboardSidebarTopOveriewCover() {
         </svg>
       ) : (
         <img
-          src={space?.thumbnail?.src || '/brand/icon-bg-sm.png'}
+          src={currentSpace?.thumbnail?.src || '/brand/icon-bg-sm.png'}
           className={cn('h-[2.5rem] w-[2.5rem] rounded-full', {
             [effectFx['glow-lg']]: active,
           })}

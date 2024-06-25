@@ -16,7 +16,7 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { SpaceSessionShareView } from './view/main';
 
@@ -32,7 +32,7 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <ContextForCurrentUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSessionList.Provider value={updateListController}>
@@ -44,7 +44,7 @@ function Page({ params }: { params: { id: string } }) {
           </ContextForChapterSessionList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
-    </ContextForCurrentUserObj.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

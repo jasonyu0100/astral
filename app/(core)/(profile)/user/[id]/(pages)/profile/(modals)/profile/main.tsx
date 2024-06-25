@@ -7,13 +7,13 @@ import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext, useState } from 'react';
 
 export function EditProfileModal() {
-  const currentUser = useContext(ContextForCurrentUserObj);
-  const userController = useControllerForUserMain(currentUser.id);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const userController = useControllerForUserMain(loggedInUser.id);
   const user = userController.state.obj;
   const openableController = useContext(ContextForOpenable);
   const [enabled, setEnabled] = useState(user.private);

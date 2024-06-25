@@ -36,6 +36,10 @@ type SpaceObj {
 
 export const ContextForSpaceObj = createContext<SpaceObj>({} as SpaceObj);
 
+export const ContextForCurrentSpaceObj = createContext<SpaceObj>(
+  {} as SpaceObj,
+);
+
 export const exampleSpace: SpaceObj = {
   id: '0',
   userId: '0',

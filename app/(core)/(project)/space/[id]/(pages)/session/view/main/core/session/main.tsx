@@ -4,7 +4,7 @@ import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chap
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSessionEditPrev } from '../(common)/icon/prev/main';
 import { EditContext } from '../edit/main';
@@ -26,7 +26,7 @@ export const ContextForSessionForm = createContext({} as Controller);
 
 export function SpaceSessionEditSessionForm() {
   const { updateComplete } = useContext(EditContext);
-  const user = useContext(ContextForCurrentUserObj);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const updateListController = useContext(ContextForChapterSessionList);
@@ -48,7 +48,7 @@ export function SpaceSessionEditSessionForm() {
       (percent / 100) * (spaceController.state.obj.hours * 60 * 1000);
     const update =
       await updateListController.actions.createActions.createUpdate(
-        user.id,
+        loggedInUser.id,
         spaceController.state.objId,
         chapterListController.state.objId,
         title,

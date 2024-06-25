@@ -6,7 +6,7 @@ import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
 } from '@/(server)/(controller)/user/connection/list';
-import { ContextForCurrentUserObj } from '@/(server)/(model)/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
 import { ContextForSessionForm } from '../../main';
 import { SpaceSessionAddCollaborator } from './add/main';
@@ -16,9 +16,9 @@ import { SpaceSessionCollaborator } from './member/main';
 export function SpaceSessionUpdateFormContributors() {
   const updateEditController = useContext(ContextForSessionForm);
   const { contributorIds, setContributorIds } = updateEditController;
-  const currentUser = useContext(ContextForCurrentUserObj);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const connectListController = useControllerForUserConnectionList(
-    currentUser.id,
+    loggedInUser.id,
   );
 
   const togglableController = useControllerForTogglable();
