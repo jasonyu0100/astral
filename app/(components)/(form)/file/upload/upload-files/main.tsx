@@ -28,7 +28,7 @@ export function FormUploadFiles({
 
   return (
     <ContextForUploadsController.Provider value={uploadsHandler}>
-      <div className='flex flex-col bg-white'>
+      <div className='flex flex-col space-y-[1rem]'>
         <UploadFileLabel>{label}</UploadFileLabel>
         <UploadFilesArea />
         {uploadsHandler.files.length > 0 && <UploadFilesList />}
