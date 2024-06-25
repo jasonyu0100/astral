@@ -1,5 +1,6 @@
 import { useUnsplashController } from '@/(api)/(controller)/unsplash/main';
 import { FormBody } from '@/(components)/(form)/body/main';
+import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { SearchBar } from '@/(components)/(media)/search-bar/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
@@ -40,6 +41,7 @@ export default function SearchModalView() {
               changeQuery(e.target.value);
             }}
           />
+          <br />
           <FormBody>
             <div
               className='flex flex-row flex-wrap overflow-auto'
@@ -56,6 +58,8 @@ export default function SearchModalView() {
                 />
               ))}
             </div>
+          </FormBody>
+          <FormFooter>
             <button
               className='h-[100px] w-full bg-black text-xl font-bold text-slate-300'
               onClick={() => {
@@ -65,7 +69,7 @@ export default function SearchModalView() {
             >
               SELECT
             </button>
-          </FormBody>
+          </FormFooter>
         </FormContainer>
       </PolaroidModal>
     </ContextForOpenable.Provider>
@@ -80,7 +84,7 @@ interface SearchImageProps extends ImageInputProps {
 function SearchImage({ image, active, ...props }: SearchImageProps) {
   return (
     <div
-      className={`border-[1px] border-white ${active ? 'border-purple-500' : 'border-white'}`}
+      className={`cursor-pointer p-[5px] ${active ? 'bg-purple-500' : 'bg-white'}`}
       style={{ width: '33.33%' }}
     >
       <img

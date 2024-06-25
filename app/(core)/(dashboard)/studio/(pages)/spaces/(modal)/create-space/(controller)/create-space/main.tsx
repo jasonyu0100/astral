@@ -46,6 +46,8 @@ export interface PageThree {
   updateHours: (hours: number) => void;
   target: string;
   updateTarget: (target: string) => void;
+  thumbnail: FileElem;
+  updateThumbnail: (thumbnail: FileElem) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -373,6 +375,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateHours: (hours: number) => changeHours(hours),
     target: target,
     updateTarget: (target: string) => changeTarget(target),
+    thumbnail,
+    updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
   };
 
   return {

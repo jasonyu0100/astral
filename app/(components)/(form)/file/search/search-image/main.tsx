@@ -1,8 +1,8 @@
 import { ContextForFileChangable } from '@/(logic)/contexts/fileChangable/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { createContext } from 'react';
-import { DisplayImagePreview } from './display-image-preview/main';
 import { SearchImageLabel } from './label/main';
+import { SearchImagePreview } from './preview/main';
 import { SearchButton } from './search-button/main';
 
 export const SearchImageContext = createContext({});
@@ -22,8 +22,7 @@ export function FormSearchImage({
     >
       <div className='flex flex-col bg-white'>
         <SearchImageLabel>{label}</SearchImageLabel>
-        {fileElem.id === undefined && <SearchButton />}
-        {fileElem.id !== undefined && <DisplayImagePreview />}
+        {fileElem.id === undefined ? <SearchButton /> : <SearchImagePreview />}
       </div>
     </ContextForFileChangable.Provider>
   );
