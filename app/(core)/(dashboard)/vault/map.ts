@@ -2,9 +2,6 @@ const baseUrl = `/vault`;
 
 export const vaultMap = {
   vault: {
-    search: {
-      link: `${baseUrl}/search`,
-    },
     explorer: {
       link: `${baseUrl}/explorer/home`,
       home: {
@@ -21,8 +18,8 @@ export const vaultMap = {
         },
       },
     },
-    connect: {
-      link: `${baseUrl}/connect`,
+    knowledge: {
+      link: `${baseUrl}/knowledge`,
     },
     link: `${baseUrl}`,
   },

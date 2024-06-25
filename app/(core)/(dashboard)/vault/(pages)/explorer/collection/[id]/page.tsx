@@ -1,8 +1,8 @@
 'use client';
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 import {
-  ArchiveTabs,
-  ArchiveTabStage,
+  VaultTabs,
+  VaultTabStage,
 } from '@/(core)/(dashboard)/vault/(tabs)/main';
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import {
@@ -39,8 +39,8 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForCollectionResourceList.Provider
           value={resourceListController}
         >
-          <ArchiveTabs
-            tab={ArchiveTabStage.Finder}
+          <VaultTabs
+            tab={VaultTabStage.Finder}
             backUrl={vaultMap.vault.explorer.gallery.id.link(
               galleryMainController.state.obj.id,
             )}

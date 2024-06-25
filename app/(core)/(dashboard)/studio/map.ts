@@ -5,6 +5,12 @@ export const studioMap = {
     spaces: {
       link: `${baseUrl}/spaces`,
     },
+    backed: {
+      link: `${baseUrl}/backed`,
+    },
+    collabs: {
+      link: `${baseUrl}/collabs`,
+    },
     link: `${baseUrl}`,
   },
 };

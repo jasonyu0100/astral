@@ -2,10 +2,10 @@ import { TabBlueShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard
 import { Tab } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/main';
 import { TabText } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/text/main';
 import { vaultMap } from '../../map';
-import { ArchiveTabStage } from '../main';
+import { VaultTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const tabText = ArchiveTabStage.Finder;
+  const tabText = VaultTabStage.Finder;
   const active = tab === tabText;
 
   return (

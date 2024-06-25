@@ -1,11 +1,11 @@
-import { StudioTabs, StudioTabStages } from '../../(tabs)/main';
+import { CreativeTabStage, CreativeTabs } from '../../(tabs)/main';
 
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <StudioTabs tab={StudioTabStages.Spaces} />
+      <CreativeTabs tab={CreativeTabStage.Inbox} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

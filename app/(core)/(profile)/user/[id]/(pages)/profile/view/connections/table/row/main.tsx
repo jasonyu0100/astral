@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { ContextForProfilePage } from '../../../../page';
 import { UserProfileConnectionsRowNumber } from './number/main';
 
-export function UserProfileFollowersTableRow() {
+export function UserProfileConnectionsTableRow() {
   const { admin } = useContext(ContextForProfilePage);
   const connectionObj = useContext(ContextForUserConnectionObj);
   const userController = useControllerForUserMain(

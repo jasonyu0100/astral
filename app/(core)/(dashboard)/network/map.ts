@@ -1,9 +1,12 @@
 const baseUrl = `/network`;
 
 export const networkMap = {
-  creative: {
-    network: {
+  network: {
+    creative: {
       link: `${baseUrl}/creative`,
+    },
+    inbox: {
+      link: `${baseUrl}/inbox`,
     },
     link: `${baseUrl}`,
   },

@@ -3,22 +3,24 @@ import { Tabs } from '../../../../(components)/(dashboard)/tabs/main';
 import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main';
 import { studioMap } from '../../studio/map';
 import { TabOne } from './tab-1/main';
+import { TabTwo } from './tab-2/main';
 
-export enum ArchiveTabStage {
+export enum VaultTabStage {
   Finder = 'Finder',
+  Knowledge = 'Knowledge',
 }
-interface ArchiveTabsInput {
+interface VaultTabsInput {
   backUrl?: string;
   tab?: string;
 }
 
-export function ArchiveTabs({ tab, backUrl }: ArchiveTabsInput) {
+export function VaultTabs({ tab, backUrl }: VaultTabsInput) {
   return (
     <Tabs>
       <TabsBackButton href={backUrl ? backUrl : studioMap.studio.spaces.link} />
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} /> */}
+        <TabTwo tab={tab} />
       </TabsRow>
     </Tabs>
   );

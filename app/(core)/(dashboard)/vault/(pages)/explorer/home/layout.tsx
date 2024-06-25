@@ -1,13 +1,13 @@
 import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 import {
-  ArchiveTabs,
-  ArchiveTabStage,
+  VaultTabs,
+  VaultTabStage,
 } from '@/(core)/(dashboard)/vault/(tabs)/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <ArchiveTabs tab={ArchiveTabStage.Finder} />
+      <VaultTabs tab={VaultTabStage.Finder} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

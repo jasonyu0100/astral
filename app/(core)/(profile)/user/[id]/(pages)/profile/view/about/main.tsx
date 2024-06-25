@@ -47,6 +47,7 @@ export function ProfileAbout() {
           <HorizontalDivider />
           <ProfileAboutBio />
           <HorizontalDivider />
+          {/* <ProfileAboutSupporting /> */}
           <ProfileAboutHorizons />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-5']} />

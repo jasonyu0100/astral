@@ -5,7 +5,7 @@ export function ProfileAboutFollowing() {
   const controllerForProfilePage = useContext(ContextForProfilePage);
 
   return (
-    <div className='flex w-full flex-row items-center justify-center space-x-[1rem]'>
+    <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
       <p
         className='cursor-pointer text-sm font-bold text-white'
         onClick={() => {

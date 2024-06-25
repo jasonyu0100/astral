@@ -16,11 +16,11 @@ export function NetworkIndicator() {
   return (
     <>
       {dashboardSidebar.minimised ? (
-        <DashboardSidebarIndicator href={networkMap.creative.network.link}>
+        <DashboardSidebarIndicator href={networkMap.network.creative.link}>
           <IndicatorPurpleJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
-        <DashboardSidebarIndicator href={networkMap.creative.network.link}>
+        <DashboardSidebarIndicator href={networkMap.network.creative.link}>
           <IndicatorPurpleJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>

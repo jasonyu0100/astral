@@ -4,14 +4,14 @@ import {
   useControllerForUserPrivateList,
 } from '@/(server)/(controller)/user/private-list';
 import isVerseAuth from '@/(utils)/isAuth';
-import { CreativeNetworkView } from './view/view';
+import { CreativeInboxView } from './view/view';
 
 function Page() {
   const userListController = useControllerForUserPrivateList(false);
 
   return (
     <ContextForUserPrivateList.Provider value={userListController}>
-      <CreativeNetworkView />
+      <CreativeInboxView />
     </ContextForUserPrivateList.Provider>
   );
 }

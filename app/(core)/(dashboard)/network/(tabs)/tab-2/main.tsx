@@ -1,17 +1,17 @@
+import { TabOrangeShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/orange/main';
 import { Tab } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/text/main';
 import { networkMap } from '../../map';
 import { CreativeTabStage } from '../main';
 
-export function TabOne({ tab }: { tab?: string }) {
-  const tabText = CreativeTabStage.Creative;
+export function TabTwo({ tab }: { tab?: string }) {
+  const tabText = CreativeTabStage.Inbox;
   const active = tab === tabText;
 
   return (
-    <Tab href={networkMap.network.creative.link}>
+    <Tab href={networkMap.network.inbox.link}>
       <TabText active={active}>{tabText}</TabText>
-      <TabBlueShard active={active} />
+      <TabOrangeShard active={active} />
     </Tab>
   );
 }
