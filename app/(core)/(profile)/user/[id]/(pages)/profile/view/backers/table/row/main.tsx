@@ -28,21 +28,21 @@ export function UserProfileBackersTableRow() {
             className='h-[3rem] w-[3rem] rounded-full object-cover'
           />
           <div className='flex flex-col justify-center'>
-            <p className='text-lg font-bold text-white'>{user.displayName}</p>
+            <p className='text-md font-bold text-white'>{user.displayName}</p>
             <p className='font-light text-white'>{user.email}</p>
           </div>
         </div>
         <div></div>
         <div className='flex'>
-          <p className='text-lg font-bold text-white'>{user.role}</p>
+          <p className='text-md font-bold text-white'>{user.role}</p>
         </div>
         <div className='flex justify-center'>
-          <p className='text-lg font-bold text-white'>
+          <p className='text-md font-light text-white'>
             {new Date(termsController.state.obj.end).toDateString()}
           </p>
         </div>
         <div className='flex justify-center'>
-          <p className='text-lg font-bold text-white'>
+          <p className='text-md font-light text-white'>
             {termsController.state.obj.description}
           </p>
         </div>
