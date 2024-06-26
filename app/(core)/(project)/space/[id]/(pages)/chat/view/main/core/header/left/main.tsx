@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChatRoles } from '../../../../../data';
+import { ChatRole } from '../../../../../data';
 import { ContextForChat } from '../../../../../page';
 
 export function SpaceChatHeaderLeft() {
@@ -12,7 +12,7 @@ export function SpaceChatHeaderLeft() {
         onChange={(e) => setRole(e.target.value)}
         className='w-[10rem] border-b-[1px] border-slate-300 border-opacity-30 bg-transparent py-[0.5rem] font-light text-slate-300 outline-none'
       >
-        {Object.values(ChatRoles).map((role) => (
+        {Object.values(ChatRole).map((role) => (
           <option className='text-md font-light text-slate-300'>{role}</option>
         ))}
       </select>

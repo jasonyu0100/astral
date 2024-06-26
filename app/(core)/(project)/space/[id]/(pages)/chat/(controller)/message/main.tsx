@@ -9,6 +9,8 @@ import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { useContext } from 'react';
+import { ChatRole, roleDescriptions } from '../../data';
+import { ContextForChat } from '../../page';
 
 export function useControllerForChatMessageSend() {
   const user = useGlobalUser((state) => state.user);
@@ -19,6 +21,7 @@ export function useControllerForChatMessageSend() {
   const chatListController = useContext(ContextForChapterChatList);
   const conversationListController = useContext(ContextForChatConversationList);
   const updateListController = useControllerForChapterSessionUpdateList('');
+  const chatContext = useContext(ContextForChat);
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -68,8 +71,14 @@ export function useControllerForChatMessageSend() {
     );
   }
 
-  async function generateAgentResponse(message: ConversationMessageObj) {
-    const messageHistory = getMessageHistory();
+  async function generateAgentResponse(
+    message: ConversationMessageObj,
+    role: ChatRole,
+  ) {
+    const messageHistory = [
+      `You are an agent that sends messages in 3 sentences or less. This is your role ${roleDescriptions[role]}`,
+      ...getMessageHistory(),
+    ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
     const agentResponse =
@@ -96,7 +105,10 @@ export function useControllerForChatMessageSend() {
       const conversationStatus = checkConversationStatus(conversation);
       if (conversationStatus) {
         const newUserMessage = await sendUserMessage(conversation);
-        const agentResponse = await generateAgentResponse(newUserMessage);
+        const agentResponse = await generateAgentResponse(
+          newUserMessage,
+          chatContext.role,
+        );
         const newAgentMessage = await sendAgentMessage(
           'openAi',
           agentResponse,

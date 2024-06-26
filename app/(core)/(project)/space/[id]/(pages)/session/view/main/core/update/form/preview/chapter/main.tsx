@@ -9,12 +9,12 @@ export function SpaceSessionUpdatePreviewChapter() {
   );
 
   return (
-    <>
+    <div className='flex flex-col space-y-[1rem]'>
       <p className='text-xl font-bold text-slate-300'>
         {chapterController.state.obj?.title}
         <br />
         {chapterController.state.obj?.description}
       </p>
-    </>
+    </div>
   );
 }

@@ -9,11 +9,11 @@ export function SpaceSessionUpdatePreviewChat() {
   );
 
   return (
-    <>
+    <div className='flex flex-col space-y-[1rem]'>
       <p className='text-xl font-bold text-slate-300'>
         {chatController.state.obj.title}
         {chatController.state.obj.description}
       </p>
-    </>
+    </div>
   );
 }

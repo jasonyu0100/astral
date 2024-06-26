@@ -3,7 +3,7 @@ import { SpaceSessionUpdateFormSave } from './action/save/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
 import { SpaceSessionUpdateHeader } from './header/main';
 import { SpaceSessionUpdateFormContributors } from './members/main';
-import { SpaceSessionUpdateFormMore } from './more/main';
+import { SpaceSessionSessionUpdates } from './updates/main';
 
 export function SpaceSessionUpdateForm() {
   return (
@@ -11,7 +11,7 @@ export function SpaceSessionUpdateForm() {
       <div className='h-full w-full px-[4rem]'>
         <div className='flex h-full flex-grow flex-col justify-between space-y-[1rem]'>
           <SpaceSessionUpdateHeader />
-          <SpaceSessionUpdateFormMore />
+          <SpaceSessionSessionUpdates />
           <HorizontalDivider />
           <SpaceSessionUpdateFormDetails />
           <SpaceSessionUpdateFormContributors />

@@ -19,21 +19,12 @@ export function SpaceSessionUpdatePreviewConversation() {
   );
 
   return (
-    <>
-      {/* <p className='text-xl font-bold text-slate-300'>
-        {getFormattedDate(new Date(conversationController.state.obj.created))}
-      </p>
-      <p className='text-xl font-bold text-slate-300'>
-        {chatController.state.obj.title}
-      </p>
-      <br /> */}
-      <div className='flex flex-col space-y-[1rem]'>
-        {messageListController.state.objs.map((message) => (
-          <ContextForConversationMessageObj.Provider value={message}>
-            <SpaceSessionChatMessage />
-          </ContextForConversationMessageObj.Provider>
-        ))}
-      </div>
-    </>
+    <div className='flex flex-col space-y-[1rem]'>
+      {messageListController.state.objs.map((message) => (
+        <ContextForConversationMessageObj.Provider value={message}>
+          <SpaceSessionChatMessage />
+        </ContextForConversationMessageObj.Provider>
+      ))}
+    </div>
   );
 }

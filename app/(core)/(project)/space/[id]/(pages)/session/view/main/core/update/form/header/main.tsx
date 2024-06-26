@@ -22,10 +22,7 @@ export function SpaceSessionUpdateFormHeader() {
       </p>
       <p className='text-sm font-light text-slate-300'>
         {getFormattedAMPM(new Date(current.created))}
-      </p>
-
-      <p className='mt-[1rem] text-xs font-light text-slate-300'>
-        {current?.added ? 'Added' : 'Not Added'}
+        {current?.added ? ' - added' : ' - not added'}
       </p>
     </div>
   );

@@ -26,7 +26,7 @@ import {
 } from '@/(server)/(controller)/space/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect, useState } from 'react';
-import { ChatRoles } from './data';
+import { ChatRole } from './data';
 import { SpaceChatView } from './view/main';
 
 interface Controller {
@@ -55,7 +55,7 @@ function Page({ params }: { params: { id: string } }) {
     conversationListController.state.objId,
   );
 
-  const [role, setRole] = useState<string>(ChatRoles.Producer);
+  const [role, setRole] = useState<string>(ChatRole.Producer);
 
   const chatContext = {
     role,

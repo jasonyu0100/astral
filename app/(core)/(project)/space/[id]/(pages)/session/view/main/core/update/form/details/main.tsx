@@ -1,7 +1,7 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForUpdateForm } from '../../main';
 
@@ -11,7 +11,7 @@ export function SpaceSessionUpdateFormDetails() {
   return (
     <div className='flex w-full flex-col space-y-[1rem]'>
       <p className='text-xs font-bold text-slate-300'>Comments</p>
-      <GlassWindowFrame className='w-full' roundedFx={roundedFx['rounded']}>
+      <GlassWindowFrame className='w-full'>
         <GlassWindowContents>
           <textarea
             className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-slate-500 outline-none'

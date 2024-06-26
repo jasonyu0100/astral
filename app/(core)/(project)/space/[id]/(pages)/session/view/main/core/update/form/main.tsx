@@ -30,6 +30,7 @@ export function SpaceSessionUpdateForm() {
         <div className='flex h-full w-full flex-col space-y-[2rem]'>
           <SpaceSessionUpdateFormHeader />
           <div className='flex flex-col space-y-[1rem]'>
+            <HorizontalDivider />
             <ContextForChapterSessionUpdateObj.Provider value={current}>
               {current.variant === ChapterSessionUpdateVariant.VERSE && (
                 <SpaceSessionUpdatePreviewVerse />

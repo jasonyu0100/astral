@@ -10,18 +10,16 @@ export function SpaceSessionUpdatePreviewIdea() {
   );
 
   return (
-    <>
+    <div className='flex flex-col space-y-[1rem]'>
+      {ideaController.state.obj.variant === ElementVariant.FILE && (
+        <img
+          className='object-contain'
+          src={ideaController.state.obj.fileElem?.src}
+        />
+      )}
       <p className='text-xl font-bold text-slate-300'>
-        {ideaController.state.obj.variant === ElementVariant.FILE && (
-          <img
-            className='aspect-square h-[200px]'
-            src={ideaController.state.obj.fileElem?.src}
-          />
-        )}
-        <br />
-        {ideaController.state.obj.title}
-        {ideaController.state.obj.description}
+        Title: {ideaController.state.obj.title}
       </p>
-    </>
+    </div>
   );
 }
