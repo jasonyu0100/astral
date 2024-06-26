@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaList = (
+const useControllerForSceneStackList = (
   listId: string | boolean | number,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -159,6 +159,9 @@ const useControllerForSceneIdeaList = (
         obj,
         ...prev.slice(index),
       ]);
+    },
+    updateObj: (id: string, newObj: TargetObj) => {
+      changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
     },
   };
 
@@ -286,5 +289,5 @@ const useControllerForSceneIdeaList = (
   };
 };
 
-const ContextForSceneIdeaList = createContext({} as Controller);
-export { ContextForSceneIdeaList, useControllerForSceneIdeaList };
+const ContextForSceneStackList = createContext({} as Controller);
+export { ContextForSceneStackList, useControllerForSceneStackList };

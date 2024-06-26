@@ -17,6 +17,7 @@ export interface BaseListStateActions<TargetObj> {
   pushFront: (obj: TargetObj) => void;
   pushBack: (obj: TargetObj) => void;
   pushIndex: (obj: TargetObj, index: number) => void;
+  updateObj: (id: string, newObj: TargetObj) => void;
 }
 
 export interface BaseListGatherActions<TargetObj> {

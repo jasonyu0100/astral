@@ -5,12 +5,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/(controller)/main';
-import { ideaLinkDbWrapper } from '@/(server)/(db)/space/chapter/scene/idea/link/main';
-import { IdeaLinkObj } from '@/(server)/(model)/space/chapter/scene/idea/link/main';
+import { sceneStackDbWrapper } from '@/(server)/(db)/space/chapter/scene/stack/main';
+import { SceneStackObj } from '@/(server)/(model)/space/chapter/scene/stack/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = IdeaLinkObj;
-const gqlDbWrapper = ideaLinkDbWrapper;
+type TargetObj = SceneStackObj;
+const gqlDbWrapper = sceneStackDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaMain = (objId: string): Controller => {
+const useControllerForSceneStackMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForSceneIdeaMain = (objId: string): Controller => {
   };
 };
 
-const ContextForSceneIdeaMain = createContext({} as Controller);
-export { ContextForSceneIdeaMain, useControllerForSceneIdeaMain };
+const ContextForSceneStackMain = createContext({} as Controller);
+export { ContextForSceneStackMain, useControllerForSceneStackMain };

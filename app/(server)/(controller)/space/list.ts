@@ -163,6 +163,9 @@ const useControllerForSpaceList = (
         ...prev.slice(index),
       ]);
     },
+    updateObj: (id: string, newObj: TargetObj) => {
+      changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
+    },
   };
 
   const gatherActions: GatherActions = {

@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaMain = (objId: string): Controller => {
+const useControllerForSceneIdeaLinkMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForSceneIdeaMain = (objId: string): Controller => {
   };
 };
 
-const ContextForSceneIdeaMain = createContext({} as Controller);
-export { ContextForSceneIdeaMain, useControllerForSceneIdeaMain };
+const ContextForSceneIdeaLinkMain = createContext({} as Controller);
+export { ContextForSceneIdeaLinkMain, useControllerForSceneIdeaLinkMain };

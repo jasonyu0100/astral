@@ -1,4 +1,6 @@
 'use client';
+import { useControllerForHoverable } from '@/(logic)/contexts/hoverable/main';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { ElementVariant } from '@/(server)/(model)/elements/main';
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
@@ -6,14 +8,66 @@ import { useContext, useRef } from 'react';
 import Moveable from 'react-moveable';
 
 export function SpaceMapMovable() {
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
   const moveableRef = useRef<Moveable>(null);
+  const hoverableController = useControllerForHoverable();
+
+  function update() {
+    ideaListController.actions.stateActions.updateObj(ideaObj.id, {
+      ...ideaObj,
+      x,
+      y,
+      scale: scaleX,
+    });
+  }
+
+  function parseTransformString(transformString) {
+    // Regular expressions to match each transform function
+    const translateRegex = /translate\(([^,]+),([^)]+)\)/;
+    const rotateRegex = /rotate\(([^)]+)\)/;
+    const scaleRegex = /scale\(([^,]+),([^)]+)\)/;
+
+    // Match each transform function in the string
+    const translateMatch = transformString.match(translateRegex);
+    const rotateMatch = transformString.match(rotateRegex);
+    const scaleMatch = transformString.match(scaleRegex);
+
+    // Initialize variables for extracted values
+    let x = 0,
+      y = 0,
+      rotation = 0,
+      scaleX = 1,
+      scaleY = 1;
+
+    // Extract values if matches are found
+    if (translateMatch) {
+      x = parseFloat(translateMatch[1].trim());
+      y = parseFloat(translateMatch[2].trim());
+    }
+    if (rotateMatch) {
+      rotation = parseFloat(rotateMatch[1].trim());
+    }
+    if (scaleMatch) {
+      scaleX = parseFloat(scaleMatch[1].trim());
+      scaleY = parseFloat(scaleMatch[2].trim());
+    }
+
+    // Return an object with parsed values
+    return {
+      rotation,
+      x,
+      y,
+      scale: scaleX,
+      scaleY,
+    };
+  }
 
   return (
     <>
       <div
-        className={`target absolute cursor-pointer`}
+        className={`element absolute cursor-pointer`}
         style={{
           width: `${ideaObj.width}px`,
           height: `${ideaObj.height}px`,
@@ -21,8 +75,15 @@ export function SpaceMapMovable() {
           left: `${ideaObj.x}px`,
         }}
         ref={targetRef}
+        onClick={() => {
+          if (hoverableController.hovered) {
+            hoverableController.onUnhover();
+          } else {
+            hoverableController.onHover();
+          }
+        }}
       >
-        <div className='flex h-full w-full items-center justify-center'>
+        <div className='flex h-full w-full items-center justify-center p-[2rem]'>
           {ideaObj.variant === ElementVariant.FILE && (
             <>
               {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
@@ -38,7 +99,7 @@ export function SpaceMapMovable() {
       </div>
       <Moveable
         ref={moveableRef}
-        target={targetRef}
+        target={hoverableController.hovered && targetRef}
         draggable={true}
         scalable={true}
         keepRatio={true}
@@ -50,6 +111,7 @@ export function SpaceMapMovable() {
         throttleDragRotate={0}
         snappable={true}
         rotatable={true}
+        snapThreshold={5}
         snapDirections={{
           top: true,
           left: true,
@@ -64,26 +126,29 @@ export function SpaceMapMovable() {
           center: true,
           middle: true,
         }}
-        elementGuidelines={['.element1', '.element2', '.element3']}
+        elementGuidelines={['.element']}
         bounds={{ left: 0, top: 0, right: 0, bottom: 0, position: 'css' }}
-        verticalGuidelines={[
-          0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
-        ]}
-        horizontalGuidelines={[
-          0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
-        ]}
+        // verticalGuidelines={[
+        //   0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
+        // ]}
+        // horizontalGuidelines={[
+        //   0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
+        // ]}
         renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
         onDrag={(e) => {
           e.target.style.transform = e.transform;
+          parseTransformString(e.transform);
         }}
         onScale={(e) => {
           e.target.style.transform = e.drag.transform;
+          parseTransformString(e.drag.transform);
         }}
         onBound={(e) => {
           console.log(e);
         }}
         onRotate={(e) => {
           e.target.style.transform = e.drag.transform;
+          parseTransformString(e.drag.transform);
         }}
       />
     </>
