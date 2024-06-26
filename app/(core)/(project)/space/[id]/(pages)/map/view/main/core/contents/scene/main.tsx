@@ -1,17 +1,19 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-
-import { SpaceMapSceneIdeas } from './ideas/main';
-import { SpaceMapSceneLinks } from './links/main';
+'use client';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { useContext } from 'react';
+import { SpaceMapMovable } from './moveable/main';
 
 export function SpaceMapContentsScene() {
+  const ideaListController = useContext(ContextForSceneIdeaList);
+
   return (
-    <GlassAreaContainer
-      name={SpaceMapContentsScene.name}
-      sizeFx='flex-grow h-full'
-      className={`flex`}
-    >
-      <SpaceMapSceneLinks />
-      <SpaceMapSceneIdeas />
-    </GlassAreaContainer>
+    <div className='container relative h-full w-full'>
+      {ideaListController.state.objs.map((idea, index) => (
+        <ContextForSceneIdeaObj.Provider value={idea}>
+          <SpaceMapMovable key={idea.id} />
+        </ContextForSceneIdeaObj.Provider>
+      ))}
+    </div>
   );
 }

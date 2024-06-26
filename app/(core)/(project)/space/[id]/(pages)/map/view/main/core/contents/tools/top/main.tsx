@@ -9,7 +9,7 @@ import { SpaceMapSaveIcon } from './save/main';
 
 export function SpaceMapToolsTop() {
   return (
-    <div className='px-[1rem] py-[1rem]'>
+    <div className=''>
       <GlassWindowFrame className='w-[3rem]' roundedFx={roundedFx.rounded}>
         <GlassWindowContents className='flex w-full flex-col items-center space-y-[1rem] py-[1rem]'>
           <SpaceMapCursorIcon />

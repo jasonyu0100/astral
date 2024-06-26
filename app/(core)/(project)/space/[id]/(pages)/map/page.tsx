@@ -30,6 +30,7 @@ import {
 } from '@/(server)/(controller)/space/main';
 import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { GalleryObj } from '@/(server)/(model)/gallery/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useState } from 'react';
 import { SpaceMapView } from './view/main';
@@ -96,27 +97,29 @@ function Page({ params }: { params: { id: string } }) {
   };
 
   return (
-    <ContextForPaletteController.Provider value={palleteController}>
-      <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
-            <ContextForSceneIdeaList.Provider value={ideaListController}>
-              <ContextForGalleryList.Provider value={galleryListController}>
-                <ContextForGalleryCollectionList.Provider
-                  value={collectionsHandler}
-                >
-                  <ContextForCollectionResourceList.Provider
-                    value={resourcesHandler}
+    <ContextForLoggedInUserObj.Provider value={user}>
+      <ContextForPaletteController.Provider value={palleteController}>
+        <ContextForSpaceMain.Provider value={spaceMainController}>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForChapterSceneList.Provider value={sceneListController}>
+              <ContextForSceneIdeaList.Provider value={ideaListController}>
+                <ContextForGalleryList.Provider value={galleryListController}>
+                  <ContextForGalleryCollectionList.Provider
+                    value={collectionsHandler}
                   >
-                    <SpaceMapView />
-                  </ContextForCollectionResourceList.Provider>
-                </ContextForGalleryCollectionList.Provider>
-              </ContextForGalleryList.Provider>
-            </ContextForSceneIdeaList.Provider>
-          </ContextForChapterSceneList.Provider>
-        </ContextForSpaceChapterList.Provider>
-      </ContextForSpaceMain.Provider>
-    </ContextForPaletteController.Provider>
+                    <ContextForCollectionResourceList.Provider
+                      value={resourcesHandler}
+                    >
+                      <SpaceMapView />
+                    </ContextForCollectionResourceList.Provider>
+                  </ContextForGalleryCollectionList.Provider>
+                </ContextForGalleryList.Provider>
+              </ContextForSceneIdeaList.Provider>
+            </ContextForChapterSceneList.Provider>
+          </ContextForSpaceChapterList.Provider>
+        </ContextForSpaceMain.Provider>
+      </ContextForPaletteController.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

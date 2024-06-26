@@ -3,9 +3,13 @@ import { SpaceMapToolsTop } from './top/main';
 
 export function SpaceMapContentsTools() {
   return (
-    <div className='flex h-full flex-col justify-between'>
-      <SpaceMapToolsTop />
-      <SpaceMapToolsBottom />
-    </div>
+    <>
+      <div style={{ left: '1rem', top: '1rem' }} className='absolute'>
+        <SpaceMapToolsTop />
+      </div>
+      <div style={{ left: '1rem', bottom: '1rem' }} className='absolute'>
+        <SpaceMapToolsBottom />
+      </div>
+    </>
   );
 }

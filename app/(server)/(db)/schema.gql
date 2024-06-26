@@ -1166,7 +1166,7 @@ type SceneIdeaObj {
   userId: String!
   sceneId: String!
   stackId: String
-  stackIdx: Int!
+  stackIdx: Int
   title: String!
   description: String!
   x: Int!

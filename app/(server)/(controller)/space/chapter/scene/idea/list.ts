@@ -38,27 +38,36 @@ interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromFile: (
+    userId: string,
     sceneId: string,
     title: string,
     description: string,
     x: number,
     y: number,
+    width: number,
+    height: number,
     fileElem: FileElem,
   ) => Promise<TargetObj>;
   createFromLink: (
+    userId: string,
     sceneId: string,
     title: string,
     description: string,
     x: number,
     y: number,
+    width: number,
+    height: number,
     urlElem: UrlElem,
   ) => Promise<TargetObj>;
   createFromText: (
+    userId: string,
     sceneId: string,
     title: string,
     description: string,
     x: number,
     y: number,
+    width: number,
+    height: number,
     textElem: TextElem,
   ) => Promise<TargetObj>;
 }
@@ -231,9 +240,19 @@ const useControllerForSceneIdeaList = (
   };
 
   const createActions: CreateActions = {
-    createFromFile(sceneId, title, description, x, y, fileElem) {
+    createFromFile(
+      userId,
+      sceneId,
+      title,
+      description,
+      x,
+      y,
+      width,
+      height,
+      fileElem,
+    ) {
       const createObj: Omit<TargetObj, 'id'> = {
-        userId: '',
+        userId: userId,
         created: new Date().toISOString(),
         sceneId: sceneId,
         title: title,
@@ -242,14 +261,24 @@ const useControllerForSceneIdeaList = (
         y: y,
         fileElem: fileElem,
         variant: ElementVariant.FILE,
-        width: 100,
-        height: 100,
+        width: width,
+        height: height,
         scale: 1,
         rotation: 0,
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromLink(sceneId, title, description, x, y, urlElem) {
+    createFromLink(
+      userId,
+      sceneId,
+      title,
+      description,
+      x,
+      y,
+      width,
+      height,
+      urlElem,
+    ) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: sceneId,
@@ -259,15 +288,25 @@ const useControllerForSceneIdeaList = (
         y: y,
         urlElem: urlElem,
         variant: ElementVariant.URL,
-        width: 100,
-        height: 100,
+        width: width,
+        height: height,
         scale: 1,
         rotation: 0,
-        userId: '',
+        userId: userId,
       };
       return gqlDbWrapper.createObj(createObj);
     },
-    createFromText(sceneId, title, description, x, y, textElem) {
+    createFromText(
+      userId,
+      sceneId,
+      title,
+      description,
+      x,
+      y,
+      width,
+      height,
+      textElem,
+    ) {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: sceneId,
@@ -277,11 +316,11 @@ const useControllerForSceneIdeaList = (
         y: y,
         textElem: textElem,
         variant: ElementVariant.TEXT,
-        width: 100,
-        height: 100,
+        width: width,
+        height: height,
         scale: 1,
         rotation: 0,
-        userId: '',
+        userId: userId,
       };
       return gqlDbWrapper.createObj(createObj);
     },
