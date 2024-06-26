@@ -131,7 +131,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
         if (templateChapter && templateChapter.chatTemplates.length > 0) {
-          console.assert(false, 'not implemented');
           const chats = await Promise.all(
             templateChapter.chatTemplates.map(async (templateChat) => {
               const chat =
@@ -186,7 +185,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
         if (templateChapter && templateChapter.sceneTemplates.length > 0) {
-          console.assert(false, 'not implemented');
           const scenes = await Promise.all(
             templateChapter.sceneTemplates.map(async (templateScene) => {
               const scene =
@@ -241,7 +239,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
         if (templateChapter && templateChapter.verseTemplates.length > 0) {
-          console.assert(false, 'not implemented');
           const verses = await Promise.all(
             templateChapter.verseTemplates.map(async (templateVerse) => {
               const verse =

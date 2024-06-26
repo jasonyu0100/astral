@@ -6,6 +6,7 @@ import { SpaceMapMovable } from './moveable/main';
 
 export function SpaceMapContentsScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
+  console.log(ideaListController.state.objs);
 
   return (
     <div className='container relative h-full w-full'>

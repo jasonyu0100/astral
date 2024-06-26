@@ -211,7 +211,6 @@ const useControllerForSceneIdeaList = (
       return objs;
     },
     gatherLatest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
@@ -219,7 +218,6 @@ const useControllerForSceneIdeaList = (
       return sortedObjs;
     },
     gatherEarliest: async () => {
-      console.assert(false, 'not implemented');
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
@@ -243,7 +241,7 @@ const useControllerForSceneIdeaList = (
   };
 
   const createActions: CreateActions = {
-    createFromFile(
+    createFromFile: async (
       userId,
       sceneId,
       title,
@@ -253,7 +251,7 @@ const useControllerForSceneIdeaList = (
       width,
       height,
       fileElem,
-    ) {
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         created: new Date().toISOString(),
@@ -269,9 +267,12 @@ const useControllerForSceneIdeaList = (
         scale: 1,
         rotation: 0,
       };
-      return gqlDbWrapper.createObj(createObj);
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
     },
-    createFromLink(
+    createFromLink: async (
       userId,
       sceneId,
       title,
@@ -281,7 +282,7 @@ const useControllerForSceneIdeaList = (
       width,
       height,
       urlElem,
-    ) {
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: sceneId,
@@ -297,9 +298,12 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         userId: userId,
       };
-      return gqlDbWrapper.createObj(createObj);
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
     },
-    createFromText(
+    createFromText: async (
       userId,
       sceneId,
       title,
@@ -309,7 +313,7 @@ const useControllerForSceneIdeaList = (
       width,
       height,
       textElem,
-    ) {
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         sceneId: sceneId,
@@ -325,7 +329,10 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         userId: userId,
       };
-      return gqlDbWrapper.createObj(createObj);
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
     },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {

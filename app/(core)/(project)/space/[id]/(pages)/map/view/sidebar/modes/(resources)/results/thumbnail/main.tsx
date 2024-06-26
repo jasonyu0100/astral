@@ -12,7 +12,7 @@ export function SpaceMapResourceThumbnail() {
 
   return (
     <div className='flex flex-col space-y-[0.5rem]'>
-      <p className='text-md font-bold text-slate-300'>{resource.title}</p>
+      {/* <p className='text-md font-bold text-slate-300'>{resource.title}</p> */}
       <img
         src={resource.fileElem?.src}
         className='aspect-square cursor-pointer'
@@ -22,10 +22,10 @@ export function SpaceMapResourceThumbnail() {
             sceneListController.state.objId,
             resource.title,
             resource.description,
-            0,
-            0,
-            300,
-            300,
+            Math.floor(Math.random() * 1000),
+            Math.floor(Math.random() * 500),
+            150,
+            150,
             resource.fileElem,
           );
         }}

@@ -19,21 +19,21 @@ import {
 import { useContext, useState } from 'react';
 
 export function SpaceMapCreateResourceModal() {
-  const resourceListHandler = useContext(ContextForCollectionResourceList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
+  const resourceListController = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
-  const [title, changeTitle] = useState('');
+  const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileElem);
   const [variant, changeVariant] = useState(FileElemVariant.IMAGE);
 
-  function createResource() {
-    resourceListHandler.actions.createActions
+  async function createResource() {
+    resourceListController.actions.createActions
       .createFromFile(
         user.id,
         collectionListController.state.objId,
-        title,
+        name,
         description,
         file,
       )
@@ -64,8 +64,8 @@ export function SpaceMapCreateResourceModal() {
             />
             <FormInput
               title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
+              value={name}
+              onChange={(e) => changeName(e.target.value)}
             />
             <FormTextArea
               title='Description'

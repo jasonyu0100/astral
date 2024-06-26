@@ -68,11 +68,11 @@ function Page({ params }: { params: { id: string } }) {
 
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
-  const collectionsHandler = useControllerForGalleryCollectionList(
+  const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
   );
-  const resourcesHandler = useControllerForCollectionResourceList(
-    collectionsHandler.state.objId,
+  const resourceListController = useControllerForCollectionResourceList(
+    collectionListController.state.objId,
   );
 
   const [paletteMode, changePaletteMode] = useState(PaletteState.HOME);
@@ -86,7 +86,7 @@ function Page({ params }: { params: { id: string } }) {
       changePaletteMode(PaletteState.GALLERY);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
-      collectionsHandler.actions.stateActions.select(collection);
+      collectionListController.actions.stateActions.select(collection);
       changePaletteMode(PaletteState.COLLECTION);
     },
   };
@@ -105,10 +105,10 @@ function Page({ params }: { params: { id: string } }) {
               <ContextForSceneIdeaList.Provider value={ideaListController}>
                 <ContextForGalleryList.Provider value={galleryListController}>
                   <ContextForGalleryCollectionList.Provider
-                    value={collectionsHandler}
+                    value={collectionListController}
                   >
                     <ContextForCollectionResourceList.Provider
-                      value={resourcesHandler}
+                      value={resourceListController}
                     >
                       <SpaceMapView />
                     </ContextForCollectionResourceList.Provider>
