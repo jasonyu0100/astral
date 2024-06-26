@@ -4,7 +4,7 @@ import { ContextForChatConversationList } from '@/(server)/(controller)/space/ch
 import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useControllerForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChatConversationObj } from '@/(server)/(model)/space/chapter/chat/conversation/main';
 import { ConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
@@ -18,7 +18,7 @@ export function useControllerForChatMessageSend() {
   const messageListController = useContext(ContextForConversationMessageList);
   const chatListController = useContext(ContextForChapterChatList);
   const conversationListController = useContext(ContextForChatConversationList);
-  const updateListController = useControllerForChapterItemList('');
+  const updateListController = useControllerForChapterSessionUpdateList('');
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {

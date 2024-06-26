@@ -1,10 +1,7 @@
 'use client';
-import * as React from 'react';
 import Moveable from 'react-moveable';
 
 export default function App() {
-  const targetRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div className='h-full w-full p-[5rem]'>
       <div className='container h-full w-full border-[1rem] border-white bg-black'>

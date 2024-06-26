@@ -48,9 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionUpdateList = (
-  listId: string,
-): Controller => {
+const useControllerForSessionUpdateList = (listId: string): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -290,8 +288,5 @@ const useControllerForChapterSessionUpdateList = (
   };
 };
 
-const ContextForSpaceSessionUpdateList = createContext({} as Controller);
-export {
-  ContextForSpaceSessionUpdateList as ContextForSpaceSessionUpdateList,
-  useControllerForChapterSessionUpdateList as useControllerForChapterSessionUpdateList,
-};
+const ContextForSessionUpdateList = createContext({} as Controller);
+export { ContextForSessionUpdateList, useControllerForSessionUpdateList };

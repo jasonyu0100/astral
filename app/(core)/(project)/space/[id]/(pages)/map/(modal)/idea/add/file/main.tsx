@@ -8,18 +8,19 @@ import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useControllerForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import {
   FileElem,
   FileElemVariant,
 } from '@/(server)/(model)/elements/file/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddFileIdeaModal() {
+  const user = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -30,17 +31,19 @@ export function SpaceMapAddFileIdeaModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
-  const user = useGlobalUser((state) => state.user);
-  const updateListController = useControllerForChapterItemList('');
+  const updateListController = useControllerForChapterSessionUpdateList('');
 
   async function createFileIdea() {
     const idea =
       await sceneIdeaListController.actions.createActions.createFromFile(
+        user.id,
         sceneIdeaListController.state.objId,
         title,
         description,
         0,
         0,
+        150,
+        150,
         file,
       );
     await updateListController.actions.createActions.createFromChapterSceneIdea(

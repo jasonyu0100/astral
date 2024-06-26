@@ -13,9 +13,11 @@ import {
   TextElem,
   TextElemVariant,
 } from '@/(server)/(model)/elements/text/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddTextIdeaModal() {
+  const user = useContext(ContextForLoggedInUserObj);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
@@ -26,11 +28,14 @@ export function SpaceMapAddTextIdeaModal() {
   function create() {
     sceneIdeaListController.actions.createActions
       .createFromText(
+        user.id,
         sceneIdeaListController.state.objId,
         title,
         description,
         0,
         0,
+        150,
+        150,
         {
           id: crypto.randomUUID(),
           title: title,

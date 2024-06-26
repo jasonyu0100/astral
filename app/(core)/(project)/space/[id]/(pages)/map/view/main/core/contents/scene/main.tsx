@@ -6,11 +6,10 @@ import { SpaceMapMovable } from './moveable/main';
 
 export function SpaceMapContentsScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
-  console.log(ideaListController.state.objs);
 
   return (
     <div className='container relative h-full w-full'>
-      {ideaListController.state.objs.map((idea, index) => (
+      {ideaListController.state.objs.map((idea) => (
         <ContextForSceneIdeaObj.Provider value={idea}>
           <SpaceMapMovable key={idea.id} />
         </ContextForSceneIdeaObj.Provider>

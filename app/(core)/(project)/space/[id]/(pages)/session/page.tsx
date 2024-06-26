@@ -10,7 +10,7 @@ import {
 } from '@/(server)/(controller)/space/chapter/session/list';
 import {
   ContextForChapterSessionUpdateList,
-  useControllerForChapterItemList,
+  useControllerForChapterSessionUpdateList,
 } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
   ContextForSpaceMain,
@@ -27,7 +27,7 @@ function Page({ params }: { params: { id: string } }) {
   const updateListController = useControllerForChapterSessionList(
     chapterListController.state.objId,
   );
-  const sessionUpdateListController = useControllerForChapterItemList(
+  const sessionUpdateListController = useControllerForChapterSessionUpdateList(
     chapterListController.state.objId,
   );
 

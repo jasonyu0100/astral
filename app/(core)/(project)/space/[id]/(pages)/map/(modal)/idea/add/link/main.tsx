@@ -7,21 +7,21 @@ import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { useControllerForChapterItemList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useControllerForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/(model)/elements/url/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddUrlIdeaModal() {
   const spaceController = useContext(ContextForSpaceMain);
-  const user = useGlobalUser((state) => state.user);
+  const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
-  const updateListController = useControllerForChapterItemList('');
+  const updateListController = useControllerForChapterSessionUpdateList('');
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
@@ -64,11 +64,14 @@ export function SpaceMapAddUrlIdeaModal() {
   async function createIdeaFromYouTube() {
     const idea =
       await sceneIdeaListController.actions.createActions.createFromLink(
+        user.id,
         sceneIdeaListController.state.objId,
         title,
         description,
         0,
         0,
+        150,
+        150,
         {
           id: crypto.randomUUID(),
           title: `Youtube ${youtubeId}`,
@@ -88,11 +91,14 @@ export function SpaceMapAddUrlIdeaModal() {
   async function createIdeaFromSpotify() {
     const idea =
       await sceneIdeaListController.actions.createActions.createFromLink(
+        user.id,
         sceneIdeaListController.state.objId,
         title,
         description,
         0,
         0,
+        150,
+        150,
         {
           id: crypto.randomUUID(),
           title: `Spotify ${spotifyId}`,

@@ -14,16 +14,16 @@ export function SpaceMapMovable() {
   const moveableRef = useRef<Moveable>(null);
   const hoverableController = useControllerForHoverable();
 
-  function update() {
-    ideaListController.actions.stateActions.updateObj(ideaObj.id, {
-      ...ideaObj,
-      x,
-      y,
-      scale: scaleX,
-    });
-  }
+  // function update() {
+  //   ideaListController.actions.stateActions.updateObj(ideaObj.id, {
+  //     ...ideaObj,
+  //     x,
+  //     y,
+  //     scale: scaleX,
+  //   });
+  // }
 
-  function parseTransformString(transformString) {
+  function parseTransformString(transformString: string) {
     // Regular expressions to match each transform function
     const translateRegex = /translate\(([^,]+),([^)]+)\)/;
     const rotateRegex = /rotate\(([^)]+)\)/;
