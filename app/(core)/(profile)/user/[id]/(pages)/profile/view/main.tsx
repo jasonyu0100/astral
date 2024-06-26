@@ -5,12 +5,13 @@ import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../page';
 import { ProfileAbout } from './about/main';
+import { UserProfileAdmin } from './admin/main';
 import { UserProfileBackersMain } from './backers/main';
 import { UserProfileConnectsMain } from './connections/main';
 import { UserProfileGeneralMain } from './general/main';
 
 export function UserProfileView() {
-  const { page } = useContext(ContextForProfilePage);
+  const { page, admin } = useContext(ContextForProfilePage);
 
   return (
     <GlassAreaContainer
@@ -28,6 +29,7 @@ export function UserProfileView() {
             {page === ProfilePage.Backers && <UserProfileBackersMain />}
             {page === ProfilePage.Connections && <UserProfileConnectsMain />}
             {page === ProfilePage.General && <UserProfileGeneralMain />}
+            {admin && <UserProfileAdmin />}
           </GlassWindowContents>
         </GlassWindowFrame>
       </div>

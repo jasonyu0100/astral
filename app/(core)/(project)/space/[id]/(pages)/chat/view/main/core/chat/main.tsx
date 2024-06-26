@@ -4,9 +4,12 @@ import { ContextForConversationMessageList } from '@/(server)/(controller)/space
 import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
+import { roleDescriptions } from '../../../../data';
+import { ContextForChat } from '../../../../page';
 import { SpaceChatChatMessage } from './message/main';
 
 export function SpaceChatChat() {
+  const { role } = useContext(ContextForChat);
   const conversationListController = useContext(ContextForChatConversationList);
   const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
@@ -48,11 +51,7 @@ export function SpaceChatChat() {
         )}
         <HorizontalDivider />
         <p className='font-bold text-white'>
-          Producer: A music producer oversees the recording and production of a
-          song or album, guiding the artistic and technical aspects to achieve
-          the desired sound. They collaborate with artists, manage studio
-          sessions, and often contribute to arranging, mixing, and mastering the
-          final tracks.
+          {role}: {roleDescriptions[role as keyof typeof roleDescriptions]}
         </p>
         <HorizontalDivider />
         {messageListController.state.objs.map((message) => (
