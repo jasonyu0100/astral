@@ -1,3 +1,6 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
@@ -5,6 +8,7 @@ import {
   ChapterSessionUpdateVariant,
   ContextForChapterSessionUpdateObj,
 } from '@/(server)/(model)/space/chapter/session/update/main';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceSessionUpdateFormUpdate } from './action/update/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
@@ -25,38 +29,45 @@ export function SpaceSessionUpdateForm() {
     ({} as ChapterSessionUpdateObj);
 
   return (
-    <div className='h-full w-full max-w-[800px] overflow-auto border-l-[1px] border-r-[1px] border-slate-500 border-opacity-30'>
-      <div className='h-full w-full px-[4rem]'>
-        <div className='flex h-full w-full flex-col space-y-[2rem]'>
-          <SpaceSessionUpdateFormHeader />
-          <div className='flex flex-col space-y-[1rem]'>
-            <HorizontalDivider />
-            <ContextForChapterSessionUpdateObj.Provider value={current}>
-              {current.variant === ChapterSessionUpdateVariant.VERSE && (
-                <SpaceSessionUpdatePreviewVerse />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
-                <SpaceSessionUpdatePreviewChapter />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.CHAT && (
-                <SpaceSessionUpdatePreviewChat />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.CONVERSATION && (
-                <SpaceSessionUpdatePreviewConversation />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.IDEA && (
-                <SpaceSessionUpdatePreviewIdea />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.SCENE && (
-                <SpaceSessionUpdatePreviewScene />
-              )}
-            </ContextForChapterSessionUpdateObj.Provider>
-            <HorizontalDivider />
+    <GlassWindowFrame
+      className='h-full max-w-[800px] flex-grow  p-[2rem]'
+      borderFx={`${borderFx['border-l']} ${borderFx['border-r']}`}
+    >
+      <GlassWindowContents className='overflow-auto'>
+        <div className='h-full w-full pr-[2rem]'>
+          <div className='flex h-full w-full flex-col space-y-[2rem]'>
+            <SpaceSessionUpdateFormHeader />
+            <div className='flex flex-col space-y-[1rem]'>
+              <HorizontalDivider />
+              <ContextForChapterSessionUpdateObj.Provider value={current}>
+                {current.variant === ChapterSessionUpdateVariant.VERSE && (
+                  <SpaceSessionUpdatePreviewVerse />
+                )}
+                {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
+                  <SpaceSessionUpdatePreviewChapter />
+                )}
+                {current.variant === ChapterSessionUpdateVariant.CHAT && (
+                  <SpaceSessionUpdatePreviewChat />
+                )}
+                {current.variant ===
+                  ChapterSessionUpdateVariant.CONVERSATION && (
+                  <SpaceSessionUpdatePreviewConversation />
+                )}
+                {current.variant === ChapterSessionUpdateVariant.IDEA && (
+                  <SpaceSessionUpdatePreviewIdea />
+                )}
+                {current.variant === ChapterSessionUpdateVariant.SCENE && (
+                  <SpaceSessionUpdatePreviewScene />
+                )}
+              </ContextForChapterSessionUpdateObj.Provider>
+              <HorizontalDivider />
+            </div>
+            <SpaceSessionUpdateFormDetails />
+            <SpaceSessionUpdateFormUpdate />
           </div>
-          <SpaceSessionUpdateFormDetails />
-          <SpaceSessionUpdateFormUpdate />
         </div>
-      </div>
-    </div>
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
+    </GlassWindowFrame>
   );
 }

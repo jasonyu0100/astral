@@ -2,9 +2,8 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
@@ -17,7 +16,7 @@ export function SpaceVerseContentsDisplay() {
       sizeFx='flex-grow h-full'
       className={`space-y-[3rem] overflow-auto p-[2rem]`}
     >
-      <div className='flex h-full w-full flex-grow flex-col items-center justify-evenly'>
+      <div className='flex h-full w-full flex-grow flex-col items-center justify-between'>
         <GlassWindowFrame
           className='h-[50px] w-[50px]'
           roundedFx={roundedFx['rounded-full']}
@@ -60,8 +59,10 @@ export function SpaceVerseContentsDisplay() {
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
-        <HorizontalDivider />
-        <GlassWindowFrame className='w-full p-[2rem]'>
+        <GlassWindowFrame
+          className='w-full p-[2rem] py-[4rem]'
+          borderFx={`${borderFx['border-t']} ${borderFx['border-b']}`}
+        >
           <GlassWindowContents className='flex w-full flex-row items-center space-x-[2rem]'>
             <p className='font-bold text-slate-500'>
               V
@@ -86,8 +87,8 @@ export function SpaceVerseContentsDisplay() {
               </p>
             </div>
           </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
-        <HorizontalDivider />
         <GlassWindowFrame
           className='h-[50px] w-[50px]'
           roundedFx={roundedFx['rounded-full']}

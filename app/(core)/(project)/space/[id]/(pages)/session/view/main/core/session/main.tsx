@@ -7,7 +7,7 @@ import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { createContext, useContext, useState } from 'react';
 import { SpaceSessionEditPrev } from '../(common)/icon/prev/main';
-import { EditContext } from '../edit/main';
+import { EditContext } from '../main';
 import { SpaceSessionUpdateForm } from './form/main';
 
 interface Controller {
@@ -24,7 +24,7 @@ interface Controller {
 
 export const ContextForSessionForm = createContext({} as Controller);
 
-export function SpaceSessionEditSessionForm() {
+export function SpaceSessionSessionMain() {
   const { updateComplete } = useContext(EditContext);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
@@ -85,7 +85,7 @@ export function SpaceSessionEditSessionForm() {
 
   return (
     <ContextForSessionForm.Provider value={context}>
-      <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
+      <div className='flex h-full w-full flex-row items-center justify-between'>
         <SpaceSessionEditPrev
           onClick={() => {
             updateComplete(false);

@@ -1,4 +1,8 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { borderFx, glassFx } from '@/(style)/data';
 import { SpaceSessionUpdateFormSave } from './action/save/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
 import { SpaceSessionUpdateHeader } from './header/main';
@@ -7,17 +11,23 @@ import { SpaceSessionSessionUpdates } from './updates/main';
 
 export function SpaceSessionUpdateForm() {
   return (
-    <div className='h-full w-full max-w-[800px] overflow-auto border-l-[1px] border-r-[1px] border-slate-500 border-opacity-30'>
-      <div className='h-full w-full px-[4rem]'>
-        <div className='flex h-full flex-grow flex-col justify-between space-y-[1rem]'>
-          <SpaceSessionUpdateHeader />
-          <SpaceSessionSessionUpdates />
-          <HorizontalDivider />
-          <SpaceSessionUpdateFormDetails />
-          <SpaceSessionUpdateFormContributors />
-          <SpaceSessionUpdateFormSave />
+    <GlassWindowFrame
+      className='h-full max-w-[800px] flex-grow p-[2rem]'
+      borderFx={`${borderFx['border-l']} ${borderFx['border-r']}`}
+    >
+      <GlassWindowContents className='overflow-auto'>
+        <div className='h-full w-full pr-[2rem]'>
+          <div className='flex h-full flex-grow flex-col justify-between space-y-[1rem]'>
+            <SpaceSessionUpdateHeader />
+            <SpaceSessionSessionUpdates />
+            <HorizontalDivider />
+            <SpaceSessionUpdateFormDetails />
+            <SpaceSessionUpdateFormContributors />
+            <SpaceSessionUpdateFormSave />
+          </div>
         </div>
-      </div>
-    </div>
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
+    </GlassWindowFrame>
   );
 }

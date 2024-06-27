@@ -11,7 +11,7 @@ import {
 import { SpaceSessionEditDone } from '../(common)/icon/done/main';
 import { SpaceSessionEditNext } from '../(common)/icon/next/main';
 import { SpaceSessionEditPrev } from '../(common)/icon/prev/main';
-import { EditContext } from '../edit/main';
+import { EditContext } from '../main';
 import { SpaceSessionUpdateForm } from './form/main';
 
 interface Controller {
@@ -24,7 +24,7 @@ interface Controller {
 
 export const ContextForUpdateForm = createContext({} as Controller);
 
-export function SpaceSessionUpdate() {
+export function SpaceSessionUpdateMain() {
   const { updateComplete } = useContext(EditContext);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sessionUpdateListController = useContext(
@@ -58,7 +58,7 @@ export function SpaceSessionUpdate() {
 
   return (
     <ContextForUpdateForm.Provider value={context}>
-      <div className='flex h-full w-full flex-row items-center justify-between space-x-[4rem]'>
+      <div className='flex h-full w-full flex-row items-center justify-between'>
         {sessionUpdateListController.state.index > 0 ? (
           <SpaceSessionEditPrev
             onClick={() => {

@@ -1,5 +1,6 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { SpaceSessionCore } from './core/main';
+import { SpaceSessionContainer } from './core/container/main';
+import { SpaceSessionCoreMain } from './core/main';
 import { SpaceSessionHeader } from './header/main';
 import { SpaceSessionChapterNavigation } from './navigation/main';
 
@@ -10,7 +11,9 @@ export function SpaceSessionMain() {
       className={`flex h-full flex-grow flex-col`}
     >
       <SpaceSessionHeader />
-      <SpaceSessionCore />
+      <SpaceSessionContainer>
+        <SpaceSessionCoreMain />
+      </SpaceSessionContainer>
       <SpaceSessionChapterNavigation />
     </GlassWindowFrame>
   );

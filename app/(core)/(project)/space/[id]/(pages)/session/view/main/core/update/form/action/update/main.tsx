@@ -4,7 +4,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { EditContext } from '../../../../edit/main';
+import { EditContext } from '../../../../main';
 import { ContextForUpdateForm } from '../../../main';
 
 export function SpaceSessionUpdateFormUpdate() {

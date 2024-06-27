@@ -601,11 +601,13 @@ input CreateUserObjInput {
   dp: FileElemInput!
   private: Boolean!
   passwordHash: String
-  googleId: String
+  writtenHash: String
+  polarHash: String
   customerId: String
   subscriptionId: String
   priceId: String
   journalId: String
+  degree: Int
 }
 
 input CreateUserReservationObjInput {
@@ -1744,15 +1746,14 @@ input TableUserObjFilterInput {
   bio: TableStringFilterInput
   fname: TableStringFilterInput
   lname: TableStringFilterInput
-  passwordHash: TableStringFilterInput
   email: TableStringFilterInput
   private: TableBooleanFilterInput
-  googleId: TableStringFilterInput
   customerId: TableStringFilterInput
   subscriptionId: TableStringFilterInput
   priceId: TableStringFilterInput
   created: TableStringFilterInput
   journalId: TableStringFilterInput
+  number: TableIntFilterInput
 }
 
 input TableUserReservationObjFilterInput {
@@ -2236,14 +2237,16 @@ input UpdateUserObjInput {
   bio: String
   private: Boolean
   passwordHash: String
+  writtenHash: String
+  polarHash: String
   email: String
-  googleId: String
   customerId: String
   subscriptionId: String
   priceId: String
   created: String
   dp: FileElemInput
   journalId: String
+  degree: Int
 }
 
 input UpdateUserReservationObjInput {
@@ -2366,12 +2369,14 @@ type UserObj {
   private: Boolean!
   role: String!
   passwordHash: String
-  googleId: String
+  writtenHash: String
+  polarHash: String
   customerId: String
   subscriptionId: String
   priceId: String
   created: String!
   journalId: String!
+  degree: Int
 }
 
 type UserObjConnection {
