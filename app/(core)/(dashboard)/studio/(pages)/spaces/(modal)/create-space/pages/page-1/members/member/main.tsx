@@ -13,7 +13,7 @@ export function CreateSpaceCollaborator({
 
   return (
     <div onClick={onClick} className='cursor-pointer'>
-      <ProfileCover fileElem={user.dp} />
+      <ProfileCover fileElem={user?.dp} />
     </div>
   );
 }

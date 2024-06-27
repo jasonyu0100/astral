@@ -16,7 +16,7 @@ export function EditProfileModal() {
   const userController = useControllerForUserMain(loggedInUser.id);
   const user = userController.state.obj;
   const openableController = useContext(ContextForOpenable);
-  const [enabled, setEnabled] = useState(user.private);
+  const [enabled, setEnabled] = useState(user?.private);
 
   const handleToggle = () => {
     setEnabled(!enabled);
@@ -30,26 +30,26 @@ export function EditProfileModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Profile {user.fname}</FormTitle>
+          <FormTitle>Profile {user?.fname}</FormTitle>
           <FormBody>
-            <ImagePreview fileElem={user.dp} />
+            <ImagePreview fileElem={user?.dp} />
             <HorizontalDivider />
-            <p className='font-bold'>Display Name: {user.displayName}</p>
-            <p className='font-bold'>Email: {user.email}</p>
-            <p className='font-bold'>Bio: {user.bio}</p>
+            <p className='font-bold'>Display Name: {user?.displayName}</p>
+            <p className='font-bold'>Email: {user?.email}</p>
+            <p className='font-bold'>Bio: {user?.bio}</p>
             <HorizontalDivider />
             <p className='font-bold'>
-              Joined: {getFormattedDate(new Date(user.created))}
+              Joined: {getFormattedDate(new Date(user?.created))}
             </p>
             <HorizontalDivider />
             <p className='font-bold'>
-              Status: {user.private ? 'Private' : 'Public'}
+              Status: {user?.private ? 'Private' : 'Public'}
             </p>
             <button
               className='w-[15rem] rounded bg-slate-300 p-[1rem] font-bold'
               onClick={handleToggle}
             >
-              {user.private ? 'Switch to Public' : 'Switch to Private'}
+              {user?.private ? 'Switch to Public' : 'Switch to Private'}
             </button>
           </FormBody>
           <FormFooter>

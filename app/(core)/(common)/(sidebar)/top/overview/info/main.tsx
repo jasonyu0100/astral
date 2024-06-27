@@ -34,7 +34,7 @@ export function DashboardSidebarTopOverviewInfo() {
           'h-[25px] text-base font-normal leading-normal text-slate-300',
         )}
       >
-        {loggedInUser.displayName || 'No Author'}
+        {loggedInUser?.displayName || 'No Author'}
       </p>
     </div>
   );

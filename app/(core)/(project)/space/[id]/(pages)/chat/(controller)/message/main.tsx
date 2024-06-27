@@ -107,7 +107,7 @@ export function useControllerForChatMessageSend() {
         const newUserMessage = await sendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(
           newUserMessage,
-          chatContext.role,
+          chatContext.role as ChatRole,
         );
         const newAgentMessage = await sendAgentMessage(
           'openAi',
@@ -121,7 +121,10 @@ export function useControllerForChatMessageSend() {
     alert('New Conversation');
     const newConversation = await createNewConversation();
     const newUserMessage = await sendUserMessage(newConversation);
-    const agentResponse = await generateAgentResponse(newUserMessage);
+    const agentResponse = await generateAgentResponse(
+      newUserMessage,
+      chatContext.role as ChatRole,
+    );
     const newAgentMessage = await sendAgentMessage(
       'openAi',
       agentResponse,

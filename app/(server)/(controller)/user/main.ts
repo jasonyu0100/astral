@@ -195,6 +195,7 @@ const useControllerForUserMain = (objId: string): Controller => {
         bio: `${fname} ${lname} - ${role}`,
         journalId: '',
         private: true,
+        degree: 0,
       });
       return user;
     },
@@ -222,6 +223,7 @@ const useControllerForUserMain = (objId: string): Controller => {
         bio: `${fname} ${lname}`,
         journalId: '',
         private: true,
+        degree: 0,
       });
       return user;
     },

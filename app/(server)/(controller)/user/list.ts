@@ -213,6 +213,7 @@ const useControllerForUserList = (
         bio: '',
         journalId: '',
         private: true,
+        degree: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

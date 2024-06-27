@@ -13,10 +13,10 @@ export function ProfileAboutDetails() {
       />
       <div className='flex w-full flex-col'>
         <p className='text-xl font-bold text-white'>
-          {profileUser.displayName || 'Display Name'}
+          {profileUser?.displayName || 'Display Name'}
         </p>
         <p className='font-light text-white'>
-          {profileUser.email || 'creative@verses.digital'}
+          {profileUser?.email || 'creative@verses.digital'}
         </p>
       </div>
     </>

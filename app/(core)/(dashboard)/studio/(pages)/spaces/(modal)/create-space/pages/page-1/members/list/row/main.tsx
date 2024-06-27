@@ -17,8 +17,8 @@ export function CreateSpaceCollaboratorRow({
       className='flex cursor-pointer flex-row items-center space-x-[1rem]'
       onClick={onClick}
     >
-      <ProfileCover fileElem={user.dp} />
-      <p className='font-bold'>{user.displayName}</p>
+      <ProfileCover fileElem={user?.dp} />
+      <p className='font-bold'>{user?.displayName}</p>
     </div>
   );
 }

@@ -18,7 +18,7 @@ export interface UserObj {
   subscriptionId?: string;
   priceId?: string;
   passwordHash?: string;
-  googleId?: string;
+  degree: number;
 }
 
 export const userGql = `
@@ -35,10 +35,10 @@ type UserObj {
   private: Boolean!
   bio: String
 	passwordHash: String
-	googleId: String
 	customerId: String
 	subscriptionId: String
 	priceId: String
+  degree: Int
 }
 `;
 
@@ -62,6 +62,7 @@ export const exampleUser: UserObj = {
   private: false,
   dp: exampleDisplayPictureFileElem,
   created: new Date().toISOString(),
+  degree: 0,
 };
 
 export const exampleUsers: UserObj[] = [
@@ -77,6 +78,7 @@ export const exampleUsers: UserObj[] = [
     bio: 'Been playing for X years',
     dp: exampleDisplayPictureFileElem,
     created: new Date().toISOString(),
+    degree: 0,
   },
   {
     id: '2',
@@ -90,6 +92,7 @@ export const exampleUsers: UserObj[] = [
     bio: 'Been playing for X years',
     dp: exampleDisplayPictureFileElem,
     created: new Date().toISOString(),
+    degree: 0,
   },
 ];
 

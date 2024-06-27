@@ -1,9 +1,9 @@
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useContext } from 'react';
 
 export function ContainerDescription() {
-  const user = useGlobalUser((state) => state.user);
+  const loggedInUser = useGlobalUser((state) => state.user);
   const gallery = useContext(ContextForGalleryObj);
 
   return (
@@ -11,8 +11,8 @@ export function ContainerDescription() {
       <div className='animate-pulse font-extraBold text-xl text-slate-300'>
         {gallery.title}
       </div>
-      <div className='text-md fon- {user.fname} {user.lname}t-normal mt-[1rem] text-slate-500'>
-        {user.fname} {user.lname}
+      <div className='text-md mt-[1rem] font-normal text-slate-500'>
+        {loggedInUser?.fname} {loggedInUser?.lname}
       </div>
     </div>
   );

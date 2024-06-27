@@ -33,6 +33,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElem,
         role: 'Musician',
         bio: 'I like music',
+        degree: 0,
       };
     case UserTemplate.PRODUCER:
       return {
@@ -43,6 +44,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElem,
         role: 'Producer',
         bio: 'I like producing',
+        degree: 5,
       };
     case UserTemplate.SINGER:
       return {
@@ -53,6 +55,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElem,
         role: 'Singer',
         bio: 'I like Singing',
+        degree: 3,
       };
   }
 }
