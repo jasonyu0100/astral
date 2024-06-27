@@ -3,13 +3,12 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { borderFx, glassFx } from '@/(style)/data';
-import { SpaceSessionUpdateFormSave } from './action/save/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
 import { SpaceSessionUpdateHeader } from './header/main';
 import { SpaceSessionUpdateFormContributors } from './members/main';
 import { SpaceSessionSessionUpdates } from './updates/main';
 
-export function SpaceSessionUpdateForm() {
+export function SpaceSessionSessionUpdateForm() {
   return (
     <GlassWindowFrame
       className='h-full max-w-[800px] flex-grow p-[2rem]'
@@ -23,7 +22,6 @@ export function SpaceSessionUpdateForm() {
             <HorizontalDivider />
             <SpaceSessionUpdateFormDetails />
             <SpaceSessionUpdateFormContributors />
-            <SpaceSessionUpdateFormSave />
           </div>
         </div>
       </GlassWindowContents>

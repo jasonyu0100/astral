@@ -6,9 +6,10 @@ import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { createContext, useContext, useState } from 'react';
-import { SpaceSessionEditPrev } from '../(common)/icon/prev/main';
 import { EditContext } from '../main';
-import { SpaceSessionUpdateForm } from './form/main';
+import { SpaceSessionSessionUpdateForm } from './form/main';
+import { SpacesSessionSessionLeft } from './left/main';
+import { SpaceSessionSessionRight } from './right/main';
 
 interface Controller {
   title: string;
@@ -86,25 +87,9 @@ export function SpaceSessionSessionMain() {
   return (
     <ContextForSessionForm.Provider value={context}>
       <div className='flex h-full w-full flex-row items-center justify-between'>
-        <SpaceSessionEditPrev
-          onClick={() => {
-            updateComplete(false);
-          }}
-        />
-        <SpaceSessionUpdateForm />
-        {chapterListController.state.index <
-        chapterListController.state.objs.length - 1 ? (
-          <div className='w-[3rem]'>
-            {/* <SpaceSessionEditNext
-              onClick={() => {
-                chapterListController.actions.stateActions.goNext();
-                updateComplete(false);
-              }}
-            /> */}
-          </div>
-        ) : (
-          <div className='w-[3rem]'></div>
-        )}
+        <SpacesSessionSessionLeft />
+        <SpaceSessionSessionUpdateForm />
+        <SpaceSessionSessionRight />
       </div>
     </ContextForSessionForm.Provider>
   );
