@@ -28,11 +28,11 @@ export function CreateSpaceMembers() {
       <label className='mb-1 text-xs font-bold text-slate-400'>Members</label>
       <div className='flex flex-row space-x-[1rem]'>
         <CreateSpaceAddCollaborator onClick={togglableController.toggle} />
-        {memberIds.map((connectionId) => (
+        {memberIds.map((connectedId) => (
           <CreateSpaceCollaborator
-            connectionId={connectionId}
+            connectedId={connectedId}
             onClick={() => {
-              updateMemberIds(memberIds.filter((id) => id !== connectionId));
+              updateMemberIds(memberIds.filter((id) => id !== connectedId));
             }}
           />
         ))}

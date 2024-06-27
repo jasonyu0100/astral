@@ -4,7 +4,7 @@ import { ModelInterface } from '../../main';
 export interface UserBackerObj {
   id: string;
   userId: string;
-  backerId: string;
+  backedId: string;
   created: string;
   termsId: string;
 }
@@ -13,7 +13,7 @@ export const userBackerGql = `
 type UserBackerObj {
   id: String!
   userId: String!
-  backerId: String!
+  backedId: String!
   created: String!
   termsId: String!
 }
@@ -25,7 +25,7 @@ export const ContextForUserBackerObj = createContext<UserBackerObj>(
 
 export const exampleUserBacker: UserBackerObj = {
   id: '0',
-  backerId: '0',
+  backedId: '0',
   userId: '0',
   created: new Date().toISOString(),
   termsId: '0',
@@ -34,21 +34,21 @@ export const exampleUserBacker: UserBackerObj = {
 export const exampleUserBackers: UserBackerObj[] = [
   {
     id: '0',
-    backerId: '0',
+    backedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',
   },
   {
     id: '0',
-    backerId: '0',
+    backedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',
   },
   {
     id: '0',
-    backerId: '0',
+    backedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',

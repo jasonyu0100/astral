@@ -1,7 +1,10 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
+import {
+  ContextForUserConnectionList,
+  useControllerForUserConnectionList,
+} from '@/(server)/(controller)/user/connection/list';
 import { useControllerForUserConnectionTermsList } from '@/(server)/(controller)/user/connection/terms/list';
 import {
   ContextForLoggedInUserObj,
@@ -14,23 +17,26 @@ import { useContext } from 'react';
 export function ProfileAboutConnectAction() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const profileUser = useContext(ContextForProfileUserObj);
-  const connectionListController = useContext(ContextForUserConnectionList);
-  const connectionTermsListController =
-    useControllerForUserConnectionTermsList('');
+  const profileConnectionListController = useContext(
+    ContextForUserConnectionList,
+  );
+  const userConnectionListController = useControllerForUserConnectionList(
+    loggedInUser.id,
+  );
+  const termsListController = useControllerForUserConnectionTermsList('');
   const mutualConnected = checkMutualConnected();
+
+  // CONNECTION IS LIMITED BY DUNBAR AND IS INITIATED ON A TERMS BASIS
+  // CONNECTION IS TWO WAY
 
   function checkMutualConnected() {
     const fromLoggedIn =
-      connectionListController.state.objs.filter(
-        (connection) =>
-          connection.userId === loggedInUser.id &&
-          connection.connectionId === profileUser.id,
+      profileConnectionListController.state.objs.filter(
+        (connection) => connection.connectedId === loggedInUser.id,
       ).length > 0;
     const fromProfile =
-      connectionListController.state.objs.filter(
-        (connection) =>
-          connection.connectionId === profileUser.id &&
-          connection.userId === loggedInUser.id,
+      userConnectionListController.state.objs.filter(
+        (connection) => connection.connectedId === profileUser.id,
       ).length > 0;
     return fromLoggedIn && fromProfile;
   }
@@ -38,18 +44,19 @@ export function ProfileAboutConnectAction() {
   async function addTwoWayConnection() {
     // PERMISSION NEEDED
     alert('Two Way Connnection');
-    const terms =
-      await connectionTermsListController.actions.createActions.createTerms(
-        'Connection terms',
-        '1 year',
-        moment().add(1, 'year').toISOString(),
-      );
-    await connectionListController.actions.createActions.createConnection(
+    const terms = await termsListController.actions.createActions.createTerms(
+      'Connection terms',
+      '1 year',
+      moment().add(1, 'year').toISOString(),
+    );
+    // LOGGED IN CONNECTS WITH PROFILE
+    await userConnectionListController.actions.createActions.createConnection(
       loggedInUser.id, // initiator
       profileUser.id, // receiver
       terms.id,
     );
-    await connectionListController.actions.createActions.createConnection(
+    // PROFILE RECEIVES INVITATION
+    await profileConnectionListController.actions.createActions.createConnection(
       profileUser.id, // initiator
       loggedInUser.id, // receiver
       terms.id,
@@ -58,21 +65,31 @@ export function ProfileAboutConnectAction() {
 
   async function removeTwoWayConnection() {
     alert('Removing Two Way Connection');
-    const ids = connectionListController.state.objs
-      .filter(
-        (connection) =>
-          connection.connectionId === profileUser.id ||
-          connection.userId === profileUser.id,
-      )
+    const fromProfileIds = profileConnectionListController.state.objs
+      .filter((connection) => connection.connectedId === loggedInUser.id)
       .map((connection) => connection.id);
-    const connections =
-      await connectionListController.actions.deleteActions.deleteMany(ids);
 
-    connections.map(async (connection) => {
-      await connectionTermsListController.actions.deleteActions.delete(
-        connection.termsId,
-      );
-    });
+    const fromLoggedInIds = userConnectionListController.state.objs
+      .filter((connection) => connection.connectedId === profileUser.id)
+      .map((connection) => connection.id);
+
+    const deletedConnectionsFromLoggedIn =
+      await userConnectionListController.actions.deleteActions.deleteMany([
+        ...fromLoggedInIds,
+      ]);
+
+    const deletedConnectionsFromProfile =
+      await profileConnectionListController.actions.deleteActions.deleteMany([
+        ...fromProfileIds,
+      ]);
+
+    [...deletedConnectionsFromLoggedIn, ...deletedConnectionsFromProfile].map(
+      async (connection) => {
+        await termsListController.actions.deleteActions.delete(
+          connection.termsId,
+        );
+      },
+    );
   }
 
   return (

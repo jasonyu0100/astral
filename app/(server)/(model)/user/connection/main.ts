@@ -4,7 +4,7 @@ import { ModelInterface } from '../../main';
 export interface UserConnectionObj {
   id: string;
   userId: string;
-  connectionId: string;
+  connectedId: string;
   termsId: string;
   created: string;
 }
@@ -13,7 +13,7 @@ export const userConnectionGql = `
 type UserConnectionObj {
   id: String!
   userId: String!
-  connectionId: String!
+  connectedId: String!
   created: String!
   termsId: String!
 }
@@ -25,7 +25,7 @@ export const ContextForUserConnectionObj = createContext<UserConnectionObj>(
 
 export const exampleUserConnection: UserConnectionObj = {
   id: '0',
-  connectionId: '0',
+  connectedId: '0',
   userId: '0',
   created: new Date().toISOString(),
   termsId: '0',
@@ -34,21 +34,21 @@ export const exampleUserConnection: UserConnectionObj = {
 export const exampleUserConnections: UserConnectionObj[] = [
   {
     id: '0',
-    connectionId: '0',
+    connectedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',
   },
   {
     id: '0',
-    connectionId: '0',
+    connectedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',
   },
   {
     id: '0',
-    connectionId: '0',
+    connectedId: '0',
     userId: '0',
     created: new Date().toISOString(),
     termsId: '0',

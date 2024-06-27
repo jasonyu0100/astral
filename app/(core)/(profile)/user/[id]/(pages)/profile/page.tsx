@@ -44,14 +44,16 @@ export const ContextForProfilePage = createContext({} as Controller);
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const connectListController = useControllerForUserConnectionList(
-    loggedInUser.id,
-  );
-  const backerListController = useControllerForUserBackerList(loggedInUser.id);
   const profileContext = useContext(ContextForProfile);
   const userController = useControllerForUserMain(profileContext.userId);
-  const user = userController.state.obj;
-  const admin = loggedInUser.id === user.id;
+  const profileUser = userController.state.obj;
+  const admin = loggedInUser.id === profileUser.id;
+  const profileConnectionListController = useControllerForUserConnectionList(
+    profileUser.id,
+  );
+  const profilebackerListController = useControllerForUserBackerList(
+    profileUser.id,
+  );
   const [page, setPage] = useState(ProfilePage.General);
 
   const context = {
@@ -62,13 +64,15 @@ function Page() {
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForProfileUserObj.Provider value={user}>
+      <ContextForProfileUserObj.Provider value={profileUser}>
         <ContextForProfilePage.Provider value={context}>
           <ContextForUserMain.Provider value={userController}>
             <ContextForUserConnectionList.Provider
-              value={connectListController}
+              value={profileConnectionListController}
             >
-              <ContextForUserBackerList.Provider value={backerListController}>
+              <ContextForUserBackerList.Provider
+                value={profilebackerListController}
+              >
                 <UserProfileView />
               </ContextForUserBackerList.Provider>
             </ContextForUserConnectionList.Provider>

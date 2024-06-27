@@ -177,6 +177,9 @@ const useControllerForSpaceChapterList = (
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
     },
+    deleteIds: (ids: string[]) => {
+      changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
+    },
   };
 
   const gatherActions: GatherActions = {

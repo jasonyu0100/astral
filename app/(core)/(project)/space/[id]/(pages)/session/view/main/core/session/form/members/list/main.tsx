@@ -23,10 +23,10 @@ export function SpaceSessionCollaboratorList() {
           <ContextForUserConnectionObj.Provider value={connection}>
             <SpaceSessionCollaboratorRow
               onClick={() => {
-                if (!contributorIds.includes(connection.connectionId)) {
+                if (!contributorIds.includes(connection.connectedId)) {
                   setContributorIds([
                     ...contributorIds,
-                    connection.connectionId,
+                    connection.connectedId,
                   ]);
                 }
                 togglableController.toggle();

@@ -2,13 +2,13 @@ import { ProfileCover } from '@/(components)/(element)/profile/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 
 export function SpaceSessionCollaborator({
-  connectionId,
+  connectedId,
   onClick,
 }: {
-  connectionId: string;
+  connectedId: string;
   onClick: () => void;
 }) {
-  const userController = useControllerForUserMain(connectionId);
+  const userController = useControllerForUserMain(connectedId);
   const user = userController.state.obj;
 
   return (

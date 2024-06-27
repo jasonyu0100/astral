@@ -1,7 +1,10 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
+import {
+  ContextForUserBackerList,
+  useControllerForUserBackerList,
+} from '@/(server)/(controller)/user/backer/list';
 import { useControllerForUserBackerTermsList } from '@/(server)/(controller)/user/backer/terms/list';
 import {
   ContextForLoggedInUserObj,
@@ -12,64 +15,68 @@ import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutBackAction() {
-  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const profileUser = useContext(ContextForProfileUserObj);
-  const backerListController = useContext(ContextForUserBackerList);
-  const backerTermsListController = useControllerForUserBackerTermsList('');
-  const userBacked = checkLoggedInBacking();
-  const mutualBacking = checkMutualBacking();
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const profileBackerListController = useContext(ContextForUserBackerList);
+  const loggedInBackerListController = useControllerForUserBackerList(
+    loggedInUser.id,
+  );
+  const termsListController = useControllerForUserBackerTermsList('');
+  const youBackThem = checkYouBackThem();
+  const theyBackYou = checkTheyBackYou();
 
-  function checkLoggedInBacking() {
-    const fromLoggedIn =
-      backerListController.state.objs.filter(
-        (link) =>
-          link.userId === loggedInUser.id && link.backerId === profileUser.id,
+  // BACKING IS LIMITED BY MONEY AND IS LIMITED BY A TERMS BASIS
+  // BACKING IS ONE WAY
+
+  function checkYouBackThem() {
+    const filtered =
+      loggedInBackerListController.state.objs.filter(
+        (link) => link.backedId === profileUser.id,
       ).length > 0;
-    return fromLoggedIn;
+    console.log(loggedInBackerListController.state.objs);
+    return filtered;
   }
 
-  function checkMutualBacking() {
-    const fromLoggedIn =
-      backerListController.state.objs.filter(
-        (link) =>
-          link.userId === loggedInUser.id && link.backerId === profileUser.id,
+  function checkTheyBackYou() {
+    const filtered =
+      profileBackerListController.state.objs.filter(
+        (link) => link.backedId === loggedInUser.id,
       ).length > 0;
-    const fromProfile =
-      backerListController.state.objs.filter(
-        (link) =>
-          link.userId === profileUser.id && link.backerId === loggedInUser.id,
-      ).length > 0;
-    return fromLoggedIn && fromProfile;
+    return filtered;
   }
 
   async function addOneWayBacking() {
     // NO PERMISSION NEEDED
     alert('One Way Backing');
-    const terms =
-      await backerTermsListController.actions.createActions.createTerms(
-        'Backer terms',
-        '1 year',
-        moment().add(1, 'year').toISOString(),
-      );
-    await backerListController.actions.createActions.createConnection(
-      loggedInUser.id, // initiator
-      profileUser.id, // receiver
-      terms.id,
+    const terms = await termsListController.actions.createActions.createTerms(
+      'Backer terms',
+      '1 year',
+      moment().add(1, 'year').toISOString(),
     );
+    // ACTUAL
+    const backing =
+      await profileBackerListController.actions.createActions.createConnection(
+        loggedInUser.id, // backer
+        profileUser.id, // backed
+        terms.id,
+      );
+    // VIRTUAL
+    loggedInBackerListController.actions.stateActions.pushBack(backing);
   }
 
   async function removeOneWayBacking() {
     alert('Removing One Way Backing');
-    const ids = backerListController.state.objs
-      .filter((backer) => backer.userId === loggedInUser.id)
-      .map((backer) => backer.id);
+
+    const ids = profileBackerListController.state.objs
+      .filter((obj) => obj.backedId === profileUser.id)
+      .map((obj) => obj.id);
+
     const backings =
-      await backerListController.actions.deleteActions.deleteMany(ids);
+      await profileBackerListController.actions.deleteActions.deleteMany(ids);
+    await loggedInBackerListController.actions.deleteActions.deleteMany(ids);
 
     backings.map(async (backing) => {
-      await backerTermsListController.actions.deleteActions.delete(
-        backing.termsId,
-      );
+      await termsListController.actions.deleteActions.delete(backing.termsId);
     });
   }
 
@@ -82,7 +89,7 @@ export function ProfileAboutBackAction() {
       <GlassWindowContents
         className='flex h-full w-full cursor-pointer items-center justify-center'
         onClick={() => {
-          if (userBacked) {
+          if (youBackThem) {
             removeOneWayBacking();
           } else {
             addOneWayBacking();
@@ -90,11 +97,8 @@ export function ProfileAboutBackAction() {
         }}
       >
         <p className='font-bold text-slate-300'>
-          {userBacked ? (
-            <>{mutualBacking ? 'Backed' : 'Mutual Backing'}</>
-          ) : (
-            'Back'
-          )}
+          {!youBackThem && 'Back'}
+          {youBackThem && 'Backed'}
         </p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

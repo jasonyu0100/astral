@@ -35,7 +35,7 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createConnection: (
     userId: string,
-    backerId: string,
+    backedId: string,
     termsId: string,
   ) => Promise<UserBackerObj>;
 }
@@ -169,6 +169,9 @@ const useControllerForUserBackerList = (
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
     },
+    deleteIds: (ids: string[]) => {
+      changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -213,7 +216,7 @@ const useControllerForUserBackerList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        backerId: '',
+        backedId: '',
         termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -223,13 +226,13 @@ const useControllerForUserBackerList = (
     },
     createConnection: async (
       userId: string,
-      backerId: string,
+      backedId: string,
       termsId: string,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        backerId: backerId,
+        backedId: backedId,
         termsId: termsId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

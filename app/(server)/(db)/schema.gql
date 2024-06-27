@@ -557,7 +557,7 @@ input CreateSpaceObjInput {
 }
 
 input CreateUserBackerObjInput {
-  backerId: String!
+  backedId: String!
   userId: String!
   created: String!
   termsId: String!
@@ -578,7 +578,7 @@ input CreateUserCollaboratorObjInput {
 
 input CreateUserConnectionObjInput {
   userId: String!
-  connectionId: String!
+  connectedId: String!
   created: String!
   termsId: String!
 }
@@ -1702,7 +1702,7 @@ input TableStringFilterInput {
 
 input TableUserBackerObjFilterInput {
   id: TableStringFilterInput
-  backerId: TableStringFilterInput
+  backedId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
   termsId: TableStringFilterInput
@@ -1726,7 +1726,7 @@ input TableUserCollaboratorObjFilterInput {
 input TableUserConnectionObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
-  connectionId: TableStringFilterInput
+  connectedId: TableStringFilterInput
   created: TableStringFilterInput
   termsId: TableStringFilterInput
 }
@@ -2191,7 +2191,7 @@ input UpdateSpaceObjInput {
 
 input UpdateUserBackerObjInput {
   id: String!
-  backerId: String
+  backedId: String
   userId: String
   created: String
   termsId: String
@@ -2215,7 +2215,7 @@ input UpdateUserCollaboratorObjInput {
 input UpdateUserConnectionObjInput {
   id: String!
   userId: String
-  connectionId: String
+  connectedId: String
   created: String
   termsId: String
 }
@@ -2296,7 +2296,7 @@ input UrlElemInput {
 
 type UserBackerObj {
   id: String!
-  backerId: String!
+  backedId: String!
   userId: String!
   created: String!
   termsId: String!
@@ -2335,7 +2335,7 @@ type UserCollaboratorObjConnection {
 type UserConnectionObj {
   id: String!
   userId: String!
-  connectionId: String!
+  connectedId: String!
   created: String!
   termsId: String!
 }
@@ -3916,38 +3916,38 @@ type Subscription {
     @aws_subscribe(mutations: ["deleteHorizonGroupMemberObj"])
   onCreateUserBackerObj(
     id: String
-    backerId: String
+    backedId: String
     userId: String
     created: String
   ): UserBackerObj @aws_subscribe(mutations: ["createUserBackerObj"])
   onUpdateUserBackerObj(
     id: String
-    backerId: String
+    backedId: String
     userId: String
     created: String
   ): UserBackerObj @aws_subscribe(mutations: ["updateUserBackerObj"])
   onDeleteUserBackerObj(
     id: String
-    backerId: String
+    backedId: String
     userId: String
     created: String
   ): UserBackerObj @aws_subscribe(mutations: ["deleteUserBackerObj"])
   onCreateUserConnectionObj(
     id: String
     userId: String
-    connectionId: String
+    connectedId: String
     created: String
   ): UserConnectionObj @aws_subscribe(mutations: ["createUserConnectionObj"])
   onUpdateUserConnectionObj(
     id: String
     userId: String
-    connectionId: String
+    connectedId: String
     created: String
   ): UserConnectionObj @aws_subscribe(mutations: ["updateUserConnectionObj"])
   onDeleteUserConnectionObj(
     id: String
     userId: String
-    connectionId: String
+    connectedId: String
     created: String
   ): UserConnectionObj @aws_subscribe(mutations: ["deleteUserConnectionObj"])
   onCreateUserConnectionTermsObj(

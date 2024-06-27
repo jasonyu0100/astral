@@ -9,7 +9,7 @@ export function SpaceSessionCollaboratorRow({
   onClick: () => void;
 }) {
   const connection = useContext(ContextForUserConnectionObj);
-  const userController = useControllerForUserMain(connection.connectionId);
+  const userController = useControllerForUserMain(connection.connectedId);
   const user = userController.state.obj;
 
   return (

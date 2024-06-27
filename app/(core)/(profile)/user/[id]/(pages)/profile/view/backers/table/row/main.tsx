@@ -4,15 +4,11 @@ import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForUserBackerObj } from '@/(server)/(model)/user/backer/main';
 import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
-import { ContextForProfilePage } from '../../../../page';
 import { UserProfileConnectionsRowNumber } from '../../../connections/table/row/number/main';
 
 export function UserProfileBackersTableRow() {
-  const { admin } = useContext(ContextForProfilePage);
   const backerObj = useContext(ContextForUserBackerObj);
-  const userController = useControllerForUserMain(
-    admin ? backerObj.backerId : backerObj.userId,
-  );
+  const userController = useControllerForUserMain(backerObj.backedId);
   const user = userController.state.obj;
   const termsController = useControllerForUserBackerTermsMain(
     backerObj.termsId,

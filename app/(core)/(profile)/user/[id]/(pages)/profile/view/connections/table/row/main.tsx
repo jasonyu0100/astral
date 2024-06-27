@@ -4,15 +4,11 @@ import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
 import { ContextForUserObj } from '@/(server)/(model)/user/main';
 import { useContext } from 'react';
-import { ContextForProfilePage } from '../../../../page';
 import { UserProfileConnectionsRowNumber } from './number/main';
 
 export function UserProfileConnectionsTableRow() {
-  const { admin } = useContext(ContextForProfilePage);
   const connectionObj = useContext(ContextForUserConnectionObj);
-  const userController = useControllerForUserMain(
-    admin ? connectionObj.connectionId : connectionObj.userId,
-  );
+  const userController = useControllerForUserMain(connectionObj.connectedId);
   const user = userController.state.obj;
   const termsController = useControllerForUserConnectionTermsMain(
     connectionObj.termsId,

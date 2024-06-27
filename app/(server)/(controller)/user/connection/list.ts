@@ -35,7 +35,7 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createConnection: (
     userId: string,
-    connectionId: string,
+    connectedId: string,
     termsId: string,
   ) => Promise<UserConnectionObj>;
 }
@@ -169,6 +169,9 @@ const useControllerForUserConnectionList = (
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
     },
+    deleteIds: (ids: string[]) => {
+      changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
+    },
   };
 
   const gatherActions: GatherActions = {
@@ -213,7 +216,7 @@ const useControllerForUserConnectionList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        connectionId: '',
+        connectedId: '',
         termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -223,13 +226,13 @@ const useControllerForUserConnectionList = (
     },
     createConnection: async (
       userId: string,
-      connectionId: string,
+      connectedId: string,
       termsId: string,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        connectionId: connectionId,
+        connectedId: connectedId,
         termsId: termsId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

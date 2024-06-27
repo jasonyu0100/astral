@@ -30,12 +30,12 @@ export function SpaceSessionUpdateFormContributors() {
       </label>
       <div className='flex flex-row space-x-[1rem]'>
         <SpaceSessionAddCollaborator onClick={togglableController.toggle} />
-        {contributorIds.map((connectionId) => (
+        {contributorIds.map((connectedId) => (
           <SpaceSessionCollaborator
-            connectionId={connectionId}
+            connectedId={connectedId}
             onClick={() => {
               setContributorIds(
-                contributorIds.filter((id) => id !== connectionId),
+                contributorIds.filter((id) => id !== connectedId),
               );
             }}
           />
