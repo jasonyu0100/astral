@@ -18,6 +18,8 @@ export interface UserObj {
   subscriptionId?: string;
   priceId?: string;
   passwordHash?: string;
+  polarHash?: string;
+  writtenHash?: string;
   degree: number;
 }
 
@@ -35,6 +37,8 @@ type UserObj {
   private: Boolean!
   bio: String
 	passwordHash: String
+  polarHash: String
+  writtenHash: String
 	customerId: String
 	subscriptionId: String
 	priceId: String
@@ -42,7 +46,10 @@ type UserObj {
 }
 `;
 
-export type SafeUserObj = Omit<UserObj, 'passwordHash'>;
+export type SafeUserObj = Omit<
+  UserObj,
+  'passwordHash' | 'polarHash' | 'writtenHash'
+>;
 
 export const ContextForUserObj = createContext<UserObj>({} as UserObj);
 

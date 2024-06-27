@@ -5,6 +5,8 @@ export type TemplateUserObj = Omit<
   UserObj,
   | 'id'
   | 'passwordHash'
+  | 'polarHash'
+  | 'writtenHash'
   | 'customerId'
   | 'subscriptionId'
   | 'priceId'

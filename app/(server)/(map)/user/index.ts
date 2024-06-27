@@ -8,6 +8,7 @@ import { userBackerModel } from '@/(server)/(model)/user/backer/main';
 import { userBackerTermsModel } from '@/(server)/(model)/user/backer/term/main';
 import { userConnectionModel } from '@/(server)/(model)/user/connection/main';
 import { userConnectionTermsModel } from '@/(server)/(model)/user/connection/term/main';
+import { userVaultModel } from '@/(server)/(model)/user/vault/main';
 import { userModel } from '../../(model)/user/main';
 import { userReservationModel } from '../../(model)/user/reservation/main';
 
@@ -33,5 +34,9 @@ export const userMap = {
   reservation: {
     model: userReservationModel,
     db: userReservationDbWrapper,
+  },
+  vault: {
+    model: userVaultModel,
+    db: null,
   },
 };
