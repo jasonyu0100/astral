@@ -16,6 +16,9 @@ export function SpaceSessionCollaboratorList() {
     <>
       <HorizontalDivider />
       <div className='flex w-full flex-col space-y-[1rem]'>
+        {connectListController.state.objs.length === 0 && (
+          <div className='text-center text-slate-400'>No connections found</div>
+        )}
         {connectListController.state.objs.map((connection) => (
           <ContextForUserConnectionObj.Provider value={connection}>
             <SpaceSessionCollaboratorRow
