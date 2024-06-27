@@ -34,7 +34,6 @@ input FileElemInput {
   title: String
   size: Int
   variant: String
-
 }
 `;
 

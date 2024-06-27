@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { SpaceSessionEditPrev } from '../../(common)/icon/prev/main';
-import { EditContext } from '../../main';
+import { ContextForSpaceSessionController } from '../../../../../(controller)/space-session/main';
 
 export function SpacesSessionSessionLeft() {
-  const { updateComplete } = useContext(EditContext);
+  const spaceSessionController = useContext(ContextForSpaceSessionController);
 
   return (
     <SpaceSessionEditPrev
       onClick={() => {
-        updateComplete(false);
+        spaceSessionController.updateComplete(false);
       }}
     />
   );

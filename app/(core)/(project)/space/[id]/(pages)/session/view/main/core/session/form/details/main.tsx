@@ -3,10 +3,10 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForSessionForm } from '../../main';
+import { ContextForSessionForm } from '../../../../../../(controller)/session-form/main';
 
 export function SpaceSessionUpdateFormDetails() {
-  const updateEditController = useContext(ContextForSessionForm);
+  const sessionFormController = useContext(ContextForSessionForm);
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
@@ -15,8 +15,8 @@ export function SpaceSessionUpdateFormDetails() {
         <GlassWindowContents>
           <input
             className='h-full w-full bg-transparent p-[1rem] font-bold text-slate-500 outline-none'
-            value={updateEditController.title}
-            onChange={(e) => updateEditController.setTitle(e.target.value)}
+            value={sessionFormController.title}
+            onChange={(e) => sessionFormController.setTitle(e.target.value)}
           />
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
@@ -26,9 +26,9 @@ export function SpaceSessionUpdateFormDetails() {
         <GlassWindowContents>
           <textarea
             className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-slate-500 outline-none'
-            value={updateEditController.description}
+            value={sessionFormController.description}
             onChange={(e) =>
-              updateEditController.setDescription(e.target.value)
+              sessionFormController.setDescription(e.target.value)
             }
           />
         </GlassWindowContents>

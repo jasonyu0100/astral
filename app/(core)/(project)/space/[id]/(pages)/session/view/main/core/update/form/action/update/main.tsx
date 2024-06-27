@@ -1,15 +1,15 @@
 import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { ContextForSpaceSessionController } from '@/(core)/(project)/space/[id]/(pages)/session/(controller)/space-session/main';
+import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/session/(controller)/update-form/main';
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { EditContext } from '../../../../main';
-import { ContextForUpdateForm } from '../../../main';
 
 export function SpaceSessionUpdateFormUpdate() {
-  const { updateComplete } = useContext(EditContext);
-  const itemEditController = useContext(ContextForUpdateForm);
+  const spaceSessionController = useContext(ContextForSpaceSessionController);
+  const updateFormController = useContext(ContextForUpdateForm);
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );
@@ -19,13 +19,13 @@ export function SpaceSessionUpdateFormUpdate() {
       sessionUpdateListController.state.index ===
       sessionUpdateListController.state.objs.length - 1
     ) {
-      itemEditController.SessionUpdate().then(() => {
-        updateComplete(true);
+      updateFormController.updateSession().then(() => {
+        spaceSessionController.updateComplete(true);
       });
     } else {
-      itemEditController.SessionUpdate().then(() => {
+      updateFormController.updateSession().then(() => {
         sessionUpdateListController.actions.stateActions.goNext();
-        updateComplete(false);
+        spaceSessionController.updateComplete(false);
       });
     }
   }

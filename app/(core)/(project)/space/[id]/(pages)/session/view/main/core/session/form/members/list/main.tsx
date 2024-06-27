@@ -1,14 +1,13 @@
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { ContextForSessionForm } from '@/(core)/(project)/space/[id]/(pages)/session/(controller)/session-form/main';
 import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
 import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
 import { useContext } from 'react';
-import { ContextForSessionForm } from '../../../main';
 import { SpaceSessionCollaboratorRow } from './row/main';
 
 export function SpaceSessionCollaboratorList() {
-  const updateEditController = useContext(ContextForSessionForm);
-  const { contributorIds, setContributorIds } = updateEditController;
+  const sessionFormController = useContext(ContextForSessionForm);
   const connectListController = useContext(ContextForUserConnectionList);
   const togglableController = useContext(ContextForTogglable);
 
@@ -23,9 +22,13 @@ export function SpaceSessionCollaboratorList() {
           <ContextForUserConnectionObj.Provider value={connection}>
             <SpaceSessionCollaboratorRow
               onClick={() => {
-                if (!contributorIds.includes(connection.connectedId)) {
-                  setContributorIds([
-                    ...contributorIds,
+                if (
+                  !sessionFormController.contributorIds.includes(
+                    connection.connectedId,
+                  )
+                ) {
+                  sessionFormController.setContributorIds([
+                    ...sessionFormController.contributorIds,
                     connection.connectedId,
                   ]);
                 }

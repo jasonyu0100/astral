@@ -18,6 +18,10 @@ import {
 } from '@/(server)/(controller)/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
+import {
+  ContextForSpaceSessionController,
+  useControllerForSpaceSessionController,
+} from './(controller)/space-session/main';
 import { SpaceSessionShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -30,6 +34,7 @@ function Page({ params }: { params: { id: string } }) {
   const sessionUpdateListController = useControllerForChapterSessionUpdateList(
     chapterListController.state.objId,
   );
+  const spaceSessionController = useControllerForSpaceSessionController();
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
@@ -39,7 +44,11 @@ function Page({ params }: { params: { id: string } }) {
             <ContextForChapterSessionUpdateList.Provider
               value={sessionUpdateListController}
             >
-              <SpaceSessionShareView />
+              <ContextForSpaceSessionController.Provider
+                value={spaceSessionController}
+              >
+                <SpaceSessionShareView />
+              </ContextForSpaceSessionController.Provider>
             </ContextForChapterSessionUpdateList.Provider>
           </ContextForChapterSessionList.Provider>
         </ContextForSpaceChapterList.Provider>

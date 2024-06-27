@@ -1,10 +1,10 @@
 import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { useContext } from 'react';
 import { SpaceSessionEditNext } from '../../(common)/icon/next/main';
-import { EditContext } from '../../main';
+import { ContextForSpaceSessionController } from '../../../../../(controller)/space-session/main';
 
 export function SpaceSessionUpdateRight() {
-  const { updateComplete } = useContext(EditContext);
+  const spaceSessionController = useContext(ContextForSpaceSessionController);
   const sessionUpdateListController = useContext(
     ContextForChapterSessionUpdateList,
   );
@@ -21,7 +21,7 @@ export function SpaceSessionUpdateRight() {
       ) : (
         <SpaceSessionEditNext
           onClick={() => {
-            updateComplete(true);
+            spaceSessionController.updateComplete(true);
           }}
         />
       )}

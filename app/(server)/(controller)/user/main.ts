@@ -22,7 +22,7 @@ interface ControllerState {
 interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;
-  polaroidAuth(email: string): Promise<boolean>;
+  polarAuth(email: string): Promise<boolean>;
   versesAuth(domain: string): Promise<boolean>;
 }
 interface GatherActions extends BaseGatherActions<TargetObj> {}
@@ -69,11 +69,13 @@ const useControllerForUserMain = (objId: string): Controller => {
       });
       return users.length > 0;
     },
-    polaroidAuth: async (email: string) => {
+    polarAuth: async (email: string) => {
+      console.log(email);
       alert('Authing email via Polaroid');
       return false;
     },
     versesAuth: async (domain: string) => {
+      console.log(domain);
       alert('Authing domain via Verses');
       return false;
     },
