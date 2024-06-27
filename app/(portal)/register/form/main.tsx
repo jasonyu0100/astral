@@ -9,13 +9,7 @@ import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
 import { PortalForm } from '@/(portal)/(common)/container/form/main';
 import { useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import {
-  exampleFileElem,
-  FileElem,
-  FileElemVariant,
-} from '@/(server)/(model)/elements/file/main';
-import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
+import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { useState } from 'react';
 import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
 import { portalMap } from '../../map';
@@ -30,47 +24,6 @@ export function PortalRegisterForm() {
   const [password, changePassword] = useState('');
   const [rePassword, changeRePassword] = useState('');
   const [role, changeRole] = useState('');
-
-  const attemptGoogleRegister = useGoogleLogin({
-    onSuccess: (codeResponse) => {
-      const accessToken = codeResponse.access_token;
-      axios
-        .get(
-          `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-              Accept: 'application/json',
-            },
-          },
-        )
-        .then((resp) => {
-          const googleId = resp.data.id;
-          const fname = resp.data.given_name;
-          const lname = resp.data.family_name;
-          const profilePicture: FileElem = {
-            id: crypto.randomUUID(),
-            src: resp.data.picture,
-            ext: 'image/*',
-            title: 'Profile Picture',
-            size: 0,
-            variant: FileElemVariant.IMAGE,
-          };
-          const email = resp.data.email;
-          userController.actions.createActions
-            .registerFromGoogle(fname, lname, email, googleId, profilePicture)
-            .then((user) => {
-              register(user);
-              alert('Register Success');
-              window.location.href = studioMap.studio.spaces.link;
-            });
-        });
-    },
-    onError: (error) => {
-      alert('Register Failed');
-      console.log('Register Failed:', error);
-    },
-  });
 
   async function attemptRegister() {
     const user = await userController.actions.createActions.registerFromEmail(
@@ -147,9 +100,6 @@ export function PortalRegisterForm() {
         <PortalFormAction onClick={() => attemptRegister()}>
           REGISTER
         </PortalFormAction>
-        {/* <PortalFormGoogleAction onClick={() => attemptGoogleRegister()}>
-          Register with Google
-        </PortalFormGoogleAction> */}
         <PortalFormAltAction>
           Already have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.login.link}>

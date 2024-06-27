@@ -6,10 +6,7 @@ import {
   BaseStateActions,
 } from '@/(server)/(controller)/main';
 import { userDbWrapper } from '@/(server)/(db)/user/main';
-import {
-  FileElem,
-  exampleDisplayPictureFileElem,
-} from '@/(server)/(model)/elements/file/main';
+import { exampleDisplayPictureFileElem } from '@/(server)/(model)/elements/file/main';
 import { UserObj } from '@/(server)/(model)/user/main';
 import bcrypt from 'bcryptjs';
 import { createContext, useMemo, useState } from 'react';
@@ -25,7 +22,7 @@ interface ControllerState {
 interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;
-  loginFromGoogle(email: string, googleId: string): Promise<TargetObj>;
+  polaroidAuth(email: string): Promise<boolean>;
 }
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
@@ -36,13 +33,6 @@ interface CreateActions extends BaseCreateActions<TargetObj> {
     role: string,
     email: string,
     password: string,
-  ): Promise<TargetObj>;
-  registerFromGoogle(
-    fname: string,
-    lname: string,
-    email: string,
-    googleId: string,
-    profilePicture: FileElem,
   ): Promise<TargetObj>;
 }
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
@@ -78,6 +68,10 @@ const useControllerForUserMain = (objId: string): Controller => {
       });
       return users.length > 0;
     },
+    polaroidAuth: async (email: string) => {
+      alert('Authing email via Polaroid');
+      return false;
+    },
     loginFromEmail: async (email: string, password: string) => {
       const users = await gqlDbWrapper.listFromVariables({
         filter: {
@@ -101,40 +95,6 @@ const useControllerForUserMain = (objId: string): Controller => {
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (daysDifference > 50) {
-            throw new Error('Account trial is over');
-          }
-        } else {
-          const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId,
-          );
-          if (subscription.plan.active !== true) {
-            throw new Error('Subscription is not active');
-          }
-        }
-        return user;
-      }
-    },
-    loginFromGoogle: async (email: string, googleId: string) => {
-      const users = await gqlDbWrapper.listFromVariables({
-        filter: {
-          email: {
-            eq: email,
-          },
-          googleId: {
-            eq: googleId,
-          },
-        },
-      });
-
-      if (users.length === 0) {
-        throw new Error('Email is invalid');
-      } else {
-        const user = users[0];
-        if (user.subscriptionId === null) {
-          const timeDiff =
-            new Date().getTime() - new Date(user.created).getTime();
-          const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (0 < daysDifference && daysDifference < 14) {
             throw new Error('Account trial is over');
           }
         } else {
@@ -193,34 +153,6 @@ const useControllerForUserMain = (objId: string): Controller => {
         displayName: `${fname} ${lname}`,
         role: role,
         bio: `${fname} ${lname} - ${role}`,
-        journalId: '',
-        private: true,
-        degree: 0,
-      });
-      return user;
-    },
-    registerFromGoogle: async (
-      fname: string,
-      lname: string,
-      email: string,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      _googleId: string,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      _profilePicture: FileElem,
-    ) => {
-      const emailCheck = await stateActions.checkEmail(email);
-      if (emailCheck) {
-        return {} as TargetObj;
-      }
-      const user = await gqlDbWrapper.createObj({
-        fname: fname,
-        lname: lname,
-        email: email,
-        created: new Date().toISOString(),
-        dp: exampleDisplayPictureFileElem,
-        displayName: `${fname} ${lname}`,
-        role: '',
-        bio: `${fname} ${lname}`,
         journalId: '',
         private: true,
         degree: 0,

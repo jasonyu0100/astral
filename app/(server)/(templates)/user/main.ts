@@ -8,7 +8,6 @@ export type TemplateUserObj = Omit<
   | 'customerId'
   | 'subscriptionId'
   | 'priceId'
-  | 'googleId'
   | 'created'
   | 'journalId'
   | 'private'

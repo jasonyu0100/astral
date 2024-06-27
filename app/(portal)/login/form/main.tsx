@@ -18,37 +18,6 @@ export function PortalLoginForm() {
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
 
-  // const attempGoogleLogin = useGoogleLogin({
-  //   onSuccess: (codeResponse) => {
-  //     const accessToken = codeResponse.access_token;
-  //     axios
-  //       .get(
-  //         `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${accessToken}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${accessToken}`,
-  //             Accept: 'application/json',
-  //           },
-  //         },
-  //       )
-  //       .then((resp) => {
-  //         const email = resp.data.email;
-  //         const googleId = resp.data.id;
-  //         userController.actions.stateActions
-  //           .loginFromGoogle(email, googleId)
-  //           .then((user) => {
-  //             login(user);
-  //             alert('Login Success');
-  //             window.location.href = studioMap.studio.spaces.link;
-  //           });
-  //       });
-  //   },
-  //   onError: (error) => {
-  //     alert('Login Failed');
-  //     console.log('Login Failed:', error);
-  //   },
-  // });
-
   const attemptLogin = () => {
     userController.actions.stateActions
       .loginFromEmail(email, password)
@@ -83,9 +52,6 @@ export function PortalLoginForm() {
         <PortalFormAction onClick={() => attemptLogin()}>
           LOGIN
         </PortalFormAction>
-        {/* <PortalFormGoogleAction onClick={() => attempGoogleLogin()}>
-          Login with Google
-        </PortalFormGoogleAction> */}
         <PortalFormAltAction>
           Don{"'"}t have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>
