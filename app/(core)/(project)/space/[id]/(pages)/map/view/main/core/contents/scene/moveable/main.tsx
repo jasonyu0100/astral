@@ -88,7 +88,7 @@ export function SpaceMapMovable() {
             <>
               {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
                 <div
-                  className='aspect-[11/13] h-full bg-white'
+                  className='aspect-[11/13] h-full bg-white shadow-lg'
                   style={{ padding: '10%' }}
                 >
                   <img
