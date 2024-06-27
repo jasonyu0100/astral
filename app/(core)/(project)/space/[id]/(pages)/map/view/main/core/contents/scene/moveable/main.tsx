@@ -83,15 +83,20 @@ export function SpaceMapMovable() {
           }
         }}
       >
-        <div className='flex h-full w-full items-center justify-center p-[2rem]'>
+        <div className='flex h-full w-full items-center justify-center p-[1rem]'>
           {ideaObj.variant === ElementVariant.FILE && (
             <>
               {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
-                <img
-                  src={ideaObj.fileElem.src}
-                  alt={ideaObj.title}
-                  className='h-full w-full object-cover'
-                />
+                <div
+                  className='aspect-[11/13] h-full bg-white'
+                  style={{ padding: '10%' }}
+                >
+                  <img
+                    src={ideaObj.fileElem.src}
+                    alt={ideaObj.title}
+                    className='aspect-square w-full object-cover'
+                  />
+                </div>
               )}
             </>
           )}
@@ -99,7 +104,7 @@ export function SpaceMapMovable() {
       </div>
       <Moveable
         ref={moveableRef}
-        target={hoverableController.hovered && targetRef}
+        targets={[...(hoverableController.hovered ? [targetRef] : [])]}
         draggable={true}
         scalable={true}
         keepRatio={true}

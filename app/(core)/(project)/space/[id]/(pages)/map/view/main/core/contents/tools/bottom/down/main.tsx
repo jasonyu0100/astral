@@ -5,7 +5,7 @@ export function SpaceMapDownIcon({ ...props }: SvgInputProps) {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      className='h-[2rem] w-[2rem] cursor-pointer'
+      className='h-[1.5rem] w-[1.5rem] cursor-pointer'
       fill='none'
       {...props}
     >

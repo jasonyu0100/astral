@@ -10,10 +10,10 @@ export function SpaceMapTextIdea() {
 
   return (
     <>
-      {star.textElem?.variant === TextElemVariant.PROMPT && (
+      {star.textElem?.variant === TextElemVariant.LINE && (
         <SpaceMapNotePromptIdea />
       )}
-      {star.textElem?.variant === TextElemVariant.QUOTE && (
+      {star.textElem?.variant === TextElemVariant.BLOCK && (
         <SpaceMapNoteQuoteIdea />
       )}
       {star.textElem?.variant === TextElemVariant.STICKY && (

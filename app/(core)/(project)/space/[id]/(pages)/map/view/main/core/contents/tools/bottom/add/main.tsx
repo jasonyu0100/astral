@@ -4,7 +4,7 @@ export function SpaceMapAddIcon({ ...props }: SvgInputProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className='h-[2rem] w-[2rem] cursor-pointer'
+      className='h-[1.5rem] w-[1.5rem] cursor-pointer'
       viewBox='0 0 24 24'
       fill='none'
       {...props}

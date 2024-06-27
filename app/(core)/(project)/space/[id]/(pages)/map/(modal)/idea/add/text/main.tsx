@@ -59,9 +59,10 @@ export function SpaceMapAddTextIdeaModal() {
               value={variant}
               onChange={(e) => changeVariant(e.target.value)}
             >
-              <option value={TextElemVariant.STICKY}>Sticky Note</option>
-              <option value={TextElemVariant.PROMPT}>Prompt</option>
-              <option value={TextElemVariant.QUOTE}>Quote</option>
+              <option value={TextElemVariant.LINE}>Line</option>
+              <option value={TextElemVariant.STICKY}>Sticky</option>
+              <option value={TextElemVariant.BLOCK}>Block</option>
+              <option value={TextElemVariant.CODE}>Code</option>
             </FormSelect>
             <FormInput
               placeholder='Title'

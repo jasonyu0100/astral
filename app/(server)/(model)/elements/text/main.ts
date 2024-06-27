@@ -2,9 +2,10 @@ import { createContext } from 'react';
 import { ModelInterface } from '../../main';
 
 export enum TextElemVariant {
+  LINE = 'LINE',
   STICKY = 'STICKY',
-  PROMPT = 'PROMPT',
-  QUOTE = 'QUOTE',
+  BLOCK = 'BLOCK',
+  CODE = 'CODE',
 }
 
 export interface TextElem {
