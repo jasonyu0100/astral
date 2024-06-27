@@ -21,7 +21,7 @@ export function SpaceSessionUpdateRight() {
       ) : (
         <SpaceSessionEditNext
           onClick={() => {
-            spaceSessionController.updateComplete(true);
+            spaceSessionController.updateSessionView(true);
           }}
         />
       )}

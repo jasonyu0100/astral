@@ -18,7 +18,7 @@ export function SpaceSessionCoreMain() {
     <>
       {updateListController.state.objs.length > 0 ? (
         <>
-          {spaceSessionController.complete ? (
+          {spaceSessionController.sessionView ? (
             <SpaceSessionSessionMain />
           ) : (
             <SpaceSessionUpdateMain />

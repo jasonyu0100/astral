@@ -20,12 +20,12 @@ export function SpaceSessionUpdateFormUpdate() {
       sessionUpdateListController.state.objs.length - 1
     ) {
       updateFormController.updateSession().then(() => {
-        spaceSessionController.updateComplete(true);
+        spaceSessionController.updateSessionView(true);
       });
     } else {
       updateFormController.updateSession().then(() => {
         sessionUpdateListController.actions.stateActions.goNext();
-        spaceSessionController.updateComplete(false);
+        spaceSessionController.updateSessionView(false);
       });
     }
   }

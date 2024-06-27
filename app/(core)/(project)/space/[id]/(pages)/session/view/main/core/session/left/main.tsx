@@ -8,7 +8,7 @@ export function SpacesSessionSessionLeft() {
   return (
     <SpaceSessionEditPrev
       onClick={() => {
-        spaceSessionController.updateComplete(false);
+        spaceSessionController.updateSessionView(false);
       }}
     />
   );
