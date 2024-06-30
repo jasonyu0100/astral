@@ -1,6 +1,7 @@
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
@@ -48,7 +49,7 @@ export function SpaceMapCreateResourceModal() {
         <FormContainer>
           <FormTitle>Add Media</FormTitle>
           <FormBody>
-            <FormSelect
+            {/* <FormSelect
               value={variant}
               onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
               title='Variant'
@@ -56,12 +57,17 @@ export function SpaceMapCreateResourceModal() {
               <option value={FileElemVariant.IMAGE}>Image</option>
               <option value={FileElemVariant.VIDEO}>Video</option>
               <option value={FileElemVariant.AUDIO}>Audio</option>
-            </FormSelect>
-            <FormUploadFile
+            </FormSelect> */}
+            <FormSearchImage
+              fileElem={file}
+              onChange={(file) => changeFile(file)}
+              label='Thumbnail'
+            />
+            {/* <FormUploadFile
               onChange={(file) => changeFile(file)}
               label='File'
               variant={variant}
-            />
+            /> */}
             <FormInput
               title='Title'
               value={name}

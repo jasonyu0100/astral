@@ -1,8 +1,3 @@
-import {
-  ContextForSidebarModals,
-  useControllerForSidebarModals,
-} from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/sidebar/main';
-import { SidebarModalsView } from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/sidebar/view';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
@@ -54,18 +49,13 @@ export function SpaceMapSidebar() {
     actions: sidebarHandler,
   };
 
-  const modalContext = useControllerForSidebarModals();
-
   return (
     <SpaceMapSidebarContext.Provider value={boardContext}>
       <ContextForGalleryList.Provider value={galleryListController}>
         <ContextForGalleryCollectionList.Provider
           value={collectionListController}
         >
-          <ContextForSidebarModals.Provider value={modalContext}>
-            <SidebarModalsView />
-            <SpaceMapSidebarView />
-          </ContextForSidebarModals.Provider>
+          <SpaceMapSidebarView />
         </ContextForGalleryCollectionList.Provider>
       </ContextForGalleryList.Provider>
     </SpaceMapSidebarContext.Provider>

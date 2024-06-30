@@ -16,7 +16,7 @@ import { useContext, useState } from 'react';
 
 export function SpaceMapCreateCollectionModal() {
   const user = useGlobalUser((state) => state.user);
-  const galleryListController = useContext(ContextForGalleryList);
+  const galleryController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const resourceListHandler = useControllerForCollectionResourceList('');
   const openableController = useContext(ContextForOpenable);
@@ -26,7 +26,7 @@ export function SpaceMapCreateCollectionModal() {
 
   async function createCollection() {
     collectionListController.actions.createActions
-      .createCollection(title, description, galleryListController.state.objId)
+      .createCollection(title, description, galleryController.state.objId)
       .then(async (collection) => {
         await Promise.all(
           files.map((f) =>
