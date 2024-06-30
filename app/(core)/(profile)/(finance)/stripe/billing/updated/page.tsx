@@ -9,7 +9,7 @@ export default function Page() {
       </h1>
       <br />
       <Link
-        href={studioMap.studio.spaces.link}
+        href={studioMap.studio.personal.link}
         className='font-bold text-blue-500'
       >
         Back Home

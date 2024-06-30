@@ -5,7 +5,7 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { glassFx } from '@/(style)/data';
@@ -18,7 +18,7 @@ import { SpaceSessionSidebarEntryUpdate } from './entry/update/main';
 export function SpaceSessionSidebar() {
   const openableController = useControllerForOpenable();
   const sessionListController = useContext(ContextForChapterSessionList);
-  const updateListController = useContext(ContextForChapterSessionUpdateList);
+  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
   const spaceSessionController = useContext(ContextForSpaceSessionController);
 
   return (

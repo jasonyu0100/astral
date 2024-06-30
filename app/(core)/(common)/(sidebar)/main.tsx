@@ -51,7 +51,7 @@ export function DashboardSidebarView({
           {minimised ? (
             <DashboardSidebarMinimisedContainer>
               <DashboardSidebarTopBack
-                href={backUrl || studioMap.studio.spaces.link}
+                href={backUrl || studioMap.studio.personal.link}
               />
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <DashboardSidebarIndicators>

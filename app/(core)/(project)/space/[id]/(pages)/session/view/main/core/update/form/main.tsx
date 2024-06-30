@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
   ChapterSessionUpdateObj,
   ChapterSessionUpdateVariant,
@@ -22,7 +22,7 @@ import { SpaceSessionUpdatePreviewVerse } from './preview/verse/main';
 
 export function SpaceSessionUpdateForm() {
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
   const current =
     sessionUpdateListController.state.currentObj ||

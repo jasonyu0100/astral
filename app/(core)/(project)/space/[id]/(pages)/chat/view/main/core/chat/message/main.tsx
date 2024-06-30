@@ -5,7 +5,7 @@ import { SpaceChatAgentMessage } from './agent/main';
 import { SpaceChatMemberMessage } from './member/main';
 import { SpaceChatUserMessage } from './user/main';
 
-export function SpaceChatChatMessage() {
+export function SpaceChatMessage() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const message = useContext(ContextForConversationMessageObj);
 

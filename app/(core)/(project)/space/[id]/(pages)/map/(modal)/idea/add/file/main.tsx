@@ -10,7 +10,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { useControllerForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import {
   FileElem,
@@ -31,7 +31,7 @@ export function SpaceMapAddFileIdeaModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
-  const updateListController = useControllerForChapterSessionUpdateList('');
+  const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   async function createFileIdea() {
     const idea =

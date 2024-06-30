@@ -6,7 +6,7 @@ import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 import { roleDescriptions } from '../../../../data';
 import { ContextForChat } from '../../../../page';
-import { SpaceChatChatMessage } from './message/main';
+import { SpaceChatMessage } from './message/main';
 
 export function SpaceChatChat() {
   const { role } = useContext(ContextForChat);
@@ -59,7 +59,7 @@ export function SpaceChatChat() {
             value={message}
             key={message.id}
           >
-            <SpaceChatChatMessage key={message.id} />
+            <SpaceChatMessage key={message.id} />
           </ContextForConversationMessageObj.Provider>
         ))}
       </div>

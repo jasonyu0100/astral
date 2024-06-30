@@ -1,13 +1,13 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceSessionSessionUpdates() {
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
   const added = sessionUpdateListController.state.objs.filter(
     (obj) => obj.added,

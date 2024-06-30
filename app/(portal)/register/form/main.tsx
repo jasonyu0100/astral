@@ -46,7 +46,7 @@ export function PortalRegisterForm() {
     });
     register(update);
     alert('Register Success');
-    window.location.href = studioMap.studio.spaces.link;
+    window.location.href = studioMap.studio.personal.link;
   }
 
   return (

@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForSpaceSessionController } from '@/(core)/(project)/space/[id]/(pages)/session/(controller)/space-session/main';
 import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/session/(controller)/update-form/main';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
@@ -11,7 +11,7 @@ export function SpaceSessionUpdateFormUpdate() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
   const updateFormController = useContext(ContextForUpdateForm);
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
 
   async function handleUpdate() {

@@ -16,7 +16,9 @@ interface VaultTabsInput {
 export function VaultTabs({ tab, backUrl }: VaultTabsInput) {
   return (
     <Tabs>
-      <TabsBackButton href={backUrl ? backUrl : studioMap.studio.spaces.link} />
+      <TabsBackButton
+        href={backUrl ? backUrl : studioMap.studio.personal.link}
+      />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} /> */}

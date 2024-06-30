@@ -27,7 +27,7 @@ export default function Layout({
       <DashboardController>
         <DashboardSidebarView
           minimised
-          backUrl={studioMap.studio.spaces.link}
+          backUrl={studioMap.studio.personal.link}
         />
         {children}
       </DashboardController>

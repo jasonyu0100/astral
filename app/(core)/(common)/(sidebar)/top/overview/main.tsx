@@ -9,12 +9,12 @@ import { DashboardSidebarTopOverviewInfo } from './info/main';
 
 export function DashboardSidebarTopOverview() {
   const space = useContext(ContextForCurrentSpaceObj);
-  const [url, changeUrl] = useState(studioMap.studio.spaces.link);
+  const [url, changeUrl] = useState(studioMap.studio.personal.link);
   useEffect(() => {
     changeUrl(
       space.id
         ? spaceMap.space.id.chat.link(space.id)
-        : studioMap.studio.spaces.link,
+        : studioMap.studio.personal.link,
     );
   }, [space]);
 

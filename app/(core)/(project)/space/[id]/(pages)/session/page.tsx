@@ -9,8 +9,8 @@ import {
   useControllerForChapterSessionList,
 } from '@/(server)/(controller)/space/chapter/session/list';
 import {
-  ContextForChapterSessionUpdateList,
-  useControllerForChapterSessionUpdateList,
+  ContextForSessionUpdateOfChapterList,
+  useControllerForSessionUpdateOfChapterList,
 } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
   ContextForSpaceMain,
@@ -31,9 +31,10 @@ function Page({ params }: { params: { id: string } }) {
   const updateListController = useControllerForChapterSessionList(
     chapterListController.state.objId,
   );
-  const sessionUpdateListController = useControllerForChapterSessionUpdateList(
-    chapterListController.state.objId,
-  );
+  const sessionUpdateListController =
+    useControllerForSessionUpdateOfChapterList(
+      chapterListController.state.objId,
+    );
   const spaceSessionController = useControllerForSpaceSessionController();
 
   return (
@@ -41,7 +42,7 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSessionList.Provider value={updateListController}>
-            <ContextForChapterSessionUpdateList.Provider
+            <ContextForSessionUpdateOfChapterList.Provider
               value={sessionUpdateListController}
             >
               <ContextForSpaceSessionController.Provider
@@ -49,7 +50,7 @@ function Page({ params }: { params: { id: string } }) {
               >
                 <SpaceSessionShareView />
               </ContextForSpaceSessionController.Provider>
-            </ContextForChapterSessionUpdateList.Provider>
+            </ContextForSessionUpdateOfChapterList.Provider>
           </ContextForChapterSessionList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>

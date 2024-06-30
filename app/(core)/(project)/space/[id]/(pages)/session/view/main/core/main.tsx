@@ -1,5 +1,5 @@
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
@@ -9,7 +9,7 @@ import { SpaceSessionUpdateMain } from './update/main';
 
 export function SpaceSessionCoreMain() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
-  const updateListController = useContext(ContextForChapterSessionUpdateList);
+  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
   const sessionListController = useContext(ContextForChapterSessionList);
   const latestSession =
     sessionListController.state.currentObj || ({} as ChapterSessionObj);

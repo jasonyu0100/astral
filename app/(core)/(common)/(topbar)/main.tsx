@@ -17,7 +17,7 @@ export function DashboardTopbar() {
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForCurrentSpaceObj.Provider value={space}>
         <DashboardTopbarContainer>
-          <TopbarLogo href={studioMap.studio.spaces.link} />
+          <TopbarLogo href={studioMap.studio.personal.link} />
           <TopbarLeftGroup />
           <TopbarRightGroup />
         </DashboardTopbarContainer>

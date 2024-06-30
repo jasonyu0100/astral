@@ -1,12 +1,12 @@
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdateHeader() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
 
   return (

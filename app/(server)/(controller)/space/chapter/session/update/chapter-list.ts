@@ -86,7 +86,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionUpdateList = (
+const useControllerForSessionUpdateOfChapterList = (
   listId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -448,8 +448,8 @@ const useControllerForChapterSessionUpdateList = (
   };
 };
 
-const ContextForChapterSessionUpdateList = createContext({} as Controller);
+const ContextForSessionUpdateOfChapterList = createContext({} as Controller);
 export {
-  ContextForChapterSessionUpdateList,
-  useControllerForChapterSessionUpdateList,
+  ContextForSessionUpdateOfChapterList,
+  useControllerForSessionUpdateOfChapterList,
 };

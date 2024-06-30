@@ -1,11 +1,11 @@
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdateFormHeader() {
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
   const current =
     sessionUpdateListController.state.currentObj ||

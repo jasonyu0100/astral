@@ -332,7 +332,7 @@ const useControllerForConversationMessageList = (
     if (!initialId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherEarliest();
+      controllerActions.gatherActions.gatherLatest();
     }
   }, [initialId]);
 

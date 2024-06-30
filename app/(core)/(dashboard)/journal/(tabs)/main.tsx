@@ -14,7 +14,7 @@ interface JournalTabProps {
 export function LinkTabs({ tab }: JournalTabProps) {
   return (
     <Tabs>
-      <TabsBackButton href={studioMap.studio.spaces.link} />
+      <TabsBackButton href={studioMap.studio.personal.link} />
       <TabsRow>
         <TabOne tab={tab} />
         {/* <TabTwo tab={tab} /> */}

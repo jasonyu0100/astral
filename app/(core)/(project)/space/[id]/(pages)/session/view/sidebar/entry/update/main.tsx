@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
@@ -11,7 +11,7 @@ import { ContextForSpaceSessionController } from '../../../../(controller)/space
 export function SpaceSessionSidebarEntryUpdate() {
   const update = useContext(ContextForChapterSessionUpdateObj);
   const spaceSessionController = useContext(ContextForSpaceSessionController);
-  const updateListController = useContext(ContextForChapterSessionUpdateList);
+  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
 
   return (
     <GlassWindowFrame

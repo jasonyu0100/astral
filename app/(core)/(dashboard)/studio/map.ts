@@ -2,14 +2,14 @@ const baseUrl = `/studio`;
 
 export const studioMap = {
   studio: {
-    spaces: {
-      link: `${baseUrl}/spaces`,
+    personal: {
+      link: `${baseUrl}/personal`,
+    },
+    shared: {
+      link: `${baseUrl}/shared`,
     },
     backed: {
       link: `${baseUrl}/backed`,
-    },
-    collabs: {
-      link: `${baseUrl}/collabs`,
     },
     link: `${baseUrl}`,
   },

@@ -24,7 +24,7 @@ export function PortalLoginForm() {
       .then((user) => {
         login(user);
         alert('Login Success');
-        window.location.href = studioMap.studio.spaces.link;
+        window.location.href = studioMap.studio.personal.link;
       });
   };
 

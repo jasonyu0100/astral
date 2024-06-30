@@ -1,10 +1,10 @@
 'use client';
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   stripeNewBillingSession,
   stripeProcessSubscription,
 } from '@/(api)/stripe/main';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -45,7 +45,7 @@ export default function Page() {
       </button>
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
-        onClick={() => (window.location.href = studioMap.studio.spaces.link)}
+        onClick={() => (window.location.href = studioMap.studio.personal.link)}
       >
         BACK HOME
       </button>

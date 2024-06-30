@@ -5,7 +5,7 @@ import { TabTwo } from './tab-2/main';
 
 export enum StudioTabStages {
   Personal = 'Personal',
-  Shared = 'Collabs',
+  Shared = 'Shared',
   Backed = 'Backed',
 }
 

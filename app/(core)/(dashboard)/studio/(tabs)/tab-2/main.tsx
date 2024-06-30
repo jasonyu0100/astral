@@ -9,7 +9,7 @@ export function TabTwo({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={studioMap.studio.collabs.link}>
+    <Tab href={studioMap.studio.shared.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

@@ -14,17 +14,14 @@ export function DashboardSidebarTopOverviewInfo() {
   return (
     <div
       id={DashboardSidebarTopOverviewInfo.name}
-      className={cn(
-        'inline-flex h-[50px] flex-col items-start justify-center',
-        {
-          'opacity-50': !active,
-          'opacity-100': active,
-        },
-      )}
+      className={cn('flex-col items-center justify-center', {
+        'opacity-50': !active,
+        'opacity-100': active,
+      })}
     >
       <p
         className={cn(
-          'h-[25px] overflow-hidden overflow-ellipsis text-xl font-bold leading-7 text-slate-300',
+          'h-[25px] overflow-hidden text-xl font-bold leading-7 text-slate-300',
         )}
       >
         {currentSpace.title || 'Untitled'}

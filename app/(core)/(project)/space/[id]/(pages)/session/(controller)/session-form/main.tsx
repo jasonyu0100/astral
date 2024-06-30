@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { useControllerForChapterSessionContributorList } from '@/(server)/(controller)/space/chapter/session/contributor/list';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
@@ -27,7 +27,7 @@ export function useControllerForSessionForm() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const updateListController = useContext(ContextForChapterSessionList);
   const sessionUpdateListController = useContext(
-    ContextForChapterSessionUpdateList,
+    ContextForSessionUpdateOfChapterList,
   );
   const contributorListController =
     useControllerForChapterSessionContributorList('');

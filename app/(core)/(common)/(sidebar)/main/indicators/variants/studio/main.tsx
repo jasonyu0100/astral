@@ -16,11 +16,11 @@ export function SpaceIndicator() {
   return (
     <>
       {dashboardSidebar.minimised ? (
-        <DashboardSidebarIndicator href={studioMap.studio.spaces.link}>
+        <DashboardSidebarIndicator href={studioMap.studio.personal.link}>
           <IndicatorBlueJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
-        <DashboardSidebarIndicator href={studioMap.studio.spaces.link}>
+        <DashboardSidebarIndicator href={studioMap.studio.personal.link}>
           <IndicatorBlueJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>

@@ -11,7 +11,7 @@ import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { useControllerForChapterSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
@@ -23,7 +23,7 @@ export function ChatAddChatModal() {
   const chatListController = useContext(ContextForChapterChatList);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
-  const updateListController = useControllerForChapterSessionUpdateList('');
+  const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   async function createChat() {
     const chat = await chatListController.actions.createActions.createChat(
