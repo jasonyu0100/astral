@@ -5,7 +5,7 @@ import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <StudioTabs tab={StudioTabStages.Collabs} />
+      <StudioTabs tab={StudioTabStages.Shared} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

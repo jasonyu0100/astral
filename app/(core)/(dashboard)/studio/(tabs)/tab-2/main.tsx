@@ -5,7 +5,7 @@ import { studioMap } from '../../map';
 import { StudioTabStages } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
-  const tabText = StudioTabStages.Collabs;
+  const tabText = StudioTabStages.Shared;
   const active = tab === tabText;
 
   return (

@@ -1,5 +1,6 @@
 'use client';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForChatConversationList,
   useControllerForChatConversationList,
@@ -24,6 +25,7 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';
@@ -38,6 +40,7 @@ export const ContextForChat = createContext<Controller>({} as Controller);
 
 function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
+  const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
@@ -69,25 +72,29 @@ function Page({ params }: { params: { id: string } }) {
   }, [spaceMainController.state.obj]);
 
   return (
-    <ContextForChat.Provider value={chatContext}>
-      <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterChatList.Provider value={chatListController}>
-            <ContextForChatMemberList.Provider value={chatMemberListController}>
-              <ContextForChatConversationList.Provider
-                value={conversationListController}
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForChat.Provider value={chatContext}>
+        <ContextForSpaceMain.Provider value={spaceMainController}>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForChapterChatList.Provider value={chatListController}>
+              <ContextForChatMemberList.Provider
+                value={chatMemberListController}
               >
-                <ContextForConversationMessageList.Provider
-                  value={messageListController}
+                <ContextForChatConversationList.Provider
+                  value={conversationListController}
                 >
-                  <SpaceChatView />
-                </ContextForConversationMessageList.Provider>
-              </ContextForChatConversationList.Provider>
-            </ContextForChatMemberList.Provider>
-          </ContextForChapterChatList.Provider>
-        </ContextForSpaceChapterList.Provider>
-      </ContextForSpaceMain.Provider>
-    </ContextForChat.Provider>
+                  <ContextForConversationMessageList.Provider
+                    value={messageListController}
+                  >
+                    <SpaceChatView />
+                  </ContextForConversationMessageList.Provider>
+                </ContextForChatConversationList.Provider>
+              </ContextForChatMemberList.Provider>
+            </ContextForChapterChatList.Provider>
+          </ContextForSpaceChapterList.Provider>
+        </ContextForSpaceMain.Provider>
+      </ContextForChat.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 
