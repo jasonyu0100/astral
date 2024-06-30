@@ -12,8 +12,8 @@ interface SpaceTabProps {
 export enum SpaceTabStage {
   Chat = 'Chat',
   Map = 'Map',
-  Verse = 'Verse',
   Session = 'Session',
+  Verse = 'Verse',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {

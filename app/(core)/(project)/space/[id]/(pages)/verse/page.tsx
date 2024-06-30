@@ -1,5 +1,4 @@
 'use client';
-import { SpaceVerseModalView } from '@/(core)/(project)/space/[id]/(pages)/verse/(modal)/view';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -17,7 +16,6 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { SpaceVerseModalContext, useSpaceVerseModal } from './(modal)/main';
 import { SpaceVerseView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -30,17 +28,12 @@ function Page({ params }: { params: { id: string } }) {
     verseListController.state.objId,
   );
 
-  const modalContext = useSpaceVerseModal();
-
   return (
     <ContextForSpaceMain.Provider value={spaceController}>
       <ContextForSpaceChapterList.Provider value={chapterListController}>
         <ContextForChapterVerseList.Provider value={verseListController}>
           <ContextForVerseCommentList.Provider value={commentListController}>
-            <SpaceVerseModalContext.Provider value={modalContext}>
-              <SpaceVerseModalView />
-              <SpaceVerseView />
-            </SpaceVerseModalContext.Provider>
+            <SpaceVerseView />
           </ContextForVerseCommentList.Provider>
         </ContextForChapterVerseList.Provider>
       </ContextForSpaceChapterList.Provider>

@@ -10,11 +10,11 @@ import { SpaceTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Verse;
+  const tabText = SpaceTabStage.Session;
   const active = tab === tabText;
 
   return (
-    <Tab href={spaceMap.space.id.verse.link(spaceContext.spaceId)}>
+    <Tab href={spaceMap.space.id.session.link(spaceContext.spaceId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

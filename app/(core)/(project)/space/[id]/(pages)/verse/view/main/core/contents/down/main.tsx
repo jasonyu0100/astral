@@ -5,7 +5,7 @@ import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapte
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
-export function SpaceVerseDown() {
+export function SpaceVerseActionDown() {
   const verseListController = useContext(ContextForChapterVerseList);
   return (
     <GlassWindowFrame

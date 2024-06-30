@@ -6,7 +6,7 @@ import { borderFx, glassFx } from '@/(style)/data';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
-export function SpaceVerseMain() {
+export function SpaceVerseContentsVerse() {
   const verseListController = useContext(ContextForChapterVerseList);
 
   return (
