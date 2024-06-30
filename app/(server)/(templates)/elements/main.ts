@@ -23,7 +23,7 @@ export type TemplateTextElems = TemplateTextElem[];
 export enum TemplateElemVariant {
   FILE = 'FILE',
   LINK = 'LINK',
-  NOTE = 'NOTE',
+  TEXT = 'TEXT',
 }
 
 export function getElemTemplates(variant: TemplateElemVariant) {
@@ -32,7 +32,7 @@ export function getElemTemplates(variant: TemplateElemVariant) {
       return templateFileElems;
     case TemplateElemVariant.LINK:
       return templateUrlElems;
-    case TemplateElemVariant.NOTE:
+    case TemplateElemVariant.TEXT:
       return templateTextElems;
   }
   return templateFileElems;

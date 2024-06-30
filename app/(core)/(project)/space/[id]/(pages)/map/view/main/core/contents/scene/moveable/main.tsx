@@ -1,14 +1,13 @@
 'use client';
 import { useControllerForHoverable } from '@/(logic)/contexts/hoverable/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { ElementVariant } from '@/(server)/(model)/elements/main';
+import { TextElemVariant } from '@/(server)/(model)/elements/text/main';
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext, useRef } from 'react';
 import Moveable from 'react-moveable';
 
 export function SpaceMapMovable() {
-  const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
   const moveableRef = useRef<Moveable>(null);
@@ -96,6 +95,40 @@ export function SpaceMapMovable() {
                     alt={ideaObj.title}
                     className='aspect-square w-full object-cover'
                   />
+                </div>
+              )}
+            </>
+          )}
+          {ideaObj.variant === ElementVariant.TEXT && (
+            <>
+              {ideaObj.textElem?.variant === TextElemVariant.LINE && (
+                <div
+                  className='aspect-square h-full w-full flex-col items-center justify-center'
+                  style={{ padding: '10%' }}
+                >
+                  <p className='font-bold text-slate-300'>
+                    {ideaObj.textElem?.text}
+                  </p>
+                </div>
+              )}
+              {ideaObj.textElem?.variant === TextElemVariant.BLOCK && (
+                <div
+                  className='h-full w-full flex-col items-center justify-center bg-white'
+                  style={{ padding: '10%' }}
+                >
+                  <p className='text-xs font-bold text-black'>
+                    {ideaObj.textElem?.text}
+                  </p>
+                </div>
+              )}
+              {ideaObj.textElem?.variant === TextElemVariant.STICKY && (
+                <div
+                  className='aspect-square h-full bg-yellow-500 shadow-lg'
+                  style={{ padding: '10%' }}
+                >
+                  <p className='text-xs font-bold text-black'>
+                    {ideaObj.textElem?.text}
+                  </p>
                 </div>
               )}
             </>

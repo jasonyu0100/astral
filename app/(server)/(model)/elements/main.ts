@@ -2,7 +2,7 @@ import { ModelInterface } from '../main';
 
 export enum ElementVariant {
   FILE = 'FILE',
-  TEXT = 'NOTE',
+  TEXT = 'TEXT',
   URL = 'URL',
 }
 
