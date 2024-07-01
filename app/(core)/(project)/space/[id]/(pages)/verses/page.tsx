@@ -1,4 +1,5 @@
 'use client';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -15,10 +16,12 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
+import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { SpaceVersesView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
+  const loggedInUser = useGlobalUser((state) => state.user);
   const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(params.id);
   const verseListController = useControllerForChapterVerseList(
@@ -29,15 +32,17 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <ContextForSpaceMain.Provider value={spaceController}>
-      <ContextForSpaceChapterList.Provider value={chapterListController}>
-        <ContextForChapterVerseList.Provider value={verseListController}>
-          <ContextForVerseCommentList.Provider value={commentListController}>
-            <SpaceVersesView />
-          </ContextForVerseCommentList.Provider>
-        </ContextForChapterVerseList.Provider>
-      </ContextForSpaceChapterList.Provider>
-    </ContextForSpaceMain.Provider>
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForSpaceMain.Provider value={spaceController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForChapterVerseList.Provider value={verseListController}>
+            <ContextForVerseCommentList.Provider value={commentListController}>
+              <SpaceVersesView />
+            </ContextForVerseCommentList.Provider>
+          </ContextForChapterVerseList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceMain.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 
