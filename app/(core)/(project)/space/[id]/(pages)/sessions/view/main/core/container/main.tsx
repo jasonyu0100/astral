@@ -12,7 +12,7 @@ export function SpaceSessionsContainer({
         sizeFx='w-full h-full'
         className={`flex flex-col overflow-auto`}
       >
-        <div className='flex h-full w-full flex-col justify-center space-y-[2rem] px-[3rem] py-[2rem]'>
+        <div className='flex h-full w-full flex-col justify-center space-y-[2rem]'>
           {children}
         </div>
       </GlassAreaContainer>

@@ -8,7 +8,7 @@ import {
   ChapterSessionUpdateVariant,
   ContextForChapterSessionUpdateObj,
 } from '@/(server)/(model)/space/chapter/session/update/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceSessionsUpdateFormUpdate } from './action/update/main';
 import { SpaceSessionsUpdateFormDetails } from './details/main';
@@ -30,8 +30,8 @@ export function SpaceSessionsUpdateForm() {
 
   return (
     <GlassWindowFrame
-      className='h-full max-w-[800px] flex-grow  p-[2rem]'
-      borderFx={`${borderFx['border-l']} ${borderFx['border-r']}`}
+      className='max-w-[800px] flex-grow  p-[2rem]'
+      roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents className='overflow-auto'>
         <div className='h-full w-full pr-[2rem]'>
