@@ -1,10 +1,13 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceSessionsController } from '../../(controller)/space-session/main';
+import {
+  ContextForSpaceSessionsController,
+  SpaceSessionsPage,
+} from '../../(controller)/space-session/main';
 import { SpaceSessionsContainer } from './core/container/main';
-import { SpaceSessionsCoreMain } from './core/main';
+import { SpaceSessionsCompleteSession } from './core/pages/complete-session/main';
+import { SpaceSessionsCompleteUpdate } from './core/pages/complete-update/main';
 import { SpaceSessionsHeader } from './header/main';
-import { SpaceSessionsHistoryMain } from './history/main';
 import { SpaceSessionsChapterNavigation } from './navigation/main';
 
 export function SpaceSessionsMain() {
@@ -17,10 +20,17 @@ export function SpaceSessionsMain() {
     >
       <SpaceSessionsHeader />
       <SpaceSessionsContainer>
-        {spaceSessionController.historyView ? (
-          <SpaceSessionsHistoryMain />
-        ) : (
-          <SpaceSessionsCoreMain />
+        {spaceSessionController.page === SpaceSessionsPage.VIEW_SESSION && (
+          <></>
+        )}
+        {spaceSessionController.page ===
+          SpaceSessionsPage.VIEW_SESSION_UPDATE && <></>}
+        {spaceSessionController.page === SpaceSessionsPage.COMPLETE_SESSION && (
+          <SpaceSessionsCompleteSession />
+        )}
+        {spaceSessionController.page ===
+          SpaceSessionsPage.COMPLETE_SESSION_UPDATE && (
+          <SpaceSessionsCompleteUpdate />
         )}
       </SpaceSessionsContainer>
       <SpaceSessionsChapterNavigation />

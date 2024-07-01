@@ -2,24 +2,21 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForSpaceSessionsController } from '../../(controller)/space-session/main';
 import { SpaceSessionsAddUpdateModal } from '../../(modal)/add/update/main';
-import { SpaceSessionsSidebarEntrySession } from './entry/session/main';
+import { SpaceSessionsSidebarEntrySession } from './entry/main';
 
 export function SpaceSessionsSidebar() {
   const openableController = useControllerForOpenable();
   const sessionListController = useContext(ContextForChapterSessionList);
-  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
-  const spaceSessionController = useContext(ContextForSpaceSessionsController);
 
   return (
     <>
@@ -53,48 +50,17 @@ export function SpaceSessionsSidebar() {
             name={''}
           >
             <div className='flex w-full flex-col space-y-[1rem]'>
-              {/* <p className='font-bold text-slate-300'>Updates</p>
-          {updateListController.state.objs.length === 0 && (
-            <p className='text-sm font-bold text-slate-500'>
-              No updates available
-            </p>
-          )}
-          {updateListController.state.objs.map((update) => (
-            <ContextForChapterSessionUpdateObj.Provider value={update}>
-              <SpaceSessionsSidebarEntryUpdate />
-            </ContextForChapterSessionUpdateObj.Provider>
-          ))}
-          <HorizontalDivider /> */}
-              <GlassWindowFrame
-                name={SpaceSessionsSidebarEntrySession.name}
-                borderFx={borderFx['border-around']}
-                roundedFx={roundedFx.rounded}
-                className='flex- flex cursor-pointer p-[1rem]'
-              >
-                <GlassWindowContents className='flex cursor-pointer flex-col space-y-[0.5rem]'>
-                  <p className='text-xs font-light text-slate-500'>
-                    {new Date().toDateString()}
-                  </p>
-                  <p className='text-lg font-bold text-slate-300'>
-                    Session 456
-                  </p>
-                  <p className='text-md text-slate-300'>
-                    I hate that scumbag. He keeps just talking with OpenAI and
-                    ignoring my messages
-                  </p>
-                  <p className='text-sm font-bold text-slate-500'>4 updates</p>
-                </GlassWindowContents>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame>
               {sessionListController.state.objs.length === 0 && (
                 <p className='text-sm font-bold text-slate-500'>
                   No sessions recorded
                 </p>
               )}
-              {sessionListController.state.objs.map((session) => (
-                <ContextForChapterSessionObj.Provider value={session}>
-                  <SpaceSessionsSidebarEntrySession />
-                </ContextForChapterSessionObj.Provider>
+              {sessionListController.state.objs.map((session, index) => (
+                <ContextForIndexable.Provider value={index}>
+                  <ContextForChapterSessionObj.Provider value={session}>
+                    <SpaceSessionsSidebarEntrySession />
+                  </ContextForChapterSessionObj.Provider>
+                </ContextForIndexable.Provider>
               ))}
             </div>
           </GlassAreaContainer>

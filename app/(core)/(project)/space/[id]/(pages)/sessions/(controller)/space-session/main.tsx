@@ -13,9 +13,10 @@ interface Controller {
 
 export enum SpaceSessionsPage {
   COMPLETE_SESSION = 'Complete Session',
-  EDIT_UPDATE = 'Edit Update',
-  PREVIOUS_SESSIONS = 'Previous Sessions',
-  SESSION = 'Session',
+  COMPLETE_SESSION_UPDATE = 'Complete Session Update',
+  VIEW_SESSION = 'View Session',
+  VIEW_SESSION_UPDATE = 'View Session Update',
+  COMPLETE_UPDATE = 'COMPLETE_UPDATE',
 }
 
 export const ContextForSpaceSessionsController = createContext(
@@ -28,19 +29,19 @@ export function useControllerForSpaceSessionsController() {
   const sessions = sessionListController?.state?.objs || [];
   const updates = updateListController?.state?.objs || [];
 
-  const [page, setPage] = useState(SpaceSessionsPage.SESSION);
+  const [page, setPage] = useState(SpaceSessionsPage.VIEW_SESSION);
   const [historyView, setHistoryView] = useState(false);
   const [sessionView, setSessionView] = useState(true);
 
   useEffect(() => {
     if (sessions.length === 0 && updates.length === 0) {
-      setPage(SpaceSessionsPage.PREVIOUS_SESSIONS);
+      setPage(SpaceSessionsPage.COMPLETE_SESSION);
     } else if (sessions.length === 0 && updates.length > 0) {
-      setPage(SpaceSessionsPage.EDIT_UPDATE);
+      setPage(SpaceSessionsPage.COMPLETE_SESSION);
     } else if (sessions.length > 0 && updates.length > 0) {
       setPage(SpaceSessionsPage.COMPLETE_SESSION);
     } else {
-      setPage(SpaceSessionsPage.PREVIOUS_SESSIONS);
+      setPage(SpaceSessionsPage.COMPLETE_SESSION);
     }
   }, []);
 

@@ -3,16 +3,13 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
-import { ContextForVerseCommentList } from '@/(server)/(controller)/space/chapter/verse/comment/list';
 import { glassFx } from '@/(style)/data';
-import { useContext } from 'react';
 import { SpaceVersesAddVerseCommentModal } from '../../(modal)/add/comment/main';
 import { SpaceVersesSidebarList } from './list/main';
 import { SpaceVersesSidebarSearch } from './search/main';
 
 export function SpaceVersesSidebar() {
   const commentOpenableController = useControllerForOpenable();
-  const commentListController = useContext(ContextForVerseCommentList);
 
   return (
     <>
