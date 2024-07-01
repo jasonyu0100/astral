@@ -17,7 +17,7 @@ export function SpaceVersesContentsVerse() {
       <GlassAreaContainer
         name={SpaceVersesContentsVerse.name}
         sizeFx='w-full h-full'
-        className={`flex flex-col overflow-auto`}
+        className={`flex flex-col overflow-auto p-[2rem]`}
       >
         <div className='flex h-full flex-grow flex-col items-center space-y-[2rem] px-[8rem]'>
           <div className='flex h-full max-w-[800px] flex-col space-y-[2rem]'>

@@ -1,6 +1,6 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { SpaceVersesCoreContents } from './contents/main';
 import { SpaceVersesHeader } from './header/main';
+import { SpaceVersesContentsVerse } from './verse/main';
 
 export function SpaceVersesCore() {
   return (
@@ -10,7 +10,7 @@ export function SpaceVersesCore() {
         className={`flex h-full flex-grow flex-col`}
       >
         <SpaceVersesHeader />
-        <SpaceVersesCoreContents />
+        <SpaceVersesContentsVerse />
       </GlassWindowFrame>
     </div>
   );
