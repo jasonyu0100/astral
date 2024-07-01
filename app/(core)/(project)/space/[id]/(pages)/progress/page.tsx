@@ -13,6 +13,10 @@ import {
   useControllerForSessionUpdateOfChapterList,
 } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
+  ContextForSessionUpdateList,
+  useControllerForSessionUpdateList,
+} from '@/(server)/(controller)/space/chapter/session/update/list';
+import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
@@ -28,28 +32,35 @@ function Page({ params }: { params: { id: string } }) {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(params.id);
-  const updateListController = useControllerForChapterSessionList(
+  const sessionListController = useControllerForChapterSessionList(
     chapterListController.state.objId,
   );
-  const sessionUpdateListController =
+  const updateOfChapterListController =
     useControllerForSessionUpdateOfChapterList(
       chapterListController.state.objId,
     );
   const spaceSessionController = useControllerForSpaceProgressController();
+  const updateListController = useControllerForSessionUpdateList(
+    sessionListController.state.objId,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSessionList.Provider value={updateListController}>
+          <ContextForChapterSessionList.Provider value={sessionListController}>
             <ContextForSessionUpdateOfChapterList.Provider
-              value={sessionUpdateListController}
+              value={updateOfChapterListController}
             >
-              <ContextForSpaceProgressController.Provider
-                value={spaceSessionController}
+              <ContextForSessionUpdateList.Provider
+                value={updateListController}
               >
-                <SpaceProgressShareView />
-              </ContextForSpaceProgressController.Provider>
+                <ContextForSpaceProgressController.Provider
+                  value={spaceSessionController}
+                >
+                  <SpaceProgressShareView />
+                </ContextForSpaceProgressController.Provider>
+              </ContextForSessionUpdateList.Provider>
             </ContextForSessionUpdateOfChapterList.Provider>
           </ContextForChapterSessionList.Provider>
         </ContextForSpaceChapterList.Provider>

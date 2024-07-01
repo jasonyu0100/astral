@@ -19,7 +19,7 @@ export function SpaceProgressCompleteUpdatePanel() {
     <GlassWindowFrame className='h-full w-[18rem]'>
       <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem] px-[1rem]'>
         <div className='flex flex-col space-y-[1rem] py-[1rem]'>
-          <p className='font-bold text-slate-300'>Your Session</p>
+          <p className='font-bold text-slate-300'>Current Progress</p>
           <HorizontalDivider />
           {updates.map((update, index) => (
             <div

@@ -7,6 +7,8 @@ import {
 import { SpaceProgressContainer } from './core/container/main';
 import { SpaceProgressCompleteSession } from './core/pages/complete-session/main';
 import { SpaceProgressCompleteUpdate } from './core/pages/complete-update/main';
+import { SpaceProgressViewSession } from './core/pages/view-session/main';
+import { SpaceProgressViewUpdate } from './core/pages/view-update/main';
 import { SpaceProgressHeader } from './header/main';
 import { SpaceProgressChapterNavigation } from './navigation/main';
 
@@ -21,10 +23,10 @@ export function SpaceProgressMain() {
       <SpaceProgressHeader />
       <SpaceProgressContainer>
         {spaceSessionController.page === SpaceProgressPage.VIEW_SESSION && (
-          <></>
+          <SpaceProgressViewUpdate />
         )}
         {spaceSessionController.page ===
-          SpaceProgressPage.VIEW_SESSION_UPDATE && <></>}
+          SpaceProgressPage.VIEW_SESSION_UPDATE && <SpaceProgressViewSession />}
         {spaceSessionController.page === SpaceProgressPage.COMPLETE_SESSION && (
           <SpaceProgressCompleteSession />
         )}

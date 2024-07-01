@@ -1,11 +1,11 @@
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { useControllerForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
+import { ContextForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
 import { useContext } from 'react';
 
-export function SpaceProgressHistoryMain() {
+export function SpaceProgressViewUpdate() {
   const sessionListController = useContext(ContextForChapterSessionList);
   const session = sessionListController.state.currentObj;
-  const updateListController = useControllerForSessionUpdateList(session.id);
+  const updateListController = useContext(ContextForSessionUpdateList);
 
   return (
     <div className='flex flex-col'>
