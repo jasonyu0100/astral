@@ -10,11 +10,11 @@ import { SpaceTabStage } from '../main';
 
 export function TabFour({ tab }: { tab?: string }) {
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Verse;
+  const tabText = SpaceTabStage.Drafts;
   const active = tab === tabText;
 
   return (
-    <Tab href={spaceMap.space.id.verse.link(spaceContext.spaceId)}>
+    <Tab href={spaceMap.space.id.drafts.link(spaceContext.spaceId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabPurpleShard active={active} />
     </Tab>

@@ -7,7 +7,7 @@ import { Dice, DiceFace } from '@/(components)/(idea)/game/dice/main';
 import {
   CardNumber,
   CardSuit,
-} from '@/(core)/(project)/space/[id]/(pages)/session/view/main/header/month/main';
+} from '@/(core)/(project)/space/[id]/(pages)/sessions/view/main/header/month/main';
 import {
   VinylAudioClosedIdea,
   VinylAudioIdea,

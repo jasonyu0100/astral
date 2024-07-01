@@ -14,8 +14,8 @@ export function SpaceChatUserMessage() {
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
         <p className='p-[0.5rem] text-xs text-slate-500'>
-          sent {new Date(message.created).toLocaleTimeString()} from{' '}
-          {loggedInUser.displayName}
+          from {loggedInUser.displayName} sent{' '}
+          {new Date(message.created).toLocaleTimeString()}
         </p>
       </div>
       <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right lowercase text-white'>
