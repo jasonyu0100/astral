@@ -9,7 +9,7 @@ import {
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { ContextForSpaceSessionsController } from '../../(controller)/space-session/main';
 import { SpaceSessionsAddUpdateModal } from '../../(modal)/add/update/main';
@@ -65,6 +65,27 @@ export function SpaceSessionsSidebar() {
             </ContextForChapterSessionUpdateObj.Provider>
           ))}
           <HorizontalDivider /> */}
+              <GlassWindowFrame
+                name={SpaceSessionsSidebarEntrySession.name}
+                borderFx={borderFx['border-around']}
+                roundedFx={roundedFx.rounded}
+                className='flex- flex cursor-pointer p-[1rem]'
+              >
+                <GlassWindowContents className='flex cursor-pointer flex-col space-y-[0.5rem]'>
+                  <p className='text-xs font-light text-slate-500'>
+                    {new Date().toDateString()}
+                  </p>
+                  <p className='text-lg font-bold text-slate-300'>
+                    Session 456
+                  </p>
+                  <p className='text-md text-slate-300'>
+                    I hate that scumbag. He keeps just talking with OpenAI and
+                    ignoring my messages
+                  </p>
+                  <p className='text-sm font-bold text-slate-500'>4 updates</p>
+                </GlassWindowContents>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
               {sessionListController.state.objs.length === 0 && (
                 <p className='text-sm font-bold text-slate-500'>
                   No sessions recorded
