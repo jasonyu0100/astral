@@ -16,7 +16,7 @@ export function SpaceProgressCompleteSessionHeader() {
   return (
     <GlassWindowFrame className='w-full'>
       <GlassWindowContents className='flex flex-col p-[1rem]'>
-        <p className='mb-[1rem] text-sm font-bold text-slate-300'>
+        <p className='text-sm font-bold text-slate-300'>
           {sessionUpdateListController.state.objs.length} updates
         </p>
         <p className='text-xl font-bold text-slate-300'>
@@ -26,7 +26,7 @@ export function SpaceProgressCompleteSessionHeader() {
           {getFormattedAMPM(new Date())}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

@@ -18,7 +18,7 @@ export function SpaceProgressUpdateFormHeader() {
   return (
     <GlassWindowFrame className='w-full'>
       <GlassWindowContents className='flex flex-col p-[1rem]'>
-        <p className='text-sm font-bold text-slate-300'>
+        <p className='text-xs font-bold text-slate-300'>
           {sessionUpdateListController.state.index + 1} of{' '}
           {sessionUpdateListController.state.objs.length}
         </p>
@@ -30,7 +30,7 @@ export function SpaceProgressUpdateFormHeader() {
           {current?.added ? ' - added' : ' - not added'}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

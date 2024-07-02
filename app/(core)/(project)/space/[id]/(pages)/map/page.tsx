@@ -33,6 +33,10 @@ import { GalleryObj } from '@/(server)/(model)/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useState } from 'react';
+import {
+  ContextForSpaceMapController,
+  useControllerForSpaceMap,
+} from './(controller)/map/main';
 import { SpaceMapView } from './view/main';
 
 export enum PaletteState {
@@ -55,6 +59,7 @@ export const ContextForPaletteController = createContext<PaletteController>(
 );
 
 function Page({ params }: { params: { id: string } }) {
+  const mapController = useControllerForSpaceMap();
   const spaceMainController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
@@ -65,7 +70,6 @@ function Page({ params }: { params: { id: string } }) {
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,
   );
-
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
@@ -97,29 +101,31 @@ function Page({ params }: { params: { id: string } }) {
   };
 
   return (
-    <ContextForLoggedInUserObj.Provider value={user}>
-      <ContextForPaletteController.Provider value={palleteController}>
-        <ContextForSpaceMain.Provider value={spaceMainController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForChapterSceneList.Provider value={sceneListController}>
-              <ContextForSceneIdeaList.Provider value={ideaListController}>
-                <ContextForGalleryList.Provider value={galleryListController}>
-                  <ContextForGalleryCollectionList.Provider
-                    value={collectionListController}
-                  >
-                    <ContextForCollectionResourceList.Provider
-                      value={resourceListController}
+    <ContextForSpaceMapController.Provider value={mapController}>
+      <ContextForLoggedInUserObj.Provider value={user}>
+        <ContextForPaletteController.Provider value={palleteController}>
+          <ContextForSpaceMain.Provider value={spaceMainController}>
+            <ContextForSpaceChapterList.Provider value={chapterListController}>
+              <ContextForChapterSceneList.Provider value={sceneListController}>
+                <ContextForSceneIdeaList.Provider value={ideaListController}>
+                  <ContextForGalleryList.Provider value={galleryListController}>
+                    <ContextForGalleryCollectionList.Provider
+                      value={collectionListController}
                     >
-                      <SpaceMapView />
-                    </ContextForCollectionResourceList.Provider>
-                  </ContextForGalleryCollectionList.Provider>
-                </ContextForGalleryList.Provider>
-              </ContextForSceneIdeaList.Provider>
-            </ContextForChapterSceneList.Provider>
-          </ContextForSpaceChapterList.Provider>
-        </ContextForSpaceMain.Provider>
-      </ContextForPaletteController.Provider>
-    </ContextForLoggedInUserObj.Provider>
+                      <ContextForCollectionResourceList.Provider
+                        value={resourceListController}
+                      >
+                        <SpaceMapView />
+                      </ContextForCollectionResourceList.Provider>
+                    </ContextForGalleryCollectionList.Provider>
+                  </ContextForGalleryList.Provider>
+                </ContextForSceneIdeaList.Provider>
+              </ContextForChapterSceneList.Provider>
+            </ContextForSpaceChapterList.Provider>
+          </ContextForSpaceMain.Provider>
+        </ContextForPaletteController.Provider>
+      </ContextForLoggedInUserObj.Provider>
+    </ContextForSpaceMapController.Provider>
   );
 }
 

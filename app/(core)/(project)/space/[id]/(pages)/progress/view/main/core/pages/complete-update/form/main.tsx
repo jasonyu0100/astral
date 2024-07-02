@@ -12,7 +12,7 @@ export function SpaceProgressCompleteUpdateForm() {
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >
-      <GlassWindowContents className='flex h-full w-full flex-col pb-[1rem]'>
+      <GlassWindowContents className='flex h-full w-full flex-col'>
         <SpaceProgressUpdateFormHeader />
         <SpaceProgressUpdateFormContents />
       </GlassWindowContents>
