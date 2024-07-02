@@ -30,7 +30,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <>
+    <div className='p-[5rem]'>
       <div
         className={`element absolute cursor-pointer`}
         style={{
@@ -50,7 +50,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           }
         }}
       >
-        <div className='flex h-full w-full items-center justify-center p-[1rem]'>
+        <div className='flex h-full w-full items-center justify-center'>
           {children}
         </div>
       </div>
@@ -108,6 +108,6 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           updateViaTransformationObj(e.transform);
         }}
       />
-    </>
+    </div>
   );
 }

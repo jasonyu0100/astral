@@ -4,12 +4,17 @@ import { useContext } from 'react';
 export function SpaceMapTextBlockIdea() {
   const ideaObj = useContext(ContextForSceneIdeaObj);
 
+  // TBD
+
   return (
     <div
       className='h-full w-full flex-col items-center justify-center bg-white'
       style={{ padding: '10%' }}
     >
-      <p className='text-xs font-bold text-black'>{ideaObj.textElem?.text}</p>
+      <textarea
+        className='h-full w-full resize-none bg-transparent text-xs font-bold text-black outline-none'
+        defaultValue={ideaObj.textElem?.text}
+      />
     </div>
   );
 }

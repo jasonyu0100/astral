@@ -7,7 +7,7 @@ export function SpaceMapContentsTools() {
       <div style={{ left: '1rem', top: '1rem' }} className='absolute'>
         <SpaceMapToolsTop />
       </div>
-      <div style={{ left: '1rem', bottom: '1rem' }} className='absolute'>
+      <div style={{ right: '1rem', top: '1rem' }} className='absolute'>
         <SpaceMapToolsBottom />
       </div>
     </>

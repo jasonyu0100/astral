@@ -1,11 +1,18 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-interface Controller {}
+interface Controller {
+  cursor: boolean;
+  updateCursor: (state: boolean) => void;
+}
 
 export const ContextForSpaceMapController = createContext({} as Controller);
 
 export function useControllerForSpaceMap(): Controller {
-  return {};
+  const [cursor, setCursor] = useState(false);
+  return {
+    cursor,
+    updateCursor: (state) => setCursor(state),
+  };
 }
 
 export interface TransformationObj {
