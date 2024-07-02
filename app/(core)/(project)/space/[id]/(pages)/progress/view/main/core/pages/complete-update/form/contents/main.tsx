@@ -1,10 +1,12 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import {
   ChapterSessionUpdateVariant,
   ContextForChapterSessionUpdateObj,
 } from '@/(server)/(model)/space/chapter/session/update/main';
+import { glassFx } from '@/(style)/data';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
 import { useContext } from 'react';
 import { SpaceProgressUpdateFormUpdate } from '../action/update/main';
@@ -50,6 +52,7 @@ export function SpaceProgressUpdateFormContents() {
         <SpaceProgressUpdateFormDetails />
         <SpaceProgressUpdateFormUpdate />
       </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

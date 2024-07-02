@@ -1,9 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { glassFx } from '@/(style)/data';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
@@ -26,7 +24,6 @@ export function SpaceProgressCompleteSessionHeader() {
           {getFormattedAMPM(new Date())}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

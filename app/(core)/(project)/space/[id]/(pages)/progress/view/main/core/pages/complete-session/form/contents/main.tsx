@@ -1,5 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx } from '@/(style)/data';
 import { SpaceProgressCompleteSessionFormDetails } from './details/main';
 import { SpaceProgressCompleteSessionFormContributors } from './members/main';
 
@@ -11,6 +13,7 @@ export function SpaceProgressSessionFormContents() {
         {/* <SpaceProgressSessionUpdates /> */}
         <SpaceProgressCompleteSessionFormContributors />
       </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

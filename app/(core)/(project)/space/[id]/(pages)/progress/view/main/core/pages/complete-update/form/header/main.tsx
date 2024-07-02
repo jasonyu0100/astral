@@ -1,8 +1,6 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { glassFx } from '@/(style)/data';
 import { getFormattedAMPM } from '@/(utils)/dateFormat';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
 import { useContext } from 'react';
@@ -30,7 +28,6 @@ export function SpaceProgressUpdateFormHeader() {
           {current?.added ? ' - added' : ' - not added'}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

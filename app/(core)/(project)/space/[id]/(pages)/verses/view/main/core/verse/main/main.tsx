@@ -8,8 +8,8 @@ export function SpaceVersesVerseMain() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (
-    <div className='flex h-full w-[800px] flex-col space-y-[1rem]'>
-      <div className='space-y-[0.5rem] px-[2rem]'>
+    <div className='flex h-full flex-col space-y-[1rem]'>
+      <div className='space-y-[0.5rem] px-[1rem]'>
         <p className=' text-sm font-light text-white'>
           {getFormattedDate(
             new Date(verseListController.state.currentObj?.created ?? ''),
@@ -24,12 +24,9 @@ export function SpaceVersesVerseMain() {
             Verse - {verseListController.state.currentObj?.title}
           </p>
         </div>
-        <p className=' text-white'>
-          {verseListController.state.currentObj?.description}
-        </p>
       </div>
       <div className='flex flex-row space-x-[2rem]'>
-        <div className='flex aspect-[12/9] w-[900px] items-center justify-center rounded-[2rem] bg-black'>
+        <div className='flex aspect-[12/9] w-[600px] items-center justify-center rounded-[2rem] bg-black'>
           <img
             className='h-full flex-shrink-0 rounded-[2rem] object-contain'
             src={verseListController.state.currentObj?.fileElem?.src}
@@ -88,6 +85,9 @@ export function SpaceVersesVerseMain() {
           </svg>
         </div> */}
       </div>
+      <p className='px-[1rem] text-slate-500'>
+        {verseListController.state.currentObj?.description}
+      </p>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { SpaceVersesContentInput } from './input/main';
 import { SpaceVersesContentList } from './list/main';
@@ -13,9 +12,8 @@ export function SpaceVersesContentComments() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
-      <GlassWindowContents className='flex w-full flex-col space-y-[2rem] p-[2rem]'>
+      <GlassWindowContents className='flex w-full flex-col space-y-[2rem] px-[3rem] py-[2rem]'>
         <SpaceVersesContentInput />
-        <HorizontalDivider />
         <SpaceVersesContentList />
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />

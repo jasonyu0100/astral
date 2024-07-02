@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForVerseCommentList } from '@/(server)/(controller)/space/chapter/verse/comment/list';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext, useState } from 'react';
 
 export function SpaceVersesContentInput() {
@@ -24,9 +24,8 @@ export function SpaceVersesContentInput() {
   return (
     <div className='flex flex-col space-y-[2rem]'>
       <GlassWindowFrame
-        className='h-[8rem] w-full'
+        className='h-[4rem] w-full'
         borderFx={borderFx['border-b']}
-        roundedFx={roundedFx['rounded']}
       >
         <GlassWindowContents>
           <input

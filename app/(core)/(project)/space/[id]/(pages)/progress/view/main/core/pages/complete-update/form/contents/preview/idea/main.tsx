@@ -13,7 +13,7 @@ export function SpaceProgressUpdatePreviewIdea() {
     <div className='flex flex-col space-y-[1rem]'>
       {ideaController.state.obj.variant === ElementVariant.FILE && (
         <img
-          className='object-contain'
+          className='max-h-[200px] w-full object-contain shadow-lg'
           src={ideaController.state.obj.fileElem?.src}
         />
       )}

@@ -12,17 +12,17 @@ export function SpaceVerseContentComment() {
     <div className='flex flex-col'>
       <div className='flex flex-row  items-center space-x-[1rem]'>
         <img
-          className='aspect-square h-[4rem] rounded-full'
+          className='aspect-square h-[3rem] rounded-full'
           src={exampleFileElem.src}
         />
-        <p className='text-2xl font-bold text-slate-300'>
+        <p className='text-xl font-bold text-slate-300'>
           {commentUser.state.obj.displayName}{' '}
-          <span className='text-xl text-slate-500'>
+          <span className='text-lg text-slate-500'>
             - {getFormmatedTimeDifference(new Date(commentObj.created))}
           </span>
         </p>
       </div>
-      <div className='flex flex-grow flex-col pl-[5rem]'>
+      <div className='flex flex-grow flex-col pl-[4rem] pt-[1rem]'>
         <p className='text-lg font-light text-slate-300'>
           {commentObj.message}
         </p>
