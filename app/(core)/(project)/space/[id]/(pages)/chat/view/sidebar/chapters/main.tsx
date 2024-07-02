@@ -7,7 +7,6 @@ import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapte
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
 import { SpaceChatAddChapterModal } from '../../../(modal)/add/chapter/main';
-import { SpaceChatChapterAdd } from './add/main';
 import { SpaceChatSidebarChapter } from './chapter/main';
 
 export function SpaceChatSidebarChapters() {
@@ -34,11 +33,11 @@ export function SpaceChatSidebarChapters() {
                 <SpaceChatSidebarChapter key={chapter.id} />
               </ContextForSpaceChapterObj.Provider>
             ))}
-            <SpaceChatChapterAdd
+            {/* <SpaceChatChapterAdd
               onClick={() => {
                 openableController.open();
               }}
-            />
+            /> */}
           </div>
         </GlassAreaContainer>
       </div>

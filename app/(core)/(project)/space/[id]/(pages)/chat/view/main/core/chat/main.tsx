@@ -69,7 +69,7 @@ export function SpaceChatChat() {
       </div>
       <div className='flex h-full w-[6rem] items-center justify-center'>
         <a
-          className='flex h-[4rem] w-[4rem] cursor-pointer items-center justify-center rounded-full bg-blue-500 shadow-glow'
+          className='flex h-[3rem] w-[3rem] animate-pulse cursor-pointer items-center justify-center rounded-full'
           href={spaceMap.space.id.map.link(spaceController.state.objId)}
           onClick={() => {
             alert('Summarising Conversation');
@@ -77,29 +77,23 @@ export function SpaceChatChat() {
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className={'h-3/4 w-3/4'}
-            viewBox='0 0 25 25'
+            className='h-3/4 w-3/4'
+            viewBox='0 0 24 24'
             fill='none'
           >
             <mask
-              id='mask0_3291_42'
+              id='mask0_3293_66'
               maskUnits='userSpaceOnUse'
               x='0'
               y='0'
-              width='25'
-              height='25'
+              width='24'
+              height='24'
             >
-              <rect
-                x='0.708008'
-                y='0.09375'
-                width='24'
-                height='24'
-                fill='#D9D9D9'
-              />
+              <rect width='24' height='24' fill='#D9D9D9' />
             </mask>
-            <g mask='url(#mask0_3291_42)'>
+            <g mask='url(#mask0_3293_66)'>
               <path
-                d='M16.883 13.0938H4.70801V11.0938H16.883L11.283 5.49375L12.708 4.09375L20.708 12.0938L12.708 20.0938L11.283 18.6938L16.883 13.0938Z'
+                d='M4 15V13H20V15H4ZM4 19V17H20V19H4ZM4 11V9H20V11H4ZM4 7V5H20V7H4Z'
                 fill='#CBD5E1'
               />
             </g>
