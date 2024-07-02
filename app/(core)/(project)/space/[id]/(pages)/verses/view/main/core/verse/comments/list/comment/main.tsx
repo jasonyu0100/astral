@@ -1,9 +1,6 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
-import { roundedFx } from '@/(style)/data';
 import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
@@ -15,19 +12,21 @@ export function SpaceVerseContentComment() {
     <div className='flex flex-col'>
       <div className='flex flex-row  items-center space-x-[1rem]'>
         <img
-          className='aspect-square h-[2rem] rounded-full'
+          className='aspect-square h-[4rem] rounded-full'
           src={exampleFileElem.src}
         />
-        <p className='text-lg font-bold text-slate-300'>
+        <p className='text-2xl font-bold text-slate-300'>
           {commentUser.state.obj.displayName}{' '}
-          <span className='text-sm text-slate-500'>
+          <span className='text-xl text-slate-500'>
             - {getFormmatedTimeDifference(new Date(commentObj.created))}
           </span>
         </p>
       </div>
-      <div className='flex flex-grow flex-col pl-[3rem]'>
-        <p className='font-light text-slate-300'>{commentObj.message}</p>
-        <div className='mt-[0.5rem] flex flex-row'>
+      <div className='flex flex-grow flex-col pl-[5rem]'>
+        <p className='text-lg font-light text-slate-300'>
+          {commentObj.message}
+        </p>
+        {/* <div className='mt-[0.5rem] flex flex-row'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -87,7 +86,7 @@ export function SpaceVerseContentComment() {
               />
             </g>
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );

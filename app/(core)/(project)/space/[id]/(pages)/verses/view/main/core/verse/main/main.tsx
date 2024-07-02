@@ -17,7 +17,7 @@ export function SpaceVersesVerseMain() {
         </p>
         <div className='flex flex-row items-center space-x-[1rem]'>
           <img
-            className='aspect-square h-[2rem] rounded-full'
+            className='aspect-square h-[3rem] rounded-full'
             src={loggedInUser.dp.src}
           />
           <p className='text-xl font-bold text-white'>
@@ -35,7 +35,7 @@ export function SpaceVersesVerseMain() {
             src={verseListController.state.currentObj?.fileElem?.src}
           />
         </div>
-        <div className='flex flex-col items-center justify-center'>
+        {/* <div className='flex flex-col items-center justify-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-[5rem] w-[5rem]'
@@ -86,7 +86,7 @@ export function SpaceVersesVerseMain() {
               <path d='M12 15L7 10H17L12 15Z' fill='#CBD5E1' />
             </g>
           </svg>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForVerseCommentList } from '@/(server)/(controller)/space/chapter/verse/comment/list';
 import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext, useState } from 'react';
 
 export function SpaceVersesContentInput() {
@@ -22,10 +22,11 @@ export function SpaceVersesContentInput() {
   }
 
   return (
-    <div className='flex flex-col space-y-[1rem]'>
+    <div className='flex flex-col space-y-[2rem]'>
       <GlassWindowFrame
-        className='h-[5rem] w-full'
+        className='h-[8rem] w-full'
         borderFx={borderFx['border-b']}
+        roundedFx={roundedFx['rounded']}
       >
         <GlassWindowContents>
           <input
@@ -47,7 +48,7 @@ export function SpaceVersesContentInput() {
           <p className='font-bold text-slate-300'>Clear</p>
         </div>
         <div
-          className='cursor-pointer bg-blue-500 p-[0.5rem]'
+          className='cursor-pointer rounded-full bg-blue-500 p-[0.5rem] px-[1rem]'
           onClick={() => {
             createComment();
             setMessage('');
