@@ -22,8 +22,8 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
     const transformationObj = parseTransformString(transformString);
     ideaListController.actions.stateActions.updateObj(ideaObj.id, {
       ...ideaObj,
-      x: initialX + transformationObj.x,
-      y: initialY + transformationObj.y,
+      x: Math.round(initialX + transformationObj.x),
+      y: Math.round(initialY + transformationObj.y),
       scale: transformationObj.scale * initialScale,
       rotation: Math.round(initialRotation + transformationObj.rotation),
     });

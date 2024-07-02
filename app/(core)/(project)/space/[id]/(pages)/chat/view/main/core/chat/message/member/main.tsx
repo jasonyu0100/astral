@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 export function SpaceChatMemberMessage() {
   const message = useContext(ContextForConversationMessageObj);
-  const userObj = useControllerForUserMain(message.userId);
+  const userObj = useControllerForUserMain(message?.userId || '');
 
   return (
     <div className='mr-auto flex max-w-[350px] flex-col'>

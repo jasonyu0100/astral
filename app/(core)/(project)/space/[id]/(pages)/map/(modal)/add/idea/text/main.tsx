@@ -9,6 +9,7 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import {
   TextElem,
   TextElemVariant,
@@ -19,6 +20,7 @@ import { useContext, useState } from 'react';
 export function SpaceMapAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
   const [text, changeText] = useState<string>('');
@@ -29,7 +31,7 @@ export function SpaceMapAddTextIdeaModal() {
     sceneIdeaListController.actions.createActions
       .createFromText(
         user.id,
-        sceneIdeaListController.state.objId,
+        sceneListController.state.objId,
         title,
         description,
         0,

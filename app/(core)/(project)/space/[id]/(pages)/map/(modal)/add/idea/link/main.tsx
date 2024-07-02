@@ -9,6 +9,7 @@ import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/(model)/elements/url/main';
@@ -21,6 +22,7 @@ export function SpaceMapAddUrlIdeaModal() {
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
@@ -65,7 +67,7 @@ export function SpaceMapAddUrlIdeaModal() {
     const idea =
       await sceneIdeaListController.actions.createActions.createFromLink(
         user.id,
-        sceneIdeaListController.state.objId,
+        sceneListController.state.objId,
         title,
         description,
         0,

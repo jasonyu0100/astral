@@ -5,9 +5,7 @@ import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/s
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceMapAddIcon } from './add/main';
-import { SpaceMapCollaboratorIcon } from './collaborator/main';
 import { SpaceMapCursorIcon } from './cursor/main';
-import { SpaceMapGroupIcon } from './group/main';
 import { SpaceMapLinkIcon } from './link/main';
 import { SpaceMapSaveIcon } from './save/main';
 import { SpaceMapTextIcon } from './text/main';
@@ -23,8 +21,8 @@ export function SpaceMapToolsTop() {
           <SpaceMapAddIcon />
           <SpaceMapTextIcon />
           <SpaceMapLinkIcon />
-          <SpaceMapCollaboratorIcon />
-          <SpaceMapGroupIcon />
+          {/* <SpaceMapCollaboratorIcon /> */}
+          {/* <SpaceMapGroupIcon /> */}
           {/* <SpaceMapFolderIcon /> */}
           {/* <SpaceMapJournalIcon /> */}
           <SpaceMapSaveIcon

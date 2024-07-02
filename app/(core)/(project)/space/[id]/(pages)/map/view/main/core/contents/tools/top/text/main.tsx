@@ -1,4 +1,4 @@
-import { SpaceMapAddTextIdeaModal } from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/idea/add/text/main';
+import { SpaceMapAddTextIdeaModal } from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/add/idea/text/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,

@@ -7,7 +7,7 @@ import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/coll
 import { useContext } from 'react';
 import { SpaceMapCreateResourceModal } from '../../../../../(modal)/add/resource/main';
 import { SpaceMapAddResource } from './add/main';
-import { SpaceMapResourceThumbnail } from './thumbnail/main';
+import { SpaceMapResourceResource } from './resource/main';
 
 export function SpaceMapResourcesResults() {
   const resourceListController = useContext(ContextForCollectionResourceList);
@@ -24,7 +24,7 @@ export function SpaceMapResourcesResults() {
           <div className='grid grid-cols-2 gap-[1rem]'>
             {resourceListController.state.objs.map((resource) => (
               <ContextForCollectionResourceObj.Provider value={resource}>
-                <SpaceMapResourceThumbnail />
+                <SpaceMapResourceResource />
               </ContextForCollectionResourceObj.Provider>
             ))}
             <SpaceMapAddResource />
