@@ -22,26 +22,33 @@ export function SpaceMapToolsBottom() {
       <ContextForOpenable.Provider value={openableController}>
         <SpaceMapAddSceneModal />
       </ContextForOpenable.Provider>
-      <GlassWindowFrame className='w-[3rem]' roundedFx={roundedFx.rounded}>
-        <GlassWindowContents className='flex w-full flex-col items-center space-y-[0.5rem] py-[0.5rem]'>
-          <SpaceMapUpIcon
-            onClick={() => {
-              sceneListController.actions.stateActions.goNext();
-            }}
-          />
-          <SpaceMapAddIcon
-            onClick={() => {
-              openableController.open();
-            }}
-          />
-          <SpaceMapDownIcon
-            onClick={() => {
-              sceneListController.actions.stateActions.goPrev();
-            }}
-          />
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
+      <div className='flex flex-row space-x-[2rem]'>
+        <div className='flex flex-row items-center space-x-[0.5rem] opacity-50'>
+          <p className='text-sm font-light text-slate-300'>
+            Scene {sceneListController.state.index + 1}
+          </p>
+        </div>
+        <GlassWindowFrame className='h-[5rem]' roundedFx={roundedFx.rounded}>
+          <GlassWindowContents className='flex w-full flex-col items-center space-y-[0.5rem] py-[0.5rem]'>
+            <SpaceMapUpIcon
+              onClick={() => {
+                sceneListController.actions.stateActions.goNext();
+              }}
+            />
+            <SpaceMapAddIcon
+              onClick={() => {
+                openableController.open();
+              }}
+            />
+            <SpaceMapDownIcon
+              onClick={() => {
+                sceneListController.actions.stateActions.goPrev();
+              }}
+            />
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        </GlassWindowFrame>
+      </div>
     </>
   );
 }
