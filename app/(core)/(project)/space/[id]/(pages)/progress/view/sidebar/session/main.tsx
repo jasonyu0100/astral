@@ -11,7 +11,7 @@ import {
   SpaceProgressPage,
 } from '../../../(controller)/space-session/main';
 
-export function SpaceProgressSidebarEntrySession() {
+export function SpaceProgressSidebarSession() {
   const index = useContext(ContextForIndexable);
   const session = useContext(ContextForChapterSessionObj);
   const spaceSessionController = useContext(ContextForSpaceProgressController);
@@ -20,7 +20,7 @@ export function SpaceProgressSidebarEntrySession() {
   return (
     <>
       <GlassWindowFrame
-        name={SpaceProgressSidebarEntrySession.name}
+        name={SpaceProgressSidebarSession.name}
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx.rounded}
         className='flex- flex cursor-pointer p-[1rem]'

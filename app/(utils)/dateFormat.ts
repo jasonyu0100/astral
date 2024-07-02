@@ -26,3 +26,23 @@ export function getFormattedAMPM(date: Date) {
   const strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
+
+export function getFormmatedTimeDifference(date: Date) {
+  const current = new Date();
+  const diff = current.getTime() - date.getTime();
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  // return `${days}d ${hours % 24}h ${minutes % 60}m ago`;
+  if (days > 0) {
+    return `${days} days ago`;
+  } else if (hours > 0) {
+    return `${hours} hours ago`;
+  } else if (minutes > 0) {
+    return `${minutes} minutes ago`;
+  } else {
+    return `${seconds} seconds ago`;
+  }
+}

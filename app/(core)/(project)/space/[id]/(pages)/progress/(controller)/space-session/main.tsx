@@ -16,7 +16,6 @@ export enum SpaceProgressPage {
   COMPLETE_SESSION_UPDATE = 'Complete Session Update',
   VIEW_SESSION = 'View Session',
   VIEW_SESSION_UPDATE = 'View Session Update',
-  COMPLETE_UPDATE = 'COMPLETE_UPDATE',
 }
 
 export const ContextForSpaceProgressController = createContext(

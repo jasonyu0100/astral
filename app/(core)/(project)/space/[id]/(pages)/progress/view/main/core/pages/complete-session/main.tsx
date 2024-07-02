@@ -1,3 +1,5 @@
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { useContext } from 'react';
 import {
   ContextForSessionForm,
   useControllerForSessionForm,
@@ -8,17 +10,30 @@ import { SpaceProgressCompleteSessionPanel } from './panel/main';
 
 export function SpaceProgressCompleteSession() {
   const sessionFormController = useControllerForSessionForm();
+  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
 
   return (
     <ContextForSessionForm.Provider value={sessionFormController}>
       <div className='flex h-full w-full flex-row items-center'>
-        <SpaceProgressCompleteSessionPanel />
-        <div className='flex flex-grow p-[2rem]'>
-          <div className='flex flex-grow items-center justify-center space-x-[2rem]'>
-            <SpaceProgressCompleteSessionForm />
-            <SpaceProgressCompleteSessionComplete />
+        {updateListController.state.objs.length > 0 ? (
+          <>
+            <SpaceProgressCompleteSessionPanel />
+            <div className='flex flex-grow p-[2rem]'>
+              <div className='flex flex-grow items-center justify-center space-x-[2rem]'>
+                <>
+                  <SpaceProgressCompleteSessionForm />
+                  <SpaceProgressCompleteSessionComplete />
+                </>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className='h-full w-full p-[2rem]'>
+            <p className='text-bold text-xl text-slate-300'>
+              No updates to complete
+            </p>
           </div>
-        </div>
+        )}
       </div>
     </ContextForSessionForm.Provider>
   );

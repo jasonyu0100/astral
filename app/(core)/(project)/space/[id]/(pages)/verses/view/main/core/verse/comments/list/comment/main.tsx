@@ -4,6 +4,7 @@ import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
 import { roundedFx } from '@/(style)/data';
+import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceVerseContentComment() {
@@ -17,14 +18,15 @@ export function SpaceVerseContentComment() {
           className='aspect-square h-[2rem] rounded-full'
           src={exampleFileElem.src}
         />
-        <p className='text-sm font-bold text-slate-300'>
-          {commentUser.state.obj.displayName}
+        <p className='text-lg font-bold text-slate-300'>
+          {commentUser.state.obj.displayName}{' '}
+          <span className='text-sm text-slate-500'>
+            - {getFormmatedTimeDifference(new Date(commentObj.created))}
+          </span>
         </p>
       </div>
       <div className='flex flex-grow flex-col pl-[3rem]'>
-        <p className='text-xs font-light text-slate-300'>
-          {commentObj.message}
-        </p>
+        <p className='font-light text-slate-300'>{commentObj.message}</p>
         <div className='mt-[0.5rem] flex flex-row'>
           <svg
             xmlns='http://www.w3.org/2000/svg'

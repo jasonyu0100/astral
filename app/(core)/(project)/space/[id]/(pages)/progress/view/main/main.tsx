@@ -23,10 +23,11 @@ export function SpaceProgressMain() {
       <SpaceProgressHeader />
       <SpaceProgressContainer>
         {spaceSessionController.page === SpaceProgressPage.VIEW_SESSION && (
-          <SpaceProgressViewUpdate />
+          <SpaceProgressViewSession />
         )}
         {spaceSessionController.page ===
-          SpaceProgressPage.VIEW_SESSION_UPDATE && <SpaceProgressViewSession />}
+          SpaceProgressPage.VIEW_SESSION_UPDATE && <SpaceProgressViewUpdate />}
+
         {spaceSessionController.page === SpaceProgressPage.COMPLETE_SESSION && (
           <SpaceProgressCompleteSession />
         )}

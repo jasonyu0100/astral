@@ -2,6 +2,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import {
   ContextForOpenable,
@@ -12,7 +13,8 @@ import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/se
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceProgressAddUpdateModal } from '../../(modal)/add/update/main';
-import { SpaceProgressSidebarEntrySession } from './entry/main';
+import { SpaceProgressSidebarCurrentSession } from './current/main';
+import { SpaceProgressSidebarSession } from './session/main';
 
 export function SpaceProgressSidebar() {
   const openableController = useControllerForOpenable();
@@ -50,15 +52,14 @@ export function SpaceProgressSidebar() {
             name={''}
           >
             <div className='flex w-full flex-col space-y-[1rem]'>
-              {sessionListController.state.objs.length === 0 && (
-                <p className='text-sm font-bold text-slate-500'>
-                  No sessions recorded
-                </p>
+              <SpaceProgressSidebarCurrentSession />
+              {sessionListController.state.objs.length > 0 && (
+                <HorizontalDivider />
               )}
               {sessionListController.state.objs.map((session, index) => (
                 <ContextForIndexable.Provider value={index}>
                   <ContextForChapterSessionObj.Provider value={session}>
-                    <SpaceProgressSidebarEntrySession />
+                    <SpaceProgressSidebarSession />
                   </ContextForChapterSessionObj.Provider>
                 </ContextForIndexable.Provider>
               ))}

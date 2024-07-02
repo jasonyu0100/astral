@@ -1,6 +1,8 @@
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { ContextForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
 import { useContext } from 'react';
+import { SpaceProgressViewUpdateForm } from './form/main';
+import { SpaceProgressViewUpdatePanel } from './panel/main';
 
 export function SpaceProgressViewUpdate() {
   const sessionListController = useContext(ContextForChapterSessionList);
@@ -8,15 +10,15 @@ export function SpaceProgressViewUpdate() {
   const updateListController = useContext(ContextForSessionUpdateList);
 
   return (
-    <div className='flex flex-col'>
-      <p className='text-slate-300'>{session?.title}</p>
-      <p className='text-slate-300'>{session?.description}</p>
-      <p className='text-slate-300'>{session?.created}</p>
-      {updateListController.state.objs.map((update) => (
-        <div className='text-slate-300'>
-          {update.title} {update.variant}
+    <ContextForSessionUpdateList.Provider value={updateListController}>
+      <div className='flex h-full w-full flex-row items-center'>
+        <SpaceProgressViewUpdatePanel />
+        <div className='flex flex-grow p-[2rem]'>
+          <div className='flex flex-grow items-center justify-center space-x-[2rem]'>
+            <SpaceProgressViewUpdateForm />
+          </div>
         </div>
-      ))}
-    </div>
+      </div>
+    </ContextForSessionUpdateList.Provider>
   );
 }

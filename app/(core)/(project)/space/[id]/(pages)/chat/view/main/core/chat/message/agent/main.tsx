@@ -1,4 +1,5 @@
 import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceChatAgentMessage() {
@@ -13,7 +14,7 @@ export function SpaceChatAgentMessage() {
         />
         <p className='p-[0.5rem] text-left text-xs text-slate-500 text-opacity-50'>
           from {message.agentId} sent{' '}
-          {new Date(message.created).toLocaleTimeString()}
+          {getFormmatedTimeDifference(new Date(message.created))}
         </p>
       </div>
       <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left lowercase text-white'>

@@ -19,7 +19,14 @@ export function SpaceProgressCompleteUpdatePanel() {
     <GlassWindowFrame className='h-full w-[18rem]'>
       <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem] px-[1rem]'>
         <div className='flex flex-col space-y-[1rem] py-[1rem]'>
-          <p className='font-bold text-slate-300'>Current Progress</p>
+          <p
+            className='text-md cursor-pointer font-bold text-slate-500'
+            onClick={() =>
+              spaceSessionController.setPage(SpaceProgressPage.COMPLETE_SESSION)
+            }
+          >
+            Session
+          </p>
           <HorizontalDivider />
           {updates.map((update, index) => (
             <div
@@ -32,26 +39,16 @@ export function SpaceProgressCompleteUpdatePanel() {
               }}
             >
               {updateListController.state.currentObj?.id === update.id ? (
-                <p className='font-bold text-slate-300'>
+                <p className='text-sm font-bold text-slate-300'>
                   {index + 1}. {update.variant} {update.title}
                 </p>
               ) : (
-                <p className='font-bold text-slate-500'>
+                <p className='text-sm font-bold text-slate-500'>
                   {index + 1}. {update.variant} {update.title}
                 </p>
               )}
             </div>
           ))}
-        </div>
-        <div
-          className='flex cursor-pointer flex-col py-[1rem]'
-          onClick={() =>
-            spaceSessionController.setPage(SpaceProgressPage.COMPLETE_SESSION)
-          }
-        >
-          <p className='mt-auto rounded bg-blue-500 p-[1rem] font-bold text-slate-300'>
-            Complete Session
-          </p>
         </div>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
