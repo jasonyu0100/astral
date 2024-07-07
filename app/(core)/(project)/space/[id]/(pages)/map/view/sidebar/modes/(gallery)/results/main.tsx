@@ -24,14 +24,14 @@ export function SpaceMapGalleryCollectionsResults() {
         <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
           {collectionsListController.state.objs.map((collection) => (
             <ContextForGalleryCollectionObj.Provider value={collection}>
-              <p className='w-full text-lg font-bold text-slate-300'>
+              <p className='w-full text-lg font-bold text-slate-700'>
                 {collection.title}
               </p>
               <SpaceMapCollectionThumbnail />
             </ContextForGalleryCollectionObj.Provider>
           ))}
           <HorizontalDivider />
-          <p className='w-full text-lg font-bold text-slate-300'>Add</p>
+          <p className='w-full text-lg font-bold text-slate-700'>Add</p>
           <SpaceMapCollectionAdd />
         </div>
       </div>

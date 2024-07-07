@@ -23,7 +23,7 @@ export function StudioSpacesRowStat() {
 
   return (
     <div className='flex flex-row items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>
+      <p className='text-sm font-bold text-slate-500'>
         {chapters.length} / {chats.length} / {scenes.length} / {verses.length}
       </p>
     </div>

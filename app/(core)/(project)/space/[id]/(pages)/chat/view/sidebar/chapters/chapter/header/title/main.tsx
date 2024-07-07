@@ -11,8 +11,8 @@ export function SpaceChatHeaderTitle() {
 
   return (
     <p
-      className={cn('font-extraBold text-xl text-slate-500', {
-        'animate-pulse-slow text-slate-400': active,
+      className={cn('font-extraBold text-xl text-slate-700', {
+        'animate-pulse-slow text-slate-700': active,
       })}
     >
       {chapter.title}

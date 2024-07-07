@@ -5,5 +5,5 @@ export default function SpaceProgressMiddleTitle() {
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const title = chaptersHandler.state.currentObj?.title || '';
 
-  return <div className='font-extraBold text-lg text-slate-300'>{title}</div>;
+  return <div className='font-extraBold text-lg text-slate-700'>{title}</div>;
 }

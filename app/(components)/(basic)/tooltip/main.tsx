@@ -18,7 +18,7 @@ export function WrapperTooltip({
     >
       <div
         className={cn(
-          'absolute top-[-50px] w-[200px] p-[0.5rem] text-center font-bold text-slate-300 outline-none',
+          'absolute top-[-50px] w-[200px] p-[0.5rem] text-center font-bold text-slate-700 outline-none',
           {
             'visible animate-pulse': hover,
             invisible: !hover,

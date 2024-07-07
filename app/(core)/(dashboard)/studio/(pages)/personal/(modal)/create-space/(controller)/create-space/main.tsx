@@ -227,7 +227,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     return scenes;
   }
 
-  async function createVerses(
+  async function createIdeas(
     space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
@@ -332,7 +332,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('MEMBERS CREATED', members);
     const scenes = await createScenes(space, chapters, templateSpaceChapters);
     console.log('SCENES CREATED', scenes);
-    const verses = await createVerses(space, chapters, templateSpaceChapters);
+    const verses = await createIdeas(space, chapters, templateSpaceChapters);
     console.log('VERSES CREATED', verses);
     const chats = await createChats(space, chapters, templateSpaceChapters);
     console.log('chats created', chats);

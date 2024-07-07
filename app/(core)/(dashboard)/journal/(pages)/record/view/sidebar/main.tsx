@@ -25,12 +25,12 @@ export function JournalRecordSidebar() {
         name={JournalRecordSidebar.name}
         sizeFx='w-[300px] h-full'
         className={`flex flex-col space-y-[1rem] p-[1rem]`}
-        glassFx={glassFx['glass-5']}
+        glassFx={glassFx['glass-20']}
       >
         <JournalRecordSidebarAdd onClick={openableController.open} />
         <HorizontalDivider />
         {collectionListController.state.objs.length === 0 && (
-          <p className='text-lg text-slate-500'>No sections</p>
+          <p className='text-lg text-slate-700'>No sections</p>
         )}
         {collectionListController.state.objs.map((collection) => (
           <ContextForGalleryCollectionObj.Provider

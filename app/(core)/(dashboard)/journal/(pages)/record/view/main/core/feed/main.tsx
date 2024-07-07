@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { ElementVariant } from '@/(server)/(model)/elements/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function JournalRecordFeed() {
@@ -13,11 +13,14 @@ export function JournalRecordFeed() {
   return (
     <div className='flex w-full flex-row flex-wrap items-center gap-[2rem]'>
       {resourceListController.state.objs.length === 0 && (
-        <p className='text-lg text-slate-500'>No Entries</p>
+        <p className='text-lg text-slate-700'>No Entries</p>
       )}
       {resourceListController.state.objs.map((resource) => (
         <div className='flex flex-col items-center space-y-[1rem]'>
-          <GlassWindowFrame borderFx={borderFx['border-around']}>
+          <GlassWindowFrame
+            borderFx={borderFx['border-around']}
+            roundedFx={roundedFx.rounded}
+          >
             <GlassWindowContents className='flex flex-col items-center p-[2rem]'>
               {resource.variant === ElementVariant.FILE && (
                 <>
@@ -33,9 +36,9 @@ export function JournalRecordFeed() {
                 </>
               )}
             </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-5']} />
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
           </GlassWindowFrame>
-          <div className='text-lg font-bold text-slate-300'>
+          <div className='text-lg font-bold text-slate-700'>
             {resource.title}
           </div>
         </div>

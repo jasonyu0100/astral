@@ -10,11 +10,11 @@ export function SpaceProgressUpdateFormDetails() {
 
   return (
     <div className='flex w-full flex-col space-y-[1rem]'>
-      <p className='text-xs font-bold text-slate-300'>Comments</p>
+      <p className='text-xs font-bold text-slate-700'>Comments</p>
       <GlassWindowFrame className='w-full'>
         <GlassWindowContents>
           <textarea
-            className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-slate-500 outline-none'
+            className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-slate-700 outline-none'
             value={updateFormController.title}
             onChange={(e) => updateFormController.setTitle(e.target.value)}
           />

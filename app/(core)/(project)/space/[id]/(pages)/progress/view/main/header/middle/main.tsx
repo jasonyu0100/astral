@@ -6,7 +6,7 @@ export function SpaceProgressHeaderMiddle() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
-      <p className='text-lg font-light text-slate-300'>
+      <p className='text-lg font-light text-slate-700'>
         session - {chapterListController.state.currentObj?.title}
       </p>
       <SpaceProgressExpandIcon />

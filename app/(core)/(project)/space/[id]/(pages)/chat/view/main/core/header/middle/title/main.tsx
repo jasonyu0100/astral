@@ -7,7 +7,7 @@ export default function SpaceChatHeaderMiddleTitle() {
 
   const headerTitle = chat ? `${chat.title}` : 'None';
   return (
-    <p className='text-lg font-light text-slate-300'>
+    <p className='text-lg font-light text-slate-700'>
       chat - {headerTitle || 'untitled'}
     </p>
   );

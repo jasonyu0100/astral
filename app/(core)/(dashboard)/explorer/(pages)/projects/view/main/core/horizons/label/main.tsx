@@ -5,7 +5,7 @@ export function VentureHorizonsListLabel({
 }) {
   return (
     <div className='flex flex-shrink-0 flex-row items-center pb-[1rem]'>
-      <p className='font-extraBold text-lg text-slate-500'>{children}</p>
+      <p className='font-extraBold text-lg text-slate-700'>{children}</p>
     </div>
   );
 }

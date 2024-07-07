@@ -13,7 +13,7 @@ export function SpaceMapTextStickyIdea() {
       style={{ padding: '15%' }}
     >
       <textarea
-        className='z-50 h-full w-full resize-none bg-transparent text-xs font-bold text-black outline-none'
+        className='z-50 h-full w-full resize-none bg-transparent text-xs font-bold text-slate-800 outline-none'
         defaultValue={ideaObj.textElem?.text}
         onBlur={(e) => {
           ideaListController.actions.stateActions.updateObj(ideaObj.id, {

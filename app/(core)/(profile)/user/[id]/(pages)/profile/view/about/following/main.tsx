@@ -11,7 +11,7 @@ export function ProfileAboutFollowing() {
   return (
     <div className='justify- flex w-full flex-row items-center justify-center space-x-[1rem]'>
       <p
-        className='cursor-pointer text-lg font-bold text-white'
+        className='cursor-pointer text-lg font-bold text-slate-800'
         onClick={() => {
           controllerForProfilePage.setPage(ProfilePage.Connections);
         }}
@@ -23,7 +23,7 @@ export function ProfileAboutFollowing() {
       </p>
       <div className='h-[0.5rem] w-[0.5rem] rounded-full bg-slate-500' />
       <p
-        className='cursor-pointer text-lg font-bold text-white'
+        className='cursor-pointer text-lg font-bold text-slate-800'
         onClick={() => {
           controllerForProfilePage.setPage(ProfilePage.Backers);
         }}

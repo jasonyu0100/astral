@@ -6,7 +6,7 @@ export function CreativeNetworkRowRole() {
 
   return (
     <div className='flex'>
-      <p className='text-lg font-light text-white'>{user.role}</p>
+      <p className='text-lg font-light text-slate-900'>{user.role}</p>
     </div>
   );
 }

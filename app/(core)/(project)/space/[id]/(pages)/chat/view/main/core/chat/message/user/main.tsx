@@ -14,12 +14,12 @@ export function SpaceChatUserMessage() {
           src={loggedInUser.dp.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
-        <p className='p-[0.5rem] text-xs text-slate-500'>
+        <p className='p-[0.5rem] text-xs text-slate-700'>
           from {loggedInUser.displayName} sent{' '}
           {getFormmatedTimeDifference(new Date(message.created))}
         </p>
       </div>
-      <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right lowercase text-white'>
+      <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right font-bold lowercase text-white'>
         {message.message}
       </p>
     </div>

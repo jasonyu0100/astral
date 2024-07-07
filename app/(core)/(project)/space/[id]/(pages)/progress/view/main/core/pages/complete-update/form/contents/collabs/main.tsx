@@ -3,7 +3,7 @@ import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
 export function SpaceProgressUpdateFormCollaborators() {
   return (
     <div className='flex flex-col space-y-[0.5rem]'>
-      <p className='text-xs font-bold text-slate-300'>Collabs</p>
+      <p className='text-xs font-bold text-slate-700'>Collabs</p>
       <div className='flex flex-row flex-wrap gap-[0.5rem]'>
         {exampleFileElems.map((fileElem) => (
           <img

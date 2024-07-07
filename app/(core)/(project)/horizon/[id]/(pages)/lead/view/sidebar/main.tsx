@@ -11,17 +11,17 @@ export function HorizonLeadSidebar() {
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
     >
-      <p className='text-sm font-bold text-slate-500'>21 hours ago</p>
+      <p className='text-sm font-bold text-slate-700'>21 hours ago</p>
       <HorizonLeadSidebarEntry />
-      <p className='text-sm font-bold text-slate-500'>2 days ago</p>
-      <HorizonLeadSidebarEntry />
-      <HorizonLeadSidebarEntry />
+      <p className='text-sm font-bold text-slate-700'>2 days ago</p>
       <HorizonLeadSidebarEntry />
       <HorizonLeadSidebarEntry />
-      <p className='text-sm font-bold text-slate-500'>7 days ago</p>
       <HorizonLeadSidebarEntry />
       <HorizonLeadSidebarEntry />
-      <p className='text-sm font-bold text-slate-500'>1 month ago</p>
+      <p className='text-sm font-bold text-slate-700'>7 days ago</p>
+      <HorizonLeadSidebarEntry />
+      <HorizonLeadSidebarEntry />
+      <p className='text-sm font-bold text-slate-700'>1 month ago</p>
       <HorizonLeadSidebarEntry />
       <HorizonLeadSidebarEntry />
     </GlassAreaContainer>

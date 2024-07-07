@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { borderFx, glassFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { GameStateContext } from '../../contexts/main';
 import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
+import { borderFx, glassFx } from '@/(style)/data';
+import { useContext } from 'react';
+import { GameStateContext } from '../../contexts/main';
 
 export function QuadrantA() {
   const { gameState, setGameState } = useContext(GameStateContext);
@@ -18,7 +18,7 @@ export function QuadrantA() {
         className='aspect-square h-[20rem] w-[20rem] cursor-pointer'
         borderFx={`${borderFx['border-r']} ${borderFx['border-b']}`}
       >
-        <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
+        <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-700'>
           {flippableController.flipped ? (
             <>
               <p>A</p>

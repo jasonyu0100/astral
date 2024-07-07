@@ -16,7 +16,7 @@ export function SpaceProgressCollaboratorList() {
       <HorizontalDivider />
       <div className='flex w-full flex-col space-y-[1rem]'>
         {connectListController.state.objs.length === 0 && (
-          <div className='text-center text-slate-400'>No connections found</div>
+          <div className='text-center text-slate-700'>No connections found</div>
         )}
         {connectListController.state.objs.map((connection) => (
           <ContextForUserConnectionObj.Provider value={connection}>

@@ -14,15 +14,15 @@ export default function Page() {
           className={`flex h-[0px] w-full justify-between border-y-[1px] border-dashed border-red-500 px-[3px]`}
           style={{ rotate: `${theta}deg` }}
         >
-          <p className='font-bold text-slate-500'>A</p>
-          <p className='font-bold text-slate-500'>B</p>
+          <p className='font-bold text-slate-700'>A</p>
+          <p className='font-bold text-slate-700'>B</p>
         </div>
         <div
           className={`flex h-[0px] w-full justify-between border-y-[1px] border-green-500 px-[3px]`}
           style={{ rotate: `${thetaStar}deg` }}
         >
-          <p className='font-bold text-slate-500'>A*</p>
-          <p className='font-bold text-slate-500'>B*</p>
+          <p className='font-bold text-slate-700'>A*</p>
+          <p className='font-bold text-slate-700'>B*</p>
         </div>
       </div>
       <div className='flex flex-col font-bold'>

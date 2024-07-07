@@ -16,7 +16,7 @@ export function FormButton({ children, variant, ...props }: InputProps) {
     <button
       {...props}
       className={cn(
-        `flex h-[4rem] w-full flex-col items-center justify-center bg-slate-950 ${props.className}`,
+        `flex h-[4rem] w-full flex-col items-center justify-center bg-slate-100 ${props.className}`,
         {
           'bg-black':
             variant === ButtonVariant.PRIMARY || variant === undefined,
@@ -29,7 +29,7 @@ export function FormButton({ children, variant, ...props }: InputProps) {
         className={cn('text-center text-3xl font-bold leading-9', {
           'text-white':
             variant === ButtonVariant.PRIMARY || variant === undefined,
-          'text-black': variant === ButtonVariant.SECONDARY,
+          'text-slate-800': variant === ButtonVariant.SECONDARY,
         })}
       >
         {children}

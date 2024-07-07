@@ -42,7 +42,7 @@ export function StudioSpacesRowMore() {
             </g>
           </svg>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className='rounded-none border-none bg-slate-800 text-white outline-none'>
+        <DropdownMenuContent className='rounded-none border-none bg-slate-800 text-slate-900 outline-none'>
           <DropdownMenuLabel>Space</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => alert('TODO')}>

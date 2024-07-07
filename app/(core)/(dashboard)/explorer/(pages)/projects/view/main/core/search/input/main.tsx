@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, roundedFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
 export function HorizonsSearchInput() {
   return (
@@ -15,7 +15,7 @@ export function HorizonsSearchInput() {
         className={`flex flex-row items-center space-x-[1rem] px-[1rem]`}
       >
         <input
-          className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
+          className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-700 outline-none'
           placeholder='Seek horizons...'
         ></input>
       </GlassWindowContents>

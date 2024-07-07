@@ -36,9 +36,9 @@ export function SpaceProgressRowElement({
         >
           {children}
           {active ? (
-            <p className='font-bold text-slate-300'>{chapter.title}</p>
+            <p className='font-bold text-slate-700'>{chapter.title}</p>
           ) : (
-            <p className='font-bold text-slate-500'>{chapter.title}</p>
+            <p className='font-bold text-slate-700'>{chapter.title}</p>
           )}
         </GlassAreaContainer>
       </button>

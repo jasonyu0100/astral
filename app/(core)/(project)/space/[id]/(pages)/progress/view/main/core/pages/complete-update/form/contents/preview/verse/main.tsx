@@ -11,7 +11,7 @@ export function SpaceProgressUpdatePreviewVerse() {
 
   return (
     <>
-      <p className='text-xl font-bold text-slate-300'>
+      <p className='text-xl font-bold text-slate-700'>
         {verseController.state.obj.variant === ElementVariant.FILE && (
           <img
             className='max-h-[200px] w-full object-contain shadow-lg'

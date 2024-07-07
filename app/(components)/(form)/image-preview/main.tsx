@@ -39,11 +39,11 @@ export function ImagePreview({ fileElem: fileElem }: { fileElem: FileElem }) {
       </div>
       {fileElem?.src && (
         <div className='ml-[3rem] flex flex-grow flex-col space-y-[1rem] py-[1rem]'>
-          <p className='text-xl font-bold capitalize text-slate-500'>
+          <p className='text-xl font-bold capitalize text-slate-700'>
             {fileElem?.title}
           </p>
           <div className='flex flex-row'>
-            <p className='font-bold text-slate-300'>
+            <p className='font-bold text-slate-700'>
               {fileElem?.variant}, {fileElem?.size} bytes
             </p>
           </div>

@@ -15,7 +15,7 @@ export function GalleryContainer({ onClick, children, ...props }: InputProps) {
     <GlassWindowFrame
       roundedFx={roundedFx['rounded-xs']}
       name={GalleryContainer.name}
-      className={cn(`aspect-[11/16] w-full`, props.className)}
+      className={cn(`aspect-[3/2] w-full`, props.className)}
     >
       <GlassWindowContents className='flex flex-col' onClick={onClick}>
         {children}

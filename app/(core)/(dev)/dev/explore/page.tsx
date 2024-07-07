@@ -3,13 +3,13 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { galleryMap } from '@/(server)/(map)/gallery';
 import { elementsMap } from '@/(server)/(map)/elements';
-import { userMap } from '@/(server)/(map)/user';
-import { roundedFx, glassFx } from '@/(style)/data';
-import { useEffect, useState } from 'react';
+import { galleryMap } from '@/(server)/(map)/gallery';
 import { horizonMap } from '@/(server)/(map)/horizon';
 import { spaceMap } from '@/(server)/(map)/space';
+import { userMap } from '@/(server)/(map)/user';
+import { glassFx, roundedFx } from '@/(style)/data';
+import { useState } from 'react';
 
 function Section({ gqlMap }: { gqlMap: string }) {
   return (
@@ -19,7 +19,7 @@ function Section({ gqlMap }: { gqlMap: string }) {
     >
       <GlassWindowContents className='h-full w-full p-[2rem]'>
         <div
-          className='flex h-full w-full flex-col overflow-auto font-bold text-white'
+          className='flex h-full w-full flex-col overflow-auto font-bold text-slate-800'
           style={{ whiteSpace: 'pre-line' }}
         >
           {gqlMap}
@@ -45,9 +45,9 @@ export default function Page() {
     <div className='h-full w-full flex-col p-[3rem]'>
       <div className='flex flex-col space-y-[1rem]'>
         <div className='flex flex-row items-center space-x-[1rem] p-[1rem]'>
-          <p className='font-bold text-white'>Model:</p>
+          <p className='font-bold text-slate-800'>Model:</p>
           <select
-            className='bg-black font-bold text-white'
+            className='bg-black font-bold text-slate-800'
             onChange={(e) => {
               const key = e.target.value.toString();
               setModelObj(models[key]);
@@ -55,7 +55,11 @@ export default function Page() {
             }}
           >
             {Object.keys(models).map((model, index) => (
-              <option value={model} key={model} className='bg-black text-white'>
+              <option
+                value={model}
+                key={model}
+                className='bg-black text-slate-900'
+              >
                 {model}
               </option>
             ))}
@@ -63,13 +67,13 @@ export default function Page() {
         </div>
         <HorizontalDivider />
         <div className='flex flex-col p-[1rem]'>
-          <p className='font-bold text-white'>Table: {currentId}</p>
+          <p className='font-bold text-slate-800'>Table: {currentId}</p>
           <div className='flex flex-row space-x-[1rem]'>
             {modelObj.model.children.map((cm: any) => (
               <button
                 value={cm}
                 key={cm}
-                className='rounded bg-black p-[1rem] text-white'
+                className='rounded bg-black p-[1rem] text-slate-900'
                 onClick={() => {
                   setCurrentId(cm);
                   setModelObj(modelObj[cm]);
@@ -85,7 +89,7 @@ export default function Page() {
       <div className='flex flex-row space-x-[3rem]'>
         <Section gqlMap={modelObj.model.gql} />
         <div className='flex h-[5rem] w-[10rem] items-center justify-center bg-slate-300 bg-opacity-30'>
-          <a className='text-3xl text-white' href={`/dev/db/${currentId}`}>
+          <a className='text-3xl text-slate-900' href={`/dev/db/${currentId}`}>
             {currentId} dataview
           </a>
         </div>

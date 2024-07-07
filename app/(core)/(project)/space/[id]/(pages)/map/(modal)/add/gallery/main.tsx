@@ -47,10 +47,10 @@ export function SpaceMapCreateGalleryModal() {
               <FormSearchImage
                 fileElem={fileChangableController.fileElem}
                 onChange={fileChangableController.updateFileElem}
-                label='Thumbnail'
+                label='thumbnail'
               />
               <FormInput
-                title='Title'
+                title='title'
                 value={title}
                 onChange={(e) => changeTitle(e.target.value)}
               />

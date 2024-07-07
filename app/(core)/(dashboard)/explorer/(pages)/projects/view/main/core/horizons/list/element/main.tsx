@@ -24,14 +24,14 @@ export function VentureHorizonsListElement() {
             <HorizonCover fileElem={exampleFileElem} />
           </Link>
           <div className='flex flex-col'>
-            <p className='text-xl font-bold text-slate-300'>Horizon</p>
-            <p className='text-lg text-slate-300'>John Smith</p>
+            <p className='text-xl font-bold text-slate-700'>Horizon</p>
+            <p className='text-lg text-slate-700'>John Smith</p>
           </div>
         </div>
         <div className='flex flex-col'>
           <div className='flex flex-col'>
-            <p className='text-md font-bold text-slate-500'>Description</p>
-            <p className='text-lg text-slate-500'>John Smith</p>
+            <p className='text-md font-bold text-slate-700'>Description</p>
+            <p className='text-lg text-slate-700'>John Smith</p>
           </div>
         </div>
       </GlassWindowContents>

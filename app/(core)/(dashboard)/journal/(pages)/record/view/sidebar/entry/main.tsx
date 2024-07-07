@@ -24,8 +24,8 @@ export function JournalRecordSidebarEntry({
         onClick={onClick}
       >
         <div className='flex flex-col'>
-          <p className='text-lg font-bold text-slate-300'>Journal Entry</p>
-          <p className='font-bold text-slate-300'>{collection.title}</p>
+          <p className='text-lg font-bold text-slate-700'>Journal Entry</p>
+          <p className='font-bold text-slate-700'>{collection.title}</p>
         </div>
       </GlassWindowContents>
     </GlassWindowFrame>

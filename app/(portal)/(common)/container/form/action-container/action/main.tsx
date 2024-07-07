@@ -7,10 +7,10 @@ interface InputProps extends ButtonInputProps {
 export function PortalFormAction({ children, ...props }: InputProps) {
   return (
     <button
-      className='mt-auto flex h-[4rem] w-full flex-col items-center justify-center bg-slate-950'
+      className='mt-auto flex h-[4rem] w-full flex-col items-center justify-center bg-slate-100'
       {...props}
     >
-      <div className='text-center text-3xl font-bold leading-9 text-white'>
+      <div className='text-center text-3xl font-bold leading-9 text-slate-900'>
         {children}
       </div>
     </button>

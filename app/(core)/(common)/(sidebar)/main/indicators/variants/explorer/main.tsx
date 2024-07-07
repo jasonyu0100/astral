@@ -1,7 +1,7 @@
 import { ContextForDashboardSidebar } from '@/(core)/(common)/(sidebar)/main';
 import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
 import { useContext } from 'react';
-import { IndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
+import { IndicatorSilverJewel } from '../../indicator/jewel/silver/main';
 import {
   DashboardSidebarIndicator,
   DashboardSidebarIndicatorType,
@@ -17,11 +17,11 @@ export function ExplorerIndicator() {
     <>
       {dashboardSidebar.minimised ? (
         <DashboardSidebarIndicator href={explorerMap.venture.projects.link}>
-          <IndicatorOrangeJewel active={active} />
+          <IndicatorSilverJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
         <DashboardSidebarIndicator href={explorerMap.venture.projects.link}>
-          <IndicatorOrangeJewel active={active} />
+          <IndicatorSilverJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
       )}

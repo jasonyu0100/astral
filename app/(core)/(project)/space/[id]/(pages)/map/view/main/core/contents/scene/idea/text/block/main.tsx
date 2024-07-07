@@ -12,7 +12,7 @@ export function SpaceMapTextBlockIdea() {
       style={{ padding: '10%' }}
     >
       <textarea
-        className='h-full w-full resize-none bg-transparent text-xs font-bold text-black outline-none'
+        className='h-full w-full resize-none bg-transparent text-xs font-bold text-slate-800 outline-none'
         defaultValue={ideaObj.textElem?.text}
       />
     </div>

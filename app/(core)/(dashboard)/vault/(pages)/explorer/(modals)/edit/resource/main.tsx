@@ -32,7 +32,7 @@ export function ExplorerEditResourceModal() {
               onChange={(file) => changeFile(file)}
             />
             <FormInput
-              title='Title'
+              title='title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

@@ -10,7 +10,6 @@ import { DashboardSidebarDefaultContainer } from './main/container/default/main'
 import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';
 import { DashboardSidebarIndicators } from './main/indicators/main';
 import { JournalIndicator } from './main/indicators/variants/journal/main';
-import { NetworkIndicator } from './main/indicators/variants/network/main';
 import { SpaceIndicator } from './main/indicators/variants/studio/main';
 import { VaultIndicator } from './main/indicators/variants/vault/main';
 import { DashboardSidebarTopBack } from './top/back/main';
@@ -58,7 +57,7 @@ export function DashboardSidebarView({
                 <SpaceIndicator />
                 <JournalIndicator />
                 {/* <ExplorerIndicator /> */}
-                <NetworkIndicator />
+                {/* <NetworkIndicator /> */}
                 <VaultIndicator />
               </DashboardSidebarIndicators>
             </DashboardSidebarMinimisedContainer>
@@ -70,7 +69,7 @@ export function DashboardSidebarView({
                 <SpaceIndicator />
                 <JournalIndicator />
                 {/* <ExplorerIndicator /> */}
-                <NetworkIndicator />
+                {/* <NetworkIndicator /> */}
                 <VaultIndicator />
               </DashboardSidebarIndicators>
             </DashboardSidebarDefaultContainer>

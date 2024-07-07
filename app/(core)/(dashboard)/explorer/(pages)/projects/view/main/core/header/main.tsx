@@ -37,7 +37,7 @@ export function VentureHorizonsFooter() {
             </g>
           </svg>
         </button>
-        <p className='text-md font-bold text-slate-300'>2024 Q1</p>{' '}
+        <p className='text-md font-bold text-slate-700'>2024 Q1</p>{' '}
         <button>
           <svg
             xmlns='http://www.w3.org/2000/svg'

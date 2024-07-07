@@ -9,7 +9,7 @@ export function ProfileAboutSupporting() {
     <div className='flex w-full flex-col space-y-[1rem]'>
       <div className='flex flex-col'>
         <p
-          className='cursor-pointer text-sm font-bold text-slate-300'
+          className='cursor-pointer text-sm font-bold text-slate-700'
           onClick={() => {
             controllerForProfilePage.setPage(ProfilePage.Connections);
           }}
@@ -33,7 +33,7 @@ export function ProfileAboutSupporting() {
       </div>
       <div className='flex flex-col'>
         <p
-          className='cursor-pointer text-sm font-bold text-slate-300'
+          className='cursor-pointer text-sm font-bold text-slate-700'
           onClick={() => {
             controllerForProfilePage.setPage(ProfilePage.Backers);
           }}

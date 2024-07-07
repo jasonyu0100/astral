@@ -20,7 +20,7 @@ export function ModalOverlay({
       style={{ marginTop: '0px', marginBottom: '0px' }}
       onClick={onClick}
     >
-      <div className='fixed inset-0 flex items-center justify-center bg-slate-950 bg-opacity-80'>
+      <div className='fixed inset-0 flex items-center justify-center bg-slate-100 bg-opacity-80'>
         <div
           className='h-full w-full'
           onClick={(e) => {

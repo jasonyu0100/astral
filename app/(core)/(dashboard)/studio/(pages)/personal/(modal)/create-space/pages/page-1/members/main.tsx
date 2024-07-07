@@ -25,7 +25,7 @@ export function CreateSpaceMembers() {
 
   return (
     <>
-      <label className='mb-1 text-xs font-bold text-slate-400'>Members</label>
+      <label className='mb-1 text-xs font-bold text-slate-400'>members</label>
       <div className='flex flex-row space-x-[1rem]'>
         <CreateSpaceAddCollaborator onClick={togglableController.toggle} />
         {memberIds.map((connectedId) => (

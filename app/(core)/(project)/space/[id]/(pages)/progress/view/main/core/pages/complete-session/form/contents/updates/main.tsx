@@ -18,12 +18,12 @@ export function SpaceProgressSessionUpdates() {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='text-xs font-bold text-slate-300'>Updates</p>
+      <p className='text-xs font-bold text-slate-700'>Updates</p>
       <GlassWindowFrame>
         <GlassWindowContents className='flex w-full flex-col divide-y-[1px] divide-slate-500 divide-opacity-30'>
           {added.map((item) => (
             <GlassWindowFrame className='w-full'>
-              <GlassWindowContents className='text-md p-[0.5rem] font-bold text-slate-500'>
+              <GlassWindowContents className='text-md p-[0.5rem] font-bold text-slate-700'>
                 {item.variant.toLowerCase()} {item.title}
               </GlassWindowContents>
               <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -31,7 +31,7 @@ export function SpaceProgressSessionUpdates() {
           ))}
           {notAdded.map((item) => (
             <GlassWindowFrame className='w-full'>
-              <GlassWindowContents className='text-md p-[0.5rem] font-bold text-slate-500'>
+              <GlassWindowContents className='text-md p-[0.5rem] font-bold text-slate-700'>
                 {item.variant.toLowerCase()} update
               </GlassWindowContents>
               <GlassWindowPane glassFx={glassFx['glass-5']} />

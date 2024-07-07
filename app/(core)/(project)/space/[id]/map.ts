@@ -9,8 +9,8 @@ export const spaceMap = {
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      verses: {
-        link: (id: string) => `${baseUrl}/${id}/verses`,
+      ideas: {
+        link: (id: string) => `${baseUrl}/${id}/ideas`,
       },
       progress: {
         link: (id: string) => `${baseUrl}/${id}/progress`,

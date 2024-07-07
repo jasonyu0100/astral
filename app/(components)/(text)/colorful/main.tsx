@@ -1,4 +1,3 @@
-import React from 'react';
 import seedrandom from 'seedrandom';
 
 interface ColorfulTextProps {
@@ -33,7 +32,7 @@ export function ColorfulText({ children, seed }: ColorfulTextProps) {
   };
 
   return (
-    <p className='font-magazine text-3xl text-black'>
+    <p className='font-magazine text-3xl text-slate-900'>
       {Array.from(children || '').map((char, index) => (
         <span key={index} className={getRandomColor()}>
           {char}

@@ -8,10 +8,10 @@ export function JournalRecordHeader() {
 
   return (
     <div className='flex w-full flex-col items-center'>
-      <p className='text-3xl font-bold text-white'>
+      <p className='text-3xl font-bold text-slate-800'>
         {collectionListController.state.currentObj?.title}
       </p>
-      <p className='mt-[0.5rem] text-xl font-light text-white'>
+      <p className='mt-[0.5rem] text-xl font-light text-slate-900'>
         {getFormattedDate(
           new Date(collectionListController.state?.currentObj?.created || ''),
         )}

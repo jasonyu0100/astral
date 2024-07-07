@@ -16,7 +16,7 @@ export function UserProfileConnectionsHeader() {
         <div className='flex w-full flex-row px-[2rem]'>
           <div className='flex w-1/3 flex-row'>
             <p
-              className='text-md cursor-pointer font-light text-slate-300'
+              className='text-md cursor-pointer font-light text-slate-700'
               onClick={() => {
                 profilePage.setPage(ProfilePage.General);
               }}
@@ -25,12 +25,12 @@ export function UserProfileConnectionsHeader() {
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-center'>
-            <p className='text-md font-light text-slate-300'>
+            <p className='text-md font-light text-slate-700'>
               {connectionsController.view}
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-end'>
-            <p className='text-md font-light text-slate-300'>
+            <p className='text-md font-light text-slate-700'>
               {userConectionList.state.objs.length} / 100
             </p>
           </div>

@@ -9,7 +9,7 @@ export function CreateSpaceEditFooter() {
     <div className='flex w-full flex-row'>
       <div className='border-b-[1px] border-slate-300 px-[0.25rem] pr-[1rem]'>
         <p
-          className='animate-pulse-slow cursor-pointer text-lg font-light text-slate-500'
+          className='w-full animate-pulse-slow cursor-pointer text-center text-lg font-bold text-slate-800'
           onClick={() =>
             updateTemplateProjectChapters([
               ...templateProjectChapters,

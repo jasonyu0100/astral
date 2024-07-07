@@ -23,15 +23,15 @@ export function Force() {
     <div className='flex flex-col'>
       {authorised && (
         <>
-          <p className='text-lg font-bold text-slate-300'>Force</p>
+          <p className='text-lg font-bold text-slate-700'>Force</p>
           <br />
-          <p className='text-md font-bold text-slate-500'>
+          <p className='text-md font-bold text-slate-700'>
             Force - Conditional modifier that unlocks fusion/fission
           </p>
-          <p className='text-md font-bold text-slate-500'>
+          <p className='text-md font-bold text-slate-700'>
             Fusion - Conditional modifier that lets dealer multiply
           </p>
-          <p className='text-md font-bold text-slate-500'>
+          <p className='text-md font-bold text-slate-700'>
             Fission - Conditional modifier that lets dealer divide
           </p>
           <br />

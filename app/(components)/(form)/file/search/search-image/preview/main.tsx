@@ -87,11 +87,11 @@ export function SearchImagePreview() {
           </div>
           {file?.src && (
             <div className='ml-[3rem] flex flex-grow flex-col space-y-[1rem] py-[1rem]'>
-              <p className='text-xl font-bold capitalize text-slate-500'>
+              <p className='text-xl font-bold capitalize text-slate-700'>
                 {file?.title}
               </p>
               <div className='flex flex-row'>
-                <p className='font-bold text-slate-300'>{file?.variant}</p>
+                <p className='font-bold text-slate-700'>{file?.variant}</p>
               </div>
             </div>
           )}

@@ -8,17 +8,17 @@ export default function App() {
         <div className='group flex flex-row space-x-[1rem]'>
           <div className='target target1 h-[5rem] w-[5rem]'>
             <div className='flex h-full w-full items-center justify-center'>
-              <p className='font-bold text-white'>HOPE</p>
+              <p className='font-bold text-slate-800'>HOPE</p>
             </div>
           </div>
           <div className='target target2 h-[5rem] w-[5rem]'>
             <div className='flex h-full w-full items-center justify-center'>
-              <p className='font-bold text-white'>HOPE</p>
+              <p className='font-bold text-slate-800'>HOPE</p>
             </div>
           </div>
           <div className='target target3 h-[5rem] w-[5rem]'>
             <div className='flex h-full w-full items-center justify-center'>
-              <p className='font-bold text-white'>HOPE</p>
+              <p className='font-bold text-slate-800'>HOPE</p>
             </div>
           </div>
         </div>

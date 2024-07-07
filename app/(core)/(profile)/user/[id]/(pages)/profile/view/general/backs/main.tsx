@@ -6,7 +6,7 @@ import { UserProfileBacksItem } from './item/main';
 export function UserProfileGeneralBacks() {
   return (
     <div className='flex w-full flex-col'>
-      <p className='mb-[1rem] text-xl font-bold lowercase text-slate-300'>
+      <p className='mb-[1rem] text-xl font-bold lowercase text-slate-700'>
         and support
       </p>
       <GlassWindowFrame roundedFx={roundedFx.rounded} className='w-full'>

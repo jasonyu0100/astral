@@ -10,8 +10,8 @@ export function FormInput({ title, ...props }: PortalFormInputProps) {
           className='
             h-full w-full appearance-none border-none 
             bg-transparent px-[0.5rem] text-xl font-bold 
-            text-slate-950 outline-none
-            placeholder:text-slate-400
+            text-slate-700 outline-none
+            placeholder:text-slate-300
           '
           name='tag'
           {...props}

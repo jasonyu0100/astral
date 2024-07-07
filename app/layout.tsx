@@ -8,8 +8,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
 
   return (
     <html lang='en'>
-      {/* <title>Create - Verses</title> */}
-      <title>Create - Music 🎧</title>
+      <title>Create - Ideas 🎧</title>
       <head>
         <meta name='referrer' content='origin' />
       </head>

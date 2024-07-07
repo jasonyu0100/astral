@@ -6,7 +6,7 @@ import { QuadrantP2 } from '../../quadrant/p2/main';
 export function GameBoard() {
   return (
     <div className='flex flex-col'>
-      <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
+      <p className='mb-[3rem] font-extraBold text-3xl text-slate-700 '>
         Dilemma
       </p>
       <div className='flex flex-col'>
@@ -18,7 +18,7 @@ export function GameBoard() {
           <QuadrantP2 />
           <QuadrantB />
         </div>
-        <p className='mt-[2rem] font-bold text-slate-500'>
+        <p className='mt-[2rem] font-bold text-slate-700'>
           Anti=1, Hero=2, H=B
         </p>
       </div>

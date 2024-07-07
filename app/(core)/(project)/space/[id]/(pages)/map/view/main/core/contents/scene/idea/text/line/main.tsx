@@ -13,7 +13,7 @@ export function SpaceMapTextLineIdea() {
       style={{ padding: '10%' }}
     >
       <input
-        className='z-50 resize-none bg-transparent text-center text-xs font-bold text-slate-300 outline-none'
+        className='z-50 resize-none bg-transparent text-center text-xs font-bold text-slate-700 outline-none'
         defaultValue={ideaObj.textElem?.text}
         onBlur={(e) => {
           ideaListController.actions.stateActions.updateObj(ideaObj.id, {

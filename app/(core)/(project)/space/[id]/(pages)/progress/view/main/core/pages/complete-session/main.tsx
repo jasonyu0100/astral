@@ -29,7 +29,7 @@ export function SpaceProgressCompleteSession() {
           </>
         ) : (
           <div className='h-full w-full p-[2rem]'>
-            <p className='text-bold text-xl text-slate-300'>
+            <p className='text-bold text-xl text-slate-700'>
               No updates to complete
             </p>
           </div>

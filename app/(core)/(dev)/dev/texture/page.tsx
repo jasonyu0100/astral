@@ -33,7 +33,7 @@ export default function Page() {
     >
       <div className='flex w-full flex-row flex-wrap gap-[2rem] p-[2rem]'>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Label</p>
+          <p className='text-3xl font-bold text-slate-800'>Label</p>
           <div className='flex flex-row space-x-[1rem]'>
             <GlassWindowFrame className='aspect-[12/9] h-[20rem] animate-pulse-slow bg-white  shadow-glow'>
               <GlassWindowContents className='flex w-full flex-col p-[1rem]'>
@@ -45,7 +45,7 @@ export default function Page() {
           </div>
         </div>{' '}
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Text Ideas</p>
+          <p className='text-3xl font-bold text-slate-800'>Text Ideas</p>
           <div className='flex flex-row space-x-[1rem]'>
             <CardTextIdea size={CardTextIdeaSize.NORMAL} />
             <div className='relative flex flex-row'>
@@ -90,7 +90,7 @@ export default function Page() {
           </div>
         </div>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Audio Ideas</p>
+          <p className='text-3xl font-bold text-slate-800'>Audio Ideas</p>
           <div className='flex flex-row space-x-[1rem]'>
             <VinylAudioIdea />
 
@@ -102,7 +102,7 @@ export default function Page() {
           </div>
         </div>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Image Ideas</p>
+          <p className='text-3xl font-bold text-slate-800'>Image Ideas</p>
           <div className='flex flex-row space-x-[1rem]'>
             <PolaroidImageIdea size={PolaroidImageIdeaSize.Normal} />
             <div className='relative flex flex-row'>
@@ -139,7 +139,7 @@ export default function Page() {
           </div>
         </div>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Video Ideas</p>
+          <p className='text-3xl font-bold text-slate-800'>Video Ideas</p>
           <div className='flex flex-row space-x-[1rem]'>
             <ScreenVideoIdea size={ScreenVideoIdeaSize.WIDE} />
             <div className='relative flex flex-row'>
@@ -176,13 +176,13 @@ export default function Page() {
           </div>
         </div>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Color Ideas</p>
+          <p className='text-3xl font-bold text-slate-800'>Color Ideas</p>
           <div className='flex flex-row space-x-[1rem]'>
             <Colors />
           </div>
         </div>{' '}
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <p className='text-3xl font-bold text-white'>Game</p>
+          <p className='text-3xl font-bold text-slate-800'>Game</p>
           <div className='flex flex-row space-x-[1rem]'>
             <Dice
               face={DiceFace.Six}

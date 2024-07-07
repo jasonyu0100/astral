@@ -26,7 +26,7 @@ export function SpaceCover({
       )}
       {variant === SpaceCoverVariant.EVENT_HORIZON && (
         <img
-          className={`h-[50px] w-[50px] flex-shrink-0 rounded-full border-[2px] border-black bg-slate-950 pt-[2px] ${props.className}`}
+          className={`h-[50px] w-[50px] flex-shrink-0 rounded-full bg-slate-100 ${props.className}`}
           src={file?.src}
           alt={file?.title}
         />

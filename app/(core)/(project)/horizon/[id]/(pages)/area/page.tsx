@@ -28,10 +28,10 @@ function Page() {
             >
               <GlassWindowContents>
                 <div className='p-[1rem]'>
-                  <p className='text-lg font-bold text-slate-500'>
+                  <p className='text-lg font-bold text-slate-700'>
                     Make a horizon post
                   </p>
-                  <p className='font-bold text-slate-500'>25/5/2022</p>
+                  <p className='font-bold text-slate-700'>25/5/2022</p>
                 </div>
                 <div className='h-[15rem] w-full rounded bg-slate-700 bg-opacity-30' />
               </GlassWindowContents>
@@ -47,20 +47,20 @@ function Page() {
                 <div className='flex flex-row items-center space-x-[1rem]'>
                   <ProfileCover fileElem={exampleFileElem} />
                   <div className='flex flex-col'>
-                    <p className='font-bold text-slate-300'>John Smith</p>
-                    <p className='text-slate-500'>Space XYZ</p>
+                    <p className='font-bold text-slate-700'>John Smith</p>
+                    <p className='text-slate-700'>Space XYZ</p>
                   </div>
                 </div>
                 <div className='space-y-[1rem] pt-[2rem]'>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
                   <img
                     src={exampleFileElems[2].src}
                     className='w-full max-w-[360px]'
                   />
-                  <p className='text-xs font-bold text-slate-500'>
+                  <p className='text-xs font-bold text-slate-700'>
                     <a href={horizonMap.horizon.id.area.link('0')}>
                       Horizon XYZ
                     </a>
@@ -80,20 +80,20 @@ function Page() {
                 <div className='flex flex-row items-center space-x-[1rem]'>
                   <ProfileCover fileElem={exampleFileElem} />
                   <div className='flex flex-col'>
-                    <p className='font-bold text-slate-300'>John Smith</p>
-                    <p className='text-slate-500'>Space XYZ</p>
+                    <p className='font-bold text-slate-700'>John Smith</p>
+                    <p className='text-slate-700'>Space XYZ</p>
                   </div>
                 </div>
                 <div className='space-y-[1rem] pt-[2rem]'>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
-                  <h1 className='text-slate-300'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
+                  <h1 className='text-slate-700'>Hello World</h1>
                   <img
                     src={exampleFileElems[2].src}
                     className='w-full max-w-[360px]'
                   />
-                  <p className='text-xs font-bold text-slate-500'>
+                  <p className='text-xs font-bold text-slate-700'>
                     <a href={horizonMap.horizon.id.area.link('0')}>
                       Horizon XYZ
                     </a>

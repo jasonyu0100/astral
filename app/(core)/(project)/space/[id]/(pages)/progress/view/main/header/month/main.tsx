@@ -192,7 +192,7 @@ export function MonthView() {
         >
           DEAL CARDS
         </button>
-        <p className='font-permanentMarker text-lg font-bold text-slate-300'>
+        <p className='font-permanentMarker text-lg font-bold text-slate-700'>
           January
         </p>
         <div className='flex flex-col space-y-[1rem]'>
@@ -200,7 +200,7 @@ export function MonthView() {
             <GlassWindowContents className='flex flex-row p-[1rem]'>
               <Card suit={CardSuit.Spades} number={CardNumber.Ace} />
               <div className='p-[1rem]'>
-                <p className='font-bold text-slate-300'>
+                <p className='font-bold text-slate-700'>
                   11/5 - 10 contributions
                 </p>
                 <Dice face={DiceFace.Six} />
@@ -215,7 +215,7 @@ export function MonthView() {
             <GlassWindowContents className='flex flex-row p-[1rem]'>
               <Card suit={CardSuit.Spades} number={CardNumber.Ace} />
               <div className='p-[1rem]'>
-                <p className='font-bold text-slate-300'>
+                <p className='font-bold text-slate-700'>
                   11/5 - 10 contributions
                 </p>
               </div>
@@ -223,11 +223,11 @@ export function MonthView() {
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
         </div>
-        <p className='text-lg font-bold text-slate-300'>February</p>
-        <p className='text-lg font-bold text-slate-300'>March</p>
-        <p className='text-lg font-bold text-slate-300'>March</p>
-        <p className='text-lg font-bold text-slate-300'>March</p>
-        <p className='text-lg font-bold text-slate-300'>March</p>
+        <p className='text-lg font-bold text-slate-700'>February</p>
+        <p className='text-lg font-bold text-slate-700'>March</p>
+        <p className='text-lg font-bold text-slate-700'>March</p>
+        <p className='text-lg font-bold text-slate-700'>March</p>
+        <p className='text-lg font-bold text-slate-700'>March</p>
       </div>
     </div>
   );

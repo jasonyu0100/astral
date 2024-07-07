@@ -24,7 +24,7 @@ export function SpaceProgressCompleteSessionFormContributors() {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <label className='mb-1 text-xs font-bold text-slate-400'>
+      <label className='mb-1 text-xs font-bold text-slate-700'>
         Contributors
       </label>
       <div className='flex flex-row space-x-[1rem]'>

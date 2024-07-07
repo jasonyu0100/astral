@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { SpaceProgressHeaderLeft } from './left/main';
 import { SpaceProgressHeaderMiddle } from './middle/main';
 import { SpaceProgressHeaderRight } from './right/main';
@@ -11,6 +11,7 @@ export function SpaceProgressHeader() {
       sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
       className={`flex items-center justify-between px-[1rem]`}
+      borderFx={borderFx['border-b']}
     >
       <SpaceProgressHeaderLeft />
       <SpaceProgressHeaderMiddle />

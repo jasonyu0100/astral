@@ -19,32 +19,32 @@ function Page() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
         <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[3rem]'>
-          {/* <h1 className='text-lg font-bold text-slate-300'>HorizonView - Hiatus</h1>
-        <h1 className='text-lg font-bold text-slate-300'>HorizonView - Normal</h1> */}
-          <h1 className='animate-pulse text-lg font-bold text-slate-300'>
+          {/* <h1 className='text-lg font-bold text-slate-700'>HorizonView - Hiatus</h1>
+        <h1 className='text-lg font-bold text-slate-700'>HorizonView - Normal</h1> */}
+          <h1 className='animate-pulse text-lg font-bold text-slate-700'>
             HorizonView - On Track
           </h1>
           <br />
-          {/* <h1 className='text-lg font-bold text-slate-300'>
+          {/* <h1 className='text-lg font-bold text-slate-700'>
           HorizonView - In progress
         </h1> */}
           <TimerComponent />
-          {/* <div className='flex flex-row items-center text-slate-300'>
+          {/* <div className='flex flex-row items-center text-slate-700'>
           <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH</p>
         </div>
         <HorizontalDivider />
-        <div className='flex flex-row items-center text-slate-300'>
+        <div className='flex flex-row items-center text-slate-700'>
           <ProfileCover fileElem={exampleFileElem} />
           <p>BOB SMITH vs Headphones</p>
         </div>
         <HorizontalDivider />
         <div className='flex flex-col'>
-          <h1 className='text-lg font-bold text-slate-300'>
+          <h1 className='text-lg font-bold text-slate-700'>
             HorizonView - In progress
           </h1>
           <HorizontalDivider />
-          <div className='flex flex-row items-center text-slate-300'>
+          <div className='flex flex-row items-center text-slate-700'>
             <ProfileCover fileElem={exampleFileElem} />
             <p>BOB SMITH vs Headphones</p>
             <ProfileCover fileElem={exampleFileElem} />
@@ -63,7 +63,7 @@ function Page() {
             />
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           </GlassWindowFrame>
-          <button className='bg-white p-[1rem] text-black'>
+          <button className='bg-white p-[1rem] text-slate-900'>
             Create Contest
           </button>
         </div> */}

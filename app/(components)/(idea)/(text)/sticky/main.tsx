@@ -59,16 +59,16 @@ export function StickyNoteTextIdea({
   function getTextColor(color: StickyNoteColor) {
     switch (color) {
       case StickyNoteColor.BLACK:
-        return 'text-white';
+        return 'text-slate-900';
       case StickyNoteColor.WHITE:
       case StickyNoteColor.YELLOW:
       case StickyNoteColor.PURPLE:
       case StickyNoteColor.GREEN:
       case StickyNoteColor.BLUE:
       case StickyNoteColor.PINK:
-        return 'text-black';
+        return 'text-slate-900';
       default:
-        return 'text-black';
+        return 'text-slate-900';
     }
   }
 

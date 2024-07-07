@@ -14,7 +14,7 @@ export function SpaceMapResourcesBreadcrumbs() {
     <GlassWindowFrame className='h-[3rem] w-full flex-shrink-0'>
       <GlassWindowContents className='flex h-full w-full items-center px-[1rem]'>
         <p
-          className='cursor-pointer text-sm font-bold text-slate-500'
+          className='cursor-pointer text-sm font-bold text-slate-700'
           onClick={() => {
             galleryListController.state.currentObj &&
               sidebarController.actions.goToGallery(

@@ -45,7 +45,7 @@ export function SpaceMapResourceResource() {
 
   return (
     <div className='flex flex-col space-y-[0.5rem]'>
-      {/* <p className='text-md font-bold text-slate-300'>{resource.title}</p> */}
+      {/* <p className='text-md font-bold text-slate-700'>{resource.title}</p> */}
       {resource.fileElem?.variant === FileElemVariant.IMAGE && (
         <img
           src={resource.fileElem?.src}

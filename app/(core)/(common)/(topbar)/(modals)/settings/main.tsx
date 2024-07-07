@@ -29,7 +29,7 @@ export function SettingsModal() {
             <Link
               href={stripeMap.stripe.billing.existing.link}
               target='_blank'
-              className='rounded bg-slate-300 p-[1rem] font-bold text-black'
+              className='rounded bg-slate-300 p-[1rem] font-bold text-slate-800'
             >
               Manage Subscription
             </Link>

@@ -17,7 +17,7 @@ export function SpaceProgressUpdatePreviewIdea() {
           src={ideaController.state.obj.fileElem?.src}
         />
       )}
-      <p className='text-xl font-bold text-slate-300'>
+      <p className='text-xl font-bold text-slate-700'>
         Title: {ideaController.state.obj.title}
       </p>
     </div>

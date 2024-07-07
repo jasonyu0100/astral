@@ -4,7 +4,7 @@ export function StudioSpacesHeaderTextSub({
   children?: React.ReactNode;
 }) {
   return (
-    <p className='font-regular text-3xl font-normal leading-9 text-white'>
+    <p className='font-regular text-3xl font-normal leading-9 text-slate-900'>
       {children}
     </p>
   );

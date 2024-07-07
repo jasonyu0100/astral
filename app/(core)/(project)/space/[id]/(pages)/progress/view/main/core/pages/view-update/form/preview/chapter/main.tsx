@@ -10,7 +10,7 @@ export function SpaceProgressUpdatePreviewChapter() {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='text-xl font-bold text-slate-300'>
+      <p className='text-xl font-bold text-slate-700'>
         {chapterController.state.obj?.title}
         <br />
         {chapterController.state.obj?.description}

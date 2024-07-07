@@ -10,12 +10,12 @@ export function SpaceProgressCompleteSessionFormContribution() {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='text-xs font-bold text-slate-300'>Contribution</p>
+      <p className='text-xs font-bold text-slate-700'>Contribution</p>
       <GlassWindowFrame
         className='w-full py-[0.5rem]'
         roundedFx={roundedFx.rounded}
       >
-        <GlassWindowContents className='grid grid-cols-6 divide-x-[1px] divide-slate-300 divide-opacity-30 text-sm font-bold text-slate-300'>
+        <GlassWindowContents className='grid grid-cols-6 divide-x-[1px] divide-slate-300 divide-opacity-30 text-sm font-bold text-slate-700'>
           <div
             className={`flex w-full cursor-pointer items-center justify-center ${sessionFormController.percent === 0 && 'text-blue-500'}`}
             onClick={() => sessionFormController.setPercent(0)}

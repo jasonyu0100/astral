@@ -10,10 +10,10 @@ export function TabText({
   return (
     <div
       className={cn(
-        'h-[2.3rem] w-[7rem] text-xl font-bold leading-9 text-slate-300',
+        'h-[2.3rem] w-[7rem] text-xl font-bold leading-9 text-slate-800',
         {
-          'text-slate-500 opacity-50': !active,
-          'text-slate-300': active,
+          'text-slate-700 opacity-50': !active,
+          'text-slate-700': active,
         },
       )}
     >

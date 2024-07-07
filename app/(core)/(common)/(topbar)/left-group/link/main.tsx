@@ -8,7 +8,7 @@ interface InputProps extends LinkInputProps {
 export function TopbarLink({ children, ...props }: InputProps) {
   return (
     <Link
-      className='text-md font-bold text-slate-500'
+      className='text-md font-bold text-slate-700'
       aria-current='page'
       {...props}
     >

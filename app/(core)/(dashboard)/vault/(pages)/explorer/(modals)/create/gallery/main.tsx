@@ -1,20 +1,20 @@
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
+import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { useContext, useState } from 'react';
-import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
-import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import {
   ContextForFileChangable,
   useControllerForFileChangable,
 } from '@/(logic)/contexts/fileChangable/main';
+import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
+import { useContext, useState } from 'react';
 
 export function ExplorerCreateGalleryModal() {
   const user = useGlobalUser((state) => state.user);
@@ -47,10 +47,10 @@ export function ExplorerCreateGalleryModal() {
               <FormSearchImage
                 fileElem={fileChangableController.fileElem}
                 onChange={fileChangableController.updateFileElem}
-                label='Thumbnail'
+                label='thumbnail'
               />
               <FormInput
-                title='Title'
+                title='title'
                 value={title}
                 onChange={(e) => changeTitle(e.target.value)}
               />

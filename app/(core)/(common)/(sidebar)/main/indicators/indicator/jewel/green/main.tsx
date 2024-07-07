@@ -9,7 +9,7 @@ export function IndicatorGreenJewel({ active }: { active: boolean }) {
         'h-[2.5rem] w-[2.5rem] rounded-full  bg-gradient-to-br from-amber-300 to-emerald-400',
         {
           [`${effectFx['glow-lg']} animate-activate`]: active,
-          ['opacity-50']: !active,
+          ['opacity-80']: !active,
         },
       )}
     />

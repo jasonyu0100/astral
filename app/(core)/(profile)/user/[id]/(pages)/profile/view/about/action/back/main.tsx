@@ -96,7 +96,7 @@ export function ProfileAboutBackAction() {
           }
         }}
       >
-        <p className='font-bold text-slate-300'>
+        <p className='font-bold text-slate-700'>
           {!youBackThem && 'Back'}
           {youBackThem && 'Backed'}
         </p>

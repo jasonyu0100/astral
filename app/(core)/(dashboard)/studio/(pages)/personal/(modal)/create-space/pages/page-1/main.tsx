@@ -21,16 +21,16 @@ export function CreateSpaceModalPageOne() {
       <FormSearchImage
         fileElem={thumbnail}
         onChange={(file) => updateThumbnail(file)}
-        label='Thumbnail'
+        label='thumbnail'
       />
       <FormInput
-        title='Title'
+        title='title'
         value={title}
         placeholder='e.g My Space'
         onChange={(e) => updateTitle(e.target.value)}
       />
       <FormInput
-        title='Category'
+        title='category'
         value={category}
         placeholder='e.g Music, Art, Design'
         onChange={(e) => updateCategory(e.target.value)}

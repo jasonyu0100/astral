@@ -8,11 +8,11 @@ export function CollectionInfo({ empty }: { empty?: boolean }) {
     <div className='mt-[1rem] flex flex-grow flex-col items-center justify-center'>
       {empty ? (
         <>
-          <div className='text-lg font-bold text-slate-400'>Add Collection</div>
+          <div className='text-lg font-bold text-slate-700'>Add Collection</div>
         </>
       ) : (
         <>
-          <div className='text-lg font-bold text-slate-400'>
+          <div className='text-lg font-bold text-slate-700'>
             {collection.state.obj.title}
           </div>
         </>

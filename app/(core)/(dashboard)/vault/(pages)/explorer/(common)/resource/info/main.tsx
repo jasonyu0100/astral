@@ -21,18 +21,18 @@ export function CollectionResourceInfo({ ...props }: DivInputProps) {
       >
         <div className='w-full flex-col space-y-[1rem]'>
           <button
-            className='mt-aut mt-auto w-full rounded bg-black p-[0.5rem] font-bold text-slate-300'
+            className='mt-aut mt-auto w-full rounded bg-black p-[0.5rem] font-bold text-slate-700'
             onClick={() => openableController.open()}
           >
             EDIT
           </button>
-          <p className='font-extraBold text-sm text-slate-500'>
+          <p className='font-extraBold text-sm text-slate-700'>
             {resource.title}
           </p>
-          <p className='text-lg font-bold text-slate-400'>
+          <p className='text-lg font-bold text-slate-700'>
             {resource?.fileElem?.ext}
           </p>
-          <p className='text-md mt-[1rem] font-light text-slate-400'>
+          <p className='text-md mt-[1rem] font-light text-slate-700'>
             {resource.description}
           </p>
         </div>

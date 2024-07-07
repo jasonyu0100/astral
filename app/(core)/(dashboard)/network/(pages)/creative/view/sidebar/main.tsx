@@ -12,11 +12,11 @@ export function CreativeNetworkSidebar() {
       borderFx={borderFx['border-l']}
     >
       <div className='flex flex-col  space-y-[1rem]'>
-        <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+        <p className='text-lg font-bold text-slate-700'>12 days ago</p>
         <CreativeNetworkSidebarEntry />
         <CreativeNetworkSidebarEntry />
         <CreativeNetworkSidebarEntry />
-        <p className='text-lg font-bold text-slate-300'>1 month ago</p>
+        <p className='text-lg font-bold text-slate-700'>1 month ago</p>
         <CreativeNetworkSidebarEntry />
       </div>
     </GlassAreaContainer>

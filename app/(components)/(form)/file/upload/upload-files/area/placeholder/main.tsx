@@ -27,7 +27,7 @@ export function UploadFilesAreaPlaceholder() {
           </g>
         </svg>
       </div>
-      <p className='text-lg font-bold text-slate-500'>Upload your files here</p>
+      <p className='text-lg font-bold text-slate-700'>Upload your files here</p>
     </div>
   );
 }

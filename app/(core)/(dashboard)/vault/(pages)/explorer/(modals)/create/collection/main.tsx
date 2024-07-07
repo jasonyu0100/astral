@@ -52,7 +52,7 @@ export function ExplorerCreateCollectionModal() {
           <FormBody>
             <FormInput
               placeholder='Title'
-              title='Title'
+              title='title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

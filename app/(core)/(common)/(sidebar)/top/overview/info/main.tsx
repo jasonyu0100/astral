@@ -21,16 +21,12 @@ export function DashboardSidebarTopOverviewInfo() {
     >
       <p
         className={cn(
-          'h-[25px] overflow-hidden text-xl font-bold leading-7 text-slate-300',
+          'h-[25px] overflow-hidden font-extraBold text-xl  text-slate-900',
         )}
       >
         {currentSpace.title || 'Untitled'}
       </p>
-      <p
-        className={cn(
-          'h-[25px] text-base font-normal leading-normal text-slate-300',
-        )}
-      >
+      <p className={cn('h-[25px] text-base font-bold text-slate-800')}>
         {loggedInUser?.displayName || 'No Author'}
       </p>
     </div>

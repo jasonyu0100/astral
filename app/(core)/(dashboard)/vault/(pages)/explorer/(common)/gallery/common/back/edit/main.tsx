@@ -6,7 +6,7 @@ export function GalleryBackEdit() {
 
   return (
     <button
-      className='mt-auto flex w-full items-center justify-center bg-black p-[1rem] font-bold text-slate-300'
+      className='mt-auto flex w-full items-center justify-center bg-black p-[1rem] font-bold text-slate-700'
       onClick={(e) => {
         e.stopPropagation();
         openable.open();

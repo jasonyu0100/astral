@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
 
@@ -28,13 +28,14 @@ export function SpaceMapRowElement({
         sizeFx='w-[200px] h-[40px]'
         glassFx={active ? glassFx['glass-20'] : glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
+        borderFx={borderFx['border-all']}
         className='flex items-center justify-center'
       >
         {children}
         {active ? (
-          <p className='font-bold text-slate-300'>{chapter.title}</p>
+          <p className='font-bold text-slate-700'>{chapter.title}</p>
         ) : (
-          <p className='font-bold text-slate-500'>{chapter.title}</p>
+          <p className='font-bold text-slate-700'>{chapter.title}</p>
         )}
       </GlassAreaContainer>
     </button>

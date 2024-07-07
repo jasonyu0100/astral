@@ -12,10 +12,10 @@ export function ProfileAboutDetails() {
         src={profileUser.dp?.src || exampleFileElem.src}
       />
       <div className='flex w-full flex-col'>
-        <p className='text-xl font-bold text-white'>
+        <p className='text-xl font-bold text-slate-800'>
           {profileUser?.displayName || 'Display Name'}
         </p>
-        <p className='font-light text-white'>
+        <p className='font-light text-slate-900'>
           {profileUser?.email || 'creative@verses.digital'}
         </p>
       </div>

@@ -31,14 +31,14 @@ export function SpaceProgressSidebarSession() {
             spaceSessionController.setPage(SpaceProgressPage.VIEW_SESSION)
           }
         >
-          <p className='text-xs font-light text-slate-500'>
+          <p className='text-xs font-light text-slate-700'>
             {new Date().toDateString()}
           </p>
-          <p className='text-lg font-bold text-slate-300'>
+          <p className='text-lg font-bold text-slate-700'>
             Session {index + 1} - {session.title}
           </p>
-          <p className='text-md text-slate-300'>{session.description}</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-md text-slate-700'>{session.description}</p>
+          <p className='text-sm font-bold text-slate-700'>
             {updateListController.state.objs.length} updates
           </p>
         </GlassWindowContents>

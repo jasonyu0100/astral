@@ -1,7 +1,7 @@
 export function PhaseTwo() {
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='font-extraBold text-xl text-slate-300 '>Phase Two</p>
+      <p className='font-extraBold text-xl text-slate-700 '>Phase Two</p>
       <div className=' flex flex-row space-x-[1rem]'>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Follow</div>
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Play</div>
@@ -16,10 +16,10 @@ export function PhaseTwo() {
         <div className='flex aspect-[12/16] h-[5rem] bg-white'>Next</div>
       </div>
       <div className='flex flex-col'>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 1 played ? at B (2 / 2? , +?)
         </p>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 2 played ? at P2 (0 / 8 , o+)
         </p>
       </div>

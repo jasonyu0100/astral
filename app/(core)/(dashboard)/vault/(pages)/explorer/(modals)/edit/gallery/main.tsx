@@ -1,13 +1,13 @@
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { useContext, useState } from 'react';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import { useContext, useState } from 'react';
 
 export function ExplorerEditGalleryModal() {
   const openableController = useContext(ContextForOpenable);
@@ -26,7 +26,7 @@ export function ExplorerEditGalleryModal() {
           <FormTitle>Gallery</FormTitle>
           <FormBody>
             <FormInput
-              title='Title'
+              title='title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

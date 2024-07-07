@@ -9,7 +9,7 @@ export function SpaceProgressHeaderLeft() {
 
   return (
     <div className='flex w-1/3 flex-row'>
-      <p className='text-md font-light text-slate-300'>
+      <p className='text-md font-light text-slate-700'>
         {getFormattedDate(new Date())}
       </p>
     </div>

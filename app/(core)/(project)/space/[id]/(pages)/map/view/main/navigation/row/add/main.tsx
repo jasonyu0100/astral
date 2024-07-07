@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { ButtonInputProps } from '@/(types)/props/main';
 
 interface NavigationTimelineInputProps extends ButtonInputProps {
@@ -17,9 +17,10 @@ export default function SpaceMapRowAdd({
         sizeFx='w-[200px] h-[40px]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
+        borderFx={borderFx['border-all']}
       >
         <div className='flex h-full w-full items-center justify-center'>
-          <div className='font-bold text-slate-500'>{children}</div>
+          <div className='font-bold text-slate-700'>{children}</div>
         </div>
       </GlassAreaContainer>
     </button>

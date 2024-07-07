@@ -10,7 +10,7 @@ import {
 } from '@/(logic)/contexts/openable/main';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceProgressAddUpdateModal } from '../../(modal)/add/update/main';
 import { SpaceProgressSidebarCurrentSession } from './current/main';
@@ -30,15 +30,16 @@ export function SpaceProgressSidebar() {
         sizeFx='w-[300px] h-full'
         glassFx={glassFx['glass-5']}
         className={`flex flex-col items-center overflow-hidden`}
+        borderFx={borderFx['border-l']}
       >
         <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
           <GlassWindowFrame
             className='h-[2rem] w-full flex-shrink-0'
-            roundedFx={roundedFx['rounded']}
+            borderFx={borderFx['border-b']}
           >
             <GlassWindowContents className='h-full w-full'>
               <input
-                className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
+                className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-700 outline-none'
                 placeholder='Venture forth...'
               ></input>
             </GlassWindowContents>

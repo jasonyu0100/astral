@@ -10,10 +10,10 @@ export function SpaceChatHeaderLeft() {
       <select
         value={role}
         onChange={(e) => setRole(e.target.value)}
-        className='w-[10rem] border-b-[1px] border-slate-300 border-opacity-30 bg-transparent py-[0.5rem] font-light text-slate-300 outline-none'
+        className='w-[10rem] border-b-[1px] border-slate-300 border-opacity-30 bg-transparent py-[0.5rem] font-light text-slate-700 outline-none'
       >
         {Object.values(ChatRole).map((role) => (
-          <option className='text-md font-light text-slate-300'>{role}</option>
+          <option className='text-md font-light text-slate-700'>{role}</option>
         ))}
       </select>
     </div>

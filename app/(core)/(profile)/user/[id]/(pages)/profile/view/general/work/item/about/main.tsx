@@ -8,8 +8,8 @@ export function UserProfileGeneralWorkItemAbout() {
         className='h-[3rem] w-[3rem] rounded'
       ></img>
       <div className='flex flex-col'>
-        <p className='text-lg font-bold text-slate-300'>Hello world</p>
-        <p className='text-md text-slate-300'>Hello world</p>
+        <p className='text-lg font-bold text-slate-700'>Hello world</p>
+        <p className='text-md text-slate-700'>Hello world</p>
       </div>
     </div>
   );

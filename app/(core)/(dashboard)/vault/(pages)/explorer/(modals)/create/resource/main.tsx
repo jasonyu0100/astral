@@ -63,7 +63,7 @@ export function ExplorerCreateResourceModal() {
               variant={variant}
             />
             <FormInput
-              title='Title'
+              title='title'
               value={name}
               onChange={(e) => changeName(e.target.value)}
             />

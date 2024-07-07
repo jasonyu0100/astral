@@ -17,13 +17,13 @@ export function ChatChapterChat() {
       <div className='flex w-full flex-row items-center'>
         {active ? (
           <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
-            <p className='text-lg font-bold text-slate-500'>
+            <p className='text-lg font-bold text-slate-700'>
               {index + 1}. {chat.title}
             </p>
             <SpaceChatHeaderIndicator />
           </div>
         ) : (
-          <p className='text-lg font-bold text-slate-500'>
+          <p className='text-lg font-bold text-slate-700'>
             {index + 1}. {chat.title}
           </p>
         )}

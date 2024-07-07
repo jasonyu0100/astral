@@ -5,7 +5,7 @@ export function PortalFormAltAction({
 }) {
   return (
     <div className='mt-auto flex w-full flex-col items-center justify-center'>
-      <div className='font text-center text-xl leading-9 text-black'>
+      <div className='font text-center text-xl leading-9 text-slate-900'>
         {children}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export function PhaseOne({ cards }: { cards: any[] }) {
   const [cardIndex, changeCardIndex] = useState(0);
@@ -7,7 +7,7 @@ export function PhaseOne({ cards }: { cards: any[] }) {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <p className='font-extraBold text-xl text-slate-300 '>Phase One</p>
+      <p className='font-extraBold text-xl text-slate-700 '>Phase One</p>
 
       <div className='flex aspect-[12/16] h-[5rem] bg-white'>
         Card - {cards[cardIndex]}
@@ -79,16 +79,16 @@ export function PhaseOne({ cards }: { cards: any[] }) {
         </div>
       )}
       <div className='flex flex-col'>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 1 played ? at A (2 / 2 , ++)
         </p>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 1 played ? at P (8 / 0 , +o)
         </p>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 2 played ? at A (2 / 2 , ++)
         </p>
-        <p className='text-md font-bold text-slate-500 '>
+        <p className='text-md font-bold text-slate-700 '>
           Player 2 played ? at B (2? / 2 , ?+)
         </p>
       </div>

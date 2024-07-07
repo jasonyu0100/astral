@@ -13,7 +13,7 @@ export function CreateSpaceModalPageTwo() {
   return (
     <FormBody>
       <FormSelect
-        title='Structure'
+        title='structure'
         value={variant}
         onChange={(e) => {
           updateVariant(e.target.value);

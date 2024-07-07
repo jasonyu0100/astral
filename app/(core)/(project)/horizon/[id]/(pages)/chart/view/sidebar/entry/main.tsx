@@ -16,7 +16,7 @@ export function HorizonChartSidebarEntry({
       className='p-[1rem]'
     >
       <GlassWindowContents className='flex flex-row'>
-        <p className='text-white'>{children}</p>
+        <p className='text-slate-900'>{children}</p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

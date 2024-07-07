@@ -1,7 +1,7 @@
-import { borderFx, glassFx } from '@/(style)/data';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext, useState } from 'react';
 import { GameStateContext } from '../../contexts/main';
 
@@ -17,7 +17,7 @@ export function QuadrantP1() {
         className='aspect-square h-[20rem] w-[20rem]'
         borderFx={`${borderFx['border-l']} ${borderFx['border-b']}`}
       >
-        <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-300'>
+        <GlassWindowContents className='flex flex-col items-center justify-center font-extraBold text-xl text-slate-700'>
           {revealed ? (
             <>
               <p>P1</p>

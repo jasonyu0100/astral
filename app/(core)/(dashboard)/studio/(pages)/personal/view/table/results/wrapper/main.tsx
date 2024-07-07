@@ -6,7 +6,7 @@ import {
   ContextForHoverable,
   useControllerForHoverable,
 } from '@/(logic)/contexts/hoverable/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
 export function StudioSpacesRowWrapper({
   children,
@@ -22,7 +22,11 @@ export function StudioSpacesRowWrapper({
         onMouseOver={() => hoverableController.onHover()}
         onMouseOut={() => hoverableController.onUnhover()}
       >
-        <GlassWindowFrame className='w-full' roundedFx={roundedFx.rounded}>
+        <GlassWindowFrame
+          className='w-full'
+          roundedFx={roundedFx.rounded}
+          borderFx={`${hoverableController.hovered && borderFx['border-all']}`}
+        >
           <GlassWindowContents
             className={`flex h-full w-full flex-row items-center justify-between`}
           >

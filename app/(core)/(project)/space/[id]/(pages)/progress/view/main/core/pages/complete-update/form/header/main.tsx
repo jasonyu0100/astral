@@ -16,14 +16,14 @@ export function SpaceProgressUpdateFormHeader() {
   return (
     <GlassWindowFrame className='w-full'>
       <GlassWindowContents className='flex flex-col p-[1rem]'>
-        <p className='text-xs font-bold text-slate-300'>
+        <p className='text-xs font-bold text-slate-700'>
           {sessionUpdateListController.state.index + 1} of{' '}
           {sessionUpdateListController.state.objs.length}
         </p>
-        <p className='text-xl font-bold text-slate-300'>
+        <p className='text-xl font-bold text-slate-700'>
           {current?.variant?.toLowerCase() || ''} update
         </p>
-        <p className='text-sm font-light text-slate-300'>
+        <p className='text-sm font-light text-slate-700'>
           {getFormattedAMPM(new Date(current.created))}
           {current?.added ? ' - added' : ' - not added'}
         </p>

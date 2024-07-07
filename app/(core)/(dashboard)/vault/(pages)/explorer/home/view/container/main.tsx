@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 
 export function ExplorerHomeGallerysContainer({
   children,
@@ -11,8 +11,7 @@ export function ExplorerHomeGallerysContainer({
       name={ExplorerHomeGallerysContainer.name}
       sizeFx='flex-grow h-full'
       className={`"flex flex-col"`}
-      glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-around']}
+      glassFx={glassFx['glass-10']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

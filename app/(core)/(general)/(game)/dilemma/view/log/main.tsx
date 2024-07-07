@@ -12,7 +12,7 @@ import { PhaseTwo } from '../../phase/two/main';
 export function GameLog() {
   return (
     <div className='flex h-[40rem] w-[60rem] flex-col'>
-      <p className='mb-[3rem] font-extraBold text-3xl text-slate-300 '>
+      <p className='mb-[3rem] font-extraBold text-3xl text-slate-700 '>
         P1 vs P2
       </p>
       <GlassWindowFrame className='h-full w-full p-[2rem]'>

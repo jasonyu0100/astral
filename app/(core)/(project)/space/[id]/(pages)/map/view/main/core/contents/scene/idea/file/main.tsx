@@ -8,14 +8,11 @@ export function SpaceMapFileIdea() {
   return (
     <>
       {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
-        <div
-          className='aspect-[11/13] h-full bg-white shadow-lg'
-          style={{ padding: '10%' }}
-        >
+        <div className='aspect-square h-full'>
           <img
             src={ideaObj.fileElem.src}
             alt={ideaObj.title}
-            className='aspect-square w-full object-cover'
+            className='aspect-square w-full object-contain'
           />
         </div>
       )}

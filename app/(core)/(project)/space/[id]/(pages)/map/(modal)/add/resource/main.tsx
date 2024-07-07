@@ -2,11 +2,9 @@ import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
 import { FormSearchImage } from '@/(components)/(form)/file/search/search-image/main';
-import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
@@ -61,7 +59,7 @@ export function SpaceMapCreateResourceModal() {
             <FormSearchImage
               fileElem={file}
               onChange={(file) => changeFile(file)}
-              label='Thumbnail'
+              label='thumbnail'
             />
             {/* <FormUploadFile
               onChange={(file) => changeFile(file)}
@@ -69,12 +67,12 @@ export function SpaceMapCreateResourceModal() {
               variant={variant}
             /> */}
             <FormInput
-              title='Title'
+              title='title'
               value={name}
               onChange={(e) => changeName(e.target.value)}
             />
             <FormTextArea
-              title='Description'
+              title='description'
               rows={5}
               value={description}
               onChange={(e) => changeDescription(e.target.value)}

@@ -48,7 +48,7 @@ export function SpaceChatChatAdd() {
             </g>
           </svg>
         </GlassAreaContainer>
-        <p className='text-lg font-bold text-slate-500'>New Chat</p>
+        <p className='text-lg font-bold text-slate-700'>New Chat</p>
       </button>
     </>
   );

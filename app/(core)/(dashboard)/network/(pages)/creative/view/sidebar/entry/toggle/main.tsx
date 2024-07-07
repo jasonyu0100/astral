@@ -8,8 +8,8 @@ export function CreativeNetworkSidebarEntryToggle() {
       <div className='mt-auto flex flex-row  items-center justify-between'>
         <div className='flex w-full flex-row items-center space-x-[2rem]'>
           <div className='flex flex-col'>
-            <p className='text-lg font-bold text-slate-300'>Project Horizon</p>
-            <p className='text-md font-bold text-slate-400'>John Smith</p>
+            <p className='text-lg font-bold text-slate-700'>Project Horizon</p>
+            <p className='text-md font-bold text-slate-700'>John Smith</p>
           </div>
         </div>
         <button className='h-[50px] w-[50px]' onClick={() => toggle()}>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Page() {
   return (
     <>
-      <h1 className='font-extraBold text-xl text-white'>
+      <h1 className='font-extraBold text-xl text-slate-900'>
         Your payment settings are pending...{' '}
       </h1>
       <br />

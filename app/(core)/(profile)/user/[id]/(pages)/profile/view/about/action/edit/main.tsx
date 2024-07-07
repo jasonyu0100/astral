@@ -15,7 +15,7 @@ export function ProfileAboutEditAction({ onClick }: { onClick: () => void }) {
           className='flex h-full w-full cursor-pointer items-center justify-center'
           onClick={onClick}
         >
-          <p className='font-bold text-slate-300'>Edit Profile</p>
+          <p className='font-bold text-slate-700'>Edit Profile</p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>

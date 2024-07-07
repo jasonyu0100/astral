@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
-import { glassFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,
@@ -16,11 +16,14 @@ export function SpaceProgressViewUpdatePanel() {
   const updates = updateListController.state?.objs || [];
 
   return (
-    <GlassWindowFrame className='h-full w-[18rem]'>
+    <GlassWindowFrame
+      className='h-full w-[18rem]'
+      borderFx={borderFx['border-r']}
+    >
       <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem] px-[1rem]'>
         <div className='flex flex-col space-y-[1rem] py-[1rem]'>
           <p
-            className='cursor-pointer text-sm font-bold text-slate-500'
+            className='cursor-pointer text-sm font-bold text-slate-700'
             onClick={() =>
               spaceSessionController.setPage(SpaceProgressPage.VIEW_SESSION)
             }
@@ -39,11 +42,11 @@ export function SpaceProgressViewUpdatePanel() {
               }}
             >
               {updateListController.state.currentObj?.id === update.id ? (
-                <p className='text-sm font-bold text-slate-300'>
+                <p className='text-sm font-bold text-slate-700'>
                   {index + 1}. {update.variant} {update.title}
                 </p>
               ) : (
-                <p className='text-sm font-bold text-slate-500'>
+                <p className='text-sm font-bold text-slate-700'>
                   {index + 1}. {update.variant} {update.title}
                 </p>
               )}

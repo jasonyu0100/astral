@@ -94,7 +94,7 @@ export default function Page() {
       </Bound>
 
       <br />
-      <button className='aspect-square bg-black p-[1rem] font-bold text-white'>
+      <button className='aspect-square bg-black p-[1rem] font-bold text-slate-800'>
         ROTATE
       </button>
     </div>

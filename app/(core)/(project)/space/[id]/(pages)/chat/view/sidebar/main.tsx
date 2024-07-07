@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { glassFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/(style)/data';
 import { SpaceChatSidebarChapters } from './chapters/main';
 import { SpaceChatChatSearch } from './search/main';
 
@@ -10,6 +10,7 @@ export function SpaceChatSidebar() {
       sizeFx='w-[300px] h-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center`}
+      borderFx={borderFx['border-r']}
     >
       <SpaceChatChatSearch />
       <SpaceChatSidebarChapters />

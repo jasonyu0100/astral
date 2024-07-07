@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 
 export function JournalRecordContainer({
   children,
@@ -10,9 +10,8 @@ export function JournalRecordContainer({
     <GlassAreaContainer
       name={JournalRecordContainer.name}
       className={`flex flex-row`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       sizeFx='flex-grow h-full'
-      borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       {children}

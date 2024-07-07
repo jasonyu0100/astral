@@ -24,7 +24,7 @@ export function UploadFileAreaPlaceholder() {
           />
         </g>
       </svg>
-      <p className='mt-1 text-lg font-bold text-slate-500'>
+      <p className='mt-1 text-lg font-bold text-slate-700'>
         Upload your file here
       </p>
     </div>

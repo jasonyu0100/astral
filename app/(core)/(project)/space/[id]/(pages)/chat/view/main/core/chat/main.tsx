@@ -28,7 +28,7 @@ export function SpaceChatChat() {
           <div className='flex w-full flex-row items-center justify-between'>
             <div className='flex'>
               <p
-                className='text-md cursor-pointer font-bold text-slate-500'
+                className='text-md cursor-pointer font-bold text-slate-700'
                 onClick={() => {
                   conversationListController.actions.stateActions.goNext();
                 }}
@@ -37,13 +37,13 @@ export function SpaceChatChat() {
               </p>
             </div>
             <div className='flex'>
-              <p className='text-md font-bold text-slate-500'>
+              <p className='text-md font-bold text-slate-700'>
                 {getFormattedDate(new Date(conversationObj.created))}
               </p>
             </div>
             <div className='flex'>
               <p
-                className='text-md cursor-pointer font-bold text-slate-500'
+                className='text-md cursor-pointer font-bold text-slate-700'
                 onClick={() => {
                   conversationListController.actions.stateActions.goPrev();
                 }}
@@ -54,7 +54,7 @@ export function SpaceChatChat() {
           </div>
         )}
         <HorizontalDivider />
-        <p className='font-bold text-white'>
+        <p className='font-bold text-slate-800'>
           {role}: {roleDescriptions[role as keyof typeof roleDescriptions]}
         </p>
         <HorizontalDivider />

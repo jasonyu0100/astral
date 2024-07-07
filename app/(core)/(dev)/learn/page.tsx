@@ -4,7 +4,7 @@ import { learnMap } from './map';
 export default function Page() {
   return (
     <div className='flex flex-col space-y-[1rem] p-[2rem]'>
-      <h1 className='text-2xl font-bold text-white'>LEARN</h1>
+      <h1 className='text-2xl font-bold text-slate-800'>LEARN</h1>
       <FormattedLink href={learnMap.learn.compass.link}>Compass</FormattedLink>
       <FormattedLink href={learnMap.learn.domains.link}>Domains</FormattedLink>
       <FormattedLink href={learnMap.learn.fractal.link}>Fractal</FormattedLink>

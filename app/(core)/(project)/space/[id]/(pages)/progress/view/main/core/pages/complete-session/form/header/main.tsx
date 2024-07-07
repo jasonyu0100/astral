@@ -14,13 +14,13 @@ export function SpaceProgressCompleteSessionHeader() {
   return (
     <GlassWindowFrame className='w-full'>
       <GlassWindowContents className='flex flex-col p-[1rem]'>
-        <p className='text-sm font-bold text-slate-300'>
+        <p className='text-sm font-bold text-slate-700'>
           {sessionUpdateListController.state.objs.length} updates
         </p>
-        <p className='text-xl font-bold text-slate-300'>
+        <p className='text-xl font-bold text-slate-700'>
           {chapterListController.state.currentObj?.title}
         </p>
-        <p className='text-sm font-light text-slate-300'>
+        <p className='text-sm font-light text-slate-700'>
           {getFormattedAMPM(new Date())}
         </p>
       </GlassWindowContents>

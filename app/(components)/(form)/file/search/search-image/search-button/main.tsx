@@ -52,7 +52,7 @@ export function SearchButton() {
                 />
               </g>
             </svg>
-            <p className='text-lg font-bold text-slate-500'>
+            <p className='text-lg font-bold text-slate-700'>
               {fileChangableController.fileElem.title === undefined
                 ? 'No image selected'
                 : fileChangableController.fileElem.title}

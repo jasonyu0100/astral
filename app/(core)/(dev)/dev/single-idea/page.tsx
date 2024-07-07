@@ -22,7 +22,7 @@ export default function App() {
           }}
         >
           <div className='flex h-full w-full items-center justify-center'>
-            <p className='font-bold text-white'>HOPE</p>
+            <p className='font-bold text-slate-800'>HOPE</p>
           </div>
         </div>
         <div
@@ -35,12 +35,12 @@ export default function App() {
           }}
         >
           <div className='flex h-full w-full items-center justify-center'>
-            <p className='font-bold text-white'>HOPE</p>
+            <p className='font-bold text-slate-800'>HOPE</p>
           </div>
         </div>
         <div className='target h-[100px] w-[100px]' ref={targetRef}>
           <div className='flex h-full w-full items-center justify-center'>
-            <p className='font-bold text-white'>HOPE</p>
+            <p className='font-bold text-slate-800'>HOPE</p>
           </div>
         </div>
         <Moveable

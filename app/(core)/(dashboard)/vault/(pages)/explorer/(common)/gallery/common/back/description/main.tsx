@@ -5,7 +5,7 @@ export function GalleryBackDescription() {
   const gallery = useContext(ContextForGalleryObj);
 
   return (
-    <div className='text-md mt-[1rem] font-normal text-slate-500'>
+    <div className='text-md mt-[1rem] font-normal text-slate-700'>
       {gallery.description}
     </div>
   );

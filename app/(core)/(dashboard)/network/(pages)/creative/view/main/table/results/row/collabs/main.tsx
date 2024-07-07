@@ -1,7 +1,7 @@
 export function CreativeNetworkRowCollabs() {
   return (
     <div className='flex'>
-      <p className='text-lg font-light text-white'>5 collabs</p>
+      <p className='text-lg font-light text-slate-900'>5 collabs</p>
     </div>
   );
 }

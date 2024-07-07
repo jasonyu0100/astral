@@ -13,11 +13,11 @@ export function SpaceProgressCompleteSessionHeader() {
 
   return (
     <div className='flex flex-col'>
-      <p className='mb-[1rem] text-sm font-bold text-slate-300'>
+      <p className='mb-[1rem] text-sm font-bold text-slate-700'>
         {updateListController.state.objs.length} updates
       </p>
-      <p className='text-xl font-bold text-slate-300'>{session?.title}</p>
-      <p className='text-sm font-light text-slate-300'>
+      <p className='text-xl font-bold text-slate-700'>{session?.title}</p>
+      <p className='text-sm font-light text-slate-700'>
         {getFormattedAMPM(new Date(session.created))}
       </p>
     </div>

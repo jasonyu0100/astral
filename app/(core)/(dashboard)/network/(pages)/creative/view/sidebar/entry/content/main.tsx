@@ -9,15 +9,15 @@ export function CreativeNetworkSidebarEntryContents() {
 
       <div className='flex flex-row items-center space-x-[2rem]'>
         <SpaceCover fileElem={exampleFileElem} />
-        <p className='text-lg font-bold text-slate-300'>Creative A</p>
+        <p className='text-lg font-bold text-slate-700'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
         <SpaceCover fileElem={exampleFileElem} />
-        <p className='text-lg font-bold text-slate-300'>Creative A</p>
+        <p className='text-lg font-bold text-slate-700'>Creative A</p>
       </div>
       <div className='flex flex-row items-center space-x-[2rem]'>
         <SpaceCover fileElem={exampleFileElem} />
-        <p className='text-lg font-bold text-slate-300'>Creative A</p>
+        <p className='text-lg font-bold text-slate-700'>Creative A</p>
       </div>
     </>
   );

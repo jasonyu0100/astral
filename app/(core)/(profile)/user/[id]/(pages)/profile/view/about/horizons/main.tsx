@@ -3,7 +3,7 @@ import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 export function ProfileAboutHorizons() {
   return (
     <div className='flex w-full flex-col space-y-[1rem]'>
-      <p className='font-bold text-slate-300'>Horizons</p>
+      <p className='font-bold text-slate-700'>Horizons</p>
       <div className='flex flex-row items-center space-x-[0.5rem]'>
         <img
           src={exampleFileElem.src}

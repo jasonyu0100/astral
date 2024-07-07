@@ -1,11 +1,19 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { glassFx } from '@/(style)/data';
+
 export function DashboardSidebarDefaultContainer({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
-    <div className='relative flex h-full w-[15rem] flex-shrink-0 flex-col overflow-y-auto  bg-gradient-to-br from-[#1E293B] from-0% to-[#0F172A] to-80% px-[1rem] py-[1rem]'>
-      {children}
-    </div>
+    <GlassWindowFrame className='h-full w-[15rem]'>
+      <GlassWindowContents className='relative flex h-full w-full flex-shrink-0 flex-col overflow-y-auto  px-[1rem] py-[1rem]'>
+        {children}
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+    </GlassWindowFrame>
   );
 }

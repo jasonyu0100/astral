@@ -11,13 +11,13 @@ export function HorizonAreaSidebar() {
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
     >
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <p className='text-lg font-bold text-slate-700'>12 days ago</p>
       <HorizonAreaSidebarEntry />
       <HorizonAreaSidebarEntry />
       <HorizonAreaSidebarEntry />
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <p className='text-lg font-bold text-slate-700'>12 days ago</p>
       <HorizonAreaSidebarEntry />
-      <p className='text-lg font-bold text-slate-300'>12 days ago</p>
+      <p className='text-lg font-bold text-slate-700'>12 days ago</p>
       <HorizonAreaSidebarEntry />
     </GlassAreaContainer>
   );

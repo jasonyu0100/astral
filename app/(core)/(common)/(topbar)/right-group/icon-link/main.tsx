@@ -1,5 +1,4 @@
-import { ButtonInputProps, LinkInputProps } from '@/(types)/props/main';
-import Link from 'next/link';
+import { ButtonInputProps } from '@/(types)/props/main';
 
 interface InputProps extends ButtonInputProps {
   children?: React.ReactNode;
@@ -8,7 +7,7 @@ interface InputProps extends ButtonInputProps {
 export function TopbarIconLink({ children, ...props }: InputProps) {
   return (
     <button
-      className='inline-flex items-center rounded-full p-2 text-center text-sm font-medium text-gray-600 hover:text-white'
+      className='inline-flex items-center rounded-full p-2 text-center text-sm font-medium text-gray-600 hover:text-slate-900'
       {...props}
     >
       {children}

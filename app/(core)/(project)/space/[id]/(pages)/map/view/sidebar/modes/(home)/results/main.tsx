@@ -21,14 +21,14 @@ export function SpaceMapGallerysResults() {
         <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
           {galleryListController.state.objs.map((gallery) => (
             <ContextForGalleryObj.Provider value={gallery}>
-              <p className='w-full text-lg font-bold text-slate-300'>
-                {gallery.title}
-              </p>
-              <SpaceMapGalleryThumbnail />
+              <SpaceMapGalleryThumbnail>
+                <p className='w-full text-lg font-bold text-slate-700'>
+                  {gallery.title}
+                </p>
+              </SpaceMapGalleryThumbnail>
             </ContextForGalleryObj.Provider>
           ))}
           <HorizontalDivider />
-          <p className='w-full text-lg font-bold text-slate-300'>Add</p>
           <SpaceMapGalleryAdd />
         </div>
       </div>

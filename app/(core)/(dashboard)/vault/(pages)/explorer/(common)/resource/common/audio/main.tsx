@@ -6,7 +6,7 @@ export function CollectionResourceAudio() {
 
   return (
     <div className='flex h-full w-full flex-shrink-0 flex-col'>
-      <div className='flex aspect-square w-full flex-shrink-0 items-center justify-center bg-slate-950 p-[30px]'>
+      <div className='flex aspect-square w-full flex-shrink-0 items-center justify-center bg-slate-100 p-[30px]'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'

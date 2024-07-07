@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceMapGalleryAdd() {
@@ -10,12 +10,13 @@ export function SpaceMapGalleryAdd() {
 
   return (
     <GlassWindowFrame
-      className='aspect-[3/2] w-full flex-shrink-0'
+      className='w-full flex-shrink-0 p-[1rem]'
       borderFx={borderFx['border-around']}
+      roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
         onClick={openableController.open}
-        className='flex h-full cursor-pointer items-center justify-center'
+        className='flex cursor-pointer items-center justify-center'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

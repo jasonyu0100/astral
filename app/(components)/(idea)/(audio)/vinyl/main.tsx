@@ -45,7 +45,7 @@ export function VinylAudioClosedIdea({ ...props }: DivInputProps) {
                 className='aspect-square h-full w-full flex-shrink-0 object-contain'
                 src='https://www.udiscovermusic.com/wp-content/uploads/2022/03/janelle-monae-dirty-computer.jpg'
               />
-              <p className='font-bold text-white'>
+              <p className='font-bold text-slate-800'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris

@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <>
-      <h1 className='text-white'>ABOUT</h1>
+      <h1 className='text-slate-900'>ABOUT</h1>
     </>
   );
 }

@@ -17,8 +17,8 @@ export function SearchImageListPreview() {
         />
         <div className='flex flex-col'>
           <p className='text-lg font-bold'>{fileElem.title}</p>
-          <p className='text-sm text-slate-500'>{fileElem.ext}</p>
-          <p className='text-md text-slate-500'>{fileElem.size} bytes</p>
+          <p className='text-sm text-slate-700'>{fileElem.ext}</p>
+          <p className='text-md text-slate-700'>{fileElem.size} bytes</p>
         </div>
       </div>
       <button

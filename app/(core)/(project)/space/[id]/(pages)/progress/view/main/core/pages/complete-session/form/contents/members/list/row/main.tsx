@@ -18,7 +18,7 @@ export function SpaceProgressCollaboratorRow({
       onClick={onClick}
     >
       <ProfileCover fileElem={user?.dp} />
-      <p className='font-bold text-slate-300'>{user?.displayName}</p>
+      <p className='font-bold text-slate-700'>{user?.displayName}</p>
     </div>
   );
 }

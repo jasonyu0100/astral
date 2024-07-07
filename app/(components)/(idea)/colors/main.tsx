@@ -11,17 +11,17 @@ export function Colors() {
       <GlassWindowContents className='flex w-full flex-row pr-[2rem]'>
         <div className='flex aspect-square w-full items-end justify-end bg-green-500 p-[1rem]'>
           <div className='flex w-full flex-row justify-between'>
-            <p className='font-bold text-white text-opacity-80'>#ffffff</p>
+            <p className='font-bold text-slate-800 text-opacity-80'>#ffffff</p>
           </div>
         </div>
         <div className='flex aspect-square w-full items-end justify-end bg-orange-500 p-[1rem]'>
           <div className='flex w-full flex-row justify-between'>
-            <p className='font-bold text-white text-opacity-80'>#ffffff</p>
+            <p className='font-bold text-slate-800 text-opacity-80'>#ffffff</p>
           </div>
         </div>
         <div className='flex aspect-square w-full items-end justify-end bg-purple-500 p-[1rem]'>
           <div className='flex w-full flex-row justify-between'>
-            <p className='font-bold text-white text-opacity-80'>#ffffff</p>
+            <p className='font-bold text-slate-800 text-opacity-80'>#ffffff</p>
           </div>
         </div>
       </GlassWindowContents>

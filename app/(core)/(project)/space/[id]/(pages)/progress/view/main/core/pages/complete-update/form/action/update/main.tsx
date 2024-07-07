@@ -40,7 +40,7 @@ export function SpaceProgressUpdateFormUpdate() {
           className='flex cursor-pointer items-center justify-center bg-blue-500'
           onClick={handleUpdate}
         >
-          <p className='font-bold text-white'>Update</p>
+          <p className='font-bold text-slate-800'>Update</p>
         </GlassWindowContents>
         <GlassAreaPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>

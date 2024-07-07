@@ -27,11 +27,11 @@ export function SpaceProgressSidebarCurrentSession() {
             spaceSessionController.setPage(SpaceProgressPage.COMPLETE_SESSION)
           }
         >
-          <p className='text-xs font-light text-slate-500'>
+          <p className='text-xs font-light text-slate-700'>
             {new Date().toDateString()}
           </p>
-          <p className='text-lg font-bold text-slate-300'>Current Session</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-lg font-bold text-slate-700'>Current Session</p>
+          <p className='text-sm font-bold text-slate-700'>
             {updateListController.state.objs.length} updates
           </p>
         </GlassWindowContents>

@@ -29,11 +29,11 @@ export function DatePicker({
 
   return (
     <div className='flex w-full flex-col'>
-      <label className='mb-1 text-xs font-bold text-slate-400'>Target</label>
+      <label className='mb-1 text-xs font-bold text-slate-700'>due date</label>
       <div className='relative inline-block h-[4rem] border-b-[1px] border-slate-500 outline-none'>
         <input
           type='text'
-          className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500   outline-none'
+          className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-800   outline-none'
           value={selectedDate ? selectedDate.toDateString() : ''}
           onFocus={() => setShowCalendar(true)}
           readOnly

@@ -7,7 +7,7 @@ export function StudioSpacesRowHorizon() {
     <div className='flex flex-row items-center justify-center'>
       <a
         href={`${horizonMap.horizon.id.area.link('0')}`}
-        className='text-lg font-bold text-slate-300'
+        className='text-lg font-bold text-slate-700'
       >
         Horizon
       </a>

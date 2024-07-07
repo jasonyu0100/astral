@@ -7,7 +7,7 @@ interface InputProps extends ButtonInputProps {
 export function FeltModalCloseButton({ children, ...props }: InputProps) {
   return (
     <button {...props}>
-      <div className='mt-[3rem] animate-pulse text-center text-xl font-bold leading-7 text-slate-500'>
+      <div className='mt-[3rem] animate-pulse text-center text-xl font-bold leading-7 text-slate-700'>
         {children}
       </div>
     </button>

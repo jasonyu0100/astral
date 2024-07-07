@@ -25,7 +25,7 @@ export function JournalRecordFooterCenter() {
               openableController.open();
             }}
           >
-            <p className='text-3xl font-bold text-slate-300'>+</p>
+            <p className='text-3xl font-bold text-slate-700'>+</p>
           </GlassWindowContents>
         </GlassWindowFrame>
       </div>

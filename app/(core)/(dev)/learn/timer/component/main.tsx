@@ -32,7 +32,7 @@ export function TimerComponent() {
   return (
     <GlassWindowFrame className='flex animate-pulse-slow flex-col space-y-[1rem] overflow-hidden rounded-[3rem] p-[2rem] py-[2rem]'>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
-      <GlassWindowFrame className='flex h-[20rem] flex-col items-center overflow-hidden rounded-[1rem] p-[3rem] font-bold text-white text-opacity-80'>
+      <GlassWindowFrame className='flex h-[20rem] flex-col items-center overflow-hidden rounded-[1rem] p-[3rem] font-bold text-slate-800 text-opacity-80'>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
         <GlassWindowContents className='flex flex-col items-center justify-center space-y-[1rem]'>
           <p className='flex w-full justify-center text-3xl transition-opacity'>
@@ -57,7 +57,7 @@ export function TimerComponent() {
           </div> */}
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div className='z-50 flex flex-row justify-between rounded-md px-[5rem] py-[3rem] font-extraBold text-lg text-white text-opacity-50'>
+      <div className='z-50 flex flex-row justify-between rounded-md px-[5rem] py-[3rem] font-extraBold text-lg text-slate-900 text-opacity-50'>
         <div
           className='flex  cursor-pointer items-center justify-center '
           onClick={() => changeTimeDilation(0)}

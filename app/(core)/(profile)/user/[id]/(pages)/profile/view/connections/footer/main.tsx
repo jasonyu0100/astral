@@ -10,7 +10,7 @@ export function UserProfileConnnectionsFooter() {
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between space-y-[0.5rem]'
         onClick={() => backerController.setView(ConnectionsView.Connected)}
       >
-        <p className='text-md justify-end font-light text-slate-300'>
+        <p className='text-md justify-end font-light text-slate-700'>
           {ConnectionsView.Connected}
         </p>
         <div
@@ -21,7 +21,7 @@ export function UserProfileConnnectionsFooter() {
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between space-y-[0.5rem]'
         onClick={() => backerController.setView(ConnectionsView.Collabs)}
       >
-        <p className='text-md justify-end font-light text-slate-300'>
+        <p className='text-md justify-end font-light text-slate-700'>
           {ConnectionsView.Collabs}
         </p>
         <div

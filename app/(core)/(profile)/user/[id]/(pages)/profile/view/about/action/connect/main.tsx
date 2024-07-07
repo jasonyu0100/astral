@@ -108,7 +108,7 @@ export function ProfileAboutConnectAction() {
           }
         }}
       >
-        <p className='font-bold text-slate-300'>
+        <p className='font-bold text-slate-700'>
           {mutualConnected ? 'Connected' : 'Connect'}
         </p>
       </GlassWindowContents>

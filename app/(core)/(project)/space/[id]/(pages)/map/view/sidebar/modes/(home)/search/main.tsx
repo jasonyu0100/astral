@@ -1,22 +1,20 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx } from '@/(style)/data';
 
 export function SpaceMapGallerysSearch() {
   return (
-    <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
+    <div className='flex h-[4rem] w-full flex-shrink-0 items-center justify-center shadow-glow'>
       <GlassWindowFrame
-        className='h-[2rem] w-full flex-shrink-0'
-        roundedFx={roundedFx['rounded']}
+        className='h-full w-full flex-shrink-0'
+        borderFx={borderFx['border-b']}
       >
         <GlassWindowContents className='h-full w-full'>
           <input
-            className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
-            placeholder='Venture forth...'
+            className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-700 outline-none'
+            placeholder='Search context'
           ></input>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
     </div>
   );

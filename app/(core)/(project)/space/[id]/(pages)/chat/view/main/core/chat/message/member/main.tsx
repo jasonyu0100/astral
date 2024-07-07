@@ -13,12 +13,12 @@ export function SpaceChatMemberMessage() {
           src={userObj.state.obj.dp.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
-        <p className='p-[0.5rem] text-left text-xs text-slate-500 text-opacity-50'>
+        <p className='p-[0.5rem] text-left text-xs text-slate-700 text-opacity-50'>
           from {userObj.state.obj.displayName} at{' '}
           {new Date(message.created).toLocaleTimeString()}
         </p>
       </div>
-      <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left text-white'>
+      <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left text-slate-900'>
         {message.message}
       </p>
     </div>

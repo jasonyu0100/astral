@@ -4,5 +4,5 @@ import { useContext } from 'react';
 export function UserProfileConnectionsNumberText() {
   const index = useContext(ContextForIndexable);
 
-  return <p className='text-lg font-light text-slate-300'>{index + 1}</p>;
+  return <p className='text-lg font-light text-slate-700'>{index + 1}</p>;
 }

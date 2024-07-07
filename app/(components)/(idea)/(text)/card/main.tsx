@@ -39,14 +39,16 @@ export function CardTextIdea({ size, ...props }: CardTextIdeaProps) {
           className='flex items-center justify-center p-[1rem]'
         >
           {flippableController.flipped ? (
-            <p className='font-bold text-black'>
+            <p className='font-bold text-slate-800'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat.
             </p>
           ) : (
-            <p className='font-extraBold text-xl uppercase text-black'>TBD</p>
+            <p className='font-extraBold text-xl uppercase text-slate-900'>
+              TBD
+            </p>
           )}
         </GlassWindowContents>
       </GlassWindowFrame>

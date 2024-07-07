@@ -49,7 +49,7 @@ export function ChatAddChatModal() {
             <FormDescription>Add your chat here</FormDescription>
             <FormInput
               placeholder='Title'
-              title='Title'
+              title='title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

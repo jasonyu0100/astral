@@ -10,7 +10,7 @@ export function UserProfileBackersFooter() {
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between space-y-[0.5rem]'
         onClick={() => backerController.setView(BackingView.Backers)}
       >
-        <p className='text-md justify-end font-light text-slate-300'>
+        <p className='text-md justify-end font-light text-slate-700'>
           {BackingView.Backers}
         </p>
         <div
@@ -21,7 +21,7 @@ export function UserProfileBackersFooter() {
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between space-y-[0.5rem]'
         onClick={() => backerController.setView(BackingView.Backed)}
       >
-        <p className='text-md justify-end font-light text-slate-300'>
+        <p className='text-md justify-end font-light text-slate-700'>
           {BackingView.Backed}
         </p>
         <div

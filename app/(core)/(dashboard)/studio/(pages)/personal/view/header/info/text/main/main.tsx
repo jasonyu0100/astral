@@ -3,5 +3,7 @@ export function StudioSpacesHeaderTextMain({
 }: {
   children?: React.ReactNode;
 }) {
-  return <p className='text-5xl font-black uppercase text-white'>{children}</p>;
+  return (
+    <p className='text-5xl font-black uppercase text-slate-900'>{children}</p>
+  );
 }
