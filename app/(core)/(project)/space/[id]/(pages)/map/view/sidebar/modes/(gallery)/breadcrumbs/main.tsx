@@ -12,12 +12,12 @@ export function SpaceMapGalleryCollectionsBreadcrumbs() {
     <GlassWindowFrame className='h-[3rem] w-full flex-shrink-0'>
       <GlassWindowContents className='flex h-full w-full items-center px-[1rem]'>
         <p
-          className='cursor-pointer text-sm font-bold text-slate-700'
+          className='cursor-pointer text-xs font-bold text-slate-500'
           onClick={() => {
             sidebarController.actions.goToHome();
           }}
         >
-          Gallerys / {galleryListController.state.currentObj?.title}
+          Folders / {galleryListController.state.currentObj?.title}
         </p>
       </GlassWindowContents>
     </GlassWindowFrame>

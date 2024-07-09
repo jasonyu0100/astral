@@ -15,12 +15,12 @@ export function ChatSendIcon() {
         width='24'
         height='24'
       >
-        <rect width='24' height='24' className='fill-slate-300' />
+        <rect width='24' height='24' className='fill-white' />
       </mask>
       <g mask='url(#mask0_1085_17421)'>
         <path
           d='M11 20V7.825L5.4 13.425L4 12L12 4L20 12L18.6 13.425L13 7.825V20H11Z'
-          fill='#CBD5E1'
+          className='fill-white'
         />
       </g>
     </svg>

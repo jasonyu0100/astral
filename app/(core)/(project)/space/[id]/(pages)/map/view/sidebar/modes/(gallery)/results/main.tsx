@@ -31,7 +31,6 @@ export function SpaceMapGalleryCollectionsResults() {
             </ContextForGalleryCollectionObj.Provider>
           ))}
           <HorizontalDivider />
-          <p className='w-full text-lg font-bold text-slate-700'>Add</p>
           <SpaceMapCollectionAdd />
         </div>
       </div>

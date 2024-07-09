@@ -45,7 +45,7 @@ export function SpaceMapAddSceneModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Scene</FormTitle>
+          <FormTitle>Add Page</FormTitle>
           <FormBody>
             <FormInput
               title='Name'

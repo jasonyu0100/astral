@@ -25,7 +25,7 @@ export function SpaceMapToolsBottom() {
       <div className='flex flex-row space-x-[2rem]'>
         <div className='flex flex-row items-center space-x-[0.5rem] opacity-50'>
           <p className='text-sm font-light text-slate-700'>
-            Scene {sceneListController.state.index + 1}
+            Page {sceneListController.state.index + 1}
           </p>
         </div>
         <GlassWindowFrame className='h-[5rem]' roundedFx={roundedFx.rounded}>

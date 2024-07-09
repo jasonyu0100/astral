@@ -2,13 +2,16 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { glassFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceMapAddResource() {
   const openableController = useContext(ContextForOpenable);
   return (
-    <GlassWindowFrame className='aspect-square w-full'>
+    <GlassWindowFrame
+      className='aspect-square w-full'
+      roundedFx={roundedFx.rounded}
+    >
       <GlassWindowContents
         className='flex cursor-pointer items-center justify-center'
         onClick={openableController.open}

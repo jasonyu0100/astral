@@ -1,3 +1,6 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
@@ -9,6 +12,7 @@ import {
 } from '@/(server)/(model)/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
+import { borderFx, glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceMapResourceResource() {
@@ -45,37 +49,44 @@ export function SpaceMapResourceResource() {
 
   return (
     <div className='flex flex-col space-y-[0.5rem]'>
-      {/* <p className='text-md font-bold text-slate-700'>{resource.title}</p> */}
-      {resource.fileElem?.variant === FileElemVariant.IMAGE && (
-        <img
-          src={resource.fileElem?.src}
-          className='aspect-square cursor-pointer'
-          onClick={() => {
-            addResourceToScene();
-          }}
-        />
-      )}
-      {resource.fileElem?.variant === FileElemVariant.AUDIO && (
-        <div
-          onClick={() => {
-            addResourceToScene();
-          }}
-        >
-          <audio controls className='aspect-square cursor-pointer'>
-            <source src={resource.fileElem?.src} />
-          </audio>
-        </div>
-      )}
-      {resource.fileElem?.variant === FileElemVariant.VIDEO && (
-        <video
-          controls
-          src={resource.fileElem?.src}
-          className='aspect-square cursor-pointer'
-          onClick={() => {
-            addResourceToScene();
-          }}
-        />
-      )}
+      <GlassWindowFrame
+        className='h-full w-full'
+        borderFx={borderFx['border-around']}
+      >
+        <GlassWindowContents className='flex items-center justify-center'>
+          {resource.fileElem?.variant === FileElemVariant.IMAGE && (
+            <img
+              src={resource.fileElem?.src}
+              className='aspect-square cursor-pointer'
+              onClick={() => {
+                addResourceToScene();
+              }}
+            />
+          )}
+          {resource.fileElem?.variant === FileElemVariant.AUDIO && (
+            <div
+              onClick={() => {
+                addResourceToScene();
+              }}
+            >
+              <audio controls className='aspect-square cursor-pointer'>
+                <source src={resource.fileElem?.src} />
+              </audio>
+            </div>
+          )}
+          {resource.fileElem?.variant === FileElemVariant.VIDEO && (
+            <video
+              controls
+              src={resource.fileElem?.src}
+              className='aspect-square cursor-pointer'
+              onClick={() => {
+                addResourceToScene();
+              }}
+            />
+          )}
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      </GlassWindowFrame>
     </div>
   );
 }

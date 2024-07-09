@@ -29,8 +29,8 @@ export function SpaceIdeasContentInput() {
       >
         <GlassWindowContents>
           <input
-            className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-700 outline-none'
-            placeholder='Venture forth...'
+            className='text-md h-full w-full animate-pulse-slow bg-transparent px-[1rem] font-bold text-slate-700 outline-none'
+            placeholder='Send feedback'
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></input>

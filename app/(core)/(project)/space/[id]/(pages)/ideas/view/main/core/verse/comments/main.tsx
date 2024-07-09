@@ -10,7 +10,7 @@ export function SpaceIdeasContentComments() {
       className='flex h-full w-full border-slate-300 border-opacity-30'
       roundedFx={roundedFx['rounded-container']}
     >
-      <GlassWindowContents className='flex w-full flex-col space-y-[2rem] px-[3rem] py-[2rem]'>
+      <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
         <SpaceIdeasContentInput />
         <SpaceIdeasContentList />
       </GlassWindowContents>

@@ -8,7 +8,7 @@ export function SpaceMapHeaderCenter() {
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
       <p className='text-lg font-light text-slate-700'>
-        scene - {sceneListController.state.currentObj?.title || 'untitled'}
+        Page - {sceneListController.state.currentObj?.title || 'untitled'}
       </p>
       <SpaceMapExpandIcon />
     </div>

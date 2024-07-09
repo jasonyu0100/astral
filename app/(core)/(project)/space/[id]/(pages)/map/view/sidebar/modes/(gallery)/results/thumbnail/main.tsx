@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { useControllerForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceMapSidebarContext } from '../../../../main';
 
@@ -18,6 +18,7 @@ export function SpaceMapCollectionThumbnail() {
     <GlassWindowFrame
       className='aspect-[3/2] w-full flex-shrink-0'
       borderFx={borderFx['border-around']}
+      roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
         onClick={() => sidebarController.actions.goToCollection(collection)}

@@ -1,13 +1,12 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx } from '@/(style)/data';
 
 export function SpaceMapResourcesSearch() {
   return (
-    <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
+    <div className='flex h-[4rem] w-full flex-shrink-0 items-center justify-center shadow-glow'>
       <GlassWindowFrame
-        className='h-[3em] w-full flex-shrink-0'
+        className='h-full w-full flex-shrink-0'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents className='h-full w-full'>
@@ -16,7 +15,6 @@ export function SpaceMapResourcesSearch() {
             placeholder='Venture forth...'
           ></input>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
     </div>
   );
