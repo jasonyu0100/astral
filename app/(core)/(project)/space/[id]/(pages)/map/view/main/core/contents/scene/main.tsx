@@ -9,7 +9,7 @@ export function SpaceMapContentsScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <div className='container relative h-full w-full'>
+    <div className='relative z-50 h-full w-full'>
       {ideaListController.state.objs.map((idea) => (
         <ContextForSceneIdeaObj.Provider value={idea}>
           <SpaceMapMovable key={idea.id}>

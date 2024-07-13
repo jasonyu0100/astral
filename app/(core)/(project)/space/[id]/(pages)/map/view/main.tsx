@@ -13,8 +13,8 @@ export function SpaceMapView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
-      <SpaceMapSidebar />
       <SpaceMapMain />
+      <SpaceMapSidebar />
     </GlassAreaContainer>
   );
 }

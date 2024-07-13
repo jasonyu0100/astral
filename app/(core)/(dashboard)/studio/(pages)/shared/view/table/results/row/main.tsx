@@ -10,7 +10,6 @@ import { StudioSpacesRowDays } from './day/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
 import { StudioSpacesRowStat } from './stat/main';
-import { StudioSpacesRowTarget } from './target/main';
 
 export function StudioSpacesRow() {
   const memberObj = useContext(ContextForSpaceMemberObj);
@@ -29,7 +28,6 @@ export function StudioSpacesRow() {
           <StudioSpacesRowStat />
           <StudioSpacesRowDays />
           <StudioSpacesRowDate />
-          <StudioSpacesRowTarget />
         </div>
       </ContextForUserObj.Provider>
     </ContextForSpaceObj.Provider>
