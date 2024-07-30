@@ -1,4 +1,7 @@
+mkdir ~/.aws
 nano ~/.aws/credentials
+
+copy paste credentials
 
 add keys
 

@@ -12,10 +12,10 @@ export function DashboardBackground() {
     <>
       <div
         className={cn(
-          'h-full w-full overflow-auto bg-gradient-to-br from-slate-950 to-[#2c0441]',
+          'h-full w-full overflow-auto bg-gradient-to-br from-slate-900 to-[#2c0441]',
           {
-            'animate-breathe-slow from-40% to-90% ': !toggled,
-            'animate-breathe-fast from-40% to-80%': toggled,
+            'animate-breathe-slow from-60% to-90% ': !toggled,
+            'animate-breathe-fast from-80% to-90%': toggled,
           },
         )}
       ></div>
