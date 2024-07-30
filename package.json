@@ -14,6 +14,7 @@
   "dependencies": {
     "@aws-amplify/cli": "^12.10.1",
     "@cosmos-dev/example-package": "^1.0.0",
+    "@discord/embedded-app-sdk": "^1.4.0",
     "@egjs/flicking": "^4.11.3",
     "@egjs/infinitegrid": "^4.11.1",
     "@google/generative-ai": "^0.2.1",
