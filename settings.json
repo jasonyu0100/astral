@@ -6,6 +6,7 @@
   "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "all",
   "prettier.printWidth": 80,
+  "editor.wordWrapColumn": 160,
   "prettier.tabWidth": 2,
   "prettier.useTabs": false,
   "prettier.endOfLine": "auto",

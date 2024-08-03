@@ -1,11 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
-import { borderFx, roundedFx } from '@/(style)/data';
-import { getFormattedDate } from '@/(utils)/dateFormat';
-import { SpaceMapHeader } from './header/main';
+import { SpaceMapCoreContents } from './contents/main';
 
 export function SpaceMapBodyCore() {
   return (
@@ -15,7 +9,7 @@ export function SpaceMapBodyCore() {
         sizeFx='w-full h-full'
         className={`flex flex-col`}
       >
-        <SpaceMapHeader />
+        {/* <SpaceMapHeader />
         <div
           className='flex w-full flex-row'
           style={{ height: 'calc(100% - 4rem)' }}
@@ -270,8 +264,8 @@ export function SpaceMapBodyCore() {
               </GlassWindowContents>
             </GlassWindowFrame>
           </div>
-        </div>
-        {/* <SpaceMapCoreContents /> */}
+        </div> */}
+        <SpaceMapCoreContents />
       </GlassAreaContainer>
     </div>
   );

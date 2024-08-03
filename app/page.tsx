@@ -1,11 +1,10 @@
 'use client';
 import { PortalBackground } from './(portal)/(common)/background/main';
 import {
-  usePolaroid,
   PolaroidContext,
+  usePolaroid,
 } from './(portal)/(common)/handler/polaroid/main';
 import { ReserveView } from './(portal)/reserve/view';
-import { DiscordSDK } from '@discord/embedded-app-sdk';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =

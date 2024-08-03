@@ -1,7 +1,6 @@
 'use client';
 import { DashboardController } from '@/(components)/(dashboard)/controller/main';
 import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
-import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
 import { createContext } from 'react';
 
 interface CreativeSpacesContextObj {

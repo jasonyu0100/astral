@@ -18,7 +18,7 @@ export function SpaceMapCoreContents() {
         </p>
       </div>
       <div className='absolute left-0 top-0 h-full w-full overflow-auto px-[6rem] pt-[5rem]'>
-        <GlassWindowFrame
+        {/* <GlassWindowFrame
           className='w-full p-[2rem]'
           borderFx={borderFx['border-around']}
         >
@@ -236,7 +236,7 @@ export function SpaceMapCoreContents() {
             </GlassWindowFrame>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
-        </GlassWindowFrame>
+        </GlassWindowFrame> */}
       </div>
       <SpaceMapContentsScene />
       <SpaceMapContentsTools />
