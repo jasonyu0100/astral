@@ -22,7 +22,6 @@ export default function Layout({
 }) {
   return (
     <CreativeSpacesContext.Provider value={{ spaceId: params.id }}>
-      <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView minimised />
         {children}

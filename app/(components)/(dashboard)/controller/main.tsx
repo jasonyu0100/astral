@@ -3,12 +3,5 @@ export function DashboardController({
 }: {
   children?: React.ReactNode;
 }) {
-  return (
-    <div
-      className='relative flex w-full flex-row'
-      style={{ height: 'calc(100% - 4rem)' }}
-    >
-      {children}
-    </div>
-  );
+  return <div className='relative flex h-full w-full flex-row'>{children}</div>;
 }

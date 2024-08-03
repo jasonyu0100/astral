@@ -23,7 +23,6 @@ export default function Layout({
 }) {
   return (
     <ContextForHorizon.Provider value={{ releaseId: params.id }}>
-      <DashboardTopbar />
       <DashboardController>
         <DashboardSidebarView
           minimised

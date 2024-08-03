@@ -11,8 +11,6 @@ export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
     usePolaroid();
 
-  const discordSdk = new DiscordSDK(DISCORD_CLIENT_ID);
-
   return (
     <PortalBackground>
       <PolaroidContext.Provider

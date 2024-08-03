@@ -11,7 +11,8 @@
   "prettier.endOfLine": "auto",
   "eslint.workingDirectories": ["./"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
   },
   "eslint.validate": [
     "javascript",
