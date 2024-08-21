@@ -20,21 +20,21 @@ export function SpaceProgressMain() {
       <SpaceProgressContainer>
         <div className='flex h-full flex-row space-x-[2rem] overflow-auto p-[2rem]'>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>Todo</p>
+            <p className='font-bold text-slate-300'>Ideas</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>In progress</p>
+            <p className='font-bold text-slate-300'>In Progress</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>In verses</p>
+            <p className='font-bold text-slate-300'>Verses</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
