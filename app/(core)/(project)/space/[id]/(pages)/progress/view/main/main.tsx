@@ -1,15 +1,10 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { useContext } from 'react';
-import {
-  ContextForSpaceProgressController,
-  SpaceProgressPage,
-} from '../../(controller)/space-session/main';
+import { ContextForSpaceProgressController } from '../../(controller)/space-session/main';
 import { SpaceProgressContainer } from './core/container/main';
-import { SpaceProgressCompleteSession } from './core/pages/complete-session/main';
-import { SpaceProgressCompleteUpdate } from './core/pages/complete-update/main';
-import { SpaceProgressViewSession } from './core/pages/view-session/main';
-import { SpaceProgressViewUpdate } from './core/pages/view-update/main';
 import { SpaceProgressHeader } from './header/main';
+import { SpaceProgressListItem } from './lists/item/main';
+import { SpaceProgressList } from './lists/main';
 import { SpaceProgressChapterNavigation } from './navigation/main';
 
 export function SpaceProgressMain() {
@@ -22,7 +17,37 @@ export function SpaceProgressMain() {
     >
       <SpaceProgressHeader />
       <SpaceProgressContainer>
-        {spaceSessionController.page === SpaceProgressPage.VIEW_SESSION && (
+        <div className='flex h-full flex-row space-x-[2rem] overflow-auto p-[2rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='font-bold text-slate-300'>Todo</p>
+            <SpaceProgressList>
+              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+            </SpaceProgressList>
+          </div>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='font-bold text-slate-300'>Todo</p>
+            <SpaceProgressList>
+              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+            </SpaceProgressList>
+          </div>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='font-bold text-slate-300'>Todo</p>
+            <SpaceProgressList>
+              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+            </SpaceProgressList>
+          </div>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='font-bold text-slate-300'>Todo</p>
+            <SpaceProgressList>
+              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+            </SpaceProgressList>
+          </div>
+        </div>
+        {/* {spaceSessionController.page === SpaceProgressPage.VIEW_SESSION && (
           <SpaceProgressViewSession />
         )}
         {spaceSessionController.page ===
@@ -34,7 +59,7 @@ export function SpaceProgressMain() {
         {spaceSessionController.page ===
           SpaceProgressPage.COMPLETE_SESSION_UPDATE && (
           <SpaceProgressCompleteUpdate />
-        )}
+        )} */}
       </SpaceProgressContainer>
       <SpaceProgressChapterNavigation />
     </GlassWindowFrame>

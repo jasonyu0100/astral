@@ -18,14 +18,17 @@ export function SpaceMapCoreContents() {
   return (
     <div
       style={{ width: '100%', height: '100%' }}
-      className='relative p-[2rem]'
+      className='relative flex flex-col'
     >
-      <div className='absolute bottom-0 left-0 z-50 flex w-full items-center justify-center p-[2rem]'>
+      <div className='w-full' style={{ height: '100%' }}>
+        <SpaceMapContentsScene />
+      </div>
+      <div className='flex h-[180px] w-full flex-shrink-0 items-center justify-center p-[2rem]'>
         <GlassWindowFrame
-          className='w-full items-center justify-center'
+          className='h-full w-full items-center justify-center p-[2rem]'
           roundedFx={roundedFx.rounded}
         >
-          <GlassWindowContents className='flex flex-row items-center p-[2rem]'>
+          <GlassWindowContents className='flex flex-row items-center'>
             <ContextForOpenable.Provider value={openableController}>
               <SpaceMapAddSceneModal />
             </ContextForOpenable.Provider>
@@ -43,7 +46,7 @@ export function SpaceMapCoreContents() {
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'
-                  className='h-[3rem] w-[3rem] cursor-pointer'
+                  className='h-[2rem] w-[2rem] cursor-pointer'
                   fill='none'
                   onClick={() => {
                     if (
@@ -82,7 +85,7 @@ export function SpaceMapCoreContents() {
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'
-                  className='h-[3rem] w-[3rem] cursor-pointer'
+                  className='h-[2rem] w-[2rem] cursor-pointer'
                   fill='none'
                   onClick={() => {
                     sceneListController.actions.stateActions.goPrev();
@@ -111,7 +114,6 @@ export function SpaceMapCoreContents() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       </div>
-      <SpaceMapContentsScene />
     </div>
   );
 }

@@ -1,6 +1,9 @@
+import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
+import { roundedFx } from '@/(style)/data';
 import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
@@ -22,11 +25,11 @@ export function SpaceVerseContentComment() {
           </span>
         </p>
       </div>
-      <div className='flex flex-grow flex-col pl-[4rem] pt-[1rem]'>
+      <div className='flex flex-grow flex-col pl-[4rem]'>
         <p className='text-lg font-light text-slate-300'>
           {commentObj.message}
         </p>
-        {/* <div className='mt-[0.5rem] flex flex-row'>
+        <div className='mt-[0.5rem] flex flex-row'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -86,7 +89,7 @@ export function SpaceVerseContentComment() {
               />
             </g>
           </svg>
-        </div> */}
+        </div>
       </div>
     </div>
   );
