@@ -10,7 +10,7 @@ export function SpaceProgressListItem({
 }) {
   return (
     <GlassWindowFrame
-      className='h-[100px] w-full p-[2rem]'
+      className='h-[100px] w-full p-[1rem]'
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents>

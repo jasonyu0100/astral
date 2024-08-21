@@ -1,4 +1,5 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
 import { useContext } from 'react';
 import { ContextForSpaceProgressController } from '../../(controller)/space-session/main';
 import { SpaceProgressContainer } from './core/container/main';
@@ -26,21 +27,22 @@ export function SpaceProgressMain() {
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>Todo</p>
+            <p className='font-bold text-slate-300'>In progress</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>Todo</p>
+            <p className='font-bold text-slate-300'>In verses</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
             </SpaceProgressList>
           </div>
+          <VerticalDivider />
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>Todo</p>
+            <p className='font-bold text-slate-300'>Done</p>
             <SpaceProgressList>
               <SpaceProgressListItem>adsdas</SpaceProgressListItem>
               <SpaceProgressListItem>dasasd</SpaceProgressListItem>
