@@ -30,7 +30,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className='p-[5rem]'>
+    <div>
       <div
         className={`element absolute cursor-pointer`}
         style={{
