@@ -1,9 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,
@@ -51,7 +49,6 @@ export function SpaceProgressCompleteUpdatePanel() {
           ))}
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

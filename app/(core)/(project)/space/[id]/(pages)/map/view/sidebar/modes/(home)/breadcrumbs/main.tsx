@@ -3,8 +3,8 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 
 export function SpaceMapGallerysBreadcrumbs() {
   return (
-    <GlassWindowFrame className='h-[3rem] w-full flex-shrink-0'>
-      <GlassWindowContents className='flex h-full w-full items-center px-[1rem]'>
+    <GlassWindowFrame className=' w-full flex-shrink-0 pb-[0.5rem]'>
+      <GlassWindowContents className='flex h-full w-full items-center'>
         <p className='cursor-pointer text-sm font-bold text-slate-500'>
           Gallerys
         </p>

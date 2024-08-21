@@ -1,4 +1,3 @@
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -7,7 +6,6 @@ import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { useContext } from 'react';
 import { SpaceMapCreateCollectionModal } from '../../../../../(modal)/add/collection/main';
-import { SpaceMapCollectionAdd } from './add/main';
 import { SpaceMapCollectionThumbnail } from './thumbnail/main';
 
 export function SpaceMapGalleryCollectionsResults() {
@@ -30,9 +28,9 @@ export function SpaceMapGalleryCollectionsResults() {
               <SpaceMapCollectionThumbnail />
             </ContextForGalleryCollectionObj.Provider>
           ))}
-          <HorizontalDivider />
+          {/* <HorizontalDivider />
           <p className='w-full text-lg font-bold text-slate-300'>Add</p>
-          <SpaceMapCollectionAdd />
+          <SpaceMapCollectionAdd /> */}
         </div>
       </div>
     </ContextForOpenable.Provider>

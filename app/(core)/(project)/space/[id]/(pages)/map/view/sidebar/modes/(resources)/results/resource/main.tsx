@@ -49,7 +49,7 @@ export function SpaceMapResourceResource() {
       {resource.fileElem?.variant === FileElemVariant.IMAGE && (
         <img
           src={resource.fileElem?.src}
-          className='aspect-square cursor-pointer'
+          className='cursor-pointer'
           onClick={() => {
             addResourceToScene();
           }}
@@ -61,7 +61,7 @@ export function SpaceMapResourceResource() {
             addResourceToScene();
           }}
         >
-          <audio controls className='aspect-square cursor-pointer'>
+          <audio controls className='cursor-pointer'>
             <source src={resource.fileElem?.src} />
           </audio>
         </div>
@@ -70,7 +70,7 @@ export function SpaceMapResourceResource() {
         <video
           controls
           src={resource.fileElem?.src}
-          className='aspect-square cursor-pointer'
+          className='cursor-pointer'
           onClick={() => {
             addResourceToScene();
           }}

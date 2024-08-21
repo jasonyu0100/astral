@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceMapGalleryAdd() {
@@ -12,6 +12,7 @@ export function SpaceMapGalleryAdd() {
     <GlassWindowFrame
       className='aspect-[3/2] w-full flex-shrink-0'
       borderFx={borderFx['border-around']}
+      roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
         onClick={openableController.open}

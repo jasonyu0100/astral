@@ -1,4 +1,3 @@
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -7,7 +6,6 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { useContext } from 'react';
 import { SpaceMapCreateGalleryModal } from '../../../../../(modal)/add/gallery/main';
-import { SpaceMapGalleryAdd } from './add/main';
 import { SpaceMapGalleryThumbnail } from './thumbnail/main';
 
 export function SpaceMapGallerysResults() {
@@ -17,20 +15,17 @@ export function SpaceMapGallerysResults() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <SpaceMapCreateGalleryModal />
-      <div className='flex h-full w-full flex-col overflow-auto px-[1rem]'>
-        <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
+      <div className='flex h-full w-full flex-col overflow-auto p-[1rem]'>
+        <div className='grid grid-cols-2 gap-[1rem]'>
           {galleryListController.state.objs.map((gallery) => (
             <ContextForGalleryObj.Provider value={gallery}>
-              <p className='w-full text-lg font-bold text-slate-300'>
-                {gallery.title}
-              </p>
               <SpaceMapGalleryThumbnail />
             </ContextForGalleryObj.Provider>
           ))}
-          <HorizontalDivider />
-          <p className='w-full text-lg font-bold text-slate-300'>Add</p>
-          <SpaceMapGalleryAdd />
         </div>
+        {/* <HorizontalDivider />
+        <p className='w-full text-lg font-bold text-slate-300'>Add</p>
+        <SpaceMapGalleryAdd /> */}
       </div>
     </ContextForOpenable.Provider>
   );

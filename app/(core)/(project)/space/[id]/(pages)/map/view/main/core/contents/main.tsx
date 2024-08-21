@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { SpaceMapContentsScene } from './scene/main';
 import { SpaceMapContentsTools } from './tools/main';
 
@@ -11,11 +11,19 @@ export function SpaceMapCoreContents() {
       style={{ width: '100%', height: '100%' }}
       className='relative p-[2rem]'
     >
-      <div className='absolute left-0 top-0 flex h-[5rem] w-full items-center justify-center'>
-        <p className='w-[500px] text-center font-bold text-slate-300'>
-          Producer: A music producer oversees the creation of a song using
-          software tools, shaping its sound and structure.
-        </p>
+      <div className='absolute bottom-0 left-0 flex w-full items-center justify-center p-[2rem]'>
+        <GlassWindowFrame
+          className='w-full items-center justify-center'
+          roundedFx={roundedFx.rounded}
+        >
+          <GlassWindowContents className='flex items-center justify-center p-[2rem]'>
+            <p className='w-[500px] text-center font-bold text-slate-300'>
+              Producer: A music producer oversees the creation of a song using
+              software tools, shaping its sound and structure.
+            </p>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        </GlassWindowFrame>
       </div>
       <div className='absolute left-0 top-0 h-full w-full overflow-auto px-[6rem] pt-[5rem]'>
         {/* <GlassWindowFrame

@@ -17,10 +17,8 @@ export function SpaceMapResourcesResults() {
     <>
       <ContextForOpenable.Provider value={openableController}>
         <SpaceMapCreateResourceModal />
-        <div
-          className='flex w-full flex-col overflow-auto px-[1rem]'
-          style={{ height: 'calc(100% - 4rem - 80px)' }}
-        >
+
+        <div className='flex h-full w-full flex-col overflow-auto p-[1rem]'>
           <div className='grid grid-cols-2 gap-[1rem]'>
             {resourceListController.state.objs.map((resource) => (
               <ContextForCollectionResourceObj.Provider value={resource}>
