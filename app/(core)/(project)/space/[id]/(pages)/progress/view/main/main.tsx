@@ -1,6 +1,7 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { VerticalDivider } from '@/(components)/(indicator)/divider/vertical/main';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import Sortable from 'sortablejs';
 import { ContextForSpaceProgressController } from '../../(controller)/space-session/main';
 import { SpaceProgressContainer } from './core/container/main';
 import { SpaceProgressHeader } from './header/main';
@@ -10,6 +11,29 @@ import { SpaceProgressChapterNavigation } from './navigation/main';
 
 export function SpaceProgressMain() {
   const spaceSessionController = useContext(ContextForSpaceProgressController);
+
+  useEffect(() => {
+    const elTodo = document.getElementById('todo');
+    const elInProgress = document.getElementById('in-progress');
+    const elInVerses = document.getElementById('in-verses');
+    const elDone = document.getElementById('done');
+    const sortableTodo = Sortable.create(elTodo, {
+      group: 'shared', // set both lists to same group
+      animation: 500,
+    });
+    const sortableInProgress = Sortable.create(elInProgress, {
+      group: 'shared', // set both lists to same group
+      animation: 500,
+    });
+    const sortableInVerses = Sortable.create(elInVerses, {
+      group: 'shared', // set both lists to same group
+      animation: 500,
+    });
+    const sortableDone = Sortable.create(elDone, {
+      group: 'shared', // set both lists to same group
+      animation: 500,
+    });
+  }, []);
 
   return (
     <GlassWindowFrame
@@ -22,30 +46,54 @@ export function SpaceProgressMain() {
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>Ideas</p>
             <SpaceProgressList>
-              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+              <ul id='todo' className='h-full w-full space-y-[1rem]'>
+                <li>
+                  <SpaceProgressListItem>ABCD</SpaceProgressListItem>
+                </li>
+                <li>
+                  <SpaceProgressListItem>1234</SpaceProgressListItem>
+                </li>
+              </ul>
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>In Progress</p>
             <SpaceProgressList>
-              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+              <ul id='in-progress' className='h-full w-full space-y-[1rem]'>
+                <li>
+                  <SpaceProgressListItem>QWER</SpaceProgressListItem>
+                </li>
+                <li>
+                  <SpaceProgressListItem>sdaf</SpaceProgressListItem>
+                </li>
+              </ul>
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>Verses</p>
             <SpaceProgressList>
-              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+              <ul id='in-verses' className='h-full w-full space-y-[1rem]'>
+                <li>
+                  <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+                </li>
+                <li>
+                  <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+                </li>
+              </ul>
             </SpaceProgressList>
           </div>
           <VerticalDivider />
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>Done</p>
             <SpaceProgressList>
-              <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-              <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+              <ul id='done' className='h-full w-full space-y-[1rem]'>
+                <li>
+                  <SpaceProgressListItem>adsdas</SpaceProgressListItem>
+                </li>
+                <li>
+                  <SpaceProgressListItem>dasasd</SpaceProgressListItem>
+                </li>
+              </ul>
             </SpaceProgressList>
           </div>
         </div>

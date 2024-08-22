@@ -79,6 +79,7 @@
     "react-selecto": "^1.26.3",
     "seedrandom": "^3.0.5",
     "sonner": "^1.4.0",
+    "sortablejs": "^1.15.2",
     "stripe": "^14.16.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "3.3.2",
