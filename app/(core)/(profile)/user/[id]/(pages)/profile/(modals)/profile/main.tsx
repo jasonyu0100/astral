@@ -3,7 +3,7 @@ import { FormFooter } from '@/(components)/(form)/footer/main';
 import { ImagePreview } from '@/(components)/(form)/image-preview/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';

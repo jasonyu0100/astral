@@ -2,7 +2,7 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import {
   ContextForOpenable,

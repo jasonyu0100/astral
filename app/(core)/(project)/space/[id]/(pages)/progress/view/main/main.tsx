@@ -1,5 +1,5 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { VerticalDivider } from '@/(components)/(line)/divider/vertical/main';
+import { VerticalDivider } from '@/(components)/(indicator)/divider/vertical/main';
 import { useContext } from 'react';
 import { ContextForSpaceProgressController } from '../../(controller)/space-session/main';
 import { SpaceProgressContainer } from './core/container/main';

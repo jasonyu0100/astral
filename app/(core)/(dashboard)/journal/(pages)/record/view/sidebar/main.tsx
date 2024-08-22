@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { JournalRecordCollectionModal } from '@/(core)/(dashboard)/journal/(modal)/add/section/main';
 import {
   ContextForOpenable,

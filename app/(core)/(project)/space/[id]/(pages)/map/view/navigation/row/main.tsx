@@ -1,5 +1,5 @@
-import SpaceMapRowAdd from '@/(core)/(project)/space/[id]/(pages)/map/view/main/navigation/row/add/main';
-import { SpaceMapRowElement } from '@/(core)/(project)/space/[id]/(pages)/map/view/main/navigation/row/element/main';
+import SpaceMapRowAdd from '@/(core)/(project)/space/[id]/(pages)/map/view/navigation/row/add/main';
+import { SpaceMapRowElement } from '@/(core)/(project)/space/[id]/(pages)/map/view/navigation/row/element/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -7,7 +7,7 @@ import {
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceMapAddSceneModal } from '../../../../(modal)/add/scene/main';
+import { SpaceMapAddSceneModal } from '../../../(modal)/add/scene/main';
 import { SpaceMapRowContainer } from './container/main';
 
 export function SpaceMapNavigationRow() {

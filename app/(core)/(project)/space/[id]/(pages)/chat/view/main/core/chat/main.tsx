@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForChatConversationList } from '@/(server)/(controller)/space/chapter/chat/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';

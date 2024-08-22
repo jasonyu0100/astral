@@ -1,5 +1,5 @@
 import { SpaceCover } from '@/(components)/(element)/space/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
 
 export function CreativeNetworkSidebarEntryContents() {

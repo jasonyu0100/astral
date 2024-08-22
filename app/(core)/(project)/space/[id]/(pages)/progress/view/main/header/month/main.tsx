@@ -7,7 +7,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { Card } from '@/(components)/(idea)/game/card/main';
 import { Dice, DiceFace } from '@/(components)/(idea)/game/dice/main';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { FeltModal } from '@/(components)/(modal)/felt/main';
 import { glassFx } from '@/(style)/data';
 import { useEffect, useState } from 'react';

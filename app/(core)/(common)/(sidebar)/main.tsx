@@ -1,5 +1,5 @@
 'use client';
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';

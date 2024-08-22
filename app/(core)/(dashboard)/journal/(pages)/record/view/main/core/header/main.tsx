@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';

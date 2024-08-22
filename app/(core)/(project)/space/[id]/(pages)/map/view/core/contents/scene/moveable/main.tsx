@@ -4,7 +4,7 @@ import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/s
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
-import { parseTransformString } from '../../../../../../(controller)/map/main';
+import { parseTransformString } from '../../../../../(controller)/map/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const ideaListController = useContext(ContextForSceneIdeaList);

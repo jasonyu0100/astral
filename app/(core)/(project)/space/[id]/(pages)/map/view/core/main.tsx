@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { SpaceMapHeader } from '../header/main';
 import { SpaceMapCoreContents } from './contents/main';
-import { SpaceMapHeader } from './header/main';
 
 export function SpaceMapBodyCore() {
   return (

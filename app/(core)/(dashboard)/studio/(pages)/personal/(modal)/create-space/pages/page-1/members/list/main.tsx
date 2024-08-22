@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/(components)/(line)/divider/horizontal/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
 import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
 import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
