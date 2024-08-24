@@ -25,15 +25,19 @@ export function SpaceMapCoreContentsStatus() {
             <SpaceMapAddSceneModal />
           </ContextForOpenable.Provider>
           <div className='flex w-full flex-row items-center space-x-[2rem]'>
-            <div className='flex h-[80px] w-[80px] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+            <div className='flex h-[80px] w-[80px] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
               <p className='text-2xl font-bold text-slate-300'>
                 {sceneListController.state.index + 1}
               </p>
             </div>
-            <p className='w-full font-bold text-slate-300'>
-              Producer: A music producer oversees the creation of a song using
-              software tools, shaping its sound and structure.
-            </p>
+            <div className='flex w-full flex-col'>
+              <p className='text-lg font-bold text-slate-300'>
+                {sceneListController.state.currentObj?.title}
+              </p>
+              <p className='text-md font-light text-slate-300'>
+                {sceneListController.state.currentObj?.description}
+              </p>
+            </div>
             <div className='flex flex-col items-center justify-center'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'

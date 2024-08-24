@@ -34,12 +34,12 @@ import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import {
-  ContextForSpaceMapController,
+  ContextForSpaceMap,
   useControllerForSpaceMap,
 } from './(controller)/map/main';
 import { SpaceMapView } from './view/main';
 
-export enum SpaceMapSidebarMode {
+export enum SpaceMapSidebarMediaMode {
   Home = 'Home',
   Gallery = 'Gallery',
   Collection = 'Collection',
@@ -52,7 +52,7 @@ interface SpaceMapSidebarActions {
 }
 
 export interface SpaceMapSidebarContextObject {
-  mode: SpaceMapSidebarMode;
+  mode: SpaceMapSidebarMediaMode;
   actions: SpaceMapSidebarActions;
 }
 
@@ -83,20 +83,20 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   const [sidebarMode, changeSidebarMode] = useState(
-    SpaceMapSidebarMode.Gallery,
+    SpaceMapSidebarMediaMode.Gallery,
   );
 
   const actions: SpaceMapSidebarActions = {
     goToHome: () => {
-      changeSidebarMode(SpaceMapSidebarMode.Home);
+      changeSidebarMode(SpaceMapSidebarMediaMode.Home);
     },
     goToGallery: (gallery: GalleryObj) => {
       galleryListController.actions.stateActions.select(gallery);
-      changeSidebarMode(SpaceMapSidebarMode.Gallery);
+      changeSidebarMode(SpaceMapSidebarMediaMode.Gallery);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
       collectionListController.actions.stateActions.select(collection);
-      changeSidebarMode(SpaceMapSidebarMode.Collection);
+      changeSidebarMode(SpaceMapSidebarMediaMode.Collection);
     },
   };
 
@@ -114,7 +114,7 @@ function Page({ params }: { params: { id: string } }) {
   }, []);
 
   return (
-    <ContextForSpaceMapController.Provider value={mapController}>
+    <ContextForSpaceMap.Provider value={mapController}>
       <ContextForSpaceMapSidebar.Provider value={sidebarController}>
         <ContextForLoggedInUserObj.Provider value={user}>
           <ContextForSpaceMain.Provider value={spaceMainController}>
@@ -138,7 +138,7 @@ function Page({ params }: { params: { id: string } }) {
           </ContextForSpaceMain.Provider>
         </ContextForLoggedInUserObj.Provider>
       </ContextForSpaceMapSidebar.Provider>
-    </ContextForSpaceMapController.Provider>
+    </ContextForSpaceMap.Provider>
   );
 }
 

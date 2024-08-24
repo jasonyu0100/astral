@@ -3,14 +3,15 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext } from 'react';
 import {
-  ContextForSpaceMapController,
-  IdeaMode,
+  ContextForSpaceMap,
+  SpaceMapIdeaMode,
+  SpaceMapSidebarMode,
 } from '../../../(controller)/map/main';
-import { ContextForSpaceMapSidebar, SpaceMapSidebarMode } from '../../../page';
+import { ContextForSpaceMapSidebar } from '../../../page';
 import { SpaceMapCursorIcon } from './tools/cursor/main';
 
 export function SpaceMapHeaderLeft() {
-  const mapController = useContext(ContextForSpaceMapController);
+  const mapController = useContext(ContextForSpaceMap);
   const galleryController = useContext(ContextForGalleryList);
   const spaceController = useContext(ContextForSpaceMain);
   const sidebarController = useContext(ContextForSpaceMapSidebar);
@@ -28,14 +29,14 @@ export function SpaceMapHeaderLeft() {
         viewBox='0 -960 960 960'
         width='24px'
         onClick={() => {
-          if (mapController.ideaMode === IdeaMode.DEFAULT) {
-            mapController.updateIdeaMode(IdeaMode.DETAILS);
+          if (mapController.ideaMode === SpaceMapIdeaMode.DEFAULT) {
+            mapController.updateIdeaMode(SpaceMapIdeaMode.DETAILS);
           } else {
-            mapController.updateIdeaMode(IdeaMode.DEFAULT);
+            mapController.updateIdeaMode(SpaceMapIdeaMode.DEFAULT);
           }
         }}
         className={
-          mapController.ideaMode === IdeaMode.DEFAULT
+          mapController.ideaMode === SpaceMapIdeaMode.DEFAULT
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
@@ -47,7 +48,18 @@ export function SpaceMapHeaderLeft() {
         height='24px'
         viewBox='0 -960 960 960'
         width='24px'
-        fill='#e8eaed'
+        onClick={() => {
+          if (mapController.sidebarMode === SpaceMapSidebarMode.LIST) {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+          } else {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+          }
+        }}
+        className={
+          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
       >
         <path d='M120-80v-60h100v-30h-60v-60h60v-30H120v-60h120q17 0 28.5 11.5T280-280v40q0 17-11.5 28.5T240-200q17 0 28.5 11.5T280-160v40q0 17-11.5 28.5T240-80H120Zm0-280v-110q0-17 11.5-28.5T160-510h60v-30H120v-60h120q17 0 28.5 11.5T280-560v70q0 17-11.5 28.5T240-450h-60v30h100v60H120Zm60-280v-180h-60v-60h120v240h-60Zm180 440v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360Z' />
       </svg>

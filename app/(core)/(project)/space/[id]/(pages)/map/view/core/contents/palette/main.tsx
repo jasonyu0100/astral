@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForSpaceMapController } from '../../../../(controller)/map/main';
+import { ContextForSpaceMap } from '../../../../(controller)/map/main';
 import { AddIcon } from './icons/add/main';
 import { FileIcon } from './icons/file/main';
 import { GenerateIcon } from './icons/generate/main';
@@ -12,7 +12,7 @@ import { LinkIcon } from './icons/link/main';
 import { TextIcon } from './icons/text/main';
 
 export function SpaceMapCoreContentsPalette() {
-  const mapController = useContext(ContextForSpaceMapController);
+  const mapController = useContext(ContextForSpaceMap);
   const ideaController = useContext(ContextForSceneIdeaList);
 
   return (

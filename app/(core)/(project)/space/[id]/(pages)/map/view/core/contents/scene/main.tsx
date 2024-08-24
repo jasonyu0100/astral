@@ -3,14 +3,14 @@ import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapController } from '../../../../(controller)/map/main';
+import { ContextForSpaceMap } from '../../../../(controller)/map/main';
 import { SpaceMapContentsSceneConnections } from './connections/main';
 import { SpaceMapMovableIdea } from './idea/main';
 import { SpaceMapMovable } from './moveable/main';
 
 export function SpaceMapContentsScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const mapController = useContext(ContextForSpaceMapController);
+  const mapController = useContext(ContextForSpaceMap);
 
   return (
     <div

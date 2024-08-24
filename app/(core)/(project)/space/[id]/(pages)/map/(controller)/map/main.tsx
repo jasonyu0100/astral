@@ -3,37 +3,51 @@ import { createContext, useState } from 'react';
 
 interface Controller {
   selected: SceneIdeaObj | null;
-  ideaMode: IdeaMode;
-  mapMode: MapMode;
+  ideaMode: SpaceMapIdeaMode;
+  mapMode: SpaceMapMode;
+  sidebarMode: SpaceMapSidebarMode;
   updateSelected: (idea: SceneIdeaObj | null) => void;
-  updateIdeaMode: (mode: IdeaMode) => void;
-  updateMapMode: (mode: MapMode) => void;
+  updateIdeaMode: (mode: SpaceMapIdeaMode) => void;
+  updateMapMode: (mode: SpaceMapMode) => void;
+  updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
 }
 
-export const ContextForSpaceMapController = createContext({} as Controller);
+export const ContextForSpaceMap = createContext({} as Controller);
 
-export enum MapMode {
+export enum SpaceMapMode {
   SELECT = 'Select',
-  EDIT = 'Edit',
+  SELECTED = 'Selected',
 }
 
-export enum IdeaMode {
+export enum SpaceMapIdeaMode {
   DEFAULT = 'Default',
   DETAILS = 'Details',
 }
 
+export enum SpaceMapSidebarMode {
+  MEDIA = 'Media',
+  LIST = 'List',
+}
+
 export function useControllerForSpaceMap(): Controller {
-  const [mapMode, setMode] = useState<MapMode>(MapMode.EDIT);
-  const [ideaMode, setIdeaMode] = useState<IdeaMode>(IdeaMode.DEFAULT);
   const [selected, setSelected] = useState<SceneIdeaObj | null>(null);
+  const [mapMode, setMode] = useState<SpaceMapMode>(SpaceMapMode.SELECTED);
+  const [ideaMode, setIdeaMode] = useState<SpaceMapIdeaMode>(
+    SpaceMapIdeaMode.DEFAULT,
+  );
+  const [listMode, setListMode] = useState<SpaceMapSidebarMode>(
+    SpaceMapSidebarMode.MEDIA,
+  );
 
   return {
-    selected,
+    selected: selected,
+    sidebarMode: listMode,
     ideaMode: ideaMode,
     mapMode: mapMode,
     updateSelected: (idea) => setSelected(idea),
-    updateMapMode: (mode) => setMode(mode),
     updateIdeaMode: (mode) => setIdeaMode(mode),
+    updateMapMode: (mode) => setMode(mode),
+    updateSidebarMode: (mode) => setListMode(mode),
   };
 }
 

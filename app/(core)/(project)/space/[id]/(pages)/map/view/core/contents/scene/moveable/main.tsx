@@ -6,13 +6,13 @@ import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/i
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
-  ContextForSpaceMapController,
-  IdeaMode,
+  ContextForSpaceMap,
+  SpaceMapIdeaMode,
   parseTransformString,
 } from '../../../../../(controller)/map/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
-  const mapController = useContext(ContextForSpaceMapController);
+  const mapController = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const index = useContext(ContextForIndexable);
   const ideaObj = useContext(ContextForSceneIdeaObj);
@@ -61,7 +61,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {mapController.ideaMode !== IdeaMode.DEFAULT && (
+        {mapController.ideaMode !== SpaceMapIdeaMode.DEFAULT && (
           <div className='absolute top-0 flex h-full w-full justify-center'>
             <div className='flex aspect-[12/9] w-full flex-col bg-slate-950'>
               <p className='h-full w-full p-[1rem] text-[10px] font-bold text-slate-300'>
