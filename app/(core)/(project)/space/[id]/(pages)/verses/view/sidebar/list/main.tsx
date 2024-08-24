@@ -1,4 +1,5 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -7,7 +8,6 @@ import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapte
 import { ContextForChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
 import { useContext } from 'react';
 import { SpaceVersesAddVerseModal } from '../../../(modal)/add/verse/main';
-import { SpaceVersesSidebarAddVerse } from './add/main';
 import { SpaceVersesSidebarVerse } from './verse/main';
 
 export function SpaceVersesSidebarList() {
@@ -23,14 +23,27 @@ export function SpaceVersesSidebarList() {
         >
           <div className='h-full w-full overflow-auto  pr-[1rem]'>
             <div className='flex flex-col space-y-[1rem]'>
-              <SpaceVersesSidebarAddVerse
+              {/* <SpaceVersesSidebarAddVerse
                 onClick={verseOpenableController.open}
-              />
-              {verseListController.state.objs.map((verse) => (
-                <ContextForChapterVerseObj.Provider value={verse}>
-                  <SpaceVersesSidebarVerse />
-                </ContextForChapterVerseObj.Provider>
-              ))}
+              /> */}
+              <div className='flex flex-col space-y-[0.5rem]'>
+                <p className='font-bold text-slate-300'>Pending</p>
+                <HorizontalDivider />
+                {verseListController.state.objs.map((verse) => (
+                  <ContextForChapterVerseObj.Provider value={verse}>
+                    <SpaceVersesSidebarVerse />
+                  </ContextForChapterVerseObj.Provider>
+                ))}
+              </div>
+              <div className='flex flex-col space-y-[0.5rem]'>
+                <p className='font-bold text-slate-300'>Complete</p>
+                <HorizontalDivider />
+                {verseListController.state.objs.map((verse) => (
+                  <ContextForChapterVerseObj.Provider value={verse}>
+                    <SpaceVersesSidebarVerse />
+                  </ContextForChapterVerseObj.Provider>
+                ))}
+              </div>
             </div>
           </div>
         </GlassAreaContainer>
