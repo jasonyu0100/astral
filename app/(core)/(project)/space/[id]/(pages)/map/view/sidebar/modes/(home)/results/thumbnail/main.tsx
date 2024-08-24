@@ -1,37 +1,37 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceMapSidebarContext } from '../../../../main';
 
 export function SpaceMapGalleryThumbnail() {
   const gallery = useContext(ContextForGalleryObj);
   const sidebarController = useContext(SpaceMapSidebarContext);
+  const loggedInUser = useGlobalUser((state) => state.user);
 
   return (
-    <div className='flex flex-col'>
-      <GlassWindowFrame
-        className='aspect-square w-full flex-shrink-0'
-        roundedFx={roundedFx.rounded}
+    <GlassWindowFrame
+      className='aspect-[5/3] w-full flex-shrink-0'
+      roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
+    >
+      <GlassWindowContents
+        onClick={() => sidebarController.actions.goToGallery(gallery)}
+        className='relative h-full w-full cursor-pointer'
       >
-        <GlassWindowContents
-          onClick={() => sidebarController.actions.goToGallery(gallery)}
-          className='relative h-full w-full cursor-pointer'
-        >
-          <img
-            src={gallery.thumbnail.src}
-            className='absolute h-full w-full object-cover'
-          />
-          <div className='absolute flex h-full w-full items-center justify-center bg-slate-800 bg-opacity-30'>
-            <p className='w-full text-center text-sm font-bold text-white'>
-              {gallery.title}
-            </p>
+        <div className='absolute flex h-full w-full flex-col p-[1rem]'>
+          <p className='text-md w-full font-bold text-slate-300'>
+            {gallery.title || 'Untitled'}
+          </p>
+          <div className='mt-[1rem] text-sm font-normal text-slate-500'>
+            {loggedInUser?.fname} {loggedInUser?.lname}
           </div>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-    </div>
+        </div>
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
+    </GlassWindowFrame>
   );
 }

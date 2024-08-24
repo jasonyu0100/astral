@@ -13,9 +13,9 @@ interface InputProps extends DivInputProps {
 export function GalleryContainer({ onClick, children, ...props }: InputProps) {
   return (
     <GlassWindowFrame
-      roundedFx={roundedFx['rounded-xs']}
+      roundedFx={roundedFx.rounded}
       name={GalleryContainer.name}
-      className={cn(`aspect-[11/16] w-full`, props.className)}
+      className={cn(`aspect-square w-full`, props.className)}
     >
       <GlassWindowContents className='flex flex-col' onClick={onClick}>
         {children}

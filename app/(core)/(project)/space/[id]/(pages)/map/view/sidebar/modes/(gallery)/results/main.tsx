@@ -19,12 +19,9 @@ export function SpaceMapGalleryCollectionsResults() {
         className='flex w-full flex-col overflow-auto px-[1rem]'
         style={{ height: 'calc(100% - 4rem - 80px)' }}
       >
-        <div className='flex w-full flex-row flex-wrap gap-[1rem]'>
+        <div className='flex w-full flex-row flex-wrap gap-[1rem] pt-[1rem]'>
           {collectionsListController.state.objs.map((collection) => (
             <ContextForGalleryCollectionObj.Provider value={collection}>
-              <p className='w-full text-lg font-bold text-slate-300'>
-                {collection.title}
-              </p>
               <SpaceMapCollectionThumbnail />
             </ContextForGalleryCollectionObj.Provider>
           ))}

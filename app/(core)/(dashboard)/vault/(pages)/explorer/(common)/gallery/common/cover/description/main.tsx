@@ -9,7 +9,7 @@ export function ContainerDescription() {
   return (
     <div className='flex w-full flex-grow flex-col p-[1rem]'>
       <div className='animate-pulse font-extraBold text-xl text-slate-300'>
-        {gallery.title}
+        {gallery.title || 'Untitled'}
       </div>
       <div className='text-md mt-[1rem] font-normal text-slate-500'>
         {loggedInUser?.fname} {loggedInUser?.lname}

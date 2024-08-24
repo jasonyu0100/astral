@@ -1,12 +1,14 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
 import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function CollectionThumbnail({ empty }: { empty?: boolean }) {
+  const collection = useContext(ContextForGalleryCollectionMain);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const resources = resourceListController.state.objs;
 
@@ -18,12 +20,11 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
 
   return (
     <GlassWindowFrame
-      className='aspect-[3/2] w-full'
+      className='aspect-[4/3] w-full'
+      roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-all']}
-      roundedFx={roundedFx['rounded-xs']}
     >
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
-      <GlassWindowContents>
+      <GlassWindowContents className='flex h-full w-full flex-col'>
         {empty === true ? (
           <div className='flex h-full w-full items-center justify-center'>
             <svg
@@ -57,27 +58,33 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
             </svg>
           </div>
         ) : (
-          <div className='flex h-full w-full flex-row flex-wrap'>
-            {visualResources.map((resource) => (
-              <>
-                {resource.fileElem?.variant === FileElemVariant.IMAGE && (
-                  <img
-                    alt='thumbnail'
-                    className='aspect-square h-1/2 object-contain'
-                    src={resource?.fileElem?.src}
-                  />
-                )}
-                {resource.fileElem?.variant === FileElemVariant.VIDEO && (
-                  <video
-                    className='aspect-square h-1/2 object-contain'
-                    src={resource?.fileElem?.src}
-                  />
-                )}
-              </>
-            ))}
-          </div>
+          <>
+            <div className='text-md p-[1rem] font-bold text-slate-300'>
+              {collection.state.obj.title || 'Untitled'}
+            </div>
+            <div className='flex h-full w-full flex-row flex-wrap items-center justify-center'>
+              {visualResources.map((resource) => (
+                <div className='aspect-square h-1/2' style={{ padding: '2%' }}>
+                  {resource.fileElem?.variant === FileElemVariant.IMAGE && (
+                    <img
+                      alt='thumbnail'
+                      className='h-full w-full object-contain'
+                      src={resource?.fileElem?.src}
+                    />
+                  )}
+                  {resource.fileElem?.variant === FileElemVariant.VIDEO && (
+                    <video
+                      className='h-full w-full object-contain'
+                      src={resource?.fileElem?.src}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

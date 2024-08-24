@@ -10,7 +10,7 @@ export function SpaceMapGalleryAdd() {
 
   return (
     <GlassWindowFrame
-      className='aspect-[3/2] w-full flex-shrink-0'
+      className='aspect-[5/3] w-full flex-shrink-0'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
     >

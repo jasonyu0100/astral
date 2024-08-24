@@ -1,5 +1,6 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { borderFx, roundedFx } from '@/(style)/data';
 import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/(utils)/cn';
 
@@ -11,10 +12,20 @@ interface InputProps extends DivInputProps {
 export function ResourceContainer({ children, onClick, ...props }: InputProps) {
   return (
     <GlassWindowFrame
+      roundedFx={roundedFx.rounded}
+      className={cn(`flex cursor-pointer flex-col`, props.className)}
+    >
+      <GlassWindowContents onClick={onClick}>{children}</GlassWindowContents>
+    </GlassWindowFrame>
+  );
+  return (
+    <GlassWindowFrame
       className={cn(
-        `aspect-[13/16] flex-shrink-0 cursor-pointer overflow-hidden bg-stone-100`,
+        `flex-shrink-0 cursor-pointer overflow-hidden bg-stone-100`,
         props.className,
       )}
+      roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents
         className={cn(`flex flex-col items-center`)}

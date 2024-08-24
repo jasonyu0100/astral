@@ -3,7 +3,6 @@ import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/colle
 import Link from 'next/link';
 import { useContext } from 'react';
 import { CollectionContainer } from './common/container/main';
-import { CollectionInfo } from './common/info/main';
 import { CollectionThumbnail } from './common/thumbnail/main';
 
 export function ExplorerCollection() {
@@ -13,7 +12,6 @@ export function ExplorerCollection() {
     <Link href={vaultMap.vault.explorer.collection.id.link(collection.id)}>
       <CollectionContainer className='w-[300px]'>
         <CollectionThumbnail />
-        <CollectionInfo />
       </CollectionContainer>
     </Link>
   );
