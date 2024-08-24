@@ -6,14 +6,14 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { JournalRecordSidebarAdd } from './add/main';
-import { JournalRecordSidebarEntry } from './entry/main';
 
 export function JournalRecordSidebar() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
+  const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useControllerForOpenable();
 
   return (
@@ -32,7 +32,12 @@ export function JournalRecordSidebar() {
         {collectionListController.state.objs.length === 0 && (
           <p className='text-lg text-slate-500'>No sections</p>
         )}
-        {collectionListController.state.objs.map((collection) => (
+        {resourceListController.state.objs.map((resource, index) => (
+          <div className='font-bold text-white'>
+            {index + 1}. {resource.title || 'Untitled'}
+          </div>
+        ))}
+        {/* {collectionListController.state.objs.map((collection) => (
           <ContextForGalleryCollectionObj.Provider
             value={collection}
             key={collection.id}
@@ -45,7 +50,7 @@ export function JournalRecordSidebar() {
               }}
             />
           </ContextForGalleryCollectionObj.Provider>
-        ))}
+        ))} */}
       </GlassAreaContainer>
     </>
   );

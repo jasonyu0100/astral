@@ -18,7 +18,7 @@ export function JournalRecordSidebarAdd({ onClick }: { onClick?: () => void }) {
         onClick={onClick}
       >
         <div className='flex flex-col'>
-          <p className='text-lg font-bold text-slate-300'>Add Section</p>
+          <p className='text-lg font-bold text-slate-300'>New Chapter</p>
         </div>
       </GlassWindowContents>
     </GlassWindowFrame>

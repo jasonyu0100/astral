@@ -5,7 +5,7 @@ import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
 export function CreativeNetworkSearch() {
   return (
-    <div className='w-full px-[2rem] pb-[2rem] pt-[2rem] shadow-glow'>
+    <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
         name={CreativeNetworkSearch.name}
         className='h-[4rem] w-full'

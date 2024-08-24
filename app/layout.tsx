@@ -14,7 +14,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <meta name='referrer' content='origin' />
       </head>
       <Toaster />
-      <body className={cn('bg-black', [...fontVariables])}>
+      <body className={cn('bg-slate-950', [...fontVariables])}>
         <main>{!isMaintenanceMode && <>{children}</>}</main>
       </body>
     </html>
