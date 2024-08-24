@@ -1,23 +1,23 @@
 import { useContext } from 'react';
+import { ContextForSpaceMapSidebar, SpaceMapSidebarMode } from '../../page';
 import { SpaceMapSidebarContainer } from './container/main';
-import { SpaceMapSidebarContext, SpaceMapSidebarMode } from './main';
 import { SpaceMapGalleryCollectionsMode } from './modes/(gallery)/main';
 import { SpaceMapSidebarHomeGallerysMode } from './modes/(home)/main';
 import { SpaceMapCollectionResourcesMode } from './modes/(resources)/main';
 
 export function SpaceMapSidebarView() {
-  const { mode: sidebarMode } = useContext(SpaceMapSidebarContext);
+  const { mode } = useContext(ContextForSpaceMapSidebar);
 
   return (
     <SpaceMapSidebarContainer>
       <>
-        {sidebarMode === SpaceMapSidebarMode.Home && (
+        {mode === SpaceMapSidebarMode.Home && (
           <SpaceMapSidebarHomeGallerysMode />
         )}
-        {sidebarMode === SpaceMapSidebarMode.Gallery && (
+        {mode === SpaceMapSidebarMode.Gallery && (
           <SpaceMapGalleryCollectionsMode />
         )}
-        {sidebarMode === SpaceMapSidebarMode.Collection && (
+        {mode === SpaceMapSidebarMode.Collection && (
           <SpaceMapCollectionResourcesMode />
         )}
       </>

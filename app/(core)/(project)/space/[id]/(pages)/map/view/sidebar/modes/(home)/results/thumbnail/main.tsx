@@ -5,11 +5,11 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { SpaceMapSidebarContext } from '../../../../main';
+import { ContextForSpaceMapSidebar } from '../../../../../../page';
 
 export function SpaceMapGalleryThumbnail() {
   const gallery = useContext(ContextForGalleryObj);
-  const sidebarController = useContext(SpaceMapSidebarContext);
+  const sidebarController = useContext(ContextForSpaceMapSidebar);
   const loggedInUser = useGlobalUser((state) => state.user);
 
   return (

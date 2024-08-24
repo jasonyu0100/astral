@@ -39,24 +39,27 @@ import {
 } from './(controller)/map/main';
 import { SpaceMapView } from './view/main';
 
-export enum PaletteState {
-  HOME = 'Home',
-  GALLERY = 'Gallery',
-  COLLECTION = 'Collection',
+export enum SpaceMapSidebarMode {
+  Home = 'Home',
+  Gallery = 'Gallery',
+  Collection = 'Collection',
 }
-interface PaletteActions {
+
+interface SpaceMapSidebarActions {
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
 }
-export interface PaletteController {
-  state: PaletteState;
-  actions: PaletteActions;
+
+export interface SpaceMapSidebarContextObject {
+  mode: SpaceMapSidebarMode;
+  actions: SpaceMapSidebarActions;
 }
 
-export const ContextForPaletteController = createContext<PaletteController>(
-  {} as PaletteController,
-);
+export const ContextForSpaceMapSidebar =
+  createContext<SpaceMapSidebarContextObject>(
+    {} as SpaceMapSidebarContextObject,
+  );
 
 function Page({ params }: { params: { id: string } }) {
   const mapController = useControllerForSpaceMap();
@@ -73,37 +76,39 @@ function Page({ params }: { params: { id: string } }) {
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
-    galleryListController.state.objId,
+    spaceMainController.state.obj.galleryId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
   );
 
-  const [paletteMode, changePaletteMode] = useState(PaletteState.HOME);
+  const [sidebarMode, changeSidebarMode] = useState(
+    SpaceMapSidebarMode.Gallery,
+  );
 
-  const sidebarHandler: PaletteActions = {
+  const actions: SpaceMapSidebarActions = {
     goToHome: () => {
-      changePaletteMode(PaletteState.HOME);
+      changeSidebarMode(SpaceMapSidebarMode.Home);
     },
     goToGallery: (gallery: GalleryObj) => {
       galleryListController.actions.stateActions.select(gallery);
-      changePaletteMode(PaletteState.GALLERY);
+      changeSidebarMode(SpaceMapSidebarMode.Gallery);
     },
     goToCollection: (collection: GalleryCollectionObj) => {
       collectionListController.actions.stateActions.select(collection);
-      changePaletteMode(PaletteState.COLLECTION);
+      changeSidebarMode(SpaceMapSidebarMode.Collection);
     },
   };
 
-  const palleteController: PaletteController = {
-    state: paletteMode,
-    actions: sidebarHandler,
+  const sidebarController = {
+    mode: sidebarMode,
+    actions: actions,
   };
 
   return (
     <ContextForSpaceMapController.Provider value={mapController}>
-      <ContextForLoggedInUserObj.Provider value={user}>
-        <ContextForPaletteController.Provider value={palleteController}>
+      <ContextForSpaceMapSidebar.Provider value={sidebarController}>
+        <ContextForLoggedInUserObj.Provider value={user}>
           <ContextForSpaceMain.Provider value={spaceMainController}>
             <ContextForSpaceChapterList.Provider value={chapterListController}>
               <ContextForChapterSceneList.Provider value={sceneListController}>
@@ -123,8 +128,8 @@ function Page({ params }: { params: { id: string } }) {
               </ContextForChapterSceneList.Provider>
             </ContextForSpaceChapterList.Provider>
           </ContextForSpaceMain.Provider>
-        </ContextForPaletteController.Provider>
-      </ContextForLoggedInUserObj.Provider>
+        </ContextForLoggedInUserObj.Provider>
+      </ContextForSpaceMapSidebar.Provider>
     </ContextForSpaceMapController.Provider>
   );
 }

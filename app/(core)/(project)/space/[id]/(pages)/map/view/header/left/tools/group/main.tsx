@@ -1,13 +1,12 @@
 import { SvgInputProps } from '@/(types)/props/main';
+import { cn } from '@/(utils)/cn';
 
 export function SpaceMapGroupIcon({ ...props }: SvgInputProps) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      className='h-[1.5rem] w-[1.5rem] cursor-pointer'
-      fill='none'
-      {...props}
+      className={cn('h-[1.5rem] w-[1.5rem] cursor-pointer', props.className)}
     >
       <mask
         id='mask0_3260_5785'

@@ -1,17 +1,29 @@
+import { SceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
-  cursor: boolean;
-  updateCursor: (state: boolean) => void;
+  selected: SceneIdeaObj | null;
+  mode: MapMode;
+  updateSelected: (idea: SceneIdeaObj | null) => void;
+  updateMapMode: (mode: MapMode) => void;
 }
 
 export const ContextForSpaceMapController = createContext({} as Controller);
 
+export enum MapMode {
+  SELECT = 'Select',
+  EDIT = 'Edit',
+}
+
 export function useControllerForSpaceMap(): Controller {
-  const [cursor, setCursor] = useState(false);
+  const [mode, setMode] = useState<MapMode>(MapMode.EDIT);
+  const [selected, setSelected] = useState<SceneIdeaObj | null>(null);
+
   return {
-    cursor,
-    updateCursor: (state) => setCursor(state),
+    selected,
+    mode,
+    updateSelected: (idea) => setSelected(idea),
+    updateMapMode: (mode) => setMode(mode),
   };
 }
 

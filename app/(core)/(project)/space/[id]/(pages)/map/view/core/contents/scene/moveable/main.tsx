@@ -5,9 +5,13 @@ import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/s
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
-import { parseTransformString } from '../../../../../(controller)/map/main';
+import {
+  ContextForSpaceMapController,
+  parseTransformString,
+} from '../../../../../(controller)/map/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
+  const mapController = useContext(ContextForSpaceMapController);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const index = useContext(ContextForIndexable);
   const ideaObj = useContext(ContextForSceneIdeaObj);
@@ -43,12 +47,15 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           scale: `${initialScale}`,
         }}
         ref={targetRef}
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           if (hoverableController.hovered) {
             hoverableController.onUnhover();
           } else {
             hoverableController.onHover();
+            mapController.updateSelected(ideaObj);
           }
+          console.log(ideaObj?.id, mapController.selected?.id);
         }}
       >
         <div className='flex h-full w-full flex-col items-center justify-center'>
@@ -62,7 +69,12 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
       </div>
       <Moveable
         ref={moveableRef}
-        target={hoverableController.hovered ? targetRef : null}
+        target={
+          mapController.selected?.id === ideaObj.id &&
+          hoverableController.hovered
+            ? targetRef
+            : null
+        }
         draggable={true}
         scalable={true}
         keepRatio={true}

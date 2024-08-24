@@ -14,7 +14,7 @@ export function ExplorerGalleryCollectionsBreadcrumbs() {
         href={vaultMap.vault.explorer.link}
         active={false}
       >
-        Gallerys
+        Home
       </ArchiveExplorerBreadcrumbItem>
       <ArchiveExplorerBreadcrumbDivider />
       <ArchiveExplorerBreadcrumbItem

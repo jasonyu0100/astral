@@ -5,14 +5,14 @@ import { useControllerForCollectionResourceList } from '@/(server)/(controller)/
 import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { SpaceMapSidebarContext } from '../../../../main';
+import { ContextForSpaceMapSidebar } from '../../../../../../page';
 
 export function SpaceMapCollectionThumbnail() {
   const collection = useContext(ContextForGalleryCollectionObj);
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
   );
-  const sidebarController = useContext(SpaceMapSidebarContext);
+  const sidebarController = useContext(ContextForSpaceMapSidebar);
 
   return (
     <GlassWindowFrame
