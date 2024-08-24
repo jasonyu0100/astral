@@ -32,7 +32,7 @@ import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main
 import { GalleryObj } from '@/(server)/(model)/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isVerseAuth from '@/(utils)/isAuth';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import {
   ContextForSpaceMapController,
   useControllerForSpaceMap,
@@ -76,7 +76,7 @@ function Page({ params }: { params: { id: string } }) {
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
-    spaceMainController.state.obj.galleryId,
+    galleryListController.state.objId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
@@ -104,6 +104,14 @@ function Page({ params }: { params: { id: string } }) {
     mode: sidebarMode,
     actions: actions,
   };
+
+  useEffect(() => {
+    sidebarController.actions.goToGallery(
+      galleryListController.actions.stateActions.find(
+        spaceMainController.state.obj.galleryId,
+      ),
+    );
+  }, []);
 
   return (
     <ContextForSpaceMapController.Provider value={mapController}>

@@ -1,5 +1,7 @@
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { VerticalDivider } from '@/(components)/(indicator)/divider/vertical/main';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { useContext, useEffect } from 'react';
 import Sortable from 'sortablejs';
 import { ContextForSpaceProgressController } from '../../(controller)/space-session/main';
@@ -10,6 +12,8 @@ import { SpaceProgressList } from './lists/main';
 import { SpaceProgressChapterNavigation } from './navigation/main';
 
 export function SpaceProgressMain() {
+  const ideaListController = useContext(ContextForSceneIdeaList);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const spaceSessionController = useContext(ContextForSpaceProgressController);
 
   useEffect(() => {
@@ -47,15 +51,21 @@ export function SpaceProgressMain() {
             <p className='font-bold text-slate-300'>Ideas</p>
             <SpaceProgressList>
               <ul id='todo' className='h-full w-full space-y-[1rem]'>
-                <li>
-                  <SpaceProgressListItem>ABCD</SpaceProgressListItem>
-                </li>
-                <li>
-                  <SpaceProgressListItem>1234</SpaceProgressListItem>
-                </li>
+                {ideaListController.state.objs.map((idea, index) => (
+                  <li>
+                    <SpaceProgressListItem>
+                      <p className='font-bold text-slate-300'>
+                        {sceneListController.state.currentObj?.title} -{' '}
+                        {idea.title}
+                      </p>
+                      <img src={idea.fileElem?.src} />
+                    </SpaceProgressListItem>
+                  </li>
+                ))}
               </ul>
             </SpaceProgressList>
           </div>
+          <VerticalDivider />
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>In Progress</p>
             <SpaceProgressList>
@@ -70,7 +80,7 @@ export function SpaceProgressMain() {
             </SpaceProgressList>
           </div>
           <div className='flex flex-col space-y-[1rem]'>
-            <p className='font-bold text-slate-300'>Verses</p>
+            <p className='font-bold text-slate-300'>Review</p>
             <SpaceProgressList>
               <ul id='in-verses' className='h-full w-full space-y-[1rem]'>
                 <li>
@@ -82,7 +92,6 @@ export function SpaceProgressMain() {
               </ul>
             </SpaceProgressList>
           </div>
-          <VerticalDivider />
           <div className='flex flex-col space-y-[1rem]'>
             <p className='font-bold text-slate-300'>Done</p>
             <SpaceProgressList>

@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 
 export function SpaceProgressListItem({
   children,
@@ -10,11 +10,12 @@ export function SpaceProgressListItem({
 }) {
   return (
     <GlassWindowFrame
-      className='h-[100px] w-full p-[1rem]'
+      className='w-full p-[1rem]'
       roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
     >
-      <GlassWindowContents>
-        <p className='font-bold text-slate-300'>Scene 1: {children}</p>
+      <GlassWindowContents className='flex flex-col space-y-[1rem] text-slate-300'>
+        {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>

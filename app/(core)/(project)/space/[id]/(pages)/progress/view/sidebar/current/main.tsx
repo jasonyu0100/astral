@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,
@@ -18,6 +18,7 @@ export function SpaceProgressSidebarCurrentSession() {
       <GlassWindowFrame
         name={SpaceProgressSidebarCurrentSession.name}
         roundedFx={roundedFx.rounded}
+        borderFx={borderFx['border-around']}
         className='flex- flex cursor-pointer p-[1rem]'
       >
         <GlassWindowContents

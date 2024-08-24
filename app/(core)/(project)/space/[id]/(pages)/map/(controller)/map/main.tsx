@@ -3,8 +3,10 @@ import { createContext, useState } from 'react';
 
 interface Controller {
   selected: SceneIdeaObj | null;
-  mode: MapMode;
+  ideaMode: IdeaMode;
+  mapMode: MapMode;
   updateSelected: (idea: SceneIdeaObj | null) => void;
+  updateIdeaMode: (mode: IdeaMode) => void;
   updateMapMode: (mode: MapMode) => void;
 }
 
@@ -15,15 +17,23 @@ export enum MapMode {
   EDIT = 'Edit',
 }
 
+export enum IdeaMode {
+  DEFAULT = 'Default',
+  DETAILS = 'Details',
+}
+
 export function useControllerForSpaceMap(): Controller {
-  const [mode, setMode] = useState<MapMode>(MapMode.EDIT);
+  const [mapMode, setMode] = useState<MapMode>(MapMode.EDIT);
+  const [ideaMode, setIdeaMode] = useState<IdeaMode>(IdeaMode.DEFAULT);
   const [selected, setSelected] = useState<SceneIdeaObj | null>(null);
 
   return {
     selected,
-    mode,
+    ideaMode: ideaMode,
+    mapMode: mapMode,
     updateSelected: (idea) => setSelected(idea),
     updateMapMode: (mode) => setMode(mode),
+    updateIdeaMode: (mode) => setIdeaMode(mode),
   };
 }
 

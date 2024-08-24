@@ -9,7 +9,7 @@ export function SpaceProgressList({ children }: { children: React.ReactNode }) {
       className='h-full w-[300px] p-[1rem]'
       roundedFx={roundedFx.rounded}
     >
-      <GlassWindowContents className='flex flex-col space-y-[2rem]'>
+      <GlassWindowContents className='flex flex-col space-y-[2rem] overflow-auto  pr-[1rem]'>
         {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />

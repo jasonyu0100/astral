@@ -7,6 +7,7 @@ import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
   ContextForSpaceMapController,
+  IdeaMode,
   parseTransformString,
 } from '../../../../../(controller)/map/main';
 
@@ -55,12 +56,26 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
             hoverableController.onHover();
             mapController.updateSelected(ideaObj);
           }
-          console.log(ideaObj?.id, mapController.selected?.id);
         }}
       >
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
+        {mapController.ideaMode !== IdeaMode.DEFAULT && (
+          <div className='absolute top-0 flex h-full w-full justify-center'>
+            <div className='flex aspect-[12/9] w-full flex-col bg-slate-950'>
+              <p className='h-full w-full p-[1rem] text-[10px] font-bold text-slate-300'>
+                {ideaListController.state.currentObj?.title}
+              </p>
+              <p className='h-full w-full p-[1rem] text-[10px] font-light text-slate-300'>
+                {ideaListController.state.currentObj?.width},
+                {ideaListController.state.currentObj?.height}
+                {ideaListController.state.currentObj?.x},
+                {ideaListController.state.currentObj?.y}
+              </p>
+            </div>
+          </div>
+        )}
         <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
           <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
             <p className='font-bold text-white'>{index + 1}</p>

@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import { useControllerForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
 import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,
@@ -22,6 +22,7 @@ export function SpaceProgressSidebarSession() {
       <GlassWindowFrame
         name={SpaceProgressSidebarSession.name}
         roundedFx={roundedFx.rounded}
+        borderFx={borderFx['border-around']}
         className='flex- flex cursor-pointer p-[1rem]'
       >
         <GlassWindowContents

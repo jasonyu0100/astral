@@ -2,7 +2,10 @@ import { PipIndicator } from '@/(components)/(indicator)/pip/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapController } from '../../../(controller)/map/main';
+import {
+  ContextForSpaceMapController,
+  IdeaMode,
+} from '../../../(controller)/map/main';
 import { ContextForSpaceMapSidebar, SpaceMapSidebarMode } from '../../../page';
 import { SpaceMapCursorIcon } from './tools/cursor/main';
 
@@ -19,6 +22,26 @@ export function SpaceMapHeaderLeft() {
           mapController.selected === null ? 'fill-slate-300' : 'fill-blue-500'
         }
       />
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        height='24px'
+        viewBox='0 -960 960 960'
+        width='24px'
+        onClick={() => {
+          if (mapController.ideaMode === IdeaMode.DEFAULT) {
+            mapController.updateIdeaMode(IdeaMode.DETAILS);
+          } else {
+            mapController.updateIdeaMode(IdeaMode.DEFAULT);
+          }
+        }}
+        className={
+          mapController.ideaMode === IdeaMode.DEFAULT
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+      >
+        <path d='M200-200h360v-200h200v-360H200v560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v400L600-120H200Zm80-280v-80h200v80H280Zm0-160v-80h400v80H280Zm-80 360v-560 560Z' />
+      </svg>
       <PipIndicator />
       {sidebarController.mode === SpaceMapSidebarMode.Home ? (
         <svg
