@@ -1,5 +1,6 @@
 'use client';
 import { useControllerForHoverable } from '@/(logic)/contexts/hoverable/main';
+import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
 import { useContext, useRef, useState } from 'react';
@@ -8,6 +9,7 @@ import { parseTransformString } from '../../../../../(controller)/map/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const index = useContext(ContextForIndexable);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
   const moveableRef = useRef<Moveable>(null);
@@ -35,7 +37,6 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         className={`element absolute cursor-pointer`}
         style={{
           width: `${ideaObj.width}px`,
-          height: `${ideaObj.height}px`,
           top: `${initialY}px`,
           left: `${initialX}px`,
           rotate: `${initialRotation}deg`,
@@ -50,8 +51,13 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           }
         }}
       >
-        <div className='flex h-full w-full items-center justify-center'>
+        <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
+        </div>
+        <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
+          <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
+            <p className='font-bold text-white'>{index + 1}</p>
+          </div>
         </div>
       </div>
       <Moveable

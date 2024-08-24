@@ -6,7 +6,7 @@ export function SpaceMapContentsSceneConnections() {
 
   return (
     <svg className='h-full w-full'>
-      {ideaListController.state.objs.slice(0, -1).map((idea, index) => {
+      {ideaListController.state.objs.map((idea, index) => {
         const previous =
           ideaListController.state.objs[index - 1] ||
           ideaListController.state.objs.at(-1);

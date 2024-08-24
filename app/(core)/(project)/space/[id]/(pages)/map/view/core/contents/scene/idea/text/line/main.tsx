@@ -8,10 +8,7 @@ export function SpaceMapTextLineIdea() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <div
-      className='flex aspect-square h-full w-full flex-col items-center justify-center'
-      style={{ padding: '10%' }}
-    >
+    <div className='flex aspect-square h-full w-full flex-col items-center justify-center'>
       <input
         className='z-50 resize-none bg-transparent text-center text-xs font-bold text-slate-300 outline-none'
         defaultValue={ideaObj.textElem?.text}

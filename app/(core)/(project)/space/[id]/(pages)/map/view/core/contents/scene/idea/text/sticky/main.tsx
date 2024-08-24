@@ -8,10 +8,7 @@ export function SpaceMapTextStickyIdea() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <div
-      className='aspect-square h-full bg-yellow-500 shadow-lg'
-      style={{ padding: '15%' }}
-    >
+    <div className='aspect-square h-full bg-yellow-500 shadow-lg'>
       <textarea
         className='z-50 h-full w-full resize-none bg-transparent text-xs font-bold text-black outline-none'
         defaultValue={ideaObj.textElem?.text}

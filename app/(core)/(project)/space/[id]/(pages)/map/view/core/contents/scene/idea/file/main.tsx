@@ -8,9 +8,7 @@ export function SpaceMapFileIdea() {
   return (
     <>
       {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
-        <div style={{ padding: '10%' }}>
-          <img src={ideaObj.fileElem.src} alt={ideaObj.title} />
-        </div>
+        <img src={ideaObj.fileElem.src} alt={ideaObj.title} />
       )}
     </>
   );
