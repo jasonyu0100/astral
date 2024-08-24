@@ -53,7 +53,7 @@ export function SpaceMapAddSceneModal() {
               onChange={(e) => changeTitle(e.target.value)}
             />
             <FormTextArea
-              title='Description'
+              title='Objective'
               rows={5}
               value={description}
               onChange={(e) => changeDescription(e.target.value)}

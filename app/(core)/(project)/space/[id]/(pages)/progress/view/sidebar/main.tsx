@@ -2,22 +2,19 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 import { SpaceProgressAddUpdateModal } from '../../(modal)/add/update/main';
-import { SpaceProgressSidebarCurrentSession } from './current/main';
-import { SpaceProgressSidebarSession } from './session/main';
 
 export function SpaceProgressSidebar() {
   const openableController = useControllerForOpenable();
+  const sceneListController = useContext(ContextForChapterSceneList);
   const sessionListController = useContext(ContextForChapterSessionList);
 
   return (
@@ -52,7 +49,31 @@ export function SpaceProgressSidebar() {
             name={''}
           >
             <div className='flex w-full flex-col space-y-[1rem]'>
-              <SpaceProgressSidebarCurrentSession />
+              {sceneListController.state.objs.map((scene, index) => (
+                <div className='flex w-full flex-row items-center space-x-[1rem]'>
+                  <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500 font-bold text-white'>
+                    {index + 1}
+                  </div>
+                  <GlassWindowFrame
+                    className='w-full p-[1rem]'
+                    roundedFx={roundedFx.rounded}
+                    borderFx={borderFx['border-around']}
+                  >
+                    <GlassWindowContents
+                      className='cursor-pointer'
+                      onClick={() => {
+                        sceneListController.actions.stateActions.select(scene);
+                      }}
+                    >
+                      <p className='text-lg font-bold text-slate-300'>
+                        {scene.title}
+                      </p>
+                    </GlassWindowContents>
+                    <GlassWindowPane glassFx={glassFx['glass-10']} />
+                  </GlassWindowFrame>
+                </div>
+              ))}
+              {/* <SpaceProgressSidebarCurrentSession />
               {sessionListController.state.objs.length > 0 && (
                 <HorizontalDivider />
               )}
@@ -62,7 +83,7 @@ export function SpaceProgressSidebar() {
                     <SpaceProgressSidebarSession />
                   </ContextForChapterSessionObj.Provider>
                 </ContextForIndexable.Provider>
-              ))}
+              ))} */}
             </div>
           </GlassAreaContainer>
         </div>

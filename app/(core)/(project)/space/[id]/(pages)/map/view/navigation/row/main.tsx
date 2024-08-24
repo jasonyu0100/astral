@@ -7,7 +7,7 @@ import {
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceMapAddSceneModal } from '../../../(modal)/add/scene/main';
+import { SpaceMapAddChapterModal } from '../../../(modal)/add/chapter/main';
 import { SpaceMapRowContainer } from './container/main';
 
 export function SpaceMapNavigationRow() {
@@ -17,7 +17,7 @@ export function SpaceMapNavigationRow() {
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <SpaceMapAddSceneModal />
+        <SpaceMapAddChapterModal />
       </ContextForOpenable.Provider>
       <SpaceMapRowContainer>
         {chapterListController.state.objs.map((chapter, index) => (

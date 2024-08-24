@@ -6,6 +6,7 @@ import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapte
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
 import { SpaceVersesAddChapterModal } from '../../../../(modal)/add/chapter/main';
+import SpaceVersesRowAdd from './add/main';
 import { SpaceVersesRowContainer } from './container/main';
 import { SpaceVersesRowElement } from './element/main';
 
@@ -24,6 +25,13 @@ export function SpaceVersesNavigationRow() {
             <SpaceVersesRowElement index={index} key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
+        <SpaceVersesRowAdd
+          onClick={() => {
+            openableController.open();
+          }}
+        >
+          Add Chapter
+        </SpaceVersesRowAdd>
       </SpaceVersesRowContainer>
     </>
   );

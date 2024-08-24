@@ -13,7 +13,7 @@ export function DashboardSidebarTopOverview() {
   useEffect(() => {
     changeUrl(
       space.id
-        ? spaceMap.space.id.chat.link(space.id)
+        ? spaceMap.space.id.idea.link(space.id)
         : studioMap.studio.personal.link,
     );
   }, [space]);

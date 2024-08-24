@@ -3,8 +3,8 @@ const baseUrl = `/space`;
 export const spaceMap = {
   space: {
     id: {
-      chat: {
-        link: (id: string) => `${baseUrl}/${id}/chat`,
+      idea: {
+        link: (id: string) => `${baseUrl}/${id}/idea`,
       },
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,

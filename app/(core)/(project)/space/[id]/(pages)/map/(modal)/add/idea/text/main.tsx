@@ -2,6 +2,7 @@ import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
+import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
@@ -22,9 +23,9 @@ export function SpaceMapAddTextIdeaModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
-  const [text, changeText] = useState<string>('');
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
+  const [text, changeText] = useState<string>('');
 
   function create() {
     sceneIdeaListController.actions.createActions
@@ -65,7 +66,7 @@ export function SpaceMapAddTextIdeaModal() {
               {/* <option value={TextElemVariant.BLOCK}>Block</option> */}
               {/* <option value={TextElemVariant.CODE}>Code</option> */}
             </FormSelect>
-            {/* <FormInput
+            <FormInput
               placeholder='Title'
               title='Title'
               value={title}
@@ -76,9 +77,8 @@ export function SpaceMapAddTextIdeaModal() {
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            /> */}
+            />
             <FormTextArea
-              placeholder='Note Text'
               title='Text'
               value={text}
               onChange={(e) => changeText(e.target.value)}

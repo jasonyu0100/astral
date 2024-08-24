@@ -6,7 +6,7 @@ export function StudioSpacesNumberPlay() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <a href={spaceMap.space.id.chat.link(space.id)}>
+    <a href={spaceMap.space.id.idea.link(space.id)}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-[30px] w-[30px]'
