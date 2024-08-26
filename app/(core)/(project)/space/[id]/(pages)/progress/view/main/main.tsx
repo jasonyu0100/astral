@@ -1,17 +1,13 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+import { useControllerForOpenable } from '@/(logic)/contexts/openable/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { ElementVariant } from '@/(server)/(model)/elements/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext, useEffect } from 'react';
 import Sortable from 'sortablejs';
-import { SpaceProgressAddSceneModal } from '../../(modal)/add/scene/main';
 import { SpaceProgressContainer } from './core/container/main';
 import { SpaceProgressHeader } from './header/main';
 import { SpaceProgressListItem } from './lists/item/main';
@@ -51,9 +47,6 @@ export function SpaceProgressMain() {
       name={SpaceProgressMain.name}
       className={`flex h-full flex-grow flex-col`}
     >
-      <ContextForOpenable.Provider value={openableController}>
-        <SpaceProgressAddSceneModal />
-      </ContextForOpenable.Provider>
       <SpaceProgressHeader />
       <SpaceProgressContainer>
         <div style={{ height: 'calc(100% - 10rem)' }}>

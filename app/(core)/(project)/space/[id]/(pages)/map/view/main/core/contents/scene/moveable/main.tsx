@@ -8,8 +8,8 @@ import Moveable from 'react-moveable';
 import {
   ContextForSpaceMap,
   SpaceMapIdeaMode,
-} from '../../../../../../(controller)/map/main';
-import { parseTransformString } from '../../../../../../(utils)/transformation/main';
+} from '../../../../../../controller/map/main';
+import { parseTransformString } from '../../../../../../utils/transformation/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const mapController = useContext(ContextForSpaceMap);

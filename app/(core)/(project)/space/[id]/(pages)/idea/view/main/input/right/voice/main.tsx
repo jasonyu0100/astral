@@ -1,4 +1,4 @@
-import { ChatVoiceIcon } from '../../../../../(common)/icons/voice/main';
+import { ChatVoiceIcon } from '../../../../../common/icons/voice/main';
 
 export function SpaceIdeaMessageInputRightVoice() {
   return (

@@ -18,6 +18,7 @@ import {
 } from '@/(server)/(controller)/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isAstralAuth from '@/(utils)/isAuth';
+import { SpaceReviewModals } from './modal/controller/main';
 import { SpaceReviewView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -37,7 +38,9 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterReviewList.Provider value={reviewListController}>
             <ContextForReviewCommentList.Provider value={commentListController}>
-              <SpaceReviewView />
+              <SpaceReviewModals>
+                <SpaceReviewView />
+              </SpaceReviewModals>
             </ContextForReviewCommentList.Provider>
           </ContextForChapterReviewList.Provider>
         </ContextForSpaceChapterList.Provider>

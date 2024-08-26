@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import {
   ContextForSessionForm,
   useControllerForSessionForm,
-} from '../../../../../(controller)/complete-session-form/main';
+} from '../../../../../controller/complete-session-form/main';
 import { SpaceSessionCompleteSessionComplete } from './complete/main';
 import { SpaceSessionCompleteSessionForm } from './form/main';
 import { SpaceSessionCompleteSessionPanel } from './panel/main';

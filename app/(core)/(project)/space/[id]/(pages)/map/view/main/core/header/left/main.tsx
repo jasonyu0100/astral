@@ -8,7 +8,7 @@ import {
   ContextForSpaceMap,
   SpaceMapIdeaMode,
   SpaceMapSidebarMode,
-} from '../../../../../(controller)/map/main';
+} from '../../../../../controller/map/main';
 import {
   ContextForSpaceMapSidebar,
   SpaceMapSidebarMediaMode,

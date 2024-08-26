@@ -11,7 +11,7 @@ import { ContextForReviewCommentList } from '@/(server)/(controller)/space/chapt
 import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewAddReviewCommentModal() {
+export function SpaceReviewAddCommentModal() {
   const reviewListController = useContext(ContextForChapterReviewList);
   const commentListController = useContext(ContextForReviewCommentList);
   const openableController = useContext(ContextForOpenable);

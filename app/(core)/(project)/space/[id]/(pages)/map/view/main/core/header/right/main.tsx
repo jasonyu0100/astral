@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../../(modal)/controller/main';
+import { ContextForSpaceMapModals } from '../../../../../modal/controller/main';
 import { SpaceMapPrioritiseIcon } from '../left/tools/save/main';
 
 export function SpaceMapHeaderRight() {

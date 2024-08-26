@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,
   SpaceSessionPage,
-} from '../../../../../../(controller)/space-session/main';
+} from '../../../../../../controller/space-session/main';
 
 export function SpaceSessionCompleteSessionPanel() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);

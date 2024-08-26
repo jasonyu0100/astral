@@ -1,23 +1,17 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceIdeaAddChapterModal } from '../../../(modal)/add/chapter/main';
+import { ContextForSpaceIdeaModals } from '../../../modal/controller/main';
+import { SpaceIdeaChapterAdd } from './add/main';
 import { SpaceIdeaSidebarChapter } from './chapter/main';
 
 export function SpaceIdeaSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const openableController = useControllerForOpenable();
+  const modalController = useContext(ContextForSpaceIdeaModals);
 
   return (
     <>
-      <ContextForOpenable.Provider value={openableController}>
-        <SpaceIdeaAddChapterModal />
-      </ContextForOpenable.Provider>
       <div style={{ height: '100%', width: '100%' }}>
         <GlassAreaContainer
           name={SpaceIdeaSidebarChapters.name}
@@ -33,11 +27,11 @@ export function SpaceIdeaSidebarChapters() {
                 <SpaceIdeaSidebarChapter key={chapter.id} />
               </ContextForSpaceChapterObj.Provider>
             ))}
-            {/* <SpaceIdeaChapterAdd
+            <SpaceIdeaChapterAdd
               onClick={() => {
-                openableController.open();
+                modalController.addChapterController.open();
               }}
-            /> */}
+            />
           </div>
         </GlassAreaContainer>
       </div>

@@ -4,11 +4,11 @@ import { SpaceSessionEditDone } from '../../(common)/icon/done/main';
 import {
   ContextForUpdateForm,
   useControllerForUpdateForm,
-} from '../../../../../(controller)/complete-update-form/main';
+} from '../../../../../controller/complete-update-form/main';
 import {
   ContextForSpaceSessionController,
   SpaceSessionPage,
-} from '../../../../../(controller)/space-session/main';
+} from '../../../../../controller/space-session/main';
 import { SpaceSessionCompleteUpdateForm } from './form/main';
 import { SpaceSessionCompleteUpdateNext } from './next/main';
 import { SpaceSessionCompleteUpdatePanel } from './panel/main';

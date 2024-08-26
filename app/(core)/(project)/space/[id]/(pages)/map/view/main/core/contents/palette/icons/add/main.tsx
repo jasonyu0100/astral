@@ -1,4 +1,4 @@
-import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/controller/main';
+import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/modal/controller/main';
 import { useContext } from 'react';
 
 export function AddIcon() {

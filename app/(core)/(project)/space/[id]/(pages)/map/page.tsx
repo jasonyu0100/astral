@@ -36,8 +36,8 @@ import { createContext, useState } from 'react';
 import {
   ContextForSpaceMap,
   useControllerForSpaceMap,
-} from './(controller)/map/main';
-import { SpaceMapModals } from './(modal)/controller/main';
+} from './controller/map/main';
+import { SpaceMapModals } from './modal/controller/main';
 import { SpaceMapView } from './view/main';
 
 export enum SpaceMapSidebarMediaMode {

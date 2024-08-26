@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,
   SpaceSessionPage,
-} from '../../../(controller)/space-session/main';
+} from '../../../controller/space-session/main';
 
 export function SpaceSessionSidebarCurrentSession() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);

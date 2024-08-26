@@ -10,7 +10,7 @@ import {
   ContextForSpaceMap,
   SpaceMapSidebarListMode,
   SpaceMapSidebarMode,
-} from '../../(controller)/map/main';
+} from '../../controller/map/main';
 import {
   ContextForSpaceMapSidebar,
   SpaceMapSidebarMediaMode,

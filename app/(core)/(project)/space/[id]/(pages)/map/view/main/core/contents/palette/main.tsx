@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../(controller)/map/main';
+import { ContextForSpaceMap } from '../../../../../controller/map/main';
 import { AddIcon } from './icons/add/main';
 import { FileIcon } from './icons/file/main';
 import { GenerateIcon } from './icons/generate/main';

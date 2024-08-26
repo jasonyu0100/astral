@@ -11,7 +11,7 @@ import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapte
 import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
 import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { SpaceSessionAddUpdateModal } from '../../(modal)/add/update/main';
+import { SpaceSessionAddUpdateModal } from '../../modal/add/update/main';
 
 export function SpaceSessionSidebar() {
   const openableController = useControllerForOpenable();

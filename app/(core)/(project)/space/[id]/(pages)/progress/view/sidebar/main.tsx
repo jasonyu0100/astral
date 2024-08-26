@@ -2,10 +2,6 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
@@ -14,11 +10,9 @@ import { useContext } from 'react';
 import {
   ContextForSpaceProgress,
   SpaceProgressSidebarListMode,
-} from '../../(controller)/progress/main';
-import { SpaceProgressAddUpdateModal } from '../../(modal)/add/update/main';
+} from '../../controller/main';
 
 export function SpaceProgressSidebar() {
-  const openableController = useControllerForOpenable();
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -26,9 +20,6 @@ export function SpaceProgressSidebar() {
 
   return (
     <>
-      <ContextForOpenable.Provider value={openableController}>
-        <SpaceProgressAddUpdateModal />
-      </ContextForOpenable.Provider>
       <GlassAreaContainer
         name={SpaceProgressSidebar.name}
         sizeFx='w-[300px] h-full'

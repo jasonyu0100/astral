@@ -7,8 +7,8 @@ import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,
   SpaceSessionPage,
-} from '../../(controller)/space-session/main';
-import { SpaceSessionAddSceneModal } from '../../(modal)/add/scene/main';
+} from '../../controller/space-session/main';
+import { SpaceSessionAddSceneModal } from '../../modal/add/scene/main';
 import { SpaceSessionContainer } from './core/container/main';
 import { SpaceSessionCompleteSession } from './core/pages/complete-session/main';
 import { SpaceSessionCompleteUpdate } from './core/pages/complete-update/main';

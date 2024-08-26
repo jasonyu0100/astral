@@ -29,6 +29,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import isAstralAuth from '@/(utils)/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';
+import { SpaceIdeaModals } from './modal/controller/main';
 import { SpaceIdeaView } from './view/main';
 
 interface Controller {
@@ -86,7 +87,9 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForConversationMessageList.Provider
                     value={messageListController}
                   >
-                    <SpaceIdeaView />
+                    <SpaceIdeaModals>
+                      <SpaceIdeaView />
+                    </SpaceIdeaModals>
                   </ContextForConversationMessageList.Provider>
                 </ContextForChatConversationList.Provider>
               </ContextForChatMemberList.Provider>

@@ -11,7 +11,7 @@ import { ContextForConversationMessageList } from '@/(server)/(controller)/space
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
-export function SpaceIdeaAggregateModal() {
+export function SpaceIdeaCollectModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const messageListController = useContext(ContextForConversationMessageList);
@@ -23,7 +23,7 @@ export function SpaceIdeaAggregateModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Aggregate</FormTitle>
+          <FormTitle>Collect</FormTitle>
           <FormBody>
             {messageListController.state.objs.map((message, index) => (
               <div className='flex flex-row space-x-[1rem]'>

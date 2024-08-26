@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../(modal)/controller/main';
+import { ContextForSpaceMapModals } from '../../../../modal/controller/main';
 import SpaceMapRowAdd from './add/main';
 import { SpaceMapRowContainer } from './container/main';
 import { SpaceMapRowElement } from './element/main';

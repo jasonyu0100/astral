@@ -25,8 +25,9 @@ import isAstralAuth from '@/(utils)/isAuth';
 import {
   ContextForSpaceProgress,
   useControllerForSpaceProgress,
-} from './(controller)/progress/main';
-import { SpaceProgressShareView } from './view/main';
+} from './controller/main';
+import { SpaceProgressModals } from './modal/controller/main';
+import { SpaceProgressView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const user = useGlobalUser((state) => state.user);
@@ -55,7 +56,9 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForChapterSessionList.Provider
                   value={sessionListController}
                 >
-                  <SpaceProgressShareView />
+                  <SpaceProgressModals>
+                    <SpaceProgressView />
+                  </SpaceProgressModals>
                 </ContextForChapterSessionList.Provider>
               </ContextForSpaceChapterList.Provider>
             </ContextForSceneIdeaList.Provider>

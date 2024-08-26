@@ -16,7 +16,7 @@ import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewReviewModal() {
+export function SpaceReviewAddReviewModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const reviewListController = useContext(ContextForChapterReviewList);

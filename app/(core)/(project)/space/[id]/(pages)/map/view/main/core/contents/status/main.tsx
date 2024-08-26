@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../../(modal)/controller/main';
+import { ContextForSpaceMapModals } from '../../../../../modal/controller/main';
 
 export function SpaceMapCoreContentsStatus() {
   const sceneListController = useContext(ContextForChapterSceneList);

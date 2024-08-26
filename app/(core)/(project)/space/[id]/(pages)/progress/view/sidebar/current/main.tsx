@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,
   SpaceProgressPage,
-} from '../../../(controller)/space-session/main';
+} from '../../../controller/space-session/main';
 
 export function SpaceProgressSidebarCurrentSession() {
   const spaceSessionController = useContext(ContextForSpaceProgressController);

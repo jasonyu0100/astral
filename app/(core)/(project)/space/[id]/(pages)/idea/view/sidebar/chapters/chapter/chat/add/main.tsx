@@ -1,22 +1,15 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-
-import { SpaceIdeaAddChatModal } from '../../../../../../(modal)/add/chat/main';
+import { useContext } from 'react';
+import { ContextForSpaceIdeaModals } from '../../../../../../modal/controller/main';
 
 export function SpaceIdeaChatAdd() {
-  const openableController = useControllerForOpenable();
+  const modalController = useContext(ContextForSpaceIdeaModals);
 
   return (
     <>
-      <ContextForOpenable.Provider value={openableController}>
-        <SpaceIdeaAddChatModal />
-      </ContextForOpenable.Provider>
       <button
         className='flex w-full flex-row items-center space-x-[1rem]'
-        onClick={openableController.open}
+        onClick={() => modalController.addChatController.open()}
       >
         <GlassAreaContainer
           name={SpaceIdeaChatAdd.name}

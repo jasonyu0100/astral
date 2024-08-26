@@ -1,4 +1,4 @@
-import { useControllerForChatMessageSend } from '../../../../(controller)/message/main';
+import { useControllerForChatMessageSend } from '../../../../controller/message/main';
 import { SpaceIdeaInputRightSend } from './send/main';
 
 export function SpaceIdeaInputRight() {

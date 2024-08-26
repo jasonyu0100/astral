@@ -33,7 +33,7 @@ import isAstralAuth from '@/(utils)/isAuth';
 import {
   ContextForSpaceSessionController,
   useControllerForSpaceSessionController,
-} from './(controller)/space-session/main';
+} from './controller/space-session/main';
 import { SpaceSessionShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {

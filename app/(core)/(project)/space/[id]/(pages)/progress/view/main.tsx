@@ -3,10 +3,10 @@ import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { SpaceProgressMain } from './main/main';
 import { SpaceProgressSidebar } from './sidebar/main';
 
-export function SpaceProgressShareView() {
+export function SpaceProgressView() {
   return (
     <GlassAreaContainer
-      name={SpaceProgressShareView.name}
+      name={SpaceProgressView.name}
       sizeFx='h-full flex-grow'
       className={`flex`}
       glassFx={glassFx['glass-5']}
