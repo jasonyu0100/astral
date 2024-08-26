@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { ChatRole } from '../../../../../data';
 import { ContextForChat } from '../../../../../page';
 
-export function SpaceChatHeaderLeft() {
+export function SpaceIdeaHeaderLeft() {
   const { role, setRole } = useContext(ContextForChat);
 
   return (

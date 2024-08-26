@@ -2,16 +2,16 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { SpaceChatSidebarChapter } from '../../../main';
+import { SpaceIdeaSidebarChapter } from '../../../main';
 
-export function SpaceChatContainerActive({
+export function SpaceIdeaContainerActive({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame
-      name={SpaceChatSidebarChapter.name}
+      name={SpaceIdeaSidebarChapter.name}
       className='mb-[1rem]'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-sm']}

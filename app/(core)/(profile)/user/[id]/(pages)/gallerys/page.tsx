@@ -5,7 +5,7 @@ import {
   useControllerForUserMain,
 } from '@/(server)/(controller)/user/main';
 import { ContextForUserObj, UserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { useContext } from 'react';
 import { ContextForProfile } from '../../layout';
 import { ProfileUserView } from './view/main';
@@ -24,4 +24,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

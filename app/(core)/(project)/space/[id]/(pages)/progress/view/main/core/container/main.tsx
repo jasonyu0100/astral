@@ -12,7 +12,7 @@ export function SpaceProgressContainer({
         sizeFx='w-full h-full'
         className={`flex flex-col overflow-auto`}
       >
-        <div className='flex h-full w-full flex-col justify-center space-y-[2rem]'>
+        <div className='flex h-full w-full flex-col justify-center'>
           {children}
         </div>
       </GlassAreaContainer>

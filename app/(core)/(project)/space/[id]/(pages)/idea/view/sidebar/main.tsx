@@ -1,18 +1,18 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { glassFx } from '@/(style)/data';
-import { SpaceChatSidebarChapters } from './chapters/main';
-import { SpaceChatChatSearch } from './search/main';
+import { SpaceIdeaSidebarChapters } from './chapters/main';
+import { SpaceIdeaChatSearch } from './search/main';
 
-export function SpaceChatSidebar() {
+export function SpaceIdeaSidebar() {
   return (
     <GlassAreaContainer
-      name={SpaceChatSidebar.name}
+      name={SpaceIdeaSidebar.name}
       sizeFx='w-[300px] h-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center`}
     >
-      <SpaceChatChatSearch />
-      <SpaceChatSidebarChapters />
+      <SpaceIdeaChatSearch />
+      <SpaceIdeaSidebarChapters />
     </GlassAreaContainer>
   );
 }

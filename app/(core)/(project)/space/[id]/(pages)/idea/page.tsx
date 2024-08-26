@@ -26,10 +26,10 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/(controller)/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';
-import { SpaceChatView } from './view/main';
+import { SpaceIdeaView } from './view/main';
 
 interface Controller {
   role: string;
@@ -86,7 +86,7 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForConversationMessageList.Provider
                     value={messageListController}
                   >
-                    <SpaceChatView />
+                    <SpaceIdeaView />
                   </ContextForConversationMessageList.Provider>
                 </ContextForChatConversationList.Provider>
               </ContextForChatMemberList.Provider>
@@ -98,4 +98,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

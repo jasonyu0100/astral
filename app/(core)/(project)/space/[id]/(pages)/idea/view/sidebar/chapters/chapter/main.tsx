@@ -4,13 +4,13 @@ import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapte
 import { ContextForChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceChatChatAdd } from './chat/add/main';
+import { SpaceIdeaChatAdd } from './chat/add/main';
 import { ChatChapterChat } from './chat/main';
-import { SpaceChatContainerActive } from './header/container/active/main';
-import { SpaceChatInactiveContainer } from './header/container/inactive/main';
-import { SpaceChatChapterHeader } from './header/main';
+import { SpaceIdeaContainerActive } from './header/container/active/main';
+import { SpaceIdeaInactiveContainer } from './header/container/inactive/main';
+import { SpaceIdeaChapterHeader } from './header/main';
 
-export function SpaceChatSidebarChapter() {
+export function SpaceIdeaSidebarChapter() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chatListController = useContext(ContextForChapterChatList);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -20,8 +20,8 @@ export function SpaceChatSidebarChapter() {
   return (
     <>
       {active ? (
-        <SpaceChatContainerActive>
-          <SpaceChatChapterHeader />
+        <SpaceIdeaContainerActive>
+          <SpaceIdeaChapterHeader />
           {chatListController.state.objs.map((chat, index) => (
             <ContextForIndexable.Provider value={index} key={chat.id}>
               <ContextForChapterChatObj.Provider value={chat} key={chat.id}>
@@ -29,12 +29,12 @@ export function SpaceChatSidebarChapter() {
               </ContextForChapterChatObj.Provider>
             </ContextForIndexable.Provider>
           ))}
-          <SpaceChatChatAdd />
-        </SpaceChatContainerActive>
+          <SpaceIdeaChatAdd />
+        </SpaceIdeaContainerActive>
       ) : (
-        <SpaceChatInactiveContainer>
-          <SpaceChatChapterHeader />
-        </SpaceChatInactiveContainer>
+        <SpaceIdeaInactiveContainer>
+          <SpaceIdeaChapterHeader />
+        </SpaceIdeaInactiveContainer>
       )}
     </>
   );

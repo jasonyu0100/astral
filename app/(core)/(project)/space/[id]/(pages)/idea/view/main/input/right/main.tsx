@@ -1,12 +1,12 @@
 import { useControllerForChatMessageSend } from '../../../../(controller)/message/main';
-import { SpaceChatInputRightSend } from './send/main';
+import { SpaceIdeaInputRightSend } from './send/main';
 
-export function SpaceChatInputRight() {
+export function SpaceIdeaInputRight() {
   const { sendMessage } = useControllerForChatMessageSend();
 
   return (
     <div className='flex h-[50px] w-[100px] flex-shrink-0 flex-row items-center justify-evenly'>
-      <SpaceChatInputRightSend onClick={sendMessage} />
+      <SpaceIdeaInputRightSend onClick={sendMessage} />
     </div>
   );
 }

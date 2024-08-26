@@ -6,21 +6,21 @@ import {
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceChatAddChapterModal } from '../../../(modal)/add/chapter/main';
-import { SpaceChatSidebarChapter } from './chapter/main';
+import { SpaceIdeaAddChapterModal } from '../../../(modal)/add/chapter/main';
+import { SpaceIdeaSidebarChapter } from './chapter/main';
 
-export function SpaceChatSidebarChapters() {
+export function SpaceIdeaSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useControllerForOpenable();
 
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <SpaceChatAddChapterModal />
+        <SpaceIdeaAddChapterModal />
       </ContextForOpenable.Provider>
       <div style={{ height: '100%', width: '100%' }}>
         <GlassAreaContainer
-          name={SpaceChatSidebarChapters.name}
+          name={SpaceIdeaSidebarChapters.name}
           sizeFx='h-full w-full'
           className='flex flex-col overflow-auto p-[1rem]'
         >
@@ -30,10 +30,10 @@ export function SpaceChatSidebarChapters() {
                 value={chapter}
                 key={chapter.id}
               >
-                <SpaceChatSidebarChapter key={chapter.id} />
+                <SpaceIdeaSidebarChapter key={chapter.id} />
               </ContextForSpaceChapterObj.Provider>
             ))}
-            {/* <SpaceChatChapterAdd
+            {/* <SpaceIdeaChapterAdd
               onClick={() => {
                 openableController.open();
               }}

@@ -3,7 +3,7 @@ import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main
 import { cn } from '@/(utils)/cn';
 import { useContext } from 'react';
 
-export function SpaceChatHeaderTitle() {
+export function SpaceIdeaHeaderTitle() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active =

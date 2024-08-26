@@ -5,7 +5,7 @@ import {
   useControllerForSpaceMemberOfUserList,
 } from '@/(server)/(controller)/space/member/user-list';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { StudioSharedView } from './view/view';
 
 function Page() {
@@ -23,4 +23,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

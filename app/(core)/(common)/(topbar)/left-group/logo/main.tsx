@@ -9,7 +9,7 @@ export function TopbarLogo({ ...props }: LinkInputProps) {
     >
       <img
         src='/brand/logo.png'
-        className='h-[3rem] animate-pulse-slow pl-[3px]'
+        className='w-[12rem] animate-pulse-slow pl-[3px]'
         alt='Ouros'
       />
     </Link>

@@ -3,7 +3,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
 import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
 
-export function SpaceChatUserMessage() {
+export function SpaceIdeaUserMessage() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const message = useContext(ContextForConversationMessageObj);
 

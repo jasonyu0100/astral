@@ -4,7 +4,7 @@ import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { HorizonBoardView } from './view/main';
 import { HorizonBoardChapterNavigation } from './view/navigation/main';
 import { HorizonBoardSidebar } from './view/sidebar/main';
@@ -27,4 +27,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

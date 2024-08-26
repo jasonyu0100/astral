@@ -6,16 +6,23 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
+import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
+import {
+  ContextForSpaceProgress,
+  SpaceProgressSidebarListMode,
+} from '../../(controller)/progress/main';
 import { SpaceProgressAddUpdateModal } from '../../(modal)/add/update/main';
 
 export function SpaceProgressSidebar() {
   const openableController = useControllerForOpenable();
   const sceneListController = useContext(ContextForChapterSceneList);
-  const sessionListController = useContext(ContextForChapterSessionList);
+  const ideaListController = useContext(ContextForSceneIdeaList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const progressController = useContext(ContextForSpaceProgress);
 
   return (
     <>
@@ -28,9 +35,51 @@ export function SpaceProgressSidebar() {
         glassFx={glassFx['glass-5']}
         className={`flex flex-col items-center overflow-hidden`}
       >
-        <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
+        <div className='flex w-full flex-col items-center justify-center p-[1rem] shadow-glow'>
+          <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
+            <GlassWindowContents className='flex h-full w-full items-center'>
+              {progressController.listSceneMode !==
+              SpaceProgressSidebarListMode.DEFAULT ? (
+                <>
+                  <p
+                    className='cursor-pointer text-sm font-bold text-slate-500'
+                    onClick={() => {
+                      progressController.updateListSceneMode(
+                        SpaceProgressSidebarListMode.SCENES,
+                      );
+                    }}
+                  >
+                    {chapterListController.state.currentObj?.title}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p
+                    className='cursor-pointer text-sm font-bold text-slate-500'
+                    onClick={() => {
+                      progressController.updateListSceneMode(
+                        SpaceProgressSidebarListMode.SCENES,
+                      );
+                    }}
+                  >
+                    {chapterListController.state.currentObj?.title}
+                  </p>
+                  <p
+                    className='cursor-pointer text-sm font-bold text-slate-500'
+                    onClick={() => {
+                      progressController.updateListSceneMode(
+                        SpaceProgressSidebarListMode.DEFAULT,
+                      );
+                    }}
+                  >
+                    / {sceneListController.state.currentObj?.title}
+                  </p>
+                </>
+              )}
+            </GlassWindowContents>
+          </GlassWindowFrame>
           <GlassWindowFrame
-            className='h-[2rem] w-full flex-shrink-0'
+            className='h-[3rem] w-full flex-shrink-0'
             roundedFx={roundedFx['rounded']}
           >
             <GlassWindowContents className='h-full w-full'>
@@ -43,49 +92,72 @@ export function SpaceProgressSidebar() {
           </GlassWindowFrame>
         </div>
         <div style={{ height: '100%', width: '100%' }}>
-          <GlassAreaContainer
-            sizeFx='h-full w-full'
-            className='flex flex-col overflow-auto p-[1rem]'
-            name={''}
-          >
-            <div className='flex w-full flex-col space-y-[1rem]'>
-              {sceneListController.state.objs.map((scene, index) => (
-                <div className='flex w-full flex-row items-center space-x-[1rem]'>
-                  <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500 font-bold text-white'>
-                    {index + 1}
-                  </div>
-                  <GlassWindowFrame
-                    className='w-full p-[1rem]'
-                    roundedFx={roundedFx.rounded}
-                    borderFx={borderFx['border-around']}
-                  >
-                    <GlassWindowContents
-                      className='cursor-pointer'
-                      onClick={() => {
-                        sceneListController.actions.stateActions.select(scene);
-                      }}
-                    >
-                      <p className='text-lg font-bold text-slate-300'>
-                        {scene.title}
-                      </p>
-                    </GlassWindowContents>
-                    <GlassWindowPane glassFx={glassFx['glass-10']} />
-                  </GlassWindowFrame>
-                </div>
-              ))}
-              {/* <SpaceProgressSidebarCurrentSession />
-              {sessionListController.state.objs.length > 0 && (
-                <HorizontalDivider />
+          <div className='flex flex-col space-y-[1rem] p-[1rem]'>
+            <div className='flex flex-col space-y-[2rem]'>
+              {progressController.listSceneMode ===
+              SpaceProgressSidebarListMode.DEFAULT ? (
+                <>
+                  {ideaListController.state.objs.map((idea, index) => (
+                    <GlassWindowFrame>
+                      <GlassWindowContents className='flex flex-row space-x-[1rem]'>
+                        <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                          <p className='text-center font-bold text-white'>
+                            {index + 1}
+                          </p>
+                        </div>
+                        <div
+                          key={idea.id}
+                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                        >
+                          <div className='text-lg font-bold'>
+                            {idea.title || 'Untitled'}
+                          </div>
+                          <div className='text-sm font-light'>
+                            {idea.description || 'No description'}
+                          </div>
+                        </div>
+                      </GlassWindowContents>
+                    </GlassWindowFrame>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {sceneListController.state.objs.map((scene, index) => (
+                    <GlassWindowFrame>
+                      <GlassWindowContents
+                        className='flex flex-row space-x-[1rem]'
+                        onClick={() => {
+                          sceneListController.actions.stateActions.select(
+                            scene,
+                          );
+                          progressController.updateListSceneMode(
+                            SpaceProgressSidebarListMode.DEFAULT,
+                          );
+                        }}
+                      >
+                        <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
+                          <p className='text-center font-bold text-white'>
+                            {index + 1}
+                          </p>
+                        </div>
+                        <div
+                          key={scene.id}
+                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                        >
+                          <div className='text-lg font-bold'>
+                            {scene.title || 'Untitled'}
+                          </div>
+                          <div className='text-sm font-light'>
+                            {scene.description || 'No description'}
+                          </div>
+                        </div>
+                      </GlassWindowContents>
+                    </GlassWindowFrame>
+                  ))}
+                </>
               )}
-              {sessionListController.state.objs.map((session, index) => (
-                <ContextForIndexable.Provider value={index}>
-                  <ContextForChapterSessionObj.Provider value={session}>
-                    <SpaceProgressSidebarSession />
-                  </ContextForChapterSessionObj.Provider>
-                </ContextForIndexable.Provider>
-              ))} */}
             </div>
-          </GlassAreaContainer>
+          </div>
         </div>
       </GlassAreaContainer>
     </>

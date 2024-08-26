@@ -2,7 +2,7 @@ import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { ContextForChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
 import { useContext } from 'react';
-import SpaceChatHeaderIndicator from '../header/indicator/main';
+import SpaceIdeaHeaderIndicator from '../header/indicator/main';
 
 export function ChatChapterChat() {
   const chat = useContext(ContextForChapterChatObj);
@@ -20,7 +20,7 @@ export function ChatChapterChat() {
             <p className='text-lg font-bold text-slate-500'>
               {index + 1}. {chat.title}
             </p>
-            <SpaceChatHeaderIndicator />
+            <SpaceIdeaHeaderIndicator />
           </div>
         ) : (
           <p className='text-lg font-bold text-slate-500'>

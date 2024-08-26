@@ -1,4 +1,4 @@
-export function SpaceChatHeaderAdd() {
+export function SpaceIdeaHeaderAdd() {
   return (
     <div className='h-[30px] w-[30px]'>
       <svg

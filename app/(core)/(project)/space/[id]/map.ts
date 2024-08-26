@@ -9,11 +9,11 @@ export const spaceMap = {
       map: {
         link: (id: string) => `${baseUrl}/${id}/map`,
       },
-      verses: {
-        link: (id: string) => `${baseUrl}/${id}/verses`,
-      },
       progress: {
         link: (id: string) => `${baseUrl}/${id}/progress`,
+      },
+      review: {
+        link: (id: string) => `${baseUrl}/${id}/review`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

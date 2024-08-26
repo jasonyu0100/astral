@@ -76,7 +76,7 @@ const useControllerForUserMain = (objId: string): Controller => {
     },
     versesAuth: async (domain: string) => {
       console.log(domain);
-      alert('Authing domain via Verses');
+      alert('Authing domain via Astrals');
       return false;
     },
     loginFromEmail: async (email: string, password: string) => {

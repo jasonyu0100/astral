@@ -10,7 +10,7 @@ import {
   exampleFileElems,
 } from '@/(server)/(model)/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { horizonMap } from '../../map';
 import { HorizonAreaView } from './view/main';
 import { HorizonAreaSidebar } from './view/sidebar/main';
@@ -112,4 +112,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

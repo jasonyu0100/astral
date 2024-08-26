@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { SpaceMapBodyCore } from '../core/main';
-import { SpaceMapChapterNavigation } from '../navigation/main';
+import { SpaceMapBodyCore } from './core/main';
+import { SpaceMapChapterNavigation } from './navigation/main';
 
 export function SpaceMapMain() {
   return (

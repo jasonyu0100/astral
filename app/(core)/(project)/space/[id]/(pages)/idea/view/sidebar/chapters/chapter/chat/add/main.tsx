@@ -4,22 +4,22 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 
-import { ChatAddChatModal } from '../../../../../../(modal)/add/chat/main';
+import { SpaceIdeaAddChatModal } from '../../../../../../(modal)/add/chat/main';
 
-export function SpaceChatChatAdd() {
+export function SpaceIdeaChatAdd() {
   const openableController = useControllerForOpenable();
 
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <ChatAddChatModal />
+        <SpaceIdeaAddChatModal />
       </ContextForOpenable.Provider>
       <button
         className='flex w-full flex-row items-center space-x-[1rem]'
         onClick={openableController.open}
       >
         <GlassAreaContainer
-          name={SpaceChatChatAdd.name}
+          name={SpaceIdeaChatAdd.name}
           sizeFx='w-[3rem] h-[3rem] rounded-full overflow-hidden'
           glassFx='bg-gradient-to-r from-slate-100 to-slate-500 opacity-10'
           className={`flex flex-col items-center justify-center`}

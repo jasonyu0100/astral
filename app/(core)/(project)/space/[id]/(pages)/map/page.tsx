@@ -31,8 +31,8 @@ import {
 import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
 import { GalleryObj } from '@/(server)/(model)/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
-import { createContext, useEffect, useState } from 'react';
+import isAstralAuth from '@/(utils)/isAuth';
+import { createContext, useState } from 'react';
 import {
   ContextForSpaceMap,
   useControllerForSpaceMap,
@@ -105,14 +105,6 @@ function Page({ params }: { params: { id: string } }) {
     actions: actions,
   };
 
-  useEffect(() => {
-    sidebarController.actions.goToGallery(
-      galleryListController.actions.stateActions.find(
-        spaceMainController.state.obj.galleryId,
-      ),
-    );
-  }, []);
-
   return (
     <ContextForSpaceMap.Provider value={mapController}>
       <ContextForSpaceMapSidebar.Provider value={sidebarController}>
@@ -142,4 +134,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

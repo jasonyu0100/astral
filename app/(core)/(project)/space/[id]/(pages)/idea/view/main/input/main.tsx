@@ -2,22 +2,22 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { SpaceChatInputLeft } from './left/main';
-import { SpaceChatInputRight } from './right/main';
-import { SpaceChatInputText } from './text/main';
+import { SpaceIdeaInputLeft } from './left/main';
+import { SpaceIdeaInputRight } from './right/main';
+import { SpaceIdeaInputText } from './text/main';
 
-export function SpaceChatInput() {
+export function SpaceIdeaInput() {
   const messageListController = useContext(ContextForConversationMessageList);
 
   return (
     <GlassAreaContainer
-      name={SpaceChatInput.name}
+      name={SpaceIdeaInput.name}
       sizeFx='h-[80px] w-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-row items-center justify-center px-[1rem]`}
     >
-      <SpaceChatInputLeft />
-      <SpaceChatInputText
+      <SpaceIdeaInputLeft />
+      <SpaceIdeaInputText
         onChange={(e) =>
           messageListController.actions.stateActions.updateInputMessageText(
             e.target.value,
@@ -25,7 +25,7 @@ export function SpaceChatInput() {
         }
         value={messageListController.state.more.inputMessageText}
       />
-      <SpaceChatInputRight />
+      <SpaceIdeaInputRight />
     </GlassAreaContainer>
   );
 }

@@ -5,7 +5,7 @@ import {
   useControllerForUserPrivateList,
 } from '@/(server)/(controller)/user/private-list';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { CreativeNetworkView } from './view/view';
 
 function Page() {
@@ -21,4 +21,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

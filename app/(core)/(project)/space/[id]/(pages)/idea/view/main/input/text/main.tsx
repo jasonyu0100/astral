@@ -3,11 +3,11 @@ import { useControllerForHoverable } from '@/(logic)/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { FormInputProps } from '@/(types)/props/main';
 
-export function SpaceChatInputText({ ...props }: FormInputProps) {
+export function SpaceIdeaInputText({ ...props }: FormInputProps) {
   const hoverableController = useControllerForHoverable();
   return (
     <GlassAreaContainer
-      name={SpaceChatInputText.name}
+      name={SpaceIdeaInputText.name}
       sizeFx='max-w-[600px] flex-grow h-[50px]'
       glassFx={`${hoverableController.hovered ? glassFx['glass-20'] : glassFx['glass-10']}`}
       roundedFx={roundedFx['rounded-full']}

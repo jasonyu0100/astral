@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { TimerComponent } from '@/(core)/(dev)/learn/timer/component/main';
 import { glassFx } from '@/(style)/data';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { HorizonLeadView } from './view/main';
 import { HorizonLeadSidebar } from './view/sidebar/main';
 
@@ -73,4 +73,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

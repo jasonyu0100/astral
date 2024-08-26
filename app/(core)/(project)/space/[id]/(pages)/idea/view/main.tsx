@@ -1,21 +1,21 @@
 'use client';
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { SpaceChatMain } from './main/main';
-import { SpaceChatSidebar } from './sidebar/main';
+import { SpaceIdeaMain } from './main/main';
+import { SpaceIdeaSidebar } from './sidebar/main';
 
-export function SpaceChatView() {
+export function SpaceIdeaView() {
   return (
     <GlassAreaContainer
-      name={SpaceChatView.name}
+      name={SpaceIdeaView.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
       className={`flex`}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
-      <SpaceChatSidebar />
-      <SpaceChatMain />
+      <SpaceIdeaSidebar />
+      <SpaceIdeaMain />
     </GlassAreaContainer>
   );
 }

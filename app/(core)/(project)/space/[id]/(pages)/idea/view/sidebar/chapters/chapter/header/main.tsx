@@ -3,9 +3,9 @@ import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
 import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
 import { useContext } from 'react';
-import { SpaceChatHeaderTitle } from './title/main';
+import { SpaceIdeaHeaderTitle } from './title/main';
 
-export function SpaceChatChapterHeader() {
+export function SpaceIdeaChapterHeader() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chaptersListController = useContext(ContextForSpaceChapterList);
 
@@ -16,11 +16,11 @@ export function SpaceChatChapterHeader() {
       }
     >
       <GlassAreaContainer
-        name={SpaceChatChapterHeader.name}
+        name={SpaceIdeaChapterHeader.name}
         sizeFx='w-full pt-[1rem]'
         className={`flex items-center justify-between`}
       >
-        <SpaceChatHeaderTitle />
+        <SpaceIdeaHeaderTitle />
       </GlassAreaContainer>
     </button>
   );

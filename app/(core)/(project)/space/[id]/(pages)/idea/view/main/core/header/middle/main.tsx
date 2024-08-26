@@ -1,11 +1,11 @@
-import { SpaceChatExpandIcon } from './expand/main';
-import SpaceChatHeaderMiddleTitle from './title/main';
+import { SpaceIdeaExpandIcon } from './expand/main';
+import SpaceIdeaHeaderMiddleTitle from './title/main';
 
-export function SpaceChatHeaderMiddle() {
+export function SpaceIdeaHeaderMiddle() {
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
-      <SpaceChatHeaderMiddleTitle />
-      <SpaceChatExpandIcon />
+      <SpaceIdeaHeaderMiddleTitle />
+      <SpaceIdeaExpandIcon />
     </div>
   );
 }

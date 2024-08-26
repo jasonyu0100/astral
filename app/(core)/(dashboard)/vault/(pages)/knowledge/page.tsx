@@ -3,7 +3,7 @@ import {
   ContextForUserPrivateList,
   useControllerForUserPrivateList,
 } from '@/(server)/(controller)/user/private-list';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { VaultKnowledgeView } from './view/view';
 
 function Page() {
@@ -16,4 +16,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

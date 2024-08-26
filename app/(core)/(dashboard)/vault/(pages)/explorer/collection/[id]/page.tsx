@@ -17,7 +17,7 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/(controller)/gallery/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { ExplorerCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -54,4 +54,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

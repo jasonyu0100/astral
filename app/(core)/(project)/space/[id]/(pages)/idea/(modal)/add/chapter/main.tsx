@@ -13,7 +13,7 @@ import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controll
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
-export function SpaceChatAddChapterModal() {
+export function SpaceIdeaAddChapterModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);

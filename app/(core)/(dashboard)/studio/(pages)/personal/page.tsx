@@ -9,7 +9,7 @@ import {
   useControllerForSpaceList,
 } from '@/(server)/(controller)/space/list';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { StudioSpacesView } from './view/view';
 
 function Page() {
@@ -28,4 +28,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

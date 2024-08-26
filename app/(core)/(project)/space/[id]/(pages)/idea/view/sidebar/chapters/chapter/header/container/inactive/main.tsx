@@ -1,4 +1,4 @@
-export function SpaceChatInactiveContainer({
+export function SpaceIdeaInactiveContainer({
   children,
 }: {
   children?: React.ReactNode;

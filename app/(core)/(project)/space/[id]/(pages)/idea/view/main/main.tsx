@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { SpaceChatCore } from './core/main';
-import { SpaceChatInput } from './input/main';
+import { SpaceIdeaCore } from './core/main';
+import { SpaceIdeaInput } from './input/main';
 
-export function SpaceChatMain() {
+export function SpaceIdeaMain() {
   return (
     <GlassAreaContainer
-      name={SpaceChatMain.name}
+      name={SpaceIdeaMain.name}
       sizeFx='flex-grow h-full'
       className={`flex flex-col`}
     >
-      <SpaceChatCore />
-      <SpaceChatInput />
+      <SpaceIdeaCore />
+      <SpaceIdeaInput />
     </GlassAreaContainer>
   );
 }

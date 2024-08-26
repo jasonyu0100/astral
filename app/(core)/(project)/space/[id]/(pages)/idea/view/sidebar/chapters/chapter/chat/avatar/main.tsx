@@ -1,4 +1,4 @@
-export function SpaceChatChatAvatar() {
+export function SpaceIdeaChatAvatar() {
   return (
     <div className='h-[50px] w-[50px] flex-shrink-0'>
       <img

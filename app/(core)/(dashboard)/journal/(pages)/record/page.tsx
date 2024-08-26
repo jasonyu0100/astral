@@ -13,7 +13,7 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/(controller)/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { JournalRecordView } from './view/view';
 
 function Page() {
@@ -43,4 +43,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

@@ -4,7 +4,7 @@ import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/(server)/(controller)/gallery/list';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { ExplorerHomeGallerysView } from './view/view';
 
 function Page() {
@@ -18,4 +18,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

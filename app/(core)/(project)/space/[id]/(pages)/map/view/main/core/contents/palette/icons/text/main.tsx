@@ -1,0 +1,27 @@
+import {
+  ContextForOpenable,
+  useControllerForOpenable,
+} from '@/(logic)/contexts/openable/main';
+import { SpaceMapAddTextIdeaModal } from '../../../../../../../(modal)/add/idea/text/main';
+
+export function TextIcon() {
+  const openableController = useControllerForOpenable();
+
+  return (
+    <div>
+      <ContextForOpenable.Provider value={openableController}>
+        <SpaceMapAddTextIdeaModal />
+      </ContextForOpenable.Provider>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        height='24px'
+        viewBox='0 -960 960 960'
+        width='24px'
+        className='fill-slate-300'
+        onClick={openableController.open}
+      >
+        <path d='M200-200h360v-200h200v-360H200v560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v400L600-120H200Zm80-280v-80h200v80H280Zm0-160v-80h400v80H280Zm-80 360v-560 560Z' />
+      </svg>
+    </div>
+  );
+}

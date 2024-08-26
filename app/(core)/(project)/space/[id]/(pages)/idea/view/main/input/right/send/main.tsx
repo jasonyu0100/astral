@@ -1,7 +1,7 @@
 import { ButtonInputProps } from '@/(types)/props/main';
 import { ChatSendIcon } from '../../../../../(common)/icons/send/main';
 
-export function SpaceChatInputRightSend({ ...props }: ButtonInputProps) {
+export function SpaceIdeaInputRightSend({ ...props }: ButtonInputProps) {
   return (
     <button
       className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem] bg-blue-500'

@@ -1,6 +1,6 @@
 'use client';
 
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import { HorizonChartView } from './view/main';
 import { HorizonChartSidebar } from './view/sidebar/main';
 
@@ -17,4 +17,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

@@ -3,7 +3,7 @@ import { portalMap } from '@/(portal)/map';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
-export default function isVerseAuth(Component: any) {
+export default function isAstralAuth(Component: any) {
   // eslint-disable-next-line react/display-name
   return (props: any) => {
     const userCookie = Cookies.get('user') || '';

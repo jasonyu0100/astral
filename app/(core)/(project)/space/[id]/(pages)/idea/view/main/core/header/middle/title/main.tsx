@@ -1,7 +1,7 @@
 import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useContext } from 'react';
 
-export default function SpaceChatHeaderMiddleTitle() {
+export default function SpaceIdeaHeaderMiddleTitle() {
   const chatListController = useContext(ContextForChapterChatList);
   const chat = chatListController.state.currentObj;
 

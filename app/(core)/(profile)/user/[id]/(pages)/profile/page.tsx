@@ -17,7 +17,7 @@ import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
 } from '@/(server)/(model)/user/main';
-import isVerseAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/(utils)/isAuth';
 import {
   createContext,
   Dispatch,
@@ -83,4 +83,4 @@ function Page() {
   );
 }
 
-export default isVerseAuth(Page);
+export default isAstralAuth(Page);

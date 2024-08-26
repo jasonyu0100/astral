@@ -1,7 +1,6 @@
 import { FormTextArea } from '@/(components)/(form)/area/main';
 import { FormBody } from '@/(components)/(form)/body/main';
 import { FormButton } from '@/(components)/(form)/button/main';
-import { FormDescription } from '@/(components)/(form)/description/main';
 import { FormFooter } from '@/(components)/(form)/footer/main';
 import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
@@ -15,7 +14,7 @@ import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controll
 import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
-export function ChatAddChatModal() {
+export function SpaceIdeaAddChatModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -46,7 +45,6 @@ export function ChatAddChatModal() {
         <FormContainer>
           <FormTitle>Add Chat</FormTitle>
           <FormBody>
-            <FormDescription>Add your chat here</FormDescription>
             <FormInput
               placeholder='Title'
               title='Title'
