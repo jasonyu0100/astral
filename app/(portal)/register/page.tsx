@@ -1,9 +1,6 @@
 'use client';
+import { PolaroidContext, usePolaroid } from '../common/handler/polaroid/main';
 import { RegisterView } from './view';
-import {
-  PolaroidContext,
-  usePolaroid,
-} from '../(common)/handler/polaroid/main';
 
 export default function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =

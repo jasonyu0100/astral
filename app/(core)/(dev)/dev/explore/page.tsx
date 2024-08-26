@@ -1,14 +1,14 @@
 'use client';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { elementsMap } from '@/(server)/(map)/elements';
-import { galleryMap } from '@/(server)/(map)/gallery';
-import { horizonMap } from '@/(server)/(map)/horizon';
-import { spaceMap } from '@/(server)/(map)/space';
-import { userMap } from '@/(server)/(map)/user';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { elementsMap } from '@/(server)/map/elements';
+import { galleryMap } from '@/(server)/map/gallery';
+import { horizonMap } from '@/(server)/map/horizon';
+import { spaceMap } from '@/(server)/map/space';
+import { userMap } from '@/(server)/map/user';
+import { glassFx, roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useState } from 'react';
 
 function Section({ gqlMap }: { gqlMap: string }) {

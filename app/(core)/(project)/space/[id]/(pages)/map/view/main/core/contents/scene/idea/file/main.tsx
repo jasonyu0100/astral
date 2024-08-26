@@ -1,5 +1,5 @@
-import { FileElemVariant } from '@/(server)/(model)/elements/file/main';
-import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { FileElemVariant } from '@/(server)/model/elements/file/main';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useContext } from 'react';
 
 export function SpaceMapFileIdea() {

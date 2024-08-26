@@ -1,8 +1,8 @@
-import { useControllerForSpaceMain } from '@/(server)/(controller)/space/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
-import { ContextForSpaceMemberObj } from '@/(server)/(model)/space/member/main';
-import { ContextForUserObj } from '@/(server)/(model)/user/main';
+import { useControllerForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowDate } from './date/main';

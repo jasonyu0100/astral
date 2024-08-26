@@ -1,13 +1,13 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { JournalRecordCollectionModal } from '@/(core)/(dashboard)/journal/(modal)/add/section/main';
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
-import { glassFx } from '@/(style)/data';
+} from '@/logic/contexts/openable/main';
+import { glassFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useContext } from 'react';
 import { JournalRecordSidebarAdd } from './add/main';
 

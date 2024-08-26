@@ -1,6 +1,6 @@
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { TextElem } from '@/(server)/(model)/elements/text/main';
-import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { TextElem } from '@/(server)/model/elements/text/main';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useContext } from 'react';
 
 export function SpaceMapTextLineIdea() {

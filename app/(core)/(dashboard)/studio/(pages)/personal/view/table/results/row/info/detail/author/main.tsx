@@ -1,4 +1,4 @@
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
 
 export function SpaceInfoDetailAuthor() {
   const loggedInUser = useGlobalUser((state) => state.user);

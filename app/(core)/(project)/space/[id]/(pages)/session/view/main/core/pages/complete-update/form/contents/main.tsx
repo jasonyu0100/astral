@@ -1,13 +1,13 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import {
   ChapterSessionUpdateVariant,
   ContextForChapterSessionUpdateObj,
-} from '@/(server)/(model)/space/chapter/session/update/main';
-import { glassFx } from '@/(style)/data';
+} from '@/(server)/model/space/chapter/session/update/main';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
+import { glassFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import { useContext } from 'react';
 import { SpaceSessionUpdateFormUpdate } from '../action/update/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';

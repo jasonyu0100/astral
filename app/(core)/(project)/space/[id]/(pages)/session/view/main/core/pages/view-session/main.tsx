@@ -1,5 +1,5 @@
-import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
+import { ContextForChapterSessionList } from '@/(server)/controller/space/chapter/session/list';
+import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
 import { useContext } from 'react';
 import { SpaceSessionViewSessionForm } from './form/main';
 import { SpaceSessionViewSessionPanel } from './panel/main';

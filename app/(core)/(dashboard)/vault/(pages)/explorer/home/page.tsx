@@ -1,10 +1,10 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/(server)/(controller)/gallery/list';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/gallery/list';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { ExplorerHomeGallerysView } from './view/view';
 
 function Page() {

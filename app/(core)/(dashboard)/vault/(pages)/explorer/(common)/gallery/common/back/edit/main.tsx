@@ -1,4 +1,4 @@
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 
 export function GalleryBackEdit() {

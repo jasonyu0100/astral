@@ -1,5 +1,5 @@
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForTemplateChapter } from '@/(server)/(templates)/space/main';
+import { ContextForTemplateChapter } from '@/(server)/templates/space/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
 import { CreateSpaceEditChapter } from './chapter/main';

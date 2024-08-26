@@ -1,4 +1,4 @@
-import { LinkInputProps } from '@/(types)/props/main';
+import { LinkInputProps } from '@/types/props/main';
 import Link from 'next/link';
 
 interface InputProps extends LinkInputProps {

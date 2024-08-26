@@ -2,7 +2,7 @@ import {
   ContextForOpenable,
   ContextForOpenableInterface,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpaceReviewAddChapterModal } from '../add/chapter/main';
 import { SpaceReviewAddChatModal } from '../add/chat/main';

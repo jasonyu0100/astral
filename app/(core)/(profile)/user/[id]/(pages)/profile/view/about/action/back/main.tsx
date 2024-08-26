@@ -1,16 +1,16 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import {
   ContextForUserBackerList,
   useControllerForUserBackerList,
-} from '@/(server)/(controller)/user/backer/list';
-import { useControllerForUserBackerTermsList } from '@/(server)/(controller)/user/backer/terms/list';
+} from '@/(server)/controller/user/backer/list';
+import { useControllerForUserBackerTermsList } from '@/(server)/controller/user/backer/terms/list';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
-} from '@/(server)/(model)/user/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+} from '@/(server)/model/user/main';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import moment from 'moment';
 import { useContext } from 'react';
 

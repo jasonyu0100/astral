@@ -1,6 +1,6 @@
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
-import { ContextForChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
+import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
+import { ContextForChapterChatObj } from '@/(server)/model/space/chapter/chat/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import SpaceIdeaHeaderIndicator from '../header/indicator/main';
 

@@ -1,17 +1,17 @@
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { PortalFormAction } from '@/(portal)/(common)/container/form/action-container/action/main';
-import { PortalFormAltActionLink } from '@/(portal)/(common)/container/form/action-container/alt-action/link/main';
-import { PortalFormAltAction } from '@/(portal)/(common)/container/form/action-container/alt-action/main';
-import { PortalFormActionContainer } from '@/(portal)/(common)/container/form/action-container/main';
-import { PortalFormInput } from '@/(portal)/(common)/container/form/body/input/main';
-import { PortalFormBody } from '@/(portal)/(common)/container/form/body/main';
-import { PortalForm } from '@/(portal)/(common)/container/form/main';
-import { useControllerForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { PortalFormAction } from '@/(portal)/common/container/form/action-container/action/main';
+import { PortalFormAltActionLink } from '@/(portal)/common/container/form/action-container/alt-action/link/main';
+import { PortalFormAltAction } from '@/(portal)/common/container/form/action-container/alt-action/main';
+import { PortalFormActionContainer } from '@/(portal)/common/container/form/action-container/main';
+import { PortalFormInput } from '@/(portal)/common/container/form/body/input/main';
+import { PortalFormBody } from '@/(portal)/common/container/form/body/main';
+import { PortalForm } from '@/(portal)/common/container/form/main';
+import { useControllerForGalleryList } from '@/(server)/controller/gallery/list';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
 import { useState } from 'react';
-import { PortalTextHeader } from '../../(common)/container/form/text-header/main';
+import { PortalTextHeader } from '../../common/container/form/text-header/main';
 import { portalMap } from '../../map';
 
 export function PortalRegisterForm() {

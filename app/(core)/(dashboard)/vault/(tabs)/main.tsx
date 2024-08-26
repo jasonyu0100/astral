@@ -1,6 +1,6 @@
-import { TabsBackButton } from '@/(components)/(dashboard)/tabs/tabs-row/back-button/main';
-import { Tabs } from '../../../../(components)/(dashboard)/tabs/main';
-import { TabsRow } from '../../../../(components)/(dashboard)/tabs/tabs-row/main';
+import { TabsBackButton } from '@/ui/(dashboard)/tabs/tabs-row/back-button/main';
+import { Tabs } from '../../../../ui/(dashboard)/tabs/main';
+import { TabsRow } from '../../../../ui/(dashboard)/tabs/tabs-row/main';
 import { studioMap } from '../../studio/map';
 import { TabOne } from './tab-1/main';
 

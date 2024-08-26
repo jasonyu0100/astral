@@ -1,9 +1,9 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+} from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { SpaceSessionAddChapterModal } from '../../../../modal/add/chapter/main';
 import SpaceSessionRowAdd from './add/main';

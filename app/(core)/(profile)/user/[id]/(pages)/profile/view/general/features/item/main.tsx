@@ -1,4 +1,4 @@
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
 
 export function UserProfileFeatureItem() {
   return (

@@ -1,5 +1,5 @@
-import { useControllerForFlippable } from '@/(logic)/contexts/flippable/main';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
+import { useControllerForFlippable } from '@/logic/contexts/flippable/main';
 import { useContext } from 'react';
 import { ResourceContainer } from './common/container/main';
 import { CollectionResourceMedia } from './common/media/main';

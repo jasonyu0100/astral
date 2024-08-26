@@ -1,8 +1,8 @@
 'use client';
-import { useControllerForHoverable } from '@/(logic)/contexts/hoverable/main';
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {

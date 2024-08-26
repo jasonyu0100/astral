@@ -1,19 +1,19 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/(server)/(controller)/gallery/collection/list';
+} from '@/(server)/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
+} from '@/(server)/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/(server)/(controller)/gallery/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/gallery/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { JournalRecordView } from './view/view';
 
 function Page() {

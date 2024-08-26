@@ -1,5 +1,5 @@
-import { ContextForReviewCommentList } from '@/(server)/(controller)/space/chapter/review/comment/list';
-import { ContextForReviewCommentObj } from '@/(server)/(model)/space/chapter/review/comment/main';
+import { ContextForReviewCommentList } from '@/(server)/controller/space/chapter/review/comment/list';
+import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
 import { useContext } from 'react';
 import { SpaceReviewContentComment } from './comment/main';
 

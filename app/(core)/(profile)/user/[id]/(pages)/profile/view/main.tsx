@@ -1,7 +1,7 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../page';
 import { ProfileAbout } from './about/main';

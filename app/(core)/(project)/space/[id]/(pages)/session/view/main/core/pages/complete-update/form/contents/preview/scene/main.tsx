@@ -1,5 +1,5 @@
-import { useControllerForChapterSceneMain } from '@/(server)/(controller)/space/chapter/scene/main';
-import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { useControllerForChapterSceneMain } from '@/(server)/controller/space/chapter/scene/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdatePreviewScene() {

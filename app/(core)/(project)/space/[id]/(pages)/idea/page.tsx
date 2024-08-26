@@ -1,32 +1,32 @@
 'use client';
-import { useGlobalSpace } from '@/(logic)/internal/store/space/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForChatConversationList,
   useControllerForChatConversationList,
-} from '@/(server)/(controller)/space/chapter/chat/conversation/list';
+} from '@/(server)/controller/space/chapter/chat/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
+} from '@/(server)/controller/space/chapter/chat/conversation/message/list';
 import {
   ContextForChapterChatList,
   useControllerForChapterChatList,
-} from '@/(server)/(controller)/space/chapter/chat/list';
+} from '@/(server)/controller/space/chapter/chat/list';
 import {
   ContextForChatMemberList,
   useControllerForChatMemberList,
-} from '@/(server)/(controller)/space/chapter/chat/member/list';
+} from '@/(server)/controller/space/chapter/chat/member/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(server)/(controller)/space/chapter/list';
+} from '@/(server)/controller/space/chapter/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/(server)/(controller)/space/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/space/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalSpace } from '@/logic/internal/store/space/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';
 import { SpaceIdeaModals } from './modal/controller/main';

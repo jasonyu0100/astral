@@ -1,5 +1,5 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 
 export function ArchiveExplorerBreadcrumbs({
   children,

@@ -1,8 +1,8 @@
 'use client';
-import { DashboardBody } from '@/(components)/(dashboard)/controller/body/main';
-import { DashboardController } from '@/(components)/(dashboard)/controller/main';
-import { DashboardSidebarView } from '@/(core)/(common)/(sidebar)/main';
-import { DashboardTopbar } from '@/(core)/(common)/(topbar)/main';
+import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
+import { DashboardTopbar } from '@/(core)/common/(topbar)/main';
+import { DashboardBody } from '@/ui/(dashboard)/controller/body/main';
+import { DashboardController } from '@/ui/(dashboard)/controller/main';
 import { learnMap } from './map';
 
 export default function Layout({

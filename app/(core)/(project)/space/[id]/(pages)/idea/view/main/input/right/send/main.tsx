@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/props/main';
+import { ButtonInputProps } from '@/types/props/main';
 import { ChatSendIcon } from '../../../../../common/icons/send/main';
 
 export function SpaceIdeaInputRightSend({ ...props }: ButtonInputProps) {

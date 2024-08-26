@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useContext } from 'react';
 
 export function SpaceMapTextBlockIdea() {

@@ -1,20 +1,17 @@
-import { FormTextArea } from '@/(components)/(form)/area/main';
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormButton } from '@/(components)/(form)/button/main';
-import { FormFooter } from '@/(components)/(form)/footer/main';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { FormContainer } from '@/(components)/(form)/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { FormTitle } from '@/(components)/(form)/title/main';
-import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import {
-  TextElem,
-  TextElemVariant,
-} from '@/(server)/(model)/elements/text/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { FormTextArea } from '@/ui/(form)/area/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormButton } from '@/ui/(form)/button/main';
+import { FormFooter } from '@/ui/(form)/footer/main';
+import { FormInput } from '@/ui/(form)/input/main';
+import { FormContainer } from '@/ui/(form)/main';
+import { FormSelect } from '@/ui/(form)/select/main';
+import { FormTitle } from '@/ui/(form)/title/main';
+import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function SpaceMapAddTextIdeaModal() {

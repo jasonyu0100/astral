@@ -1,7 +1,7 @@
-import { ContextForChapterSessionList } from '@/(server)/(controller)/space/chapter/session/list';
-import { ContextForSessionUpdateList } from '@/(server)/(controller)/space/chapter/session/update/list';
-import { ChapterSessionObj } from '@/(server)/(model)/space/chapter/session/main';
-import { getFormattedAMPM } from '@/(utils)/dateFormat';
+import { ContextForChapterSessionList } from '@/(server)/controller/space/chapter/session/list';
+import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
+import { ChapterSessionObj } from '@/(server)/model/space/chapter/session/main';
+import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceSessionCompleteSessionHeader() {

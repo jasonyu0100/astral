@@ -1,19 +1,19 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { FormTextArea } from '@/(components)/(form)/area/main';
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormButton } from '@/(components)/(form)/button/main';
-import { FormFooter } from '@/(components)/(form)/footer/main';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { FormContainer } from '@/(components)/(form)/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { FormTitle } from '@/(components)/(form)/title/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
-import { glassFx } from '@/(style)/data';
+import { exampleFileElems } from '@/(server)/model/elements/file/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { glassFx } from '@/style/data';
+import { ProfileCover } from '@/ui/(element)/profile/main';
+import { FormTextArea } from '@/ui/(form)/area/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormButton } from '@/ui/(form)/button/main';
+import { FormFooter } from '@/ui/(form)/footer/main';
+import { FormInput } from '@/ui/(form)/input/main';
+import { FormContainer } from '@/ui/(form)/main';
+import { FormSelect } from '@/ui/(form)/select/main';
+import { FormTitle } from '@/ui/(form)/title/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function SpaceSessionAddUpdateModal() {

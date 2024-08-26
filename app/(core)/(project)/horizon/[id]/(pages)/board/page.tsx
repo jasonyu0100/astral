@@ -3,8 +3,8 @@
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(server)/(controller)/space/chapter/list';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/space/chapter/list';
+import isAstralAuth from '@/utils/isAuth';
 import { HorizonBoardView } from './view/main';
 import { HorizonBoardChapterNavigation } from './view/navigation/main';
 import { HorizonBoardSidebar } from './view/sidebar/main';

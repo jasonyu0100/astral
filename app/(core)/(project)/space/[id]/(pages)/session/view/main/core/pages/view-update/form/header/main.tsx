@@ -1,6 +1,6 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { getFormattedAMPM } from '@/(utils)/dateFormat';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
+import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdateFormHeader() {

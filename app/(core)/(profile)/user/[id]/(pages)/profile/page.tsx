@@ -1,23 +1,23 @@
 'use client';
 
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForUserBackerList,
   useControllerForUserBackerList,
-} from '@/(server)/(controller)/user/backer/list';
+} from '@/(server)/controller/user/backer/list';
 import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
-} from '@/(server)/(controller)/user/connection/list';
+} from '@/(server)/controller/user/connection/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/(server)/(controller)/user/main';
+} from '@/(server)/controller/user/main';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
-} from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import {
   createContext,
   Dispatch,

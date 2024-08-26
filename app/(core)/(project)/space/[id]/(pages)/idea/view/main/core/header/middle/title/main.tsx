@@ -1,4 +1,4 @@
-import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
+import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { useContext } from 'react';
 
 export default function SpaceIdeaHeaderMiddleTitle() {

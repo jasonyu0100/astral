@@ -1,11 +1,11 @@
 import { GalleryExplorerAdd } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/gallery/add/main';
 import { ExplorerGallery } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/gallery/main';
+import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+} from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { ExplorerCreateGalleryModal } from '../../../../(modals)/create/gallery/main';
 

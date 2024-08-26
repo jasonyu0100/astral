@@ -1,5 +1,5 @@
-import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
-import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
+import { ContextForUserBackerList } from '@/(server)/controller/user/backer/list';
+import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../../../page';
 

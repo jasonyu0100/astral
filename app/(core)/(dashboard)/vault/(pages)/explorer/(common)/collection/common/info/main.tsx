@@ -1,4 +1,4 @@
-import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
 import { useContext } from 'react';
 
 export function CollectionInfo({ empty }: { empty?: boolean }) {

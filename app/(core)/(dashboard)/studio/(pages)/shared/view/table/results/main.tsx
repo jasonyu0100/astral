@@ -1,6 +1,6 @@
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForSpaceMemberOfUserList } from '@/(server)/(controller)/space/member/user-list';
-import { ContextForSpaceMemberObj } from '@/(server)/(model)/space/member/main';
+import { ContextForSpaceMemberOfUserList } from '@/(server)/controller/space/member/user-list';
+import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { StudioSpacesRow } from './row/main';
 import { StudioSpacesRowWrapper } from './wrapper/main';

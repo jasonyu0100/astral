@@ -1,5 +1,5 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ProfileCover } from '@/ui/(element)/profile/main';
 
 export function SpaceSessionCollaborator({
   connectedId,

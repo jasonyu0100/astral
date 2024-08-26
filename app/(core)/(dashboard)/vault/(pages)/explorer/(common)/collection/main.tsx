@@ -1,5 +1,5 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { CollectionContainer } from './common/container/main';

@@ -1,6 +1,6 @@
 import { StudioTabs, StudioTabStages } from '../../(tabs)/main';
 
-import { DashboardContent } from '@/(components)/(dashboard)/content/main';
+import { DashboardContent } from '@/ui/(dashboard)/content/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (

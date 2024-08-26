@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/props/main';
+import { ButtonInputProps } from '@/types/props/main';
 
 export function SpaceSessionEditDone({ ...props }: ButtonInputProps) {
   return (

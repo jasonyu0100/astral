@@ -1,5 +1,5 @@
-import { SvgInputProps } from '@/(types)/props/main';
-import { cn } from '@/(utils)/cn';
+import { SvgInputProps } from '@/types/props/main';
+import { cn } from '@/utils/cn';
 
 export function SpaceMapCursorIcon({ ...props }: SvgInputProps) {
   return (

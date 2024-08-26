@@ -1,4 +1,4 @@
-import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
+import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
 import { useContext } from 'react';
 import { SpaceReviewExpandIcon } from './expand/main';
 

@@ -1,15 +1,15 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/(server)/(controller)/gallery/list';
+} from '@/(server)/controller/gallery/list';
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
-} from '@/(server)/(controller)/space/list';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/space/list';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { StudioSpacesView } from './view/view';
 
 function Page() {

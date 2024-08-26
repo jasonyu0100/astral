@@ -1,6 +1,6 @@
-import { TabGreenShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/green/main';
-import { Tab } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/main';
-import { TabText } from '../../../../../(components)/(dashboard)/tabs/tabs-row/tab/text/main';
+import { TabGreenShard } from '@/ui/(dashboard)/tabs/tabs-row/tab/shard/green/main';
+import { Tab } from '../../../../../ui/(dashboard)/tabs/tabs-row/tab/main';
+import { TabText } from '../../../../../ui/(dashboard)/tabs/tabs-row/tab/text/main';
 import { explorerMap } from '../../map';
 import { ProjectTabStage } from '../main';
 

@@ -1,12 +1,12 @@
 'use client';
-import { loadStripe } from '@stripe/stripe-js';
-import { useEffect, useState } from 'react';
+import { stripeCheckoutSession } from '@/api/stripe/main';
 import {
-  EmbeddedCheckoutProvider,
   EmbeddedCheckout,
+  EmbeddedCheckoutProvider,
 } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { useSearchParams } from 'next/navigation';
-import { stripeCheckoutSession } from '@/(api)/stripe/main';
+import { useEffect, useState } from 'react';
 
 const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || '');
 

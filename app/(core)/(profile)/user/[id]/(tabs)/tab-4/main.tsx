@@ -1,8 +1,8 @@
 'use client';
 
-import { Tab } from '@/(components)/(dashboard)/tabs/tabs-row/tab/main';
-import { TabPurpleShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/purple/main';
-import { TabText } from '@/(components)/(dashboard)/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/ui/(dashboard)/tabs/tabs-row/tab/main';
+import { TabPurpleShard } from '@/ui/(dashboard)/tabs/tabs-row/tab/shard/purple/main';
+import { TabText } from '@/ui/(dashboard)/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ContextForProfile } from '../../layout';
 import { userProfileMap } from '../../map';

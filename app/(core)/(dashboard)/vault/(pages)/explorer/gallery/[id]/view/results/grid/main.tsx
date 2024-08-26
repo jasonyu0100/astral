@@ -1,9 +1,9 @@
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
+} from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../../../../../(common)/collection/add/main';
 import { ExplorerCollection } from '../../../../../(common)/collection/main';

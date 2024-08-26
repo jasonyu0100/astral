@@ -1,15 +1,15 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
 import {
   ContextForPagable,
   useControllerForPagable,
-} from '@/(logic)/contexts/pagination/main';
-import { glassFx } from '@/(style)/data';
+} from '@/logic/contexts/pagination/main';
+import { glassFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import { CreateSpaceModalView } from '../../(modal)/create-space/main';
 import { StudioSpacesHeaderAdd } from './add/main';
 import { StudioSpacesHeaderInfo } from './info/main';

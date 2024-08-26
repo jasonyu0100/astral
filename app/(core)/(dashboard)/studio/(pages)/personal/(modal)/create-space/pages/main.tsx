@@ -1,4 +1,4 @@
-import { ContextForPagable } from '@/(logic)/contexts/pagination/main';
+import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
 import { CreateSpaceModalPageOne } from './page-1/main';
 import { CreateSpaceModalPageTwo } from './page-2/main';

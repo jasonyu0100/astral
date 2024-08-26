@@ -1,10 +1,10 @@
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForChatConversationList } from '@/(server)/(controller)/space/chapter/chat/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
-import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
-import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { roleDescriptions } from '../../../../data';
 import { ContextForChat } from '../../../../page';

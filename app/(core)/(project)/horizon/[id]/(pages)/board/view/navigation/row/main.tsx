@@ -1,4 +1,4 @@
-import { useControllerForOpenable } from '@/(logic)/contexts/openable/main';
+import { useControllerForOpenable } from '@/logic/contexts/openable/main';
 import { HorizonBoardRowContainer } from './container/main';
 import { HorizonBoardRowElement } from './element/main';
 

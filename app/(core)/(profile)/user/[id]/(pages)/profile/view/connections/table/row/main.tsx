@@ -1,8 +1,8 @@
-import { useControllerForUserConnectionTermsMain } from '@/(server)/(controller)/user/connection/terms/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
-import { ContextForUserObj } from '@/(server)/(model)/user/main';
+import { useControllerForUserConnectionTermsMain } from '@/(server)/controller/user/connection/terms/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { UserProfileConnectionsRowNumber } from './number/main';
 

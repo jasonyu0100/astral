@@ -1,5 +1,5 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx } from '@/(style)/data';
+import { borderFx, glassFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
 import { CreativeNetworkSidebarEntry } from './entry/main';
 
 export function CreativeNetworkSidebar() {

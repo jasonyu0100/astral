@@ -1,6 +1,6 @@
-import { useControllerForSessionUpdateOfSpaceList } from '@/(server)/(controller)/space/chapter/session/update/space-list';
-import { ChapterSessionUpdateVariant } from '@/(server)/(model)/space/chapter/session/update/main';
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
+import { useControllerForSessionUpdateOfSpaceList } from '@/(server)/controller/space/chapter/session/update/space-list';
+import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/session/update/main';
+import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
 export function StudioSpacesRowStat() {

@@ -1,5 +1,5 @@
-import { useControllerForSpaceChapterMain } from '@/(server)/(controller)/space/chapter/main';
-import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { useControllerForSpaceChapterMain } from '@/(server)/controller/space/chapter/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdatePreviewChapter() {

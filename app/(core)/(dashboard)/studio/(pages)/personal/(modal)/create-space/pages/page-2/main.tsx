@@ -1,6 +1,6 @@
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormSelect } from '@/(components)/(form)/select/main';
-import { SpaceTemplate } from '@/(server)/(templates)/space/main';
+import { SpaceTemplate } from '@/(server)/templates/space/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormSelect } from '@/ui/(form)/select/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 import { CreateSpaceEditStructure } from './edit/main';

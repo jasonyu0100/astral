@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/props/main';
+import { ButtonInputProps } from '@/types/props/main';
 
 export function SpaceProgressEditPrev({ ...props }: ButtonInputProps) {
   return (

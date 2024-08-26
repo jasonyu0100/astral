@@ -1,6 +1,6 @@
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
-import { ContextForUserBackerObj } from '@/(server)/(model)/user/backer/main';
+import { ContextForUserBackerList } from '@/(server)/controller/user/backer/list';
+import { ContextForUserBackerObj } from '@/(server)/model/user/backer/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useContext } from 'react';
 import { UserProfileBackersTableHeader } from './header/main';
 import { UserProfileBackersTableRow } from './row/main';

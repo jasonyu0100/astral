@@ -1,5 +1,5 @@
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { ContextForProfileUserObj } from '@/(server)/(model)/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
 export function ProfileAboutDetails() {

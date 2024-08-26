@@ -1,10 +1,10 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { ContextForReviewCommentObj } from '@/(server)/(model)/space/chapter/review/comment/main';
-import { roundedFx } from '@/(style)/data';
-import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
+import { roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceReviewContentComment() {

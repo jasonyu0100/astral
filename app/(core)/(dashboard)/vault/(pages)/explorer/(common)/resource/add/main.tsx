@@ -1,8 +1,8 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
-import { ButtonInputProps } from '@/(types)/props/main';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { ButtonInputProps } from '@/types/props/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import { ResourceContainer } from '../common/container/main';
 
 export function CollectionResourceAdd({ ...props }: ButtonInputProps) {

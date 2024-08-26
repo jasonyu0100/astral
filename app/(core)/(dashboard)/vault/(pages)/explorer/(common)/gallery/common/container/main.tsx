@@ -1,9 +1,9 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { glassFx, roundedFx } from '@/(style)/data';
-import { DivInputProps } from '@/(types)/props/main';
 import { cn } from '@/lib/utils';
+import { glassFx, roundedFx } from '@/style/data';
+import { DivInputProps } from '@/types/props/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 
 interface InputProps extends DivInputProps {
   onClick?: () => void;

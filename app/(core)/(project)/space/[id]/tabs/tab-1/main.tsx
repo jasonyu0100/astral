@@ -1,8 +1,8 @@
 'use client';
 
-import { Tab } from '@/(components)/(dashboard)/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '@/(components)/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
-import { TabText } from '@/(components)/(dashboard)/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/ui/(dashboard)/tabs/tabs-row/tab/main';
+import { TabBlueShard } from '@/ui/(dashboard)/tabs/tabs-row/tab/shard/blue/main';
+import { TabText } from '@/ui/(dashboard)/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../layout';
 import { spaceMap } from '../../map';

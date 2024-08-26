@@ -1,7 +1,7 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,

@@ -1,37 +1,37 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/(server)/(controller)/gallery/collection/list';
+} from '@/(server)/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
+} from '@/(server)/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/(server)/(controller)/gallery/list';
+} from '@/(server)/controller/gallery/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(server)/(controller)/space/chapter/list';
+} from '@/(server)/controller/space/chapter/list';
 import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
-} from '@/(server)/(controller)/space/chapter/scene/idea/list';
+} from '@/(server)/controller/space/chapter/scene/idea/list';
 import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
-} from '@/(server)/(controller)/space/chapter/scene/list';
+} from '@/(server)/controller/space/chapter/scene/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/(server)/(controller)/space/main';
-import { GalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import { GalleryObj } from '@/(server)/(model)/gallery/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/space/main';
+import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
+import { GalleryObj } from '@/(server)/model/gallery/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { createContext, useState } from 'react';
 import {
   ContextForSpaceMap,

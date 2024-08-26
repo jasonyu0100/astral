@@ -1,5 +1,5 @@
 'use client';
-import isAstralAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/utils/isAuth';
 import { VentureHorizonsView } from './view/view';
 
 function Page() {

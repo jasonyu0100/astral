@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/(types)/props/main';
+import { ButtonInputProps } from '@/types/props/main';
 import { SpacesDraftIcon } from '../icon/flow/main';
 
 export function StudioSpacesHeaderAdd({ ...props }: ButtonInputProps) {

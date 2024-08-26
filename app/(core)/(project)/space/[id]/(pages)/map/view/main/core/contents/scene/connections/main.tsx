@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { useContext } from 'react';
 
 export function SpaceMapContentsSceneConnections() {

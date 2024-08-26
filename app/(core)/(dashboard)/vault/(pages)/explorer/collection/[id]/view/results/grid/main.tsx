@@ -1,11 +1,11 @@
 import { CollectionResourceAdd } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/resource/add/main';
 import { ExplorerResource } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/resource/main';
+import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+} from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { ExplorerCreateResourceModal } from '../../../../../(modals)/create/resource/main';
 

@@ -1,4 +1,4 @@
-import { ContextForProfileUserObj } from '@/(server)/(model)/user/main';
+import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
 export function ProfileAboutBio() {

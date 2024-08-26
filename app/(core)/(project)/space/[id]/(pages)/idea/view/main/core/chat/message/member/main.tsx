@@ -1,5 +1,5 @@
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
 import { useContext } from 'react';
 
 export function SpaceIdeaMemberMessage() {

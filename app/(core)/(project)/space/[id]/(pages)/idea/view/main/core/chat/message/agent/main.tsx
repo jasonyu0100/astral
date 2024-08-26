@@ -1,5 +1,5 @@
-import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceIdeaAgentMessage() {

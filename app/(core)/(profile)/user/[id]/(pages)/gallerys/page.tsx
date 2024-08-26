@@ -3,9 +3,9 @@
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/(server)/(controller)/user/main';
-import { ContextForUserObj, UserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/user/main';
+import { ContextForUserObj, UserObj } from '@/(server)/model/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
 import { ContextForProfile } from '../../layout';
 import { ProfileUserView } from './view/main';

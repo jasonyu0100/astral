@@ -1,6 +1,6 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { ContextForConversationMessageList } from '@/(server)/(controller)/space/chapter/chat/conversation/message/list';
-import { glassFx } from '@/(style)/data';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
+import { glassFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
 import { useContext } from 'react';
 import { SpaceIdeaInputLeft } from './left/main';
 import { SpaceIdeaInputRight } from './right/main';

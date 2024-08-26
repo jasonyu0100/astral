@@ -1,11 +1,11 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { DashboardJournalAddResourceModal } from '@/(core)/(dashboard)/journal/(modal)/add/entry/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { roundedFx } from '@/(style)/data';
+} from '@/logic/contexts/openable/main';
+import { roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 
 export function JournalRecordFooterCenter() {
   const openableController = useControllerForOpenable();

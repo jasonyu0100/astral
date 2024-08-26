@@ -1,5 +1,5 @@
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { useContext } from 'react';
 
 export function SpaceSessionHeaderLeft() {

@@ -2,8 +2,8 @@
 import {
   ContextForUserPrivateList,
   useControllerForUserPrivateList,
-} from '@/(server)/(controller)/user/private-list';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/user/private-list';
+import isAstralAuth from '@/utils/isAuth';
 import { CreativeInboxView } from './view/view';
 
 function Page() {

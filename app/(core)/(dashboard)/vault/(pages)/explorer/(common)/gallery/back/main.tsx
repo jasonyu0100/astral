@@ -1,11 +1,11 @@
 import { ExplorerEditGalleryModal } from '@/(core)/(dashboard)/vault/(pages)/explorer/(modals)/edit/gallery/main';
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForFlippable } from '@/(logic)/contexts/flippable/main';
+import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
+import { ContextForFlippable } from '@/logic/contexts/flippable/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForGalleryObj } from '@/(server)/(model)/gallery/main';
+} from '@/logic/contexts/openable/main';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { GalleryBackAuthor } from '../common/back/author/main';

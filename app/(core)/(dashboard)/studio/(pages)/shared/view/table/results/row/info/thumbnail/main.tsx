@@ -1,10 +1,7 @@
-import {
-  SpaceCover,
-  SpaceCoverVariant,
-} from '@/(components)/(element)/space/main';
-import { ContextForHoverable } from '@/(logic)/contexts/hoverable/main';
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
-import { cn } from '@/(utils)/cn';
+import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
+import { SpaceCover, SpaceCoverVariant } from '@/ui/(element)/space/main';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpaceInfoThumbnail() {

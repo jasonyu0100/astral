@@ -1,7 +1,7 @@
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
-import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
-import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
+import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
+import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
+import { ContextForTogglable } from '@/logic/contexts/togglable/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../../(controller)/create-space/main';
 import { CreateSpaceCollaboratorRow } from './row/main';

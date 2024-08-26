@@ -1,4 +1,4 @@
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useContext } from 'react';
 import { SpaceMapExpandIcon } from './expand/main';
 

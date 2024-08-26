@@ -1,10 +1,10 @@
-import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-update-form/main';
 import { ContextForSpaceSessionController } from '@/(core)/(project)/space/[id]/(pages)/session/controller/space-session/main';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { glassFx, roundedFx } from '@/style/data';
+import { GlassAreaPane } from '@/ui/(glass)/area/pane/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdateFormUpdate() {

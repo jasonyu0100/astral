@@ -2,7 +2,7 @@ import {
   ContextForOpenable,
   ContextForOpenableInterface,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpaceIdeaAddAttachmentModal } from '../add/attachment/main';
 import { SpaceIdeaAddChapterModal } from '../add/chapter/main';

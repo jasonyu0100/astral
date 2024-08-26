@@ -1,6 +1,6 @@
 'use client';
 
-import { ContextForHoverable } from '@/(logic)/contexts/hoverable/main';
+import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext } from 'react';
 import { UserProfileBackersNumberPlay } from './play/main';
 import { UserProfileBackersNumberText } from './text/main';

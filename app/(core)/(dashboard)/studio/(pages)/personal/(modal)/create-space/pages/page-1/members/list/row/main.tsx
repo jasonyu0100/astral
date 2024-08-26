@@ -1,6 +1,6 @@
-import { ProfileCover } from '@/(components)/(element)/profile/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForUserConnectionObj } from '@/(server)/(model)/user/connection/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
+import { ProfileCover } from '@/ui/(element)/profile/main';
 import { useContext } from 'react';
 
 export function CreateSpaceCollaboratorRow({

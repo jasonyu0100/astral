@@ -1,8 +1,5 @@
 'use client';
-import {
-  PolaroidContext,
-  usePolaroid,
-} from '../(common)/handler/polaroid/main';
+import { PolaroidContext, usePolaroid } from '../common/handler/polaroid/main';
 import { LoginView } from './view';
 
 export default function Page() {

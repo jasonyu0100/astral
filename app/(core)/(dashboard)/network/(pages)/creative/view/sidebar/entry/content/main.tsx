@@ -1,6 +1,6 @@
-import { SpaceCover } from '@/(components)/(element)/space/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { SpaceCover } from '@/ui/(element)/space/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 
 export function CreativeNetworkSidebarEntryContents() {
   return (

@@ -1,4 +1,4 @@
-import { FormattedLink } from '@/(components)/(basic)/link/main';
+import { FormattedLink } from '@/ui/(basic)/link/main';
 import { learnMap } from './map';
 
 export default function Page() {

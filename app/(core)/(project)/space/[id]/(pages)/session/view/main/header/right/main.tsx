@@ -1,7 +1,7 @@
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
 import { SpaceSessionSpotlightModal } from '../../../../modal/synthesise/main';
 
 export function SpaceSessionHeaderRight() {

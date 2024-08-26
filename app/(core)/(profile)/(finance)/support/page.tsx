@@ -1,6 +1,6 @@
 'use client';
-import { cn } from '@/(utils)/cn';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs';
+import { cn } from '@/utils/cn';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
 export const stripeProducts = {

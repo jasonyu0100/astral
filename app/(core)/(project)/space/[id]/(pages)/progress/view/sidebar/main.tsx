@@ -1,11 +1,11 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { glassFx, roundedFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgress,

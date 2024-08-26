@@ -1,6 +1,6 @@
-import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { ContextForChapterReviewObj } from '@/(server)/(model)/space/chapter/review/main';
+import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForChapterReviewObj } from '@/(server)/model/space/chapter/review/main';
 import { useContext } from 'react';
 
 export function SpaceReviewSidebarReview() {

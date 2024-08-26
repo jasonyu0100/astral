@@ -1,5 +1,4 @@
 'use client';
-import { DashboardContent } from '@/(components)/(dashboard)/content/main';
 import {
   VaultTabs,
   VaultTabStage,
@@ -8,16 +7,17 @@ import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import {
   ContextForGalleryCollectionMain,
   useControllerForGalleryCollectionMain,
-} from '@/(server)/(controller)/gallery/collection/main';
+} from '@/(server)/controller/gallery/collection/main';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
+} from '@/(server)/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/(server)/(controller)/gallery/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/gallery/main';
+import { DashboardContent } from '@/ui/(dashboard)/content/main';
+import isAstralAuth from '@/utils/isAuth';
 import { ExplorerCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {

@@ -2,7 +2,7 @@ import {
   ContextForOpenable,
   ContextForOpenableInterface,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpaceProgressAddChapterModal } from '../add/chapter/main';
 import { SpaceProgressAddSceneModal } from '../add/scene/main';

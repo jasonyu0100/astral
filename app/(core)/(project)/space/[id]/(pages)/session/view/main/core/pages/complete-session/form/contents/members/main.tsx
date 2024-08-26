@@ -1,13 +1,13 @@
 import { ContextForSessionForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-session-form/main';
 import {
-  ContextForTogglable,
-  useControllerForTogglable,
-} from '@/(logic)/contexts/togglable/main';
-import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
-} from '@/(server)/(controller)/user/connection/list';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
+} from '@/(server)/controller/user/connection/list';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import {
+  ContextForTogglable,
+  useControllerForTogglable,
+} from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
 import { SpaceSessionAddCollaborator } from './add/main';
 import { SpaceSessionCollaboratorList } from './list/main';

@@ -1,6 +1,6 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { ContextForUserBackerList } from '@/(server)/(controller)/user/backer/list';
+import { ContextForUserBackerList } from '@/(server)/controller/user/backer/list';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../../../page';
 import { ContextForBacking } from '../main';

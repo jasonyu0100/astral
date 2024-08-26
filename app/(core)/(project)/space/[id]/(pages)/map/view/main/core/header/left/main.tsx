@@ -1,8 +1,8 @@
-import { PipIndicator } from '@/(components)/(indicator)/pip/main';
-import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { ContextForSceneIdeaList } from '@/(server)/(controller)/space/chapter/scene/idea/list';
-import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
-import { cn } from '@/(utils)/cn';
+import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { PipIndicator } from '@/ui/(indicator)/pip/main';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,

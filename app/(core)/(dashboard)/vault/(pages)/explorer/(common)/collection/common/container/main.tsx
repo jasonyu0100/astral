@@ -1,16 +1,16 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import {
   ContextForGalleryCollectionMain,
   useControllerForGalleryCollectionMain,
-} from '@/(server)/(controller)/gallery/collection/main';
+} from '@/(server)/controller/gallery/collection/main';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/(controller)/gallery/collection/resource/list';
-import { ContextForGalleryCollectionObj } from '@/(server)/(model)/gallery/collection/main';
-import { DivInputProps } from '@/(types)/props/main';
-import { cn } from '@/(utils)/cn';
+} from '@/(server)/controller/gallery/collection/resource/list';
+import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
+import { DivInputProps } from '@/types/props/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { cn } from '@/utils/cn';
 import React, { useContext } from 'react';
 
 interface InputProps extends DivInputProps {

@@ -1,14 +1,14 @@
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormFooter } from '@/(components)/(form)/footer/main';
-import { ImagePreview } from '@/(components)/(form)/image-preview/main';
-import { FormContainer } from '@/(components)/(form)/main';
-import { FormTitle } from '@/(components)/(form)/title/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
-import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormFooter } from '@/ui/(form)/footer/main';
+import { ImagePreview } from '@/ui/(form)/image-preview/main';
+import { FormContainer } from '@/ui/(form)/main';
+import { FormTitle } from '@/ui/(form)/title/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext, useState } from 'react';
 
 export function EditProfileModal() {

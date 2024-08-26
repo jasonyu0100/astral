@@ -1,13 +1,13 @@
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormButton } from '@/(components)/(form)/button/main';
-import { FormFooter } from '@/(components)/(form)/footer/main';
-import { FormContainer } from '@/(components)/(form)/main';
-import { FormTitle } from '@/(components)/(form)/title/main';
-import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
+import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormButton } from '@/ui/(form)/button/main';
+import { FormFooter } from '@/ui/(form)/footer/main';
+import { FormInput } from '@/ui/(form)/input/main';
+import { FormContainer } from '@/ui/(form)/main';
+import { FormTitle } from '@/ui/(form)/title/main';
+import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
 import { useContext, useState } from 'react';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 
 export function ExplorerEditGalleryModal() {
   const openableController = useContext(ContextForOpenable);

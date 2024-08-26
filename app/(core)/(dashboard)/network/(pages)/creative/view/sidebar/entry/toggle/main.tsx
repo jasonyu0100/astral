@@ -1,4 +1,4 @@
-import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
+import { ContextForTogglable } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
 
 export function CreativeNetworkSidebarEntryToggle() {

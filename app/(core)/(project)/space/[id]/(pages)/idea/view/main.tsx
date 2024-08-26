@@ -1,6 +1,6 @@
 'use client';
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
-import { borderFx, glassFx, roundedFx } from '@/(style)/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
 import { SpaceIdeaMain } from './main/main';
 import { SpaceIdeaSidebar } from './sidebar/main';
 

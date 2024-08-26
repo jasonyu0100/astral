@@ -1,6 +1,6 @@
-import { useControllerForSceneIdeaMain } from '@/(server)/(controller)/space/chapter/scene/idea/main';
-import { ElementVariant } from '@/(server)/(model)/elements/main';
-import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { useControllerForSceneIdeaMain } from '@/(server)/controller/space/chapter/scene/idea/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdatePreviewIdea() {

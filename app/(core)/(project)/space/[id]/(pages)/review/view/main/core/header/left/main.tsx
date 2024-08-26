@@ -1,4 +1,4 @@
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { getFormattedDate } from '@/utils/dateFormat';
 
 export function SpaceReviewHeaderLeft() {
   return (

@@ -1,8 +1,7 @@
 'use client';
-import React from 'react';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 
-import { ColorfulText } from '@/(components)/(text)/colorful/main';
+import { ColorfulText } from '@/ui/(text)/colorful/main';
 export default function Page() {
   const text = 'Hello World';
   return (

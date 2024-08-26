@@ -1,10 +1,10 @@
 'use client';
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import {
   stripeNewBillingSession,
   stripeProcessSubscription,
-} from '@/(api)/stripe/main';
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
+} from '@/api/stripe/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

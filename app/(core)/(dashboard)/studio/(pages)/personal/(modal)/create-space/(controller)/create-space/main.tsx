@@ -1,24 +1,21 @@
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
-import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
-import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { useControllerForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
-import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
-import { useControllerForSpaceMemberList } from '@/(server)/(controller)/space/member/list';
-import { useControllerForSpaceMemberTermsList } from '@/(server)/(controller)/space/member/terms/list';
-import {
-  exampleFileElem,
-  FileElem,
-} from '@/(server)/(model)/elements/file/main';
-import { SpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
-import { SpaceObj } from '@/(server)/(model)/space/main';
+import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { useControllerForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
+import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { useControllerForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSpaceList } from '@/(server)/controller/space/list';
+import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
+import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
+import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
+import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { SpaceObj } from '@/(server)/model/space/main';
 import {
   getSpaceTemplates,
   SpaceTemplate,
   TemplateChapterObj,
-} from '@/(server)/(templates)/space/main';
+} from '@/(server)/templates/space/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
 import moment from 'moment';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {

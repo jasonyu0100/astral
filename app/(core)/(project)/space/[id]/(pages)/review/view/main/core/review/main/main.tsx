@@ -1,6 +1,6 @@
-import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceReviewReviewMain() {

@@ -1,8 +1,8 @@
-import { useControllerForUserBackerTermsMain } from '@/(server)/(controller)/user/backer/terms/main';
-import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { ContextForUserBackerObj } from '@/(server)/(model)/user/backer/main';
-import { ContextForUserObj } from '@/(server)/(model)/user/main';
+import { useControllerForUserBackerTermsMain } from '@/(server)/controller/user/backer/terms/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForUserBackerObj } from '@/(server)/model/user/backer/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { UserProfileConnectionsRowNumber } from '../../../connections/table/row/number/main';
 

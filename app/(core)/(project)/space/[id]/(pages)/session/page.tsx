@@ -1,35 +1,35 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(server)/(controller)/space/chapter/list';
+} from '@/(server)/controller/space/chapter/list';
 import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
-} from '@/(server)/(controller)/space/chapter/scene/idea/list';
+} from '@/(server)/controller/space/chapter/scene/idea/list';
 import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
-} from '@/(server)/(controller)/space/chapter/scene/list';
+} from '@/(server)/controller/space/chapter/scene/list';
 import {
   ContextForChapterSessionList,
   useControllerForChapterSessionList,
-} from '@/(server)/(controller)/space/chapter/session/list';
+} from '@/(server)/controller/space/chapter/session/list';
 import {
   ContextForSessionUpdateOfChapterList,
   useControllerForSessionUpdateOfChapterList,
-} from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
+} from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import {
   ContextForSessionUpdateList,
   useControllerForSessionUpdateList,
-} from '@/(server)/(controller)/space/chapter/session/update/list';
+} from '@/(server)/controller/space/chapter/session/update/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/(server)/(controller)/space/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/space/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import {
   ContextForSpaceSessionController,
   useControllerForSpaceSessionController,

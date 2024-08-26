@@ -1,29 +1,29 @@
 'use client';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { Colors } from '@/(components)/(idea)/colors/main';
-import { Card } from '@/(components)/(idea)/game/card/main';
-import { Dice, DiceFace } from '@/(components)/(idea)/game/dice/main';
 import {
   CardNumber,
   CardSuit,
 } from '@/(core)/(project)/space/[id]/(pages)/progress/view/main/header/month/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { Colors } from '@/ui/(idea)/colors/main';
+import { Card } from '@/ui/(idea)/game/card/main';
+import { Dice, DiceFace } from '@/ui/(idea)/game/dice/main';
 import {
   VinylAudioClosedIdea,
   VinylAudioIdea,
-} from '../../../../(components)/(idea)/(audio)/vinyl/main';
+} from '../../../../ui/(idea)/(audio)/vinyl/main';
 import {
   PolaroidImageIdea,
   PolaroidImageIdeaSize,
-} from '../../../../(components)/(idea)/(image)/polaroid/main';
+} from '../../../../ui/(idea)/(image)/polaroid/main';
 import {
   CardTextIdea,
   CardTextIdeaSize,
-} from '../../../../(components)/(idea)/(text)/card/main';
+} from '../../../../ui/(idea)/(text)/card/main';
 import {
   ScreenVideoIdea,
   ScreenVideoIdeaSize,
-} from '../../../../(components)/(idea)/(video)/screen/main';
+} from '../../../../ui/(idea)/(video)/screen/main';
 
 export default function Page() {
   return (

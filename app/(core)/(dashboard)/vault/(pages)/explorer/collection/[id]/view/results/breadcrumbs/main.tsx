@@ -1,6 +1,6 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForGalleryCollectionMain } from '@/(server)/(controller)/gallery/collection/main';
-import { ContextForGalleryMain } from '@/(server)/(controller)/gallery/main';
+import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
+import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
 import { useContext } from 'react';
 import { ArchiveExplorerBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
 import { ArchiveExplorerBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';

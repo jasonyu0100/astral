@@ -2,12 +2,12 @@
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/(server)/(controller)/gallery/collection/list';
+} from '@/(server)/controller/gallery/collection/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/(server)/(controller)/gallery/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/gallery/main';
+import isAstralAuth from '@/utils/isAuth';
 import { ExplorerGalleryCollections } from './view/view';
 
 function Page({ params }: { params: { id: string } }) {

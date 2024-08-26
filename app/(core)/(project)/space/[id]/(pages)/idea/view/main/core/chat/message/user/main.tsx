@@ -1,6 +1,6 @@
-import { ContextForConversationMessageObj } from '@/(server)/(model)/space/chapter/chat/conversation/message/main';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import { getFormmatedTimeDifference } from '@/(utils)/dateFormat';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceIdeaUserMessage() {

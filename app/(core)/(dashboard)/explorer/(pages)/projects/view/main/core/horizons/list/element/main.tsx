@@ -1,11 +1,11 @@
 'use client';
-import { HorizonCover } from '@/(components)/(element)/horizon/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
-import { exampleFileElem } from '@/(server)/(model)/elements/file/main';
-import { glassFx, roundedFx } from '@/(style)/data';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { glassFx, roundedFx } from '@/style/data';
+import { HorizonCover } from '@/ui/(element)/horizon/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
 import Link from 'next/link';
 
 export function VentureHorizonsListElement() {

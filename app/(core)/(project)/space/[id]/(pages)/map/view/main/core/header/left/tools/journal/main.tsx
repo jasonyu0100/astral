@@ -1,4 +1,4 @@
-import { SvgInputProps } from '@/(types)/props/main';
+import { SvgInputProps } from '@/types/props/main';
 
 export function SpaceMapJournalIcon({ ...props }: SvgInputProps) {
   return (

@@ -1,4 +1,4 @@
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
+import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { useContext } from 'react';
 
 export function JournalRecordFooterLeft() {

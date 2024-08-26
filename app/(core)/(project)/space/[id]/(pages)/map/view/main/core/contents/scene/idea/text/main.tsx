@@ -1,5 +1,5 @@
-import { TextElemVariant } from '@/(server)/(model)/elements/text/main';
-import { ContextForSceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { TextElemVariant } from '@/(server)/model/elements/text/main';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useContext } from 'react';
 import { SpaceMapTextBlockIdea } from './block/main';
 import { SpaceMapTextLineIdea } from './line/main';

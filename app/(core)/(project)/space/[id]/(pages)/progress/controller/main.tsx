@@ -1,4 +1,4 @@
-import { SceneIdeaObj } from '@/(server)/(model)/space/chapter/scene/idea/main';
+import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { createContext, useState } from 'react';
 
 interface Controller {

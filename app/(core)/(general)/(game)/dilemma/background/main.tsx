@@ -1,6 +1,6 @@
 'use client';
-import { ContextForTogglable } from '@/(logic)/contexts/togglable/main';
-import { cn } from '@/(utils)/cn';
+import { ContextForTogglable } from '@/logic/contexts/togglable/main';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function DashboardBackground() {

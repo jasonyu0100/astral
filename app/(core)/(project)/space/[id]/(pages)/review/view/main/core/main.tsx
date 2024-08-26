@@ -1,4 +1,4 @@
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { SpaceReviewHeader } from './header/main';
 import { SpaceReviewContentsReview } from './review/main';
 

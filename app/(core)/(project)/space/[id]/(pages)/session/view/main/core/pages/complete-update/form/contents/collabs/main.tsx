@@ -1,4 +1,4 @@
-import { exampleFileElems } from '@/(server)/(model)/elements/file/main';
+import { exampleFileElems } from '@/(server)/model/elements/file/main';
 
 export function SpaceSessionUpdateFormCollaborators() {
   return (

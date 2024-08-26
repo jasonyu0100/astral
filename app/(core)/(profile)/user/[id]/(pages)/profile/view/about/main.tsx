@@ -1,13 +1,13 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { EditProfileModal } from '@/(core)/(profile)/user/[id]/(pages)/profile/(modals)/profile/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { borderFx, glassFx } from '@/(style)/data';
+} from '@/logic/contexts/openable/main';
+import { borderFx, glassFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { useContext } from 'react';
 import { ContextForProfilePage } from '../../page';
 import { ProfileAboutBackAction } from './action/back/main';

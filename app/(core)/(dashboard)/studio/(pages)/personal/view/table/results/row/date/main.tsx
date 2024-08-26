@@ -1,7 +1,7 @@
 'use client';
 
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function StudioSpacesRowDate() {

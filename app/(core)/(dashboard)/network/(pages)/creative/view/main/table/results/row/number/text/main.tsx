@@ -1,4 +1,4 @@
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 
 export function CreativeNetworkNumberText() {

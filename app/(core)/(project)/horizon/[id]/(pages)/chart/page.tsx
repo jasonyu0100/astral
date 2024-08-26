@@ -1,6 +1,6 @@
 'use client';
 
-import isAstralAuth from '@/(utils)/isAuth';
+import isAstralAuth from '@/utils/isAuth';
 import { HorizonChartView } from './view/main';
 import { HorizonChartSidebar } from './view/sidebar/main';
 

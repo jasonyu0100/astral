@@ -1,6 +1,6 @@
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
-import { ContextForUserConnectionList } from '@/(server)/(controller)/user/connection/list';
+import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 import { ContextForProfilePage, ProfilePage } from '../../../page';
 import { ContextForConnections } from '../main';

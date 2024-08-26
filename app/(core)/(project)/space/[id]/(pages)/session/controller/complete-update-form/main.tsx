@@ -1,5 +1,5 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { ChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { createContext, useContext, useState } from 'react';
 
 interface Controller {

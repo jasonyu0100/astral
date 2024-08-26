@@ -1,5 +1,5 @@
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { getFormattedDate } from '@/(utils)/dateFormat';
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function JournalRecordHeader() {

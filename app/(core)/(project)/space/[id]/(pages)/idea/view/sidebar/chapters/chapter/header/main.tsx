@@ -1,7 +1,7 @@
-import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/(glass)/area/main';
 
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { useContext } from 'react';
 import { SpaceIdeaHeaderTitle } from './title/main';
 

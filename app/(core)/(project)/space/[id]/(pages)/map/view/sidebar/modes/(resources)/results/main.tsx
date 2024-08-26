@@ -1,5 +1,5 @@
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
+import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { SpaceMapAddResource } from './add/main';
 import { SpaceMapResourceResource } from './resource/main';

@@ -1,5 +1,5 @@
-import { ContextForSpaceObj } from '@/(server)/(model)/space/main';
-import { ContextForUserObj } from '@/(server)/(model)/user/main';
+import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
 export function SpaceInfoDetail() {

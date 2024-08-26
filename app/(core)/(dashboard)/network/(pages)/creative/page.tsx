@@ -1,11 +1,11 @@
 'use client';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import {
   ContextForUserPrivateList,
   useControllerForUserPrivateList,
-} from '@/(server)/(controller)/user/private-list';
-import { ContextForLoggedInUserObj } from '@/(server)/(model)/user/main';
-import isAstralAuth from '@/(utils)/isAuth';
+} from '@/(server)/controller/user/private-list';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import isAstralAuth from '@/utils/isAuth';
 import { CreativeNetworkView } from './view/view';
 
 function Page() {

@@ -1,8 +1,8 @@
-import { ContextForIndexable } from '@/(logic)/contexts/indexable/main';
-import { ContextForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForChapterChatObj } from '@/(server)/(model)/space/chapter/chat/main';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForChapterChatObj } from '@/(server)/model/space/chapter/chat/main';
+import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { SpaceIdeaChatAdd } from './chat/add/main';
 import { ChatChapterChat } from './chat/main';

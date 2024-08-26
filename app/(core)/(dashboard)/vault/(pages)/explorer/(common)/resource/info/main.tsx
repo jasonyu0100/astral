@@ -1,10 +1,10 @@
 import { ExplorerEditResourceModal } from '@/(core)/(dashboard)/vault/(pages)/explorer/(modals)/edit/resource/main';
+import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { ContextForCollectionResourceObj } from '@/(server)/(model)/gallery/collection/resource/main';
-import { DivInputProps } from '@/(types)/props/main';
+} from '@/logic/contexts/openable/main';
+import { DivInputProps } from '@/types/props/main';
 import { useContext } from 'react';
 
 export function CollectionResourceInfo({ ...props }: DivInputProps) {

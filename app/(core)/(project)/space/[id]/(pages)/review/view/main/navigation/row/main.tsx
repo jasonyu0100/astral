@@ -1,5 +1,5 @@
-import { ContextForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/(model)/space/chapter/main';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { useContext } from 'react';
 import { ContextForSpaceReviewModals } from '../../../../modal/controller/main';
 import SpaceReviewRowAdd from './add/main';

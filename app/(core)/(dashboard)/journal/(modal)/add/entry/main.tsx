@@ -1,17 +1,17 @@
-import { FormTextArea } from '@/(components)/(form)/area/main';
-import { FormBody } from '@/(components)/(form)/body/main';
-import { FormButton } from '@/(components)/(form)/button/main';
-import { FormUploadFile } from '@/(components)/(form)/file/upload/upload-file/main';
-import { FormFooter } from '@/(components)/(form)/footer/main';
-import { FormInput } from '@/(components)/(form)/input/main';
-import { FormContainer } from '@/(components)/(form)/main';
-import { FormTitle } from '@/(components)/(form)/title/main';
-import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForGalleryCollectionList } from '@/(server)/(controller)/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/(server)/(controller)/gallery/collection/resource/list';
-import { FileElem } from '@/(server)/(model)/elements/file/main';
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
+import { FileElem } from '@/(server)/model/elements/file/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { FormTextArea } from '@/ui/(form)/area/main';
+import { FormBody } from '@/ui/(form)/body/main';
+import { FormButton } from '@/ui/(form)/button/main';
+import { FormUploadFile } from '@/ui/(form)/file/upload/upload-file/main';
+import { FormFooter } from '@/ui/(form)/footer/main';
+import { FormInput } from '@/ui/(form)/input/main';
+import { FormContainer } from '@/ui/(form)/main';
+import { FormTitle } from '@/ui/(form)/title/main';
+import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddResourceModal() {

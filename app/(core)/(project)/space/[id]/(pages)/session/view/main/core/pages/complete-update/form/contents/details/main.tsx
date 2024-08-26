@@ -1,8 +1,8 @@
-import { GlassAreaPane } from '@/(components)/(glass)/area/pane/main';
-import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-update-form/main';
-import { glassFx } from '@/(style)/data';
+import { glassFx } from '@/style/data';
+import { GlassAreaPane } from '@/ui/(glass)/area/pane/main';
+import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdateFormDetails() {

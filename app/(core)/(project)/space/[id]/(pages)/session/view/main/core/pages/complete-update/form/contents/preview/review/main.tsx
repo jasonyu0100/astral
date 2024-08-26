@@ -1,6 +1,6 @@
-import { useControllerForChapterReviewMain } from '@/(server)/(controller)/space/chapter/review/main';
-import { ElementVariant } from '@/(server)/(model)/elements/main';
-import { ContextForChapterSessionUpdateObj } from '@/(server)/(model)/space/chapter/session/update/main';
+import { useControllerForChapterReviewMain } from '@/(server)/controller/space/chapter/review/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { ContextForChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { useContext } from 'react';
 
 export function SpaceSessionUpdatePreviewReview() {

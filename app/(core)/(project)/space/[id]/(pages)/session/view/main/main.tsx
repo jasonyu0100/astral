@@ -1,8 +1,8 @@
-import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
+} from '@/logic/contexts/openable/main';
+import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,
