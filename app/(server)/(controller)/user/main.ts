@@ -23,7 +23,7 @@ interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;
   polarAuth(email: string): Promise<boolean>;
-  versesAuth(domain: string): Promise<boolean>;
+  astralAuth(domain: string): Promise<boolean>;
 }
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
@@ -74,7 +74,7 @@ const useControllerForUserMain = (objId: string): Controller => {
       alert('Authing email via Polaroid');
       return false;
     },
-    versesAuth: async (domain: string) => {
+    astralAuth: async (domain: string) => {
       console.log(domain);
       alert('Authing domain via Astrals');
       return false;

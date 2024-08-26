@@ -13,8 +13,8 @@ import { SpaceSessionUpdatePreviewChapter } from './preview/chapter/main';
 import { SpaceSessionUpdatePreviewChat } from './preview/chat/main';
 import { SpaceSessionUpdatePreviewConversation } from './preview/conversation/main';
 import { SpaceSessionUpdatePreviewIdea } from './preview/idea/main';
+import { SpaceSessionUpdatePreviewReview } from './preview/review/main';
 import { SpaceSessionUpdatePreviewScene } from './preview/scene/main';
-import { SpaceSessionUpdatePreviewVerse } from './preview/verse/main';
 
 export function SpaceSessionViewUpdateForm() {
   const sessionUpdateListController = useContext(ContextForSessionUpdateList);
@@ -33,8 +33,8 @@ export function SpaceSessionViewUpdateForm() {
         <div className='flex h-full w-full flex-col space-y-[2rem]'>
           <div className='flex flex-col space-y-[1rem]'>
             <ContextForChapterSessionUpdateObj.Provider value={current}>
-              {current.variant === ChapterSessionUpdateVariant.VERSE && (
-                <SpaceSessionUpdatePreviewVerse />
+              {current.variant === ChapterSessionUpdateVariant.REVIEW && (
+                <SpaceSessionUpdatePreviewReview />
               )}
               {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
                 <SpaceSessionUpdatePreviewChapter />

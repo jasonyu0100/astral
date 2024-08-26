@@ -4,7 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
 import { glassFx } from '@/(style)/data';
-import { SpaceReviewAddVerseCommentModal } from '../../(modal)/add/comment/main';
+import { SpaceReviewAddReviewCommentModal } from '../../(modal)/add/comment/main';
 import { SpaceReviewSidebarList } from './list/main';
 import { SpaceReviewSidebarSearch } from './search/main';
 
@@ -14,7 +14,7 @@ export function SpaceReviewSidebar() {
   return (
     <>
       <ContextForOpenable.Provider value={commentOpenableController}>
-        <SpaceReviewAddVerseCommentModal />
+        <SpaceReviewAddReviewCommentModal />
       </ContextForOpenable.Provider>
       <GlassAreaContainer
         name={SpaceReviewSidebar.name}

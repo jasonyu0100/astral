@@ -25,7 +25,7 @@ export function SpaceMapAddFileIdeaModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
@@ -36,23 +36,23 @@ export function SpaceMapAddFileIdeaModal() {
   const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   async function createFileIdea() {
-    const idea =
-      await sceneIdeaListController.actions.createActions.createFromFile(
-        user.id,
-        sceneListController.state.objId,
-        title,
-        description,
-        0,
-        0,
-        150,
-        150,
-        file,
-      );
+    const idea = await ideaListController.actions.createActions.createFromFile(
+      user.id,
+      sceneListController.state.objId,
+      title,
+      description,
+      0,
+      0,
+      150,
+      150,
+      file,
+      ideaListController.state.objs.length,
+    );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      sceneIdeaListController.state.objId,
+      ideaListController.state.objId,
       idea.id,
     );
     openableController.close();

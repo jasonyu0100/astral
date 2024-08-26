@@ -5,7 +5,7 @@ export enum ChapterSessionUpdateVariant {
   CHAPTER = 'CHAPTER', // WHAT CHAPTERS WERE MADE
   CHAT = 'CHAT', // WHAT CHATS WERE MADE
   SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
-  VERSE = 'VERSE', // WHAT WORK WAS DONE
+  REVIEW = 'REVIEW', // WHAT WORK WAS DONE
   CONVERSATION = 'CONVERSATION', // WHAT CONVERSATIONS WERE MADE
   IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
 }
@@ -25,7 +25,7 @@ export interface ChapterSessionUpdateObj {
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
-  verseId?: string;
+  reviewId?: string;
 }
 
 export const ChapterSessionUpdateGql = `
@@ -44,7 +44,7 @@ type ChapterSessionUpdateObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  verseId: String
+  reviewId: String
 }
 `;
 
@@ -65,7 +65,7 @@ export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
-  verseId: undefined,
+  reviewId: undefined,
 };
 
 export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
@@ -83,7 +83,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    verseId: undefined,
+    reviewId: undefined,
   },
   {
     id: '0',
@@ -99,7 +99,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    verseId: undefined,
+    reviewId: undefined,
   },
   {
     id: '0',
@@ -115,7 +115,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    verseId: undefined,
+    reviewId: undefined,
   },
 ];
 

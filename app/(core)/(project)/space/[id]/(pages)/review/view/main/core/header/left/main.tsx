@@ -2,19 +2,19 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
-import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
+import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
 import { getFormattedDate } from '@/(utils)/dateFormat';
 import { useContext } from 'react';
-import { SpaceReviewAddVerseModal } from '../../../../../(modal)/add/verse/main';
+import { SpaceReviewReviewModal } from '../../../../../(modal)/add/review/main';
 
 export function SpaceReviewHeaderLeft() {
-  const verseListController = useContext(ContextForChapterVerseList);
+  const reviewListController = useContext(ContextForChapterReviewList);
   const openableController = useControllerForOpenable();
 
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <SpaceReviewAddVerseModal />
+        <SpaceReviewReviewModal />
       </ContextForOpenable.Provider>
       <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
         <p className='text-md font-light text-slate-300'>

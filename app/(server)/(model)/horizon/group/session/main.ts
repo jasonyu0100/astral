@@ -39,7 +39,7 @@ export const exampleHorizonGroupSessions: HorizonGroupSessionObj[] = [
     groupId: '0',
     userId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
   {
@@ -47,7 +47,7 @@ export const exampleHorizonGroupSessions: HorizonGroupSessionObj[] = [
     groupId: '0',
     userId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
   {
@@ -55,7 +55,7 @@ export const exampleHorizonGroupSessions: HorizonGroupSessionObj[] = [
     groupId: '0',
     userId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
 ];

@@ -7,13 +7,13 @@ import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
-import { ContextForVerseCommentList } from '@/(server)/(controller)/space/chapter/verse/comment/list';
-import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
+import { ContextForReviewCommentList } from '@/(server)/(controller)/space/chapter/review/comment/list';
+import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewAddVerseCommentModal() {
-  const verseListController = useContext(ContextForChapterVerseList);
-  const commentListController = useContext(ContextForVerseCommentList);
+export function SpaceReviewAddReviewCommentModal() {
+  const reviewListController = useContext(ContextForChapterReviewList);
+  const commentListController = useContext(ContextForReviewCommentList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [message, changeMessage] = useState('');
@@ -21,7 +21,7 @@ export function SpaceReviewAddVerseCommentModal() {
   async function createComment() {
     commentListController.actions.createActions.createComment(
       user.id,
-      verseListController.state.objId,
+      reviewListController.state.objId,
       message,
     );
     openableController.close();

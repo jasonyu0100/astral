@@ -1,19 +1,20 @@
 import { GlassAreaContainer } from '@/(components)/(glass)/area/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/(logic)/contexts/openable/main';
-import { ContextForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
-import { ContextForChapterVerseObj } from '@/(server)/(model)/space/chapter/verse/main';
+import { ContextForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
+import { ContextForChapterReviewObj } from '@/(server)/(model)/space/chapter/review/main';
 import { useContext } from 'react';
-import { SpaceReviewAddVerseModal } from '../../../(modal)/add/verse/main';
-import { SpaceReviewSidebarVerse } from './verse/main';
+import { SpaceReviewReviewModal } from '../../../(modal)/add/review/main';
+import { SpaceReviewSidebarReview } from './review/main';
 
 export function SpaceReviewSidebarList() {
-  const verseListController = useContext(ContextForChapterVerseList);
-  const verseOpenableController = useControllerForOpenable();
+  const reviewListController = useContext(ContextForChapterReviewList);
+  const reviewOpenableController = useControllerForOpenable();
   return (
-    <ContextForOpenable.Provider value={verseOpenableController}>
+    <ContextForOpenable.Provider value={reviewOpenableController}>
       <div style={{ height: '100%', width: '100%' }}>
         <GlassAreaContainer
           sizeFx='h-full w-full'
@@ -22,21 +23,27 @@ export function SpaceReviewSidebarList() {
         >
           <div className='h-full w-full overflow-auto  pr-[1rem]'>
             <div className='flex flex-col space-y-[1rem]'>
-              {/* <SpaceReviewSidebarAddVerse
-                onClick={verseOpenableController.open}
-              /> */}
               <div className='flex flex-col space-y-[0.5rem]'>
-                {verseListController.state.objs.map((verse) => (
-                  <ContextForChapterVerseObj.Provider value={verse}>
-                    <SpaceReviewSidebarVerse />
-                  </ContextForChapterVerseObj.Provider>
+                {reviewListController.state.objs.map((review) => (
+                  <ContextForChapterReviewObj.Provider value={review}>
+                    <SpaceReviewSidebarReview />
+                  </ContextForChapterReviewObj.Provider>
+                ))}
+              </div>
+              <div className='flex flex-col space-y-[0.5rem]'>
+                <p className='font-bold text-slate-300'>Complete</p>
+                <HorizontalDivider />
+                {reviewListController.state.objs.map((review) => (
+                  <ContextForChapterReviewObj.Provider value={review}>
+                    <SpaceReviewSidebarReview />
+                  </ContextForChapterReviewObj.Provider>
                 ))}
               </div>
             </div>
           </div>
         </GlassAreaContainer>
       </div>
-      <SpaceReviewAddVerseModal />
+      <SpaceReviewReviewModal />
     </ContextForOpenable.Provider>
   );
 }

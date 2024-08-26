@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { glassFx } from '@/(style)/data';
 
-export function SpaceReviewSidebarAddVerse({
+export function SpaceReviewSidebarAddReview({
   onClick,
 }: {
   onClick: () => void;
@@ -43,7 +43,7 @@ export function SpaceReviewSidebarAddVerse({
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
       <div className='flex flex-col'>
-        <p className='text-sm font-bold text-white'>New Verse</p>
+        <p className='text-sm font-bold text-white'>New Review</p>
       </div>
     </div>
   );

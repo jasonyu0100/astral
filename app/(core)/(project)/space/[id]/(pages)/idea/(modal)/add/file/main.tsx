@@ -7,11 +7,9 @@ import { FormContainer } from '@/(components)/(form)/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
-import { ContextForSpaceMain } from '@/(server)/(controller)/space/main';
 import { useContext, useState } from 'react';
 
 export function SpaceIdeaAddAttachmentModal() {
-  const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

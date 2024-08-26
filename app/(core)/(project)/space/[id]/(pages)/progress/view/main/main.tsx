@@ -26,7 +26,7 @@ export function SpaceProgressMain() {
   useEffect(() => {
     const elTodo = document.getElementById('todo');
     const elInProgress = document.getElementById('in-progress');
-    const elInVerses = document.getElementById('in-verses');
+    const elReview = document.getElementById('review');
     const elDone = document.getElementById('done');
     Sortable.create(elTodo, {
       group: 'shared', // set both lists to same group
@@ -36,7 +36,7 @@ export function SpaceProgressMain() {
       group: 'shared', // set both lists to same group
       animation: 500,
     });
-    Sortable.create(elInVerses, {
+    Sortable.create(elReview, {
       group: 'shared', // set both lists to same group
       animation: 500,
     });
@@ -86,40 +86,22 @@ export function SpaceProgressMain() {
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>In Progress</p>
               <SpaceProgressList>
-                <ul id='in-progress' className='h-full w-full space-y-[1rem]'>
-                  <li>
-                    <SpaceProgressListItem>QWER</SpaceProgressListItem>
-                  </li>
-                  <li>
-                    <SpaceProgressListItem>sdaf</SpaceProgressListItem>
-                  </li>
-                </ul>
+                <ul
+                  id='in-progress'
+                  className='h-full w-full space-y-[1rem]'
+                ></ul>
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>Review</p>
               <SpaceProgressList>
-                <ul id='in-verses' className='h-full w-full space-y-[1rem]'>
-                  <li>
-                    <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-                  </li>
-                  <li>
-                    <SpaceProgressListItem>dasasd</SpaceProgressListItem>
-                  </li>
-                </ul>
+                <ul id='review' className='h-full w-full space-y-[1rem]'></ul>
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>Done</p>
               <SpaceProgressList>
-                <ul id='done' className='h-full w-full space-y-[1rem]'>
-                  <li>
-                    <SpaceProgressListItem>adsdas</SpaceProgressListItem>
-                  </li>
-                  <li>
-                    <SpaceProgressListItem>dasasd</SpaceProgressListItem>
-                  </li>
-                </ul>
+                <ul id='done' className='h-full w-full space-y-[1rem]'></ul>
               </SpaceProgressList>
             </div>
           </div>

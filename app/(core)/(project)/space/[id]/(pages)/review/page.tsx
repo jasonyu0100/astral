@@ -5,13 +5,13 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/(controller)/space/chapter/list';
 import {
-  ContextForVerseCommentList,
-  useControllerForVerseCommentList,
-} from '@/(server)/(controller)/space/chapter/verse/comment/list';
+  ContextForReviewCommentList,
+  useControllerForReviewCommentList,
+} from '@/(server)/(controller)/space/chapter/review/comment/list';
 import {
-  ContextForChapterVerseList,
-  useControllerForChapterVerseList,
-} from '@/(server)/(controller)/space/chapter/verse/list';
+  ContextForChapterReviewList,
+  useControllerForChapterReviewList,
+} from '@/(server)/(controller)/space/chapter/review/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -24,22 +24,22 @@ function Page({ params }: { params: { id: string } }) {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(params.id);
-  const verseListController = useControllerForChapterVerseList(
+  const reviewListController = useControllerForChapterReviewList(
     chapterListController.state.objId,
   );
-  const commentListController = useControllerForVerseCommentList(
-    verseListController.state.objId,
+  const commentListController = useControllerForReviewCommentList(
+    reviewListController.state.objId,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterVerseList.Provider value={verseListController}>
-            <ContextForVerseCommentList.Provider value={commentListController}>
+          <ContextForChapterReviewList.Provider value={reviewListController}>
+            <ContextForReviewCommentList.Provider value={commentListController}>
               <SpaceReviewView />
-            </ContextForVerseCommentList.Provider>
-          </ContextForChapterVerseList.Provider>
+            </ContextForReviewCommentList.Provider>
+          </ContextForChapterReviewList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>

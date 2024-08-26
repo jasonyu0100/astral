@@ -11,6 +11,7 @@ import { ElementVariant } from '@/(server)/(model)/elements/main';
 import { TextElem } from '@/(server)/(model)/elements/text/main';
 import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import {
+  SceneIdeaColumn,
   sceneIdeaModel,
   SceneIdeaObj,
 } from '@/(server)/(model)/space/chapter/scene/idea/main';
@@ -47,6 +48,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     width: number,
     height: number,
     fileElem: FileElem,
+    idx: number,
   ) => Promise<TargetObj>;
   createFromLink: (
     userId: string,
@@ -58,6 +60,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     width: number,
     height: number,
     urlElem: UrlElem,
+    idx: number,
   ) => Promise<TargetObj>;
   createFromText: (
     userId: string,
@@ -69,6 +72,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     width: number,
     height: number,
     textElem: TextElem,
+    idx: number,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -269,6 +273,8 @@ const useControllerForSceneIdeaList = (
         height: height,
         scale: 1,
         rotation: 0,
+        idx: 0,
+        column: SceneIdeaColumn.IDEAS,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -300,6 +306,8 @@ const useControllerForSceneIdeaList = (
         scale: 1,
         rotation: 0,
         userId: userId,
+        idx: 0,
+        column: SceneIdeaColumn.IDEAS,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -331,6 +339,8 @@ const useControllerForSceneIdeaList = (
         scale: 1,
         rotation: 0,
         userId: userId,
+        idx: 0,
+        column: SceneIdeaColumn.IDEAS,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -351,6 +361,8 @@ const useControllerForSceneIdeaList = (
         scale: 1,
         rotation: 0,
         userId: '',
+        idx: 0,
+        column: SceneIdeaColumn.IDEAS,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

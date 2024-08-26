@@ -2,12 +2,12 @@ import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
 import { useControllerForUserMain } from '@/(server)/(controller)/user/main';
-import { ContextForVerseCommentObj } from '@/(server)/(model)/space/chapter/verse/comment/main';
+import { ContextForReviewCommentObj } from '@/(server)/(model)/space/chapter/review/comment/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
 
 export function SpaceReviewSidebarComment() {
-  const comment = useContext(ContextForVerseCommentObj);
+  const comment = useContext(ContextForReviewCommentObj);
   const userController = useControllerForUserMain(comment.userId);
 
   return (

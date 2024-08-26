@@ -55,6 +55,25 @@ type ChapterChatObjConnection {
   nextToken: String
 }
 
+type ChapterReviewObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  status: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+}
+
+type ChapterReviewObjConnection {
+  items: [ChapterReviewObj]
+  nextToken: String
+}
+
 type ChapterSceneObj {
   id: String!
   userId: String!
@@ -124,29 +143,11 @@ type ChapterSessionUpdateObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  verseId: String
+  reviewId: String
 }
 
 type ChapterSessionUpdateObjConnection {
   items: [ChapterSessionUpdateObj]
-  nextToken: String
-}
-
-type ChapterVerseObj {
-  id: String!
-  chapterId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  variant: String!
-  fileElem: FileElem
-  textElem: TextElem
-  urlElem: UrlElem
-}
-
-type ChapterVerseObjConnection {
-  items: [ChapterVerseObj]
   nextToken: String
 }
 
@@ -240,6 +241,16 @@ input CreateChapterChatObjInput {
   created: String!
 }
 
+input CreateChapterReviewObjInput {
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  status: String!
+}
+
 input CreateChapterSceneObjInput {
   chapterId: String!
   userId: String!
@@ -284,19 +295,7 @@ input CreateChapterSessionUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  verseId: String
-}
-
-input CreateChapterVerseObjInput {
-  chapterId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  variant: String!
-  fileElem: FileElemInput
-  textElem: TextElemInput
-  urlElem: UrlElemInput
+  reviewId: String
 }
 
 input CreateChatConversationObjInput {
@@ -491,11 +490,24 @@ input CreatePostCommentObjInput {
   created: String!
 }
 
+input CreateReviewCommentObjInput {
+  userId: String
+  reviewId: String!
+  created: String!
+  message: String!
+}
+
+input CreateReviewMemberObjInput {
+  reviewId: String!
+  userId: String!
+  created: String!
+}
+
 input CreateSceneIdeaObjInput {
   sceneId: String!
   userId: String!
-  stackId: String
-  stackIdx: Int
+  idx: Int!
+  column: String!
   title: String!
   description: String!
   x: Int!
@@ -624,19 +636,6 @@ input CreateUserSupporterObjInput {
   created: String!
 }
 
-input CreateVerseCommentObjInput {
-  userId: String!
-  verseId: String!
-  created: String!
-  message: String!
-}
-
-input CreateVerseMemberObjInput {
-  verseId: String!
-  userId: String!
-  created: String!
-}
-
 input DeleteAgentObjInput {
   id: String!
 }
@@ -650,6 +649,10 @@ input DeleteArcPointObjInput {
 }
 
 input DeleteChapterChatObjInput {
+  id: String!
+}
+
+input DeleteChapterReviewObjInput {
   id: String!
 }
 
@@ -670,10 +673,6 @@ input DeleteChapterSessionUpdateMemberObjInput {
 }
 
 input DeleteChapterSessionUpdateObjInput {
-  id: String!
-}
-
-input DeleteChapterVerseObjInput {
   id: String!
 }
 
@@ -781,6 +780,14 @@ input DeletePostCommentObjInput {
   id: String!
 }
 
+input DeleteReviewCommentObjInput {
+  id: String!
+}
+
+input DeleteReviewMemberObjInput {
+  id: String!
+}
+
 input DeleteSceneIdeaObjInput {
   id: String!
 }
@@ -834,14 +841,6 @@ input DeleteUserReservationObjInput {
 }
 
 input DeleteUserSupporterObjInput {
-  id: String!
-}
-
-input DeleteVerseCommentObjInput {
-  id: String!
-}
-
-input DeleteVerseMemberObjInput {
   id: String!
 }
 
@@ -1163,12 +1162,37 @@ type PostCommentObjConnection {
   nextToken: String
 }
 
+type ReviewCommentObj {
+  id: String!
+  userId: String
+  reviewId: String!
+  created: String!
+  message: String!
+}
+
+type ReviewCommentObjConnection {
+  items: [ReviewCommentObj]
+  nextToken: String
+}
+
+type ReviewMemberObj {
+  id: String!
+  reviewId: String!
+  userId: String!
+  created: String!
+}
+
+type ReviewMemberObjConnection {
+  items: [ReviewMemberObj]
+  nextToken: String
+}
+
 type SceneIdeaObj {
   id: String!
   userId: String!
   sceneId: String!
-  stackId: String
-  stackIdx: Int
+  idx: Int!
+  column: String!
   title: String!
   description: String!
   x: Int!
@@ -1306,6 +1330,17 @@ input TableChapterChatObjFilterInput {
   created: TableStringFilterInput
 }
 
+input TableChapterReviewObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  status: TableStringFilterInput
+}
+
 input TableChapterSceneObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
@@ -1355,17 +1390,7 @@ input TableChapterSessionUpdateObjFilterInput {
   conversationId: TableStringFilterInput
   sceneId: TableStringFilterInput
   ideaId: TableStringFilterInput
-  verseId: TableStringFilterInput
-}
-
-input TableChapterVerseObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  chapterId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  variant: TableStringFilterInput
+  reviewId: TableStringFilterInput
 }
 
 input TableChatConversationObjFilterInput {
@@ -1618,13 +1643,28 @@ input TablePostCommentObjFilterInput {
   created: TableStringFilterInput
 }
 
+input TableReviewCommentObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  reviewId: TableStringFilterInput
+  created: TableStringFilterInput
+  message: TableStringFilterInput
+}
+
+input TableReviewMemberObjFilterInput {
+  id: TableStringFilterInput
+  reviewId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
 input TableSceneIdeaObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
   sceneId: TableStringFilterInput
   title: TableStringFilterInput
-  stackId: TableStringFilterInput
-  stackIdx: TableIntFilterInput
+  idx: TableIntFilterInput
+  column: TableStringFilterInput
   description: TableStringFilterInput
   x: TableIntFilterInput
   y: TableIntFilterInput
@@ -1772,21 +1812,6 @@ input TableUserSupporterObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableVerseCommentObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  verseId: TableStringFilterInput
-  created: TableStringFilterInput
-  message: TableStringFilterInput
-}
-
-input TableVerseMemberObjFilterInput {
-  id: TableStringFilterInput
-  verseId: TableStringFilterInput
-  userId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
 type TextElem {
   id: String!
   title: String
@@ -1835,6 +1860,17 @@ input UpdateChapterChatObjInput {
   title: String
   description: String
   created: String
+}
+
+input UpdateChapterReviewObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  title: String
+  description: String
+  created: String
+  variant: String
+  status: String
 }
 
 input UpdateChapterSceneObjInput {
@@ -1886,20 +1922,7 @@ input UpdateChapterSessionUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  verseId: String
-}
-
-input UpdateChapterVerseObjInput {
-  id: String!
-  userId: String
-  chapterId: String
-  title: String
-  description: String
-  created: String
-  variant: String!
-  fileElem: FileElemInput
-  textElem: TextElemInput
-  urlElem: UrlElemInput
+  reviewId: String
 }
 
 input UpdateChatConversationObjInput {
@@ -2117,12 +2140,27 @@ input UpdatePostCommentObjInput {
   created: String
 }
 
+input UpdateReviewCommentObjInput {
+  id: String!
+  userId: String
+  reviewId: String
+  created: String
+  message: String
+}
+
+input UpdateReviewMemberObjInput {
+  id: String!
+  reviewId: String
+  userId: String
+  created: String
+}
+
 input UpdateSceneIdeaObjInput {
   id: String!
   userId: String
   sceneId: String
-  stackId: String
-  stackIdx: Int
+  idx: Int
+  column: String
   title: String
   description: String
   x: Int
@@ -2265,21 +2303,6 @@ input UpdateUserSupporterObjInput {
   created: String
 }
 
-input UpdateVerseCommentObjInput {
-  id: String!
-  userId: String
-  verseId: String
-  created: String
-  message: String
-}
-
-input UpdateVerseMemberObjInput {
-  id: String!
-  verseId: String
-  userId: String
-  created: String
-}
-
 type UrlElem {
   id: String!
   url: String
@@ -2410,31 +2433,6 @@ type UserSupporterObjConnection {
   nextToken: String
 }
 
-type VerseCommentObj {
-  id: String!
-  userId: String!
-  verseId: String!
-  created: String!
-  message: String!
-}
-
-type VerseCommentObjConnection {
-  items: [VerseCommentObj]
-  nextToken: String
-}
-
-type VerseMemberObj {
-  id: String!
-  verseId: String!
-  userId: String!
-  created: String!
-}
-
-type VerseMemberObjConnection {
-  items: [VerseMemberObj]
-  nextToken: String
-}
-
 type Mutation {
   createChapterSceneObj(input: CreateChapterSceneObjInput!): ChapterSceneObj
   updateChapterSceneObj(input: UpdateChapterSceneObjInput!): ChapterSceneObj
@@ -2487,9 +2485,6 @@ type Mutation {
   createUserObj(input: CreateUserObjInput!): UserObj
   updateUserObj(input: UpdateUserObjInput!): UserObj
   deleteUserObj(input: DeleteUserObjInput!): UserObj
-  createVerseCommentObj(input: CreateVerseCommentObjInput!): VerseCommentObj
-  updateVerseCommentObj(input: UpdateVerseCommentObjInput!): VerseCommentObj
-  deleteVerseCommentObj(input: DeleteVerseCommentObjInput!): VerseCommentObj
   createGalleryCollectionObj(
     input: CreateGalleryCollectionObjInput!
   ): GalleryCollectionObj
@@ -2502,9 +2497,6 @@ type Mutation {
   createSpaceChapterObj(input: CreateSpaceChapterObjInput!): SpaceChapterObj
   updateSpaceChapterObj(input: UpdateSpaceChapterObjInput!): SpaceChapterObj
   deleteSpaceChapterObj(input: DeleteSpaceChapterObjInput!): SpaceChapterObj
-  createChapterVerseObj(input: CreateChapterVerseObjInput!): ChapterVerseObj
-  updateChapterVerseObj(input: UpdateChapterVerseObjInput!): ChapterVerseObj
-  deleteChapterVerseObj(input: DeleteChapterVerseObjInput!): ChapterVerseObj
   createGalleryObj(input: CreateGalleryObjInput!): GalleryObj
   updateGalleryObj(input: UpdateGalleryObjInput!): GalleryObj
   deleteGalleryObj(input: DeleteGalleryObjInput!): GalleryObj
@@ -2526,9 +2518,6 @@ type Mutation {
   createGalleryMemberObj(input: CreateGalleryMemberObjInput!): GalleryMemberObj
   updateGalleryMemberObj(input: UpdateGalleryMemberObjInput!): GalleryMemberObj
   deleteGalleryMemberObj(input: DeleteGalleryMemberObjInput!): GalleryMemberObj
-  createVerseMemberObj(input: CreateVerseMemberObjInput!): VerseMemberObj
-  updateVerseMemberObj(input: UpdateVerseMemberObjInput!): VerseMemberObj
-  deleteVerseMemberObj(input: DeleteVerseMemberObjInput!): VerseMemberObj
   createUserCollaboratorObj(
     input: CreateUserCollaboratorObjInput!
   ): UserCollaboratorObj
@@ -2742,6 +2731,15 @@ type Mutation {
   deleteHorizonGroupSessionContributorObj(
     input: DeleteHorizonGroupSessionContributorObjInput!
   ): HorizonGroupSessionContributorObj
+  createReviewCommentObj(input: CreateReviewCommentObjInput!): ReviewCommentObj
+  updateReviewCommentObj(input: UpdateReviewCommentObjInput!): ReviewCommentObj
+  deleteReviewCommentObj(input: DeleteReviewCommentObjInput!): ReviewCommentObj
+  createChapterReviewObj(input: CreateChapterReviewObjInput!): ChapterReviewObj
+  updateChapterReviewObj(input: UpdateChapterReviewObjInput!): ChapterReviewObj
+  deleteChapterReviewObj(input: DeleteChapterReviewObjInput!): ChapterReviewObj
+  createReviewMemberObj(input: CreateReviewMemberObjInput!): ReviewMemberObj
+  updateReviewMemberObj(input: UpdateReviewMemberObjInput!): ReviewMemberObj
+  deleteReviewMemberObj(input: DeleteReviewMemberObjInput!): ReviewMemberObj
 }
 
 type Query {
@@ -2812,12 +2810,6 @@ type Query {
     limit: Int
     nextToken: String
   ): UserObjConnection
-  getVerseCommentObj(id: String!): VerseCommentObj
-  listVerseCommentObjs(
-    filter: TableVerseCommentObjFilterInput
-    limit: Int
-    nextToken: String
-  ): VerseCommentObjConnection
   getGalleryCollectionObj(id: String!): GalleryCollectionObj
   listGalleryCollectionObjs(
     filter: TableGalleryCollectionObjFilterInput
@@ -2830,12 +2822,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SpaceChapterObjConnection
-  getChapterVerseObj(id: String!): ChapterVerseObj
-  listChapterVerseObjs(
-    filter: TableChapterVerseObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ChapterVerseObjConnection
   getGalleryObj(id: String!): GalleryObj
   listGalleryObjs(
     filter: TableGalleryObjFilterInput
@@ -2878,12 +2864,6 @@ type Query {
     limit: Int
     nextToken: String
   ): GalleryMemberObjConnection
-  getVerseMemberObj(id: String!): VerseMemberObj
-  listVerseMemberObjs(
-    filter: TableVerseMemberObjFilterInput
-    limit: Int
-    nextToken: String
-  ): VerseMemberObjConnection
   getUserCollaboratorObj(id: String!): UserCollaboratorObj
   listUserCollaboratorObjs(
     filter: TableUserCollaboratorObjFilterInput
@@ -3062,6 +3042,24 @@ type Query {
     limit: Int
     nextToken: String
   ): HorizonGroupSessionContributorObjConnection
+  getReviewCommentObj(id: String!): ReviewCommentObj
+  listReviewCommentObjs(
+    filter: TableReviewCommentObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ReviewCommentObjConnection
+  getChapterReviewObj(id: String!): ChapterReviewObj
+  listChapterReviewObjs(
+    filter: TableChapterReviewObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterReviewObjConnection
+  getReviewMemberObj(id: String!): ReviewMemberObj
+  listReviewMemberObjs(
+    filter: TableReviewMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ReviewMemberObjConnection
 }
 
 type Subscription {
@@ -3299,24 +3297,6 @@ type Subscription {
     passwordHash: String
     email: String
   ): UserObj @aws_subscribe(mutations: ["deleteUserObj"])
-  onCreateVerseCommentObj(
-    id: String
-    userId: String
-    verseId: String
-    created: String
-  ): VerseCommentObj @aws_subscribe(mutations: ["createVerseCommentObj"])
-  onUpdateVerseCommentObj(
-    id: String
-    userId: String
-    verseId: String
-    created: String
-  ): VerseCommentObj @aws_subscribe(mutations: ["updateVerseCommentObj"])
-  onDeleteVerseCommentObj(
-    id: String
-    userId: String
-    verseId: String
-    created: String
-  ): VerseCommentObj @aws_subscribe(mutations: ["deleteVerseCommentObj"])
   onCreateGalleryCollectionObj(
     id: String
     galleryId: String
@@ -3359,27 +3339,6 @@ type Subscription {
     description: String
     idx: Int
   ): SpaceChapterObj @aws_subscribe(mutations: ["deleteSpaceChapterObj"])
-  onCreateChapterVerseObj(
-    id: String
-    chapterId: String
-    title: String
-    description: String
-    created: String
-  ): ChapterVerseObj @aws_subscribe(mutations: ["createChapterVerseObj"])
-  onUpdateChapterVerseObj(
-    id: String
-    chapterId: String
-    title: String
-    description: String
-    created: String
-  ): ChapterVerseObj @aws_subscribe(mutations: ["updateChapterVerseObj"])
-  onDeleteChapterVerseObj(
-    id: String
-    chapterId: String
-    title: String
-    description: String
-    created: String
-  ): ChapterVerseObj @aws_subscribe(mutations: ["deleteChapterVerseObj"])
   onCreateGalleryObj(
     id: String
     userId: String
@@ -3497,21 +3456,6 @@ type Subscription {
     galleryId: String
     userId: String
   ): GalleryMemberObj @aws_subscribe(mutations: ["deleteGalleryMemberObj"])
-  onCreateVerseMemberObj(
-    id: String
-    verseId: String
-    userId: String
-  ): VerseMemberObj @aws_subscribe(mutations: ["createVerseMemberObj"])
-  onUpdateVerseMemberObj(
-    id: String
-    verseId: String
-    userId: String
-  ): VerseMemberObj @aws_subscribe(mutations: ["updateVerseMemberObj"])
-  onDeleteVerseMemberObj(
-    id: String
-    verseId: String
-    userId: String
-  ): VerseMemberObj @aws_subscribe(mutations: ["deleteVerseMemberObj"])
   onCreateUserCollaboratorObj(
     id: String
     userId: String
@@ -4130,4 +4074,64 @@ type Subscription {
     created: String
   ): HorizonGroupSessionContributorObj
     @aws_subscribe(mutations: ["deleteHorizonGroupSessionContributorObj"])
+  onCreateReviewCommentObj(
+    id: String
+    userId: String
+    reviewId: String
+    created: String
+    message: String
+  ): ReviewCommentObj @aws_subscribe(mutations: ["createReviewCommentObj"])
+  onUpdateReviewCommentObj(
+    id: String
+    userId: String
+    reviewId: String
+    created: String
+    message: String
+  ): ReviewCommentObj @aws_subscribe(mutations: ["updateReviewCommentObj"])
+  onDeleteReviewCommentObj(
+    id: String
+    userId: String
+    reviewId: String
+    created: String
+    message: String
+  ): ReviewCommentObj @aws_subscribe(mutations: ["deleteReviewCommentObj"])
+  onCreateChapterReviewObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["createChapterReviewObj"])
+  onUpdateChapterReviewObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["updateChapterReviewObj"])
+  onDeleteChapterReviewObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["deleteChapterReviewObj"])
+  onCreateReviewMemberObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ReviewMemberObj @aws_subscribe(mutations: ["createReviewMemberObj"])
+  onUpdateReviewMemberObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ReviewMemberObj @aws_subscribe(mutations: ["updateReviewMemberObj"])
+  onDeleteReviewMemberObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ReviewMemberObj @aws_subscribe(mutations: ["deleteReviewMemberObj"])
 }

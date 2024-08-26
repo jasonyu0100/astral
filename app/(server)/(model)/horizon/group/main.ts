@@ -40,7 +40,7 @@ export const exampleHorizonGroups: HorizonGroupObj[] = [
     horizonId: '0',
     parentId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
   {
@@ -48,7 +48,7 @@ export const exampleHorizonGroups: HorizonGroupObj[] = [
     horizonId: '0',
     parentId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
   {
@@ -56,7 +56,7 @@ export const exampleHorizonGroups: HorizonGroupObj[] = [
     horizonId: '0',
     parentId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
 ];

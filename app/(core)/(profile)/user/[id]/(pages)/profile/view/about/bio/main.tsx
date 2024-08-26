@@ -15,8 +15,7 @@ export function ProfileAboutBio() {
       <div className='flex w-full flex-col space-y-[1rem]'>
         <p className='text-wrap max-w-[250px] text-sm font-light text-white'>
           A collaborative workflow that adapts to your creativity. For creatives
-          by creatives, verses (formerly cosmos) is a creative suite based out
-          of Sydney, AU.
+          by creatives, astral is a creative suite based out of Sydney, AU.
         </p>
       </div>
     </>

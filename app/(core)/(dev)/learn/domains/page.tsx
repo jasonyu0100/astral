@@ -43,18 +43,7 @@ export default function Page() {
   ]);
 
   useEffect(() => {
-    setDomains([
-      null,
-      'mermaidbound.au',
-      'vidup.ai',
-      'ouros.media',
-      'famillia.co',
-      'audioromes.com',
-      'cosmosweb.co',
-      'verses.digital',
-      'pulsar.club',
-      'dilemma.live',
-    ]);
+    setDomains([null]);
   }, []);
 
   return (

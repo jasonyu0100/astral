@@ -21,7 +21,7 @@ export function SpaceMapAddUrlIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
@@ -64,55 +64,55 @@ export function SpaceMapAddUrlIdeaModal() {
   }
 
   async function createIdeaFromYouTube() {
-    const idea =
-      await sceneIdeaListController.actions.createActions.createFromLink(
-        user.id,
-        sceneListController.state.objId,
-        title,
-        description,
-        0,
-        0,
-        150,
-        150,
-        {
-          id: crypto.randomUUID(),
-          title: `Youtube ${youtubeId}`,
-          url: `https://www.youtube.com/embed/${youtubeId}`,
-          variant: UrlElemVariant.YOUTUBE,
-        } as UrlElem,
-      );
+    const idea = await ideaListController.actions.createActions.createFromLink(
+      user.id,
+      sceneListController.state.objId,
+      title,
+      description,
+      0,
+      0,
+      150,
+      150,
+      {
+        id: crypto.randomUUID(),
+        title: `Youtube ${youtubeId}`,
+        url: `https://www.youtube.com/embed/${youtubeId}`,
+        variant: UrlElemVariant.YOUTUBE,
+      } as UrlElem,
+      ideaListController.state.objs.length,
+    );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      sceneIdeaListController.state.objId,
+      ideaListController.state.objId,
       idea.id,
     );
   }
 
   async function createIdeaFromSpotify() {
-    const idea =
-      await sceneIdeaListController.actions.createActions.createFromLink(
-        user.id,
-        sceneIdeaListController.state.objId,
-        title,
-        description,
-        0,
-        0,
-        150,
-        150,
-        {
-          id: crypto.randomUUID(),
-          title: `Spotify ${spotifyId}`,
-          url: `https://open.spotify.com/embed/track/${spotifyId}`,
-          variant: UrlElemVariant.SPOTIFY,
-        } as UrlElem,
-      );
+    const idea = await ideaListController.actions.createActions.createFromLink(
+      user.id,
+      ideaListController.state.objId,
+      title,
+      description,
+      0,
+      0,
+      150,
+      150,
+      {
+        id: crypto.randomUUID(),
+        title: `Spotify ${spotifyId}`,
+        url: `https://open.spotify.com/embed/track/${spotifyId}`,
+        variant: UrlElemVariant.SPOTIFY,
+      } as UrlElem,
+      ideaListController.state.objs.length,
+    );
     await updateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      sceneIdeaListController.state.objId,
+      ideaListController.state.objId,
       idea.id,
     );
   }

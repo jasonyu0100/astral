@@ -36,14 +36,14 @@ export const exampleArcForums: ArcForumObj[] = [
     id: '0',
     arcId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
   {
     id: '1',
     arcId: '0',
     title: 'Work from creativity',
-    description: 'Verse Description',
+    description: 'Review Description',
     created: new Date().toISOString(),
   },
 ];

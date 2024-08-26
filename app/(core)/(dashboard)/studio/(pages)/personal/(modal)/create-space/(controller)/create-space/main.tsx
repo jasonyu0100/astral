@@ -2,9 +2,9 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useControllerForChapterChatList } from '@/(server)/(controller)/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/(controller)/space/chapter/list';
+import { useControllerForChapterReviewList } from '@/(server)/(controller)/space/chapter/review/list';
 import { useControllerForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/(controller)/space/chapter/session/update/chapter-list';
-import { useControllerForChapterVerseList } from '@/(server)/(controller)/space/chapter/verse/list';
 import { ContextForSpaceList } from '@/(server)/(controller)/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/(controller)/space/member/list';
 import { useControllerForSpaceMemberTermsList } from '@/(server)/(controller)/space/member/terms/list';
@@ -69,7 +69,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const chapterListController = useControllerForSpaceChapterList('');
   const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
-  const verseListController = useControllerForChapterVerseList('');
+  const reviewListController = useControllerForChapterReviewList('');
   const sessionUpdateListController =
     useControllerForSessionUpdateOfChapterList('');
   const spaceMembersListController = useControllerForSpaceMemberList('');
@@ -227,7 +227,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     return scenes;
   }
 
-  async function createVerses(
+  async function createReviews(
     space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
@@ -236,51 +236,51 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       chapters.length === templateSpaceChapters.length,
       'Chapters and template chapters must be the same length',
     );
-    const verses = await Promise.all(
+    const reviews = await Promise.all(
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter && templateChapter.verseTemplates.length > 0) {
-          const verses = await Promise.all(
-            templateChapter.verseTemplates.map(async (templateVerse) => {
-              const verse =
-                await verseListController.actions.createActions.createVerseFromFile(
-                  templateVerse.title,
-                  templateVerse.description,
+        if (templateChapter && templateChapter.reviewTemplates.length > 0) {
+          const reviews = await Promise.all(
+            templateChapter.reviewTemplates.map(async (templateReview) => {
+              const review =
+                await reviewListController.actions.createActions.createReviewFromFile(
+                  templateReview.title,
+                  templateReview.description,
                   user.id,
                   chapter.id,
                   exampleFileElem,
                 );
-              await sessionUpdateListController.actions.createActions.createFromChapterVerse(
+              await sessionUpdateListController.actions.createActions.createFromChapterReview(
                 user.id,
                 space.id,
                 chapter.id,
-                verse.id,
+                review.id,
               );
-              return verse;
+              return review;
             }),
           );
-          return verses;
+          return reviews;
         } else {
-          const verse =
-            await verseListController.actions.createActions.createVerseFromFile(
+          const review =
+            await reviewListController.actions.createActions.createReviewFromFile(
               'untitled',
               '',
               user.id,
               chapter.id,
               exampleFileElem,
             );
-          await sessionUpdateListController.actions.createActions.createFromChapterVerse(
+          await sessionUpdateListController.actions.createActions.createFromChapterReview(
             user.id,
             space.id,
             chapter.id,
-            verse.id,
+            review.id,
           );
-          return [verse];
+          return [review];
         }
       }),
     );
 
-    return verses;
+    return reviews;
   }
 
   async function createMembers(space: SpaceObj, members: string[]) {
@@ -332,11 +332,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('MEMBERS CREATED', members);
     const scenes = await createScenes(space, chapters, templateSpaceChapters);
     console.log('SCENES CREATED', scenes);
-    const verses = await createVerses(space, chapters, templateSpaceChapters);
-    console.log('VERSES CREATED', verses);
+    const reviews = await createReviews(space, chapters, templateSpaceChapters);
+    console.log('VERSES CREATED', reviews);
     const chats = await createChats(space, chapters, templateSpaceChapters);
     console.log('chats created', chats);
-    console.log('GALLERY CREATED', verses);
+    console.log('GALLERY CREATED', reviews);
     console.log('chats created', chats);
 
     return space;

@@ -3,9 +3,9 @@ import { ChapterSceneObj } from '@/(server)/(model)/space/chapter/scene/main';
 import { SpaceObj } from '@/(server)/(model)/space/main';
 import { createContext } from 'react';
 import { SpaceChapterObj } from '../../(model)/space/chapter/main';
+import { ReviewCommentObj } from '../../(model)/space/chapter/review/comment/main';
+import { ChapterReviewObj } from '../../(model)/space/chapter/review/main';
 import { SceneIdeaObj } from '../../(model)/space/chapter/scene/idea/main';
-import { VerseCommentObj } from '../../(model)/space/chapter/verse/comment/main';
-import { ChapterVerseObj } from '../../(model)/space/chapter/verse/main';
 import { defaultTemplate } from './general/custom/main';
 import { ideaTemplate } from './general/idea/main';
 import { barTemplate } from './music/bar/main';
@@ -43,7 +43,7 @@ export type _TemplateChapterObj = Omit<
 export interface TemplateChapterObj extends _TemplateChapterObj {
   chatTemplates: TemplateChatObj[];
   sceneTemplates: TemplateSceneObj[];
-  verseTemplates: TemplateVerseObj[];
+  reviewTemplates: TemplateReviewObj[];
 }
 
 export const ContextForTemplateChapter = createContext(
@@ -87,13 +87,13 @@ export interface TemplateSceneObj extends _TemplateSceneObj {
 
 // VERSE
 
-export type _TemplateVerseObj = Omit<ChapterVerseObj, 'id' | 'chapterId'>;
+export type _TemplateReviewObj = Omit<ChapterReviewObj, 'id' | 'chapterId'>;
 export type _TemplateCommentObj = Omit<
-  VerseCommentObj,
-  'id' | 'userId' | 'verseId' | 'time'
+  ReviewCommentObj,
+  'id' | 'userId' | 'reviewId' | 'time'
 >;
 
-export interface TemplateVerseObj extends _TemplateVerseObj {
+export interface TemplateReviewObj extends _TemplateReviewObj {
   comments?: _TemplateCommentObj[];
 }
 

@@ -16,7 +16,7 @@ export function ProfileAboutDetails() {
           {profileUser?.displayName || 'Display Name'}
         </p>
         <p className='font-light text-white'>
-          {profileUser?.email || 'creative@verses.digital'}
+          {profileUser?.email || 'creative@astrals.com.au'}
         </p>
       </div>
     </>

@@ -17,14 +17,14 @@ export function StudioSpacesRowStat() {
   const scenes = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.SCENE,
   );
-  const verses = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.VERSE,
+  const reviews = sessionUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterSessionUpdateVariant.REVIEW,
   );
 
   return (
     <div className='flex flex-row items-center justify-center'>
       <p className='text-sm font-bold text-slate-300'>
-        {chapters.length} / {chats.length} / {scenes.length} / {verses.length}
+        {chapters.length} / {chats.length} / {scenes.length} / {reviews.length}
       </p>
     </div>
   );

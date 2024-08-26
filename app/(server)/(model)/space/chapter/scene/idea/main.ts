@@ -8,14 +8,21 @@ import { UrlElem } from '@/(server)/(model)/elements/url/main';
 import { ModelInterface } from '@/(server)/(model)/main';
 import { createContext } from 'react';
 
+export enum SceneIdeaColumn {
+  IDEAS = 'todo',
+  IN_PROGRESS = 'in-progress',
+  REVIEW = 'review',
+  DONE = 'done',
+}
+
 export interface SceneIdeaObj {
   id: string;
+  idx: number;
   userId: string;
   sceneId: string;
   title: string;
   description: string;
-  stackId?: string;
-  stackIdx?: number;
+  column: string;
   x: number;
   y: number;
   width: number;
@@ -32,12 +39,12 @@ export interface SceneIdeaObj {
 export const sceneIdeaGql = `
 type SceneIdeaObj {
   id: String!
+  idx: Int!
   userId: String!
   sceneId: String!
   title: String!
   description: String!
-  stackId: String
-  stackIdx: Int!
+  column: String!
   x: Int!
   y: Int!
   width: Int!
@@ -58,12 +65,12 @@ export const ContextForSceneIdeaObj = createContext<SceneIdeaObj>(
 
 export const exampleSceneIdea: SceneIdeaObj = {
   id: '0',
+  idx: 0,
   userId: '0',
   sceneId: '0',
   title: 'Star 1',
   description: 'Twinkle twinkle little star',
-  stackId: '0',
-  stackIdx: 0,
+  column: SceneIdeaColumn.IDEAS,
   x: 120,
   y: 120,
   width: 100,
@@ -78,12 +85,12 @@ export const exampleSceneIdea: SceneIdeaObj = {
 export const exampleSceneIdeas: SceneIdeaObj[] = [
   {
     id: '0',
+    idx: 0,
     userId: '0',
     sceneId: '0',
     title: 'Star 0',
     description: 'Twinkle twinkle little star',
-    stackId: '0',
-    stackIdx: 0,
+    column: SceneIdeaColumn.IDEAS,
     x: 120,
     y: 120,
     width: 100,
@@ -96,12 +103,12 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
   },
   {
     id: '1',
+    idx: 1,
     userId: '0',
     sceneId: '0',
     title: 'Star 1',
     description: 'Twinkle twinkle little star',
-    stackId: '0',
-    stackIdx: 0,
+    column: SceneIdeaColumn.IDEAS,
     x: 240,
     y: 120,
     width: 100,
@@ -114,12 +121,12 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
   },
   {
     id: '2',
+    idx: 2,
     userId: '0',
     sceneId: '0',
     title: 'Star 2',
     description: 'Twinkle twinkle little star',
-    stackId: '0',
-    stackIdx: 0,
+    column: SceneIdeaColumn.IDEAS,
     x: 360,
     y: 120,
     width: 100,

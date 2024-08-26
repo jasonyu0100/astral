@@ -19,7 +19,7 @@ import { useContext, useState } from 'react';
 
 export function SpaceMapAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
-  const sceneIdeaListController = useContext(ContextForSceneIdeaList);
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
@@ -28,7 +28,7 @@ export function SpaceMapAddTextIdeaModal() {
   const [text, changeText] = useState<string>('');
 
   function create() {
-    sceneIdeaListController.actions.createActions
+    ideaListController.actions.createActions
       .createFromText(
         user.id,
         sceneListController.state.objId,
@@ -44,6 +44,7 @@ export function SpaceMapAddTextIdeaModal() {
           text: text,
           variant: variant,
         } as TextElem,
+        ideaListController.state.objs.length,
       )
       .then(() => {
         openableController.close();

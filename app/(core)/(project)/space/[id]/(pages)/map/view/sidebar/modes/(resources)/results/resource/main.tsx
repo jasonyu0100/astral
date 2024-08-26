@@ -33,6 +33,7 @@ export function SpaceMapResourceResource() {
       150,
       150,
       resource.fileElem || ({} as FileElem),
+      ideaListController.state.objs.length,
     );
     await sessionUpdateListController.actions.createActions.createFromChapterSceneIdea(
       loggedInUser.id,
