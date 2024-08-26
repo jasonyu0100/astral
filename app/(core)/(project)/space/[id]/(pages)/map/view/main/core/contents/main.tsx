@@ -15,7 +15,7 @@ export function SpaceMapCoreContents() {
         <div className='h-full flex-grow'>
           <SpaceMapContentsScene />
         </div>
-        <div className='flex h-full w-[6rem] flex-col items-center justify-center space-y-[1rem] px-[1rem]'>
+        <div className='z-40 flex h-full w-[6rem] flex-col items-center justify-center space-y-[1rem] px-[1rem]'>
           <SpaceMapCoreContentsPalette />
         </div>
       </div>

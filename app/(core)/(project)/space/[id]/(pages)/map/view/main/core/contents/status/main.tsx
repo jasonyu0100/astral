@@ -15,7 +15,7 @@ export function SpaceMapCoreContentsStatus() {
   const openableController = useControllerForOpenable();
 
   return (
-    <div className='flex h-[10rem] w-full flex-shrink-0 items-center justify-center p-[2rem]'>
+    <div className='z-40 flex h-[10rem] w-full flex-shrink-0 items-center justify-center p-[2rem]'>
       <GlassWindowFrame
         className='h-full w-full items-center justify-center p-[2rem]'
         roundedFx={roundedFx.rounded}
