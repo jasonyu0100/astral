@@ -1,30 +1,23 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
 import { ContextForChapterSceneList } from '@/(server)/(controller)/space/chapter/scene/list';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
-import { SpaceMapAddSceneModal } from '../../../../../(modal)/add/scene/main';
+import { ContextForSpaceMapModals } from '../../../../../(modal)/controller/main';
 
 export function SpaceMapCoreContentsStatus() {
   const sceneListController = useContext(ContextForChapterSceneList);
-  const openableController = useControllerForOpenable();
+  const modalController = useContext(ContextForSpaceMapModals);
 
   return (
-    <div className='z-40 flex h-[10rem] w-full flex-shrink-0 items-center justify-center p-[2rem]'>
+    <div className='flex h-[10rem] w-full flex-shrink-0 items-center justify-center p-[2rem]'>
       <GlassWindowFrame
         className='h-full w-full items-center justify-center p-[2rem]'
         roundedFx={roundedFx.rounded}
         borderFx={borderFx['border-around']}
       >
         <GlassWindowContents className='flex flex-row items-center'>
-          <ContextForOpenable.Provider value={openableController}>
-            <SpaceMapAddSceneModal />
-          </ContextForOpenable.Provider>
           <div className='flex w-full flex-row items-center space-x-[2rem]'>
             <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
               <p className='text-2xl font-bold text-slate-300'>
@@ -50,7 +43,7 @@ export function SpaceMapCoreContentsStatus() {
                     sceneListController.state.index ===
                     sceneListController.state.objs.length - 1
                   ) {
-                    openableController.open();
+                    modalController.addSceneController.open();
                   } else {
                     sceneListController.actions.stateActions.goNext();
                   }

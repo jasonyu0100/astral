@@ -1,17 +1,18 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { glassFx } from '@/(style)/data';
 import { useContext } from 'react';
+import { ContextForSpaceMapModals } from '../../../../../../(modal)/controller/main';
 
 export function SpaceMapAddResource() {
-  const openableController = useContext(ContextForOpenable);
+  const modalController = useContext(ContextForSpaceMapModals);
+
   return (
     <GlassWindowFrame className='aspect-square w-full'>
       <GlassWindowContents
         className='flex cursor-pointer items-center justify-center'
-        onClick={openableController.open}
+        onClick={() => modalController.addResourceController.open()}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

@@ -9,7 +9,7 @@ export function SpaceMapHeader() {
     <GlassAreaContainer
       name={SpaceMapHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
-      className={`z-50 flex items-center justify-between px-[1rem]`}
+      className={`flex items-center justify-between px-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
       <SpaceMapHeaderLeft />

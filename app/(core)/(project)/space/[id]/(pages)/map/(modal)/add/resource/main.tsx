@@ -8,6 +8,7 @@ import { FormInput } from '@/(components)/(form)/input/main';
 import { FormContainer } from '@/(components)/(form)/main';
 import { FormSelect } from '@/(components)/(form)/select/main';
 import { FormTitle } from '@/(components)/(form)/title/main';
+import { HorizontalDivider } from '@/(components)/(indicator)/divider/horizontal/main';
 import { PolaroidModal } from '@/(components)/(modal)/polaroid/main';
 import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { useGlobalUser } from '@/(logic)/internal/store/user/main';
@@ -19,7 +20,7 @@ import {
 } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
-export function SpaceMapCreateResourceModal() {
+export function SpaceMapAddResourceModal() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);
@@ -27,7 +28,9 @@ export function SpaceMapCreateResourceModal() {
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileElem);
-  const [variant, changeVariant] = useState(FileElemVariant.IMAGE);
+  const [variant, changeVariant] = useState<FileElemVariant>(
+    FileElemVariant.IMAGE,
+  );
 
   async function createResource() {
     resourceListController.actions.createActions
@@ -49,7 +52,13 @@ export function SpaceMapCreateResourceModal() {
         <FormContainer>
           <FormTitle>Add Media</FormTitle>
           <FormBody>
-            {/* <FormSelect
+            <FormSearchImage
+              fileElem={file}
+              onChange={(file) => changeFile(file)}
+              label='Thumbnail'
+            />
+            <HorizontalDivider />
+            <FormSelect
               value={variant}
               onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
               title='Variant'
@@ -57,17 +66,12 @@ export function SpaceMapCreateResourceModal() {
               <option value={FileElemVariant.IMAGE}>Image</option>
               <option value={FileElemVariant.VIDEO}>Video</option>
               <option value={FileElemVariant.AUDIO}>Audio</option>
-            </FormSelect> */}
-            <FormSearchImage
-              fileElem={file}
-              onChange={(file) => changeFile(file)}
-              label='Thumbnail'
-            />
-            {/* <FormUploadFile
+            </FormSelect>
+            <FormUploadFile
               onChange={(file) => changeFile(file)}
               label='File'
               variant={variant}
-            /> */}
+            />
             <FormInput
               title='Title'
               value={name}

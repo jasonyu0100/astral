@@ -16,7 +16,7 @@ import { useGlobalUser } from '@/(logic)/internal/store/user/main';
 import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { useContext, useState } from 'react';
 
-export function SpaceMapCreateGalleryModal() {
+export function SpaceMapAddGalleryModal() {
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
   const galleryListController = useContext(ContextForGalleryList);

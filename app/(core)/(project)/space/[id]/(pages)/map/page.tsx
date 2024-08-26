@@ -37,6 +37,7 @@ import {
   ContextForSpaceMap,
   useControllerForSpaceMap,
 } from './(controller)/map/main';
+import { SpaceMapModals } from './(modal)/controller/main';
 import { SpaceMapView } from './view/main';
 
 export enum SpaceMapSidebarMediaMode {
@@ -120,7 +121,9 @@ function Page({ params }: { params: { id: string } }) {
                       <ContextForCollectionResourceList.Provider
                         value={resourceListController}
                       >
-                        <SpaceMapView />
+                        <SpaceMapModals>
+                          <SpaceMapView />
+                        </SpaceMapModals>
                       </ContextForCollectionResourceList.Provider>
                     </ContextForGalleryCollectionList.Provider>
                   </ContextForGalleryList.Provider>

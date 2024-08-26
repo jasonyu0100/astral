@@ -1,12 +1,12 @@
 import { GlassWindowContents } from '@/(components)/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/(components)/(glass)/window/main';
 import { GlassWindowPane } from '@/(components)/(glass)/window/pane/main';
-import { ContextForOpenable } from '@/(logic)/contexts/openable/main';
 import { borderFx, glassFx, roundedFx } from '@/(style)/data';
 import { useContext } from 'react';
+import { ContextForSpaceMapModals } from '../../../../../../(modal)/controller/main';
 
 export function SpaceMapGalleryAdd() {
-  const openableController = useContext(ContextForOpenable);
+  const modalController = useContext(ContextForSpaceMapModals);
 
   return (
     <GlassWindowFrame
@@ -15,7 +15,7 @@ export function SpaceMapGalleryAdd() {
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
-        onClick={openableController.open}
+        onClick={() => modalController.addGalleryController.open()}
         className='flex h-full cursor-pointer items-center justify-center'
       >
         <svg

@@ -14,7 +14,7 @@ import { ContextForGalleryList } from '@/(server)/(controller)/gallery/list';
 import { FileElem } from '@/(server)/(model)/elements/file/main';
 import { useContext, useState } from 'react';
 
-export function SpaceMapCreateCollectionModal() {
+export function SpaceMapAddCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const galleryController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);

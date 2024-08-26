@@ -10,7 +10,7 @@ export function SpaceMapTextLineIdea() {
   return (
     <div className='flex aspect-square h-full w-full flex-col items-center justify-center'>
       <input
-        className='z-50 resize-none bg-transparent text-center text-xs font-bold text-slate-300 outline-none'
+        className='resize-none bg-transparent text-center text-xs font-bold text-slate-300 outline-none'
         defaultValue={ideaObj.textElem?.text}
         onBlur={(e) => {
           ideaListController.actions.stateActions.updateObj(ideaObj.id, {

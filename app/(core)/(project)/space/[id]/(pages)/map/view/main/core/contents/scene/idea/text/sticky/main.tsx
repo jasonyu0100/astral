@@ -10,7 +10,7 @@ export function SpaceMapTextStickyIdea() {
   return (
     <div className='aspect-square h-full bg-yellow-500 p-[1rem] shadow-lg'>
       <textarea
-        className='z-50 h-full w-full resize-none bg-transparent text-xs text-black outline-none'
+        className='h-full w-full resize-none bg-transparent text-xs text-black outline-none'
         defaultValue={ideaObj.textElem?.text}
         onBlur={(e) => {
           ideaListController.actions.stateActions.updateObj(ideaObj.id, {

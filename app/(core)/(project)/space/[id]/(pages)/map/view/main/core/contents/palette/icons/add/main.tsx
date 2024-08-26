@@ -1,23 +1,17 @@
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/(logic)/contexts/openable/main';
-import { SpaceMapAddFileIdeaModal } from '../../../../../../../(modal)/add/idea/file/main';
+import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/(modal)/controller/main';
+import { useContext } from 'react';
 
 export function AddIcon() {
-  const openableController = useControllerForOpenable();
+  const modalController = useContext(ContextForSpaceMapModals);
 
   return (
     <div>
-      <ContextForOpenable.Provider value={openableController}>
-        <SpaceMapAddFileIdeaModal />
-      </ContextForOpenable.Provider>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-[1.5rem] w-[1.5rem] cursor-pointer'
         viewBox='0 0 24 24'
         fill='none'
-        onClick={openableController.open}
+        onClick={modalController.addFileIdeaController.open}
       >
         <mask
           id='mask0_3261_5797'
