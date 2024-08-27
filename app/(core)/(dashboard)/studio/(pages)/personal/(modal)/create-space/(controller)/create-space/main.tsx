@@ -330,7 +330,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     const scenes = await createScenes(space, chapters, templateSpaceChapters);
     console.log('SCENES CREATED', scenes);
     const reviews = await createReviews(space, chapters, templateSpaceChapters);
-    console.log('VERSES CREATED', reviews);
+    console.log('REVIEWS CREATED', reviews);
     const chats = await createChats(space, chapters, templateSpaceChapters);
     console.log('chats created', chats);
     console.log('GALLERY CREATED', reviews);

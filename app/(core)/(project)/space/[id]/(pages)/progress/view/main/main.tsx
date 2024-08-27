@@ -137,7 +137,10 @@ export function SpaceProgressMain() {
                   ))}
                 </ul>
                 <SpaceProgressAddItem
-                  onClick={() => modalController.addTextIdeaController.open()}
+                  onClick={() => {
+                    setPopulated(false);
+                    modalController.addTextIdeaController.open();
+                  }}
                 >
                   <p className='font-bold text-slate-300'>Add Idea</p>
                   <AstralAddIcon />

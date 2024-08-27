@@ -20,6 +20,7 @@ export interface SceneIdeaObj {
   title: string;
   description: string;
   column: string;
+  hidden: boolean;
   x: number;
   y: number;
   width: number;
@@ -42,6 +43,7 @@ type SceneIdeaObj {
   title: String!
   description: String!
   column: String!
+  hidden: Boolean!
   x: Int!
   y: Int!
   width: Int!
@@ -68,6 +70,7 @@ export const exampleSceneIdea: SceneIdeaObj = {
   title: 'Star 1',
   description: 'Twinkle twinkle little star',
   column: SceneIdeaColumn.IDEAS,
+  hidden: false,
   x: 120,
   y: 120,
   width: 100,
@@ -88,6 +91,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     title: 'Star 0',
     description: 'Twinkle twinkle little star',
     column: SceneIdeaColumn.IDEAS,
+    hidden: false,
     x: 120,
     y: 120,
     width: 100,
@@ -106,6 +110,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     title: 'Star 1',
     description: 'Twinkle twinkle little star',
     column: SceneIdeaColumn.IDEAS,
+    hidden: false,
     x: 240,
     y: 120,
     width: 100,
@@ -124,6 +129,7 @@ export const exampleSceneIdeas: SceneIdeaObj[] = [
     title: 'Star 2',
     description: 'Twinkle twinkle little star',
     column: SceneIdeaColumn.IDEAS,
+    hidden: false,
     x: 360,
     y: 120,
     width: 100,

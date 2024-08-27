@@ -1,3 +1,7 @@
+import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { TextElem } from '@/(server)/model/elements/text/main';
+import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 export interface ReviewAttachmentObj {
@@ -5,7 +9,10 @@ export interface ReviewAttachmentObj {
   userId: string;
   reviewId: string;
   created: string;
-  message: string;
+  variant: string;
+  fileElem?: FileElem;
+  textElem?: TextElem;
+  urlElem?: UrlElem;
 }
 
 export const reviewAttachmentGql = `
@@ -14,7 +21,10 @@ type ReviewCommentObj {
   userId: String
   reviewId: String!
   created: String!
-  message: String!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
 }
 `;
 
@@ -26,8 +36,9 @@ export const exampleReviewAttachment: ReviewAttachmentObj = {
   id: '0',
   reviewId: '0',
   created: new Date().toISOString(),
-  message: 'This is pretty good actually',
   userId: '0',
+  variant: ElementVariant.FILE,
+  fileElem: exampleFileElem,
 };
 
 export const exampleReviewAttachments: ReviewAttachmentObj[] = [
@@ -35,22 +46,25 @@ export const exampleReviewAttachments: ReviewAttachmentObj[] = [
     id: '0',
     reviewId: '0',
     created: new Date().toISOString(),
-    message: 'Test Message',
     userId: '0',
+    variant: ElementVariant.FILE,
+    fileElem: exampleFileElem,
   },
   {
     id: '1',
     reviewId: '0',
     created: new Date().toISOString(),
-    message: 'Hello World',
     userId: '0',
+    variant: ElementVariant.FILE,
+    fileElem: exampleFileElem,
   },
   {
     id: '2',
     reviewId: '0',
     created: new Date().toISOString(),
-    message: 'Hello There',
     userId: '0',
+    variant: ElementVariant.FILE,
+    fileElem: exampleFileElem,
   },
 ];
 
