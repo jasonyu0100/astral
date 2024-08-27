@@ -30,24 +30,38 @@ export function SpaceProgressMain() {
   const [done, setDone] = useState([]);
 
   useEffect(() => {
-    if (ideaListController.state.objs.length > 0 && !populated) {
-      setTodo(
-        ideaListController.state.objs.filter((idea) => idea.column === 'todo'),
-      );
-      setInProgress(
-        ideaListController.state.objs.filter(
-          (idea) => idea.column === 'in-progress',
-        ),
-      );
-      setInReview(
-        ideaListController.state.objs.filter(
-          (idea) => idea.column === 'review',
-        ),
-      );
-      setDone(
-        ideaListController.state.objs.filter((idea) => idea.column === 'done'),
-      );
+    console.log(ideaListController.state.objs, populated);
+    if (!populated) {
+      if (ideaListController.state.objs.length > 0) {
+        setTodo(
+          ideaListController.state.objs.filter(
+            (idea) => idea.column === 'todo',
+          ),
+        );
+        setInProgress(
+          ideaListController.state.objs.filter(
+            (idea) => idea.column === 'in-progress',
+          ),
+        );
+        setInReview(
+          ideaListController.state.objs.filter(
+            (idea) => idea.column === 'review',
+          ),
+        );
+        setDone(
+          ideaListController.state.objs.filter(
+            (idea) => idea.column === 'done',
+          ),
+        );
+      } else {
+        setTodo([]);
+        setInProgress([]);
+        setInReview([]);
+        setDone([]);
+      }
       setPopulated(true);
+    } else {
+      setPopulated(false);
     }
   }, [ideaListController.state.objs, populated]);
 
@@ -106,7 +120,7 @@ export function SpaceProgressMain() {
     Sortable.create(elInProgress, sortableOptions);
     Sortable.create(elReview, sortableOptions);
     Sortable.create(elDone, sortableOptions);
-  }, []);
+  }, [sceneListController.state.currentObj]);
 
   return (
     <GlassWindowFrame
