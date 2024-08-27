@@ -3,12 +3,10 @@ import { useContext } from 'react';
 
 export default function SpaceIdeaHeaderMiddleTitle() {
   const chatListController = useContext(ContextForChapterChatList);
-  const chat = chatListController.state.currentObj;
 
-  const headerTitle = chat ? `${chat.title}` : 'None';
   return (
     <p className='text-lg font-light text-slate-300'>
-      chat - {headerTitle || 'untitled'}
+      {chatListController.state.currentObj?.title || 'untitled'}
     </p>
   );
 }

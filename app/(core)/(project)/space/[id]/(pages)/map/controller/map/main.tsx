@@ -7,6 +7,8 @@ interface Controller {
   mapMode: SpaceMapInteractionMode;
   sidebarMode: SpaceMapSidebarMode;
   listSceneMode: SpaceMapSidebarListMode;
+  peopleMode: SpaceMapPeopleMode;
+  updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
   updateSelectedIdea: (idea: SceneIdeaObj | null) => void;
   updateIdeaMode: (mode: SpaceMapIdeaMode) => void;
   updateMapMode: (mode: SpaceMapInteractionMode) => void;
@@ -26,6 +28,11 @@ export enum SpaceMapIdeaMode {
   DETAILS = 'Details',
 }
 
+export enum SpaceMapPeopleMode {
+  OFF = 'OFF',
+  ON = 'ON',
+}
+
 export enum SpaceMapSidebarMode {
   MEDIA = 'Media',
   LIST = 'List',
@@ -38,6 +45,9 @@ export enum SpaceMapSidebarListMode {
 
 export function useControllerForSpaceMap(): Controller {
   const [selectedIdea, setSelectedIdea] = useState<SceneIdeaObj | null>(null);
+  const [peopleMode, setPeopleMode] = useState<SpaceMapPeopleMode>(
+    SpaceMapPeopleMode.OFF,
+  );
   const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarListMode>(
     SpaceMapSidebarListMode.DEFAULT,
   );
@@ -53,11 +63,13 @@ export function useControllerForSpaceMap(): Controller {
 
   return {
     selectedIdea: selectedIdea,
+    peopleMode: peopleMode,
     ideaMode: ideaMode,
     mapMode: mapMode,
     sidebarMode: listMode,
     listSceneMode: listSceneMode,
     updateSelectedIdea: (idea) => setSelectedIdea(idea),
+    updatePeopleMode: (mode) => setPeopleMode(mode),
     updateIdeaMode: (mode) => setIdeaMode(mode),
     updateMapMode: (mode) => setMode(mode),
     updateSidebarMode: (mode) => setListMode(mode),

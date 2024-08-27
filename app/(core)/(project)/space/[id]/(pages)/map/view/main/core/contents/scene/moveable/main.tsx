@@ -1,17 +1,21 @@
 'use client';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { ProfileCover } from '@/ui/(element)/profile/main';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
   ContextForSpaceMap,
   SpaceMapIdeaMode,
+  SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
 import { parseTransformString } from '../../../../../../utils/transformation/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const mapController = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const index = useContext(ContextForIndexable);
@@ -63,13 +67,17 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         </div>
         {mapController.ideaMode !== SpaceMapIdeaMode.VISUAL && (
           <div className='absolute top-0 flex h-full w-full justify-center'>
-            <div className='flex aspect-[12/9] w-full flex-col bg-slate-950'>
-              <p className='h-full w-full p-[1rem] text-[10px] font-bold text-slate-300'>
-                {ideaListController.state.currentObj?.title}
+            <div className='flex aspect-[12/9] w-full flex-col space-y-[5px] bg-yellow-500 p-[10px]'>
+              <p className='w-full text-[10px] font-bold text-black'>
+                {ideaListController.state.currentObj?.title || 'Untitled'}
               </p>
-              <p className='h-full w-full p-[1rem] text-[10px] font-light text-slate-300'>
+              <p className='w-full text-[10px] font-bold text-black'>
+                {ideaListController.state.currentObj?.description ||
+                  'No description'}
+              </p>
+              <p className=' w-full text-[10px] font-light text-black'>
                 {ideaListController.state.currentObj?.width},
-                {ideaListController.state.currentObj?.height}
+                {ideaListController.state.currentObj?.height},
                 {ideaListController.state.currentObj?.x},
                 {ideaListController.state.currentObj?.y}
               </p>
@@ -81,6 +89,14 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
             <p className='font-bold text-white'>{index + 1}</p>
           </div>
         </div>
+        {mapController.peopleMode === SpaceMapPeopleMode.ON && (
+          <div className='absolute bottom-[0.5rem] left-[0.5rem] flex flex-col items-center'>
+            <ProfileCover
+              fileElem={loggedInUser.dp}
+              className='h-[1.5rem] w-[1.5rem]'
+            />
+          </div>
+        )}
       </div>
       <Moveable
         ref={moveableRef}
