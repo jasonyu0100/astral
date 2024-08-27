@@ -69,10 +69,11 @@ export function SpaceReviewReviewMain() {
         </div>
         <div className='col-span-3 flex flex-col p-[2rem]'>
           <ul className='list-disc px-[1rem] text-slate-500'>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
-            <li>test</li>
+            <p>10 hours</p>
+            <p>card a</p>
+            <p>card b</p>
+            <p>card c</p>
+            <p>card d</p>
           </ul>
         </div>
       </div>

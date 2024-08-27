@@ -4,10 +4,9 @@ import { ElementVariant } from '@/(server)/model/elements/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { ContextForSpaceProgressModals } from '../../modal/controller/main';
@@ -114,7 +113,12 @@ export function SpaceProgressMain() {
         <div style={{ height: 'calc(100% - 10rem)' }}>
           <div className='grid h-full w-full grid-cols-4 gap-[1rem] px-[2rem] pt-[1rem]'>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-              <p className='font-bold text-slate-300'>Ideas</p>
+              <div className='flex w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'>
+                <p className='font-bold text-slate-300'>Ideas</p>
+                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-green-500'>
+                  <p className='font-bold text-slate-300'>{todo.length}</p>
+                </div>
+              </div>
               <SpaceProgressList>
                 <ul id='todo' className='w-full space-y-[1rem]'>
                   {todo.map((idea) => (
@@ -148,7 +152,14 @@ export function SpaceProgressMain() {
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-              <p className='font-bold text-slate-300'>In Progress</p>
+              <div className='flex w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'>
+                <p className='font-bold text-slate-300'>In Progress</p>
+                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-orange-500'>
+                  <p className='font-bold text-slate-300'>
+                    {inProgress.length}
+                  </p>
+                </div>
+              </div>
               <SpaceProgressList>
                 <ul id='in-progress' className='h-full w-full space-y-[1rem]'>
                   {inProgress.map((idea) => (
@@ -173,7 +184,12 @@ export function SpaceProgressMain() {
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-              <p className='font-bold text-slate-300'>Review</p>
+              <div className='flex flex-row items-center justify-between space-x-[1rem] px-[1rem]'>
+                <p className='font-bold text-slate-300'>In Review</p>
+                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-red-500'>
+                  <p className='font-bold text-slate-300'>{review.length}</p>
+                </div>
+              </div>
               <SpaceProgressList>
                 <ul id='review' className='h-full w-full space-y-[1rem]'>
                   {review
@@ -200,7 +216,12 @@ export function SpaceProgressMain() {
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-              <p className='font-bold text-slate-300'>Done</p>
+              <div className='flex w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'>
+                <p className='font-bold text-slate-300'>Done</p>
+                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-purple-500'>
+                  <p className='font-bold text-slate-300'>{review.length}</p>
+                </div>
+              </div>
               <SpaceProgressList>
                 <ul id='done' className='h-full w-full space-y-[1rem]'>
                   {done.map((idea) => (
@@ -226,52 +247,44 @@ export function SpaceProgressMain() {
             </div>
           </div>
         </div>
-        <div className='h-[10rem] w-full p-[2rem]'>
-          <GlassWindowFrame
-            className='h-full w-full items-center justify-center p-[2rem]'
-            roundedFx={roundedFx.rounded}
-            borderFx={borderFx['border-around']}
-          >
-            <GlassWindowContents className='flex flex-row items-center'>
-              <div className='flex w-full flex-row items-center space-x-[2rem]'>
-                <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
-                  <p className='text-2xl font-bold text-slate-300'>
-                    {sceneListController.state.index + 1}
-                  </p>
-                </div>
-                <div className='flex w-full flex-col'>
-                  <p className='text-lg font-bold text-slate-300'>
-                    {sceneListController.state.currentObj?.title}
-                  </p>
-                  <p className='text-md font-light text-slate-300'>
-                    {sceneListController.state.currentObj?.description}
-                  </p>
-                </div>
-                <div className='flex flex-col items-center justify-center'>
-                  <AstralChevronUpIcon
-                    className='h-[2rem] w-[2rem]'
-                    onClick={() => {
-                      if (
-                        sceneListController.state.index ===
-                        sceneListController.state.objs.length - 1
-                      ) {
-                        modalController.addSceneController.open();
-                      } else {
-                        sceneListController.actions.stateActions.goNext();
-                      }
-                    }}
-                  />
-                  <AstralChevronDownIcon
-                    className='h-[2rem] w-[2rem]'
-                    onClick={() => {
-                      sceneListController.actions.stateActions.goPrev();
-                    }}
-                  />
-                </div>
+        <div className='flex h-[12rem] w-full flex-col p-[2rem]'>
+          <HorizontalDivider />
+          <GlassWindowFrame className='h-full w-full items-center justify-center px-[2rem]'>
+            <GlassWindowContents className='flex h-full w-full flex-row'>
+              <div className='flex h-full w-full flex-col justify-center space-y-[0.5rem]'>
+                <p className='text-lg font-bold text-slate-300'>
+                  {sceneListController.state.index + 1}.{' '}
+                  {sceneListController.state.currentObj?.title}
+                </p>
+                <p className='text-sm font-light text-slate-300'>
+                  Objective:
+                  {sceneListController.state.currentObj?.description}
+                </p>
+              </div>
+              <div className='flex flex-col items-center justify-center'>
+                <AstralChevronUpIcon
+                  className='h-[2.5rem] w-[2.5rem]'
+                  onClick={() => {
+                    if (
+                      sceneListController.state.index ===
+                      sceneListController.state.objs.length - 1
+                    ) {
+                      modalController.addSceneController.open();
+                    } else {
+                      sceneListController.actions.stateActions.goNext();
+                    }
+                  }}
+                />
+                <AstralChevronDownIcon
+                  className='h-[2.5rem] w-[2.5rem]'
+                  onClick={() => {
+                    sceneListController.actions.stateActions.goPrev();
+                  }}
+                />
               </div>
             </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
           </GlassWindowFrame>
+          <HorizontalDivider />
         </div>
       </SpaceProgressContainer>
       <SpaceProgressChapterNavigation />

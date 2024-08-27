@@ -46,14 +46,14 @@ export function SpaceIdeaAddChatModal() {
           <FormTitle>Add Chat</FormTitle>
           <FormBody>
             <FormInput
-              placeholder='Title'
               title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
             <FormTextArea
-              title='Summary'
-              rows={5}
+              title='Objective'
+              placeholder='Set an objective for your chat'
+              rows={8}
               value={summary}
               onChange={(e) => changeSummary(e.target.value)}
               style={{ resize: 'none' }}

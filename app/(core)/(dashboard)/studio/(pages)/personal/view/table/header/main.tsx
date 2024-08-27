@@ -6,13 +6,13 @@ export function StudioSpacesTableHeader() {
         <p className='px-[0.5rem] font-bold text-slate-500'>space</p>
         <p className='text-center font-bold text-slate-500'></p>
         <div />
-        <div />
         <div className='col-span-2 grid grid-cols-4'>
           <p className='text-center font-bold text-slate-500'>day</p>
           <p className='text-center font-bold text-slate-500'>length</p>
           <p className='text-center font-bold text-slate-500'>activity</p>
           <p className='text-center font-bold text-slate-500'>reviews</p>
         </div>
+        <div />
       </div>
     </div>
   );

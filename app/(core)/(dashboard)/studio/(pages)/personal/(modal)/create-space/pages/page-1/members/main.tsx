@@ -14,8 +14,8 @@ import { CreateSpaceCollaboratorList } from './list/main';
 import { CreateSpaceCollaborator } from './member/main';
 
 export function CreateSpaceMembers() {
-  const { pageOne } = useContext(ContextForCreateSpace);
-  const { memberIds, updateMemberIds } = pageOne;
+  const { pageThree } = useContext(ContextForCreateSpace);
+  const { memberIds, updateMemberIds } = pageThree;
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const connectListController = useControllerForUserConnectionList(
     loggedInUser.id,

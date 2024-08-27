@@ -23,8 +23,8 @@ export interface PageOne {
   updateTitle: (title: string) => void;
   thumbnail: FileElem;
   updateThumbnail: (thumbnail: FileElem) => void;
-  memberIds: string[];
-  updateMemberIds: (memberIds: string[]) => void;
+  description: string;
+  updateDescription: (description: string) => void;
   category: string;
   updateCategory: (category: string) => void;
 }
@@ -37,14 +37,14 @@ export interface PageTwo {
 }
 
 export interface PageThree {
-  description: string;
-  updateDescription: (description: string) => void;
   hours: number;
   updateHours: (hours: number) => void;
   target: string;
   updateTarget: (target: string) => void;
   thumbnail: FileElem;
   updateThumbnail: (thumbnail: FileElem) => void;
+  memberIds: string[];
+  updateMemberIds: (memberIds: string[]) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -78,7 +78,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState('');
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
-  const [hours, changeHours] = useState(100);
+  const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
@@ -350,8 +350,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateCategory: (category: string) => changeCategory(category),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
-    memberIds: memberIds,
-    updateMemberIds: (members: string[]) => changeMemberIds(members),
+    description,
+    updateDescription: (description: string) => changeDescription(description),
   };
 
   const pageTwo: PageTwo = {
@@ -364,8 +364,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageThree: PageThree = {
-    description,
-    updateDescription: (description: string) => changeDescription(description),
+    memberIds: memberIds,
+    updateMemberIds: (members: string[]) => changeMemberIds(members),
     hours: hours,
     updateHours: (hours: number) => changeHours(hours),
     target: target,

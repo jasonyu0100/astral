@@ -54,7 +54,8 @@ export function SpaceSessionAddSceneModal() {
             />
             <FormTextArea
               title='Objective'
-              rows={5}
+              placeholder='Set an objective for your scene'
+              rows={8}
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}

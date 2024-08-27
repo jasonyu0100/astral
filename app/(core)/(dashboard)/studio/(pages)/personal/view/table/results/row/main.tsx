@@ -1,3 +1,4 @@
+import { StudioSpacesRowIndicator } from './activity/main';
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
@@ -13,13 +14,13 @@ export function StudioSpacesRow() {
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />
       <div></div>
-      <div></div>
       <div className='col-span-2 grid grid-cols-4'>
         <StudioSpacesRowDays />
         <StudioSpacesRowLength />
         <StudioSpacesRowActivity />
         <StudioSpacesRowReviews />
       </div>
+      <StudioSpacesRowIndicator />
     </div>
   );
 }

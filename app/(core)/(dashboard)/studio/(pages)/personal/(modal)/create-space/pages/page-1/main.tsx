@@ -1,9 +1,9 @@
+import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormInput } from '@/ui/form/input/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
-import { CreateSpaceMembers } from './members/main';
 
 export function CreateSpaceModalPageOne() {
   const { pageOne } = useContext(ContextForCreateSpace);
@@ -14,6 +14,8 @@ export function CreateSpaceModalPageOne() {
     updateThumbnail,
     category,
     updateCategory,
+    description,
+    updateDescription,
   } = pageOne;
 
   return (
@@ -26,16 +28,21 @@ export function CreateSpaceModalPageOne() {
       <FormInput
         title='Title'
         value={title}
-        placeholder='e.g My Space'
         onChange={(e) => updateTitle(e.target.value)}
+      />
+      <FormTextArea
+        title='Objective'
+        placeholder='A direction for the space'
+        rows={8}
+        value={description}
+        onChange={(e) => updateDescription(e.target.value)}
+        style={{ resize: 'none' }}
       />
       <FormInput
         title='Category'
         value={category}
-        placeholder='e.g Music, Art, Design'
         onChange={(e) => updateCategory(e.target.value)}
       />
-      <CreateSpaceMembers />
     </FormBody>
   );
 }

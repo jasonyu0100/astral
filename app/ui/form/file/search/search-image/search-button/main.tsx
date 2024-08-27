@@ -3,10 +3,9 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import SearchModalView from '../(modal)/view';
 
@@ -20,8 +19,9 @@ export function SearchButton() {
         <SearchModalView />
       </ContextForOpenable.Provider>
       <GlassWindowFrame
-        roundedFx={roundedFx.rounded}
+        className='py-[0.5rem]'
         borderFx={borderFx['border-around']}
+        roundedFx={roundedFx.rounded}
       >
         <GlassWindowContents
           className='cursor-pointer p-[1rem]'
@@ -59,7 +59,6 @@ export function SearchButton() {
             </p>
           </div>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
     </>
   );

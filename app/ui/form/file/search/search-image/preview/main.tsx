@@ -1,9 +1,7 @@
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SearchImagePreview() {
@@ -12,12 +10,9 @@ export function SearchImagePreview() {
   );
 
   return (
-    <GlassWindowFrame
-      roundedFx={roundedFx.rounded}
-      borderFx={borderFx['border-around']}
-    >
+    <GlassWindowFrame className='py-[0.5rem]'>
       <GlassWindowContents
-        className='cursor-pointer p-[1rem]'
+        className='cursor-pointer'
         onClick={() => onChange({} as FileElem)}
       >
         <div className='flex w-full flex-row items-center'>
@@ -25,7 +20,7 @@ export function SearchImagePreview() {
             {file?.src ? (
               <>
                 <img
-                  className='aspect-square h-[100px] flex-shrink-0 rounded-full bg-black object-cover'
+                  className='aspect-square h-[8rem] flex-shrink-0 rounded-full bg-black object-cover'
                   src={file?.src}
                 />
                 <svg
@@ -97,7 +92,6 @@ export function SearchImagePreview() {
           )}
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

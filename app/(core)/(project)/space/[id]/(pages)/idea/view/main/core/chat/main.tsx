@@ -1,9 +1,12 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
+import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
@@ -14,6 +17,7 @@ import { SpaceIdeaMessage } from './message/main';
 export function SpaceIdeaChat() {
   const { role } = useContext(ContextForChat);
   const spaceController = useContext(ContextForSpaceMain);
+  const chatListController = useContext(ContextForChapterChatList);
   const conversationListController = useContext(ContextForChatConversationList);
   const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
@@ -55,9 +59,19 @@ export function SpaceIdeaChat() {
           </div>
         )}
         <HorizontalDivider />
-        <p className='font-bold text-white'>
-          {role}: {roleDescriptions[role as keyof typeof roleDescriptions]}
-        </p>
+        <GlassWindowFrame className='w-full flex-shrink-0 px-[1rem]'>
+          <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+            <p className='text-lg font-bold text-slate-300'>
+              {chatListController.state.currentObj?.description || 'Open-ended'}
+            </p>
+            <p className='text-sm font-light text-slate-300'>
+              {role}: {roleDescriptions[role as keyof typeof roleDescriptions]}
+            </p>
+            <p className='text-sm font-light text-slate-300'>
+              It looks like you're almost there...
+            </p>
+          </GlassWindowContents>
+        </GlassWindowFrame>
         <HorizontalDivider />
         {messageListController.state.objs.map((message) => (
           <ContextForConversationMessageObj.Provider
