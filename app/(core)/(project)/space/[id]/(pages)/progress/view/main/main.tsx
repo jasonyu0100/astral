@@ -20,7 +20,6 @@ import { SpaceProgressChapterNavigation } from './navigation/main';
 
 export function SpaceProgressMain() {
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const [populated, setPopulated] = useState(false);
   const sceneListController = useContext(ContextForChapterSceneList);
   const modalController = useContext(ContextForSpaceProgressModals);
 
@@ -29,41 +28,33 @@ export function SpaceProgressMain() {
   const [review, setInReview] = useState([]);
   const [done, setDone] = useState([]);
 
+  const [populated, setPopulated] = useState(false);
+
   useEffect(() => {
-    console.log(ideaListController.state.objs, populated);
-    if (!populated) {
-      if (ideaListController.state.objs.length > 0) {
-        setTodo(
-          ideaListController.state.objs.filter(
-            (idea) => idea.column === 'todo',
-          ),
-        );
-        setInProgress(
-          ideaListController.state.objs.filter(
-            (idea) => idea.column === 'in-progress',
-          ),
-        );
-        setInReview(
-          ideaListController.state.objs.filter(
-            (idea) => idea.column === 'review',
-          ),
-        );
-        setDone(
-          ideaListController.state.objs.filter(
-            (idea) => idea.column === 'done',
-          ),
-        );
-      } else {
-        setTodo([]);
-        setInProgress([]);
-        setInReview([]);
-        setDone([]);
-      }
+    setPopulated(false);
+  }, [sceneListController.state.currentObj]);
+
+  useEffect(() => {
+    if (!populated && ideaListController.state.objs.length > 0) {
+      setTodo(
+        ideaListController.state.objs.filter((idea) => idea.column === 'todo'),
+      );
+      setInProgress(
+        ideaListController.state.objs.filter(
+          (idea) => idea.column === 'in-progress',
+        ),
+      );
+      setInReview(
+        ideaListController.state.objs.filter(
+          (idea) => idea.column === 'review',
+        ),
+      );
+      setDone(
+        ideaListController.state.objs.filter((idea) => idea.column === 'done'),
+      );
       setPopulated(true);
-    } else {
-      setPopulated(false);
     }
-  }, [ideaListController.state.objs, populated]);
+  }, [sceneListController.state.currentObj, ideaListController.state.objs]);
 
   useEffect(() => {
     const elTodo = document.getElementById('todo');
@@ -78,35 +69,14 @@ export function SpaceProgressMain() {
 
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
-      // Process the fromOrder asynchronously
-      const fromOrder = await Promise.all(
-        Array.from(evt.from.children).map(async (child) => {
-          const childId = child.dataset.id;
-          await ideaListController.actions.editActions.edit(childId, {
-            column: fromList,
-          });
-          return childId;
-        }),
-      );
-
-      // Process the toOrder asynchronously
-      const toOrder = await Promise.all(
-        Array.from(evt.to.children).map(async (child) => {
-          const childId = child.dataset.id;
-          await ideaListController.actions.editActions.edit(childId, {
-            column: toList,
-          });
-          return childId;
-        }),
-      );
-
-      console.log(fromList, fromOrder, toList, toOrder);
+      await ideaListController.actions.editActions.edit(itemId, {
+        column: toList,
+      });
     };
 
     const sortableOptions = {
       group: 'shared', // Set both lists to the same group
       animation: 500,
-      onEnd: handleSortEnd, // Add sort end event listener
       onStart: (evt) => {
         evt.item.classList.add('dragging'); // Add dragging class on start
       },
