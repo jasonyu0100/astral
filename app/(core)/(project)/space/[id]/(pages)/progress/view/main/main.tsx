@@ -218,7 +218,7 @@ export function SpaceProgressMain() {
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <div className='flex w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'>
                 <p className='font-bold text-slate-300'>Done</p>
-                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-purple-500'>
+                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
                   <p className='font-bold text-slate-300'>{review.length}</p>
                 </div>
               </div>
@@ -259,6 +259,9 @@ export function SpaceProgressMain() {
                 <p className='text-sm font-light text-slate-300'>
                   Objective:
                   {sceneListController.state.currentObj?.description}
+                </p>
+                <p className='text-sm font-light text-slate-300'>
+                  It looks like you're almost there
                 </p>
               </div>
               <div className='flex flex-col items-center justify-center'>

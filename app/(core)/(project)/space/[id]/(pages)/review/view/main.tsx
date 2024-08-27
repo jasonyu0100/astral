@@ -1,7 +1,6 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceReviewMain } from './main/main';
-import { SpaceReviewSidebar } from './sidebar/main';
 
 export function SpaceReviewView() {
   return (
@@ -14,7 +13,7 @@ export function SpaceReviewView() {
       roundedFx={roundedFx['rounded-container-sm']}
     >
       <SpaceReviewMain />
-      <SpaceReviewSidebar />
+      {/* <SpaceReviewSidebar /> */}
     </GlassAreaContainer>
   );
 }

@@ -8,9 +8,9 @@ export function SpaceReviewContentsReview() {
       <GlassAreaContainer
         name={SpaceReviewContentsReview.name}
         sizeFx='w-full h-full'
-        className={`flex flex-col overflow-auto px-[2rem]`}
+        className={`flex flex-col overflow-auto`}
       >
-        <div className='flex flex-grow flex-col space-y-[4rem] pt-[2rem]'>
+        <div className='flex flex-grow flex-col'>
           <SpaceReviewReviewMain />
           <SpaceReviewContentComments />
         </div>

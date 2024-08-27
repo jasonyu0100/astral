@@ -1,6 +1,10 @@
 import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { glassFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { Carousel } from './carousel/main';
@@ -10,7 +14,7 @@ export function SpaceReviewReviewMain() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (
-    <div className='flex flex-col space-y-[1rem]'>
+    <div className='flex flex-col space-y-[2rem] p-[2rem] px-[4rem] pb-[4rem]'>
       <div className='flex w-full flex-row justify-between'>
         <div className='space-y-[0.5rem] px-[1rem]'>
           <p className=' text-sm font-light text-white'>
@@ -29,8 +33,8 @@ export function SpaceReviewReviewMain() {
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-7 gap-[1rem]'>
-        <div className='col-span-4 flex flex-col space-y-[2rem]'>
+      <div className='flex w-full flex-row space-x-[4rem]'>
+        <div className='flex w-full flex-col space-y-[2rem]'>
           <Carousel
             images={[
               reviewListController.state.currentObj?.fileElem?.src,
@@ -67,14 +71,11 @@ export function SpaceReviewReviewMain() {
               <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
             </div> */}
         </div>
-        <div className='col-span-3 flex flex-col p-[2rem]'>
-          <ul className='list-disc px-[1rem] text-slate-500'>
-            <p>10 hours</p>
-            <p>card a</p>
-            <p>card b</p>
-            <p>card c</p>
-            <p>card d</p>
-          </ul>
+        <div className='w-[600px]'>
+          <GlassWindowFrame className='flex h-full w-full flex-col p-[2rem]'>
+            <GlassWindowContents className='flex flex-col space-y-[1rem]'></GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
+          </GlassWindowFrame>
         </div>
       </div>
     </div>

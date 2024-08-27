@@ -1,7 +1,7 @@
 import { ContextForReviewCommentList } from '@/(server)/controller/space/chapter/review/comment/list';
 import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { borderFx, glassFx } from '@/style/data';
+import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -25,7 +25,7 @@ export function SpaceReviewContentInput() {
     <div className='flex flex-col space-y-[2rem]'>
       <GlassWindowFrame
         className='h-[4rem] w-full'
-        borderFx={borderFx['border-b']}
+        roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents>
           <input

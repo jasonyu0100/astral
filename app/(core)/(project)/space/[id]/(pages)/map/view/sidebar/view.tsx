@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -43,32 +43,32 @@ export function SpaceMapSidebarView() {
                       );
                     }}
                   >
-                    {chapterController.state.currentObj?.title}
+                    Scenes /{' '}
                   </p>
                 </GlassWindowContents>
               </GlassWindowFrame>
             ) : (
               <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
-                <GlassWindowContents className='flex h-full w-full items-center'>
-                  <p
-                    className='cursor-pointer text-sm font-bold text-slate-500'
-                    onClick={() => {
-                      mapController.updateListSceneMode(
-                        SpaceMapSidebarListMode.SCENES,
-                      );
-                    }}
-                  >
-                    {chapterController.state.currentObj?.title} /
-                  </p>
-                  <p
-                    className='cursor-pointer text-sm font-bold text-slate-500'
-                    onClick={() => {
-                      mapController.updateListSceneMode(
-                        SpaceMapSidebarListMode.DEFAULT,
-                      );
-                    }}
-                  >
-                    {sceneListController.state.currentObj?.title}
+                <GlassWindowContents className='flex h-full w-full items-center space-x-[1rem]'>
+                  <p className='cursor-pointer text-sm font-bold text-slate-500'>
+                    <span
+                      onClick={() => {
+                        mapController.updateListSceneMode(
+                          SpaceMapSidebarListMode.SCENES,
+                        );
+                      }}
+                    >
+                      Scenes /{' '}
+                    </span>
+                    <span
+                      onClick={() => {
+                        mapController.updateListSceneMode(
+                          SpaceMapSidebarListMode.DEFAULT,
+                        );
+                      }}
+                    >
+                      {sceneListController.state.currentObj?.title}
+                    </span>
                   </p>
                 </GlassWindowContents>
               </GlassWindowFrame>
@@ -87,14 +87,18 @@ export function SpaceMapSidebarView() {
             </GlassWindowFrame>
           </div>
           <div className='flex flex-col space-y-[1rem] p-[1rem]'>
-            <div className='flex flex-col space-y-[2rem]'>
+            <div className='flex flex-col space-y-[1rem]'>
               {mapController.listSceneMode ===
                 SpaceMapSidebarListMode.SCENES && (
                 <>
                   {sceneListController.state.objs.map((scene, index) => (
-                    <GlassWindowFrame>
+                    <GlassWindowFrame
+                      className='p-[1rem]'
+                      roundedFx={roundedFx.rounded}
+                      borderFx={borderFx['border-around']}
+                    >
                       <GlassWindowContents
-                        className='flex flex-row space-x-[1rem]'
+                        className='flex flex-row items-center space-x-[1rem]'
                         onClick={() => {
                           mapController.updateListSceneMode(
                             SpaceMapSidebarListMode.DEFAULT,
@@ -111,7 +115,7 @@ export function SpaceMapSidebarView() {
                         </div>
                         <div
                           key={scene.id}
-                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                          className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
                         >
                           <div className='text-lg font-bold'>
                             {scene.title || 'Untitled'}
@@ -121,6 +125,7 @@ export function SpaceMapSidebarView() {
                           </div>
                         </div>
                       </GlassWindowContents>
+                      <GlassWindowPane glassFx={glassFx['glass-5']} />
                     </GlassWindowFrame>
                   ))}
                 </>
@@ -129,8 +134,12 @@ export function SpaceMapSidebarView() {
                 SpaceMapSidebarListMode.DEFAULT && (
                 <>
                   {ideaListController.state.objs.map((idea, index) => (
-                    <GlassWindowFrame>
-                      <GlassWindowContents className='flex flex-row space-x-[1rem]'>
+                    <GlassWindowFrame
+                      className='p-[1rem]'
+                      roundedFx={roundedFx.rounded}
+                      borderFx={borderFx['border-around']}
+                    >
+                      <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
                         <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
                           <p className='text-center font-bold text-white'>
                             {index + 1}
@@ -138,7 +147,7 @@ export function SpaceMapSidebarView() {
                         </div>
                         <div
                           key={idea.id}
-                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                          className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
                         >
                           <div className='text-lg font-bold'>
                             {idea.title || 'Untitled'}
@@ -148,6 +157,7 @@ export function SpaceMapSidebarView() {
                           </div>
                         </div>
                       </GlassWindowContents>
+                      <GlassWindowPane glassFx={glassFx['glass-5']} />
                     </GlassWindowFrame>
                   ))}
                 </>

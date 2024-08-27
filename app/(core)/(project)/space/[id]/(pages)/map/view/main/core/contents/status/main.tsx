@@ -24,6 +24,9 @@ export function SpaceMapCoreContentsStatus() {
             <p className='text-sm font-light text-slate-300'>
               Objective: {sceneListController.state.currentObj?.description}
             </p>
+            <p className='text-sm font-light text-slate-300'>
+              It looks like you're almost there
+            </p>
           </div>
           <div className='flex flex-col items-center justify-center'>
             <AstralChevronUpIcon
