@@ -29,6 +29,8 @@ import { AstralPlayIcon } from './play/main';
 import { AstralSaveIcon } from './save/main';
 import { AstralSendIcon } from './send/main';
 import { AstralSubjectIcon } from './subject/main';
+import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
+import { AstralVisibilityIcon } from './visibility/main';
 import { AstralVoiceIcon } from './voice/main';
 
 export default function Page() {
@@ -66,6 +68,8 @@ export default function Page() {
       <AstralArrowCircleLeftIcon />
       <AstralArrowDropDown />
       <AstralArrowDropUp />
+      <AstralVisibilityHiddenIcon />
+      <AstralVisibilityIcon />
     </div>
   );
 }

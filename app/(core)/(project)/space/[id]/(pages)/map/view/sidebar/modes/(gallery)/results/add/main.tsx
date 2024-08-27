@@ -1,8 +1,4 @@
 import { AstralAddIcon } from '@/icons/add/main';
-import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
 
@@ -10,17 +6,11 @@ export function SpaceMapCollectionAdd() {
   const modalController = useContext(ContextForSpaceMapModals);
 
   return (
-    <GlassWindowFrame
-      className='aspect-[3/2] w-full flex-shrink-0'
-      roundedFx={roundedFx.rounded}
+    <div
+      onClick={() => modalController.addCollectionController.open()}
+      className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
     >
-      <GlassWindowContents
-        onClick={() => modalController.addCollectionController.open()}
-        className='flex h-full cursor-pointer items-center justify-center'
-      >
-        <AstralAddIcon />
-      </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
-    </GlassWindowFrame>
+      <AstralAddIcon />
+    </div>
   );
 }

@@ -130,7 +130,7 @@ export function SpaceMapAddUrlIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Embed Element</FormTitle>
+          <FormTitle>Url Element</FormTitle>
           <FormBody>
             <FormSelect
               title='Variant'
@@ -141,17 +141,16 @@ export function SpaceMapAddUrlIdeaModal() {
               <option value={UrlElemVariant.SPOTIFY}>Spotify</option>
             </FormSelect>
             <FormInput
-              placeholder='Title'
               title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
-            <FormInput
+            {/* <FormInput
               placeholder='Description'
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            />
+            /> */}
             {variant === UrlElemVariant.YOUTUBE && (
               <>
                 <FormInput
@@ -162,12 +161,14 @@ export function SpaceMapAddUrlIdeaModal() {
                     changeYoutubeId(extractVideoId(e.target.value))
                   }
                 />
-                <iframe
-                  onDrag={(e) => e.stopPropagation()}
-                  style={{ width: '100%', height: '100%' }}
-                  src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
-                  title='YouTube video player'
-                />
+                {youtubeId && (
+                  <iframe
+                    onDrag={(e) => e.stopPropagation()}
+                    style={{ width: '100%', height: '100%' }}
+                    src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
+                    title='YouTube video player'
+                  />
+                )}
               </>
             )}
             {variant === UrlElemVariant.SPOTIFY && (
@@ -180,13 +181,15 @@ export function SpaceMapAddUrlIdeaModal() {
                     changeSpotifyId(extractSpotifyTrackId(e.target.value))
                   }
                 />
-                <iframe
-                  src={`https://open.spotify.com/embed/track/${spotifyId}`}
-                  width='100%'
-                  height='100%'
-                  allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                  loading='lazy'
-                />
+                {spotifyId && (
+                  <iframe
+                    src={`https://open.spotify.com/embed/track/${spotifyId}`}
+                    width='100%'
+                    height='100%'
+                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                    loading='lazy'
+                  />
+                )}
               </>
             )}
           </FormBody>

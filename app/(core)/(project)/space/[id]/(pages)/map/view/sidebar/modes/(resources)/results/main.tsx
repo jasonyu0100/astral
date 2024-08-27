@@ -8,15 +8,13 @@ export function SpaceMapResourcesResults() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
-    <div className='flex h-full w-full flex-col overflow-auto p-[1rem]'>
-      <div className='grid grid-cols-2 gap-[1rem]'>
-        {resourceListController.state.objs.map((resource) => (
-          <ContextForCollectionResourceObj.Provider value={resource}>
-            <SpaceMapResourceResource />
-          </ContextForCollectionResourceObj.Provider>
-        ))}
-        <SpaceMapAddResource />
-      </div>
+    <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
+      {resourceListController.state.objs.map((resource) => (
+        <ContextForCollectionResourceObj.Provider value={resource}>
+          <SpaceMapResourceResource />
+        </ContextForCollectionResourceObj.Provider>
+      ))}
+      <SpaceMapAddResource />
     </div>
   );
 }

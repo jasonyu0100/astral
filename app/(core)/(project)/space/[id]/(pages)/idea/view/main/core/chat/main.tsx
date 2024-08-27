@@ -81,6 +81,7 @@ export function SpaceIdeaChat() {
             <SpaceIdeaMessage key={message.id} />
           </ContextForConversationMessageObj.Provider>
         ))}
+        <div className='h-[4rem] flex-shrink-0'></div>
       </div>
       <div className='flex h-full w-[6rem] items-center justify-center'>
         <div className='flex flex-col items-center justify-center'>

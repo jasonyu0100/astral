@@ -71,15 +71,15 @@ export function SpaceMapAddFileIdeaModal() {
               <option value={FileElemVariant.VIDEO}>VIDEO</option>
             </FormSelect>
             <FormInput
-              title='Name'
+              title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
-            <FormInput
+            {/* <FormInput
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            />
+            /> */}
             <FormUploadFile
               label={'File'}
               onChange={(file) => changeFile(file)}

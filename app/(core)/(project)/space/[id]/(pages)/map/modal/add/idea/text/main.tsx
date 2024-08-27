@@ -65,17 +65,16 @@ export function SpaceMapAddTextIdeaModal() {
               {/* <option value={TextElemVariant.CODE}>Code</option> */}
             </FormSelect>
             <FormInput
-              placeholder='Title'
               title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
-            <FormInput
+            {/* <FormInput
               placeholder='Description'
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            />
+            /> */}
             <FormTextArea
               title='Text'
               value={text}

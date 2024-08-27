@@ -9,7 +9,7 @@ export function SpaceMapGallerysResults() {
   const galleryListController = useContext(ContextForGalleryList);
 
   return (
-    <div className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[1rem]'>
+    <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
       {galleryListController.state.objs.map((gallery) => (
         <ContextForGalleryObj.Provider value={gallery}>
           <SpaceMapGalleryThumbnail />

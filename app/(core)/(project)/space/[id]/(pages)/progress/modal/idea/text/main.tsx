@@ -65,17 +65,15 @@ export function SpaceProgressAddTextIdeaModal() {
               {/* <option value={TextElemVariant.CODE}>Code</option> */}
             </FormSelect>
             <FormInput
-              placeholder='Title'
               title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
-            <FormInput
-              placeholder='Description'
+            {/* <FormInput
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            />
+            /> */}
             <FormTextArea
               title='Text'
               value={text}

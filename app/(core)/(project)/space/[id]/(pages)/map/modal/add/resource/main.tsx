@@ -1,6 +1,6 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -11,7 +11,6 @@ import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
-import { FormSelect } from '@/ui/form/select/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
@@ -25,9 +24,6 @@ export function SpaceMapAddResourceModal() {
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
   const [file, changeFile] = useState({} as FileElem);
-  const [variant, changeVariant] = useState<FileElemVariant>(
-    FileElemVariant.IMAGE,
-  );
 
   async function createResource() {
     resourceListController.actions.createActions
@@ -54,21 +50,13 @@ export function SpaceMapAddResourceModal() {
               onChange={(file) => changeFile(file)}
               label='Thumbnail'
             />
-            <HorizontalDivider />
-            <FormSelect
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
-              title='Variant'
-            >
-              <option value={FileElemVariant.IMAGE}>Image</option>
-              <option value={FileElemVariant.VIDEO}>Video</option>
-              <option value={FileElemVariant.AUDIO}>Audio</option>
-            </FormSelect>
             <FormUploadFile
               onChange={(file) => changeFile(file)}
               label='File'
-              variant={variant}
             />
+            <br />
+            <HorizontalDivider />
+            <br />
             <FormInput
               title='Title'
               value={name}
