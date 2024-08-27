@@ -29,6 +29,16 @@ export function SpaceMapCoreContentsStatus() {
             <AstralChevronUpIcon
               className='h-[2.5rem] w-[2.5rem] cursor-pointer'
               onClick={() => {
+                if (sceneListController.state.index === 0) {
+                  alert('Cannot go back');
+                } else {
+                  sceneListController.actions.stateActions.goPrev();
+                }
+              }}
+            />
+            <AstralChevronDownIcon
+              className='h-[2.5rem] w-[2.5rem] cursor-pointer'
+              onClick={() => {
                 if (
                   sceneListController.state.index ===
                   sceneListController.state.objs.length - 1
@@ -37,12 +47,6 @@ export function SpaceMapCoreContentsStatus() {
                 } else {
                   sceneListController.actions.stateActions.goNext();
                 }
-              }}
-            />
-            <AstralChevronDownIcon
-              className='h-[2.5rem] w-[2.5rem] cursor-pointer'
-              onClick={() => {
-                sceneListController.actions.stateActions.goPrev();
               }}
             />
           </div>

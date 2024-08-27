@@ -1,10 +1,10 @@
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
 import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
-import { AstralSubjectIcon } from '@/icons/subject/main';
+import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
+import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
@@ -83,15 +83,20 @@ export function SpaceIdeaChat() {
         ))}
       </div>
       <div className='flex h-full w-[6rem] items-center justify-center'>
-        <a
-          className='flex h-[3rem] w-[3rem] animate-pulse cursor-pointer items-center justify-center rounded-full'
-          href={spaceMap.space.id.map.link(spaceController.state.objId)}
-          onClick={() => {
-            alert('Summarising Conversation');
-          }}
-        >
-          <AstralSubjectIcon className='h-3/4 w-3/4' />
-        </a>
+        <div className='flex flex-col items-center justify-center'>
+          <AstralChevronUpIcon
+            className='h-[2.5rem] w-[2.5rem] cursor-pointer'
+            onClick={() => {
+              chatListController.actions.stateActions.goPrev();
+            }}
+          />
+          <AstralChevronDownIcon
+            className='h-[2.5rem] w-[2.5rem] cursor-pointer'
+            onClick={() => {
+              chatListController.actions.stateActions.goNext();
+            }}
+          />
+        </div>
       </div>
     </div>
   );

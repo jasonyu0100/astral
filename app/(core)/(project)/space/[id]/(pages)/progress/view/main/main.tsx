@@ -265,6 +265,16 @@ export function SpaceProgressMain() {
                 <AstralChevronUpIcon
                   className='h-[2.5rem] w-[2.5rem]'
                   onClick={() => {
+                    if (sceneListController.state.index === 0) {
+                      alert('Cannot go back');
+                    } else {
+                      sceneListController.actions.stateActions.goPrev();
+                    }
+                  }}
+                />
+                <AstralChevronDownIcon
+                  className='h-[2.5rem] w-[2.5rem]'
+                  onClick={() => {
                     if (
                       sceneListController.state.index ===
                       sceneListController.state.objs.length - 1
@@ -273,12 +283,6 @@ export function SpaceProgressMain() {
                     } else {
                       sceneListController.actions.stateActions.goNext();
                     }
-                  }}
-                />
-                <AstralChevronDownIcon
-                  className='h-[2.5rem] w-[2.5rem]'
-                  onClick={() => {
-                    sceneListController.actions.stateActions.goPrev();
                   }}
                 />
               </div>
