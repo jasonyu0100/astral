@@ -7,16 +7,21 @@ import { AstralChevronLeftIcon } from './chevron-left/main';
 import { AstralChevronRightIcon } from './chevron-right/main';
 import { AstralChevronUpIcon } from './chevron-up/main';
 import { AstralCloseIcon } from './close/main';
+import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
 import { AstralEqualizerIcon } from './equalizer/main';
 import { AstralFileIcon } from './file/main';
+import { AstralFolderOpenIcon } from './folder-open/main';
+import { AstralFolderIcon } from './folder/main';
 import { AstralGestureIcon } from './gesture/main';
 import { AstralLinkIcon } from './link/main';
 import { AstralListIcon } from './list/main';
 import { AstralManufacturingIcon } from './manufacturing/main';
 import { AstralMoreIcon } from './more/main';
 import { AstralNoteIcon } from './note/main';
+import { AstralPersonIcon } from './person/main';
 import { AstralPlayIcon } from './play/main';
+import { AstralSaveIcon } from './save/main';
 import { AstralSendIcon } from './send/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralVoiceIcon } from './voice/main';
@@ -46,6 +51,11 @@ export default function Page() {
       <AstralLinkIcon />
       <AstralNoteIcon />
       <AstralListIcon />
+      <AstralFolderIcon />
+      <AstralFolderOpenIcon />
+      <AstralSaveIcon />
+      <AstralCursorIcon />
+      <AstralPersonIcon />
     </div>
   );
 }

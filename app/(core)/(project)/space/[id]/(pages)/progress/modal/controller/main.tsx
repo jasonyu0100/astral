@@ -7,6 +7,9 @@ import { createContext } from 'react';
 import { SpaceProgressAddChapterModal } from '../add/chapter/main';
 import { SpaceProgressAddSceneModal } from '../add/scene/main';
 import { SpaceProgressAddUpdateModal } from '../add/update/main';
+import { SpaceProgressAddFileIdeaModal } from '../idea/file/main';
+import { SpaceProgressAddUrlIdeaModal } from '../idea/link/main';
+import { SpaceProgressAddTextIdeaModal } from '../idea/text/main';
 import { SpaceProgressSpotlightModal } from '../synthesise/main';
 
 export const ContextForSpaceProgressModals = createContext(
@@ -18,6 +21,9 @@ export interface SpaceProgressModals {
   addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
   addSpotlightController: ContextForOpenableInterface;
+  addFileIdeaController: ContextForOpenableInterface;
+  addUrlIdeaController: ContextForOpenableInterface;
+  addTextIdeaController: ContextForOpenableInterface;
 }
 
 export function SpaceProgressModals({
@@ -29,6 +35,9 @@ export function SpaceProgressModals({
   const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
   const addSpotlightController = useControllerForOpenable();
+  const addFileIdeaController = useControllerForOpenable();
+  const addUrlIdeaController = useControllerForOpenable();
+  const addTextIdeaController = useControllerForOpenable();
 
   return (
     <ContextForSpaceProgressModals.Provider
@@ -37,6 +46,9 @@ export function SpaceProgressModals({
         addSceneController: addSceneController,
         addUpdateController: addUpdateController,
         addSpotlightController: addSpotlightController,
+        addFileIdeaController: addFileIdeaController,
+        addUrlIdeaController: addUrlIdeaController,
+        addTextIdeaController: addTextIdeaController,
       }}
     >
       {children}
@@ -51,6 +63,15 @@ export function SpaceProgressModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSpotlightController}>
         <SpaceProgressSpotlightModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addFileIdeaController}>
+        <SpaceProgressAddFileIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addUrlIdeaController}>
+        <SpaceProgressAddUrlIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addTextIdeaController}>
+        <SpaceProgressAddTextIdeaModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceProgressModals.Provider>
   );
