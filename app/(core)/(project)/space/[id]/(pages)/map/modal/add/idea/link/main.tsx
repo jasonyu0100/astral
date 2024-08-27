@@ -11,7 +11,6 @@ import { FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
-import { FormSelect } from '@/ui/form/select/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
@@ -132,14 +131,14 @@ export function SpaceMapAddUrlIdeaModal() {
         <FormContainer>
           <FormTitle>Url Element</FormTitle>
           <FormBody>
-            <FormSelect
+            {/* <FormSelect
               title='Variant'
               value={variant}
               onChange={(e) => changeVariant(e.target.value)}
             >
               <option value={UrlElemVariant.YOUTUBE}>YouTube</option>
               <option value={UrlElemVariant.SPOTIFY}>Spotify</option>
-            </FormSelect>
+            </FormSelect> */}
             <FormInput
               title='Title'
               value={title}
@@ -162,12 +161,14 @@ export function SpaceMapAddUrlIdeaModal() {
                   }
                 />
                 {youtubeId && (
-                  <iframe
-                    onDrag={(e) => e.stopPropagation()}
-                    style={{ width: '100%', height: '100%' }}
-                    src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
-                    title='YouTube video player'
-                  />
+                  <div className='max-h-[400px] w-full'>
+                    <iframe
+                      onDrag={(e) => e.stopPropagation()}
+                      style={{ width: '100%', height: '400px' }}
+                      src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
+                      title='YouTube video player'
+                    />
+                  </div>
                 )}
               </>
             )}
@@ -182,13 +183,14 @@ export function SpaceMapAddUrlIdeaModal() {
                   }
                 />
                 {spotifyId && (
-                  <iframe
-                    src={`https://open.spotify.com/embed/track/${spotifyId}`}
-                    width='100%'
-                    height='100%'
-                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                    loading='lazy'
-                  />
+                  <div className='max-h-[400px] w-full'>
+                    <iframe
+                      src={`https://open.spotify.com/embed/track/${spotifyId}`}
+                      style={{ width: '100%', height: '400px' }}
+                      allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                      loading='lazy'
+                    />
+                  </div>
                 )}
               </>
             )}

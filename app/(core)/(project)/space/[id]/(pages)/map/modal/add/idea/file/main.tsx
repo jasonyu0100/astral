@@ -12,7 +12,6 @@ import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
-import { FormSelect } from '@/ui/form/select/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
@@ -61,7 +60,7 @@ export function SpaceMapAddFileIdeaModal() {
         <FormContainer>
           <FormTitle>Media Element</FormTitle>
           <FormBody>
-            <FormSelect
+            {/* <FormSelect
               title='Variant'
               value={variant}
               onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
@@ -69,7 +68,7 @@ export function SpaceMapAddFileIdeaModal() {
               <option value={FileElemVariant.AUDIO}>AUDIO</option>
               <option value={FileElemVariant.IMAGE}>IMAGE</option>
               <option value={FileElemVariant.VIDEO}>VIDEO</option>
-            </FormSelect>
+            </FormSelect> */}
             <FormInput
               title='Title'
               value={title}

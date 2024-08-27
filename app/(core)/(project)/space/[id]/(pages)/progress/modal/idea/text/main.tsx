@@ -9,7 +9,6 @@ import { FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
-import { FormSelect } from '@/ui/form/select/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
@@ -54,16 +53,16 @@ export function SpaceProgressAddTextIdeaModal() {
         <FormContainer>
           <FormTitle>Note Element</FormTitle>
           <FormBody>
-            <FormSelect
+            {/* <FormSelect
               title='Variant'
               value={variant}
               onChange={(e) => changeVariant(e.target.value)}
             >
               <option value={TextElemVariant.LINE}>Line</option>
               <option value={TextElemVariant.STICKY}>Sticky</option>
-              {/* <option value={TextElemVariant.BLOCK}>Block</option> */}
-              {/* <option value={TextElemVariant.CODE}>Code</option> */}
-            </FormSelect>
+              <option value={TextElemVariant.BLOCK}>Block</option>
+              <option value={TextElemVariant.CODE}>Code</option>
+            </FormSelect> */}
             <FormInput
               title='Title'
               value={title}

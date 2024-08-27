@@ -136,6 +136,13 @@ export function SpaceProgressMain() {
                             {idea.textElem?.text}
                           </div>
                         )}
+                        {idea.variant === ElementVariant.URL && (
+                          <iframe
+                            onDrag={(e) => e.stopPropagation()}
+                            src={idea.urlElem?.url}
+                            title='YouTube video player'
+                          />
+                        )}
                       </SpaceProgressListItem>
                     </li>
                   ))}

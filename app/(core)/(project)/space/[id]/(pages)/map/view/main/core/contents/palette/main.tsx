@@ -39,7 +39,7 @@ export function SpaceMapCoreContentsPalette() {
             <AstralLinkIcon
               onClick={() => modalController.addUrlIdeaController.open()}
             />
-            <AstralManufacturingIcon />
+            <AstralManufacturingIcon onClick={() => alert('Coming soon...')} />
           </>
         ) : (
           <>

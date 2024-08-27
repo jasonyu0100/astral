@@ -3,6 +3,7 @@ import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/ide
 import { useContext } from 'react';
 import { SpaceMapFileIdea } from './file/main';
 import { SpaceMapTextIdea } from './text/main';
+import { SpaceMapUrlIdea } from './url/main';
 
 export function SpaceMapMovableIdea() {
   const ideaObj = useContext(ContextForSceneIdeaObj);
@@ -11,6 +12,7 @@ export function SpaceMapMovableIdea() {
     <>
       {ideaObj.variant === ElementVariant.FILE && <SpaceMapFileIdea />}
       {ideaObj.variant === ElementVariant.TEXT && <SpaceMapTextIdea />}
+      {ideaObj.variant === ElementVariant.URL && <SpaceMapUrlIdea />}
     </>
   );
 }
