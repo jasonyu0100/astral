@@ -11,7 +11,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpaceIdeaCollectModal() {
+export function SpaceIdeaGenerateSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const messageListController = useContext(ContextForConversationMessageList);
@@ -23,7 +23,7 @@ export function SpaceIdeaCollectModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Collect</FormTitle>
+          <FormTitle>Generate Scene</FormTitle>
           <FormBody>
             {messageListController.state.objs.map((message, index) => (
               <div className='flex flex-row space-x-[1rem]'>

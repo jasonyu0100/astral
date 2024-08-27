@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -8,37 +8,26 @@ import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
-import { spaceMap } from '../../../../map';
 
-export function SpaceMapPrioritiseModal() {
+export function SpaceReviewShareReviewModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
-  const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Prioritise</FormTitle>
-          <FormBody>
-            {ideaListController.state.objs.map((idea, index) => (
-              <div className='flex flex-row space-x-[1rem]'>
-                <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
-                  <p className='font-bold text-white'>{index}</p>
-                </div>
-                <img src={idea.fileElem?.src} />
-              </div>
-            ))}
-          </FormBody>
+          <FormTitle>Share Review</FormTitle>
+          <FormBody></FormBody>
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.progress.link(
+                window.location.href = spaceMap.space.id.idea.link(
                   spaceController.state.objId,
                 );
               }}
             >
-              Next
+              Copy
             </FormButton>
           </FormFooter>
         </FormContainer>

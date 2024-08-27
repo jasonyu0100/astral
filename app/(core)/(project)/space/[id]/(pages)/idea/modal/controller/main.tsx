@@ -7,7 +7,7 @@ import { createContext } from 'react';
 import { SpaceIdeaAddAttachmentModal } from '../add/attachment/main';
 import { SpaceIdeaAddChapterModal } from '../add/chapter/main';
 import { SpaceIdeaAddChatModal } from '../add/chat/main';
-import { SpaceIdeaCollectModal } from '../collect/main';
+import { SpaceIdeaGenerateSceneModal } from '../generate/main';
 
 export const ContextForSpaceIdeaModals = createContext({} as SpaceIdeaModals);
 
@@ -15,14 +15,14 @@ export interface SpaceIdeaModals {
   addChapterController: ContextForOpenableInterface;
   addChatController: ContextForOpenableInterface;
   addAttachmentController: ContextForOpenableInterface;
-  collectController: ContextForOpenableInterface;
+  generateSceneController: ContextForOpenableInterface;
 }
 
 export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
   const addChapterController = useControllerForOpenable();
   const addChatController = useControllerForOpenable();
   const addAttachmentController = useControllerForOpenable();
-  const collectController = useControllerForOpenable();
+  const generateSceneController = useControllerForOpenable();
 
   return (
     <ContextForSpaceIdeaModals.Provider
@@ -30,7 +30,7 @@ export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
         addChapterController: addChapterController,
         addChatController: addChatController,
         addAttachmentController: addAttachmentController,
-        collectController: collectController,
+        generateSceneController: generateSceneController,
       }}
     >
       {children}
@@ -43,8 +43,8 @@ export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addAttachmentController}>
         <SpaceIdeaAddAttachmentModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={collectController}>
-        <SpaceIdeaCollectModal />
+      <ContextForOpenable.Provider value={generateSceneController}>
+        <SpaceIdeaGenerateSceneModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceIdeaModals.Provider>
   );

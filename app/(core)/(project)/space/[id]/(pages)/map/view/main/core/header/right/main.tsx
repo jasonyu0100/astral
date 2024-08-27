@@ -10,10 +10,10 @@ export function SpaceMapHeaderRight() {
       <button
         className='flex flex-row items-center space-x-[1rem] rounded-md bg-blue-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          modalController.prioritiseController.open();
+          modalController.generatePlanController.open();
         }}
       >
-        <p className='font-bold text-slate-300'>Prioritise</p>
+        <p className='font-bold text-slate-300'>Plan</p>
         <AstralArrowForwardIcon />
       </button>
     </div>

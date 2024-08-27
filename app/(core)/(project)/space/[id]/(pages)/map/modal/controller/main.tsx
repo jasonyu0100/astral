@@ -12,7 +12,7 @@ import { SpaceMapAddUrlIdeaModal } from '../add/idea/link/main';
 import { SpaceMapAddTextIdeaModal } from '../add/idea/text/main';
 import { SpaceMapAddResourceModal } from '../add/resource/main';
 import { SpaceMapAddSceneModal } from '../add/scene/main';
-import { SpaceMapPrioritiseModal } from '../prioritise/main';
+import { SpaceMapPlanModal } from '../generate/main';
 
 export const ContextForSpaceMapModals = createContext({} as SpaceMapModals);
 
@@ -25,7 +25,7 @@ export interface SpaceMapModals {
   addTextIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
-  prioritiseController: ContextForOpenableInterface;
+  generatePlanController: ContextForOpenableInterface;
 }
 
 export function SpaceMapModals({ children }: { children: React.ReactNode }) {
@@ -37,7 +37,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
   const addTextIdeaController = useControllerForOpenable();
   const addResourceController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
-  const prioritiseController = useControllerForOpenable();
+  const generatePlanController = useControllerForOpenable();
 
   return (
     <ContextForSpaceMapModals.Provider
@@ -50,7 +50,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
         addTextIdeaController: addTextIdeaController,
         addResourceController: addResourceController,
         addSceneController: addSceneController,
-        prioritiseController: prioritiseController,
+        generatePlanController: generatePlanController,
       }}
     >
       {children}
@@ -78,8 +78,8 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addSceneController}>
         <SpaceMapAddSceneModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={prioritiseController}>
-        <SpaceMapPrioritiseModal />
+      <ContextForOpenable.Provider value={generatePlanController}>
+        <SpaceMapPlanModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceMapModals.Provider>
   );

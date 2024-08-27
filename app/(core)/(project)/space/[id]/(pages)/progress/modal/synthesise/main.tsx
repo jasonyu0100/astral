@@ -57,7 +57,7 @@ export function SpaceProgressSpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Spotlight</FormTitle>
+          <FormTitle>Generate Spotlight</FormTitle>
           <FormBody>
             <FormInput
               title='Name'

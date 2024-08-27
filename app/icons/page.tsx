@@ -28,6 +28,7 @@ import { AstralPersonIcon } from './person/main';
 import { AstralPlayIcon } from './play/main';
 import { AstralSaveIcon } from './save/main';
 import { AstralSendIcon } from './send/main';
+import { AstralShareIcon } from './share/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
 import { AstralVisibilityIcon } from './visibility/main';
@@ -70,6 +71,7 @@ export default function Page() {
       <AstralArrowDropUp />
       <AstralVisibilityHiddenIcon />
       <AstralVisibilityIcon />
+      <AstralShareIcon />
     </div>
   );
 }

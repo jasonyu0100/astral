@@ -1,4 +1,4 @@
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 import { ContextForSpaceReviewModals } from '../../../../../modal/controller/main';
 
@@ -10,11 +10,11 @@ export function SpaceReviewHeaderRight() {
       <button
         className='flex flex-row items-center space-x-[1rem] rounded-md bg-blue-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          modalController.generateController.open();
+          modalController.shareReviewController.open();
         }}
       >
-        <p className='font-bold text-slate-300'>Generate</p>
-        <AstralArrowForwardIcon />
+        <p className='font-bold text-slate-300'>Share</p>
+        <AstralShareIcon />
       </button>
     </div>
   );

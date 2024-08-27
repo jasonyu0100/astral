@@ -8,7 +8,7 @@ import { SpaceReviewAddChapterModal } from '../add/chapter/main';
 import { SpaceReviewAddChatModal } from '../add/chat/main';
 import { SpaceReviewAddCommentModal } from '../add/comment/main';
 import { SpaceReviewAddReviewModal } from '../add/review/main';
-import { SpaceReviewGenerateModal } from '../generate/main';
+import { SpaceReviewShareReviewModal } from '../share/main';
 
 export const ContextForSpaceReviewModals = createContext(
   {} as SpaceReviewModals,
@@ -19,7 +19,7 @@ export interface SpaceReviewModals {
   addChatController: ContextForOpenableInterface;
   addReviewController: ContextForOpenableInterface;
   addCommentController: ContextForOpenableInterface;
-  generateController: ContextForOpenableInterface;
+  shareReviewController: ContextForOpenableInterface;
 }
 
 export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
@@ -27,7 +27,7 @@ export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
   const addChatController = useControllerForOpenable();
   const addReviewController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
-  const generateController = useControllerForOpenable();
+  const shareReviewController = useControllerForOpenable();
 
   return (
     <ContextForSpaceReviewModals.Provider
@@ -37,7 +37,7 @@ export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
           addChatController,
           addReviewController,
           addCommentController,
-          generateController,
+          shareReviewController,
         } as SpaceReviewModals
       }
     >
@@ -54,8 +54,8 @@ export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addReviewController}>
         <SpaceReviewAddReviewModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={generateController}>
-        <SpaceReviewGenerateModal />
+      <ContextForOpenable.Provider value={shareReviewController}>
+        <SpaceReviewShareReviewModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceReviewModals.Provider>
   );

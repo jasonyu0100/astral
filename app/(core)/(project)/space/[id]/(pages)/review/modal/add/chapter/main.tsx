@@ -45,14 +45,14 @@ export function SpaceReviewAddChapterModal() {
           <FormTitle>Add Chapter</FormTitle>
           <FormBody>
             <FormInput
-              placeholder='Name'
-              title='Name'
+              title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
             <FormTextArea
               title='Objective'
-              rows={5}
+              rows={8}
+              placeholder='Set an objective for your chapter'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}
