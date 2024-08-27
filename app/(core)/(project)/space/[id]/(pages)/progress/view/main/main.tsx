@@ -31,10 +31,6 @@ export function SpaceProgressMain() {
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
-    setPopulated(false);
-  }, [sceneListController.state.currentObj]);
-
-  useEffect(() => {
     if (!populated && ideaListController.state.objs.length > 0) {
       setTodo(
         ideaListController.state.objs.filter((idea) => idea.column === 'todo'),
@@ -53,10 +49,17 @@ export function SpaceProgressMain() {
         ideaListController.state.objs.filter((idea) => idea.column === 'done'),
       );
       setPopulated(true);
+    } else if (ideaListController.state.objs.length === 0) {
+      setTodo([]);
+      setInProgress([]);
+      setInReview([]);
+      setDone([]);
     }
-  }, [sceneListController.state.currentObj, ideaListController.state.objs]);
+  }, [ideaListController.state.objs]);
 
   useEffect(() => {
+    setPopulated(false);
+
     const elTodo = document.getElementById('todo');
     const elInProgress = document.getElementById('in-progress');
     const elReview = document.getElementById('review');
@@ -69,9 +72,11 @@ export function SpaceProgressMain() {
 
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
-      await ideaListController.actions.editActions.edit(itemId, {
-        column: toList,
-      });
+      setTimeout(async () => {
+        await ideaListController.actions.editActions.edit(itemId, {
+          column: toList,
+        });
+      }, 0);
     };
 
     const sortableOptions = {
@@ -90,6 +95,13 @@ export function SpaceProgressMain() {
     Sortable.create(elInProgress, sortableOptions);
     Sortable.create(elReview, sortableOptions);
     Sortable.create(elDone, sortableOptions);
+
+    () => {
+      Sortable.destroy(elTodo);
+      Sortable.destroy(elInProgress);
+      Sortable.destroy(elReview);
+      Sortable.destroy(elDone);
+    };
   }, [sceneListController.state.currentObj]);
 
   return (
