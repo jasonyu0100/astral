@@ -1,6 +1,6 @@
 import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
-import { SpaceReviewExpandIcon } from './expand/main';
 
 export function SpaceReviewHeaderMiddle() {
   const reviewListController = useContext(ContextForChapterReviewList);
@@ -10,7 +10,7 @@ export function SpaceReviewHeaderMiddle() {
       <p className='text-lg font-light text-slate-300'>
         review - {reviewListController.state?.currentObj?.title || 'None'}
       </p>
-      <SpaceReviewExpandIcon />
+      <AstralChevronRightIcon />
     </div>
   );
 }

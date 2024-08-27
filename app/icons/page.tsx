@@ -1,5 +1,9 @@
 import { AstralAddIcon } from './add/main';
 import { AstralArrowBackIcon } from './arrow-back/main';
+import { AstralArrowCircleLeftIcon } from './arrow-circle-left/main';
+import { AstralArrowCircleRightIcon } from './arrow-circle-right/main';
+import { AstralArrowDropDown } from './arrow-drop-down/main';
+import { AstralArrowDropUp } from './arrow-drop-up/main';
 import { AstralArrowForwardIcon } from './arrow-forward/main';
 import { AstralAttachmentIcon } from './attachment/main';
 import { AstralChevronDownIcon } from './chevron-down/main';
@@ -9,6 +13,7 @@ import { AstralChevronUpIcon } from './chevron-up/main';
 import { AstralCloseIcon } from './close/main';
 import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
+import { AstralDoneIcon } from './done/main';
 import { AstralEqualizerIcon } from './equalizer/main';
 import { AstralFileIcon } from './file/main';
 import { AstralFolderOpenIcon } from './folder-open/main';
@@ -28,7 +33,7 @@ import { AstralVoiceIcon } from './voice/main';
 
 export default function Page() {
   return (
-    <div className='flex flex-col space-y-[1rem] p-[2rem]'>
+    <div className='grid w-full grid-cols-8 gap-[1rem] p-[4rem]'>
       <AstralAddIcon />
       <AstralFileIcon />
       <AstralSendIcon />
@@ -56,6 +61,11 @@ export default function Page() {
       <AstralSaveIcon />
       <AstralCursorIcon />
       <AstralPersonIcon />
+      <AstralDoneIcon />
+      <AstralArrowCircleRightIcon />
+      <AstralArrowCircleLeftIcon />
+      <AstralArrowDropDown />
+      <AstralArrowDropUp />
     </div>
   );
 }

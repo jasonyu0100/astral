@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
-import { SpaceSessionExpandIcon } from './expand/main';
 
 export function SpaceSessionHeaderMiddle() {
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -9,7 +9,7 @@ export function SpaceSessionHeaderMiddle() {
       <p className='text-lg font-light text-slate-300'>
         session - {chapterListController.state.currentObj?.title}
       </p>
-      <SpaceSessionExpandIcon />
+      <AstralChevronRightIcon />
     </div>
   );
 }
