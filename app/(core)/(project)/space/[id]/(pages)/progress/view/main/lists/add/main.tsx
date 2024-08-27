@@ -11,7 +11,10 @@ export function SpaceProgressAddItem({
   onClick: () => void;
 }) {
   return (
-    <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
+    <GlassWindowFrame
+      className='w-full flex-shrink-0 p-[1rem]'
+      roundedFx={roundedFx.rounded}
+    >
       <GlassWindowContents
         className='flex flex-row justify-between space-x-[1rem] text-slate-300'
         onClick={onClick}

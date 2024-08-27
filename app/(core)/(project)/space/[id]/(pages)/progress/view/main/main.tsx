@@ -8,7 +8,7 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { ContextForSpaceProgressModals } from '../../modal/controller/main';
 import { SpaceProgressContainer } from './core/container/main';
@@ -20,30 +20,92 @@ import { SpaceProgressChapterNavigation } from './navigation/main';
 
 export function SpaceProgressMain() {
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const [populated, setPopulated] = useState(false);
   const sceneListController = useContext(ContextForChapterSceneList);
   const modalController = useContext(ContextForSpaceProgressModals);
+
+  const [todo, setTodo] = useState([]);
+  const [inProgress, setInProgress] = useState([]);
+  const [review, setInReview] = useState([]);
+  const [done, setDone] = useState([]);
+
+  useEffect(() => {
+    if (ideaListController.state.objs.length > 0 && !populated) {
+      setTodo(
+        ideaListController.state.objs.filter((idea) => idea.column === 'todo'),
+      );
+      setInProgress(
+        ideaListController.state.objs.filter(
+          (idea) => idea.column === 'in-progress',
+        ),
+      );
+      setInReview(
+        ideaListController.state.objs.filter(
+          (idea) => idea.column === 'review',
+        ),
+      );
+      setDone(
+        ideaListController.state.objs.filter((idea) => idea.column === 'done'),
+      );
+      setPopulated(true);
+    }
+  }, [ideaListController.state.objs, populated]);
 
   useEffect(() => {
     const elTodo = document.getElementById('todo');
     const elInProgress = document.getElementById('in-progress');
     const elReview = document.getElementById('review');
     const elDone = document.getElementById('done');
-    Sortable.create(elTodo, {
-      group: 'shared', // set both lists to same group
+
+    const handleSortEnd = async (evt) => {
+      const fromList = evt.from.id;
+      const toList = evt.to.id;
+      const itemId = evt.item.dataset.id;
+
+      console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
+
+      // Process the fromOrder asynchronously
+      const fromOrder = await Promise.all(
+        Array.from(evt.from.children).map(async (child) => {
+          const childId = child.dataset.id;
+          await ideaListController.actions.editActions.edit(childId, {
+            column: fromList,
+          });
+          return childId;
+        }),
+      );
+
+      // Process the toOrder asynchronously
+      const toOrder = await Promise.all(
+        Array.from(evt.to.children).map(async (child) => {
+          const childId = child.dataset.id;
+          await ideaListController.actions.editActions.edit(childId, {
+            column: toList,
+          });
+          return childId;
+        }),
+      );
+
+      console.log(fromList, fromOrder, toList, toOrder);
+    };
+
+    const sortableOptions = {
+      group: 'shared', // Set both lists to the same group
       animation: 500,
-    });
-    Sortable.create(elInProgress, {
-      group: 'shared', // set both lists to same group
-      animation: 500,
-    });
-    Sortable.create(elReview, {
-      group: 'shared', // set both lists to same group
-      animation: 500,
-    });
-    Sortable.create(elDone, {
-      group: 'shared', // set both lists to same group
-      animation: 500,
-    });
+      onEnd: handleSortEnd, // Add sort end event listener
+      onStart: (evt) => {
+        evt.item.classList.add('dragging'); // Add dragging class on start
+      },
+      onEnd: (evt) => {
+        evt.item.classList.remove('dragging'); // Remove dragging class on end
+        handleSortEnd(evt); // Handle sort end
+      },
+    };
+
+    Sortable.create(elTodo, sortableOptions);
+    Sortable.create(elInProgress, sortableOptions);
+    Sortable.create(elReview, sortableOptions);
+    Sortable.create(elDone, sortableOptions);
   }, []);
 
   return (
@@ -58,9 +120,9 @@ export function SpaceProgressMain() {
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>Ideas</p>
               <SpaceProgressList>
-                <ul id='todo' className='h-full w-full space-y-[1rem]'>
-                  {ideaListController.state.objs.map((idea) => (
-                    <li>
+                <ul id='todo' className='w-full space-y-[1rem]'>
+                  {todo.map((idea) => (
+                    <li data-id={idea.id} className='drag-item'>
                       <SpaceProgressListItem>
                         <p className='font-bold text-slate-300'>
                           {sceneListController.state.currentObj?.title} -{' '}
@@ -77,34 +139,90 @@ export function SpaceProgressMain() {
                       </SpaceProgressListItem>
                     </li>
                   ))}
-                  <SpaceProgressAddItem
-                    onClick={() => modalController.addTextIdeaController.open()}
-                  >
-                    <p className='font-bold text-slate-300'>Add Idea</p>
-                    <AstralAddIcon />
-                  </SpaceProgressAddItem>
                 </ul>
+                <SpaceProgressAddItem
+                  onClick={() => modalController.addTextIdeaController.open()}
+                >
+                  <p className='font-bold text-slate-300'>Add Idea</p>
+                  <AstralAddIcon />
+                </SpaceProgressAddItem>
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>In Progress</p>
               <SpaceProgressList>
-                <ul
-                  id='in-progress'
-                  className='h-full w-full space-y-[1rem]'
-                ></ul>
+                <ul id='in-progress' className='h-full w-full space-y-[1rem]'>
+                  {inProgress.map((idea) => (
+                    <li data-id={idea.id} className='drag-item'>
+                      <SpaceProgressListItem>
+                        <p className='font-bold text-slate-300'>
+                          {sceneListController.state.currentObj?.title} -{' '}
+                          {idea.title}
+                        </p>
+                        {idea.variant === ElementVariant.FILE && (
+                          <img src={idea.fileElem?.src} />
+                        )}
+                        {idea.variant === ElementVariant.TEXT && (
+                          <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
+                            {idea.textElem?.text}
+                          </div>
+                        )}
+                      </SpaceProgressListItem>
+                    </li>
+                  ))}
+                </ul>
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>Review</p>
               <SpaceProgressList>
-                <ul id='review' className='h-full w-full space-y-[1rem]'></ul>
+                <ul id='review' className='h-full w-full space-y-[1rem]'>
+                  {review
+                    .filter((idea) => idea.column === 'review')
+                    .map((idea) => (
+                      <li data-id={idea.id} className='drag-item'>
+                        <SpaceProgressListItem>
+                          <p className='font-bold text-slate-300'>
+                            {sceneListController.state.currentObj?.title} -{' '}
+                            {idea.title}
+                          </p>
+                          {idea.variant === ElementVariant.FILE && (
+                            <img src={idea.fileElem?.src} />
+                          )}
+                          {idea.variant === ElementVariant.TEXT && (
+                            <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
+                              {idea.textElem?.text}
+                            </div>
+                          )}
+                        </SpaceProgressListItem>
+                      </li>
+                    ))}
+                </ul>
               </SpaceProgressList>
             </div>
             <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
               <p className='font-bold text-slate-300'>Done</p>
               <SpaceProgressList>
-                <ul id='done' className='h-full w-full space-y-[1rem]'></ul>
+                <ul id='done' className='h-full w-full space-y-[1rem]'>
+                  {done.map((idea) => (
+                    <li data-id={idea.id} className='drag-item'>
+                      <SpaceProgressListItem>
+                        <p className='font-bold text-slate-300'>
+                          {sceneListController.state.currentObj?.title} -{' '}
+                          {idea.title}
+                        </p>
+                        {idea.variant === ElementVariant.FILE && (
+                          <img src={idea.fileElem?.src} />
+                        )}
+                        {idea.variant === ElementVariant.TEXT && (
+                          <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
+                            {idea.textElem?.text}
+                          </div>
+                        )}
+                      </SpaceProgressListItem>
+                    </li>
+                  ))}
+                </ul>
               </SpaceProgressList>
             </div>
           </div>

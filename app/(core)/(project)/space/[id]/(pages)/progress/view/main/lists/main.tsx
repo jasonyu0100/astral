@@ -10,7 +10,7 @@ export function SpaceProgressList({ children }: { children: React.ReactNode }) {
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >
-      <GlassWindowContents className='flex flex-col space-y-[2rem] overflow-auto  pr-[1rem]'>
+      <GlassWindowContents className='flex flex-col space-y-[1rem] overflow-auto pr-[1rem]'>
         {children}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
