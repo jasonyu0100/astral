@@ -3,7 +3,7 @@ import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/sess
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowStat() {
+export function StudioSpacesRowLength() {
   const spaceObj = useContext(ContextForSpaceObj);
   const sessionUpdateListController = useControllerForSessionUpdateOfSpaceList(
     spaceObj.id,
@@ -11,21 +11,10 @@ export function StudioSpacesRowStat() {
   const chapters = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.CHAPTER,
   );
-  const chats = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.CHAT,
-  );
-  const scenes = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.SCENE,
-  );
-  const reviews = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.REVIEW,
-  );
 
   return (
     <div className='flex flex-row items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>
-        {chapters.length} / {chats.length} / {scenes.length} / {reviews.length}
-      </p>
+      <p className='text-sm font-bold text-slate-300'>{chapters.length}</p>
     </div>
   );
 }
