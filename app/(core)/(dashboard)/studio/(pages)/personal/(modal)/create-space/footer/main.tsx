@@ -1,8 +1,8 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
-import { ButtonVariant, FormButton } from '@/ui/(form)/button/main';
-import { FormFooter } from '@/ui/(form)/footer/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
+import { FormFooter } from '@/ui/form/footer/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../(controller)/create-space/main';
 

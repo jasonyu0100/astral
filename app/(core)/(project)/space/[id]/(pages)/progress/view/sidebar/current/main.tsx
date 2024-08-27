@@ -1,8 +1,8 @@
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceProgressController,

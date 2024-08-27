@@ -1,7 +1,7 @@
 import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceSessionController,

@@ -6,10 +6,10 @@ import {
   exampleFileElems,
 } from '@/(server)/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { ProfileCover } from '@/ui/(element)/profile/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { UserDpElement } from '@/ui/element/user/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import isAstralAuth from '@/utils/isAuth';
 import { horizonMap } from '../../map';
 import { HorizonAreaView } from './view/main';
@@ -45,7 +45,7 @@ function Page() {
             >
               <GlassWindowContents>
                 <div className='flex flex-row items-center space-x-[1rem]'>
-                  <ProfileCover fileElem={exampleFileElem} />
+                  <UserDpElement fileElem={exampleFileElem} />
                   <div className='flex flex-col'>
                     <p className='font-bold text-slate-300'>John Smith</p>
                     <p className='text-slate-500'>Space XYZ</p>
@@ -78,7 +78,7 @@ function Page() {
             >
               <GlassWindowContents>
                 <div className='flex flex-row items-center space-x-[1rem]'>
-                  <ProfileCover fileElem={exampleFileElem} />
+                  <UserDpElement fileElem={exampleFileElem} />
                   <div className='flex flex-col'>
                     <p className='font-bold text-slate-300'>John Smith</p>
                     <p className='text-slate-500'>Space XYZ</p>

@@ -1,7 +1,7 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 import { ContextForSpaceMapSidebar } from '../../../../../page';
 

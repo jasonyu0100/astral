@@ -4,8 +4,8 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 
 export function JournalRecordFooterCenter() {
   const openableController = useControllerForOpenable();

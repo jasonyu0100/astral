@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceReviewContentComments } from './comments/main';
 import { SpaceReviewReviewMain } from './main/main';
 

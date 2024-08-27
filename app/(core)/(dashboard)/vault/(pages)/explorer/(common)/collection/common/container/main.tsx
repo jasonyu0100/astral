@@ -8,8 +8,8 @@ import {
 } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { DivInputProps } from '@/types/props/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { cn } from '@/utils/cn';
 import React, { useContext } from 'react';
 

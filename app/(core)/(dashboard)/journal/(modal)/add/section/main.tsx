@@ -4,14 +4,14 @@ import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { FormBody } from '@/ui/(form)/body/main';
-import { FormButton } from '@/ui/(form)/button/main';
-import { FormUploadFiles } from '@/ui/(form)/file/upload/upload-files/main';
-import { FormFooter } from '@/ui/(form)/footer/main';
-import { FormInput } from '@/ui/(form)/input/main';
-import { FormContainer } from '@/ui/(form)/main';
-import { FormTitle } from '@/ui/(form)/title/main';
-import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
+import { FormBody } from '@/ui/form/body/main';
+import { FormButton } from '@/ui/form/button/main';
+import { FormUploadFiles } from '@/ui/form/file/upload/upload-files/main';
+import { FormFooter } from '@/ui/form/footer/main';
+import { FormInput } from '@/ui/form/input/main';
+import { FormContainer } from '@/ui/form/main';
+import { FormTitle } from '@/ui/form/title/main';
+import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function JournalRecordCollectionModal() {

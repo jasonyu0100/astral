@@ -1,6 +1,6 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
 export function VentureHorizonsSidebarOption({
   children,

@@ -1,8 +1,8 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
-import { FormContainer } from '@/ui/(form)/main';
-import { FormTitle } from '@/ui/(form)/title/main';
-import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
+import { FormContainer } from '@/ui/form/main';
+import { FormTitle } from '@/ui/form/title/main';
+import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
 import {
   ContextForCreateSpace,

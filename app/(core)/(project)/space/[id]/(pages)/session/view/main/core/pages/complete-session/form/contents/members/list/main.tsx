@@ -2,7 +2,7 @@ import { ContextForSessionForm } from '@/(core)/(project)/space/[id]/(pages)/pro
 import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceSessionCollaboratorRow } from './row/main';
 

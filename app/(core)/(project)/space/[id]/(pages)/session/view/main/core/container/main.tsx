@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 export function SpaceSessionContainer({
   children,

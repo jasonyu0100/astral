@@ -1,6 +1,6 @@
-import { TabPurpleShard } from '@/ui/(dashboard)/tabs/tabs-row/tab/shard/purple/main';
-import { Tab } from '../../../../../ui/(dashboard)/tabs/tabs-row/tab/main';
-import { TabText } from '../../../../../ui/(dashboard)/tabs/tabs-row/tab/text/main';
+import { TabPurpleShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/purple/main';
+import { Tab } from '../../../common//tabs/tabs-row/tab/main';
+import { TabText } from '../../../common//tabs/tabs-row/tab/text/main';
 import { studioMap } from '../../map';
 import { StudioTabStages } from '../main';
 

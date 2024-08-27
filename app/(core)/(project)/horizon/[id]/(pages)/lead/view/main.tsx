@@ -1,5 +1,5 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 export function HorizonLeadView({ children }: { children?: React.ReactNode }) {
   return (

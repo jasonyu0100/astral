@@ -2,9 +2,9 @@
 
 import { TimerComponent } from '@/(core)/(developer)/learn/timer/component/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import isAstralAuth from '@/utils/isAuth';
 import { HorizonLeadView } from './view/main';
 import { HorizonLeadSidebar } from './view/sidebar/main';

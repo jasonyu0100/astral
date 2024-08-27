@@ -1,8 +1,8 @@
+import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import {
   VaultTabs,
   VaultTabStage,
 } from '@/(core)/(dashboard)/vault/(tabs)/main';
-import { DashboardContent } from '@/ui/(dashboard)/content/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (

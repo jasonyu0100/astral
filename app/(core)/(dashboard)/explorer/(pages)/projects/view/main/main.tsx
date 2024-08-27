@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { VentureHorizonsCore } from './core/main';
 import { HorizonsSearch } from './core/search/main';
 

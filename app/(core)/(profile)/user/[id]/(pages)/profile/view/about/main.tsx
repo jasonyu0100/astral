@@ -4,10 +4,10 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { borderFx, glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { ContextForProfilePage } from '../../page';
 import { ProfileAboutBackAction } from './action/back/main';

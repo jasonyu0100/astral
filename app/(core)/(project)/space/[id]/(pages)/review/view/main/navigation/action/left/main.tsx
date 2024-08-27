@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
-import { WrapperTooltip } from '@/ui/(basic)/tooltip/main';
+import { WrapperTooltip } from '@/ui/tooltip/main';
 import { useContext } from 'react';
 
 export function NavigationTimelineGoLeftAction() {

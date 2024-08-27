@@ -1,7 +1,7 @@
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { SpaceMapGallerysBreadcrumbs } from '../breadcrumbs/main';
 
 export function SpaceMapGallerysSearch() {

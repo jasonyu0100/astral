@@ -4,7 +4,7 @@ import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/ide
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ProfileCover } from '@/ui/(element)/profile/main';
+import { UserDpElement } from '@/ui/element/user/main';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
@@ -91,7 +91,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         </div>
         {mapController.peopleMode === SpaceMapPeopleMode.ON && (
           <div className='absolute bottom-[0.5rem] left-[0.5rem] flex flex-col items-center'>
-            <ProfileCover
+            <UserDpElement
               fileElem={loggedInUser.dp}
               className='h-[1.5rem] w-[1.5rem]'
             />

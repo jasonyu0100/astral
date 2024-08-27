@@ -1,7 +1,7 @@
 import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

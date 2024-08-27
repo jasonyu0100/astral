@@ -1,5 +1,5 @@
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceProgressHeaderLeft } from './left/main';
 import { SpaceProgressHeaderMiddle } from './middle/main';
 import { SpaceProgressHeaderRight } from './right/main';

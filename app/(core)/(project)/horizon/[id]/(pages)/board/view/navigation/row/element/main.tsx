@@ -1,8 +1,8 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { WrapperTooltip } from '@/ui/(basic)/tooltip/main';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { WrapperTooltip } from '@/ui/tooltip/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 

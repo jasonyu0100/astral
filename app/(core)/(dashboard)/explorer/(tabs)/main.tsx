@@ -1,5 +1,5 @@
-import { Tabs } from '../../../../ui/(dashboard)/tabs/main';
-import { TabsRow } from '../../../../ui/(dashboard)/tabs/tabs-row/main';
+import { Tabs } from '../../common//tabs/main';
+import { TabsRow } from '../../common//tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
 
 export enum ProjectTabStage {

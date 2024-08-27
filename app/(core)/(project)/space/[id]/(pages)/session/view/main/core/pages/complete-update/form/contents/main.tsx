@@ -5,9 +5,9 @@ import {
 } from '@/(server)/model/space/chapter/session/update/main';
 import { ChapterSessionUpdateObj } from '@/graphql/API';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { SpaceSessionUpdateFormUpdate } from '../action/update/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';

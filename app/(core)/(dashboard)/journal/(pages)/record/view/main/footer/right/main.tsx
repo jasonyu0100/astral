@@ -1,4 +1,4 @@
-import { TimerComponent } from '@/ui/(timer)/main';
+import { TimerComponent } from '@/ui/timer/main';
 
 export function JournalRecorderFooterRight() {
   return (

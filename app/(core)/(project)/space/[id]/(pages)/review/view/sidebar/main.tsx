@@ -1,5 +1,5 @@
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceReviewSidebarList } from './list/main';
 import { SpaceReviewSidebarSearch } from './search/main';
 

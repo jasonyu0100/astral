@@ -1,19 +1,19 @@
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { glassFx } from '@/style/data';
-import { ProfileCover } from '@/ui/(element)/profile/main';
-import { FormTextArea } from '@/ui/(form)/area/main';
-import { FormBody } from '@/ui/(form)/body/main';
-import { FormButton } from '@/ui/(form)/button/main';
-import { FormFooter } from '@/ui/(form)/footer/main';
-import { FormInput } from '@/ui/(form)/input/main';
-import { FormContainer } from '@/ui/(form)/main';
-import { FormSelect } from '@/ui/(form)/select/main';
-import { FormTitle } from '@/ui/(form)/title/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
-import { PolaroidModal } from '@/ui/(modal)/polaroid/main';
+import { UserDpElement } from '@/ui/element/user/main';
+import { FormTextArea } from '@/ui/form/area/main';
+import { FormBody } from '@/ui/form/body/main';
+import { FormButton } from '@/ui/form/button/main';
+import { FormFooter } from '@/ui/form/footer/main';
+import { FormInput } from '@/ui/form/input/main';
+import { FormContainer } from '@/ui/form/main';
+import { FormSelect } from '@/ui/form/select/main';
+import { FormTitle } from '@/ui/form/title/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function SpaceSessionAddUpdateModal() {
@@ -53,7 +53,7 @@ export function SpaceSessionAddUpdateModal() {
                 <div className='flex flex-col space-y-[1rem]'>
                   {exampleFileElems.map((fileElem) => (
                     <div className='flex flex-row items-center space-x-[1rem] font-bold'>
-                      <ProfileCover fileElem={fileElem} />
+                      <UserDpElement fileElem={fileElem} />
                       <p>First name</p>
                       <p>Last name</p>
                     </div>

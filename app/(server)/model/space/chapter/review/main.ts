@@ -20,6 +20,7 @@ export interface ChapterReviewObj {
   created: string;
   variant: string;
   status: string;
+  karma: number;
   fileElem?: FileElem;
   textElem?: TextElem;
   urlElem?: UrlElem;
@@ -35,6 +36,7 @@ type ChapterReviewObj {
   created: String!
   variant: String!
   status: String!
+  karma: Int!
   fileElem: FileElem
   textElem: TextElem
   urlElem: UrlElem
@@ -54,6 +56,7 @@ export const exampleChapterReview: ChapterReviewObj = {
   status: ChapterReviewStatus.PENDING,
   created: new Date().toISOString(),
   variant: ElementVariant.FILE,
+  karma: 0,
 };
 
 export const exampleChapterReviews: ChapterReviewObj[] = [
@@ -66,6 +69,7 @@ export const exampleChapterReviews: ChapterReviewObj[] = [
     description: 'Reviewwww Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
+    karma: 0,
   },
   {
     id: '1',
@@ -76,6 +80,7 @@ export const exampleChapterReviews: ChapterReviewObj[] = [
     description: 'Review Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
+    karma: 0,
   },
   {
     id: '2',
@@ -86,6 +91,7 @@ export const exampleChapterReviews: ChapterReviewObj[] = [
     description: 'Review Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
+    karma: 0,
   },
 ];
 

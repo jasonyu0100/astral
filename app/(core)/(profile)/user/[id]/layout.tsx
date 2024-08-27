@@ -1,8 +1,8 @@
 'use client';
+import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
 import { DashboardTopbar } from '@/(core)/common/(topbar)/main';
-import { DashboardController } from '@/ui/(dashboard)/controller/main';
 import { createContext } from 'react';
 
 export interface ContextForProfileInterface {

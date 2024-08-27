@@ -1,6 +1,6 @@
 import { roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { UserProfileBacksItem } from './item/main';
 
 export function UserProfileGeneralBacks() {

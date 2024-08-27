@@ -1,5 +1,5 @@
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceMapHeaderCenter } from './center/main';
 import { SpaceMapHeaderLeft } from './left/main';
 import { SpaceMapHeaderRight } from './right/main';

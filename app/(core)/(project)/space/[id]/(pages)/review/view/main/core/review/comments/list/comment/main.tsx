@@ -1,11 +1,6 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
-import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
-import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
-import { roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
@@ -31,7 +26,7 @@ export function SpaceReviewContentComment() {
         <p className='text-lg font-light text-slate-300'>
           {commentObj.message}
         </p>
-        <div className='mt-[0.5rem] flex flex-row'>
+        {/* <div className='mt-[0.5rem] flex flex-row'>
           <AstralChevronUpIcon />
           <GlassWindowFrame
             className='h-[25px] w-[25px]'
@@ -42,7 +37,7 @@ export function SpaceReviewContentComment() {
             </GlassWindowContents>
           </GlassWindowFrame>
           <AstralChevronDownIcon />
-        </div>
+        </div> */}
       </div>
     </div>
   );

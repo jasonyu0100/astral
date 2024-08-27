@@ -6,8 +6,8 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { JournalRecordSidebarAdd } from './add/main';
 

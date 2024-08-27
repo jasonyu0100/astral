@@ -6,10 +6,10 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { SpaceSessionAddUpdateModal } from '../../modal/add/update/main';
 

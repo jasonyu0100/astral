@@ -8,7 +8,7 @@ import { AstralListIcon } from '@/icons/list/main';
 import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
-import { PipIndicator } from '@/ui/(indicator)/pip/main';
+import { PipIndicator } from '@/ui/indicator/pip/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,

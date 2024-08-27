@@ -1,5 +1,5 @@
 import { borderFx, glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizonAreaSidebarEntry } from './entry/main';
 
 export function HorizonAreaSidebar() {

@@ -4,7 +4,7 @@ import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { createContext } from 'react';
 import { DashboardSidebarDefaultContainer } from './main/container/default/main';
 import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';

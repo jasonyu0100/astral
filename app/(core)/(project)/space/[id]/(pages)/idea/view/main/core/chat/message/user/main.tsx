@@ -1,3 +1,4 @@
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
@@ -11,7 +12,7 @@ export function SpaceIdeaUserMessage() {
     <div className=' ml-auto flex max-w-[350px] flex-col'>
       <div className='mr-auto flex flex-row items-center'>
         <img
-          src={loggedInUser.dp.src}
+          src={loggedInUser.dp?.src || exampleFileElem.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
         <p className='p-[0.5rem] text-xs text-slate-500'>

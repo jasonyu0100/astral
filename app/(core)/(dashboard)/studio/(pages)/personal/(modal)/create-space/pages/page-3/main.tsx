@@ -1,5 +1,5 @@
-import { FormTextArea } from '@/ui/(form)/area/main';
-import { FormBody } from '@/ui/(form)/body/main';
+import { FormTextArea } from '@/ui/form/area/main';
+import { FormBody } from '@/ui/form/body/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 import { DatePicker } from './datepicker/main';

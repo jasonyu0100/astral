@@ -1,6 +1,6 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceMapGalleryAdd } from './add/main';
 import { SpaceMapGalleryThumbnail } from './thumbnail/main';

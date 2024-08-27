@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import { glassFx } from '@/style/data';
-import { FormButton } from '@/ui/(form)/button/main';
-import { FormSelect } from '@/ui/(form)/select/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
-import { Card } from '@/ui/(idea)/game/card/main';
-import { Dice, DiceFace } from '@/ui/(idea)/game/dice/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
-import { FeltModal } from '@/ui/(modal)/felt/main';
+import { FormButton } from '@/ui/form/button/main';
+import { FormSelect } from '@/ui/form/select/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { Card } from '@/ui/idea/game/card/main';
+import { Dice, DiceFace } from '@/ui/idea/game/dice/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { FeltModal } from '@/ui/modal/felt/main';
 import { useEffect, useState } from 'react';
 import { DayColor, MonthDayView } from './day/main';
 

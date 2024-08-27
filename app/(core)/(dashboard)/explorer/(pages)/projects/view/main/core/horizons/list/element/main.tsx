@@ -2,10 +2,10 @@
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { HorizonCover } from '@/ui/(element)/horizon/main';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { HorizonThumbnailElement } from '@/ui/element/horizon/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import Link from 'next/link';
 
 export function VentureHorizonsListElement() {
@@ -21,7 +21,7 @@ export function VentureHorizonsListElement() {
             className='flex flex-col items-center space-y-[1rem]'
             href={horizonMap.horizon.id.area.link('0')}
           >
-            <HorizonCover fileElem={exampleFileElem} />
+            <HorizonThumbnailElement fileElem={exampleFileElem} />
           </Link>
           <div className='flex flex-col'>
             <p className='text-xl font-bold text-slate-300'>Horizon</p>

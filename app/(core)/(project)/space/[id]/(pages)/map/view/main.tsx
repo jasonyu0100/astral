@@ -1,5 +1,5 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceMapMain } from './main/main';
 import { SpaceMapSidebar } from './sidebar/main';
 

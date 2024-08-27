@@ -1,9 +1,9 @@
+import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
+import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
 import {
   SpaceTabStage,
   SpaceTabs,
 } from '@/(core)/(project)/space/[id]/tabs/main';
-import { DashboardContent } from '@/ui/(dashboard)/content/main';
-import { DashboardBody } from '@/ui/(dashboard)/controller/body/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (

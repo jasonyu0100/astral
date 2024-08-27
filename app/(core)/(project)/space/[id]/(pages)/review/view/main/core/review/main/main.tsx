@@ -1,9 +1,9 @@
 import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
-import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
+import { Carousel } from './carousel/main';
 
 export function SpaceReviewReviewMain() {
   const reviewListController = useContext(ContextForChapterReviewList);
@@ -21,7 +21,7 @@ export function SpaceReviewReviewMain() {
           <div className='flex flex-row items-center space-x-[1rem]'>
             <img
               className='aspect-square h-[3rem] rounded-full'
-              src={loggedInUser.dp.src}
+              src={loggedInUser.dp?.src || exampleFileElem.src}
             />
             <p className='text-xl font-bold text-white'>
               Review - {reviewListController.state.currentObj?.title}
@@ -29,21 +29,45 @@ export function SpaceReviewReviewMain() {
           </div>
         </div>
       </div>
-      <div className='flex flex-row items-center space-x-[4rem]'>
-        <div className='flex flex-col space-y-[2rem]'>
-          <div className='flex flex-row space-x-[2rem]'>
-            <img
-              className='h-full w-full max-w-[600px] object-contain'
-              src={reviewListController.state.currentObj?.fileElem?.src}
-            />
-            <div className='flex flex-col items-center justify-center'>
+      <div className='grid grid-cols-7 gap-[1rem]'>
+        <div className='col-span-4 flex flex-col space-y-[2rem]'>
+          <Carousel
+            images={[
+              reviewListController.state.currentObj?.fileElem?.src,
+              reviewListController.state.currentObj?.fileElem?.src,
+              reviewListController.state.currentObj?.fileElem?.src,
+            ]}
+          />
+
+          {/* <div className='grid w-full'>
+              <img
+                className='h-full w-full object-contain'
+                src={reviewListController.state.currentObj?.fileElem?.src}
+              />
+              <img
+                className='h-full w-full object-contain'
+                src={reviewListController.state.currentObj?.fileElem?.src}
+              />
+              <img
+                className='h-full w-full object-contain'
+                src={reviewListController.state.currentObj?.fileElem?.src}
+              />
+              <img
+                className='h-full w-full object-contain'
+                src={reviewListController.state.currentObj?.fileElem?.src}
+              />
+              <img
+                className='h-full w-full object-contain'
+                src={reviewListController.state.currentObj?.fileElem?.src}
+              />
+            </div> */}
+          {/* <div className='flex flex-col items-center justify-center'>
               <AstralChevronUpIcon className='h-[3rem] w-[3rem]' />
               <p className='text-xl font-bold text-slate-500'>100</p>
               <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
-            </div>
-          </div>
+            </div> */}
         </div>
-        <div className='flex flex-col'>
+        <div className='col-span-3 flex flex-col p-[2rem]'>
           <ul className='list-disc px-[1rem] text-slate-500'>
             <li>test</li>
             <li>test</li>

@@ -1,6 +1,6 @@
 import { glassFx, roundedFx } from '@/style/data';
 import { ButtonInputProps } from '@/types/props/main';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 interface NavigationTimelineInputProps extends ButtonInputProps {
   children?: React.ReactNode;

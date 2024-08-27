@@ -7,9 +7,9 @@ import {
   useControllerForPagable,
 } from '@/logic/contexts/pagination/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
-import { GlassWindowFrame } from '@/ui/(glass)/window/main';
-import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { CreateSpaceModalView } from '../../(modal)/create-space/main';
 import { StudioSpacesHeaderAdd } from './add/main';
 import { StudioSpacesHeaderInfo } from './info/main';

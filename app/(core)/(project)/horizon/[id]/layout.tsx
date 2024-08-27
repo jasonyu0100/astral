@@ -1,8 +1,8 @@
 'use client';
 
+import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
 import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
-import { DashboardController } from '@/ui/(dashboard)/controller/main';
 import { createContext } from 'react';
 
 interface HorizonContextObj {

@@ -1,6 +1,6 @@
-import { TabsBackButton } from '@/ui/(dashboard)/tabs/tabs-row/back-button/main';
-import { Tabs } from '../../../../ui/(dashboard)/tabs/main';
-import { TabsRow } from '../../../../ui/(dashboard)/tabs/tabs-row/main';
+import { TabsBackButton } from '@/(core)/(dashboard)/common//tabs/tabs-row/back-button/main';
+import { Tabs } from '../../common//tabs/main';
+import { TabsRow } from '../../common//tabs/tabs-row/main';
 import { explorerMap } from '../../explorer/map';
 import { TabOne } from './tab-1/main';
 

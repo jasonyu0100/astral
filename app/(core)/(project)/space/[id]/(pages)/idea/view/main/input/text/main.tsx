@@ -1,7 +1,7 @@
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { FormInputProps } from '@/types/props/main';
-import { GlassAreaContainer } from '@/ui/(glass)/area/main';
+import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 export function SpaceIdeaInputText({ ...props }: FormInputProps) {
   const hoverableController = useControllerForHoverable();

@@ -1,4 +1,5 @@
 'use client';
+import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import {
   VaultTabs,
   VaultTabStage,
@@ -16,7 +17,6 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
-import { DashboardContent } from '@/ui/(dashboard)/content/main';
 import isAstralAuth from '@/utils/isAuth';
 import { ExplorerCollectionResources } from './view/main';
 

@@ -4,7 +4,7 @@ import { ContextForConversationMessageList } from '@/(server)/controller/space/c
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
-import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { roleDescriptions } from '../../../../data';
