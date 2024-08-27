@@ -3,11 +3,11 @@ import { SvgInputProps } from '@/types/props/main';
 export function SpaceMapJournalIcon({ ...props }: SvgInputProps) {
   return (
     <svg
+      {...props}
+      className='h-[1.5rem] w-[1.5rem] cursor-pointer'
       xmlns='http://www.w3.org/2000/svg'
       viewBox='0 0 24 24'
-      className='h-[1.5rem] w-[1.5rem] cursor-pointer'
       fill='none'
-      {...props}
     >
       <mask
         id='mask0_3263_5803'

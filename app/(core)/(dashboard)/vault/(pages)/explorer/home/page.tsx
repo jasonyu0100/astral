@@ -3,7 +3,7 @@ import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { ExplorerHomeGallerysView } from './view/view';
 

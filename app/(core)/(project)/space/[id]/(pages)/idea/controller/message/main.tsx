@@ -7,7 +7,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ChatConversationObj } from '@/(server)/model/space/chapter/chat/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
 import { useOpenAIController } from '@/api/controller/openai/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext } from 'react';
 import { ChatRole, roleDescriptions } from '../../data';
 import { ContextForChat } from '../../page';

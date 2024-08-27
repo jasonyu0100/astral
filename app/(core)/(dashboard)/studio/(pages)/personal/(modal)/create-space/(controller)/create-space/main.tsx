@@ -15,7 +15,7 @@ import {
   SpaceTemplate,
   TemplateChapterObj,
 } from '@/(server)/templates/space/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import moment from 'moment';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {

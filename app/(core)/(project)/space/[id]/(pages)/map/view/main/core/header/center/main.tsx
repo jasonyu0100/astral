@@ -1,6 +1,6 @@
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
-import { SpaceMapExpandIcon } from './expand/main';
 
 export function SpaceMapHeaderCenter() {
   const sceneListController = useContext(ContextForChapterSceneList);
@@ -10,7 +10,7 @@ export function SpaceMapHeaderCenter() {
       <p className='text-lg font-light text-slate-300'>
         scene - {sceneListController.state.currentObj?.title || 'untitled'}
       </p>
-      <SpaceMapExpandIcon />
+      <AstralChevronRightIcon />
     </div>
   );
 }

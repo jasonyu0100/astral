@@ -12,7 +12,7 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { JournalRecordView } from './view/view';
 

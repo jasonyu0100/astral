@@ -1,4 +1,4 @@
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/ui/(glass)/window/main';
 import { GlassWindowPane } from '@/ui/(glass)/window/pane/main';
@@ -8,6 +8,7 @@ export function SpaceProgressList({ children }: { children: React.ReactNode }) {
     <GlassWindowFrame
       className='h-full w-full p-[1rem]'
       roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex flex-col space-y-[2rem] overflow-auto  pr-[1rem]'>
         {children}

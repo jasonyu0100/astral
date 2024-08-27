@@ -5,7 +5,7 @@ import { PortalBackground } from '@/(portal)/common/background/main';
 import { DashboardBody } from '@/ui/(dashboard)/controller/body/main';
 import { DashboardController } from '@/ui/(dashboard)/controller/main';
 import { Suspense } from 'react';
-import { CentralWindowContainer } from '../../(general)/(common)/central/main';
+import { CentralWindowContainer } from '../../(general)/common/central/main';
 
 export default function Layout({
   children,

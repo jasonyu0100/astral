@@ -30,7 +30,7 @@ import {
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { createContext, useState } from 'react';
 import {

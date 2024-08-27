@@ -20,7 +20,7 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import {
   ContextForSpaceProgress,

@@ -24,8 +24,8 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalSpace } from '@/logic/internal/store/space/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalSpace } from '@/logic/store/space/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';

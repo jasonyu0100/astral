@@ -1,5 +1,5 @@
 import { ButtonInputProps } from '@/types/props/main';
-import { ChatSendIcon } from '../../../../../common/icons/send/main';
+import { AstralSendIcon } from '../../../../../../../../../../../icons/send/main';
 
 export function SpaceIdeaInputRightSend({ ...props }: ButtonInputProps) {
   return (
@@ -7,7 +7,7 @@ export function SpaceIdeaInputRightSend({ ...props }: ButtonInputProps) {
       className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem] bg-blue-500'
       {...props}
     >
-      <ChatSendIcon />
+      <AstralSendIcon />
     </button>
   );
 }

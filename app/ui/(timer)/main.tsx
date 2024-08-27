@@ -1,4 +1,4 @@
-import { useControllerForTimer } from '@/logic/controller/timer/main';
+import { useControllerForTimer } from '@/logic/timer/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '../(glass)/window/contents/main';
 import { GlassWindowFrame } from '../(glass)/window/main';

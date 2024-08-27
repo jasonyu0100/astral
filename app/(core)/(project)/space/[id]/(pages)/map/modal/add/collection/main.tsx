@@ -3,7 +3,7 @@ import { useControllerForCollectionResourceList } from '@/(server)/controller/ga
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { FormBody } from '@/ui/(form)/body/main';
 import { FormButton } from '@/ui/(form)/button/main';
 import { FormUploadFiles } from '@/ui/(form)/file/upload/upload-files/main';

@@ -2,7 +2,7 @@ import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/c
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/(form)/area/main';
 import { FormBody } from '@/ui/(form)/body/main';
 import { FormButton } from '@/ui/(form)/button/main';

@@ -5,7 +5,7 @@ import {
 } from '@/(core)/(profile)/(finance)/support/page';
 import { portalMap } from '@/(portal)/map';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { FormBody } from '@/ui/(form)/body/main';
 import { FormButton } from '@/ui/(form)/button/main';
 import { FormFooter } from '@/ui/(form)/footer/main';

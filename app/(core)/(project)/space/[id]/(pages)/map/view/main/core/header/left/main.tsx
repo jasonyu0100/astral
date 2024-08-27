@@ -1,6 +1,8 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { AstralListIcon } from '@/icons/list/main';
+import { AstralNoteIcon } from '@/icons/note/main';
 import { PipIndicator } from '@/ui/(indicator)/pip/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -31,15 +33,14 @@ export function SpaceMapHeaderLeft() {
             : 'fill-blue-500'
         }
       />
-      <svg
+      <AstralNoteIcon
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 -960 960 960'
-        className={cn(
-          'h-[1.5rem] w-[1.5rem] cursor-pointer',
+        className={
           mapController.ideaMode === SpaceMapIdeaMode.VISUAL
             ? 'fill-slate-300'
-            : 'fill-blue-500',
-        )}
+            : 'fill-blue-500'
+        }
         onClick={() => {
           if (mapController.ideaMode === SpaceMapIdeaMode.VISUAL) {
             mapController.updateIdeaMode(SpaceMapIdeaMode.DETAILS);
@@ -47,14 +48,13 @@ export function SpaceMapHeaderLeft() {
             mapController.updateIdeaMode(SpaceMapIdeaMode.VISUAL);
           }
         }}
-      >
-        <path d='M200-200h360v-200h200v-360H200v560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v400L600-120H200Zm80-280v-80h200v80H280Zm0-160v-80h400v80H280Zm-80 360v-560 560Z' />
-      </svg>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        height='24px'
-        viewBox='0 -960 960 960'
-        width='24px'
+      />
+      <AstralListIcon
+        className={
+          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
         onClick={() => {
           if (mapController.sidebarMode === SpaceMapSidebarMode.LIST) {
             mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
@@ -62,15 +62,7 @@ export function SpaceMapHeaderLeft() {
             mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
           }
         }}
-        className={cn(
-          'h-[1.5rem] w-[1.5rem] cursor-pointer',
-          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
-            ? 'fill-slate-300'
-            : 'fill-blue-500',
-        )}
-      >
-        <path d='M120-80v-60h100v-30h-60v-60h60v-30H120v-60h120q17 0 28.5 11.5T280-280v40q0 17-11.5 28.5T240-200q17 0 28.5 11.5T280-160v40q0 17-11.5 28.5T240-80H120Zm0-280v-110q0-17 11.5-28.5T160-510h60v-30H120v-60h120q17 0 28.5 11.5T280-560v70q0 17-11.5 28.5T240-450h-60v30h100v60H120Zm60-280v-180h-60v-60h120v240h-60Zm180 440v-80h480v80H360Zm0-240v-80h480v80H360Zm0-240v-80h480v80H360Z' />
-      </svg>
+      />
       <PipIndicator />
       {sidebarController.mode === SpaceMapSidebarMediaMode.Home ? (
         <svg

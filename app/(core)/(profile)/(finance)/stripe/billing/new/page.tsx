@@ -4,7 +4,7 @@ import {
   stripeNewBillingSession,
   stripeProcessSubscription,
 } from '@/api/stripe/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

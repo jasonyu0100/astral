@@ -3,6 +3,7 @@ import { ContextForChatConversationList } from '@/(server)/controller/space/chap
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { AstralSubjectIcon } from '@/icons/subject/main';
 import { HorizontalDivider } from '@/ui/(indicator)/divider/horizontal/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
@@ -75,29 +76,7 @@ export function SpaceIdeaChat() {
             alert('Summarising Conversation');
           }}
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-3/4 w-3/4'
-            viewBox='0 0 24 24'
-            fill='none'
-          >
-            <mask
-              id='mask0_3293_66'
-              maskUnits='userSpaceOnUse'
-              x='0'
-              y='0'
-              width='24'
-              height='24'
-            >
-              <rect width='24' height='24' fill='#D9D9D9' />
-            </mask>
-            <g mask='url(#mask0_3293_66)'>
-              <path
-                d='M4 15V13H20V15H4ZM4 19V17H20V19H4ZM4 11V9H20V11H4ZM4 7V5H20V7H4Z'
-                fill='#CBD5E1'
-              />
-            </g>
-          </svg>
+          <AstralSubjectIcon className='h-3/4 w-3/4' />
         </a>
       </div>
     </div>

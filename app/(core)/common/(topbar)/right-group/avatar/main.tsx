@@ -1,5 +1,5 @@
 'use client';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { LinkInputProps } from '@/types/props/main';
 import Link from 'next/link';
 

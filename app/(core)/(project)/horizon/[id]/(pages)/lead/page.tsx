@@ -1,6 +1,6 @@
 'use client';
 
-import { TimerComponent } from '@/(core)/(dev)/learn/timer/component/main';
+import { TimerComponent } from '@/(core)/(developer)/learn/timer/component/main';
 import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/(glass)/window/contents/main';
 import { GlassWindowFrame } from '@/ui/(glass)/window/main';

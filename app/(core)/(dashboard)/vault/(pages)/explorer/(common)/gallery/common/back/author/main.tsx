@@ -1,4 +1,4 @@
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 
 export function GalleryBackAuthor() {
   const loggedInUser = useGlobalUser((state) => state.user);

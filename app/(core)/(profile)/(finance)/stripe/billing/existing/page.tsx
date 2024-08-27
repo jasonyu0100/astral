@@ -1,7 +1,7 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { stripeExistingBillingSession } from '@/api/stripe/main';
-import { useGlobalUser } from '@/logic/internal/store/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 
 export default function Page() {
   const user = useGlobalUser((state) => state.user);
