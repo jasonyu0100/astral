@@ -10,7 +10,8 @@ export function SpaceReviewHeaderRight() {
       <button
         className='flex flex-row items-center space-x-[1rem] rounded-md bg-blue-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          modalController.shareReviewController.open();
+          alert('Coming soon...');
+          // modalController.shareReviewController.open();
         }}
       >
         <p className='font-bold text-slate-300'>Share</p>

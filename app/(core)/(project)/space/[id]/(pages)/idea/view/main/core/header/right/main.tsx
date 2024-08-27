@@ -10,7 +10,8 @@ export function SpaceIdeaHeaderRight() {
       <button
         className='flex flex-row items-center space-x-[1rem] rounded-md bg-blue-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          modalController.generateSceneController.open();
+          alert('Coming soon...');
+          // modalController.generateSceneController.open();
         }}
       >
         <p className='font-bold text-slate-300'>Scene</p>

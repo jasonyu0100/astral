@@ -62,6 +62,7 @@ export function SpaceIdeaChat() {
         <GlassWindowFrame className='w-full flex-shrink-0 px-[1rem]'>
           <GlassWindowContents className='flex flex-col space-y-[1rem]'>
             <p className='text-lg font-bold text-slate-300'>
+              {chatListController.state.index + 1}.{' '}
               {chatListController.state.currentObj?.description || 'Open-ended'}
             </p>
             <p className='text-sm font-light text-slate-300'>
