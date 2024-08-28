@@ -1,5 +1,5 @@
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';

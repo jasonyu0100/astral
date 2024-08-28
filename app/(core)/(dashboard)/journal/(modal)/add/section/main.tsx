@@ -41,6 +41,7 @@ export function JournalRecordCollectionModal() {
         ).then(() => {
           openableController.close();
         });
+      });
   }
 
   return (

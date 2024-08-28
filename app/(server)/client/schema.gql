@@ -41,20 +41,6 @@ type ArcPointObjConnection {
   nextToken: String
 }
 
-type ChapterChatObj {
-  id: String!
-  userId: String!
-  chapterId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-type ChapterChatObjConnection {
-  items: [ChapterChatObj]
-  nextToken: String
-}
-
 type ChapterReviewObj {
   id: String!
   userId: String!
@@ -139,7 +125,6 @@ type ChapterSessionUpdateObj {
   description: String!
   created: String!
   variant: String!
-  chatId: String
   conversationId: String
   sceneId: String
   ideaId: String
@@ -148,31 +133,6 @@ type ChapterSessionUpdateObj {
 
 type ChapterSessionUpdateObjConnection {
   items: [ChapterSessionUpdateObj]
-  nextToken: String
-}
-
-type ChatConversationObj {
-  id: String!
-  userId: String!
-  chatId: String!
-  summary: String!
-  created: String!
-}
-
-type ChatConversationObjConnection {
-  items: [ChatConversationObj]
-  nextToken: String
-}
-
-type ChatMemberObj {
-  id: String!
-  chatId: String!
-  userId: String
-  created: String!
-}
-
-type ChatMemberObjConnection {
-  items: [ChatMemberObj]
   nextToken: String
 }
 
@@ -199,7 +159,7 @@ type ConversationMessageObj {
   userId: String
   agentId: String
   conversationId: String!
-  chatId: String!
+  sceneId: String!
   created: String!
   message: String!
 }
@@ -231,14 +191,6 @@ input CreateArcPointObjInput {
   description: String!
   created: String!
   idx: Int!
-}
-
-input CreateChapterChatObjInput {
-  userId: String!
-  chapterId: String!
-  title: String!
-  description: String!
-  created: String!
 }
 
 input CreateChapterReviewObjInput {
@@ -294,24 +246,10 @@ input CreateChapterSessionUpdateObjInput {
   description: String!
   created: String!
   variant: String!
-  chatId: String
   conversationId: String
   sceneId: String
   ideaId: String
   reviewId: String
-}
-
-input CreateChatConversationObjInput {
-  chatId: String!
-  userId: String!
-  summary: String!
-  created: String!
-}
-
-input CreateChatMemberObjInput {
-  chatId: String!
-  userId: String
-  created: String!
 }
 
 input CreateCollectionResourceObjInput {
@@ -330,7 +268,7 @@ input CreateConversationMessageObjInput {
   userId: String
   agentId: String
   conversationId: String!
-  chatId: String!
+  sceneId: String!
   created: String!
   message: String!
 }
@@ -527,14 +465,6 @@ input CreateSceneIdeaObjInput {
   created: String!
 }
 
-input CreateSceneStackObjInput {
-  sceneId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
 input CreateSpaceChapterObjInput {
   spaceId: String!
   userId: String!
@@ -652,10 +582,6 @@ input DeleteArcPointObjInput {
   id: String!
 }
 
-input DeleteChapterChatObjInput {
-  id: String!
-}
-
 input DeleteChapterReviewObjInput {
   id: String!
 }
@@ -677,14 +603,6 @@ input DeleteChapterSessionUpdateMemberObjInput {
 }
 
 input DeleteChapterSessionUpdateObjInput {
-  id: String!
-}
-
-input DeleteChatConversationObjInput {
-  id: String!
-}
-
-input DeleteChatMemberObjInput {
   id: String!
 }
 
@@ -793,10 +711,6 @@ input DeleteReviewMemberObjInput {
 }
 
 input DeleteSceneIdeaObjInput {
-  id: String!
-}
-
-input DeleteSceneStackObjInput {
   id: String!
 }
 
@@ -1218,20 +1132,6 @@ type SceneIdeaObjConnection {
   nextToken: String
 }
 
-type SceneStackObj {
-  id: String!
-  userId: String!
-  sceneId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-type SceneStackObjConnection {
-  items: [SceneStackObj]
-  nextToken: String
-}
-
 type SpaceChapterObj {
   id: String!
   spaceId: String!
@@ -1326,15 +1226,6 @@ input TableBooleanFilterInput {
   attributeExists: Boolean
 }
 
-input TableChapterChatObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  chapterId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
 input TableChapterReviewObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
@@ -1391,26 +1282,10 @@ input TableChapterSessionUpdateObjFilterInput {
   description: TableStringFilterInput
   created: TableStringFilterInput
   variant: TableStringFilterInput
-  chatId: TableStringFilterInput
   conversationId: TableStringFilterInput
   sceneId: TableStringFilterInput
   ideaId: TableStringFilterInput
   reviewId: TableStringFilterInput
-}
-
-input TableChatConversationObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  chatId: TableStringFilterInput
-  summary: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableChatMemberObjFilterInput {
-  id: TableStringFilterInput
-  chatId: TableStringFilterInput
-  userId: TableStringFilterInput
-  created: TableStringFilterInput
 }
 
 input TableCollectionResourceObjFilterInput {
@@ -1428,7 +1303,7 @@ input TableConversationMessageObjFilterInput {
   userId: TableStringFilterInput
   agentId: TableStringFilterInput
   conversationId: TableStringFilterInput
-  chatId: TableStringFilterInput
+  sceneId: TableStringFilterInput
   created: TableStringFilterInput
   message: TableStringFilterInput
 }
@@ -1682,15 +1557,6 @@ input TableSceneIdeaObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableSceneStackObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  sceneId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
 input TableSpaceChapterObjFilterInput {
   id: TableStringFilterInput
   spaceId: TableStringFilterInput
@@ -1859,15 +1725,6 @@ input UpdateArcPointObjInput {
   idx: Int
 }
 
-input UpdateChapterChatObjInput {
-  id: String!
-  userId: String
-  chapterId: String
-  title: String
-  description: String
-  created: String
-}
-
 input UpdateChapterReviewObjInput {
   id: String!
   userId: String
@@ -1927,26 +1784,10 @@ input UpdateChapterSessionUpdateObjInput {
   description: String
   created: String
   variant: String
-  chatId: String
   conversationId: String
   sceneId: String
   ideaId: String
   reviewId: String
-}
-
-input UpdateChatConversationObjInput {
-  id: String!
-  userId: String
-  chatId: String
-  summary: String
-  created: String
-}
-
-input UpdateChatMemberObjInput {
-  id: String!
-  chatId: String
-  userId: String
-  created: String
 }
 
 input UpdateCollectionResourceObjInput {
@@ -1964,7 +1805,7 @@ input UpdateConversationMessageObjInput {
   userId: String
   agentId: String
   conversationId: String
-  chatId: String
+  sceneId: String
   created: String
   message: String
 }
@@ -2183,15 +2024,6 @@ input UpdateSceneIdeaObjInput {
   fileElem: FileElemInput
   textElem: TextElemInput
   urlElem: UrlElemInput
-  created: String
-}
-
-input UpdateSceneStackObjInput {
-  id: String!
-  userId: String
-  sceneId: String
-  title: String
-  description: String
   created: String
 }
 
@@ -2459,15 +2291,6 @@ type Mutation {
   deleteConversationMessageObj(
     input: DeleteConversationMessageObjInput!
   ): ConversationMessageObj
-  createChatConversationObj(
-    input: CreateChatConversationObjInput!
-  ): ChatConversationObj
-  updateChatConversationObj(
-    input: UpdateChatConversationObjInput!
-  ): ChatConversationObj
-  deleteChatConversationObj(
-    input: DeleteChatConversationObjInput!
-  ): ChatConversationObj
   createSceneIdeaObj(input: CreateSceneIdeaObjInput!): SceneIdeaObj
   updateSceneIdeaObj(input: UpdateSceneIdeaObjInput!): SceneIdeaObj
   deleteSceneIdeaObj(input: DeleteSceneIdeaObjInput!): SceneIdeaObj
@@ -2513,9 +2336,6 @@ type Mutation {
   createSpaceObj(input: CreateSpaceObjInput!): SpaceObj
   updateSpaceObj(input: UpdateSpaceObjInput!): SpaceObj
   deleteSpaceObj(input: DeleteSpaceObjInput!): SpaceObj
-  createChatMemberObj(input: CreateChatMemberObjInput!): ChatMemberObj
-  updateChatMemberObj(input: UpdateChatMemberObjInput!): ChatMemberObj
-  deleteChatMemberObj(input: DeleteChatMemberObjInput!): ChatMemberObj
   createForumMemberObj(input: CreateForumMemberObjInput!): ForumMemberObj
   updateForumMemberObj(input: UpdateForumMemberObjInput!): ForumMemberObj
   deleteForumMemberObj(input: DeleteForumMemberObjInput!): ForumMemberObj
@@ -2555,15 +2375,9 @@ type Mutation {
   createAgentObj(input: CreateAgentObjInput!): AgentObj
   updateAgentObj(input: UpdateAgentObjInput!): AgentObj
   deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
-  createChapterChatObj(input: CreateChapterChatObjInput!): ChapterChatObj
-  updateChapterChatObj(input: UpdateChapterChatObjInput!): ChapterChatObj
-  deleteChapterChatObj(input: DeleteChapterChatObjInput!): ChapterChatObj
   createIdeaLinkObj(input: CreateIdeaLinkObjInput!): IdeaLinkObj
   updateIdeaLinkObj(input: UpdateIdeaLinkObjInput!): IdeaLinkObj
   deleteIdeaLinkObj(input: DeleteIdeaLinkObjInput!): IdeaLinkObj
-  createSceneStackObj(input: CreateSceneStackObjInput!): SceneStackObj
-  updateSceneStackObj(input: UpdateSceneStackObjInput!): SceneStackObj
-  deleteSceneStackObj(input: DeleteSceneStackObjInput!): SceneStackObj
   createChapterSessionObj(
     input: CreateChapterSessionObjInput!
   ): ChapterSessionObj
@@ -2772,12 +2586,6 @@ type Query {
     limit: Int
     nextToken: String
   ): ConversationMessageObjConnection
-  getChatConversationObj(id: String!): ChatConversationObj
-  listChatConversationObjs(
-    filter: TableChatConversationObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ChatConversationObjConnection
   getSceneIdeaObj(id: String!): SceneIdeaObj
   listSceneIdeaObjs(
     filter: TableSceneIdeaObjFilterInput
@@ -2844,12 +2652,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SpaceObjConnection
-  getChatMemberObj(id: String!): ChatMemberObj
-  listChatMemberObjs(
-    filter: TableChatMemberObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ChatMemberObjConnection
   getForumMemberObj(id: String!): ForumMemberObj
   listForumMemberObjs(
     filter: TableForumMemberObjFilterInput
@@ -2904,24 +2706,12 @@ type Query {
     limit: Int
     nextToken: String
   ): AgentObjConnection
-  getChapterChatObj(id: String!): ChapterChatObj
-  listChapterChatObjs(
-    filter: TableChapterChatObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ChapterChatObjConnection
   getIdeaLinkObj(id: String!): IdeaLinkObj
   listIdeaLinkObjs(
     filter: TableIdeaLinkObjFilterInput
     limit: Int
     nextToken: String
   ): IdeaLinkObjConnection
-  getSceneStackObj(id: String!): SceneStackObj
-  listSceneStackObjs(
-    filter: TableSceneStackObjFilterInput
-    limit: Int
-    nextToken: String
-  ): SceneStackObjConnection
   getChapterSessionObj(id: String!): ChapterSessionObj
   listChapterSessionObjs(
     filter: TableChapterSessionObjFilterInput
@@ -3136,27 +2926,6 @@ type Subscription {
     created: String
   ): ConversationMessageObj
     @aws_subscribe(mutations: ["deleteConversationMessageObj"])
-  onCreateChatConversationObj(
-    id: String
-    chatId: String
-    summary: String
-    created: String
-  ): ChatConversationObj
-    @aws_subscribe(mutations: ["createChatConversationObj"])
-  onUpdateChatConversationObj(
-    id: String
-    chatId: String
-    summary: String
-    created: String
-  ): ChatConversationObj
-    @aws_subscribe(mutations: ["updateChatConversationObj"])
-  onDeleteChatConversationObj(
-    id: String
-    chatId: String
-    summary: String
-    created: String
-  ): ChatConversationObj
-    @aws_subscribe(mutations: ["deleteChatConversationObj"])
   onCreateSceneIdeaObj(
     id: String
     sceneId: String
@@ -3388,24 +3157,6 @@ type Subscription {
     created: String
     description: String
   ): SpaceObj @aws_subscribe(mutations: ["deleteSpaceObj"])
-  onCreateChatMemberObj(
-    id: String
-    chatId: String
-    variant: String
-    userId: String
-  ): ChatMemberObj @aws_subscribe(mutations: ["createChatMemberObj"])
-  onUpdateChatMemberObj(
-    id: String
-    chatId: String
-    variant: String
-    userId: String
-  ): ChatMemberObj @aws_subscribe(mutations: ["updateChatMemberObj"])
-  onDeleteChatMemberObj(
-    id: String
-    chatId: String
-    variant: String
-    userId: String
-  ): ChatMemberObj @aws_subscribe(mutations: ["deleteChatMemberObj"])
   onCreateForumMemberObj(
     id: String
     forumId: String
@@ -3562,27 +3313,6 @@ type Subscription {
     created: String
     bio: String
   ): AgentObj @aws_subscribe(mutations: ["deleteAgentObj"])
-  onCreateChapterChatObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterChatObj @aws_subscribe(mutations: ["createChapterChatObj"])
-  onUpdateChapterChatObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterChatObj @aws_subscribe(mutations: ["updateChapterChatObj"])
-  onDeleteChapterChatObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterChatObj @aws_subscribe(mutations: ["deleteChapterChatObj"])
   onCreateIdeaLinkObj(
     id: String
     sceneId: String
@@ -3604,27 +3334,6 @@ type Subscription {
     endId: String
     created: String
   ): IdeaLinkObj @aws_subscribe(mutations: ["deleteIdeaLinkObj"])
-  onCreateSceneStackObj(
-    id: String
-    sceneId: String
-    title: String
-    description: String
-    created: String
-  ): SceneStackObj @aws_subscribe(mutations: ["createSceneStackObj"])
-  onUpdateSceneStackObj(
-    id: String
-    sceneId: String
-    title: String
-    description: String
-    created: String
-  ): SceneStackObj @aws_subscribe(mutations: ["updateSceneStackObj"])
-  onDeleteSceneStackObj(
-    id: String
-    sceneId: String
-    title: String
-    description: String
-    created: String
-  ): SceneStackObj @aws_subscribe(mutations: ["deleteSceneStackObj"])
   onCreateChapterSessionObj(
     id: String
     spaceId: String

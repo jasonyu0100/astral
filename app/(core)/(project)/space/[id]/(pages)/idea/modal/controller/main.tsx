@@ -6,21 +6,21 @@ import {
 import { createContext } from 'react';
 import { SpaceIdeaAddAttachmentModal } from '../add/attachment/main';
 import { SpaceIdeaAddChapterModal } from '../add/chapter/main';
-import { SpaceIdeaAddChatModal } from '../add/chat/main';
+import { SpaceIdeaAddSceneModal } from '../add/scene/main';
 import { SpaceIdeaGenerateSceneModal } from '../generate/main';
 
 export const ContextForSpaceIdeaModals = createContext({} as SpaceIdeaModals);
 
 export interface SpaceIdeaModals {
   addChapterController: ContextForOpenableInterface;
-  addChatController: ContextForOpenableInterface;
+  addSceneController: ContextForOpenableInterface;
   addAttachmentController: ContextForOpenableInterface;
   generateSceneController: ContextForOpenableInterface;
 }
 
 export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
   const addChapterController = useControllerForOpenable();
-  const addChatController = useControllerForOpenable();
+  const addSceneController = useControllerForOpenable();
   const addAttachmentController = useControllerForOpenable();
   const generateSceneController = useControllerForOpenable();
 
@@ -28,7 +28,7 @@ export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
     <ContextForSpaceIdeaModals.Provider
       value={{
         addChapterController: addChapterController,
-        addChatController: addChatController,
+        addSceneController: addSceneController,
         addAttachmentController: addAttachmentController,
         generateSceneController: generateSceneController,
       }}
@@ -37,8 +37,8 @@ export function SpaceIdeaModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addChapterController}>
         <SpaceIdeaAddChapterModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addChatController}>
-        <SpaceIdeaAddChatModal />
+      <ContextForOpenable.Provider value={addSceneController}>
+        <SpaceIdeaAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addAttachmentController}>
         <SpaceIdeaAddAttachmentModal />

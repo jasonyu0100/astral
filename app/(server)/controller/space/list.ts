@@ -61,7 +61,7 @@ const useControllerForSpaceList = (
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
-    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -80,7 +80,7 @@ const useControllerForSpaceList = (
     selectViaId: (id: string) => {
       changeId(id);
       const selectedObj =
-        objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+        objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
       return selectedObj;
     },
     between(start: Date, end: Date) {

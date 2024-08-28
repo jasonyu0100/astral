@@ -1,27 +1,29 @@
-import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
-import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ChatConversationObj } from '@/(server)/model/space/chapter/chat/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useOpenAIController } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext } from 'react';
-import { ChatRole, roleDescriptions } from '../../data';
-import { ContextForChat } from '../../page';
+import { ConversationRole, roleDescriptions } from '../../data';
+import { ContextForIdeaController } from '../../page';
 
-export function useControllerForChatMessageSend() {
+export function useControllerForConversationMessageSend() {
   const user = useGlobalUser((state) => state.user);
   const openAi = useOpenAIController();
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const chatListController = useContext(ContextForChapterChatList);
-  const conversationListController = useContext(ContextForChatConversationList);
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const conversationListController = useContext(
+    ContextForSceneConversationList,
+  );
   const updateListController = useControllerForSessionUpdateOfChapterList('');
-  const chatContext = useContext(ContextForChat);
+  const ideaController = useContext(ContextForIdeaController);
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -38,7 +40,7 @@ export function useControllerForChatMessageSend() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation: ChatConversationObj) {
+  function checkConversationStatus(conversation: SceneConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -51,29 +53,29 @@ export function useControllerForChatMessageSend() {
     const conversation =
       await conversationListController.actions.createActions.createConversation(
         user.id,
-        chatListController.state.objId,
+        sceneListController.state.objId,
       );
-    await updateListController.actions.createActions.createFromChapterChatConversation(
+    await updateListController.actions.createActions.createFromChapterSceneConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      chatListController.state.objId,
+      sceneListController.state.objId,
       conversation.id,
     );
     return conversation;
   }
 
-  async function sendUserMessage(conversation: ChatConversationObj) {
+  async function sendUserMessage(conversation: SceneConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.chatId,
+      conversation.sceneId,
       conversation.id,
     );
   }
 
   async function generateAgentResponse(
     message: ConversationMessageObj,
-    role: ChatRole,
+    role: ConversationRole,
   ) {
     const messageHistory = [
       `You are an agent that sends messages in 3 sentences or less. This is your role ${roleDescriptions[role]}`,
@@ -89,11 +91,11 @@ export function useControllerForChatMessageSend() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: ChatConversationObj,
+    conversation: SceneConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.chatId,
+      conversation.sceneId,
       conversation.id,
       message,
     );
@@ -107,7 +109,7 @@ export function useControllerForChatMessageSend() {
         const newUserMessage = await sendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(
           newUserMessage,
-          chatContext.role as ChatRole,
+          ideaController.role as ConversationRole,
         );
         const newAgentMessage = await sendAgentMessage(
           'openAi',
@@ -123,7 +125,7 @@ export function useControllerForChatMessageSend() {
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(
       newUserMessage,
-      chatContext.role as ChatRole,
+      ideaController.role as ConversationRole,
     );
     const newAgentMessage = await sendAgentMessage(
       'openAi',

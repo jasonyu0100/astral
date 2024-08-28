@@ -1,12 +1,12 @@
-import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useContext } from 'react';
 
 export default function SpaceIdeaHeaderMiddleTitle() {
-  const chatListController = useContext(ContextForChapterChatList);
+  const sceneListController = useContext(ContextForChapterSceneList);
 
   return (
     <p className='text-lg font-light text-slate-300'>
-      {chatListController.state.currentObj?.title || 'untitled'}
+      {sceneListController.state.currentObj?.title || 'untitled'}
     </p>
   );
 }

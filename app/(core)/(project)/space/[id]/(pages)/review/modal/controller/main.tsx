@@ -5,9 +5,9 @@ import {
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpaceReviewAddChapterModal } from '../add/chapter/main';
-import { SpaceReviewAddChatModal } from '../add/chat/main';
 import { SpaceReviewAddCommentModal } from '../add/comment/main';
 import { SpaceReviewAddReviewModal } from '../add/review/main';
+import { SpaceReviewAddSceneModal } from '../add/scene/main';
 import { SpaceReviewShareReviewModal } from '../share/main';
 
 export const ContextForSpaceReviewModals = createContext(
@@ -16,7 +16,7 @@ export const ContextForSpaceReviewModals = createContext(
 
 export interface SpaceReviewModals {
   addChapterController: ContextForOpenableInterface;
-  addChatController: ContextForOpenableInterface;
+  addSceneController: ContextForOpenableInterface;
   addReviewController: ContextForOpenableInterface;
   addCommentController: ContextForOpenableInterface;
   shareReviewController: ContextForOpenableInterface;
@@ -24,7 +24,7 @@ export interface SpaceReviewModals {
 
 export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
   const addChapterController = useControllerForOpenable();
-  const addChatController = useControllerForOpenable();
+  const addSceneController = useControllerForOpenable();
   const addReviewController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
@@ -34,7 +34,7 @@ export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
       value={
         {
           addChapterController,
-          addChatController,
+          addSceneController,
           addReviewController,
           addCommentController,
           shareReviewController,
@@ -45,8 +45,8 @@ export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addChapterController}>
         <SpaceReviewAddChapterModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addChatController}>
-        <SpaceReviewAddChatModal />
+      <ContextForOpenable.Provider value={addSceneController}>
+        <SpaceReviewAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addCommentController}>
         <SpaceReviewAddCommentModal />

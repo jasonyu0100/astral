@@ -12,7 +12,6 @@ import { useContext } from 'react';
 import { SpaceSessionUpdateFormUpdate } from '../action/update/main';
 import { SpaceSessionUpdateFormDetails } from './details/main';
 import { SpaceSessionUpdatePreviewChapter } from './preview/chapter/main';
-import { SpaceSessionUpdatePreviewChat } from './preview/chat/main';
 import { SpaceSessionUpdatePreviewConversation } from './preview/conversation/main';
 import { SpaceSessionUpdatePreviewIdea } from './preview/idea/main';
 import { SpaceSessionUpdatePreviewReview } from './preview/review/main';
@@ -35,9 +34,6 @@ export function SpaceSessionUpdateFormContents() {
           )}
           {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
             <SpaceSessionUpdatePreviewChapter />
-          )}
-          {current.variant === ChapterSessionUpdateVariant.CHAT && (
-            <SpaceSessionUpdatePreviewChat />
           )}
           {current.variant === ChapterSessionUpdateVariant.CONVERSATION && (
             <SpaceSessionUpdatePreviewConversation />

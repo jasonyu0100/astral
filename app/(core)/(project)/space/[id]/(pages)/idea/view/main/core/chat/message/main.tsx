@@ -1,4 +1,4 @@
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { SpaceIdeaAgentMessage } from './agent/main';

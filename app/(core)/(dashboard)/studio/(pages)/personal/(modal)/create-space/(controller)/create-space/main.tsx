@@ -1,5 +1,4 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { useControllerForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
@@ -64,7 +63,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
   const galleryListController = useContext(ContextForGalleryList);
   const chapterListController = useControllerForSpaceChapterList('');
-  const chatListController = useControllerForChapterChatList('');
   const sceneListController = useControllerForChapterSceneList('');
   const reviewListController = useControllerForChapterReviewList('');
   const sessionUpdateListController =
@@ -114,60 +112,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     );
 
     return chapters;
-  }
-
-  async function createChats(
-    space: SpaceObj,
-    chapters: SpaceChapterObj[],
-    templateSpaceChapters: TemplateChapterObj[],
-  ) {
-    console.assert(
-      chapters.length === templateSpaceChapters.length,
-      'Chapters and template chapters must be the same length',
-    );
-    const chats = await Promise.all(
-      chapters.map(async (chapter, index) => {
-        const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter && templateChapter.chatTemplates.length > 0) {
-          const chats = await Promise.all(
-            templateChapter.chatTemplates.map(async (templateChat) => {
-              const chat =
-                await chatListController.actions.createActions.createChat(
-                  templateChat.title,
-                  templateChat.description,
-                  user.id,
-                  chapter.id,
-                );
-              await sessionUpdateListController.actions.createActions.createFromChapterChat(
-                user.id,
-                space.id,
-                chapter.id,
-                chat.id,
-              );
-              return chat;
-            }),
-          );
-          return chats;
-        } else {
-          const chat =
-            await chatListController.actions.createActions.createChat(
-              'untitled',
-              '',
-              user.id,
-              chapter.id,
-            );
-          await sessionUpdateListController.actions.createActions.createFromChapterChat(
-            user.id,
-            space.id,
-            chapter.id,
-            chat.id,
-          );
-          return [chat];
-        }
-      }),
-    );
-
-    return chats;
   }
 
   async function createScenes(
@@ -331,11 +275,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('SCENES CREATED', scenes);
     const reviews = await createReviews(space, chapters, templateSpaceChapters);
     console.log('REVIEWS CREATED', reviews);
-    const chats = await createChats(space, chapters, templateSpaceChapters);
-    console.log('chats created', chats);
-    console.log('GALLERY CREATED', reviews);
-    console.log('chats created', chats);
-
     return space;
   }
 

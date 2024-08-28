@@ -8,21 +8,18 @@ export const defaultTemplate: TemplateSpaceObj = {
     {
       title: 'Chapter One',
       description: 'The first chapter of the story.',
-      chatTemplates: [],
       sceneTemplates: [],
       reviewTemplates: [],
     },
     {
       title: 'Chapter Two',
       description: 'The second chapter of the story.',
-      chatTemplates: [],
       sceneTemplates: [],
       reviewTemplates: [],
     },
     {
       title: 'Chapter Three',
       description: 'The third chapter of the story.',
-      chatTemplates: [],
       sceneTemplates: [],
       reviewTemplates: [],
     },

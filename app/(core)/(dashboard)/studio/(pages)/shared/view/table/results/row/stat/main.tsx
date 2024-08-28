@@ -11,9 +11,6 @@ export function StudioSpacesRowStat() {
   const chapters = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.CHAPTER,
   );
-  const chats = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.CHAT,
-  );
   const scenes = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.SCENE,
   );
@@ -24,7 +21,7 @@ export function StudioSpacesRowStat() {
   return (
     <div className='flex flex-row items-center justify-center'>
       <p className='text-sm font-bold text-slate-300'>
-        {chapters.length} / {chats.length} / {scenes.length} / {reviews.length}
+        {chapters.length} / {scenes.length} / {reviews.length}
       </p>
     </div>
   );

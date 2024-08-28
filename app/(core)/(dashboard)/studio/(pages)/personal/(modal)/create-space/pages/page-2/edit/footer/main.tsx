@@ -14,7 +14,6 @@ export function CreateSpaceEditFooter() {
             updateTemplateProjectChapters([
               ...templateProjectChapters,
               {
-                chatTemplates: [],
                 sceneTemplates: [],
                 reviewTemplates: [],
                 title: `Chapter ${templateProjectChapters.length + 1}`,

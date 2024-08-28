@@ -38,12 +38,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     spaceId: string,
     chapterId: string,
   ) => Promise<TargetObj>;
-  createFromChapterChat: (
-    userId: string,
-    spaceId: string,
-    chapterId: string,
-    chatId: string,
-  ) => Promise<TargetObj>;
   createFromChapterScene: (
     userId: string,
     spaceId: string,
@@ -56,11 +50,11 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     reviewId: string,
   ) => Promise<TargetObj>;
-  createFromChapterChatConversation: (
+  createFromChapterSceneConversation: (
     userId: string,
     spaceId: string,
     chapterId: string,
-    chatId: string,
+    sceneId: string,
     conversationId: string,
   ) => Promise<TargetObj>;
   createFromChapterSceneIdea: (
@@ -94,7 +88,7 @@ const useControllerForSessionUpdateOfChapterList = (
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
-    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
@@ -117,7 +111,7 @@ const useControllerForSessionUpdateOfChapterList = (
     selectViaId: (id: string) => {
       changeId(id);
       const selectedObj =
-        objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+        objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
       return selectedObj;
     },
     between(start: Date, end: Date) {
@@ -303,23 +297,6 @@ const useControllerForSessionUpdateOfChapterList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterChat: async (userId, spaceId, chapterId, chatId) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        userId: userId,
-        chapterId: chapterId,
-        chatId: chatId,
-        added: false,
-        spaceId: spaceId,
-        title: '',
-        description: '',
-        created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.CHAT,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushBack(newObj);
-      changeId(newObj.id);
-      return newObj;
-    },
     createFromChapterScene: async (userId, spaceId, chapterId, sceneId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
@@ -354,18 +331,18 @@ const useControllerForSessionUpdateOfChapterList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterChatConversation: async (
+    createFromChapterSceneConversation: async (
       userId,
       spaceId,
       chapterId,
-      chatId,
+      sceneId,
       conversationId,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         spaceId: spaceId,
-        chatId: chatId,
+        sceneId: sceneId,
         conversationId: conversationId,
         added: false,
         title: '',

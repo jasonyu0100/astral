@@ -1,6 +1,6 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
+import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -15,7 +15,9 @@ export function SpaceIdeaGenerateSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const messageListController = useContext(ContextForConversationMessageList);
-  const conversationListController = useContext(ContextForChatConversationList);
+  const conversationListController = useContext(
+    ContextForSceneConversationList,
+  );
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
 

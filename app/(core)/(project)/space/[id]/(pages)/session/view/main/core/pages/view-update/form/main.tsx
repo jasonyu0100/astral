@@ -10,7 +10,6 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { SpaceSessionUpdatePreviewChapter } from './preview/chapter/main';
-import { SpaceSessionUpdatePreviewChat } from './preview/chat/main';
 import { SpaceSessionUpdatePreviewConversation } from './preview/conversation/main';
 import { SpaceSessionUpdatePreviewIdea } from './preview/idea/main';
 import { SpaceSessionUpdatePreviewReview } from './preview/review/main';
@@ -38,9 +37,6 @@ export function SpaceSessionViewUpdateForm() {
               )}
               {current.variant === ChapterSessionUpdateVariant.CHAPTER && (
                 <SpaceSessionUpdatePreviewChapter />
-              )}
-              {current.variant === ChapterSessionUpdateVariant.CHAT && (
-                <SpaceSessionUpdatePreviewChat />
               )}
               {current.variant === ChapterSessionUpdateVariant.CONVERSATION && (
                 <SpaceSessionUpdatePreviewConversation />

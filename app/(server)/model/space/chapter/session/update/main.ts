@@ -2,12 +2,11 @@ import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
 export enum ChapterSessionUpdateVariant {
-  CHAPTER = 'CHAPTER', // WHAT CHAPTERS WERE MADE
-  CHAT = 'CHAT', // WHAT CHATS WERE MADE
-  SCENE = 'SCENE', // WHAT SCENES WERE MAPPED
-  REVIEW = 'REVIEW', // WHAT WORK WAS DONE
-  CONVERSATION = 'CONVERSATION', // WHAT CONVERSATIONS WERE MADE
-  IDEA = 'IDEA', // WHAT IDEAS WERE FOUND
+  CHAPTER = 'CHAPTER',
+  SCENE = 'SCENE',
+  REVIEW = 'REVIEW',
+  CONVERSATION = 'CONVERSATION',
+  IDEA = 'IDEA',
 }
 
 export interface ChapterSessionUpdateObj {
@@ -21,7 +20,6 @@ export interface ChapterSessionUpdateObj {
   description: string;
   created: string;
   variant: string;
-  chatId?: string;
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
@@ -40,7 +38,6 @@ type ChapterSessionUpdateObj {
   description: String!
   created: String!
   variant: String!
-  chatId: String
   conversationId: String
   sceneId: String
   ideaId: String

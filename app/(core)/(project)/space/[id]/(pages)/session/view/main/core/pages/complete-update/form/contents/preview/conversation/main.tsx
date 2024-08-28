@@ -1,17 +1,13 @@
-import { useControllerForChatConversationMain } from '@/(server)/controller/space/chapter/chat/conversation/main';
-import { useControllerForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
-import { useControllerForChapterChatMain } from '@/(server)/controller/space/chapter/chat/main';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { useControllerForSceneConversationMain } from '@/(server)/controller/space/chapter/scene/conversation/main';
+import { useControllerForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { ContextForChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { useContext } from 'react';
 import { SpaceSessionChatMessage } from './message/main';
 
 export function SpaceSessionUpdatePreviewConversation() {
   const sessionUpdate = useContext(ContextForChapterSessionUpdateObj);
-  const chatController = useControllerForChapterChatMain(
-    sessionUpdate?.chatId || '',
-  );
-  const conversationController = useControllerForChatConversationMain(
+  const conversationController = useControllerForSceneConversationMain(
     sessionUpdate?.conversationId || '',
   );
   const messageListController = useControllerForConversationMessageList(

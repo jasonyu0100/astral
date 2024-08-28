@@ -1,18 +1,18 @@
-import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterChatObj } from '@/(server)/model/space/chapter/chat/main';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
-import { SpaceIdeaChatAdd } from './chat/add/main';
-import { ChatChapterChat } from './chat/main';
 import { SpaceIdeaContainerActive } from './header/container/active/main';
 import { SpaceIdeaInactiveContainer } from './header/container/inactive/main';
 import { SpaceIdeaChapterHeader } from './header/main';
+import { SpaceIdeaSceneChatAdd } from './scene/add/main';
+import { SpaceIdeaChapterScene } from './scene/main';
 
 export function SpaceIdeaSidebarChapter() {
   const chapter = useContext(ContextForSpaceChapterObj);
-  const chatListController = useContext(ContextForChapterChatList);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active =
     chapterListController.actions.stateActions.checkActive(chapter);
@@ -22,14 +22,14 @@ export function SpaceIdeaSidebarChapter() {
       {active ? (
         <SpaceIdeaContainerActive>
           <SpaceIdeaChapterHeader />
-          {chatListController.state.objs.map((chat, index) => (
-            <ContextForIndexable.Provider value={index} key={chat.id}>
-              <ContextForChapterChatObj.Provider value={chat} key={chat.id}>
-                <ChatChapterChat key={chat.id} />
-              </ContextForChapterChatObj.Provider>
+          {sceneListController.state.objs.map((scene, index) => (
+            <ContextForIndexable.Provider value={index} key={scene.id}>
+              <ContextForChapterSceneObj.Provider value={scene} key={scene.id}>
+                <SpaceIdeaChapterScene key={scene.id} />
+              </ContextForChapterSceneObj.Provider>
             </ContextForIndexable.Provider>
           ))}
-          <SpaceIdeaChatAdd />
+          <SpaceIdeaSceneChatAdd />
         </SpaceIdeaContainerActive>
       ) : (
         <SpaceIdeaInactiveContainer>

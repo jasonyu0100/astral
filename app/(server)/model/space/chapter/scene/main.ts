@@ -66,5 +66,5 @@ export const chapterSceneModel: ModelInterface<ChapterSceneObj> = {
   example: exampleChapterScene,
   examples: exampleChapterScenes,
   parentKey: 'chapterId',
-  children: ['idea'],
+  children: ['idea', 'member', 'conversation'],
 };

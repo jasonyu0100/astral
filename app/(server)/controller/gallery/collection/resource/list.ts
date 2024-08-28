@@ -67,7 +67,7 @@ const useControllerForResourceList = (
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
-    objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
@@ -90,7 +90,7 @@ const useControllerForResourceList = (
     selectViaId: (id: string) => {
       changeId(id);
       const selectedObj =
-        objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+        objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
       return selectedObj;
     },
     between(start: Date, end: Date) {

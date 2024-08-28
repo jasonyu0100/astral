@@ -1,4 +1,4 @@
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
@@ -41,7 +41,6 @@ export type _TemplateChapterObj = Omit<
   'id' | 'spaceId' | 'idx' | 'created' | 'userId'
 >;
 export interface TemplateChapterObj extends _TemplateChapterObj {
-  chatTemplates: TemplateChatObj[];
   sceneTemplates: TemplateSceneObj[];
   reviewTemplates: TemplateReviewObj[];
 }

@@ -1,8 +1,7 @@
-import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
-import { ContextForChapterChatList } from '@/(server)/controller/space/chapter/chat/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/chat/conversation/message/main';
+import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -11,14 +10,15 @@ import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { roleDescriptions } from '../../../../data';
-import { ContextForChat } from '../../../../page';
+import { ContextForIdeaController } from '../../../../page';
 import { SpaceIdeaMessage } from './message/main';
 
-export function SpaceIdeaChat() {
-  const { role } = useContext(ContextForChat);
-  const spaceController = useContext(ContextForSpaceMain);
-  const chatListController = useContext(ContextForChapterChatList);
-  const conversationListController = useContext(ContextForChatConversationList);
+export function SpaceIdeaSceneChat() {
+  const { role } = useContext(ContextForIdeaController);
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const conversationListController = useContext(
+    ContextForSceneConversationList,
+  );
   const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
 
@@ -62,8 +62,9 @@ export function SpaceIdeaChat() {
         <GlassWindowFrame className='w-full flex-shrink-0 px-[1rem]'>
           <GlassWindowContents className='flex flex-col space-y-[1rem]'>
             <p className='text-lg font-bold text-slate-300'>
-              {chatListController.state.index + 1}.{' '}
-              {chatListController.state.currentObj?.description || 'Open-ended'}
+              {sceneListController.state.index + 1}.{' '}
+              {sceneListController.state.currentObj?.description ||
+                'Open-ended'}
             </p>
             <p className='text-sm font-light text-slate-300'>
               {role}: {roleDescriptions[role as keyof typeof roleDescriptions]}
@@ -89,13 +90,13 @@ export function SpaceIdeaChat() {
           <AstralChevronUpIcon
             className='h-[2.5rem] w-[2.5rem] cursor-pointer'
             onClick={() => {
-              chatListController.actions.stateActions.goPrev();
+              sceneListController.actions.stateActions.goPrev();
             }}
           />
           <AstralChevronDownIcon
             className='h-[2.5rem] w-[2.5rem] cursor-pointer'
             onClick={() => {
-              chatListController.actions.stateActions.goNext();
+              sceneListController.actions.stateActions.goNext();
             }}
           />
         </div>
