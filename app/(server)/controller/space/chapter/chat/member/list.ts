@@ -8,11 +8,11 @@ import {
 } from '@/(server)/controller/list';
 import {
   chatMemberModel,
-  ChatMemberObj,
+  SceneMemberObj,
 } from '@/(server)/model/space/chapter/chat/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChatMemberObj;
+type TargetObj = SceneMemberObj;
 const gqlDbWrapper = chatMemberDbWrapper;
 const listIdKey = chatMemberModel.parentKey;
 
@@ -196,7 +196,6 @@ const useControllerForChatMemberList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -205,7 +204,6 @@ const useControllerForChatMemberList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
       changeQueryResults(sortedObjs);
-      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -215,7 +213,6 @@ const useControllerForChatMemberList = (
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeQueryResults(reverseObjs);
-      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },

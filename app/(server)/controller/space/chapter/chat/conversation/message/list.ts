@@ -212,7 +212,6 @@ const useControllerForConversationMessageList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },

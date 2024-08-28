@@ -6,10 +6,10 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ChatMemberObj } from '@/(server)/model/space/chapter/chat/member/main';
+import { SceneMemberObj } from '@/(server)/model/space/chapter/chat/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChatMemberObj;
+type TargetObj = SceneMemberObj;
 const gqlDbWrapper = chatMemberDbWrapper;
 
 interface ControllerState {

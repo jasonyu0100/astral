@@ -213,7 +213,6 @@ const useControllerForChapterReviewList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -222,7 +221,6 @@ const useControllerForChapterReviewList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
       changeQueryResults(sortedObjs);
-      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },

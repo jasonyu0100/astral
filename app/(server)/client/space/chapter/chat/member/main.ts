@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { ChatMemberObj } from '@/(server)/model/space/chapter/chat/member/main';
+import { SceneMemberObj } from '@/(server)/model/space/chapter/chat/member/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createChatMemberObj,
@@ -10,11 +10,11 @@ import { getChatMemberObj, listChatMemberObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as ChatMemberObj;
+  return obj as SceneMemberObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ChatMemberObj[];
+  return objs as SceneMemberObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +71,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listChatMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ChatMemberObj, 'id'>) {
+async function createObj(newObj: Omit<SceneMemberObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createChatMemberObj,
     variables: {
@@ -82,7 +82,7 @@ async function createObj(newObj: Omit<ChatMemberObj, 'id'>) {
   return castSingle(payload?.data?.createChatMemberObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ChatMemberObj>) {
+async function updateObj(id: string, updateObj: Partial<SceneMemberObj>) {
   const payload = await amplifyClient.graphql({
     query: updateChatMemberObj,
     variables: {
@@ -96,7 +96,7 @@ async function updateObj(id: string, updateObj: Partial<ChatMemberObj>) {
   return castSingle(payload?.data?.updateChatMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: ChatMemberObj) {
+async function overwriteObj(id: string, newObj: SceneMemberObj) {
   const payload = await amplifyClient.graphql({
     query: updateChatMemberObj,
     variables: {
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChatMemberObj);
 }
 
-export const chatMemberDbWrapper: GqlDbWrapper<ChatMemberObj> = {
+export const chatMemberDbWrapper: GqlDbWrapper<SceneMemberObj> = {
   getObj,
   listObjs,
   listAllObjs,

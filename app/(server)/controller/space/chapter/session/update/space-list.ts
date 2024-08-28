@@ -192,7 +192,6 @@ const useControllerForSessionUpdateOfSpaceList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -211,7 +210,6 @@ const useControllerForSessionUpdateOfSpaceList = (
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeQueryResults(reverseObjs);
-      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },

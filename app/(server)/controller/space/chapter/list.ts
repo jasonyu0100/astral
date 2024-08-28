@@ -210,7 +210,6 @@ const useControllerForSpaceChapterList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -219,7 +218,6 @@ const useControllerForSpaceChapterList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
       changeQueryResults(sortedObjs);
-      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -229,7 +227,6 @@ const useControllerForSpaceChapterList = (
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeQueryResults(reverseObjs);
-      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -354,7 +351,9 @@ const useControllerForSpaceChapterList = (
           );
         })
         .then(() => {
-          controllerActions.stateActions.selectViaId(initialId || '');
+          if (initialId) {
+            controllerActions.stateActions.selectViaId(initialId || '');
+          }
         });
     }
   }, [listId]);

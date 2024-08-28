@@ -195,7 +195,6 @@ const useControllerForHorizonGroupSessionMemberList = (
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
       changeQueryResults(objs);
-      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -204,7 +203,6 @@ const useControllerForHorizonGroupSessionMemberList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
       changeQueryResults(sortedObjs);
-      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -214,7 +212,6 @@ const useControllerForHorizonGroupSessionMemberList = (
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeQueryResults(reverseObjs);
-      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
