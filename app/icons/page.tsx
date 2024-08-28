@@ -19,6 +19,9 @@ import { AstralFileIcon } from './file/main';
 import { AstralFolderOpenIcon } from './folder-open/main';
 import { AstralFolderIcon } from './folder/main';
 import { AstralGestureIcon } from './gesture/main';
+import { AstralHideImageIcon } from './hide-image/main';
+import { AstralHideSourceIcon } from './hide-source/main';
+import { AstralImageIcon } from './image/main';
 import { AstralLinkIcon } from './link/main';
 import { AstralListIcon } from './list/main';
 import { AstralManufacturingIcon } from './manufacturing/main';
@@ -29,6 +32,7 @@ import { AstralPlayIcon } from './play/main';
 import { AstralSaveIcon } from './save/main';
 import { AstralSendIcon } from './send/main';
 import { AstralShareIcon } from './share/main';
+import { AstralSourceIcon } from './source/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
 import { AstralVisibilityIcon } from './visibility/main';
@@ -72,6 +76,10 @@ export default function Page() {
       <AstralVisibilityHiddenIcon />
       <AstralVisibilityIcon />
       <AstralShareIcon />
+      <AstralHideImageIcon />
+      <AstralImageIcon />
+      <AstralHideSourceIcon />
+      <AstralSourceIcon />
     </div>
   );
 }

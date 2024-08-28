@@ -9,7 +9,7 @@ AWS.config.update({
 
 // Create a DynamoDB Document Client and define the table name
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = 'CollectionObjTable';
+const tableName = 'SceneIdeaObjTable';
 
 // Function to update a single item by ID
 const updateItem = async (itemId, key, value) => {
@@ -98,26 +98,26 @@ const updateAllItems = async () => {
       console.log(jsonItem);
 
       // AFTER
-      jsonItem['thumbnail'] = {
-        id: '74e51612-b492-4906-b284-4c9bf9c8ae2c',
-        fileType: 'image/*',
-        size: 0,
-        src: 'https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixid=M3w1NTg3OTd8MHwxfHNlYXJjaHwyfHxzdGFyc3xlbnwwfHx8fDE3MDc0MzUwNzF8MA&ixlib=rb-4.0.3',
-        title: 'silhouette of man looking at milky way',
-        variant: 'IMAGE',
-      };
-      console.log(jsonItem);
+      // jsonItem['thumbnail'] = {
+      //   id: '74e51612-b492-4906-b284-4c9bf9c8ae2c',
+      //   fileType: 'image/*',
+      //   size: 0,
+      //   src: 'https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixid=M3w1NTg3OTd8MHwxfHNlYXJjaHwyfHxzdGFyc3xlbnwwfHx8fDE3MDc0MzUwNzF8MA&ixlib=rb-4.0.3',
+      //   title: 'silhouette of man looking at milky way',
+      //   variant: 'IMAGE',
+      // };
+      // console.log(jsonItem);
 
       // CUSTOM UPDATE
-      await deleteItem(itemId);
-      await insertItem(jsonItem);
+      // await deleteItem(itemId);
+      // await insertItem(jsonItem);
 
       // CUSTOM UPDATE TEST
       // delete jsonItem['type'];
       // console.log(jsonItem);
 
       // FIELD UPDATE
-      // await updateItem(itemId, "description", "This is a test description");
+      await updateItem(itemId, 'visible', true);
 
       // FIELD DELETE
       // await deleteItemField(itemId, 'type');

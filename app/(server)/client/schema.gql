@@ -249,6 +249,9 @@ input CreateChapterReviewObjInput {
   created: String!
   variant: String!
   status: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input CreateChapterSceneObjInput {
@@ -510,6 +513,7 @@ input CreateSceneIdeaObjInput {
   column: String!
   title: String!
   description: String!
+  visible: Boolean!
   x: Int!
   y: Int!
   width: Int!
@@ -1197,6 +1201,7 @@ type SceneIdeaObj {
   description: String!
   x: Int!
   y: Int!
+  visible: Boolean!
   width: Int!
   height: Int!
   scale: Float!
@@ -1666,6 +1671,7 @@ input TableSceneIdeaObjFilterInput {
   idx: TableIntFilterInput
   column: TableStringFilterInput
   description: TableStringFilterInput
+  visible: TableBooleanFilterInput
   x: TableIntFilterInput
   y: TableIntFilterInput
   width: TableIntFilterInput
@@ -1871,6 +1877,9 @@ input UpdateChapterReviewObjInput {
   created: String
   variant: String
   status: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input UpdateChapterSceneObjInput {
@@ -2163,6 +2172,7 @@ input UpdateSceneIdeaObjInput {
   column: String
   title: String
   description: String
+  visible: Boolean
   x: Int
   y: Int
   width: Int

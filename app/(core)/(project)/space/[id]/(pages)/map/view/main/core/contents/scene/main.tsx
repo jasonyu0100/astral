@@ -11,13 +11,16 @@ import { SpaceMapMovable } from './moveable/main';
 export function SpaceMapContentsScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
   const mapController = useContext(ContextForSpaceMap);
+  const visibleIdeas = ideaListController.state.objs.filter(
+    (idea) => idea.visible,
+  );
 
   return (
     <div
       className='relative h-full w-full'
       onClick={() => mapController.updateSelectedIdea(null)}
     >
-      {ideaListController.state.objs.map((idea, index) => (
+      {visibleIdeas.map((idea, index) => (
         <ContextForIndexable.Provider value={index}>
           <ContextForSceneIdeaObj.Provider value={idea}>
             <SpaceMapMovable key={idea.id}>

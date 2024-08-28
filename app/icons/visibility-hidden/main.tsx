@@ -10,8 +10,7 @@ export function AstralVisibilityHiddenIcon({ ...props }: SvgInputProps) {
         props.className,
       )}
       xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 -960 960 960'
-      fill='#e8eaed'
+      viewBox='0 0 24 24'
     >
       <path
         d='M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z'

@@ -3,13 +3,14 @@ import { useContext } from 'react';
 
 export function SpaceMapContentsSceneConnections() {
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const visibleIdeas = ideaListController.state.objs.filter(
+    (idea) => idea.visible,
+  );
 
   return (
     <svg className='h-full w-full'>
-      {ideaListController.state.objs.map((idea, index) => {
-        const previous =
-          ideaListController.state.objs[index - 1] ||
-          ideaListController.state.objs.at(-1);
+      {visibleIdeas.map((idea, index) => {
+        const previous = visibleIdeas[index - 1] || visibleIdeas.at(-1);
 
         const prevX = previous.x + previous.width / 2;
         const prevY = previous.y + previous.height / 2;

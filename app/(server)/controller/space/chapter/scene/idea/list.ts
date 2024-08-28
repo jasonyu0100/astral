@@ -275,6 +275,7 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         idx: 0,
         column: SceneIdeaColumn.IDEAS,
+        visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -308,6 +309,7 @@ const useControllerForSceneIdeaList = (
         userId: userId,
         idx: 0,
         column: SceneIdeaColumn.IDEAS,
+        visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -341,6 +343,7 @@ const useControllerForSceneIdeaList = (
         userId: userId,
         idx: 0,
         column: SceneIdeaColumn.IDEAS,
+        visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -363,6 +366,7 @@ const useControllerForSceneIdeaList = (
         userId: '',
         idx: 0,
         column: SceneIdeaColumn.IDEAS,
+        visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
