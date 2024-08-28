@@ -48,7 +48,10 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSessionUpdateList = (listId: string): Controller => {
+const useControllerForSessionUpdateList = (
+  listId: string | boolean | number,
+  initialId?: string | undefined | null,
+): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
@@ -154,8 +157,7 @@ const useControllerForSessionUpdateList = (listId: string): Controller => {
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(newQuery, 'i');
-          console.log(regex.test(obj.title));
-          return regex.test(obj.title);
+          return regex.test(obj.id);
         });
         changeQueryResults(results);
         return results;

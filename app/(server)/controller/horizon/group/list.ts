@@ -10,7 +10,7 @@ import {
   horizonGroupModel,
   HorizonGroupObj,
 } from '@/(server)/model/horizon/group/main';
-import { useMemo, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = HorizonGroupObj;
 const gqlDbWrapper = horizonGroupDbWrapper;
@@ -157,7 +157,6 @@ const useControllerForHorizonGroupList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(newQuery, 'i');
-          console.log(regex.test(obj.title));
           return regex.test(obj.title);
         });
         changeQueryResults(results);
@@ -306,11 +305,11 @@ const useControllerForHorizonGroupList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-          controllerActions.gatherActions.gatherFromEnd().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then(() => {
         if (initialId) {
           stateActions.selectViaId(initialId);
         }
-      });;
+      });
     }
   }, [listId]);
 
@@ -320,9 +319,5 @@ const useControllerForHorizonGroupList = (
   };
 };
 
-export {
-  ContextForHorizonGroupList,
-  useControllerForHorizonGroupList as useControllerForClusterUpdateList
-};
-eControllerForHorizonGroupList as useControllerForClusterUpdateList,
-};
+const ContextForHorizonGroupList = createContext({} as Controller);
+export { ContextForHorizonGroupList, useControllerForHorizonGroupList };

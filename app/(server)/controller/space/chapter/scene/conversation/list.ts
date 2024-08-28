@@ -58,8 +58,8 @@ const useControllerForSceneConversationList = (
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const currentObj = objs.filter((chat) => chat.id === id).at(0);
-  const index = objs.findIndex((chat) => chat.id === id);
+  const currentObj = objs.filter((obj) => obj.id === id).at(0);
+  const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
@@ -157,8 +157,7 @@ const useControllerForSceneConversationList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(newQuery, 'i');
-          console.log(regex.test(obj.title));
-          return regex.test(obj.title);
+          return regex.test(obj.summary);
         });
         changeQueryResults(results);
         return results;

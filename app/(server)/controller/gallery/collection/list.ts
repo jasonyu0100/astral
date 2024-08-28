@@ -163,7 +163,6 @@ const useControllerForGalleryCollectionList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(newQuery, 'i');
-          console.log(regex.test(obj.title));
           return regex.test(obj.title);
         });
         changeQueryResults(results);
