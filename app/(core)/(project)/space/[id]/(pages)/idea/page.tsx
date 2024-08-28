@@ -27,6 +27,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
+import { useSearchParams } from 'next/navigation';
 import { createContext, useEffect, useState } from 'react';
 import { ChatRole } from './data';
 import { SpaceIdeaModals } from './modal/controller/main';
@@ -41,13 +42,20 @@ export const ContextForChat = createContext<Controller>({} as Controller);
 
 function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
+
+  const searchParams = useSearchParams();
+  const chatId = searchParams.get('chat');
+  const chapterId = searchParams.get('chapter');
+
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
+    chapterId,
   );
   const chatListController = useControllerForChapterChatList(
     chapterListController.state.objId,
+    chatId,
   );
   const chatMemberListController = useControllerForChatMemberList(
     chatListController.state.objId,

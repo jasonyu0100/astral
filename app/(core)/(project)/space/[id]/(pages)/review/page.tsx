@@ -18,15 +18,24 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
+import { useSearchParams } from 'next/navigation';
 import { SpaceReviewModals } from './modal/controller/main';
 import { SpaceReviewView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+  const reviewId = searchParams.get('review');
+  const chapterId = searchParams.get('chapter');
+
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceController = useControllerForSpaceMain(params.id);
-  const chapterListController = useControllerForSpaceChapterList(params.id);
+  const chapterListController = useControllerForSpaceChapterList(
+    params.id,
+    chapterId,
+  );
   const reviewListController = useControllerForChapterReviewList(
     chapterListController.state.objId,
+    reviewId,
   );
   const commentListController = useControllerForReviewCommentList(
     reviewListController.state.objId,

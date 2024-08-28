@@ -6,11 +6,9 @@ import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpaceMapRowElement({
-  index,
   children,
 }: {
   children?: React.ReactNode;
-  index: number;
 }) {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);

@@ -1,4 +1,3 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
@@ -15,7 +14,6 @@ import {
 export function SpaceProgressSidebar() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const chapterListController = useContext(ContextForSpaceChapterList);
   const progressController = useContext(ContextForSpaceProgress);
 
   return (

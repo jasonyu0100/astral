@@ -30,6 +30,7 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
+import { useSearchParams } from 'next/navigation';
 import {
   ContextForSpaceSessionController,
   useControllerForSpaceSessionController,
@@ -37,9 +38,16 @@ import {
 import { SpaceSessionShareView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get('session');
+  const chapterId = searchParams.get('chapter');
+
   const user = useGlobalUser((state) => state.user);
   const spaceController = useControllerForSpaceMain(params.id);
-  const chapterListController = useControllerForSpaceChapterList(params.id);
+  const chapterListController = useControllerForSpaceChapterList(
+    params.id,
+    chapterId,
+  );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
   );
@@ -48,6 +56,7 @@ function Page({ params }: { params: { id: string } }) {
   );
   const sessionListController = useControllerForChapterSessionList(
     chapterListController.state.objId,
+    sessionId,
   );
   const updateOfChapterListController =
     useControllerForSessionUpdateOfChapterList(

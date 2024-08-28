@@ -32,6 +32,7 @@ import { GalleryObj } from '@/(server)/model/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
+import { useSearchParams } from 'next/navigation';
 import { createContext, useState } from 'react';
 import {
   ContextForSpaceMap,
@@ -63,13 +64,19 @@ export const ContextForSpaceMapSidebar =
   );
 
 function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+  const sceneId = searchParams.get('scene');
+  const chapterId = searchParams.get('chapter');
+
   const mapController = useControllerForSpaceMap();
   const spaceMainController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
+    chapterId,
   );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
+    sceneId,
   );
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,

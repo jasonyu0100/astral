@@ -22,6 +22,7 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
+import { useSearchParams } from 'next/navigation';
 import {
   ContextForSpaceProgress,
   useControllerForSpaceProgress,
@@ -30,12 +31,20 @@ import { SpaceProgressModals } from './modal/controller/main';
 import { SpaceProgressView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+  const sceneId = searchParams.get('scene');
+  const chapterId = searchParams.get('chapter');
+
   const user = useGlobalUser((state) => state.user);
   const progressController = useControllerForSpaceProgress();
   const spaceController = useControllerForSpaceMain(params.id);
-  const chapterListController = useControllerForSpaceChapterList(params.id);
+  const chapterListController = useControllerForSpaceChapterList(
+    params.id,
+    chapterId,
+  );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
+    sceneId,
   );
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,

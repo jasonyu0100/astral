@@ -15,7 +15,7 @@ export function SpaceMapNavigationRow() {
       <SpaceMapRowContainer>
         {chapterListController.state.objs.map((chapter, index) => (
           <ContextForSpaceChapterObj.Provider value={chapter} key={chapter.id}>
-            <SpaceMapRowElement index={index} key={chapter.id} />
+            <SpaceMapRowElement key={chapter.id} />
           </ContextForSpaceChapterObj.Provider>
         ))}
         <SpaceMapRowAdd

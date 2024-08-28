@@ -48,6 +48,7 @@ interface Controller {
 
 const useControllerForHorizonList = (
   listId: string | boolean | number,
+  initialId?: string | undefined | null,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
@@ -73,6 +74,12 @@ const useControllerForHorizonList = (
     select: (obj: TargetObj) => {
       changeId(obj.id);
       return obj;
+    },
+    selectViaId: (id: string) => {
+      changeId(id);
+      const selectedObj =
+        objs.filter((chat) => chat.id === id).at(0) || ({} as TargetObj);
+      return selectedObj;
     },
     between(start: Date, end: Date) {
       return objs.filter((obj) => {
@@ -141,6 +148,7 @@ const useControllerForHorizonList = (
       changeQuery(newQuery);
     },
     executeQuery: (newQuery: string) => {
+      changeQuery(newQuery);
       if (newQuery === '') {
         changeQueryResults(objs);
         return objs;
@@ -190,7 +198,7 @@ const useControllerForHorizonList = (
       changeId(objs.at(0)?.id || '');
       return objs;
     },
-    gatherLatest: async () => {
+    gatherFromEnd: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
@@ -199,7 +207,7 @@ const useControllerForHorizonList = (
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
-    gatherEarliest: async () => {
+    gatherFromBeginning: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
@@ -301,7 +309,11 @@ const useControllerForHorizonList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherLatest();
+      controllerActions.gatherActions.gatherFromEnd().then(() => {
+        if (initialId) {
+          stateActions.selectViaId(initialId);
+        }
+      });
     }
   }, [listId]);
 

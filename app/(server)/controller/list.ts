@@ -1,5 +1,6 @@
 export interface BaseListStateActions<TargetObj> {
   select: (obj: TargetObj) => TargetObj;
+  selectViaId: (id: string) => TargetObj;
   between: (start: Date, end: Date) => TargetObj[];
   sortedViaDate: (objs: TargetObj[]) => TargetObj[];
   sortedViaComparison: (
@@ -24,8 +25,8 @@ export interface BaseListStateActions<TargetObj> {
 
 export interface BaseListGatherActions<TargetObj> {
   gatherAll: () => Promise<TargetObj[]>;
-  gatherLatest: () => Promise<TargetObj[]>;
-  gatherEarliest: () => Promise<TargetObj[]>;
+  gatherFromEnd: () => Promise<TargetObj[]>;
+  gatherFromBeginning: () => Promise<TargetObj[]>;
   gatherSearch: (search: string) => Promise<TargetObj[]>;
 }
 
