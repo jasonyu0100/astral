@@ -134,6 +134,7 @@ const useControllerForReviewCommentList = (
     },
     searchQuery: () => {
       if (query === '') {
+        changeQueryResults(objs);
         return objs;
       } else {
         const results = objs.filter((obj) => {

@@ -134,6 +134,7 @@ const useControllerForUserBackerTermsList = (
     },
     searchQuery: () => {
       if (query === '') {
+        changeQueryResults(objs);
         return objs;
       } else {
         const results = objs.filter((obj) => {
