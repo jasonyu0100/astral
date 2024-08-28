@@ -10,7 +10,7 @@ export function SpaceMapGallerysResults() {
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
-      {galleryListController.state.objs.map((gallery) => (
+      {galleryListController.state.more.queryResults.map((gallery) => (
         <ContextForGalleryObj.Provider value={gallery}>
           <SpaceMapGalleryThumbnail />
         </ContextForGalleryObj.Provider>

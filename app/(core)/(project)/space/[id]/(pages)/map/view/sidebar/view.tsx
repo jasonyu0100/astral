@@ -81,13 +81,22 @@ export function SpaceMapSidebarView() {
                 <input
                   className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
                   placeholder='Venture forth...'
-                  onClick={(e) => {
-                    console.log(ideaListController.state.more.queryResults);
-                    console.log(
-                      ideaListController.actions.stateActions.searchQuery(
+                  onChange={(e) => {
+                    if (
+                      mapController.listSceneMode ===
+                      SpaceMapSidebarListMode.SCENES
+                    ) {
+                      sceneListController.actions.stateActions.executeQuery(
                         e.target.value,
-                      ),
-                    );
+                      );
+                    } else if (
+                      mapController.listSceneMode ===
+                      SpaceMapSidebarListMode.DEFAULT
+                    ) {
+                      ideaListController.actions.stateActions.executeQuery(
+                        e.target.value,
+                      );
+                    }
                   }}
                 />
               </GlassWindowContents>

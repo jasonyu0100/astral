@@ -9,7 +9,7 @@ export function SpaceMapResourcesResults() {
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
-      {resourceListController.state.objs.map((resource) => (
+      {resourceListController.state.more.queryResults.map((resource) => (
         <ContextForCollectionResourceObj.Provider value={resource}>
           <SpaceMapResourceResource />
         </ContextForCollectionResourceObj.Provider>

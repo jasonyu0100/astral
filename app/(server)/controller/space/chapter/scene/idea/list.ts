@@ -184,6 +184,20 @@ const useControllerForSceneIdeaList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
+    executeQuery: (newQuery: string) => {
+      if (newQuery === '') {
+        changeQueryResults(objs);
+        return objs;
+      } else {
+        const results = objs.filter((obj) => {
+          const regex = new RegExp(newQuery, 'i');
+          console.log(regex.test(obj.title));
+          return regex.test(obj.title);
+        });
+        changeQueryResults(results);
+        return results;
+      }
+    },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
     },
@@ -215,6 +229,8 @@ const useControllerForSceneIdeaList = (
     gatherAll: async () => {
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
+      changeQueryResults(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -222,6 +238,8 @@ const useControllerForSceneIdeaList = (
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
+      changeQueryResults(sortedObjs);
+      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -230,6 +248,8 @@ const useControllerForSceneIdeaList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
+      changeQueryResults(reverseObjs);
+      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -243,6 +263,7 @@ const useControllerForSceneIdeaList = (
         },
       });
       changeObjs(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },

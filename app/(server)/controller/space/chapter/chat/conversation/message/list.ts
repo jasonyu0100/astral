@@ -156,6 +156,20 @@ const useControllerForConversationMessageList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
+    executeQuery: (newQuery: string) => {
+      if (newQuery === '') {
+        changeQueryResults(objs);
+        return objs;
+      } else {
+        const results = objs.filter((obj) => {
+          const regex = new RegExp(newQuery, 'i');
+          console.log(regex.test(obj.title));
+          return regex.test(obj.title);
+        });
+        changeQueryResults(results);
+        return results;
+      }
+    },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
     },
@@ -190,6 +204,8 @@ const useControllerForConversationMessageList = (
     gatherAll: async () => {
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
+      changeQueryResults(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -217,6 +233,7 @@ const useControllerForConversationMessageList = (
         },
       });
       changeObjs(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },

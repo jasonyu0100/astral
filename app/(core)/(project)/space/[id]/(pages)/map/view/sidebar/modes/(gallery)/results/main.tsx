@@ -7,10 +7,11 @@ import { SpaceMapCollectionThumbnail } from './thumbnail/main';
 
 export function SpaceMapGalleryCollectionsResults() {
   const collectionsListController = useContext(ContextForGalleryCollectionList);
+  console.log(collectionsListController.state.more.queryResults);
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
-      {collectionsListController.state.objs.map((collection) => (
+      {collectionsListController.state.more.queryResults.map((collection) => (
         <ContextForGalleryCollectionObj.Provider value={collection}>
           <SpaceMapCollectionThumbnail />
         </ContextForGalleryCollectionObj.Provider>

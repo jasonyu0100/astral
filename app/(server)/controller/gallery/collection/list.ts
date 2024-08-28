@@ -139,7 +139,7 @@ const useControllerForGalleryCollectionList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.id);
+          return regex.test(obj.title);
         });
         changeQueryResults(results);
         return results;
@@ -147,6 +147,20 @@ const useControllerForGalleryCollectionList = (
     },
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
+    },
+    executeQuery: (newQuery: string) => {
+      if (newQuery === '') {
+        changeQueryResults(objs);
+        return objs;
+      } else {
+        const results = objs.filter((obj) => {
+          const regex = new RegExp(newQuery, 'i');
+          console.log(regex.test(obj.title));
+          return regex.test(obj.title);
+        });
+        changeQueryResults(results);
+        return results;
+      }
     },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
@@ -179,6 +193,8 @@ const useControllerForGalleryCollectionList = (
     gatherAll: async () => {
       const objs = await gqlDbWrapper.listAllObjs();
       changeObjs(objs);
+      changeQueryResults(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },
@@ -186,6 +202,8 @@ const useControllerForGalleryCollectionList = (
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
+      changeQueryResults(sortedObjs);
+      changeQueryResults(objs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -194,6 +212,8 @@ const useControllerForGalleryCollectionList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
+      changeQueryResults(reverseObjs);
+      changeQueryResults(objs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -207,6 +227,7 @@ const useControllerForGalleryCollectionList = (
         },
       });
       changeObjs(objs);
+      changeQueryResults(objs);
       changeId(objs.at(0)?.id || '');
       return objs;
     },

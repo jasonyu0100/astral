@@ -12,6 +12,7 @@ export interface BaseListStateActions<TargetObj> {
   goPrev: () => TargetObj | undefined;
   searchQuery: () => TargetObj[];
   updateQuery: (newQuery: string) => void;
+  executeQuery: (newQuery: string) => TargetObj[];
   checkActive: (obj: TargetObj) => boolean;
   find: (id: string) => TargetObj;
   pushFront: (obj: TargetObj) => void;
