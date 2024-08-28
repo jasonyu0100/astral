@@ -73,6 +73,23 @@ export function SpaceProgressSidebar() {
               <input
                 className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
                 placeholder='Venture forth...'
+                onChange={(e) => {
+                  if (
+                    progressController.listSceneMode ===
+                    SpaceProgressSidebarListMode.DEFAULT
+                  ) {
+                    ideaListController.actions.stateActions.executeQuery(
+                      e.target.value,
+                    );
+                  } else if (
+                    progressController.listSceneMode ===
+                    SpaceProgressSidebarListMode.SCENES
+                  ) {
+                    sceneListController.actions.stateActions.executeQuery(
+                      e.target.value,
+                    );
+                  }
+                }}
               ></input>
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -84,73 +101,77 @@ export function SpaceProgressSidebar() {
               {progressController.listSceneMode ===
               SpaceProgressSidebarListMode.DEFAULT ? (
                 <>
-                  {ideaListController.state.objs.map((idea, index) => (
-                    <GlassWindowFrame
-                      className='p-[1rem]'
-                      roundedFx={roundedFx.rounded}
-                      borderFx={borderFx['border-around']}
-                    >
-                      <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
-                        <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
-                          <p className='text-center font-bold text-white'>
-                            {index + 1}
-                          </p>
-                        </div>
-                        <div
-                          key={idea.id}
-                          className='flex flex-col space-y-2 font-bold text-slate-300'
-                        >
-                          <div className='text-lg font-bold'>
-                            {idea.title || 'Untitled'}
+                  {ideaListController.state.more.queryResults.map(
+                    (idea, index) => (
+                      <GlassWindowFrame
+                        className='p-[1rem]'
+                        roundedFx={roundedFx.rounded}
+                        borderFx={borderFx['border-around']}
+                      >
+                        <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
+                          <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                            <p className='text-center font-bold text-white'>
+                              {index + 1}
+                            </p>
                           </div>
-                          <div className='text-sm font-light'>
-                            {idea.description || 'No description'}
+                          <div
+                            key={idea.id}
+                            className='flex flex-col space-y-2 font-bold text-slate-300'
+                          >
+                            <div className='text-lg font-bold'>
+                              {idea.title || 'Untitled'}
+                            </div>
+                            <div className='text-sm font-light'>
+                              {idea.description || 'No description'}
+                            </div>
                           </div>
-                        </div>
-                      </GlassWindowContents>
-                      <GlassWindowPane glassFx={glassFx['glass-5']} />
-                    </GlassWindowFrame>
-                  ))}
+                        </GlassWindowContents>
+                        <GlassWindowPane glassFx={glassFx['glass-5']} />
+                      </GlassWindowFrame>
+                    ),
+                  )}
                 </>
               ) : (
                 <>
-                  {sceneListController.state.objs.map((scene, index) => (
-                    <GlassWindowFrame
-                      className='p-[1rem]'
-                      roundedFx={roundedFx.rounded}
-                      borderFx={borderFx['border-around']}
-                    >
-                      <GlassWindowContents
-                        className='flex flex-row items-center space-x-[1rem]'
-                        onClick={() => {
-                          sceneListController.actions.stateActions.select(
-                            scene,
-                          );
-                          progressController.updateListSceneMode(
-                            SpaceProgressSidebarListMode.DEFAULT,
-                          );
-                        }}
+                  {sceneListController.state.more.queryResults.map(
+                    (scene, index) => (
+                      <GlassWindowFrame
+                        className='p-[1rem]'
+                        roundedFx={roundedFx.rounded}
+                        borderFx={borderFx['border-around']}
                       >
-                        <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
-                          <p className='text-center font-bold text-white'>
-                            {index + 1}
-                          </p>
-                        </div>
-                        <div
-                          key={scene.id}
-                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                        <GlassWindowContents
+                          className='flex flex-row items-center space-x-[1rem]'
+                          onClick={() => {
+                            sceneListController.actions.stateActions.select(
+                              scene,
+                            );
+                            progressController.updateListSceneMode(
+                              SpaceProgressSidebarListMode.DEFAULT,
+                            );
+                          }}
                         >
-                          <div className='text-lg font-bold'>
-                            {scene.title || 'Untitled'}
+                          <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
+                            <p className='text-center font-bold text-white'>
+                              {index + 1}
+                            </p>
                           </div>
-                          <div className='text-sm font-light'>
-                            {scene.description || 'No description'}
+                          <div
+                            key={scene.id}
+                            className='flex flex-col space-y-2 font-bold text-slate-300'
+                          >
+                            <div className='text-lg font-bold'>
+                              {scene.title || 'Untitled'}
+                            </div>
+                            <div className='text-sm font-light'>
+                              {scene.description || 'No description'}
+                            </div>
                           </div>
-                        </div>
-                      </GlassWindowContents>
-                      <GlassWindowPane glassFx={glassFx['glass-5']} />
-                    </GlassWindowFrame>
-                  ))}
+                        </GlassWindowContents>
+                        <GlassWindowPane glassFx={glassFx['glass-5']} />
+                      </GlassWindowFrame>
+                    ),
+                  )}
                 </>
               )}
             </div>
