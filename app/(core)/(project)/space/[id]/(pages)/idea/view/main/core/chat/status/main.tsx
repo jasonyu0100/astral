@@ -15,7 +15,7 @@ export function SpaceIdeaChatStatus() {
             Objective:{' '}
             {sceneListController.state.currentObj?.description || 'Open-ended'}
           </p>
-          <p className='text-center text-xl font-light text-slate-300'>
+          <p className='max-h-[10rem] overflow-auto text-center text-xl font-light text-slate-300'>
             {sceneListController.state?.currentObj?.summary || 'No status'}
           </p>
         </GlassWindowContents>
