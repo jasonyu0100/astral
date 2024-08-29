@@ -7,7 +7,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewContentInput() {
+export function SpaceReviewInput() {
   const [message, setMessage] = useState('');
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const reviewListController = useContext(ContextForChapterReviewList);

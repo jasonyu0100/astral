@@ -7,7 +7,7 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 export function SpaceSessionSpotlightModal() {
   const spaceController = useContext(ContextForSpaceMain);
@@ -22,7 +22,7 @@ export function SpaceSessionSpotlightModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.review.link(
+                window.location.href = spaceMap.space.id.spotlight.link(
                   spaceController.state.objId,
                 );
               }}

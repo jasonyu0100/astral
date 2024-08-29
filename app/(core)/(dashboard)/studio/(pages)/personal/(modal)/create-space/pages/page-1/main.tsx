@@ -30,18 +30,18 @@ export function CreateSpaceModalPageOne() {
         value={title}
         onChange={(e) => updateTitle(e.target.value)}
       />
-      <FormTextArea
-        title='Objective'
-        placeholder='A direction for the space'
-        rows={8}
-        value={description}
-        onChange={(e) => updateDescription(e.target.value)}
-        style={{ resize: 'none' }}
-      />
       <FormInput
         title='Category'
         value={category}
         onChange={(e) => updateCategory(e.target.value)}
+      />
+      <FormTextArea
+        title='Description'
+        placeholder='A description for the space'
+        rows={8}
+        value={description}
+        onChange={(e) => updateDescription(e.target.value)}
+        style={{ resize: 'none' }}
       />
     </FormBody>
   );

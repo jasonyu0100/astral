@@ -6,6 +6,7 @@ import { AstralArrowDropDown } from './arrow-drop-down/main';
 import { AstralArrowDropUp } from './arrow-drop-up/main';
 import { AstralArrowForwardIcon } from './arrow-forward/main';
 import { AstralAttachmentIcon } from './attachment/main';
+import { AstralBubbleIcon } from './bubble/main';
 import { AstralChevronDownIcon } from './chevron-down/main';
 import { AstralChevronLeftIcon } from './chevron-left/main';
 import { AstralChevronRightIcon } from './chevron-right/main';
@@ -22,6 +23,7 @@ import { AstralGestureIcon } from './gesture/main';
 import { AstralHideImageIcon } from './hide-image/main';
 import { AstralHideSourceIcon } from './hide-source/main';
 import { AstralImageIcon } from './image/main';
+import { AstralInfoIcon } from './info/main';
 import { AstralLinkIcon } from './link/main';
 import { AstralListIcon } from './list/main';
 import { AstralManufacturingIcon } from './manufacturing/main';
@@ -80,6 +82,8 @@ export default function Page() {
       <AstralImageIcon />
       <AstralHideSourceIcon />
       <AstralSourceIcon />
+      <AstralBubbleIcon />
+      <AstralInfoIcon />
     </div>
   );
 }

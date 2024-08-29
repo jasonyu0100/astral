@@ -1,6 +1,6 @@
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { SpaceReviewHeader } from './header/main';
-import { SpaceReviewContentsReview } from './review/main';
+import { SpaceReviewReview } from './review/main';
 
 export function SpaceReviewCore() {
   return (
@@ -10,7 +10,7 @@ export function SpaceReviewCore() {
         className={`flex h-full flex-grow flex-col`}
       >
         <SpaceReviewHeader />
-        <SpaceReviewContentsReview />
+        <SpaceReviewReview />
       </GlassWindowFrame>
     </div>
   );

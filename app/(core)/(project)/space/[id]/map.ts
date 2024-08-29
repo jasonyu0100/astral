@@ -12,8 +12,8 @@ export const spaceMap = {
       progress: {
         link: (id: string) => `${baseUrl}/${id}/progress`,
       },
-      review: {
-        link: (id: string) => `${baseUrl}/${id}/review`,
+      spotlight: {
+        link: (id: string) => `${baseUrl}/${id}/spotlight`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

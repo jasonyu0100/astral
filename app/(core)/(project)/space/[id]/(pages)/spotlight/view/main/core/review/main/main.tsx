@@ -1,8 +1,9 @@
 import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import {
+  exampleFileElem,
+  exampleFileElems,
+} from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
-import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -11,7 +12,7 @@ import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { Carousel } from './carousel/main';
 
-export function SpaceReviewReviewMain() {
+export function SpaceReviewMain() {
   const reviewListController = useContext(ContextForChapterReviewList);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
@@ -22,22 +23,57 @@ export function SpaceReviewReviewMain() {
           <Carousel
             images={[
               reviewListController.state.currentObj?.fileElem?.src,
-              reviewListController.state.currentObj?.fileElem?.src,
-              reviewListController.state.currentObj?.fileElem?.src,
+              ...exampleFileElems.map((elem) => elem.src),
             ]}
           />
-          <div className='flex flex-col items-center justify-center'>
+          {/* <div className='flex flex-col items-center justify-center'>
             <AstralChevronUpIcon className='h-[3rem] w-[3rem]' />
             <p className='text-xl font-bold text-slate-500'>100</p>
             <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
-          </div>
+          </div> */}
         </div>
         <div className='w-[400px] flex-shrink-0'>
           <GlassWindowFrame
             className='flex h-full w-full flex-col p-[2rem]'
             roundedFx={roundedFx.rounded}
           >
-            <GlassWindowContents className='flex flex-col space-y-[1rem]'></GlassWindowContents>
+            <GlassWindowContents className='flex flex-col space-y-[1rem] overflow-auto'>
+              {/* <GlassWindowFrame
+                className='flex h-[4rem] w-full flex-col'
+                roundedFx={roundedFx.rounded}
+              >
+                <p className='text-xl font-bold text-slate-300'>Title</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                className='flex h-[4rem] w-full flex-col'
+                roundedFx={roundedFx.rounded}
+              >
+                <p className='text-xl font-bold text-slate-300'>Title</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                className='flex h-[4rem] w-full flex-col'
+                roundedFx={roundedFx.rounded}
+              >
+                <p className='text-xl font-bold text-slate-300'>Title</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                className='flex h-[4rem] w-full flex-col'
+                roundedFx={roundedFx.rounded}
+              >
+                <p className='text-xl font-bold text-slate-300'>Title</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame>
+              <GlassWindowFrame
+                className='flex h-[4rem] w-full flex-col'
+                roundedFx={roundedFx.rounded}
+              >
+                <p className='text-xl font-bold text-slate-300'>Title</p>
+                <GlassWindowPane glassFx={glassFx['glass-5']} />
+              </GlassWindowFrame> */}
+            </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
         </div>

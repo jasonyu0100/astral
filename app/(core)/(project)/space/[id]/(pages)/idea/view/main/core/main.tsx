@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceIdeaSceneChat } from './chat/main';
+import { SpaceIdeaChat } from './chat/main';
 import { SpaceIdeaHeader } from './header/main';
 
 export function SpaceIdeaCore() {
@@ -11,7 +11,7 @@ export function SpaceIdeaCore() {
         className={`flex flex-col items-center`}
       >
         <SpaceIdeaHeader />
-        <SpaceIdeaSceneChat />
+        <SpaceIdeaChat />
       </GlassAreaContainer>
     </div>
   );

@@ -1,17 +1,19 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderOpenIcon } from '@/icons/folder-open/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
+import { AstralInfoIcon } from '@/icons/info/main';
 import { AstralListIcon } from '@/icons/list/main';
-import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { PipIndicator } from '@/ui/indicator/pip/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,
+  SpaceMapConnectionMode,
   SpaceMapIdeaMode,
   SpaceMapPeopleMode,
   SpaceMapSidebarMode,
@@ -37,22 +39,6 @@ export function SpaceMapHeaderLeft() {
             : 'fill-blue-500'
         }
       />
-      <AstralNoteIcon
-        xmlns='http://www.w3.org/2000/svg'
-        viewBox='0 -960 960 960'
-        className={
-          mapController.ideaMode === SpaceMapIdeaMode.VISUAL
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
-        }
-        onClick={() => {
-          if (mapController.ideaMode === SpaceMapIdeaMode.VISUAL) {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.DETAILS);
-          } else {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.VISUAL);
-          }
-        }}
-      />
       <AstralPersonIcon
         className={
           mapController.peopleMode === SpaceMapPeopleMode.OFF
@@ -67,17 +53,31 @@ export function SpaceMapHeaderLeft() {
           }
         }}
       />
-      <AstralListIcon
+      <AstralBubbleIcon
         className={
-          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
+          mapController.connectionMode === SpaceMapConnectionMode.DEFAULT
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.sidebarMode === SpaceMapSidebarMode.LIST) {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+          if (mapController.connectionMode === SpaceMapConnectionMode.DEFAULT) {
+            mapController.updateConnectionMode(SpaceMapConnectionMode.BUBBLE);
           } else {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+            mapController.updateConnectionMode(SpaceMapConnectionMode.DEFAULT);
+          }
+        }}
+      />
+      <AstralInfoIcon
+        className={
+          mapController.ideaMode === SpaceMapIdeaMode.VISUAL
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+        onClick={() => {
+          if (mapController.ideaMode === SpaceMapIdeaMode.VISUAL) {
+            mapController.updateIdeaMode(SpaceMapIdeaMode.DETAILS);
+          } else {
+            mapController.updateIdeaMode(SpaceMapIdeaMode.VISUAL);
           }
         }}
       />
@@ -101,6 +101,21 @@ export function SpaceMapHeaderLeft() {
           }}
         />
       )}
+      <AstralListIcon
+        className={
+          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+        onClick={() => {
+          if (mapController.sidebarMode === SpaceMapSidebarMode.LIST) {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+          } else {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+          }
+        }}
+      />
+      <PipIndicator />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

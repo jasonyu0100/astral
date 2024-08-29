@@ -55,7 +55,6 @@ export function useControllerForConversationMessageSend() {
         user.id,
         sceneListController.state.objId,
       );
-    console.log(conversation);
     await updateListController.actions.createActions.createFromChapterSceneConversation(
       user.id,
       spaceController.state.objId,
@@ -122,7 +121,6 @@ export function useControllerForConversationMessageSend() {
     }
 
     alert('New Conversation');
-    console.log(conversationListController);
     const newConversation = await createNewConversation();
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(

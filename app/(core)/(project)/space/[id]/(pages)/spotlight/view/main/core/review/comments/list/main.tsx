@@ -3,7 +3,7 @@ import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/revie
 import { useContext } from 'react';
 import { SpaceReviewContentComment } from './comment/main';
 
-export function SpaceReviewContentList() {
+export function SpaceReviewList() {
   const commentListController = useContext(ContextForReviewCommentList);
 
   return (

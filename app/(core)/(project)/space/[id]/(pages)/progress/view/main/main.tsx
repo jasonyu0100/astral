@@ -260,12 +260,12 @@ export function SpaceProgressMain() {
             <GlassWindowContents className='flex h-full w-full flex-row'>
               <div className='flex h-full w-full flex-col justify-center space-y-[0.5rem]'>
                 <p className='text-lg font-bold text-slate-300'>
-                  {sceneListController.state.index + 1}.{' '}
+                  Objective:{' '}
                   {sceneListController.state.currentObj?.description ||
                     'Open-ended'}
                 </p>
                 <p className='text-sm font-light text-slate-300'>
-                  It looks like you're almost there
+                  {sceneListController.state.currentObj?.summary || '...'}
                 </p>
               </div>
               <div className='flex flex-col items-center justify-center'>

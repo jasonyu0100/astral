@@ -47,7 +47,7 @@ export function SpaceProgressSpotlightModal() {
       chapterListController.state.objId,
       review.id,
     );
-    window.location.href = spaceMap.space.id.review.link(
+    window.location.href = spaceMap.space.id.spotlight.link(
       spaceController.state.objId,
     );
     openableController.close();

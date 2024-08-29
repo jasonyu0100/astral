@@ -11,23 +11,26 @@ export function SpaceIdeaChapterScene() {
   const active = sceneListController.actions.stateActions.checkActive(scene);
 
   return (
-    <button
+    <div
+      className='flex w-full flex-row'
       onClick={() => sceneListController.actions.stateActions.select(scene)}
     >
-      <div className='flex w-full flex-row items-center'>
-        {active ? (
-          <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
-            <p className='text-lg font-bold text-slate-500'>
+      {active ? (
+        <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
+          <div className='flex w-full flex-col'>
+            <p className='w-full text-lg font-bold text-slate-400'>
               {index + 1}. {scene.title}
             </p>
-            <SpaceIdeaHeaderIndicator />
           </div>
-        ) : (
-          <p className='text-lg font-bold text-slate-500'>
+          <SpaceIdeaHeaderIndicator />
+        </div>
+      ) : (
+        <div className='flex w-full flex-row items-center space-x-[1rem]'>
+          <p className='text-lg font-bold text-slate-400'>
             {index + 1}. {scene.title}
           </p>
-        )}
-      </div>
-    </button>
+        </div>
+      )}
+    </div>
   );
 }

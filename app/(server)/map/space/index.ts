@@ -14,6 +14,7 @@ import { spaceDbWrapper } from '@/(server)/client/space/main';
 import { spaceMemberDbWrapper } from '@/(server)/client/space/member/main';
 import { spaceMemberTermsDbWrapper } from '@/(server)/client/space/member/terms/main';
 import { spaceChapterModel } from '@/(server)/model/space/chapter/main';
+import { reviewAttachmentModel } from '@/(server)/model/space/chapter/review/attachment/main';
 import { reviewCommentModel } from '@/(server)/model/space/chapter/review/comment/main';
 import { chapterReviewModel } from '@/(server)/model/space/chapter/review/main';
 import {
@@ -93,6 +94,10 @@ export const spaceMap = {
       comment: {
         model: reviewCommentModel,
         db: reviewCommentDbWrapper,
+      },
+      attachment: {
+        model: reviewAttachmentModel,
+        db: null,
       },
     },
   },

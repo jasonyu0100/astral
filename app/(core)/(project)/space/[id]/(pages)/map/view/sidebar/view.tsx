@@ -132,7 +132,7 @@ export function SpaceMapSidebarView() {
                         </div>
                         <div
                           key={scene.id}
-                          className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
+                          className='flex flex-col font-bold text-slate-300'
                         >
                           <div className='text-lg font-bold'>
                             {scene.title || 'Untitled'}
@@ -166,7 +166,7 @@ export function SpaceMapSidebarView() {
                             </div>
                             <div
                               key={idea.id}
-                              className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
+                              className='flex flex-col font-bold text-slate-300'
                             >
                               <div className='text-lg font-bold'>
                                 {idea.title || 'Untitled'}

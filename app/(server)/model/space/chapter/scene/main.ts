@@ -7,6 +7,7 @@ export interface ChapterSceneObj {
   chapterId: string;
   title: string;
   description: string;
+  summary: string;
   created: string;
 }
 
@@ -17,6 +18,7 @@ type ChapterSceneObj {
   chapterId: String!
   title: String!
   description: String!
+  summary: String!
   created: String!
 }`;
 
@@ -30,6 +32,7 @@ export const exampleChapterScene: ChapterSceneObj = {
   chapterId: '0',
   title: 'Idea Scene',
   description: 'Scene Description',
+  summary: 'Scene Summary',
   created: new Date().toISOString(),
 };
 
@@ -40,6 +43,7 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     chapterId: '0',
     title: 'Idea Scene 1',
     description: 'Scene Description',
+    summary: 'Scene Summary',
     created: new Date().toISOString(),
   },
   {
@@ -48,6 +52,7 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     chapterId: '0',
     title: 'Idea Scene 2',
     description: 'Scene Description',
+    summary: 'Scene Summary',
     created: new Date().toISOString(),
   },
   {
@@ -56,6 +61,7 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     chapterId: '0',
     title: 'Idea Scene 3',
     description: 'Scene Description',
+    summary: 'Scene Summary',
     created: new Date().toISOString(),
   },
 ];

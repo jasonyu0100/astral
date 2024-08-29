@@ -246,6 +246,7 @@ const useControllerForChapterSceneList = (
         title: title,
         description: description,
         userId: userId,
+        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -259,6 +260,7 @@ const useControllerForChapterSceneList = (
         title: '',
         description: '',
         userId: '',
+        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -280,6 +282,9 @@ const useControllerForChapterSceneList = (
     edit: async (id: string, partialObj: Partial<TargetObj>) => {
       const updatedObj = await gqlDbWrapper.updateObj(id, partialObj);
       changeObjs((prev) =>
+        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+      );
+      changeQueryResults((prev) =>
         prev.map((chat) => (chat.id === id ? updatedObj : chat)),
       );
       changeId(updatedObj.id);

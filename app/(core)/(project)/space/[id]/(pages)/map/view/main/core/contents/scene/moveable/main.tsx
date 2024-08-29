@@ -9,6 +9,7 @@ import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
   ContextForSpaceMap,
+  SpaceMapConnectionMode,
   SpaceMapIdeaMode,
   SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
@@ -84,11 +85,13 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         )}
-        <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
-          <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
-            <p className='font-bold text-white'>{index + 1}</p>
+        {mapController.connectionMode === SpaceMapConnectionMode.DEFAULT && (
+          <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
+            <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
+              <p className='font-bold text-white'>{index + 1}</p>
+            </div>
           </div>
-        </div>
+        )}
         {mapController.peopleMode === SpaceMapPeopleMode.ON && (
           <div className='absolute bottom-[0.5rem] left-[0.5rem] flex flex-col items-center'>
             <UserDpElement

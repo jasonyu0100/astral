@@ -12,7 +12,7 @@ export function SpaceIdeaHeaderTitle() {
   return (
     <p
       className={cn('font-extraBold text-xl text-slate-500', {
-        'animate-pulse-slow text-slate-400': active,
+        'animate-pulse-slow text-white': active,
       })}
     >
       {chapter.title}

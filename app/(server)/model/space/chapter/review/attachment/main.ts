@@ -16,7 +16,7 @@ export interface ReviewAttachmentObj {
 }
 
 export const reviewAttachmentGql = `
-type ReviewCommentObj {
+type ReviewAttachmentObj {
   id: String!
   userId: String
   reviewId: String!

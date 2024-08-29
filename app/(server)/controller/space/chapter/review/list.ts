@@ -323,6 +323,9 @@ const useControllerForChapterReviewList = (
       changeObjs((prev) =>
         prev.map((chat) => (chat.id === id ? updatedObj : chat)),
       );
+      changeQueryResults((prev) =>
+        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+      );
       changeId(updatedObj.id);
       return updatedObj;
     },
