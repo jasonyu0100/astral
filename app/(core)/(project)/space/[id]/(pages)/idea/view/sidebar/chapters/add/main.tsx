@@ -1,8 +1,16 @@
-import { ButtonInputProps } from '@/types/props/main';
+import { useContext } from 'react';
+import { ContextForSpaceIdeaModals } from '../../../../modal/controller/main';
 
-export function SpaceIdeaChapterAdd({ ...props }: ButtonInputProps) {
+export function SpaceIdeaSidebarChaptersAdd() {
+  const modalController = useContext(ContextForSpaceIdeaModals);
+
   return (
-    <button className='mt-[1rem] flex w-full' {...props}>
+    <button
+      className='mt-[1rem] flex w-full'
+      onClick={() => {
+        modalController.addChapterController.open();
+      }}
+    >
       <p className='animate-pulse-slow font-extraBold text-xl text-slate-400'>
         Add Chapter
       </p>

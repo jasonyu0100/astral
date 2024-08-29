@@ -7,12 +7,12 @@ import { ContextForSpaceMap } from '../../../../../controller/map/main';
 import { SpaceMapPaletteDefault } from './default/main';
 import { SpaceMapPaletteSelected } from './selected/main';
 
-export function SpaceMapCoreContentsPalette() {
+export function SpaceMapScenePalette() {
   const mapController = useContext(ContextForSpaceMap);
 
   return (
     <GlassWindowFrame
-      className='w-full py-[2rem]'
+      className='w-[4rem] py-[2rem]'
       roundedFx={roundedFx['rounded-full']}
       borderFx={borderFx['border-around']}
     >

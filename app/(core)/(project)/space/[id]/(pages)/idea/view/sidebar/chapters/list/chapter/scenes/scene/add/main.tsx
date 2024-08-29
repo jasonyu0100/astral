@@ -1,8 +1,8 @@
+import { ContextForSpaceIdeaModals } from '@/(core)/(project)/space/[id]/(pages)/idea/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
-import { ContextForSpaceIdeaModals } from '../../../../../../modal/controller/main';
 
-export function SpaceIdeaSceneChatAdd() {
+export function SpaceIdeaSidebarSceneAdd() {
   const modalController = useContext(ContextForSpaceIdeaModals);
 
   return (

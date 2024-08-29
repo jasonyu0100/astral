@@ -2,7 +2,7 @@ import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/
 import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
-import SpaceIdeaHeaderIndicator from '../header/indicator/main';
+import SpaceIdeaSidebarSceneIndicator from './indicator/main';
 
 export function SpaceIdeaChapterScene() {
   const scene = useContext(ContextForChapterSceneObj);
@@ -22,7 +22,7 @@ export function SpaceIdeaChapterScene() {
               {index + 1}. {scene.title}
             </p>
           </div>
-          <SpaceIdeaHeaderIndicator />
+          <SpaceIdeaSidebarSceneIndicator />
         </div>
       ) : (
         <div className='flex w-full flex-row items-center space-x-[1rem]'>

@@ -1,7 +1,7 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceIdeaSidebarChapters } from './chapters/main';
-import { SpaceIdeaSceneChatSearch } from './search/main';
+import { SpaceIdeaSidebarChaptersSearch } from './search/main';
 
 export function SpaceIdeaSidebar() {
   return (
@@ -11,7 +11,7 @@ export function SpaceIdeaSidebar() {
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center`}
     >
-      <SpaceIdeaSceneChatSearch />
+      <SpaceIdeaSidebarChaptersSearch />
       <SpaceIdeaSidebarChapters />
     </GlassAreaContainer>
   );

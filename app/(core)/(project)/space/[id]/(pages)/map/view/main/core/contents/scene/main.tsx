@@ -8,7 +8,7 @@ import { SpaceMapContentsSceneConnections } from './connections/main';
 import { SpaceMapMovableIdea } from './idea/main';
 import { SpaceMapMovable } from './moveable/main';
 
-export function SpaceMapContentsScene() {
+export function SpaceMapScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
   const mapController = useContext(ContextForSpaceMap);
   const visibleIdeas = ideaListController.state.objs.filter(
