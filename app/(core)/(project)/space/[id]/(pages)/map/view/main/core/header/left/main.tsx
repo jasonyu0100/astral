@@ -69,15 +69,15 @@ export function SpaceMapHeaderLeft() {
       />
       <AstralInfoIcon
         className={
-          mapController.ideaMode === SpaceMapIdeaMode.VISUAL
+          mapController.ideaMode === SpaceMapIdeaMode.DEFAULT
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.ideaMode === SpaceMapIdeaMode.VISUAL) {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.DETAILS);
+          if (mapController.ideaMode === SpaceMapIdeaMode.DEFAULT) {
+            mapController.updateIdeaMode(SpaceMapIdeaMode.INFORMATION);
           } else {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.VISUAL);
+            mapController.updateIdeaMode(SpaceMapIdeaMode.DEFAULT);
           }
         }}
       />

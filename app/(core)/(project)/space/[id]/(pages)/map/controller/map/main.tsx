@@ -26,8 +26,8 @@ export enum SpaceMapInteractionMode {
 }
 
 export enum SpaceMapIdeaMode {
-  VISUAL = 'Visual',
-  DETAILS = 'Details',
+  DEFAULT = 'Default',
+  INFORMATION = 'Information',
 }
 
 export enum SpaceMapPeopleMode {
@@ -62,7 +62,7 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapInteractionMode.SELECTED,
   );
   const [ideaMode, setIdeaMode] = useState<SpaceMapIdeaMode>(
-    SpaceMapIdeaMode.VISUAL,
+    SpaceMapIdeaMode.DEFAULT,
   );
   const [listMode, setListMode] = useState<SpaceMapSidebarMode>(
     SpaceMapSidebarMode.MEDIA,

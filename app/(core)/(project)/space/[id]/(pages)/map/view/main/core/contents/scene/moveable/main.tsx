@@ -1,15 +1,7 @@
 'use client';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
-import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { glassFx, roundedFx } from '@/style/data';
-import { UserDpElement } from '@/ui/element/user/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
@@ -19,12 +11,13 @@ import {
   SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
 import { parseTransformString } from '../../../../../../utils/transformation/main';
+import { SpaceMapIdeaCollaborators } from './collaborators/main';
+import { SpaceMapIdeaIndicator } from './indicator/main';
+import { SpaceMapIdeaInformation } from './information/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
-  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const mapController = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const index = useContext(ContextForIndexable);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
   const moveableRef = useRef<Moveable>(null);
@@ -72,49 +65,14 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {mapController.ideaMode !== SpaceMapIdeaMode.VISUAL && (
-          <div className='absolute top-0 flex h-full w-full justify-center'>
-            <div className='flex aspect-[12/9] w-full flex-col space-y-[5px] bg-yellow-500 p-[10px]'>
-              <p className='w-full text-[10px] font-bold text-black'>
-                {ideaListController.state.currentObj?.title || 'Untitled'}
-              </p>
-              <p className='w-full text-[10px] font-bold text-black'>
-                {ideaListController.state.currentObj?.description ||
-                  'No description'}
-              </p>
-              <p className=' w-full text-[10px] font-light text-black'>
-                {ideaListController.state.currentObj?.width},
-                {ideaListController.state.currentObj?.height},
-                {ideaListController.state.currentObj?.x},
-                {ideaListController.state.currentObj?.y}
-              </p>
-            </div>
-          </div>
+        {mapController.ideaMode === SpaceMapIdeaMode.INFORMATION && (
+          <SpaceMapIdeaInformation />
         )}
         {mapController.connectionMode === SpaceMapConnectionMode.DEFAULT && (
-          <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
-            <GlassWindowFrame
-              className='h-[2rem] w-[2rem]'
-              roundedFx={roundedFx['rounded-full']}
-            >
-              <GlassWindowContents
-                className={cn('flex items-center justify-center rounded-full', {
-                  'bg-blue-500': ideaObj.id === mapController.selectedIdea?.id,
-                })}
-              >
-                <p className='font-bold text-white'>{index + 1}</p>
-              </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-10']} />
-            </GlassWindowFrame>
-          </div>
+          <SpaceMapIdeaIndicator />
         )}
         {mapController.peopleMode === SpaceMapPeopleMode.ON && (
-          <div className='absolute bottom-[0.5rem] left-[0.5rem] flex flex-col items-center'>
-            <UserDpElement
-              fileElem={loggedInUser.dp}
-              className='h-[1.5rem] w-[1.5rem]'
-            />
-          </div>
+          <SpaceMapIdeaCollaborators />
         )}
       </div>
       <Moveable
