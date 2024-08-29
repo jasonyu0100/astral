@@ -4,6 +4,8 @@ import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useOpenAIController } from '@/api/controller/openai/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
+import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
+import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -50,14 +52,11 @@ export function SpaceIdeaChat() {
         {conversationObj && (
           <div className='flex w-full flex-row items-center justify-between'>
             <div className='flex'>
-              <p
-                className='text-md cursor-pointer font-bold text-slate-500'
+              <AstralChevronLeftIcon
                 onClick={() => {
-                  conversationListController.actions.stateActions.goNext();
+                  conversationListController.actions.stateActions.goPrev();
                 }}
-              >
-                PREV
-              </p>
+              />
             </div>
             <div className='flex'>
               <div className='flex flex-row items-center justify-center space-x-[0.5rem]'>
@@ -92,14 +91,11 @@ export function SpaceIdeaChat() {
               </div>
             </div>
             <div className='flex'>
-              <p
-                className='text-md cursor-pointer font-bold text-slate-500'
+              <AstralChevronRightIcon
                 onClick={() => {
-                  conversationListController.actions.stateActions.goPrev();
+                  conversationListController.actions.stateActions.goNext();
                 }}
-              >
-                NEXT
-              </p>
+              />
             </div>
           </div>
         )}

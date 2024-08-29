@@ -2,6 +2,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralFileIcon } from '@/icons/file/main';
+import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralNoteIcon } from '@/icons/note/main';
@@ -51,6 +52,15 @@ export function SpaceMapCoreContentsPalette() {
                   );
                   mapController.updateSelectedIdea(null);
                 }
+              }}
+            />
+            <AstralHideSourceIcon
+              onClick={() => {
+                ideaController.actions.editActions.edit(
+                  ideaController.state.currentObj?.id || '',
+                  { visible: true },
+                );
+                mapController.updateSelectedIdea(null);
               }}
             />
           </>

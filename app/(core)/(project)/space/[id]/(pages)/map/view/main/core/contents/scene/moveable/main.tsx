@@ -4,7 +4,12 @@ import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/ide
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { glassFx, roundedFx } from '@/style/data';
 import { UserDpElement } from '@/ui/element/user/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { cn } from '@/utils/cn';
 import { useContext, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
@@ -57,6 +62,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           e.stopPropagation();
           if (hoverableController.hovered) {
             hoverableController.onUnhover();
+            mapController.updateSelectedIdea(null);
           } else {
             hoverableController.onHover();
             mapController.updateSelectedIdea(ideaObj);
@@ -87,9 +93,19 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         )}
         {mapController.connectionMode === SpaceMapConnectionMode.DEFAULT && (
           <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>
-            <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
-              <p className='font-bold text-white'>{index + 1}</p>
-            </div>
+            <GlassWindowFrame
+              className='h-[2rem] w-[2rem]'
+              roundedFx={roundedFx['rounded-full']}
+            >
+              <GlassWindowContents
+                className={cn('flex items-center justify-center rounded-full', {
+                  'bg-blue-500': ideaObj.id === mapController.selectedIdea?.id,
+                })}
+              >
+                <p className='font-bold text-white'>{index + 1}</p>
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
           </div>
         )}
         {mapController.peopleMode === SpaceMapPeopleMode.ON && (
