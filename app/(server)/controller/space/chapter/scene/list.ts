@@ -244,7 +244,7 @@ const useControllerForChapterSceneList = (
         created: new Date().toISOString(),
         chapterId: chapterId,
         title: title,
-        description: description,
+        objective: description,
         userId: userId,
         summary: '',
       };
@@ -258,7 +258,7 @@ const useControllerForChapterSceneList = (
         created: new Date().toISOString(),
         chapterId: '',
         title: '',
-        description: '',
+        objective: '',
         userId: '',
         summary: '',
       };

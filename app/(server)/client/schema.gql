@@ -63,7 +63,7 @@ type ChapterSceneObj {
   chapterId: String!
   summary: String!
   title: String!
-  description: String!
+  objective: String!
   created: String!
 }
 
@@ -141,6 +141,7 @@ type ChapterSpotlightObj {
   chapterId: String!
   title: String!
   description: String!
+  summary: String!
   created: String!
   spotlightStatus: String!
 }
@@ -226,8 +227,8 @@ input CreateChapterSceneObjInput {
   chapterId: String!
   userId: String!
   title: String!
-  description: String!
   summary: String!
+  objective: String!
   created: String!
 }
 
@@ -275,6 +276,7 @@ input CreateChapterSpotlightObjInput {
   chapterId: String!
   title: String!
   description: String!
+  summary: String!
   created: String!
   spotlightStatus: String!
 }
@@ -513,6 +515,7 @@ input CreateSpaceChapterObjInput {
   userId: String!
   title: String!
   description: String!
+  objective: String!
   idx: Int!
   created: String!
 }
@@ -538,6 +541,8 @@ input CreateSpaceObjInput {
   thumbnail: FileElemInput
   created: String!
   description: String!
+  objective: String!
+  summary: String!
   category: String!
   hours: Int!
   target: String!
@@ -1249,6 +1254,7 @@ type SpaceChapterObj {
   title: String!
   userId: String!
   description: String!
+  objective: String!
   idx: Int!
   created: String!
 }
@@ -1291,6 +1297,8 @@ type SpaceObj {
   title: String!
   created: String!
   description: String!
+  objective: String!
+  summary: String!
   thumbnail: FileElem!
   category: String!
   hours: Int!
@@ -1408,7 +1416,7 @@ input TableChapterSceneObjFilterInput {
   chapterId: TableStringFilterInput
   title: TableStringFilterInput
   summary: TableStringFilterInput
-  description: TableStringFilterInput
+  objective: TableStringFilterInput
   created: TableStringFilterInput
 }
 
@@ -1461,6 +1469,7 @@ input TableChapterSpotlightObjFilterInput {
   chapterId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
+  summary: TableStringFilterInput
   created: TableStringFilterInput
   spotlightStatus: TableStringFilterInput
 }
@@ -1751,6 +1760,7 @@ input TableSpaceChapterObjFilterInput {
   userId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
+  objective: TableStringFilterInput
   idx: TableIntFilterInput
   created: TableStringFilterInput
 }
@@ -1776,8 +1786,10 @@ input TableSpaceObjFilterInput {
   galleryId: TableStringFilterInput
   userId: TableStringFilterInput
   title: TableStringFilterInput
-  created: TableStringFilterInput
   description: TableStringFilterInput
+  created: TableStringFilterInput
+  objective: TableStringFilterInput
+  summary: TableStringFilterInput
   category: TableStringFilterInput
   hours: TableIntFilterInput
   target: TableStringFilterInput
@@ -1959,9 +1971,9 @@ input UpdateChapterSceneObjInput {
   id: String!
   userId: String
   chapterId: String
-  summary: String
   title: String
-  description: String
+  summary: String
+  objective: String
   created: String
 }
 
@@ -2014,6 +2026,7 @@ input UpdateChapterSpotlightObjInput {
   chapterId: String
   title: String
   description: String
+  summary: String
   created: String
   spotlightStatus: String
 }
@@ -2278,6 +2291,7 @@ input UpdateSpaceChapterObjInput {
   spaceId: String
   title: String
   description: String
+  objective: String
   idx: Int
   thumbnail: FileElemInput
   created: String
@@ -2307,6 +2321,8 @@ input UpdateSpaceObjInput {
   thumbnail: FileElemInput
   created: String
   description: String
+  objective: String
+  summary: String
   category: String
   hours: Int
   target: String

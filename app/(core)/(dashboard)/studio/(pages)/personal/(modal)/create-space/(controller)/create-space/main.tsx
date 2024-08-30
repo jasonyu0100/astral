@@ -97,7 +97,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         const chapter =
           await chapterListController.actions.createActions.createChapter(
             templateChapter.title,
-            templateChapter.description,
+            templateChapter.objective,
             user.id,
             space.id,
             index,
@@ -132,7 +132,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               const scene =
                 await sceneListController.actions.createActions.createScene(
                   templateScene.title,
-                  templateScene.description,
+                  templateScene.objective,
                   user.id,
                   chapter.id,
                 );

@@ -46,13 +46,13 @@ export function CreateSpaceEditChapter() {
         )}
       </div>
       <textarea
-        value={templateChapter.description}
+        value={templateChapter.objective}
         placeholder='Enter your description...'
         className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
         onChange={(e) =>
           updateTemplateProjectChapters(
             templateProjectChapters.map((c, i) =>
-              i === index ? { ...c, description: e.target.value } : c,
+              i === index ? { ...c, objective: e.target.value } : c,
             ),
           )
         }

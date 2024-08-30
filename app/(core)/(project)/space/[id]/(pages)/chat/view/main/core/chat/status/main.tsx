@@ -15,7 +15,7 @@ export function SpaceChatChatStatus() {
       <GlassWindowContents className='flex h-full w-full flex-col items-center py-[1rem]'>
         <p className='text-xl font-bold text-slate-300'>
           Objective:{' '}
-          {sceneListController.state.currentObj?.description || 'Open-ended'}
+          {sceneListController.state.currentObj?.objective || 'Open-ended'}
         </p>
         <div className='flex h-full flex-col items-center justify-center overflow-auto'>
           <p className='text-md max-w-[900px] text-center font-light text-slate-300'>

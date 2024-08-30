@@ -258,7 +258,7 @@ const useControllerForSpaceChapterList = (
         spaceId: spaceId,
         userId: userId,
         title: title,
-        description: description,
+        objective: description,
         idx: idx || objs.length,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -271,7 +271,7 @@ const useControllerForSpaceChapterList = (
         created: new Date().toISOString(),
         spaceId: '',
         title: '',
-        description: '',
+        objective: '',
         idx: 0,
         userId: '',
       };

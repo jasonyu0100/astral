@@ -13,7 +13,7 @@ export function SpaceSessionUpdatePreviewScene() {
       <p className='text-xl font-bold text-slate-300'>
         {sceneController.state.obj.title}
         <br />
-        {sceneController.state.obj.description}
+        {sceneController.state.obj.objective}
       </p>
     </div>
   );

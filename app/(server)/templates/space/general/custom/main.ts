@@ -7,19 +7,19 @@ export const defaultTemplate: TemplateSpaceObj = {
   chapters: [
     {
       title: 'Chapter One',
-      description: 'The first chapter of the story.',
+      objective: 'The first chapter of the story.',
       sceneTemplates: [],
       spotlightTemplates: [],
     },
     {
       title: 'Chapter Two',
-      description: 'The second chapter of the story.',
+      objective: 'The second chapter of the story.',
       sceneTemplates: [],
       spotlightTemplates: [],
     },
     {
       title: 'Chapter Three',
-      description: 'The third chapter of the story.',
+      objective: 'The third chapter of the story.',
       sceneTemplates: [],
       spotlightTemplates: [],
     },

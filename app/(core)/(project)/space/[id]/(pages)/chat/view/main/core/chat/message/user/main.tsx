@@ -20,9 +20,11 @@ export function SpaceChatUserMessage() {
           {getFormmatedTimeDifference(new Date(message.created))}
         </p>
       </div>
-      <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right lowercase text-white'>
-        {message.message}
-      </p>
+      <div className='ml-auto flex flex-row'>
+        <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right lowercase text-white'>
+          {message.message}
+        </p>
+      </div>
     </div>
   );
 }

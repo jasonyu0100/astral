@@ -9,7 +9,7 @@ export function CreateSpaceTemplateStructure() {
       {templateProjectChapters.map((template, index) => (
         <p className='text-md overflow-hidden font-bold' key={index}>
           {index + 1}. {template.title} -{' '}
-          <span className='font-light'>{template.description}</span>
+          <span className='font-light'>{template.objective}</span>
         </p>
       ))}
     </div>

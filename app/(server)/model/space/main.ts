@@ -8,6 +8,7 @@ export interface SpaceObj {
   galleryId: string;
   title: string;
   description: string;
+  summary: string;
   created: string;
   thumbnail: FileElem;
   hours: number;
@@ -23,8 +24,9 @@ type SpaceObj {
 	userId: String!
   galleryId: String!
 	title: String!
-	created: String!
 	description: String!
+  summary: String!
+	created: String!
 	thumbnail: FileElem!
   category: String!
   hours: Int!
@@ -45,7 +47,8 @@ export const exampleSpace: SpaceObj = {
   userId: '0',
   galleryId: '0',
   title: 'Space Example',
-  description: 'Space Description',
+  description: 'Space Objective',
+  summary: 'Space Summary',
   created: new Date().toISOString(),
   thumbnail: exampleFileElem,
   category: 'Space Category',
@@ -61,7 +64,8 @@ export const exampleSpaces: SpaceObj[] = [
     userId: '0',
     galleryId: '0',
     title: 'Space Example',
-    description: 'Space Description',
+    description: 'Space Objective',
+    summary: 'Space Summary',
     created: new Date().toISOString(),
     thumbnail: exampleFileElem,
     category: 'Space Category',
@@ -75,7 +79,8 @@ export const exampleSpaces: SpaceObj[] = [
     userId: '0',
     galleryId: '0',
     title: 'Space Example',
-    description: 'Space Description',
+    description: 'Space Objective',
+    summary: 'Space Summary',
     created: new Date().toISOString(),
     thumbnail: exampleFileElem,
     category: 'Space Category',
@@ -92,5 +97,5 @@ export const spaceModel: ModelInterface<SpaceObj> = {
   example: exampleSpace,
   examples: exampleSpaces,
   parentKey: 'userId',
-  children: ['chapter', 'member', 'update'],
+  children: ['chapter', 'member'],
 };

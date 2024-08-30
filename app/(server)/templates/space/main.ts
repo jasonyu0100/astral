@@ -67,7 +67,7 @@ export type _TemplateMessageObj = Omit<
 >;
 export interface TemplateChatObj extends _TemplateChatObj {
   title: string;
-  description: string;
+  objective: string;
   conversations?: TemplateConversationObj[];
 }
 

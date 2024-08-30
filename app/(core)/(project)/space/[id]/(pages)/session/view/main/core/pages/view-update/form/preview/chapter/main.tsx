@@ -13,7 +13,7 @@ export function SpaceSessionUpdatePreviewChapter() {
       <p className='text-xl font-bold text-slate-300'>
         {chapterController.state.obj?.title}
         <br />
-        {chapterController.state.obj?.description}
+        {chapterController.state.obj?.objective}
       </p>
     </div>
   );

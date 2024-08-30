@@ -7,6 +7,8 @@ export interface SpaceChapterObj {
   spaceId: string;
   title: string;
   description: string;
+  objective: string;
+  summary: string;
   idx: number;
   created: string;
 }
@@ -17,7 +19,8 @@ type SpaceChapterObj {
   userId: String!
 	spaceId: String!
 	title: String!
-	description: String!
+  description: String!
+	objective: String!
 	idx: Int!
   created: String!
 }
@@ -28,7 +31,9 @@ export const exampleSpaceChapter: SpaceChapterObj = {
   userId: '0',
   spaceId: '0',
   title: 'Melody',
-  description: 'This is a description',
+  description: 'This is a chapter description',
+  objective: 'This is a chapter objective',
+  summary: 'This is a chapter summary',
   idx: 0,
   created: new Date().toISOString(),
 };
@@ -42,7 +47,9 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     id: '0',
     userId: '0',
     title: 'Concept',
-    description: 'Concept Description',
+    description: 'This is a chapter description',
+    objective: 'This is a chapter objective',
+    summary: 'This is a chapter summary',
     spaceId: '0',
     idx: 0,
     created: new Date().toISOString(),
@@ -51,7 +58,9 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     id: '1',
     userId: '0',
     title: 'Beat',
-    description: 'Beat Description',
+    description: 'This is a chapter description',
+    objective: 'This is a chapter objective',
+    summary: 'This is a chapter summary',
     spaceId: '0',
     idx: 1,
     created: new Date().toISOString(),
@@ -60,7 +69,9 @@ export const exampleSpaceChapters: SpaceChapterObj[] = [
     id: '2',
     userId: '0',
     title: 'Melody',
-    description: 'Melody Description',
+    description: 'This is a chapter description',
+    objective: 'This is a chapter objective',
+    summary: 'This is a chapter summary',
     spaceId: '0',
     idx: 2,
     created: new Date().toISOString(),

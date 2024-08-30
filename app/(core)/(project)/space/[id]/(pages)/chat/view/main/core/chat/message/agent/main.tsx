@@ -17,9 +17,11 @@ export function SpaceChatAgentMessage() {
           {getFormmatedTimeDifference(new Date(message.created))}
         </p>
       </div>
-      <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left lowercase text-white'>
-        {message.message}
-      </p>
+      <div className='mr-auto flex flex-row'>
+        <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left lowercase text-white'>
+          {message.message}
+        </p>
+      </div>
     </div>
   );
 }

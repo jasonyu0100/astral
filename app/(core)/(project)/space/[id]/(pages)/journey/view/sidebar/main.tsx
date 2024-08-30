@@ -162,7 +162,7 @@ export function SpaceJourneySidebar() {
                               {scene.title || 'Untitled'}
                             </div>
                             <div className='text-sm font-light'>
-                              {scene.description || 'No description'}
+                              {scene.objective || 'No description'}
                             </div>
                           </div>
                         </GlassWindowContents>

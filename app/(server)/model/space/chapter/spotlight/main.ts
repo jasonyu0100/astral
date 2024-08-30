@@ -13,6 +13,7 @@ export interface ChapterSpotlightObj {
   chapterId: string;
   title: string;
   description: string;
+  summary: string;
   created: string;
   spotlightStatus: string;
 }
@@ -38,6 +39,7 @@ export const exampleChapterSpotlight: ChapterSpotlightObj = {
   chapterId: '0',
   title: 'Spotlight Example',
   description: 'Spotlight Description',
+  summary: 'Spotlight Summary',
   spotlightStatus: ChapterSpotlightStatus.PENDING,
   created: new Date().toISOString(),
 };
@@ -48,6 +50,7 @@ export const exampleChapterSpotlights: ChapterSpotlightObj[] = [
     userId: '0',
     chapterId: '0',
     title: 'Spotlight Example',
+    summary: 'Spotlight Summary',
     spotlightStatus: ChapterSpotlightStatus.PENDING,
     description: 'Spotlightwww Description',
     created: new Date().toISOString(),
@@ -57,6 +60,7 @@ export const exampleChapterSpotlights: ChapterSpotlightObj[] = [
     userId: '0',
     chapterId: '0',
     title: 'Spotlight Example',
+    summary: 'Spotlight Summary',
     spotlightStatus: ChapterSpotlightStatus.PENDING,
     description: 'Spotlight Description',
     created: new Date().toISOString(),
@@ -66,6 +70,7 @@ export const exampleChapterSpotlights: ChapterSpotlightObj[] = [
     userId: '0',
     chapterId: '0',
     title: 'Spotlight Example',
+    summary: 'Spotlight Summary',
     spotlightStatus: ChapterSpotlightStatus.PENDING,
     description: 'Spotlight Description',
     created: new Date().toISOString(),
