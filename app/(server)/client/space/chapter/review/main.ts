@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { ChapterReviewObj } from '@/(server)/model/space/chapter/review/main';
+import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/review/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createChapterReviewObj,
@@ -10,11 +10,11 @@ import { getChapterReviewObj, listChapterReviewObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as ChapterReviewObj;
+  return obj as ChapterSpotlightObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ChapterReviewObj[];
+  return objs as ChapterSpotlightObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +71,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listChapterReviewObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ChapterReviewObj, 'id'>) {
+async function createObj(newObj: Omit<ChapterSpotlightObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createChapterReviewObj,
     variables: {
@@ -82,7 +82,7 @@ async function createObj(newObj: Omit<ChapterReviewObj, 'id'>) {
   return castSingle(payload?.data?.createChapterReviewObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ChapterReviewObj>) {
+async function updateObj(id: string, updateObj: Partial<ChapterSpotlightObj>) {
   const payload = await amplifyClient.graphql({
     query: updateChapterReviewObj,
     variables: {
@@ -96,7 +96,7 @@ async function updateObj(id: string, updateObj: Partial<ChapterReviewObj>) {
   return castSingle(payload?.data?.updateChapterReviewObj);
 }
 
-async function overwriteObj(id: string, newObj: ChapterReviewObj) {
+async function overwriteObj(id: string, newObj: ChapterSpotlightObj) {
   const payload = await amplifyClient.graphql({
     query: updateChapterReviewObj,
     variables: {
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChapterReviewObj);
 }
 
-export const chapterReviewDbWrapper: GqlDbWrapper<ChapterReviewObj> = {
+export const chapterReviewDbWrapper: GqlDbWrapper<ChapterSpotlightObj> = {
   getObj,
   listObjs,
   listAllObjs,

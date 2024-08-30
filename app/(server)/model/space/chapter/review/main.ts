@@ -5,13 +5,13 @@ import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export enum ChapterReviewStatus {
+export enum ChapterSpotlightStatus {
   PENDING = 'pending',
   APPROVED = 'approved',
   REJECTED = 'rejected',
 }
 
-export interface ChapterReviewObj {
+export interface ChapterSpotlightObj {
   id: string;
   userId: string;
   chapterId: string;
@@ -41,28 +41,28 @@ type ChapterReviewObj {
 }
 `;
 
-export const ContextForChapterReviewObj = createContext<ChapterReviewObj>(
-  {} as ChapterReviewObj,
+export const ContextForChapterReviewObj = createContext<ChapterSpotlightObj>(
+  {} as ChapterSpotlightObj,
 );
 
-export const exampleChapterReview: ChapterReviewObj = {
+export const exampleChapterReview: ChapterSpotlightObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
   title: 'Review Example',
   description: 'Review Description',
-  status: ChapterReviewStatus.PENDING,
+  status: ChapterSpotlightStatus.PENDING,
   created: new Date().toISOString(),
   variant: ElementVariant.FILE,
 };
 
-export const exampleChapterReviews: ChapterReviewObj[] = [
+export const exampleChapterReviews: ChapterSpotlightObj[] = [
   {
     id: '0',
     userId: '0',
     chapterId: '0',
     title: 'Review Example',
-    status: ChapterReviewStatus.PENDING,
+    status: ChapterSpotlightStatus.PENDING,
     description: 'Reviewwww Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
@@ -72,7 +72,7 @@ export const exampleChapterReviews: ChapterReviewObj[] = [
     userId: '0',
     chapterId: '0',
     title: 'Review Example',
-    status: ChapterReviewStatus.PENDING,
+    status: ChapterSpotlightStatus.PENDING,
     description: 'Review Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
@@ -82,14 +82,14 @@ export const exampleChapterReviews: ChapterReviewObj[] = [
     userId: '0',
     chapterId: '0',
     title: 'Review Example',
-    status: ChapterReviewStatus.PENDING,
+    status: ChapterSpotlightStatus.PENDING,
     description: 'Review Description',
     created: new Date().toISOString(),
     variant: ElementVariant.FILE,
   },
 ];
 
-export const chapterReviewModel: ModelInterface<ChapterReviewObj> = {
+export const chapterReviewModel: ModelInterface<ChapterSpotlightObj> = {
   name: 'review',
   parentKey: 'chapterId',
   example: exampleChapterReview,

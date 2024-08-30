@@ -1,7 +1,6 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
-import { AstralMoreIcon } from '@/icons/more/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -48,9 +47,9 @@ export function SpaceJourneyMain() {
             <p className='font-bold text-slate-300'>Log</p>
             <p className='font-bold text-slate-300'></p>
             <p className='font-bold text-slate-300'></p>
+            <p className='font-bold text-slate-300'>Scene</p>
             <p className='font-bold text-slate-300'>Hours</p>
             <p className='font-bold text-slate-300'>Links</p>
-            <p className='font-bold text-slate-300'></p>
           </div>
           <GlassWindowFrame className='flex w-full flex-col space-y-[1rem]'>
             <GlassWindowFrame className='w-full py-[2rem]'>
@@ -91,7 +90,7 @@ export function SpaceJourneyMain() {
                 </div>
                 <div>
                   <p className='text-light text-sm font-bold text-slate-300'>
-                    16
+                    untitled
                   </p>
                 </div>
                 <div>
@@ -100,7 +99,9 @@ export function SpaceJourneyMain() {
                   </p>
                 </div>
                 <div>
-                  <AstralMoreIcon />
+                  <p className='text-light text-sm font-bold text-slate-300'>
+                    16
+                  </p>
                 </div>
               </GlassWindowContents>
               <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -145,7 +146,7 @@ export function SpaceJourneyMain() {
                 </div>
                 <div>
                   <p className='text-light text-sm font-bold text-slate-300'>
-                    16
+                    untitled
                   </p>
                 </div>
                 <div>
@@ -154,7 +155,9 @@ export function SpaceJourneyMain() {
                   </p>
                 </div>
                 <div>
-                  <AstralMoreIcon />
+                  <p className='text-light text-sm font-bold text-slate-300'>
+                    16
+                  </p>
                 </div>
               </GlassWindowContents>
             </GlassWindowFrame>

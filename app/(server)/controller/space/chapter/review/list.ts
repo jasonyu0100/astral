@@ -9,13 +9,13 @@ import {
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import {
-  ChapterReviewObj,
-  ChapterReviewStatus,
+  ChapterSpotlightObj,
+  ChapterSpotlightStatus,
   chapterReviewModel,
 } from '@/(server)/model/space/chapter/review/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterReviewObj;
+type TargetObj = ChapterSpotlightObj;
 const gqlDbWrapper = chapterReviewDbWrapper;
 const listIdKey = chapterReviewModel.parentKey;
 
@@ -257,7 +257,7 @@ const useControllerForChapterReviewList = (
         title: '',
         description: '',
         variant: '',
-        status: ChapterReviewStatus.PENDING,
+        status: ChapterSpotlightStatus.PENDING,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushFront(newObj);
@@ -277,7 +277,7 @@ const useControllerForChapterReviewList = (
         description: description,
         userId: userId,
         variant: '',
-        status: ChapterReviewStatus.PENDING,
+        status: ChapterSpotlightStatus.PENDING,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushFront(newObj);
@@ -299,7 +299,7 @@ const useControllerForChapterReviewList = (
         userId: userId,
         variant: ElementVariant.FILE,
         fileElem: fileElem,
-        status: ChapterReviewStatus.PENDING,
+        status: ChapterSpotlightStatus.PENDING,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushFront(newObj);

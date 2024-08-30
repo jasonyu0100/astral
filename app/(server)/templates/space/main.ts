@@ -1,6 +1,6 @@
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { ReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
-import { ChapterReviewObj } from '@/(server)/model/space/chapter/review/main';
+import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/review/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
@@ -86,7 +86,7 @@ export interface TemplateSceneObj extends _TemplateSceneObj {
 
 // VERSE
 
-export type _TemplateReviewObj = Omit<ChapterReviewObj, 'id' | 'chapterId'>;
+export type _TemplateReviewObj = Omit<ChapterSpotlightObj, 'id' | 'chapterId'>;
 export type _TemplateCommentObj = Omit<
   ReviewCommentObj,
   'id' | 'userId' | 'reviewId' | 'time'

@@ -6,10 +6,10 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ChapterReviewObj } from '@/(server)/model/space/chapter/review/main';
+import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/review/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterReviewObj;
+type TargetObj = ChapterSpotlightObj;
 const gqlDbWrapper = chapterReviewDbWrapper;
 
 interface ControllerState {
