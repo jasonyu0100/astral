@@ -10,7 +10,7 @@ export function StudioSpacesTableHeader() {
           <p className='text-center font-bold text-slate-500'>day</p>
           <p className='text-center font-bold text-slate-500'>length</p>
           <p className='text-center font-bold text-slate-500'>activity</p>
-          <p className='text-center font-bold text-slate-500'>reviews</p>
+          <p className='text-center font-bold text-slate-500'>spotlights</p>
         </div>
         <div />
       </div>

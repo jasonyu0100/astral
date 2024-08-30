@@ -13,7 +13,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewAddChapterModal() {
+export function SpaceSpotlightAddChapterModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);

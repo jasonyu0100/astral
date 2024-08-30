@@ -1,9 +1,10 @@
+import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { ReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
-import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/review/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
 import { defaultTemplate } from './general/custom/main';
@@ -42,7 +43,8 @@ export type _TemplateChapterObj = Omit<
 >;
 export interface TemplateChapterObj extends _TemplateChapterObj {
   sceneTemplates: TemplateSceneObj[];
-  reviewTemplates: TemplateReviewObj[];
+  logTemplates: TemplateLogObj[];
+  spotlightTemplates: TemplateSpotlightObj[];
 }
 
 export const ContextForTemplateChapter = createContext(
@@ -79,20 +81,25 @@ export interface TemplateMessageObj extends _TemplateMessageObj {}
 
 export type _TemplateSceneObj = Omit<ChapterSceneObj, 'id' | 'chapterId'>;
 export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
+export type _TemplateLogObj = Omit<ChapterLogObj, 'id' | 'chapterId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
 }
 
 // VERSE
+export interface TemplateLogObj extends _TemplateLogObj {}
 
-export type _TemplateReviewObj = Omit<ChapterSpotlightObj, 'id' | 'chapterId'>;
+export type _TemplateSpotlightObj = Omit<
+  ChapterSpotlightObj,
+  'id' | 'chapterId'
+>;
 export type _TemplateCommentObj = Omit<
-  ReviewCommentObj,
-  'id' | 'userId' | 'reviewId' | 'time'
+  SpotlightCommentObj,
+  'id' | 'userId' | 'spotlightId' | 'time'
 >;
 
-export interface TemplateReviewObj extends _TemplateReviewObj {
+export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
   comments?: _TemplateCommentObj[];
 }
 

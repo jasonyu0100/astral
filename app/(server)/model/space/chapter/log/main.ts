@@ -1,10 +1,17 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
+export enum ChapterLogStatus {
+  TODO = 'todo',
+  IN_PROGRESS = 'in-progress',
+  REVIEW = 'review',
+  DONE = 'done',
+}
 export interface ChapterLogObj {
   id: string;
   userId: string;
   chapterId: string;
+  logStatus: string;
   title: string;
   description: string;
   summary: string;
@@ -19,8 +26,10 @@ type ChapterLogObj {
   title: String!
   description: String!
   summary: String!
+  logStatus: String!
   created: String!
-}`;
+}
+`;
 
 export const ContextForChapterLogObj = createContext<ChapterLogObj>(
   {} as ChapterLogObj,
@@ -34,6 +43,7 @@ export const exampleChapterLog: ChapterLogObj = {
   description: 'Log Description',
   summary: 'Log Summary',
   created: new Date().toISOString(),
+  logStatus: ChapterLogStatus.TODO,
 };
 
 export const exampleChapterLogs: ChapterLogObj[] = [
@@ -45,6 +55,7 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
+    logStatus: ChapterLogStatus.TODO,
   },
   {
     id: '1',
@@ -54,6 +65,7 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
+    logStatus: ChapterLogStatus.TODO,
   },
   {
     id: '2',
@@ -63,10 +75,11 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
+    logStatus: ChapterLogStatus.TODO,
   },
 ];
 
-export const chapterSceneModel: ModelInterface<ChapterLogObj> = {
+export const chapterLogModel: ModelInterface<ChapterLogObj> = {
   name: 'log',
   gql: chapteLogGql,
   example: exampleChapterLog,

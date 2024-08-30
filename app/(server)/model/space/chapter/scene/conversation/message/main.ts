@@ -1,3 +1,6 @@
+import { FileElem } from '@/(server)/model/elements/file/main';
+import { TextElem } from '@/(server)/model/elements/text/main';
+import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 export interface ConversationMessageObj {
@@ -8,6 +11,11 @@ export interface ConversationMessageObj {
   sceneId: string;
   created: string;
   message: string;
+  hasAttachment: boolean;
+  variant?: string;
+  fileElem?: FileElem;
+  textElem?: TextElem;
+  urlElem?: UrlElem;
 }
 
 export const conversationMessageGql = `
@@ -19,6 +27,11 @@ type ConversationMessageObj {
   sceneId: String!
   created: String!
   message: String!
+  hasAttachment: Boolean!;
+  variant: String
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
 }
 `;
 
@@ -33,6 +46,7 @@ export const exampleConversationMessage: ConversationMessageObj = {
   agentId: undefined,
   created: new Date().toISOString(),
   message: 'Hello World',
+  hasAttachment: false,
 };
 
 export const exampleAgentConversationMessage: ConversationMessageObj = {
@@ -43,6 +57,7 @@ export const exampleAgentConversationMessage: ConversationMessageObj = {
   agentId: '0',
   created: new Date().toISOString(),
   message: 'Hello World',
+  hasAttachment: false,
 };
 
 export const exampleConversationMessages: ConversationMessageObj[] = [
@@ -54,6 +69,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     agentId: undefined,
     created: new Date().toISOString(),
     message: 'Test Message',
+    hasAttachment: false,
   },
   {
     id: '1',
@@ -62,6 +78,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     userId: undefined,
     created: new Date().toISOString(),
     message: 'Hello World',
+    hasAttachment: false,
   },
   {
     id: '2',
@@ -71,6 +88,7 @@ export const exampleConversationMessages: ConversationMessageObj[] = [
     agentId: undefined,
     created: new Date().toISOString(),
     message: 'Hello There',
+    hasAttachment: false,
   },
 ];
 

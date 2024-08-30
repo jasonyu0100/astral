@@ -8,7 +8,6 @@ export interface LogLinkObj {
   id: string;
   logId: string;
   userId: string;
-  logStatus: string;
   title: string;
   description: string;
   variant: string;
@@ -23,7 +22,6 @@ type LogLinkObj {
   id: String!
   logId: String!
   userId: String!
-  logStatus: String!
   title: String!
   description: String!
   variant: String!
@@ -40,7 +38,6 @@ export const exampleLogLink: LogLinkObj = {
   id: '0',
   logId: '0',
   userId: '0',
-  logStatus: 'pending',
   title: 'Log Link Example',
   description: 'Log Link Description',
   variant: 'file',
@@ -53,7 +50,6 @@ export const exampleLogLinks: LogLinkObj[] = [
     id: '0',
     logId: '0',
     userId: '0',
-    logStatus: 'pending',
     title: 'Log Link Example',
     description: 'Log Link Description',
     variant: 'file',
@@ -64,7 +60,6 @@ export const exampleLogLinks: LogLinkObj[] = [
     id: '0',
     logId: '0',
     userId: '0',
-    logStatus: 'pending',
     title: 'Log Link Example',
     description: 'Log Link Description',
     variant: 'file',
@@ -75,7 +70,6 @@ export const exampleLogLinks: LogLinkObj[] = [
     id: '0',
     logId: '0',
     userId: '0',
-    logStatus: 'pending',
     title: 'Log Link Example',
     description: 'Log Link Description',
     variant: 'file',

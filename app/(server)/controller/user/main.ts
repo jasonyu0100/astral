@@ -92,9 +92,7 @@ const useControllerForUserMain = (objId: string): Controller => {
         throw new Error('Email is invalid');
       } else {
         const user = users[0];
-        const check = user.passwordHash
-          ? (bcrypt.compare(password, user.passwordHash) as unknown as boolean)
-          : false;
+        const check = await bcrypt.compare(password, user.passwordHash);
         if (!check) {
           throw new Error('Password is invalid');
         } else if (user.subscriptionId === null) {

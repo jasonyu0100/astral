@@ -4,8 +4,9 @@ import { createContext } from 'react';
 export enum ChapterSessionUpdateVariant {
   CHAPTER = 'CHAPTER',
   SCENE = 'SCENE',
-  REVIEW = 'REVIEW',
+  SPOTLIGHT = 'SPOTLIGHT',
   CONVERSATION = 'CONVERSATION',
+  LOG = 'LOG',
   IDEA = 'IDEA',
 }
 
@@ -23,7 +24,8 @@ export interface ChapterSessionUpdateObj {
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
-  reviewId?: string;
+  spotlightId?: string;
+  logId?: string;
 }
 
 export const ChapterSessionUpdateGql = `
@@ -41,7 +43,8 @@ type ChapterSessionUpdateObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  reviewId: String
+  spotlightId: String
+  logId: String
 }
 `;
 
@@ -62,7 +65,8 @@ export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
-  reviewId: undefined,
+  spotlightId: undefined,
+  logId: undefined,
 };
 
 export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
@@ -80,7 +84,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    reviewId: undefined,
+    spotlightId: undefined,
+    logId: undefined,
   },
   {
     id: '0',
@@ -96,7 +101,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    reviewId: undefined,
+    spotlightId: undefined,
+    logId: undefined,
   },
   {
     id: '0',
@@ -112,7 +118,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    reviewId: undefined,
+    spotlightId: undefined,
+    logId: undefined,
   },
 ];
 

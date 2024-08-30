@@ -29,7 +29,7 @@ export function SpaceSessionUpdateFormContents() {
     <GlassWindowFrame className='h-full overflow-auto'>
       <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
         <ContextForChapterSessionUpdateObj.Provider value={current}>
-          {current.variant === ChapterSessionUpdateVariant.REVIEW && (
+          {current.variant === ChapterSessionUpdateVariant.SPOTLIGHT && (
             <SpaceSessionUpdatePreviewReview />
           )}
           {current.variant === ChapterSessionUpdateVariant.CHAPTER && (

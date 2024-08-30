@@ -1,14 +1,14 @@
-import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
 
-export function SpaceReviewHeaderMiddle() {
-  const reviewListController = useContext(ContextForChapterReviewList);
+export function SpaceSpotlightHeaderMiddle() {
+  const spotlightListController = useContext(ContextForChapterSpotlightList);
 
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
       <p className='text-lg font-light text-slate-300'>
-        review - {reviewListController.state?.currentObj?.title || 'None'}
+        review - {spotlightListController.state?.currentObj?.title || 'None'}
       </p>
       <AstralChevronRightIcon />
     </div>

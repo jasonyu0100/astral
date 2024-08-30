@@ -1,6 +1,6 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
+import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { roundedFx } from '@/style/data';
@@ -9,8 +9,8 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function SpaceReviewContentComment() {
-  const commentObj = useContext(ContextForReviewCommentObj);
+export function SpaceSpotlightContentComment() {
+  const commentObj = useContext(ContextForSpotlightCommentObj);
   const commentUser = useControllerForUserMain(commentObj.userId);
 
   return (

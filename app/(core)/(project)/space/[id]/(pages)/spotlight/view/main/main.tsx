@@ -1,17 +1,17 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
-import { SpaceReviewCore } from './core/main';
-import { SpaceReviewChapterNavigation } from './navigation/main';
+import { SpaceSpotlightCore } from './core/main';
+import { SpaceSpotlightChapterNavigation } from './navigation/main';
 
-export function SpaceReviewMain() {
+export function SpaceSpotlightMain() {
   return (
     <GlassAreaContainer
-      name={SpaceReviewMain.name}
+      name={SpaceSpotlightMain.name}
       sizeFx='h-full flex-grow'
       className={`flex flex-col`}
     >
-      <SpaceReviewCore />
-      <SpaceReviewChapterNavigation />
+      <SpaceSpotlightCore />
+      <SpaceSpotlightChapterNavigation />
     </GlassAreaContainer>
   );
 }

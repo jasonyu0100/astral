@@ -1,17 +1,17 @@
-import { ContextForReviewCommentList } from '@/(server)/controller/space/chapter/review/comment/list';
-import { ContextForReviewCommentObj } from '@/(server)/model/space/chapter/review/comment/main';
+import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
+import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
 import { useContext } from 'react';
-import { SpaceReviewContentComment } from './comment/main';
+import { SpaceSpotlightContentComment } from './comment/main';
 
-export function SpaceReviewList() {
-  const commentListController = useContext(ContextForReviewCommentList);
+export function SpaceSpotlightList() {
+  const commentListController = useContext(ContextForSpotlightCommentList);
 
   return (
     <div className='flex w-full max-w-[800px] flex-col space-y-[2rem] pb-[2rem]'>
       {commentListController.state.objs.toReversed().map((comment) => (
-        <ContextForReviewCommentObj.Provider value={comment}>
-          <SpaceReviewContentComment />
-        </ContextForReviewCommentObj.Provider>
+        <ContextForSpotlightCommentObj.Provider value={comment}>
+          <SpaceSpotlightContentComment />
+        </ContextForSpotlightCommentObj.Provider>
       ))}
     </div>
   );

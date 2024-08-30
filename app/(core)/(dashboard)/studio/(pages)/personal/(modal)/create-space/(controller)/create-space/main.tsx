@@ -1,8 +1,8 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
@@ -64,7 +64,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const galleryListController = useContext(ContextForGalleryList);
   const chapterListController = useControllerForSpaceChapterList('');
   const sceneListController = useControllerForChapterSceneList('');
-  const reviewListController = useControllerForChapterReviewList('');
+  const spotlightListController = useControllerForChapterSpotlightList('');
   const sessionUpdateListController =
     useControllerForSessionUpdateOfChapterList('');
   const spaceMembersListController = useControllerForSpaceMemberList('');
@@ -168,7 +168,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     return scenes;
   }
 
-  async function createReviews(
+  async function createSpotlights(
     space: SpaceObj,
     chapters: SpaceChapterObj[],
     templateSpaceChapters: TemplateChapterObj[],
@@ -177,51 +177,49 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       chapters.length === templateSpaceChapters.length,
       'Chapters and template chapters must be the same length',
     );
-    const reviews = await Promise.all(
+    const spotlights = await Promise.all(
       chapters.map(async (chapter, index) => {
         const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter && templateChapter.reviewTemplates.length > 0) {
-          const reviews = await Promise.all(
-            templateChapter.reviewTemplates.map(async (templateReview) => {
-              const review =
-                await reviewListController.actions.createActions.createReviewFromFile(
+        if (templateChapter && templateChapter.spotlightTemplates.length > 0) {
+          const spotlights = await Promise.all(
+            templateChapter.spotlightTemplates.map(async (templateReview) => {
+              const spotlight =
+                await spotlightListController.actions.createActions.createSpotlightFromFile(
                   templateReview.title,
                   templateReview.description,
                   user.id,
                   chapter.id,
-                  exampleFileElem,
                 );
-              await sessionUpdateListController.actions.createActions.createFromChapterReview(
+              await sessionUpdateListController.actions.createActions.createFromChapterSpotlight(
                 user.id,
                 space.id,
                 chapter.id,
-                review.id,
+                spotlight.id,
               );
-              return review;
+              return spotlight;
             }),
           );
-          return reviews;
+          return spotlights;
         } else {
-          const review =
-            await reviewListController.actions.createActions.createReviewFromFile(
+          const spotlight =
+            await spotlightListController.actions.createActions.createSpotlightFromFile(
               'untitled',
               '',
               user.id,
               chapter.id,
-              exampleFileElem,
             );
-          await sessionUpdateListController.actions.createActions.createFromChapterReview(
+          await sessionUpdateListController.actions.createActions.createFromChapterSpotlight(
             user.id,
             space.id,
             chapter.id,
-            review.id,
+            spotlight.id,
           );
-          return [review];
+          return [spotlight];
         }
       }),
     );
 
-    return reviews;
+    return spotlights;
   }
 
   async function createMembers(space: SpaceObj, members: string[]) {
@@ -273,8 +271,12 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('MEMBERS CREATED', members);
     const scenes = await createScenes(space, chapters, templateSpaceChapters);
     console.log('SCENES CREATED', scenes);
-    const reviews = await createReviews(space, chapters, templateSpaceChapters);
-    console.log('REVIEWS CREATED', reviews);
+    const spotlights = await createSpotlights(
+      space,
+      chapters,
+      templateSpaceChapters,
+    );
+    console.log('SPOTLIGHTS CREATED', spotlights);
     return space;
   }
 

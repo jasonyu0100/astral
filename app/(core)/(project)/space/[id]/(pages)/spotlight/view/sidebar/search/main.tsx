@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
-export function SpaceReviewSidebarSearch() {
+export function SpaceSpotlightSidebarSearch() {
   return (
     <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
       <GlassWindowFrame

@@ -12,9 +12,9 @@ import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 
-export function SpaceReviewAddSceneModal() {
+export function SpaceSpotlightAddSceneModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);

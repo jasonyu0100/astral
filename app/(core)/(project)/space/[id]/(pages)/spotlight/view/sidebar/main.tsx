@@ -1,19 +1,19 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceReviewSidebarList } from './list/main';
-import { SpaceReviewSidebarSearch } from './search/main';
+import { SpaceSpotlightSidebarList } from './list/main';
+import { SpaceSpotlightSidebarSearch } from './search/main';
 
-export function SpaceReviewSidebar() {
+export function SpaceSpotlightSidebar() {
   return (
     <>
       <GlassAreaContainer
-        name={SpaceReviewSidebar.name}
+        name={SpaceSpotlightSidebar.name}
         sizeFx='w-[300px] h-full'
         glassFx={glassFx['glass-5']}
         className={`flex flex-col items-center overflow-hidden`}
       >
-        <SpaceReviewSidebarSearch />
-        <SpaceReviewSidebarList />
+        <SpaceSpotlightSidebarSearch />
+        <SpaceSpotlightSidebarList />
       </GlassAreaContainer>
     </>
   );

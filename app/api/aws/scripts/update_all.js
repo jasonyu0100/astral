@@ -9,7 +9,7 @@ AWS.config.update({
 
 // Create a DynamoDB Document Client and define the table name
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = 'ChapterSceneObjTable';
+const tableName = 'ConversationMessageObjTable';
 
 // Function to update a single item by ID
 const updateItem = async (itemId, key, value) => {
@@ -117,7 +117,7 @@ const updateAllItems = async () => {
       // console.log(jsonItem);
 
       // FIELD UPDATE
-      await updateItem(itemId, 'summary', 'This is a summary of the scene.');
+      await updateItem(itemId, 'hasAttachment', false);
 
       // FIELD DELETE
       // await deleteItemField(itemId, 'type');

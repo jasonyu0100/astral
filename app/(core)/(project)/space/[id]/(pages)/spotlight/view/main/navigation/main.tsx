@@ -1,13 +1,13 @@
 import { NavigationTimelineGoLeftAction } from './action/left/main';
 import { NavigationTimelineGoRightAction } from './action/right/main';
 import { NavigationTimelineContainer } from './container/main';
-import { SpaceReviewNavigationRow } from './row/main';
+import { SpaceSpotlightNavigationRow } from './row/main';
 
-export function SpaceReviewChapterNavigation() {
+export function SpaceSpotlightChapterNavigation() {
   return (
     <NavigationTimelineContainer>
       <NavigationTimelineGoLeftAction />
-      <SpaceReviewNavigationRow />
+      <SpaceSpotlightNavigationRow />
       <NavigationTimelineGoRightAction />
     </NavigationTimelineContainer>
   );

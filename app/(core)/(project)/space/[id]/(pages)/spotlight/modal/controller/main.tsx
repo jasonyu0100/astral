@@ -4,59 +4,63 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpaceReviewAddChapterModal } from '../add/chapter/main';
-import { SpaceReviewAddCommentModal } from '../add/comment/main';
-import { SpaceReviewAddReviewModal } from '../add/review/main';
-import { SpaceReviewAddSceneModal } from '../add/scene/main';
-import { SpaceReviewShareReviewModal } from '../share/main';
+import { SpaceSpotlightAddChapterModal } from '../add/chapter/main';
+import { SpaceSpotlightAddCommentModal } from '../add/comment/main';
+import { SpaceSpotlightAddReviewModal } from '../add/review/main';
+import { SpaceSpotlightAddSceneModal } from '../add/scene/main';
+import { SpaceSpotlightShareReviewModal } from '../share/main';
 
-export const ContextForSpaceReviewModals = createContext(
-  {} as SpaceReviewModals,
+export const ContextForSpaceSpotlightModals = createContext(
+  {} as SpaceSpotlightModals,
 );
 
-export interface SpaceReviewModals {
+export interface SpaceSpotlightModals {
   addChapterController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
-  addReviewController: ContextForOpenableInterface;
+  addSpotlightController: ContextForOpenableInterface;
   addCommentController: ContextForOpenableInterface;
   shareReviewController: ContextForOpenableInterface;
 }
 
-export function SpaceReviewModals({ children }: { children: React.ReactNode }) {
+export function SpaceSpotlightModals({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const addChapterController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
-  const addReviewController = useControllerForOpenable();
+  const addSpotlightController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
 
   return (
-    <ContextForSpaceReviewModals.Provider
+    <ContextForSpaceSpotlightModals.Provider
       value={
         {
           addChapterController,
           addSceneController,
-          addReviewController,
+          addSpotlightController,
           addCommentController,
           shareReviewController,
-        } as SpaceReviewModals
+        } as SpaceSpotlightModals
       }
     >
       {children}
       <ContextForOpenable.Provider value={addChapterController}>
-        <SpaceReviewAddChapterModal />
+        <SpaceSpotlightAddChapterModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
-        <SpaceReviewAddSceneModal />
+        <SpaceSpotlightAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addCommentController}>
-        <SpaceReviewAddCommentModal />
+        <SpaceSpotlightAddCommentModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addReviewController}>
-        <SpaceReviewAddReviewModal />
+      <ContextForOpenable.Provider value={addSpotlightController}>
+        <SpaceSpotlightAddReviewModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareReviewController}>
-        <SpaceReviewShareReviewModal />
+        <SpaceSpotlightShareReviewModal />
       </ContextForOpenable.Provider>
-    </ContextForSpaceReviewModals.Provider>
+    </ContextForSpaceSpotlightModals.Provider>
   );
 }

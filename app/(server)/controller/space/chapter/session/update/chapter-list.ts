@@ -44,11 +44,11 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     sceneId: string,
   ) => Promise<TargetObj>;
-  createFromChapterReview: (
+  createFromChapterSpotlight: (
     userId: string,
     spaceId: string,
     chapterId: string,
-    reviewId: string,
+    spotlightId: string,
   ) => Promise<TargetObj>;
   createFromChapterSceneConversation: (
     userId: string,
@@ -314,17 +314,22 @@ const useControllerForSessionUpdateOfChapterList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterReview: async (userId, spaceId, chapterId, reviewId) => {
+    createFromChapterSpotlight: async (
+      userId,
+      spaceId,
+      chapterId,
+      spotlightId,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
-        reviewId: reviewId,
+        spotlightId: spotlightId,
         added: false,
         spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.REVIEW,
+        variant: ChapterSessionUpdateVariant.SPOTLIGHT,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

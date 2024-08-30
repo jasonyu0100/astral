@@ -6,7 +6,7 @@ import { WrapperTooltip } from '@/ui/tooltip/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpaceReviewRowElement({
+export function SpaceSpotlightRowElement({
   index,
   children,
 }: {
@@ -28,7 +28,7 @@ export function SpaceReviewRowElement({
         })}
       >
         <GlassAreaContainer
-          name={SpaceReviewRowElement.name}
+          name={SpaceSpotlightRowElement.name}
           sizeFx='w-[200px] h-[40px]'
           glassFx={active ? glassFx['glass-20'] : glassFx['glass-5']}
           roundedFx={roundedFx['rounded-full']}

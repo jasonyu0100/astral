@@ -1,9 +1,9 @@
 import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
-import { ContextForSpaceReviewModals } from '../../../../../modal/controller/main';
+import { ContextForSpaceSpotlightModals } from '../../../../../modal/controller/main';
 
-export function SpaceReviewHeaderRight() {
-  const modalController = useContext(ContextForSpaceReviewModals);
+export function SpaceSpotlightHeaderRight() {
+  const modalController = useContext(ContextForSpaceSpotlightModals);
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>

@@ -4,13 +4,13 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForReviewCommentList,
-  useControllerForReviewCommentList,
-} from '@/(server)/controller/space/chapter/review/comment/list';
+  ContextForSpotlightCommentList,
+  useControllerForSpotlightCommentList,
+} from '@/(server)/controller/space/chapter/spotlight/comment/list';
 import {
-  ContextForChapterReviewList,
-  useControllerForChapterReviewList,
-} from '@/(server)/controller/space/chapter/review/list';
+  ContextForChapterSpotlightList,
+  useControllerForChapterSpotlightList,
+} from '@/(server)/controller/space/chapter/spotlight/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -19,12 +19,12 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
-import { SpaceReviewModals } from './modal/controller/main';
-import { SpaceReviewView } from './view/main';
+import { SpaceSpotlightModals } from './modal/controller/main';
+import { SpaceSpotlightView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const reviewId = searchParams.get('review');
+  const spotlightId = searchParams.get('spotlight');
   const chapterId = searchParams.get('chapter');
 
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -33,25 +33,29 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const reviewListController = useControllerForChapterReviewList(
+  const spotlightListController = useControllerForChapterSpotlightList(
     chapterListController.state.objId,
-    reviewId,
+    spotlightId,
   );
-  const commentListController = useControllerForReviewCommentList(
-    reviewListController.state.objId,
+  const commentListController = useControllerForSpotlightCommentList(
+    spotlightListController.state.objId,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterReviewList.Provider value={reviewListController}>
-            <ContextForReviewCommentList.Provider value={commentListController}>
-              <SpaceReviewModals>
-                <SpaceReviewView />
-              </SpaceReviewModals>
-            </ContextForReviewCommentList.Provider>
-          </ContextForChapterReviewList.Provider>
+          <ContextForChapterSpotlightList.Provider
+            value={spotlightListController}
+          >
+            <ContextForSpotlightCommentList.Provider
+              value={commentListController}
+            >
+              <SpaceSpotlightModals>
+                <SpaceSpotlightView />
+              </SpaceSpotlightModals>
+            </ContextForSpotlightCommentList.Provider>
+          </ContextForChapterSpotlightList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>

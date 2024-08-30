@@ -32,7 +32,7 @@ export function SpaceSessionViewUpdateForm() {
         <div className='flex h-full w-full flex-col space-y-[2rem]'>
           <div className='flex flex-col space-y-[1rem]'>
             <ContextForChapterSessionUpdateObj.Provider value={current}>
-              {current.variant === ChapterSessionUpdateVariant.REVIEW && (
+              {current.variant === ChapterSessionUpdateVariant.SPOTLIGHT && (
                 <SpaceSessionUpdatePreviewReview />
               )}
               {current.variant === ChapterSessionUpdateVariant.CHAPTER && (

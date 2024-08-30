@@ -1,4 +1,4 @@
-import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import {
   exampleFileElem,
   exampleFileElems,
@@ -12,8 +12,8 @@ import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { Carousel } from './carousel/main';
 
-export function SpaceReviewMain() {
-  const reviewListController = useContext(ContextForChapterReviewList);
+export function SpaceSpotlightMain() {
+  const spotlightListController = useContext(ContextForChapterSpotlightList);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (
@@ -22,7 +22,7 @@ export function SpaceReviewMain() {
         <div className='flex w-full flex-row space-x-[2rem]'>
           <Carousel
             images={[
-              reviewListController.state.currentObj?.fileElem?.src,
+              spotlightListController.state.currentObj?.fileElem?.src,
               ...exampleFileElems.map((elem) => elem.src),
             ]}
           />
@@ -85,7 +85,7 @@ export function SpaceReviewMain() {
             src={loggedInUser.dp?.src || exampleFileElem.src}
           />
           <p className='text-2xl font-bold text-slate-300'>
-            Review - {reviewListController.state.currentObj?.title}
+            Review - {spotlightListController.state.currentObj?.title}
           </p>
         </div>
         <p className='text-xl text-slate-300'>
@@ -97,7 +97,7 @@ export function SpaceReviewMain() {
         <div className='space-y-[0.5rem]'>
           <p className=' text-sm font-light text-white'>
             {getFormattedDate(
-              new Date(reviewListController.state.currentObj?.created ?? ''),
+              new Date(spotlightListController.state.currentObj?.created ?? ''),
             )}
           </p>
         </div>

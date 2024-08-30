@@ -9,7 +9,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
 
-export function SpaceReviewShareReviewModal() {
+export function SpaceSpotlightShareReviewModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
 

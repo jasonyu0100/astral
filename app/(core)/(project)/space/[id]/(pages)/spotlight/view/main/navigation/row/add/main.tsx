@@ -6,14 +6,14 @@ interface NavigationTimelineInputProps extends ButtonInputProps {
   children?: React.ReactNode;
 }
 
-export default function SpaceReviewRowAdd({
+export default function SpaceSpotlightRowAdd({
   children,
   ...props
 }: NavigationTimelineInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
-        name={SpaceReviewRowAdd.name}
+        name={SpaceSpotlightRowAdd.name}
         sizeFx='w-[200px] h-[40px]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}

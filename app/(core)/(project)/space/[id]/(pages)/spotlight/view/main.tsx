@@ -1,19 +1,19 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceReviewMain } from './main/main';
+import { SpaceSpotlightMain } from './main/main';
 
-export function SpaceReviewView() {
+export function SpaceSpotlightView() {
   return (
     <GlassAreaContainer
-      name={SpaceReviewView.name}
+      name={SpaceSpotlightView.name}
       sizeFx='h-full flex-grow'
       className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container-sm']}
     >
-      <SpaceReviewMain />
-      {/* <SpaceReviewSidebar /> */}
+      <SpaceSpotlightMain />
+      {/* <SpaceSpotlightSidebar /> */}
     </GlassAreaContainer>
   );
 }

@@ -1,5 +1,5 @@
-import { ContextForReviewCommentList } from '@/(server)/controller/space/chapter/review/comment/list';
-import { ContextForChapterReviewList } from '@/(server)/controller/space/chapter/review/list';
+import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
+import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -7,16 +7,16 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useState } from 'react';
 
-export function SpaceReviewInput() {
+export function SpaceSpotlightInput() {
   const [message, setMessage] = useState('');
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const reviewListController = useContext(ContextForChapterReviewList);
-  const commentListController = useContext(ContextForReviewCommentList);
+  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const commentListController = useContext(ContextForSpotlightCommentList);
 
   async function createComment() {
     commentListController.actions.createActions.createComment(
       loggedInUser.id,
-      reviewListController.state.objId,
+      spotlightListController.state.objId,
       message,
     );
   }

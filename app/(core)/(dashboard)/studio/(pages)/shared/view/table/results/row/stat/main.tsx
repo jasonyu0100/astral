@@ -14,14 +14,14 @@ export function StudioSpacesRowStat() {
   const scenes = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.SCENE,
   );
-  const reviews = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.REVIEW,
+  const spotlighs = sessionUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterSessionUpdateVariant.SPOTLIGHT,
   );
 
   return (
     <div className='flex flex-row items-center justify-center'>
       <p className='text-sm font-bold text-slate-300'>
-        {chapters.length} / {scenes.length} / {reviews.length}
+        {chapters.length} / {scenes.length} / {spotlighs.length}
       </p>
     </div>
   );

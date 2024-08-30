@@ -1,35 +1,39 @@
 import { spaceChapterDbWrapper } from '@/(server)/client/space/chapter/main';
-import { reviewCommentDbWrapper } from '@/(server)/client/space/chapter/review/comment/main';
-import { chapterReviewDbWrapper } from '@/(server)/client/space/chapter/review/main';
 import { sceneConversationDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/main';
 import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/message/main';
-import { ideaLinkDbWrapper } from '@/(server)/client/space/chapter/scene/idea/link/main';
 import { sceneIdeaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
 import { chapterSceneDbWrapper } from '@/(server)/client/space/chapter/scene/main';
 import { sceneMemberDbWrapper } from '@/(server)/client/space/chapter/scene/member/main';
 import { ChapterSessionContributorDbWrapper } from '@/(server)/client/space/chapter/session/contributor/main';
 import { ChapterSessionDbWrapper } from '@/(server)/client/space/chapter/session/main';
 import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
+import { spotlightAttachmentDbWrapper } from '@/(server)/client/space/chapter/spotlight/attachment/main';
+import { spotlightCommentDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/main';
+import { spotlightLinkDbWrapper } from '@/(server)/client/space/chapter/spotlight/link/main';
+import { chapterSpotlightDbWrapper } from '@/(server)/client/space/chapter/spotlight/main';
 import { spaceDbWrapper } from '@/(server)/client/space/main';
 import { spaceMemberDbWrapper } from '@/(server)/client/space/member/main';
 import { spaceMemberTermsDbWrapper } from '@/(server)/client/space/member/terms/main';
+import { logLinkModel } from '@/(server)/model/space/chapter/log/link/main';
+import { chapterLogModel } from '@/(server)/model/space/chapter/log/main';
+import { logMemberModel } from '@/(server)/model/space/chapter/log/member/main';
 import { spaceChapterModel } from '@/(server)/model/space/chapter/main';
-import { reviewAttachmentModel } from '@/(server)/model/space/chapter/review/attachment/main';
-import { reviewCommentModel } from '@/(server)/model/space/chapter/review/comment/main';
-import { chapterReviewModel } from '@/(server)/model/space/chapter/review/main';
-import {
-  reviewMemberGql,
-  reviewMemberModel,
-} from '@/(server)/model/space/chapter/review/member/main';
 import { sceneConversationModel } from '@/(server)/model/space/chapter/scene/conversation/main';
 import { conversationMessageModel } from '@/(server)/model/space/chapter/scene/conversation/message/main';
-import { ideaLinkModel } from '@/(server)/model/space/chapter/scene/idea/link/main';
 import { sceneIdeaModel } from '@/(server)/model/space/chapter/scene/idea/main';
 import { chapterSceneModel } from '@/(server)/model/space/chapter/scene/main';
 import { sceneMemberModel } from '@/(server)/model/space/chapter/scene/member/main';
 import { ChapterSessionContributorModel } from '@/(server)/model/space/chapter/session/contributor/main';
 import { chapterSessionModel } from '@/(server)/model/space/chapter/session/main';
 import { chapterSessionUpdateModel } from '@/(server)/model/space/chapter/session/update/main';
+import { spotlightAttachmentModel } from '@/(server)/model/space/chapter/spotlight/attachment/main';
+import { spotlightCommentModel } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { spotlightLinkModel } from '@/(server)/model/space/chapter/spotlight/link/main';
+import { chapterSpotlightModel } from '@/(server)/model/space/chapter/spotlight/main';
+import {
+  spotlightMemberGql,
+  spotlightMemberModel,
+} from '@/(server)/model/space/chapter/spotlight/member/main';
 import { spaceModel } from '@/(server)/model/space/main';
 import { spaceMemberModel } from '@/(server)/model/space/member/main';
 import { spaceMemberTermsModel } from '@/(server)/model/space/member/terms/main';
@@ -66,10 +70,6 @@ export const spaceMap = {
       idea: {
         model: sceneIdeaModel,
         db: sceneIdeaDbWrapper,
-        link: {
-          model: ideaLinkModel,
-          db: ideaLinkDbWrapper,
-        },
       },
       member: {
         model: sceneMemberModel,
@@ -84,20 +84,36 @@ export const spaceMap = {
         },
       },
     },
-    review: {
-      db: chapterReviewDbWrapper,
-      model: chapterReviewModel,
+    log: {
+      model: chapterLogModel,
+      db: null,
+      link: {
+        mode: logLinkModel,
+        db: null,
+      },
       member: {
-        db: reviewMemberGql,
-        model: reviewMemberModel,
+        model: logMemberModel,
+        db: null,
+      },
+    },
+    spotlight: {
+      db: chapterSpotlightDbWrapper,
+      model: chapterSpotlightModel,
+      member: {
+        db: spotlightMemberGql,
+        model: spotlightMemberModel,
       },
       comment: {
-        model: reviewCommentModel,
-        db: reviewCommentDbWrapper,
+        model: spotlightCommentModel,
+        db: spotlightCommentDbWrapper,
       },
       attachment: {
-        model: reviewAttachmentModel,
-        db: null,
+        model: spotlightAttachmentModel,
+        db: spotlightAttachmentDbWrapper,
+      },
+      link: {
+        model: spotlightLinkModel,
+        db: spotlightLinkDbWrapper,
       },
     },
   },

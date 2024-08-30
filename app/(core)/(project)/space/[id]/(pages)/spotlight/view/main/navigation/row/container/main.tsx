@@ -1,4 +1,4 @@
-export function SpaceReviewRowContainer({
+export function SpaceSpotlightRowContainer({
   children,
 }: {
   children?: React.ReactNode;
