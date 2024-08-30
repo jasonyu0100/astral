@@ -24,6 +24,7 @@ import { AstralHideImageIcon } from './hide-image/main';
 import { AstralHideSourceIcon } from './hide-source/main';
 import { AstralImageIcon } from './image/main';
 import { AstralInfoIcon } from './info/main';
+import { AstralKanbanIcon } from './kanban/main';
 import { AstralLinkIcon } from './link/main';
 import { AstralListIcon } from './list/main';
 import { AstralManufacturingIcon } from './manufacturing/main';
@@ -36,6 +37,7 @@ import { AstralSendIcon } from './send/main';
 import { AstralShareIcon } from './share/main';
 import { AstralSourceIcon } from './source/main';
 import { AstralSubjectIcon } from './subject/main';
+import { AstralTimelineIcon } from './timeline/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
 import { AstralVisibilityIcon } from './visibility/main';
 import { AstralVoiceIcon } from './voice/main';
@@ -84,6 +86,8 @@ export default function Page() {
       <AstralSourceIcon />
       <AstralBubbleIcon />
       <AstralInfoIcon />
+      <AstralKanbanIcon />
+      <AstralTimelineIcon />
     </div>
   );
 }

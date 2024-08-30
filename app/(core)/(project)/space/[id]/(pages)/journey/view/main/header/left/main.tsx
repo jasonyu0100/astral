@@ -1,11 +1,11 @@
-import { getFormattedDate } from '@/utils/dateFormat';
+import { AstralKanbanIcon } from '@/icons/kanban/main';
+import { AstralTimelineIcon } from '@/icons/timeline/main';
 
 export function SpaceJourneyHeaderLeft() {
   return (
-    <div className='flex w-1/3 flex-row'>
-      <p className='text-md font-light text-slate-300'>
-        {getFormattedDate(new Date())}
-      </p>
+    <div className='flex w-1/3 flex-row space-x-[1rem]'>
+      <AstralTimelineIcon />
+      <AstralKanbanIcon />
     </div>
   );
 }
