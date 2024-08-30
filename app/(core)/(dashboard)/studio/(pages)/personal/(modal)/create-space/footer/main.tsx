@@ -60,7 +60,7 @@ export function CreateSpaceModalFooter() {
               onClick={() => {
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  window.open(spaceMap.space.id.idea.link(spaceObj.id));
+                  window.open(spaceMap.space.id.chat.link(spaceObj.id));
                 });
               }}
             >

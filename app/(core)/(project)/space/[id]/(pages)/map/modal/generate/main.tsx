@@ -33,7 +33,7 @@ export function SpaceMapPlanModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.progress.link(
+                window.location.href = spaceMap.space.id.journey.link(
                   spaceController.state.objId,
                 );
               }}

@@ -2,7 +2,7 @@
 import {
   CardNumber,
   CardSuit,
-} from '@/(core)/(project)/space/[id]/(pages)/progress/view/main/header/month/main';
+} from '@/(core)/(project)/space/[id]/(pages)/journey/view/main/header/month/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { Colors } from '@/ui/idea/colors/main';

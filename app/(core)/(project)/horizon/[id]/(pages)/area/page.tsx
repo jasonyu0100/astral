@@ -65,7 +65,7 @@ function Page() {
                       Horizon XYZ
                     </a>
                     {'>'}
-                    <a href={spaceMap.space.id.idea.link('0')}>Space XYZ</a>
+                    <a href={spaceMap.space.id.chat.link('0')}>Space XYZ</a>
                   </p>
                 </div>
               </GlassWindowContents>
@@ -98,7 +98,7 @@ function Page() {
                       Horizon XYZ
                     </a>
                     {'>'}
-                    <a href={spaceMap.space.id.idea.link('0')}>Space XYZ</a>
+                    <a href={spaceMap.space.id.chat.link('0')}>Space XYZ</a>
                   </p>
                 </div>
               </GlassWindowContents>

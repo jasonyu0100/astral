@@ -22,7 +22,7 @@ export function SpaceReviewShareReviewModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.idea.link(
+                window.location.href = spaceMap.space.id.chat.link(
                   spaceController.state.objId,
                 );
               }}
