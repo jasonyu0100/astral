@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface ChapterSceneObj {
+export interface ChapterLogObj {
   id: string;
   userId: string;
   chapterId: string;
@@ -11,8 +11,8 @@ export interface ChapterSceneObj {
   created: string;
 }
 
-export const chapterSceneGql = `
-type ChapterSceneObj {
+export const chapteLogGql = `
+type ChapterLogObj {
   id: String!
   userId: String!
   chapterId: String!
@@ -22,55 +22,55 @@ type ChapterSceneObj {
   created: String!
 }`;
 
-export const ContextForChapterSceneObj = createContext<ChapterSceneObj>(
-  {} as ChapterSceneObj,
+export const ContextForChapterLogObj = createContext<ChapterLogObj>(
+  {} as ChapterLogObj,
 );
 
-export const exampleChapterScene: ChapterSceneObj = {
+export const exampleChapterLog: ChapterLogObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
-  title: 'Idea Scene',
-  description: 'Scene Description',
-  summary: 'Scene Summary',
+  title: 'Log Example',
+  description: 'Log Description',
+  summary: 'Log Summary',
   created: new Date().toISOString(),
 };
 
-export const exampleChapterScenes: ChapterSceneObj[] = [
+export const exampleChapterLogs: ChapterLogObj[] = [
   {
     id: '0',
     userId: '0',
     chapterId: '0',
-    title: 'Idea Scene 1',
-    description: 'Scene Description',
-    summary: 'Scene Summary',
+    title: 'Log 1',
+    description: 'Log Description',
+    summary: 'Log Summary',
     created: new Date().toISOString(),
   },
   {
     id: '1',
     userId: '0',
     chapterId: '0',
-    title: 'Idea Scene 2',
-    description: 'Scene Description',
-    summary: 'Scene Summary',
+    title: 'Log 2',
+    description: 'Log Description',
+    summary: 'Log Summary',
     created: new Date().toISOString(),
   },
   {
     id: '2',
     userId: '0',
     chapterId: '0',
-    title: 'Idea Scene 3',
-    description: 'Scene Description',
-    summary: 'Scene Summary',
+    title: 'Log 3',
+    description: 'Log Description',
+    summary: 'Log Summary',
     created: new Date().toISOString(),
   },
 ];
 
-export const chapterSceneModel: ModelInterface<ChapterSceneObj> = {
-  name: 'scene',
-  gql: chapterSceneGql,
-  example: exampleChapterScene,
-  examples: exampleChapterScenes,
+export const chapterSceneModel: ModelInterface<ChapterLogObj> = {
+  name: 'log',
+  gql: chapteLogGql,
+  example: exampleChapterLog,
+  examples: exampleChapterLogs,
   parentKey: 'chapterId',
-  children: ['idea', 'member', 'conversation'],
+  children: ['link'],
 };

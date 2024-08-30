@@ -418,13 +418,6 @@ input CreateHorizonSessionUpdateObjInput {
   created: String!
 }
 
-input CreateIdeaLinkObjInput {
-  sceneId: String!
-  startId: String!
-  endId: String!
-  created: String!
-}
-
 input CreatePostCommentObjInput {
   postId: String!
   userId: String!
@@ -706,10 +699,6 @@ input DeleteHorizonSessionUpdateMemberObjInput {
 }
 
 input DeleteHorizonSessionUpdateObjInput {
-  id: String!
-}
-
-input DeleteIdeaLinkObjInput {
   id: String!
 }
 
@@ -1063,19 +1052,6 @@ type HorizonSessionUpdateObj {
 
 type HorizonSessionUpdateObjConnection {
   items: [HorizonSessionUpdateObj]
-  nextToken: String
-}
-
-type IdeaLinkObj {
-  id: String!
-  sceneId: String!
-  startId: String!
-  endId: String!
-  created: String!
-}
-
-type IdeaLinkObjConnection {
-  items: [IdeaLinkObj]
   nextToken: String
 }
 
@@ -1542,14 +1518,6 @@ input TableIDFilterInput {
   beginsWith: ID
   attributeExists: Boolean
   size: ModelSizeInput
-}
-
-input TableIdeaLinkObjFilterInput {
-  id: TableStringFilterInput
-  sceneId: TableStringFilterInput
-  startId: TableStringFilterInput
-  endId: TableStringFilterInput
-  created: TableStringFilterInput
 }
 
 input TableIntFilterInput {
@@ -2038,14 +2006,6 @@ input UpdateHorizonSessionUpdateObjInput {
   created: String
 }
 
-input UpdateIdeaLinkObjInput {
-  id: String!
-  sceneId: String
-  startId: String
-  endId: String
-  created: String
-}
-
 input UpdatePostCommentObjInput {
   id: String!
   userId: String
@@ -2455,9 +2415,6 @@ type Mutation {
   createAgentObj(input: CreateAgentObjInput!): AgentObj
   updateAgentObj(input: UpdateAgentObjInput!): AgentObj
   deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
-  createIdeaLinkObj(input: CreateIdeaLinkObjInput!): IdeaLinkObj
-  updateIdeaLinkObj(input: UpdateIdeaLinkObjInput!): IdeaLinkObj
-  deleteIdeaLinkObj(input: DeleteIdeaLinkObjInput!): IdeaLinkObj
   createChapterSessionObj(
     input: CreateChapterSessionObjInput!
   ): ChapterSessionObj
@@ -2798,12 +2755,6 @@ type Query {
     limit: Int
     nextToken: String
   ): AgentObjConnection
-  getIdeaLinkObj(id: String!): IdeaLinkObj
-  listIdeaLinkObjs(
-    filter: TableIdeaLinkObjFilterInput
-    limit: Int
-    nextToken: String
-  ): IdeaLinkObjConnection
   getChapterSessionObj(id: String!): ChapterSessionObj
   listChapterSessionObjs(
     filter: TableChapterSessionObjFilterInput
@@ -3417,27 +3368,6 @@ type Subscription {
     created: String
     bio: String
   ): AgentObj @aws_subscribe(mutations: ["deleteAgentObj"])
-  onCreateIdeaLinkObj(
-    id: String
-    sceneId: String
-    startId: String
-    endId: String
-    created: String
-  ): IdeaLinkObj @aws_subscribe(mutations: ["createIdeaLinkObj"])
-  onUpdateIdeaLinkObj(
-    id: String
-    sceneId: String
-    startId: String
-    endId: String
-    created: String
-  ): IdeaLinkObj @aws_subscribe(mutations: ["updateIdeaLinkObj"])
-  onDeleteIdeaLinkObj(
-    id: String
-    sceneId: String
-    startId: String
-    endId: String
-    created: String
-  ): IdeaLinkObj @aws_subscribe(mutations: ["deleteIdeaLinkObj"])
   onCreateChapterSessionObj(
     id: String
     spaceId: String

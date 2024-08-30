@@ -47,7 +47,7 @@ export function SpaceJourneyMain() {
             <p className='font-bold text-slate-300'>Log</p>
             <p className='font-bold text-slate-300'></p>
             <p className='font-bold text-slate-300'></p>
-            <p className='font-bold text-slate-300'>Scene</p>
+            <p className='font-bold text-slate-300'>Status</p>
             <p className='font-bold text-slate-300'>Hours</p>
             <p className='font-bold text-slate-300'>Links</p>
           </div>
@@ -90,7 +90,7 @@ export function SpaceJourneyMain() {
                 </div>
                 <div>
                   <p className='text-light text-sm font-bold text-slate-300'>
-                    untitled
+                    Done
                   </p>
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export function SpaceJourneyMain() {
                 </div>
                 <div>
                   <p className='text-light text-sm font-bold text-slate-300'>
-                    untitled
+                    In Progress
                   </p>
                 </div>
                 <div>
