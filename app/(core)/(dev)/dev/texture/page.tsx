@@ -3,11 +3,11 @@ import {
   CardNumber,
   CardSuit,
 } from '@/(core)/(project)/space/[id]/(pages)/progress/view/main/header/month/main';
-import { Colors } from '@/ui/(idea)/colors/main';
-import { Card } from '@/ui/(idea)/game/card/main';
-import { Dice, DiceFace } from '@/ui/(idea)/game/dice/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { Colors } from '@/ui/idea/colors/main';
+import { Card } from '@/ui/idea/game/card/main';
+import { Dice, DiceFace } from '@/ui/idea/game/dice/main';
 import {
   VinylAudioClosedIdea,
   VinylAudioIdea,

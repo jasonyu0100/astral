@@ -1,7 +1,6 @@
 import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useOpenAIController } from '@/api/controller/openai/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
@@ -11,7 +10,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useEffect } from 'react';
-import { SpaceIdeaMessage } from './message/main';
+import { SpaceIdeaConversationMessages } from './conversation/list/main';
 import { SpaceIdeaChatStatus } from './status/main';
 
 export function SpaceIdeaChat() {
@@ -45,20 +44,11 @@ export function SpaceIdeaChat() {
       className='relative flex w-full flex-col items-center'
       style={{ height: 'calc(100% - 4rem)' }}
     >
-      <div className='flex w-[900px] flex-shrink-0 flex-col space-y-[2rem] py-[2rem]'>
+      <div className='flex h-[8rem] w-[1200px] flex-shrink-0 flex-col items-center space-y-[2rem]'>
         <SpaceIdeaChatStatus />
       </div>
       <div className='flex w-full flex-col items-center overflow-auto'>
-        <div className='w-[900px] flex-col space-y-[2rem] py-[2rem]'>
-          {messageListController.state.objs.map((message) => (
-            <ContextForConversationMessageObj.Provider
-              value={message}
-              key={message.id}
-            >
-              <SpaceIdeaMessage key={message.id} />
-            </ContextForConversationMessageObj.Provider>
-          ))}
-        </div>
+        <SpaceIdeaConversationMessages />
       </div>
       <div className='absolute left-[0px] flex h-full w-[6rem] items-center justify-center'>
         <div className='flex flex-col items-center justify-center space-y-[0.5rem]'>

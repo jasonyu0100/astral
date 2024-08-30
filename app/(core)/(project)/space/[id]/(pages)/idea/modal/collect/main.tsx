@@ -1,6 +1,5 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForChatConversationList } from '@/(server)/controller/space/chapter/chat/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/chat/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -9,15 +8,12 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
-import React, { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 export function SpaceIdeaAddSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const messageListController = useContext(ContextForConversationMessageList);
-  const conversationListController = useContext(ContextForChatConversationList);
-  const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
 
   return (
     <ContextForOpenable.Provider value={openableController}>
