@@ -2,7 +2,7 @@ import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
-  selectedIdea: SceneIdeaObj | null;
+  selectedIdeas: SceneIdeaObj[];
   connectionMode: SpaceMapConnectionMode;
   ideaMode: SpaceMapIdeaMode;
   mapMode: SpaceMapInteractionMode;
@@ -11,11 +11,12 @@ interface Controller {
   peopleMode: SpaceMapPeopleMode;
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
   updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
-  updateSelectedIdea: (idea: SceneIdeaObj | null) => void;
+  updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
   updateIdeaMode: (mode: SpaceMapIdeaMode) => void;
   updateMapMode: (mode: SpaceMapInteractionMode) => void;
   updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
   updateListSceneMode: (mode: SpaceMapSidebarListMode) => void;
+  checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
 }
 
 export const ContextForSpaceMap = createContext({} as Controller);
@@ -51,7 +52,7 @@ export enum SpaceMapConnectionMode {
 }
 
 export function useControllerForSpaceMap(): Controller {
-  const [selectedIdea, setSelectedIdea] = useState<SceneIdeaObj | null>(null);
+  const [selectedIdeas, setSelectedIdeas] = useState<SceneIdeaObj[]>([]);
   const [peopleMode, setPeopleMode] = useState<SpaceMapPeopleMode>(
     SpaceMapPeopleMode.OFF,
   );
@@ -71,20 +72,23 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapConnectionMode.DEFAULT,
   );
 
+  console.log(selectedIdeas, peopleMode);
   return {
     connectionMode: connectionMode,
-    selectedIdea: selectedIdea,
+    selectedIdeas: selectedIdeas,
     peopleMode: peopleMode,
     ideaMode: ideaMode,
     mapMode: mapMode,
     sidebarMode: listMode,
     listSceneMode: listSceneMode,
     updateConnectionMode: (mode) => setConnectionMode(mode),
-    updateSelectedIdea: (idea) => setSelectedIdea(idea),
+    updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
     updatePeopleMode: (mode) => setPeopleMode(mode),
     updateIdeaMode: (mode) => setIdeaMode(mode),
     updateMapMode: (mode) => setMode(mode),
     updateSidebarMode: (mode) => setListMode(mode),
     updateListSceneMode: (mode) => setListSceneMode(mode),
+    checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) =>
+      selectedIdeas.map((idea) => idea.id).includes(ideaObj.id),
   };
 }

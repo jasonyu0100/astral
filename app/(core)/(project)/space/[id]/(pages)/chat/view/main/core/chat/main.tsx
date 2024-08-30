@@ -2,7 +2,9 @@ import { ContextForSceneConversationList } from '@/(server)/controller/space/cha
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useOpenAIController } from '@/api/controller/openai/main';
+import { AstralAddIcon } from '@/icons/add/main';
 import { cn } from '@/lib/utils';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -12,6 +14,7 @@ import { SpaceChatConversationMessages } from './conversation/list/main';
 import { SpaceChatChatStatus } from './status/main';
 
 export function SpaceChatChat() {
+  const user = useGlobalUser((state) => state.user);
   const openAi = useOpenAIController();
   const sceneListController = useContext(ContextForChapterSceneList);
   const conversationListController = useContext(
@@ -73,6 +76,25 @@ export function SpaceChatChat() {
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             </GlassWindowFrame>
           ))}
+          <GlassWindowFrame
+            className='h-[2rem] w-[2rem]'
+            roundedFx={roundedFx['rounded-full']}
+          >
+            <GlassWindowContents
+              className={cn(
+                'flex cursor-pointer flex-col items-center justify-center space-y-[1rem]',
+              )}
+              onClick={() => {
+                conversationListController.actions.createActions.createConversation(
+                  user.id,
+                  sceneListController.state.objId,
+                );
+              }}
+            >
+              <AstralAddIcon className='h-[1/2] w-[1/2]' />
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
+          </GlassWindowFrame>
         </div>
       </div>
     </div>

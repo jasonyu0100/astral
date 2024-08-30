@@ -55,10 +55,21 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           e.stopPropagation();
           if (hoverableController.hovered) {
             hoverableController.onUnhover();
-            mapController.updateSelectedIdea(null);
+            mapController.updateSelectedIdeas(
+              mapController.selectedIdeas.filter(
+                (selectedIdea) => selectedIdea.id !== ideaObj.id,
+              ),
+            );
           } else {
             hoverableController.onHover();
-            mapController.updateSelectedIdea(ideaObj);
+            if (mapController.checkContainsSelectedIdea(ideaObj)) {
+              return;
+            } else {
+              mapController.updateSelectedIdeas([
+                ...mapController.selectedIdeas,
+                ideaObj,
+              ]);
+            }
           }
         }}
       >
@@ -78,8 +89,8 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
       <Moveable
         ref={moveableRef}
         target={
-          mapController.selectedIdea?.id === ideaObj.id &&
-          hoverableController.hovered
+          hoverableController.hovered &&
+          mapController.checkContainsSelectedIdea(ideaObj)
             ? targetRef
             : null
         }

@@ -1,11 +1,12 @@
-import { ButtonInputProps } from '@/types/props/main';
 import { AstralSendIcon } from '../../../../../../../../../../../icons/send/main';
+import { useControllerForConversationMessageSend } from '../../../../../controller/message/main';
 
-export function SpaceChatInputRightSend({ ...props }: ButtonInputProps) {
+export function SpaceChatInputRightSend() {
+  const { sendMessage } = useControllerForConversationMessageSend();
   return (
     <button
       className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem] bg-blue-500'
-      {...props}
+      onClick={sendMessage}
     >
       <AstralSendIcon />
     </button>

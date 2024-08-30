@@ -21,7 +21,8 @@ export function SpaceMapIdeaIndicator() {
       >
         <GlassWindowContents
           className={cn('flex items-center justify-center rounded-full', {
-            'bg-blue-500': ideaObj.id === mapController.selectedIdea?.id,
+            'animate-pulse-slow bg-blue-500':
+              mapController.checkContainsSelectedIdea(ideaObj),
           })}
         >
           <p className='font-bold text-white'>{index + 1}</p>

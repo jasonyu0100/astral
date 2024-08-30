@@ -1,10 +1,22 @@
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { FormInputProps } from '@/types/props/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { useContext } from 'react';
+import { useControllerForConversationMessageSend } from '../../../../controller/message/main';
 
-export function SpaceChatInputText({ ...props }: FormInputProps) {
+export function SpaceChatInputText() {
   const hoverableController = useControllerForHoverable();
+  const messageListController = useContext(ContextForConversationMessageList);
+
+  const { sendMessage } = useControllerForConversationMessageSend();
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  };
+
   return (
     <GlassAreaContainer
       name={SpaceChatInputText.name}
@@ -18,7 +30,13 @@ export function SpaceChatInputText({ ...props }: FormInputProps) {
       <input
         className={`h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-light text-slate-300 outline-none`}
         placeholder='Type a message...'
-        {...props}
+        onKeyDown={handleKeyDown}
+        onChange={(e) =>
+          messageListController.actions.stateActions.updateInputMessageText(
+            e.target.value,
+          )
+        }
+        value={messageListController.state.more.inputMessageText}
       />
     </GlassAreaContainer>
   );

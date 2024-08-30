@@ -17,7 +17,7 @@ export function SpaceMapScenePalette() {
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex flex-col items-center justify-center space-y-[1rem]'>
-        {mapController.selectedIdea === null ? (
+        {mapController.selectedIdeas.length === 0 ? (
           <SpaceMapPaletteSelected />
         ) : (
           <SpaceMapPaletteDefault />

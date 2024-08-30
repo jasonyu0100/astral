@@ -17,14 +17,7 @@ export function SpaceChatInput() {
       className={`flex flex-row items-center justify-center px-[1rem]`}
     >
       <SpaceChatInputLeft />
-      <SpaceChatInputText
-        onChange={(e) =>
-          messageListController.actions.stateActions.updateInputMessageText(
-            e.target.value,
-          )
-        }
-        value={messageListController.state.more.inputMessageText}
-      />
+      <SpaceChatInputText />
       <SpaceChatInputRight />
     </GlassAreaContainer>
   );

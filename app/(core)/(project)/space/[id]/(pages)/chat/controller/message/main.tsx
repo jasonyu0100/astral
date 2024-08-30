@@ -44,7 +44,7 @@ export function useControllerForConversationMessageSend() {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
-    const conversationDuration = 6; // 6 hours
+    const conversationDuration = 24 * 60 * 7; // a weekabsolute right-[0px] flex h-full w-[6rem] items-center justify-center
     const diffInMinutes = diff / (1000 * 60);
     return diffInMinutes < conversationDuration;
   }
@@ -117,10 +117,11 @@ export function useControllerForConversationMessageSend() {
           conversation,
         );
         return newAgentMessage;
+      } else {
+        alert('Your conversation is older then a week. Starting a new one');
       }
     }
 
-    alert('New Conversation');
     const newConversation = await createNewConversation();
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(

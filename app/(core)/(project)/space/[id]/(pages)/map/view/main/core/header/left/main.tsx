@@ -34,7 +34,7 @@ export function SpaceMapHeaderLeft() {
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralCursorIcon
         className={
-          mapController.selectedIdea === null
+          mapController.selectedIdeas.length === 0
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }

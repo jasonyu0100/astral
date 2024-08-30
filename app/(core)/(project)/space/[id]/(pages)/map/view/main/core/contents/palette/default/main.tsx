@@ -12,21 +12,20 @@ export function SpaceMapPaletteDefault() {
     <>
       <AstralDeleteIcon
         onClick={() => {
-          if (mapController.selectedIdea !== null) {
-            ideaController.actions.deleteActions.delete(
-              mapController.selectedIdea.id,
-            );
-            mapController.updateSelectedIdea(null);
+          for (const idea of ideaController.state.objs) {
+            ideaController.actions.deleteActions.delete(idea.id);
           }
+          mapController.updateSelectedIdeas([]);
         }}
       />
       <AstralHideSourceIcon
         onClick={() => {
-          ideaController.actions.editActions.edit(
-            ideaController.state.currentObj?.id || '',
-            { visible: true },
-          );
-          mapController.updateSelectedIdea(null);
+          for (const idea of ideaController.state.objs) {
+            ideaController.actions.editActions.edit(idea.id, {
+              visible: true,
+            });
+          }
+          mapController.updateSelectedIdeas([]);
         }}
       />
     </>

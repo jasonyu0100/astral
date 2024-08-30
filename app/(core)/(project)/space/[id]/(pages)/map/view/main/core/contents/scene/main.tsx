@@ -18,7 +18,7 @@ export function SpaceMapScene() {
   return (
     <div
       className='relative h-full w-full'
-      onClick={() => mapController.updateSelectedIdea(null)}
+      onClick={() => mapController.updateSelectedIdeas([])}
     >
       {visibleIdeas.map((idea, index) => (
         <ContextForIndexable.Provider value={index}>
