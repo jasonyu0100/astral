@@ -3,7 +3,6 @@ import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
 import { CreateSpaceEditChapter } from './chapter/main';
-import { CreateSpaceEditFooter } from './footer/main';
 
 export function CreateSpaceEditStructure() {
   const { pageTwo } = useContext(ContextForCreateSpace);
@@ -18,7 +17,7 @@ export function CreateSpaceEditStructure() {
           </ContextForTemplateChapter.Provider>
         </ContextForIndexable.Provider>
       ))}
-      <CreateSpaceEditFooter />
+      {/* <CreateSpaceEditFooter /> */}
     </div>
   );
 }

@@ -18,6 +18,9 @@ export function CreateSpaceEditFooter() {
                 spotlightTemplates: [],
                 title: `Chapter ${templateProjectChapters.length + 1}`,
                 objective: '',
+                logTemplates: [],
+                description: '',
+                summary: '',
               },
             ])
           }

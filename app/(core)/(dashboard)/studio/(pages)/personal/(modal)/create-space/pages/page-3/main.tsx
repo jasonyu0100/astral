@@ -16,7 +16,7 @@ export function CreateSpaceModalPageThree() {
         <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
           <input
             type='number'
-            className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500   outline-none'
+            className='h-full w-full appearance-none border-none px-[0.5rem] text-lg text-slate-500   outline-none'
             title={'Hours'}
             value={hours}
             min={10}

@@ -7,11 +7,21 @@ import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/co
 import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
-import { defaultTemplate } from './general/custom/main';
-import { ideaTemplate } from './general/idea/main';
-import { barTemplate } from './music/bar/main';
-import { songMixTemplate } from './music/mix/main';
-import { songSpaceTemplate } from './music/song/main';
+import { blogPostTemplate } from './templates/blog-post/main';
+import { businessPlanTemplate } from './templates/business-plan/main';
+import { clientOnboardingTemplate } from './templates/client-onboarding/main';
+import { companyTemplate } from './templates/company/main';
+import { contentCalendarTemplate } from './templates/content-calendar/main';
+import { courseDevelopmentTemplate } from './templates/course-development/main';
+import { starterProjectTemplate } from './templates/custom/main';
+import { emailCampaignTemplate } from './templates/email-campaign/main';
+import { eventPlanningTemplate } from './templates/event-planning/main';
+import { productLaunchTemplate } from './templates/product-launch/main';
+import { projectManagementTemplate } from './templates/product-management/main';
+import { socialMediaPostTemplate } from './templates/social-media-post/main';
+import { startupTemplate } from './templates/startup/main';
+import { userJourneyMappingTemplate } from './templates/user-journey/main';
+import { videoProjectTemplate } from './templates/video/main';
 
 // SPACE
 
@@ -79,7 +89,10 @@ export interface TemplateMessageObj extends _TemplateMessageObj {}
 
 // SCENE
 
-export type _TemplateSceneObj = Omit<ChapterSceneObj, 'id' | 'chapterId'>;
+export type _TemplateSceneObj = Omit<
+  ChapterSceneObj,
+  'id' | 'chapterId' | 'userId' | 'created'
+>;
 export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
 export type _TemplateLogObj = Omit<ChapterLogObj, 'id' | 'chapterId'>;
 
@@ -106,25 +119,54 @@ export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
 // TEMPLATES
 
 export enum SpaceTemplate {
-  Mix = 'Mix',
-  Melody = 'Melody',
-  Song = 'Song',
-  Brainstorm = 'Brainstorm',
-  Project = 'Project',
+  Custom = 'Custom',
+  Company = 'Company',
+  Startup = 'Startup',
+  Video = 'Video',
+  SocialMediaPost = 'Social Post',
+  BlogPost = 'Blog Post',
+  ProductLaunch = 'Product Launch',
+  EventPlanning = 'Event Planning',
+  EmailCampaign = 'Email Campaign',
+  ProjectManagement = 'Project Management',
+  CourseDevelopment = 'Course Development',
+  BusinessPlan = 'Business Plan',
+  ClientOnboarding = 'Client Onboarding',
+  UserJourney = 'User Journey',
+  ContentCalendar = 'Content Calendar',
 }
 
 export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
   switch (variant) {
-    case SpaceTemplate.Melody:
-      return songSpaceTemplate;
-    case SpaceTemplate.Mix:
-      return songMixTemplate;
-    case SpaceTemplate.Song:
-      return barTemplate;
-    case SpaceTemplate.Brainstorm:
-      return ideaTemplate;
-    case SpaceTemplate.Project:
-      return defaultTemplate;
+    case SpaceTemplate.Company:
+      return companyTemplate;
+    case SpaceTemplate.Startup:
+      return startupTemplate;
+    case SpaceTemplate.Video:
+      return videoProjectTemplate;
+    case SpaceTemplate.SocialMediaPost:
+      return socialMediaPostTemplate;
+    case SpaceTemplate.BlogPost:
+      return blogPostTemplate;
+    case SpaceTemplate.ProductLaunch:
+      return productLaunchTemplate;
+    case SpaceTemplate.EventPlanning:
+      return eventPlanningTemplate;
+    case SpaceTemplate.EmailCampaign:
+      return emailCampaignTemplate;
+    case SpaceTemplate.ProjectManagement:
+      return projectManagementTemplate;
+    case SpaceTemplate.CourseDevelopment:
+      return courseDevelopmentTemplate;
+    case SpaceTemplate.BusinessPlan:
+      return businessPlanTemplate;
+    case SpaceTemplate.ClientOnboarding:
+      return clientOnboardingTemplate;
+    case SpaceTemplate.UserJourney:
+      return userJourneyMappingTemplate;
+    case SpaceTemplate.ContentCalendar:
+      return contentCalendarTemplate;
+    default:
+      return starterProjectTemplate;
   }
-  return defaultTemplate;
 }

@@ -33,7 +33,7 @@ export function DatePicker({
       <div className='relative inline-block h-[4rem] border-b-[1px] border-slate-500 outline-none'>
         <input
           type='text'
-          className='h-full w-full appearance-none border-none px-[0.5rem] text-xl font-bold leading-9 text-slate-500   outline-none'
+          className='h-full w-full appearance-none border-none px-[0.5rem] text-lg text-slate-500   outline-none'
           value={selectedDate ? selectedDate.toDateString() : ''}
           onFocus={() => setShowCalendar(true)}
           readOnly

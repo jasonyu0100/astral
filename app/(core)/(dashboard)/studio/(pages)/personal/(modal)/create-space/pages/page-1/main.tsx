@@ -1,7 +1,9 @@
+import { SpaceTemplate } from '@/(server)/templates/space/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormInput } from '@/ui/form/input/main';
+import { FormSelect } from '@/ui/form/select/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 
@@ -25,15 +27,23 @@ export function CreateSpaceModalPageOne() {
         onChange={(file) => updateThumbnail(file)}
         label='Thumbnail'
       />
+      <FormSelect
+        title='Type'
+        value={category}
+        onChange={(e) => {
+          updateCategory(e.target.value as SpaceTemplate);
+        }}
+      >
+        {Object.values(SpaceTemplate).map((template) => (
+          <option key={template} value={template}>
+            {template}
+          </option>
+        ))}
+      </FormSelect>
       <FormInput
         title='Title'
         value={title}
         onChange={(e) => updateTitle(e.target.value)}
-      />
-      <FormInput
-        title='Category'
-        value={category}
-        onChange={(e) => updateCategory(e.target.value)}
       />
       <FormTextArea
         title='Description'

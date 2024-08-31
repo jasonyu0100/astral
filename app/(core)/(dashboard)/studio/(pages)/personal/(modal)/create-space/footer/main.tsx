@@ -25,7 +25,29 @@ export function CreateSpaceModalFooter() {
             </FormButton>
           </FormFooter>
         );
-      case 1:
+      case 1: {
+        return (
+          <FormFooter>
+            <FormButton
+              variant={ButtonVariant.SECONDARY}
+              onClick={() => {
+                pagableController.updatePage(0);
+              }}
+            >
+              Prev
+            </FormButton>
+            <FormButton
+              onClick={() => {
+                createSpace().then((spaceObj) => {
+                  openableController.close();
+                  window.open(spaceMap.space.id.chat.link(spaceObj.id));
+                });
+              }}
+            >
+              Create
+            </FormButton>
+          </FormFooter>
+        );
         return (
           <FormFooter>
             <FormButton
@@ -45,6 +67,8 @@ export function CreateSpaceModalFooter() {
             </FormButton>
           </FormFooter>
         );
+      }
+
       case 2:
         return (
           <FormFooter>

@@ -24,13 +24,12 @@ export interface PageOne {
   updateThumbnail: (thumbnail: FileElem) => void;
   description: string;
   updateDescription: (description: string) => void;
-  category: string;
-  updateCategory: (category: string) => void;
+  category: SpaceTemplate;
+  updateCategory: (category: SpaceTemplate) => void;
 }
 
 export interface PageTwo {
-  variant: string;
-  updateTemplateProject: (variant: string) => void;
+  category: string;
   templateProjectChapters: TemplateChapterObj[];
   updateTemplateProjectChapters: (templates: TemplateChapterObj[]) => void;
 }
@@ -74,16 +73,13 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [category, changeCategory] = useState('');
+  const [category, changeCategory] = useState(SpaceTemplate.Company);
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
   const [memberIds, changeMemberIds] = useState<string[]>([]);
-  const [templateProject, changeTemplateProject] = useState(
-    SpaceTemplate.Project,
-  );
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
   );
@@ -281,14 +277,14 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   useEffect(() => {
-    changeTemplateSpaceChapters(getSpaceTemplates(templateProject).chapters);
-  }, [templateProject]);
+    changeTemplateSpaceChapters(getSpaceTemplates(category).chapters);
+  }, [category]);
 
   const pageOne: PageOne = {
     title,
     updateTitle: (title: string) => changeTitle(title),
     category,
-    updateCategory: (category: string) => changeCategory(category),
+    updateCategory: (category: SpaceTemplate) => changeCategory(category),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
     description,
@@ -296,9 +292,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageTwo: PageTwo = {
-    variant: templateProject,
-    updateTemplateProject: (variant: string) =>
-      changeTemplateProject(variant as SpaceTemplate),
+    category: category,
     templateProjectChapters: templateSpaceChapters,
     updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
       changeTemplateSpaceChapters(templates),
