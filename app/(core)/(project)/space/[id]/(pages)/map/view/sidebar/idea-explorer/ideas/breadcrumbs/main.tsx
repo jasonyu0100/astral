@@ -20,16 +20,7 @@ export function SpaceMapSidebarIdeasBreadcrumbs() {
               mapController.updateListSceneMode(SpaceMapSidebarListMode.SCENES);
             }}
           >
-            Scenes /{' '}
-          </span>
-          <span
-            onClick={() => {
-              mapController.updateListSceneMode(
-                SpaceMapSidebarListMode.DEFAULT,
-              );
-            }}
-          >
-            {sceneListController.state.currentObj?.title}
+            Back
           </span>
         </p>
       </GlassWindowContents>

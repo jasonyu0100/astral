@@ -1,13 +1,10 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
-import {
-  ContextForSpaceMap,
-  SpaceMapSidebarListMode,
-} from '../../../../../controller/map/main';
+import { ContextForSpaceMapSidebar } from '../../../../../page';
 
-export function SpaceMapSidebarScenesBreadcrumbs() {
-  const mapController = useContext(ContextForSpaceMap);
+export function SpaceMapGalleryCollectionsBreadcrumbs() {
+  const sidebarController = useContext(ContextForSpaceMapSidebar);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
@@ -15,10 +12,10 @@ export function SpaceMapSidebarScenesBreadcrumbs() {
         <p
           className='cursor-pointer text-sm font-bold text-slate-500'
           onClick={() => {
-            mapController.updateListSceneMode(SpaceMapSidebarListMode.SCENES);
+            sidebarController.actions.goToHome();
           }}
         >
-          Scenes /{' '}
+          Back
         </p>
       </GlassWindowContents>
     </GlassWindowFrame>

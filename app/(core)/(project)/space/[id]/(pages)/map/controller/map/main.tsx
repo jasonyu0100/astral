@@ -57,7 +57,7 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapPeopleMode.OFF,
   );
   const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarListMode>(
-    SpaceMapSidebarListMode.DEFAULT,
+    SpaceMapSidebarListMode.SCENES,
   );
   const [mapMode, setMode] = useState<SpaceMapInteractionMode>(
     SpaceMapInteractionMode.SELECTED,
@@ -66,7 +66,7 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapIdeaMode.DEFAULT,
   );
   const [listMode, setListMode] = useState<SpaceMapSidebarMode>(
-    SpaceMapSidebarMode.MEDIA,
+    SpaceMapSidebarMode.LIST,
   );
   const [connectionMode, setConnectionMode] = useState<SpaceMapConnectionMode>(
     SpaceMapConnectionMode.DEFAULT,

@@ -27,7 +27,7 @@ export function SpaceJourneyMain() {
         <GlassWindowFrame className='h-[8rem] w-[900px] items-center justify-center px-[2rem]'>
           <GlassWindowContents className='flex h-full w-full flex-row'>
             <div className='flex h-full w-full flex-col items-center justify-center space-y-[0.5rem]'>
-              <p className='text-xl font-bold text-slate-300'>
+              <p className='text-center text-xl font-bold text-slate-300'>
                 Objective:{' '}
                 {sceneListController.state.currentObj?.objective ||
                   'Open-ended'}

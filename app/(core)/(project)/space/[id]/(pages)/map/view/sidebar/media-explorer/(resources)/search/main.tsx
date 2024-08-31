@@ -4,17 +4,15 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { SpaceMapResourcesBreadcrumbs } from '../breadcrumbs/main';
 
 export function SpaceMapResourcesSearch() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
-    <div className='flex w-full flex-col items-center justify-center p-[1rem] shadow-glow'>
-      <SpaceMapResourcesBreadcrumbs />
+    <div className='flex h-[4rem] w-full flex-shrink-0 flex-col items-center justify-center px-[1rem] shadow-glow'>
       <GlassWindowFrame
-        className='h-[3rem] w-full flex-shrink-0'
-        roundedFx={roundedFx['rounded']}
+        className='h-[2rem] w-full flex-shrink-0'
+        roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents className='h-full w-full'>
           <input

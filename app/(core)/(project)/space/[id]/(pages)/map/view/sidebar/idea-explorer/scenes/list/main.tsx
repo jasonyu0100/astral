@@ -1,5 +1,5 @@
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -16,11 +16,7 @@ export function SpaceMapSidebarScenesList() {
   return (
     <>
       {sceneListController.state.objs.map((scene, index) => (
-        <GlassWindowFrame
-          className='p-[1rem]'
-          roundedFx={roundedFx.rounded}
-          borderFx={borderFx['border-around']}
-        >
+        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
           <GlassWindowContents
             className='flex flex-row items-center space-x-[1rem]'
             onClick={() => {
@@ -30,9 +26,6 @@ export function SpaceMapSidebarScenesList() {
               sceneListController.actions.stateActions.select(scene);
             }}
           >
-            <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
-              <p className='text-center font-bold text-white'>{index + 1}</p>
-            </div>
             <div
               key={scene.id}
               className='flex flex-col font-bold text-slate-300'

@@ -22,8 +22,7 @@ export function SpaceMapResourcesBreadcrumbs() {
               );
           }}
         >
-          Home / {galleryListController.state.currentObj?.title} /{' '}
-          {collectionsListController.state.currentObj?.title}
+          Back
         </p>
       </GlassWindowContents>
     </GlassWindowFrame>

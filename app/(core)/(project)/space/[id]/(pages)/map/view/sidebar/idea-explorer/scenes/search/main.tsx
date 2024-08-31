@@ -10,8 +10,8 @@ export function SpaceMapSidebarScenesSearch() {
 
   return (
     <GlassWindowFrame
-      className='h-[3rem] w-full flex-shrink-0'
-      roundedFx={roundedFx['rounded']}
+      className='h-[2rem] w-full flex-shrink-0'
+      roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents className='h-full w-full'>
         <input

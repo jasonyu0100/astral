@@ -1,6 +1,6 @@
 import { useControllerForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -18,7 +18,6 @@ export function SpaceMapCollectionThumbnail() {
     <GlassWindowFrame
       className='aspect-[5/3] w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
-      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents
         onClick={() => sidebarController.actions.goToCollection(collection)}

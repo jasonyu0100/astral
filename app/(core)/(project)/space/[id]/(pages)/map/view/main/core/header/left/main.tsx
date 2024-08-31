@@ -1,9 +1,6 @@
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
-import { AstralFolderOpenIcon } from '@/icons/folder-open/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralInfoIcon } from '@/icons/info/main';
 import { AstralListIcon } from '@/icons/list/main';
@@ -18,17 +15,10 @@ import {
   SpaceMapPeopleMode,
   SpaceMapSidebarMode,
 } from '../../../../../controller/map/main';
-import {
-  ContextForSpaceMapSidebar,
-  SpaceMapSidebarMediaMode,
-} from '../../../../../page';
 
 export function SpaceMapHeaderLeft() {
   const mapController = useContext(ContextForSpaceMap);
-  const galleryController = useContext(ContextForGalleryList);
-  const spaceController = useContext(ContextForSpaceMain);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const sidebarController = useContext(ContextForSpaceMapSidebar);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
@@ -82,25 +72,6 @@ export function SpaceMapHeaderLeft() {
         }}
       />
       <PipIndicator />
-      {sidebarController.mode === SpaceMapSidebarMediaMode.Home ? (
-        <AstralFolderIcon
-          onClick={() => {
-            sidebarController.actions.goToGallery(
-              galleryController.actions.stateActions.find(
-                spaceController.state.obj.galleryId,
-              ),
-            );
-            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
-          }}
-        />
-      ) : (
-        <AstralFolderOpenIcon
-          onClick={() => {
-            sidebarController.actions.goToHome();
-            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
-          }}
-        />
-      )}
       <AstralListIcon
         className={
           mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
@@ -112,6 +83,20 @@ export function SpaceMapHeaderLeft() {
             mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
           } else {
             mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+          }
+        }}
+      />
+      <AstralFolderIcon
+        className={
+          mapController.sidebarMode === SpaceMapSidebarMode.LIST
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+        onClick={() => {
+          if (mapController.sidebarMode === SpaceMapSidebarMode.MEDIA) {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+          } else {
+            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
           }
         }}
       />

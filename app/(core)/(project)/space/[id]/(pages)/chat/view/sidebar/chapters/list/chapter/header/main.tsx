@@ -18,12 +18,9 @@ export function SpaceChatChapterHeader() {
     >
       <div className='flex w-full'>
         <p
-          className={cn(
-            'w-full text-start font-extraBold text-xl text-slate-500',
-            {
-              'animate-pulse-slow text-slate-300': active,
-            },
-          )}
+          className={cn('font-extraBold text-xl text-slate-500', {
+            'animate-pulse-slow text-slate-300': active,
+          })}
         >
           {chapter.title}
         </p>
