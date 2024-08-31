@@ -11,7 +11,7 @@ export function ExplorerCollectionResourcesContainer({
       name={ExplorerCollectionResourcesContainer.name}
       sizeFx='flex-grow h-full'
       className={'flex flex-col'}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >

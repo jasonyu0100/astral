@@ -8,7 +8,7 @@ import { JournalRecorderFooterRight } from './right/main';
 
 export function JournalRecordFooter() {
   return (
-    <GlassWindowFrame className='h-[5rem] w-full flex-shrink-0 shadow-glow'>
+    <GlassWindowFrame className='h-[5rem] w-full flex-shrink-0'>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
       <GlassWindowContents className='flex flex-row items-center px-[2rem]'>
         <JournalRecordFooterLeft />

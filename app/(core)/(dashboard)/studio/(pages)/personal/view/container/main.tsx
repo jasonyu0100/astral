@@ -10,7 +10,7 @@ export function StudioSpacesContainer({
     <GlassAreaContainer
       name={StudioSpacesContainer.name}
       sizeFx='h-full flex-grow'
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
       className='flex flex-col'

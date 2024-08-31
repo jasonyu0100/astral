@@ -10,7 +10,7 @@ export function CreativeNetworkContainer({
     <GlassAreaContainer
       name={CreativeNetworkContainer.name}
       className={`flex flex-row`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       sizeFx='flex-grow h-full'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}

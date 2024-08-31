@@ -18,7 +18,7 @@ export function SpaceChatChapterScene() {
       {active ? (
         <div className='flex w-full animate-pulse-slow flex-row items-center justify-between'>
           <div className='flex w-full flex-col'>
-            <p className='text-md w-full font-light text-slate-400'>
+            <p className='w-full text-lg font-bold text-slate-400'>
               {index + 1}. {scene.title}
             </p>
           </div>
@@ -26,7 +26,7 @@ export function SpaceChatChapterScene() {
         </div>
       ) : (
         <div className='flex w-full flex-row items-center space-x-[1rem]'>
-          <p className='text-md font-light text-slate-400'>
+          <p className='text-lg font-bold text-slate-400'>
             {index + 1}. {scene.title}
           </p>
         </div>
