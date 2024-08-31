@@ -20,7 +20,9 @@ export function SpaceMapSidebarIdeasList() {
                 key={idea.id}
                 className='flex flex-col font-bold text-slate-300'
               >
-                <div className='text-lg font-bold'>{idea.variant}</div>
+                <div className='text-lg font-bold'>
+                  {idea.variant} - {idea.title}
+                </div>
                 <div className='text-sm font-light'>
                   {idea.description || 'No description'}
                 </div>

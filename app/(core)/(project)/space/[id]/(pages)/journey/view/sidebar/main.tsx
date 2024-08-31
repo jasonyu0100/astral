@@ -75,65 +75,61 @@ export function SpaceJourneySidebar() {
               {progressController.listSceneMode ===
               SpaceJourneySidebarListMode.DEFAULT ? (
                 <>
-                  {ideaListController.state.more.queryResults.map(
-                    (idea, index) => (
-                      <GlassWindowFrame
-                        className='p-[1rem]'
-                        roundedFx={roundedFx.rounded}
-                      >
-                        <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
-                          <div
-                            key={idea.id}
-                            className='flex flex-col space-y-2 font-bold text-slate-300'
-                          >
-                            <div className='text-lg font-bold'>
-                              {idea.variant}
-                            </div>
-                            <div className='text-sm font-light'>
-                              {idea.description || 'No description'}
-                            </div>
+                  {ideaListController.state.more.queryResults.map((idea) => (
+                    <GlassWindowFrame
+                      className='p-[1rem]'
+                      roundedFx={roundedFx.rounded}
+                    >
+                      <GlassWindowContents className='flex flex-row items-center space-x-[1rem]'>
+                        <div
+                          key={idea.id}
+                          className='flex flex-col space-y-2 font-bold text-slate-300'
+                        >
+                          <div className='text-lg font-bold'>
+                            {idea.variant} - {idea.title}
                           </div>
-                        </GlassWindowContents>
-                        <GlassWindowPane glassFx={glassFx['glass-5']} />
-                      </GlassWindowFrame>
-                    ),
-                  )}
+                          <div className='text-sm font-light'>
+                            {idea.description || 'No description'}
+                          </div>
+                        </div>
+                      </GlassWindowContents>
+                      <GlassWindowPane glassFx={glassFx['glass-5']} />
+                    </GlassWindowFrame>
+                  ))}
                 </>
               ) : (
                 <>
-                  {sceneListController.state.more.queryResults.map(
-                    (scene, index) => (
-                      <GlassWindowFrame
-                        className='p-[1rem]'
-                        roundedFx={roundedFx.rounded}
+                  {sceneListController.state.more.queryResults.map((scene) => (
+                    <GlassWindowFrame
+                      className='p-[1rem]'
+                      roundedFx={roundedFx.rounded}
+                    >
+                      <GlassWindowContents
+                        className='flex flex-row items-center space-x-[1rem]'
+                        onClick={() => {
+                          sceneListController.actions.stateActions.select(
+                            scene,
+                          );
+                          progressController.updateListSceneMode(
+                            SpaceJourneySidebarListMode.DEFAULT,
+                          );
+                        }}
                       >
-                        <GlassWindowContents
-                          className='flex flex-row items-center space-x-[1rem]'
-                          onClick={() => {
-                            sceneListController.actions.stateActions.select(
-                              scene,
-                            );
-                            progressController.updateListSceneMode(
-                              SpaceJourneySidebarListMode.DEFAULT,
-                            );
-                          }}
+                        <div
+                          key={scene.id}
+                          className='flex flex-col space-y-2 font-bold text-slate-300'
                         >
-                          <div
-                            key={scene.id}
-                            className='flex flex-col space-y-2 font-bold text-slate-300'
-                          >
-                            <div className='text-lg font-bold'>
-                              {scene.title || 'Untitled'}
-                            </div>
-                            <div className='text-sm font-light'>
-                              {scene.objective || 'No description'}
-                            </div>
+                          <div className='text-lg font-bold'>
+                            {scene.title || 'Untitled'}
                           </div>
-                        </GlassWindowContents>
-                        <GlassWindowPane glassFx={glassFx['glass-5']} />
-                      </GlassWindowFrame>
-                    ),
-                  )}
+                          <div className='text-sm font-light'>
+                            {scene.objective || 'No description'}
+                          </div>
+                        </div>
+                      </GlassWindowContents>
+                      <GlassWindowPane glassFx={glassFx['glass-5']} />
+                    </GlassWindowFrame>
+                  ))}
                 </>
               )}
             </div>
