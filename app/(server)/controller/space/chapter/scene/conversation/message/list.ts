@@ -252,6 +252,7 @@ const useControllerForConversationMessageList = (
         conversationId: '',
         sceneId: '',
         message: '',
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -278,6 +279,7 @@ const useControllerForConversationMessageList = (
         conversationId: conversationId,
         sceneId: chatId,
         message: inputMessageText,
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -297,6 +299,7 @@ const useControllerForConversationMessageList = (
         conversationId: conversationId,
         sceneId: chatId,
         message: message,
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

@@ -15,28 +15,19 @@ export function SpaceChatChatStatus() {
 
   return (
     <GlassWindowFrame
-      className='h-full w-[1200px] flex-shrink-0'
+      className='h-full flex-shrink-0'
       borderFx={borderFx['border-b']}
     >
       <GlassWindowContents className='flex h-full w-full flex-col items-center justify-center'>
-        <p className='text-xl font-bold text-slate-300'>
-          Chapter Objective:{' '}
-          {chapterListController.state.currentObj?.objective || 'Open-ended'}
-        </p>
-        <p className='text-xl font-bold text-slate-300'>
-          Scene Objective:{' '}
+        <p className='text-center text-xl font-light text-slate-300'>
+          <span className='font-bold'>Scene:</span>{' '}
           {sceneListController.state.currentObj?.objective || 'Open-ended'}
         </p>
-        <p className='text-md text-center font-light text-slate-300'>
-          Chapter Description:{' '}
-          {chapterListController.state.currentObj?.description || 'Open-ended'}
-        </p>
-        <p className='text-md text-center font-light text-slate-300'>
-          Scene Summary{' '}
+        {/* <p className='text-md font-light text-slate-300'>
+          <span className='font-bold'>Overview: </span>
           {sceneListController.state?.currentObj?.summary || 'No status'}
-        </p>
+        </p> */}
         <p className='text-md text-center font-light text-slate-300'>
-          Conversation Summary{' '}
           {conversationListController.state?.currentObj?.summary || 'No status'}
         </p>
       </GlassWindowContents>

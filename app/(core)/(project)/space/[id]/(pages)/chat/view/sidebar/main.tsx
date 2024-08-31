@@ -7,7 +7,7 @@ export function SpaceChatSidebar() {
   return (
     <GlassAreaContainer
       name={SpaceChatSidebar.name}
-      sizeFx='w-[300px] h-full'
+      sizeFx='w-[350px] h-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center`}
     >

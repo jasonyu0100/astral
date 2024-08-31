@@ -18,6 +18,14 @@ export function SpaceChatSidebarChapter() {
       {active ? (
         <SpaceChatActiveContainer>
           <SpaceChatChapterHeader />
+          <p className='text-md font-md text-slate-300'>
+            <span className='font-bold'>Chapter: </span>
+            {chapterListController.state.currentObj?.objective || 'Open-ended'}
+          </p>
+          <p className='font-md text-sm text-slate-300'>
+            {chapterListController.state.currentObj?.description ||
+              'Open-ended'}
+          </p>
           <SpaceChatSidebarChapterSceneList />
           <SpaceChatSidebarSceneAdd />
         </SpaceChatActiveContainer>

@@ -10,7 +10,7 @@ export function SpaceChatUserMessage() {
 
   return (
     <div className=' ml-auto flex max-w-[350px] flex-col'>
-      <div className='mr-auto flex flex-row items-center'>
+      <div className='ml-auto flex flex-row items-center'>
         <img
           src={loggedInUser.dp?.src || exampleFileElem.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
@@ -21,7 +21,7 @@ export function SpaceChatUserMessage() {
         </p>
       </div>
       <div className='ml-auto flex flex-row'>
-        <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-3 text-right lowercase text-white'>
+        <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-[1rem] text-right lowercase text-white'>
           {message.message}
         </p>
       </div>
