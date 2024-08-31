@@ -50,6 +50,34 @@ export const useOpenAIController = () => {
     return response;
   };
 
+  const getJSONResponse = async (message: string) => {
+    const openai = getOpenAiClient();
+
+    const handleGenerate = async (prompt: string) => {
+      const completion = await openai.chat.completions.create({
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a helpful assistant designed to output text.',
+          },
+          {
+            role: 'user',
+            content: `Summarise the following text using a max of 100 characters. ${prompt}`,
+          },
+        ],
+        model: 'gpt-3.5-turbo-1106',
+      });
+      return completion.choices[0].message.content;
+    };
+
+    const response = await handleGenerate(message);
+
+    // Return the response in JSON format
+    return {
+      summary: response,
+    };
+  };
+
   const getImageResponse = async (prompt: string) => {
     const openai = getOpenAiClient();
     const response = await openai.images.generate({
