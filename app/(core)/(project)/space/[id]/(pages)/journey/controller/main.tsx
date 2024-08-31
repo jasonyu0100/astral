@@ -23,7 +23,7 @@ export enum SpaceJourneySidebarListMode {
 export function useControllerForSpaceJourney(): Controller {
   const [selectedIdea, setSelectedIdea] = useState<SceneIdeaObj | null>(null);
   const [listSceneMode, setListSceneMode] =
-    useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.DEFAULT);
+    useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.SCENES);
 
   return {
     selectedIdea: selectedIdea,
