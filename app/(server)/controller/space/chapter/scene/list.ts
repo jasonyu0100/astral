@@ -35,7 +35,8 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createScene(
     title: string,
-    desription: string,
+    summary: string,
+    objective: string,
     userId: string,
     chapterId: string,
   ): Promise<TargetObj>;
@@ -239,14 +240,14 @@ const useControllerForChapterSceneList = (
   };
 
   const createActions: CreateActions = {
-    createScene: async (title, description, userId, chapterId) => {
+    createScene: async (title, summary, objective, userId, chapterId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         chapterId: chapterId,
         title: title,
-        objective: description,
+        objective: objective,
+        summary: summary,
         userId: userId,
-        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

@@ -22,7 +22,9 @@ export function SpaceChatChapterScene() {
                 <p className='text-lg font-bold text-slate-500'>{index + 1}</p>
               </div>
             </div>
-            <p className='text-lg font-bold text-slate-500'>{scene.title}</p>
+            <p className='text-start text-lg font-bold text-slate-500'>
+              {scene.title}
+            </p>
             <SpaceChatHeaderIndicator />
           </div>
         ) : (
@@ -30,7 +32,9 @@ export function SpaceChatChapterScene() {
             <div className='flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full bg-blue-500'>
               <p className='text-lg font-bold text-slate-500'>{index + 1}</p>
             </div>
-            <p className='text-lg font-bold text-slate-500'>{scene.title}</p>
+            <p className='text-start text-lg font-bold text-slate-500'>
+              {scene.title}
+            </p>
           </div>
         )}
       </div>

@@ -36,6 +36,8 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createChapter(
     title: string,
     description: string,
+    summary: string,
+    objective: string,
     userId: string,
     spaceId: string,
     idx?: number,
@@ -249,6 +251,8 @@ const useControllerForSpaceChapterList = (
     createChapter: async (
       title: string,
       description: string,
+      summary: string,
+      objective: string,
       userId: string,
       spaceId: string,
       idx?: number,
@@ -258,7 +262,9 @@ const useControllerForSpaceChapterList = (
         spaceId: spaceId,
         userId: userId,
         title: title,
-        objective: description,
+        description: description,
+        summary: summary,
+        objective: objective,
         idx: idx || objs.length,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -274,6 +280,8 @@ const useControllerForSpaceChapterList = (
         objective: '',
         idx: 0,
         userId: '',
+        description: '',
+        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

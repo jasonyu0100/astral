@@ -29,6 +29,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromTemplate(
     title: string,
     description: string,
+    objective: string,
     userId: string,
     thumbnail: FileElem,
     category: string,
@@ -245,6 +246,8 @@ const useControllerForSpaceList = (
         target: '',
         completed: false,
         starred: false,
+        summary: '',
+        objective: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);
@@ -263,6 +266,7 @@ const useControllerForSpaceList = (
     createFromTemplate: async (
       title: string,
       description: string,
+      objective: string,
       userId: string,
       thumbnail: FileElem,
       category: string,
@@ -275,6 +279,7 @@ const useControllerForSpaceList = (
         userId: userId,
         title: title,
         description: description,
+        summary: description,
         thumbnail: thumbnail,
         category: category,
         galleryId: galleryId,
@@ -282,6 +287,7 @@ const useControllerForSpaceList = (
         target: target,
         completed: false,
         starred: false,
+        objective: objective,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

@@ -124,4 +124,6 @@ export const startupTemplate: TemplateSpaceObj = {
       objective: 'Ensure the startup’s financial health and ability to grow.',
     },
   ],
+  objective:
+    'Kickstart your startup with a solid foundation and strategic roadmap.',
 };

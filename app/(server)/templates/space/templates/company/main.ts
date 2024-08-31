@@ -387,4 +387,6 @@ export const companyTemplate: TemplateSpaceObj = {
         'Protect the business from potential threats and ensure long-term stability.',
     },
   ],
+  objective:
+    'A comprehensive guide to building and growing a successful company.',
 };

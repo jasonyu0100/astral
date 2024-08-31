@@ -201,4 +201,5 @@ export const blogPostTemplate: TemplateSpaceObj = {
         'Ensure the blog post reaches a wide audience and achieves its objectives.',
     },
   ],
+  objective: 'Guide the creation and promotion of a successful blog post.',
 };

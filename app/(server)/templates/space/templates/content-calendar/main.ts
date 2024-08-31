@@ -230,4 +230,6 @@ export const contentCalendarTemplate: TemplateSpaceObj = {
         'Maintain a dynamic content calendar that evolves based on insights and changing needs.',
     },
   ],
+  objective:
+    'Effectively plan, organize, and execute your content strategy with a structured content calendar that guides your content creation, publication, and promotion efforts.',
 };

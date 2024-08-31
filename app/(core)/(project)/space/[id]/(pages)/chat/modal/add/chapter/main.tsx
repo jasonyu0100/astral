@@ -21,12 +21,15 @@ export function SpaceChatAddChapterModal() {
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+  const [objective, changeObjective] = useState('');
 
   async function createChapter() {
     const chapter =
       await chapterListController.actions.createActions.createChapter(
         title,
         description,
+        objective,
+        objective,
         user.id,
         spaceController.state.objId,
       );
@@ -52,7 +55,15 @@ export function SpaceChatAddChapterModal() {
             <FormTextArea
               title='Objective'
               placeholder='Set an objective for your chapter'
-              rows={8}
+              rows={3}
+              value={objective}
+              onChange={(e) => changeObjective(e.target.value)}
+              style={{ resize: 'none' }}
+            />
+            <FormTextArea
+              title='Description'
+              placeholder='Describe your chapter'
+              rows={5}
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}

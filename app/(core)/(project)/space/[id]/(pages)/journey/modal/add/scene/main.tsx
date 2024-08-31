@@ -22,12 +22,13 @@ export function SpaceJourneyAddSceneModal() {
   const user = useGlobalUser((state) => state.user);
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
+  const [objective, changeObjective] = useState('');
 
   async function createScene() {
     const scene = await sceneListController.actions.createActions.createScene(
       title,
-      description,
+      objective,
+      objective,
       user.id,
       chapterListController.state.objId,
     );
@@ -56,8 +57,8 @@ export function SpaceJourneyAddSceneModal() {
               title='Objective'
               placeholder='Set an objective for your scene'
               rows={8}
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
+              value={objective}
+              onChange={(e) => changeObjective(e.target.value)}
               style={{ resize: 'none' }}
             />
           </FormBody>

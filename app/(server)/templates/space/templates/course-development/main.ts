@@ -226,4 +226,6 @@ export const courseDevelopmentTemplate: TemplateSpaceObj = {
         'Use feedback and evaluation data to continuously enhance the course and improve learner outcomes.',
     },
   ],
+  objective:
+    'Guide the development and launch of an educational course, from defining learning outcomes to gathering feedback for improvement.',
 };

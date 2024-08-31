@@ -224,4 +224,6 @@ export const projectManagementTemplate: TemplateSpaceObj = {
         'Conclude the project with a thorough review to learn and improve for future initiatives.',
     },
   ],
+  objective:
+    'Guide projects through every phase, from initiation to completion, ensuring successful delivery and outcomes.',
 };

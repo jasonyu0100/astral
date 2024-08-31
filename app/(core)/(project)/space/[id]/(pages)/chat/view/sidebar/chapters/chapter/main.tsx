@@ -4,11 +4,11 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
+import { SpaceChatInactiveContainer } from '../list/chapter/container/inactive/main';
+import { SpaceChatSceneChatAdd } from './chat/add/main';
+import { SpaceChatChapterScene } from './chat/main';
 import { SpaceChatActiveContainer } from './header/container/active/main';
-import { SpaceChatInactiveContainer } from './header/container/inactive/main';
 import { SpaceChatChapterHeader } from './header/main';
-import { SpaceChatSceneChatAdd } from './scene/add/main';
-import { SpaceChatChapterScene } from './scene/main';
 
 export function SpaceChatSidebarChapter() {
   const chapter = useContext(ContextForSpaceChapterObj);

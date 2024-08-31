@@ -211,4 +211,6 @@ export const clientOnboardingTemplate: TemplateSpaceObj = {
         'Conclude the project positively by ensuring the client is satisfied and ready for potential future engagements.',
     },
   ],
+  objective:
+    'Streamline the client onboarding process to ensure a positive experience and successful project outcomes.',
 };

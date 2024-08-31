@@ -93,4 +93,5 @@ export const starterProjectTemplate: TemplateSpaceObj = {
         'Conclude the project with a clear understanding of outcomes and future directions.',
     },
   ],
+  objective: 'Use this template to start any project with a solid foundation.',
 };

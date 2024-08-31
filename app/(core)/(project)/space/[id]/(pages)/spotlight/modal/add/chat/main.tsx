@@ -21,13 +21,14 @@ export function SpaceSpotlightAddSceneModal() {
   const openableController = useContext(ContextForOpenable);
   const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('');
-  const [summary, changeSummary] = useState('');
+  const [objective, changeObjective] = useState('');
   const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   async function createScene() {
     const scene = await sceneListController.actions.createActions.createScene(
       title,
-      summary,
+      objective,
+      objective,
       user.id,
       chapterListController.state.objId,
     );
@@ -54,8 +55,8 @@ export function SpaceSpotlightAddSceneModal() {
               title='Objective'
               placeholder='Set an objective for your scene'
               rows={8}
-              value={summary}
-              onChange={(e) => changeSummary(e.target.value)}
+              value={objective}
+              onChange={(e) => changeObjective(e.target.value)}
               style={{ resize: 'none' }}
             />
           </FormBody>

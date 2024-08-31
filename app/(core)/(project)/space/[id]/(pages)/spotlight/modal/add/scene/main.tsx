@@ -28,6 +28,7 @@ export function SpaceSpotlightAddSceneModal() {
     const scene = await sceneListController.actions.createActions.createScene(
       title,
       summary,
+      summary,
       user.id,
       chapterListController.state.objId,
     );

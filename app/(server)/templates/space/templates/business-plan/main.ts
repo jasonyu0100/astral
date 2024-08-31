@@ -271,4 +271,6 @@ export const businessPlanTemplate: TemplateSpaceObj = {
         'Use the SWOT analysis to inform strategic decision-making and strengthen the business’s position in the market.',
     },
   ],
+  objective:
+    'Develop a comprehensive business plan that guides the growth and success of the business.',
 };

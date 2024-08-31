@@ -126,4 +126,6 @@ export const socialMediaPostTemplate: TemplateSpaceObj = {
         'Learn from the post’s performance to improve future social media efforts.',
     },
   ],
+  objective:
+    'Guide the creation and publication of effective social media content that engages the target audience and achieves the desired outcomes.',
 };

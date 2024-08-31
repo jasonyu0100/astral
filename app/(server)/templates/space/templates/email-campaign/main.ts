@@ -199,4 +199,5 @@ export const emailCampaignTemplate: TemplateSpaceObj = {
         'Use the campaign results to refine and improve future email marketing efforts.',
     },
   ],
+  objective: 'Plan, create, and execute a successful email marketing campaign.',
 };

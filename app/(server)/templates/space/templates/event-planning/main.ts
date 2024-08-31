@@ -265,4 +265,5 @@ export const eventPlanningTemplate: TemplateSpaceObj = {
         'Ensure a strong finish by following up effectively and leveraging the event’s success.',
     },
   ],
+  objective: 'Plan and execute a successful event from start to finish.',
 };

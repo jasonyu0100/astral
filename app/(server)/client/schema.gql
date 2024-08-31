@@ -516,6 +516,7 @@ input CreateSpaceChapterObjInput {
   title: String!
   description: String!
   objective: String!
+  summary: String!
   idx: Int!
   created: String!
 }
@@ -1253,6 +1254,7 @@ type SpaceChapterObj {
   spaceId: String!
   title: String!
   userId: String!
+  summary: String!
   description: String!
   objective: String!
   idx: Int!
@@ -1760,6 +1762,7 @@ input TableSpaceChapterObjFilterInput {
   userId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
+  summary: TableStringFilterInput
   objective: TableStringFilterInput
   idx: TableIntFilterInput
   created: TableStringFilterInput
@@ -2291,6 +2294,7 @@ input UpdateSpaceChapterObjInput {
   spaceId: String
   title: String
   description: String
+  summary: String
   objective: String
   idx: Int
   thumbnail: FileElemInput

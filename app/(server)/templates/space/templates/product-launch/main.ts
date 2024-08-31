@@ -208,4 +208,5 @@ export const productLaunchTemplate: TemplateSpaceObj = {
         'Learn from the launch to improve future efforts and drive ongoing product success.',
     },
   ],
+  objective: 'Guide your product launch from planning to execution and beyond.',
 };

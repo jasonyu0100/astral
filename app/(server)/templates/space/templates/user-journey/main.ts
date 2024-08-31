@@ -238,4 +238,6 @@ export const userJourneyMappingTemplate: TemplateSpaceObj = {
         'Implement a structured plan to enhance the user experience and ensure ongoing improvements.',
     },
   ],
+  objective:
+    'Map out the user journey to optimize the user experience and drive product improvements.',
 };

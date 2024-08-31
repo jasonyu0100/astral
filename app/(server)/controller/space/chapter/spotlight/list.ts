@@ -254,6 +254,7 @@ const useControllerForChapterSpotlightList = (
         title: '',
         description: '',
         spotlightStatus: ChapterSpotlightStatus.PENDING,
+        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushFront(newObj);
@@ -273,6 +274,7 @@ const useControllerForChapterSpotlightList = (
         description: description,
         userId: userId,
         spotlightStatus: ChapterSpotlightStatus.PENDING,
+        summary: description,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushFront(newObj);
@@ -290,6 +292,7 @@ const useControllerForChapterSpotlightList = (
         chapterId: chapterId,
         title: title,
         description: description,
+        summary: description,
         userId: userId,
         spotlightStatus: ChapterSpotlightStatus.PENDING,
       };

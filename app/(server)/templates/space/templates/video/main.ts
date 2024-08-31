@@ -170,4 +170,6 @@ export const videoProjectTemplate: TemplateSpaceObj = {
         'Ensure the video reaches its intended audience and achieves its goals.',
     },
   ],
+  objective:
+    'Guide the video production process from concept to distribution with this structured template.',
 };

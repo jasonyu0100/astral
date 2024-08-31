@@ -21,12 +21,15 @@ export function SpaceSessionAddChapterModal() {
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+  const [objective, changeObjective] = useState('');
 
   async function createChapter() {
     const chapter =
       await chapterListController.actions.createActions.createChapter(
         title,
         description,
+        objective,
+        objective,
         user.id,
         spaceController.state.objId,
       );
@@ -51,8 +54,16 @@ export function SpaceSessionAddChapterModal() {
             />
             <FormTextArea
               title='Objective'
-              rows={8}
+              rows={3}
               placeholder='Set an objective for your chapter'
+              value={objective}
+              onChange={(e) => changeObjective(e.target.value)}
+              style={{ resize: 'none' }}
+            />
+            <FormTextArea
+              title='Description'
+              rows={5}
+              placeholder='Describe your chapter'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}

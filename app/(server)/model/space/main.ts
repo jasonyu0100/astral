@@ -8,6 +8,7 @@ export interface SpaceObj {
   galleryId: string;
   title: string;
   description: string;
+  objective: string;
   summary: string;
   created: string;
   thumbnail: FileElem;
@@ -25,6 +26,7 @@ type SpaceObj {
   galleryId: String!
 	title: String!
 	description: String!
+  objective: String!
   summary: String!
 	created: String!
 	thumbnail: FileElem!
@@ -56,6 +58,7 @@ export const exampleSpace: SpaceObj = {
   target: moment(new Date()).add(7, 'd').toISOString(),
   completed: false,
   starred: false,
+  objective: '',
 };
 
 export const exampleSpaces: SpaceObj[] = [
@@ -73,6 +76,7 @@ export const exampleSpaces: SpaceObj[] = [
     target: moment(new Date()).add(7, 'd').toISOString(),
     completed: false,
     starred: false,
+    objective: '',
   },
   {
     id: '1',
@@ -88,6 +92,23 @@ export const exampleSpaces: SpaceObj[] = [
     target: moment(new Date()).add(7, 'd').toISOString(),
     completed: false,
     starred: false,
+    objective: '',
+  },
+  {
+    id: '2',
+    userId: '0',
+    galleryId: '0',
+    title: 'Space Example',
+    description: 'Space Objective',
+    summary: 'Space Summary',
+    created: new Date().toISOString(),
+    thumbnail: exampleFileElem,
+    category: 'Space Category',
+    hours: 10,
+    target: moment(new Date()).add(7, 'd').toISOString(),
+    completed: false,
+    starred: false,
+    objective: '',
   },
 ];
 

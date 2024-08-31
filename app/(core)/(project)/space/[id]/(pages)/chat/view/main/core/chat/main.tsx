@@ -22,7 +22,6 @@ export function SpaceChatChat() {
   );
   const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
-  const currentScene = sceneListController.state.currentObj;
 
   useEffect(() => {
     const text = messageListController.state.objs
@@ -34,9 +33,12 @@ export function SpaceChatChat() {
     openAi
       .getMessageResponse(`Summarise within max 100 characters. ${text}`)
       .then((response) => {
-        sceneListController.actions.editActions.edit(currentScene?.id || '', {
-          summary: response || '',
-        });
+        conversationListController.actions.editActions.edit(
+          conversationObj?.id || '',
+          {
+            summary: response || '',
+          },
+        );
       });
   }, [messageListController.state.objs]);
 
