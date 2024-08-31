@@ -1,7 +1,5 @@
 import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useOpenAIController } from '@/api/controller/openai/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { cn } from '@/lib/utils';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -9,38 +7,17 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { SpaceChatConversationMessages } from './conversation/list/main';
 import { SpaceChatChatStatus } from './status/main';
 
 export function SpaceChatChat() {
   const user = useGlobalUser((state) => state.user);
-  const openAi = useOpenAIController();
   const sceneListController = useContext(ContextForChapterSceneList);
   const conversationListController = useContext(
     ContextForSceneConversationList,
   );
-  const messageListController = useContext(ContextForConversationMessageList);
   const conversationObj = conversationListController.state.currentObj;
-
-  useEffect(() => {
-    const text = messageListController.state.objs
-      .map((message) => message.message)
-      .join(' ');
-    if (text.trim() === '') {
-      return;
-    }
-    openAi
-      .getMessageResponse(`Summarise within max 100 characters. ${text}`)
-      .then((response) => {
-        conversationListController.actions.editActions.edit(
-          conversationObj?.id || '',
-          {
-            summary: response || '',
-          },
-        );
-      });
-  }, [messageListController.state.objs]);
 
   return (
     <div

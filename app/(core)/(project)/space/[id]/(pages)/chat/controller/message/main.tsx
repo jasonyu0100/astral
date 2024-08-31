@@ -101,6 +101,28 @@ export function useControllerForConversationMessageSend() {
     );
   }
 
+  async function summariseConversation(
+    messages: ConversationMessageObj[],
+    conversationObj: SceneConversationObj,
+  ) {
+    const messageText = messages.map((message) => message.message).join(' ');
+
+    const summary = await openAi.getMessageResponse(
+      `Summarise within max 100 characters. ${messageText}`,
+    );
+
+    const newConversation =
+      await conversationListController.actions.editActions.edit(
+        conversationObj?.id || '',
+        {
+          summary: summary || '',
+        },
+      );
+
+    console.log(summary);
+    return newConversation;
+  }
+
   async function sendMessage() {
     const conversation = conversationListController.state.currentObj;
     if (conversation !== undefined) {
@@ -116,6 +138,14 @@ export function useControllerForConversationMessageSend() {
           agentResponse,
           conversation,
         );
+
+        const messages = [
+          ...messageListController.state.objs,
+          newUserMessage,
+          newAgentMessage,
+        ];
+
+        await summariseConversation(messages, conversation);
         return newAgentMessage;
       } else {
         alert('Your conversation is older then a week. Starting a new one');
@@ -133,6 +163,14 @@ export function useControllerForConversationMessageSend() {
       agentResponse,
       newConversation,
     );
+
+    const messages = [
+      ...messageListController.state.objs,
+      newUserMessage,
+      newAgentMessage,
+    ];
+
+    await summariseConversation(messages, newConversation);
 
     return newAgentMessage;
   }

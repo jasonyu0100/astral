@@ -72,7 +72,6 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapConnectionMode.DEFAULT,
   );
 
-  console.log(selectedIdeas, peopleMode);
   return {
     connectionMode: connectionMode,
     selectedIdeas: selectedIdeas,
