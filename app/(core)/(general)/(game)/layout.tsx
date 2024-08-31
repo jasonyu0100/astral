@@ -4,18 +4,11 @@ import { DashboardController } from '@/(core)/(dashboard)/common/controller/main
 import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
 import { DashboardTopbar } from '@/(core)/common/(topbar)/main';
 
-export default function Layout({
-  children,
-  params,
-}: {
-  children?: React.ReactNode;
-
-  params: { id: string };
-}) {
+export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <DashboardTopbar />
-      <DashboardController>
+      <DashboardController fullHeight>
         <DashboardSidebarView minimised />
         <DashboardBody>{children}</DashboardBody>
       </DashboardController>

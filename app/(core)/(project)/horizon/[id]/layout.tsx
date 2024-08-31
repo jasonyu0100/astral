@@ -22,7 +22,7 @@ export default function Layout({
 }) {
   return (
     <ContextForHorizon.Provider value={{ releaseId: params.id }}>
-      <DashboardController>
+      <DashboardController fullHeight>
         <DashboardSidebarView
           minimised
           backUrl={explorerMap.venture.projects.link}

@@ -14,7 +14,7 @@ export function SpaceChatSidebarSceneAdd() {
         <div className='flex h-[1.5rem] w-[1.5rem] items-center justify-center rounded-full bg-blue-500'>
           <AstralAddIcon className='h-3/4 w-3/4' />
         </div>
-        <p className='font-bold text-slate-400'>Add</p>
+        <p className='font-light text-slate-300'>Add</p>
       </button>
     </>
   );

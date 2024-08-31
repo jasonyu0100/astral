@@ -1,5 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceChatActiveContainer } from './container/active/main';
 import { SpaceChatInactiveContainer } from './container/inactive/main';
@@ -26,6 +27,7 @@ export function SpaceChatSidebarChapter() {
             {chapterListController.state.currentObj?.description ||
               'Open-ended'}
           </p>
+          <HorizontalDivider />
           <SpaceChatSidebarChapterSceneList />
           <SpaceChatSidebarSceneAdd />
         </SpaceChatActiveContainer>

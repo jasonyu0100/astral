@@ -16,7 +16,7 @@ export default function Layout({
   return (
     <>
       <DashboardTopbar />
-      <DashboardController>
+      <DashboardController fullHeight>
         <DashboardSidebarView minimised />
         <DashboardBody>
           <CentralWindowContainer>{children}</CentralWindowContainer>

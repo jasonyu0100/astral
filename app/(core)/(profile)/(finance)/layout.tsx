@@ -16,7 +16,7 @@ export default function Layout({
   return (
     <Suspense fallback={<PortalBackground />}>
       <DashboardTopbar />
-      <DashboardController>
+      <DashboardController fullHeight>
         <DashboardSidebarView minimised />
         <DashboardBody>
           <CentralWindowContainer>{children}</CentralWindowContainer>
