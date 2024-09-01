@@ -10,8 +10,7 @@ export function SpaceJourneyHeaderRight() {
       <button
         className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          alert('Coming soon...');
-          // modalController.addSpotlightController.open();
+          modalController.addSpotlightController.open();
         }}
       >
         <p className='font-bold text-slate-300'>Spotlight</p>

@@ -36,7 +36,7 @@ function Page({ params }: { params: { id: string } }) {
   const chapterId = searchParams.get('chapter');
 
   const user = useGlobalUser((state) => state.user);
-  const progressController = useControllerForSpaceJourney();
+  const journeyController = useControllerForSpaceJourney();
   const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     params.id,
@@ -55,7 +55,7 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
-      <ContextForSpaceJourney.Provider value={progressController}>
+      <ContextForSpaceJourney.Provider value={journeyController}>
         <ContextForSpaceMain.Provider value={spaceController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
             <ContextForSceneIdeaList.Provider value={ideaListController}>

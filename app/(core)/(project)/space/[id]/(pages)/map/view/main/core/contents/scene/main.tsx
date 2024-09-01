@@ -17,7 +17,7 @@ export function SpaceMapScene() {
 
   return (
     <div
-      className='relative h-full w-full'
+      className='relative z-10 h-full w-full'
       onClick={() => mapController.updateSelectedIdeas([])}
     >
       {visibleIdeas.map((idea, index) => (
