@@ -1,8 +1,5 @@
-import { stripeMap } from '@/(core)/(profile)/(finance)/stripe/map';
-import {
-  getPlanName,
-  getPlanPrice,
-} from '@/(core)/(profile)/(finance)/support/page';
+import { getPlanName, getPlanPrice } from '@/(core)/(finance)/pricing/page';
+import { stripeMap } from '@/(core)/(finance)/stripe/map';
 import { portalMap } from '@/(portal)/map';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';

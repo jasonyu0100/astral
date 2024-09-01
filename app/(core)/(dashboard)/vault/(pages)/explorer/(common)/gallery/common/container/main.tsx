@@ -15,12 +15,12 @@ export function GalleryContainer({ onClick, children, ...props }: InputProps) {
     <GlassWindowFrame
       roundedFx={roundedFx.rounded}
       name={GalleryContainer.name}
-      className={cn(`aspect-square w-full`, props.className)}
+      className={cn(`aspect-[3/2] w-full`, props.className)}
     >
       <GlassWindowContents className='flex flex-col' onClick={onClick}>
         {children}
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

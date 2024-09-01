@@ -85,7 +85,7 @@ export default function Page() {
               onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
             >
               <img
-                src='/landing/producer-f.png'
+                src='/portal/producer-f.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
@@ -98,7 +98,7 @@ export default function Page() {
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
             >
               <img
-                src='/landing/producer-m.png'
+                src='/portal/producer-m.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
@@ -113,7 +113,7 @@ export default function Page() {
               }
             >
               <img
-                src='/landing/personality-m.png'
+                src='/portal/personality-m.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
@@ -130,7 +130,7 @@ export default function Page() {
               onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
             >
               <img
-                src='/landing/performer-m.png'
+                src='/portal/performer-m.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
@@ -143,7 +143,7 @@ export default function Page() {
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
             >
               <img
-                src='/landing/performer-f.png'
+                src='/portal/performer-f.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
@@ -158,7 +158,7 @@ export default function Page() {
               }
             >
               <img
-                src='/landing/personality-m.png'
+                src='/portal/personality-m.png'
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
