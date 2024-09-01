@@ -1,3 +1,5 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -14,12 +16,16 @@ export function SpaceMapPlanModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const logListController = useControllerForChapterLogList(
+    chapterListController.state.objId,
+  );
 
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Generate Plan</FormTitle>
+          <FormTitle>Create Log</FormTitle>
           <FormBody>
             {ideaListController.state.objs.map((idea, index) => (
               <div className='flex flex-row space-x-[1rem]'>
@@ -33,9 +39,13 @@ export function SpaceMapPlanModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.journey.link(
-                  spaceController.state.objId,
-                );
+                logListController.actions.createActions
+                  .createEmpty()
+                  .then(() => {
+                    window.location.href = spaceMap.space.id.journey.link(
+                      spaceController.state.objId,
+                    );
+                  });
               }}
             >
               Next

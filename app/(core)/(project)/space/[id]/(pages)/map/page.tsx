@@ -85,6 +85,7 @@ function Page({ params }: { params: { id: string } }) {
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
+    spaceMainController.state.obj.galleryId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
