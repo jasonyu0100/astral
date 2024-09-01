@@ -313,7 +313,7 @@ const useControllerForHorizonSessionUpdateMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

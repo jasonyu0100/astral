@@ -326,7 +326,7 @@ const useControllerForChapterSessionContributorList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

@@ -326,7 +326,7 @@ const useControllerForSceneConversationList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

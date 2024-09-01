@@ -333,7 +333,7 @@ const useControllerForSpaceMemberTermsList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

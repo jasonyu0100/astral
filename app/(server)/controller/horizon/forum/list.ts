@@ -314,7 +314,7 @@ const useControllerForArcForumList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

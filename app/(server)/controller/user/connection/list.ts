@@ -336,7 +336,7 @@ const useControllerForUserConnectionList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

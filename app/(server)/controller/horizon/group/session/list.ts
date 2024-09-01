@@ -315,7 +315,7 @@ const useControllerForHorizonGroupSessionList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

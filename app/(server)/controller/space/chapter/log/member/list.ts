@@ -313,7 +313,7 @@ const useControllerForLogMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

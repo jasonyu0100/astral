@@ -332,7 +332,7 @@ const useControllerForSpotlightCommentList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

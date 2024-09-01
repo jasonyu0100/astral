@@ -314,7 +314,7 @@ const useControllerForGalleryMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

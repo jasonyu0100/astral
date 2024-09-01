@@ -332,7 +332,7 @@ const useControllerForGalleryCollectionList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

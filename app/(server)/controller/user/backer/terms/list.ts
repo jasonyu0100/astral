@@ -332,7 +332,7 @@ const useControllerForUserBackerTermsList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

@@ -333,7 +333,7 @@ const useControllerForGalleryList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

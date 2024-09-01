@@ -82,17 +82,20 @@ function Page({ params }: { params: { id: string } }) {
     sceneListController.state.objId,
   );
   const user = useGlobalUser((state) => state.user);
-  const galleryListController = useControllerForGalleryList(user?.id);
+  const galleryListController = useControllerForGalleryList(
+    user?.id,
+    spaceMainController.state.obj.galleryId,
+  );
   const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
-    spaceMainController.state.obj.galleryId,
+    spaceMainController.state.obj.collectionId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
   );
 
   const [sidebarMode, changeSidebarMode] = useState(
-    SpaceMapSidebarMediaMode.Gallery,
+    SpaceMapSidebarMediaMode.Collection,
   );
 
   const actions: SpaceMapSidebarActions = {

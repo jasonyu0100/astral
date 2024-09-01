@@ -1,5 +1,9 @@
 'use client';
 import {
+  ContextForGalleryCollectionList,
+  useControllerForGalleryCollectionList,
+} from '@/(server)/controller/gallery/collection/list';
+import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
@@ -16,12 +20,19 @@ function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceListController = useControllerForSpaceList(loggedInUser.id);
   const galleryListController = useControllerForGalleryList(loggedInUser.id);
+  const collectionListController = useControllerForGalleryCollectionList(
+    galleryListController.state.objId,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceList.Provider value={spaceListController}>
         <ContextForGalleryList.Provider value={galleryListController}>
-          <StudioSpacesView />
+          <ContextForGalleryCollectionList.Provider
+            value={collectionListController}
+          >
+            <StudioSpacesView />
+          </ContextForGalleryCollectionList.Provider>
         </ContextForGalleryList.Provider>
       </ContextForSpaceList.Provider>
     </ContextForLoggedInUserObj.Provider>

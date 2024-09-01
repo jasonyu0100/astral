@@ -314,7 +314,7 @@ const useControllerForHorizonGroupMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

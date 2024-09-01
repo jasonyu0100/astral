@@ -314,7 +314,7 @@ const useControllerForHorizonGroupList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

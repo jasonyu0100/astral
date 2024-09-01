@@ -315,7 +315,7 @@ const useControllerForUserReservationList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

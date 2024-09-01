@@ -315,7 +315,7 @@ const useControllerForForumPostList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

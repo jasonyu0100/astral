@@ -314,7 +314,7 @@ const useControllerForAgentList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

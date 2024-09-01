@@ -313,7 +313,7 @@ const useControllerForForumMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

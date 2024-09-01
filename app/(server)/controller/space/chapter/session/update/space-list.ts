@@ -313,7 +313,7 @@ const useControllerForSessionUpdateOfSpaceList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

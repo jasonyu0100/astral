@@ -316,7 +316,7 @@ const useControllerForLogLinkList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

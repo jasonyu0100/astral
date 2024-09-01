@@ -317,7 +317,7 @@ const useControllerForChapterLogList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

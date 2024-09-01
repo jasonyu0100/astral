@@ -347,7 +347,7 @@ const useControllerForResourceList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   useEffect(() => {
     controllerActions.stateActions.executeQuery(query);

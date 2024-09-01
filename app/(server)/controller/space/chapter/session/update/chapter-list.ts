@@ -451,7 +451,7 @@ const useControllerForSessionUpdateOfChapterList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

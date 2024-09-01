@@ -312,7 +312,7 @@ const useControllerForSceneMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

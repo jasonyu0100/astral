@@ -317,7 +317,7 @@ const useControllerForArcPointList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

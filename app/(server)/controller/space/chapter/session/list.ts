@@ -349,7 +349,7 @@ const useControllerForChapterSessionList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

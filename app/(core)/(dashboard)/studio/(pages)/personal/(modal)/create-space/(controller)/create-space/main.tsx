@@ -1,3 +1,4 @@
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
@@ -61,6 +62,7 @@ export const ContextForCreateSpace = createContext({} as CreateSpaceController);
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
   const galleryListController = useContext(ContextForGalleryList);
+  const collectionListController = useContext(ContextForGalleryCollectionList);
   const chapterListController = useControllerForSpaceChapterList('');
   const sceneListController = useControllerForChapterSceneList('');
   const spotlightListController = useControllerForChapterSpotlightList('');
@@ -247,11 +249,20 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     const gallery =
       await galleryListController.actions.createActions.createGallery(
         user.id,
-        title,
-        description,
+        `Space - ${title}`,
+        'Gallery for space',
         thumbnail,
       );
     console.log('GALLERY CREATED', gallery);
+
+    const collection =
+      await collectionListController.actions.createActions.createCollection(
+        'Starter Collection',
+        'Collection for starter spaces',
+        gallery.id,
+      );
+    console.log('COLLECTION CREATED', collection);
+
     const space =
       await spaceListController.actions.createActions.createFromTemplate(
         title,
@@ -261,6 +272,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         thumbnail,
         category,
         gallery.id,
+        collection.id,
         hours,
         target,
       );

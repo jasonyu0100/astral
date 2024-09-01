@@ -316,7 +316,7 @@ const useControllerForHorizonArcList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

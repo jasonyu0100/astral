@@ -313,7 +313,7 @@ const useControllerForSpotlightMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

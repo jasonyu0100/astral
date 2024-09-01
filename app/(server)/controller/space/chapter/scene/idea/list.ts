@@ -469,7 +469,7 @@ const useControllerForSceneIdeaList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

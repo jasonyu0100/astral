@@ -329,7 +329,7 @@ const useControllerForSpaceMemberOfUserList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

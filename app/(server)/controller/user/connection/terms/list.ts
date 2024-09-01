@@ -332,7 +332,7 @@ const useControllerForUserConnectionTermsList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

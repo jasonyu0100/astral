@@ -315,7 +315,7 @@ const useControllerForGroupSessionUpdateList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

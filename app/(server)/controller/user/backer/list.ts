@@ -336,7 +336,7 @@ const useControllerForUserBackerList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

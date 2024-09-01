@@ -314,7 +314,7 @@ const useControllerForHorizonSessionUpdateList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

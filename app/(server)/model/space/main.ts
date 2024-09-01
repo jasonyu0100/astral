@@ -6,6 +6,7 @@ export interface SpaceObj {
   id: string;
   userId: string;
   galleryId: string;
+  collectionId: string;
   title: string;
   description: string;
   objective: string;
@@ -24,6 +25,7 @@ type SpaceObj {
 	id: String!
 	userId: String!
   galleryId: String!
+  collectionId: String!
 	title: String!
 	description: String!
   objective: String!
@@ -48,6 +50,7 @@ export const exampleSpace: SpaceObj = {
   id: '0',
   userId: '0',
   galleryId: '0',
+  collectionId: '0',
   title: 'Space Example',
   description: 'Space Objective',
   summary: 'Space Summary',
@@ -66,6 +69,7 @@ export const exampleSpaces: SpaceObj[] = [
     id: '0',
     userId: '0',
     galleryId: '0',
+    collectionId: '0',
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',
@@ -82,6 +86,7 @@ export const exampleSpaces: SpaceObj[] = [
     id: '1',
     userId: '0',
     galleryId: '0',
+    collectionId: '0',
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',
@@ -98,6 +103,7 @@ export const exampleSpaces: SpaceObj[] = [
     id: '2',
     userId: '0',
     galleryId: '0',
+    collectionId: '0',
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',

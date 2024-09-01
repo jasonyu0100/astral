@@ -332,7 +332,7 @@ const useControllerForSpaceMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

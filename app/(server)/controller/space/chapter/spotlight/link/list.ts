@@ -314,7 +314,7 @@ const useControllerForSpotlightLinkList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

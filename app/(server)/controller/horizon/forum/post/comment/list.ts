@@ -315,7 +315,7 @@ const useControllerForPostCommentList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

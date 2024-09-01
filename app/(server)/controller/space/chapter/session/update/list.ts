@@ -318,7 +318,7 @@ const useControllerForSessionUpdateList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

@@ -338,7 +338,7 @@ const useControllerForChapterSceneList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,

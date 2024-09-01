@@ -314,7 +314,7 @@ const useControllerForSpotlightAttachmentList = (
         }
       });
     }
-  }, [listId]);
+  }, [listId, initialId]);
 
   return {
     state: controllerState,
