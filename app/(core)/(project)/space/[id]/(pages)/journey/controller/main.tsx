@@ -16,14 +16,14 @@ export enum SpaceJourneySidebarMode {
 }
 
 export enum SpaceJourneySidebarListMode {
-  DEFAULT = 'Default',
+  LINKS = 'LINKS',
   SCENES = 'Scenes',
 }
 
 export function useControllerForSpaceJourney(): Controller {
   const [selectedIdea, setSelectedIdea] = useState<SceneIdeaObj | null>(null);
   const [listSceneMode, setListSceneMode] =
-    useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.SCENES);
+    useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.LINKS);
 
   return {
     selectedIdea: selectedIdea,

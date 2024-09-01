@@ -9,6 +9,7 @@ import {
 import {
   chapterLogModel,
   ChapterLogObj,
+  ChapterLogStatus,
 } from '@/(server)/model/space/chapter/log/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -32,7 +33,14 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createLog: (
+    chapterId: string,
+    userId: string,
+    title: string,
+    description: string,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -240,6 +248,21 @@ const useControllerForChapterLogList = (
         logStatus: '',
         title: '',
         description: '',
+        summary: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushFront(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createLog: async (chapterId, userId, title, description) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        chapterId: chapterId,
+        logStatus: ChapterLogStatus.TODO,
+        title: title,
+        description: description,
         summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

@@ -42,7 +42,7 @@ export enum SpaceMapSidebarMode {
 }
 
 export enum SpaceMapSidebarListMode {
-  DEFAULT = 'Default',
+  IDEAS = 'Ideas',
   SCENES = 'Scenes',
 }
 

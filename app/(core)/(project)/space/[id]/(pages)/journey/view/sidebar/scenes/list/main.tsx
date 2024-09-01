@@ -8,18 +8,19 @@ export function SpaceJourneySidebarScenesList() {
   const sceneListController = useContext(ContextForChapterSceneList);
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      <div className='flex flex-col space-y-[1rem] p-[1rem]'>
-        {sceneListController.state.more.queryResults.map((scene) => (
-          <ContextForChapterSceneObj.Provider value={scene}>
-            {sceneListController.actions.stateActions.checkActive(scene) ? (
-              <SpaceJourneySidebarScenesListItemActive />
-            ) : (
-              <SpaceJourneySidebarScenesListItemInactive />
-            )}
-          </ContextForChapterSceneObj.Provider>
-        ))}
-      </div>
+    <div
+      className='flex flex-col space-y-[1rem] overflow-auto p-[1rem]'
+      style={{ height: '100%', width: '100%' }}
+    >
+      {sceneListController.state.more.queryResults.map((scene) => (
+        <ContextForChapterSceneObj.Provider value={scene}>
+          {sceneListController.actions.stateActions.checkActive(scene) ? (
+            <SpaceJourneySidebarScenesListItemActive />
+          ) : (
+            <SpaceJourneySidebarScenesListItemInactive />
+          )}
+        </ContextForChapterSceneObj.Provider>
+      ))}
     </div>
   );
 }

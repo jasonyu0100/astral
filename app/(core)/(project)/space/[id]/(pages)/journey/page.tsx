@@ -4,17 +4,13 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForSceneIdeaList,
-  useControllerForSceneIdeaList,
-} from '@/(server)/controller/space/chapter/scene/idea/list';
+  ContextForLogLinkList,
+  useControllerForLogLinkList,
+} from '@/(server)/controller/space/chapter/log/link/list';
 import {
-  ContextForChapterSceneList,
-  useControllerForChapterSceneList,
-} from '@/(server)/controller/space/chapter/scene/list';
-import {
-  ContextForChapterSessionList,
-  useControllerForChapterSessionList,
-} from '@/(server)/controller/space/chapter/session/list';
+  ContextForChapterLogList,
+  useControllerForChapterLogList,
+} from '@/(server)/controller/space/chapter/log/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -32,7 +28,7 @@ import { SpaceJourneyView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const sceneId = searchParams.get('scene');
+  const logId = searchParams.get('log');
   const chapterId = searchParams.get('chapter');
 
   const user = useGlobalUser((state) => state.user);
@@ -42,36 +38,27 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const sceneListController = useControllerForChapterSceneList(
+  const logListController = useControllerForChapterLogList(
     chapterListController.state.objId,
-    sceneId,
+    logId,
   );
-  const ideaListController = useControllerForSceneIdeaList(
-    sceneListController.state.objId,
-  );
-  const sessionListController = useControllerForChapterSessionList(
-    chapterListController.state.objId,
+  const linkListController = useControllerForLogLinkList(
+    logListController.state.objId,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceJourney.Provider value={journeyController}>
         <ContextForSpaceMain.Provider value={spaceController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
-            <ContextForSceneIdeaList.Provider value={ideaListController}>
-              <ContextForSpaceChapterList.Provider
-                value={chapterListController}
-              >
-                <ContextForChapterSessionList.Provider
-                  value={sessionListController}
-                >
-                  <SpaceJourneyModals>
-                    <SpaceJourneyView />
-                  </SpaceJourneyModals>
-                </ContextForChapterSessionList.Provider>
-              </ContextForSpaceChapterList.Provider>
-            </ContextForSceneIdeaList.Provider>
-          </ContextForChapterSceneList.Provider>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForChapterLogList.Provider value={logListController}>
+              <ContextForLogLinkList.Provider value={linkListController}>
+                <SpaceJourneyModals>
+                  <SpaceJourneyView />
+                </SpaceJourneyModals>
+              </ContextForLogLinkList.Provider>
+            </ContextForChapterLogList.Provider>
+          </ContextForSpaceChapterList.Provider>
         </ContextForSpaceMain.Provider>
       </ContextForSpaceJourney.Provider>
     </ContextForLoggedInUserObj.Provider>

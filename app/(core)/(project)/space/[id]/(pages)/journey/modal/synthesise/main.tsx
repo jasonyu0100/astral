@@ -1,10 +1,8 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -21,7 +19,6 @@ import { useContext, useState } from 'react';
 export function SpaceJourneySpotlightModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const ideaListController = useContext(ContextForSceneIdeaList);
   const spotlightListController = useContext(ContextForChapterSpotlightList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
@@ -68,41 +65,9 @@ export function SpaceJourneySpotlightModal() {
               style={{ resize: 'none' }}
             />
             <p className='font-bold text-black'>Available</p>
-            <div className='grid grid-cols-3 gap-[1rem]'>
-              {ideaListController.state.objs.map((idea) => (
-                <div>
-                  {idea.variant === ElementVariant.FILE && (
-                    <img src={idea.fileElem?.src} />
-                  )}
-                  {idea.variant === ElementVariant.TEXT && (
-                    <div className='bg-yellow-500 p-[1rem] text-black'>
-                      {idea.textElem?.text}
-                    </div>
-                  )}
-                  {idea.variant === ElementVariant.URL && (
-                    <p>NOT IMPLEMENTED</p>
-                  )}
-                </div>
-              ))}
-            </div>
+            <div className='grid grid-cols-3 gap-[1rem]'></div>
             <p className='font-bold text-black'>Selected</p>
-            <div className='grid grid-cols-3 gap-[1rem]'>
-              {ideaListController.state.objs.map((idea) => (
-                <div>
-                  {idea.variant === ElementVariant.FILE && (
-                    <img src={idea.fileElem?.src} />
-                  )}
-                  {idea.variant === ElementVariant.TEXT && (
-                    <div className='bg-yellow-500 p-[1rem] text-black'>
-                      {idea.textElem?.text}
-                    </div>
-                  )}
-                  {idea.variant === ElementVariant.URL && (
-                    <p>NOT IMPLEMENTED</p>
-                  )}
-                </div>
-              ))}
-            </div>
+            <div className='grid grid-cols-3 gap-[1rem]'></div>
             <HorizontalDivider />
           </FormBody>
           <FormFooter>

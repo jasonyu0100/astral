@@ -10,6 +10,7 @@ import {
   logLinkModel,
   LogLinkObj,
 } from '@/(server)/model/space/chapter/log/link/main';
+import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = LogLinkObj;
@@ -32,7 +33,13 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createLink: (
+    userId: string,
+    logId: string,
+    idea: SceneIdeaObj,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -240,6 +247,23 @@ const useControllerForLogLinkList = (
         title: '',
         description: '',
         variant: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createLink: async (userId: string, logId: string, idea: SceneIdeaObj) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        logId: logId,
+        title: idea.title,
+        description: idea.description,
+        variant: idea.variant,
+        fileElem: idea.fileElem,
+        textElem: idea.textElem,
+        urlElem: idea.urlElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

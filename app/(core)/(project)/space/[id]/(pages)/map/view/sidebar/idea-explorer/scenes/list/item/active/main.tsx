@@ -45,7 +45,7 @@ export function SpaceMapSidebarScenesListActiveItem() {
               className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
               onClick={() => {
                 mapController.updateListSceneMode(
-                  SpaceMapSidebarListMode.DEFAULT,
+                  SpaceMapSidebarListMode.IDEAS,
                 );
               }}
             >

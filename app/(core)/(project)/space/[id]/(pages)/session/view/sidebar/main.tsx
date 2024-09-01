@@ -54,32 +54,33 @@ export function SpaceSessionSidebar() {
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
         </div>
-        <div style={{ height: '100%', width: '100%' }}>
-          <div className='flex flex-col space-y-[1rem] p-[1rem]'>
-            <div className='flex flex-col space-y-[2rem]'>
-              {ideaListController.state.objs.map((idea, index) => (
-                <GlassWindowFrame>
-                  <GlassWindowContents className='flex flex-row space-x-[1rem]'>
-                    <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
-                      <p className='text-center font-bold text-white'>
-                        {index + 1}
-                      </p>
+        <div
+          className='flex flex-col overflow-auto p-[1rem]'
+          style={{ height: '100%', width: '100%' }}
+        >
+          <div className='flex flex-col space-y-[1rem]'>
+            {ideaListController.state.objs.map((idea, index) => (
+              <GlassWindowFrame>
+                <GlassWindowContents className='flex flex-row space-x-[1rem]'>
+                  <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                    <p className='text-center font-bold text-white'>
+                      {index + 1}
+                    </p>
+                  </div>
+                  <div
+                    key={idea.id}
+                    className='flex flex-col space-y-2 font-bold text-slate-300'
+                  >
+                    <div className='text-lg font-bold'>
+                      {idea.title || 'Untitled'}
                     </div>
-                    <div
-                      key={idea.id}
-                      className='flex flex-col space-y-2 font-bold text-slate-300'
-                    >
-                      <div className='text-lg font-bold'>
-                        {idea.title || 'Untitled'}
-                      </div>
-                      <div className='text-sm font-light'>
-                        {idea.description || 'No description'}
-                      </div>
+                    <div className='text-sm font-light'>
+                      {idea.description || 'No description'}
                     </div>
-                  </GlassWindowContents>
-                </GlassWindowFrame>
-              ))}
-            </div>
+                  </div>
+                </GlassWindowContents>
+              </GlassWindowFrame>
+            ))}
           </div>
         </div>
       </GlassAreaContainer>

@@ -44,7 +44,7 @@ export function SpaceJourneySidebarScenesListItemActive() {
             className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
             onClick={() => {
               journeyController.updateListSceneMode(
-                SpaceJourneySidebarListMode.DEFAULT,
+                SpaceJourneySidebarListMode.LINKS,
               );
             }}
           >

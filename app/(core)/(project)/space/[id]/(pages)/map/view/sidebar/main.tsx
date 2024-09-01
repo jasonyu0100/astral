@@ -26,7 +26,7 @@ export function SpaceMapSidebar() {
           {mapController.listSceneMode === SpaceMapSidebarListMode.SCENES && (
             <SpaceMapSidebarScenes />
           )}
-          {mapController.listSceneMode === SpaceMapSidebarListMode.DEFAULT && (
+          {mapController.listSceneMode === SpaceMapSidebarListMode.IDEAS && (
             <SpaceMapSidebarIdeas />
           )}
         </>

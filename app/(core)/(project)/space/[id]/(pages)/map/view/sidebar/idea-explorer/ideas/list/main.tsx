@@ -8,13 +8,18 @@ export function SpaceMapSidebarIdeasList() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <div className='flex flex-col space-y-[1rem] p-[1rem]'>
-      <SpaceMapSidebarIdeasBack />
-      {ideaListController.state.more.queryResults.map((idea) => (
-        <ContextForSceneIdeaObj.Provider value={idea}>
-          <SpaceMapSidebarIdeasListItem />
-        </ContextForSceneIdeaObj.Provider>
-      ))}
+    <div
+      className='flex flex-col overflow-auto p-[1rem]'
+      style={{ height: '100%', width: '100%' }}
+    >
+      <div className='flex flex-col space-y-[1rem]'>
+        <SpaceMapSidebarIdeasBack />
+        {ideaListController.state.more.queryResults.map((idea) => (
+          <ContextForSceneIdeaObj.Provider value={idea}>
+            <SpaceMapSidebarIdeasListItem />
+          </ContextForSceneIdeaObj.Provider>
+        ))}
+      </div>
     </div>
   );
 }
