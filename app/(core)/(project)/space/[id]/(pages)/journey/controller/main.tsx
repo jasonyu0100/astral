@@ -1,10 +1,10 @@
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
-  selectedIdea: SceneIdeaObj | null;
+  selectedLog: ChapterLogObj | null;
   listSceneMode: SpaceJourneySidebarListMode;
-  updateSelectedIdea: (idea: SceneIdeaObj | null) => void;
+  updateSelectedLog: (idea: ChapterLogObj | null) => void;
   updateListSceneMode: (mode: SpaceJourneySidebarListMode) => void;
 }
 
@@ -21,14 +21,14 @@ export enum SpaceJourneySidebarListMode {
 }
 
 export function useControllerForSpaceJourney(): Controller {
-  const [selectedIdea, setSelectedIdea] = useState<SceneIdeaObj | null>(null);
+  const [selectedLog, setSelectedLog] = useState<ChapterLogObj | null>(null);
   const [listSceneMode, setListSceneMode] =
     useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.LINKS);
 
   return {
-    selectedIdea: selectedIdea,
+    selectedLog: selectedLog,
     listSceneMode: listSceneMode,
-    updateSelectedIdea: (idea) => setSelectedIdea(idea),
+    updateSelectedLog: (log) => setSelectedLog(log),
     updateListSceneMode: (mode) => setListSceneMode(mode),
   };
 }

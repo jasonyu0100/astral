@@ -5,9 +5,9 @@ import { AstralAddIcon } from '@/icons/add/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { ContextForSpaceJourneyModals } from '../../../modal/controller/main';
-import { SpaceProgressAddItem } from '../lists/add/main';
-import { SpaceProgressListItem } from '../lists/item/main';
-import { SpaceProgressList } from '../lists/main';
+import { SpaceProgressAddItem } from './lists/add/main';
+import { SpaceProgressListItem } from './lists/item/main';
+import { SpaceProgressList } from './lists/main';
 
 export function SpaceJourneyKanban() {
   const ideaListController = useContext(ContextForSceneIdeaList);
