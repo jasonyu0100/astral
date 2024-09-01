@@ -1,7 +1,6 @@
 import { Tabs } from '../../common//tabs/main';
 import { TabsRow } from '../../common//tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
-import { TabTwo } from './tab-2/main';
 
 export enum StudioTabStages {
   Personal = 'Personal',
@@ -18,7 +17,7 @@ export function StudioTabs({ tab }: StudioTabProps) {
     <Tabs>
       <TabsRow>
         <TabOne tab={tab} />
-        <TabTwo tab={tab} />
+        {/* <TabTwo tab={tab} /> */}
         {/* <TabThree tab={tab} /> */}
       </TabsRow>
     </Tabs>

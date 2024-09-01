@@ -3,11 +3,9 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { cn } from '@/lib/utils';
 import { useContext } from 'react';
 
-export function SpaceChatChapterHeader() {
+export function SpaceChatChapterInactiveHeader() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chaptersListController = useContext(ContextForSpaceChapterList);
-  const active =
-    chaptersListController.actions.stateActions.checkActive(chapter);
 
   return (
     <button
@@ -17,11 +15,7 @@ export function SpaceChatChapterHeader() {
       }
     >
       <div className='flex w-full'>
-        <p
-          className={cn('font-extraBold text-xl text-slate-500', {
-            'animate-pulse-slow text-slate-300': active,
-          })}
-        >
+        <p className={cn('font-extraBold text-xl text-slate-500')}>
           {chapter.title}
         </p>
       </div>

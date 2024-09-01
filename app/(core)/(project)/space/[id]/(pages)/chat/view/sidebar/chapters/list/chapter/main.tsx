@@ -1,10 +1,10 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceChatActiveContainer } from './container/active/main';
 import { SpaceChatInactiveContainer } from './container/inactive/main';
-import { SpaceChatChapterHeader } from './header/main';
+import { SpaceChatChapterActiveHeader } from './header/active/main';
+import { SpaceChatChapterInactiveHeader } from './header/inactive/main';
 import { SpaceChatSidebarChapterSceneList } from './scenes/main';
 import { SpaceChatSidebarSceneAdd } from './scenes/scene/add/main';
 
@@ -18,22 +18,13 @@ export function SpaceChatSidebarChapter() {
     <>
       {active ? (
         <SpaceChatActiveContainer>
-          <SpaceChatChapterHeader />
-          <p className='text-md font-md text-slate-300'>
-            <span className='font-bold'>Chapter: </span>
-            {chapterListController.state.currentObj?.objective || 'Open-ended'}
-          </p>
-          <p className='font-md text-sm text-slate-300'>
-            {chapterListController.state.currentObj?.description ||
-              'Open-ended'}
-          </p>
-          <HorizontalDivider />
+          <SpaceChatChapterActiveHeader />
           <SpaceChatSidebarChapterSceneList />
           <SpaceChatSidebarSceneAdd />
         </SpaceChatActiveContainer>
       ) : (
         <SpaceChatInactiveContainer>
-          <SpaceChatChapterHeader />
+          <SpaceChatChapterInactiveHeader />
         </SpaceChatInactiveContainer>
       )}
     </>
