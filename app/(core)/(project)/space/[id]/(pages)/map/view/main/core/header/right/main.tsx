@@ -9,7 +9,18 @@ export function SpaceMapHeaderRight() {
 
   return (
     <div className='flex w-1/3 flex-row justify-end space-x-[1rem]'>
-      {mapController.selectedIdeas.length > 0 ? (
+      {mapController.selectedIdeas.length === 0 && (
+        <p className='animate-pulse-slow font-bold text-slate-400'>
+          No ideas selected
+        </p>
+      )}
+      {mapController.selectedIdeas.length > 0 &&
+        mapController.selectedIdeas.length < 3 && (
+          <p className='animate-pulse-slow font-bold text-slate-400'>
+            {3 - mapController.selectedIdeas.length} more ideas needed
+          </p>
+        )}
+      {mapController.selectedIdeas.length >= 3 && (
         <button
           className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
           onClick={() => {
@@ -21,10 +32,6 @@ export function SpaceMapHeaderRight() {
           </p>
           <AstralArrowForwardIcon />
         </button>
-      ) : (
-        <p className='animate-pulse-slow font-bold text-slate-400'>
-          No ideas selected
-        </p>
       )}
     </div>
   );

@@ -1,3 +1,3 @@
 export function PortalTextHeader() {
-  return <img className='h-[5rem]' src='/brand/logo-dark.png' />;
+  return <img className='my-[2rem] h-[5rem]' src='/brand/logo-dark.png' />;
 }

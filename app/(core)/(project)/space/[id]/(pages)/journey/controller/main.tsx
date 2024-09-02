@@ -2,33 +2,31 @@ import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
-  selectedLog: ChapterLogObj | null;
+  selectedLogs: ChapterLogObj[];
   listSceneMode: SpaceJourneySidebarListMode;
-  updateSelectedLog: (idea: ChapterLogObj | null) => void;
+  updateSelectedLogs: (logs: ChapterLogObj[]) => void;
   updateListSceneMode: (mode: SpaceJourneySidebarListMode) => void;
+  checkContainsSelectedLog: (log: ChapterLogObj) => boolean;
 }
 
 export const ContextForSpaceJourney = createContext({} as Controller);
 
-export enum SpaceJourneySidebarMode {
-  MEDIA = 'Media',
-  LIST = 'List',
-}
-
 export enum SpaceJourneySidebarListMode {
-  LINKS = 'LINKS',
+  LINKS = 'Links',
   SCENES = 'Scenes',
 }
 
 export function useControllerForSpaceJourney(): Controller {
-  const [selectedLog, setSelectedLog] = useState<ChapterLogObj | null>(null);
+  const [selectedLogs, setSelectedLogs] = useState<ChapterLogObj[]>([]);
   const [listSceneMode, setListSceneMode] =
     useState<SpaceJourneySidebarListMode>(SpaceJourneySidebarListMode.LINKS);
 
   return {
-    selectedLog: selectedLog,
+    selectedLogs: selectedLogs,
     listSceneMode: listSceneMode,
-    updateSelectedLog: (log) => setSelectedLog(log),
+    updateSelectedLogs: (logs) => setSelectedLogs(logs),
     updateListSceneMode: (mode) => setListSceneMode(mode),
+    checkContainsSelectedLog: (log: ChapterLogObj) =>
+      selectedLogs.map((log) => log.id).includes(log.id),
   };
 }

@@ -12,7 +12,7 @@ export function SpaceJourneyContainer({
         sizeFx='w-full h-full'
         className={`flex flex-col overflow-auto`}
       >
-        <div className='flex h-full w-full flex-col items-center justify-center'>
+        <div className='flex w-full flex-col items-center justify-center p-[2rem]'>
           {children}
         </div>
       </GlassAreaContainer>

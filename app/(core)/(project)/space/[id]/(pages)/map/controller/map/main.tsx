@@ -87,7 +87,7 @@ export function useControllerForSpaceMap(): Controller {
     updateMapMode: (mode) => setMode(mode),
     updateSidebarMode: (mode) => setListMode(mode),
     updateListSceneMode: (mode) => setListSceneMode(mode),
-    checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) =>
-      selectedIdeas.map((idea) => idea.id).includes(ideaObj.id),
+    checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
+      selectedIdeas.map((idea) => idea.id).includes(idea.id),
   };
 }

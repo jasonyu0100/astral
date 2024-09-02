@@ -36,14 +36,14 @@ export function PortalLoginForm() {
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='email@studio.com'
+          placeholder='email'
           emoji='🎧'
           type='text'
         />
         <PortalFormInput
           value={password}
           onChange={(e) => changePassword(e.target.value)}
-          placeholder='Password'
+          placeholder='password'
           emoji='🔒'
           type='password'
         />

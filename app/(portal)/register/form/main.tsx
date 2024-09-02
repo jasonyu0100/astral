@@ -70,21 +70,21 @@ export function PortalRegisterForm() {
         <PortalFormInput
           value={role}
           onChange={(e) => changeRole(e.target.value)}
-          placeholder='Role'
+          placeholder='role'
           emoji='🎧'
           type='text'
         />
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
-          placeholder='Email'
+          placeholder='email'
           emoji='✉️'
           type='text'
         />
         <PortalFormInput
           value={password}
           onChange={(e) => changePassword(e.target.value)}
-          placeholder='Password'
+          placeholder='password'
           type='password'
           emoji='🔒'
         />
@@ -93,7 +93,7 @@ export function PortalRegisterForm() {
           type='password'
           value={rePassword}
           onChange={(e) => changeRePassword(e.target.value)}
-          placeholder='Re-enter password'
+          placeholder='re-enter password'
         />
       </PortalFormBody>
       <PortalFormActionContainer>
