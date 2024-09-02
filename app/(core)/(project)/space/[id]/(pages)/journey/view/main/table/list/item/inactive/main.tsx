@@ -1,6 +1,11 @@
+import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
 import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { exampleFileElems } from '@/(server)/model/elements/file/main';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ContextForUserMain } from '@/(server)/controller/user/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import {
+  ChapterLogStatus,
+  ContextForChapterLogObj,
+} from '@/(server)/model/space/chapter/log/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -15,6 +20,8 @@ export function SpaceJourneyLogTableItemInactive() {
   const index = useContext(ContextForIndexable);
   const log = useContext(ContextForChapterLogObj);
   const logListController = useContext(ContextForChapterLogList);
+  const user = useContext(ContextForUserMain);
+  const linkListController = useContext(ContextForLogLinkList);
   const {
     state: { selectedLogs },
     actions: { checkContainsSelectedLog, updateSelectedLogs },
@@ -71,21 +78,35 @@ export function SpaceJourneyLogTableItemInactive() {
         </div>
         <div></div>
         <div>
-          <p className='text-light text-sm font-bold text-slate-300'>
-            {log.logStatus}
-          </p>
+          <select
+            className='text-light bg-transparent text-sm font-bold text-slate-300 outline-none'
+            value={log.logStatus}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            onChange={(e) => {
+              logListController.actions.editActions.edit(log.id, {
+                logStatus: e.target.value,
+              });
+            }}
+          >
+            <option>{ChapterLogStatus.TODO}</option>
+            <option>{ChapterLogStatus.IN_PROGRESS}</option>
+            <option>{ChapterLogStatus.REVIEW}</option>
+            <option>{ChapterLogStatus.DONE}</option>
+          </select>
         </div>
         <div>
-          <p className='text-light text-sm font-bold text-slate-300'>16</p>
+          <p className='text-light text-sm font-bold text-slate-300'>
+            {linkListController.state.objs.length}
+          </p>
         </div>
         <div className='flex flex-row space-x-[-1.5rem]'>
-          {exampleFileElems.slice(0, 2).map((fileElem) => (
-            <img
-              src={fileElem.src}
-              alt='example'
-              className='aspect-square h-[3rem] w-[3rem] rounded-full'
-            />
-          ))}
+          <img
+            src={user.state?.obj?.dp?.src || exampleFileElem.src}
+            alt='example'
+            className='aspect-square h-[3rem] w-[3rem] rounded-full'
+          />
         </div>
       </GlassWindowContents>
       {selected && <GlassWindowPane glassFx={glassFx['glass-5']} />}

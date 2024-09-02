@@ -2,8 +2,7 @@ import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/lo
 import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
-import { SpaceJourneyLogTableItemActive } from './item/active/main';
-import { SpaceJourneyLogTableItemInactive } from './item/inactive/main';
+import { SpaceJourneyLogTableListItem } from './item/main';
 
 export function SpaceJourneyTableList() {
   const logListController = useContext(ContextForChapterLogList);
@@ -13,11 +12,7 @@ export function SpaceJourneyTableList() {
       {logListController.state.objs.map((log, index) => (
         <ContextForIndexable.Provider value={index}>
           <ContextForChapterLogObj.Provider value={log}>
-            {logListController.actions.stateActions.checkActive(log) ? (
-              <SpaceJourneyLogTableItemActive />
-            ) : (
-              <SpaceJourneyLogTableItemInactive />
-            )}
+            <SpaceJourneyLogTableListItem />
           </ContextForChapterLogObj.Provider>
         </ContextForIndexable.Provider>
       ))}
