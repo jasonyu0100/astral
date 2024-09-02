@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 import { ContextForSpaceMapSidebar } from '../../../../../page';
 
-export function SpaceMapGalleryCollectionsBreadcrumbs() {
+export function SpaceMapGalleryCollectionsBack() {
   const sidebarController = useContext(ContextForSpaceMapSidebar);
 
   return (
@@ -15,7 +15,7 @@ export function SpaceMapGalleryCollectionsBreadcrumbs() {
             sidebarController.actions.goToHome();
           }}
         >
-          Back
+          Back to Home
         </p>
       </GlassWindowContents>
     </GlassWindowFrame>

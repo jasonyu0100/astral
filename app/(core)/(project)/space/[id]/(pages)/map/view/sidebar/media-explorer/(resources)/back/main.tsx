@@ -1,13 +1,11 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 import { ContextForSpaceMapSidebar } from '../../../../../page';
 
-export function SpaceMapResourcesBreadcrumbs() {
+export function SpaceMapResourcesBack() {
   const galleryListController = useContext(ContextForGalleryList);
-  const collectionsListController = useContext(ContextForGalleryCollectionList);
   const sidebarController = useContext(ContextForSpaceMapSidebar);
 
   return (
@@ -22,7 +20,7 @@ export function SpaceMapResourcesBreadcrumbs() {
               );
           }}
         >
-          Back
+          Back to Gallery
         </p>
       </GlassWindowContents>
     </GlassWindowFrame>

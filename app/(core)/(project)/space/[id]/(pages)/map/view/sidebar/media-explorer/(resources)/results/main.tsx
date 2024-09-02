@@ -1,7 +1,7 @@
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { useContext } from 'react';
-import { SpaceMapResourcesBreadcrumbs } from '../breadcrumbs/main';
+import { SpaceMapResourcesBack } from '../back/main';
 import { SpaceMapAddResource } from './add/main';
 import { SpaceMapResourceResource } from './resource/main';
 
@@ -10,7 +10,7 @@ export function SpaceMapResourcesResults() {
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
-      <SpaceMapResourcesBreadcrumbs />
+      <SpaceMapResourcesBack />
       {resourceListController.state.more.queryResults.map((resource) => (
         <ContextForCollectionResourceObj.Provider value={resource}>
           <SpaceMapResourceResource />

@@ -16,7 +16,7 @@ export function SpaceMapSidebarIdeasListItem() {
 
   return (
     <GlassWindowFrame className='aspect-square w-full p-[1rem]'>
-      <GlassWindowContents className='flex h-full w-full flex-col overflow-auto'>
+      <GlassWindowContents className='flex h-full w-full flex-col space-y-[0.5rem] overflow-auto'>
         <div className='flex w-full flex-row items-center justify-between'>
           <div className='font-extraBold text-xl text-slate-300'>
             {idea.title || 'Untitled'}
@@ -44,7 +44,7 @@ export function SpaceMapSidebarIdeasListItem() {
           </div>
         </div>
         <HorizontalDivider />
-        <div className='h-full w-full space-y-[0.5rem] overflow-auto py-[1rem]'>
+        <div className='h-full w-full space-y-[0.5rem] overflow-auto'>
           <p className='text-sm font-light text-slate-300'>
             {idea.description || 'No description'}
           </p>
