@@ -1,5 +1,6 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {
   ContextForSpaceJourney,
   SpaceJourneyDataMode,
@@ -11,6 +12,11 @@ import { SpaceJourneyLogTable } from './table/main';
 
 export function SpaceJourneyMain() {
   const journeyController = useContext(ContextForSpaceJourney);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+
+  useEffect(() => {
+    journeyController.updateDataMode(SpaceJourneyDataMode.TABLE);
+  }, [chapterListController.state.objId]);
 
   return (
     <GlassWindowFrame
@@ -22,7 +28,7 @@ export function SpaceJourneyMain() {
         <SpaceJourneyLogTable />
       )}
       {journeyController.dataMode === SpaceJourneyDataMode.COLUMNS && (
-        <SpaceJourneyKanban />
+        <SpaceJourneyKanban key={chapterListController.state.objId} />
       )}
       <SpaceJourneyChapterNavigation />
     </GlassWindowFrame>

@@ -1,4 +1,3 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import {
   ChapterLogObj,
@@ -14,7 +13,6 @@ import { SpaceProgressList } from './lists/main';
 import { SpaceJourneyKanbanListTitle } from './lists/title/main';
 
 export function SpaceJourneyKanban() {
-  const chapterListController = useContext(ContextForSpaceChapterList);
   const logListController = useContext(ContextForChapterLogList);
   const modalController = useContext(ContextForSpaceJourneyModals);
 
@@ -25,39 +23,27 @@ export function SpaceJourneyKanban() {
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
-    if (!populated && logListController.state.objs.length > 0) {
-      setTodo(
-        logListController.state.objs.filter(
-          (idea) => idea.logStatus === 'todo',
-        ),
-      );
-      setInProgress(
-        logListController.state.objs.filter(
-          (idea) => idea.logStatus === 'in-progress',
-        ),
-      );
-      setInReview(
-        logListController.state.objs.filter(
-          (idea) => idea.logStatus === 'review',
-        ),
-      );
-      setDone(
-        logListController.state.objs.filter(
-          (idea) => idea.logStatus === 'done',
-        ),
-      );
-      setPopulated(true);
-    } else if (logListController.state.objs.length === 0) {
-      setTodo([]);
-      setInProgress([]);
-      setInReview([]);
-      setDone([]);
-    }
+    if (populated) return;
+    setTodo(
+      logListController.state.objs.filter((idea) => idea.logStatus === 'todo'),
+    );
+    setInProgress(
+      logListController.state.objs.filter(
+        (idea) => idea.logStatus === 'in-progress',
+      ),
+    );
+    setInReview(
+      logListController.state.objs.filter(
+        (idea) => idea.logStatus === 'review',
+      ),
+    );
+    setDone(
+      logListController.state.objs.filter((idea) => idea.logStatus === 'done'),
+    );
+    setPopulated(true);
   }, [logListController.state.objs]);
 
   useEffect(() => {
-    setPopulated(false);
-
     const elTodo = document.getElementById('todo');
     const elInProgress = document.getElementById('in-progress');
     const elReview = document.getElementById('review');
@@ -70,21 +56,15 @@ export function SpaceJourneyKanban() {
 
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
-      setTimeout(async () => {
-        await logListController.actions.editActions.edit(itemId, {
-          logStatus: toList,
-        });
-      }, 0);
+      await logListController.actions.editActions.edit(itemId, {
+        logStatus: toList,
+      });
     };
 
     const sortableOptions = {
       group: 'shared', // Set both lists to the same group
       animation: 500,
-      onStart: (evt) => {
-        evt.item.classList.add('dragging'); // Add dragging class on start
-      },
       onEnd: (evt) => {
-        evt.item.classList.remove('dragging'); // Remove dragging class on end
         handleSortEnd(evt); // Handle sort end
       },
     };
@@ -93,14 +73,7 @@ export function SpaceJourneyKanban() {
     Sortable.create(elInProgress, sortableOptions);
     Sortable.create(elReview, sortableOptions);
     Sortable.create(elDone, sortableOptions);
-
-    () => {
-      Sortable.destroy(elTodo);
-      Sortable.destroy(elInProgress);
-      Sortable.destroy(elReview);
-      Sortable.destroy(elDone);
-    };
-  }, [chapterListController.state.currentObj]);
+  }, []);
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
@@ -114,6 +87,11 @@ export function SpaceJourneyKanban() {
               id={ChapterLogStatus.TODO}
               className='min-height-[1000px] w-full space-y-[2rem]'
             >
+              {/* {todo.length === 0 && (
+                <p className='w-full text-center font-bold text-slate-500'>
+                  No items
+                </p>
+              )} */}
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterLogObj.Provider value={log}>
@@ -143,6 +121,11 @@ export function SpaceJourneyKanban() {
               id={ChapterLogStatus.IN_PROGRESS}
               className='min-height-[1000px] w-full space-y-[2rem]'
             >
+              {/* {inProgress.length === 0 && (
+                <p className='w-full text-center font-bold text-slate-500'>
+                  No items
+                </p>
+              )} */}
               {inProgress.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
@@ -161,6 +144,12 @@ export function SpaceJourneyKanban() {
               id={ChapterLogStatus.REVIEW}
               className='min-height-[1000px] w-full space-y-[2rem]'
             >
+              {/* {review.length === 0 && (
+                <p className='w-full text-center font-bold text-slate-500'>
+                  No items
+                </p>
+              )} */}
+
               {review.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
@@ -179,6 +168,12 @@ export function SpaceJourneyKanban() {
               id={ChapterLogStatus.DONE}
               className='min-height-[1000px] w-full space-y-[2rem]'
             >
+              {/* {done.length === 0 && (
+                <p className='w-full text-center font-bold text-slate-500'>
+                  No items
+                </p>
+              )} */}
+
               {done.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
