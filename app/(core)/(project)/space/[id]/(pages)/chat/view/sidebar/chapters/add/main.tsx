@@ -11,7 +11,7 @@ export function SpaceChatSidebarChaptersAdd() {
         modalController.addChapterController.open();
       }}
     >
-      <p className='animate-pulse-slow font-extraBold text-xl text-slate-400'>
+      <p className='animate-pulse-slow font-extraBold text-xl text-slate-300'>
         Add Chapter
       </p>
     </button>

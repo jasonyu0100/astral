@@ -15,7 +15,7 @@ export function SpaceChatChapterInactiveHeader() {
       }
     >
       <div className='flex w-full'>
-        <p className={cn('font-extraBold text-xl text-slate-500')}>
+        <p className={cn('font-extraBold text-xl text-slate-300')}>
           {chapter.title}
         </p>
       </div>
