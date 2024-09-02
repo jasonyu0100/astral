@@ -120,9 +120,10 @@ export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
 
 export enum SpaceTemplate {
   Custom = 'Custom',
-  Company = 'Company',
-  Startup = 'Startup',
   Video = 'Video',
+  Startup = 'Startup',
+  Business = 'Business',
+  MarketingBrand = 'Marketing Brand',
   SocialMediaPost = 'Social Post',
   BlogPost = 'Blog Post',
   ProductLaunch = 'Product Launch',
@@ -138,7 +139,7 @@ export enum SpaceTemplate {
 
 export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
   switch (variant) {
-    case SpaceTemplate.Company:
+    case SpaceTemplate.Business:
       return companyTemplate;
     case SpaceTemplate.Startup:
       return startupTemplate;

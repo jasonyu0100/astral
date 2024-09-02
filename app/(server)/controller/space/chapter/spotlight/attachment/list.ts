@@ -6,6 +6,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
+import { LogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
 import {
   spotlightAttachmentModel,
   SpotlightAttachmentObj,
@@ -32,7 +33,13 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createFromLink: (
+    userId: string,
+    spotlightId: string,
+    link: LogLinkObj,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -238,6 +245,25 @@ const useControllerForSpotlightAttachmentList = (
         userId: '',
         spotlightId: '',
         variant: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromLink: async (
+      userId: string,
+      spotlightId: string,
+      link: LogLinkObj,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        spotlightId: spotlightId,
+        variant: link.variant,
+        textElem: link.textElem,
+        fileElem: link.fileElem,
+        urlElem: link.urlElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

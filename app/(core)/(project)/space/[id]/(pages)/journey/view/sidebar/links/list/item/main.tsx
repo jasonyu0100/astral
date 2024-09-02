@@ -1,5 +1,6 @@
 import { FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
+import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
 import { useContext } from 'react';
 
@@ -20,6 +21,13 @@ export function SpaceJourneySidebarLinksListItem() {
           )}
           {link.fileElem?.variant === FileElemVariant.AUDIO && <></>}
           {link.fileElem?.variant === FileElemVariant.VIDEO && <></>}
+        </>
+      )}
+      {link.variant === ElementVariant.URL && (
+        <>
+          {link.urlElem?.variant === UrlElemVariant.YOUTUBE && (
+            <iframe src={link.urlElem?.url} title='YouTube video player' />
+          )}
         </>
       )}
     </>

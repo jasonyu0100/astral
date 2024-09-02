@@ -10,7 +10,7 @@ import { SpaceJourneyAddUpdateModal } from '../add/update/main';
 import { SpaceJourneyAddFileIdeaModal } from '../idea/file/main';
 import { SpaceJourneyAddUrlIdeaModal } from '../idea/link/main';
 import { SpaceJourneyAddTextIdeaModal } from '../idea/text/main';
-import { SpaceJourneySpotlightModal } from '../synthesise/main';
+import { SpaceJourneySpotlightModal } from '../spotlight/main';
 
 export const ContextForSpaceJourneyModals = createContext(
   {} as SpaceJourneyModals,

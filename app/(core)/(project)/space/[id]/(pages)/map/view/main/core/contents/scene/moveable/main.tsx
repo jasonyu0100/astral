@@ -7,13 +7,11 @@ import Moveable from 'react-moveable';
 import {
   ContextForSpaceMap,
   SpaceMapConnectionMode,
-  SpaceMapIdeaMode,
   SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
 import { parseTransformString } from '../../../../../../utils/transformation/main';
 import { SpaceMapIdeaCollaborators } from './collaborators/main';
 import { SpaceMapIdeaIndicator } from './indicator/main';
-import { SpaceMapIdeaInformation } from './information/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const mapController = useContext(ContextForSpaceMap);
@@ -76,9 +74,6 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {mapController.ideaMode === SpaceMapIdeaMode.INFORMATION && (
-          <SpaceMapIdeaInformation />
-        )}
         {mapController.connectionMode === SpaceMapConnectionMode.DEFAULT && (
           <SpaceMapIdeaIndicator />
         )}

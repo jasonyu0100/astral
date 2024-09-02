@@ -34,13 +34,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createReview(
-    title: string,
-    summary: string,
-    userId: string,
-    chapterId: string,
-  ): Promise<TargetObj>;
-  createSpotlightFromFile(
+  createSpotlight(
     title: string,
     summary: string,
     userId: string,
@@ -261,27 +255,7 @@ const useControllerForChapterSpotlightList = (
       changeId(newObj.id);
       return newObj;
     },
-    createReview: async (
-      title: string,
-      description: string,
-      userId: string,
-      chapterId: string,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        chapterId: chapterId,
-        title: title,
-        description: description,
-        userId: userId,
-        spotlightStatus: ChapterSpotlightStatus.PENDING,
-        summary: description,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushFront(newObj);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createSpotlightFromFile: async (
+    createSpotlight: async (
       title: string,
       description: string,
       userId: string,

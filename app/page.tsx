@@ -1,6 +1,5 @@
 'use client';
 import { PortalBackground } from './(portal)/common/background/main';
-import { AstralFileIcon } from './icons/file/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
 import { GlassWindowContents } from './ui/glass/window/contents/main';
 import { GlassWindowFrame } from './ui/glass/window/main';
@@ -71,7 +70,10 @@ export default function Page() {
           />
         </div>
       </div>
-      <div className='flex w-full flex-row items-center space-x-[2rem]'>
+      <div className='flex w-full flex-col space-y-[1rem]'>
+        <p className='text-xl font-bold text-slate-700'>
+          Supported and powered by
+        </p>
         <svg
           className='w-[20px] w-[20px] xl:w-[70px]'
           xmlns='http://www.w3.org/2000/svg'
@@ -200,9 +202,6 @@ export default function Page() {
             </filter>
           </defs>
         </svg>
-        <p className='text-lg font-bold text-slate-700'>
-          Supported and powered by
-        </p>
       </div>
       <div className='h-[5rem]' />
       <HorizontalDivider />
@@ -218,35 +217,35 @@ export default function Page() {
         <div className='relative h-full w-[1500px]'>
           <div className='absolute z-50 h-full w-full'>
             <div className='absolute left-[0px] top-[100px] h-[200px] w-[200px] bg-yellow-500 p-[1rem] shadow-glow'>
-              <p className='font-bold'>Creativity is</p>
               <p className='font-bold'>- visual</p>
-              <p className='font-bold'>- connected</p>
               <p className='font-bold'>- conversational</p>
-              <p className='font-bold'>- everchanging</p>
+              <p className='font-bold'>- connected</p>
             </div>
-            <div className='absolute left-[1300px] top-[200px] h-[200px] w-[200px] bg-yellow-500 p-[1rem] shadow-glow'>
-              <p className='font-bold'>TODO</p>
-              <p className='font-bold'>1. Create something new</p>
+            <div className='absolute left-[1200px] top-[200px] h-[200px] w-[300px] bg-green-400 p-[1rem] shadow-glow'>
+              <p className='font-bold'>1. Free-flow</p>
+              <p className='font-bold'>2. Insightful</p>
+              <p className='font-bold'>3. Learning</p>
             </div>
             <div className='absolute left-[400px] top-[150px] h-[150px] w-[150px]'>
               <img
-                src='portal/architect-f.png'
-                className='aspect-square w-full rounded-[1rem]'
+                src='portal/dj-m.png'
+                className='aspect-square w-full rounded-[1rem] shadow-glow'
               />
             </div>
-            <div className='absolute left-[550px] top-[450px] h-[200px] w-[200px]'>
-              <p className='text-3xl font-bold text-slate-300'>scaling ideas</p>
+            <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
+              <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
+                non-linear
+              </p>
             </div>
-            <div className='absolute left-[1400px] top-[50px] h-[200px] w-[200px]'>
-              <p className='text-3xl font-bold text-slate-300'>connections</p>
+            <div className='absolute left-[1250px] top-[50px] h-[200px] w-[200px]'>
+              <p className='animate-pulse-slow text-center text-2xl font-bold text-slate-300'>
+                evolving media base
+              </p>
             </div>
             <div className='absolute left-[300px] top-[0px] h-[200px] w-[300px]'>
-              <div className='flex flex-row items-center space-x-[0.5rem]'>
-                <AstralFileIcon />
-                <p className='text-3xl font-bold text-slate-300'>
-                  vibe-song.mp3
-                </p>
-              </div>
+              <p className='animate-pulse-slow text-4xl font-bold text-slate-300'>
+                scalable ideas
+              </p>
             </div>
             <div className='absolute left-[250px] top-[400px] h-[100px] w-[100px]'>
               <img
@@ -260,7 +259,7 @@ export default function Page() {
                 className='h-full w-full rounded-full'
               />
             </div>
-            <div className='absolute left-[800px] top-[0px] aspect-[16/9] w-[400px] bg-black'>
+            <div className='absolute left-[700px] top-[0px] aspect-[16/9] w-[400px] bg-black'>
               <div className='absolute right-[-1.5rem] top-[-0.5rem] h-[2rem] w-[2rem] rounded-full bg-red-500' />
               <img
                 src='/portal/producer-m.png'
@@ -268,7 +267,7 @@ export default function Page() {
               />
             </div>
           </div>
-          <svg className='absolute h-full w-full opacity-30'>
+          <svg className='absolute h-full w-full opacity-50'>
             <line
               x1='150'
               y1='250'
@@ -288,15 +287,7 @@ export default function Page() {
             <line
               x1='350'
               y1='450'
-              x2='1000'
-              y2='200'
-              className='animate-pulse stroke-slate-300 opacity-30'
-              strokeWidth={4}
-            />
-            <line
-              x1='350'
-              y1='450'
-              x2='1000'
+              x2='900'
               y2='200'
               className='animate-pulse stroke-slate-300 opacity-30'
               strokeWidth={2}
@@ -304,15 +295,15 @@ export default function Page() {
             <line
               x1='150'
               y1='250'
-              x2='1000'
+              x2='900'
               y2='200'
               className='animate-pulse stroke-slate-300 opacity-30'
               strokeWidth={2}
             />
             <line
-              x1='1000'
+              x1='900'
               y1='200'
-              x2='1400'
+              x2='1300'
               y2='300'
               className='animate-pulse stroke-slate-300 opacity-30'
               strokeWidth={2}
@@ -371,21 +362,6 @@ export default function Page() {
           roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Blog Post</p>
-            <p className='text-md font-light text-slate-300'>15 minutes</p>
-            <p className='text-sm font-light text-slate-500'>
-              A structured template for planning, writing, and promoting a blog
-              post.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
             <p className='text-xl font-bold text-slate-300'>Product Launch</p>
             <p className='text-md font-light text-slate-300'>5 days</p>
             <p className='text-sm font-light text-slate-500'>
@@ -401,7 +377,7 @@ export default function Page() {
           roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Video</p>
+            <p className='text-xl font-bold text-slate-300'>Video Shoot</p>
             <p className='text-md font-light text-slate-300'>24 hours</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning and executing a video project.
@@ -415,11 +391,13 @@ export default function Page() {
           roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Email Campaign</p>
+            <p className='text-xl font-bold text-slate-300'>
+              Marketing Campaign
+            </p>
             <p className='text-md font-light text-slate-300'>12 hours</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning, creating, and executing an
-              effective email campaign.
+              effective marketing campaign.
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />
@@ -430,10 +408,25 @@ export default function Page() {
           roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Business Plan</p>
+            <p className='text-xl font-bold text-slate-300'>Blog Post</p>
+            <p className='text-md font-light text-slate-300'>15 minutes</p>
+            <p className='text-sm font-light text-slate-500'>
+              A structured template for planning, writing, and promoting a blog
+              post.
+            </p>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        </GlassWindowFrame>
+        <GlassWindowFrame
+          className='h-[200px] w-[300px]'
+          borderFx={borderFx['border-around']}
+          roundedFx={roundedFx.rounded}
+        >
+          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
+            <p className='text-xl font-bold text-slate-300'>Startup</p>
             <p className='text-md font-light text-slate-300'>7 days</p>
             <p className='text-sm font-light text-slate-500'>
-              A comprehensive template for developing a strategic business plan.
+              A comprehensive template for developing a strategic startup plan.
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />

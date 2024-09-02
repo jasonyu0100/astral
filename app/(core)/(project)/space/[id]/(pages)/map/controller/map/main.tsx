@@ -4,7 +4,6 @@ import { createContext, useState } from 'react';
 interface Controller {
   selectedIdeas: SceneIdeaObj[];
   connectionMode: SpaceMapConnectionMode;
-  ideaMode: SpaceMapIdeaMode;
   mapMode: SpaceMapInteractionMode;
   sidebarMode: SpaceMapSidebarMode;
   listSceneMode: SpaceMapSidebarListMode;
@@ -12,7 +11,6 @@ interface Controller {
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
   updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
   updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
-  updateIdeaMode: (mode: SpaceMapIdeaMode) => void;
   updateMapMode: (mode: SpaceMapInteractionMode) => void;
   updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
   updateListSceneMode: (mode: SpaceMapSidebarListMode) => void;
@@ -62,9 +60,6 @@ export function useControllerForSpaceMap(): Controller {
   const [mapMode, setMode] = useState<SpaceMapInteractionMode>(
     SpaceMapInteractionMode.SELECTED,
   );
-  const [ideaMode, setIdeaMode] = useState<SpaceMapIdeaMode>(
-    SpaceMapIdeaMode.DEFAULT,
-  );
   const [listMode, setListMode] = useState<SpaceMapSidebarMode>(
     SpaceMapSidebarMode.LIST,
   );
@@ -76,14 +71,12 @@ export function useControllerForSpaceMap(): Controller {
     connectionMode: connectionMode,
     selectedIdeas: selectedIdeas,
     peopleMode: peopleMode,
-    ideaMode: ideaMode,
     mapMode: mapMode,
     sidebarMode: listMode,
     listSceneMode: listSceneMode,
     updateConnectionMode: (mode) => setConnectionMode(mode),
     updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
     updatePeopleMode: (mode) => setPeopleMode(mode),
-    updateIdeaMode: (mode) => setIdeaMode(mode),
     updateMapMode: (mode) => setMode(mode),
     updateSidebarMode: (mode) => setListMode(mode),
     updateListSceneMode: (mode) => setListSceneMode(mode),

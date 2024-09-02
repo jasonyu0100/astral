@@ -2,7 +2,6 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
-import { AstralInfoIcon } from '@/icons/info/main';
 import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
@@ -11,7 +10,6 @@ import { useContext } from 'react';
 import {
   ContextForSpaceMap,
   SpaceMapConnectionMode,
-  SpaceMapIdeaMode,
   SpaceMapPeopleMode,
   SpaceMapSidebarMode,
 } from '../../../../../controller/map/main';
@@ -54,20 +52,6 @@ export function SpaceMapHeaderLeft() {
             mapController.updateConnectionMode(SpaceMapConnectionMode.BUBBLE);
           } else {
             mapController.updateConnectionMode(SpaceMapConnectionMode.DEFAULT);
-          }
-        }}
-      />
-      <AstralInfoIcon
-        className={
-          mapController.ideaMode === SpaceMapIdeaMode.DEFAULT
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
-        }
-        onClick={() => {
-          if (mapController.ideaMode === SpaceMapIdeaMode.DEFAULT) {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.INFORMATION);
-          } else {
-            mapController.updateIdeaMode(SpaceMapIdeaMode.DEFAULT);
           }
         }}
       />

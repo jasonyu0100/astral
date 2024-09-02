@@ -44,7 +44,7 @@ export function SpaceMapSidebarIdeasListItem() {
           </div>
         </div>
         <HorizontalDivider />
-        <div className='h-full w-full space-y-[0.5rem] overflow-auto'>
+        <div className='h-full w-full space-y-[0.5rem]'>
           <p className='text-sm font-light text-slate-300'>
             {idea.description || 'No description'}
           </p>
@@ -74,6 +74,14 @@ export function SpaceMapSidebarIdeasListItem() {
               </>
             )}
           </>
+        </div>
+        <div className='mt-auto flex flex-row space-x-[1rem]'>
+          <p className='text-sm font-light text-slate-300'>
+            x:{idea.x}, y:{idea.y}
+          </p>
+          <p className='text-sm font-light text-slate-300'>
+            w:{idea.width}, h:{idea.height}
+          </p>
         </div>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />

@@ -8,11 +8,7 @@ export function SpaceMapUrlIdea() {
   return (
     <>
       {ideaObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-        <iframe
-          onDrag={(e) => e.stopPropagation()}
-          src={ideaObj.urlElem?.url}
-          title='YouTube video player'
-        />
+        <iframe src={ideaObj.urlElem?.url} title='YouTube video player' />
       )}
     </>
   );

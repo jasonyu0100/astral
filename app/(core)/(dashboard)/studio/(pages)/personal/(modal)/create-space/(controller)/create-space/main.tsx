@@ -75,7 +75,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [category, changeCategory] = useState(SpaceTemplate.Company);
+  const [category, changeCategory] = useState(SpaceTemplate.Business);
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(
