@@ -17,16 +17,18 @@ import { SpaceMapCollectionResourcesMode } from './media-explorer/(resources)/ma
 
 export function SpaceMapSidebar() {
   const mapSidebarController = useContext(ContextForSpaceMapSidebar);
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { sidebarMode, listSceneMode },
+  } = useContext(ContextForSpaceMap);
 
   return (
     <SpaceMapSidebarContainer>
-      {mapController.sidebarMode === SpaceMapSidebarMode.LIST ? (
+      {sidebarMode === SpaceMapSidebarMode.LIST ? (
         <>
-          {mapController.listSceneMode === SpaceMapSidebarListMode.SCENES && (
+          {listSceneMode === SpaceMapSidebarListMode.SCENES && (
             <SpaceMapSidebarScenes />
           )}
-          {mapController.listSceneMode === SpaceMapSidebarListMode.IDEAS && (
+          {listSceneMode === SpaceMapSidebarListMode.IDEAS && (
             <SpaceMapSidebarIdeas />
           )}
         </>

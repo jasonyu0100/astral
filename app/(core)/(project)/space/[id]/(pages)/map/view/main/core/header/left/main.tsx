@@ -15,72 +15,73 @@ import {
 } from '../../../../../controller/map/main';
 
 export function SpaceMapHeaderLeft() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { selectedIdeas, peopleMode, connectionMode, sidebarMode },
+    actions: { updatePeopleMode, updateConnectionMode, updateSidebarMode },
+  } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralCursorIcon
         className={
-          mapController.selectedIdeas.length === 0
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
+          selectedIdeas.length === 0 ? 'fill-slate-300' : 'fill-blue-500'
         }
       />
       <AstralPersonIcon
         className={
-          mapController.peopleMode === SpaceMapPeopleMode.OFF
+          peopleMode === SpaceMapPeopleMode.OFF
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.peopleMode === SpaceMapPeopleMode.OFF) {
-            mapController.updatePeopleMode(SpaceMapPeopleMode.ON);
+          if (peopleMode === SpaceMapPeopleMode.OFF) {
+            updatePeopleMode(SpaceMapPeopleMode.ON);
           } else {
-            mapController.updatePeopleMode(SpaceMapPeopleMode.OFF);
+            updatePeopleMode(SpaceMapPeopleMode.OFF);
           }
         }}
       />
       <AstralBubbleIcon
         className={
-          mapController.connectionMode === SpaceMapConnectionMode.DEFAULT
+          connectionMode === SpaceMapConnectionMode.DEFAULT
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.connectionMode === SpaceMapConnectionMode.DEFAULT) {
-            mapController.updateConnectionMode(SpaceMapConnectionMode.BUBBLE);
+          if (connectionMode === SpaceMapConnectionMode.DEFAULT) {
+            updateConnectionMode(SpaceMapConnectionMode.BUBBLE);
           } else {
-            mapController.updateConnectionMode(SpaceMapConnectionMode.DEFAULT);
+            updateConnectionMode(SpaceMapConnectionMode.DEFAULT);
           }
         }}
       />
       <PipIndicator />
       <AstralListIcon
         className={
-          mapController.sidebarMode === SpaceMapSidebarMode.MEDIA
+          sidebarMode === SpaceMapSidebarMode.MEDIA
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.sidebarMode === SpaceMapSidebarMode.LIST) {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+          if (sidebarMode === SpaceMapSidebarMode.LIST) {
+            updateSidebarMode(SpaceMapSidebarMode.MEDIA);
           } else {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+            updateSidebarMode(SpaceMapSidebarMode.LIST);
           }
         }}
       />
       <AstralFolderIcon
         className={
-          mapController.sidebarMode === SpaceMapSidebarMode.LIST
+          sidebarMode === SpaceMapSidebarMode.LIST
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (mapController.sidebarMode === SpaceMapSidebarMode.MEDIA) {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.LIST);
+          if (sidebarMode === SpaceMapSidebarMode.MEDIA) {
+            updateSidebarMode(SpaceMapSidebarMode.LIST);
           } else {
-            mapController.updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+            updateSidebarMode(SpaceMapSidebarMode.MEDIA);
           }
         }}
       />

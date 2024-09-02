@@ -10,7 +10,9 @@ import { useContext } from 'react';
 
 export function SpaceMapIdeaIndicator() {
   const index = useContext(ContextForIndexable);
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    actions: { checkContainsSelectedIdea },
+  } = useContext(ContextForSpaceMap);
   const ideaObj = useContext(ContextForSceneIdeaObj);
 
   return (
@@ -22,7 +24,7 @@ export function SpaceMapIdeaIndicator() {
         <GlassWindowContents
           className={cn('flex items-center justify-center rounded-full', {
             'animate-pulse-slow bg-blue-500':
-              mapController.checkContainsSelectedIdea(ideaObj),
+              checkContainsSelectedIdea(ideaObj),
           })}
         >
           <p className='font-bold text-white'>{index + 1}</p>

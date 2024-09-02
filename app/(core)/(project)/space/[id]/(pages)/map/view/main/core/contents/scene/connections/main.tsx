@@ -6,7 +6,9 @@ import {
 } from '../../../../../../controller/map/main';
 
 export function SpaceMapContentsSceneConnections() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { connectionMode },
+  } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const visibleIdeas = ideaListController.state.objs.filter(
     (idea) => idea.visible,
@@ -14,7 +16,7 @@ export function SpaceMapContentsSceneConnections() {
 
   return (
     <svg className='h-full w-full'>
-      {mapController.connectionMode == SpaceMapConnectionMode.DEFAULT && (
+      {connectionMode == SpaceMapConnectionMode.DEFAULT && (
         <>
           {visibleIdeas.map((idea, index) => {
             const previous = visibleIdeas[index - 1] || visibleIdeas.at(-1);

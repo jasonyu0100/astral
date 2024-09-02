@@ -10,7 +10,9 @@ import { SpaceMapMovable } from './moveable/main';
 
 export function SpaceMapScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    actions: { updateSelectedIdeas },
+  } = useContext(ContextForSpaceMap);
   const visibleIdeas = ideaListController.state.objs.filter(
     (idea) => idea.visible,
   );
@@ -18,7 +20,7 @@ export function SpaceMapScene() {
   return (
     <div
       className='relative z-10 h-full w-full'
-      onClick={() => mapController.updateSelectedIdeas([])}
+      onClick={() => updateSelectedIdeas([])}
     >
       {visibleIdeas.map((idea, index) => (
         <ContextForIndexable.Provider value={index}>

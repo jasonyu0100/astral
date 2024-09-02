@@ -11,11 +11,14 @@ import { SpaceJourneyChapterNavigation } from './navigation/main';
 import { SpaceJourneyLogTable } from './table/main';
 
 export function SpaceJourneyMain() {
-  const journeyController = useContext(ContextForSpaceJourney);
+  const {
+    state: { dataMode },
+    actions: { updateDataMode },
+  } = useContext(ContextForSpaceJourney);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   useEffect(() => {
-    journeyController.updateDataMode(SpaceJourneyDataMode.TABLE);
+    updateDataMode(SpaceJourneyDataMode.TABLE);
   }, [chapterListController.state.objId]);
 
   return (
@@ -24,10 +27,8 @@ export function SpaceJourneyMain() {
       className={`flex h-full flex-grow flex-col`}
     >
       <SpaceJourneyHeader />
-      {journeyController.dataMode === SpaceJourneyDataMode.TABLE && (
-        <SpaceJourneyLogTable />
-      )}
-      {journeyController.dataMode === SpaceJourneyDataMode.COLUMNS && (
+      {dataMode === SpaceJourneyDataMode.TABLE && <SpaceJourneyLogTable />}
+      {dataMode === SpaceJourneyDataMode.COLUMNS && (
         <SpaceJourneyKanban key={chapterListController.state.objId} />
       )}
       <SpaceJourneyChapterNavigation />

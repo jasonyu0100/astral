@@ -14,7 +14,10 @@ import { SpaceMapIdeaCollaborators } from './collaborators/main';
 import { SpaceMapIdeaIndicator } from './indicator/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { selectedIdeas, peopleMode, connectionMode },
+    actions: { updateSelectedIdeas, checkContainsSelectedIdea },
+  } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -25,6 +28,8 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const [initialY, setInitialY] = useState(ideaObj.y);
   const [initialScale, setInitialScale] = useState(ideaObj.scale);
   const [initialRotation, setInitialRotation] = useState(ideaObj.rotation);
+
+  const selected = checkContainsSelectedIdea(ideaObj);
 
   function updateViaTransformationObj(transformString: string) {
     const transformationObj = parseTransformString(transformString);
@@ -53,20 +58,17 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
           e.stopPropagation();
           if (hoverableController.hovered) {
             hoverableController.onUnhover();
-            mapController.updateSelectedIdeas(
-              mapController.selectedIdeas.filter(
+            updateSelectedIdeas(
+              selectedIdeas.filter(
                 (selectedIdea) => selectedIdea.id !== ideaObj.id,
               ),
             );
           } else {
             hoverableController.onHover();
-            if (mapController.checkContainsSelectedIdea(ideaObj)) {
+            if (selected) {
               return;
             } else {
-              mapController.updateSelectedIdeas([
-                ...mapController.selectedIdeas,
-                ideaObj,
-              ]);
+              updateSelectedIdeas([...selectedIdeas, ideaObj]);
             }
           }
         }}
@@ -74,21 +76,14 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {mapController.connectionMode === SpaceMapConnectionMode.DEFAULT && (
+        {connectionMode === SpaceMapConnectionMode.DEFAULT && (
           <SpaceMapIdeaIndicator />
         )}
-        {mapController.peopleMode === SpaceMapPeopleMode.ON && (
-          <SpaceMapIdeaCollaborators />
-        )}
+        {peopleMode === SpaceMapPeopleMode.ON && <SpaceMapIdeaCollaborators />}
       </div>
       <Moveable
         ref={moveableRef}
-        target={
-          hoverableController.hovered &&
-          mapController.checkContainsSelectedIdea(ideaObj)
-            ? targetRef
-            : null
-        }
+        target={hoverableController.hovered && selected ? targetRef : null}
         draggable={true}
         scalable={true}
         keepRatio={true}

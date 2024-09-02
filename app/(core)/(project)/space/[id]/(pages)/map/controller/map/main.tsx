@@ -2,12 +2,20 @@ import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
+  state: ControllerState;
+  actions: ControllerActions;
+}
+
+interface ControllerState {
   selectedIdeas: SceneIdeaObj[];
   connectionMode: SpaceMapConnectionMode;
   mapMode: SpaceMapInteractionMode;
   sidebarMode: SpaceMapSidebarMode;
   listSceneMode: SpaceMapSidebarListMode;
   peopleMode: SpaceMapPeopleMode;
+}
+
+interface ControllerActions {
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
   updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
   updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
@@ -68,19 +76,23 @@ export function useControllerForSpaceMap(): Controller {
   );
 
   return {
-    connectionMode: connectionMode,
-    selectedIdeas: selectedIdeas,
-    peopleMode: peopleMode,
-    mapMode: mapMode,
-    sidebarMode: listMode,
-    listSceneMode: listSceneMode,
-    updateConnectionMode: (mode) => setConnectionMode(mode),
-    updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
-    updatePeopleMode: (mode) => setPeopleMode(mode),
-    updateMapMode: (mode) => setMode(mode),
-    updateSidebarMode: (mode) => setListMode(mode),
-    updateListSceneMode: (mode) => setListSceneMode(mode),
-    checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
-      selectedIdeas.map((idea) => idea.id).includes(idea.id),
+    state: {
+      connectionMode: connectionMode,
+      selectedIdeas: selectedIdeas,
+      peopleMode: peopleMode,
+      mapMode: mapMode,
+      sidebarMode: listMode,
+      listSceneMode: listSceneMode,
+    },
+    actions: {
+      updateConnectionMode: (mode) => setConnectionMode(mode),
+      updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
+      updatePeopleMode: (mode) => setPeopleMode(mode),
+      updateMapMode: (mode) => setMode(mode),
+      updateSidebarMode: (mode) => setListMode(mode),
+      updateListSceneMode: (mode) => setListSceneMode(mode),
+      checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
+        selectedIdeas.map((idea) => idea.id).includes(idea.id),
+    },
   };
 }

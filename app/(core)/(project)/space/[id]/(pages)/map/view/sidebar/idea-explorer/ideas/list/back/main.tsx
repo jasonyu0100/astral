@@ -7,7 +7,9 @@ import {
 } from '../../../../../../controller/map/main';
 
 export function SpaceMapSidebarIdeasBack() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    actions: { updateListSceneMode },
+  } = useContext(ContextForSpaceMap);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
@@ -15,7 +17,7 @@ export function SpaceMapSidebarIdeasBack() {
         <p className='cursor-pointer text-sm font-bold text-slate-500'>
           <span
             onClick={() => {
-              mapController.updateListSceneMode(SpaceMapSidebarListMode.SCENES);
+              updateListSceneMode(SpaceMapSidebarListMode.SCENES);
             }}
           >
             Back to Scenes

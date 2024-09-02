@@ -19,7 +19,9 @@ import { ContextForSpaceMap } from '../../controller/map/main';
 
 export function SpaceMapPlanModal() {
   const user = useGlobalUser((state) => state.user);
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { selectedIdeas },
+  } = useContext(ContextForSpaceMap);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -40,7 +42,7 @@ export function SpaceMapPlanModal() {
       title,
       description,
     );
-    mapController.selectedIdeas.forEach(async (idea) => {
+    selectedIdeas.forEach(async (idea) => {
       await linkListController.actions.createActions.createLink(
         user.id,
         log.id,

@@ -12,7 +12,9 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpaceMapSidebarScenesListActiveItem() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    actions: { updateListSceneMode },
+  } = useContext(ContextForSpaceMap);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const scene = useContext(ContextForChapterSceneObj);
@@ -44,9 +46,7 @@ export function SpaceMapSidebarScenesListActiveItem() {
             <div
               className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
               onClick={() => {
-                mapController.updateListSceneMode(
-                  SpaceMapSidebarListMode.IDEAS,
-                );
+                updateListSceneMode(SpaceMapSidebarListMode.IDEAS);
               }}
             >
               View Ideas

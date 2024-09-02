@@ -8,34 +8,35 @@ import {
 } from '../../../../controller/main';
 
 export function SpaceJourneyHeaderLeft() {
-  const journeyController = useContext(ContextForSpaceJourney);
+  const {
+    state: { dataMode },
+    actions: { updateDataMode },
+  } = useContext(ContextForSpaceJourney);
 
   return (
     <div className='flex w-1/3 flex-row space-x-[1rem]'>
       <AstralTableIcon
         onClick={() => {
-          if (journeyController.dataMode === SpaceJourneyDataMode.COLUMNS) {
-            journeyController.updateDataMode(SpaceJourneyDataMode.TABLE);
+          if (dataMode === SpaceJourneyDataMode.COLUMNS) {
+            updateDataMode(SpaceJourneyDataMode.TABLE);
           } else {
-            journeyController.updateDataMode(SpaceJourneyDataMode.COLUMNS);
+            updateDataMode(SpaceJourneyDataMode.COLUMNS);
           }
         }}
         className={cn('fill-slate-300', {
-          'fill-blue-500':
-            journeyController.dataMode === SpaceJourneyDataMode.TABLE,
+          'fill-blue-500': dataMode === SpaceJourneyDataMode.TABLE,
         })}
       />
       <AstralColumnsIcon
         onClick={() => {
-          if (journeyController.dataMode === SpaceJourneyDataMode.COLUMNS) {
-            journeyController.updateDataMode(SpaceJourneyDataMode.TABLE);
+          if (dataMode === SpaceJourneyDataMode.COLUMNS) {
+            updateDataMode(SpaceJourneyDataMode.TABLE);
           } else {
-            journeyController.updateDataMode(SpaceJourneyDataMode.COLUMNS);
+            updateDataMode(SpaceJourneyDataMode.COLUMNS);
           }
         }}
         className={cn('fill-slate-300', {
-          'fill-blue-500':
-            journeyController.dataMode === SpaceJourneyDataMode.COLUMNS,
+          'fill-blue-500': dataMode === SpaceJourneyDataMode.COLUMNS,
         })}
       />
     </div>

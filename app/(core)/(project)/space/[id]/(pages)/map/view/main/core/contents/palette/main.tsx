@@ -8,7 +8,9 @@ import { SpaceMapPaletteDefault } from './default/main';
 import { SpaceMapPaletteSelected } from './selected/main';
 
 export function SpaceMapScenePalette() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    state: { selectedIdeas },
+  } = useContext(ContextForSpaceMap);
 
   return (
     <GlassWindowFrame
@@ -17,7 +19,7 @@ export function SpaceMapScenePalette() {
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex flex-col items-center justify-center space-y-[1rem]'>
-        {mapController.selectedIdeas.length === 0 ? (
+        {selectedIdeas.length === 0 ? (
           <SpaceMapPaletteSelected />
         ) : (
           <SpaceMapPaletteDefault />

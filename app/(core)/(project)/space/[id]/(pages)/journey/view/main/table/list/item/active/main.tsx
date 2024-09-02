@@ -15,8 +15,11 @@ export function SpaceJourneyLogTableItemActive() {
   const index = useContext(ContextForIndexable);
   const log = useContext(ContextForChapterLogObj);
   const logListController = useContext(ContextForChapterLogList);
-  const journeyController = useContext(ContextForSpaceJourney);
-  const selected = journeyController.checkContainsSelectedLog(log);
+  const {
+    state: { selectedLogs },
+    actions: { updateSelectedLogs, checkContainsSelectedLog },
+  } = useContext(ContextForSpaceJourney);
+  const selected = checkContainsSelectedLog(log);
 
   return (
     <GlassWindowFrame className='w-full py-[2rem]'>
@@ -37,16 +40,13 @@ export function SpaceJourneyLogTableItemActive() {
               })}
               onClick={() => {
                 if (selected) {
-                  journeyController.updateSelectedLogs(
-                    journeyController.selectedLogs.filter((selectedLog) => {
+                  updateSelectedLogs(
+                    selectedLogs.filter((selectedLog) => {
                       return selectedLog.id !== log.id;
                     }),
                   );
                 } else {
-                  journeyController.updateSelectedLogs([
-                    ...journeyController.selectedLogs,
-                    log,
-                  ]);
+                  updateSelectedLogs([...selectedLogs, log]);
                 }
               }}
             >

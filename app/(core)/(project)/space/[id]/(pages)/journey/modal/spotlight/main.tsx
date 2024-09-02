@@ -1,6 +1,5 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { useControllerForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
 import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
@@ -23,7 +22,9 @@ import { useContext, useState } from 'react';
 import { ContextForSpaceJourney } from '../../controller/main';
 
 export function SpaceJourneySpotlightModal() {
-  const journeyController = useContext(ContextForSpaceJourney);
+  const {
+    state: { selectedLogs },
+  } = useContext(ContextForSpaceJourney);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spotlightListController = useControllerForChapterSpotlightList(
@@ -37,10 +38,8 @@ export function SpaceJourneySpotlightModal() {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const updateListController = useControllerForSessionUpdateOfChapterList('');
-  const linkListController = useControllerForLogLinkList();
-  const [links, setLinks] = useState<LogLinkObj[]>([]);
-  const [selectedLinks, setSelectedLinks] =
-    useState<LogLinkObj[]>(exampleLogLinks);
+  const [selectedLinks, setSelectedLinks] = useState<LogLinkObj[]>([]);
+  useState<LogLinkObj[]>(exampleLogLinks);
 
   async function createSpotlight() {
     const spotlight =
@@ -87,7 +86,7 @@ export function SpaceJourneySpotlightModal() {
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}
             />
-            {journeyController.selectedLogs.map((log) => (
+            {selectedLogs.map((log) => (
               <div>
                 <label>{log.title}</label>
               </div>

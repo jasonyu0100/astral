@@ -118,33 +118,33 @@ function Page({ params }: { params: { id: string } }) {
   };
 
   return (
-    <ContextForSpaceMap.Provider value={mapController}>
-      <ContextForSpaceMapSidebar.Provider value={sidebarController}>
-        <ContextForLoggedInUserObj.Provider value={user}>
-          <ContextForSpaceMain.Provider value={spaceMainController}>
-            <ContextForSpaceChapterList.Provider value={chapterListController}>
-              <ContextForChapterSceneList.Provider value={sceneListController}>
-                <ContextForSceneIdeaList.Provider value={ideaListController}>
-                  <ContextForGalleryList.Provider value={galleryListController}>
-                    <ContextForGalleryCollectionList.Provider
-                      value={collectionListController}
+    <ContextForSpaceMapSidebar.Provider value={sidebarController}>
+      <ContextForLoggedInUserObj.Provider value={user}>
+        <ContextForSpaceMain.Provider value={spaceMainController}>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForChapterSceneList.Provider value={sceneListController}>
+              <ContextForSceneIdeaList.Provider value={ideaListController}>
+                <ContextForGalleryList.Provider value={galleryListController}>
+                  <ContextForGalleryCollectionList.Provider
+                    value={collectionListController}
+                  >
+                    <ContextForCollectionResourceList.Provider
+                      value={resourceListController}
                     >
-                      <ContextForCollectionResourceList.Provider
-                        value={resourceListController}
-                      >
+                      <ContextForSpaceMap.Provider value={mapController}>
                         <SpaceMapModals>
                           <SpaceMapView />
                         </SpaceMapModals>
-                      </ContextForCollectionResourceList.Provider>
-                    </ContextForGalleryCollectionList.Provider>
-                  </ContextForGalleryList.Provider>
-                </ContextForSceneIdeaList.Provider>
-              </ContextForChapterSceneList.Provider>
-            </ContextForSpaceChapterList.Provider>
-          </ContextForSpaceMain.Provider>
-        </ContextForLoggedInUserObj.Provider>
-      </ContextForSpaceMapSidebar.Provider>
-    </ContextForSpaceMap.Provider>
+                      </ContextForSpaceMap.Provider>
+                    </ContextForCollectionResourceList.Provider>
+                  </ContextForGalleryCollectionList.Provider>
+                </ContextForGalleryList.Provider>
+              </ContextForSceneIdeaList.Provider>
+            </ContextForChapterSceneList.Provider>
+          </ContextForSpaceChapterList.Provider>
+        </ContextForSpaceMain.Provider>
+      </ContextForLoggedInUserObj.Provider>
+    </ContextForSpaceMapSidebar.Provider>
   );
 }
 

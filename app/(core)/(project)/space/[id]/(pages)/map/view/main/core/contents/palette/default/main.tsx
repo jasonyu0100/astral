@@ -5,7 +5,9 @@ import { useContext } from 'react';
 import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
 export function SpaceMapPaletteDefault() {
-  const mapController = useContext(ContextForSpaceMap);
+  const {
+    actions: { updateSelectedIdeas },
+  } = useContext(ContextForSpaceMap);
   const ideaController = useContext(ContextForSceneIdeaList);
 
   return (
@@ -15,7 +17,7 @@ export function SpaceMapPaletteDefault() {
           for (const idea of ideaController.state.objs) {
             ideaController.actions.deleteActions.delete(idea.id);
           }
-          mapController.updateSelectedIdeas([]);
+          updateSelectedIdeas([]);
         }}
       />
       <AstralHideSourceIcon
@@ -25,7 +27,7 @@ export function SpaceMapPaletteDefault() {
               visible: true,
             });
           }
-          mapController.updateSelectedIdeas([]);
+          updateSelectedIdeas([]);
         }}
       />
     </>

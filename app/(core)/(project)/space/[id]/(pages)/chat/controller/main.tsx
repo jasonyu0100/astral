@@ -11,21 +11,21 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useState } from 'react';
 import { ConversationRole, roleDescriptions } from '../data';
 
-export interface SpaceChatController {
-  state: SpaceChatControllerState;
-  actions: SpaceChatControllerActions;
+interface Controller {
+  state: ControllerState;
+  actions: ControllerActions;
 }
 
-export interface SpaceChatControllerState {
+interface ControllerState {
   role: string;
 }
 
-export interface SpaceChatControllerActions {
+interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
   updateRole: (role: string) => void;
 }
 
-export const ContextForSpaceChat = createContext({} as SpaceChatController);
+export const ContextForSpaceChat = createContext({} as Controller);
 
 export function useControllerForSpaceChat() {
   const user = useGlobalUser((state) => state.user);

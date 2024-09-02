@@ -2,8 +2,16 @@ import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
+  state: ControllerState;
+  actions: ControllerActions;
+}
+
+interface ControllerState {
   dataMode: SpaceJourneyDataMode;
   selectedLogs: ChapterLogObj[];
+}
+
+interface ControllerActions {
   updateDataMode: (mode: SpaceJourneyDataMode) => void;
   updateSelectedLogs: (logs: ChapterLogObj[]) => void;
   checkContainsSelectedLog: (log: ChapterLogObj) => boolean;
@@ -23,11 +31,15 @@ export function useControllerForSpaceJourney(): Controller {
   );
 
   return {
-    selectedLogs: selectedLogs,
-    dataMode: dataMode,
-    updateDataMode: (mode) => setDataMode(mode),
-    updateSelectedLogs: (logs) => setSelectedLogs(logs),
-    checkContainsSelectedLog: (log: ChapterLogObj) =>
-      selectedLogs.map((log) => log.id).includes(log.id),
+    state: {
+      selectedLogs: selectedLogs,
+      dataMode: dataMode,
+    },
+    actions: {
+      updateDataMode: (mode) => setDataMode(mode),
+      updateSelectedLogs: (logs) => setSelectedLogs(logs),
+      checkContainsSelectedLog: (log: ChapterLogObj) =>
+        selectedLogs.map((log) => log.id).includes(log.id),
+    },
   };
 }
