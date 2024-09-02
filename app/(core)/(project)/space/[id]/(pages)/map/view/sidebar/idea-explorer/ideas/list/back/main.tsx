@@ -18,7 +18,7 @@ export function SpaceMapSidebarIdeasBack() {
               mapController.updateListSceneMode(SpaceMapSidebarListMode.SCENES);
             }}
           >
-            Back
+            Back to Scenes
           </span>
         </p>
       </GlassWindowContents>
