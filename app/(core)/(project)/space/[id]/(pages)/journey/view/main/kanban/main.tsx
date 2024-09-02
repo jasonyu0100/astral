@@ -1,52 +1,59 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { AstralAddIcon } from '@/icons/add/main';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
+import {
+  ChapterLogObj,
+  ChapterLogStatus,
+  ContextForChapterLogObj,
+} from '@/(server)/model/space/chapter/log/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { ContextForSpaceJourneyModals } from '../../../modal/controller/main';
-import { SpaceProgressAddItem } from './lists/add/main';
 import { SpaceProgressListItem } from './lists/item/main';
 import { SpaceProgressList } from './lists/main';
+import { SpaceJourneyKanbanListTitle } from './lists/title/main';
 
 export function SpaceJourneyKanban() {
-  const ideaListController = useContext(ContextForSceneIdeaList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const logListController = useContext(ContextForChapterLogList);
   const modalController = useContext(ContextForSpaceJourneyModals);
 
-  const [todo, setTodo] = useState([]);
-  const [inProgress, setInProgress] = useState([]);
-  const [review, setInReview] = useState([]);
-  const [done, setDone] = useState([]);
-
+  const [todo, setTodo] = useState<ChapterLogObj[]>([]);
+  const [inProgress, setInProgress] = useState<ChapterLogObj[]>([]);
+  const [review, setInReview] = useState<ChapterLogObj[]>([]);
+  const [done, setDone] = useState<ChapterLogObj[]>([]);
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
-    if (!populated && ideaListController.state.objs.length > 0) {
+    if (!populated && logListController.state.objs.length > 0) {
       setTodo(
-        ideaListController.state.objs.filter((idea) => idea.column === 'todo'),
+        logListController.state.objs.filter(
+          (idea) => idea.logStatus === 'todo',
+        ),
       );
       setInProgress(
-        ideaListController.state.objs.filter(
-          (idea) => idea.column === 'in-progress',
+        logListController.state.objs.filter(
+          (idea) => idea.logStatus === 'in-progress',
         ),
       );
       setInReview(
-        ideaListController.state.objs.filter(
-          (idea) => idea.column === 'review',
+        logListController.state.objs.filter(
+          (idea) => idea.logStatus === 'review',
         ),
       );
       setDone(
-        ideaListController.state.objs.filter((idea) => idea.column === 'done'),
+        logListController.state.objs.filter(
+          (idea) => idea.logStatus === 'done',
+        ),
       );
       setPopulated(true);
-    } else if (ideaListController.state.objs.length === 0) {
+    } else if (logListController.state.objs.length === 0) {
       setTodo([]);
       setInProgress([]);
       setInReview([]);
       setDone([]);
     }
-  }, [ideaListController.state.objs]);
+  }, [logListController.state.objs]);
 
   useEffect(() => {
     setPopulated(false);
@@ -64,8 +71,8 @@ export function SpaceJourneyKanban() {
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
       setTimeout(async () => {
-        await ideaListController.actions.editActions.edit(itemId, {
-          column: toList,
+        await logListController.actions.editActions.edit(itemId, {
+          logStatus: toList,
         });
       }, 0);
     };
@@ -93,154 +100,96 @@ export function SpaceJourneyKanban() {
       Sortable.destroy(elReview);
       Sortable.destroy(elDone);
     };
-  }, [sceneListController.state.currentObj]);
+  }, [chapterListController.state.currentObj]);
 
   return (
-    <>
-      <div style={{ height: 'calc(100% - 8rem)' }}>
-        <div className='grid h-full w-full grid-cols-4 gap-[1rem] p-[2rem]'>
-          <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-            <SpaceProgressList>
-              <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-                <p className='font-bold text-slate-300'>Ideas</p>
-                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-green-500'>
-                  <p className='font-bold text-slate-300'>{todo.length}</p>
-                </div>
-              </div>
-              <ul id='todo' className='w-full space-y-[1rem]'>
-                {todo.map((idea) => (
-                  <li data-id={idea.id} className='drag-item'>
-                    <SpaceProgressListItem>
-                      <p className='font-bold text-slate-300'>
-                        {sceneListController.state.currentObj?.title} -{' '}
-                        {idea.title}
-                      </p>
-                      {idea.variant === ElementVariant.FILE && (
-                        <img src={idea.fileElem?.src} />
-                      )}
-                      {idea.variant === ElementVariant.TEXT && (
-                        <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
-                          {idea.textElem?.text}
-                        </div>
-                      )}
-                      {idea.variant === ElementVariant.URL && (
-                        <iframe
-                          onDrag={(e) => e.stopPropagation()}
-                          src={idea.urlElem?.url}
-                          title='YouTube video player'
-                        />
-                      )}
-                    </SpaceProgressListItem>
+    <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
+      <div className='grid w-full grid-cols-4 gap-[1rem] p-[2rem]'>
+        <div className='flex h-full flex-col space-y-[1rem]'>
+          <SpaceProgressList>
+            <SpaceJourneyKanbanListTitle>Todo</SpaceJourneyKanbanListTitle>
+
+            <HorizontalDivider />
+            <ul
+              id={ChapterLogStatus.TODO}
+              className='min-height-[1000px] w-full space-y-[2rem]'
+            >
+              {todo.map((log) => (
+                <li data-id={log.id} className='drag-item'>
+                  <ContextForChapterLogObj.Provider value={log}>
+                    <SpaceProgressListItem />
+                  </ContextForChapterLogObj.Provider>
+                </li>
+              ))}
+            </ul>
+            {/* <SpaceProgressAddItem
+              onClick={() => {
+                setPopulated(false);
+              }}
+            >
+              <p className='font-bold text-slate-300'>Add Log</p>
+              <AstralAddIcon />
+            </SpaceProgressAddItem> */}
+          </SpaceProgressList>
+        </div>
+        <div className='flex h-full flex-col space-y-[1rem]'>
+          <SpaceProgressList>
+            <SpaceJourneyKanbanListTitle>
+              In-progress
+            </SpaceJourneyKanbanListTitle>
+            <HorizontalDivider />
+
+            <ul
+              id={ChapterLogStatus.IN_PROGRESS}
+              className='min-height-[1000px] w-full space-y-[2rem]'
+            >
+              {inProgress.map((log) => (
+                <ContextForChapterLogObj.Provider value={log}>
+                  <li data-id={log.id} className='drag-item'>
+                    <SpaceProgressListItem />
                   </li>
-                ))}
-              </ul>
-              <SpaceProgressAddItem
-                onClick={() => {
-                  setPopulated(false);
-                  modalController.addTextIdeaController.open();
-                }}
-              >
-                <p className='font-bold text-slate-300'>Add Idea</p>
-                <AstralAddIcon />
-              </SpaceProgressAddItem>
-            </SpaceProgressList>
-          </div>
-          <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-            <SpaceProgressList>
-              <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-                <p className='font-bold text-slate-300'>In Progress</p>
-                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-orange-500'>
-                  <p className='font-bold text-slate-300'>
-                    {inProgress.length}
-                  </p>
-                </div>
-              </div>
-              <ul id='in-progress' className='h-full w-full space-y-[1rem]'>
-                {inProgress.map((idea) => (
-                  <li data-id={idea.id} className='drag-item'>
-                    <SpaceProgressListItem>
-                      <p className='font-bold text-slate-300'>
-                        {sceneListController.state.currentObj?.title} -{' '}
-                        {idea.title}
-                      </p>
-                      {idea.variant === ElementVariant.FILE && (
-                        <img src={idea.fileElem?.src} />
-                      )}
-                      {idea.variant === ElementVariant.TEXT && (
-                        <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
-                          {idea.textElem?.text}
-                        </div>
-                      )}
-                    </SpaceProgressListItem>
+                </ContextForChapterLogObj.Provider>
+              ))}
+            </ul>
+          </SpaceProgressList>
+        </div>
+        <div className='flex h-full flex-col space-y-[1rem]'>
+          <SpaceProgressList>
+            <SpaceJourneyKanbanListTitle>Review</SpaceJourneyKanbanListTitle>
+            <HorizontalDivider />
+            <ul
+              id={ChapterLogStatus.REVIEW}
+              className='min-height-[1000px] w-full space-y-[2rem]'
+            >
+              {review.map((log) => (
+                <ContextForChapterLogObj.Provider value={log}>
+                  <li data-id={log.id} className='drag-item'>
+                    <SpaceProgressListItem />
                   </li>
-                ))}
-              </ul>
-            </SpaceProgressList>
-          </div>
-          <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-            <SpaceProgressList>
-              <div className='flex flex-row items-center justify-between space-x-[1rem]'>
-                <p className='font-bold text-slate-300'>In Review</p>
-                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-red-500'>
-                  <p className='font-bold text-slate-300'>{review.length}</p>
-                </div>
-              </div>
-              <ul id='review' className='h-full w-full space-y-[1rem]'>
-                {review
-                  .filter((idea) => idea.column === 'review')
-                  .map((idea) => (
-                    <li data-id={idea.id} className='drag-item'>
-                      <SpaceProgressListItem>
-                        <p className='font-bold text-slate-300'>
-                          {sceneListController.state.currentObj?.title} -{' '}
-                          {idea.title}
-                        </p>
-                        {idea.variant === ElementVariant.FILE && (
-                          <img src={idea.fileElem?.src} />
-                        )}
-                        {idea.variant === ElementVariant.TEXT && (
-                          <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
-                            {idea.textElem?.text}
-                          </div>
-                        )}
-                      </SpaceProgressListItem>
-                    </li>
-                  ))}
-              </ul>
-            </SpaceProgressList>
-          </div>
-          <div className='flex h-full flex-col space-y-[1rem] overflow-auto'>
-            <SpaceProgressList>
-              <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-                <p className='font-bold text-slate-300'>Done</p>
-                <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
-                  <p className='font-bold text-slate-300'>{review.length}</p>
-                </div>
-              </div>
-              <ul id='done' className='h-full w-full space-y-[1rem]'>
-                {done.map((idea) => (
-                  <li data-id={idea.id} className='drag-item'>
-                    <SpaceProgressListItem>
-                      <p className='font-bold text-slate-300'>
-                        {sceneListController.state.currentObj?.title} -{' '}
-                        {idea.title}
-                      </p>
-                      {idea.variant === ElementVariant.FILE && (
-                        <img src={idea.fileElem?.src} />
-                      )}
-                      {idea.variant === ElementVariant.TEXT && (
-                        <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
-                          {idea.textElem?.text}
-                        </div>
-                      )}
-                    </SpaceProgressListItem>
+                </ContextForChapterLogObj.Provider>
+              ))}
+            </ul>
+          </SpaceProgressList>
+        </div>
+        <div className='flex h-full flex-col space-y-[1rem]'>
+          <SpaceProgressList>
+            <SpaceJourneyKanbanListTitle>Done</SpaceJourneyKanbanListTitle>
+            <HorizontalDivider />
+            <ul
+              id={ChapterLogStatus.DONE}
+              className='min-height-[1000px] w-full space-y-[2rem]'
+            >
+              {done.map((log) => (
+                <ContextForChapterLogObj.Provider value={log}>
+                  <li data-id={log.id} className='drag-item'>
+                    <SpaceProgressListItem />
                   </li>
-                ))}
-              </ul>
-            </SpaceProgressList>
-          </div>
+                </ContextForChapterLogObj.Provider>
+              ))}
+            </ul>
+          </SpaceProgressList>
         </div>
       </div>
-    </>
+    </div>
   );
 }
