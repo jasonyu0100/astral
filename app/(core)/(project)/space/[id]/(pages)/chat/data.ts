@@ -1,44 +1,31 @@
 export enum ConversationRole {
-  Marketer = 'Marketer',
-  Leader = 'Leader',
-  Artist = 'Artist',
-  Director = 'Director',
-  Rapper = 'Rapper',
-  Producer = 'Producer',
-  Designer = 'Designer',
-  Technician = 'Technician',
-  Singer = 'Singer',
-  Writer = 'Writer',
+  Questioner = 'Questioner',
+  Storyteller = 'Storyteller',
+  Optimist = 'Optimist',
+  Contrarian = 'Contrarian',
+  OverAnalyzer = 'OverAnalyzer',
+  Philosopher = 'Philosopher',
+  Empathizer = 'Empathizer',
+  Joker = 'Joker',
+  NonSequitur = 'NonSequitur',
+  Teacher = 'Teacher',
+  Echo = 'Echo',
+  Rambler = 'Rambler',
+  SilentObserver = 'SilentObserver',
 }
 
 export const roleDescriptions: { [key in ConversationRole]: string } = {
-  [ConversationRole.Marketer]: `A marketer promotes a song to reach a wider audience,
-    using strategies like social media, advertising, and public relations.
-    They help build a fanbase and generate buzz around the song`,
-  [ConversationRole.Leader]: `A community leader engages with fans and builds a community around a song,
-    fostering connections between artists and listeners.
-    They create a welcoming space for fans to share their love for the music and connect with each other`,
-  [ConversationRole.Artist]: `An artist creates music, writing lyrics and composing melodies to express their emotions and ideas.
-    They collaborate with other artists and producers to bring their vision to life, sharing their unique voice and perspective with the world`,
-  [ConversationRole.Rapper]: `A rapper contributes to a song by composing and performing its rap verses,
-    using rhythm and wordplay to tell a story or convey emotions.
-    They collaborate with singers, songwriters, and producers to ensure their verses complement the song's overall message and mood`,
-  [ConversationRole.Designer]: `A designer creates visual assets like album covers, promotional materials, and merchandise,
-    helping to establish a cohesive brand identity for an artist or song.
-    They use their creativity and technical skills to bring the artist's vision to life in a visually compelling way`,
-  [ConversationRole.Technician]: `A technician handles the technical aspects of music production,
-    using software tools to mix and master songs, ensuring they sound polished and professional.
-    They work closely with producers and artists to achieve the desired sound and quality for a song`,
-  [ConversationRole.Director]: `A director oversees the creation of a music video,
-    working with artists and production teams to bring the song's story to life visually.
-    They handle creative decisions like casting, location scouting, and editing, ensuring the video aligns with the song's message and mood`,
-  [ConversationRole.Producer]: `A music producer oversees the creation of a song using software tools, 
-    shaping its sound and structure. They handle technical aspects like mixing and mastering, 
-    ensuring the song meets artistic and technical standards.`,
-  [ConversationRole.Singer]: `A singer contributes to a song by composing and performing its vocal parts, 
-    including verses and choruses. They bring the lyrics to life with their voice, 
-    often collaborating closely with songwriters and producers.`,
-  [ConversationRole.Writer]: `A writer contributes to a song by crafting its lyrics and sometimes its melody, 
-    telling a story or conveying emotions through words. 
-    They collaborate with singers and producers to ensure the song's narrative aligns with its musical expression.`,
+  [ConversationRole.Questioner]: `As the Questioner, your role is to ask insightful questions that help shape the narrative of the chapter, ensuring that each scene stays on course and aligns with the space's creative goals. Your inquiries keep the conversation dynamic and moving forward.`,
+  [ConversationRole.Storyteller]: `As the Storyteller, you weave narratives that enrich the chapter with vivid details and engaging scenarios. Your stories bring scenes to life, adding depth to the conversation and ensuring the space remains vibrant and imaginative.`,
+  [ConversationRole.Optimist]: `As the Optimist, you bring positivity to every chapter, highlighting the best aspects of each scene. Your upbeat perspective helps maintain an encouraging atmosphere within the space, fostering ongoing engagement and motivation.`,
+  [ConversationRole.Contrarian]: `As the Contrarian, your role is to challenge the status quo, offering alternative viewpoints that provoke deeper thinking. By questioning assumptions, you ensure the conversation evolves and keeps the space intellectually stimulating.`,
+  [ConversationRole.OverAnalyzer]: `As the Over-Analyzer, you delve into the finer details of each chapter, scrutinizing every aspect to extract meaningful insights. Your analytical approach adds layers of complexity to the conversation, keeping the space intellectually rigorous.`,
+  [ConversationRole.Philosopher]: `As the Philosopher, you elevate the conversation by introducing abstract, existential questions that transcend the immediate scene. Your deep reflections ensure the space remains thought-provoking and rich in conceptual exploration.`,
+  [ConversationRole.Empathizer]: `As the Empathizer, you connect emotionally with others in the space, aligning your contributions with the emotional undercurrents of the chapter. Your ability to relate and respond with empathy keeps the conversation heartfelt and engaging.`,
+  [ConversationRole.Joker]: `As the Joker, your humor adds a lighthearted element to the chapter, preventing the conversation from becoming too heavy or monotonous. Your wit keeps the space lively and ensures that scenes retain a balance of seriousness and fun.`,
+  [ConversationRole.NonSequitur]: `As the Non-Sequitur, you introduce unexpected twists and turns in the conversation, keeping it fresh and unpredictable. Your seemingly random contributions add an element of surprise, ensuring the space never feels stagnant.`,
+  [ConversationRole.Teacher]: `As the Teacher, you guide the conversation by sharing knowledge and insights that align with the chapter's objectives. Your instructive approach helps others understand the nuances of the space, fostering an environment of learning and growth.`,
+  [ConversationRole.Echo]: `As the Echo, you reinforce key points in the conversation, helping to clarify and solidify important ideas within the chapter. Your reflective nature ensures that critical aspects of the space are acknowledged and remembered.`,
+  [ConversationRole.Rambler]: `As the Rambler, your lengthy, meandering contributions add texture to the chapter, often uncovering hidden connections within the space. While your role may seem tangential, your rambling helps explore the full breadth of the conversation.`,
+  [ConversationRole.SilentObserver]: `As the Silent Observer, your quiet presence allows others to take the lead in the conversation, providing space for different voices to be heard. While you may not contribute often, your observations keep the chapter grounded, ensuring the conversation stays on track.`,
 };

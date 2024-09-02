@@ -3,13 +3,15 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
-import { useControllerForConversationMessageSend } from '../../../../controller/message/main';
+import { ContextForSpaceChat } from '../../../../controller/main';
 
 export function SpaceChatInputText() {
   const hoverableController = useControllerForHoverable();
   const messageListController = useContext(ContextForConversationMessageList);
 
-  const { sendMessage } = useControllerForConversationMessageSend();
+  const {
+    actions: { sendMessage },
+  } = useContext(ContextForSpaceChat);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {

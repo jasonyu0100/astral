@@ -8,11 +8,26 @@ import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conve
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useOpenAIController } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useContext } from 'react';
-import { ConversationRole, roleDescriptions } from '../../data';
-import { ContextForIdeaController } from '../../page';
+import { createContext, useContext, useState } from 'react';
+import { ConversationRole, roleDescriptions } from '../data';
 
-export function useControllerForConversationMessageSend() {
+export interface SpaceChatController {
+  state: SpaceChatControllerState;
+  actions: SpaceChatControllerActions;
+}
+
+export interface SpaceChatControllerState {
+  role: string;
+}
+
+export interface SpaceChatControllerActions {
+  sendMessage: () => Promise<ConversationMessageObj>;
+  updateRole: (role: string) => void;
+}
+
+export const ContextForSpaceChat = createContext({} as SpaceChatController);
+
+export function useControllerForSpaceChat() {
   const user = useGlobalUser((state) => state.user);
   const openAi = useOpenAIController();
   const spaceController = useContext(ContextForSpaceMain);
@@ -23,7 +38,9 @@ export function useControllerForConversationMessageSend() {
     ContextForSceneConversationList,
   );
   const updateListController = useControllerForSessionUpdateOfChapterList('');
-  const ideaController = useContext(ContextForIdeaController);
+  const [role, setRole] = useState<ConversationRole>(
+    ConversationRole.Questioner,
+  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -78,8 +95,15 @@ export function useControllerForConversationMessageSend() {
     role: ConversationRole,
   ) {
     const messageHistory = [
-      `You are an agent that sends messages in 3 sentences or less. This is your role ${roleDescriptions[role]}`,
+      `You are an agent that helps the user achieve objectives.`,
+      `This is your role ${roleDescriptions[role]}`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
+      `This is the message history:`,
       ...getMessageHistory(),
+      `Reply to the user message and provide guidance to help them achieve the objective. Always end with a question to keep the conversation alive.`,
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
@@ -119,7 +143,6 @@ export function useControllerForConversationMessageSend() {
         },
       );
 
-    console.log(summary);
     return newConversation;
   }
 
@@ -129,10 +152,7 @@ export function useControllerForConversationMessageSend() {
       const conversationStatus = checkConversationStatus(conversation);
       if (conversationStatus) {
         const newUserMessage = await sendUserMessage(conversation);
-        const agentResponse = await generateAgentResponse(
-          newUserMessage,
-          ideaController.role as ConversationRole,
-        );
+        const agentResponse = await generateAgentResponse(newUserMessage, role);
         const newAgentMessage = await sendAgentMessage(
           'openAi',
           agentResponse,
@@ -156,7 +176,7 @@ export function useControllerForConversationMessageSend() {
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(
       newUserMessage,
-      ideaController.role as ConversationRole,
+      role as ConversationRole,
     );
     const newAgentMessage = await sendAgentMessage(
       'openAi',
@@ -176,6 +196,14 @@ export function useControllerForConversationMessageSend() {
   }
 
   return {
-    sendMessage,
+    state: {
+      role: role,
+    },
+    actions: {
+      sendMessage,
+      updateRole: (role: string) => {
+        setRole(role);
+      },
+    },
   };
 }

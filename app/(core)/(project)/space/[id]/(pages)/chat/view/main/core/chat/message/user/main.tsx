@@ -9,7 +9,7 @@ export function SpaceChatUserMessage() {
   const message = useContext(ContextForConversationMessageObj);
 
   return (
-    <div className=' ml-auto flex max-w-[350px] flex-col'>
+    <div className=' ml-auto flex max-w-[500px] flex-col'>
       <div className='ml-auto flex flex-row items-center'>
         <img
           src={loggedInUser.dp?.src || exampleFileElem.src}
@@ -21,7 +21,7 @@ export function SpaceChatUserMessage() {
         </p>
       </div>
       <div className='ml-auto flex flex-row'>
-        <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-[1rem] text-right lowercase text-white'>
+        <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-[1rem] text-right text-white'>
           {message.message}
         </p>
       </div>

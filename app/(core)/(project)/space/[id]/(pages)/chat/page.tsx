@@ -28,19 +28,13 @@ import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
-import { createContext, useEffect, useState } from 'react';
-import { ConversationRole } from './data';
+import { useEffect } from 'react';
+import {
+  ContextForSpaceChat,
+  useControllerForSpaceChat,
+} from './controller/main';
 import { SpaceChatModals } from './modal/controller/main';
 import { SpaceChatView } from './view/main';
-
-interface Controller {
-  role: string;
-  setRole: (role: string) => void;
-}
-
-export const ContextForIdeaController = createContext<Controller>(
-  {} as Controller,
-);
 
 function Page({ params }: { params: { id: string } }) {
   const setSpace = useGlobalSpace((state) => state.setSpace);
@@ -68,13 +62,7 @@ function Page({ params }: { params: { id: string } }) {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
-
-  const [role, setRole] = useState<string>(ConversationRole.Producer);
-
-  const ideaControllerContext = {
-    role,
-    setRole,
-  };
+  const spaceChatController = useControllerForSpaceChat();
 
   useEffect(() => {
     if (spaceMainController.state.obj) {
@@ -84,29 +72,29 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForIdeaController.Provider value={ideaControllerContext}>
-        <ContextForSpaceMain.Provider value={spaceMainController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForChapterSceneList.Provider value={sceneListController}>
-              <ContextForSceneMemberList.Provider
-                value={sceneMemberListController}
+      <ContextForSpaceMain.Provider value={spaceMainController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForChapterSceneList.Provider value={sceneListController}>
+            <ContextForSceneMemberList.Provider
+              value={sceneMemberListController}
+            >
+              <ContextForSceneConversationList.Provider
+                value={conversationListController}
               >
-                <ContextForSceneConversationList.Provider
-                  value={conversationListController}
+                <ContextForConversationMessageList.Provider
+                  value={messageListController}
                 >
-                  <ContextForConversationMessageList.Provider
-                    value={messageListController}
-                  >
+                  <ContextForSpaceChat.Provider value={spaceChatController}>
                     <SpaceChatModals>
                       <SpaceChatView />
                     </SpaceChatModals>
-                  </ContextForConversationMessageList.Provider>
-                </ContextForSceneConversationList.Provider>
-              </ContextForSceneMemberList.Provider>
-            </ContextForChapterSceneList.Provider>
-          </ContextForSpaceChapterList.Provider>
-        </ContextForSpaceMain.Provider>
-      </ContextForIdeaController.Provider>
+                  </ContextForSpaceChat.Provider>
+                </ContextForConversationMessageList.Provider>
+              </ContextForSceneConversationList.Provider>
+            </ContextForSceneMemberList.Provider>
+          </ContextForChapterSceneList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
 }
