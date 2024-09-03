@@ -1,6 +1,19 @@
 import OpenAI from 'openai';
 
-export const useOpenAIController = () => {
+interface Controller {
+  state: ControllerState;
+  actions: ControllerActions;
+}
+
+interface ControllerState {}
+
+interface ControllerActions {
+  getImageResponse: (prompt: string) => Promise<OpenAI.Images.Image[]>;
+  getMessageResponse: (message: string) => Promise<string | null>;
+  getSummaryResponse: (message: string) => Promise<string | null>;
+}
+
+export const useControllerForOpenAi = (): Controller => {
   const getOpenAiClient = () => {
     const openai = new OpenAI({
       apiKey: process.env.OPEN_AI_APIKEY,
@@ -62,8 +75,11 @@ export const useOpenAIController = () => {
   };
 
   return {
-    getImageResponse,
-    getMessageResponse,
-    getSummaryResponse,
+    state: {},
+    actions: {
+      getImageResponse,
+      getMessageResponse,
+      getSummaryResponse,
+    },
   };
 };

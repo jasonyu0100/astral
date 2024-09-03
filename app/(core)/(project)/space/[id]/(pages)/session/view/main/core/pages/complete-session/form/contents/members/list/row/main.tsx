@@ -1,6 +1,6 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
-import { UserDpElement } from '@/ui/element/user/main';
+import { UserDpElement } from '@/ui/cover/user/main';
 import { useContext } from 'react';
 
 export function SpaceSessionCollaboratorRow({

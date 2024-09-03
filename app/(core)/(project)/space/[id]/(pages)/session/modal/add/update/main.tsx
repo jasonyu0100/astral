@@ -1,7 +1,7 @@
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { glassFx } from '@/style/data';
-import { UserDpElement } from '@/ui/element/user/main';
+import { UserDpElement } from '@/ui/cover/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';

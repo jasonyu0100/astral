@@ -2,7 +2,7 @@
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { HorizonThumbnailElement } from '@/ui/element/horizon/main';
+import { HorizonThumbnailElement } from '@/ui/cover/horizon/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';

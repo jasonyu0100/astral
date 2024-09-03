@@ -1,5 +1,5 @@
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { UserDpElement } from '@/ui/element/user/main';
+import { UserDpElement } from '@/ui/cover/user/main';
 import { useContext } from 'react';
 
 export function SpaceMapIdeaCollaborators() {

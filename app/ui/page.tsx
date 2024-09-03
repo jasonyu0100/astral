@@ -7,9 +7,9 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { HorizonThumbnailElement } from './element/horizon/main';
-import { SpaceThumbnailElement } from './element/space/main';
-import { UserDpElement } from './element/user/main';
+import { HorizonThumbnailElement } from './cover/horizon/main';
+import { SpaceThumbnailElement } from './cover/space/main';
+import { UserDpElement } from './cover/user/main';
 import { FormTextArea } from './form/area/main';
 import { FormBody } from './form/body/main';
 import { FormButton } from './form/button/main';

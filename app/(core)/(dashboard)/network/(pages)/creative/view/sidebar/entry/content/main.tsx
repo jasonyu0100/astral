@@ -1,5 +1,5 @@
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { SpaceThumbnailElement } from '@/ui/element/space/main';
+import { SpaceThumbnailElement } from '@/ui/cover/space/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 
 export function CreativeNetworkSidebarEntryContents() {

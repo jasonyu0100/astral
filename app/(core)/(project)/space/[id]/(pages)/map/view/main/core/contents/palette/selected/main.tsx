@@ -21,7 +21,9 @@ export function SpaceMapPaletteSelected() {
       <AstralSearchIcon
         onClick={() => modalController.addSearchIdeaController.open()}
       />
-      <AstralManufacturingIcon onClick={() => alert('Coming soon...')} />
+      <AstralManufacturingIcon
+        onClick={() => modalController.addGenerateIdeaController.open()}
+      />
     </>
   );
 }

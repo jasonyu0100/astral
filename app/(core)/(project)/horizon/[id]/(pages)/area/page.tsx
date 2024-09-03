@@ -6,7 +6,7 @@ import {
   exampleFileElems,
 } from '@/(server)/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { UserDpElement } from '@/ui/element/user/main';
+import { UserDpElement } from '@/ui/cover/user/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';

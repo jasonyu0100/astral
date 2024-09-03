@@ -3,7 +3,7 @@ import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import {
   SpaceThumbnailElement,
   SpaceThumbnailVariant,
-} from '@/ui/element/space/main';
+} from '@/ui/cover/space/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 

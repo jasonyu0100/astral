@@ -18,6 +18,7 @@ import { JournalRecordView } from './view/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
+
   const galleryController = useControllerForGalleryMain(user.journalId);
   const collectionListController = useControllerForGalleryCollectionList(
     galleryController.state.obj.id,

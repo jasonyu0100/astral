@@ -22,6 +22,7 @@ import { AstralFolderIcon } from './folder/main';
 import { AstralGestureIcon } from './gesture/main';
 import { AstralHideImageIcon } from './hide-image/main';
 import { AstralHideSourceIcon } from './hide-source/main';
+import { AstralHomeIcon } from './home/main';
 import { AstralImageIcon } from './image/main';
 import { AstralInfoIcon } from './info/main';
 import { AstralKanbanIcon } from './kanban/main';
@@ -90,6 +91,7 @@ export default function Page() {
       <AstralKanbanIcon />
       <AstralTimelineIcon />
       <AstralSearchIcon />
+      <AstralHomeIcon />
     </div>
   );
 }

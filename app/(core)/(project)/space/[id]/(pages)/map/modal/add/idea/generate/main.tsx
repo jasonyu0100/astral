@@ -3,12 +3,17 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import {
+  exampleFileElem,
+  FileElem,
+  FileElemVariant,
+} from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { useControllerForOpenAi } from '@/api/controller/openai/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
-import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
@@ -17,22 +22,30 @@ import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpaceMapAddSearchIdeaModal() {
+export function SpaceMapAddGenerateIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
+  const {
+    actions: { getImageResponse },
+  } = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForChapterSceneList);
+  const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('' as string);
+  const [prompt, changePrompt] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
   const [variant, changeVariant] = useState<FileElemVariant>(
     FileElemVariant.IMAGE,
   );
-  const [file, changeFile] = useState({} as FileElem);
   const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   async function createFileIdea() {
+    if (!file.src) {
+      alert('generate an image');
+      return;
+    }
     const idea = await ideaListController.actions.createActions.createFromFile(
       user.id,
       sceneListController.state.objId,
@@ -59,13 +72,29 @@ export function SpaceMapAddSearchIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Search Image</FormTitle>
+          <FormTitle>Generate Image</FormTitle>
           <FormBody>
-            <FormSearchImage
-              fileElem={file}
-              onChange={(file) => changeFile(file)}
-              label='Thumbnail'
-            />
+            <div className='flex flex-row items-center space-x-[1rem]'>
+              <FormInput
+                title='Prompt'
+                placeholder='a unicorn on top of a hill'
+                value={prompt}
+                onChange={(e) => changePrompt(e.target.value)}
+              />
+              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                <AstralArrowForwardIcon
+                  onClick={() => {
+                    getImageResponse(prompt).then((res) => {
+                      changeFile({
+                        ...exampleFileElem,
+                        src: res[0].url || exampleFileElem.src,
+                      });
+                    });
+                  }}
+                />
+              </div>
+            </div>
+            <img src={file.src} />
             <br />
             <HorizontalDivider />
             <br />

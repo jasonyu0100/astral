@@ -6,7 +6,7 @@ import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controlle
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
-import { useOpenAIController } from '@/api/controller/openai/main';
+import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useState } from 'react';
 import { ConversationRole, roleDescriptions } from '../data';
@@ -23,7 +23,7 @@ interface ControllerState {
 interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
   updateRole: (role: ConversationRole) => void;
-  synthesiseConversation: () => Sticky[];
+  synthesiseConversation: () => GeneratedSticky[];
 }
 
 export interface GeneratedSticky {
@@ -34,7 +34,9 @@ export const ContextForSpaceChat = createContext({} as Controller);
 
 export function useControllerForSpaceChat() {
   const user = useGlobalUser((state) => state.user);
-  const openAi = useOpenAIController();
+  const {
+    actions: { getMessageResponse },
+  } = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
@@ -112,8 +114,7 @@ export function useControllerForSpaceChat() {
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
-    const agentResponse =
-      (await openAi.getMessageResponse(messagePrompt)) || '';
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
     return agentResponse;
   }
 
@@ -148,8 +149,7 @@ export function useControllerForSpaceChat() {
     const messagePrompt = messageHistory.join('\n');
 
     console.log(messagePrompt);
-    const agentResponse =
-      (await openAi.getMessageResponse(messagePrompt)) || '';
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
 
     const json = JSON.parse(agentResponse);
 
@@ -162,7 +162,7 @@ export function useControllerForSpaceChat() {
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 
-    const summary = await openAi.getMessageResponse(
+    const summary = await getMessageResponse(
       `Summarise within max 100 characters. ${messageText}`,
     );
 

@@ -3,6 +3,7 @@ import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter
 import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -12,6 +13,7 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 import { spaceMap } from '../../../../map';
@@ -77,6 +79,18 @@ export function SpaceMapPlanModal() {
               onChange={(e) => setDescription(e.target.value)}
               title='Description'
             />
+            <HorizontalDivider />
+            {selectedIdeas.map((idea) => (
+              <>
+                {idea.variant === ElementVariant.FILE && (
+                  <>
+                    <img src={idea.fileElem?.src} />
+                  </>
+                )}
+                {idea.variant === ElementVariant.TEXT && <></>}
+                {idea.variant === ElementVariant.URL && <></>}
+              </>
+            ))}
           </FormBody>
           <FormFooter>
             <FormButton onClick={createLog}>Next</FormButton>

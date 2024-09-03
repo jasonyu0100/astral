@@ -1,30 +1,29 @@
+import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
-import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { AstralHomeIcon } from '@/icons/home/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function JournalRecordHeader() {
+  const user = useGlobalUser((state) => state.user);
   const collectionListController = useContext(ContextForGalleryCollectionList);
 
   return (
     <div className='flex w-full flex-col items-center p-[2rem] shadow-glow'>
       <div className='grid w-full grid-cols-3 items-center'>
-        <div className='justify-self-start'>
-          <div
-            className='cursor-pointer'
+        <div className='flex flex-row space-x-[1rem] justify-self-start'>
+          <AstralHomeIcon
             onClick={() => {
-              collectionListController.actions.stateActions.goPrev();
+              window.location.href = vaultMap.vault.explorer.gallery.id.link(
+                user.journalId,
+              );
             }}
-          >
-            <AstralChevronLeftIcon />
-          </div>
+          />
+          {/* <AstralListIcon onClick={() => {}} /> */}
         </div>
         <div className='justify-self-center'>
-          <p className='text-center text-3xl font-bold text-white'>
-            {collectionListController.state.currentObj?.title || 'Untitled'}
-          </p>
-          <p className='mt-[0.5rem] text-xl font-light text-white'>
+          <p className='text-xl font-bold text-white'>
             {getFormattedDate(
               new Date(
                 collectionListController.state?.currentObj?.created || '',
@@ -32,16 +31,7 @@ export function JournalRecordHeader() {
             )}
           </p>
         </div>
-        <div className='justify-self-end'>
-          <div
-            className='cursor-pointer'
-            onClick={() => {
-              collectionListController.actions.stateActions.goNext();
-            }}
-          >
-            <AstralChevronRightIcon />
-          </div>
-        </div>
+        <div className='justify-self-end'></div>
       </div>
     </div>
   );

@@ -58,7 +58,7 @@ export function SpaceJourneyAddFileIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Media Element</FormTitle>
+          <FormTitle>Upload File</FormTitle>
           <FormBody>
             {/* <FormSelect
               title='Variant'

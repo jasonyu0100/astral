@@ -67,8 +67,12 @@ export function DashboardJournalAddResourceModal() {
         <FormContainer>
           <FormTitle>Add Entry</FormTitle>
           <FormBody>
+            <FormUploadFile
+              label='File'
+              onChange={(file) => changeFile(file)}
+            />
             <FormInput
-              title='Name'
+              title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
@@ -78,10 +82,6 @@ export function DashboardJournalAddResourceModal() {
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}
-            />
-            <FormUploadFile
-              label='File'
-              onChange={(file) => changeFile(file)}
             />
           </FormBody>
           <FormFooter>
