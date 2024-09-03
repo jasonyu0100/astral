@@ -16,7 +16,6 @@ export function SpaceSpotlightMain() {
   );
   const linkListController = useContext(ContextForSpotlightLinkList);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  console.log(attachmentListController.state.objs);
 
   return (
     <div className='flex flex-col space-y-[2rem] p-[4rem]'>
