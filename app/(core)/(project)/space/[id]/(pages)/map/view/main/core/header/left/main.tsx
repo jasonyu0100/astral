@@ -11,12 +11,17 @@ import {
   ContextForSpaceMap,
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
-  SpaceMapSidebarMode,
+  SpaceMapSidebarContentMode,
 } from '../../../../../controller/map/main';
 
 export function SpaceMapHeaderLeft() {
   const {
-    state: { selectedIdeas, peopleMode, connectionMode, sidebarMode },
+    state: {
+      selectedIdeas,
+      peopleMode,
+      connectionMode,
+      sidebarContentMode: sidebarMode,
+    },
     actions: { updatePeopleMode, updateConnectionMode, updateSidebarMode },
   } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -59,29 +64,29 @@ export function SpaceMapHeaderLeft() {
       <PipIndicator />
       <AstralListIcon
         className={
-          sidebarMode === SpaceMapSidebarMode.MEDIA
+          sidebarMode === SpaceMapSidebarContentMode.MEDIA
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (sidebarMode === SpaceMapSidebarMode.LIST) {
-            updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+          if (sidebarMode === SpaceMapSidebarContentMode.LIST) {
+            updateSidebarMode(SpaceMapSidebarContentMode.MEDIA);
           } else {
-            updateSidebarMode(SpaceMapSidebarMode.LIST);
+            updateSidebarMode(SpaceMapSidebarContentMode.LIST);
           }
         }}
       />
       <AstralFolderIcon
         className={
-          sidebarMode === SpaceMapSidebarMode.LIST
+          sidebarMode === SpaceMapSidebarContentMode.LIST
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (sidebarMode === SpaceMapSidebarMode.MEDIA) {
-            updateSidebarMode(SpaceMapSidebarMode.LIST);
+          if (sidebarMode === SpaceMapSidebarContentMode.MEDIA) {
+            updateSidebarMode(SpaceMapSidebarContentMode.LIST);
           } else {
-            updateSidebarMode(SpaceMapSidebarMode.MEDIA);
+            updateSidebarMode(SpaceMapSidebarContentMode.MEDIA);
           }
         }}
       />

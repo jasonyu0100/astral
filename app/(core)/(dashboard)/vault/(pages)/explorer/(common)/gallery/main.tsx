@@ -17,7 +17,7 @@ export function ExplorerGallery() {
   return (
     <Link href={vaultMap.vault.explorer.gallery.id.link(gallery.id)}>
       <ContextForFlippable.Provider value={flippableController}>
-        <GalleryContainer className='w-[200px]'>
+        <GalleryContainer className='w-full'>
           {flippableController.flipped ? (
             <GalleryExplorerBack />
           ) : (

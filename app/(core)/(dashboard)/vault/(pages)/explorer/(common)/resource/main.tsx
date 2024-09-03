@@ -12,14 +12,14 @@ export function ExplorerResource() {
   return (
     <ResourceContainer
       // onClick={flippableController.flip}
-      className='h-[200px]'
+      className='relative w-full'
     >
       {flippableController.flipped ? (
         <CollectionResourceInfo />
       ) : (
         <CollectionResourceMedia />
       )}
-      <p className='mt-[0.5rem] w-full text-center font-extraBold'>
+      <p className='absolute bottom-[1rem] w-full text-center font-extraBold text-xl text-slate-300'>
         {resource.title}
       </p>
     </ResourceContainer>

@@ -19,7 +19,7 @@ export function ExplorerGalleryCollectionsGrid() {
         <ExplorerCreateCollectionModal />
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-        <div className='flex w-full flex-row flex-wrap gap-[2rem]'>
+        <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
           {collectionListController.state.objs.map((collection) => (
             <ContextForGalleryCollectionObj.Provider
               value={collection}

@@ -33,6 +33,7 @@ import { AstralNoteIcon } from './note/main';
 import { AstralPersonIcon } from './person/main';
 import { AstralPlayIcon } from './play/main';
 import { AstralSaveIcon } from './save/main';
+import { AstralSearchIcon } from './search/main';
 import { AstralSendIcon } from './send/main';
 import { AstralShareIcon } from './share/main';
 import { AstralSourceIcon } from './source/main';
@@ -88,6 +89,7 @@ export default function Page() {
       <AstralInfoIcon />
       <AstralKanbanIcon />
       <AstralTimelineIcon />
+      <AstralSearchIcon />
     </div>
   );
 }

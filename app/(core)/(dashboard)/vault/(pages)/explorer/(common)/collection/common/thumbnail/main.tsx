@@ -21,23 +21,23 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
 
   return (
     <GlassWindowFrame
-      className='aspect-[4/3] w-full'
+      className='aspect-[3/2] w-full'
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-all']}
     >
-      <GlassWindowContents className='flex h-full w-full flex-col'>
+      <GlassWindowContents className='flex h-full w-full flex-col  p-[1rem]'>
         {empty === true ? (
           <div className='flex h-full w-full items-center justify-center'>
             <AstralAddIcon className='h-1/2 w-1/2' />
           </div>
         ) : (
           <>
-            <div className='text-md p-[1rem] font-bold text-slate-300'>
+            <div className='pb-[1rem] text-lg font-bold text-slate-500'>
               {collection.state.obj.title || 'Untitled'}
             </div>
-            <div className='flex h-full w-full flex-row flex-wrap items-center justify-center'>
-              {visualResources.map((resource) => (
-                <div className='aspect-square h-1/2' style={{ padding: '2%' }}>
+            <div className='grid w-full grid-cols-3 gap-[1rem]'>
+              {visualResources.slice(0, 6).map((resource) => (
+                <div className='w-full'>
                   {resource.fileElem?.variant === FileElemVariant.IMAGE && (
                     <img
                       alt='thumbnail'

@@ -7,12 +7,14 @@ import { ExplorerGalleryCollectionsGrid } from './grid/main';
 
 export function ExplorerGalleryCollectionsResults() {
   return (
-    <GlassWindowFrame className='h-full flex-grow px-[2rem] pt-[1rem]'>
-      <GlassWindowContents className='flex w-full flex-col overflow-auto'>
-        <ExplorerGalleryCollectionsBreadcrumbs />
-        <ExplorerGalleryCollectionsGrid />
-      </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
-    </GlassWindowFrame>
+    <div style={{ height: '100%', width: '100%' }} className='overflow-auto'>
+      <GlassWindowFrame className='h-full w-full p-[2rem]'>
+        <GlassWindowContents className='flex w-full flex-col'>
+          <ExplorerGalleryCollectionsBreadcrumbs />
+          <ExplorerGalleryCollectionsGrid />
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      </GlassWindowFrame>
+    </div>
   );
 }

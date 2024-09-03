@@ -1,13 +1,10 @@
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,
+  SpaceMapSidebarContentMode,
   SpaceMapSidebarListMode,
-  SpaceMapSidebarMode,
-} from '../../controller/map/main';
-import {
-  ContextForSpaceMapSidebar,
   SpaceMapSidebarMediaMode,
-} from '../../page';
+} from '../../controller/map/main';
 import { SpaceMapSidebarContainer } from './container/main';
 import { SpaceMapSidebarIdeas } from './idea-explorer/ideas/main';
 import { SpaceMapSidebarScenes } from './idea-explorer/scenes/main';
@@ -16,14 +13,13 @@ import { SpaceMapSidebarHomeGallerysMode } from './media-explorer/(home)/main';
 import { SpaceMapCollectionResourcesMode } from './media-explorer/(resources)/main';
 
 export function SpaceMapSidebar() {
-  const mapSidebarController = useContext(ContextForSpaceMapSidebar);
   const {
-    state: { sidebarMode, listSceneMode },
+    state: { sidebarContentMode: sidebarMode, listSceneMode, sidebarMediaMode },
   } = useContext(ContextForSpaceMap);
 
   return (
     <SpaceMapSidebarContainer>
-      {sidebarMode === SpaceMapSidebarMode.LIST ? (
+      {sidebarMode === SpaceMapSidebarContentMode.LIST ? (
         <>
           {listSceneMode === SpaceMapSidebarListMode.SCENES && (
             <SpaceMapSidebarScenes />
@@ -34,14 +30,13 @@ export function SpaceMapSidebar() {
         </>
       ) : (
         <>
-          {mapSidebarController.mode === SpaceMapSidebarMediaMode.Home && (
+          {sidebarMediaMode === SpaceMapSidebarMediaMode.Home && (
             <SpaceMapSidebarHomeGallerysMode />
           )}
-          {mapSidebarController.mode === SpaceMapSidebarMediaMode.Gallery && (
+          {sidebarMediaMode === SpaceMapSidebarMediaMode.Gallery && (
             <SpaceMapGalleryCollectionsMode />
           )}
-          {mapSidebarController.mode ===
-            SpaceMapSidebarMediaMode.Collection && (
+          {sidebarMediaMode === SpaceMapSidebarMediaMode.Collection && (
             <SpaceMapCollectionResourcesMode />
           )}
         </>

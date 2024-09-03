@@ -83,11 +83,11 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <ControllerWrapper>
+                  <SpaceChatControllerWrapper>
                     <SpaceChatModals>
                       <SpaceChatView />
                     </SpaceChatModals>
-                  </ControllerWrapper>
+                  </SpaceChatControllerWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>
@@ -98,7 +98,11 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-function ControllerWrapper({ children }: { children: React.ReactNode }) {
+function SpaceChatControllerWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const spaceChatController = useControllerForSpaceChat();
   return (
     <ContextForSpaceChat.Provider value={spaceChatController}>

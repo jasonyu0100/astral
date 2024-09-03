@@ -9,9 +9,9 @@ export function ArchiveExplorerBreadcrumbs({
   return (
     <GlassWindowFrame
       name={ArchiveExplorerBreadcrumbs.name}
-      className={'w-full flex-shrink-0 pb-[1rem]'}
+      className={'h-[4rem] w-full flex-shrink-0'}
     >
-      <GlassWindowContents className='flex w-full flex-row items-center space-x-[1rem]'>
+      <GlassWindowContents className='flex h-full w-full flex-row items-center space-x-[1rem] pb-[1rem]'>
         {children}
       </GlassWindowContents>
     </GlassWindowFrame>

@@ -14,11 +14,14 @@ export function ArchiveExplorerBreadcrumbItem({
   return (
     <div className='flex flex-col'>
       {active ? (
-        <Link className='animate-pulse font-bold text-slate-300' {...props}>
+        <Link
+          className='animate-pulse text-lg font-bold text-slate-300'
+          {...props}
+        >
           {children}
         </Link>
       ) : (
-        <Link className='font-bold text-slate-500' {...props}>
+        <Link className='text-lg font-bold text-slate-500' {...props}>
           {children}
         </Link>
       )}

@@ -10,7 +10,7 @@ export function ExplorerCollection() {
 
   return (
     <Link href={vaultMap.vault.explorer.collection.id.link(collection.id)}>
-      <CollectionContainer className='w-[300px]'>
+      <CollectionContainer className='w-full'>
         <CollectionThumbnail />
       </CollectionContainer>
     </Link>

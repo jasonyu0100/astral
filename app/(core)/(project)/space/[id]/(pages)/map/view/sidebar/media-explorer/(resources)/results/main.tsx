@@ -1,5 +1,6 @@
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceMapResourcesBack } from '../back/main';
 import { SpaceMapAddResource } from './add/main';
@@ -16,6 +17,7 @@ export function SpaceMapResourcesResults() {
           <SpaceMapResourceResource />
         </ContextForCollectionResourceObj.Provider>
       ))}
+      <HorizontalDivider />
       <SpaceMapAddResource />
     </div>
   );

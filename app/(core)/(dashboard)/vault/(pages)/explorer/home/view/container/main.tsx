@@ -9,8 +9,8 @@ export function ExplorerHomeGallerysContainer({
   return (
     <GlassAreaContainer
       name={ExplorerHomeGallerysContainer.name}
-      sizeFx='flex-grow h-full'
-      className={`"flex flex-col"`}
+      sizeFx='w-full h-full'
+      className={`flex flex-col`}
       glassFx={glassFx['glass-10']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}

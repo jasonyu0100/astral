@@ -1,5 +1,9 @@
+import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
+import { GalleryObj } from '@/(server)/model/gallery/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 interface Controller {
   state: ControllerState;
@@ -10,7 +14,8 @@ interface ControllerState {
   selectedIdeas: SceneIdeaObj[];
   connectionMode: SpaceMapConnectionMode;
   mapMode: SpaceMapInteractionMode;
-  sidebarMode: SpaceMapSidebarMode;
+  sidebarMediaMode: SpaceMapSidebarMediaMode;
+  sidebarContentMode: SpaceMapSidebarContentMode;
   listSceneMode: SpaceMapSidebarListMode;
   peopleMode: SpaceMapPeopleMode;
 }
@@ -20,9 +25,12 @@ interface ControllerActions {
   updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
   updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
   updateMapMode: (mode: SpaceMapInteractionMode) => void;
-  updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
+  updateSidebarMode: (mode: SpaceMapSidebarContentMode) => void;
   updateListSceneMode: (mode: SpaceMapSidebarListMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
+  goToHome: () => void;
+  goToGallery: (gallery: GalleryObj) => void;
+  goToCollection: (collection: GalleryCollectionObj) => void;
 }
 
 export const ContextForSpaceMap = createContext({} as Controller);
@@ -42,7 +50,13 @@ export enum SpaceMapPeopleMode {
   ON = 'ON',
 }
 
-export enum SpaceMapSidebarMode {
+export enum SpaceMapSidebarMediaMode {
+  Home = 'Home',
+  Gallery = 'Gallery',
+  Collection = 'Collection',
+}
+
+export enum SpaceMapSidebarContentMode {
   MEDIA = 'Media',
   LIST = 'List',
 }
@@ -58,6 +72,8 @@ export enum SpaceMapConnectionMode {
 }
 
 export function useControllerForSpaceMap(): Controller {
+  const galleryListController = useContext(ContextForGalleryList);
+  const collectionListController = useContext(ContextForGalleryCollectionList);
   const [selectedIdeas, setSelectedIdeas] = useState<SceneIdeaObj[]>([]);
   const [peopleMode, setPeopleMode] = useState<SpaceMapPeopleMode>(
     SpaceMapPeopleMode.OFF,
@@ -68,11 +84,14 @@ export function useControllerForSpaceMap(): Controller {
   const [mapMode, setMode] = useState<SpaceMapInteractionMode>(
     SpaceMapInteractionMode.SELECTED,
   );
-  const [listMode, setListMode] = useState<SpaceMapSidebarMode>(
-    SpaceMapSidebarMode.LIST,
+  const [listMode, setListMode] = useState<SpaceMapSidebarContentMode>(
+    SpaceMapSidebarContentMode.LIST,
   );
   const [connectionMode, setConnectionMode] = useState<SpaceMapConnectionMode>(
     SpaceMapConnectionMode.DEFAULT,
+  );
+  const [sidebarMediaMode, changeSidebarMediaMode] = useState(
+    SpaceMapSidebarMediaMode.Collection,
   );
 
   return {
@@ -81,7 +100,8 @@ export function useControllerForSpaceMap(): Controller {
       selectedIdeas: selectedIdeas,
       peopleMode: peopleMode,
       mapMode: mapMode,
-      sidebarMode: listMode,
+      sidebarMediaMode: sidebarMediaMode,
+      sidebarContentMode: listMode,
       listSceneMode: listSceneMode,
     },
     actions: {
@@ -93,6 +113,17 @@ export function useControllerForSpaceMap(): Controller {
       updateListSceneMode: (mode) => setListSceneMode(mode),
       checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),
+      goToHome: () => {
+        changeSidebarMediaMode(SpaceMapSidebarMediaMode.Home);
+      },
+      goToGallery: (gallery: GalleryObj) => {
+        galleryListController.actions.stateActions.select(gallery);
+        changeSidebarMediaMode(SpaceMapSidebarMediaMode.Gallery);
+      },
+      goToCollection: (collection: GalleryCollectionObj) => {
+        collectionListController.actions.stateActions.select(collection);
+        changeSidebarMediaMode(SpaceMapSidebarMediaMode.Collection);
+      },
     },
   };
 }

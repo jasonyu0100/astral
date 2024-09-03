@@ -19,7 +19,7 @@ export function ExplorerCollectionResourcesGrid() {
         <ExplorerCreateResourceModal />
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-        <div className='flex w-full flex-row flex-wrap gap-[2rem] '>
+        <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
           {resourcesHandler.state.objs.map((resource) => (
             <ContextForCollectionResourceObj.Provider
               value={resource}

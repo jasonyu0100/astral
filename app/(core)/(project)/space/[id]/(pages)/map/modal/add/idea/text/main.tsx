@@ -63,11 +63,6 @@ export function SpaceMapAddTextIdeaModal() {
               <option value={TextElemVariant.BLOCK}>Block</option>
               <option value={TextElemVariant.CODE}>Code</option>
             </FormSelect> */}
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
             {/* <FormInput
               placeholder='Description'
               title='Description'
@@ -79,6 +74,11 @@ export function SpaceMapAddTextIdeaModal() {
               value={text}
               onChange={(e) => changeText(e.target.value)}
               rows={10}
+            />
+            <FormInput
+              title='Title'
+              value={title}
+              onChange={(e) => changeTitle(e.target.value)}
             />
           </FormBody>
           <FormFooter>

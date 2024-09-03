@@ -5,11 +5,13 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapSidebar } from '../../../../../../page';
+import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
 export function SpaceMapGalleryThumbnail() {
   const gallery = useContext(ContextForGalleryObj);
-  const sidebarController = useContext(ContextForSpaceMapSidebar);
+  const {
+    actions: { goToGallery },
+  } = useContext(ContextForSpaceMap);
   const loggedInUser = useGlobalUser((state) => state.user);
 
   return (
@@ -18,7 +20,7 @@ export function SpaceMapGalleryThumbnail() {
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
-        onClick={() => sidebarController.actions.goToGallery(gallery)}
+        onClick={() => goToGallery(gallery)}
         className='relative h-full w-full cursor-pointer'
       >
         <div className='absolute flex h-full w-full flex-col p-[1rem]'>

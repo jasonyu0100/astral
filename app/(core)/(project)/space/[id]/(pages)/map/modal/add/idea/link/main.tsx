@@ -139,11 +139,6 @@ export function SpaceMapAddUrlIdeaModal() {
               <option value={UrlElemVariant.YOUTUBE}>YouTube</option>
               <option value={UrlElemVariant.SPOTIFY}>Spotify</option>
             </FormSelect> */}
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
             {/* <FormInput
               placeholder='Description'
               title='Description'
@@ -194,6 +189,11 @@ export function SpaceMapAddUrlIdeaModal() {
                 )}
               </>
             )}
+            <FormInput
+              title='Title'
+              value={title}
+              onChange={(e) => changeTitle(e.target.value)}
+            />
           </FormBody>
           <FormFooter>
             <FormButton onClick={createIdea}>Add</FormButton>

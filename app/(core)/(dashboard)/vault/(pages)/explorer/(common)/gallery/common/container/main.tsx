@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { DivInputProps } from '@/types/props/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -16,6 +16,7 @@ export function GalleryContainer({ onClick, children, ...props }: InputProps) {
       roundedFx={roundedFx.rounded}
       name={GalleryContainer.name}
       className={cn(`aspect-[3/2] w-full`, props.className)}
+      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex flex-col' onClick={onClick}>
         {children}

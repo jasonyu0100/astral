@@ -32,7 +32,6 @@ function Page({ params }: { params: { id: string } }) {
   const chapterId = searchParams.get('chapter');
 
   const user = useGlobalUser((state) => state.user);
-  const journeyController = useControllerForSpaceJourney();
   const spaceController = useControllerForSpaceMain(params.id);
   const chapterListController = useControllerForSpaceChapterList(
     params.id,
@@ -48,20 +47,34 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
-      <ContextForSpaceJourney.Provider value={journeyController}>
-        <ContextForSpaceMain.Provider value={spaceController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForChapterLogList.Provider value={logListController}>
-              <ContextForLogLinkList.Provider value={linkListController}>
+      <ContextForSpaceMain.Provider value={spaceController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForChapterLogList.Provider value={logListController}>
+            <ContextForLogLinkList.Provider value={linkListController}>
+              <SpaceJourneyControllerWrapper>
                 <SpaceJourneyModals>
                   <SpaceJourneyView />
                 </SpaceJourneyModals>
-              </ContextForLogLinkList.Provider>
-            </ContextForChapterLogList.Provider>
-          </ContextForSpaceChapterList.Provider>
-        </ContextForSpaceMain.Provider>
-      </ContextForSpaceJourney.Provider>
+              </SpaceJourneyControllerWrapper>
+            </ContextForLogLinkList.Provider>
+          </ContextForChapterLogList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
+  );
+}
+
+function SpaceJourneyControllerWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const journeyController = useControllerForSpaceJourney();
+
+  return (
+    <ContextForSpaceJourney.Provider value={journeyController}>
+      {children}
+    </ContextForSpaceJourney.Provider>
   );
 }
 

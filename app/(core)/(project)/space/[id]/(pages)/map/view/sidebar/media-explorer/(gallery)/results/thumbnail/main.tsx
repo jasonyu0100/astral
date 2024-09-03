@@ -5,14 +5,16 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapSidebar } from '../../../../../../page';
+import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
 export function SpaceMapCollectionThumbnail() {
   const collection = useContext(ContextForGalleryCollectionObj);
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
   );
-  const sidebarController = useContext(ContextForSpaceMapSidebar);
+  const {
+    actions: { goToCollection },
+  } = useContext(ContextForSpaceMap);
 
   return (
     <GlassWindowFrame
@@ -20,7 +22,7 @@ export function SpaceMapCollectionThumbnail() {
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents
-        onClick={() => sidebarController.actions.goToCollection(collection)}
+        onClick={() => goToCollection(collection)}
         className='flex h-full w-full flex-col'
       >
         <p className='w-full px-[1rem] py-[0.5rem] text-sm font-bold text-slate-300'>

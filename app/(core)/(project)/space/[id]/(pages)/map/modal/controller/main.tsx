@@ -9,6 +9,7 @@ import { SpaceMapAddCollectionModal } from '../add/collection/main';
 import { SpaceMapAddGalleryModal } from '../add/gallery/main';
 import { SpaceMapAddFileIdeaModal } from '../add/idea/file/main';
 import { SpaceMapAddUrlIdeaModal } from '../add/idea/link/main';
+import { SpaceMapAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpaceMapAddTextIdeaModal } from '../add/idea/text/main';
 import { SpaceMapAddResourceModal } from '../add/resource/main';
 import { SpaceMapAddSceneModal } from '../add/scene/main';
@@ -25,6 +26,7 @@ export interface SpaceMapModals {
   addTextIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
+  addSearchIdeaController: ContextForOpenableInterface;
   generatePlanController: ContextForOpenableInterface;
 }
 
@@ -38,6 +40,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
   const addResourceController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
   const generatePlanController = useControllerForOpenable();
+  const addSearchIdeaController = useControllerForOpenable();
 
   return (
     <ContextForSpaceMapModals.Provider
@@ -50,6 +53,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
         addTextIdeaController: addTextIdeaController,
         addResourceController: addResourceController,
         addSceneController: addSceneController,
+        addSearchIdeaController: addSearchIdeaController,
         generatePlanController: generatePlanController,
       }}
     >
@@ -77,6 +81,9 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
         <SpaceMapAddSceneModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addSearchIdeaController}>
+        <SpaceMapAddSearchIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generatePlanController}>
         <SpaceMapPlanModal />

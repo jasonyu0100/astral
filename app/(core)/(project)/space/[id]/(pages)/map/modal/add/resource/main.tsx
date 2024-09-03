@@ -7,7 +7,6 @@ import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
 import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
-import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
@@ -49,10 +48,6 @@ export function SpaceMapAddResourceModal() {
               fileElem={file}
               onChange={(file) => changeFile(file)}
               label='Thumbnail'
-            />
-            <FormUploadFile
-              onChange={(file) => changeFile(file)}
-              label='File'
             />
             <br />
             <HorizontalDivider />

@@ -1,10 +1,12 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapSidebar } from '../../../../../page';
+import { ContextForSpaceMap } from '../../../../../controller/map/main';
 
 export function SpaceMapGalleryCollectionsBack() {
-  const sidebarController = useContext(ContextForSpaceMapSidebar);
+  const {
+    actions: { goToHome },
+  } = useContext(ContextForSpaceMap);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
@@ -12,7 +14,7 @@ export function SpaceMapGalleryCollectionsBack() {
         <p
           className='cursor-pointer text-sm font-bold text-slate-500'
           onClick={() => {
-            sidebarController.actions.goToHome();
+            goToHome();
           }}
         >
           Back to Home
