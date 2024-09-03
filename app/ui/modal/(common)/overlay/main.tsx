@@ -13,7 +13,7 @@ export function ModalOverlay({
     <div
       id='ModalOverlay'
       className={cn(
-        'fixed inset-0 z-50 flex h-screen w-screen items-center justify-center',
+        'fixed inset-0 z-40 flex h-screen w-screen items-center justify-center',
         {
           hidden: !isOpen,
         },

@@ -3,6 +3,7 @@ import {
   ContextForOpenableInterface,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
+import { LoadingOverlay } from '@/ui/loading/main';
 import { createContext } from 'react';
 import { SpaceMapAddChapterModal } from '../add/chapter/main';
 import { SpaceMapAddCollectionModal } from '../add/collection/main';
@@ -19,6 +20,7 @@ import { SpaceMapPlanModal } from '../generate/main';
 export const ContextForSpaceMapModals = createContext({} as SpaceMapModals);
 
 export interface SpaceMapModals {
+  loadingController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
   addCollectionController: ContextForOpenableInterface;
   addGalleryController: ContextForOpenableInterface;
@@ -33,6 +35,7 @@ export interface SpaceMapModals {
 }
 
 export function SpaceMapModals({ children }: { children: React.ReactNode }) {
+  const loadingController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
   const addCollectionController = useControllerForOpenable();
   const addGalleryController = useControllerForOpenable();
@@ -48,6 +51,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
   return (
     <ContextForSpaceMapModals.Provider
       value={{
+        loadingController: loadingController,
         addChapterController: addChapterController,
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
@@ -62,6 +66,9 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
+      <ContextForOpenable.Provider value={loadingController}>
+        <LoadingOverlay />
+      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addChapterController}>
         <SpaceMapAddChapterModal />
       </ContextForOpenable.Provider>
