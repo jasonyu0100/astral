@@ -22,7 +22,12 @@ interface ControllerState {
 
 interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
-  updateRole: (role: string) => void;
+  updateRole: (role: ConversationRole) => void;
+  synthesiseConversation: () => Sticky[];
+}
+
+export interface GeneratedSticky {
+  text: string;
 }
 
 export const ContextForSpaceChat = createContext({} as Controller);
@@ -125,6 +130,32 @@ export function useControllerForSpaceChat() {
     );
   }
 
+  async function synthesiseConversation() {
+    const messageHistory = [
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `This is the scene title: ${sceneListController.state.currentObj?.title}`,
+      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
+      `This is the message history:`,
+      ...getMessageHistory(),
+      `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference."`,
+      `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
+      `Return in a JSON format. E.G { insights: [{"text": "Insight 1"}, {"text": "Insight 2"}, {"text": "Insight 3"}] }`,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    console.log(messagePrompt);
+    const agentResponse =
+      (await openAi.getMessageResponse(messagePrompt)) || '';
+
+    const json = JSON.parse(agentResponse);
+
+    return json.insights;
+  }
+
   async function summariseConversation(
     messages: ConversationMessageObj[],
     conversationObj: SceneConversationObj,
@@ -200,8 +231,9 @@ export function useControllerForSpaceChat() {
       role: role,
     },
     actions: {
+      synthesiseConversation,
       sendMessage,
-      updateRole: (role: string) => {
+      updateRole: (role: ConversationRole) => {
         setRole(role);
       },
     },

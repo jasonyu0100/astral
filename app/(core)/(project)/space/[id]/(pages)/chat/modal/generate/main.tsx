@@ -1,10 +1,8 @@
 import { spaceMap } from '@/(core)/(project)/space/[id]/map';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { useOpenAIController } from '@/api/controller/openai/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -14,41 +12,28 @@ import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
+import { ContextForSpaceChat } from '../../controller/main';
 
 export function SpaceChatGenerateSceneModal() {
   const user = useGlobalUser((state) => state.user);
-  const openAi = useOpenAIController();
+  const {
+    actions: { synthesiseConversation },
+  } = useContext(ContextForSpaceChat);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
-  const messageListController = useContext(ContextForConversationMessageList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,
   );
-  const [stickies, setStickies] = useState([]);
-
-  async function generateStickies() {
-    const messagesString = messageListController.state.objs
-      .map((message) => {
-        return message.message;
-      })
-      .join(' ');
-
-    const rawString = await openAi.getMessageResponse(
-      `Summarise the following into 5 steps in JSON array like this {"steps": []}: <message>${messagesString}<message/>`,
-    );
-
-    const rawSteps = (rawString || '')
-      .replace('```json', '')
-      .replace('```', '');
-
-    const jsonObject = JSON.parse(rawSteps || '{ "steps": []}');
-    setStickies(jsonObject['steps']);
-  }
+  const [stickies, setStickies] = useState<string[]>([]);
 
   useEffect(() => {
-    generateStickies();
-  }, []);
+    if (openableController.opened) {
+      synthesiseConversation().then((stickies) => {
+        setStickies(stickies.map((sticky) => sticky.text));
+      });
+    }
+  }, [openableController.opened]);
 
   async function addStickiesToScene() {
     stickies.forEach((sticky, index) => {
@@ -83,9 +68,22 @@ export function SpaceChatGenerateSceneModal() {
           <FormTitle>Generate Map</FormTitle>
           <FormBody>
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              {stickies.map((sticky) => (
+              {stickies.map((sticky, index) => (
                 <div className='aspect-square bg-yellow-500 p-[1rem]'>
-                  <p className='font-bold'>{sticky}</p>
+                  <textarea
+                    className='h-full w-full resize-none bg-transparent font-bold outline-none'
+                    value={sticky}
+                    onChange={(e) => {
+                      setStickies(
+                        stickies.map((s, i) => {
+                          if (i === index) {
+                            return e.target.value;
+                          }
+                          return s;
+                        }),
+                      );
+                    }}
+                  />
                 </div>
               ))}
             </div>

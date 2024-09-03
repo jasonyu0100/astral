@@ -62,7 +62,6 @@ function Page({ params }: { params: { id: string } }) {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
-  const spaceChatController = useControllerForSpaceChat();
 
   useEffect(() => {
     if (spaceMainController.state.obj) {
@@ -84,11 +83,11 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <ContextForSpaceChat.Provider value={spaceChatController}>
+                  <ControllerWrapper>
                     <SpaceChatModals>
                       <SpaceChatView />
                     </SpaceChatModals>
-                  </ContextForSpaceChat.Provider>
+                  </ControllerWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>
@@ -96,6 +95,15 @@ function Page({ params }: { params: { id: string } }) {
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
+  );
+}
+
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
+  const spaceChatController = useControllerForSpaceChat();
+  return (
+    <ContextForSpaceChat.Provider value={spaceChatController}>
+      {children}
+    </ContextForSpaceChat.Provider>
   );
 }
 
