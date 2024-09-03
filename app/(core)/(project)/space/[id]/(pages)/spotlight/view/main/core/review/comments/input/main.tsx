@@ -29,7 +29,7 @@ export function SpaceSpotlightInput() {
       >
         <GlassWindowContents>
           <input
-            className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
+            className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent p-[2rem] font-bold text-slate-300 outline-none'
             placeholder='Venture forth...'
             value={message}
             onChange={(e) => setMessage(e.target.value)}

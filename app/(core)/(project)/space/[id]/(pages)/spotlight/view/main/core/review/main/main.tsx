@@ -1,81 +1,39 @@
+import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
+import { ContextForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
-import {
-  exampleFileElem,
-  exampleFileElems,
-} from '@/(server)/model/elements/file/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { ContextForSpotlightLinkObj } from '@/(server)/model/space/chapter/spotlight/link/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { Carousel } from './carousel/main';
+import { SpaceSpotlightLog } from './log/main';
 
 export function SpaceSpotlightMain() {
   const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const attachmentListController = useContext(
+    ContextForSpotlightAttachmentList,
+  );
+  const linkListController = useContext(ContextForSpotlightLinkList);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
+  console.log(attachmentListController.state.objs);
 
   return (
     <div className='flex flex-col space-y-[2rem] p-[4rem]'>
       <div className='flex w-full flex-row space-x-[4rem]'>
-        <div className='flex w-full flex-row space-x-[2rem]'>
+        <div className='flex h-full w-full flex-row items-center space-x-[2rem]'>
           <Carousel
-            images={[
-              spotlightListController.state.currentObj?.fileElem?.src,
-              ...exampleFileElems.map((elem) => elem.src),
-            ]}
+            images={attachmentListController.state.objs.map(
+              (obj) => obj.fileElem?.src || '',
+            )}
           />
-          {/* <div className='flex flex-col items-center justify-center'>
-            <AstralChevronUpIcon className='h-[3rem] w-[3rem]' />
-            <p className='text-xl font-bold text-slate-500'>100</p>
-            <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
-          </div> */}
         </div>
-        <div className='w-[400px] flex-shrink-0'>
-          <GlassWindowFrame
-            className='flex h-full w-full flex-col p-[2rem]'
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex flex-col space-y-[1rem] overflow-auto'>
-              {/* <GlassWindowFrame
-                className='flex h-[4rem] w-full flex-col'
-                roundedFx={roundedFx.rounded}
-              >
-                <p className='text-xl font-bold text-slate-300'>Title</p>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame>
-              <GlassWindowFrame
-                className='flex h-[4rem] w-full flex-col'
-                roundedFx={roundedFx.rounded}
-              >
-                <p className='text-xl font-bold text-slate-300'>Title</p>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame>
-              <GlassWindowFrame
-                className='flex h-[4rem] w-full flex-col'
-                roundedFx={roundedFx.rounded}
-              >
-                <p className='text-xl font-bold text-slate-300'>Title</p>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame>
-              <GlassWindowFrame
-                className='flex h-[4rem] w-full flex-col'
-                roundedFx={roundedFx.rounded}
-              >
-                <p className='text-xl font-bold text-slate-300'>Title</p>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame>
-              <GlassWindowFrame
-                className='flex h-[4rem] w-full flex-col'
-                roundedFx={roundedFx.rounded}
-              >
-                <p className='text-xl font-bold text-slate-300'>Title</p>
-                <GlassWindowPane glassFx={glassFx['glass-5']} />
-              </GlassWindowFrame> */}
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-5']} />
-          </GlassWindowFrame>
+        <div className='flex max-h-[600px] w-[400px] flex-shrink-0 flex-col space-y-[1rem] overflow-auto'>
+          {linkListController.state.objs.map((link) => (
+            <ContextForSpotlightLinkObj.Provider value={link}>
+              <SpaceSpotlightLog />
+            </ContextForSpotlightLinkObj.Provider>
+          ))}
         </div>
       </div>
       <div className='flex w-full flex-col justify-between space-y-[1rem]'>
@@ -85,14 +43,12 @@ export function SpaceSpotlightMain() {
             src={loggedInUser.dp?.src || exampleFileElem.src}
           />
           <p className='text-2xl font-bold text-slate-300'>
-            Review - {spotlightListController.state.currentObj?.title}
+            {spotlightListController.state.currentObj?.title || 'Untitled'}
           </p>
         </div>
         <p className='text-xl text-slate-300'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          officiis nemo impedit omnis corporis harum inventore quia velit
-          quibusdam! Id architecto, voluptatem quia dolore distinctio tempore
-          optio vero accusamus nam?{' '}
+          {spotlightListController.state.currentObj?.description ||
+            'No description'}
         </p>
         <div className='space-y-[0.5rem]'>
           <p className=' text-sm font-light text-white'>

@@ -6,6 +6,8 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
+import { FileElem } from '@/(server)/model/elements/file/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
 import { LogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
 import {
   spotlightAttachmentModel,
@@ -38,6 +40,11 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     spotlightId: string,
     link: LogLinkObj,
+  ) => Promise<TargetObj>;
+  createFromFile: (
+    userId: string,
+    spotlightId: string,
+    file: FileElem,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -264,6 +271,23 @@ const useControllerForSpotlightAttachmentList = (
         textElem: link.textElem,
         fileElem: link.fileElem,
         urlElem: link.urlElem,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromFile: async (
+      userId: string,
+      spotlightId: string,
+      file: FileElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        spotlightId: spotlightId,
+        variant: ElementVariant.FILE,
+        fileElem: file,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

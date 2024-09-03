@@ -4,9 +4,17 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
+  ContextForSpotlightAttachmentList,
+  useControllerForSpotlightAttachmentList,
+} from '@/(server)/controller/space/chapter/spotlight/attachment/list';
+import {
   ContextForSpotlightCommentList,
   useControllerForSpotlightCommentList,
 } from '@/(server)/controller/space/chapter/spotlight/comment/list';
+import {
+  ContextForSpotlightLinkList,
+  useControllerForSpotlightLinkList,
+} from '@/(server)/controller/space/chapter/spotlight/link/list';
 import {
   ContextForChapterSpotlightList,
   useControllerForChapterSpotlightList,
@@ -40,6 +48,13 @@ function Page({ params }: { params: { id: string } }) {
   const commentListController = useControllerForSpotlightCommentList(
     spotlightListController.state.objId,
   );
+  const attachmentListController = useControllerForSpotlightAttachmentList(
+    spotlightListController.state.objId,
+  );
+
+  const linkListController = useControllerForSpotlightLinkList(
+    spotlightListController.state.objId,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -48,13 +63,21 @@ function Page({ params }: { params: { id: string } }) {
           <ContextForChapterSpotlightList.Provider
             value={spotlightListController}
           >
-            <ContextForSpotlightCommentList.Provider
-              value={commentListController}
+            <ContextForSpotlightAttachmentList.Provider
+              value={attachmentListController}
             >
-              <SpaceSpotlightModals>
-                <SpaceSpotlightView />
-              </SpaceSpotlightModals>
-            </ContextForSpotlightCommentList.Provider>
+              <ContextForSpotlightCommentList.Provider
+                value={commentListController}
+              >
+                <ContextForSpotlightLinkList.Provider
+                  value={linkListController}
+                >
+                  <SpaceSpotlightModals>
+                    <SpaceSpotlightView />
+                  </SpaceSpotlightModals>
+                </ContextForSpotlightLinkList.Provider>
+              </ContextForSpotlightCommentList.Provider>
+            </ContextForSpotlightAttachmentList.Provider>
           </ContextForChapterSpotlightList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
