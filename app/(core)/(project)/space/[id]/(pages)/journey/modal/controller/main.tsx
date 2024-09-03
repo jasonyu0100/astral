@@ -5,6 +5,8 @@ import {
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpaceJourneyAddChapterModal } from '../add/chapter/main';
+import { SpaceJourneyAddFileLinkModal } from '../add/link/file/main';
+import { SpaceJourneyAddTextLinkModal } from '../add/link/text/main';
 import { SpaceJourneyAddSceneModal } from '../add/scene/main';
 import { SpaceJourneyAddUpdateModal } from '../add/update/main';
 import { SpaceJourneyAddFileIdeaModal } from '../idea/file/main';
@@ -24,6 +26,8 @@ export interface SpaceJourneyModals {
   addFileIdeaController: ContextForOpenableInterface;
   addUrlIdeaController: ContextForOpenableInterface;
   addTextIdeaController: ContextForOpenableInterface;
+  addTextLinkController: ContextForOpenableInterface;
+  addFileLinkController: ContextForOpenableInterface;
 }
 
 export function SpaceJourneyModals({
@@ -38,6 +42,8 @@ export function SpaceJourneyModals({
   const addFileIdeaController = useControllerForOpenable();
   const addUrlIdeaController = useControllerForOpenable();
   const addTextIdeaController = useControllerForOpenable();
+  const addFileLinkController = useControllerForOpenable();
+  const addTextLinkController = useControllerForOpenable();
 
   return (
     <ContextForSpaceJourneyModals.Provider
@@ -49,6 +55,8 @@ export function SpaceJourneyModals({
         addFileIdeaController: addFileIdeaController,
         addUrlIdeaController: addUrlIdeaController,
         addTextIdeaController: addTextIdeaController,
+        addFileLinkController: addFileLinkController,
+        addTextLinkController: addTextLinkController,
       }}
     >
       {children}
@@ -72,6 +80,12 @@ export function SpaceJourneyModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextIdeaController}>
         <SpaceJourneyAddTextIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addTextLinkController}>
+        <SpaceJourneyAddTextLinkModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addFileLinkController}>
+        <SpaceJourneyAddFileLinkModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceJourneyModals.Provider>
   );

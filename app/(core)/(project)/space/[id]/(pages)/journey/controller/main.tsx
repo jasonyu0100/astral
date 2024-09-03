@@ -7,11 +7,13 @@ interface Controller {
 }
 
 interface ControllerState {
+  sidebarMode: SpaceJourneySidebarMode;
   dataMode: SpaceJourneyDataMode;
   selectedLogs: ChapterLogObj[];
 }
 
 interface ControllerActions {
+  updateSidebarMode: (mode: any) => void;
   updateDataMode: (mode: SpaceJourneyDataMode) => void;
   updateSelectedLogs: (logs: ChapterLogObj[]) => void;
   checkContainsSelectedLog: (log: ChapterLogObj) => boolean;
@@ -24,18 +26,28 @@ export enum SpaceJourneyDataMode {
   COLUMNS = 'Columns',
 }
 
+export enum SpaceJourneySidebarMode {
+  IDEAS = 'IDEAS',
+  NOTES = 'NOTES',
+}
+
 export function useControllerForSpaceJourney(): Controller {
   const [selectedLogs, setSelectedLogs] = useState<ChapterLogObj[]>([]);
   const [dataMode, setDataMode] = useState<SpaceJourneyDataMode>(
     SpaceJourneyDataMode.TABLE,
   );
+  const [sidebarMode, setSidebarMode] = useState<SpaceJourneySidebarMode>(
+    SpaceJourneySidebarMode.IDEAS,
+  );
 
   return {
     state: {
+      sidebarMode: sidebarMode,
       selectedLogs: selectedLogs,
       dataMode: dataMode,
     },
     actions: {
+      updateSidebarMode: (mode) => setSidebarMode(mode),
       updateDataMode: (mode) => setDataMode(mode),
       updateSelectedLogs: (logs) => setSelectedLogs(logs),
       checkContainsSelectedLog: (log: ChapterLogObj) =>

@@ -6,6 +6,9 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
+import { FileElem } from '@/(server)/model/elements/file/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { TextElem } from '@/(server)/model/elements/text/main';
 import {
   logLinkModel,
   LogLinkObj,
@@ -38,6 +41,20 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     logId: string,
     idea: SceneIdeaObj,
+  ) => Promise<TargetObj>;
+  createFromFile: (
+    userId: string,
+    logId: string,
+    title: string,
+    description: string,
+    file: FileElem,
+  ) => Promise<TargetObj>;
+  createFromText: (
+    userId: string,
+    logId: string,
+    title: string,
+    description: string,
+    text: TextElem,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -247,6 +264,48 @@ const useControllerForLogLinkList = (
         title: '',
         description: '',
         variant: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromFile: async (
+      userId: string,
+      logId: string,
+      title: string,
+      description: string,
+      file: FileElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        logId: logId,
+        title: title,
+        description: description,
+        variant: ElementVariant.FILE,
+        fileElem: file,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      stateActions.pushBack(newObj);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromText: async (
+      userId: string,
+      logId: string,
+      title: string,
+      description: string,
+      text: TextElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        logId: logId,
+        title: title,
+        description: description,
+        variant: ElementVariant.TEXT,
+        textElem: text,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       stateActions.pushBack(newObj);

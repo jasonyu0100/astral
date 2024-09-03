@@ -538,6 +538,7 @@ input CreateSpaceMemberTermsObjInput {
 input CreateSpaceObjInput {
   userId: String!
   galleryId: String!
+  collectionId: String!
   title: String!
   thumbnail: FileElemInput
   created: String!
@@ -556,6 +557,9 @@ input CreateSpotlightAttachmentObjInput {
   spotlightId: String!
   created: String!
   variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input CreateSpotlightCommentObjInput {
@@ -1295,6 +1299,7 @@ type SpaceMemberTermsObjConnection {
 type SpaceObj {
   id: String!
   galleryId: String!
+  collectionId: String!
   userId: String!
   title: String!
   created: String!
@@ -1787,6 +1792,7 @@ input TableSpaceMemberTermsObjFilterInput {
 input TableSpaceObjFilterInput {
   id: TableStringFilterInput
   galleryId: TableStringFilterInput
+  collectionId: TableStringFilterInput
   userId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
@@ -2321,6 +2327,7 @@ input UpdateSpaceObjInput {
   id: String!
   userId: String
   galleryId: String
+  collectionId: String
   title: String
   thumbnail: FileElemInput
   created: String
@@ -2340,6 +2347,9 @@ input UpdateSpotlightAttachmentObjInput {
   spotlightId: String
   created: String
   variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
 input UpdateSpotlightCommentObjInput {
