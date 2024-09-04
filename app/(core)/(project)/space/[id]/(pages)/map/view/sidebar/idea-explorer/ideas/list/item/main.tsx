@@ -1,5 +1,4 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { AstralSourceIcon } from '@/icons/source/main';
@@ -9,6 +8,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
+import { ElementIdeaDetailsPreview } from '../../../../../../../../../../../../ui/element/idea/details/main';
 
 export function SpaceMapSidebarIdeasListItem() {
   const idea = useContext(ContextForSceneIdeaObj);
@@ -48,32 +48,7 @@ export function SpaceMapSidebarIdeasListItem() {
           <p className='text-sm font-light text-slate-300'>
             {idea.description || 'No description'}
           </p>
-          <>
-            {idea.variant === ElementVariant.URL && (
-              <>
-                <p className='w-full text-sm font-light text-slate-300'>
-                  {idea.urlElem?.url}
-                </p>
-              </>
-            )}
-            {idea.variant === ElementVariant.TEXT && (
-              <>
-                <p className='w-full text-sm font-light text-slate-300'>
-                  {idea.textElem?.text}
-                </p>
-              </>
-            )}
-            {idea.variant === ElementVariant.FILE && (
-              <>
-                <p className='w-full text-sm font-light text-slate-300'>
-                  {idea.fileElem?.src}
-                </p>
-                <p className='w-full text-sm font-light text-slate-300'>
-                  {idea.fileElem?.variant}
-                </p>
-              </>
-            )}
-          </>
+          <ElementIdeaDetailsPreview />
         </div>
         <div className='mt-auto flex flex-row space-x-[1rem]'>
           <p className='text-sm font-light text-slate-300'>

@@ -5,6 +5,7 @@ import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
+import { AstralSortIcon } from '@/icons/sort/main';
 import { PipIndicator } from '@/ui/indicator/pip/main';
 import { useContext } from 'react';
 import {
@@ -22,7 +23,12 @@ export function SpaceMapHeaderLeft() {
       connectionMode,
       sidebarContentMode: sidebarMode,
     },
-    actions: { updatePeopleMode, updateConnectionMode, updateSidebarMode },
+    actions: {
+      updatePeopleMode,
+      updateConnectionMode,
+      updateSidebarMode,
+      autoSort,
+    },
   } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
@@ -91,6 +97,7 @@ export function SpaceMapHeaderLeft() {
         }}
       />
       <PipIndicator />
+      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

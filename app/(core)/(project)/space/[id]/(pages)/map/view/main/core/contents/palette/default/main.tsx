@@ -6,6 +6,7 @@ import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
 export function SpaceMapPaletteDefault() {
   const {
+    state: { selectedIdeas },
     actions: { updateSelectedIdeas },
   } = useContext(ContextForSpaceMap);
   const ideaController = useContext(ContextForSceneIdeaList);
@@ -14,19 +15,19 @@ export function SpaceMapPaletteDefault() {
     <>
       <AstralDeleteIcon
         onClick={() => {
-          for (const idea of ideaController.state.objs) {
+          selectedIdeas.forEach((idea) => {
             ideaController.actions.deleteActions.delete(idea.id);
-          }
+          });
           updateSelectedIdeas([]);
         }}
       />
       <AstralHideSourceIcon
         onClick={() => {
-          for (const idea of ideaController.state.objs) {
+          selectedIdeas.forEach((idea) => {
             ideaController.actions.editActions.edit(idea.id, {
               visible: true,
             });
-          }
+          });
           updateSelectedIdeas([]);
         }}
       />

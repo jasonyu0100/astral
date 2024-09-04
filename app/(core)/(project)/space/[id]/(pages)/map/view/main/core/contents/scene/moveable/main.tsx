@@ -9,7 +9,7 @@ import {
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
-import { parseTransformString } from '../../../../../../utils/transformation/main';
+import { parseTransformString } from '../../../../../../utils/main';
 import { SpaceMapIdeaCollaborators } from './collaborators/main';
 import { SpaceMapIdeaIndicator } from './indicator/main';
 
@@ -48,6 +48,7 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
         className={`element absolute cursor-pointer`}
         style={{
           width: `${ideaObj.width}px`,
+          height: `${ideaObj.height}px`,
           top: `${initialY}px`,
           left: `${initialX}px`,
           rotate: `${initialRotation}deg`,

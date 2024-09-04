@@ -1,0 +1,14 @@
+import { SvgInputProps } from '@/types/props/main';
+
+export function AstralSortIcon({ ...props }: SvgInputProps) {
+  return (
+    <svg
+      {...props}
+      className='h-[1.5rem] w-[1.5rem] cursor-pointer fill-slate-300'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 -960 960 960'
+    >
+      <path d='M120-240v-80h240v80H120Zm0-200v-80h480v80H120Zm0-200v-80h720v80H120Z' />
+    </svg>
+  );
+}

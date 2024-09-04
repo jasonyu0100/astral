@@ -29,6 +29,7 @@ import {
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -81,11 +82,13 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForCollectionResourceList.Provider
                     value={resourceListController}
                   >
-                    <SpaceMapControllerWrapper>
-                      <SpaceMapModals>
-                        <SpaceMapView />
-                      </SpaceMapModals>
-                    </SpaceMapControllerWrapper>
+                    <LoadingWrapper>
+                      <SpaceMapControllerWrapper>
+                        <SpaceMapModals>
+                          <SpaceMapView />
+                        </SpaceMapModals>
+                      </SpaceMapControllerWrapper>
+                    </LoadingWrapper>
                   </ContextForCollectionResourceList.Provider>
                 </ContextForGalleryCollectionList.Provider>
               </ContextForGalleryList.Provider>

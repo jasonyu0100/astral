@@ -3,9 +3,10 @@ import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter
 import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
+import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ElementIdeaPreview } from '@/ui/element/idea/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
@@ -82,13 +83,9 @@ export function SpaceMapPlanModal() {
             <HorizontalDivider />
             {selectedIdeas.map((idea) => (
               <>
-                {idea.variant === ElementVariant.FILE && (
-                  <>
-                    <img src={idea.fileElem?.src} />
-                  </>
-                )}
-                {idea.variant === ElementVariant.TEXT && <></>}
-                {idea.variant === ElementVariant.URL && <></>}
+                <ContextForSceneIdeaObj.Provider value={idea}>
+                  <ElementIdeaPreview />
+                </ContextForSceneIdeaObj.Provider>
               </>
             ))}
           </FormBody>

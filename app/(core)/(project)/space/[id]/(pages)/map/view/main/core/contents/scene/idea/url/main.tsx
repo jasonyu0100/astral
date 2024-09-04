@@ -6,10 +6,19 @@ export function SpaceMapUrlIdea() {
   const ideaObj = useContext(ContextForSceneIdeaObj);
 
   return (
-    <>
+    <div className='relative h-full w-full overflow-hidden'>
       {ideaObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-        <iframe src={ideaObj.urlElem?.url} title='YouTube video player' />
+        <iframe
+          src={ideaObj.urlElem?.url}
+          title='YouTube video player'
+          className='h-full w-full'
+          style={{
+            objectFit: 'contain',
+            border: '0',
+          }}
+          allowFullScreen
+        />
       )}
-    </>
+    </div>
   );
 }

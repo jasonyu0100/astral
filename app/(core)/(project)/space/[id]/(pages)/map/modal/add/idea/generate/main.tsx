@@ -18,16 +18,16 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
+import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
-import { ContextForSpaceMapModals } from '../../../controller/main';
 
 export function SpaceMapAddGenerateIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const {
     actions: { getImageResponse },
   } = useControllerForOpenAi();
-  const modalController = useContext(ContextForSpaceMapModals);
+  const loadingController = useContext(ContextForLoading);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -85,7 +85,7 @@ export function SpaceMapAddGenerateIdeaModal() {
               <div
                 className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
                 onClick={() => {
-                  modalController.loadingController.open();
+                  loadingController.loadingController.open();
                   openableController.close();
                   getImageResponse(prompt).then((res) => {
                     openableController.open();
@@ -93,7 +93,7 @@ export function SpaceMapAddGenerateIdeaModal() {
                       ...exampleFileElem,
                       src: res[0].url || exampleFileElem.src,
                     });
-                    modalController.loadingController.close();
+                    loadingController.loadingController.close();
                   });
                 }}
               >

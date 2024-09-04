@@ -7,7 +7,11 @@ export function ElementLinkPreview() {
 
   return (
     <>
-      {link.variant === ElementVariant.FILE && <img src={link.fileElem?.src} />}
+      {link.variant === ElementVariant.FILE && (
+        <>
+          <img src={link.fileElem?.src} />
+        </>
+      )}
       {link.variant === ElementVariant.TEXT && (
         <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
           {link.textElem?.text}

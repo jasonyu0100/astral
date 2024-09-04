@@ -8,7 +8,11 @@ export function SpaceMapFileIdea() {
   return (
     <>
       {ideaObj.fileElem?.variant === FileElemVariant.IMAGE && (
-        <img src={ideaObj.fileElem.src} alt={ideaObj.title} />
+        <img
+          src={ideaObj.fileElem.src}
+          alt={ideaObj.title}
+          className='h-full w-full object-contain'
+        />
       )}
     </>
   );

@@ -37,6 +37,7 @@ import { AstralSaveIcon } from './save/main';
 import { AstralSearchIcon } from './search/main';
 import { AstralSendIcon } from './send/main';
 import { AstralShareIcon } from './share/main';
+import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralTimelineIcon } from './timeline/main';
@@ -92,6 +93,7 @@ export default function Page() {
       <AstralTimelineIcon />
       <AstralSearchIcon />
       <AstralHomeIcon />
+      <AstralSortIcon />
     </div>
   );
 }
