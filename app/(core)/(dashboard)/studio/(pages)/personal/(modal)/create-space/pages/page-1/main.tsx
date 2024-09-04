@@ -29,6 +29,7 @@ export function CreateSpaceModalPageOne() {
       />
       <FormInput
         title='Title'
+        placeholder='A title for the space'
         value={title}
         onChange={(e) => updateTitle(e.target.value)}
       />

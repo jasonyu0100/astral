@@ -9,6 +9,7 @@ import {
 import { roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function JournalRecordFooterCenter() {
@@ -23,15 +24,19 @@ export function JournalRecordFooterCenter() {
         <DashboardJournalAddResourceModal />
       </ContextForOpenable.Provider>
       <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
-        <div className='justify-self-start'>
-          <div
-            className='cursor-pointer'
-            onClick={() => {
-              collectionListController.actions.stateActions.goPrev();
-            }}
-          >
-            <AstralChevronLeftIcon />
-          </div>
+        <div
+          className={cn('cursor-pointer')}
+          onClick={() => {
+            collectionListController.actions.stateActions.goNext();
+          }}
+        >
+          <AstralChevronLeftIcon
+            className={cn(' cursor-pointer', {
+              'fill-slate-500':
+                collectionListController.state.index ===
+                collectionListController.state.objs.length - 1,
+            })}
+          />
         </div>
         <GlassWindowFrame
           className='aspect-square h-[3rem] w-[3rem]'
@@ -47,12 +52,16 @@ export function JournalRecordFooterCenter() {
           </GlassWindowContents>
         </GlassWindowFrame>
         <div
-          className='cursor-pointer'
+          className={cn('cursor-pointer')}
           onClick={() => {
-            collectionListController.actions.stateActions.goNext();
+            collectionListController.actions.stateActions.goPrev();
           }}
         >
-          <AstralChevronRightIcon />
+          <AstralChevronRightIcon
+            className={cn(' cursor-pointer', {
+              'fill-slate-500': collectionListController.state.index === 0,
+            })}
+          />
         </div>
       </div>
     </>

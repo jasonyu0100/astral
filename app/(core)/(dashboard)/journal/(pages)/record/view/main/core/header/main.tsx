@@ -22,13 +22,16 @@ export function JournalRecordHeader() {
           />
           {/* <AstralListIcon onClick={() => {}} /> */}
         </div>
-        <div className='justify-self-center'>
+        <div className='flex flex-col items-center justify-self-center'>
           <p className='text-xl font-bold text-white'>
             {getFormattedDate(
               new Date(
                 collectionListController.state?.currentObj?.created || '',
               ),
             )}
+          </p>
+          <p className='text-md font-light text-white'>
+            {collectionListController.state.currentObj?.title}
           </p>
         </div>
         <div className='justify-self-end'></div>

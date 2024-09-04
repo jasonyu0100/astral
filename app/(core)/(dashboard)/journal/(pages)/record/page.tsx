@@ -26,6 +26,7 @@ function Page() {
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
   );
+  console.log(galleryController, collectionListController);
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
