@@ -37,7 +37,7 @@ export function StudioSpacesHeader() {
             }}
           />
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
     </>
   );

@@ -1,7 +1,10 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { AstralHomeIcon } from '@/icons/home/main';
+import { AstralListIcon } from '@/icons/list/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { glassFx } from '@/style/data';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
@@ -10,10 +13,10 @@ export function JournalRecordHeader() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
 
   return (
-    <div className='flex w-full flex-col items-center p-[2rem] shadow-glow'>
-      <div className='grid w-full grid-cols-3 items-center'>
+    <GlassWindowFrame className='flex h-[7rem] w-full flex-col items-center px-[2rem]'>
+      <div className='grid h-full w-full grid-cols-3 items-center'>
         <div className='flex flex-row space-x-[1rem] justify-self-start'>
-          <AstralHomeIcon
+          <AstralListIcon
             onClick={() => {
               window.location.href = vaultMap.vault.explorer.gallery.id.link(
                 user.journalId,
@@ -36,6 +39,7 @@ export function JournalRecordHeader() {
         </div>
         <div className='justify-self-end'></div>
       </div>
-    </div>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+    </GlassWindowFrame>
   );
 }

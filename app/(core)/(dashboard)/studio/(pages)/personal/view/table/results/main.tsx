@@ -8,7 +8,7 @@ import { StudioSpacesRowWrapper } from './wrapper/main';
 export function StudioSpacesTableResults() {
   const spaceListHandler = useContext(ContextForSpaceList);
   return (
-    <div className='w-full px-[3rem]'>
+    <div className='w-full px-[3rem] py-[1rem]'>
       {spaceListHandler.state.spaces?.map((space, index) => (
         <ContextForSpaceObj.Provider value={space} key={space.id}>
           <ContextForIndexable.Provider value={index}>

@@ -36,6 +36,7 @@ import { AstralPlayIcon } from './play/main';
 import { AstralSaveIcon } from './save/main';
 import { AstralSearchIcon } from './search/main';
 import { AstralSendIcon } from './send/main';
+import { AstralSettingsIcon } from './settings/main';
 import { AstralShareIcon } from './share/main';
 import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
@@ -94,6 +95,7 @@ export default function Page() {
       <AstralSearchIcon />
       <AstralHomeIcon />
       <AstralSortIcon />
+      <AstralSettingsIcon />
     </div>
   );
 }
