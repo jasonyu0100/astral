@@ -12,6 +12,7 @@ import { AstralChevronLeftIcon } from './chevron-left/main';
 import { AstralChevronRightIcon } from './chevron-right/main';
 import { AstralChevronUpIcon } from './chevron-up/main';
 import { AstralCloseIcon } from './close/main';
+import { AstralCombineIcon } from './combine/main';
 import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
 import { AstralDoneIcon } from './done/main';
@@ -96,6 +97,7 @@ export default function Page() {
       <AstralHomeIcon />
       <AstralSortIcon />
       <AstralSettingsIcon />
+      <AstralCombineIcon />
     </div>
   );
 }

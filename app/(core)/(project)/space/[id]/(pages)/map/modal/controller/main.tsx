@@ -14,6 +14,7 @@ import { SpaceMapAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpaceMapAddTextIdeaModal } from '../add/idea/text/main';
 import { SpaceMapAddResourceModal } from '../add/resource/main';
 import { SpaceMapAddSceneModal } from '../add/scene/main';
+import { SpaceMapCombineIdeas } from '../combine/main';
 import { SpaceMapGenerateLog } from '../generate/main';
 
 export const ContextForSpaceMapModals = createContext({} as SpaceMapModals);
@@ -30,6 +31,7 @@ export interface SpaceMapModals {
   addSearchIdeaController: ContextForOpenableInterface;
   addGenerateIdeaController: ContextForOpenableInterface;
   generatePlanController: ContextForOpenableInterface;
+  combineIdeasController: ContextForOpenableInterface;
 }
 
 export function SpaceMapModals({ children }: { children: React.ReactNode }) {
@@ -44,6 +46,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
   const addGenerateIdeaController = useControllerForOpenable();
   const generatePlanController = useControllerForOpenable();
   const addSearchIdeaController = useControllerForOpenable();
+  const combineIdeasController = useControllerForOpenable();
 
   return (
     <ContextForSpaceMapModals.Provider
@@ -59,6 +62,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
         addGenerateIdeaController: addGenerateIdeaController,
         addSearchIdeaController: addSearchIdeaController,
         generatePlanController: generatePlanController,
+        combineIdeasController: combineIdeasController,
       }}
     >
       {children}
@@ -94,6 +98,9 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateIdeaController}>
         <SpaceMapAddGenerateIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={combineIdeasController}>
+        <SpaceMapCombineIdeas />
       </ContextForOpenable.Provider>
     </ContextForSpaceMapModals.Provider>
   );

@@ -40,32 +40,34 @@ export function SpaceChatGenerateMapModal() {
   }, [openableController.opened]);
 
   const createStickies = async (stickies) => {
-    const promises = stickies.map(async (sticky, index) => {
-      const title = `Step ${index + 1}`;
-      const description = sticky;
-      const text = sticky;
-      const variant = TextElemVariant.STICKY;
+    const textIdeas = await Promise.all(
+      stickies.map(async (sticky, index) => {
+        const title = `Step ${index + 1}`;
+        const description = sticky;
+        const text = sticky;
+        const variant = TextElemVariant.STICKY;
 
-      return ideaListController.actions.createActions.createFromText(
-        user.id,
-        sceneListController.state.objId,
-        title,
-        description,
-        index * 200, // Adjust position based on index
-        0,
-        150,
-        150,
-        {
-          id: crypto.randomUUID(),
-          title: title,
-          text: text,
-          variant: variant,
-        } as TextElem,
-        ideaListController.state.objs.length,
-      );
-    });
+        return ideaListController.actions.createActions.createFromText(
+          user.id,
+          sceneListController.state.objId,
+          title,
+          description,
+          index * 200, // Adjust position based on index
+          0,
+          150,
+          150,
+          {
+            id: crypto.randomUUID(),
+            title: title,
+            text: text,
+            variant: variant,
+          } as TextElem,
+          ideaListController.state.objs.length,
+        );
+      }),
+    );
 
-    return await Promise.all(promises);
+    return textIdeas;
   };
 
   async function createMap() {
