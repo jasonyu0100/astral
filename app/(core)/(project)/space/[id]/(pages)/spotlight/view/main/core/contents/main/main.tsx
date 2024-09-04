@@ -2,12 +2,10 @@ import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/c
 import { ContextForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForSpotlightLinkObj } from '@/(server)/model/space/chapter/spotlight/link/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { Carousel } from './carousel/main';
-import { SpaceSpotlightLog } from './log/main';
 
 export function SpaceSpotlightMain() {
   const spotlightListController = useContext(ContextForChapterSpotlightList);
@@ -27,13 +25,13 @@ export function SpaceSpotlightMain() {
             )}
           />
         </div>
-        <div className='flex max-h-[600px] w-[400px] flex-shrink-0 flex-col space-y-[1rem] overflow-auto'>
+        {/* <div className='flex w-[400px] flex-shrink-0 flex-col space-y-[1rem] overflow-auto'>
           {linkListController.state.objs.map((link) => (
             <ContextForSpotlightLinkObj.Provider value={link}>
               <SpaceSpotlightLog />
             </ContextForSpotlightLinkObj.Provider>
           ))}
-        </div>
+        </div> */}
       </div>
       <div className='flex w-full flex-col justify-between space-y-[1rem]'>
         <div className='flex flex-row items-center space-x-[1rem]'>

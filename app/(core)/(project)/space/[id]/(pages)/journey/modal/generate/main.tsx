@@ -16,7 +16,6 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
@@ -145,21 +144,13 @@ export function SpaceJourneySpotlightModal() {
             />
             <FormTextArea
               title='Description'
-              rows={5}
+              rows={8}
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}
             />
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              {selectedLogs.map((log) => (
-                <div className='aspect-square bg-yellow-500 p-[1rem]'>
-                  <p className='font-bold'>{log.title}</p>
-                </div>
-              ))}
-            </div>
-            <HorizontalDivider />
             <FormUploadFiles
-              label='Spotlight Attachments'
+              label='Attachments'
               onChange={(files) => {
                 changeFiles(files);
               }}

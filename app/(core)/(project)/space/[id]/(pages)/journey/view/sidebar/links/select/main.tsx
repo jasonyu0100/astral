@@ -18,7 +18,7 @@ export function SpaceJourneySidebarIdeasSelect() {
   return (
     <div className='flex h-[4rem] w-full flex-row items-center justify-between p-[1rem] shadow-glow'>
       <GlassWindowFrame
-        className='h-[2rem] w-[100px] flex-shrink-0'
+        className='h-[2rem] w-[120px] flex-shrink-0'
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents
@@ -33,13 +33,15 @@ export function SpaceJourneySidebarIdeasSelect() {
             Ideas
           </p>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
+        {sidebarMode === SpaceJourneySidebarMode.IDEAS && (
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        )}
       </GlassWindowFrame>
-      <div className='flex flex-col items-center justify-center p-[1rem]'>
+      <div className='flex flex-shrink-0 flex-col items-center justify-center p-[1rem]'>
         <p className='text-xl font-bold text-slate-500'>/</p>
       </div>
       <GlassWindowFrame
-        className='h-[2rem] w-[100px] flex-shrink-0'
+        className='h-[2rem] w-[120px] flex-shrink-0'
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents
@@ -54,7 +56,9 @@ export function SpaceJourneySidebarIdeasSelect() {
             Notes
           </p>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
+        {sidebarMode === SpaceJourneySidebarMode.NOTES && (
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
+        )}
       </GlassWindowFrame>
     </div>
   );

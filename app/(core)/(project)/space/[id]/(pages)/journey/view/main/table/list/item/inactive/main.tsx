@@ -30,7 +30,6 @@ export function SpaceJourneyLogTableItemInactive() {
       >
         <SpaceJourneyLogTableItemNumber />
         <SpaceJourneyLogTableItemSticky />
-        <div></div>
         <SpaceJourneyLogTableItemStatus />
         <SpaceJourneyLogTableItemLength />
         <SpaceJourneyLogTableItemAuthor />

@@ -1,6 +1,7 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceSpotlightMain } from './main/main';
+import { SpaceSpotlightSidebar } from './sidebar/main';
 
 export function SpaceSpotlightView() {
   return (
@@ -13,7 +14,7 @@ export function SpaceSpotlightView() {
       roundedFx={roundedFx['rounded-container-sm']}
     >
       <SpaceSpotlightMain />
-      {/* <SpaceSpotlightSidebar /> */}
+      <SpaceSpotlightSidebar />
     </GlassAreaContainer>
   );
 }

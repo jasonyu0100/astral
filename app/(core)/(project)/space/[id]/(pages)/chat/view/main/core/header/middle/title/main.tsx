@@ -5,7 +5,7 @@ export default function SpaceChatHeaderMiddleTitle() {
   const sceneListController = useContext(ContextForChapterSceneList);
 
   return (
-    <p className='text-lg font-light text-slate-300'>
+    <p className='text-center text-lg font-light text-slate-300'>
       {sceneListController.state.currentObj?.title || 'untitled'}
     </p>
   );

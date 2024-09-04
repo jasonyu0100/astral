@@ -5,5 +5,7 @@ export default function SpaceSpotlightMiddleTitle() {
   const chaptersHandler = useContext(ContextForSpaceChapterList);
   const title = chaptersHandler.state.currentObj?.title || '';
 
-  return <div className='font-extraBold text-lg text-slate-300'>{title}</div>;
+  return (
+    <div className='text-center text-lg font-bold text-slate-300'>{title}</div>
+  );
 }

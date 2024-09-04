@@ -19,11 +19,11 @@ export function Carousel({ images }: { images: string[] }) {
 
   return (
     <div className='relative w-full'>
-      <div className='w-full overflow-hidden rounded-lg'>
+      <div className='aspect-video w-full overflow-hidden rounded-[1rem] bg-black'>
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex}`}
-          className='w-full'
+          className='h-full w-full object-contain'
         />
       </div>
       <button

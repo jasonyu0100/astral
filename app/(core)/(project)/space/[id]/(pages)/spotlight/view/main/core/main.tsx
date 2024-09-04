@@ -1,6 +1,6 @@
 import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { SpaceSpotlightContents } from './contents/main';
 import { SpaceSpotlightHeader } from './header/main';
-import { SpaceSpotlightReview } from './review/main';
 
 export function SpaceSpotlightCore() {
   return (
@@ -10,7 +10,7 @@ export function SpaceSpotlightCore() {
         className={`flex h-full flex-grow flex-col`}
       >
         <SpaceSpotlightHeader />
-        <SpaceSpotlightReview />
+        <SpaceSpotlightContents />
       </GlassWindowFrame>
     </div>
   );
