@@ -8,8 +8,8 @@ export function StudioSpacesTableHeader() {
         <div />
         <div className='col-span-2 grid grid-cols-4'>
           <p className='text-center font-bold text-slate-500'>day</p>
-          <p className='text-center font-bold text-slate-500'>length</p>
-          <p className='text-center font-bold text-slate-500'>activity</p>
+          <p className='text-center font-bold text-slate-500'>ideas</p>
+          <p className='text-center font-bold text-slate-500'>logs</p>
           <p className='text-center font-bold text-slate-500'>spotlights</p>
         </div>
         <div />

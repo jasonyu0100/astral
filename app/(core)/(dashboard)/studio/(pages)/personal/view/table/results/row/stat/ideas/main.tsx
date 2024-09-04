@@ -3,7 +3,7 @@ import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/sess
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowActivity() {
+export function StudioSpacesRowIdeas() {
   const spaceObj = useContext(ContextForSpaceObj);
   const sessionUpdateListController = useControllerForSessionUpdateOfSpaceList(
     spaceObj.id,

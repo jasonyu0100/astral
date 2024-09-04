@@ -2,10 +2,10 @@ import { StudioSpacesRowIndicator } from './activity/main';
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
-import { StudioSpacesRowLength } from './stat/chapters/main';
 import { StudioSpacesRowDays } from './stat/day/main';
-import { StudioSpacesRowActivity } from './stat/ideas/main';
-import { StudioSpacesRowReviews } from './stat/reviews/main';
+import { StudioSpacesRowIdeas } from './stat/ideas/main';
+import { StudioSpacesRowLogs } from './stat/logs/main';
+import { StudioSpacesRowSpotlights } from './stat/spotlights/main';
 
 export function StudioSpacesRow() {
   return (
@@ -16,9 +16,9 @@ export function StudioSpacesRow() {
       <div></div>
       <div className='col-span-2 grid grid-cols-4'>
         <StudioSpacesRowDays />
-        <StudioSpacesRowLength />
-        <StudioSpacesRowActivity />
-        <StudioSpacesRowReviews />
+        <StudioSpacesRowIdeas />
+        <StudioSpacesRowLogs />
+        <StudioSpacesRowSpotlights />
       </div>
       <StudioSpacesRowIndicator />
     </div>

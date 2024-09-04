@@ -20,6 +20,7 @@ import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
+import { spaceMap } from '../../../../map';
 import { ContextForSpaceJourney } from '../../controller/main';
 
 export function SpaceJourneySpotlightModal() {
@@ -49,16 +50,14 @@ export function SpaceJourneySpotlightModal() {
 
   useEffect(() => {
     if (openableController.opened) {
-      console.log(selectedLogs);
       loadingController.loadingController.open();
-      const logMessages = selectedLogs
+      const logSummary = selectedLogs
         .map((log) => `${log.title} - ${log.description}`)
         .join(' ');
-      console.log(logMessages);
       openAiController.actions
         .getMessageResponse(
           `
-      Summarise the following into something coherent, default to dot points: ${logMessages}`,
+      Summarise the following into something coherent, default to dot points: ${logSummary}`,
         )
         .then((description) => {
           changeDescription(description || '');
@@ -102,10 +101,10 @@ export function SpaceJourneySpotlightModal() {
       chapterListController.state.objId,
       spotlight.id,
     );
-    // window.location.href = spaceMap.space.id.spotlight.link(
-    //   spaceController.state.objId,
-    // );
-    // openableController.close();
+    window.location.href = spaceMap.space.id.spotlight.link(
+      spaceController.state.objId,
+    );
+    openableController.close();
   }
 
   return (
