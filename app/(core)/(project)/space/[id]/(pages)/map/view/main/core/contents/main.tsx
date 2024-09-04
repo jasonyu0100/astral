@@ -10,13 +10,13 @@ export function SpaceMapCoreContents() {
       className='relative flex flex-col items-center'
     >
       <SpaceMapCoreContentsStatus />
-      <div className='h-full w-full px-[6rem] py-[2rem]'>
+      <div className='h-full w-full px-[5rem] py-[1rem]'>
         <SpaceMapScene />
       </div>
-      <div className='absolute left-[2rem] flex h-full flex-col items-center justify-center'>
+      <div className='absolute left-[1rem] flex h-full flex-col items-center justify-center'>
         <SpaceMapScenePalette />
       </div>
-      <div className='absolute right-[2rem] flex h-full flex-col items-center justify-center'>
+      <div className='absolute right-[1rem] flex h-full flex-col items-center justify-center'>
         <SpaceMapStatusSceneNavigation />
       </div>
     </div>

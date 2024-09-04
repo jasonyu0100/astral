@@ -13,6 +13,7 @@ interface Controller {
 }
 
 interface ControllerState {
+  isSwitchOn: boolean;
   divWidth: number;
   divHeight: number;
   selectedIdeas: SceneIdeaObj[];
@@ -26,6 +27,12 @@ interface ControllerState {
 
 interface ControllerActions {
   autoSort: () => void;
+  getAvailableXYWH: () => {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
   updateDivWidth: (width: number) => void;
   updateDivHeight: (height: number) => void;
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
@@ -87,6 +94,7 @@ export function useControllerForSpaceMap(): Controller {
   const [peopleMode, setPeopleMode] = useState<SpaceMapPeopleMode>(
     SpaceMapPeopleMode.OFF,
   );
+  const [isSwitchOn, setSwitch] = useState(false);
   const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarListMode>(
     SpaceMapSidebarListMode.SCENES,
   );
@@ -117,23 +125,26 @@ export function useControllerForSpaceMap(): Controller {
     const availableWidth = divWidth - gapWidth * (columns - 1);
     const availableHeight = divHeight - gapHeight * (rows - 1);
 
-    const ideaWidth = Math.round(availableWidth / columns);
-    const ideaHeight = Math.round(availableHeight / rows);
+    // Calculate square size by taking the minimum of availableWidth/columns and availableHeight/rows
+    const ideaSize = Math.min(
+      Math.round(availableWidth / columns),
+      Math.round(availableHeight / rows),
+    );
 
     loadingController.loadingController.open();
 
     const editPromises = ideaListController.state.objs.map(
       async (idea, index) => {
-        const x = Math.round((index % columns) * (ideaWidth + gapWidth));
+        const x = Math.round((index % columns) * (ideaSize + gapWidth));
         const y = Math.round(
-          Math.floor(index / columns) * (ideaHeight + gapHeight),
+          Math.floor(index / columns) * (ideaSize + gapHeight),
         );
 
         return ideaListController.actions.editActions.edit(idea.id, {
           x: x,
           y: y,
-          height: ideaHeight,
-          width: ideaWidth,
+          height: ideaSize, // Set height to the square size
+          width: ideaSize, // Set width to the square size
         });
       },
     );
@@ -143,10 +154,57 @@ export function useControllerForSpaceMap(): Controller {
 
     // Close the modal after all updates are complete
     loadingController.loadingController.close();
+    setSwitch(!isSwitchOn);
+  };
+
+  const getAvailableXYWH = () => {
+    const totalIdeas = ideaListController.state.objs.length;
+    const columns = Math.ceil(Math.sqrt(totalIdeas + 1)); // Add 1 to account for the new item
+    const rows = Math.ceil((totalIdeas + 1) / columns);
+
+    const gapWidth = (divWidth * 5) / 100; // Assuming 5% gap
+    const gapHeight = (divHeight * 5) / 100; // Assuming 5% gap
+
+    const availableWidth = divWidth - gapWidth * (columns - 1);
+    const availableHeight = divHeight - gapHeight * (rows - 1);
+
+    let ideaWidth = Math.round(availableWidth / columns);
+    let ideaHeight = Math.round(availableHeight / rows);
+
+    // Set maxWidth and maxHeight to 25% of total divHeight
+    const maxDimension = Math.round(divHeight * 0.25);
+
+    // Ensure the calculated width and height do not exceed maxDimension
+    ideaWidth = Math.min(ideaWidth, maxDimension);
+    ideaHeight = Math.min(ideaHeight, maxDimension);
+
+    // Make width and height identical to maintain a square aspect ratio
+    const squareSize = Math.min(ideaWidth, ideaHeight);
+    ideaWidth = squareSize;
+    ideaHeight = squareSize;
+
+    // Find the next available grid position
+    const nextIndex = totalIdeas;
+    const x = Math.round((nextIndex % columns) * (ideaWidth + gapWidth));
+    const y = Math.round(
+      Math.floor(nextIndex / columns) * (ideaHeight + gapHeight),
+    );
+
+    // Ensure that the new item fits within the available width and height
+    if (x + ideaWidth <= divWidth && y + ideaHeight <= divHeight) {
+      return { x, y, width: ideaWidth, height: ideaHeight };
+    }
+
+    // Otherwise, place it in the center of the div
+    const centerX = Math.round((divWidth - ideaWidth) / 2);
+    const centerY = Math.round((divHeight - ideaHeight) / 2);
+
+    return { x: centerX, y: centerY, width: ideaWidth, height: ideaHeight };
   };
 
   return {
     state: {
+      isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
       connectionMode: connectionMode,
@@ -159,6 +217,7 @@ export function useControllerForSpaceMap(): Controller {
     },
     actions: {
       autoSort: autoSort,
+      getAvailableXYWH: getAvailableXYWH,
       updateDivWidth: (width) => setDivWidth(width),
       updateDivHeight: (height) => setDivHeight(height),
       updateConnectionMode: (mode) => setConnectionMode(mode),

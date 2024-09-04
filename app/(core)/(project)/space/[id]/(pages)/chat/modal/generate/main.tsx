@@ -10,12 +10,14 @@ import { FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
+import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
 import { ContextForSpaceChat } from '../../controller/main';
 
 export function SpaceChatGenerateSceneModal() {
   const user = useGlobalUser((state) => state.user);
+  const loadingController = useContext(ContextForLoading);
   const {
     actions: { synthesiseConversation },
   } = useContext(ContextForSpaceChat);
@@ -29,8 +31,10 @@ export function SpaceChatGenerateSceneModal() {
 
   useEffect(() => {
     if (openableController.opened) {
+      loadingController.loadingController.open();
       synthesiseConversation().then((stickies) => {
         setStickies(stickies.map((sticky) => sticky.text));
+        loadingController.loadingController.close();
       });
     }
   }, [openableController.opened]);

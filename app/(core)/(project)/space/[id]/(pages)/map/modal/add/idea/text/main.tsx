@@ -12,6 +12,7 @@ import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
+import { ContextForSpaceMap } from '../../../../controller/map/main';
 
 export function SpaceMapAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
@@ -22,18 +23,20 @@ export function SpaceMapAddTextIdeaModal() {
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
+  const mapController = useContext(ContextForSpaceMap);
 
   function create() {
+    const { x, y, width, height } = mapController.actions.getAvailableXYWH();
     ideaListController.actions.createActions
       .createFromText(
         user.id,
         sceneListController.state.objId,
         title,
         description,
-        0,
-        0,
-        150,
-        150,
+        x,
+        y,
+        width,
+        height,
         {
           id: crypto.randomUUID(),
           title: title,

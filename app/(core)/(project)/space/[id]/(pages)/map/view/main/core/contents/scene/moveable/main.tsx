@@ -2,22 +2,24 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import {
   ContextForSpaceMap,
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
 } from '../../../../../../controller/map/main';
+import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
 import { parseTransformString } from '../../../../../../utils/main';
 import { SpaceMapIdeaCollaborators } from './collaborators/main';
 import { SpaceMapIdeaIndicator } from './indicator/main';
 
 export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
   const {
-    state: { selectedIdeas, peopleMode, connectionMode },
+    state: { selectedIdeas, peopleMode, connectionMode, isSwitchOn },
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
   } = useContext(ContextForSpaceMap);
+  const modalController = useContext(ContextForSpaceMapModals);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -41,6 +43,13 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
       rotation: Math.round(initialRotation + transformationObj.rotation),
     });
   }
+
+  useEffect(() => {
+    setInitialX(ideaObj.x);
+    setInitialY(ideaObj.y);
+    setInitialScale(ideaObj.scale);
+    setInitialRotation(ideaObj.rotation);
+  }, [isSwitchOn]);
 
   return (
     <div>

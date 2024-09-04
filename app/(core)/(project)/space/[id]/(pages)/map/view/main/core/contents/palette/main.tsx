@@ -14,7 +14,7 @@ export function SpaceMapScenePalette() {
 
   return (
     <GlassWindowFrame
-      className='w-[4rem] py-[2rem]'
+      className='w-[3rem] py-[1.5rem]'
       roundedFx={roundedFx['rounded-full']}
       borderFx={borderFx['border-around']}
     >

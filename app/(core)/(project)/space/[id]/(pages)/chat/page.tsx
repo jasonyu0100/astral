@@ -26,6 +26,7 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
@@ -83,11 +84,13 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <SpaceChatControllerWrapper>
-                    <SpaceChatModals>
-                      <SpaceChatView />
-                    </SpaceChatModals>
-                  </SpaceChatControllerWrapper>
+                  <LoadingWrapper>
+                    <SpaceChatControllerWrapper>
+                      <SpaceChatModals>
+                        <SpaceChatView />
+                      </SpaceChatModals>
+                    </SpaceChatControllerWrapper>
+                  </LoadingWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>

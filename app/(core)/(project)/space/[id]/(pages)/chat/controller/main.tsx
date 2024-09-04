@@ -143,13 +143,24 @@ export function useControllerForSpaceChat() {
       ...getMessageHistory(),
       `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference."`,
       `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
-      `Return in a JSON format. E.G { insights: [{"text": "Insight 1"}, {"text": "Insight 2"}, {"text": "Insight 3"}] }`,
+      `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors. Example format:
+
+{
+  "insights": [
+    {"text": "Insight 1"},
+    {"text": "Insight 2"},
+    {"text": "Insight 3"}
+  ]
+}
+
+Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
 
     console.log(messagePrompt);
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    console.log(agentResponse);
 
     const json = JSON.parse(agentResponse);
 
