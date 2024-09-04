@@ -10,20 +10,20 @@ import { useContext } from 'react';
 export function SpaceProgressListItem() {
   const log = useContext(ContextForChapterLogObj);
   return (
-    <GlassWindowFrame className='w-full'>
+    <GlassWindowFrame className='w-full p-[1rem]'>
       <GlassWindowContents
         className={cn(
-          'flex aspect-square flex-col space-y-[1rem] bg-yellow-500 p-[1rem]',
+          'flex h-full w-full flex-col space-y-[1rem] overflow-auto',
         )}
       >
-        <p className='text-xl font-bold'>{log.title}</p>
-        <p className='font-md'>{log.description}</p>
-        <p className='font-light'>
+        <p className='text-lg font-bold text-slate-300'>{log.title}</p>
+        <p className='font-md text-slate-300'>{log.description}</p>
+        <p className='text-md mt-auto font-light text-slate-300'>
           {getFormattedAMPM(new Date(log.created))},
           {getFormattedDate(new Date(log.created))}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

@@ -56,12 +56,12 @@ export function SpaceMapGenerateLog() {
   async function generateDescription() {
     const ideaSummary = selectedIdeas
       .filter((idea) => idea.variant === ElementVariant.TEXT)
-      .map((idea) => `${idea.title} - ${idea.textElem?.text}`)
-      .join(' ');
+      .map((idea) => `Idea - ${idea.textElem?.text}`)
+      .join('\n');
     await openAiController.actions
       .getMessageResponse(
         `
-      Summarise the following into a description: ${ideaSummary}`,
+      Summarise the following into a concise task description (100 - 300 chars): ${ideaSummary}`,
       )
       .then((description) => {
         setDescription(description || '');
@@ -71,12 +71,12 @@ export function SpaceMapGenerateLog() {
   async function generateTitle() {
     const ideaSummary = selectedIdeas
       .filter((idea) => idea.variant === ElementVariant.TEXT)
-      .map((idea) => `${idea.title} - ${idea.textElem?.text}`)
-      .join(' ');
+      .map((idea) => `Idea - ${idea.textElem?.text}`)
+      .join('\n');
     await openAiController.actions
       .getMessageResponse(
         `
-      Summarise the following into a title: ${ideaSummary}`,
+      Summarise the following into a concise task title (10 - 20 chars): ${ideaSummary}`,
       )
       .then((title) => {
         setTitle(title || '');

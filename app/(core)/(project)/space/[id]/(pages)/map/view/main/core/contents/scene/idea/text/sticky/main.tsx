@@ -15,7 +15,7 @@ export function SpaceMapTextStickyIdea() {
     const updateFontSize = () => {
       if (divRef.current) {
         const divWidth = divRef.current.offsetWidth;
-        const newFontSize = divWidth * 0.1; // Example: 5% of div's width
+        const newFontSize = divWidth * 0.08; // Example: 5% of div's width
         setFontSize(`${newFontSize}px`);
       }
     };

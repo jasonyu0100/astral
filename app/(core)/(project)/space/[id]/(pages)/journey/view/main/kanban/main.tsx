@@ -77,7 +77,7 @@ export function SpaceJourneyKanban() {
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid w-full grid-cols-4 gap-[1rem] p-[2rem]'>
+      <div className='grid h-full w-full grid-cols-4 gap-[2rem] p-[2rem]'>
         <div className='flex h-full flex-col space-y-[1rem]'>
           <SpaceProgressList>
             <SpaceJourneyKanbanListTitle>Todo</SpaceJourneyKanbanListTitle>
@@ -85,7 +85,8 @@ export function SpaceJourneyKanban() {
             <HorizontalDivider />
             <ul
               id={ChapterLogStatus.TODO}
-              className='min-height-[1000px] w-full space-y-[2rem]'
+              className='w-full space-y-[2rem]'
+              style={{ height: '100%' }}
             >
               {/* {todo.length === 0 && (
                 <p className='w-full text-center font-bold text-slate-500'>
@@ -119,7 +120,8 @@ export function SpaceJourneyKanban() {
 
             <ul
               id={ChapterLogStatus.IN_PROGRESS}
-              className='min-height-[1000px] w-full space-y-[2rem]'
+              className='w-full space-y-[2rem]'
+              style={{ height: '100%' }}
             >
               {/* {inProgress.length === 0 && (
                 <p className='w-full text-center font-bold text-slate-500'>
@@ -142,7 +144,8 @@ export function SpaceJourneyKanban() {
             <HorizontalDivider />
             <ul
               id={ChapterLogStatus.REVIEW}
-              className='min-height-[1000px] w-full space-y-[2rem]'
+              className='w-full space-y-[2rem]'
+              style={{ height: '100%' }}
             >
               {/* {review.length === 0 && (
                 <p className='w-full text-center font-bold text-slate-500'>
@@ -166,7 +169,8 @@ export function SpaceJourneyKanban() {
             <HorizontalDivider />
             <ul
               id={ChapterLogStatus.DONE}
-              className='min-height-[1000px] w-full space-y-[2rem]'
+              className='w-full space-y-[2rem]'
+              style={{ height: '100%' }}
             >
               {/* {done.length === 0 && (
                 <p className='w-full text-center font-bold text-slate-500'>
