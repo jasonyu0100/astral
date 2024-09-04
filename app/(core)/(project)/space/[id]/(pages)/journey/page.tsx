@@ -17,6 +17,7 @@ import {
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -51,11 +52,13 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterLogList.Provider value={logListController}>
             <ContextForLogLinkList.Provider value={linkListController}>
-              <SpaceJourneyControllerWrapper>
-                <SpaceJourneyModals>
-                  <SpaceJourneyView />
-                </SpaceJourneyModals>
-              </SpaceJourneyControllerWrapper>
+              <LoadingWrapper>
+                <SpaceJourneyControllerWrapper>
+                  <SpaceJourneyModals>
+                    <SpaceJourneyView />
+                  </SpaceJourneyModals>
+                </SpaceJourneyControllerWrapper>
+              </LoadingWrapper>
             </ContextForLogLinkList.Provider>
           </ContextForChapterLogList.Provider>
         </ContextForSpaceChapterList.Provider>

@@ -5,6 +5,7 @@ import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/c
 import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
+import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -16,14 +17,17 @@ import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ContextForSpaceJourney } from '../../controller/main';
 
 export function SpaceJourneySpotlightModal() {
   const {
     state: { selectedLogs },
   } = useContext(ContextForSpaceJourney);
+  const loadingController = useContext(ContextForLoading);
+  const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spotlightListController = useControllerForChapterSpotlightList(
@@ -42,6 +46,26 @@ export function SpaceJourneySpotlightModal() {
   const [description, changeDescription] = useState('');
   const updateListController = useControllerForSessionUpdateOfChapterList('');
   const [files, changeFiles] = useState([] as FileElem[]);
+
+  useEffect(() => {
+    if (openableController.opened) {
+      console.log(selectedLogs);
+      loadingController.loadingController.open();
+      const logMessages = selectedLogs
+        .map((log) => `${log.title} - ${log.description}`)
+        .join(' ');
+      console.log(logMessages);
+      openAiController.actions
+        .getMessageResponse(
+          `
+      Summarise the following into something coherent, default to dot points: ${logMessages}`,
+        )
+        .then((description) => {
+          changeDescription(description || '');
+          loadingController.loadingController.close();
+        });
+    }
+  }, [openableController.opened]);
 
   async function createSpotlight() {
     if (files.length === 0) {
