@@ -14,7 +14,7 @@ import { SpaceMapAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpaceMapAddTextIdeaModal } from '../add/idea/text/main';
 import { SpaceMapAddResourceModal } from '../add/resource/main';
 import { SpaceMapAddSceneModal } from '../add/scene/main';
-import { SpaceMapPlanModal } from '../generate/main';
+import { SpaceMapGenerateLog } from '../generate/main';
 
 export const ContextForSpaceMapModals = createContext({} as SpaceMapModals);
 
@@ -90,7 +90,7 @@ export function SpaceMapModals({ children }: { children: React.ReactNode }) {
         <SpaceMapAddSearchIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generatePlanController}>
-        <SpaceMapPlanModal />
+        <SpaceMapGenerateLog />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateIdeaController}>
         <SpaceMapAddGenerateIdeaModal />

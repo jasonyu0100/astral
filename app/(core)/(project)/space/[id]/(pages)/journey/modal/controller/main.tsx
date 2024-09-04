@@ -9,10 +9,10 @@ import { SpaceJourneyAddFileLinkModal } from '../add/link/file/main';
 import { SpaceJourneyAddTextLinkModal } from '../add/link/text/main';
 import { SpaceJourneyAddSceneModal } from '../add/scene/main';
 import { SpaceJourneyAddUpdateModal } from '../add/update/main';
+import { SpaceJourneySpotlightModal } from '../generate/main';
 import { SpaceJourneyAddFileIdeaModal } from '../idea/file/main';
 import { SpaceJourneyAddUrlIdeaModal } from '../idea/link/main';
 import { SpaceJourneyAddTextIdeaModal } from '../idea/text/main';
-import { SpaceJourneySpotlightModal } from '../spotlight/main';
 
 export const ContextForSpaceJourneyModals = createContext(
   {} as SpaceJourneyModals,

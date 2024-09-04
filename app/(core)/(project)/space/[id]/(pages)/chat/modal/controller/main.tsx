@@ -7,7 +7,7 @@ import { createContext } from 'react';
 import { SpaceChatAddAttachmentModal } from '../add/attachment/main';
 import { SpaceChatAddChapterModal } from '../add/chapter/main';
 import { SpaceChatAddSceneModal } from '../add/scene/main';
-import { SpaceChatGenerateSceneModal } from '../generate/main';
+import { SpaceChatGenerateMapModal } from '../generate/main';
 
 export const ContextForSpaceChatModals = createContext({} as SpaceChatModals);
 
@@ -44,7 +44,7 @@ export function SpaceChatModals({ children }: { children: React.ReactNode }) {
         <SpaceChatAddAttachmentModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generateSceneController}>
-        <SpaceChatGenerateSceneModal />
+        <SpaceChatGenerateMapModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceChatModals.Provider>
   );

@@ -17,7 +17,7 @@ export function CreateSpaceAddCollaborator({
         className='flex cursor-pointer items-center justify-center rounded-full bg-blue-500'
         onClick={onClick}
       >
-        <AstralAddIcon className='h-1/2 w-1/2' />
+        <AstralAddIcon className='h-1/2 w-1/2 fill-white' />
       </GlassWindowContents>
     </GlassWindowFrame>
   );

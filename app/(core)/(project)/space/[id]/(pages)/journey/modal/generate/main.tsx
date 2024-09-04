@@ -51,26 +51,51 @@ export function SpaceJourneySpotlightModal() {
   useEffect(() => {
     if (openableController.opened) {
       loadingController.loadingController.open();
-      const logSummary = selectedLogs
-        .map((log) => `${log.title} - ${log.description}`)
-        .join(' ');
-      openAiController.actions
-        .getMessageResponse(
-          `
-      Summarise the following into something coherent, default to dot points: ${logSummary}`,
-        )
-        .then((description) => {
-          changeDescription(description || '');
+      generateDescription()
+        .then(() => generateTitle())
+        .then(() => {
           loadingController.loadingController.close();
         });
     }
   }, [openableController.opened]);
+
+  async function generateDescription() {
+    loadingController.loadingController.open();
+    const logSummary = selectedLogs
+      .map((log) => `${log.title} - ${log.description}`)
+      .join(' ');
+    await openAiController.actions
+      .getMessageResponse(
+        `
+      Summarise the following into dot points: ${logSummary}`,
+      )
+      .then((description) => {
+        changeDescription(description || '');
+      });
+  }
+
+  async function generateTitle() {
+    const logSummary = selectedLogs
+      .map((log) => `${log.title} - ${log.description}`)
+      .join(' ');
+    await openAiController.actions
+      .getMessageResponse(
+        `
+      Summarise the following into a title: ${logSummary}`,
+      )
+      .then((title) => {
+        changeTitle(title || '');
+      });
+  }
 
   async function createSpotlight() {
     if (files.length === 0) {
       alert('Please upload at least one file');
       return;
     }
+
+    openableController.close();
+    loadingController.loadingController.open();
 
     const spotlight =
       await spotlightListController.actions.createActions.createSpotlight(
@@ -101,20 +126,20 @@ export function SpaceJourneySpotlightModal() {
       chapterListController.state.objId,
       spotlight.id,
     );
+
     window.location.href = spaceMap.space.id.spotlight.link(
       spaceController.state.objId,
     );
-    openableController.close();
   }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Spotlight</FormTitle>
+          <FormTitle>Generate Spotlight</FormTitle>
           <FormBody>
             <FormInput
-              title='Name'
+              title='Title'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

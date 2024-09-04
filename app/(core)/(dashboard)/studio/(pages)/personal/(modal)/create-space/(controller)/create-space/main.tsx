@@ -186,7 +186,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           const spotlights = await Promise.all(
             templateChapter.spotlightTemplates.map(async (templateReview) => {
               const spotlight =
-                await spotlightListController.actions.createActions.createSpotlightFromFile(
+                await spotlightListController.actions.createActions.createSpotlight(
                   templateReview.title,
                   templateReview.description,
                   user.id,
@@ -203,20 +203,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           );
           return spotlights;
         } else {
-          const spotlight =
-            await spotlightListController.actions.createActions.createSpotlightFromFile(
-              'untitled',
-              '',
-              user.id,
-              chapter.id,
-            );
-          await sessionUpdateListController.actions.createActions.createFromChapterSpotlight(
-            user.id,
-            space.id,
-            chapter.id,
-            spotlight.id,
-          );
-          return [spotlight];
+          return [];
         }
       }),
     );

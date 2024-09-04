@@ -6,6 +6,7 @@ import { FormInput } from '@/ui/form/input/main';
 import { FormSelect } from '@/ui/form/select/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
+import { CreateSpaceMembers } from './members/main';
 
 export function CreateSpaceModalPageOne() {
   const { pageOne } = useContext(ContextForCreateSpace);
@@ -49,11 +50,12 @@ export function CreateSpaceModalPageOne() {
       <FormTextArea
         title='Description'
         placeholder='A description for the space'
-        rows={8}
+        rows={5}
         value={description}
         onChange={(e) => updateDescription(e.target.value)}
         style={{ resize: 'none' }}
       />
+      <CreateSpaceMembers />
     </FormBody>
   );
 }

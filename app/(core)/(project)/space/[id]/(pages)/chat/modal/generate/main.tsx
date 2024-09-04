@@ -1,4 +1,3 @@
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
@@ -13,9 +12,10 @@ import { FormTitle } from '@/ui/form/title/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
+import { spaceMap } from '../../../../map';
 import { ContextForSpaceChat } from '../../controller/main';
 
-export function SpaceChatGenerateSceneModal() {
+export function SpaceChatGenerateMapModal() {
   const user = useGlobalUser((state) => state.user);
   const loadingController = useContext(ContextForLoading);
   const {
@@ -39,18 +39,19 @@ export function SpaceChatGenerateSceneModal() {
     }
   }, [openableController.opened]);
 
-  async function addStickiesToScene() {
-    stickies.forEach((sticky, index) => {
+  const createStickies = async (stickies) => {
+    const promises = stickies.map(async (sticky, index) => {
       const title = `Step ${index + 1}`;
       const description = sticky;
       const text = sticky;
       const variant = TextElemVariant.STICKY;
-      ideaListController.actions.createActions.createFromText(
+
+      return ideaListController.actions.createActions.createFromText(
         user.id,
         sceneListController.state.objId,
         title,
         description,
-        index * 200,
+        index * 200, // Adjust position based on index
         0,
         150,
         150,
@@ -63,6 +64,29 @@ export function SpaceChatGenerateSceneModal() {
         ideaListController.state.objs.length,
       );
     });
+
+    return await Promise.all(promises);
+  };
+
+  async function createMap() {
+    openableController.close();
+    loadingController.loadingController.open();
+    createStickies(stickies).then(() => {
+      window.location.href = spaceMap.space.id.map.link(
+        spaceController.state.objId,
+      );
+    });
+  }
+
+  function editSticky(index: number, text: string) {
+    setStickies(
+      stickies.map((sticky, i) => {
+        if (i === index) {
+          return text;
+        }
+        return sticky;
+      }),
+    );
   }
 
   return (
@@ -77,33 +101,14 @@ export function SpaceChatGenerateSceneModal() {
                   <textarea
                     className='h-full w-full resize-none bg-transparent font-bold outline-none'
                     value={sticky}
-                    onChange={(e) => {
-                      setStickies(
-                        stickies.map((s, i) => {
-                          if (i === index) {
-                            return e.target.value;
-                          }
-                          return s;
-                        }),
-                      );
-                    }}
+                    onChange={(e) => editSticky(index, e.target.value)}
                   />
                 </div>
               ))}
             </div>
           </FormBody>
           <FormFooter>
-            <FormButton
-              onClick={() => {
-                addStickiesToScene().then(() => {
-                  window.location.href = spaceMap.space.id.map.link(
-                    spaceController.state.objId,
-                  );
-                });
-              }}
-            >
-              Next
-            </FormButton>
+            <FormButton onClick={createMap}>Next</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

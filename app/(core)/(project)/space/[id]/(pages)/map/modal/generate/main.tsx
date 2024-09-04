@@ -22,7 +22,7 @@ import { useContext, useEffect, useState } from 'react';
 import { spaceMap } from '../../../../map';
 import { ContextForSpaceMap } from '../../controller/map/main';
 
-export function SpaceMapPlanModal() {
+export function SpaceMapGenerateLog() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
@@ -45,54 +45,80 @@ export function SpaceMapPlanModal() {
   useEffect(() => {
     if (openableController.opened) {
       loadingController.loadingController.open();
-      const ideaSummary = selectedIdeas
-        .filter((idea) => idea.variant === ElementVariant.TEXT)
-        .map((idea) => `${idea.title} - ${idea.textElem?.text}`)
-        .join(' ');
-
-      openAiController.actions
-        .getMessageResponse(
-          `
-      Summarise the following into something coherent, default to dot points: ${ideaSummary}`,
-        )
-        .then((description) => {
-          setDescription(description || '');
+      generateDescription().then(() =>
+        generateTitle().then(() => {
           loadingController.loadingController.close();
-        });
+        }),
+      );
     }
   }, [openableController.opened]);
 
+  async function generateDescription() {
+    const ideaSummary = selectedIdeas
+      .filter((idea) => idea.variant === ElementVariant.TEXT)
+      .map((idea) => `${idea.title} - ${idea.textElem?.text}`)
+      .join(' ');
+    await openAiController.actions
+      .getMessageResponse(
+        `
+      Summarise the following into a description: ${ideaSummary}`,
+      )
+      .then((description) => {
+        setDescription(description || '');
+      });
+  }
+
+  async function generateTitle() {
+    const ideaSummary = selectedIdeas
+      .filter((idea) => idea.variant === ElementVariant.TEXT)
+      .map((idea) => `${idea.title} - ${idea.textElem?.text}`)
+      .join(' ');
+    await openAiController.actions
+      .getMessageResponse(
+        `
+      Summarise the following into a title: ${ideaSummary}`,
+      )
+      .then((title) => {
+        setTitle(title || '');
+      });
+  }
+
   async function createLog() {
+    loadingController.loadingController.open();
+    openableController.close();
     const log = await logListController.actions.createActions.createLog(
       chapterListController.state.objId,
       user.id,
       title,
       description,
     );
-    selectedIdeas.forEach(async (idea) => {
+    const linkPromises = selectedIdeas.map(async (idea) => {
       await linkListController.actions.createActions.createLink(
         user.id,
         log.id,
         idea,
       );
     });
-    await updateListController.actions.createActions.createFromChapterLog(
-      user.id,
-      spaceController.state.objId,
-      chapterListController.state.objId,
-      log.id,
-    );
-    window.location.href = spaceMap.space.id.journey.link(
-      spaceController.state.objId,
-    );
-    openableController.close();
+    await Promise.all(linkPromises);
+    await updateListController.actions.createActions
+      .createFromChapterLog(
+        user.id,
+        spaceController.state.objId,
+        chapterListController.state.objId,
+        log.id,
+      )
+      .then(() => {
+        window.location.href = spaceMap.space.id.journey.link(
+          spaceController.state.objId,
+        );
+      });
   }
 
   return (
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Log</FormTitle>
+          <FormTitle>Generate Log</FormTitle>
           <FormBody>
             <FormInput
               value={title}
@@ -107,11 +133,9 @@ export function SpaceMapPlanModal() {
             />
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {selectedIdeas.map((idea) => (
-                <>
-                  <ContextForSceneIdeaObj.Provider value={idea}>
-                    <ElementIdeaPreview />
-                  </ContextForSceneIdeaObj.Provider>
-                </>
+                <ContextForSceneIdeaObj.Provider value={idea}>
+                  <ElementIdeaPreview />
+                </ContextForSceneIdeaObj.Provider>
               ))}
             </div>
           </FormBody>
