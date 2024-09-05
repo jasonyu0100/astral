@@ -1,4 +1,4 @@
-import { ContextForSessionForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-session-form/main';
+import { ContextForSessionForm } from '@/(core)/(project)/space/[id]/(pages)/session/controller/complete-session-form/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
