@@ -5,6 +5,7 @@ import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
 import { ContextForSpaceMap } from '../../../../../controller/map/main';
 import { SpaceMapContentsSceneConnections } from './connections/main';
+import { SpaceMapSceneEmpty } from './empty/main';
 import { SpaceMapMovableIdea } from './idea/main';
 import { SpaceMapMovable } from './moveable/main';
 
@@ -31,13 +32,7 @@ export function SpaceMapScene() {
 
   return (
     <div className='relative h-full w-full px-[6rem] py-[2rem]'>
-      {visibleIdeas.length === 0 && (
-        <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center'>
-          <p className='text-8xl font-black uppercase text-slate-500'>
-            No ideas
-          </p>
-        </div>
-      )}
+      {visibleIdeas.length === 0 && <SpaceMapSceneEmpty />}
       <div
         className='relative z-10 h-full w-full'
         onClick={() => updateSelectedIdeas([])}
