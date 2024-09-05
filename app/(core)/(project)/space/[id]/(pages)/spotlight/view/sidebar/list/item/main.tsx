@@ -9,16 +9,16 @@ export function SpaceSpotlightSidebarReview() {
 
   return (
     <div
-      className='flex h-[70px] w-full cursor-pointer flex-row items-center space-x-[2rem]'
+      className='flex h-[70px] w-full cursor-pointer flex-row items-center space-x-[1rem] overflow-hidden'
       onClick={() =>
         spotlightListController.actions.stateActions.select(spotlight)
       }
     >
-      <img src={exampleFileElem.src} className='aspect-square h-full rounded' />
-      <div className='flex flex-col'>
-        <p className='text-md font-bold text-white'>{spotlight.title}</p>
-        <p className='text-sm text-white'>{spotlight.description}</p>
-      </div>
+      <img
+        src={exampleFileElem.src}
+        className='aspect-square h-[3rem] w-[3rem] flex-shrink-0 rounded-full'
+      />
+      <p className='text-sm font-bold text-slate-500'>{spotlight.title}</p>
     </div>
   );
 }
