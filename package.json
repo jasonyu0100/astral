@@ -5,8 +5,6 @@
   "scripts": {
     "start": "next start",
     "dev": "next",
-    "preinstall": "node scripts/create-npmrc & node scripts/create-aws",
-    "prebuild": "sh scripts/run_codegen.sh",
     "build": "next build",
     "lint": "next lint",
     "format": "prettier --write ."

@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
+import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list-from-session';
 import {
   ChapterSessionUpdateObj,
   ChapterSessionUpdateVariant,

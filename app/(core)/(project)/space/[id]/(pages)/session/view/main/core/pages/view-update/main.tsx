@@ -1,12 +1,9 @@
-import { ContextForChapterSessionList } from '@/(server)/controller/space/chapter/session/list';
-import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
+import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list-from-session';
 import { useContext } from 'react';
 import { SpaceSessionViewUpdateForm } from './form/main';
 import { SpaceSessionViewUpdatePanel } from './panel/main';
 
 export function SpaceSessionViewUpdate() {
-  const sessionListController = useContext(ContextForChapterSessionList);
-  const session = sessionListController.state.currentObj;
   const updateListController = useContext(ContextForSessionUpdateList);
 
   return (

@@ -16,13 +16,13 @@ import {
   useControllerForChapterSessionList,
 } from '@/(server)/controller/space/chapter/session/list';
 import {
-  ContextForSessionUpdateList,
-  useControllerForSessionUpdateList,
-} from '@/(server)/controller/space/chapter/session/update/list';
-import {
   ContextForSessionUpdateListFromChapter,
   useControllerForSessionUpdateListFromChapter,
 } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import {
+  ContextForSessionUpdateList,
+  useControllerForSessionUpdateList,
+} from '@/(server)/controller/space/chapter/session/update/list-from-session';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,

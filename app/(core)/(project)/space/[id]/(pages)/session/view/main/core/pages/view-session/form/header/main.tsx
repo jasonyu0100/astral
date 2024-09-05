@@ -1,12 +1,11 @@
 import { ContextForChapterSessionList } from '@/(server)/controller/space/chapter/session/list';
-import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list';
+import { ContextForSessionUpdateList } from '@/(server)/controller/space/chapter/session/update/list-from-session';
 import { ChapterSessionObj } from '@/(server)/model/space/chapter/session/main';
 import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceSessionCompleteSessionHeader() {
   const sessionListController = useContext(ContextForChapterSessionList);
-
   const updateListController = useContext(ContextForSessionUpdateList);
   const session =
     sessionListController.state.currentObj || ({} as ChapterSessionObj);

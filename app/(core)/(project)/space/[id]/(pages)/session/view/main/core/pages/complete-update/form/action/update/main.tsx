@@ -1,4 +1,4 @@
-import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-update-form/main';
+import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/session/controller/complete-update-form/main';
 import { ContextForSpaceSessionController } from '@/(core)/(project)/space/[id]/(pages)/session/controller/space-session/main';
 import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { glassFx, roundedFx } from '@/style/data';
