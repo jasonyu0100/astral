@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useContext } from 'react';
 import {
   ContextForSessionForm,
@@ -10,7 +10,9 @@ import { SpaceSessionCompleteSessionPanel } from './panel/main';
 
 export function SpaceSessionCompleteSession() {
   const sessionFormController = useControllerForSessionForm();
-  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
+  const updateListController = useContext(
+    ContextForSessionUpdateListFromChapter,
+  );
 
   return (
     <ContextForSessionForm.Provider value={sessionFormController}>

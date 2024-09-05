@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
@@ -35,7 +35,7 @@ export function SpaceMapCombineIdeas() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
   const [combinationDescription, setCombinationDescription] = useState('');
 
   async function combineIdeas() {

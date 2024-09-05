@@ -1,8 +1,8 @@
 import { ContextForSpotlightKarmaList } from '@/(server)/controller/space/chapter/spotlight/karma/list';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
-import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
+import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
+import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
@@ -53,7 +53,7 @@ export function SpaceSpotlightKarma() {
 
   return (
     <div className='flex flex-col items-center'>
-      <AstralChevronUpIcon
+      <AstralArrowDropUp
         className={cn('h-[3rem] w-[3rem]', {
           'fill-blue-500': userVote === 1,
           'fill-slate-500': userVote === -1,
@@ -70,7 +70,7 @@ export function SpaceSpotlightKarma() {
       >
         {cumulativeKarma}
       </p>
-      <AstralChevronDownIcon
+      <AstralArrowDropDown
         className={cn('h-[3rem] w-[3rem]', {
           'fill-red-500': userVote === -1,
           'fill-slate-500': userVote === 1,

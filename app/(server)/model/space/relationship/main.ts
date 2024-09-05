@@ -102,6 +102,6 @@ export const spaceIdeaRelationshipModel: ModelInterface<SpaceIdeaRelationshipObj
     gql: spaceIdeaRelationshipObj,
     example: exampleSpaceIdeaRelationship,
     examples: exampleSpaceIdeaRelationships,
-    parentKey: 'spaceId',
+    parentKey: 'fromSpaceId',
     children: [],
   };

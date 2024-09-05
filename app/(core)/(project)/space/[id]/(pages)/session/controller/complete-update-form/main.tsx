@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
 import { createContext, useContext, useState } from 'react';
 
@@ -14,7 +14,7 @@ export const ContextForUpdateForm = createContext({} as Controller);
 
 export function useControllerForUpdateForm(): Controller {
   const sessionUpdateListController = useContext(
-    ContextForSessionUpdateOfChapterList,
+    ContextForSessionUpdateListFromChapter,
   );
   const currentItem =
     sessionUpdateListController.state.currentObj ||

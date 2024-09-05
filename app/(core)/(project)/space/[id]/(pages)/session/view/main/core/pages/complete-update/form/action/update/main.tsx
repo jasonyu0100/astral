@@ -1,6 +1,6 @@
 import { ContextForUpdateForm } from '@/(core)/(project)/space/[id]/(pages)/progress/(controller)/complete-update-form/main';
 import { ContextForSpaceSessionController } from '@/(core)/(project)/space/[id]/(pages)/session/controller/space-session/main';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassAreaPane } from '@/ui/glass/area/pane/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -11,7 +11,7 @@ export function SpaceSessionUpdateFormUpdate() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
   const updateFormController = useContext(ContextForUpdateForm);
   const sessionUpdateListController = useContext(
-    ContextForSessionUpdateOfChapterList,
+    ContextForSessionUpdateListFromChapter,
   );
 
   async function handleUpdate() {

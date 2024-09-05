@@ -1,9 +1,11 @@
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useContext } from 'react';
 
 export function SpaceSessionHeaderLeft() {
-  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
+  const updateListController = useContext(
+    ContextForSessionUpdateListFromChapter,
+  );
   const sceneListController = useContext(ContextForChapterSceneList);
 
   return (

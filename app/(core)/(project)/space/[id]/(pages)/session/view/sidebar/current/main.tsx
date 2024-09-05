@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -11,7 +11,9 @@ import {
 
 export function SpaceSessionSidebarCurrentSession() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
-  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
+  const updateListController = useContext(
+    ContextForSessionUpdateListFromChapter,
+  );
 
   return (
     <>

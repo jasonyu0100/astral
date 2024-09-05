@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -22,7 +22,7 @@ export function SpaceJourneyAddSpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
 
   async function createReview() {
     const spotlight =

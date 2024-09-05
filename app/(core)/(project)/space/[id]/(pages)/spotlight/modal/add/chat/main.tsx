@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -22,7 +22,7 @@ export function SpaceSpotlightAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
 
   async function createScene() {
     const scene = await sceneListController.actions.createActions.createScene(

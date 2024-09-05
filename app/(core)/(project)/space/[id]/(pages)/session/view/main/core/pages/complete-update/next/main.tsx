@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useContext } from 'react';
 import { SpaceSessionEditNext } from '../../../(common)/icon/next/main';
 import { ContextForSpaceSessionController } from '../../../../../../controller/space-session/main';
@@ -6,7 +6,7 @@ import { ContextForSpaceSessionController } from '../../../../../../controller/s
 export function SpaceSessionCompleteUpdateNext() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
   const sessionUpdateListController = useContext(
-    ContextForSessionUpdateOfChapterList,
+    ContextForSessionUpdateListFromChapter,
   );
 
   return (

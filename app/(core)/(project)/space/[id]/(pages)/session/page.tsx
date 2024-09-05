@@ -16,13 +16,13 @@ import {
   useControllerForChapterSessionList,
 } from '@/(server)/controller/space/chapter/session/list';
 import {
-  ContextForSessionUpdateOfChapterList,
-  useControllerForSessionUpdateOfChapterList,
-} from '@/(server)/controller/space/chapter/session/update/chapter-list';
-import {
   ContextForSessionUpdateList,
   useControllerForSessionUpdateList,
 } from '@/(server)/controller/space/chapter/session/update/list';
+import {
+  ContextForSessionUpdateListFromChapter,
+  useControllerForSessionUpdateListFromChapter,
+} from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -59,7 +59,7 @@ function Page({ params }: { params: { id: string } }) {
     sessionId,
   );
   const updateOfChapterListController =
-    useControllerForSessionUpdateOfChapterList(
+    useControllerForSessionUpdateListFromChapter(
       chapterListController.state.objId,
     );
   const spaceSessionController = useControllerForSpaceSessionController();
@@ -76,7 +76,7 @@ function Page({ params }: { params: { id: string } }) {
               <ContextForChapterSessionList.Provider
                 value={sessionListController}
               >
-                <ContextForSessionUpdateOfChapterList.Provider
+                <ContextForSessionUpdateListFromChapter.Provider
                   value={updateOfChapterListController}
                 >
                   <ContextForSessionUpdateList.Provider
@@ -88,7 +88,7 @@ function Page({ params }: { params: { id: string } }) {
                       <SpaceSessionShareView />
                     </ContextForSpaceSessionController.Provider>
                   </ContextForSessionUpdateList.Provider>
-                </ContextForSessionUpdateOfChapterList.Provider>
+                </ContextForSessionUpdateListFromChapter.Provider>
               </ContextForChapterSessionList.Provider>
             </ContextForSpaceChapterList.Provider>
           </ContextForSceneIdeaList.Provider>

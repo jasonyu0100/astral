@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
 import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -29,7 +29,7 @@ export function SpaceJourneyAddFileLinkModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
 
   async function createFileIdea() {
     const idea = await linkListController.actions.createActions.createFromFile(

@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
 import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
@@ -27,7 +27,7 @@ export function SpaceSpotlightAddSpotlightModal() {
   );
 
   const openableController = useContext(ContextForOpenable);
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
 
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

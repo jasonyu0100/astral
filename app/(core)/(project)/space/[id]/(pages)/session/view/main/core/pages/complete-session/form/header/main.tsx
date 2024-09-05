@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { getFormattedAMPM } from '@/utils/dateFormat';
@@ -8,7 +8,7 @@ import { useContext } from 'react';
 export function SpaceSessionCompleteSessionHeader() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sessionUpdateListController = useContext(
-    ContextForSessionUpdateOfChapterList,
+    ContextForSessionUpdateListFromChapter,
   );
 
   return (

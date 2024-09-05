@@ -2,7 +2,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
@@ -44,7 +44,7 @@ export function useControllerForSpaceChat() {
   const conversationListController = useContext(
     ContextForSceneConversationList,
   );
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
   const [role, setRole] = useState<ConversationRole>(
     ConversationRole.Questioner,
   );

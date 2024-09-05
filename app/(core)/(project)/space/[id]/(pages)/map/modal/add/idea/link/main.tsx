@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -22,7 +22,7 @@ export function SpaceMapAddUrlIdeaModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForChapterSceneList);
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');

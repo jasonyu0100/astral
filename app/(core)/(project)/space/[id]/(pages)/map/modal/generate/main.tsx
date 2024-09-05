@@ -1,8 +1,10 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
 import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -32,15 +34,22 @@ export function SpaceMapGenerateLog() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const logListController = useControllerForChapterLogList(
     chapterListController.state.objId,
   );
   const linkListController = useControllerForLogLinkList(
     logListController.state.objId,
   );
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
+  const spaceIdeaRelationshipListController =
+    useControllerForSpaceIdeaRelationshipListFromChapter(
+      chapterListController.state.objId,
+    );
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
 
   useEffect(() => {
     if (openableController.opened) {
@@ -93,12 +102,36 @@ export function SpaceMapGenerateLog() {
       description,
     );
     const links = await Promise.all(
-      selectedIdeas.map((idea) => {
-        linkListController.actions.createActions.createLink(
+      selectedIdeas.map((idea) =>
+        linkListController.actions.createActions.createLinkFromIdea(
           user.id,
           log.id,
           idea,
-        );
+          spaceController.state.objId,
+          chapterListController.state.objId,
+          sceneListController.state.objId,
+        ),
+      ),
+    );
+    const relationships = await Promise.all(
+      links.slice(0, links.length - 1).map((fromLink, index) => {
+        const toLink = links[index + 1];
+        const relationshipMatch =
+          spaceIdeaRelationshipListController.actions.stateActions.getLinkMatch(
+            fromLink,
+            toLink,
+          );
+        if (relationshipMatch) {
+          return spaceIdeaRelationshipListController.actions.editActions.updateFromLink(
+            fromLink,
+            toLink,
+          );
+        } else {
+          return spaceIdeaRelationshipListController.actions.createActions.createFromLink(
+            fromLink,
+            toLink,
+          );
+        }
       }),
     );
     await updateListController.actions.createActions

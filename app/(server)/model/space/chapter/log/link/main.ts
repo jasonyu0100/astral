@@ -8,6 +8,11 @@ export interface LogLinkObj {
   id: string;
   logId: string;
   userId: string;
+  fromIdea: boolean;
+  ideaId?: string;
+  chapterId?: string;
+  spaceId?: string;
+  sceneId?: string;
   title: string;
   description: string;
   variant: string;
@@ -22,6 +27,11 @@ type LogLinkObj {
   id: String!
   logId: String!
   userId: String!
+  fromIdea: Boolean!
+  ideaId: String
+  chapterId: String
+  spaceId: String
+  sceneId: String
   title: String!
   description: String!
   variant: String!
@@ -43,6 +53,7 @@ export const exampleLogLink: LogLinkObj = {
   variant: 'file',
   fileElem: exampleFileElem,
   created: new Date().toISOString(),
+  fromIdea: false,
 };
 
 export const exampleLogLinks: LogLinkObj[] = [
@@ -55,6 +66,7 @@ export const exampleLogLinks: LogLinkObj[] = [
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
+    fromIdea: false,
   },
   {
     id: '0',
@@ -65,6 +77,7 @@ export const exampleLogLinks: LogLinkObj[] = [
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
+    fromIdea: false,
   },
   {
     id: '0',
@@ -75,6 +88,7 @@ export const exampleLogLinks: LogLinkObj[] = [
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
+    fromIdea: false,
   },
 ];
 

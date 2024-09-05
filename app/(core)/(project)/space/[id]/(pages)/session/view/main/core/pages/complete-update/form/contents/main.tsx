@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import {
   ChapterSessionUpdateVariant,
   ContextForChapterSessionUpdateObj,
@@ -19,7 +19,7 @@ import { SpaceSessionUpdatePreviewScene } from './preview/scene/main';
 
 export function SpaceSessionUpdateFormContents() {
   const sessionUpdateListController = useContext(
-    ContextForSessionUpdateOfChapterList,
+    ContextForSessionUpdateListFromChapter,
   );
   const current =
     sessionUpdateListController.state.currentObj ||

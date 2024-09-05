@@ -6,15 +6,12 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import {
-  spaceIdeaRelationshipModel,
-  SpaceIdeaRelationshipObj,
-} from '@/(server)/model/space/relationship/main';
+import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SpaceIdeaRelationshipObj;
 const gqlDbWrapper = spaceIdeaRelationshipDbWrapper;
-const listIdKey = spaceIdeaRelationshipModel.parentKey;
+const listIdKey = 'fromSpaceId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -48,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceIdeaRelationshipList = (
+const useControllerForSpaceIdeaRelationshipListFromSpace = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -350,8 +347,10 @@ const useControllerForSpaceIdeaRelationshipList = (
   };
 };
 
-const ContextForSpaceIdeaRelationshipList = createContext({} as Controller);
+const ContextForSpaceIdeaRelationshipListFromSpace = createContext(
+  {} as Controller,
+);
 export {
-  ContextForSpaceIdeaRelationshipList,
-  useControllerForSpaceIdeaRelationshipList,
+  ContextForSpaceIdeaRelationshipListFromSpace,
+  useControllerForSpaceIdeaRelationshipListFromSpace,
 };

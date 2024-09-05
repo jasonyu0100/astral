@@ -1,4 +1,4 @@
-import { ContextForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { ContextForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
@@ -10,7 +10,9 @@ import {
 
 export function SpaceSessionCompleteSessionPanel() {
   const spaceSessionController = useContext(ContextForSpaceSessionController);
-  const updateListController = useContext(ContextForSessionUpdateOfChapterList);
+  const updateListController = useContext(
+    ContextForSessionUpdateListFromChapter,
+  );
   const updates = updateListController.state?.objs || [];
 
   return (

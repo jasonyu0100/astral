@@ -1,4 +1,4 @@
-import { logLinkDbWrapper } from '@/(server)/client/space/chapter/log/link/main';
+import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,19 +6,15 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { TextElem } from '@/(server)/model/elements/text/main';
 import {
-  logLinkModel,
-  LogLinkObj,
-} from '@/(server)/model/space/chapter/log/link/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+  ChapterSessionUpdateObj,
+  ChapterSessionUpdateVariant,
+} from '@/(server)/model/space/chapter/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = LogLinkObj;
-const gqlDbWrapper = logLinkDbWrapper;
-const listIdKey = logLinkModel.parentKey;
+type TargetObj = ChapterSessionUpdateObj;
+const gqlDbWrapper = chapterSessionUpdateDbWrapper;
+const listIdKey = 'chapterId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -37,27 +33,42 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createLinkFromIdea: (
+  createFromChapter: (
     userId: string,
-    logId: string,
-    idea: SceneIdeaObj,
+    spaceId: string,
+    chapterId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterScene: (
+    userId: string,
     spaceId: string,
     chapterId: string,
     sceneId: string,
   ) => Promise<TargetObj>;
-  createFromFile: (
+  createFromChapterSpotlight: (
     userId: string,
-    logId: string,
-    title: string,
-    description: string,
-    file: FileElem,
+    spaceId: string,
+    chapterId: string,
+    spotlightId: string,
   ) => Promise<TargetObj>;
-  createFromText: (
+  createFromChapterLog: (
     userId: string,
+    spaceId: string,
+    chapterId: string,
     logId: string,
-    title: string,
-    description: string,
-    text: TextElem,
+  ) => Promise<TargetObj>;
+  createFromChapterSceneConversation: (
+    userId: string,
+    spaceId: string,
+    chapterId: string,
+    sceneId: string,
+    conversationId: string,
+  ) => Promise<TargetObj>;
+  createFromChapterSceneIdea: (
+    userId: string,
+    spaceId: string,
+    chapterId: string,
+    sceneId: string,
+    ideaId: string,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -75,7 +86,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForLogLinkList = (
+const useControllerForSessionUpdateListFromChapter = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -246,9 +257,10 @@ const useControllerForLogLinkList = (
     },
     gatherFromEnd: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const sortedObjs = stateActions.sortedViaDate(objs);
+      const sortedObjs = stateActions
+        .sortedViaDate(objs)
+        .filter((obj) => !obj.sessionId);
       changeObjs(sortedObjs);
-      changeQueryResults(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -280,13 +292,14 @@ const useControllerForLogLinkList = (
   const createActions: CreateActions = {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
         userId: '',
-        logId: '',
+        chapterId: '',
+        added: false,
         title: '',
         description: '',
+        created: new Date().toISOString(),
         variant: '',
-        fromIdea: false,
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -294,75 +307,125 @@ const useControllerForLogLinkList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromFile: async (
-      userId: string,
-      logId: string,
-      title: string,
-      description: string,
-      file: FileElem,
-    ) => {
+    createFromChapter: async (userId, spaceId, chapterId) => {
       const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
         userId: userId,
-        logId: logId,
-        title: title,
-        description: description,
-        variant: ElementVariant.FILE,
-        fileElem: file,
-        fromIdea: false,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromText: async (
-      userId: string,
-      logId: string,
-      title: string,
-      description: string,
-      text: TextElem,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        logId: logId,
-        title: title,
-        description: description,
-        variant: ElementVariant.TEXT,
-        textElem: text,
-        fromIdea: false,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createLinkFromIdea: async (
-      userId: string,
-      logId: string,
-      idea: SceneIdeaObj,
-      spaceId: string,
-      chapterId: string,
-      sceneId: string,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        logId: logId,
-        title: idea.title,
-        description: idea.description,
-        variant: idea.variant,
-        fileElem: idea.fileElem,
-        textElem: idea.textElem,
-        urlElem: idea.urlElem,
-        ideaId: idea.id,
+        chapterId: chapterId,
+        added: false,
+        title: '',
+        description: '',
         spaceId: spaceId,
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.CHAPTER,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterScene: async (userId, spaceId, chapterId, sceneId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
         chapterId: chapterId,
         sceneId: sceneId,
-        fromIdea: true,
+        added: false,
+        spaceId: spaceId,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.SCENE,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterSpotlight: async (
+      userId,
+      spaceId,
+      chapterId,
+      spotlightId,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        spotlightId: spotlightId,
+        added: false,
+        spaceId: spaceId,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.SPOTLIGHT,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterLog: async (userId, spaceId, chapterId, logId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        logId: logId,
+        added: false,
+        spaceId: spaceId,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.LOG,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterSceneConversation: async (
+      userId,
+      spaceId,
+      chapterId,
+      sceneId,
+      conversationId,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        spaceId: spaceId,
+        sceneId: sceneId,
+        conversationId: conversationId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.CONVERSATION,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromChapterSceneIdea: async (
+      userId,
+      spaceId,
+      chapterId,
+      sceneId,
+      ideaId,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        chapterId: chapterId,
+        spaceId: spaceId,
+        sceneId: sceneId,
+        ideaId: ideaId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: ChapterSessionUpdateVariant.IDEA,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -386,10 +449,7 @@ const useControllerForLogLinkList = (
     edit: async (id: string, partialObj: Partial<TargetObj>) => {
       const updatedObj = await gqlDbWrapper.updateObj(id, partialObj);
       changeObjs((prev) =>
-        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
-      );
-      changeQueryResults((prev) =>
-        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+        prev.map((obj) => (obj.id === id ? updatedObj : obj)),
       );
       changeId(updatedObj.id);
       return updatedObj;
@@ -449,5 +509,8 @@ const useControllerForLogLinkList = (
   };
 };
 
-const ContextForLogLinkList = createContext({} as Controller);
-export { ContextForLogLinkList, useControllerForLogLinkList };
+const ContextForSessionUpdateListFromChapter = createContext({} as Controller);
+export {
+  ContextForSessionUpdateListFromChapter,
+  useControllerForSessionUpdateListFromChapter,
+};

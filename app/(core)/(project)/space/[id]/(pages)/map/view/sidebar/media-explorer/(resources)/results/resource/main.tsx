@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
@@ -15,7 +15,7 @@ export function SpaceMapResourceResource() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sessionUpdateListController =
-    useControllerForSessionUpdateOfChapterList('');
+    useControllerForSessionUpdateListFromChapter('');
 
   const resource = useContext(ContextForCollectionResourceObj);
 

@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateOfChapterList } from '@/(server)/controller/space/chapter/session/update/chapter-list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
 import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
@@ -44,7 +44,7 @@ export function SpaceJourneySpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateOfChapterList('');
+  const updateListController = useControllerForSessionUpdateListFromChapter('');
   const [files, changeFiles] = useState([] as FileElem[]);
 
   useEffect(() => {

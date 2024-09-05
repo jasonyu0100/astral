@@ -1,4 +1,4 @@
-import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
+import { spaceIdeaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,12 +6,12 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { ChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
+import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionUpdateObj;
-const gqlDbWrapper = chapterSessionUpdateDbWrapper;
-const listIdKey = 'spaceId';
+type TargetObj = SpaceIdeaRelationshipObj;
+const gqlDbWrapper = spaceIdeaRelationshipDbWrapper;
+const listIdKey = 'fromSceneId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -45,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSessionUpdateOfSpaceList = (
+const useControllerForSpaceIdeaRelationshipListFromScene = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -216,10 +216,9 @@ const useControllerForSessionUpdateOfSpaceList = (
     },
     gatherFromEnd: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const sortedObjs = stateActions
-        .sortedViaDate(objs)
-        .filter((obj) => !obj.sessionId);
+      const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
+      changeQueryResults(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
@@ -251,14 +250,17 @@ const useControllerForSessionUpdateOfSpaceList = (
   const createActions: CreateActions = {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
-        userId: '',
-        chapterId: '',
-        added: false,
-        title: '',
-        description: '',
         created: new Date().toISOString(),
-        variant: '',
         spaceId: '',
+        fromUserId: '',
+        fromChapterId: '',
+        fromSceneId: '',
+        fromIdeaId: '',
+        toUserId: '',
+        toChapterId: '',
+        toSceneId: '',
+        toIdeaId: '',
+        weight: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -282,7 +284,10 @@ const useControllerForSessionUpdateOfSpaceList = (
     edit: async (id: string, partialObj: Partial<TargetObj>) => {
       const updatedObj = await gqlDbWrapper.updateObj(id, partialObj);
       changeObjs((prev) =>
-        prev.map((obj) => (obj.id === id ? updatedObj : obj)),
+        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
+      );
+      changeQueryResults((prev) =>
+        prev.map((chat) => (chat.id === id ? updatedObj : chat)),
       );
       changeId(updatedObj.id);
       return updatedObj;
@@ -342,8 +347,10 @@ const useControllerForSessionUpdateOfSpaceList = (
   };
 };
 
-const ContextForSessionUpdateOfSpaceList = createContext({} as Controller);
+const ContextForSpaceIdeaRelationshipListFromScene = createContext(
+  {} as Controller,
+);
 export {
-  ContextForSessionUpdateOfSpaceList,
-  useControllerForSessionUpdateOfSpaceList,
+  ContextForSpaceIdeaRelationshipListFromScene,
+  useControllerForSpaceIdeaRelationshipListFromScene,
 };
