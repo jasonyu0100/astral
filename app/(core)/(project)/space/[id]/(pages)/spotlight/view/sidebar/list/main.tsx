@@ -16,11 +16,13 @@ export function SpaceSpotlightSidebarList() {
       >
         <div className='h-full w-full overflow-auto  pr-[1rem]'>
           <div className='flex flex-col space-y-[1rem]'>
-            {spotlightListController.state.objs.map((spotlight) => (
-              <ContextForChapterSpotlightObj.Provider value={spotlight}>
-                <SpaceSpotlightSidebarItem />
-              </ContextForChapterSpotlightObj.Provider>
-            ))}
+            {spotlightListController.state.more.queryResults.map(
+              (spotlight) => (
+                <ContextForChapterSpotlightObj.Provider value={spotlight}>
+                  <SpaceSpotlightSidebarItem />
+                </ContextForChapterSpotlightObj.Provider>
+              ),
+            )}
           </div>
         </div>
       </GlassAreaContainer>

@@ -19,7 +19,7 @@ export function SpaceMapResourcesSearch() {
             className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
             placeholder='Venture forth...'
             onChange={(e) => {
-              resourceListController.actions.stateActions.executeQuery(
+              resourceListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,
               );
             }}

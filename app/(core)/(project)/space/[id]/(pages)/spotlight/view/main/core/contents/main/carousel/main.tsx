@@ -1,6 +1,8 @@
 import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
+import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { useContext, useState } from 'react';
 
 export function SpaceSpotlightCarousel() {
@@ -26,8 +28,8 @@ export function SpaceSpotlightCarousel() {
   };
 
   return (
-    <div className='flex w-full max-w-[1000px] flex-row space-x-[4rem]'>
-      <div className='flex h-full w-full flex-row items-center space-x-[2rem]'>
+    <div className='flex w-full  flex-row items-center justify-between'>
+      <div className='flex h-full w-full max-w-[1000px] flex-row  items-center space-x-[2rem]'>
         <div className='relative w-full'>
           <div className='aspect-video w-full overflow-hidden rounded-[1rem] bg-black'>
             <img
@@ -59,6 +61,11 @@ export function SpaceSpotlightCarousel() {
             ))}
           </div>
         </div>
+      </div>
+      <div className='flex flex-col items-center'>
+        <AstralChevronUpIcon className='h-[3rem] w-[3rem]' />
+        <p className='text-lg font-bold text-slate-300'>42</p>
+        <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
       </div>
     </div>
   );

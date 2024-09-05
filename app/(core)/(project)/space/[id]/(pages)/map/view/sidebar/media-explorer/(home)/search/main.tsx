@@ -19,7 +19,7 @@ export function SpaceMapGallerysSearch() {
             className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
             placeholder='Venture forth...'
             onChange={(e) => {
-              galleryListController.actions.stateActions.executeQuery(
+              galleryListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,
               );
             }}

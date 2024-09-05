@@ -25,6 +25,7 @@ import {
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import { SpaceSpotlightModals } from './modal/controller/main';
@@ -72,9 +73,11 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForSpotlightLinkList.Provider
                   value={linkListController}
                 >
-                  <SpaceSpotlightModals>
-                    <SpaceSpotlightView />
-                  </SpaceSpotlightModals>
+                  <LoadingWrapper>
+                    <SpaceSpotlightModals>
+                      <SpaceSpotlightView />
+                    </SpaceSpotlightModals>
+                  </LoadingWrapper>
                 </ContextForSpotlightLinkList.Provider>
               </ContextForSpotlightCommentList.Provider>
             </ContextForSpotlightAttachmentList.Provider>

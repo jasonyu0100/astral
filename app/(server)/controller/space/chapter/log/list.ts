@@ -157,18 +157,33 @@ const useControllerForChapterLogList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    executeQuery: (newQuery: string) => {
-      changeQuery(newQuery);
-      if (newQuery === '') {
-        changeQueryResults(objs);
-        return objs;
+    searchAndUpdateQuery: (newQuery: string, newObjs?: TargetObj[]) => {
+      if (newObjs) {
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(newObjs);
+          return newObjs;
+        } else {
+          const results = newObjs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.title);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       } else {
-        const results = objs.filter((obj) => {
-          const regex = new RegExp(newQuery, 'i');
-          return regex.test(obj.title);
-        });
-        changeQueryResults(results);
-        return results;
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(objs);
+          return objs;
+        } else {
+          const results = objs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.title);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       }
     },
     checkActive: function (obj: TargetObj): boolean {
@@ -179,9 +194,11 @@ const useControllerForChapterLogList = (
     },
     pushFront: (obj: TargetObj) => {
       changeObjs((prev) => [obj, ...prev]);
+      return [obj, ...objs];
     },
     pushBack: (obj: TargetObj) => {
       changeObjs((prev) => [...prev, obj]);
+      return [...objs, obj];
     },
     pushIndex: (obj: TargetObj, index: number) => {
       changeObjs((prev) => [
@@ -189,9 +206,11 @@ const useControllerForChapterLogList = (
         obj,
         ...prev.slice(index),
       ]);
+      return [...objs.slice(0, index), obj, ...objs.slice(index)];
     },
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
+      return objs.map((obj) => (obj.id === id ? newObj : obj));
     },
     deleteIds: (ids: string[]) => {
       changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
@@ -217,7 +236,6 @@ const useControllerForChapterLogList = (
     gatherFromBeginning: async () => {
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
-      changeObjs(sortedObjs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
@@ -251,7 +269,8 @@ const useControllerForChapterLogList = (
         summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -266,7 +285,8 @@ const useControllerForChapterLogList = (
         summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -275,7 +295,8 @@ const useControllerForChapterLogList = (
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
-      stateActions.pushIndex(newObj, index);
+      const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },

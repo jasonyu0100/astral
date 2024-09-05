@@ -22,7 +22,7 @@ export function ExplorerCollectionResourcesSearch() {
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
             placeholder='Venture forth...'
             onChange={(e) =>
-              resourceListController.actions.stateActions.executeQuery(
+              resourceListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,
               )
             }

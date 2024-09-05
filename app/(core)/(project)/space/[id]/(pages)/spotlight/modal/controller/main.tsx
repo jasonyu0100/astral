@@ -6,8 +6,8 @@ import {
 import { createContext } from 'react';
 import { SpaceSpotlightAddChapterModal } from '../add/chapter/main';
 import { SpaceSpotlightAddCommentModal } from '../add/comment/main';
-import { SpaceSpotlightAddReviewModal } from '../add/review/main';
 import { SpaceSpotlightAddSceneModal } from '../add/scene/main';
+import { SpaceSpotlightAddSpotlightModal } from '../add/spotlight/main';
 import { SpaceSpotlightShareReviewModal } from '../share/main';
 
 export const ContextForSpaceSpotlightModals = createContext(
@@ -29,9 +29,9 @@ export function SpaceSpotlightModals({
 }) {
   const addChapterController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
-  const addSpotlightController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
+  const addSpotlightController = useControllerForOpenable();
 
   return (
     <ContextForSpaceSpotlightModals.Provider
@@ -39,9 +39,9 @@ export function SpaceSpotlightModals({
         {
           addChapterController,
           addSceneController,
-          addSpotlightController,
           addCommentController,
           shareReviewController,
+          addSpotlightController,
         } as SpaceSpotlightModals
       }
     >
@@ -55,11 +55,11 @@ export function SpaceSpotlightModals({
       <ContextForOpenable.Provider value={addCommentController}>
         <SpaceSpotlightAddCommentModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addSpotlightController}>
-        <SpaceSpotlightAddReviewModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareReviewController}>
         <SpaceSpotlightShareReviewModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addSpotlightController}>
+        <SpaceSpotlightAddSpotlightModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceSpotlightModals.Provider>
   );

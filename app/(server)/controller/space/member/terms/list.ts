@@ -155,7 +155,7 @@ const useControllerForSpaceMemberTermsList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    executeQuery: (newQuery: string) => {
+    searchAndUpdateQuery: (newQuery: string) => {
       changeQuery(newQuery);
       if (newQuery === '') {
         changeQueryResults(objs);
@@ -178,9 +178,11 @@ const useControllerForSpaceMemberTermsList = (
     },
     pushFront: (obj: TargetObj) => {
       changeObjs((prev) => [obj, ...prev]);
+      return [obj, ...objs];
     },
     pushBack: (obj: TargetObj) => {
       changeObjs((prev) => [...prev, obj]);
+      return [...objs, obj];
     },
     pushIndex: (obj: TargetObj, index: number) => {
       changeObjs((prev) => [
@@ -188,9 +190,11 @@ const useControllerForSpaceMemberTermsList = (
         obj,
         ...prev.slice(index),
       ]);
+      return [...objs.slice(0, index), obj, ...objs.slice(index)];
     },
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
+      return objs.map((obj) => (obj.id === id ? newObj : obj));
     },
     deleteIds: (ids: string[]) => {
       changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
@@ -247,7 +251,8 @@ const useControllerForSpaceMemberTermsList = (
         end: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -259,7 +264,8 @@ const useControllerForSpaceMemberTermsList = (
         end: end,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -268,7 +274,8 @@ const useControllerForSpaceMemberTermsList = (
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
-      stateActions.pushIndex(newObj, index);
+      const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },

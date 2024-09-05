@@ -20,7 +20,7 @@ export function SpaceChatSidebarChaptersSearch() {
             placeholder='Venture forth...'
             onChange={(e) => {
               {
-                chapterListController.actions.stateActions.executeQuery(
+                chapterListController.actions.stateActions.searchAndUpdateQuery(
                   e.target.value,
                 );
               }

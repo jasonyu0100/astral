@@ -7,7 +7,7 @@ export function SpaceSpotlightList() {
   const commentListController = useContext(ContextForSpotlightCommentList);
 
   return (
-    <div className='flex w-full max-w-[800px] flex-col space-y-[2rem] pb-[2rem]'>
+    <div className='flex w-full flex-col space-y-[2rem] pb-[2rem]'>
       {commentListController.state.objs.toReversed().map((comment) => (
         <ContextForSpotlightCommentObj.Provider value={comment}>
           <SpaceSpotlightContentComment />

@@ -23,7 +23,7 @@ export function ExplorerHomeGallerysSearch() {
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
             placeholder='Find purpose...'
             onChange={(e) =>
-              galleryListController.actions.stateActions.executeQuery(
+              galleryListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,
               )
             }

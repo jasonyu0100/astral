@@ -154,18 +154,33 @@ const useControllerForGalleryList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    executeQuery: (newQuery: string) => {
-      changeQuery(newQuery);
-      if (newQuery === '') {
-        changeQueryResults(objs);
-        return objs;
+    searchAndUpdateQuery: (newQuery: string, newObjs?: TargetObj[]) => {
+      if (newObjs) {
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(newObjs);
+          return newObjs;
+        } else {
+          const results = newObjs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.title);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       } else {
-        const results = objs.filter((obj) => {
-          const regex = new RegExp(newQuery, 'i');
-          return regex.test(obj.title);
-        });
-        changeQueryResults(results);
-        return results;
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(objs);
+          return objs;
+        } else {
+          const results = objs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.title);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       }
     },
     checkActive: function (obj: TargetObj): boolean {
@@ -176,9 +191,11 @@ const useControllerForGalleryList = (
     },
     pushFront: (obj: TargetObj) => {
       changeObjs((prev) => [obj, ...prev]);
+      return [obj, ...objs];
     },
     pushBack: (obj: TargetObj) => {
       changeObjs((prev) => [...prev, obj]);
+      return [...objs, obj];
     },
     pushIndex: (obj: TargetObj, index: number) => {
       changeObjs((prev) => [
@@ -186,9 +203,11 @@ const useControllerForGalleryList = (
         obj,
         ...prev.slice(index),
       ]);
+      return [...objs.slice(0, index), obj, ...objs.slice(index)];
     },
     updateObj: (id: string, newObj: TargetObj) => {
       changeObjs((prev) => prev.map((obj) => (obj.id === id ? newObj : obj)));
+      return objs.map((obj) => (obj.id === id ? newObj : obj));
     },
     deleteIds: (ids: string[]) => {
       changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
@@ -246,7 +265,8 @@ const useControllerForGalleryList = (
         thumbnail: thumbnail,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -259,7 +279,8 @@ const useControllerForGalleryList = (
         thumbnail: exampleFileElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
@@ -268,7 +289,8 @@ const useControllerForGalleryList = (
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
-      stateActions.pushIndex(newObj, index);
+      const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
     },
