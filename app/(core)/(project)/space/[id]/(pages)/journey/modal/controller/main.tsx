@@ -7,6 +7,7 @@ import { createContext } from 'react';
 import { SpaceJourneyAddChapterModal } from '../add/chapter/main';
 import { SpaceJourneyAddFileLinkModal } from '../add/link/file/main';
 import { SpaceJourneyAddTextLinkModal } from '../add/link/text/main';
+import { SpaceJourneyAddLogModal } from '../add/log/main';
 import { SpaceJourneyAddSceneModal } from '../add/scene/main';
 import { SpaceJourneyAddUpdateModal } from '../add/update/main';
 import { SpaceJourneySpotlightModal } from '../generate/main';
@@ -28,6 +29,7 @@ export interface SpaceJourneyModals {
   addTextIdeaController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
+  addLogController: ContextForOpenableInterface;
 }
 
 export function SpaceJourneyModals({
@@ -44,6 +46,7 @@ export function SpaceJourneyModals({
   const addTextIdeaController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
+  const addLogController = useControllerForOpenable();
 
   return (
     <ContextForSpaceJourneyModals.Provider
@@ -57,6 +60,7 @@ export function SpaceJourneyModals({
         addTextIdeaController: addTextIdeaController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
+        addLogController: addLogController,
       }}
     >
       {children}
@@ -86,6 +90,9 @@ export function SpaceJourneyModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileLinkController}>
         <SpaceJourneyAddFileLinkModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addLogController}>
+        <SpaceJourneyAddLogModal />
       </ContextForOpenable.Provider>
     </ContextForSpaceJourneyModals.Provider>
   );

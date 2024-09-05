@@ -92,14 +92,15 @@ export function SpaceMapGenerateLog() {
       title,
       description,
     );
-    const linkPromises = selectedIdeas.map(async (idea) => {
-      await linkListController.actions.createActions.createLink(
-        user.id,
-        log.id,
-        idea,
-      );
-    });
-    await Promise.all(linkPromises);
+    const links = await Promise.all(
+      selectedIdeas.map((idea) => {
+        linkListController.actions.createActions.createLink(
+          user.id,
+          log.id,
+          idea,
+        );
+      }),
+    );
     await updateListController.actions.createActions
       .createFromChapterLog(
         user.id,
