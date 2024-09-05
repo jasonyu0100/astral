@@ -29,7 +29,7 @@ export function HorizonBoardRowElement({
       >
         <GlassAreaContainer
           name={HorizonBoardRowElement.name}
-          sizeFx='w-[200px] h-[40px]'
+          sizeFx='w-[200px] h-[3.5rem]'
           glassFx={active ? glassFx['glass-20'] : glassFx['glass-5']}
           roundedFx={roundedFx['rounded-full']}
           className='flex items-center justify-center'

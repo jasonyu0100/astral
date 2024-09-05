@@ -14,7 +14,7 @@ export default function SpaceJourneyRowAdd({
     <button {...props}>
       <GlassAreaContainer
         name={SpaceJourneyRowAdd.name}
-        sizeFx='w-[200px] h-[40px]'
+        sizeFx='w-[200px] h-[3.5rem]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
       >

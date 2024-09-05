@@ -25,7 +25,7 @@ export function FormSelect({
         >
           {children}
         </select>
-        <div className='absolute right-0 flex h-[4rem] w-[4rem] items-center justify-center'>
+        <div className='absolute right-0 flex h-[3rem] w-[3rem] items-center justify-center'>
           <AstralChevronDownIcon />
         </div>
       </div>

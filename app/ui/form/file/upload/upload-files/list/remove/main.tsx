@@ -6,7 +6,7 @@ export function UploadedEntryRemove({ i }: { i: number }) {
 
   return (
     <button
-      className='h-[30px] w-[30px] flex-shrink-0 rounded-full'
+      className='h-[4rem] w-[4rem] flex-shrink-0 rounded-full'
       onClick={() => uploadsHandler.actions.clearFile(i)}
     >
       <svg

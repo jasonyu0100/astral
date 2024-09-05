@@ -14,7 +14,7 @@ export default function SpaceMapRowAdd({
     <button {...props}>
       <GlassAreaContainer
         name={SpaceMapRowAdd.name}
-        sizeFx='w-[200px] h-[40px]'
+        sizeFx='w-[200px] h-[3.5rem]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
       >

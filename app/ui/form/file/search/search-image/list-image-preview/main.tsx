@@ -22,7 +22,7 @@ export function SearchImageListPreview() {
         </div>
       </div>
       <button
-        className='h-[30px] w-[30px] rounded-full'
+        className='h-[4rem] w-[4rem] rounded-full'
         onClick={() => {
           updateFileElem({} as FileElem);
         }}

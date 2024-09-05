@@ -8,7 +8,7 @@ export function CreativeNetworkNumberPlay() {
 
   return (
     <a href={userProfileMap.profile.link(user.id)}>
-      <AstralPlayIcon className='h-[30px] w-[30px]' />
+      <AstralPlayIcon className='h-[4rem] w-[4rem]' />
     </a>
   );
 }

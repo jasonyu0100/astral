@@ -9,7 +9,7 @@ export function NavigationTimelineContainer({
   return (
     <GlassAreaContainer
       name={NavigationTimelineContainer.name}
-      sizeFx='w-full h-[80px]'
+      sizeFx='w-full h-[5rem]'
       className='flex h-full w-full flex-row items-center justify-center space-x-[1rem] px-[1rem]'
       glassFx={glassFx['glass-10']}
     >

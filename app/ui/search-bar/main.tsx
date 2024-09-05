@@ -6,7 +6,7 @@ export function SearchBar({ ...props }: FormInputProps) {
   return (
     <GlassAreaContainer
       name={SearchBar.name}
-      sizeFx='w-full h-[4rem]'
+      sizeFx='w-full h-[5rem]'
       className={`flex items-center space-x-[1rem] px-[1rem]`}
       borderFx={borderFx['border-b']}
     >

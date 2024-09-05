@@ -8,7 +8,7 @@ export function VentureHorizonsFooter() {
   return (
     <GlassAreaContainer
       name={VentureHorizonsFooter.name}
-      sizeFx='w-full h-[4rem]'
+      sizeFx='w-full h-[5rem]'
       glassFx={glassFx['glass-5']}
       className='flex flex-row items-center justify-between px-[50px]'
     >
