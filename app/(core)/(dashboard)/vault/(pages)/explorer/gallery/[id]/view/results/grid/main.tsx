@@ -20,14 +20,16 @@ export function ExplorerGalleryCollectionsGrid() {
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
         <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
-          {collectionListController.state.objs.map((collection) => (
-            <ContextForGalleryCollectionObj.Provider
-              value={collection}
-              key={collection.id}
-            >
-              <ExplorerCollection key={collection.id} />
-            </ContextForGalleryCollectionObj.Provider>
-          ))}
+          {collectionListController.state.more.queryResults.map(
+            (collection) => (
+              <ContextForGalleryCollectionObj.Provider
+                value={collection}
+                key={collection.id}
+              >
+                <ExplorerCollection key={collection.id} />
+              </ContextForGalleryCollectionObj.Provider>
+            ),
+          )}
           <GalleryCollectionAdd onClick={() => openableController.open()} />
         </div>
       </div>

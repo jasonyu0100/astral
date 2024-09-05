@@ -20,7 +20,7 @@ export function ExplorerHomeGallerysGrid() {
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
         <div className='grid grid-cols-3 gap-[3rem] pr-[3rem]'>
-          {galleryListController.state.objs.map((gallery) => (
+          {galleryListController.state.more.queryResults.map((gallery) => (
             <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
               <ExplorerGallery key={gallery.id} />
             </ContextForGalleryObj.Provider>

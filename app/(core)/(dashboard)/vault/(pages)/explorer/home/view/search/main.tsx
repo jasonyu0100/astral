@@ -1,9 +1,13 @@
+import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { useContext } from 'react';
 
 export function ExplorerHomeGallerysSearch() {
+  const galleryListController = useContext(ContextForGalleryList);
+
   return (
     <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
@@ -18,7 +22,12 @@ export function ExplorerHomeGallerysSearch() {
           <input
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
             placeholder='Find purpose...'
-          ></input>
+            onChange={(e) =>
+              galleryListController.actions.stateActions.executeQuery(
+                e.target.value,
+              )
+            }
+          />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>

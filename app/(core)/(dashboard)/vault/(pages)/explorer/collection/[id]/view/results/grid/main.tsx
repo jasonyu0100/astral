@@ -10,7 +10,7 @@ import { useContext } from 'react';
 import { ExplorerCreateResourceModal } from '../../../../../(modals)/create/resource/main';
 
 export function ExplorerCollectionResourcesGrid() {
-  const resourcesHandler = useContext(ContextForCollectionResourceList);
+  const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useControllerForOpenable();
 
   return (
@@ -20,7 +20,7 @@ export function ExplorerCollectionResourcesGrid() {
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
         <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
-          {resourcesHandler.state.objs.map((resource) => (
+          {resourceListController.state.more.queryResults.map((resource) => (
             <ContextForCollectionResourceObj.Provider
               value={resource}
               key={resource.id}
