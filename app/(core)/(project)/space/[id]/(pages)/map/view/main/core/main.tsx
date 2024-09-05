@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceMapCoreContents } from './contents/main';
+import { SpaceMapContents } from './contents/main';
 import { SpaceMapHeader } from './header/main';
 
 export function SpaceMapBodyCore() {
@@ -11,7 +11,7 @@ export function SpaceMapBodyCore() {
         className={`flex flex-col`}
       >
         <SpaceMapHeader />
-        <SpaceMapCoreContents />
+        <SpaceMapContents />
       </GlassAreaContainer>
     </div>
   );

@@ -2,6 +2,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
+import { AstralInfoIcon } from '@/icons/info/main';
 import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
@@ -13,6 +14,7 @@ import {
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
   SpaceMapSidebarContentMode,
+  SpaceMapStatusMode,
 } from '../../../../../controller/map/main';
 
 export function SpaceMapHeaderLeft() {
@@ -21,13 +23,15 @@ export function SpaceMapHeaderLeft() {
       selectedIdeas,
       peopleMode,
       connectionMode,
-      sidebarContentMode: sidebarMode,
+      sidebarContentMode: sidebarContentMode,
+      statusMode: statusMode,
     },
     actions: {
       updatePeopleMode,
       updateConnectionMode,
       updateSidebarMode,
       autoSort,
+      updateStatusMode,
     },
   } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -67,15 +71,29 @@ export function SpaceMapHeaderLeft() {
           }
         }}
       />
+      <AstralInfoIcon
+        className={
+          statusMode === SpaceMapStatusMode.ON
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+        onClick={() =>
+          updateStatusMode(
+            statusMode === SpaceMapStatusMode.ON
+              ? SpaceMapStatusMode.OFF
+              : SpaceMapStatusMode.ON,
+          )
+        }
+      />
       <PipIndicator />
       <AstralListIcon
         className={
-          sidebarMode === SpaceMapSidebarContentMode.MEDIA
+          sidebarContentMode === SpaceMapSidebarContentMode.MEDIA
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (sidebarMode === SpaceMapSidebarContentMode.LIST) {
+          if (sidebarContentMode === SpaceMapSidebarContentMode.LIST) {
             updateSidebarMode(SpaceMapSidebarContentMode.MEDIA);
           } else {
             updateSidebarMode(SpaceMapSidebarContentMode.LIST);
@@ -84,12 +102,12 @@ export function SpaceMapHeaderLeft() {
       />
       <AstralFolderIcon
         className={
-          sidebarMode === SpaceMapSidebarContentMode.LIST
+          sidebarContentMode === SpaceMapSidebarContentMode.LIST
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (sidebarMode === SpaceMapSidebarContentMode.MEDIA) {
+          if (sidebarContentMode === SpaceMapSidebarContentMode.MEDIA) {
             updateSidebarMode(SpaceMapSidebarContentMode.LIST);
           } else {
             updateSidebarMode(SpaceMapSidebarContentMode.MEDIA);

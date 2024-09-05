@@ -23,6 +23,7 @@ interface ControllerState {
   sidebarContentMode: SpaceMapSidebarContentMode;
   listSceneMode: SpaceMapSidebarListMode;
   peopleMode: SpaceMapPeopleMode;
+  statusMode: SpaceMapStatusMode;
 }
 
 interface ControllerActions {
@@ -41,6 +42,7 @@ interface ControllerActions {
   updateMapMode: (mode: SpaceMapInteractionMode) => void;
   updateSidebarMode: (mode: SpaceMapSidebarContentMode) => void;
   updateListSceneMode: (mode: SpaceMapSidebarListMode) => void;
+  updateStatusMode: (mode: SpaceMapStatusMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
@@ -60,6 +62,11 @@ export enum SpaceMapIdeaMode {
 }
 
 export enum SpaceMapPeopleMode {
+  OFF = 'OFF',
+  ON = 'ON',
+}
+
+export enum SpaceMapStatusMode {
   OFF = 'OFF',
   ON = 'ON',
 }
@@ -110,6 +117,7 @@ export function useControllerForSpaceMap(): Controller {
   const [sidebarMediaMode, changeSidebarMediaMode] = useState(
     SpaceMapSidebarMediaMode.Collection,
   );
+  const [statusMode, changeStatusMode] = useState(SpaceMapStatusMode.OFF);
 
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
@@ -207,6 +215,7 @@ export function useControllerForSpaceMap(): Controller {
       isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
+      statusMode: statusMode,
       connectionMode: connectionMode,
       selectedIdeas: selectedIdeas,
       peopleMode: peopleMode,
@@ -219,6 +228,7 @@ export function useControllerForSpaceMap(): Controller {
       autoSort: autoSort,
       getAvailableXYWH: getAvailableXYWH,
       updateDivWidth: (width) => setDivWidth(width),
+      updateStatusMode: (mode) => changeStatusMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
       updateConnectionMode: (mode) => setConnectionMode(mode),
       updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
