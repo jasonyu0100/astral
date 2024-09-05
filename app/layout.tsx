@@ -8,7 +8,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
 
   return (
     <html lang='en'>
-      <title>Astral 💫</title>
+      <title>Astral</title>
       <head>
         <meta name='referrer' content='origin' />
       </head>
