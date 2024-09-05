@@ -8,7 +8,7 @@ export function SpaceSpotlightSidebar() {
     <>
       <GlassAreaContainer
         name={SpaceSpotlightSidebar.name}
-        sizeFx='w-[300px] h-full'
+        sizeFx='w-[400px] h-full'
         glassFx={glassFx['glass-5']}
         className={`flex flex-col items-center overflow-hidden`}
       >

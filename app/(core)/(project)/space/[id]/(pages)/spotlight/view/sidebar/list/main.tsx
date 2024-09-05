@@ -2,7 +2,7 @@ import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chap
 import { ContextForChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
-import { SpaceSpotlightSidebarReview } from './item/main';
+import { SpaceSpotlightSidebarItem } from './item/main';
 
 export function SpaceSpotlightSidebarList() {
   const spotlightListController = useContext(ContextForChapterSpotlightList);
@@ -18,7 +18,7 @@ export function SpaceSpotlightSidebarList() {
           <div className='flex flex-col space-y-[1rem]'>
             {spotlightListController.state.objs.map((spotlight) => (
               <ContextForChapterSpotlightObj.Provider value={spotlight}>
-                <SpaceSpotlightSidebarReview />
+                <SpaceSpotlightSidebarItem />
               </ContextForChapterSpotlightObj.Provider>
             ))}
           </div>
