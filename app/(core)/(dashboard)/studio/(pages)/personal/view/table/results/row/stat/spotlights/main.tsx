@@ -1,13 +1,12 @@
-import { useControllerForSessionUpdateOfSpaceList } from '@/(server)/controller/space/chapter/session/update/space-list';
+import { useControllerForSessionUpdateListFromSpace } from '@/(server)/controller/space/chapter/session/update/list-from-space';
 import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/session/update/main';
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
 export function StudioSpacesRowSpotlights() {
   const spaceObj = useContext(ContextForSpaceObj);
-  const sessionUpdateListController = useControllerForSessionUpdateOfSpaceList(
-    spaceObj.id,
-  );
+  const sessionUpdateListController =
+    useControllerForSessionUpdateListFromSpace(spaceObj.id);
   const spotlights = sessionUpdateListController.state.objs.filter(
     (update) => update.variant === ChapterSessionUpdateVariant.SPOTLIGHT,
   );
