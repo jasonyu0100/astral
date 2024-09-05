@@ -1,4 +1,4 @@
-import { spotlightMemberDbWrapper } from '@/(server)/client/space/chapter/spotlight/member/main';
+import { spotlightKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { SpotlightMemberObj } from '@/(server)/model/space/chapter/spotlight/member/main';
+import { SpotlightKarmaObj } from '@/(server)/model/space/chapter/spotlight/karma/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpotlightMemberObj;
-const gqlDbWrapper = spotlightMemberDbWrapper;
+type TargetObj = SpotlightKarmaObj;
+const gqlDbWrapper = spotlightKarmaDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpotlightMemberMain = (objId: string): Controller => {
+const useControllerForSpotlightKarmaMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForSpotlightMemberMain = (objId: string): Controller => {
   };
 };
 
-const ContextForSpotlightMemberMain = createContext({} as Controller);
-export { ContextForSpotlightMemberMain, useControllerForSpotlightMemberMain };
+const ContextForSpotlightKarmaMain = createContext({} as Controller);
+export { ContextForSpotlightKarmaMain, useControllerForSpotlightKarmaMain };

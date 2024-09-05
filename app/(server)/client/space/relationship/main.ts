@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createSpaceIdeaRelationshipObj,
@@ -13,11 +13,11 @@ import {
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as IdeaRelationshipObj;
+  return obj as SpaceIdeaRelationshipObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as IdeaRelationshipObj[];
+  return objs as SpaceIdeaRelationshipObj[];
 }
 
 async function getObj(value: string) {
@@ -80,7 +80,7 @@ async function listFromVariables(variables: object) {
   );
 }
 
-async function createObj(newObj: Omit<IdeaRelationshipObj, 'id'>) {
+async function createObj(newObj: Omit<SpaceIdeaRelationshipObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createSpaceIdeaRelationshipObj,
     variables: {
@@ -91,7 +91,10 @@ async function createObj(newObj: Omit<IdeaRelationshipObj, 'id'>) {
   return castSingle(payload?.data?.createSpaceIdeaRelationshipObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<IdeaRelationshipObj>) {
+async function updateObj(
+  id: string,
+  updateObj: Partial<SpaceIdeaRelationshipObj>,
+) {
   const payload = await amplifyClient.graphql({
     query: updateSpaceIdeaRelationshipObj,
     variables: {
@@ -105,7 +108,7 @@ async function updateObj(id: string, updateObj: Partial<IdeaRelationshipObj>) {
   return castSingle(payload?.data?.updateSpaceIdeaRelationshipObj);
 }
 
-async function overwriteObj(id: string, newObj: IdeaRelationshipObj) {
+async function overwriteObj(id: string, newObj: SpaceIdeaRelationshipObj) {
   const payload = await amplifyClient.graphql({
     query: updateSpaceIdeaRelationshipObj,
     variables: {
@@ -132,7 +135,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteSpaceIdeaRelationshipObj);
 }
 
-export const spaceIdeaRelationshipDbWrapper: GqlDbWrapper<IdeaRelationshipObj> =
+export const spaceIdeaRelationshipDbWrapper: GqlDbWrapper<SpaceIdeaRelationshipObj> =
   {
     getObj,
     listObjs,

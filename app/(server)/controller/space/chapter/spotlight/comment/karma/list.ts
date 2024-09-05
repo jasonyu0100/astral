@@ -1,4 +1,4 @@
-import { spotlightKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
+import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/karma/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  spotlightKarmaModel,
-  SpotlightKarmaObj,
-} from '@/(server)/model/space/chapter/spotlight/karma/main';
+  commentKarmaModel,
+  CommentKarmaObj,
+} from '@/(server)/model/space/chapter/spotlight/comment/karma/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpotlightKarmaObj;
-const gqlDbWrapper = spotlightKarmaDbWrapper;
-const listIdKey = spotlightKarmaModel.parentKey;
+type TargetObj = CommentKarmaObj;
+const gqlDbWrapper = commentKarmaDbWrapper;
+const listIdKey = commentKarmaModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -32,7 +32,13 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createKarma: (
+    commentId: string,
+    userId: string,
+    neutrality: boolean,
+  ) => Promise<CommentKarmaObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -48,7 +54,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpotlightKarmaList = (
+const useControllerForCommentKarmaList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -140,7 +146,7 @@ const useControllerForSpotlightKarmaList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.id);
+          return regex.test(obj.userId);
         });
         changeQueryResults(results);
         return results;
@@ -158,7 +164,7 @@ const useControllerForSpotlightKarmaList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.userId);
           });
           changeQueryResults(results);
           return results;
@@ -171,7 +177,7 @@ const useControllerForSpotlightKarmaList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.userId);
           });
           changeQueryResults(results);
           return results;
@@ -254,9 +260,26 @@ const useControllerForSpotlightKarmaList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        spotlightId: '',
+        commentId: '',
         userId: '',
         neutrality: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createKarma: async (
+      commmentId: string,
+      userId: string,
+      neutrality: boolean,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        commentId: commmentId,
+        userId: userId,
+        neutrality: neutrality,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -343,5 +366,5 @@ const useControllerForSpotlightKarmaList = (
   };
 };
 
-const ContextForSpotlightKarmaList = createContext({} as Controller);
-export { ContextForSpotlightKarmaList, useControllerForSpotlightKarmaList };
+const ContextForCommentKarmaList = createContext({} as Controller);
+export { ContextForCommentKarmaList, useControllerForCommentKarmaList };

@@ -12,6 +12,10 @@ import {
   useControllerForSpotlightCommentList,
 } from '@/(server)/controller/space/chapter/spotlight/comment/list';
 import {
+  ContextForSpotlightKarmaList,
+  useControllerForSpotlightKarmaList,
+} from '@/(server)/controller/space/chapter/spotlight/karma/list';
+import {
   ContextForSpotlightLinkList,
   useControllerForSpotlightLinkList,
 } from '@/(server)/controller/space/chapter/spotlight/link/list';
@@ -49,10 +53,12 @@ function Page({ params }: { params: { id: string } }) {
   const commentListController = useControllerForSpotlightCommentList(
     spotlightListController.state.objId,
   );
+  const spotlightKarmaListController = useControllerForSpotlightKarmaList(
+    spotlightListController.state.objId,
+  );
   const attachmentListController = useControllerForSpotlightAttachmentList(
     spotlightListController.state.objId,
   );
-
   const linkListController = useControllerForSpotlightLinkList(
     spotlightListController.state.objId,
   );
@@ -64,23 +70,27 @@ function Page({ params }: { params: { id: string } }) {
           <ContextForChapterSpotlightList.Provider
             value={spotlightListController}
           >
-            <ContextForSpotlightAttachmentList.Provider
-              value={attachmentListController}
+            <ContextForSpotlightKarmaList.Provider
+              value={spotlightKarmaListController}
             >
-              <ContextForSpotlightCommentList.Provider
-                value={commentListController}
+              <ContextForSpotlightAttachmentList.Provider
+                value={attachmentListController}
               >
-                <ContextForSpotlightLinkList.Provider
-                  value={linkListController}
+                <ContextForSpotlightCommentList.Provider
+                  value={commentListController}
                 >
-                  <LoadingWrapper>
-                    <SpaceSpotlightModals>
-                      <SpaceSpotlightView />
-                    </SpaceSpotlightModals>
-                  </LoadingWrapper>
-                </ContextForSpotlightLinkList.Provider>
-              </ContextForSpotlightCommentList.Provider>
-            </ContextForSpotlightAttachmentList.Provider>
+                  <ContextForSpotlightLinkList.Provider
+                    value={linkListController}
+                  >
+                    <LoadingWrapper>
+                      <SpaceSpotlightModals>
+                        <SpaceSpotlightView />
+                      </SpaceSpotlightModals>
+                    </LoadingWrapper>
+                  </ContextForSpotlightLinkList.Provider>
+                </ContextForSpotlightCommentList.Provider>
+              </ContextForSpotlightAttachmentList.Provider>
+            </ContextForSpotlightKarmaList.Provider>
           </ContextForChapterSpotlightList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>

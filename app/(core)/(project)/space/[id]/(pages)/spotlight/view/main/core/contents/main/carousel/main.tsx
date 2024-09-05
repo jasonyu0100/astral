@@ -1,9 +1,8 @@
 import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
-import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { useContext, useState } from 'react';
+import { SpaceSpotlightKarma } from '../karma/main';
 
 export function SpaceSpotlightCarousel() {
   const attachmentListController = useContext(
@@ -62,11 +61,7 @@ export function SpaceSpotlightCarousel() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col items-center'>
-        <AstralChevronUpIcon className='h-[3rem] w-[3rem]' />
-        <p className='text-lg font-bold text-slate-300'>42</p>
-        <AstralChevronDownIcon className='h-[3rem] w-[3rem]' />
-      </div>
+      <SpaceSpotlightKarma />
     </div>
   );
 }

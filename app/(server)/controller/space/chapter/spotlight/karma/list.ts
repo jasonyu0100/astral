@@ -32,7 +32,13 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createKarma: (
+    spotlightId: string,
+    userId: string,
+    neutrality: boolean,
+  ) => Promise<SpotlightKarmaObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -257,6 +263,23 @@ const useControllerForSpotlightKarmaList = (
         spotlightId: '',
         userId: '',
         neutrality: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createKarma: async (
+      spotlightId: string,
+      userId: string,
+      neutrality: boolean,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        spotlightId: spotlightId,
+        userId: userId,
+        neutrality: neutrality,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

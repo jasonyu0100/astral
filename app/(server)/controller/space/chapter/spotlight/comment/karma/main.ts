@@ -1,4 +1,4 @@
-import { spotlightKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
+import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/karma/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { SpotlightKarmaObj } from '@/(server)/model/space/chapter/spotlight/karma/main';
+import { CommentKarmaObj } from '@/(server)/model/space/chapter/spotlight/comment/karma/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpotlightKarmaObj;
-const gqlDbWrapper = spotlightKarmaDbWrapper;
+type TargetObj = CommentKarmaObj;
+const gqlDbWrapper = commentKarmaDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpotlightKarmaMain = (objId: string): Controller => {
+const useControllerForCommentKarmaMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForSpotlightKarmaMain = (objId: string): Controller => {
   };
 };
 
-const ContextForSpotlightKarmaMain = createContext({} as Controller);
-export { ContextForSpotlightKarmaMain, useControllerForSpotlightKarmaMain };
+const ContextForCommentKarmaMain = createContext({} as Controller);
+export { ContextForCommentKarmaMain, useControllerForCommentKarmaMain };
