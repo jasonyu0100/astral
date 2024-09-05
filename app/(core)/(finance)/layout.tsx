@@ -13,7 +13,7 @@ export default function Layout({
   return (
     <Suspense fallback={<PortalBackground />}>
       <DashboardTopbar />
-      <DashboardController fullHeight>
+      <DashboardController>
         <div className='flex h-full w-full items-center justify-center'>
           {children}
         </div>

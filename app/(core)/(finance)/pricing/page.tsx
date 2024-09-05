@@ -89,8 +89,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>standard</p>
-                <p className='text-lg font-bold'>180 / year</p>
+                <p className='font-extraBold text-3xl'>Individual</p>
+                <p className='text-lg font-bold'>200 / year</p>
               </div>
             </div>
             <div
@@ -102,8 +102,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>pro</p>
-                <p className='text-lg font-bold'>480 / year</p>
+                <p className='font-extraBold text-3xl'>Team</p>
+                <p className='text-lg font-bold'>360 / year</p>
               </div>
             </div>
             <div
@@ -117,8 +117,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>pulsar.club</p>
-                <p className='text-lg font-bold'>Invite Only</p>
+                <p className='font-extraBold text-3xl'>Enterprise</p>
+                <p className='text-lg font-bold'>Contact us</p>
               </div>
             </div>
           </div>
@@ -134,8 +134,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>standard</p>
-                <p className='text-lg font-bold'>20 / mo</p>
+                <p className='font-extraBold text-3xl'>Individual</p>
+                <p className='text-lg font-bold'>10 / month</p>
               </div>
             </div>
             <div
@@ -147,8 +147,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>pro</p>
-                <p className='text-lg font-bold'>50 / mo</p>
+                <p className='font-extraBold text-3xl'>Team</p>
+                <p className='text-lg font-bold'>50 / month</p>
               </div>
             </div>
             <div
@@ -162,8 +162,8 @@ export default function Page() {
                 className='aspect-square w-full bg-black'
               />
               <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>pulsar.club</p>
-                <p className='text-lg font-bold'>Invite Only</p>
+                <p className='font-extraBold text-3xl'>Enterprise</p>
+                <p className='text-lg font-bold'>Contact us</p>
               </div>
             </div>
           </div>

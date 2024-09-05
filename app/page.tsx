@@ -88,10 +88,18 @@ export default function Page() {
               <p className='font-bold'>- conversational</p>
               <p className='font-bold'>- connected</p>
             </div>
-            <div className='absolute left-[1200px] top-[200px] h-[200px] w-[300px] bg-green-400 p-[1rem] shadow-glow'>
-              <p className='font-bold'>1. Free-flow</p>
-              <p className='font-bold'>2. Insightful</p>
-              <p className='font-bold'>3. Learning</p>
+            <div className='absolute left-[1200px] top-[200px] h-[200px] w-[300px]'>
+              <GlassWindowFrame
+                className='h-full w-full overflow-hidden'
+                roundedFx={roundedFx.rounded}
+                borderFx={borderFx['border-around']}
+              >
+                <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-[1rem] bg-slate-950 bg-opacity-50 p-[2rem] text-xl font-bold text-slate-300'>
+                  "Astral is the AI-powered creative workflow platform that
+                  grows with you"
+                </GlassWindowContents>
+                <GlassWindowPane glassFx={glassFx['glass-10']} />
+              </GlassWindowFrame>
             </div>
             <div className='absolute left-[400px] top-[150px] h-[150px] w-[150px]'>
               <img
@@ -101,12 +109,12 @@ export default function Page() {
             </div>
             <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
               <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
-                non-linear
+                conversation-to-map
               </p>
             </div>
             <div className='absolute left-[1250px] top-[50px] h-[200px] w-[200px]'>
               <p className='animate-pulse-slow text-center text-2xl font-bold text-slate-300'>
-                evolving media base
+                media base
               </p>
             </div>
             <div className='absolute left-[300px] top-[0px] h-[200px] w-[300px]'>
@@ -178,7 +186,7 @@ export default function Page() {
             <line
               x1='1075'
               y1='475'
-              x2='1400'
+              x2='1300'
               y2='300'
               className='animate-pulse stroke-slate-300 opacity-30'
               strokeWidth={2}
@@ -230,7 +238,6 @@ export default function Page() {
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
             <p className='text-xl font-bold text-slate-300'>Product Launch</p>
-            <p className='text-md font-light text-slate-300'>5 days</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning and executing a successful
               product launch.
@@ -244,8 +251,20 @@ export default function Page() {
           roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
+            <p className='text-xl font-bold text-slate-300'>Startup</p>
+            <p className='text-sm font-light text-slate-500'>
+              A comprehensive template for developing a strategic startup plan.
+            </p>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        </GlassWindowFrame>
+        <GlassWindowFrame
+          className='h-[200px] w-[300px]'
+          borderFx={borderFx['border-around']}
+          roundedFx={roundedFx.rounded}
+        >
+          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
             <p className='text-xl font-bold text-slate-300'>Video Shoot</p>
-            <p className='text-md font-light text-slate-300'>24 hours</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning and executing a video project.
             </p>
@@ -261,7 +280,6 @@ export default function Page() {
             <p className='text-xl font-bold text-slate-300'>
               Marketing Campaign
             </p>
-            <p className='text-md font-light text-slate-300'>12 hours</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning, creating, and executing an
               effective marketing campaign.
@@ -276,24 +294,9 @@ export default function Page() {
         >
           <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
             <p className='text-xl font-bold text-slate-300'>Blog Post</p>
-            <p className='text-md font-light text-slate-300'>15 minutes</p>
             <p className='text-sm font-light text-slate-500'>
               A structured template for planning, writing, and promoting a blog
               post.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Startup</p>
-            <p className='text-md font-light text-slate-300'>7 days</p>
-            <p className='text-sm font-light text-slate-500'>
-              A comprehensive template for developing a strategic startup plan.
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />
@@ -311,7 +314,7 @@ export default function Page() {
       <div className='flex flex-col items-center'>
         <a
           href='/register'
-          className=' flex rounded-full bg-gradient-to-r from-violet-600 to-purple-500 p-[2rem]  text-xl font-bold text-slate-300'
+          className=' flex animate-pulse-slow rounded-full bg-gradient-to-r from-violet-600 to-purple-500  px-[3rem] py-[2rem] text-2xl font-bold text-white'
         >
           Get started for free
         </a>

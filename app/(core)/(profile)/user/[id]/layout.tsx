@@ -24,7 +24,7 @@ export default function Layout({
   return (
     <ContextForProfile.Provider value={{ userId: params.id }}>
       <DashboardTopbar />
-      <DashboardController fullHeight>
+      <DashboardController>
         <DashboardSidebarView
           minimised
           backUrl={studioMap.studio.personal.link}
