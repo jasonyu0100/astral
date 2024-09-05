@@ -1,4 +1,5 @@
 import { ContextForSpotlightKarmaList } from '@/(server)/controller/space/chapter/spotlight/karma/list';
+import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
@@ -7,9 +8,10 @@ import { useContext } from 'react';
 
 export function SpaceSpotlightKarma() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const spotlightListController = useContext(ContextForChapterSpotlightList);
   const spotlightKarmaListController = useContext(ContextForSpotlightKarmaList);
 
-  const karmaVotes = spotlightKarmaListController.state?.objs || [];
+  const karmaVotes = spotlightKarmaListController.state.objs;
   const cumulativeKarma = karmaVotes.reduce(
     (acc, obj) => acc + (obj.neutrality === true ? 1 : -1),
     0,
@@ -28,7 +30,7 @@ export function SpaceSpotlightKarma() {
       });
     } else {
       spotlightKarmaListController.actions.createActions.createKarma(
-        spotlightKarmaListController.state.objId,
+        spotlightListController.state.objId,
         loggedInUser.id,
         true,
       );
@@ -42,7 +44,7 @@ export function SpaceSpotlightKarma() {
       });
     } else {
       spotlightKarmaListController.actions.createActions.createKarma(
-        spotlightKarmaListController.state.objId,
+        spotlightListController.state.objId,
         loggedInUser.id,
         false,
       );
@@ -54,16 +56,24 @@ export function SpaceSpotlightKarma() {
       <AstralChevronUpIcon
         className={cn('h-[3rem] w-[3rem]', {
           'fill-blue-500': userVote === 1,
-          'fill-slate-500': userVote === 0,
+          'fill-slate-500': userVote === -1,
           'fill-slate-300': userVote === 0,
         })}
         onClick={() => upvote()}
       />
-      <p className='text-lg font-bold text-slate-300'>{cumulativeKarma}</p>
+      <p
+        className={cn('text-xl font-bold text-slate-300', {
+          'text-red-300': userVote === -1,
+          'text-blue-300': userVote === 1,
+          'text-slate-500': userVote === 0,
+        })}
+      >
+        {cumulativeKarma}
+      </p>
       <AstralChevronDownIcon
         className={cn('h-[3rem] w-[3rem]', {
           'fill-red-500': userVote === -1,
-          'fill-slate-500': userVote === 0,
+          'fill-slate-500': userVote === 1,
           'fill-slate-300': userVote === 0,
         })}
         onClick={() => downvote()}

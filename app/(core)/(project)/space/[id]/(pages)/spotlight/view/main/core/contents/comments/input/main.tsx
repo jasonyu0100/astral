@@ -24,8 +24,8 @@ export function SpaceSpotlightInput() {
   return (
     <div className='flex flex-col space-y-[2rem]'>
       <GlassWindowFrame
-        className='h-[4rem] w-full'
-        roundedFx={roundedFx['rounded-full']}
+        className='h-[6rem] w-full'
+        roundedFx={roundedFx['rounded']}
       >
         <GlassWindowContents>
           <input
@@ -35,7 +35,7 @@ export function SpaceSpotlightInput() {
             onChange={(e) => setMessage(e.target.value)}
           ></input>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
       <div className='flex flex-row items-center justify-end space-x-[1rem]'>
         <div
