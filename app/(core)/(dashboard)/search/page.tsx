@@ -1,11 +1,33 @@
 'use client';
-import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
-import { useControllerForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSpaceList } from '@/(server)/controller/space/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(server)/controller/space/chapter/list';
+import {
+  ContextForSceneConversationList,
+  useControllerForSceneConversationList,
+} from '@/(server)/controller/space/chapter/scene/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import {
+  ContextForChapterSceneList,
+  useControllerForChapterSceneList,
+} from '@/(server)/controller/space/chapter/scene/list';
+import {
+  ContextForSpaceList,
+  useControllerForSpaceList,
+} from '@/(server)/controller/space/list';
+import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import { useEffect } from 'react';
+import { ConversationalSearchView } from './(core)/view';
+import {
+  ContextForConversationalSearch,
+  useControllerForConversationalSearch,
+} from './controller/chat/main';
 
 export default function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -22,10 +44,6 @@ export default function Page() {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
-
-  console.log(chapterListController.state.currentObj);
-  console.log(sceneListController.state.currentObj);
-  console.log(conversationListController.state.objs);
 
   useEffect(() => {
     chapterListController.actions.createActions
@@ -48,20 +66,57 @@ export default function Page() {
             chapter.id,
           )
           .then((scene) => {
-            conversationListController.actions.createActions.createConversation(
-              loggedInUser.id,
-              scene.id,
-            );
+            conversationListController.actions.createActions
+              .createConversation(loggedInUser.id, scene.id)
+              .then((conversation) => {
+                messageListController.actions.createActions.sendAgentMessage(
+                  'openAi',
+                  scene.id,
+                  conversation.id,
+                  'Hello world',
+                );
+              });
           });
       });
   }, []);
 
   return (
-    <div className='flex flex-col'>
-      <p className='font-bold text-slate-300'>Conversational Search</p>
-      {messageListController.state.objs.map((message) => (
-        <div className='font-bold text-slate-300'>{message.message}</div>
-      ))}
-    </div>
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForSpaceList.Provider value={spaceListController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForChapterSceneList.Provider value={sceneListController}>
+            <ContextForSceneConversationList.Provider
+              value={conversationListController}
+            >
+              <ContextForConversationMessageList.Provider
+                value={messageListController}
+              >
+                <LoadingWrapper>
+                  <ConversationalSearchWrapper>
+                    <ConversationalSearchView />
+                  </ConversationalSearchWrapper>
+                </LoadingWrapper>
+              </ContextForConversationMessageList.Provider>
+            </ContextForSceneConversationList.Provider>
+          </ContextForChapterSceneList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceList.Provider>
+    </ContextForLoggedInUserObj.Provider>
+  );
+}
+
+export function ConversationalSearchWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const conversationalSearchController = useControllerForConversationalSearch();
+
+  return (
+    <ContextForConversationalSearch.Provider
+      value={conversationalSearchController}
+    >
+      {children}
+    </ContextForConversationalSearch.Provider>
   );
 }

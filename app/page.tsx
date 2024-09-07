@@ -218,7 +218,7 @@ export default function Page() {
       <div className='h-[10rem]' />
       <div className='flex h-[10rem] w-full flex-row justify-center'>
         <a
-          href='/register'
+          href='/search'
           className='flex h-[5rem] flex-row items-center justify-center space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-[2rem]'
         >
           <p className='text-2xl font-bold text-slate-300'>try mapping</p>
