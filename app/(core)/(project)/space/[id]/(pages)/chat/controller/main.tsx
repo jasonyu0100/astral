@@ -44,7 +44,9 @@ export function useControllerForSpaceChat() {
   const conversationListController = useContext(
     ContextForSceneConversationList,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const [role, setRole] = useState<ConversationRole>(
     ConversationRole.Questioner,
   );

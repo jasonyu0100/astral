@@ -5,18 +5,18 @@ import { TabTwo } from './tab-2/main';
 import { TabThree } from './tab-3/main';
 import { TabFour } from './tab-4/main';
 
-interface ReleaseTabProps {
+interface HorizonTabProps {
   tab?: string;
 }
 
-export enum ReleaseTabStage {
-  Area = 'Area',
+export enum HorizonTabStage {
+  Forum = 'Forum',
   Board = 'Board',
-  Chart = 'Chart',
-  Lead = 'Lead',
+  Arc = 'Arc',
+  Point = 'Point',
 }
 
-export function ReleaseTabs({ tab }: ReleaseTabProps) {
+export function HorizonTabs({ tab }: HorizonTabProps) {
   return (
     <Tabs>
       <TabsRow>

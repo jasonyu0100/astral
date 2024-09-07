@@ -1,10 +1,10 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
-export function HorizonChartView({ children }: { children?: React.ReactNode }) {
+export function HorizonPointView({ children }: { children?: React.ReactNode }) {
   return (
     <GlassAreaContainer
-      name={HorizonChartView.name}
+      name={HorizonPointView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}

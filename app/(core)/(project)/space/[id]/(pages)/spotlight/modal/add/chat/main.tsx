@@ -22,7 +22,9 @@ export function SpaceSpotlightAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createScene() {
     const scene = await sceneListController.actions.createActions.createScene(

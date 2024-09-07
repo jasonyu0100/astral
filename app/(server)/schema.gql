@@ -12,6 +12,14 @@ type AgentObjConnection {
   nextToken: String
 }
 
+type SpaceChapterMemberObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  created: String!
+  termsId: String!
+}
+
 type ArcForumObj {
   id: String!
   arcId: String!
@@ -128,6 +136,9 @@ type ChapterSessionUpdateObj {
   ideaId: String
   spotlightId: String
   logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
 }
 
 type ChapterSessionUpdateObjConnection {
@@ -282,6 +293,9 @@ input CreateChapterSessionUpdateObjInput {
   ideaId: String
   spotlightId: String
   logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
 }
 
 input CreateChapterSpotlightObjInput {
@@ -1564,6 +1578,9 @@ input TableChapterSessionUpdateObjFilterInput {
   ideaId: TableStringFilterInput
   spotlightId: TableStringFilterInput
   logId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  attachmentId: TableStringFilterInput
+  memberId: TableStringFilterInput
 }
 
 input TableChapterSpotlightObjFilterInput {
@@ -2159,6 +2176,9 @@ input UpdateChapterSessionUpdateObjInput {
   ideaId: String
   spotlightId: String
   logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
 }
 
 input UpdateChapterSpotlightObjInput {
@@ -2370,7 +2390,7 @@ input UpdateHorizonSessionUpdateObjInput {
 
 input UpdateLogLinkObjInput {
   id: String!
-  fromIdea: Boolean!
+  fromIdea: Boolean
   ideaId: String
   chapterId: String
   spaceId: String

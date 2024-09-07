@@ -27,7 +27,9 @@ export function SpaceSpotlightAddSpotlightModal() {
   );
 
   const openableController = useContext(ContextForOpenable);
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');

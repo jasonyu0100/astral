@@ -22,11 +22,13 @@ export function SpaceJourneyAddSpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createReview() {
     const spotlight =
-      await spotlightListController.actions.createActions.createSpotlightFromFile(
+      await spotlightListController.actions.createActions.createSpotlight(
         title,
         description,
         user.id,

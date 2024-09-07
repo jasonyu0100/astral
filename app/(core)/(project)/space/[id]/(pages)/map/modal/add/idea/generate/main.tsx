@@ -40,7 +40,9 @@ export function SpaceMapAddGenerateIdeaModal() {
   const [variant, changeVariant] = useState<FileElemVariant>(
     FileElemVariant.IMAGE,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createFileIdea() {
     if (!file.src) {

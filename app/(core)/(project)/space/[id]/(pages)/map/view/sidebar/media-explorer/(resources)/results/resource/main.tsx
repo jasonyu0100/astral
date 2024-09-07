@@ -15,7 +15,9 @@ export function SpaceMapResourceResource() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sessionUpdateListController =
-    useControllerForSessionUpdateListFromChapter('');
+    useControllerForSessionUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   const resource = useContext(ContextForCollectionResourceObj);
 

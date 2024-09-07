@@ -44,7 +44,9 @@ export function SpaceJourneySpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const [files, changeFiles] = useState([] as FileElem[]);
 
   useEffect(() => {

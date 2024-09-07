@@ -29,7 +29,9 @@ export function SpaceJourneyAddFileIdeaModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createFileIdea() {
     const idea = await ideaListController.actions.createActions.createFromFile(

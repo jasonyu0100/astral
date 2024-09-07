@@ -19,7 +19,7 @@ export function VentureHorizonsListElement() {
         <div className='flex flex-row items-center space-x-[1rem]'>
           <Link
             className='flex flex-col items-center space-y-[1rem]'
-            href={horizonMap.horizon.id.area.link('0')}
+            href={horizonMap.horizon.id.forum.link('0')}
           >
             <HorizonThumbnailElement fileElem={exampleFileElem} />
           </Link>

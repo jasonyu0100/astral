@@ -42,7 +42,9 @@ export function useControllerForSpaceMapChat() {
   const conversationListController = useContext(
     ContextForSceneConversationList,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {

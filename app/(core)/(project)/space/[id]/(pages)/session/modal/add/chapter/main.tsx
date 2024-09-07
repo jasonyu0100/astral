@@ -18,7 +18,9 @@ export function SpaceSessionAddChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [objective, changeObjective] = useState('');

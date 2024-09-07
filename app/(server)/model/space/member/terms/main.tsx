@@ -61,6 +61,6 @@ export const spaceMemberTermsModel: ModelInterface<SpaceMemberTermsObj> = {
   gql: spaceMemberTermsGql,
   example: exampleSpaceMemberTerms,
   examples: exampleSpaceMemberTermsList,
-  parentKey: '',
+  parentKey: 'userId',
   children: [],
 };

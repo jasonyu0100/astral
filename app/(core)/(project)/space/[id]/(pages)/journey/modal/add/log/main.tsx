@@ -22,7 +22,9 @@ export function SpaceJourneyAddLogModal() {
   const logListController = useContext(ContextForChapterLogList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createLog() {
     const log = await logListController.actions.createActions.createLog(

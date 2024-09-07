@@ -67,7 +67,9 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const sceneListController = useControllerForChapterSceneList('');
   const spotlightListController = useControllerForChapterSpotlightList('');
   const sessionUpdateListController =
-    useControllerForSessionUpdateListFromChapter('');
+    useControllerForSessionUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
   const spaceMembersListController = useControllerForSpaceMemberList('');
   const spaceMembersTermsListController =
     useControllerForSpaceMemberTermsList('');

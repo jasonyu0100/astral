@@ -2,12 +2,15 @@ import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
 export enum ChapterSessionUpdateVariant {
+  CONVERSATION = 'CONVERSATION',
   CHAPTER = 'CHAPTER',
   SCENE = 'SCENE',
-  SPOTLIGHT = 'SPOTLIGHT',
-  CONVERSATION = 'CONVERSATION',
-  LOG = 'LOG',
   IDEA = 'IDEA',
+  LOG = 'LOG',
+  SPOTLIGHT = 'SPOTLIGHT',
+  ATTACHMENT = 'ATTACHMENT',
+  COMMENT = 'COMMENT',
+  MEMBER = 'MEMBER',
 }
 
 export interface ChapterSessionUpdateObj {
@@ -26,6 +29,9 @@ export interface ChapterSessionUpdateObj {
   ideaId?: string;
   spotlightId?: string;
   logId?: string;
+  commentId?: string;
+  attachmentId?: string;
+  memberId?: string;
 }
 
 export const ChapterSessionUpdateGql = `
@@ -45,6 +51,9 @@ type ChapterSessionUpdateObj {
   ideaId: String
   spotlightId: String
   logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
 }
 `;
 
@@ -67,6 +76,9 @@ export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
   sceneId: undefined,
   spotlightId: undefined,
   logId: undefined,
+  commentId: undefined,
+  attachmentId: undefined,
+  memberId: undefined,
 };
 
 export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
@@ -86,6 +98,9 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     sceneId: undefined,
     spotlightId: undefined,
     logId: undefined,
+    commentId: undefined,
+    attachmentId: undefined,
+    memberId: undefined,
   },
   {
     id: '0',
@@ -103,6 +118,9 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     sceneId: undefined,
     spotlightId: undefined,
     logId: undefined,
+    commentId: undefined,
+    attachmentId: undefined,
+    memberId: undefined,
   },
   {
     id: '0',
@@ -120,6 +138,9 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     sceneId: undefined,
     spotlightId: undefined,
     logId: undefined,
+    commentId: undefined,
+    attachmentId: undefined,
+    memberId: undefined,
   },
 ];
 

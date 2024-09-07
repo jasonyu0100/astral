@@ -35,7 +35,9 @@ export function SpaceMapCombineIdeas() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const updateListController = useControllerForSessionUpdateListFromChapter('');
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const [combinationDescription, setCombinationDescription] = useState('');
 
   async function combineIdeas() {

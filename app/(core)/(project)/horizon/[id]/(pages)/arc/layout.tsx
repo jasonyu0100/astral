@@ -1,11 +1,11 @@
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
-import { ReleaseTabStage, ReleaseTabs } from '../../(tabs)/main';
+import { HorizonTabStage, HorizonTabs } from '../../(tabs)/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardBody>
-      <ReleaseTabs tab={ReleaseTabStage.Area} />
+      <HorizonTabs tab={HorizonTabStage.Arc} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

@@ -6,11 +6,11 @@ import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/mai
 import { useContext } from 'react';
 import { ContextForHorizon } from '../../layout';
 import { horizonMap } from '../../map';
-import { ReleaseTabStage } from '../main';
+import { HorizonTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
   const releaseContext = useContext(ContextForHorizon);
-  const tabText = ReleaseTabStage.Board;
+  const tabText = HorizonTabStage.Board;
   const active = tab === tabText;
 
   return (

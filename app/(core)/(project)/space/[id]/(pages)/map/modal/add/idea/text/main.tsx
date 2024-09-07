@@ -1,5 +1,8 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -16,7 +19,9 @@ import { ContextForSpaceMap } from '../../../../controller/map/main';
 
 export function SpaceMapAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
+  const spaceController = useContext(ContextForSpaceMain);
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
@@ -24,6 +29,9 @@ export function SpaceMapAddTextIdeaModal() {
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
   const mapController = useContext(ContextForSpaceMap);
+  const updateListController = useControllerForSessionUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   function create() {
     const { x, y, width, height } = mapController.actions.getAvailableXYWH();
@@ -45,7 +53,14 @@ export function SpaceMapAddTextIdeaModal() {
         } as TextElem,
         ideaListController.state.objs.length,
       )
-      .then(() => {
+      .then((idea) => {
+        updateListController.actions.createActions.createFromChapterSceneIdea(
+          user.id,
+          spaceController.state.objId,
+          chapterListController.state.objId,
+          sceneListController.state.objId,
+          idea.id,
+        );
         openableController.close();
       });
   }
