@@ -1,4 +1,5 @@
 'use client';
+import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
 import { GlassWindowContents } from './ui/glass/window/contents/main';
@@ -43,10 +44,10 @@ export default function Page() {
             Creative spaces that flow
           </div>
           <div className='text-2xl font-light text-slate-400'>
-            Astral is the AI-powered creative workflow platform that grows with
-            you. Whether you're a creative visionary, a product manager, or a
-            startup founder, Astral provides the tools you need to transform
-            your ideas into reality.
+            Astral is the creative collaborative platform that grows with you.
+            Whether you're a creative visionary, a product manager, or a startup
+            founder, Astral provides you with the tools to transform your ideas
+            into reality.
           </div>
           <div className='grid w-full grid-cols-2 items-center space-x-[3rem]'>
             <a
@@ -79,7 +80,7 @@ export default function Page() {
           <br /> in an age of AI?"
         </p>
       </div>
-      <div className='h-[10rem]' />
+      <div className='h-[15rem]' />
       <div className='flex h-1/2 w-full flex-col items-center'>
         <div className='relative h-full w-[1500px]'>
           <div className='absolute z-50 h-full w-full'>
@@ -94,9 +95,9 @@ export default function Page() {
                 roundedFx={roundedFx.rounded}
                 borderFx={borderFx['border-around']}
               >
-                <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-[1rem] bg-slate-950 bg-opacity-50 p-[2rem] text-xl font-bold text-slate-300'>
-                  "Astral is the AI-powered creative workflow platform that
-                  grows with you"
+                <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-[1rem] bg-slate-950 bg-opacity-50 p-[1rem] text-lg font-light text-slate-300'>
+                  "It’s the iteration of ideas with a goal in mind, that moves a
+                  project forward."
                 </GlassWindowContents>
                 <GlassWindowPane glassFx={glassFx['glass-10']} />
               </GlassWindowFrame>
@@ -107,19 +108,19 @@ export default function Page() {
                 className='aspect-square w-full rounded-[1rem] shadow-glow'
               />
             </div>
+            <div className='absolute left-[300px] top-[0px] h-[200px] w-[300px]'>
+              <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-300'>
+                conversational search
+              </p>
+            </div>
             <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
               <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
-                conversation-to-map
-              </p>
-            </div>
-            <div className='absolute left-[1250px] top-[50px] h-[200px] w-[200px]'>
-              <p className='animate-pulse-slow text-center text-2xl font-bold text-slate-300'>
-                media base
-              </p>
-            </div>
-            <div className='absolute left-[300px] top-[0px] h-[200px] w-[300px]'>
-              <p className='animate-pulse-slow text-4xl font-bold text-slate-300'>
                 scalable ideas
+              </p>
+            </div>
+            <div className='absolute left-[1200px] top-[75px] h-[200px] w-[300px]'>
+              <p className='animate-pulse-slow text-3xl font-bold text-slate-300'>
+                creative co-pilot
               </p>
             </div>
             <div className='absolute left-[250px] top-[400px] h-[100px] w-[100px]'>
@@ -194,6 +195,23 @@ export default function Page() {
           </svg>
         </div>
       </div>
+      <div className='h-[15rem]' />
+      <div className='flex h-[10rem] w-full flex-row justify-center'>
+        <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-400'>
+          ...and how does Astral help?
+        </p>
+      </div>
+      <div className='flex w-full items-center justify-center'>
+        <video
+          src='/landing/video/conversation-to-map.mov'
+          className='w-3/4 rounded-[3rem] shadow-glow'
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          controls={false}
+        />
+      </div>
+      <div className='h-[5rem]' />
       <div className='h-[5rem]' /> <HorizontalDivider />
       <div className='h-[5rem]' />{' '}
       <div className='grid w-full grid-cols-2 items-center justify-items-center gap-[3rem] p-[3rem]'>
@@ -227,81 +245,11 @@ export default function Page() {
         <div className='aspect-[13/9] h-[500px] w-[400px] bg-white p-[1rem] shadow-glow'>
           <img src='portal/architect-f.png' className='aspect-square w-full' />
         </div>
-      </div>{' '}
-      <HorizontalDivider />
-      <div className='h-[5rem]' />{' '}
-      <div className='flex flex-row space-x-[50px]'>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Product Launch</p>
-            <p className='text-sm font-light text-slate-500'>
-              A structured template for planning and executing a successful
-              product launch.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Startup</p>
-            <p className='text-sm font-light text-slate-500'>
-              A comprehensive template for developing a strategic startup plan.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Video Shoot</p>
-            <p className='text-sm font-light text-slate-500'>
-              A structured template for planning and executing a video project.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>
-              Marketing Campaign
-            </p>
-            <p className='text-sm font-light text-slate-500'>
-              A structured template for planning, creating, and executing an
-              effective marketing campaign.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-        <GlassWindowFrame
-          className='h-[200px] w-[300px]'
-          borderFx={borderFx['border-around']}
-          roundedFx={roundedFx.rounded}
-        >
-          <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>Blog Post</p>
-            <p className='text-sm font-light text-slate-500'>
-              A structured template for planning, writing, and promoting a blog
-              post.
-            </p>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
       </div>
+      <div className='h-[10rem]' />
+      <HorizontalDivider />
+      <div className='h-[5rem]' />
+      <ScrollableCardList />
       <div className='h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[5rem]' />

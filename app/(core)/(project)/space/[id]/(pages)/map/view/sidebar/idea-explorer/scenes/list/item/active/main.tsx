@@ -3,7 +3,6 @@ import {
   SpaceMapDirectoryMode,
   SpaceMapSidebarMode,
 } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { glassFx, roundedFx } from '@/style/data';
@@ -14,13 +13,9 @@ import { useContext } from 'react';
 
 export function SpaceMapSidebarScenesListActiveItem() {
   const {
-    actions: {
-      updateSidebarContentMode: updateListSceneMode,
-      updateDirectoryMode,
-    },
+    actions: { updateSidebarMode: updateSidebarMode, updateDirectoryMode },
   } = useContext(ContextForSpaceMap);
   const sceneListController = useContext(ContextForChapterSceneList);
-  const ideaListController = useContext(ContextForSceneIdeaList);
   const scene = useContext(ContextForChapterSceneObj);
 
   return (
@@ -43,7 +38,7 @@ export function SpaceMapSidebarScenesListActiveItem() {
             <div
               className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
               onClick={() => {
-                updateListSceneMode(SpaceMapSidebarMode.IDEAS);
+                updateSidebarMode(SpaceMapSidebarMode.IDEAS);
                 updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
               }}
             >

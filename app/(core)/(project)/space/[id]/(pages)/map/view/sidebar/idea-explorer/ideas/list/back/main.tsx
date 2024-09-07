@@ -8,7 +8,7 @@ import {
 
 export function SpaceMapSidebarIdeasBack() {
   const {
-    actions: { updateSidebarContentMode: updateListSceneMode },
+    actions: { updateSidebarMode },
   } = useContext(ContextForSpaceMap);
 
   return (
@@ -17,7 +17,7 @@ export function SpaceMapSidebarIdeasBack() {
         <p className='cursor-pointer text-sm font-bold text-slate-500'>
           <span
             onClick={() => {
-              updateListSceneMode(SpaceMapSidebarMode.SCENES);
+              updateSidebarMode(SpaceMapSidebarMode.SCENES);
             }}
           >
             Back to Scenes

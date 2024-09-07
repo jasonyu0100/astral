@@ -1,4 +1,3 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,
@@ -15,7 +14,6 @@ import { SpaceMapSidebarHomeGallerysMode } from './media-explorer/(home)/main';
 import { SpaceMapCollectionResourcesMode } from './media-explorer/(resources)/main';
 
 export function SpaceMapSidebar() {
-  const messageListController = useContext(ContextForConversationMessageList);
   const {
     state: {
       sidebarContentMode: sidebarMode,

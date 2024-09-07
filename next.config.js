@@ -45,6 +45,7 @@ const nextConfig = {
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_PUBLIC_KEY: process.env.DISCORD_PUBLIC_KEY,
     DISCORD_PRIVATE_KEY: process.env.DISCORD_PRIVATE_KEY,
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
   },
 };
 

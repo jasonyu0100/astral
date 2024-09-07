@@ -6,7 +6,7 @@ export function SpaceJourneySidebar() {
   return (
     <GlassAreaContainer
       name={SpaceJourneySidebar.name}
-      sizeFx='w-[400px] h-full'
+      sizeFx='w-[300px] h-full'
       glassFx={glassFx['glass-5']}
       className={`flex flex-col items-center overflow-hidden`}
     >
