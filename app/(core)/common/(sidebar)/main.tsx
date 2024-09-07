@@ -9,6 +9,7 @@ import { createContext } from 'react';
 import { DashboardSidebarDefaultContainer } from './main/container/default/main';
 import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';
 import { DashboardSidebarIndicators } from './main/indicators/main';
+import { ExplorerIndicator } from './main/indicators/variants/explorer/main';
 import { JournalIndicator } from './main/indicators/variants/journal/main';
 import { NetworkIndicator } from './main/indicators/variants/network/main';
 import { SpaceIndicator } from './main/indicators/variants/studio/main';
@@ -56,10 +57,10 @@ export function DashboardSidebarView({
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <DashboardSidebarIndicators>
                 <SpaceIndicator />
+                <ExplorerIndicator />
                 <JournalIndicator />
-                {/* <ExplorerIndicator /> */}
-                <VaultIndicator />
                 <NetworkIndicator />
+                <VaultIndicator />
               </DashboardSidebarIndicators>
             </DashboardSidebarMinimisedContainer>
           ) : (
@@ -68,10 +69,10 @@ export function DashboardSidebarView({
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <DashboardSidebarIndicators>
                 <SpaceIndicator />
+                <ExplorerIndicator />
                 <JournalIndicator />
-                {/* <ExplorerIndicator /> */}
-                <VaultIndicator />
                 <NetworkIndicator />
+                <VaultIndicator />
               </DashboardSidebarIndicators>
             </DashboardSidebarDefaultContainer>
           )}

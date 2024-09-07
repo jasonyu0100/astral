@@ -1,9 +1,4 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useContext } from 'react';
-
 export function ConversationalSearchHeader() {
-  const sceneListController = useContext(ContextForChapterSceneList);
-
   return (
     <div className='grid h-[7rem] w-full grid-cols-3 flex-row items-center justify-end px-[2rem]'>
       <div className='flex justify-center'></div>

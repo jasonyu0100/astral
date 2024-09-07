@@ -1,7 +1,7 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import { ContextForDashboardSidebar } from '@/(core)/common/(sidebar)/main';
 import { useContext } from 'react';
-import { IndicatorSilverJewel } from '../../indicator/jewel/silver/main';
+import { IndicatorGoldJewel } from '../../indicator/jewel/gold/main';
 import {
   DashboardSidebarIndicator,
   DashboardSidebarIndicatorType,
@@ -17,11 +17,11 @@ export function VaultIndicator() {
     <>
       {dashboardSidebar?.minimised ? (
         <DashboardSidebarIndicator href={vaultMap.vault.explorer.link}>
-          <IndicatorSilverJewel active={active} />
+          <IndicatorGoldJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
         <DashboardSidebarIndicator href={vaultMap.vault.explorer.link}>
-          <IndicatorSilverJewel active={active} />
+          <IndicatorGoldJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
       )}
