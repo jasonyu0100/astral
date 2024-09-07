@@ -9,7 +9,7 @@ export function VentureHorizonsSidebar() {
     <GlassAreaContainer
       name={VentureHorizonsSidebar.name}
       sizeFx='w-[300px] h-full'
-      glassFx={glassFx['glass-10']}
+      glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-l']}
       className='flex flex-col'
     >

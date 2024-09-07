@@ -9,7 +9,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
 
-export function SpaceSessionSpotlightModal() {
+export function SpaceFlightShareReviewModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
 
@@ -17,17 +17,17 @@ export function SpaceSessionSpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Spotlight</FormTitle>
+          <FormTitle>Share Review</FormTitle>
           <FormBody></FormBody>
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.flight.link(
+                window.location.href = spaceMap.space.id.chat.link(
                   spaceController.state.objId,
                 );
               }}
             >
-              Next
+              Copy
             </FormButton>
           </FormFooter>
         </FormContainer>

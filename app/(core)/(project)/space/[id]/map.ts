@@ -12,8 +12,8 @@ export const spaceMap = {
       journey: {
         link: (id: string) => `${baseUrl}/${id}/journey`,
       },
-      spotlight: {
-        link: (id: string) => `${baseUrl}/${id}/spotlight`,
+      flight: {
+        link: (id: string) => `${baseUrl}/${id}/flight`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

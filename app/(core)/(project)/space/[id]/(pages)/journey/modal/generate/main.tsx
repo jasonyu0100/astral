@@ -128,7 +128,7 @@ export function SpaceJourneySpotlightModal() {
       spotlight.id,
     );
 
-    window.location.href = spaceMap.space.id.spotlight.link(
+    window.location.href = spaceMap.space.id.flight.link(
       spaceController.state.objId,
     );
   }
