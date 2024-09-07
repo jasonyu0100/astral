@@ -6,8 +6,8 @@ import { VentureHorizonsSidebar } from './sidebar/main';
 export function VentureHorizonsView() {
   return (
     <VentureHorizonsContainer>
-      <VentureHorizonsMain />
       <VentureHorizonsSidebar />
+      <VentureHorizonsMain />
     </VentureHorizonsContainer>
   );
 }

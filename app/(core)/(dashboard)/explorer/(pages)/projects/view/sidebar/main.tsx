@@ -11,10 +11,10 @@ export function VentureHorizonsSidebar() {
       sizeFx='w-[300px] h-full'
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-l']}
-      className='flex flex-col p-[1rem]'
+      className='flex flex-col'
     >
-      <div className='flex h-full w-full flex-col overflow-auto pr-[1rem]'>
-        <div className='flex w-full flex-col space-y-[1rem]'>
+      <div className='flex h-full w-full flex-col overflow-auto'>
+        <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
           <VentureHorizonsSidebarScale />
           <VentureHorizonsSidebarGuild />
           <VentureHorizonsSidebarDegree />
