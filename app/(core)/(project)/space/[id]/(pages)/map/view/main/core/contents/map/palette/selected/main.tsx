@@ -1,10 +1,10 @@
+import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
 
 export function SpaceMapPaletteSelected() {
   const modalController = useContext(ContextForSpaceMapModals);

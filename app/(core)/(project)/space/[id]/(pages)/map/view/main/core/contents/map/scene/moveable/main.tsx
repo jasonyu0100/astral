@@ -1,16 +1,15 @@
 'use client';
+import {
+  ContextForSpaceMap,
+  SpaceMapConnectionMode,
+  SpaceMapPeopleMode,
+} from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
-import {
-  ContextForSpaceMap,
-  SpaceMapConnectionMode,
-  SpaceMapPeopleMode,
-} from '../../../../../../controller/map/main';
-import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
-import { parseTransformString } from '../../../../../../utils/main';
+import { parseTransformString } from '../../../../../../../utils/main';
 import { SpaceMapIdeaCollaborators } from './collaborators/main';
 import { SpaceMapIdeaIndicator } from './indicator/main';
 
@@ -19,7 +18,6 @@ export function SpaceMapMovable({ children }: { children: React.ReactNode }) {
     state: { selectedIdeas, peopleMode, connectionMode, isSwitchOn },
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
   } = useContext(ContextForSpaceMap);
-  const modalController = useContext(ContextForSpaceMapModals);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForSceneIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);

@@ -10,7 +10,7 @@ export function SpaceMapStatusBody() {
         <span className='font-bold'>Scene:</span>{' '}
         {sceneListController.state.currentObj?.objective || 'Open-ended'}
       </p>
-      <p className='text-md p-[1rem] text-center font-light text-slate-300'>
+      <p className='text-md text-center font-light text-slate-300'>
         {sceneListController.state.currentObj?.summary || '...'}
       </p>
     </div>

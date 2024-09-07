@@ -1,10 +1,10 @@
+import { ContextForSpaceMap } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
+import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/modal/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../../controller/map/main';
-import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
 
 export function SpaceMapPaletteDefault() {
   const {

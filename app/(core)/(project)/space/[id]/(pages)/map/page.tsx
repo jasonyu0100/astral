@@ -16,6 +16,14 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
+  ContextForSceneConversationList,
+  useControllerForSceneConversationList,
+} from '@/(server)/controller/space/chapter/scene/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
 } from '@/(server)/controller/space/chapter/scene/idea/list';
@@ -69,6 +77,13 @@ function Page({ params }: { params: { id: string } }) {
     collectionListController.state.objId,
   );
 
+  const conversationListController = useControllerForSceneConversationList(
+    sceneListController.state.objId,
+  );
+  const messageListController = useControllerForConversationMessageList(
+    conversationListController.state.objId,
+  );
+
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
@@ -82,13 +97,21 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForCollectionResourceList.Provider
                     value={resourceListController}
                   >
-                    <LoadingWrapper>
-                      <SpaceMapControllerWrapper>
-                        <SpaceMapModals>
-                          <SpaceMapView />
-                        </SpaceMapModals>
-                      </SpaceMapControllerWrapper>
-                    </LoadingWrapper>
+                    <ContextForSceneConversationList.Provider
+                      value={conversationListController}
+                    >
+                      <ContextForConversationMessageList.Provider
+                        value={messageListController}
+                      >
+                        <LoadingWrapper>
+                          <SpaceMapControllerWrapper>
+                            <SpaceMapModals>
+                              <SpaceMapView />
+                            </SpaceMapModals>
+                          </SpaceMapControllerWrapper>
+                        </LoadingWrapper>
+                      </ContextForConversationMessageList.Provider>
+                    </ContextForSceneConversationList.Provider>
                   </ContextForCollectionResourceList.Provider>
                 </ContextForGalleryCollectionList.Provider>
               </ContextForGalleryList.Provider>

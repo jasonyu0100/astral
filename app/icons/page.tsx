@@ -6,7 +6,9 @@ import { AstralArrowDropDown } from './arrow-drop-down/main';
 import { AstralArrowDropUp } from './arrow-drop-up/main';
 import { AstralArrowForwardIcon } from './arrow-forward/main';
 import { AstralAttachmentIcon } from './attachment/main';
+import { AstralBackIndicatorIcon } from './back/main';
 import { AstralBubbleIcon } from './bubble/main';
+import { AstralChatIndicatorIcon } from './chat/main';
 import { AstralChevronDownIcon } from './chevron-down/main';
 import { AstralChevronLeftIcon } from './chevron-left/main';
 import { AstralChevronRightIcon } from './chevron-right/main';
@@ -20,6 +22,8 @@ import { AstralEqualizerIcon } from './equalizer/main';
 import { AstralFileIcon } from './file/main';
 import { AstralFolderOpenIcon } from './folder-open/main';
 import { AstralFolderIcon } from './folder/main';
+import { AstralFullscreenExitIcon } from './fullscreen-exit/main';
+import { AstralFullscreenIcon } from './fullscreen/main';
 import { AstralGestureIcon } from './gesture/main';
 import { AstralHideImageIcon } from './hide-image/main';
 import { AstralHideSourceIcon } from './hide-source/main';
@@ -100,7 +104,10 @@ export default function Page() {
       <AstralSettingsIcon />
       <AstralCombineIcon />
       <AstralStacksIcon />
-      <AstralArrowBackIcon />
+      <AstralBackIndicatorIcon />
+      <AstralFullscreenIcon />
+      <AstralFullscreenExitIcon />
+      <AstralChatIndicatorIcon />
     </div>
   );
 }

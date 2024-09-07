@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import {
   ContextForSpaceMap,
   SpaceMapSidebarContentMode,
-  SpaceMapSidebarListMode,
   SpaceMapSidebarMediaMode,
+  SpaceMapSidebarMode,
 } from '../../controller/map/main';
 import { SpaceMapSidebarContainer } from './container/main';
 import { SpaceMapSidebarIdeas } from './idea-explorer/ideas/main';
@@ -14,21 +14,26 @@ import { SpaceMapCollectionResourcesMode } from './media-explorer/(resources)/ma
 
 export function SpaceMapSidebar() {
   const {
-    state: { sidebarContentMode: sidebarMode, listSceneMode, sidebarMediaMode },
+    state: {
+      sidebarContentMode: sidebarMode,
+      sidebarMode: listSceneMode,
+      sidebarMediaMode,
+    },
   } = useContext(ContextForSpaceMap);
 
   return (
     <SpaceMapSidebarContainer>
-      {sidebarMode === SpaceMapSidebarContentMode.LIST ? (
+      {sidebarMode === SpaceMapSidebarContentMode.LIST && (
         <>
-          {listSceneMode === SpaceMapSidebarListMode.SCENES && (
+          {listSceneMode === SpaceMapSidebarMode.SCENES && (
             <SpaceMapSidebarScenes />
           )}
-          {listSceneMode === SpaceMapSidebarListMode.IDEAS && (
+          {listSceneMode === SpaceMapSidebarMode.IDEAS && (
             <SpaceMapSidebarIdeas />
           )}
         </>
-      ) : (
+      )}
+      {sidebarMode === SpaceMapSidebarContentMode.MEDIA && (
         <>
           {sidebarMediaMode === SpaceMapSidebarMediaMode.Home && (
             <SpaceMapSidebarHomeGallerysMode />
@@ -41,6 +46,8 @@ export function SpaceMapSidebar() {
           )}
         </>
       )}
+
+      {sidebarMode === SpaceMapSidebarContentMode.CHAT && <></>}
     </SpaceMapSidebarContainer>
   );
 }

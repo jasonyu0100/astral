@@ -22,9 +22,8 @@ interface ControllerState {
   mapMode: SpaceMapInteractionMode;
   sidebarMediaMode: SpaceMapSidebarMediaMode;
   sidebarContentMode: SpaceMapSidebarContentMode;
-  listSceneMode: SpaceMapSidebarListMode;
+  sidebarMode: SpaceMapSidebarMode;
   peopleMode: SpaceMapPeopleMode;
-  statusMode: SpaceMapStatusMode;
 }
 
 interface ControllerActions {
@@ -41,10 +40,9 @@ interface ControllerActions {
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
   updatePeopleMode: (mode: SpaceMapPeopleMode) => void;
   updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
-  updateMapMode: (mode: SpaceMapInteractionMode) => void;
-  updateSidebarMode: (mode: SpaceMapSidebarContentMode) => void;
-  updateListSceneMode: (mode: SpaceMapSidebarListMode) => void;
-  updateStatusMode: (mode: SpaceMapStatusMode) => void;
+  updateInteractionMode: (mode: SpaceMapInteractionMode) => void;
+  updateSidebarContentMode: (mode: SpaceMapSidebarContentMode) => void;
+  updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
@@ -68,11 +66,6 @@ export enum SpaceMapPeopleMode {
   ON = 'ON',
 }
 
-export enum SpaceMapStatusMode {
-  OFF = 'OFF',
-  ON = 'ON',
-}
-
 export enum SpaceMapSidebarMediaMode {
   Home = 'Home',
   Gallery = 'Gallery',
@@ -82,11 +75,13 @@ export enum SpaceMapSidebarMediaMode {
 export enum SpaceMapSidebarContentMode {
   MEDIA = 'Media',
   LIST = 'List',
+  CHAT = 'Chat',
 }
 
-export enum SpaceMapSidebarListMode {
+export enum SpaceMapSidebarMode {
   IDEAS = 'Ideas',
   SCENES = 'Scenes',
+  CHAT = 'Chat',
 }
 
 export enum SpaceMapConnectionMode {
@@ -109,11 +104,11 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapPeopleMode.OFF,
   );
   const [directoryMode, setDirectoryMode] = useState<SpaceMapDirectoryMode>(
-    SpaceMapDirectoryMode.DIRECTORY,
+    SpaceMapDirectoryMode.DEFAULT,
   );
   const [isSwitchOn, setSwitch] = useState(false);
-  const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarListMode>(
-    SpaceMapSidebarListMode.SCENES,
+  const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarMode>(
+    SpaceMapSidebarMode.SCENES,
   );
   const [mapMode, setMode] = useState<SpaceMapInteractionMode>(
     SpaceMapInteractionMode.SELECTED,
@@ -127,7 +122,6 @@ export function useControllerForSpaceMap(): Controller {
   const [sidebarMediaMode, changeSidebarMediaMode] = useState(
     SpaceMapSidebarMediaMode.Collection,
   );
-  const [statusMode, changeStatusMode] = useState(SpaceMapStatusMode.OFF);
 
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
@@ -226,28 +220,26 @@ export function useControllerForSpaceMap(): Controller {
       isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
-      statusMode: statusMode,
       connectionMode: connectionMode,
       selectedIdeas: selectedIdeas,
       peopleMode: peopleMode,
       mapMode: mapMode,
       sidebarMediaMode: sidebarMediaMode,
       sidebarContentMode: listMode,
-      listSceneMode: listSceneMode,
+      sidebarMode: listSceneMode,
     },
     actions: {
       autoSort: autoSort,
       getAvailableXYWH: getAvailableXYWH,
       updateDivWidth: (width) => setDivWidth(width),
       updateDirectoryMode: (mode) => setDirectoryMode(mode),
-      updateStatusMode: (mode) => changeStatusMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
       updateConnectionMode: (mode) => setConnectionMode(mode),
       updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
       updatePeopleMode: (mode) => setPeopleMode(mode),
-      updateMapMode: (mode) => setMode(mode),
-      updateSidebarMode: (mode) => setListMode(mode),
-      updateListSceneMode: (mode) => setListSceneMode(mode),
+      updateInteractionMode: (mode) => setMode(mode),
+      updateSidebarContentMode: (mode) => setListMode(mode),
+      updateSidebarMode: (mode) => setListSceneMode(mode),
       checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),
       goToHome: () => {

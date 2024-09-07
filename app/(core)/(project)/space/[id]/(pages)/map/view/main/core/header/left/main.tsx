@@ -2,7 +2,6 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
-import { AstralInfoIcon } from '@/icons/info/main';
 import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
@@ -14,7 +13,6 @@ import {
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
   SpaceMapSidebarContentMode,
-  SpaceMapStatusMode,
 } from '../../../../../controller/map/main';
 
 export function SpaceMapHeaderLeft() {
@@ -31,7 +29,7 @@ export function SpaceMapHeaderLeft() {
       updateDirectoryMode,
       updatePeopleMode,
       updateConnectionMode,
-      updateSidebarMode,
+      updateSidebarContentMode: updateSidebarMode,
       autoSort,
       updateStatusMode,
     },
@@ -73,26 +71,12 @@ export function SpaceMapHeaderLeft() {
           }
         }}
       />
-      <AstralInfoIcon
-        className={
-          statusMode === SpaceMapStatusMode.ON
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-        onClick={() =>
-          updateStatusMode(
-            statusMode === SpaceMapStatusMode.ON
-              ? SpaceMapStatusMode.OFF
-              : SpaceMapStatusMode.ON,
-          )
-        }
-      />
       <PipIndicator />
       <AstralListIcon
         className={
-          sidebarContentMode === SpaceMapSidebarContentMode.MEDIA
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
+          sidebarContentMode === SpaceMapSidebarContentMode.LIST
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
         }
         onClick={() => {
           if (sidebarContentMode === SpaceMapSidebarContentMode.LIST) {
@@ -104,9 +88,9 @@ export function SpaceMapHeaderLeft() {
       />
       <AstralFolderIcon
         className={
-          sidebarContentMode === SpaceMapSidebarContentMode.LIST
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
+          sidebarContentMode === SpaceMapSidebarContentMode.MEDIA
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
         }
         onClick={() => {
           if (sidebarContentMode === SpaceMapSidebarContentMode.MEDIA) {

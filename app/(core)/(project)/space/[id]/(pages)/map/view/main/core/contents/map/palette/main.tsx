@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 import { SpaceMapPaletteDefault } from './default/main';
 import { SpaceMapPaletteSelected } from './selected/main';
 
@@ -13,7 +13,7 @@ export function SpaceMapPalette() {
   } = useContext(ContextForSpaceMap);
 
   return (
-    <div className='absolute left-[1rem] flex h-full w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute right-[1rem] flex h-full w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame
         className='w-[4rem] py-[2rem]'
         roundedFx={roundedFx['rounded-full']}

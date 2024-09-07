@@ -1,7 +1,7 @@
 import {
   ContextForSpaceMap,
   SpaceMapDirectoryMode,
-  SpaceMapSidebarListMode,
+  SpaceMapSidebarMode,
 } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
@@ -14,7 +14,10 @@ import { useContext } from 'react';
 
 export function SpaceMapSidebarScenesListActiveItem() {
   const {
-    actions: { updateListSceneMode, updateDirectoryMode },
+    actions: {
+      updateSidebarContentMode: updateListSceneMode,
+      updateDirectoryMode,
+    },
   } = useContext(ContextForSpaceMap);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -40,7 +43,7 @@ export function SpaceMapSidebarScenesListActiveItem() {
             <div
               className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
               onClick={() => {
-                updateListSceneMode(SpaceMapSidebarListMode.IDEAS);
+                updateListSceneMode(SpaceMapSidebarMode.IDEAS);
                 updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
               }}
             >

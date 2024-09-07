@@ -3,7 +3,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
-import { ContextForSpaceMap } from '../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 import { SpaceMapContentsSceneConnections } from './connections/main';
 import { SpaceMapSceneEmpty } from './empty/main';
 import { SpaceMapMovableIdea } from './idea/main';
@@ -23,6 +23,7 @@ export function SpaceMapScene() {
     if (ref.current) {
       const width = ref.current.offsetWidth;
       const height = ref.current.offsetHeight;
+      console.log(width, height);
       updateDivWidth(width);
       updateDivHeight(height);
 
@@ -31,7 +32,7 @@ export function SpaceMapScene() {
   }, []); // The empty dependency array ensures this effect runs only once after the component mounts.
 
   return (
-    <div className='relative h-full w-full px-[6rem] py-[2rem]'>
+    <div className='relative h-full w-full py-[2rem] pl-[2rem] pr-[6rem]'>
       {visibleIdeas.length === 0 && <SpaceMapSceneEmpty />}
       <div
         className='relative z-10 h-full w-full'

@@ -3,12 +3,12 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceMap,
-  SpaceMapSidebarListMode,
+  SpaceMapSidebarMode,
 } from '../../../../../../controller/map/main';
 
 export function SpaceMapSidebarIdeasBack() {
   const {
-    actions: { updateListSceneMode },
+    actions: { updateSidebarContentMode: updateListSceneMode },
   } = useContext(ContextForSpaceMap);
 
   return (
@@ -17,7 +17,7 @@ export function SpaceMapSidebarIdeasBack() {
         <p className='cursor-pointer text-sm font-bold text-slate-500'>
           <span
             onClick={() => {
-              updateListSceneMode(SpaceMapSidebarListMode.SCENES);
+              updateListSceneMode(SpaceMapSidebarMode.SCENES);
             }}
           >
             Back to Scenes

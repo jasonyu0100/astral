@@ -3,7 +3,7 @@ import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../../modal/controller/main';
+import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
 
 export function SpaceMapNavigation() {
   const sceneListController = useContext(ContextForChapterSceneList);

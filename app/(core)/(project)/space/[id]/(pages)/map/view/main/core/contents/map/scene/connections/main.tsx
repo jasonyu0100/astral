@@ -1,11 +1,11 @@
+import {
+  ContextForSpaceMap,
+  SpaceMapConnectionMode,
+} from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSpaceIdeaRelationshipListFromScene } from '@/(server)/controller/space/relationship/list-from-scene';
 import { useContext } from 'react';
-import {
-  ContextForSpaceMap,
-  SpaceMapConnectionMode,
-} from '../../../../../../controller/map/main';
 
 export function SpaceMapContentsSceneConnections() {
   const {
