@@ -1,5 +1,6 @@
 import {
   ContextForSpaceMap,
+  SpaceMapDirectoryMode,
   SpaceMapSidebarListMode,
 } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
@@ -13,7 +14,7 @@ import { useContext } from 'react';
 
 export function SpaceMapSidebarScenesListActiveItem() {
   const {
-    actions: { updateListSceneMode },
+    actions: { updateListSceneMode, updateDirectoryMode },
   } = useContext(ContextForSpaceMap);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -36,17 +37,11 @@ export function SpaceMapSidebarScenesListActiveItem() {
             <div className='text-sm font-light'>
               {scene.objective || 'No description'}
             </div>
-            <div className='flex flex-col'>
-              {ideaListController.state.objs.map((idea, index) => (
-                <div className='font-light text-slate-300'>
-                  {index + 1}. {idea.title || 'Untitled'}
-                </div>
-              ))}
-            </div>
             <div
               className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
               onClick={() => {
                 updateListSceneMode(SpaceMapSidebarListMode.IDEAS);
+                updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
               }}
             >
               View Ideas

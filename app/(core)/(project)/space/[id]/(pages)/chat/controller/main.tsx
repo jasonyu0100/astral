@@ -110,7 +110,7 @@ export function useControllerForSpaceChat() {
       `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
       `This is the message history:`,
       ...getMessageHistory(),
-      `Reply to the user message and provide guidance to help them achieve the objective. Always end with a question to keep the conversation alive.`,
+      `Reply to the user message and secondarily help them achieve the objective. End with a question if the conversation is nearing its end.`,
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
@@ -160,9 +160,13 @@ Ensure the response follows the exact structure and format shown above, with pro
 
     console.log(messagePrompt);
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
-    console.log(agentResponse);
+    const replacedString = agentResponse
+      .replace('```json\n', '')
+      .replace('```', '');
 
-    const json = JSON.parse(agentResponse);
+    console.log(replacedString);
+
+    const json = JSON.parse(replacedString);
 
     return json.insights;
   }

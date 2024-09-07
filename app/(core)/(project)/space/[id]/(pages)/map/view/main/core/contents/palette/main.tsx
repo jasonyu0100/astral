@@ -13,7 +13,7 @@ export function SpaceMapPalette() {
   } = useContext(ContextForSpaceMap);
 
   return (
-    <div className='absolute left-[1rem] flex h-full flex-col items-center justify-center'>
+    <div className='absolute left-[1rem] flex h-full w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame
         className='w-[4rem] py-[2rem]'
         roundedFx={roundedFx['rounded-full']}

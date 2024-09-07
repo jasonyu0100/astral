@@ -99,7 +99,7 @@ const useControllerForUserMain = (objId: string): Controller => {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (daysDifference > 50) {
+          if (daysDifference > 60) {
             throw new Error('Account trial is over');
           }
         } else {

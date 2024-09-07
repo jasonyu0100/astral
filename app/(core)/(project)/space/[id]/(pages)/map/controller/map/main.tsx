@@ -17,6 +17,7 @@ interface ControllerState {
   divWidth: number;
   divHeight: number;
   selectedIdeas: SceneIdeaObj[];
+  directoryMode: SpaceMapDirectoryMode;
   connectionMode: SpaceMapConnectionMode;
   mapMode: SpaceMapInteractionMode;
   sidebarMediaMode: SpaceMapSidebarMediaMode;
@@ -34,6 +35,7 @@ interface ControllerActions {
     width: number;
     height: number;
   };
+  updateDirectoryMode: (mode: SpaceMapDirectoryMode) => void;
   updateDivWidth: (width: number) => void;
   updateDivHeight: (height: number) => void;
   updateConnectionMode: (mode: SpaceMapConnectionMode) => void;
@@ -92,6 +94,11 @@ export enum SpaceMapConnectionMode {
   BUBBLE = 'Bubble',
 }
 
+export enum SpaceMapDirectoryMode {
+  DEFAULT = 'Default',
+  DIRECTORY = 'DIRECTORY',
+}
+
 export function useControllerForSpaceMap(): Controller {
   const loadingController = useContext(ContextForLoading);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -100,6 +107,9 @@ export function useControllerForSpaceMap(): Controller {
   const [selectedIdeas, setSelectedIdeas] = useState<SceneIdeaObj[]>([]);
   const [peopleMode, setPeopleMode] = useState<SpaceMapPeopleMode>(
     SpaceMapPeopleMode.OFF,
+  );
+  const [directoryMode, setDirectoryMode] = useState<SpaceMapDirectoryMode>(
+    SpaceMapDirectoryMode.DIRECTORY,
   );
   const [isSwitchOn, setSwitch] = useState(false);
   const [listSceneMode, setListSceneMode] = useState<SpaceMapSidebarListMode>(
@@ -212,6 +222,7 @@ export function useControllerForSpaceMap(): Controller {
 
   return {
     state: {
+      directoryMode: directoryMode,
       isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
@@ -228,6 +239,7 @@ export function useControllerForSpaceMap(): Controller {
       autoSort: autoSort,
       getAvailableXYWH: getAvailableXYWH,
       updateDivWidth: (width) => setDivWidth(width),
+      updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateStatusMode: (mode) => changeStatusMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
       updateConnectionMode: (mode) => setConnectionMode(mode),

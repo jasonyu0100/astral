@@ -41,6 +41,7 @@ import { AstralSettingsIcon } from './settings/main';
 import { AstralShareIcon } from './share/main';
 import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
+import { AstralStacksIcon } from './stacks/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralTimelineIcon } from './timeline/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
@@ -98,6 +99,8 @@ export default function Page() {
       <AstralSortIcon />
       <AstralSettingsIcon />
       <AstralCombineIcon />
+      <AstralStacksIcon />
+      <AstralArrowBackIcon />
     </div>
   );
 }

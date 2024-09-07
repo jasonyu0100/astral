@@ -20,6 +20,7 @@ import {
 export function SpaceMapHeaderLeft() {
   const {
     state: {
+      directoryMode,
       selectedIdeas,
       peopleMode,
       connectionMode,
@@ -27,6 +28,7 @@ export function SpaceMapHeaderLeft() {
       statusMode: statusMode,
     },
     actions: {
+      updateDirectoryMode,
       updatePeopleMode,
       updateConnectionMode,
       updateSidebarMode,
