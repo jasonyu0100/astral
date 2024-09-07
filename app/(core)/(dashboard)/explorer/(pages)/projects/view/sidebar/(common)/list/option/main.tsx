@@ -1,4 +1,6 @@
+import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
@@ -7,15 +9,27 @@ export function VentureHorizonsSidebarOption({
 }: {
   children?: React.ReactNode;
 }) {
+  const hoverableController = useControllerForHoverable();
+
   return (
-    <GlassWindowFrame
-      name={VentureHorizonsSidebarOption.name}
-      borderFx={borderFx['border-around']}
-      roundedFx={roundedFx.rounded}
-      className='px-[1rem] py-[0.5rem]'
+    <div
+      className='w-full'
+      onMouseOver={() => hoverableController.onHover()}
+      onMouseOut={() => hoverableController.onUnhover()}
     >
-      <p className='text-lg font-bold text-slate-300'>{children}</p>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
-    </GlassWindowFrame>
+      <GlassWindowFrame
+        name={VentureHorizonsSidebarOption.name}
+        borderFx={borderFx['border-around']}
+        roundedFx={roundedFx['rounded-full']}
+        className=' p-[1rem]'
+      >
+        <GlassWindowContents>
+          <p className='text-lg font-bold text-slate-300'>{children}</p>
+        </GlassWindowContents>
+        {hoverableController.hovered && (
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        )}
+      </GlassWindowFrame>
+    </div>
   );
 }

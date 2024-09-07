@@ -2,9 +2,6 @@ import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { AstralListIcon } from '@/icons/list/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { glassFx } from '@/style/data';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
@@ -13,7 +10,7 @@ export function JournalRecordHeader() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
 
   return (
-    <GlassWindowFrame className='flex h-[7rem] w-full flex-col items-center px-[2rem]'>
+    <div className='flex h-[8rem] w-full flex-col items-center px-[2rem] shadow-glow'>
       <div className='grid h-full w-full grid-cols-3 items-center'>
         <div className='flex flex-row space-x-[1rem] justify-self-start'>
           <AstralListIcon
@@ -39,7 +36,6 @@ export function JournalRecordHeader() {
         </div>
         <div className='justify-self-end'></div>
       </div>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
-    </GlassWindowFrame>
+    </div>
   );
 }

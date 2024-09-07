@@ -4,8 +4,8 @@ export function VentureHorizonsListLabel({
   children?: React.ReactNode;
 }) {
   return (
-    <div className='flex flex-shrink-0 flex-row items-center pb-[1rem]'>
-      <p className='animate-pulse-slow text-xl font-bold text-slate-300'>
+    <div className='flex flex-shrink-0 flex-row items-center'>
+      <p className='animate-pulse text-lg font-bold text-slate-500'>
         {children}
       </p>
     </div>

@@ -3,7 +3,5 @@ export function VentureHorizonsSidebarList({
 }: {
   children?: React.ReactNode;
 }) {
-  return (
-    <div className='ml-[0.25rem] flex flex-col space-y-[1rem]'>{children}</div>
-  );
+  return <div className='flex flex-col space-y-[1rem]'>{children}</div>;
 }

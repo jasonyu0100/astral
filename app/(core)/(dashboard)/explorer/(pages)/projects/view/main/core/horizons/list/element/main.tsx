@@ -1,7 +1,7 @@
 'use client';
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx } from '@/style/data';
 import { HorizonThumbnailElement } from '@/ui/cover/horizon/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -13,7 +13,6 @@ export function VentureHorizonsListElement() {
     <GlassWindowFrame
       name={GlassWindowFrame.name}
       className='aspect-[3/2] flex-shrink-0 p-[1rem]'
-      roundedFx={roundedFx['rounded']}
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem]'>
@@ -25,8 +24,8 @@ export function VentureHorizonsListElement() {
             <HorizonThumbnailElement fileElem={exampleFileElem} />
           </Link>
           <div className='flex flex-col'>
-            <p className='text-xl font-bold text-slate-300'>Horizon</p>
-            <p className='text-lg text-slate-300'>John Smith</p>
+            <p className='text-lg font-bold text-slate-300'>Horizon Name</p>
+            <p className='text-md font-light text-slate-500'>John Smith</p>
           </div>
         </div>
       </GlassWindowContents>

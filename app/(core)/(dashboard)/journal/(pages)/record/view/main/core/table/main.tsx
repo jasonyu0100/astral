@@ -5,7 +5,7 @@ export function JournalRecordTable() {
   return (
     <div
       style={{ height: '100%', width: '100%' }}
-      className='overflow-auto px-[2rem]'
+      className='overflow-auto p-[2rem]'
     >
       <JournalRecordTableHeader />
       <JouranlRecordTableList />

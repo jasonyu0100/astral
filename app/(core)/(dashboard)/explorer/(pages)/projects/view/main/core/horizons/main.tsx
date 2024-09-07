@@ -7,7 +7,7 @@ import { VentureHorizonsList } from './list/main';
 export function HorizonsListContainer() {
   return (
     <div className='flex flex-col p-[2rem]'>
-      <VentureHorizonsListLabel>List Name</VentureHorizonsListLabel>
+      <VentureHorizonsListLabel>Cluster Name (10)</VentureHorizonsListLabel>
       <GlassWindowFrame
         name={HorizonsListContainer.name}
         className='h-[300px] w-[full] flex-shrink-0'
