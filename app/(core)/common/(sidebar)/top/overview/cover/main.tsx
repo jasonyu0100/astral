@@ -15,7 +15,9 @@ export function DashboardSidebarTopOveriewCover() {
         <AstralArrowCircleLeftIcon className='h-[2.5rem] w-[2.5rem]' />
       ) : (
         <img
-          src={currentSpace?.thumbnail?.src || '/brand/icon-bg-sm.png'}
+          src={
+            currentSpace?.thumbnail?.src || '/brand/display-picture-astral.png'
+          }
           className={cn('h-[2.5rem] w-[2.5rem] rounded-full shadow-glow')}
         />
       )}

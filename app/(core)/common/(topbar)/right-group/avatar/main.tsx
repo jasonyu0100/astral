@@ -10,7 +10,7 @@ export function TopbarAvatar({ ...props }: LinkInputProps) {
     <Link className='flex h-full items-center' aria-current='page' {...props}>
       <img
         className='h-[2.5rem] w-[2.5rem] rounded-full shadow-glow'
-        src={'/brand/icon-bg-sm.png' || user?.dp?.src}
+        src={'/brand/display-picture-astral.png' || user?.dp?.src}
       />
     </Link>
   );

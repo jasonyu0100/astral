@@ -4,7 +4,7 @@ export function SpaceChatSidebarChatAvatar() {
       <img
         className='h-full w-full rounded-full'
         alt='test'
-        src={`/brand/icon-bg-sm.png`}
+        src={`/brand/display-picture-astral.png`}
       />
     </div>
   );

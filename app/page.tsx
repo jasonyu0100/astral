@@ -13,7 +13,14 @@ export default function Page() {
     <PortalBackground>
       <div className='flex w-full flex-row items-center justify-between'>
         <div className='flex flex-row items-center space-x-[5rem]'>
-          <img src='/brand/logo.png' className='h-[3rem]'></img>
+          <img
+            src={
+              process.env.VERSES_MODE === 'false'
+                ? '/brand/logo-astral-light.png'
+                : '/brand/logo-verses-light.png'
+            }
+            className='h-[3rem]'
+          ></img>
           <div className='flex flex-row space-x-[3rem]'>
             <a href='/' className='text-lg font-bold text-white'>
               Home

@@ -52,7 +52,7 @@ export const exampleDisplayPictureFileElem: FileElem = {
   id: '0',
   title: 'avatar',
   size: 0,
-  src: `/brand/icon-bg-sm.png`,
+  src: `/brand/display-picture-astral.png`,
   ext: 'image/png',
   variant: FileElemVariant.IMAGE,
 };

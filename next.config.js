@@ -25,7 +25,7 @@ const nextConfig = {
   },
   env: {
     MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
-    PRERELEASE_MODE: process.env.PRERELEASE_MODE,
+    VERSES_MODE: process.env.VERSES_MODE,
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
     GRAPHQL_APIKEY: process.env.GRAPHQL_APIKEY,
     S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
@@ -41,7 +41,6 @@ const nextConfig = {
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NPM_AUTH_TOKEN: process.env.NPM_AUTH_TOKEN,
-    LOOM_API_KEY: process.env.LOOM_API_KEY,
     DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
     DISCORD_PUBLIC_KEY: process.env.DISCORD_PUBLIC_KEY,
     DISCORD_PRIVATE_KEY: process.env.DISCORD_PRIVATE_KEY,
