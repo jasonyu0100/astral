@@ -46,36 +46,24 @@ export default function Page() {
   );
 
   useEffect(() => {
-    chapterListController.actions.createActions
-      .createChapter(
-        'Conversational Search Session',
-        'Conversational Search Session',
-        '',
+    sceneListController.actions.createActions
+      .createScene(
+        'Conversational Search Query',
+        'Conversational Search Query',
         '',
         loggedInUser.id,
-        spaceListController.state.objId,
-        chapterListController.state.objs.length,
+        chapterListController.state.objId,
       )
-      .then((chapter) => {
-        sceneListController.actions.createActions
-          .createScene(
-            'Conversational Search Query',
-            'Conversational Search Query',
-            '',
-            loggedInUser.id,
-            chapter.id,
-          )
-          .then((scene) => {
-            conversationListController.actions.createActions
-              .createConversation(loggedInUser.id, scene.id)
-              .then((conversation) => {
-                messageListController.actions.createActions.sendAgentMessage(
-                  'openAi',
-                  scene.id,
-                  conversation.id,
-                  'Hello world',
-                );
-              });
+      .then((scene) => {
+        conversationListController.actions.createActions
+          .createConversation(loggedInUser.id, scene.id)
+          .then((conversation) => {
+            messageListController.actions.createActions.sendAgentMessage(
+              'openAi',
+              scene.id,
+              conversation.id,
+              'Hello world',
+            );
           });
       });
   }, []);

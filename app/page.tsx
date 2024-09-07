@@ -108,7 +108,7 @@ export default function Page() {
             </div>
             <div className='absolute left-[400px] top-[150px] h-[150px] w-[150px]'>
               <img
-                src='portal/dj-m.png'
+                src='/portal/dj-m.png'
                 className='aspect-square w-full rounded-[1rem] shadow-glow'
               />
             </div>
