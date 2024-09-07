@@ -41,6 +41,10 @@ import { LoadingWrapper } from '@/ui/loading/controller/main';
 import isAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import {
+  ContextForSpaceMapChat,
+  useControllerForSpaceMapChat,
+} from './controller/chat/main';
+import {
   ContextForSpaceMap,
   useControllerForSpaceMap,
 } from './controller/map/main';
@@ -129,10 +133,13 @@ function SpaceMapControllerWrapper({
   children: React.ReactNode;
 }) {
   const mapController = useControllerForSpaceMap();
+  const mapChatController = useControllerForSpaceMapChat();
 
   return (
     <ContextForSpaceMap.Provider value={mapController}>
-      {children}
+      <ContextForSpaceMapChat.Provider value={mapChatController}>
+        {children}
+      </ContextForSpaceMapChat.Provider>
     </ContextForSpaceMap.Provider>
   );
 }

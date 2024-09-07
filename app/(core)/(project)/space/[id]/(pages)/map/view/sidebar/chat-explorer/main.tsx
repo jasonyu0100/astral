@@ -1,8 +1,8 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { SpaceMapChatExplorerHeader } from './header/main';
+import { SpaceMapChatExplorerInput } from './input/main';
 import { SpaceMapChatExplorerList } from './list/main';
-import { SpaceMapChatExplorerInput } from './search/main';
 
 export function SpaceMapChatExplorer() {
   return (

@@ -10,7 +10,6 @@ interface ControllerState {}
 interface ControllerActions {
   getImageResponse: (prompt: string) => Promise<OpenAI.Images.Image[]>;
   getMessageResponse: (message: string) => Promise<string | null>;
-  getSummaryResponse: (message: string) => Promise<string | null>;
 }
 
 export const useControllerForOpenAi = (): Controller => {
@@ -41,28 +40,6 @@ export const useControllerForOpenAi = (): Controller => {
     return response;
   };
 
-  const getSummaryResponse = async (message: string) => {
-    const openai = getOpenAiClient();
-    const handleGenerate = async (prompt: string) => {
-      const completion = await openai.chat.completions.create({
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant designed to output text.',
-          },
-          {
-            role: 'user',
-            content: `Summarise the following text using a max of 100 characters. ${prompt}`,
-          },
-        ],
-        model: 'gpt-3.5-turbo-1106',
-      });
-      return completion.choices[0].message.content;
-    };
-    const response = await handleGenerate(message);
-    return response;
-  };
-
   const getImageResponse = async (prompt: string) => {
     const openai = getOpenAiClient();
     const response = await openai.images.generate({
@@ -79,7 +56,6 @@ export const useControllerForOpenAi = (): Controller => {
     actions: {
       getImageResponse,
       getMessageResponse,
-      getSummaryResponse,
     },
   };
 };

@@ -1,38 +1,35 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
 import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { createContext, useContext, useState } from 'react';
-import { ConversationRole, roleDescriptions } from '../data';
+import { createContext, useContext } from 'react';
 
 interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-interface ControllerState {
-  role: string;
-}
+interface ControllerState {}
 
 interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
-  updateRole: (role: ConversationRole) => void;
-  synthesiseConversation: () => GeneratedSticky[];
 }
 
 export interface GeneratedSticky {
   text: string;
 }
 
-export const ContextForSpaceChat = createContext({} as Controller);
+export const ContextForSpaceMapChat = createContext({} as Controller);
 
-export function useControllerForSpaceChat() {
+export function useControllerForSpaceMapChat() {
   const user = useGlobalUser((state) => state.user);
   const {
     actions: { getMessageResponse },
@@ -41,13 +38,11 @@ export function useControllerForSpaceChat() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
   const sceneListController = useContext(ContextForChapterSceneList);
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const conversationListController = useContext(
     ContextForSceneConversationList,
   );
   const updateListController = useControllerForSessionUpdateListFromChapter('');
-  const [role, setRole] = useState<ConversationRole>(
-    ConversationRole.Questioner,
-  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -62,6 +57,19 @@ export function useControllerForSpaceChat() {
       return formatMessage(message);
     });
     return messageHistory;
+  }
+
+  function getIdeaHistory() {
+    const ideaHistory = ideaListController.state.objs.map((idea) => {
+      if (idea.variant === ElementVariant.TEXT) {
+        return `Idea - ${idea.textElem?.text}`;
+      } else if (idea.variant === ElementVariant.FILE) {
+        return `Idea: ${idea.title} - ${idea.description}`;
+      } else if (idea.variant === ElementVariant.URL) {
+        return `Idea: ${idea.title} - ${idea.description}`;
+      }
+    });
+    return ideaHistory;
   }
 
   function checkConversationStatus(conversation: SceneConversationObj) {
@@ -97,19 +105,17 @@ export function useControllerForSpaceChat() {
     );
   }
 
-  async function generateAgentResponse(
-    message: ConversationMessageObj,
-    role: ConversationRole,
-  ) {
+  async function generateAgentResponse(message: ConversationMessageObj) {
     const messageHistory = [
       `You are an agent that helps the user achieve objectives.`,
-      `This is your role ${roleDescriptions[role]}`,
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
       `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
       `This is the message history:`,
       ...getMessageHistory(),
+      `These are the current ideas:`,
+      ...getIdeaHistory(),
       `Reply to the user message and keep the objective in mind.`,
     ];
     messageHistory.push(formatMessage(message));
@@ -129,43 +135,6 @@ export function useControllerForSpaceChat() {
       conversation.id,
       message,
     );
-  }
-
-  async function synthesiseConversation() {
-    const messageHistory = [
-      `This is the space title: ${spaceController.state.obj.title}`,
-      `This is the space description: ${spaceController.state.obj.description}`,
-      `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the scene title: ${sceneListController.state.currentObj?.title}`,
-      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
-      `This is the message history:`,
-      ...getMessageHistory(),
-      `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference."`,
-      `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
-      `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors. Example format:
-
-{
-  "insights": [
-    {"text": "Insight 1"},
-    {"text": "Insight 2"},
-    {"text": "Insight 3"}
-  ]
-}
-
-Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
-    ];
-
-    const messagePrompt = messageHistory.join('\n');
-
-    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
-    const replacedString = agentResponse
-      .replace('```json\n', '')
-      .replace('```', '');
-
-    const json = JSON.parse(replacedString);
-
-    return json.insights;
   }
 
   async function summariseConversation(
@@ -195,7 +164,7 @@ Ensure the response follows the exact structure and format shown above, with pro
       const conversationStatus = checkConversationStatus(conversation);
       if (conversationStatus) {
         const newUserMessage = await sendUserMessage(conversation);
-        const agentResponse = await generateAgentResponse(newUserMessage, role);
+        const agentResponse = await generateAgentResponse(newUserMessage);
         const newAgentMessage = await sendAgentMessage(
           'openAi',
           agentResponse,
@@ -217,10 +186,7 @@ Ensure the response follows the exact structure and format shown above, with pro
 
     const newConversation = await createNewConversation();
     const newUserMessage = await sendUserMessage(newConversation);
-    const agentResponse = await generateAgentResponse(
-      newUserMessage,
-      role as ConversationRole,
-    );
+    const agentResponse = await generateAgentResponse(newUserMessage);
     const newAgentMessage = await sendAgentMessage(
       'openAi',
       agentResponse,
@@ -239,15 +205,9 @@ Ensure the response follows the exact structure and format shown above, with pro
   }
 
   return {
-    state: {
-      role: role,
-    },
+    state: {},
     actions: {
-      synthesiseConversation,
       sendMessage,
-      updateRole: (role: ConversationRole) => {
-        setRole(role);
-      },
     },
   };
 }
