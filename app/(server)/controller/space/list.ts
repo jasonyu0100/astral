@@ -16,8 +16,9 @@ const listIdKey = spaceModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
-  currentSpace: TargetObj;
-  spaces: TargetObj[];
+  currentObj: TargetObj;
+  objs: TargetObj[];
+  objId: string;
   userId: string;
   query: string;
   queryResults: TargetObj[];
@@ -67,8 +68,9 @@ const useControllerForSpaceList = (
 
   const controllerState: ControllerState = {
     listId: listId,
-    spaces: objs,
-    currentSpace: currentObj,
+    objs: objs,
+    currentObj: currentObj,
+    objId: id,
     userId: id,
     query: query,
     queryResults: queryResults,
