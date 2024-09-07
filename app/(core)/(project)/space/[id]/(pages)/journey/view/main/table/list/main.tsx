@@ -6,6 +6,7 @@ import { SpaceJourneyLogTableListItem } from './item/main';
 
 export function SpaceJourneyTableList() {
   const logListController = useContext(ContextForChapterLogList);
+  console.log(logListController.state.objs);
 
   return (
     <div className='flex w-full flex-col pt-[2rem]'>
