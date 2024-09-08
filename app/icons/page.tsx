@@ -8,6 +8,7 @@ import { AstralArrowForwardIcon } from './arrow-forward/main';
 import { AstralAttachmentIcon } from './attachment/main';
 import { AstralBackIndicatorIcon } from './back/main';
 import { AstralBubbleIcon } from './bubble/main';
+import { AstralCalendarIcon } from './calendar/main';
 import { AstralChatIndicatorIcon } from './chat/main';
 import { AstralChevronDownIcon } from './chevron-down/main';
 import { AstralChevronLeftIcon } from './chevron-left/main';
@@ -108,6 +109,7 @@ export default function Page() {
       <AstralFullscreenIcon />
       <AstralFullscreenExitIcon />
       <AstralChatIndicatorIcon />
+      <AstralCalendarIcon />
     </div>
   );
 }

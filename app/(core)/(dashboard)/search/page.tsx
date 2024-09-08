@@ -19,8 +19,8 @@ import {
   ContextForSpaceList,
   useControllerForSpaceList,
 } from '@/(server)/controller/space/list';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForUserMain } from '@/(server)/controller/user/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
 import { useEffect } from 'react';
 import { ConversationalSearchView } from './(core)/view';
@@ -30,8 +30,12 @@ import {
 } from './controller/chat/main';
 
 export default function Page() {
-  const loggedInUser = useGlobalUser((state) => state.user);
-  const spaceListController = useControllerForSpaceList(loggedInUser.id);
+  const userController = useControllerForUserMain(
+    'a0ec7741-b75a-4b2a-aa19-735f5faa47b5',
+  );
+  const spaceListController = useControllerForSpaceList(
+    userController.state.objId,
+  );
   const chapterListController = useControllerForSpaceChapterList(
     spaceListController.state.listId,
   );
@@ -51,12 +55,12 @@ export default function Page() {
         'Conversational Search Query',
         'Conversational Search Query',
         '',
-        loggedInUser.id,
+        userController.state.objId,
         chapterListController.state.objId,
       )
       .then((scene) => {
         conversationListController.actions.createActions
-          .createConversation(loggedInUser.id, scene.id)
+          .createConversation(userController.state.objId, scene.id)
           .then((conversation) => {
             messageListController.actions.createActions.sendAgentMessage(
               'openAi',
@@ -69,7 +73,7 @@ export default function Page() {
   }, []);
 
   return (
-    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+    <ContextForUserObj.Provider value={userController.state.obj}>
       <ContextForSpaceList.Provider value={spaceListController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
@@ -89,7 +93,7 @@ export default function Page() {
           </ContextForChapterSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceList.Provider>
-    </ContextForLoggedInUserObj.Provider>
+    </ContextForUserObj.Provider>
   );
 }
 

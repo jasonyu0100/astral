@@ -1,3 +1,4 @@
+import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -126,10 +127,12 @@ export default function Results() {
       <div className='h-[2rem]' />
       <div className='flex flex-col items-center'>
         <a
-          href='/register'
-          className=' flex animate-pulse-slow rounded-full bg-gradient-to-r from-violet-600 to-purple-500  px-[3rem] py-[2rem] text-2xl font-bold text-white'
+          href='https://calendly.com/jasonyu0100/15min'
+          target='_blank'
+          className=' flex animate-pulse-slow space-x-[1rem] rounded-full bg-gradient-to-r from-violet-600 to-purple-500  px-[3rem] py-[2rem]'
         >
-          Get started for free
+          <AstralCalendarIcon className='h-[2rem] w-[2rem] fill-white' />
+          <p className='text-2xl  font-bold text-white'>Book a meeting</p>
         </a>
       </div>
     </div>

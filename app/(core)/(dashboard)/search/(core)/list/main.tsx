@@ -1,5 +1,4 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -8,7 +7,6 @@ import { useContext } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 
 export function ConversationalSearchChatList() {
-  const sceneListController = useContext(ContextForChapterSceneList);
   const messageListController = useContext(ContextForConversationMessageList);
 
   return (
@@ -19,7 +17,7 @@ export function ConversationalSearchChatList() {
       <div
         className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-[2rem]'
         onClick={() => {
-          window.location.href = `/search/results/${sceneListController.state.objId}`;
+          window.location.href = `/search/results`;
         }}
       >
         <p className='font-bold text-slate-300'>Map</p>

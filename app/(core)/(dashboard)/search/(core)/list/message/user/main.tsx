@@ -1,11 +1,11 @@
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { ContextForUserObj } from '@/(server)/model/user/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceMapUserMessage() {
-  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const loggedInUser = useContext(ContextForUserObj);
   const messageObj = useContext(ContextForConversationMessageObj);
 
   return (
