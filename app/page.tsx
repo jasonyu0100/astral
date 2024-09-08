@@ -214,7 +214,7 @@ export default function Page() {
       </div>
       <div className='flex w-full items-center justify-center'>
         <video
-          src='/landing/video/conversation-to-map.mov'
+          src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/conversation-to-map.mp4'
           className='w-3/4 rounded-[3rem] shadow-glow'
           autoPlay={true}
           muted={true}

@@ -4,15 +4,11 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { glassFx, roundedFx } from '@/style/data';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
@@ -125,7 +121,7 @@ export function SpaceChatGenerateMapModal() {
         <FormContainer>
           <FormTitle>Generate Map</FormTitle>
           <FormBody>
-            <div className='flex w-full flex-col'>
+            {/* <div className='flex w-full flex-col'>
               {searchResults.map((result) => (
                 <GlassWindowFrame roundedFx={roundedFx.rounded}>
                   <GlassWindowContents>
@@ -138,8 +134,8 @@ export function SpaceChatGenerateMapModal() {
                   <GlassWindowPane glassFx={glassFx['glass-10']} />
                 </GlassWindowFrame>
               ))}
-            </div>
-            {/* <div className='grid w-full grid-cols-3 gap-[1rem]'>
+            </div> */}
+            <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {stickies.map((sticky, index) => (
                 <div className='aspect-square bg-yellow-500 p-[1rem]'>
                   <textarea
@@ -149,7 +145,7 @@ export function SpaceChatGenerateMapModal() {
                   />
                 </div>
               ))}
-            </div> */}
+            </div>
           </FormBody>
           <FormFooter>
             <FormButton onClick={createMap}>Next</FormButton>
