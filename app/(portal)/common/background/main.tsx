@@ -7,9 +7,7 @@ export function PortalBackground({ children }: { children?: React.ReactNode }) {
       bg-gradient-to-b from-violet-950 to-slate-950 p-[3rem]
       `}
     >
-      <div className='h-full w-full scale-50 sm:scale-75 md:scale-100 '>
-        {children}
-      </div>
+      <div className='h-full w-full'>{children}</div>
     </div>
   );
 }
