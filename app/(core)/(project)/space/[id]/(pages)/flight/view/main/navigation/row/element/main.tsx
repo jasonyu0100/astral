@@ -25,7 +25,8 @@ export function SpaceFlightRowElement() {
         <TooltipTrigger className='z-10'>
           <GlassWindowFrame
             className={cn('z-10 h-[3.5rem] max-w-[300px]', {
-              'animate-pulse-slow bg-purple-500': active,
+              'animate-pulse-slow bg-gradient-to-br from-blue-600 to-cyan-400':
+                active,
             })}
             roundedFx={roundedFx['rounded-full']}
           >
