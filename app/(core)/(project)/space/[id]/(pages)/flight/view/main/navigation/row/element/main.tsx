@@ -1,47 +1,50 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { WrapperTooltip } from '@/ui/tooltip/main';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpaceFlightRowElement({
-  index,
-  children,
-}: {
-  children?: React.ReactNode;
-  index: number;
-}) {
+export function SpaceFlightRowElement() {
+  const index = useContext(ContextForIndexable);
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active = chapter.id === chapterListController.state.objId;
 
   return (
-    <WrapperTooltip text={`#${index + 1} - ${chapter.title}`}>
-      <button
-        onClick={() =>
-          chapterListController.actions.stateActions.select(chapter)
-        }
-        className={cn({
-          'animate-pulse-slow': active,
-        })}
-      >
-        <GlassAreaContainer
-          name={SpaceFlightRowElement.name}
-          sizeFx='w-[200px] h-[3.5rem]'
-          glassFx={active ? glassFx['glass-20'] : glassFx['glass-5']}
-          roundedFx={roundedFx['rounded-full']}
-          className='flex items-center justify-center'
-        >
-          {children}
-          {active ? (
-            <p className='font-bold text-slate-300'>{chapter.title}</p>
-          ) : (
-            <p className='font-bold text-slate-500'>{chapter.title}</p>
-          )}
-        </GlassAreaContainer>
-      </button>
-    </WrapperTooltip>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger className='z-10'>
+          <GlassWindowFrame
+            className={cn('z-10 h-[3.5rem] max-w-[300px]', {
+              'animate-pulse-slow bg-purple-500': active,
+            })}
+            roundedFx={roundedFx['rounded-full']}
+          >
+            <GlassWindowContents
+              className='z-10 flex h-full w-full items-center px-[1rem]'
+              onClick={() =>
+                chapterListController.actions.stateActions.select(chapter)
+              }
+            >
+              <p
+                className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
+              >
+                {index + 1}. {chapter.title}
+              </p>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          </GlassWindowFrame>
+        </TooltipTrigger>
+      </Tooltip>
+    </TooltipProvider>
   );
 }

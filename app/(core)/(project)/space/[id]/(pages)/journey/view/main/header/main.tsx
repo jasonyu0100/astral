@@ -1,7 +1,6 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceJourneyHeaderLeft } from './left/main';
-import { SpaceJourneyHeaderMiddle } from './middle/main';
 import { SpaceJourneyHeaderRight } from './right/main';
 
 export function SpaceJourneyHeader() {
@@ -13,7 +12,7 @@ export function SpaceJourneyHeader() {
       className={`flex items-center justify-between px-[1rem]`}
     >
       <SpaceJourneyHeaderLeft />
-      <SpaceJourneyHeaderMiddle />
+      {/* <SpaceJourneyHeaderMiddle /> */}
       <SpaceJourneyHeaderRight />
     </GlassAreaContainer>
   );

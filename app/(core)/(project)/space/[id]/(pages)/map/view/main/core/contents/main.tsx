@@ -3,12 +3,11 @@ import {
   ContextForSpaceMap,
   SpaceMapDirectoryMode,
 } from '../../../../controller/map/main';
-import { SpaceMapDirectory } from './directory/main';
+import { SpaceMapHistory } from './history/main';
 import { SpaceMapBack } from './map/back/main';
 import { SpaceMapChat } from './map/chat/main';
 import { SpaceMapPalette } from './map/palette/main';
 import { SpaceMapScene } from './map/scene/main';
-import { SpaceMapStatus } from './map/status/main';
 
 export function SpaceMapContents() {
   const {
@@ -22,11 +21,11 @@ export function SpaceMapContents() {
     >
       {directoryMode === SpaceMapDirectoryMode.DIRECTORY ? (
         <>
-          <SpaceMapDirectory />
+          <SpaceMapHistory />
         </>
       ) : (
         <>
-          <SpaceMapStatus />
+          {/* <SpaceMapStatus /> */}
           <SpaceMapBack />
           <SpaceMapScene />
           <SpaceMapPalette />

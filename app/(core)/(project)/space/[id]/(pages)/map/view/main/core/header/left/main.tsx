@@ -1,11 +1,10 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
-import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
+import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSortIcon } from '@/icons/sort/main';
 import { PipIndicator } from '@/ui/indicator/pip/main';
 import { useContext } from 'react';
@@ -41,6 +40,17 @@ export function SpaceMapHeaderLeft() {
           selectedIdeas.length === 0 ? 'fill-slate-300' : 'fill-blue-500'
         }
       />
+      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
+      <AstralFullscreenIcon
+        onClick={() => selectAll()}
+        className={
+          selectedIdeas.length >= ideaListController.state.objs.length &&
+          selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
+      <PipIndicator />
       <AstralPersonIcon
         className={
           peopleMode === SpaceMapPeopleMode.OFF
@@ -69,8 +79,7 @@ export function SpaceMapHeaderLeft() {
           }
         }}
       />
-      <PipIndicator />
-      <AstralListIcon
+      {/* <AstralListIcon
         className={
           sidebarContentMode === SpaceMapSidebarContentMode.LIST
             ? 'fill-blue-500'
@@ -83,32 +92,22 @@ export function SpaceMapHeaderLeft() {
             updateSidebarMode(SpaceMapSidebarContentMode.LIST);
           }
         }}
-      />
-      <AstralFolderIcon
+      /> */}
+      <AstralSearchIcon
         className={
-          sidebarContentMode === SpaceMapSidebarContentMode.MEDIA
+          sidebarContentMode === SpaceMapSidebarContentMode.SEARCH
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
         onClick={() => {
-          if (sidebarContentMode === SpaceMapSidebarContentMode.MEDIA) {
-            updateSidebarMode(SpaceMapSidebarContentMode.LIST);
-          } else {
+          if (sidebarContentMode === SpaceMapSidebarContentMode.SEARCH) {
             updateSidebarMode(SpaceMapSidebarContentMode.MEDIA);
+          } else {
+            updateSidebarMode(SpaceMapSidebarContentMode.SEARCH);
           }
         }}
       />
       <PipIndicator />
-      <AstralFullscreenIcon
-        onClick={() => selectAll()}
-        className={
-          selectedIdeas.length >= ideaListController.state.objs.length &&
-          selectedIdeas.length > 0
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-      />
-      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

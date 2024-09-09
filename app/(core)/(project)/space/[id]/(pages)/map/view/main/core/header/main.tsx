@@ -1,6 +1,5 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceMapHeaderCenter } from './center/main';
 import { SpaceMapHeaderLeft } from './left/main';
 import { SpaceMapHeaderRight } from './right/main';
 
@@ -13,7 +12,7 @@ export function SpaceMapHeader() {
       glassFx={glassFx['glass-5']}
     >
       <SpaceMapHeaderLeft />
-      <SpaceMapHeaderCenter />
+      {/* <SpaceMapHeaderCenter /> */}
       <SpaceMapHeaderRight />
     </GlassAreaContainer>
   );

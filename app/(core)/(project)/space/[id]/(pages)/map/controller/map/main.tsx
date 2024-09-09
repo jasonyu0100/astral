@@ -75,6 +75,7 @@ export enum SpaceMapSidebarMediaMode {
 
 export enum SpaceMapSidebarContentMode {
   MEDIA = 'Media',
+  SEARCH = 'Search',
   LIST = 'List',
   CHAT = 'Chat',
 }
@@ -115,7 +116,7 @@ export function useControllerForSpaceMap(): Controller {
     SpaceMapInteractionMode.SELECTED,
   );
   const [listMode, setListMode] = useState<SpaceMapSidebarContentMode>(
-    SpaceMapSidebarContentMode.LIST,
+    SpaceMapSidebarContentMode.MEDIA,
   );
   const [connectionMode, setConnectionMode] = useState<SpaceMapConnectionMode>(
     SpaceMapConnectionMode.DEFAULT,
