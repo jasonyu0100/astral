@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
@@ -94,26 +95,42 @@ const Question = () => (
     "What does creativity look like in an age of AI?"
   </p>
 );
-const CallToAction = () => (
-  <section className='flex w-full flex-col items-center px-4 text-center'>
-    <video
-      src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/conversation-to-map.mp4'
-      className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
-      autoPlay
-      muted
-      loop
-    />
-    <div className='h-[5rem] sm:h-[10rem]' />
-    <a
-      href='/search'
-      className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-    >
-      <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        try mapping...
-      </p>
-    </a>
-  </section>
-);
+const CallToAction = () => {
+  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
+  console.log(isDesktop);
+  return (
+    <section className='flex w-full flex-col items-center px-4 text-center'>
+      <video
+        src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/conversation-to-map.mp4'
+        className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
+        autoPlay
+        muted
+        loop
+      />
+      <div className='h-[5rem] sm:h-[10rem]' />
+      {!isDesktop ? (
+        <a
+          href={'https://calendly.com/jasonyu0100/15min'}
+          target='_blank'
+          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+        >
+          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+            try booking...
+          </p>
+        </a>
+      ) : (
+        <a
+          href={'/search'}
+          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+        >
+          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+            try mapping...
+          </p>
+        </a>
+      )}
+    </section>
+  );
+};
 
 const FeaturesSection = () => {
   const features = [
@@ -186,112 +203,110 @@ const FeaturesSection = () => {
 
 const Map = () => {
   return (
-    <div className='py-[100px]'>
-      <div
-        className='hidden h-[500px] w-full flex-col items-center justify-center lg:flex'
-        style={{ zoom: 1 }}
-      >
-        <div className='relative h-full w-[1500px]'>
-          <div className='absolute z-50 h-full w-full'>
-            {/* Visual - Conversational - Connected Box */}
-            <div className='absolute left-0 top-[100px] h-[200px] w-[200px] bg-yellow-500 p-4 shadow-glow'>
-              {['visual', 'conversational', 'connected'].map((item) => (
-                <p key={item} className='font-bold'>
-                  - {item}
-                </p>
-              ))}
-            </div>
-            {/* Glass Window with Quote */}
-            <div className='absolute left-[1200px] top-[200px] h-[200px] w-[300px]'>
-              <GlassWindowFrame
-                className='h-full w-full overflow-hidden'
-                roundedFx={roundedFx.rounded}
-                borderFx={borderFx['border-around']}
-              >
-                <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-lg bg-slate-950 bg-opacity-50 p-4 text-lg font-light text-slate-300'>
-                  "It’s the iteration of ideas with a goal in mind, that moves a
-                  project forward."
-                </GlassWindowContents>
-                <GlassWindowPane glassFx={glassFx['glass-10']} />
-              </GlassWindowFrame>
-            </div>
-
-            {/* Image Elements */}
-            <div className='absolute left-[400px] top-[150px] h-[150px] w-[150px]'>
-              <img
-                src='/portal/dj-m.png'
-                alt='DJ'
-                className='aspect-square w-full rounded-lg shadow-glow'
-              />
-            </div>
-
-            <div className='absolute left-[250px] top-[400px] h-[100px] w-[100px]'>
-              <img
-                src='/portal/artist-m.png'
-                alt='Artist'
-                className='h-full w-full rounded-full'
-              />
-            </div>
-
-            <div className='absolute left-[1000px] top-[400px] h-[150px] w-[150px]'>
-              <img
-                src='/portal/designer-f.png'
-                alt='Designer'
-                className='h-full w-full rounded-full'
-              />
-            </div>
-
-            <div className='absolute left-[700px] top-0 aspect-[16/9] w-[400px] bg-black'>
-              <div className='absolute right-[-1.5rem] top-[-0.5rem] h-8 w-8 rounded-full bg-red-500' />
-              <img
-                src='/portal/producer-m.png'
-                alt='Producer'
-                className='h-full w-full rounded-lg object-cover shadow-glow'
-              />
-            </div>
-
-            {/* Text Elements */}
-            <div className='absolute left-[300px] top-0 h-[200px] w-[300px]'>
-              <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-300'>
-                conversational search
+    <div
+      className=' hidden h-[800px] w-full flex-col items-center justify-center py-[100px] lg:flex '
+      style={{ zoom: 1 }}
+    >
+      <div className='relative h-full w-[1500px]'>
+        <div className='absolute z-50 h-full w-full'>
+          {/* Visual - Conversational - Connected Box */}
+          <div className='absolute left-0 top-[100px] h-[200px] w-[200px] bg-yellow-500 p-4 shadow-glow'>
+            {['visual', 'conversational', 'connected'].map((item) => (
+              <p key={item} className='font-bold'>
+                - {item}
               </p>
-            </div>
-
-            <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
-              <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
-                scalable ideas
-              </p>
-            </div>
-
-            <div className='absolute left-[1200px] top-[75px] h-[200px] w-[300px]'>
-              <p className='animate-pulse-slow text-3xl font-bold text-slate-300'>
-                creative co-pilot
-              </p>
-            </div>
+            ))}
+          </div>
+          {/* Glass Window with Quote */}
+          <div className='absolute left-[1200px] top-[200px] h-[200px] w-[300px]'>
+            <GlassWindowFrame
+              className='h-full w-full overflow-hidden'
+              roundedFx={roundedFx.rounded}
+              borderFx={borderFx['border-around']}
+            >
+              <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-lg bg-slate-950 bg-opacity-50 p-4 text-lg font-light text-slate-300'>
+                "It’s the iteration of ideas with a goal in mind, that moves a
+                project forward."
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
           </div>
 
-          {/* SVG Lines */}
-          <svg className='absolute h-full w-full opacity-50'>
-            {[
-              { x1: 150, y1: 250, x2: 300, y2: 450, strokeWidth: 4 },
-              { x1: 150, y1: 250, x2: 1075, y2: 475, strokeWidth: 6 },
-              { x1: 350, y1: 450, x2: 900, y2: 200, strokeWidth: 2 },
-              { x1: 150, y1: 250, x2: 900, y2: 200, strokeWidth: 2 },
-              { x1: 900, y1: 200, x2: 1300, y2: 300, strokeWidth: 2 },
-              { x1: 1075, y1: 475, x2: 1300, y2: 300, strokeWidth: 2 },
-            ].map((line, index) => (
-              <line
-                key={index}
-                x1={line.x1}
-                y1={line.y1}
-                x2={line.x2}
-                y2={line.y2}
-                className='animate-pulse stroke-slate-300 opacity-30'
-                strokeWidth={line.strokeWidth}
-              />
-            ))}
-          </svg>
+          {/* Image Elements */}
+          <div className='absolute left-[400px] top-[150px] h-[150px] w-[150px]'>
+            <img
+              src='/portal/dj-m.png'
+              alt='DJ'
+              className='aspect-square w-full rounded-lg shadow-glow'
+            />
+          </div>
+
+          <div className='absolute left-[250px] top-[400px] h-[100px] w-[100px]'>
+            <img
+              src='/portal/artist-m.png'
+              alt='Artist'
+              className='h-full w-full rounded-full'
+            />
+          </div>
+
+          <div className='absolute left-[1000px] top-[400px] h-[150px] w-[150px]'>
+            <img
+              src='/portal/designer-f.png'
+              alt='Designer'
+              className='h-full w-full rounded-full'
+            />
+          </div>
+
+          <div className='absolute left-[700px] top-0 aspect-[16/9] w-[400px] bg-black'>
+            <div className='absolute right-[-1.5rem] top-[-0.5rem] h-8 w-8 rounded-full bg-red-500' />
+            <img
+              src='/portal/producer-m.png'
+              alt='Producer'
+              className='h-full w-full rounded-lg object-cover shadow-glow'
+            />
+          </div>
+
+          {/* Text Elements */}
+          <div className='absolute left-[300px] top-0 h-[200px] w-[300px]'>
+            <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-300'>
+              conversational search
+            </p>
+          </div>
+
+          <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
+            <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
+              scalable ideas
+            </p>
+          </div>
+
+          <div className='absolute left-[1200px] top-[75px] h-[200px] w-[300px]'>
+            <p className='animate-pulse-slow text-3xl font-bold text-slate-300'>
+              creative co-pilot
+            </p>
+          </div>
         </div>
+
+        {/* SVG Lines */}
+        <svg className='absolute h-full w-full opacity-50'>
+          {[
+            { x1: 150, y1: 250, x2: 300, y2: 450, strokeWidth: 4 },
+            { x1: 150, y1: 250, x2: 1075, y2: 475, strokeWidth: 6 },
+            { x1: 350, y1: 450, x2: 900, y2: 200, strokeWidth: 2 },
+            { x1: 150, y1: 250, x2: 900, y2: 200, strokeWidth: 2 },
+            { x1: 900, y1: 200, x2: 1300, y2: 300, strokeWidth: 2 },
+            { x1: 1075, y1: 475, x2: 1300, y2: 300, strokeWidth: 2 },
+          ].map((line, index) => (
+            <line
+              key={index}
+              x1={line.x1}
+              y1={line.y1}
+              x2={line.x2}
+              y2={line.y2}
+              className='animate-pulse stroke-slate-300 opacity-30'
+              strokeWidth={line.strokeWidth}
+            />
+          ))}
+        </svg>
       </div>
     </div>
   );
@@ -300,7 +315,7 @@ const Map = () => {
 const FooterCTA = () => (
   <footer className='flex w-full items-center justify-center py-8'>
     <a
-      href='/search'
+      href='/register'
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
@@ -382,13 +397,13 @@ function PricingSection() {
                   title='Creator'
                   price='$15 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
-                  imageSrc='/portal/producer-f.png'
+                  imageSrc='/portal/performer-m.png'
                 />
                 <PricingCard
                   title='Team Pro'
                   price='$50 / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
-                  imageSrc='/portal/producer-m.png'
+                  imageSrc='/portal/performer-f.png'
                 />
                 <PricingCard
                   title='Enterprise Scale'
@@ -414,7 +429,7 @@ function PricingCard({ title, price, description, imageSrc }) {
 
   return (
     <div
-      className='flex aspect-[11/13] cursor-pointer flex-col items-center bg-white p-6 shadow-md'
+      className='flex-start flex aspect-[11/13] w-full cursor-pointer flex-col bg-white p-6 shadow-md'
       onClick={handleToggle}
     >
       {!showDescription ? (
@@ -425,14 +440,14 @@ function PricingCard({ title, price, description, imageSrc }) {
             className='mb-4 aspect-square w-full bg-black'
             alt={title}
           />
-          <div className='space-y-1 text-center'>
+          <div className='w-full space-y-1'>
             <p className='text-2xl font-bold'>{title}</p>
             <p className='text-lg font-light'>{price}</p>
           </div>
         </>
       ) : (
         // Back view (showing description)
-        <div className='text-center'>
+        <div className='w-full text-center'>
           <p className='text-lg font-semibold italic'>"{description}"</p>
         </div>
       )}
@@ -499,10 +514,10 @@ function FAQSection() {
                 value={`faq-${index}`}
                 className='border-b border-slate-300 border-opacity-30'
               >
-                <AccordionTrigger className='text-lg font-bold text-slate-500'>
+                <AccordionTrigger className='text-start text-lg font-bold text-slate-500'>
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className='text-sm font-light text-slate-500'>
+                <AccordionContent className='text-start text-sm font-light text-slate-500'>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -524,9 +539,8 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[3rem] sm:h-[7rem]' />
       <Question />
-      <div className='h-[5rem] sm:h-[7rem]' />
-      <Map />
       <div className='h-[3rem] sm:h-[7rem]' />
+      <Map />
       <CallToAction />
       <div className='h-[5rem] sm:h-[10rem]' />
       <HorizontalDivider />
