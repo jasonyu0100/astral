@@ -89,36 +89,39 @@ export function ConversationalSearchWrapper({
   );
 
   useEffect(() => {
-    chapterListController.actions.createActions.createChapter(
-      'Search Query',
-      'Search Query',
-      'Search Query',
-      'Search Query',
-      userId,
-      spaceController.state.objId,
-      0,
-    ),
-      sceneListController.actions.createActions
-        .createScene(
-          'Conversational Search Query',
-          'Conversational Search Query',
-          'Conversational Search Query',
-          userId,
-          chapterListController.state.objId,
-        )
-        .then((scene) => {
-          console.log(chapterListController.state.objId);
-          conversationListController.actions.createActions
-            .createConversation(userId, scene.id)
-            .then((conversation) => {
-              conversationalSearchController.actions.sendAgentMessage(
-                'openAi',
-                `👋 Hi there! Welcome to Astral!
+    chapterListController.actions.createActions
+      .createChapter(
+        `Sale - ${new Date()}`,
+        'Search Query',
+        'Search Query',
+        'Search Query',
+        userId,
+        spaceController.state.objId,
+        0,
+      )
+      .then((chapter) => {
+        sceneListController.actions.createActions
+          .createScene(
+            'Conversational Search Query',
+            'Conversational Search Query',
+            'Conversational Search Query',
+            userId,
+            chapter.id,
+          )
+          .then((scene) => {
+            console.log(chapterListController.state.objId);
+            conversationListController.actions.createActions
+              .createConversation(userId, scene.id)
+              .then((conversation) => {
+                conversationalSearchController.actions.sendAgentMessage(
+                  'openAi',
+                  `👋 Hi there! Welcome to Astral!
 I’m your AI assistant, here to help you explore how Astral can supercharge your creative workflows.`,
-                conversation,
-              );
-            });
-        });
+                  conversation,
+                );
+              });
+          });
+      });
   }, []);
 
   return (

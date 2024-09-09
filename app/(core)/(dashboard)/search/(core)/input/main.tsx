@@ -16,7 +16,6 @@ export function ConversationalSearchInput() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      alert('send');
       sendMessage();
     }
   };

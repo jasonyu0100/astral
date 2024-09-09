@@ -1,13 +1,22 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { AstralSearchIcon } from '@/icons/search/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 
 export function ConversationalSearchChatList() {
   const messageListController = useContext(ContextForConversationMessageList);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if (ref.current) {
+      ref.current.scrollTop = ref.current.scrollHeight;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messageListController.state?.objs]);
 
   return (
     <div
@@ -23,20 +32,20 @@ export function ConversationalSearchChatList() {
         <p className='font-bold text-slate-300'>Create Map</p>
         <AstralSearchIcon />
       </div>
-      <div className='h-full w-[1000px]'>
-        <GlassWindowFrame className='h-full w-full overflow-auto border-l border-r border-slate-300 border-opacity-30 p-[3rem]'>
-          <GlassWindowContents className='flex flex-col space-y-[2rem]'>
-            {messageListController.state?.objs.map((message) => (
-              <ContextForConversationMessageObj.Provider
-                value={message}
-                key={message.id}
-              >
-                <SpaceMapChatExplorerMessage />
-              </ContextForConversationMessageObj.Provider>
-            ))}
-          </GlassWindowContents>
-          {/* <GlassWindowPane glassFx={glassFx['glass-5']} /> */}
-        </GlassWindowFrame>
+      <div
+        ref={ref}
+        className='h-full w-[1000px] overflow-auto border-l border-slate-300 border-opacity-30 p-[3rem]'
+      >
+        <div className='flex flex-col space-y-[2rem]'>
+          {messageListController.state?.objs.map((message) => (
+            <ContextForConversationMessageObj.Provider
+              value={message}
+              key={message.id}
+            >
+              <SpaceMapChatExplorerMessage />
+            </ContextForConversationMessageObj.Provider>
+          ))}
+        </div>
       </div>
     </div>
   );
