@@ -26,12 +26,12 @@ export function SpaceMapHistoryItem() {
       onMouseOver={hoverableController.onHover}
     >
       <GlassWindowFrame
-        className='w-full p-[1rem]'
+        className='h-[5rem] w-full'
         roundedFx={roundedFx.rounded}
       >
         <GlassWindowContents
           key={scene.id}
-          className='flex cursor-pointer flex-row items-center justify-items-center space-x-[1rem] text-center font-bold text-slate-300'
+          className='flex h-full cursor-pointer flex-row items-center justify-items-center space-x-[1rem] p-[1rem] text-center font-bold text-slate-300'
           onClick={() => {
             sceneListController.actions.stateActions.select(scene);
             updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
