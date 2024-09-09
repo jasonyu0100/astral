@@ -15,12 +15,12 @@ export function ConversationalSearchChatList() {
       style={{ height: 'calc(100% - 7rem - 7rem)' }}
     >
       <div
-        className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 px-[2rem]'
+        className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-purple-500 to-violet-500 px-[2rem]'
         onClick={() => {
           window.location.href = `/search/results`;
         }}
       >
-        <p className='font-bold text-slate-300'>Map</p>
+        <p className='font-bold text-slate-300'>Create Map</p>
         <AstralSearchIcon />
       </div>
       <div className='h-full w-[1000px]'>

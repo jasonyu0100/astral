@@ -16,13 +16,13 @@ import {
   useControllerForChapterSceneList,
 } from '@/(server)/controller/space/chapter/scene/list';
 import {
-  ContextForSpaceList,
-  useControllerForSpaceList,
-} from '@/(server)/controller/space/list';
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/(server)/controller/space/main';
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { ConversationalSearchView } from './(core)/view';
 import {
   ContextForConversationalSearch,
@@ -31,13 +31,13 @@ import {
 
 export default function Page() {
   const userController = useControllerForUserMain(
-    'a0ec7741-b75a-4b2a-aa19-735f5faa47b5',
+    'cf0b9d9f-896c-4d84-b982-957a3ca1234b',
   );
-  const spaceListController = useControllerForSpaceList(
-    userController.state.objId,
+  const spaceMainController = useControllerForSpaceMain(
+    '0acb9371-e277-4ee6-af4d-ee4744490318',
   );
   const chapterListController = useControllerForSpaceChapterList(
-    spaceListController.state.listId,
+    spaceMainController.state.objId,
   );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
@@ -49,32 +49,9 @@ export default function Page() {
     conversationListController.state.objId,
   );
 
-  useEffect(() => {
-    sceneListController.actions.createActions
-      .createScene(
-        'Conversational Search Query',
-        'Conversational Search Query',
-        '',
-        userController.state.objId,
-        chapterListController.state.objId,
-      )
-      .then((scene) => {
-        conversationListController.actions.createActions
-          .createConversation(userController.state.objId, scene.id)
-          .then((conversation) => {
-            messageListController.actions.createActions.sendAgentMessage(
-              'openAi',
-              scene.id,
-              conversation.id,
-              'Hello world',
-            );
-          });
-      });
-  }, []);
-
   return (
     <ContextForUserObj.Provider value={userController.state.obj}>
-      <ContextForSpaceList.Provider value={spaceListController}>
+      <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
             <ContextForSceneConversationList.Provider
@@ -92,7 +69,7 @@ export default function Page() {
             </ContextForSceneConversationList.Provider>
           </ContextForChapterSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
-      </ContextForSpaceList.Provider>
+      </ContextForSpaceMain.Provider>
     </ContextForUserObj.Provider>
   );
 }
@@ -102,7 +79,47 @@ export function ConversationalSearchWrapper({
 }: {
   children: React.ReactNode;
 }) {
+  const userId = 'cf0b9d9f-896c-4d84-b982-957a3ca1234b';
+  const spaceController = useContext(ContextForSpaceMain);
   const conversationalSearchController = useControllerForConversationalSearch();
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const conversationListController = useContext(
+    ContextForSceneConversationList,
+  );
+
+  useEffect(() => {
+    chapterListController.actions.createActions.createChapter(
+      'Search Query',
+      'Search Query',
+      'Search Query',
+      'Search Query',
+      userId,
+      spaceController.state.objId,
+      0,
+    ),
+      sceneListController.actions.createActions
+        .createScene(
+          'Conversational Search Query',
+          'Conversational Search Query',
+          'Conversational Search Query',
+          userId,
+          chapterListController.state.objId,
+        )
+        .then((scene) => {
+          console.log(chapterListController.state.objId);
+          conversationListController.actions.createActions
+            .createConversation(userId, scene.id)
+            .then((conversation) => {
+              conversationalSearchController.actions.sendAgentMessage(
+                'openAi',
+                `👋 Hi there! Welcome to Astral!
+I’m your AI assistant, here to help you explore how Astral can supercharge your creative workflows.`,
+                conversation,
+              );
+            });
+        });
+  }, []);
 
   return (
     <ContextForConversationalSearch.Provider

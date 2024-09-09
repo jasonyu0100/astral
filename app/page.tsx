@@ -1,7 +1,6 @@
 'use client';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
-import { AstralCalendarIcon } from './icons/calendar/main';
 import { AstralSearchIcon } from './icons/search/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
 import { GlassWindowContents } from './ui/glass/window/contents/main';
@@ -287,18 +286,6 @@ export default function Page() {
           className=' flex animate-pulse-slow rounded-full bg-gradient-to-r from-violet-600 to-purple-500  px-[3rem] py-[2rem] text-2xl font-bold text-white'
         >
           Get started for free
-        </a>
-      </div>
-      <div className='w-[300px]'>
-        <HorizontalDivider />
-      </div>
-      <div className='flex flex-col items-center'>
-        <a
-          href='/register'
-          className=' flex animate-pulse-slow rounded-full bg-gradient-to-r from-orange-600 to-orange-500  px-[3rem] py-[2rem] text-2xl font-bold text-white'
-        >
-          Book an exploration call
-          <AstralCalendarIcon />
         </a>
       </div>
       <div className='h-[5rem]' />

@@ -7,6 +7,13 @@ import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
+import {
+  currentState,
+  description,
+  landingDescription,
+  pitch,
+  targetCustomer,
+} from '@/information/information';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext } from 'react';
 
@@ -89,14 +96,15 @@ export function useControllerForConversationalSearch() {
 
   async function generateAgentResponse(message: ConversationMessageObj) {
     const messageHistory = [
-      `You are an agent that helps the user achieve objectives.`,
-      `This is the space title: ${spaceController.state.currentObj.title}`,
-      `This is the space description: ${spaceController.state.currentObj.description}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
+      `You are a sales agent that is informing the user about Astral`,
+      `${description}`,
+      `${pitch}`,
+      `${landingDescription}`,
+      `${currentState}`,
+      `${targetCustomer}`,
       `This is the message history:`,
       ...getMessageHistory(),
-      `Reply to the user message and keep the objective in mind.`,
+      `Reply to the user message try to get them to click the search button. Remind them that conversational insights are being generated from the conversation to create actionable change.`,
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
@@ -188,6 +196,7 @@ export function useControllerForConversationalSearch() {
     state: {},
     actions: {
       sendMessage,
+      sendAgentMessage,
     },
   };
 }

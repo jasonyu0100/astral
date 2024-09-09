@@ -129,7 +129,7 @@ export default function Results() {
         <a
           href='https://calendly.com/jasonyu0100/15min'
           target='_blank'
-          className=' flex animate-pulse-slow space-x-[1rem] rounded-full bg-gradient-to-r from-violet-600 to-purple-500  px-[3rem] py-[2rem]'
+          className=' flex animate-pulse-slow space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-cyan-500  px-[3rem] py-[2rem]'
         >
           <AstralCalendarIcon className='h-[2rem] w-[2rem] fill-white' />
           <p className='text-2xl  font-bold text-white'>Book a meeting</p>
