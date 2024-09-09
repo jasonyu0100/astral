@@ -113,7 +113,7 @@ export function SpaceMapGenerateLog() {
         ),
       ),
     );
-    const relationships = await Promise.all(
+    const linkRelationships = await Promise.all(
       links.slice(0, links.length - 1).map((fromLink, index) => {
         const toLink = links[index + 1];
         const relationshipMatch =

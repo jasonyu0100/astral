@@ -1,6 +1,8 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -21,12 +23,17 @@ export function SpaceChatGenerateMapModal() {
   const {
     actions: { generateStickies: generateStickies },
   } = useContext(ContextForSpaceChat);
-  const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
+  const spaceController = useContext(ContextForSpaceMain);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,
   );
+  const spaceIdeaRelationshipListController =
+    useControllerForSpaceIdeaRelationshipListFromChapter(
+      chapterListController.state.objId,
+    );
   const [stickies, setStickies] = useState<string[]>([]);
   const [searchResults, setSearchResults] = useState([]);
 
@@ -63,8 +70,11 @@ export function SpaceChatGenerateMapModal() {
     }
   };
 
-  const createStickies = async (stickies) => {
-    const textIdeas = await Promise.all(
+  async function createMap() {
+    openableController.close();
+    loadingController.loadingController.open();
+
+    const ideas = await Promise.all(
       stickies.map(async (sticky, index) => {
         const title = `Step ${index + 1}`;
         const description = sticky;
@@ -91,17 +101,22 @@ export function SpaceChatGenerateMapModal() {
       }),
     );
 
-    return textIdeas;
-  };
+    const ideaRelationships = await Promise.all(
+      ideas.slice(0, ideas.length - 1).map((idea, index) => {
+        const toIdea = ideas[index + 1];
+        return spaceIdeaRelationshipListController.actions.createActions.createFromIdea(
+          idea,
+          toIdea,
+          spaceController.state.objId,
+          chapterListController.state.objId,
+          sceneListController.state.objId,
+        );
+      }),
+    );
 
-  async function createMap() {
-    openableController.close();
-    loadingController.loadingController.open();
-    createStickies(stickies).then(() => {
-      window.location.href = spaceMap.space.id.map.link(
-        spaceController.state.objId,
-      );
-    });
+    window.location.href = spaceMap.space.id.map.link(
+      spaceController.state.objId,
+    );
   }
 
   function editSticky(index: number, text: string) {

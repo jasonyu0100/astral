@@ -2,6 +2,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
+import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralListIcon } from '@/icons/list/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
@@ -18,20 +19,17 @@ import {
 export function SpaceMapHeaderLeft() {
   const {
     state: {
-      directoryMode,
       selectedIdeas,
       peopleMode,
       connectionMode,
       sidebarContentMode: sidebarContentMode,
-      statusMode: statusMode,
     },
     actions: {
-      updateDirectoryMode,
       updatePeopleMode,
       updateConnectionMode,
       updateSidebarContentMode: updateSidebarMode,
       autoSort,
-      updateStatusMode,
+      selectAll,
     },
   } = useContext(ContextForSpaceMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -101,6 +99,15 @@ export function SpaceMapHeaderLeft() {
         }}
       />
       <PipIndicator />
+      <AstralFullscreenIcon
+        onClick={() => selectAll()}
+        className={
+          selectedIdeas.length >= ideaListController.state.objs.length &&
+          selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
       <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
       <AstralSaveIcon
         onClick={() => {

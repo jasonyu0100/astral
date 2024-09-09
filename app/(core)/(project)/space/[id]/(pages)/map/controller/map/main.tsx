@@ -44,6 +44,7 @@ interface ControllerActions {
   updateSidebarContentMode: (mode: SpaceMapSidebarContentMode) => void;
   updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
+  selectAll: () => void;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
@@ -252,6 +253,9 @@ export function useControllerForSpaceMap(): Controller {
       goToCollection: (collection: GalleryCollectionObj) => {
         collectionListController.actions.stateActions.select(collection);
         changeSidebarMediaMode(SpaceMapSidebarMediaMode.Collection);
+      },
+      selectAll: () => {
+        setSelectedIdeas(ideaListController.state.objs);
       },
     },
   };
