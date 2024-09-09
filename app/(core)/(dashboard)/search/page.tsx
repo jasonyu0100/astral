@@ -37,7 +37,7 @@ export default function Page() {
     '0acb9371-e277-4ee6-af4d-ee4744490318',
   );
   const chapterListController = useControllerForSpaceChapterList(
-    spaceMainController.state.objId,
+    '0acb9371-e277-4ee6-af4d-ee4744490318',
   );
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
