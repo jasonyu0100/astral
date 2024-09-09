@@ -1,7 +1,6 @@
 'use client';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
-import { AstralSearchIcon } from './icons/search/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
 import { GlassWindowContents } from './ui/glass/window/contents/main';
 import { GlassWindowFrame } from './ui/glass/window/main';
@@ -228,8 +227,7 @@ export default function Page() {
           href='/search'
           className='flex h-[5rem] flex-row items-center justify-center space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-[2rem]'
         >
-          <p className='text-2xl font-bold text-slate-300'>try mapping</p>
-          <AstralSearchIcon className='h-[2rem] w-[2rem]' />
+          <p className='text-2xl font-bold text-slate-300'>try mapping...</p>
         </a>
       </div>
       <div className='h-[5rem]' />

@@ -1,22 +1,14 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
 import { AstralSearchIcon } from '@/icons/search/main';
-import { useContext, useEffect, useRef } from 'react';
+import { ControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-bottom/main';
+import { useContext, useRef } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 
 export function ConversationalSearchChatList() {
   const messageListController = useContext(ContextForConversationMessageList);
   const ref = useRef<HTMLDivElement>(null);
-
-  const scrollToBottom = () => {
-    if (ref.current) {
-      ref.current.scrollTop = ref.current.scrollHeight;
-    }
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messageListController.state?.objs]);
+  const { scrollToBottom } = ControllerForMessageScrollToBottom(ref);
 
   return (
     <div
