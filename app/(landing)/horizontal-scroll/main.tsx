@@ -2,6 +2,7 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { useEffect } from 'react';
 
 const scrollAnimation = {
   display: 'flex',
@@ -25,178 +26,82 @@ const keyframes = `
   100% { transform: translateX(-100%); }
 }`;
 
+const cardData = [
+  {
+    title: 'Product Launch',
+    description:
+      'A structured template for planning and executing a successful product launch.',
+  },
+  {
+    title: 'Startup Plan',
+    description:
+      'A comprehensive template for developing a strategic startup plan.',
+  },
+  {
+    title: 'Marketing Campaign',
+    description:
+      'A template for planning and executing an effective marketing campaign.',
+  },
+  {
+    title: 'Video Shoot',
+    description:
+      'A structured template for planning and executing a video shoot project.',
+  },
+  {
+    title: 'Blog Post',
+    description: 'A template for planning, writing, and promoting a blog post.',
+  },
+  {
+    title: 'Social Media Strategy',
+    description: 'A guide for creating an impactful social media strategy.',
+  },
+  {
+    title: 'Event Planning',
+    description: 'A comprehensive template for planning successful events.',
+  },
+  {
+    title: 'Design Sprint',
+    description: 'A guide to running an efficient design sprint.',
+  },
+  {
+    title: 'Pitch Deck',
+    description: 'A template for creating an effective pitch deck.',
+  },
+  {
+    title: 'User Research',
+    description: 'A guide to conducting effective user research.',
+  },
+];
+
+// React component
 export default function ScrollableCardList() {
+  useEffect(() => {
+    // Dynamically insert the keyframe animation into the document's stylesheet
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+  }, []);
+
   return (
     <div style={containerStyle}>
-      <style>{keyframes}</style>
       <div style={scrollAnimation}>
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Product Launch</p>
-              <p className='text-sm font-light text-slate-500'>
-                A structured template for planning and executing a successful
-                product launch.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Startup Plan</p>
-              <p className='text-sm font-light text-slate-500'>
-                A comprehensive template for developing a strategic startup
-                plan.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>
-                Marketing Campaign
-              </p>
-              <p className='text-sm font-light text-slate-500'>
-                A template for planning and executing an effective marketing
-                campaign.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Video Shoot</p>
-              <p className='text-sm font-light text-slate-500'>
-                A structured template for planning and executing a video shoot
-                project.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Blog Post</p>
-              <p className='text-sm font-light text-slate-500'>
-                A template for planning, writing, and promoting a blog post.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>
-                Social Media Strategy
-              </p>
-              <p className='text-sm font-light text-slate-500'>
-                A guide for creating an impactful social media strategy.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Event Planning</p>
-              <p className='text-sm font-light text-slate-500'>
-                A comprehensive template for planning successful events.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Design Sprint</p>
-              <p className='text-sm font-light text-slate-500'>
-                A guide to running an efficient design sprint.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>Pitch Deck</p>
-              <p className='text-sm font-light text-slate-500'>
-                A template for creating an effective pitch deck.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
-
-        <div style={itemStyle}>
-          <GlassWindowFrame
-            className='h-[200px] w-[300px]'
-            borderFx={borderFx['border-around']}
-            roundedFx={roundedFx.rounded}
-          >
-            <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>User Research</p>
-              <p className='text-sm font-light text-slate-500'>
-                A guide to conducting effective user research.
-              </p>
-            </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          </GlassWindowFrame>
-        </div>
+        {/* Duplicate the card list for infinite scroll effect */}
+        {cardData.concat(cardData).map((card, index) => (
+          <div key={index} style={itemStyle}>
+            <GlassWindowFrame
+              className='h-[200px] w-[300px]'
+              borderFx={borderFx['border-around']}
+              roundedFx={roundedFx.rounded}
+            >
+              <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
+                <p className='text-xl font-bold text-slate-300'>{card.title}</p>
+                <p className='text-sm font-light text-slate-500'>
+                  {card.description}
+                </p>
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
+          </div>
+        ))}
       </div>
     </div>
   );
