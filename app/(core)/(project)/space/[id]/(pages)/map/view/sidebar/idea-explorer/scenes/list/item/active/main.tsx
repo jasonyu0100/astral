@@ -19,35 +19,28 @@ export function SpaceMapSidebarScenesListActiveItem() {
   const scene = useContext(ContextForChapterSceneObj);
 
   return (
-    <>
-      <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
-        <GlassWindowContents
-          className='flex flex-row items-center space-x-[1rem]'
+    <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
+      <GlassWindowContents
+        className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
+        onClick={() => {
+          sceneListController.actions.stateActions.select(scene);
+        }}
+      >
+        <div className='text-lg font-bold'>{scene.title || 'Untitled'}</div>
+        <div className='text-sm font-light'>
+          {scene.objective || 'No description'}
+        </div>
+        <div
+          className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
           onClick={() => {
-            sceneListController.actions.stateActions.select(scene);
+            updateSidebarMode(SpaceMapSidebarMode.IDEAS);
+            updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
           }}
         >
-          <div
-            key={scene.id}
-            className='flex flex-col space-y-[0.5rem] font-bold text-slate-300'
-          >
-            <div className='text-lg font-bold'>{scene.title || 'Untitled'}</div>
-            <div className='text-sm font-light'>
-              {scene.objective || 'No description'}
-            </div>
-            <div
-              className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
-              onClick={() => {
-                updateSidebarMode(SpaceMapSidebarMode.IDEAS);
-                updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);
-              }}
-            >
-              View Ideas
-            </div>
-          </div>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-10']} />
-      </GlassWindowFrame>
-    </>
+          View Ideas
+        </div>
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+    </GlassWindowFrame>
   );
 }

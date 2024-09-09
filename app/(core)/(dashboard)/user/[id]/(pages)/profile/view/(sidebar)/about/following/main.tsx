@@ -6,7 +6,7 @@ import {
   UserProfilePage,
 } from '../../../../controller/main';
 
-export function ProfileAboutFollowing() {
+export function UserProfileAboutFollowing() {
   const {
     actions: { updatePage },
   } = useContext(ContextForUserProfile);

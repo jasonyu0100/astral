@@ -6,12 +6,11 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
-import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
+import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
@@ -44,14 +43,10 @@ export function SpaceMapAddResourceModal() {
         <FormContainer>
           <FormTitle>Add Media</FormTitle>
           <FormBody>
-            <FormSearchImage
-              fileElem={file}
+            <FormUploadFile
               onChange={(file) => changeFile(file)}
-              label='Thumbnail'
+              label='File'
             />
-            <br />
-            <HorizontalDivider />
-            <br />
             <FormInput
               title='Title'
               value={name}

@@ -2,7 +2,7 @@ import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 
-export function ProfileAboutDetails() {
+export function UserProfileAboutDetails() {
   const profileUser = useContext(ContextForProfileUserObj);
   const [displayName, setDisplayName] = useState(
     profileUser?.displayName || 'DisplayName',

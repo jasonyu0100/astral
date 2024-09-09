@@ -1,7 +1,7 @@
 import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
-export function ProfileAboutBio() {
+export function UserProfileAboutBio() {
   const profileUser = useContext(ContextForProfileUserObj);
 
   return (

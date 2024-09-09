@@ -16,12 +16,7 @@ export function SpaceMapHeaderRight() {
           No ideas selected
         </p>
       )}
-      {selectedIdeas.length > 0 && selectedIdeas.length < 3 && (
-        <p className='animate-pulse-slow font-bold text-slate-400'>
-          {3 - selectedIdeas.length} more ideas needed
-        </p>
-      )}
-      {selectedIdeas.length >= 3 && (
+      {selectedIdeas.length > 0 && (
         <button
           className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
           onClick={() => {

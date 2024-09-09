@@ -13,7 +13,6 @@ import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
@@ -68,9 +67,6 @@ export function SpaceMapAddSearchIdeaModal() {
               onChange={(file) => changeFile(file)}
               label='Thumbnail'
             />
-            <br />
-            <HorizontalDivider />
-            <br />
             <FormInput
               title='Title'
               value={title}
