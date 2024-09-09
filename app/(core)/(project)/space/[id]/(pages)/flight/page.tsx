@@ -20,9 +20,9 @@ import {
   useControllerForSpotlightLinkList,
 } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import {
-  ContextForChapterSpotlightList,
-  useControllerForChapterSpotlightList,
-} from '@/(server)/controller/space/chapter/spotlight/list';
+  ContextForChapterSpotlightListFromChapter,
+  useControllerForChapterSpotlightListFromChapter,
+} from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -46,10 +46,11 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const spotlightListController = useControllerForChapterSpotlightList(
-    chapterListController.state.objId,
-    spotlightId,
-  );
+  const spotlightListController =
+    useControllerForChapterSpotlightListFromChapter(
+      chapterListController.state.objId,
+      spotlightId,
+    );
   const commentListController = useControllerForSpotlightCommentList(
     spotlightListController.state.objId,
   );
@@ -67,7 +68,7 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSpotlightList.Provider
+          <ContextForChapterSpotlightListFromChapter.Provider
             value={spotlightListController}
           >
             <ContextForSpotlightKarmaList.Provider
@@ -83,19 +84,29 @@ function Page({ params }: { params: { id: string } }) {
                     value={linkListController}
                   >
                     <LoadingWrapper>
-                      <SpaceFlightModals>
-                        <SpaceFlightView />
-                      </SpaceFlightModals>
+                      <SpaceFlightControllerWrapper>
+                        <SpaceFlightModals>
+                          <SpaceFlightView />
+                        </SpaceFlightModals>
+                      </SpaceFlightControllerWrapper>
                     </LoadingWrapper>
                   </ContextForSpotlightLinkList.Provider>
                 </ContextForSpotlightCommentList.Provider>
               </ContextForSpotlightAttachmentList.Provider>
             </ContextForSpotlightKarmaList.Provider>
-          </ContextForChapterSpotlightList.Provider>
+          </ContextForChapterSpotlightListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
+}
+
+function SpaceFlightControllerWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }
 
 export default isAstralAuth(Page);

@@ -3,6 +3,7 @@ import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { UserSettingsModals } from './(modals)/controller/main';
 import { DashboardTopbarContainer } from './container/main';
 import { TopbarLogo } from './left-group/logo/main';
 import { TopbarLeftGroup } from './left-group/main';
@@ -15,11 +16,13 @@ export function DashboardTopbar() {
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForCurrentSpaceObj.Provider value={space}>
-        <DashboardTopbarContainer>
-          <TopbarLogo href={'/'} />
-          <TopbarLeftGroup />
-          <TopbarRightGroup />
-        </DashboardTopbarContainer>
+        <UserSettingsModals>
+          <DashboardTopbarContainer>
+            <TopbarLogo href={'/'} />
+            <TopbarLeftGroup />
+            <TopbarRightGroup />
+          </DashboardTopbarContainer>
+        </UserSettingsModals>
       </ContextForCurrentSpaceObj.Provider>
     </ContextForLoggedInUserObj.Provider>
   );

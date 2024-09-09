@@ -1,5 +1,5 @@
 import { ContextForSpotlightKarmaList } from '@/(server)/controller/space/chapter/spotlight/karma/list';
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
@@ -8,7 +8,9 @@ import { useContext } from 'react';
 
 export function SpaceFlightKarma() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const spotlightKarmaListController = useContext(ContextForSpotlightKarmaList);
 
   const karmaVotes = spotlightKarmaListController.state.objs;

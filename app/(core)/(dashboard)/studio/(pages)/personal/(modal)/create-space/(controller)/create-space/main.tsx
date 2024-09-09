@@ -3,7 +3,7 @@ import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
@@ -65,7 +65,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const chapterListController = useControllerForSpaceChapterList('');
   const sceneListController = useControllerForChapterSceneList('');
-  const spotlightListController = useControllerForChapterSpotlightList('');
+  const spotlightListController =
+    useControllerForChapterSpotlightListFromChapter('');
   const sessionUpdateListController =
     useControllerForSessionUpdateListFromChapter(
       chapterListController.state.objId,

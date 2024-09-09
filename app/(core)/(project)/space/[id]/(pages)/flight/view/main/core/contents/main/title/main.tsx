@@ -1,10 +1,12 @@
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
 export function SpaceFlightTitle() {
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (

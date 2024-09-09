@@ -2,7 +2,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
 import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
-import { useControllerForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -30,9 +30,10 @@ export function SpaceJourneySpotlightModal() {
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useControllerForChapterSpotlightList(
-    chapterListController.state.objId,
-  );
+  const spotlightListController =
+    useControllerForChapterSpotlightListFromChapter(
+      chapterListController.state.objId,
+    );
   const attachmentListController = useControllerForSpotlightAttachmentList(
     spotlightListController.state.objId,
   );

@@ -12,7 +12,7 @@ import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import Link from 'next/link';
 import { useContext } from 'react';
 
-export function SettingsModal() {
+export function UserSettingsModal() {
   const user = useGlobalUser((state) => state.user);
   const logout = useGlobalUser((state) => state.logout);
   const openableController = useContext(ContextForOpenable);

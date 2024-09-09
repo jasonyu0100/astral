@@ -1,4 +1,4 @@
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -6,7 +6,9 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpaceFlightSidebarSearch() {
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
 
   return (
     <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>

@@ -1,5 +1,5 @@
 import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -12,7 +12,9 @@ import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function SpaceFlightAddCommentModal() {
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const commentListController = useContext(ContextForSpotlightCommentList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);

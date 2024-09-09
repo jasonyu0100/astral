@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -17,7 +17,9 @@ import { useContext, useState } from 'react';
 export function SpaceJourneyAddSpotlightModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');

@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpotlightAttachmentList } from '@/(server)/controller/space/chapter/spotlight/attachment/list';
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -21,7 +21,9 @@ export function SpaceFlightAddSpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const attachmentListController = useContext(
     ContextForSpotlightAttachmentList,
   );

@@ -1,4 +1,4 @@
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
@@ -10,7 +10,9 @@ import { useContext } from 'react';
 
 export function SpaceFlightSidebarItem() {
   const spotlight = useContext(ContextForChapterSpotlightObj);
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const selected =
     spotlightListController.actions.stateActions.checkActive(spotlight);
 

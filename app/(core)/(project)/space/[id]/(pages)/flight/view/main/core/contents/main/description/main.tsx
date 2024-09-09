@@ -1,9 +1,11 @@
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpaceFlightDescription() {
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
 
   return (
     <div className='flex w-full flex-col justify-between space-y-[1rem] p-[1rem]'>

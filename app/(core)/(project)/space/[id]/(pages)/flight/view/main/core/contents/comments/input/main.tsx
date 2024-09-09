@@ -1,5 +1,5 @@
 import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
-import { ContextForChapterSpotlightList } from '@/(server)/controller/space/chapter/spotlight/list';
+import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -10,7 +10,9 @@ import { useContext, useState } from 'react';
 export function SpaceFlightInput() {
   const [message, setMessage] = useState('');
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const spotlightListController = useContext(ContextForChapterSpotlightList);
+  const spotlightListController = useContext(
+    ContextForChapterSpotlightListFromChapter,
+  );
   const commentListController = useContext(ContextForSpotlightCommentList);
 
   async function createComment() {
