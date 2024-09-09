@@ -4,21 +4,23 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpaceMapModals } from '../../../../../../modal/controller/main';
+import { ContextForSpaceJourneyModals } from '../../../../../../modal/controller/main';
 
-export function SpaceMapCollectionAdd() {
-  const modalController = useContext(ContextForSpaceMapModals);
+export function SpaceJourneySidebarAddFile() {
+  const modalController = useContext(ContextForSpaceJourneyModals);
 
   return (
     <GlassWindowFrame
-      className='aspect-video w-full flex-shrink-0'
+      className='aspect-video w-full'
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex h-full w-full items-center justify-center'>
         <div
-          onClick={() => modalController.addCollectionController.open()}
-          className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
+          className='flex h-[3rem] w-[3rem] cursor-pointer items-center justify-center rounded-full bg-blue-500'
+          onClick={() => {
+            modalController.addFileLinkController.open();
+          }}
         >
           <AstralAddIcon />
         </div>

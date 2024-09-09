@@ -1,20 +1,20 @@
 import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
-import { AstralAddIcon } from '@/icons/add/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForSpaceJourney,
   SpaceJourneySidebarMode,
 } from '../../../../controller/main';
-import { ContextForSpaceJourneyModals } from '../../../../modal/controller/main';
+import { SpaceJourneySidebarAddFile } from './add/file/main';
+import { SPaceJourneySidebarAddText } from './add/text/main';
 import { SpaceJourneySidebarLinksListItem } from './item/main';
 
 export function SpaceJourneySidebarLinksList() {
   const {
     state: { sidebarMode },
   } = useContext(ContextForSpaceJourney);
-  const modalController = useContext(ContextForSpaceJourneyModals);
   const linkListController = useContext(ContextForLogLinkList);
 
   return (
@@ -35,18 +35,14 @@ export function SpaceJourneySidebarLinksList() {
               <SpaceJourneySidebarLinksListItem />
             </ContextForLogLinkObj.Provider>
           ))}
-        <div
-          className='flex h-[3rem] w-[3rem] cursor-pointer items-center justify-center rounded-full bg-blue-500'
-          onClick={() => {
-            if (sidebarMode === SpaceJourneySidebarMode.NOTES) {
-              modalController.addTextLinkController.open();
-            } else {
-              modalController.addFileLinkController.open();
-            }
-          }}
-        >
-          <AstralAddIcon />
-        </div>
+        <HorizontalDivider />
+        {sidebarMode === SpaceJourneySidebarMode.IDEAS && (
+          <SpaceJourneySidebarAddFile />
+        )}
+
+        {sidebarMode === SpaceJourneySidebarMode.NOTES && (
+          <SPaceJourneySidebarAddText />
+        )}
       </div>
     </div>
   );

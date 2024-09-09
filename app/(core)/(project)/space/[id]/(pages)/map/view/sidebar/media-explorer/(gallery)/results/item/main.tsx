@@ -1,13 +1,13 @@
 import { useControllerForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
-export function SpaceMapCollectionThumbnail() {
+export function SpaceMapCollectionItem() {
   const collection = useContext(ContextForGalleryCollectionObj);
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
@@ -18,8 +18,9 @@ export function SpaceMapCollectionThumbnail() {
 
   return (
     <GlassWindowFrame
-      className='aspect-[5/3] w-full flex-shrink-0'
+      className='aspect-video w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents
         onClick={() => goToCollection(collection)}
@@ -39,7 +40,7 @@ export function SpaceMapCollectionThumbnail() {
           ))}
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

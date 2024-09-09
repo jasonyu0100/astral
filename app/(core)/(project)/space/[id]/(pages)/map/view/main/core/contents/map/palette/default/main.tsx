@@ -16,7 +16,7 @@ export function SpaceMapPaletteDefault() {
 
   return (
     <>
-      {selectedIdeas.length >= 3 && (
+      {selectedIdeas.length >= 2 && (
         <AstralCombineIcon
           onClick={() => {
             modalController.combineIdeasController.open();

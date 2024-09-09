@@ -1,13 +1,13 @@
 import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { ContextForSpaceMap } from '../../../../../../controller/map/main';
 
-export function SpaceMapGalleryThumbnail() {
+export function SpaceMapGalleryItem() {
   const gallery = useContext(ContextForGalleryObj);
   const {
     actions: { goToGallery },
@@ -16,8 +16,9 @@ export function SpaceMapGalleryThumbnail() {
 
   return (
     <GlassWindowFrame
-      className='aspect-[5/3] w-full flex-shrink-0'
+      className='aspect-video w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
     >
       <GlassWindowContents
         onClick={() => goToGallery(gallery)}
@@ -32,7 +33,7 @@ export function SpaceMapGalleryThumbnail() {
           </div>
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

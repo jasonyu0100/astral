@@ -4,7 +4,7 @@ import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpaceMapGalleryCollectionsBack } from '../back/main';
 import { SpaceMapCollectionAdd } from './add/main';
-import { SpaceMapCollectionThumbnail } from './thumbnail/main';
+import { SpaceMapCollectionItem } from './item/main';
 
 export function SpaceMapGalleryCollectionsResults() {
   const collectionsListController = useContext(ContextForGalleryCollectionList);
@@ -14,7 +14,7 @@ export function SpaceMapGalleryCollectionsResults() {
       <SpaceMapGalleryCollectionsBack />
       {collectionsListController.state.more.queryResults.map((collection) => (
         <ContextForGalleryCollectionObj.Provider value={collection}>
-          <SpaceMapCollectionThumbnail />
+          <SpaceMapCollectionItem />
         </ContextForGalleryCollectionObj.Provider>
       ))}
       <HorizontalDivider />

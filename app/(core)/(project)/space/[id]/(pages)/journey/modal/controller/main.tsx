@@ -11,9 +11,6 @@ import { SpaceJourneyAddLogModal } from '../add/log/main';
 import { SpaceJourneyAddSceneModal } from '../add/scene/main';
 import { SpaceJourneyAddUpdateModal } from '../add/update/main';
 import { SpaceJourneySpotlightModal } from '../generate/main';
-import { SpaceJourneyAddFileIdeaModal } from '../idea/file/main';
-import { SpaceJourneyAddUrlIdeaModal } from '../idea/link/main';
-import { SpaceJourneyAddTextIdeaModal } from '../idea/text/main';
 
 export const ContextForSpaceJourneyModals = createContext(
   {} as SpaceJourneyModals,
@@ -24,9 +21,6 @@ export interface SpaceJourneyModals {
   addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
   addSpotlightController: ContextForOpenableInterface;
-  addFileIdeaController: ContextForOpenableInterface;
-  addUrlIdeaController: ContextForOpenableInterface;
-  addTextIdeaController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
   addLogController: ContextForOpenableInterface;
@@ -41,9 +35,6 @@ export function SpaceJourneyModals({
   const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
   const addSpotlightController = useControllerForOpenable();
-  const addFileIdeaController = useControllerForOpenable();
-  const addUrlIdeaController = useControllerForOpenable();
-  const addTextIdeaController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
   const addLogController = useControllerForOpenable();
@@ -55,9 +46,6 @@ export function SpaceJourneyModals({
         addSceneController: addSceneController,
         addUpdateController: addUpdateController,
         addSpotlightController: addSpotlightController,
-        addFileIdeaController: addFileIdeaController,
-        addUrlIdeaController: addUrlIdeaController,
-        addTextIdeaController: addTextIdeaController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
         addLogController: addLogController,
@@ -75,15 +63,6 @@ export function SpaceJourneyModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSpotlightController}>
         <SpaceJourneySpotlightModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addFileIdeaController}>
-        <SpaceJourneyAddFileIdeaModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addUrlIdeaController}>
-        <SpaceJourneyAddUrlIdeaModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addTextIdeaController}>
-        <SpaceJourneyAddTextIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextLinkController}>
         <SpaceJourneyAddTextLinkModal />
