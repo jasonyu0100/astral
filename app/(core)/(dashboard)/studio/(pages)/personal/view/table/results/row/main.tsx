@@ -9,18 +9,18 @@ import { StudioSpacesRowSpotlights } from './stat/spotlights/main';
 
 export function StudioSpacesRow() {
   return (
-    <div className='grid w-full grid-cols-7 py-[2rem]'>
+    <div className='grid w-full grid-cols-8 py-[2rem]'>
       <StudioSpacesRowNumber />
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />
       <div></div>
+      <StudioSpacesRowIndicator />
       <div className='col-span-2 grid grid-cols-4'>
         <StudioSpacesRowDays />
         <StudioSpacesRowIdeas />
         <StudioSpacesRowLogs />
         <StudioSpacesRowSpotlights />
       </div>
-      <StudioSpacesRowIndicator />
     </div>
   );
 }
