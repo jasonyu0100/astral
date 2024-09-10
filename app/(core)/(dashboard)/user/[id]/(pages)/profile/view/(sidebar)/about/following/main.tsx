@@ -18,23 +18,25 @@ export function UserProfileAboutFollowing() {
       <p
         className='cursor-pointer text-lg font-bold text-white'
         onClick={() => {
-          updatePage(UserProfilePage.Connections);
+          updatePage(UserProfilePage.Collaborators);
         }}
       >
         {connectionListController.state.objs.length}{' '}
         {connectionListController.state.objs.length === 1
-          ? 'Connection'
-          : 'Connections'}
+          ? 'Collaborator'
+          : 'Collaborators'}
       </p>
       <div className='h-[0.5rem] w-[0.5rem] rounded-full bg-slate-500' />
       <p
         className='cursor-pointer text-lg font-bold text-white'
         onClick={() => {
-          updatePage(UserProfilePage.Backers);
+          updatePage(UserProfilePage.Supporters);
         }}
       >
         {backerListController.state.objs.length}{' '}
-        {backerListController.state.objs.length === 1 ? 'Backer' : 'Backers'}
+        {backerListController.state.objs.length === 1
+          ? 'Supporter'
+          : 'Supporters'}
       </p>
     </div>
   );

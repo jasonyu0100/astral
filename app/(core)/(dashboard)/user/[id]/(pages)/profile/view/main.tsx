@@ -6,9 +6,9 @@ import { useContext } from 'react';
 import { ContextForUserProfile, UserProfilePage } from '../controller/main';
 import { UserProfileSidebar } from './(sidebar)/main';
 import { UserProfileAdminIndicator } from './common/admin-indicator/main';
-import { UserProfileBackersMain } from './pages/backers/main';
 import { UserProfileConnectsMain } from './pages/connections/main';
 import { UserProfileGeneralMain } from './pages/general/main';
+import { UserProfileBackersMain } from './pages/supporters/main';
 
 export function UserProfileView() {
   const {
@@ -43,8 +43,8 @@ function ProfilePages() {
   } = useContext(ContextForUserProfile);
   return (
     <>
-      {page === UserProfilePage.Backers && <UserProfileBackersMain />}
-      {page === UserProfilePage.Connections && <UserProfileConnectsMain />}
+      {page === UserProfilePage.Supporters && <UserProfileBackersMain />}
+      {page === UserProfilePage.Collaborators && <UserProfileConnectsMain />}
       {page === UserProfilePage.General && <UserProfileGeneralMain />}
     </>
   );

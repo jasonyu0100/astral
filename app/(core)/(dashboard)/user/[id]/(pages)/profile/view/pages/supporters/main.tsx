@@ -3,20 +3,20 @@ import { UserProfileBackersFooter } from './footer/main';
 import { UserProfileBackersHeader } from './header/main';
 import { UserProfileBackersTable } from './table/main';
 
-export enum BackingView {
-  Backers = 'Backers',
-  Backed = 'Backed',
+export enum ProfileSupporterPage {
+  Supporters = 'Supporters', // Who the user is backing
+  Proposals = 'Proposals', // Who is backing the user
 }
 
 interface Controller {
-  view: BackingView;
-  setView: (view: BackingView) => void;
+  view: ProfileSupporterPage;
+  setView: (view: ProfileSupporterPage) => void;
 }
 
 export const ContextForBacking = createContext({} as Controller);
 
 export function UserProfileBackersMain() {
-  const [view, setView] = useState(BackingView.Backers);
+  const [view, setView] = useState(ProfileSupporterPage.Supporters);
 
   const context = {
     view,

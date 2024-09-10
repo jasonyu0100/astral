@@ -4,8 +4,8 @@ import { UserProfileConnectionsHeader } from './header/main';
 import { UserProfileConnectionsTable } from './table/main';
 
 export enum ConnectionsView {
-  Connected = 'Connected',
-  Collabs = 'Collabs',
+  Collaborators = 'Collaborators',
+  Links = 'Links',
 }
 
 interface Controller {
@@ -16,7 +16,7 @@ interface Controller {
 export const ContextForConnections = createContext({} as Controller);
 
 export function UserProfileConnectsMain() {
-  const [view, setView] = useState(ConnectionsView.Connected);
+  const [view, setView] = useState(ConnectionsView.Collaborators);
 
   const context = {
     view,
