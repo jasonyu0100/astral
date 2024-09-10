@@ -11,7 +11,7 @@ export function SpaceSessionShareView() {
       className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
-      roundedFx={roundedFx['rounded-container-sm']}
+      roundedFx={roundedFx['rounded-container']}
     >
       <SpaceSessionMain />
       <SpaceSessionSidebar />

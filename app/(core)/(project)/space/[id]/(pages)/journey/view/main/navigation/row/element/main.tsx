@@ -25,8 +25,7 @@ export function SpaceJourneyRowElement() {
         <TooltipTrigger className='z-10'>
           <GlassWindowFrame
             className={cn('z-10 h-[3.5rem] max-w-[300px]', {
-              'animate-pulse-slow bg-gradient-to-br from-blue-600 to-cyan-400':
-                active,
+              'animate-pulse-slow': active,
             })}
             roundedFx={roundedFx['rounded-full']}
           >
@@ -42,7 +41,11 @@ export function SpaceJourneyRowElement() {
                 {index + 1}. {chapter.title}
               </p>
             </GlassWindowContents>
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
+            {!active ? (
+              <GlassWindowPane glassFx={glassFx['glass-5']} />
+            ) : (
+              <GlassWindowPane glassFx={glassFx['glass-20']} />
+            )}
           </GlassWindowFrame>
         </TooltipTrigger>
       </Tooltip>

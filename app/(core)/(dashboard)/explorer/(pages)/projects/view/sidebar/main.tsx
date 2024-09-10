@@ -1,16 +1,15 @@
-import { borderFx, glassFx } from '@/style/data';
+import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { VentureHorizonsSidebarDegree } from './degree/main';
 import { VentureHorizonsSidebarGuild } from './guild/main';
 import { VentureHorizonsSidebarScale } from './scale/main';
 
-export function VentureHorizonsSidebar() {
+export function HorizonsSidebar() {
   return (
     <GlassAreaContainer
-      name={VentureHorizonsSidebar.name}
+      name={HorizonsSidebar.name}
       sizeFx='w-[300px] h-full'
       glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-l']}
       className='flex flex-col'
     >
       <div className='flex h-full w-full flex-col overflow-auto'>

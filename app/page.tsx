@@ -83,7 +83,7 @@ const HeroSection = () => (
     <div className='w-full px-0 sm:px-[2rem]'>
       <img
         src='/landing/hero.png'
-        className='w-full rounded-[1rem] object-contain shadow-glow'
+        className='w-full rounded-[2rem] object-contain shadow-glow'
         alt='Hero Image'
       />
     </div>
@@ -97,7 +97,7 @@ const Question = () => (
 );
 const CallToAction = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-  console.log(isDesktop);
+
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
       <video
@@ -115,7 +115,7 @@ const CallToAction = () => {
           className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
         >
           <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            try booking...
+            schedule a demo...
           </p>
         </a>
       ) : (
@@ -124,7 +124,7 @@ const CallToAction = () => {
           className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
         >
           <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            try mapping...
+            schedule a demo...
           </p>
         </a>
       )}

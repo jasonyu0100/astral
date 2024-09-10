@@ -5,7 +5,7 @@ import {
 } from '@/(server)/controller/space/member/user-list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { StudioSharedView } from './view/view';
 
 function Page() {
@@ -23,4 +23,4 @@ function Page() {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

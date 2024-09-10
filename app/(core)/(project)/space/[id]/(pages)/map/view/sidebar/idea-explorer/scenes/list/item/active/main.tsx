@@ -31,7 +31,7 @@ export function SpaceMapSidebarScenesListActiveItem() {
           {scene.objective || 'No description'}
         </div>
         <div
-          className='w-full cursor-pointer rounded-[1rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
+          className='w-full cursor-pointer rounded-[2rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
           onClick={() => {
             updateSidebarMode(SpaceMapSidebarMode.IDEAS);
             updateDirectoryMode(SpaceMapDirectoryMode.DEFAULT);

@@ -17,7 +17,7 @@ import {
   ContextForProfileUserObj,
 } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
 import { ContextForProfile } from '../../layout';
 import { UserProfileModals } from './(modals)/controller/main';
@@ -72,4 +72,4 @@ function ProfileControllerWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

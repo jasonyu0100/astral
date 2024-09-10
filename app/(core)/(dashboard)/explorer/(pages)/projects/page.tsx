@@ -1,9 +1,26 @@
 'use client';
-import isAstralAuth from '@/utils/isAuth';
-import { VentureHorizonsView } from './view/view';
+import protectedUnderAstralAuth from '@/utils/isAuth';
+import {
+  ContextForHorizonProjects,
+  useControllerForProjects,
+} from './controller/main';
+import { HorizonsView } from './view/view';
 
 function Page() {
-  return <VentureHorizonsView />;
+  return (
+    <ControllerWrapper>
+      <HorizonsView />
+    </ControllerWrapper>
+  );
 }
 
-export default isAstralAuth(Page);
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
+  const projectsController = useControllerForProjects();
+  return (
+    <ContextForHorizonProjects.Provider value={projectsController}>
+      {children}
+    </ContextForHorizonProjects.Provider>
+  );
+}
+
+export default protectedUnderAstralAuth(Page);

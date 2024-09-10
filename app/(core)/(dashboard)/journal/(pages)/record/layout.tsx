@@ -8,7 +8,7 @@ import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <LinkTabs tab={JournalTabStage.Entry} />
+      <LinkTabs tab={JournalTabStage.Record} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

@@ -6,16 +6,21 @@ import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
+import { roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useEffect, useState } from 'react';
 import { spaceMap } from '../../../../map';
 import { ContextForSpaceChat } from '../../controller/main';
+import { GenerateTabsRow } from './tabs/main';
+import { GenerateTab } from './tabs/tab/main';
+import { GenerateTabBlueShard } from './tabs/tab/shard/blue/main';
+import { GenerateTabGreenShard } from './tabs/tab/shard/green/main';
+import { GenerateTabOrangeShard } from './tabs/tab/shard/orange/main';
+import { GenerateTabPurpleShard } from './tabs/tab/shard/purple/main';
+import { GenerateTabText } from './tabs/tab/text/main';
 
 export function SpaceChatGenerateMapModal() {
   const user = useGlobalUser((state) => state.user);
@@ -132,41 +137,68 @@ export function SpaceChatGenerateMapModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Generate Map</FormTitle>
-          <FormBody>
-            {/* <div className='flex w-full flex-col'>
-              {searchResults.map((result) => (
-                <GlassWindowFrame roundedFx={roundedFx.rounded}>
-                  <GlassWindowContents>
-                    <div className='font-bold'>
-                      <div>{result.title}</div>
-                      <div>{result.snippet}</div>
-                      <img src={result.pagemap.cse_image?.at(0).src} />
+      <CustomisableModal>
+        <div
+          className='aspect-video h-4/5 flex-shrink-0'
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <GlassWindowFrame
+            className='h-full w-full overflow-auto bg-gradient-to-b from-slate-950 to-purple-950 p-[2rem]'
+            roundedFx={roundedFx.rounded}
+          >
+            <GlassWindowContents className='flex h-full w-full flex-col space-y-[2rem] overflow-auto'>
+              <GenerateTabsRow>
+                <GenerateTab>
+                  <GenerateTabText active={true}>Search</GenerateTabText>
+                  <GenerateTabBlueShard active={true} />
+                </GenerateTab>
+                <GenerateTab>
+                  <GenerateTabText active={true}>Search</GenerateTabText>
+                  <GenerateTabOrangeShard active={true} />
+                </GenerateTab>
+                <GenerateTab>
+                  <GenerateTabText active={true}>Search</GenerateTabText>
+                  <GenerateTabPurpleShard active={true} />
+                </GenerateTab>
+                <GenerateTab>
+                  <GenerateTabText active={true}>Search</GenerateTabText>
+                  <GenerateTabGreenShard active={true} />
+                </GenerateTab>
+              </GenerateTabsRow>
+              <div className='flex w-full flex-col space-y-[2rem]'>
+                {searchResults.map((result) => (
+                  <GlassWindowFrame roundedFx={roundedFx.rounded}>
+                    <GlassWindowContents>
+                      <div className='flex flex-row items-center space-x-[3rem] font-bold text-slate-300'>
+                        <img
+                          src={result.pagemap.cse_image?.at(0).src}
+                          className='aspect-video w-[300px] rounded-[2rem]'
+                        />
+                        <div>{result.title}</div>
+                        <div>{result.snippet}</div>
+                      </div>
+                    </GlassWindowContents>
+                  </GlassWindowFrame>
+                ))}
+                {/* <div className='grid w-full grid-cols-3 gap-[1rem]'>
+                  {stickies.map((sticky, index) => (
+                    <div className='aspect-square bg-yellow-500 p-[1rem]'>
+                      <textarea
+                        className='h-full w-full resize-none bg-transparent font-bold outline-none'
+                        value={sticky}
+                        onChange={(e) => editSticky(index, e.target.value)}
+                      />
                     </div>
-                  </GlassWindowContents>
-                  <GlassWindowPane glassFx={glassFx['glass-10']} />
-                </GlassWindowFrame>
-              ))}
-            </div> */}
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              {stickies.map((sticky, index) => (
-                <div className='aspect-square bg-yellow-500 p-[1rem]'>
-                  <textarea
-                    className='h-full w-full resize-none bg-transparent font-bold outline-none'
-                    value={sticky}
-                    onChange={(e) => editSticky(index, e.target.value)}
-                  />
-                </div>
-              ))}
-            </div>
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createMap}>Next</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+                  ))}
+                </div> */}
+                <button onClick={createMap}>Next</button>
+              </div>
+            </GlassWindowContents>
+          </GlassWindowFrame>
+        </div>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

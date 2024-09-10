@@ -13,7 +13,7 @@ import {
 } from '@/(server)/controller/gallery/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { JournalRecordView } from './view/view';
 
 function Page() {
@@ -45,4 +45,4 @@ function Page() {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

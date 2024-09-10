@@ -17,7 +17,7 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { ExplorerCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -54,4 +54,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

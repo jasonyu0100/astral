@@ -29,7 +29,7 @@ import {
 } from '@/(server)/controller/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import {
   ContextForSpaceSessionController,
@@ -98,4 +98,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

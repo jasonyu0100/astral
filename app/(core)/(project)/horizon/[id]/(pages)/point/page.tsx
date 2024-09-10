@@ -1,6 +1,6 @@
 'use client';
 
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonPointView } from './view/main';
 import { HorizonPointSidebar } from './view/sidebar/main';
 
@@ -13,4 +13,4 @@ function Page() {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

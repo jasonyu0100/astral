@@ -5,8 +5,8 @@ import { JournalRecordSidebar } from './sidebar/main';
 export function JournalRecordView() {
   return (
     <JournalRecordContainer>
-      <JournalRecordMain />
       <JournalRecordSidebar />
+      <JournalRecordMain />
     </JournalRecordContainer>
   );
 }

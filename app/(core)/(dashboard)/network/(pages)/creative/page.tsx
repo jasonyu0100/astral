@@ -5,7 +5,7 @@ import {
 } from '@/(server)/controller/user/private-list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { CreativeNetworkView } from './view/view';
 
 function Page() {
@@ -21,4 +21,4 @@ function Page() {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);

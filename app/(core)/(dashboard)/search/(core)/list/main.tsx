@@ -21,7 +21,7 @@ export function ConversationalSearchChatList() {
           window.location.href = `/search/results`;
         }}
       >
-        <p className='font-bold text-slate-300'>Create Map</p>
+        <p className='font-bold text-slate-300'>Continue</p>
         <AstralSearchIcon />
       </div>
       <div

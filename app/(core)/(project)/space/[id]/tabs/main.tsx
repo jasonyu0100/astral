@@ -10,7 +10,7 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  Chat = 'Chat',
+  Space = 'Space',
   Map = 'Map',
   Journey = 'Journey',
   Flight = 'Flight',

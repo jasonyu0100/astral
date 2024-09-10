@@ -1,16 +1,14 @@
-import { HorizonsListContainer } from './horizons/main';
+import { HorizonsClusterLedger } from './(pages)/clusters/main';
+import { HorizonsGroupLedger } from './(pages)/groups/main';
+import { HorizonsLocalLedger } from './(pages)/locals/main';
 
-export function VentureHorizonsCore() {
+export function HorizonsCore() {
   return (
     <div className='h-full w-full overflow-auto'>
       <div className={`flex w-full flex-col`}>
-        <HorizonsListContainer />
-        <HorizonsListContainer />
-        <HorizonsListContainer />
-        <HorizonsListContainer />
-        <HorizonsListContainer />
-        <HorizonsListContainer />
-        <HorizonsListContainer />
+        <HorizonsClusterLedger />
+        <HorizonsGroupLedger />
+        <HorizonsLocalLedger />
       </div>
     </div>
   );

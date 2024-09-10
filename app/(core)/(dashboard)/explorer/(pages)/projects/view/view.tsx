@@ -1,13 +1,13 @@
 'use client';
-import { VentureHorizonsContainer } from './container/main';
-import { VentureHorizonsMain } from './main/main';
-import { VentureHorizonsSidebar } from './sidebar/main';
+import { HorizonsContainer } from './container/main';
+import { HorizonsMain } from './main/main';
+import { HorizonsSidebar } from './sidebar/main';
 
-export function VentureHorizonsView() {
+export function HorizonsView() {
   return (
-    <VentureHorizonsContainer>
-      <VentureHorizonsSidebar />
-      <VentureHorizonsMain />
-    </VentureHorizonsContainer>
+    <HorizonsContainer>
+      <HorizonsSidebar />
+      <HorizonsMain />
+    </HorizonsContainer>
   );
 }

@@ -8,7 +8,7 @@ import {
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardBody>
-      <SpaceTabs tab={SpaceTabStage.Chat} />
+      <SpaceTabs tab={SpaceTabStage.Space} />
       <DashboardContent>{children}</DashboardContent>
     </DashboardBody>
   );

@@ -12,7 +12,7 @@ export function SpaceChatView() {
       glassFx={glassFx['glass-5']}
       className={`flex`}
       borderFx={borderFx['border-around']}
-      roundedFx={roundedFx['rounded-container-sm']}
+      roundedFx={roundedFx['rounded-container']}
     >
       <SpaceChatSidebar />
       <SpaceChatMain />

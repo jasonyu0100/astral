@@ -4,7 +4,7 @@ import {
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
 import { useGlobalUser } from '@/logic/store/user/main';
-import isAstralAuth from '@/utils/isAuth';
+import protectedUnderAstralAuth from '@/utils/isAuth';
 import { ExplorerHomeGallerysView } from './view/view';
 
 function Page() {
@@ -18,4 +18,4 @@ function Page() {
   );
 }
 
-export default isAstralAuth(Page);
+export default protectedUnderAstralAuth(Page);
