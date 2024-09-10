@@ -1,7 +1,7 @@
 import { borderFx } from '@/style/data';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 
-export function CreativeNetworkTableHeader() {
+export function NetworkCreativeTableHeader() {
   return (
     <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
       <div className='grid w-full grid-cols-7 items-center py-[1rem]'>

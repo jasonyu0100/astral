@@ -7,7 +7,7 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { HorizonThumbnailElement } from './cover/horizon/main';
+import { HorizonsThumbnailElement } from './cover/horizon/main';
 import { SpaceThumbnailElement } from './cover/space/main';
 import { UserDpElement } from './cover/user/main';
 import { FormTextArea } from './form/area/main';
@@ -38,7 +38,7 @@ export default function Page() {
       <p className='text-3xl font-bold text-white'>Timer</p>
       <TimerComponent hours={1} />
       <p className='text-3xl font-bold text-white'>Element</p>
-      <HorizonThumbnailElement fileElem={exampleHorizon.thumbnail} />
+      <HorizonsThumbnailElement fileElem={exampleHorizon.thumbnail} />
       <UserDpElement fileElem={exampleUser.dp} />
       <SpaceThumbnailElement fileElem={exampleSpace.thumbnail} />
       <p className='text-3xl font-bold text-white'>Text</p>

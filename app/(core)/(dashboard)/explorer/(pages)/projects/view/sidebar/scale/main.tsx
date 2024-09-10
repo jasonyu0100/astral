@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { VentureHorizonsSidebarLabel } from '../(common)/label/main';
-import { VentureHorizonsSidebarList } from '../(common)/list/main';
-import { VentureHorizonsSidebarOption } from '../(common)/list/option/main';
+import { ExplorerProjectsSidebarLabel } from '../(common)/label/main';
+import { ExplorerProjectsSidebarList } from '../(common)/list/main';
+import { ExplorerProjectsSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForHorizonProjects,
-  HorizonProjectScale,
+  HorizonsProjectScale,
 } from '../../../controller/main';
 
-export function VentureHorizonsSidebarScale() {
+export function ExplorerProjectsSidebarScale() {
   const {
     state: { scale },
     actions: { updateScale },
@@ -15,27 +15,27 @@ export function VentureHorizonsSidebarScale() {
 
   return (
     <div className='flex flex-col'>
-      <VentureHorizonsSidebarLabel>Scale</VentureHorizonsSidebarLabel>
-      <VentureHorizonsSidebarList>
-        <VentureHorizonsSidebarOption
-          active={scale === HorizonProjectScale.Local}
-          onClick={() => updateScale(HorizonProjectScale.Local)}
+      <ExplorerProjectsSidebarLabel>Scale</ExplorerProjectsSidebarLabel>
+      <ExplorerProjectsSidebarList>
+        <ExplorerProjectsSidebarOption
+          active={scale === HorizonsProjectScale.Local}
+          onClick={() => updateScale(HorizonsProjectScale.Local)}
         >
-          Local
-        </VentureHorizonsSidebarOption>
-        <VentureHorizonsSidebarOption
-          active={scale === HorizonProjectScale.Group}
-          onClick={() => updateScale(HorizonProjectScale.Group)}
+          {HorizonsProjectScale.Local} - Local
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={scale === HorizonsProjectScale.Group}
+          onClick={() => updateScale(HorizonsProjectScale.Group)}
         >
-          Group
-        </VentureHorizonsSidebarOption>
-        <VentureHorizonsSidebarOption
-          active={scale === HorizonProjectScale.Cluster}
-          onClick={() => updateScale(HorizonProjectScale.Cluster)}
+          {HorizonsProjectScale.Group} - Group
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={scale === HorizonsProjectScale.Cluster}
+          onClick={() => updateScale(HorizonsProjectScale.Cluster)}
         >
-          Cluster
-        </VentureHorizonsSidebarOption>
-      </VentureHorizonsSidebarList>
+          {HorizonsProjectScale.Cluster} - Cluster
+        </ExplorerProjectsSidebarOption>
+      </ExplorerProjectsSidebarList>
     </div>
   );
 }

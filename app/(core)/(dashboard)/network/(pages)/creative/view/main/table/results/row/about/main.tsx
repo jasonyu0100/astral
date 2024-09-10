@@ -2,7 +2,7 @@ import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
-export function CreativeNetworkRowAbout() {
+export function NetworkCreativeRowAbout() {
   const user = useContext(ContextForUserObj);
 
   return (

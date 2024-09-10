@@ -1,4 +1,4 @@
-export function ExplorerProjectsSidebarLabel({
+export function NetworkSidebarLabel({
   children,
 }: {
   children?: React.ReactNode;

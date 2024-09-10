@@ -1,12 +1,12 @@
-import { CreativeNetworkContainer } from './container/main';
-import { CreativeNetworkMain } from './main/main';
-import { CreativeNetworkSidebar } from './sidebar/main';
+import { NetworkCreativeContainer } from './container/main';
+import { NetworkCreativeMain } from './main/main';
+import { NetworkCreativeSidebar } from './sidebar/main';
 
-export function CreativeNetworkView() {
+export function NetworkCreativeView() {
   return (
-    <CreativeNetworkContainer>
-      <CreativeNetworkMain />
-      <CreativeNetworkSidebar />
-    </CreativeNetworkContainer>
+    <NetworkCreativeContainer>
+      <NetworkCreativeMain />
+      <NetworkCreativeSidebar />
+    </NetworkCreativeContainer>
   );
 }

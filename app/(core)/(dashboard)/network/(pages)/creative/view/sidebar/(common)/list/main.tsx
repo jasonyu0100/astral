@@ -1,4 +1,4 @@
-export function ExplorerProjectsSidebarList({
+export function NetworkSidebarList({
   children,
 }: {
   children?: React.ReactNode;

@@ -8,7 +8,7 @@ interface HorizonThumbnailElementProps extends DivInputProps {
   fileElem: FileElem;
 }
 
-export function HorizonThumbnailElement({
+export function HorizonsThumbnailElement({
   coverFx,
   fileElem: fileElem,
   ...props

@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { CreativeNetworkSearch } from './search/main';
-import { CreativeNetworkTable } from './table/main';
+import { NetworkCreativeSearch } from './search/main';
+import { NetworkCreativeTable } from './table/main';
 
-export function CreativeNetworkMain() {
+export function NetworkCreativeMain() {
   return (
     <GlassAreaContainer
-      name={CreativeNetworkMain.name}
+      name={NetworkCreativeMain.name}
       sizeFx='h-full flex-grow'
       className='flex flex-col overflow-hidden'
     >
-      <CreativeNetworkSearch />
-      <CreativeNetworkTable />
+      <NetworkCreativeSearch />
+      <NetworkCreativeTable />
     </GlassAreaContainer>
   );
 }

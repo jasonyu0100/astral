@@ -1,18 +1,18 @@
-import { HorizonClusterRowItem } from './item/main';
+import { HorizonsClusterRowItem } from './item/main';
 
-export function HorizonClusterRow() {
+export function HorizonsClusterRow() {
   return (
     <div
       className={`flex h-full w-full flex-row space-x-[2rem] overflow-auto py-[2rem]`}
     >
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
-      <HorizonClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
+      <HorizonsClusterRowItem />
     </div>
   );
 }

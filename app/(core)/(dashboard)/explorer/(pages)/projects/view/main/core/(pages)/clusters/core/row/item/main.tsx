@@ -2,12 +2,12 @@
 import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { HorizonThumbnailElement } from '@/ui/cover/horizon/main';
+import { HorizonsThumbnailElement } from '@/ui/cover/horizon/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
-export function HorizonClusterRowItem() {
+export function HorizonsClusterRowItem() {
   return (
     <GlassWindowFrame
       name={GlassWindowFrame.name}
@@ -21,7 +21,7 @@ export function HorizonClusterRowItem() {
         }}
         className='flex h-full w-full cursor-pointer flex-col justify-between space-y-[1rem]'
       >
-        <HorizonThumbnailElement fileElem={exampleFileElem} />
+        <HorizonsThumbnailElement fileElem={exampleFileElem} />
         <div className='flex flex-col'>
           <p className='text-lg font-bold text-slate-300'>Cluster Name</p>
         </div>

@@ -1,8 +1,8 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { VentureHorizonsSidebarDegree } from './degree/main';
-import { VentureHorizonsSidebarGuild } from './guild/main';
-import { VentureHorizonsSidebarScale } from './scale/main';
+import { ExplorerProjectsSidebarDegree } from './degree/main';
+import { ExplorerProjectsSidebarGuild } from './guild/main';
+import { ExplorerProjectsSidebarScale } from './scale/main';
 
 export function HorizonsSidebar() {
   return (
@@ -14,9 +14,9 @@ export function HorizonsSidebar() {
     >
       <div className='flex h-full w-full flex-col overflow-auto'>
         <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-          <VentureHorizonsSidebarScale />
-          <VentureHorizonsSidebarGuild />
-          <VentureHorizonsSidebarDegree />
+          <ExplorerProjectsSidebarScale />
+          <ExplorerProjectsSidebarGuild />
+          <ExplorerProjectsSidebarDegree />
         </div>
       </div>
     </GlassAreaContainer>

@@ -3,11 +3,11 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
-export function CreativeNetworkSearch() {
+export function NetworkCreativeSearch() {
   return (
     <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
-        name={CreativeNetworkSearch.name}
+        name={NetworkCreativeSearch.name}
         className='h-[4rem] w-full'
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}

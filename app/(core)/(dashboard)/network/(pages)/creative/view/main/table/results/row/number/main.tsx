@@ -2,14 +2,14 @@
 
 import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext } from 'react';
-import { CreativeNetworkNumberPlay } from './play/main';
-import { CreativeNetworkNumberText } from './text/main';
+import { NetworkCreativeNumberPlay } from './play/main';
+import { NetworkCreativeNumberText } from './text/main';
 
-export function CreativeNetworkRowNumber() {
+export function NetworkCreativeRowNumber() {
   const { hovered } = useContext(ContextForHoverable);
   return (
     <div className='flex w-full flex-row items-center justify-center'>
-      {hovered ? <CreativeNetworkNumberPlay /> : <CreativeNetworkNumberText />}
+      {hovered ? <NetworkCreativeNumberPlay /> : <NetworkCreativeNumberText />}
     </div>
   );
 }

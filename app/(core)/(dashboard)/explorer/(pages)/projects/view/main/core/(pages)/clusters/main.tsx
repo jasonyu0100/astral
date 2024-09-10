@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import {
   ContextForHorizonProjects,
-  HorizonProjectScale,
+  HorizonsProjectScale,
 } from '../../../../../controller/main';
 import { HorizonsClusterContainer } from './core/container/main';
 
@@ -11,7 +11,7 @@ export function HorizonsClusterLedger() {
   } = useContext(ContextForHorizonProjects);
   return (
     <>
-      {scale === HorizonProjectScale.Cluster && (
+      {scale === HorizonsProjectScale.Cluster && (
         <>
           <HorizonsClusterContainer />
           <HorizonsClusterContainer />

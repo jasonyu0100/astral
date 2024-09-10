@@ -1,18 +1,20 @@
 import { createContext, useState } from 'react';
 
-export enum HorizonProjectScale {
-  'Local',
-  'Group',
-  'Cluster',
+export enum HorizonsProjectScale {
+  'Local' = '📍',
+  'Group' = '👥',
+  'Cluster' = '🌌',
 }
 
-export enum HorizonProjectGuild {
-  'A',
-  'B',
-  'C',
+export enum HorizonsProjectGuild {
+  Writing = '🖋️',
+  Engineering = '⚙️',
+  Art = '🎨',
+  Design = '📐',
+  Research = '🔬',
 }
 
-export enum HorizonProjectDegree {
+export enum HorizonsProjectDegree {
   'Any',
   'First',
   'Second',
@@ -26,15 +28,15 @@ export enum HorizonProjectDegree {
 }
 
 interface ControllerState {
-  scale: HorizonProjectScale;
-  guild: HorizonProjectGuild;
-  degree: HorizonProjectDegree;
+  scale: HorizonsProjectScale;
+  guild: HorizonsProjectGuild;
+  degree: HorizonsProjectDegree;
 }
 
 interface ControllerActions {
-  updateScale: (scale: HorizonProjectScale) => void;
-  updateGuild: (guild: HorizonProjectGuild) => void;
-  updateDegree: (degree: HorizonProjectDegree) => void;
+  updateScale: (scale: HorizonsProjectScale) => void;
+  updateGuild: (guild: HorizonsProjectGuild) => void;
+  updateDegree: (degree: HorizonsProjectDegree) => void;
 }
 
 interface Controller {
@@ -45,14 +47,14 @@ interface Controller {
 export const ContextForHorizonProjects = createContext({} as Controller);
 
 export function useControllerForProjects() {
-  const [scale, setScale] = useState<HorizonProjectScale>(
-    HorizonProjectScale.Local,
+  const [scale, setScale] = useState<HorizonsProjectScale>(
+    HorizonsProjectScale.Local,
   );
-  const [guild, setGuild] = useState<HorizonProjectGuild>(
-    HorizonProjectGuild.A,
+  const [guild, setGuild] = useState<HorizonsProjectGuild>(
+    HorizonsProjectGuild.Writing,
   );
-  const [degree, setDegree] = useState<HorizonProjectDegree>(
-    HorizonProjectDegree.Any,
+  const [degree, setDegree] = useState<HorizonsProjectDegree>(
+    HorizonsProjectDegree.Any,
   );
 
   return {
@@ -62,9 +64,9 @@ export function useControllerForProjects() {
       degree,
     },
     actions: {
-      updateScale: (scale: HorizonProjectScale) => setScale(scale),
-      updateGuild: (guild: HorizonProjectGuild) => setGuild(guild),
-      updateDegree: (degree: HorizonProjectDegree) => setDegree(degree),
+      updateScale: (scale: HorizonsProjectScale) => setScale(scale),
+      updateGuild: (guild: HorizonsProjectGuild) => setGuild(guild),
+      updateDegree: (degree: HorizonsProjectDegree) => setDegree(degree),
     },
   };
 }

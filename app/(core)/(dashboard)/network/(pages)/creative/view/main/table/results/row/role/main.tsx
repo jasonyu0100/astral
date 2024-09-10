@@ -1,7 +1,7 @@
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
-export function CreativeNetworkRowRole() {
+export function NetworkCreativeRowRole() {
   const user = useContext(ContextForUserObj);
 
   return (

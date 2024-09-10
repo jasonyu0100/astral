@@ -1,20 +1,20 @@
-import { CreativeNetworkRowAbout } from './about/main';
-import { CreativeNetworkRowActivity } from './activity/main';
-import { CreativeNetworkRowBacks } from './backs/main';
-import { CreativeNetworkRowCollabs } from './collabs/main';
-import { CreativeNetworkRowNumber } from './number/main';
-import { CreativeNetworkRowRole } from './role/main';
+import { NetworkCreativeRowAbout } from './about/main';
+import { NetworkCreativeRowActivity } from './activity/main';
+import { NetworkCreativeRowBacks } from './backs/main';
+import { NetworkCreativeRowCollabs } from './collabs/main';
+import { NetworkCreativeRowNumber } from './number/main';
+import { NetworkCreativeRowRole } from './role/main';
 
-export function CreativeNetworkTableRow() {
+export function NetworkCreativeTableRow() {
   return (
     <div className='grid w-full grid-cols-7 items-center border-slate-300 border-opacity-30 py-[2rem]'>
-      <CreativeNetworkRowNumber />
-      <CreativeNetworkRowAbout />
+      <NetworkCreativeRowNumber />
+      <NetworkCreativeRowAbout />
       <div></div>
-      <CreativeNetworkRowRole />
-      <CreativeNetworkRowCollabs />
-      <CreativeNetworkRowBacks />
-      <CreativeNetworkRowActivity />
+      <NetworkCreativeRowRole />
+      <NetworkCreativeRowCollabs />
+      <NetworkCreativeRowBacks />
+      <NetworkCreativeRowActivity />
     </div>
   );
 }

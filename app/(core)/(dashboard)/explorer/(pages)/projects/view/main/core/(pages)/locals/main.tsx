@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import {
   ContextForHorizonProjects,
-  HorizonProjectScale,
+  HorizonsProjectScale,
 } from '../../../../../controller/main';
 import { HorizonsLocalContainer } from './core/container/main';
 
@@ -11,7 +11,7 @@ export function HorizonsLocalLedger() {
   } = useContext(ContextForHorizonProjects);
   return (
     <>
-      {scale === HorizonProjectScale.Local && (
+      {scale === HorizonsProjectScale.Local && (
         <>
           <HorizonsLocalContainer />
           <HorizonsLocalContainer />

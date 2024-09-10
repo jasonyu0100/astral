@@ -4,10 +4,10 @@ import {
   ContextForUserObj,
 } from '@/(server)/model/user/main';
 import { useContext } from 'react';
-import { CreativeNetworkTableRow } from './row/main';
-import { CreativeNetworkRowWrapper } from './wrapper/main';
+import { NetworkCreativeTableRow } from './row/main';
+import { NetworkCreativeRowWrapper } from './wrapper/main';
 
-export function CreativeNetworkTableResults() {
+export function NetworkCreativeTableResults() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const userListController = useContext(ContextForUserPrivateList);
 
@@ -17,9 +17,9 @@ export function CreativeNetworkTableResults() {
         .filter((obj) => obj.id !== loggedInUser.id)
         .map((obj) => (
           <ContextForUserObj.Provider value={obj}>
-            <CreativeNetworkRowWrapper>
-              <CreativeNetworkTableRow />
-            </CreativeNetworkRowWrapper>
+            <NetworkCreativeRowWrapper>
+              <NetworkCreativeTableRow />
+            </NetworkCreativeRowWrapper>
           </ContextForUserObj.Provider>
         ))}
     </div>

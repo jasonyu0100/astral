@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { VentureHorizonsSidebarLabel } from '../(common)/label/main';
-import { VentureHorizonsSidebarList } from '../(common)/list/main';
-import { VentureHorizonsSidebarOption } from '../(common)/list/option/main';
+import { ExplorerProjectsSidebarLabel } from '../(common)/label/main';
+import { ExplorerProjectsSidebarList } from '../(common)/list/main';
+import { ExplorerProjectsSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForHorizonProjects,
-  HorizonProjectGuild,
+  HorizonsProjectGuild,
 } from '../../../controller/main';
 
-export function VentureHorizonsSidebarGuild() {
+export function ExplorerProjectsSidebarGuild() {
   const {
     state: { guild },
     actions: { updateGuild },
@@ -15,27 +15,39 @@ export function VentureHorizonsSidebarGuild() {
 
   return (
     <div className='flex flex-col'>
-      <VentureHorizonsSidebarLabel>Guild</VentureHorizonsSidebarLabel>
-      <VentureHorizonsSidebarList>
-        <VentureHorizonsSidebarOption
-          active={HorizonProjectGuild.A === guild}
-          onClick={() => updateGuild(HorizonProjectGuild.A)}
+      <ExplorerProjectsSidebarLabel>Guild</ExplorerProjectsSidebarLabel>
+      <ExplorerProjectsSidebarList>
+        <ExplorerProjectsSidebarOption
+          active={HorizonsProjectGuild.Writing === guild}
+          onClick={() => updateGuild(HorizonsProjectGuild.Writing)}
         >
-          A
-        </VentureHorizonsSidebarOption>
-        <VentureHorizonsSidebarOption
-          active={HorizonProjectGuild.B === guild}
-          onClick={() => updateGuild(HorizonProjectGuild.B)}
+          {HorizonsProjectGuild.Writing} - Writing
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={HorizonsProjectGuild.Engineering === guild}
+          onClick={() => updateGuild(HorizonsProjectGuild.Engineering)}
         >
-          B
-        </VentureHorizonsSidebarOption>
-        <VentureHorizonsSidebarOption
-          active={HorizonProjectGuild.C === guild}
-          onClick={() => updateGuild(HorizonProjectGuild.C)}
+          {HorizonsProjectGuild.Engineering} - Engineering
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={HorizonsProjectGuild.Art === guild}
+          onClick={() => updateGuild(HorizonsProjectGuild.Art)}
         >
-          C
-        </VentureHorizonsSidebarOption>
-      </VentureHorizonsSidebarList>
+          {HorizonsProjectGuild.Art} - Art
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={HorizonsProjectGuild.Design === guild}
+          onClick={() => updateGuild(HorizonsProjectGuild.Design)}
+        >
+          {HorizonsProjectGuild.Design} - Design
+        </ExplorerProjectsSidebarOption>
+        <ExplorerProjectsSidebarOption
+          active={HorizonsProjectGuild.Research === guild}
+          onClick={() => updateGuild(HorizonsProjectGuild.Research)}
+        >
+          {HorizonsProjectGuild.Research} - Research
+        </ExplorerProjectsSidebarOption>
+      </ExplorerProjectsSidebarList>
     </div>
   );
 }

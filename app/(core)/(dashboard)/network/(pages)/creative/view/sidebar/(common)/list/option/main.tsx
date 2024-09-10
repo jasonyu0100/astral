@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { cn } from '@/utils/cn';
 
-export function ExplorerProjectsSidebarOption({
+export function NetworkSidebarOption({
   active,
   onClick,
   children,
@@ -24,7 +24,7 @@ export function ExplorerProjectsSidebarOption({
       onClick={onClick}
     >
       <GlassWindowFrame
-        name={ExplorerProjectsSidebarOption.name}
+        name={NetworkSidebarOption.name}
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}
         className=' p-[1rem]'

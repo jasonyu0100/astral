@@ -2,7 +2,7 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { HorizonsClusterLabel } from '../label/main';
-import { HorizonClusterRow } from '../row/main';
+import { HorizonsClusterRow } from '../row/main';
 
 export function HorizonsClusterContainer() {
   return (
@@ -13,7 +13,7 @@ export function HorizonsClusterContainer() {
         className='h-[300px] w-[full] flex-shrink-0'
       >
         <GlassWindowContents className={`flex h-full w-full flex-col`}>
-          <HorizonClusterRow />
+          <HorizonsClusterRow />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

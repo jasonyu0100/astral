@@ -1,11 +1,11 @@
-import { CreativeNetworkTableHeader } from './header/main';
-import { CreativeNetworkTableResults } from './results/main';
+import { NetworkCreativeTableHeader } from './header/main';
+import { NetworkCreativeTableResults } from './results/main';
 
-export function CreativeNetworkTable() {
+export function NetworkCreativeTable() {
   return (
     <div className='w-full overflow-auto p-[2rem]'>
-      <CreativeNetworkTableHeader />
-      <CreativeNetworkTableResults />
+      <NetworkCreativeTableHeader />
+      <NetworkCreativeTableResults />
     </div>
   );
 }
