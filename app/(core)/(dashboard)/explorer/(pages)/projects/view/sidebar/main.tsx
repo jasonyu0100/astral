@@ -8,8 +8,8 @@ export function HorizonsSidebar() {
   return (
     <GlassAreaContainer
       name={HorizonsSidebar.name}
-      sizeFx='w-[300px] h-full'
-      glassFx={glassFx['glass-5']}
+      sizeFx='w-[360px] h-full'
+      glassFx={glassFx['glass-10']}
       className='flex flex-col'
     >
       <div className='flex h-full w-full flex-col overflow-auto'>

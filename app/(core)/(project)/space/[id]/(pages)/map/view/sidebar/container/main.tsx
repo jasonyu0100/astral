@@ -9,9 +9,9 @@ export function SpaceMapSidebarContainer({
   return (
     <GlassAreaContainer
       name={SpaceMapSidebarContainer.name}
-      sizeFx='w-[350px] h-full overflow-hidden'
+      sizeFx='w-[360px] h-full overflow-hidden'
       className={`flex flex-col`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
     >
       {children}
     </GlassAreaContainer>

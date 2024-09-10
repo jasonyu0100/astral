@@ -7,8 +7,8 @@ export function SpaceChatSidebar() {
   return (
     <GlassAreaContainer
       name={SpaceChatSidebar.name}
-      sizeFx='w-[350px] h-full'
-      glassFx={glassFx['glass-5']}
+      sizeFx='w-[360px] h-full'
+      glassFx={glassFx['glass-10']}
       className={`flex flex-col items-center`}
     >
       <SpaceChatSidebarChaptersSearch />
