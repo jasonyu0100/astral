@@ -22,7 +22,7 @@ import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
 import { spaceMap } from '../../../../map';
-import { ContextForSpaceMap } from '../../controller/map/main';
+import { ContextForSpaceMap } from '../../controller/main';
 
 export function SpaceMapGenerateLog() {
   const user = useGlobalUser((state) => state.user);

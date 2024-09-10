@@ -1,4 +1,4 @@
-import { ContextForSpaceMap } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
+import { ContextForSpaceMap } from '@/(core)/(project)/space/[id]/(pages)/map/controller/main';
 import { ContextForSpaceMapModals } from '@/(core)/(project)/space/[id]/(pages)/map/modal/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';

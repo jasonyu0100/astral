@@ -15,7 +15,7 @@ import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
-import { ContextForSpaceMap } from '../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../controller/main';
 
 export function SpaceMapAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);

@@ -10,7 +10,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceMap,
   SpaceMapDirectoryMode,
-} from '../../../../../../controller/map/main';
+} from '../../../../../../controller/main';
 
 export function SpaceMapHistoryItem() {
   const {

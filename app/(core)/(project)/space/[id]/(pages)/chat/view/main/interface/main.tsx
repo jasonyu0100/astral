@@ -1,8 +1,8 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { SpaceChatInputLeft } from './left/main';
-import { SpaceChatInputRight } from './right/main';
-import { SpaceChatInputText } from './text/main';
+import { SpaceChatInputRight } from './chat-action/main';
+import { SpaceChatInputText } from './chat-input/main';
+import { SpaceChatInputLeft } from './role-select/main';
 
 export function SpaceChatInput() {
   return (
@@ -10,7 +10,7 @@ export function SpaceChatInput() {
       name={SpaceChatInput.name}
       sizeFx='h-[80px] w-full'
       glassFx={glassFx['glass-5']}
-      className={`flex flex-row items-center justify-center px-[1rem]`}
+      className={`flex flex-row items-center justify-center space-x-[2rem]`}
     >
       <SpaceChatInputLeft />
       <SpaceChatInputText />

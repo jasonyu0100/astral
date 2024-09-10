@@ -23,6 +23,7 @@ interface ControllerState {
   sidebarMediaMode: SpaceMapSidebarMediaMode;
   sidebarContentMode: SpaceMapSidebarContentMode;
   sidebarMode: SpaceMapSidebarMode;
+  sidebarVisibility: SpaceMapSidebarVisibility;
   peopleMode: SpaceMapPeopleMode;
 }
 
@@ -44,6 +45,7 @@ interface ControllerActions {
   updateSidebarContentMode: (mode: SpaceMapSidebarContentMode) => void;
   updateSidebarMode: (mode: SpaceMapSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
+  updateSidebarVisibility: (visibility: SpaceMapSidebarVisibility) => void;
   selectAll: () => void;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
@@ -51,6 +53,11 @@ interface ControllerActions {
 }
 
 export const ContextForSpaceMap = createContext({} as Controller);
+
+export enum SpaceMapSidebarVisibility {
+  OPEN = 'open',
+  CLOSED = 'closed',
+}
 
 export enum SpaceMapInteractionMode {
   CURSOR = 'Cursor',
@@ -123,6 +130,9 @@ export function useControllerForSpaceMap(): Controller {
   );
   const [sidebarMediaMode, changeSidebarMediaMode] = useState(
     SpaceMapSidebarMediaMode.Collection,
+  );
+  const [sidebarVisibility, setSidebarVisibility] = useState(
+    SpaceMapSidebarVisibility.OPEN,
   );
 
   const [divWidth, setDivWidth] = useState(0);
@@ -229,6 +239,7 @@ export function useControllerForSpaceMap(): Controller {
       sidebarMediaMode: sidebarMediaMode,
       sidebarContentMode: listMode,
       sidebarMode: listSceneMode,
+      sidebarVisibility: sidebarVisibility,
     },
     actions: {
       autoSort: autoSort,
@@ -242,6 +253,7 @@ export function useControllerForSpaceMap(): Controller {
       updateInteractionMode: (mode) => setMode(mode),
       updateSidebarContentMode: (mode) => setListMode(mode),
       updateSidebarMode: (mode) => setListSceneMode(mode),
+      updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),
       goToHome: () => {

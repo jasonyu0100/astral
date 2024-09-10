@@ -1,9 +1,18 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { useContext } from 'react';
+import {
+  ContextForSpaceFlight,
+  SpaceFlightSidebarVisibility,
+} from '../controller/main';
 import { SpaceFlightMain } from './main/main';
 import { SpaceFlightSidebar } from './sidebar/main';
 
 export function SpaceFlightView() {
+  const {
+    state: { sidebarVisibility },
+  } = useContext(ContextForSpaceFlight);
+
   return (
     <GlassAreaContainer
       name={SpaceFlightView.name}
@@ -14,7 +23,9 @@ export function SpaceFlightView() {
       roundedFx={roundedFx['rounded-container']}
     >
       <SpaceFlightMain />
-      <SpaceFlightSidebar />
+      {sidebarVisibility !== SpaceFlightSidebarVisibility.CLOSED && (
+        <SpaceFlightSidebar />
+      )}
     </GlassAreaContainer>
   );
 }

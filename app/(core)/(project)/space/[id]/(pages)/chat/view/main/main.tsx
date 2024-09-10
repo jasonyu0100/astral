@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpaceChatCore } from './core/main';
-import { SpaceChatInput } from './input/main';
+import { SpaceChatInput } from './interface/main';
 
 export function SpaceChatMain() {
   return (

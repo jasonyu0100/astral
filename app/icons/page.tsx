@@ -44,6 +44,8 @@ import { AstralSearchIcon } from './search/main';
 import { AstralSendIcon } from './send/main';
 import { AstralSettingsIcon } from './settings/main';
 import { AstralShareIcon } from './share/main';
+import { AstralSidebarLeftIcon } from './sidebar-left/main';
+import { AstralSidebarRightIcon } from './sidebar-right/main';
 import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
 import { AstralStacksIcon } from './stacks/main';
@@ -110,6 +112,8 @@ export default function Page() {
       <AstralFullscreenExitIcon />
       <AstralChatIndicatorIcon />
       <AstralCalendarIcon />
+      <AstralSidebarLeftIcon />
+      <AstralSidebarRightIcon />
     </div>
   );
 }

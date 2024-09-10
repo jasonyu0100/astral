@@ -1,10 +1,19 @@
 'use client';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { useContext } from 'react';
+import {
+  ContextForSpaceChat,
+  SpaceChatSidebarVisibility,
+} from '../controller/main';
 import { SpaceChatMain } from './main/main';
 import { SpaceChatSidebar } from './sidebar/main';
 
 export function SpaceChatView() {
+  const {
+    state: { sidebarVisibility },
+  } = useContext(ContextForSpaceChat);
+
   return (
     <GlassAreaContainer
       name={SpaceChatView.name}
@@ -14,7 +23,9 @@ export function SpaceChatView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
-      <SpaceChatSidebar />
+      {sidebarVisibility !== SpaceChatSidebarVisibility.CLOSED && (
+        <SpaceChatSidebar />
+      )}
       <SpaceChatMain />
     </GlassAreaContainer>
   );

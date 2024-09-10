@@ -47,7 +47,7 @@ import {
 import {
   ContextForSpaceMap,
   useControllerForSpaceMap,
-} from './controller/map/main';
+} from './controller/main';
 import { SpaceMapModals } from './modal/controller/main';
 import { SpaceMapView } from './view/main';
 

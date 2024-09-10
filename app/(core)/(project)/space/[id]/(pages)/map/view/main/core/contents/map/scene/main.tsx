@@ -3,7 +3,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
-import { ContextForSpaceMap } from '../../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../../controller/main';
 import { SpaceMapContentsSceneConnections } from './connections/main';
 import { SpaceMapSceneEmpty } from './empty/main';
 import { SpaceMapMovableIdea } from './idea/main';

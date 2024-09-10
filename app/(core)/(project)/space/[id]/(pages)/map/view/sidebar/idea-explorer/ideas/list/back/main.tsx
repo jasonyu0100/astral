@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceMap,
   SpaceMapSidebarMode,
-} from '../../../../../../controller/map/main';
+} from '../../../../../../controller/main';
 
 export function SpaceMapSidebarIdeasBack() {
   const {

@@ -5,7 +5,9 @@ import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSearchIcon } from '@/icons/search/main';
+import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
+import { cn } from '@/lib/utils';
 import { PipIndicator } from '@/ui/indicator/pip/main';
 import { useContext } from 'react';
 import {
@@ -13,11 +15,13 @@ import {
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
   SpaceMapSidebarContentMode,
-} from '../../../../../controller/map/main';
+  SpaceMapSidebarVisibility,
+} from '../../../../../controller/main';
 
 export function SpaceMapHeaderLeft() {
   const {
     state: {
+      sidebarVisibility,
       selectedIdeas,
       peopleMode,
       connectionMode,
@@ -27,6 +31,7 @@ export function SpaceMapHeaderLeft() {
       updatePeopleMode,
       updateConnectionMode,
       updateSidebarContentMode: updateSidebarMode,
+      updateSidebarVisibility,
       autoSort,
       selectAll,
     },
@@ -35,6 +40,20 @@ export function SpaceMapHeaderLeft() {
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
+      <AstralSidebarLeftIcon
+        className={cn({
+          'rotate-180 transform':
+            sidebarVisibility === SpaceMapSidebarVisibility.CLOSED,
+        })}
+        onClick={() => {
+          updateSidebarVisibility(
+            sidebarVisibility === SpaceMapSidebarVisibility.CLOSED
+              ? SpaceMapSidebarVisibility.OPEN
+              : SpaceMapSidebarVisibility.CLOSED,
+          );
+        }}
+      />
+      <PipIndicator />
       <AstralCursorIcon
         className={
           selectedIdeas.length === 0 ? 'fill-slate-300' : 'fill-blue-500'
@@ -50,7 +69,6 @@ export function SpaceMapHeaderLeft() {
             : 'fill-slate-300'
         }
       />
-      <PipIndicator />
       <AstralPersonIcon
         className={
           peopleMode === SpaceMapPeopleMode.OFF

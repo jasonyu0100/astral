@@ -32,6 +32,10 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
+import {
+  ContextForSpaceFlight,
+  useControllerForSpaceFlight,
+} from './controller/main';
 import { SpaceFlightModals } from './modal/controller/main';
 import { SpaceFlightView } from './view/main';
 
@@ -106,7 +110,12 @@ function SpaceFlightControllerWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  const flightController = useControllerForSpaceFlight();
+  return (
+    <ContextForSpaceFlight.Provider value={flightController}>
+      {children}
+    </ContextForSpaceFlight.Provider>
+  );
 }
 
 export default protectedUnderAstralAuth(Page);

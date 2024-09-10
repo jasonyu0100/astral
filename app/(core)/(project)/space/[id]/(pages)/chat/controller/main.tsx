@@ -9,7 +9,7 @@ import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/con
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useState } from 'react';
-import { ConversationRole, roleDescriptions } from '../data';
+import { ConversationRole, roleDescriptions } from '../roles';
 
 interface Controller {
   state: ControllerState;
@@ -17,6 +17,7 @@ interface Controller {
 }
 
 interface ControllerState {
+  sidebarVisibility: SpaceChatSidebarVisibility;
   role: string;
 }
 
@@ -24,6 +25,12 @@ interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
   updateRole: (role: ConversationRole) => void;
   generateStickies: () => GeneratedSticky[];
+  updateSidebarVisibility: (visibility: SpaceChatSidebarVisibility) => void;
+}
+
+export enum SpaceChatSidebarVisibility {
+  OPEN = 'open',
+  CLOSED = 'closed',
 }
 
 export interface GeneratedSticky {
@@ -50,6 +57,8 @@ export function useControllerForSpaceChat() {
   const [role, setRole] = useState<ConversationRole>(
     ConversationRole.Questioner,
   );
+  const [sidebarVisibility, setSidebarVisibility] =
+    useState<SpaceChatSidebarVisibility>(SpaceChatSidebarVisibility.OPEN);
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -242,11 +251,15 @@ Ensure the response follows the exact structure and format shown above, with pro
 
   return {
     state: {
+      sidebarVisibility: sidebarVisibility,
       role: role,
     },
     actions: {
       generateStickies: generateStickies,
       sendMessage,
+      updateSidebarVisibility: (visibility: SpaceChatSidebarVisibility) => {
+        setSidebarVisibility(visibility);
+      },
       updateRole: (role: ConversationRole) => {
         setRole(role);
       },

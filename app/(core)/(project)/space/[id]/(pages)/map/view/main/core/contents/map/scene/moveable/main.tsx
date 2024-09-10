@@ -3,7 +3,7 @@ import {
   ContextForSpaceMap,
   SpaceMapConnectionMode,
   SpaceMapPeopleMode,
-} from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
+} from '@/(core)/(project)/space/[id]/(pages)/map/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';

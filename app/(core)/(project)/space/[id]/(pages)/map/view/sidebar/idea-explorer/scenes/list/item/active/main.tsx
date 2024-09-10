@@ -2,7 +2,7 @@ import {
   ContextForSpaceMap,
   SpaceMapDirectoryMode,
   SpaceMapSidebarMode,
-} from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
+} from '@/(core)/(project)/space/[id]/(pages)/map/controller/main';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { glassFx, roundedFx } from '@/style/data';

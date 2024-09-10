@@ -1,6 +1,6 @@
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../controller/main';
 import { ContextForSpaceMapModals } from '../../../../../modal/controller/main';
 
 export function SpaceMapHeaderRight() {

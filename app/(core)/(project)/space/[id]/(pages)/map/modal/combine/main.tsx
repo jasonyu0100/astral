@@ -20,7 +20,7 @@ import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
-import { ContextForSpaceMap } from '../../controller/map/main';
+import { ContextForSpaceMap } from '../../controller/main';
 
 export function SpaceMapCombineIdeas() {
   const user = useGlobalUser((state) => state.user);

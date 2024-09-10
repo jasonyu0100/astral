@@ -2,7 +2,7 @@ import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../controller/main';
 
 export function SpaceMapResourcesBack() {
   const galleryListController = useContext(ContextForGalleryList);

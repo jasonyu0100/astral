@@ -1,4 +1,4 @@
-import { ContextForSpaceMap } from '@/(core)/(project)/space/[id]/(pages)/map/controller/map/main';
+import { ContextForSpaceMap } from '@/(core)/(project)/space/[id]/(pages)/map/controller/main';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { cn } from '@/lib/utils';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';

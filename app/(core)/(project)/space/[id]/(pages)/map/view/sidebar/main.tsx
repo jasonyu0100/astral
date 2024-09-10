@@ -4,7 +4,7 @@ import {
   SpaceMapSidebarContentMode,
   SpaceMapSidebarMediaMode,
   SpaceMapSidebarMode,
-} from '../../controller/map/main';
+} from '../../controller/main';
 import { SpaceMapChatExplorer } from './chat-explorer/main';
 import { SpaceMapSidebarContainer } from './container/main';
 import { SpaceMapSidebarIdeas } from './idea-explorer/ideas/main';

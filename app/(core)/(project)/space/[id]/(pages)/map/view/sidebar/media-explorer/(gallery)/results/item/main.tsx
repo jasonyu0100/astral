@@ -5,7 +5,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../../controller/main';
 
 export function SpaceMapCollectionItem() {
   const collection = useContext(ContextForGalleryCollectionObj);

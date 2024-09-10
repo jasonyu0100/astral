@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceMap } from '../../../../../controller/map/main';
+import { ContextForSpaceMap } from '../../../../../controller/main';
 
 export function SpaceMapGalleryCollectionsBack() {
   const {

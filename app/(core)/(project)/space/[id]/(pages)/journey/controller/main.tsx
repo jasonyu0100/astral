@@ -8,12 +8,14 @@ interface Controller {
 
 interface ControllerState {
   sidebarMode: SpaceJourneySidebarMode;
+  sidebarVisibility: SpaceJourneySidebarVisibility;
   dataMode: SpaceJourneyDataMode;
   selectedLogs: ChapterLogObj[];
 }
 
 interface ControllerActions {
-  updateSidebarMode: (mode: any) => void;
+  updateSidebarMode: (mode: SpaceJourneySidebarMode) => void;
+  updateSidebarVisibility: (visibility: SpaceJourneySidebarVisibility) => void;
   updateDataMode: (mode: SpaceJourneyDataMode) => void;
   updateSelectedLogs: (logs: ChapterLogObj[]) => void;
   checkContainsSelectedLog: (log: ChapterLogObj) => boolean;
@@ -31,6 +33,11 @@ export enum SpaceJourneySidebarMode {
   NOTES = 'NOTES',
 }
 
+export enum SpaceJourneySidebarVisibility {
+  OPEN = 'open',
+  CLOSED = 'closed',
+}
+
 export function useControllerForSpaceJourney(): Controller {
   const [selectedLogs, setSelectedLogs] = useState<ChapterLogObj[]>([]);
   const [dataMode, setDataMode] = useState<SpaceJourneyDataMode>(
@@ -39,14 +46,18 @@ export function useControllerForSpaceJourney(): Controller {
   const [sidebarMode, setSidebarMode] = useState<SpaceJourneySidebarMode>(
     SpaceJourneySidebarMode.IDEAS,
   );
+  const [sidebarVisibility, setSidebarVisibility] =
+    useState<SpaceJourneySidebarVisibility>(SpaceJourneySidebarVisibility.OPEN);
 
   return {
     state: {
       sidebarMode: sidebarMode,
+      sidebarVisibility: sidebarVisibility,
       selectedLogs: selectedLogs,
       dataMode: dataMode,
     },
     actions: {
+      updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       updateSidebarMode: (mode) => setSidebarMode(mode),
       updateDataMode: (mode) => setDataMode(mode),
       updateSelectedLogs: (logs) => setSelectedLogs(logs),

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import {
   ContextForSpaceMap,
   SpaceMapDirectoryMode,
-} from '../../../../controller/map/main';
+} from '../../../../controller/main';
 import { SpaceMapHistory } from './history/main';
 import { SpaceMapBack } from './map/back/main';
 import { SpaceMapChat } from './map/chat/main';
