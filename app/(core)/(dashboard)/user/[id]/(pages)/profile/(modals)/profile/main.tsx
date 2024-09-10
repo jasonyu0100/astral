@@ -58,7 +58,7 @@ export function EditProfileModal() {
               Status: {userObj?.private ? 'Private' : 'Public'}
             </p>
             <button
-              className='w-[15rem] rounded bg-slate-300 p-[1rem] font-bold'
+              className='w-[100px] rounded bg-slate-300 p-[1rem] font-bold'
               onClick={handleToggle}
             >
               {userObj?.private ? 'Switch to Public' : 'Switch to Private'}

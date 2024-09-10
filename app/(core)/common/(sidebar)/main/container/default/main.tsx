@@ -9,7 +9,7 @@ export function DashboardSidebarDefaultContainer({
   children?: React.ReactNode;
 }) {
   return (
-    <GlassWindowFrame className='flex h-full w-[15rem] flex-shrink-0 flex-col p-[1rem]'>
+    <GlassWindowFrame className='flex h-full w-[13rem] flex-shrink-0 flex-col p-[1rem]'>
       <GlassWindowContents className='relative flex h-full w-full flex-col'>
         {children}
       </GlassWindowContents>
