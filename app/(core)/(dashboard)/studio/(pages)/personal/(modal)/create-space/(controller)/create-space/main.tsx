@@ -44,6 +44,8 @@ export interface PageThree {
   updateThumbnail: (thumbnail: FileElem) => void;
   memberIds: string[];
   updateMemberIds: (memberIds: string[]) => void;
+  commitmentLevel: number;
+  updateCommitmentLevel: (commitmentLevel: number) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -84,6 +86,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
+  const [commitmentLevel, setCommitmentLevel] = useState(1);
   const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
@@ -306,6 +309,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageThree: PageThree = {
+    commitmentLevel: commitmentLevel,
     memberIds: memberIds,
     updateMemberIds: (members: string[]) => changeMemberIds(members),
     hours: hours,
@@ -314,6 +318,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateTarget: (target: string) => changeTarget(target),
     thumbnail,
     updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
+    updateCommitmentLevel: (number: number) => setCommitmentLevel(number),
   };
 
   return {

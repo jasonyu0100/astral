@@ -7,7 +7,10 @@ import { HorizonForumSidebar } from './view/sidebar/main';
 function Page() {
   return (
     <HorizonForumView>
-      <div className='h-full flex-grow'></div>
+      <div className='h-full flex-grow p-[2rem]'>
+        <p className='font-bold text-slate-300'>Title - Karma</p>
+        <p className='font-bold text-slate-300'>Algo - Sort</p>
+      </div>
       <HorizonForumSidebar />
     </HorizonForumView>
   );

@@ -36,7 +36,7 @@ export function SpaceJourneySidebarLinksList() {
             </ContextForLogLinkObj.Provider>
           ))}
         <HorizontalDivider />
-        {sidebarMode === SpaceJourneySidebarMode.IDEAS && (
+        {sidebarMode === SpaceJourneySidebarMode.LINKS && (
           <SpaceJourneySidebarAddFile />
         )}
 

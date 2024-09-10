@@ -5,28 +5,37 @@ import { CreateSpaceMembers } from '../page-1/members/main';
 import { DatePicker } from './datepicker/main';
 
 export function CreateSpaceModalPageThree() {
-  const { pageThree } = useContext(ContextForCreateSpace);
-  const { hours, updateHours, target, updateTarget } = pageThree;
+  const {
+    pageThree: { target, updateTarget, commitmentLevel, updateCommitmentLevel },
+  } = useContext(ContextForCreateSpace);
 
   return (
     <FormBody>
       <DatePicker date={target} onChange={updateTarget} />
-      <div className='flex w-full flex-col'>
-        <label className='mb-1 text-xs font-bold text-slate-400'>Hours</label>
-        <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
-          <input
-            type='number'
-            className='h-full w-full appearance-none border-none px-[0.5rem] text-lg text-slate-500   outline-none'
-            title={'Hours'}
-            value={hours}
-            min={10}
-            max={1000}
-            onChange={(e) => {
-              updateHours(parseInt(e.target.value.toString()) as number);
-            }}
-          />
+      {/* Commitment Level Radio Picker */}
+      {/* <div className='p-[2rem]'>
+        <p className='mb-4 text-lg'>Select your commitment level:</p>
+        <div className='space-y-2'>
+          {[1, 2, 3, 4, 5].map((level) => (
+            <label key={level} className='flex items-center space-x-3'>
+              <input
+                type='radio'
+                value={level}
+                checked={commitmentLevel === level}
+                onChange={(e) => updateCommitmentLevel(e.target.value)}
+                className='form-radio h-4 w-4 text-indigo-600'
+              />
+              <span className='text-md'>
+                {level === 1 && '🧘‍♂️ Totally Casual'}
+                {level === 2 && '🎨 Mostly Chill'}
+                {level === 3 && '🛠️ Balanced Approach'}
+                {level === 4 && '💪 Focused but Relaxed'}
+                {level === 5 && '🚀 All-Out Dedication'}
+              </span>
+            </label>
+          ))}
         </div>
-      </div>
+      </div> */}
       <CreateSpaceMembers />
     </FormBody>
   );

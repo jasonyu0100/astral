@@ -29,7 +29,7 @@ export enum SpaceJourneyDataMode {
 }
 
 export enum SpaceJourneySidebarMode {
-  IDEAS = 'IDEAS',
+  LINKS = 'LINKS',
   NOTES = 'NOTES',
 }
 
@@ -44,7 +44,7 @@ export function useControllerForSpaceJourney(): Controller {
     SpaceJourneyDataMode.TABLE,
   );
   const [sidebarMode, setSidebarMode] = useState<SpaceJourneySidebarMode>(
-    SpaceJourneySidebarMode.IDEAS,
+    SpaceJourneySidebarMode.LINKS,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpaceJourneySidebarVisibility>(SpaceJourneySidebarVisibility.OPEN);

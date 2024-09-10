@@ -23,17 +23,17 @@ export function SpaceJourneySidebarIdeasSelect() {
       >
         <GlassWindowContents
           className='flex cursor-pointer items-center justify-center'
-          onClick={() => updateSidebarMode(SpaceJourneySidebarMode.IDEAS)}
+          onClick={() => updateSidebarMode(SpaceJourneySidebarMode.LINKS)}
         >
           <p
             className={cn('font-bold text-slate-500', {
-              'text-slate-300': sidebarMode === SpaceJourneySidebarMode.IDEAS,
+              'text-slate-300': sidebarMode === SpaceJourneySidebarMode.LINKS,
             })}
           >
-            Ideas
+            Links
           </p>
         </GlassWindowContents>
-        {sidebarMode === SpaceJourneySidebarMode.IDEAS && (
+        {sidebarMode === SpaceJourneySidebarMode.LINKS && (
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         )}
       </GlassWindowFrame>

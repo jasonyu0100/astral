@@ -1,22 +1,18 @@
 'use client';
 
-import {
-  ContextForSpaceChapterList,
-  useControllerForSpaceChapterList,
-} from '@/(server)/controller/space/chapter/list';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonArcView } from './view/main';
 import { HorizonArcSidebar } from './view/sidebar/main';
 
 function Page() {
-  const chapterListController = useControllerForSpaceChapterList('');
   return (
-    <ContextForSpaceChapterList.Provider value={chapterListController}>
-      <HorizonArcView>
-        <div className='flex h-full w-full flex-col'></div>
-        <HorizonArcSidebar />
-      </HorizonArcView>
-    </ContextForSpaceChapterList.Provider>
+    <HorizonArcView>
+      <div className='h-full flex-grow p-[2rem]'>
+        <p className='font-bold text-slate-300'>Title - History</p>
+        <p className='font-bold text-slate-300'>Algo - LLM</p>
+      </div>
+      <HorizonArcSidebar />
+    </HorizonArcView>
   );
 }
 
