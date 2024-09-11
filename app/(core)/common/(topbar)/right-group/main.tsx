@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(dashboard)/user/[id]/map';
+import { userProfileMap } from '@/(core)/(dashboard)/users/[id]/map';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralSettingsIcon } from '@/icons/settings/main';
 import { useContext, useEffect, useState } from 'react';

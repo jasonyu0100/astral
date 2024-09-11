@@ -4,9 +4,9 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForSpotlightAttachmentList,
-  useControllerForSpotlightAttachmentList,
-} from '@/(server)/controller/space/chapter/spotlight/attachment/list';
+  ContextForSpotlightAttachmentListFromSpotlight,
+  useControllerForSpotlightAttachmentListFromSpotlight,
+} from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
 import {
   ContextForSpotlightCommentList,
   useControllerForSpotlightCommentList,
@@ -61,9 +61,10 @@ function Page({ params }: { params: { id: string } }) {
   const spotlightKarmaListController = useControllerForSpotlightKarmaList(
     spotlightListController.state.objId,
   );
-  const attachmentListController = useControllerForSpotlightAttachmentList(
-    spotlightListController.state.objId,
-  );
+  const attachmentListController =
+    useControllerForSpotlightAttachmentListFromSpotlight(
+      spotlightListController.state.objId,
+    );
   const linkListController = useControllerForSpotlightLinkList(
     spotlightListController.state.objId,
   );
@@ -78,7 +79,7 @@ function Page({ params }: { params: { id: string } }) {
             <ContextForSpotlightKarmaList.Provider
               value={spotlightKarmaListController}
             >
-              <ContextForSpotlightAttachmentList.Provider
+              <ContextForSpotlightAttachmentListFromSpotlight.Provider
                 value={attachmentListController}
               >
                 <ContextForSpotlightCommentList.Provider
@@ -96,7 +97,7 @@ function Page({ params }: { params: { id: string } }) {
                     </LoadingWrapper>
                   </ContextForSpotlightLinkList.Provider>
                 </ContextForSpotlightCommentList.Provider>
-              </ContextForSpotlightAttachmentList.Provider>
+              </ContextForSpotlightAttachmentListFromSpotlight.Provider>
             </ContextForSpotlightKarmaList.Provider>
           </ContextForChapterSpotlightListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>
