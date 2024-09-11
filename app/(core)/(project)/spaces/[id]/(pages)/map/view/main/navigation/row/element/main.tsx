@@ -2,6 +2,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { ContextForScrollToHorizontalIndex } from '@/logic/controller/scroll-to-horizontal-index/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -26,6 +27,9 @@ export function SpacesMapRowElement() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const active = chapter.id === chapterListController.state.objId;
+  const controllerForScrollToCursor = useContext(
+    ContextForScrollToHorizontalIndex,
+  );
 
   return (
     <TooltipProvider>
@@ -39,9 +43,10 @@ export function SpacesMapRowElement() {
           >
             <GlassWindowContents
               className='z-10 flex h-full w-full items-center px-[1rem]'
-              onClick={() =>
-                chapterListController.actions.stateActions.select(chapter)
-              }
+              onClick={() => {
+                chapterListController.actions.stateActions.select(chapter);
+                controllerForScrollToCursor.scrollToHorizontalIndex(index);
+              }}
             >
               <p
                 className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}

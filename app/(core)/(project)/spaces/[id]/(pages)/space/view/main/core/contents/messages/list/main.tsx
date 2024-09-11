@@ -1,6 +1,6 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
-import { ControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-bottom/main';
+import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
 import { useContext, useRef } from 'react';
 import { SpacesSpaceEmpty } from '../../empty/main';
 import { SpacesSpaceMessage } from './message/main';
@@ -8,7 +8,7 @@ import { SpacesSpaceMessage } from './message/main';
 export function SpacesSpaceMessages() {
   const messageListController = useContext(ContextForConversationMessageList);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollToBottom } = ControllerForMessageScrollToBottom(ref);
+  const { scrollToBottom } = useControllerForMessageScrollToBottom(ref);
 
   return (
     <div

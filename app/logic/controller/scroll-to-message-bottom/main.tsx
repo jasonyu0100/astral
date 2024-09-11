@@ -1,9 +1,17 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import { RefObject, useContext, useEffect } from 'react';
+import { createContext, RefObject, useContext, useEffect } from 'react';
 
-export function ControllerForMessageScrollToBottom(
+interface Controller {
+  scrollToBottom: () => void;
+}
+
+export const ContextForConversationScrollToBottom = createContext(
+  {} as Controller,
+);
+
+export function useControllerForMessageScrollToBottom(
   ref: RefObject<HTMLDivElement>,
-) {
+): Controller {
   const messageListController = useContext(ContextForConversationMessageList);
 
   const scrollToBottom = () => {
@@ -17,7 +25,6 @@ export function ControllerForMessageScrollToBottom(
   }, [messageListController.state?.objs]);
 
   return {
-    ref,
     scrollToBottom,
   };
 }

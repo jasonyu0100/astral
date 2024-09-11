@@ -7,16 +7,16 @@ import { useContext } from 'react';
 import {
   ContextForSpacesJourney,
   SpacesJourneySidebarMode,
-} from '../../../../controller/main';
+} from '../../../controller/main';
 
-export function SpacesJourneySidebarIdeasSelect() {
+export function SpacesJourneySidebarHeader() {
   const {
     state: { sidebarMode },
     actions: { updateSidebarMode },
   } = useContext(ContextForSpacesJourney);
 
   return (
-    <div className='grid h-[4rem] w-full grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
+    <div className='grid h-[4rem] w-full flex-shrink-0 grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
       <div>
         <GlassWindowFrame
           className='h-full flex-shrink-0'

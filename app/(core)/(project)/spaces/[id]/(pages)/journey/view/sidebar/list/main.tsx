@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import {
   ContextForSpacesJourney,
   SpacesJourneySidebarMode,
-} from '../../../../controller/main';
+} from '../../../controller/main';
 import { SpacesJourneySidebarAddFile } from './add/file/main';
 import { SPaceJourneySidebarAddText } from './add/text/main';
 import { SpacesJourneySidebarLinksListItem } from './item/main';
 
-export function SpacesJourneySidebarLinksList() {
+export function SpacesJourneySidebarList() {
   const {
     state: { sidebarMode },
   } = useContext(ContextForSpacesJourney);

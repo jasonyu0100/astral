@@ -7,7 +7,6 @@ import { useContext } from 'react';
 export function SpacesJourneySidebarLinksListItem() {
   const linkObj = useContext(ContextForLogLinkObj);
   const linkListController = useContext(ContextForLogLinkList);
-  console.log(linkObj);
 
   return (
     <>
