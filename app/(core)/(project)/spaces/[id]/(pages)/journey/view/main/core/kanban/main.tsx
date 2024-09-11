@@ -6,8 +6,8 @@ import {
 } from '@/(server)/model/space/chapter/log/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
-import { SpaceProgressListItem } from './lists/item/main';
-import { SpaceProgressList } from './lists/main';
+import { SpaceJourneyListItem } from './lists/item/main';
+import { SpaceJourneyList } from './lists/main';
 import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 
 export function SpacesJourneyKanban() {
@@ -76,11 +76,11 @@ export function SpacesJourneyKanban() {
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
       <div className='grid h-full w-full grid-cols-4'>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceProgressList>
+          <SpaceJourneyList>
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterLogStatus.TODO}
-              className='w-full space-y-[2rem]'
+              className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {todo.length === 0 && (
@@ -91,29 +91,29 @@ export function SpacesJourneyKanban() {
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterLogObj.Provider value={log}>
-                    <SpaceProgressListItem />
+                    <SpaceJourneyListItem />
                   </ContextForChapterLogObj.Provider>
                 </li>
               ))}
             </ul>
-            {/* <SpaceProgressAddItem
+            {/* <SpaceJourneyAddItem
               onClick={() => {
                 setPopulated(false);
               }}
             >
               <p className='font-bold text-slate-300'>Add Log</p>
               <AstralAddIcon />
-            </SpaceProgressAddItem> */}
-          </SpaceProgressList>
+            </SpaceJourneyAddItem> */}
+          </SpaceJourneyList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceProgressList>
+          <SpaceJourneyList>
             <SpacesJourneyKanbanListTitle>
               In-progress
             </SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterLogStatus.IN_PROGRESS}
-              className='w-full space-y-[2rem]'
+              className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {inProgress.length === 0 && (
@@ -124,19 +124,19 @@ export function SpacesJourneyKanban() {
               {inProgress.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <SpaceProgressListItem />
+                    <SpaceJourneyListItem />
                   </li>
                 </ContextForChapterLogObj.Provider>
               ))}
             </ul>
-          </SpaceProgressList>
+          </SpaceJourneyList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceProgressList>
+          <SpaceJourneyList>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterLogStatus.REVIEW}
-              className='w-full space-y-[2rem]'
+              className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {review.length === 0 && (
@@ -148,19 +148,19 @@ export function SpacesJourneyKanban() {
               {review.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <SpaceProgressListItem />
+                    <SpaceJourneyListItem />
                   </li>
                 </ContextForChapterLogObj.Provider>
               ))}
             </ul>
-          </SpaceProgressList>
+          </SpaceJourneyList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceProgressList>
+          <SpaceJourneyList>
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterLogStatus.DONE}
-              className='w-full space-y-[2rem]'
+              className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {done.length === 0 && (
@@ -172,12 +172,12 @@ export function SpacesJourneyKanban() {
               {done.map((log) => (
                 <ContextForChapterLogObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <SpaceProgressListItem />
+                    <SpaceJourneyListItem />
                   </li>
                 </ContextForChapterLogObj.Provider>
               ))}
             </ul>
-          </SpaceProgressList>
+          </SpaceJourneyList>
         </div>
       </div>
     </div>

@@ -12,32 +12,20 @@ export function SpacesJourneyLogTableItemNumber() {
   const index = useContext(ContextForIndexable);
   const log = useContext(ContextForChapterLogObj);
   const {
-    state: { selectedLogs },
-    actions: { updateSelectedLogs, checkContainsSelectedLog },
+    actions: { checkContainsSelectedLog },
   } = useContext(ContextForSpacesJourney);
   const selected = checkContainsSelectedLog(log);
 
   return (
     <div>
       <GlassWindowFrame
-        className='h-[3rem] w-[3rem]'
+        className='h-[3rem] w-[3rem] cursor-pointer'
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents
           className={cn('flex items-center justify-center', {
             'bg-blue-500': selected,
           })}
-          onClick={() => {
-            if (selected) {
-              updateSelectedLogs(
-                selectedLogs.filter((selectedLog) => {
-                  return selectedLog.id !== log.id;
-                }),
-              );
-            } else {
-              updateSelectedLogs([...selectedLogs, log]);
-            }
-          }}
         >
           <p className='text-lg font-bold text-slate-300'>{index + 1}</p>
         </GlassWindowContents>

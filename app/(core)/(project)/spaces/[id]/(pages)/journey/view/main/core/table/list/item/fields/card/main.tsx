@@ -1,21 +1,23 @@
+import { ContextForSpacesJourney } from '@/(core)/(project)/spaces/[id]/(pages)/journey/controller/main';
 import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function SpacesJourneyLogTableItemSticky() {
+export function SpacesJourneyLogTableItemCard() {
   const log = useContext(ContextForChapterLogObj);
+  const journeyController = useContext(ContextForSpacesJourney);
+  const selected = journeyController.state.selectedLogs.includes(log);
 
   return (
     <GlassWindowFrame
-      className='col-span-3 aspect-[3/2] w-full overflow-auto p-[1rem]'
-      borderFx={borderFx['border-around']}
+      className='col-span-3 aspect-video w-full overflow-auto p-[1rem]'
       roundedFx={roundedFx.rounded}
     >
-      <GlassWindowContents className='h-full w-full flex-col space-y-[0.5rem] overflow-auto pr-[1rem]'>
+      <GlassWindowContents className='h-full w-full cursor-pointer flex-col space-y-[0.5rem] overflow-auto pr-[1rem]'>
         <p className='w-full text-xl font-bold text-slate-300'>
           {log.title || 'Untitled'}
         </p>
@@ -27,7 +29,11 @@ export function SpacesJourneyLogTableItemSticky() {
           {getFormattedDate(new Date(log.created))}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      {selected ? (
+        <GlassWindowPane glassFx={glassFx['glass-20']} />
+      ) : (
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      )}
     </GlassWindowFrame>
   );
 }
