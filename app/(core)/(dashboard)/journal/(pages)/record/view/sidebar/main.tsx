@@ -9,7 +9,7 @@ export function JournalRecordSidebar() {
       name={JournalRecordSidebar.name}
       sizeFx='w-[360px] h-full overflow-hidden'
       className={`flex flex-col`}
-      glassFx={glassFx['glass-10']}
+      glassFx={glassFx['glass-5']}
     >
       <JournalRecordSidebarSearch />
       <JournalRecordSidebarList />

@@ -7,11 +7,11 @@ export enum HorizonsProjectScale {
 }
 
 export enum HorizonsProjectGuild {
-  Writing = '🖋️',
-  Engineering = '⚙️',
-  Art = '🎨',
-  Design = '📐',
-  Research = '🔬',
+  Writing = '✍️', // Represents writing and creativity
+  Engineering = '🛠️', // Represents engineering and tools
+  Art = '🎨', // Represents art and creativity
+  Design = '🖌️', // Represents design and artistic creation
+  Research = '🔎', // Represents research and investigation
 }
 
 export enum HorizonsProjectDegree {

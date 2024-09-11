@@ -4,12 +4,12 @@ import { ExplorerProjectsSidebarDegree } from './degree/main';
 import { ExplorerProjectsSidebarGuild } from './guild/main';
 import { ExplorerProjectsSidebarScale } from './scale/main';
 
-export function HorizonsSidebar() {
+export function ExplorerProjectsSidebar() {
   return (
     <GlassAreaContainer
-      name={HorizonsSidebar.name}
+      name={ExplorerProjectsSidebar.name}
       sizeFx='w-[360px] h-full'
-      glassFx={glassFx['glass-10']}
+      glassFx={glassFx['glass-5']}
       className='flex flex-col'
     >
       <div className='flex h-full w-full flex-col overflow-auto'>
