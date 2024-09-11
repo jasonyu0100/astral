@@ -1,0 +1,12 @@
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { useContext } from 'react';
+
+export default function SpacesSpaceHeaderMiddleTitle() {
+  const sceneListController = useContext(ContextForChapterSceneList);
+
+  return (
+    <p className='text-center text-lg font-light text-slate-300'>
+      {sceneListController.state.currentObj?.title || 'untitled'}
+    </p>
+  );
+}

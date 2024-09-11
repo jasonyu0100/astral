@@ -1,6 +1,6 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
+import { spaceMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
@@ -13,7 +13,7 @@ export function DashboardSidebarTopOverview() {
   useEffect(() => {
     changeUrl(
       space.id
-        ? spaceMap.space.id.chat.link(space.id)
+        ? spaceMap.space.id.space.link(space.id)
         : studioMap.studio.personal.link,
     );
   }, [space]);

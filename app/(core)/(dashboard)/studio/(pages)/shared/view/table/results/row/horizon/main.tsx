@@ -1,6 +1,6 @@
 'use client';
 
-import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
+import { horizonMap } from '@/(core)/(project)/horizons/[id]/map';
 
 export function StudioSpacesRowHorizon() {
   return (

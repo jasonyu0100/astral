@@ -1,5 +1,5 @@
 'use client';
-import { horizonMap } from '@/(core)/(project)/horizon/[id]/map';
+import { horizonMap } from '@/(core)/(project)/horizons/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { HorizonsThumbnailElement } from '@/ui/cover/horizon/main';

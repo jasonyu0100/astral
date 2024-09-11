@@ -1,4 +1,4 @@
-import { spaceMap } from '@/(core)/(project)/space/[id]/map';
+import { spaceMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { ButtonVariant, FormButton } from '@/ui/form/button/main';
@@ -64,7 +64,7 @@ export function CreateSpaceModalFooter() {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  window.open(spaceMap.space.id.chat.link(spaceObj.id));
+                  window.open(spaceMap.space.id.space.link(spaceObj.id));
                   loadingController.loadingController.close();
                 });
               }}
