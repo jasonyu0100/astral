@@ -5,7 +5,7 @@ export function SpacesJourneyKanbanListTitle({
 }) {
   return (
     <div className='flex w-full flex-row items-center justify-center'>
-      <p className='text-2xl font-bold text-slate-300'>{children}</p>
+      <p className='text-2xl font-bold text-slate-500'>{children}</p>
     </div>
   );
 }

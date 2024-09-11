@@ -5,7 +5,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
-import { ContextForSpacesJourney } from '../../../../../../controller/main';
+import { ContextForSpacesJourney } from '../../../../../../../controller/main';
 import { SpacesJourneyLogTableItemAuthor } from '../fields/author/main';
 import { SpacesJourneyLogTableItemLength } from '../fields/length/main';
 import { SpacesJourneyLogTableItemNumber } from '../fields/number/main';

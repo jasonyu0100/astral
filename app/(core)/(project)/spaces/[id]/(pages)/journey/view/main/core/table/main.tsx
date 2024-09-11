@@ -1,19 +1,18 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { SpacesJourneyTableHeader } from './header/main';
+import { SpacesJourneyTableList } from './list/main';
 
-export function SpacesJourneyContainer({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+export function SpacesJourneyLogTable() {
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
-        name={SpacesJourneyContainer.name}
+        name={SpacesJourneyLogTable.name}
         sizeFx='w-full h-full'
         className={`flex flex-col overflow-auto`}
       >
         <div className='flex w-full flex-col items-center justify-center p-[2rem]'>
-          {children}
+          <SpacesJourneyTableHeader />
+          <SpacesJourneyTableList />
         </div>
       </GlassAreaContainer>
     </div>

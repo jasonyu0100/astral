@@ -16,50 +16,53 @@ export function SpacesJourneySidebarIdeasSelect() {
   } = useContext(ContextForSpacesJourney);
 
   return (
-    <div className='flex h-[4rem] w-full flex-row items-center justify-between p-[1rem] shadow-glow'>
-      <GlassWindowFrame
-        className='h-[2rem] w-[120px] flex-shrink-0'
-        roundedFx={roundedFx['rounded-full']}
-      >
-        <GlassWindowContents
-          className='flex cursor-pointer items-center justify-center'
-          onClick={() => updateSidebarMode(SpacesJourneySidebarMode.LINKS)}
+    <div className='grid h-[4rem] w-full grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
+      <div>
+        <GlassWindowFrame
+          className='h-full flex-shrink-0'
+          roundedFx={roundedFx['rounded-full']}
         >
-          <p
-            className={cn('font-bold text-slate-500', {
-              'text-slate-300': sidebarMode === SpacesJourneySidebarMode.LINKS,
-            })}
+          <GlassWindowContents
+            className='flex cursor-pointer items-center justify-center'
+            onClick={() => updateSidebarMode(SpacesJourneySidebarMode.LINKS)}
           >
-            Links
-          </p>
-        </GlassWindowContents>
-        {sidebarMode === SpacesJourneySidebarMode.LINKS && (
-          <GlassWindowPane glassFx={glassFx['glass-5']} />
-        )}
-      </GlassWindowFrame>
-      <div className='flex flex-shrink-0 flex-col items-center justify-center p-[1rem]'>
-        <p className='text-xl font-bold text-slate-500'>/</p>
+            <p
+              className={cn('font-bold text-slate-500', {
+                'text-slate-300':
+                  sidebarMode === SpacesJourneySidebarMode.LINKS,
+              })}
+            >
+              Links
+            </p>
+          </GlassWindowContents>
+          {sidebarMode === SpacesJourneySidebarMode.LINKS && (
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          )}
+        </GlassWindowFrame>
       </div>
-      <GlassWindowFrame
-        className='h-[2rem] w-[120px] flex-shrink-0'
-        roundedFx={roundedFx['rounded-full']}
-      >
-        <GlassWindowContents
-          className='flex cursor-pointer items-center justify-center'
-          onClick={() => updateSidebarMode(SpacesJourneySidebarMode.NOTES)}
+      <div>
+        <GlassWindowFrame
+          className='h-full flex-shrink-0'
+          roundedFx={roundedFx['rounded-full']}
         >
-          <p
-            className={cn('font-bold text-slate-500', {
-              'text-slate-300': sidebarMode === SpacesJourneySidebarMode.NOTES,
-            })}
+          <GlassWindowContents
+            className='flex cursor-pointer items-center justify-center'
+            onClick={() => updateSidebarMode(SpacesJourneySidebarMode.NOTES)}
           >
-            Notes
-          </p>
-        </GlassWindowContents>
-        {sidebarMode === SpacesJourneySidebarMode.NOTES && (
-          <GlassWindowPane glassFx={glassFx['glass-5']} />
-        )}
-      </GlassWindowFrame>
+            <p
+              className={cn('font-bold text-slate-500', {
+                'text-slate-300':
+                  sidebarMode === SpacesJourneySidebarMode.NOTES,
+              })}
+            >
+              Notes
+            </p>
+          </GlassWindowContents>
+          {sidebarMode === SpacesJourneySidebarMode.NOTES && (
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          )}
+        </GlassWindowFrame>
+      </div>
     </div>
   );
 }

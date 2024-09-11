@@ -6,11 +6,11 @@ import {
   ContextForSpacesJourney,
   SpacesJourneyDataMode,
 } from '../../controller/main';
-import { SpacesJourneyEmpty } from './empty/main';
+import { SpacesJourneyEmpty } from './core/empty/main';
+import { SpacesJourneyKanban } from './core/kanban/main';
+import { SpacesJourneyLogTable } from './core/table/main';
 import { SpacesJourneyHeader } from './header/main';
-import { SpacesJourneyKanban } from './kanban/main';
 import { SpacesJourneyChapterNavigation } from './navigation/main';
-import { SpacesJourneyLogTable } from './table/main';
 
 export function SpacesJourneyMain() {
   const {

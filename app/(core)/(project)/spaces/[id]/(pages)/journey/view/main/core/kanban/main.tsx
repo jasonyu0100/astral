@@ -4,17 +4,14 @@ import {
   ChapterLogStatus,
   ContextForChapterLogObj,
 } from '@/(server)/model/space/chapter/log/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
-import { ContextForSpacesJourneyModals } from '../../../modal/controller/main';
 import { SpaceProgressListItem } from './lists/item/main';
 import { SpaceProgressList } from './lists/main';
 import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 
 export function SpacesJourneyKanban() {
   const logListController = useContext(ContextForChapterLogList);
-  const modalController = useContext(ContextForSpacesJourneyModals);
 
   const [todo, setTodo] = useState<ChapterLogObj[]>([]);
   const [inProgress, setInProgress] = useState<ChapterLogObj[]>([]);
@@ -77,12 +74,10 @@ export function SpacesJourneyKanban() {
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid h-full w-full grid-cols-4 gap-[2rem] p-[2rem]'>
+      <div className='grid h-full w-full grid-cols-4'>
         <div className='flex h-full flex-col space-y-[1rem]'>
           <SpaceProgressList>
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
-
-            <HorizontalDivider />
             <ul
               id={ChapterLogStatus.TODO}
               className='w-full space-y-[2rem]'
@@ -116,8 +111,6 @@ export function SpacesJourneyKanban() {
             <SpacesJourneyKanbanListTitle>
               In-progress
             </SpacesJourneyKanbanListTitle>
-            <HorizontalDivider />
-
             <ul
               id={ChapterLogStatus.IN_PROGRESS}
               className='w-full space-y-[2rem]'
@@ -141,7 +134,6 @@ export function SpacesJourneyKanban() {
         <div className='flex h-full flex-col space-y-[1rem]'>
           <SpaceProgressList>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
-            <HorizontalDivider />
             <ul
               id={ChapterLogStatus.REVIEW}
               className='w-full space-y-[2rem]'
@@ -166,7 +158,6 @@ export function SpacesJourneyKanban() {
         <div className='flex h-full flex-col space-y-[1rem]'>
           <SpaceProgressList>
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
-            <HorizontalDivider />
             <ul
               id={ChapterLogStatus.DONE}
               className='w-full space-y-[2rem]'
