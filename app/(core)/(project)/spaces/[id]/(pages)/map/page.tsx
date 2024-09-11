@@ -122,9 +122,11 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForSpaceIdeaRelationshipListFromScene.Provider
                           value={spaceIdeaRelationshipListController}
                         >
-                          <SpacesMapControllerWrapper>
-                            <SpacesMapView />
-                          </SpacesMapControllerWrapper>
+                          <LoadingWrapper>
+                            <SpacesMapControllerWrapper>
+                              <SpacesMapView />
+                            </SpacesMapControllerWrapper>
+                          </LoadingWrapper>
                         </ContextForSpaceIdeaRelationshipListFromScene.Provider>
                       </ContextForConversationMessageList.Provider>
                     </ContextForSceneConversationList.Provider>
@@ -181,16 +183,14 @@ function SpacesMapControllerWrapper({
 
   return (
     <ContextForSpacesMap.Provider value={mapController}>
-      <ContextForSpacesMapChat.Provider value={mapChatController}>
-        <UpdateUrlWrapper>
-          <LoadingWrapper>
-            <SpacesMapModals>
-              <SpaceTabs tab={SpaceTabStage.Map} />
-              <DashboardContent>{children}</DashboardContent>
-            </SpacesMapModals>
-          </LoadingWrapper>
-        </UpdateUrlWrapper>
-      </ContextForSpacesMapChat.Provider>
+      <SpacesMapModals>
+        <ContextForSpacesMapChat.Provider value={mapChatController}>
+          <UpdateUrlWrapper>
+            <SpaceTabs tab={SpaceTabStage.Map} />
+            <DashboardContent>{children}</DashboardContent>
+          </UpdateUrlWrapper>
+        </ContextForSpacesMapChat.Provider>
+      </SpacesMapModals>
     </ContextForSpacesMap.Provider>
   );
 }

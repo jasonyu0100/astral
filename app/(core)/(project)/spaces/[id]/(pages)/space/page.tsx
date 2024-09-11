@@ -86,9 +86,11 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <SpacesSpaceControllerWrapper>
-                    <SpacesSpaceView />
-                  </SpacesSpaceControllerWrapper>
+                  <LoadingWrapper>
+                    <SpacesSpaceControllerWrapper>
+                      <SpacesSpaceView />
+                    </SpacesSpaceControllerWrapper>
+                  </LoadingWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>
@@ -140,14 +142,12 @@ function SpacesSpaceControllerWrapper({
 
   return (
     <ContextForSpacesSpace.Provider value={spacesSpaceController}>
-      <UpdateUrlWrapper>
-        <LoadingWrapper>
-          <SpacesSpaceModals>
-            <SpaceTabs tab={SpaceTabStage.Space} />
-            <DashboardContent>{children}</DashboardContent>
-          </SpacesSpaceModals>
-        </LoadingWrapper>
-      </UpdateUrlWrapper>
+      <SpacesSpaceModals>
+        <UpdateUrlWrapper>
+          <SpaceTabs tab={SpaceTabStage.Space} />
+          <DashboardContent>{children}</DashboardContent>
+        </UpdateUrlWrapper>
+      </SpacesSpaceModals>
     </ContextForSpacesSpace.Provider>
   );
 }

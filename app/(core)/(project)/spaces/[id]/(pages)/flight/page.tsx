@@ -91,9 +91,11 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForSpotlightLinkList.Provider
                     value={linkListController}
                   >
-                    <SpacesFlightControllerWrapper>
-                      <SpacesFlightView />
-                    </SpacesFlightControllerWrapper>
+                    <LoadingWrapper>
+                      <SpacesFlightControllerWrapper>
+                        <SpacesFlightView />
+                      </SpacesFlightControllerWrapper>
+                    </LoadingWrapper>
                   </ContextForSpotlightLinkList.Provider>
                 </ContextForSpotlightCommentList.Provider>
               </ContextForSpotlightAttachmentListFromSpotlight.Provider>
@@ -139,14 +141,12 @@ function SpacesFlightControllerWrapper({
   const flightController = useControllerForSpacesFlight();
   return (
     <ContextForSpacesFlight.Provider value={flightController}>
-      <UpdateUrlWrapper>
-        <LoadingWrapper>
-          <SpacesFlightModals>
-            <SpaceTabs tab={SpaceTabStage.Flight} />
-            <DashboardContent>{children}</DashboardContent>
-          </SpacesFlightModals>
-        </LoadingWrapper>
-      </UpdateUrlWrapper>
+      <SpacesFlightModals>
+        <UpdateUrlWrapper>
+          <SpaceTabs tab={SpaceTabStage.Flight} />
+          <DashboardContent>{children}</DashboardContent>
+        </UpdateUrlWrapper>
+      </SpacesFlightModals>
     </ContextForSpacesFlight.Provider>
   );
 }

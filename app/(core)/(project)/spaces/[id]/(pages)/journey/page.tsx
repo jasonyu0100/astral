@@ -54,9 +54,11 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterLogList.Provider value={logListController}>
             <ContextForLogLinkList.Provider value={linkListController}>
-              <SpacesJourneyControllerWrapper>
-                <SpacesJourneyView />
-              </SpacesJourneyControllerWrapper>
+              <LoadingWrapper>
+                <SpacesJourneyControllerWrapper>
+                  <SpacesJourneyView />
+                </SpacesJourneyControllerWrapper>
+              </LoadingWrapper>
             </ContextForLogLinkList.Provider>
           </ContextForChapterLogList.Provider>
         </ContextForSpaceChapterList.Provider>
@@ -100,14 +102,12 @@ function SpacesJourneyControllerWrapper({
 
   return (
     <ContextForSpacesJourney.Provider value={journeyController}>
-      <UpdateUrlWrapper>
-        <LoadingWrapper>
-          <SpacesJourneyModals>
-            <SpaceTabs tab={SpaceTabStage.Journey} />
-            <DashboardContent>{children}</DashboardContent>
-          </SpacesJourneyModals>
-        </LoadingWrapper>
-      </UpdateUrlWrapper>
+      <SpacesJourneyModals>
+        <UpdateUrlWrapper>
+          <SpaceTabs tab={SpaceTabStage.Journey} />
+          <DashboardContent>{children}</DashboardContent>
+        </UpdateUrlWrapper>
+      </SpacesJourneyModals>
     </ContextForSpacesJourney.Provider>
   );
 }
