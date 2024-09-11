@@ -2,8 +2,8 @@ export const baseUrl = `/journal`;
 
 export const journalMap = {
   journal: {
-    record: {
-      link: `${baseUrl}/record`,
+    daily: {
+      link: `${baseUrl}/daily`,
     },
     link: `${baseUrl}`,
   },

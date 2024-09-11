@@ -31,7 +31,7 @@ export function HorizonsGroupRowItem() {
           <p className='text-sm font-light text-slate-300'>Scale</p>
         </div>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

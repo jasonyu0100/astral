@@ -17,7 +17,7 @@ export function UserProfileGeneralWork() {
 
   return (
     <div className='flex w-full flex-col space-y-[2rem]'>
-      <p className='text-2xl font-bold text-slate-300'>Your spotlight</p>
+      <p className='text-2xl font-bold text-slate-500'>Your spotlight</p>
       <HorizontalDivider />
       <GlassWindowFrame className='w-full'>
         <GlassWindowContents className='flex flex-col items-center divide-y-[1px] divide-slate-500 divide-opacity-30'>

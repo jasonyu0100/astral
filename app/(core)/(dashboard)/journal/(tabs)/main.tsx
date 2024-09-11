@@ -5,7 +5,7 @@ import { studioMap } from '../../studio/map';
 import { TabOne } from './tab-1/main';
 
 export enum JournalTabStage {
-  Record = 'Record',
+  Daily = 'Daily',
 }
 interface JournalTabProps {
   tab?: string;

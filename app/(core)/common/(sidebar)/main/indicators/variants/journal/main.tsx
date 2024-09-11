@@ -16,11 +16,11 @@ export function JournalIndicator() {
   return (
     <>
       {dashboardSidebar.minimised ? (
-        <DashboardSidebarIndicator href={journalMap.journal.record.link}>
+        <DashboardSidebarIndicator href={journalMap.journal.daily.link}>
           <IndicatorGreenJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
-        <DashboardSidebarIndicator href={journalMap.journal.record.link}>
+        <DashboardSidebarIndicator href={journalMap.journal.daily.link}>
           <IndicatorGreenJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>

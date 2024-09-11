@@ -10,7 +10,7 @@ export function HorizonsContainer({
     <GlassAreaContainer
       name={HorizonsContainer.name}
       sizeFx='h-full flex-grow'
-      glassFx={glassFx['glass-10']}
+      glassFx={glassFx['glass-5']}
       className={`flex flex-row`}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
