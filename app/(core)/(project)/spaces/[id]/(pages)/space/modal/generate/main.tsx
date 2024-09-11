@@ -26,7 +26,7 @@ export function SpacesSpaceGenerateMapModal() {
   const user = useGlobalUser((state) => state.user);
   const loadingController = useContext(ContextForLoading);
   const {
-    actions: { generateStickies: generateStickies },
+    actions: { summariseConversationIntoNotes },
   } = useContext(ContextForSpacesSpace);
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
@@ -45,7 +45,7 @@ export function SpacesSpaceGenerateMapModal() {
   useEffect(() => {
     if (openableController.opened) {
       loadingController.loadingController.open();
-      generateStickies().then((stickies) => {
+      summariseConversationIntoNotes().then((stickies) => {
         setStickies(stickies.map((sticky) => sticky.text));
         searchArticles('how to create a map').then(() => {
           loadingController.loadingController.close();

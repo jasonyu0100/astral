@@ -1,9 +1,9 @@
 import { Tabs } from '@/(core)/(dashboard)/common//tabs/main';
 import { TabsRow } from '@/(core)/(dashboard)/common//tabs/tabs-row/main';
-import { TabOne } from './tab-1/main';
-import { TabTwo } from './tab-2/main';
-import { TabThree } from './tab-3/main';
-import { TabFour } from './tab-4/main';
+import { SpacesTabSpace } from './tab-1/main';
+import { SpacesTabMap } from './tab-2/main';
+import { SpaceTabJourney } from './tab-3/main';
+import { SpacesTabFlight } from './tab-4/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -20,10 +20,10 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <Tabs>
       <TabsRow>
-        <TabOne tab={tab} />
-        <TabTwo tab={tab} />
-        <TabThree tab={tab} />
-        <TabFour tab={tab} />
+        <SpacesTabSpace tab={tab} />
+        <SpacesTabMap tab={tab} />
+        <SpaceTabJourney tab={tab} />
+        <SpacesTabFlight tab={tab} />
       </TabsRow>
     </Tabs>
   );

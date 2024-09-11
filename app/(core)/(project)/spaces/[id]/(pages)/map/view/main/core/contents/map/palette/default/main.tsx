@@ -4,12 +4,13 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/sce
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralHideSourceIcon } from '@/icons/hide-source/main';
+import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 
 export function SpacesMapPaletteDefault() {
   const {
     state: { selectedIdeas },
-    actions: { updateSelectedIdeas },
+    actions: { updateSelectedIdeas, linkIdeas },
   } = useContext(ContextForSpacesMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const modalController = useContext(ContextForSpacesMapModals);
@@ -20,6 +21,13 @@ export function SpacesMapPaletteDefault() {
         <AstralCombineIcon
           onClick={() => {
             modalController.combineIdeasController.open();
+          }}
+        />
+      )}
+      {selectedIdeas.length >= 2 && (
+        <AstralShareIcon
+          onClick={() => {
+            linkIdeas();
           }}
         />
       )}

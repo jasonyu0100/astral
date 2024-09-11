@@ -24,7 +24,7 @@ interface ControllerState {
 interface ControllerActions {
   sendMessage: () => Promise<ConversationMessageObj>;
   updateRole: (role: ConversationRole) => void;
-  generateStickies: () => GeneratedSticky[];
+  summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
 }
 
@@ -142,7 +142,7 @@ export function useControllerForSpacesSpace() {
     );
   }
 
-  async function generateStickies() {
+  async function summariseConversationIntoNotes() {
     const messageHistory = [
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
@@ -255,7 +255,7 @@ Ensure the response follows the exact structure and format shown above, with pro
       role: role,
     },
     actions: {
-      generateStickies: generateStickies,
+      summariseConversationIntoNotes,
       sendMessage,
       updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => {
         setSidebarVisibility(visibility);

@@ -2,19 +2,19 @@ const baseUrl = `/vault`;
 
 export const vaultMap = {
   vault: {
-    explorer: {
-      link: `${baseUrl}/explorer/home`,
+    finder: {
+      link: `${baseUrl}/finder/home`,
       home: {
-        link: `${baseUrl}/explorer/home`,
+        link: `${baseUrl}/finder/home`,
       },
       gallery: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/gallery/${id}`,
+          link: (id: string) => `${baseUrl}/finder/gallery/${id}`,
         },
       },
       collection: {
         id: {
-          link: (id: string) => `${baseUrl}/explorer/collection/${id}`,
+          link: (id: string) => `${baseUrl}/finder/collection/${id}`,
         },
       },
     },

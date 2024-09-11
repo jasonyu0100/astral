@@ -32,7 +32,7 @@ export function SpacesMapScene() {
   }, []); // The empty dependency array ensures this effect runs only once after the component mounts.
 
   return (
-    <div className='relative h-full w-full py-[2rem] pl-[2rem] pr-[6rem]'>
+    <div className='relative h-full w-full py-[2rem] pl-[8rem] pr-[2rem]'>
       {visibleIdeas.length === 0 && <SpacesMapSceneEmpty />}
       <div
         className='relative z-10 h-full w-full'

@@ -1,4 +1,5 @@
 'use client';
+import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -30,6 +31,7 @@ import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { SpaceTabs, SpaceTabStage } from '../../tabs/main';
 import {
   ContextForSpacesSpace,
   useControllerForSpacesSpace,
@@ -38,11 +40,11 @@ import { SpacesSpaceModals } from './modal/controller/main';
 import { SpacesSpaceView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
-  const setSpace = useGlobalSpace((state) => state.setSpace);
-
   const searchParams = useSearchParams();
   const sceneId = searchParams.get('scene');
   const chapterId = searchParams.get('chapter');
+
+  const setSpace = useGlobalSpace((state) => state.setSpace);
 
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
@@ -84,13 +86,9 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <LoadingWrapper>
-                    <SpacesSpaceControllerWrapper>
-                      <SpacesSpaceModals>
-                        <SpacesSpaceView />
-                      </SpacesSpaceModals>
-                    </SpacesSpaceControllerWrapper>
-                  </LoadingWrapper>
+                  <SpacesSpaceControllerWrapper>
+                    <SpacesSpaceView />
+                  </SpacesSpaceControllerWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>
@@ -106,10 +104,16 @@ function SpacesSpaceControllerWrapper({
 }: {
   children: React.ReactNode;
 }) {
-  const spaceChatController = useControllerForSpacesSpace();
+  const spacesSpaceController = useControllerForSpacesSpace();
+
   return (
-    <ContextForSpacesSpace.Provider value={spaceChatController}>
-      {children}
+    <ContextForSpacesSpace.Provider value={spacesSpaceController}>
+      <LoadingWrapper>
+        <SpacesSpaceModals>
+          <SpaceTabs tab={SpaceTabStage.Space} />
+          <DashboardContent>{children}</DashboardContent>
+        </SpacesSpaceModals>
+      </LoadingWrapper>
     </ContextForSpacesSpace.Provider>
   );
 }

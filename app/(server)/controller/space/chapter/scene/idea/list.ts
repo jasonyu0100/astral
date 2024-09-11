@@ -50,7 +50,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     fileElem: FileElem,
     idx: number,
   ) => Promise<TargetObj>;
-  createFromLink: (
+  createFromUrl: (
     userId: string,
     sceneId: string,
     title: string,
@@ -328,7 +328,7 @@ const useControllerForSceneIdeaList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromLink: async (
+    createFromUrl: async (
       userId,
       sceneId,
       title,

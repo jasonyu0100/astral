@@ -1,8 +1,8 @@
 'use client';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import {
-  ContextForHorizonProjects,
-  useControllerForProjects,
+  ContextForExplorerProjects,
+  useControllerForExplorerProjects,
 } from './controller/main';
 import { HorizonsView } from './view/view';
 
@@ -15,11 +15,11 @@ function Page() {
 }
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
-  const projectsController = useControllerForProjects();
+  const projectsController = useControllerForExplorerProjects();
   return (
-    <ContextForHorizonProjects.Provider value={projectsController}>
+    <ContextForExplorerProjects.Provider value={projectsController}>
       {children}
-    </ContextForHorizonProjects.Provider>
+    </ContextForExplorerProjects.Provider>
   );
 }
 

@@ -4,7 +4,7 @@ import { NetworkSidebarList } from '../(common)/list/main';
 import { NetworkSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForNetworkCreative,
-  NetworkCreativeInfluence,
+  NetworkCreativeDegree,
 } from '../../../controller/main';
 
 export function NetworkSidebarDegree() {
@@ -17,67 +17,14 @@ export function NetworkSidebarDegree() {
     <div className='flex flex-col'>
       <NetworkSidebarLabel>Degree</NetworkSidebarLabel>
       <NetworkSidebarList>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Any}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Any)}
-        >
-          Any
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.First}
-          onClick={() => updateDegree(NetworkCreativeInfluence.First)}
-        >
-          1st
-        </NetworkSidebarOption>
-
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Second}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Second)}
-        >
-          2nd
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Third}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Third)}
-        >
-          3rd
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Fourth}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Fourth)}
-        >
-          4th
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Fifth}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Fifth)}
-        >
-          5th
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Sixth}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Sixth)}
-        >
-          6th
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Seventh}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Seventh)}
-        >
-          7th
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Eighth}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Eighth)}
-        >
-          8th
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={degree === NetworkCreativeInfluence.Ninth}
-          onClick={() => updateDegree(NetworkCreativeInfluence.Ninth)}
-        >
-          9th
-        </NetworkSidebarOption>
+        {Object.values(NetworkCreativeDegree).map((obj) => (
+          <NetworkSidebarOption
+            active={degree === obj}
+            onClick={() => updateDegree(obj as NetworkCreativeDegree)}
+          >
+            {obj}
+          </NetworkSidebarOption>
+        ))}
       </NetworkSidebarList>
     </div>
   );

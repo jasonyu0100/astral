@@ -1,42 +1,42 @@
 import { createContext, useState } from 'react';
 
-export enum HorizonsProjectScale {
-  'Local' = '📍',
-  'Group' = '👥',
-  'Cluster' = '🌌',
+export enum ExplorerProjectScope {
+  Local = '📍 - Local',
+  Group = '👥 - Group',
+  Cluster = '💫 - Cluster',
 }
 
-export enum HorizonsProjectGuild {
-  Writing = '✍️', // Represents writing and creativity
-  Engineering = '🛠️', // Represents engineering and tools
-  Art = '🎨', // Represents art and creativity
-  Design = '🖌️', // Represents design and artistic creation
-  Research = '🔎', // Represents research and investigation
+export enum ExplorerProjectGuild {
+  Writing = '✍️ - Writing',
+  Engineering = '🛠️ - Engineering',
+  Art = '🎨 - Art',
+  Design = '🖌️ - Design',
+  Research = '🔎 - Research',
 }
 
-export enum HorizonsProjectDegree {
-  'Any',
-  'First',
-  'Second',
-  'Third',
-  'Fourth',
-  'Fifth',
-  'Sixth',
-  'Seventh',
-  'Eighth',
-  'Ninth',
+export enum ExplorerProjectDegree {
+  'Any' = 'Any',
+  'First' = 'First',
+  'Second' = 'Second',
+  'Third' = 'Third',
+  'Fourth' = 'Fourth',
+  'Fifth' = 'Fifth',
+  'Sixth' = 'Sixth',
+  'Seventh' = 'Seventh',
+  'Eighth' = 'Eighth',
+  'Ninth' = 'Ninth',
 }
 
 interface ControllerState {
-  scale: HorizonsProjectScale;
-  guild: HorizonsProjectGuild;
-  degree: HorizonsProjectDegree;
+  scope: ExplorerProjectScope;
+  guild: ExplorerProjectGuild;
+  degree: ExplorerProjectDegree;
 }
 
 interface ControllerActions {
-  updateScale: (scale: HorizonsProjectScale) => void;
-  updateGuild: (guild: HorizonsProjectGuild) => void;
-  updateDegree: (degree: HorizonsProjectDegree) => void;
+  updateScope: (scope: ExplorerProjectScope) => void;
+  updateGuild: (guild: ExplorerProjectGuild) => void;
+  updateDegree: (degree: ExplorerProjectDegree) => void;
 }
 
 interface Controller {
@@ -44,29 +44,29 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const ContextForHorizonProjects = createContext({} as Controller);
+export const ContextForExplorerProjects = createContext({} as Controller);
 
-export function useControllerForProjects() {
-  const [scale, setScale] = useState<HorizonsProjectScale>(
-    HorizonsProjectScale.Local,
+export function useControllerForExplorerProjects() {
+  const [scope, setScope] = useState<ExplorerProjectScope>(
+    ExplorerProjectScope.Local,
   );
-  const [guild, setGuild] = useState<HorizonsProjectGuild>(
-    HorizonsProjectGuild.Writing,
+  const [guild, setGuild] = useState<ExplorerProjectGuild>(
+    ExplorerProjectGuild.Writing,
   );
-  const [degree, setDegree] = useState<HorizonsProjectDegree>(
-    HorizonsProjectDegree.Any,
+  const [degree, setDegree] = useState<ExplorerProjectDegree>(
+    ExplorerProjectDegree.Any,
   );
 
   return {
     state: {
-      scale,
+      scope,
       guild,
       degree,
     },
     actions: {
-      updateScale: (scale: HorizonsProjectScale) => setScale(scale),
-      updateGuild: (guild: HorizonsProjectGuild) => setGuild(guild),
-      updateDegree: (degree: HorizonsProjectDegree) => setDegree(degree),
+      updateScope: (scale: ExplorerProjectScope) => setScope(scale),
+      updateGuild: (guild: ExplorerProjectGuild) => setGuild(guild),
+      updateDegree: (degree: ExplorerProjectDegree) => setDegree(degree),
     },
   };
 }

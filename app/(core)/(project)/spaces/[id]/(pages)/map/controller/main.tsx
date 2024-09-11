@@ -1,9 +1,14 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ContextForSpaceIdeaRelationshipListFromScene } from '@/(server)/controller/space/relationship/list-from-scene';
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { createContext, useContext, useState } from 'react';
 
@@ -46,6 +51,7 @@ interface ControllerActions {
   updateSidebarMode: (mode: SpacesMapSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
   updateSidebarVisibility: (visibility: SpacesMapSidebarVisibility) => void;
+  linkIdeas: () => Promise<SpaceIdeaRelationshipObj[]>;
   selectAll: () => void;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
@@ -106,8 +112,14 @@ export enum SpacesMapDirectoryMode {
 export function useControllerForSpacesMap(): Controller {
   const loadingController = useContext(ContextForLoading);
   const ideaListController = useContext(ContextForSceneIdeaList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const spaceController = useContext(ContextForSpaceMain);
+  const sceneListController = useContext(ContextForChapterSceneList);
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
+  const spaceIdeaRelationshipListController = useContext(
+    ContextForSpaceIdeaRelationshipListFromScene,
+  );
   const [selectedIdeas, setSelectedIdeas] = useState<SceneIdeaObj[]>([]);
   const [peopleMode, setPeopleMode] = useState<SpacesMapPeopleMode>(
     SpacesMapPeopleMode.OFF,
@@ -226,6 +238,23 @@ export function useControllerForSpacesMap(): Controller {
     return { x: centerX, y: centerY, width: ideaWidth, height: ideaHeight };
   };
 
+  const linkIdeas = async () => {
+    const ideaRelationships = await Promise.all(
+      selectedIdeas.slice(0, selectedIdeas.length - 1).map((idea, index) => {
+        const toIdea = selectedIdeas[index + 1];
+        return spaceIdeaRelationshipListController.actions.createActions.createFromIdea(
+          idea,
+          toIdea,
+          spaceController.state.objId,
+          chapterListController.state.objId,
+          sceneListController.state.objId,
+        );
+      }),
+    );
+
+    return ideaRelationships;
+  };
+
   return {
     state: {
       directoryMode: directoryMode,
@@ -242,8 +271,6 @@ export function useControllerForSpacesMap(): Controller {
       sidebarVisibility: sidebarVisibility,
     },
     actions: {
-      autoSort: autoSort,
-      getAvailableXYWH: getAvailableXYWH,
       updateDivWidth: (width) => setDivWidth(width),
       updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
@@ -254,8 +281,6 @@ export function useControllerForSpacesMap(): Controller {
       updateSidebarContentMode: (mode) => setListMode(mode),
       updateSidebarMode: (mode) => setListSceneMode(mode),
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
-      checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
-        selectedIdeas.map((idea) => idea.id).includes(idea.id),
       goToHome: () => {
         changeSidebarMediaMode(SpacesMapSidebarMediaMode.Home);
       },
@@ -267,9 +292,14 @@ export function useControllerForSpacesMap(): Controller {
         collectionListController.actions.stateActions.select(collection);
         changeSidebarMediaMode(SpacesMapSidebarMediaMode.Collection);
       },
+      checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
+        selectedIdeas.map((idea) => idea.id).includes(idea.id),
+      autoSort: autoSort,
+      getAvailableXYWH: getAvailableXYWH,
       selectAll: () => {
         setSelectedIdeas(ideaListController.state.objs);
       },
+      linkIdeas: linkIdeas,
     },
   };
 }

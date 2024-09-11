@@ -1,4 +1,5 @@
 'use client';
+import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
@@ -31,7 +32,9 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useContext, useEffect } from 'react';
+import { SpaceTabs, SpaceTabStage } from '../../tabs/main';
 import {
   ContextForSpacesFlight,
   useControllerForSpacesFlight,
@@ -88,13 +91,9 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForSpotlightLinkList.Provider
                     value={linkListController}
                   >
-                    <LoadingWrapper>
-                      <SpacesFlightControllerWrapper>
-                        <SpacesFlightModals>
-                          <SpacesFlightView />
-                        </SpacesFlightModals>
-                      </SpacesFlightControllerWrapper>
-                    </LoadingWrapper>
+                    <SpacesFlightControllerWrapper>
+                      <SpacesFlightView />
+                    </SpacesFlightControllerWrapper>
                   </ContextForSpotlightLinkList.Provider>
                 </ContextForSpotlightCommentList.Provider>
               </ContextForSpotlightAttachmentListFromSpotlight.Provider>
@@ -106,6 +105,32 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
+function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const chapterId = chapterListController.state.objId;
+
+    // Get the current search params
+    const currentSearchParams = new URLSearchParams(searchParams);
+
+    // Update scene and chapter in the URL if they exist
+    if (chapterId) {
+      currentSearchParams.set('chapter', chapterId);
+    }
+
+    // Update the router to reflect the new search params
+    router.replace(`?${currentSearchParams.toString()}`);
+  }, [
+    chapterListController.state.objId,
+    router, // Ensure router is in the dependency array
+  ]);
+
+  return <>{children}</>;
+}
+
 function SpacesFlightControllerWrapper({
   children,
 }: {
@@ -114,7 +139,14 @@ function SpacesFlightControllerWrapper({
   const flightController = useControllerForSpacesFlight();
   return (
     <ContextForSpacesFlight.Provider value={flightController}>
-      {children}
+      <UpdateUrlWrapper>
+        <LoadingWrapper>
+          <SpacesFlightModals>
+            <SpaceTabs tab={SpaceTabStage.Flight} />
+            <DashboardContent>{children}</DashboardContent>
+          </SpacesFlightModals>
+        </LoadingWrapper>
+      </UpdateUrlWrapper>
     </ContextForSpacesFlight.Provider>
   );
 }

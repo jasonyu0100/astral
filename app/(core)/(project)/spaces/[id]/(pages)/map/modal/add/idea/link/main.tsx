@@ -65,7 +65,7 @@ export function SpacesMapAddUrlIdeaModal() {
   }
 
   async function createIdeaFromYouTube() {
-    const idea = await ideaListController.actions.createActions.createFromLink(
+    const idea = await ideaListController.actions.createActions.createFromUrl(
       user.id,
       sceneListController.state.objId,
       title,
@@ -92,7 +92,7 @@ export function SpacesMapAddUrlIdeaModal() {
   }
 
   async function createIdeaFromSpotify() {
-    const idea = await ideaListController.actions.createActions.createFromLink(
+    const idea = await ideaListController.actions.createActions.createFromUrl(
       user.id,
       ideaListController.state.objId,
       title,

@@ -9,7 +9,7 @@ export function TabOne({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={vaultMap.vault.explorer.link}>
+    <Tab href={vaultMap.vault.finder.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>

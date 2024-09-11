@@ -13,7 +13,8 @@ export function HorizonForumSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <p className='text-lg font-bold text-slate-300'>Upcoming</p>
+      <p className='text-xl font-bold text-slate-300'>Upcoming</p>
+      <p className='text-md font-light text-slate-300'>Arriving soon</p>
       <HorizonForumSidebarItemMain>
         <HorizonForumSidebarItemHeader
           title={'Member shared prank video'}
@@ -21,6 +22,7 @@ export function HorizonForumSidebar() {
         />
         <HorizonForumSidebarItemFooter time='Arriving in 5 minutes' />
       </HorizonForumSidebarItemMain>
+      <HorizontalDivider />
       <p className='text-md font-light text-slate-300'>Arriving in an hour</p>
       <HorizonForumSidebarItemMain>
         <HorizonForumSidebarItemHeader
@@ -43,6 +45,7 @@ export function HorizonForumSidebar() {
         />
         <HorizonForumSidebarItemFooter time='Resolved 30 minutes ago' />
       </HorizonForumSidebarItemMain>
+      <HorizontalDivider />
 
       <p className='text-md font-light text-slate-300'>Arriving in a day</p>
       <HorizonForumSidebarItemMain>
@@ -54,7 +57,7 @@ export function HorizonForumSidebar() {
       </HorizonForumSidebarItemMain>
       <HorizontalDivider />
       <br />
-      <p className='text-lg font-bold text-slate-300'>Recently Posted</p>
+      <p className='text-xl font-bold text-slate-300'>Recently Posted</p>
       <HorizonForumSidebarItemMain>
         <HorizonForumSidebarItemHeader
           title={'Member shared creative artwork'}

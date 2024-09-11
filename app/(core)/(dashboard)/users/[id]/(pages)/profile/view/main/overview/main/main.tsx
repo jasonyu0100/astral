@@ -8,22 +8,23 @@ export function UserProfileOverviewPages() {
   const profileController = useContext(ContextForProfile);
 
   return (
-    <div
-      className='flex w-full flex-col overflow-auto p-[2rem]'
-      style={{ height: 'calc(100% - 4rem)' }}
-    >
-      {profileController.state.page === ProfilePage.About && (
-        <UserProfileOverviewAbout />
-      )}
-      {/* {profileController.state.page === ProfilePage.Story && (
-        <UserProfileOverviewStory />
-      )} */}
-      {profileController.state.page === ProfilePage.Projects && (
-        <UserProfileOverviewProjects />
-      )}
-      {profileController.state.page === ProfilePage.Contribution && (
-        <UserProfileOverviewKarma />
-      )}
+    <div className='w-full p-[2rem]' style={{ height: 'calc(100% - 4rem)' }}>
+      <div className='h-full w-full overflow-auto pr-[2rem]'>
+        <div className='flex w-full flex-col'>
+          {profileController.state.page === ProfilePage.About && (
+            <UserProfileOverviewAbout />
+          )}
+          {/* {profileController.state.page === ProfilePage.Story && (
+          <UserProfileOverviewStory />
+      )}   */}
+          {profileController.state.page === ProfilePage.Projects && (
+            <UserProfileOverviewProjects />
+          )}
+          {profileController.state.page === ProfilePage.Aura && (
+            <UserProfileOverviewKarma />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

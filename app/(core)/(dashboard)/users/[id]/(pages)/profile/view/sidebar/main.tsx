@@ -5,7 +5,6 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { ContextForUserProfile } from '../../controller/main';
 import { UserProfileAbout } from './about/main';
-import { UserProfileAdminIndicator } from './admin-indicator/main';
 
 export function UserProfileSidebar() {
   const {
@@ -16,7 +15,7 @@ export function UserProfileSidebar() {
     <GlassWindowFrame className='h-full flex-shrink-0'>
       <GlassWindowContents className='flex h-full w-full flex-col'>
         <UserProfileAbout />
-        {adminMode && <UserProfileAdminIndicator />}
+        {/* {adminMode && <UserProfileAdminIndicator />} */}
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

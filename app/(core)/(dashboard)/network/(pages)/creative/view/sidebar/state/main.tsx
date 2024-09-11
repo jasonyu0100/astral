@@ -4,7 +4,7 @@ import { NetworkSidebarList } from '../(common)/list/main';
 import { NetworkSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForNetworkCreative,
-  NetworkCreativeState,
+  NetworkCreativeAura,
 } from '../../../controller/main';
 
 export function NetworkSidebarState() {
@@ -17,36 +17,14 @@ export function NetworkSidebarState() {
     <div className='flex flex-col'>
       <NetworkSidebarLabel>State</NetworkSidebarLabel>
       <NetworkSidebarList>
-        <NetworkSidebarOption
-          active={NetworkCreativeState.Full === guild}
-          onClick={() => updateGuild(NetworkCreativeState.Full)}
-        >
-          {NetworkCreativeState.Full} - Full
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={NetworkCreativeState.Waxing === guild}
-          onClick={() => updateGuild(NetworkCreativeState.Waxing)}
-        >
-          {NetworkCreativeState.Waxing} - Waxing
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={NetworkCreativeState.Half === guild}
-          onClick={() => updateGuild(NetworkCreativeState.Half)}
-        >
-          {NetworkCreativeState.Half} - Half
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={NetworkCreativeState.Waning === guild}
-          onClick={() => updateGuild(NetworkCreativeState.Waning)}
-        >
-          {NetworkCreativeState.Waning} - Waning
-        </NetworkSidebarOption>
-        <NetworkSidebarOption
-          active={NetworkCreativeState.New === guild}
-          onClick={() => updateGuild(NetworkCreativeState.New)}
-        >
-          {NetworkCreativeState.New} - New
-        </NetworkSidebarOption>
+        {Object.values(NetworkCreativeAura).map((obj) => (
+          <NetworkSidebarOption
+            active={guild === obj}
+            onClick={() => updateGuild(obj)}
+          >
+            {obj}
+          </NetworkSidebarOption>
+        ))}
       </NetworkSidebarList>
     </div>
   );

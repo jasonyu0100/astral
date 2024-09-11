@@ -9,18 +9,6 @@ export function HorizonPointSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-r']}
-    >
-      <p className='text-lg font-bold text-slate-300'>Upcoming</p>
-      <p className='text-lg font-bold text-slate-300'>
-        🌑 - Member just sent brain-dead meme to their organization - visible in
-        1hr - negative karma
-      </p>
-      <p className='text-lg font-bold text-slate-300'>
-        🌒 - Member just spread a conspiracy - visible in 1hr ago
-      </p>
-      <p className='text-lg font-bold text-slate-300'>
-        🌕 - Member just spread a conspiracy
-      </p>
-    </GlassAreaContainer>
+    ></GlassAreaContainer>
   );
 }

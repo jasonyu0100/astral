@@ -2,7 +2,7 @@ import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { ExplorerProjectsSidebarDegree } from './degree/main';
 import { ExplorerProjectsSidebarGuild } from './guild/main';
-import { ExplorerProjectsSidebarScale } from './scale/main';
+import { ExplorerProjectsSidebarScope } from './scope/main';
 
 export function ExplorerProjectsSidebar() {
   return (
@@ -14,7 +14,7 @@ export function ExplorerProjectsSidebar() {
     >
       <div className='flex h-full w-full flex-col overflow-auto'>
         <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-          <ExplorerProjectsSidebarScale />
+          <ExplorerProjectsSidebarScope />
           <ExplorerProjectsSidebarGuild />
           <ExplorerProjectsSidebarDegree />
         </div>

@@ -1,11 +1,11 @@
 import { NavigationTimelineContainer } from './container/main';
-import { SpaceFlightNavigationRow } from './row/main';
+import { HorizonsArcNavigationRow } from './row/main';
 
 export function HorizonsArcNavigation() {
   return (
     <NavigationTimelineContainer>
       {/* <NavigationTimelineGoLeftAction /> */}
-      <SpaceFlightNavigationRow />
+      <HorizonsArcNavigationRow />
       {/* <NavigationTimelineGoRightAction /> */}
     </NavigationTimelineContainer>
   );

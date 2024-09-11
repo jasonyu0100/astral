@@ -13,7 +13,7 @@ export function SpacesMapChat() {
   } = useContext(ContextForSpacesMap);
 
   return (
-    <div className='absolute bottom-[1rem] right-[1rem] z-50 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute bottom-[2rem] left-[2rem] z-50 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
       <AstralChatIndicatorIcon
         className={cn(
           'h-[2rem] w-[2rem] animate-pulse-slow cursor-pointer fill-slate-500',

@@ -1,8 +1,8 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { NetworkSidebarState } from './aura/main';
 import { NetworkSidebarDegree } from './degree/main';
 import { NetworkSidebarScale } from './relevance/main';
-import { NetworkSidebarState } from './state/main';
 
 export function NetworkCreativeSidebar() {
   return (

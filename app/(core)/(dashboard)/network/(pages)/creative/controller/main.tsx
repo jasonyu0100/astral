@@ -1,44 +1,44 @@
 import { createContext, useState } from 'react';
 
 export enum NetworkCreativeRelevance {
-  Peak = '🚀',
-  Central = '🔗',
-  Entry = '🔑',
-  Peripheral = '🌍',
-  Bridge = '🌉',
+  Peak = '🚀 - Peak',
+  Central = '🔗 - Central',
+  Entry = '🔑 - Entry',
+  Peripheral = '🌍 - Peripheral',
+  Bridge = '🌉 - Bridge',
 }
 
-export enum NetworkCreativeState {
-  Full = '🌕',
-  Waxing = '🌖',
-  Half = '🌗',
-  Waning = '🌘',
-  New = '🌑',
+export enum NetworkCreativeAura {
+  Full = '🌕 - Full',
+  Waxing = '🌖 - Waxing',
+  Half = '🌗 - Half',
+  Waning = '🌘 - Waning',
+  New = '🌑 - New',
 }
 
-export enum NetworkCreativeInfluence {
-  'Any',
-  'First',
-  'Second',
-  'Third',
-  'Fourth',
-  'Fifth',
-  'Sixth',
-  'Seventh',
-  'Eighth',
-  'Ninth',
+export enum NetworkCreativeDegree {
+  'Any' = 'Any',
+  'First' = 'First',
+  'Second' = 'Second',
+  'Third' = 'Third',
+  'Fourth' = 'Fourth',
+  'Fifth' = 'Fifth',
+  'Sixth' = 'Sixth',
+  'Seventh' = 'Seventh',
+  'Eighth' = 'Eighth',
+  'Ninth' = 'Ninth',
 }
 
 interface ControllerState {
   scale: NetworkCreativeRelevance;
-  guild: NetworkCreativeState;
-  degree: NetworkCreativeInfluence;
+  guild: NetworkCreativeAura;
+  degree: NetworkCreativeDegree;
 }
 
 interface ControllerActions {
   updateScale: (scale: NetworkCreativeRelevance) => void;
-  updateGuild: (guild: NetworkCreativeState) => void;
-  updateDegree: (degree: NetworkCreativeInfluence) => void;
+  updateGuild: (guild: NetworkCreativeAura) => void;
+  updateDegree: (degree: NetworkCreativeDegree) => void;
 }
 
 interface Controller {
@@ -50,25 +50,25 @@ export const ContextForNetworkCreative = createContext({} as Controller);
 
 export function useControllerForNetworkCreative() {
   const [scale, setScale] = useState<NetworkCreativeRelevance>(
-    NetworkCreativeRelevance.Local,
+    NetworkCreativeRelevance.Peak,
   );
-  const [guild, setGuild] = useState<NetworkCreativeState>(
-    NetworkCreativeState.Full,
+  const [aura, setAura] = useState<NetworkCreativeAura>(
+    NetworkCreativeAura.Full,
   );
-  const [degree, setDegree] = useState<NetworkCreativeInfluence>(
-    NetworkCreativeInfluence.Any,
+  const [degree, setDegree] = useState<NetworkCreativeDegree>(
+    NetworkCreativeDegree.Any,
   );
 
   return {
     state: {
       scale,
-      guild,
+      guild: aura,
       degree,
     },
     actions: {
       updateScale: (scale: NetworkCreativeRelevance) => setScale(scale),
-      updateGuild: (guild: NetworkCreativeState) => setGuild(guild),
-      updateDegree: (degree: NetworkCreativeInfluence) => setDegree(degree),
+      updateGuild: (guild: NetworkCreativeAura) => setAura(guild),
+      updateDegree: (degree: NetworkCreativeDegree) => setDegree(degree),
     },
   };
 }

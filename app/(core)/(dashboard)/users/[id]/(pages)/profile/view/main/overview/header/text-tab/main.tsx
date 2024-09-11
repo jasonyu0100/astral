@@ -18,7 +18,7 @@ export function UserProfileTextTab({
         className='flex h-full w-full cursor-pointer flex-row items-center justify-center'
       >
         <p
-          className={cn('font-bold text-slate-500', {
+          className={cn('text-lg font-bold text-slate-500', {
             'text-slate-300': active,
           })}
         >

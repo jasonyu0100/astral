@@ -1,10 +1,10 @@
 import { createContext, useState } from 'react';
 
 export enum ProfilePage {
-  About = 'About ℹ️',
-  Story = 'Story 📖',
-  Projects = 'Projects 📁',
-  Contribution = 'Contribution 🌟',
+  About = 'About',
+  Story = 'Story',
+  Projects = 'Projects',
+  Aura = 'Aura',
 }
 
 interface ControllerState {

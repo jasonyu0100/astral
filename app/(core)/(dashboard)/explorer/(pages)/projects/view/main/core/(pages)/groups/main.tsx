@@ -1,17 +1,17 @@
 import { useContext } from 'react';
 import {
-  ContextForHorizonProjects,
-  HorizonsProjectScale,
+  ContextForExplorerProjects,
+  ExplorerProjectScope,
 } from '../../../../../controller/main';
 import { HorizonsGroupContainer } from './core/container/main';
 
 export function HorizonsGroupLedger() {
   const {
-    state: { scale },
-  } = useContext(ContextForHorizonProjects);
+    state: { scope: scale },
+  } = useContext(ContextForExplorerProjects);
   return (
     <>
-      {scale === HorizonsProjectScale.Group && (
+      {scale === ExplorerProjectScope.Group && (
         <>
           <HorizonsGroupContainer />
           <HorizonsGroupContainer />

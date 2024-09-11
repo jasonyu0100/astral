@@ -1,5 +1,3 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import {
   Tooltip,
   TooltipProvider,
@@ -13,39 +11,31 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpaceFlightRowElement() {
+export function HorizonsArcRowElement() {
   const index = useContext(ContextForIndexable);
-  const chapter = useContext(ContextForSpaceChapterObj);
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const active = chapter.id === chapterListController.state.objId;
 
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger className='z-10'>
           <GlassWindowFrame
-            className={cn('z-10 h-[3.5rem] max-w-[300px]', {
-              'animate-pulse-slow': active,
-            })}
+            className={cn('z-10 h-[3.5rem] max-w-[300px]', {})}
             roundedFx={roundedFx['rounded-full']}
           >
             <GlassWindowContents
               className='z-10 flex h-full w-full items-center px-[1rem]'
-              onClick={() =>
-                chapterListController.actions.stateActions.select(chapter)
-              }
+              onClick={() => {}}
             >
-              <p
-                className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
-              >
-                {index + 1}. {chapter.title}
+              <p className='whitespace-nowrap text-sm font-bold text-slate-300'>
+                Arc Chapter
               </p>
             </GlassWindowContents>
-            {!active ? (
+            <GlassWindowPane glassFx={glassFx['glass-5']} />
+            {/* {!active ? (
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             ) : (
               <GlassWindowPane glassFx={glassFx['glass-20']} />
-            )}
+            )} */}
           </GlassWindowFrame>
         </TooltipTrigger>
       </Tooltip>

@@ -8,8 +8,8 @@ export function UserProfileOverviewMain() {
   return (
     <ContextForProfile.Provider value={profileController}>
       <div className='h-full w-full'>
-        <UserProfileHeader />
         <UserProfileOverviewPages />
+        <UserProfileHeader />
       </div>
     </ContextForProfile.Provider>
   );

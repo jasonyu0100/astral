@@ -16,11 +16,11 @@ export function VaultIndicator() {
   return (
     <>
       {dashboardSidebar?.minimised ? (
-        <DashboardSidebarIndicator href={vaultMap.vault.explorer.link}>
+        <DashboardSidebarIndicator href={vaultMap.vault.finder.link}>
           <IndicatorGoldJewel active={active} />
         </DashboardSidebarIndicator>
       ) : (
-        <DashboardSidebarIndicator href={vaultMap.vault.explorer.link}>
+        <DashboardSidebarIndicator href={vaultMap.vault.finder.link}>
           <IndicatorGoldJewel active={active} />
           <IndicatorText active={active}>{indicatorLabel}</IndicatorText>
         </DashboardSidebarIndicator>
