@@ -88,10 +88,11 @@ const useControllerForSpotlightAttachmentListFromUser = (
       changeId(obj.id);
       return obj;
     },
-    selectViaId: (id: string) => {
+    selectViaId: (id: string, newObjs?: TargetObj[]) => {
       changeId(id);
+      const targetObjs = newObjs || objs;
       const selectedObj =
-        objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+        targetObjs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
       return selectedObj;
     },
     between(start: Date, end: Date) {
@@ -378,13 +379,15 @@ const useControllerForSpotlightAttachmentListFromUser = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
         if (initialId) {
-          stateActions.selectViaId(initialId);
+          if (objs.find((obj) => obj.id === initialId)) {
+            stateActions.selectViaId(initialId);
+          }
         }
       });
     }
-  }, [listId, initialId]);
+  }, [listId]);
 
   return {
     state: controllerState,

@@ -1,6 +1,6 @@
 export interface BaseListStateActions<TargetObj> {
   select: (obj: TargetObj) => TargetObj;
-  selectViaId: (id: string) => TargetObj;
+  selectViaId: (id: string, objs?: TargetObj[]) => TargetObj;
   between: (start: Date, end: Date) => TargetObj[];
   sortedViaDate: (objs: TargetObj[]) => TargetObj[];
   sortedViaComparison: (

@@ -29,8 +29,8 @@ import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useContext, useEffect } from 'react';
 import { SpaceTabs, SpaceTabStage } from '../../tabs/main';
 import {
   ContextForSpacesSpace,
@@ -99,6 +99,38 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
+function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const sceneListController = useContext(ContextForChapterSceneList);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const chapterId = chapterListController.state?.objId;
+    const sceneId = sceneListController.state?.objId;
+
+    // Get the current search params
+    const currentSearchParams = new URLSearchParams(searchParams);
+
+    // Update scene and chapter in the URL if they exist
+    if (chapterId) {
+      currentSearchParams.set('chapter', chapterId);
+    }
+    if (sceneId) {
+      currentSearchParams.set('scene', sceneId);
+    }
+
+    // Update the router to reflect the new search params
+    router.replace(`?${currentSearchParams.toString()}`);
+  }, [
+    chapterListController.state?.objId,
+    sceneListController.state?.objId,
+    router, // Ensure router is in the dependency array
+  ]);
+
+  return <>{children}</>;
+}
+
 function SpacesSpaceControllerWrapper({
   children,
 }: {
@@ -108,12 +140,14 @@ function SpacesSpaceControllerWrapper({
 
   return (
     <ContextForSpacesSpace.Provider value={spacesSpaceController}>
-      <LoadingWrapper>
-        <SpacesSpaceModals>
-          <SpaceTabs tab={SpaceTabStage.Space} />
-          <DashboardContent>{children}</DashboardContent>
-        </SpacesSpaceModals>
-      </LoadingWrapper>
+      <UpdateUrlWrapper>
+        <LoadingWrapper>
+          <SpacesSpaceModals>
+            <SpaceTabs tab={SpaceTabStage.Space} />
+            <DashboardContent>{children}</DashboardContent>
+          </SpacesSpaceModals>
+        </LoadingWrapper>
+      </UpdateUrlWrapper>
     </ContextForSpacesSpace.Provider>
   );
 }

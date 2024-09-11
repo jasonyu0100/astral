@@ -87,10 +87,11 @@ const useControllerForResourceList = (
       changeId(obj.id);
       return obj;
     },
-    selectViaId: (id: string) => {
+    selectViaId: (id: string, newObjs?: TargetObj[]) => {
       changeId(id);
+      const targetObjs = newObjs || objs;
       const selectedObj =
-        objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+        targetObjs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
       return selectedObj;
     },
     between(start: Date, end: Date) {
@@ -369,7 +370,7 @@ const useControllerForResourceList = (
         }
       });
     }
-  }, [listId, initialId]);
+  }, [listId]);
 
   useEffect(() => {
     controllerActions.stateActions.searchAndUpdateQuery(query);
