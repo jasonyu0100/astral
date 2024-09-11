@@ -10,7 +10,10 @@ export function UserProfileSupportersTable() {
   const userBackerList = useContext(ContextForUserBackerList);
 
   return (
-    <div className='w-full px-[2rem]' style={{ height: '100%' }}>
+    <div
+      className='w-full p-[2rem]'
+      style={{ height: 'calc(100% - 4rem - 4rem)' }}
+    >
       <UserProfileSupportersTableHeader />
       <HorizontalDivider />
       <div className='w-full overflow-auto'>

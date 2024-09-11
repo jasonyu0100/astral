@@ -4,12 +4,12 @@ import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
 import { createContext } from 'react';
 
-export interface ContextForProfileInterface {
+export interface ContextForProfileId {
   userId: string;
 }
 
-export const ContextForProfile = createContext<ContextForProfileInterface>(
-  {} as ContextForProfileInterface,
+export const ContextForProfileId = createContext<ContextForProfileId>(
+  {} as ContextForProfileId,
 );
 
 export default function Layout({
@@ -21,7 +21,7 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <ContextForProfile.Provider value={{ userId: params.id }}>
+    <ContextForProfileId.Provider value={{ userId: params.id }}>
       <DashboardController>
         <DashboardSidebarView
           minimised
@@ -29,6 +29,6 @@ export default function Layout({
         />
         {children}
       </DashboardController>
-    </ContextForProfile.Provider>
+    </ContextForProfileId.Provider>
   );
 }

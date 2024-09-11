@@ -19,7 +19,7 @@ import {
 import { useGlobalUser } from '@/logic/store/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
-import { ContextForProfile } from '../../layout';
+import { ContextForProfileId } from '../../layout';
 import { UserProfileModals } from './(modals)/controller/main';
 import {
   ContextForUserProfile,
@@ -29,8 +29,8 @@ import { UserProfileView } from './view/main';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const profileContext = useContext(ContextForProfile);
-  const userController = useControllerForUserMain(profileContext.userId);
+  const profileIdContext = useContext(ContextForProfileId);
+  const userController = useControllerForUserMain(profileIdContext.userId);
   const profileUser = userController.state.obj;
   const profileConnectionListController = useControllerForUserConnectionList(
     profileUser.id,

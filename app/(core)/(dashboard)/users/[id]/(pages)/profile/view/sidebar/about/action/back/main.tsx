@@ -33,7 +33,6 @@ export function ProfileAboutBackAction() {
       loggedInBackerListController.state.objs.filter(
         (link) => link.backedId === profileUser.id,
       ).length > 0;
-    console.log(loggedInBackerListController.state.objs);
     return filtered;
   }
 

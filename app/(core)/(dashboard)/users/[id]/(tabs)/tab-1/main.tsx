@@ -4,12 +4,12 @@ import { Tab } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/main';
 import { TabBlueShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
-import { ContextForProfile } from '../../layout';
+import { ContextForProfileId } from '../../layout';
 import { userProfileMap } from '../../map';
 import { UserTabStage } from '../main';
 
 export function TabOne({ tab }: { tab?: string }) {
-  const userContext = useContext(ContextForProfile);
+  const userContext = useContext(ContextForProfileId);
   const tabText = UserTabStage.Profile;
   const active = tab === tabText;
 

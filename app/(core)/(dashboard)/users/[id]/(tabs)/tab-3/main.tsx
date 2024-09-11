@@ -4,12 +4,12 @@ import { Tab } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/main';
 import { TabOrangeShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
-import { ContextForProfile } from '../../layout';
+import { ContextForProfileId } from '../../layout';
 import { userProfileMap } from '../../map';
 import { UserTabStage } from '../main';
 
 export function TabThree({ tab }: { tab?: string }) {
-  const userContext = useContext(ContextForProfile);
+  const userContext = useContext(ContextForProfileId);
   const tabText = UserTabStage.Spaces;
   const active = tab === tabText;
 

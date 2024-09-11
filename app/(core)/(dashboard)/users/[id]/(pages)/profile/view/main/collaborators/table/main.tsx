@@ -10,7 +10,10 @@ export function UserProfileCollaboratorsTable() {
   const userConectionList = useContext(ContextForUserConnectionList);
 
   return (
-    <div className='w-full px-[2rem]' style={{ height: '100%' }}>
+    <div
+      className='w-full p-[2rem]'
+      style={{ height: 'calc(100% - 4rem - 4rem)' }}
+    >
       <UserProfileFollowersTableHeader />
       <HorizontalDivider />
       <div className='w-full overflow-auto'>

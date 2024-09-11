@@ -11,7 +11,7 @@ export function UserProfileView() {
       name={UserProfileView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >

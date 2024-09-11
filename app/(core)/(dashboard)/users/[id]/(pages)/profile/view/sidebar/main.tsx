@@ -1,4 +1,4 @@
-import { borderFx, glassFx } from '@/style/data';
+import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -13,17 +13,12 @@ export function UserProfileSidebar() {
   } = useContext(ContextForUserProfile);
 
   return (
-    <>
-      <GlassWindowFrame
-        className='h-full flex-shrink-0'
-        borderFx={borderFx['border-r']}
-      >
-        <GlassWindowContents className='flex h-full w-full flex-col'>
-          <UserProfileAbout />
-          {adminMode && <UserProfileAdminIndicator />}
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      </GlassWindowFrame>
-    </>
+    <GlassWindowFrame className='h-full flex-shrink-0'>
+      <GlassWindowContents className='flex h-full w-full flex-col'>
+        <UserProfileAbout />
+        {adminMode && <UserProfileAdminIndicator />}
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
+    </GlassWindowFrame>
   );
 }
