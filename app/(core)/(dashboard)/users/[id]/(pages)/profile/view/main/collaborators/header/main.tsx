@@ -19,7 +19,7 @@ export function UserProfileCollaboratorsHeader() {
             <p
               className='text-md cursor-pointer font-bold text-slate-500'
               onClick={() => {
-                profileController.actions.updatePage(UserProfilePage.Profile);
+                profileController.actions.updatePage(UserProfilePage.Overview);
               }}
             >
               Back

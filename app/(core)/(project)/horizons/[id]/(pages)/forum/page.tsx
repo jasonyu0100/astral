@@ -12,7 +12,8 @@ import { HorizonForumSidebar } from './view/sidebar/main';
 function Page() {
   return (
     <HorizonForumView>
-      <div className='h-full flex-grow'>
+      <HorizonForumSidebar />
+      <div className='h-full flex-grow overflow-hidden'>
         <div className='flex h-[8rem] w-full flex-row items-center justify-between space-x-[2rem] p-[2rem] shadow-glow'>
           <GlassWindowFrame
             className='h-[4rem] w-full'
@@ -21,8 +22,8 @@ function Page() {
           >
             <GlassWindowContents className='flex items-center justify-center'>
               <input
-                className='h-full w-full bg-transparent px-[2rem] text-slate-300'
-                placeholder='Search...'
+                className='h-full w-full bg-transparent px-[2rem] text-slate-300 outline-none'
+                placeholder='Post...'
               />
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-5']} />
@@ -32,7 +33,6 @@ function Page() {
           </div>
         </div>
       </div>
-      <HorizonForumSidebar />
     </HorizonForumView>
   );
 }

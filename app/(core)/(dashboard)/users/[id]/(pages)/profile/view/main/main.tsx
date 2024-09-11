@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ContextForUserProfile, UserProfilePage } from '../../controller/main';
 import { UserProfileCollaboratorsMain } from './collaborators/main';
-import { UserProfileProfileMain } from './profile/main';
+import { UserProfileOverviewMain } from './overview/main';
 import { UserProfileSupportersMain } from './supporters/main';
 
 export function UserProfilePages() {
@@ -14,7 +14,7 @@ export function UserProfilePages() {
       {page === UserProfilePage.Collaborators && (
         <UserProfileCollaboratorsMain />
       )}
-      {page === UserProfilePage.Profile && <UserProfileProfileMain />}
+      {page === UserProfilePage.Overview && <UserProfileOverviewMain />}
     </div>
   );
 }

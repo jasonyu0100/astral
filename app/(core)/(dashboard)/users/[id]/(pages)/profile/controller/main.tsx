@@ -21,7 +21,7 @@ interface Controller {
 export enum UserProfilePage {
   Supporters = 'Supporters',
   Collaborators = 'Collaborators',
-  Profile = 'Profile',
+  Overview = 'Overview',
 }
 
 export const ContextForUserProfile = createContext({} as Controller);
@@ -30,7 +30,7 @@ export function useControllerForUserProfile(): Controller {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const profileUser = useContext(ContextForProfileUserObj);
 
-  const [page, setPage] = useState(UserProfilePage.Profile);
+  const [page, setPage] = useState(UserProfilePage.Overview);
 
   const adminMode = loggedInUser.id === profileUser.id;
 

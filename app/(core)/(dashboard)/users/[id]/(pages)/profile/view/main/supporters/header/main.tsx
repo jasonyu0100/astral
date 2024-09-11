@@ -21,7 +21,7 @@ export function UserProfileSupportersHeader() {
             <p
               className='text-md cursor-pointer font-bold text-slate-500'
               onClick={() => {
-                updatePage(UserProfilePage.Profile);
+                updatePage(UserProfilePage.Overview);
               }}
             >
               Back
