@@ -21,7 +21,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
-import { spaceMap } from '../../../../map';
+import { spacesMap } from '../../../../map';
 import { ContextForSpacesMap } from '../../controller/main';
 
 export function SpacesMapGenerateLog() {
@@ -142,7 +142,7 @@ export function SpacesMapGenerateLog() {
         log.id,
       )
       .then(() => {
-        window.location.href = spaceMap.space.id.journey.link(
+        window.location.href = spacesMap.spaces.id.journey.link(
           spaceController.state.objId,
         );
       });

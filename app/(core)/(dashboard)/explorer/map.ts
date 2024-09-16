@@ -1,7 +1,7 @@
 const baseUrl = `/explorer`;
 
 export const explorerMap = {
-  venture: {
+  explorer: {
     projects: {
       link: `${baseUrl}/projects`,
     },

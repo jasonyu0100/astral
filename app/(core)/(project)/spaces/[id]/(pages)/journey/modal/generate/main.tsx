@@ -19,7 +19,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useEffect, useState } from 'react';
-import { spaceMap } from '../../../../map';
+import { spacesMap } from '../../../../map';
 import { ContextForSpacesJourney } from '../../controller/main';
 
 export function SpacesJourneySpotlightModal() {
@@ -130,7 +130,7 @@ export function SpacesJourneySpotlightModal() {
       spotlight.id,
     );
 
-    window.location.href = spaceMap.space.id.flight.link(
+    window.location.href = spacesMap.spaces.id.flight.link(
       spaceController.state.objId,
     );
   }

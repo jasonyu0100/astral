@@ -1,4 +1,4 @@
-import { spaceMap } from '@/(core)/(project)/spaces/[id]/map';
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -33,7 +33,7 @@ export function SpacesSpaceAddSceneModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.map.link(
+                window.location.href = spacesMap.spaces.id.map.link(
                   spaceController.state.objId,
                 );
               }}

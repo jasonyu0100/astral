@@ -1,5 +1,5 @@
 'use client';
-import { horizonMap } from '@/(core)/(project)/horizons/[id]/map';
+import { horizonsMap } from '@/(core)/(project)/horizons/[id]/map';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { HorizonsThumbnailElement } from '@/ui/cover/horizon/main';
@@ -17,7 +17,7 @@ export function HorizonsClusterRowItem() {
     >
       <GlassWindowContents
         onClick={() => {
-          window.open(horizonMap.horizon.id.horizon.link('0'), '_blank');
+          window.open(horizonsMap.horizons.id.horizon.link('0'), '_blank');
         }}
         className='flex h-full w-full cursor-pointer flex-col justify-between space-y-[1rem]'
       >

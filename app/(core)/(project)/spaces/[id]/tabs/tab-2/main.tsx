@@ -7,7 +7,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../layout';
-import { spaceMap } from '../../map';
+import { spacesMap } from '../../map';
 import { SpaceTabStage } from '../main';
 
 export function SpacesTabMap({ tab }: { tab?: string }) {
@@ -24,7 +24,7 @@ export function SpacesTabMap({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spaceMap.space.id.map.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
+    ? `${spacesMap.spaces.id.map.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
     : '#'; // Fallback URL if spaceId is undefined
 
   return (

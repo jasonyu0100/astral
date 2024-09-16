@@ -12,7 +12,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useEffect, useState } from 'react';
-import { spaceMap } from '../../../../map';
+import { spacesMap } from '../../../../map';
 import { ContextForSpacesSpace } from '../../controller/main';
 import { GenerateTabsRow } from './tabs/main';
 import { GenerateTab } from './tabs/tab/main';
@@ -119,7 +119,7 @@ export function SpacesSpaceGenerateMapModal() {
       }),
     );
 
-    window.location.href = spaceMap.space.id.map.link(
+    window.location.href = spacesMap.spaces.id.map.link(
       spaceController.state.objId,
     );
   }

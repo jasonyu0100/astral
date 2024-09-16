@@ -16,11 +16,11 @@ export function CommonSidebarExplorerIndicator() {
   return (
     <>
       {commonSidebar.minimised ? (
-        <CommonSidebarIndicator href={explorerMap.venture.projects.link}>
+        <CommonSidebarIndicator href={explorerMap.explorer.projects.link}>
           <CommonIndicatorOrangeJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={explorerMap.venture.projects.link}>
+        <CommonSidebarIndicator href={explorerMap.explorer.projects.link}>
           <CommonIndicatorOrangeJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}

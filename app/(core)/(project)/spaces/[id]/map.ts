@@ -1,7 +1,7 @@
 const baseUrl = `/spaces`;
 
-export const spaceMap = {
-  space: {
+export const spacesMap = {
+  spaces: {
     id: {
       space: {
         link: (id: string) => `${baseUrl}/${id}/space`,

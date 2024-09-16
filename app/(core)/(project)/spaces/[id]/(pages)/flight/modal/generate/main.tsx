@@ -1,4 +1,4 @@
-import { spaceMap } from '@/(core)/(project)/spaces/[id]/map';
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -22,7 +22,7 @@ export function SpacesFlightShareReviewModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.space.link(
+                window.location.href = spacesMap.spaces.id.space.link(
                   spaceController.state.objId,
                 );
               }}

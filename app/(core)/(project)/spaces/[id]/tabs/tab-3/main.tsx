@@ -6,7 +6,7 @@ import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/mai
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../layout';
-import { spaceMap } from '../../map';
+import { spacesMap } from '../../map';
 import { SpaceTabStage } from '../main';
 
 export function SpaceTabJourney({ tab }: { tab?: string }) {
@@ -21,7 +21,7 @@ export function SpaceTabJourney({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spaceMap.space.id.journey.link(spaceId)}?chapter=${chapterId ?? ''}`
+    ? `${spacesMap.spaces.id.journey.link(spaceId)}?chapter=${chapterId ?? ''}`
     : '#'; // Fallback URL if spaceId is undefined
 
   return (

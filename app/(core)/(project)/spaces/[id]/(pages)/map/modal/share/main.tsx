@@ -8,7 +8,7 @@ import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
-import { spaceMap } from '../../../../map';
+import { spacesMap } from '../../../../map';
 
 export function SpacesMapPlanModal() {
   const spaceController = useContext(ContextForSpaceMain);
@@ -33,7 +33,7 @@ export function SpacesMapPlanModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spaceMap.space.id.journey.link(
+                window.location.href = spacesMap.spaces.id.journey.link(
                   spaceController.state.objId,
                 );
               }}

@@ -5,7 +5,7 @@ import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/mai
 import { TabGreenShard } from '@/(core)/(dashboard)/common/tabs/tabs-row/tab/shard/green/main';
 import { useContext } from 'react';
 import { ContextForHorizon } from '../../layout';
-import { horizonMap } from '../../map';
+import { horizonsMap } from '../../map';
 import { HorizonTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
@@ -14,7 +14,7 @@ export function TabTwo({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={horizonMap.horizon.id.arc.link(releaseContext.releaseId)}>
+    <Tab href={horizonsMap.horizons.id.arc.link(releaseContext.releaseId)}>
       <TabText active={active}>{tabText}</TabText>
       <TabGreenShard active={active} />
     </Tab>

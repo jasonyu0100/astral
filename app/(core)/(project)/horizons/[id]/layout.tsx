@@ -1,8 +1,5 @@
 'use client';
 
-import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
-import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import { createContext } from 'react';
 
 interface HorizonContextObj {
@@ -22,10 +19,7 @@ export default function Layout({
 }) {
   return (
     <ContextForHorizon.Provider value={{ releaseId: params.id }}>
-      <DashboardController fullHeight>
-        <CommonSidebar minimised backUrl={explorerMap.venture.projects.link} />
-        {children}
-      </DashboardController>
+      {children}
     </ContextForHorizon.Provider>
   );
 }
