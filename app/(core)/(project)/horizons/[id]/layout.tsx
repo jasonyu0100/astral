@@ -2,7 +2,7 @@
 
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
-import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
+import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import { createContext } from 'react';
 
 interface HorizonContextObj {
@@ -23,10 +23,7 @@ export default function Layout({
   return (
     <ContextForHorizon.Provider value={{ releaseId: params.id }}>
       <DashboardController fullHeight>
-        <DashboardSidebarView
-          minimised
-          backUrl={explorerMap.venture.projects.link}
-        />
+        <CommonSidebar minimised backUrl={explorerMap.venture.projects.link} />
         {children}
       </DashboardController>
     </ContextForHorizon.Provider>

@@ -5,12 +5,12 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
-export function ExplorerCollectionResourcesSearch() {
+export function FinderCollectionResourcesSearch() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   return (
     <div className='p-[2rem] shadow-glow'>
       <GlassWindowFrame
-        name={ExplorerCollectionResourcesSearch.name}
+        name={FinderCollectionResourcesSearch.name}
         className='h-[4rem] w-full flex-shrink-0'
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}

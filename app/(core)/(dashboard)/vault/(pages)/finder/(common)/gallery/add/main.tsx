@@ -1,12 +1,12 @@
 import { ButtonInputProps } from '@/types/props/main';
 import { GalleryContainer } from '../common/container/main';
-import { GalleryExplorerAddCover } from './cover/main';
+import { GalleryFinderAddCover } from './cover/main';
 
-export function GalleryExplorerAdd({ ...props }: ButtonInputProps) {
+export function GalleryFinderAdd({ ...props }: ButtonInputProps) {
   return (
     <button {...props}>
       <GalleryContainer className='w-full'>
-        <GalleryExplorerAddCover />
+        <GalleryFinderAddCover />
       </GalleryContainer>
     </button>
   );

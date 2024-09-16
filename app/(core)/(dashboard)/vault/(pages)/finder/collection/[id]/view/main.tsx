@@ -1,12 +1,12 @@
-import { ExplorerCollectionResourcesContainer } from './container/main';
-import { ExplorerColllectionResourcesResults } from './results/main';
-import { ExplorerCollectionResourcesSearch } from './search/main';
+import { FinderCollectionResourcesContainer } from './container/main';
+import { FinderColllectionResourcesResults } from './results/main';
+import { FinderCollectionResourcesSearch } from './search/main';
 
-export function ExplorerCollectionResources() {
+export function FinderCollectionResources() {
   return (
-    <ExplorerCollectionResourcesContainer>
-      <ExplorerCollectionResourcesSearch />
-      <ExplorerColllectionResourcesResults />
-    </ExplorerCollectionResourcesContainer>
+    <FinderCollectionResourcesContainer>
+      <FinderCollectionResourcesSearch />
+      <FinderColllectionResourcesResults />
+    </FinderCollectionResourcesContainer>
   );
 }

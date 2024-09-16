@@ -4,20 +4,20 @@ import { NetworkSidebarList } from '../(common)/list/main';
 import { NetworkSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForNetworkCreative,
-  NetworkCreativeRelevance,
+  NetworkCreativeMeaning,
 } from '../../../controller/main';
 
-export function NetworkSidebarScale() {
+export function NetworkSidebarMeaning() {
   const {
-    state: { scale },
-    actions: { updateScale },
+    state: { meaning: scale },
+    actions: { updateMeaning: updateScale },
   } = useContext(ContextForNetworkCreative);
 
   return (
     <div className='flex flex-col'>
-      <NetworkSidebarLabel>Relevance</NetworkSidebarLabel>
+      <NetworkSidebarLabel>Meaning</NetworkSidebarLabel>
       <NetworkSidebarList>
-        {Object.values(NetworkCreativeRelevance).map((obj) => (
+        {Object.values(NetworkCreativeMeaning).map((obj) => (
           <NetworkSidebarOption
             active={scale === obj}
             onClick={() => updateScale(obj)}

@@ -1,0 +1,50 @@
+import {
+  ContextForOpenable,
+  ContextForOpenableInterface,
+  useControllerForOpenable,
+} from '@/logic/contexts/openable/main';
+import { createContext } from 'react';
+import { VaultFinderEditCollectionModal } from '../collection/main';
+import { VaultFinderEditGalleryModal } from '../gallery/main';
+import { VaultFinderEditResourceModal } from '../resource/main';
+
+export const ContextForVaultFinderEditModals = createContext(
+  {} as VaultFinderEditModals,
+);
+
+export interface VaultFinderEditModals {
+  createCollectionController: ContextForOpenableInterface;
+  createGalleryController: ContextForOpenableInterface;
+  createResourceController: ContextForOpenableInterface;
+}
+
+export function VaultFinderEditModals({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const editCollectionController = useControllerForOpenable();
+  const editGalleryController = useControllerForOpenable();
+  const editResourceController = useControllerForOpenable();
+
+  return (
+    <ContextForVaultFinderEditModals.Provider
+      value={{
+        createCollectionController: editCollectionController,
+        createGalleryController: editGalleryController,
+        createResourceController: editResourceController,
+      }}
+    >
+      <ContextForOpenable.Provider value={editCollectionController}>
+        <VaultFinderEditCollectionModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editGalleryController}>
+        <VaultFinderEditGalleryModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editResourceController}>
+        <VaultFinderEditResourceModal />
+      </ContextForOpenable.Provider>
+      {children}
+    </ContextForVaultFinderEditModals.Provider>
+  );
+}

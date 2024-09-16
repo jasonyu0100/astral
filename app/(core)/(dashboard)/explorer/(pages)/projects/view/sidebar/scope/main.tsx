@@ -4,7 +4,7 @@ import { ExplorerProjectsSidebarList } from '../(common)/list/main';
 import { ExplorerProjectsSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForExplorerProjects,
-  ExplorerProjectScope,
+  ExplorerProjectsScope,
 } from '../../../controller/main';
 
 export function ExplorerProjectsSidebarScope() {
@@ -17,7 +17,7 @@ export function ExplorerProjectsSidebarScope() {
     <div className='flex flex-col'>
       <ExplorerProjectsSidebarLabel>Scope</ExplorerProjectsSidebarLabel>
       <ExplorerProjectsSidebarList>
-        {Object.values(ExplorerProjectScope).map((obj) => (
+        {Object.values(ExplorerProjectsScope).map((obj) => (
           <ExplorerProjectsSidebarOption
             active={obj === scope}
             onClick={() => updateScope(obj)}

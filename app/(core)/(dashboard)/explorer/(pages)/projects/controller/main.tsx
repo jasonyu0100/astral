@@ -1,12 +1,12 @@
 import { createContext, useState } from 'react';
 
-export enum ExplorerProjectScope {
+export enum ExplorerProjectsScope {
   Local = '📍 - Local',
   Group = '👥 - Group',
   Cluster = '💫 - Cluster',
 }
 
-export enum ExplorerProjectGuild {
+export enum ExplorerProjectsGuild {
   Writing = '✍️ - Writing',
   Engineering = '🛠️ - Engineering',
   Art = '🎨 - Art',
@@ -14,7 +14,7 @@ export enum ExplorerProjectGuild {
   Research = '🔎 - Research',
 }
 
-export enum ExplorerProjectDegree {
+export enum ExplorerProjectsDegree {
   'Any' = 'Any',
   'First' = 'First',
   'Second' = 'Second',
@@ -27,34 +27,36 @@ export enum ExplorerProjectDegree {
   'Ninth' = 'Ninth',
 }
 
-interface ControllerState {
-  scope: ExplorerProjectScope;
-  guild: ExplorerProjectGuild;
-  degree: ExplorerProjectDegree;
+interface ExplorerProjectsControllerState {
+  scope: ExplorerProjectsScope;
+  guild: ExplorerProjectsGuild;
+  degree: ExplorerProjectsDegree;
 }
 
-interface ControllerActions {
-  updateScope: (scope: ExplorerProjectScope) => void;
-  updateGuild: (guild: ExplorerProjectGuild) => void;
-  updateDegree: (degree: ExplorerProjectDegree) => void;
+interface ExplorerProjectsControllerActions {
+  updateScope: (scope: ExplorerProjectsScope) => void;
+  updateGuild: (guild: ExplorerProjectsGuild) => void;
+  updateDegree: (degree: ExplorerProjectsDegree) => void;
 }
 
-interface Controller {
-  state: ControllerState;
-  actions: ControllerActions;
+interface ExplorerProjectsController {
+  state: ExplorerProjectsControllerState;
+  actions: ExplorerProjectsControllerActions;
 }
 
-export const ContextForExplorerProjects = createContext({} as Controller);
+export const ContextForExplorerProjects = createContext(
+  {} as ExplorerProjectsController,
+);
 
 export function useControllerForExplorerProjects() {
-  const [scope, setScope] = useState<ExplorerProjectScope>(
-    ExplorerProjectScope.Local,
+  const [scope, setScope] = useState<ExplorerProjectsScope>(
+    ExplorerProjectsScope.Local,
   );
-  const [guild, setGuild] = useState<ExplorerProjectGuild>(
-    ExplorerProjectGuild.Writing,
+  const [guild, setGuild] = useState<ExplorerProjectsGuild>(
+    ExplorerProjectsGuild.Writing,
   );
-  const [degree, setDegree] = useState<ExplorerProjectDegree>(
-    ExplorerProjectDegree.Any,
+  const [degree, setDegree] = useState<ExplorerProjectsDegree>(
+    ExplorerProjectsDegree.Any,
   );
 
   return {
@@ -64,9 +66,9 @@ export function useControllerForExplorerProjects() {
       degree,
     },
     actions: {
-      updateScope: (scale: ExplorerProjectScope) => setScope(scale),
-      updateGuild: (guild: ExplorerProjectGuild) => setGuild(guild),
-      updateDegree: (degree: ExplorerProjectDegree) => setDegree(degree),
+      updateScope: (scale: ExplorerProjectsScope) => setScope(scale),
+      updateGuild: (guild: ExplorerProjectsGuild) => setGuild(guild),
+      updateDegree: (degree: ExplorerProjectsDegree) => setDegree(degree),
     },
   };
 }

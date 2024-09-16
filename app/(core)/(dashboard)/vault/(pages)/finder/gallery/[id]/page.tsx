@@ -8,7 +8,7 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { ExplorerGalleryCollections } from './view/view';
+import { FinderGalleryCollections } from './view/view';
 
 function Page({ params }: { params: { id: string } }) {
   const galleryMainController = useControllerForGalleryMain(params.id);
@@ -21,7 +21,7 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForGalleryCollectionList.Provider
         value={collectionListController}
       >
-        <ExplorerGalleryCollections />
+        <FinderGalleryCollections />
       </ContextForGalleryCollectionList.Provider>
     </ContextForGalleryMain.Provider>
   );

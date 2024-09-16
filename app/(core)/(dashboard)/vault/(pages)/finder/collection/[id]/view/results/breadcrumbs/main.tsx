@@ -2,40 +2,40 @@ import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
 import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
 import { useContext } from 'react';
-import { ArchiveExplorerBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
-import { ArchiveExplorerBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
-import { ArchiveExplorerBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
+import { VaultFinderBreadcrumbDivider } from '../../../../../(common)/breadcrumb/divider/main';
+import { VaultFinderBreadcrumbItem } from '../../../../../(common)/breadcrumb/item/main';
+import { VaultFinderBreadcrumbs } from '../../../../../(common)/breadcrumb/main';
 
-export function ExplorerCollectionResourcesBreadcrumbs() {
+export function FinderCollectionResourcesBreadcrumbs() {
   const galleryMainController = useContext(ContextForGalleryMain);
   const collectionMainController = useContext(ContextForGalleryCollectionMain);
 
   return (
-    <ArchiveExplorerBreadcrumbs>
-      <ArchiveExplorerBreadcrumbItem
+    <VaultFinderBreadcrumbs>
+      <VaultFinderBreadcrumbItem
         href={vaultMap.vault.finder.link}
         active={false}
       >
         Home
-      </ArchiveExplorerBreadcrumbItem>
-      <ArchiveExplorerBreadcrumbDivider />
-      <ArchiveExplorerBreadcrumbItem
+      </VaultFinderBreadcrumbItem>
+      <VaultFinderBreadcrumbDivider />
+      <VaultFinderBreadcrumbItem
         active={false}
         href={vaultMap.vault.finder.gallery.id.link(
           galleryMainController.state.objId,
         )}
       >
         {galleryMainController.state.obj.title}
-      </ArchiveExplorerBreadcrumbItem>
-      <ArchiveExplorerBreadcrumbDivider />
-      <ArchiveExplorerBreadcrumbItem
+      </VaultFinderBreadcrumbItem>
+      <VaultFinderBreadcrumbDivider />
+      <VaultFinderBreadcrumbItem
         active={true}
         href={vaultMap.vault.finder.collection.id.link(
           collectionMainController.state.objId,
         )}
       >
         {collectionMainController.state.obj.title}
-      </ArchiveExplorerBreadcrumbItem>
-    </ArchiveExplorerBreadcrumbs>
+      </VaultFinderBreadcrumbItem>
+    </VaultFinderBreadcrumbs>
   );
 }

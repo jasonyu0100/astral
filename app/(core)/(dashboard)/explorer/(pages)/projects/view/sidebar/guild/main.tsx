@@ -4,7 +4,7 @@ import { ExplorerProjectsSidebarList } from '../(common)/list/main';
 import { ExplorerProjectsSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForExplorerProjects,
-  ExplorerProjectGuild,
+  ExplorerProjectsGuild,
 } from '../../../controller/main';
 
 export function ExplorerProjectsSidebarGuild() {
@@ -17,7 +17,7 @@ export function ExplorerProjectsSidebarGuild() {
     <div className='flex flex-col'>
       <ExplorerProjectsSidebarLabel>Guild</ExplorerProjectsSidebarLabel>
       <ExplorerProjectsSidebarList>
-        {Object.values(ExplorerProjectGuild).map((obj) => (
+        {Object.values(ExplorerProjectsGuild).map((obj) => (
           <ExplorerProjectsSidebarOption
             active={obj === guild}
             onClick={() => updateGuild(obj)}

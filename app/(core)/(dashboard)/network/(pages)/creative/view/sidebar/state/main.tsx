@@ -9,8 +9,8 @@ import {
 
 export function NetworkSidebarState() {
   const {
-    state: { guild },
-    actions: { updateGuild },
+    state: { aura: guild },
+    actions: { updateAura: updateGuild },
   } = useContext(ContextForNetworkCreative);
 
   return (

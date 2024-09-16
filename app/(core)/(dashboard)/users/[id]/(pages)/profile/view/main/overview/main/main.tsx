@@ -11,7 +11,7 @@ export function UserProfileOverviewPages() {
     <div className='w-full p-[2rem]' style={{ height: 'calc(100% - 4rem)' }}>
       <div className='h-full w-full overflow-auto pr-[2rem]'>
         <div className='flex w-full flex-col'>
-          {profileController.state.page === ProfilePage.About && (
+          {profileController.state.page === ProfilePage.Your && (
             <UserProfileOverviewAbout />
           )}
           {/* {profileController.state.page === ProfilePage.Story && (

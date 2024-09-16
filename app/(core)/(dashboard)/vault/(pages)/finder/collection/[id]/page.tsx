@@ -18,7 +18,8 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { ExplorerCollectionResources } from './view/main';
+import { VaultFinderCreateModals } from '../../(modals)/create/controller/main';
+import { FinderCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const collectionMainController = useControllerForGalleryCollectionMain(
@@ -39,15 +40,17 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForCollectionResourceList.Provider
           value={resourceListController}
         >
-          <VaultTabs
-            tab={VaultTabStage.Finder}
-            backUrl={vaultMap.vault.finder.gallery.id.link(
-              galleryMainController.state.obj.id,
-            )}
-          />
-          <DashboardContent>
-            <ExplorerCollectionResources />
-          </DashboardContent>
+          <VaultFinderCreateModals>
+            <DashboardContent>
+              <VaultTabs
+                tab={VaultTabStage.Finder}
+                backUrl={vaultMap.vault.finder.gallery.id.link(
+                  galleryMainController.state.obj.id,
+                )}
+              />
+              <FinderCollectionResources />
+            </DashboardContent>
+          </VaultFinderCreateModals>
         </ContextForCollectionResourceList.Provider>
       </ContextForGalleryCollectionMain.Provider>
     </ContextForGalleryMain.Provider>

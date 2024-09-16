@@ -12,7 +12,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function ExplorerEditResourceModal() {
+export function VaultFinderEditResourceModal() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useContext(ContextForOpenable);
   const resource = useContext(ContextForCollectionResourceObj);

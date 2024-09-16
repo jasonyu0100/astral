@@ -4,7 +4,7 @@ import { ExplorerProjectsSidebarList } from '../(common)/list/main';
 import { ExplorerProjectsSidebarOption } from '../(common)/list/option/main';
 import {
   ContextForExplorerProjects,
-  ExplorerProjectDegree,
+  ExplorerProjectsDegree,
 } from '../../../controller/main';
 
 export function ExplorerProjectsSidebarDegree() {
@@ -17,10 +17,10 @@ export function ExplorerProjectsSidebarDegree() {
     <div className='flex flex-col'>
       <ExplorerProjectsSidebarLabel>Degree</ExplorerProjectsSidebarLabel>
       <ExplorerProjectsSidebarList>
-        {Object.values(ExplorerProjectDegree).map((obj) => (
+        {Object.values(ExplorerProjectsDegree).map((obj) => (
           <ExplorerProjectsSidebarOption
             active={degree === obj}
-            onClick={() => updateDegree(obj as ExplorerProjectDegree)}
+            onClick={() => updateDegree(obj as ExplorerProjectsDegree)}
           >
             {obj}
           </ExplorerProjectsSidebarOption>

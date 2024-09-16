@@ -1,8 +1,8 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { NetworkSidebarState } from './aura/main';
-import { NetworkSidebarDegree } from './degree/main';
-import { NetworkSidebarScale } from './relevance/main';
+import { NetworkSidebarDomain } from './degree/main';
+import { NetworkSidebarMeaning } from './relevance/main';
 
 export function NetworkCreativeSidebar() {
   return (
@@ -14,9 +14,9 @@ export function NetworkCreativeSidebar() {
     >
       <div className='flex h-full w-full flex-col overflow-auto'>
         <div className='flex w-full flex-col space-y-[1rem] pr-[1rem]'>
-          <NetworkSidebarScale />
+          <NetworkSidebarMeaning />
           <NetworkSidebarState />
-          <NetworkSidebarDegree />
+          <NetworkSidebarDomain />
         </div>
       </div>
     </GlassAreaContainer>

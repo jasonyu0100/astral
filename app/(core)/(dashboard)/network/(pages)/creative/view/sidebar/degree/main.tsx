@@ -7,7 +7,7 @@ import {
   NetworkCreativeDegree,
 } from '../../../controller/main';
 
-export function NetworkSidebarDegree() {
+export function NetworkSidebarDomain() {
   const {
     state: { degree },
     actions: { updateDegree },

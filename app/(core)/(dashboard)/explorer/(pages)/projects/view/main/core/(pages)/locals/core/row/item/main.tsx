@@ -17,7 +17,7 @@ export function HorizonsLocalItem() {
     >
       <GlassWindowContents
         onClick={() => {
-          window.open(horizonMap.horizon.id.forum.link('0'), '_blank');
+          window.open(horizonMap.horizon.id.horizon.link('0'), '_blank');
         }}
         className='flex h-full w-full cursor-pointer flex-col justify-between space-y-[1rem]'
       >

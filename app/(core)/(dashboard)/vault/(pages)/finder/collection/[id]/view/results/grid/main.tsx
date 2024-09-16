@@ -1,5 +1,3 @@
-import { CollectionResourceAdd } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/resource/add/main';
-import { ExplorerResource } from '@/(core)/(dashboard)/vault/(pages)/explorer/(common)/resource/main';
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import {
@@ -7,16 +5,18 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
-import { ExplorerCreateResourceModal } from '../../../../../(modals)/create/resource/main';
+import { CollectionResourceAdd } from '../../../../../(common)/resource/add/main';
+import { FinderResource } from '../../../../../(common)/resource/main';
+import { VaultFinderCreateResourceModal } from '../../../../../(modals)/create/resource/main';
 
-export function ExplorerCollectionResourcesGrid() {
+export function FinderCollectionResourcesGrid() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useControllerForOpenable();
 
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <ExplorerCreateResourceModal />
+        <VaultFinderCreateResourceModal />
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
         <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
@@ -25,7 +25,7 @@ export function ExplorerCollectionResourcesGrid() {
               value={resource}
               key={resource.id}
             >
-              <ExplorerResource key={resource.id} />
+              <FinderResource key={resource.id} />
             </ContextForCollectionResourceObj.Provider>
           ))}
           <CollectionResourceAdd onClick={() => openableController.open()} />

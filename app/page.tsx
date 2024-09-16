@@ -31,7 +31,10 @@ const Header = () => (
         <a href='/' className='text-sm font-bold text-white sm:text-lg'>
           Home
         </a>
-        <a href='/search' className='text-sm font-bold text-white sm:text-lg'>
+        <a
+          href='/conversational/search'
+          className='text-sm font-bold text-white sm:text-lg'
+        >
           Search
         </a>
         <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
@@ -120,7 +123,7 @@ const CallToAction = () => {
         </a>
       ) : (
         <a
-          href={'/search'}
+          href={'/conversational/search'}
           className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
         >
           <p className='text-lg font-bold text-slate-300 sm:text-2xl'>

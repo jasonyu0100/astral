@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-export enum NetworkCreativeRelevance {
+export enum NetworkCreativeMeaning {
   Peak = '🚀 - Peak',
   Central = '🔗 - Central',
   Entry = '🔑 - Entry',
@@ -29,28 +29,30 @@ export enum NetworkCreativeDegree {
   'Ninth' = 'Ninth',
 }
 
-interface ControllerState {
-  scale: NetworkCreativeRelevance;
-  guild: NetworkCreativeAura;
+interface NetworkCreativeControllerState {
+  meaning: NetworkCreativeMeaning;
+  aura: NetworkCreativeAura;
   degree: NetworkCreativeDegree;
 }
 
-interface ControllerActions {
-  updateScale: (scale: NetworkCreativeRelevance) => void;
-  updateGuild: (guild: NetworkCreativeAura) => void;
+interface NetworkCreativeControllerActions {
+  updateMeaning: (scale: NetworkCreativeMeaning) => void;
+  updateAura: (guild: NetworkCreativeAura) => void;
   updateDegree: (degree: NetworkCreativeDegree) => void;
 }
 
-interface Controller {
-  state: ControllerState;
-  actions: ControllerActions;
+interface NetworkCreativeController {
+  state: NetworkCreativeControllerState;
+  actions: NetworkCreativeControllerActions;
 }
 
-export const ContextForNetworkCreative = createContext({} as Controller);
+export const ContextForNetworkCreative = createContext(
+  {} as NetworkCreativeController,
+);
 
 export function useControllerForNetworkCreative() {
-  const [scale, setScale] = useState<NetworkCreativeRelevance>(
-    NetworkCreativeRelevance.Peak,
+  const [meaning, setMeaning] = useState<NetworkCreativeMeaning>(
+    NetworkCreativeMeaning.Peak,
   );
   const [aura, setAura] = useState<NetworkCreativeAura>(
     NetworkCreativeAura.Full,
@@ -61,13 +63,13 @@ export function useControllerForNetworkCreative() {
 
   return {
     state: {
-      scale,
-      guild: aura,
-      degree,
+      meaning: meaning,
+      aura: aura,
+      degree: degree,
     },
     actions: {
-      updateScale: (scale: NetworkCreativeRelevance) => setScale(scale),
-      updateGuild: (guild: NetworkCreativeAura) => setAura(guild),
+      updateMeaning: (scale: NetworkCreativeMeaning) => setMeaning(scale),
+      updateAura: (guild: NetworkCreativeAura) => setAura(guild),
       updateDegree: (degree: NetworkCreativeDegree) => setDegree(degree),
     },
   };

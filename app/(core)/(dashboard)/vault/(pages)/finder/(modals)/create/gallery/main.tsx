@@ -16,7 +16,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function ExplorerCreateGalleryModal() {
+export function VaultFinderCreateGalleryModal() {
   const user = useGlobalUser((state) => state.user);
   const openableController = useContext(ContextForOpenable);
   const galleryListController = useContext(ContextForGalleryList);

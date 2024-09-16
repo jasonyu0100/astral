@@ -5,7 +5,7 @@ import {
 } from '@/(server)/controller/gallery/list';
 import { useGlobalUser } from '@/logic/store/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { ExplorerHomeGallerysView } from './view/view';
+import { FinderHomeGallerysView } from './view/view';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -13,7 +13,7 @@ function Page() {
 
   return (
     <ContextForGalleryList.Provider value={galleryListController}>
-      <ExplorerHomeGallerysView />
+      <FinderHomeGallerysView />
     </ContextForGalleryList.Provider>
   );
 }

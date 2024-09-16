@@ -1,14 +1,14 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
-export function ExplorerCollectionResourcesContainer({
+export function FinderCollectionResourcesContainer({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={ExplorerCollectionResourcesContainer.name}
+      name={FinderCollectionResourcesContainer.name}
       sizeFx='flex-grow h-full'
       className={'flex flex-col'}
       glassFx={glassFx['glass-5']}

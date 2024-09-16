@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { ContainerDescription } from '../common/cover/description/main';
 
-export function GalleryExplorerFront() {
+export function GalleryFinderFront() {
   const gallery = useContext(ContextForGalleryObj);
 
   return (

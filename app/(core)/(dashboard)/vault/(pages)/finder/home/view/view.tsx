@@ -1,13 +1,13 @@
 'use client';
-import { ExplorerHomeGallerysContainer } from './container/main';
-import { ExplorerHomeGallerysResults } from './results/main';
-import { ExplorerHomeGallerysSearch } from './search/main';
+import { FinderHomeGallerysContainer } from './container/main';
+import { FinderHomeGallerysResults } from './results/main';
+import { FinderHomeGallerysSearch } from './search/main';
 
-export function ExplorerHomeGallerysView() {
+export function FinderHomeGallerysView() {
   return (
-    <ExplorerHomeGallerysContainer>
-      <ExplorerHomeGallerysSearch />
-      <ExplorerHomeGallerysResults />
-    </ExplorerHomeGallerysContainer>
+    <FinderHomeGallerysContainer>
+      <FinderHomeGallerysSearch />
+      <FinderHomeGallerysResults />
+    </FinderHomeGallerysContainer>
   );
 }

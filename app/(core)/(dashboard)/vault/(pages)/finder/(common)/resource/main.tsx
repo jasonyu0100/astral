@@ -5,7 +5,7 @@ import { ResourceContainer } from './common/container/main';
 import { CollectionResourceMedia } from './common/media/main';
 import { CollectionResourceInfo } from './info/main';
 
-export function ExplorerResource() {
+export function FinderResource() {
   const flippableController = useControllerForFlippable();
   const resource = useContext(ContextForCollectionResourceObj);
 

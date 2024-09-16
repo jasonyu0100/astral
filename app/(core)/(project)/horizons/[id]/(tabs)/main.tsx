@@ -10,7 +10,7 @@ interface HorizonTabProps {
 }
 
 export enum HorizonTabStage {
-  Forum = 'Forum',
+  Horizon = 'Horizon',
   Arc = 'Arc',
   Board = 'Board',
   Point = 'Point',

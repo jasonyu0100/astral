@@ -15,7 +15,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function ExplorerCreateResourceModal() {
+export function VaultFinderCreateResourceModal() {
   const collectionMainController = useContext(ContextForGalleryCollectionMain);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);

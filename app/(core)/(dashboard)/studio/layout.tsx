@@ -1,12 +1,12 @@
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
-import { DashboardSidebarIndicatorType } from '@/(core)/common/(sidebar)/main/indicators/indicator/main';
+import { DashboardSidebarIndicatorType } from '@/(core)/common/(sidebar)/common/indicators/indicator/main';
+import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import { DashboardBody } from '../common/controller/body/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardController>
-      <DashboardSidebarView indicator={DashboardSidebarIndicatorType.Studio} />
+      <CommonSidebar indicator={DashboardSidebarIndicatorType.Studio} />
       <DashboardBody>{children}</DashboardBody>
     </DashboardController>
   );

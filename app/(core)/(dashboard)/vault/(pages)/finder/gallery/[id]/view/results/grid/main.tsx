@@ -6,17 +6,17 @@ import {
 } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../../../../../(common)/collection/add/main';
-import { ExplorerCollection } from '../../../../../(common)/collection/main';
-import { ExplorerCreateCollectionModal } from '../../../../../(modals)/create/collection/main';
+import { FinderCollection } from '../../../../../(common)/collection/main';
+import { VaultFinderCreateCollectionModal } from '../../../../../(modals)/create/collection/main';
 
-export function ExplorerGalleryCollectionsGrid() {
+export function FinderGalleryCollectionsGrid() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const openableController = useControllerForOpenable();
 
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <ExplorerCreateCollectionModal />
+        <VaultFinderCreateCollectionModal />
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
         <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
@@ -26,7 +26,7 @@ export function ExplorerGalleryCollectionsGrid() {
                 value={collection}
                 key={collection.id}
               >
-                <ExplorerCollection key={collection.id} />
+                <FinderCollection key={collection.id} />
               </ContextForGalleryCollectionObj.Provider>
             ),
           )}

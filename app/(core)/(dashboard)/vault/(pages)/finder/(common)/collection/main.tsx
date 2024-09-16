@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { CollectionContainer } from './common/container/main';
 import { CollectionThumbnail } from './common/thumbnail/main';
 
-export function ExplorerCollection() {
+export function FinderCollection() {
   const collection = useContext(ContextForGalleryCollectionObj);
 
   return (

@@ -1,33 +1,23 @@
 'use client';
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { createContext } from 'react';
-import { DashboardSidebarDefaultContainer } from './main/container/default/main';
-import { DashboardSidebarMinimisedContainer } from './main/container/minimised/main';
-import { DashboardSidebarIndicators } from './main/indicators/main';
-import { ExplorerIndicator } from './main/indicators/variants/explorer/main';
-import { JournalIndicator } from './main/indicators/variants/journal/main';
-import { NetworkIndicator } from './main/indicators/variants/network/main';
-import { SpaceIndicator } from './main/indicators/variants/studio/main';
-import { VaultIndicator } from './main/indicators/variants/vault/main';
-import { DashboardSidebarTopBack } from './top/back/main';
-import { DashboardSidebarTopOverview } from './top/overview/main';
+import { CommonSidebarDefault } from './default/main';
+import { CommonSidebarMinimised } from './minimised/main';
 
-export interface DashboardSidebarContextObj {
+export interface ContextForCommonSidebar {
   indicator?: string;
   minimised?: boolean;
   backUrl?: string;
 }
 
-export const ContextForDashboardSidebar = createContext(
-  {} as DashboardSidebarContextObj,
+export const ContextForCommonSidebar = createContext(
+  {} as ContextForCommonSidebar,
 );
 
-export function DashboardSidebarView({
+export function CommonSidebar({
   indicator,
   minimised,
   backUrl,
@@ -42,41 +32,16 @@ export function DashboardSidebarView({
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForCurrentSpaceObj.Provider value={space}>
-        <ContextForDashboardSidebar.Provider
+        <ContextForCommonSidebar.Provider
           value={{
             indicator: indicator,
             minimised: minimised,
             backUrl: backUrl,
           }}
         >
-          {minimised ? (
-            <DashboardSidebarMinimisedContainer>
-              <DashboardSidebarTopBack
-                href={backUrl || studioMap.studio.personal.link}
-              />
-              <HorizontalDivider className='my-[1rem] mb-[2rem]' />
-              <DashboardSidebarIndicators>
-                <SpaceIndicator />
-                <ExplorerIndicator />
-                <JournalIndicator />
-                <NetworkIndicator />
-                <VaultIndicator />
-              </DashboardSidebarIndicators>
-            </DashboardSidebarMinimisedContainer>
-          ) : (
-            <DashboardSidebarDefaultContainer>
-              <DashboardSidebarTopOverview />
-              <HorizontalDivider className='my-[1rem] mb-[2rem]' />
-              <DashboardSidebarIndicators>
-                <SpaceIndicator />
-                <ExplorerIndicator />
-                <JournalIndicator />
-                <NetworkIndicator />
-                <VaultIndicator />
-              </DashboardSidebarIndicators>
-            </DashboardSidebarDefaultContainer>
-          )}
-        </ContextForDashboardSidebar.Provider>
+          {minimised && <CommonSidebarMinimised />}
+          {!minimised && <CommonSidebarDefault />}
+        </ContextForCommonSidebar.Provider>
       </ContextForCurrentSpaceObj.Provider>
     </ContextForLoggedInUserObj.Provider>
   );

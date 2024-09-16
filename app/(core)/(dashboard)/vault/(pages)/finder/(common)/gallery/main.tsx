@@ -6,11 +6,11 @@ import {
 } from '@/logic/contexts/flippable/main';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { GalleryExplorerBack } from './back/main';
+import { GalleryFinderBack } from './back/main';
 import { GalleryContainer } from './common/container/main';
-import { GalleryExplorerFront } from './front/main';
+import { GalleryFinderFront } from './front/main';
 
-export function ExplorerGallery() {
+export function FinderGallery() {
   const flippableController = useControllerForFlippable();
   const gallery = useContext(ContextForGalleryObj);
 
@@ -19,9 +19,9 @@ export function ExplorerGallery() {
       <ContextForFlippable.Provider value={flippableController}>
         <GalleryContainer className='w-full'>
           {flippableController.flipped ? (
-            <GalleryExplorerBack />
+            <GalleryFinderBack />
           ) : (
-            <GalleryExplorerFront />
+            <GalleryFinderFront />
           )}
         </GalleryContainer>
       </ContextForFlippable.Provider>

@@ -86,11 +86,17 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForConversationMessageList.Provider
                   value={messageListController}
                 >
-                  <LoadingWrapper>
-                    <SpacesSpaceControllerWrapper>
-                      <SpacesSpaceView />
-                    </SpacesSpaceControllerWrapper>
-                  </LoadingWrapper>
+                  <UpdateWrapper>
+                    <LoadingWrapper>
+                      <ControllerWrapper>
+                        <ModalWrapper>
+                          <ViewWrapper>
+                            <SpacesSpaceView />
+                          </ViewWrapper>
+                        </ModalWrapper>
+                      </ControllerWrapper>
+                    </LoadingWrapper>
+                  </UpdateWrapper>
                 </ContextForConversationMessageList.Provider>
               </ContextForSceneConversationList.Provider>
             </ContextForSceneMemberList.Provider>
@@ -101,7 +107,15 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+function ModalWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpacesSpaceModals>{children}</SpacesSpaceModals>
+    </>
+  );
+}
+
+function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const searchParams = useSearchParams();
@@ -133,22 +147,22 @@ function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function SpacesSpaceControllerWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const spacesSpaceController = useControllerForSpacesSpace();
 
   return (
     <ContextForSpacesSpace.Provider value={spacesSpaceController}>
-      <SpacesSpaceModals>
-        <UpdateUrlWrapper>
-          <SpaceTabs tab={SpaceTabStage.Space} />
-          <DashboardContent>{children}</DashboardContent>
-        </UpdateUrlWrapper>
-      </SpacesSpaceModals>
+      {children}
     </ContextForSpacesSpace.Provider>
+  );
+}
+
+function ViewWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpaceTabs tab={SpaceTabStage.Space} />
+      <DashboardContent>{children}</DashboardContent>
+    </>
   );
 }
 

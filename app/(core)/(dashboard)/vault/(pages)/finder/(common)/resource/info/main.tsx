@@ -1,4 +1,4 @@
-import { ExplorerEditResourceModal } from '@/(core)/(dashboard)/vault/(pages)/explorer/(modals)/edit/resource/main';
+import { VaultFinderEditResourceModal } from '@/(core)/(dashboard)/vault/(pages)/Finder/(modals)/edit/resource/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import {
   ContextForOpenable,
@@ -14,7 +14,7 @@ export function CollectionResourceInfo({ ...props }: DivInputProps) {
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <ExplorerEditResourceModal />
+        <VaultFinderEditResourceModal />
       </ContextForOpenable.Provider>
       <div
         className={`h-full w-full overflow-auto p-[10px] ${props.className}`}

@@ -1,14 +1,14 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 
-export function ArchiveExplorerBreadcrumbs({
+export function VaultFinderBreadcrumbs({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassWindowFrame
-      name={ArchiveExplorerBreadcrumbs.name}
+      name={VaultFinderBreadcrumbs.name}
       className={'h-[4rem] w-full flex-shrink-0'}
     >
       <GlassWindowContents className='flex h-full w-full flex-row items-center space-x-[1rem] pb-[1rem]'>

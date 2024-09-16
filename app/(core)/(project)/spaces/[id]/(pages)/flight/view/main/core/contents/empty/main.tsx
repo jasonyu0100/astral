@@ -1,9 +1,7 @@
 export function SpacesFlightEmpty() {
   return (
     <div className='flex h-full w-full items-center justify-center'>
-      <p className='text-8xl font-black uppercase text-slate-500'>
-        No spotlight
-      </p>
+      <p className='text-8xl font-black uppercase text-slate-500'>NO FLIGHTS</p>
     </div>
   );
 }

@@ -5,12 +5,12 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
-export function ExplorerGalleryCollectionsSearch() {
+export function FinderGalleryCollectionsSearch() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   return (
     <div className='w-full p-[2rem] shadow-glow'>
       <GlassWindowFrame
-        name={ExplorerGalleryCollectionsSearch.name}
+        name={FinderGalleryCollectionsSearch.name}
         className='h-[4rem] w-full flex-shrink-0'
         borderFx={borderFx['border-around']}
         roundedFx={roundedFx['rounded-full']}

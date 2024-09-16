@@ -1,7 +1,7 @@
 'use client';
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { DashboardSidebarView } from '@/(core)/common/(sidebar)/main';
+import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import { createContext } from 'react';
 
 export interface ContextForProfileId {
@@ -23,10 +23,7 @@ export default function Layout({
   return (
     <ContextForProfileId.Provider value={{ userId: params.id }}>
       <DashboardController>
-        <DashboardSidebarView
-          minimised
-          backUrl={studioMap.studio.personal.link}
-        />
+        <CommonSidebar minimised backUrl={studioMap.studio.personal.link} />
         {children}
       </DashboardController>
     </ContextForProfileId.Provider>

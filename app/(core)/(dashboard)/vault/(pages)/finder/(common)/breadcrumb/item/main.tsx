@@ -6,7 +6,7 @@ interface InputProps extends LinkInputProps {
   active: boolean;
 }
 
-export function ArchiveExplorerBreadcrumbItem({
+export function VaultFinderBreadcrumbItem({
   children,
   active,
   ...props
