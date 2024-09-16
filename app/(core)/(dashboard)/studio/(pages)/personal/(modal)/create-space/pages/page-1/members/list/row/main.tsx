@@ -1,6 +1,6 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
-import { UserDpElement } from '@/ui/cover/user/main';
+import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { useContext } from 'react';
 
 export function CreateSpaceCollaboratorRow({
@@ -17,7 +17,7 @@ export function CreateSpaceCollaboratorRow({
       className='flex cursor-pointer flex-row items-center space-x-[1rem]'
       onClick={onClick}
     >
-      <UserDpElement fileElem={user?.dp} />
+      <UserDisplayPictureElement fileElem={user?.dp} />
       <p className='font-bold'>{user?.displayName}</p>
     </div>
   );

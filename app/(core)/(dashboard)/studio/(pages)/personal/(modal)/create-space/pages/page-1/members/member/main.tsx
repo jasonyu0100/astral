@@ -1,5 +1,5 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { UserDpElement } from '@/ui/cover/user/main';
+import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 
 export function CreateSpaceCollaborator({
   connectedId,
@@ -13,7 +13,7 @@ export function CreateSpaceCollaborator({
 
   return (
     <div onClick={onClick} className='cursor-pointer'>
-      <UserDpElement fileElem={user?.dp} />
+      <UserDisplayPictureElement fileElem={user?.dp} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { glassFx } from '@/style/data';
-import { UserDpElement } from '@/ui/cover/user/main';
+import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
@@ -53,7 +53,7 @@ export function SpacesJourneyAddUpdateModal() {
                 <div className='flex flex-col space-y-[1rem]'>
                   {exampleFileElems.map((fileElem) => (
                     <div className='flex flex-row items-center space-x-[1rem] font-bold'>
-                      <UserDpElement fileElem={fileElem} />
+                      <UserDisplayPictureElement fileElem={fileElem} />
                       <p>First name</p>
                       <p>Last name</p>
                     </div>

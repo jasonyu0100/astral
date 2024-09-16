@@ -3,12 +3,10 @@ import { DivInputProps } from '@/types/props/main';
 import { cn } from '@/utils/cn';
 
 interface UserDpElementProps extends DivInputProps {
-  coverFx?: string;
   fileElem: FileElem;
 }
 
-export function UserDpElement({
-  coverFx,
+export function UserDisplayPictureElement({
   fileElem,
   ...props
 }: UserDpElementProps) {
@@ -16,7 +14,7 @@ export function UserDpElement({
     <img
       className={cn(
         `h-[50px] w-[50px] flex-shrink-0 rounded-full shadow-glow`,
-        `${coverFx || ''} ${props.className}`,
+        props.className,
       )}
       src={fileElem?.src || exampleFileElem.src}
       alt={fileElem?.title}
