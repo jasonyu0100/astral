@@ -27,6 +27,8 @@ export function CommonSidebarMinimised() {
         <CommonSidebarNetworkIndicator />
         <CommonSidebarVaultIndicator />
       </CommonSidebarIndicators>
+      <HorizontalDivider className='my-[2rem] mb-[2rem]' />
+      <div>{/* We are already travelling in time */}</div>
     </CommonSidebarMinimisedContainer>
   );
 }
