@@ -2,13 +2,13 @@ import { userProfileMap } from '@/(core)/(dashboard)/users/[id]/map';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralSettingsIcon } from '@/icons/settings/main';
 import { useContext, useEffect, useState } from 'react';
-import { ContextForUserSettingsModals } from '../../modals/controller/main';
+import { ContextForCommonTopbarModals } from '../../modals/controller/main';
 import { TopbarAvatar } from './avatar/main';
 import { TopbarIconLink } from './icon-link/main';
 
 export function TopbarRightGroup() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const settingsModals = useContext(ContextForUserSettingsModals);
+  const settingsModals = useContext(ContextForCommonTopbarModals);
   const [userId, setUserId] = useState<string>('0');
 
   useEffect(() => {

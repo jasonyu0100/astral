@@ -6,19 +6,23 @@ import {
 import { createContext } from 'react';
 import { UserSettingsModal } from '../settings/main';
 
-export const ContextForUserSettingsModals = createContext(
-  {} as UserSettingsModals,
+export const ContextForCommonTopbarModals = createContext(
+  {} as CommonTopbarModals,
 );
 
-export interface UserSettingsModals {
+export interface CommonTopbarModals {
   userSettingsModal: ContextForOpenableInterface;
 }
 
-export function DashboardModals({ children }: { children: React.ReactNode }) {
+export function CommonTopbarModals({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const userSettingsModal = useControllerForOpenable();
 
   return (
-    <ContextForUserSettingsModals.Provider
+    <ContextForCommonTopbarModals.Provider
       value={{
         userSettingsModal: userSettingsModal,
       }}
@@ -27,6 +31,6 @@ export function DashboardModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={userSettingsModal}>
         <UserSettingsModal />
       </ContextForOpenable.Provider>
-    </ContextForUserSettingsModals.Provider>
+    </ContextForCommonTopbarModals.Provider>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { DashboardTopbar } from '@/(core)/common/(topbar)/main';
+import { CommonTopbar } from '@/(core)/common/(topbar)/main';
 import { PortalBackground } from '@/(portal)/common/background/main';
 import { Suspense } from 'react';
 
@@ -12,7 +12,7 @@ export default function Layout({
 }) {
   return (
     <Suspense fallback={<PortalBackground />}>
-      <DashboardTopbar />
+      <CommonTopbar />
       <DashboardController>
         <div className='flex h-full w-full items-center justify-center'>
           {children}
