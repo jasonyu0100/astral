@@ -3,7 +3,7 @@ import { TopbarLogo } from '../left-group/logo/main';
 import { TopbarLeftGroup } from '../left-group/main';
 import { TopbarRightGroup } from '../right-group/main';
 
-export function DashboardTopbarView() {
+export function CommonTopbarView() {
   return (
     <DashboardTopbarContainer>
       <TopbarLogo href={'/'} />
