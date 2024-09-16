@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import { ContextForCommonSidebar } from '../../../main';
 
 export function CommonSidebarTopSpaceCover() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
+  const commonSidebar = useContext(ContextForCommonSidebar);
   const currentSpace = useContext(ContextForCurrentSpaceObj);
 
   return (
     <div className='relative flex-shrink-0'>
-      {dashboardSidebar.minimised ? (
+      {commonSidebar.minimised ? (
         <AstralArrowCircleLeftIcon className='h-[2.5rem] w-[2.5rem]' />
       ) : (
         <img

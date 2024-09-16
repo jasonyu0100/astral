@@ -4,18 +4,18 @@ import { useContext } from 'react';
 import { CommonIndicatorGoldJewel } from '../../indicator/jewel/gold/main';
 import {
   CommonSidebarIndicator,
-  DashboardSidebarIndicatorType,
+  CommonSidebarIndicatorType,
 } from '../../indicator/main';
 import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarVaultIndicator() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = DashboardSidebarIndicatorType.Vault;
-  const active = dashboardSidebar.indicator === indicatorLabel;
+  const commonSidebar = useContext(ContextForCommonSidebar);
+  const indicatorLabel = CommonSidebarIndicatorType.Vault;
+  const active = commonSidebar.indicator === indicatorLabel;
 
   return (
     <>
-      {dashboardSidebar?.minimised ? (
+      {commonSidebar?.minimised ? (
         <CommonSidebarIndicator href={vaultMap.vault.finder.link}>
           <CommonIndicatorGoldJewel active={active} />
         </CommonSidebarIndicator>

@@ -1,6 +1,6 @@
 import { HyperLinkInputProps } from '@/types/props/main';
 
-export interface DashboardSidebarIndicatorProps {
+export interface CommonSidebarIndicatorProps {
   indicator: string | undefined;
   minimised?: boolean;
 }
@@ -18,7 +18,7 @@ export function CommonSidebarIndicator({ children, ...props }: InputProps) {
     </a>
   );
 }
-export enum DashboardSidebarIndicatorType {
+export enum CommonSidebarIndicatorType {
   Studio = 'Studio',
   Vault = 'Vault',
   Journal = 'Journal',

@@ -4,18 +4,18 @@ import { useContext } from 'react';
 import { CommonIndicatorGreenJewel } from '../../indicator/jewel/green/main';
 import {
   CommonSidebarIndicator,
-  DashboardSidebarIndicatorType,
+  CommonSidebarIndicatorType,
 } from '../../indicator/main';
 import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarJournalIndicator() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = DashboardSidebarIndicatorType.Journal;
-  const active = dashboardSidebar.indicator === indicatorLabel;
+  const commonSidebar = useContext(ContextForCommonSidebar);
+  const indicatorLabel = CommonSidebarIndicatorType.Journal;
+  const active = commonSidebar.indicator === indicatorLabel;
 
   return (
     <>
-      {dashboardSidebar.minimised ? (
+      {commonSidebar.minimised ? (
         <CommonSidebarIndicator href={journalMap.journal.daily.link}>
           <CommonIndicatorGreenJewel active={active} />
         </CommonSidebarIndicator>

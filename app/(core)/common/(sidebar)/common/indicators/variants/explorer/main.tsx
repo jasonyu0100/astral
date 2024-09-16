@@ -4,18 +4,18 @@ import { useContext } from 'react';
 import { CommonIndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
 import {
   CommonSidebarIndicator,
-  DashboardSidebarIndicatorType,
+  CommonSidebarIndicatorType,
 } from '../../indicator/main';
 import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarExplorerIndicator() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = DashboardSidebarIndicatorType.Explorer;
-  const active = dashboardSidebar.indicator === indicatorLabel;
+  const commonSidebar = useContext(ContextForCommonSidebar);
+  const indicatorLabel = CommonSidebarIndicatorType.Explorer;
+  const active = commonSidebar.indicator === indicatorLabel;
 
   return (
     <>
-      {dashboardSidebar.minimised ? (
+      {commonSidebar.minimised ? (
         <CommonSidebarIndicator href={explorerMap.venture.projects.link}>
           <CommonIndicatorOrangeJewel active={active} />
         </CommonSidebarIndicator>

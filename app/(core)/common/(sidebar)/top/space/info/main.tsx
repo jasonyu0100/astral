@@ -6,8 +6,8 @@ import { useContext, useEffect, useState } from 'react';
 import { ContextForCommonSidebar } from '../../../main';
 
 export function CommonSidebarTopSpaceInfo() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
-  const active = !dashboardSidebar.indicator;
+  const commonSidebar = useContext(ContextForCommonSidebar);
+  const active = !commonSidebar.indicator;
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const currentSpace = useContext(ContextForCurrentSpaceObj);
   const [userName, setUserName] = useState('Untitled');

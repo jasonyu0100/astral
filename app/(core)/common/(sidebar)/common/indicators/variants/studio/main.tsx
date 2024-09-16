@@ -4,18 +4,18 @@ import { useContext } from 'react';
 import { CommonIndicatorBlueJewel } from '../../indicator/jewel/blue/main';
 import {
   CommonSidebarIndicator,
-  DashboardSidebarIndicatorType,
+  CommonSidebarIndicatorType,
 } from '../../indicator/main';
 import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarSpaceIndicator() {
-  const dashboardSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = DashboardSidebarIndicatorType.Studio;
-  const active = dashboardSidebar.indicator === indicatorLabel;
+  const commonSidebar = useContext(ContextForCommonSidebar);
+  const indicatorLabel = CommonSidebarIndicatorType.Studio;
+  const active = commonSidebar.indicator === indicatorLabel;
 
   return (
     <>
-      {dashboardSidebar.minimised ? (
+      {commonSidebar.minimised ? (
         <CommonSidebarIndicator href={studioMap.studio.personal.link}>
           <CommonIndicatorBlueJewel active={active} />
         </CommonSidebarIndicator>
