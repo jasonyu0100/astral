@@ -12,7 +12,7 @@ export function StudioSpacesRowMore() {
   return (
     <div className='flex flex-row items-center justify-center'>
       <DropdownMenu>
-        <DropdownMenuTrigger className='h-[50px] w-[50px] outline-none'>
+        <DropdownMenuTrigger className='h-[2.5rem] w-[2.5rem] outline-none'>
           <AstralMoreIcon className='h-3/4 w-3/4' />
         </DropdownMenuTrigger>
         <DropdownMenuContent className='rounded-none border-none bg-slate-800 text-white outline-none'>

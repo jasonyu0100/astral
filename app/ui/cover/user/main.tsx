@@ -13,7 +13,7 @@ export function UserDisplayPictureElement({
   return (
     <img
       className={cn(
-        `h-[50px] w-[50px] flex-shrink-0 rounded-full shadow-glow`,
+        `h-[2.5rem] w-[2.5rem] flex-shrink-0 rounded-full shadow-glow`,
         props.className,
       )}
       src={fileElem?.src || exampleFileElem.src}

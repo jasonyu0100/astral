@@ -19,14 +19,14 @@ export function SpaceThumbnailElement({
     <>
       {(variant === SpaceThumbnailVariant.PLAIN || variant === undefined) && (
         <img
-          className={`h-[50px] w-[50px] flex-shrink-0 rounded-full ${props.className}`}
+          className={`h-[2.5rem] w-[2.5rem] flex-shrink-0 rounded-full ${props.className}`}
           src={file?.src}
           alt={file?.title}
         />
       )}
       {variant === SpaceThumbnailVariant.EVENT_HORIZON && (
         <img
-          className={`h-[50px] w-[50px] flex-shrink-0 rounded-full border-[2px] border-black bg-slate-950 pt-[2px] ${props.className}`}
+          className={`h-[2.5rem] w-[2.5rem] flex-shrink-0 rounded-full border-[2px] border-black bg-slate-950 pt-[2px] ${props.className}`}
           src={file?.src}
           alt={file?.title}
         />

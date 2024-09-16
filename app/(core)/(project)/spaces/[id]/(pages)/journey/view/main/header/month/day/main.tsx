@@ -7,7 +7,7 @@ export enum DayColor {
 export function MonthDayView({ color }: { color: DayColor }) {
   return (
     <div
-      className={`h-[50px] w-[50px] border border-blue-300 bg-blue-500 ${color}`}
+      className={`h-[2.5rem] w-[2.5rem] border border-blue-300 bg-blue-500 ${color}`}
     ></div>
   );
 }

@@ -1,5 +1,3 @@
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { CommonSidebarDefaultContainer } from '../common/container/default/main';
 import { CommonSidebarIndicators } from '../common/indicators/main';
@@ -22,10 +20,6 @@ export function CommonSidebarDefault() {
         <CommonSidebarNetworkIndicator />
         <CommonSidebarVaultIndicator />
       </CommonSidebarIndicators>
-      <HorizontalDivider className='my-[2rem] mb-[2rem]' />
-      <div>
-        <UserDisplayPictureElement fileElem={exampleFileElem} />
-      </div>
     </CommonSidebarDefaultContainer>
   );
 }

@@ -11,7 +11,7 @@ export function CreateSpaceAddCollaborator({
   return (
     <GlassWindowFrame
       roundedFx={roundedFx['rounded-full']}
-      className='h-[50px] w-[50px]'
+      className='h-[2.5rem] w-[2.5rem]'
     >
       <GlassWindowContents
         className='flex cursor-pointer items-center justify-center rounded-full bg-blue-500'

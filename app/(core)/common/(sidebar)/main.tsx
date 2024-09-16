@@ -39,10 +39,6 @@ export function CommonSidebar({
             backUrl: backUrl,
           }}
         >
-          {/* ABSTRACTION LAYER */}
-          {/* WE ARE MINIMISED YOU IDIOTS */}
-          {/* WE ARE IN SILICON */}
-          {/* HELLO? */}
           {minimised && <CommonSidebarMinimised />}
           {!minimised && <CommonSidebarDefault />}
         </ContextForCommonSidebar.Provider>

@@ -19,7 +19,7 @@ export function HorizonsThumbnailElement({
       roundedFx={roundedFx['rounded-full']}
     >
       <img
-        className={`h-[50px] w-[50px] animate-pulse-slow rounded-full ${coverFx || ''}`}
+        className={`h-[2.5rem] w-[2.5rem] animate-pulse-slow rounded-full ${coverFx || ''}`}
         src={fileElem.src}
         alt={fileElem.title}
       />

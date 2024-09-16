@@ -60,7 +60,7 @@ export const exampleDisplayPictureFileElem: FileElem = {
 export const exampleFileElems: FileElem[] = [
   {
     id: '0',
-    title: 'passion.png',
+    title: 'passion',
     size: 0,
     src: `/stock/passion.png`,
     ext: 'image/png',
@@ -68,7 +68,7 @@ export const exampleFileElems: FileElem[] = [
   },
   {
     id: '1',
-    title: 'nature.png',
+    title: 'nature',
     size: 0,
     src: `/stock/nature.png`,
     ext: 'image/png',
@@ -76,9 +76,17 @@ export const exampleFileElems: FileElem[] = [
   },
   {
     id: '2',
-    title: 'launch.png',
+    title: 'launch',
     size: 0,
     src: `/stock/launch.png`,
+    ext: 'image/png',
+    variant: FileElemVariant.IMAGE,
+  },
+  {
+    id: '3',
+    title: 'personal',
+    size: 0,
+    src: `/stock/personal.png`,
     ext: 'image/png',
     variant: FileElemVariant.IMAGE,
   },
