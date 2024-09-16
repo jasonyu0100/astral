@@ -1,6 +1,4 @@
 'use client';
-import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import { createContext } from 'react';
 
 interface CreativeSpacesContextObj {
@@ -21,10 +19,7 @@ export default function Layout({
 }) {
   return (
     <CreativeSpacesContext.Provider value={{ spaceId: params.id }}>
-      <DashboardController fullHeight>
-        <CommonSidebar minimised />
-        {children}
-      </DashboardController>
+      {children}
     </CreativeSpacesContext.Provider>
   );
 }

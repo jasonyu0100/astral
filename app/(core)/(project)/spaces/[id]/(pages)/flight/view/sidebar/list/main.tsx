@@ -16,7 +16,7 @@ export function SpacesFlightSidebarList() {
         className='flex flex-col overflow-auto p-[1rem]'
         name={''}
       >
-        <div className='h-full w-full overflow-auto  pr-[1rem]'>
+        <div className='h-full w-full overflow-auto'>
           <div className='flex flex-col space-y-[1rem]'>
             {spotlightListController.state.more.queryResults.map(
               (spotlight) => (

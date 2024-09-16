@@ -4,7 +4,7 @@ export function CommonSidebarFriends({
   children?: React.ReactNode;
 }) {
   return (
-    <div className='inline-flex flex-col items-end space-y-[2rem]'>
+    <div className='flex w-full flex-col items-end space-y-[2rem] overflow-hidden rounded-full'>
       {children}
     </div>
   );

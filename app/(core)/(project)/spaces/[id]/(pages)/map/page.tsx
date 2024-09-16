@@ -1,5 +1,8 @@
 'use client';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
+import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
+import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
+import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
@@ -202,10 +205,13 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <SpaceTabs tab={SpaceTabStage.Map} />
-      <DashboardContent>{children}</DashboardContent>
-    </>
+    <DashboardController fullHeight>
+      <CommonSidebar minimised />
+      <DashboardContent>
+        <SpaceTabs tab={SpaceTabStage.Map} />
+        <DashboardBody>{children}</DashboardBody>
+      </DashboardContent>
+    </DashboardController>
   );
 }
 

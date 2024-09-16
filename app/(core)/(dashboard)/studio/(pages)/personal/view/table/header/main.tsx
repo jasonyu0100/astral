@@ -10,7 +10,7 @@ export function StudioSpacesTableHeader() {
             <p className='text-center font-bold text-slate-500'>#</p>
           </div>
           <div>
-            <p className='pl-[4rem] font-bold text-slate-500'>Space</p>
+            <p className='font-bold text-slate-500'>Space</p>
           </div>
           <div></div>
           <p className='text-center font-bold text-slate-500'></p>
