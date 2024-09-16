@@ -122,11 +122,17 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForSpaceIdeaRelationshipListFromScene.Provider
                           value={spaceIdeaRelationshipListController}
                         >
-                          <LoadingWrapper>
-                            <SpacesMapControllerWrapper>
-                              <SpacesMapView />
-                            </SpacesMapControllerWrapper>
-                          </LoadingWrapper>
+                          <UpdateWrapper>
+                            <LoadingWrapper>
+                              <ControllerWrapper>
+                                <ModalWrapper>
+                                  <ViewWrapper>
+                                    <SpacesMapView />
+                                  </ViewWrapper>
+                                </ModalWrapper>
+                              </ControllerWrapper>
+                            </LoadingWrapper>
+                          </UpdateWrapper>
                         </ContextForSpaceIdeaRelationshipListFromScene.Provider>
                       </ContextForConversationMessageList.Provider>
                     </ContextForSceneConversationList.Provider>
@@ -141,7 +147,15 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+function ModalWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpacesMapModals>{children}</SpacesMapModals>
+    </>
+  );
+}
+
+function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const searchParams = useSearchParams();
@@ -173,25 +187,25 @@ function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function SpacesMapControllerWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const mapController = useControllerForSpacesMap();
   const mapChatController = useControllerForSpacesMapChat();
 
   return (
     <ContextForSpacesMap.Provider value={mapController}>
-      <SpacesMapModals>
-        <ContextForSpacesMapChat.Provider value={mapChatController}>
-          <UpdateUrlWrapper>
-            <SpaceTabs tab={SpaceTabStage.Map} />
-            <DashboardContent>{children}</DashboardContent>
-          </UpdateUrlWrapper>
-        </ContextForSpacesMapChat.Provider>
-      </SpacesMapModals>
+      <ContextForSpacesMapChat.Provider value={mapChatController}>
+        {children}
+      </ContextForSpacesMapChat.Provider>
     </ContextForSpacesMap.Provider>
+  );
+}
+
+function ViewWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpaceTabs tab={SpaceTabStage.Map} />
+      <DashboardContent>{children}</DashboardContent>
+    </>
   );
 }
 

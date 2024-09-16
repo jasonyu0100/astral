@@ -91,11 +91,17 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForSpotlightLinkList.Provider
                     value={linkListController}
                   >
-                    <LoadingWrapper>
-                      <SpacesFlightControllerWrapper>
-                        <SpacesFlightView />
-                      </SpacesFlightControllerWrapper>
-                    </LoadingWrapper>
+                    <UpdateWrapper>
+                      <LoadingWrapper>
+                        <ControllerWrapper>
+                          <ModalWrapper>
+                            <ViewWrapper>
+                              <SpacesFlightView />
+                            </ViewWrapper>
+                          </ModalWrapper>
+                        </ControllerWrapper>
+                      </LoadingWrapper>
+                    </UpdateWrapper>
                   </ContextForSpotlightLinkList.Provider>
                 </ContextForSpotlightCommentList.Provider>
               </ContextForSpotlightAttachmentListFromSpotlight.Provider>
@@ -107,7 +113,15 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+function ModalWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpacesFlightModals>{children}</SpacesFlightModals>
+    </>
+  );
+}
+
+function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -133,21 +147,21 @@ function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function SpacesFlightControllerWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const flightController = useControllerForSpacesFlight();
   return (
     <ContextForSpacesFlight.Provider value={flightController}>
-      <SpacesFlightModals>
-        <UpdateUrlWrapper>
-          <SpaceTabs tab={SpaceTabStage.Flight} />
-          <DashboardContent>{children}</DashboardContent>
-        </UpdateUrlWrapper>
-      </SpacesFlightModals>
+      {children}
     </ContextForSpacesFlight.Provider>
+  );
+}
+
+function ViewWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpaceTabs tab={SpaceTabStage.Flight} />
+      <DashboardContent>{children}</DashboardContent>
+    </>
   );
 }
 

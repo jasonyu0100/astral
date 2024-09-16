@@ -54,11 +54,17 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterLogList.Provider value={logListController}>
             <ContextForLogLinkList.Provider value={linkListController}>
-              <LoadingWrapper>
-                <SpacesJourneyControllerWrapper>
-                  <SpacesJourneyView />
-                </SpacesJourneyControllerWrapper>
-              </LoadingWrapper>
+              <UpdateWrapper>
+                <LoadingWrapper>
+                  <ControllerWrapper>
+                    <ModalWrapper>
+                      <ViewWrapper>
+                        <SpacesJourneyView />
+                      </ViewWrapper>
+                    </ModalWrapper>
+                  </ControllerWrapper>
+                </LoadingWrapper>
+              </UpdateWrapper>
             </ContextForLogLinkList.Provider>
           </ContextForChapterLogList.Provider>
         </ContextForSpaceChapterList.Provider>
@@ -67,7 +73,15 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
+function ModalWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpacesJourneyModals>{children}</SpacesJourneyModals>
+    </>
+  );
+}
+
+function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -93,22 +107,22 @@ function UpdateUrlWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function SpacesJourneyControllerWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const journeyController = useControllerForSpacesJourney();
 
   return (
     <ContextForSpacesJourney.Provider value={journeyController}>
-      <SpacesJourneyModals>
-        <UpdateUrlWrapper>
-          <SpaceTabs tab={SpaceTabStage.Journey} />
-          <DashboardContent>{children}</DashboardContent>
-        </UpdateUrlWrapper>
-      </SpacesJourneyModals>
+      {children}
     </ContextForSpacesJourney.Provider>
+  );
+}
+
+function ViewWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <SpaceTabs tab={SpaceTabStage.Journey} />
+      <DashboardContent>{children}</DashboardContent>
+    </>
   );
 }
 
