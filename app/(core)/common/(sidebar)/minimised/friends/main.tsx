@@ -3,7 +3,6 @@ import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { useContext, useState } from 'react';
 import { CommonSidebarFriends } from '../../common/friends/main';
-import { CommonSidebarMinimisedFriendsAdd } from '../add/main';
 
 export function CommonSidebarMinimisedFriendsWIP() {
   const [tempFriends, setTempFriends] = useState(exampleFileElems);
@@ -21,11 +20,6 @@ export function CommonSidebarMinimisedFriendsWIP() {
           <UserDisplayPictureElement fileElem={fileElem} />
         </div>
       ))}
-      <div
-        onClick={() => setTempFriends([...tempFriends, exampleFileElems[0]])}
-      >
-        <CommonSidebarMinimisedFriendsAdd />
-      </div>
     </CommonSidebarFriends>
   );
 }
