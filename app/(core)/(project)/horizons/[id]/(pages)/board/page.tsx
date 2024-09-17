@@ -12,14 +12,18 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
-import { HorizonTempView } from './view/main';
-import { HorizonTempSidebar } from './view/sidebar/main';
+import { HorizonsBoardKanban } from './view/kanban/main';
+import { HorizonsBoardView } from './view/main';
+import { HorizonsBoardSidebar } from './view/sidebar/main';
 
 function Page() {
   return (
     <ViewWrapper>
-      <HorizonTempView>
-        <div className='flex h-full flex-grow flex-col'>
+      <HorizonsBoardView>
+        <div className='flex h-full w-full flex-col overflow-hidden'>
+          <div className='w-full' style={{ height: 'calc(100% - 8rem)' }}>
+            <HorizonsBoardKanban />
+          </div>
           <div className='flex h-[8rem] w-full flex-row items-center justify-between space-x-[2rem] p-[2rem] shadow-glow'>
             <GlassWindowFrame
               className='h-[4rem] w-full'
@@ -39,8 +43,8 @@ function Page() {
             </div>
           </div>
         </div>
-        <HorizonTempSidebar />
-      </HorizonTempView>
+        <HorizonsBoardSidebar />
+      </HorizonsBoardView>
     </ViewWrapper>
   );
 }

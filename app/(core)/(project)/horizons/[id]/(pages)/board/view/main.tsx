@@ -1,10 +1,14 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
-export function HorizonTempView({ children }: { children?: React.ReactNode }) {
+export function HorizonsBoardView({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
   return (
     <GlassAreaContainer
-      name={HorizonTempView.name}
+      name={HorizonsBoardView.name}
       sizeFx='flex-grow h-full'
       className={`flex`}
       glassFx={glassFx['glass-5']}

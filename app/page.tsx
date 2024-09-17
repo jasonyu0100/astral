@@ -93,8 +93,9 @@ const HeroSection = () => (
 );
 
 const Question = () => (
-  <p className='w-full animate-pulse-slow text-center text-2xl font-bold text-slate-400 sm:text-5xl'>
-    "What is creativity in an age of AI?"
+  <p className='w-full animate-pulse-slow text-center text-3xl font-bold text-slate-400 sm:text-5xl'>
+    "What does creativity look like in
+    <br /> an age of AI?"
   </p>
 );
 const CallToAction = () => {
@@ -307,7 +308,7 @@ const FooterCTA = () => (
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        Start your journey in time
+        Begin your journey in space
       </p>
     </a>
   </footer>
@@ -501,30 +502,28 @@ function FAQSection() {
   ];
 
   return (
-    <section className='py-12 text-slate-300'>
-      <GlassWindowFrame>
-        <GlassWindowContents className='container w-full p-[1rem]'>
-          <h2 className='mb-6 text-center text-3xl font-bold text-slate-300'>
-            Frequently Asked Questions
-          </h2>
-          <Accordion type='multiple' className='mx-auto max-w-3xl'>
-            {faqData.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className='border-b border-slate-300 border-opacity-30'
-              >
-                <AccordionTrigger className='text-start text-lg font-bold text-slate-500'>
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className='text-start text-sm font-light text-slate-500'>
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </GlassWindowContents>
-      </GlassWindowFrame>
+    <section className='flex w-full flex-col items-center py-12 text-slate-300'>
+      <div className='container w-full p-[1rem]'>
+        <h2 className='mb-6 text-center text-3xl font-bold text-slate-300'>
+          Frequently Asked Questions
+        </h2>
+        <Accordion type='multiple' className='mx-auto max-w-3xl'>
+          {faqData.map((faq, index) => (
+            <AccordionItem
+              key={index}
+              value={`faq-${index}`}
+              className='border-b border-slate-300 border-opacity-30'
+            >
+              <AccordionTrigger className='px-[1rem] text-start text-lg font-bold  text-slate-500'>
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className='px-[1rem] text-start text-sm font-light text-slate-500'>
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </section>
   );
 }
@@ -537,9 +536,9 @@ export default function Page() {
       <HeroSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
-      <div className='h-[3rem] sm:h-[7rem]' />
+      <div className='h-[5rem] sm:h-[10rem]' />
       <Question />
-      <div className='h-[3rem] sm:h-[7rem]' />
+      <div className='h-[5rem] sm:h-[10rem]' />
       <Map />
       <CallToAction />
       <div className='h-[5rem] sm:h-[10rem]' />

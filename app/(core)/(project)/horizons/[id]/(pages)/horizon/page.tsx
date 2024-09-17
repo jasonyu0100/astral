@@ -19,7 +19,12 @@ function Page() {
   return (
     <ViewWrapper>
       <HorizonHorizonView>
+        <HorizonHorizonSidebar />
         <div className='h-full flex-grow overflow-hidden'>
+          <div
+            style={{ height: 'calc(100% - 8rem)' }}
+            className='flex flex-col overflow-hidden p-[2rem]'
+          ></div>
           <div className='flex h-[8rem] w-full flex-row items-center justify-between space-x-[2rem] p-[2rem] shadow-glow'>
             <GlassWindowFrame
               className='h-[4rem] w-full'
@@ -39,7 +44,6 @@ function Page() {
             </div>
           </div>
         </div>
-        <HorizonHorizonSidebar />
       </HorizonHorizonView>
     </ViewWrapper>
   );

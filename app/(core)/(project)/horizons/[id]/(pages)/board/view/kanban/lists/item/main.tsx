@@ -1,4 +1,3 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -7,13 +6,9 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { cn } from '@/utils/cn';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
-import { ContextForSpacesJourney } from '../../../../../../controller/main';
 
-export function SpaceJourneyListItem() {
-  const journeyController = useContext(ContextForSpacesJourney);
-  const logListController = useContext(ContextForChapterLogList);
+export function HorizonsBoardListItem() {
   const log = useContext(ContextForChapterLogObj);
-  const selected = journeyController.state.selectedLogs.includes(log);
 
   return (
     <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
@@ -21,21 +16,7 @@ export function SpaceJourneyListItem() {
         className={cn(
           'flex h-full w-full cursor-pointer flex-col space-y-[1rem] overflow-auto',
         )}
-        onClick={() => {
-          if (journeyController.state.selectedLogs.includes(log)) {
-            journeyController.actions.updateSelectedLogs(
-              journeyController.state.selectedLogs.filter(
-                (selectedLog) => selectedLog !== log,
-              ),
-            );
-          } else {
-            logListController.actions.stateActions.select(log);
-            journeyController.actions.updateSelectedLogs([
-              ...journeyController.state.selectedLogs,
-              log,
-            ]);
-          }
-        }}
+        onClick={() => {}}
       >
         <p className='text-lg font-bold text-slate-300'>{log.title}</p>
         <p className='font-md text-slate-300'>{log.description}</p>
@@ -44,11 +25,7 @@ export function SpaceJourneyListItem() {
           {getFormattedDate(new Date(log.created))}
         </p>
       </GlassWindowContents>
-      {selected ? (
-        <GlassWindowPane glassFx={glassFx['glass-20']} />
-      ) : (
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      )}
+      <GlassWindowPane glassFx={glassFx['glass-20']} />
     </GlassWindowFrame>
   );
 }
