@@ -9,10 +9,10 @@ import { VaultFinderCreateGalleryModal } from '../gallery/main';
 import { VaultFinderCreateResourceModal } from '../resource/main';
 
 export const ContextForVaultFinderCreateModals = createContext(
-  {} as VaultFinderCreateModals,
+  {} as Controller,
 );
 
-export interface VaultFinderCreateModals {
+export interface Controller {
   createCollectionController: ContextForOpenableInterface;
   createGalleryController: ContextForOpenableInterface;
   createResourceController: ContextForOpenableInterface;

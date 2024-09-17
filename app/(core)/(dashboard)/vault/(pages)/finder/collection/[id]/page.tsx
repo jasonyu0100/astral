@@ -18,7 +18,6 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { VaultFinderCreateModals } from '../../(modals)/create/controller/main';
 import { FinderCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {

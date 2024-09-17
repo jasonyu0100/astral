@@ -8,14 +8,12 @@ import { VaultFinderEditCollectionModal } from '../collection/main';
 import { VaultFinderEditGalleryModal } from '../gallery/main';
 import { VaultFinderEditResourceModal } from '../resource/main';
 
-export const ContextForVaultFinderEditModals = createContext(
-  {} as VaultFinderEditModals,
-);
+export const ContextForVaultFinderEditModals = createContext({} as Controller);
 
-export interface VaultFinderEditModals {
-  createCollectionController: ContextForOpenableInterface;
-  createGalleryController: ContextForOpenableInterface;
-  createResourceController: ContextForOpenableInterface;
+export interface Controller {
+  editCollectionController: ContextForOpenableInterface;
+  editGalleryController: ContextForOpenableInterface;
+  editResourceController: ContextForOpenableInterface;
 }
 
 export function VaultFinderEditModals({
@@ -30,9 +28,9 @@ export function VaultFinderEditModals({
   return (
     <ContextForVaultFinderEditModals.Provider
       value={{
-        createCollectionController: editCollectionController,
-        createGalleryController: editGalleryController,
-        createResourceController: editResourceController,
+        editCollectionController: editCollectionController,
+        editGalleryController: editGalleryController,
+        editResourceController: editResourceController,
       }}
     >
       <ContextForOpenable.Provider value={editCollectionController}>

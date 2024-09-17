@@ -1,28 +1,21 @@
-import { VaultFinderEditResourceModal } from '@/(core)/(dashboard)/vault/(pages)/Finder/(modals)/edit/resource/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
-import {
-  ContextForOpenable,
-  useControllerForOpenable,
-} from '@/logic/contexts/openable/main';
 import { DivInputProps } from '@/types/props/main';
 import { useContext } from 'react';
+import { ContextForVaultFinderEditModals } from '../../../(modals)/edit/controller/main';
 
 export function CollectionResourceInfo({ ...props }: DivInputProps) {
   const resource = useContext(ContextForCollectionResourceObj);
-  const openableController = useControllerForOpenable();
+  const modalController = useContext(ContextForVaultFinderEditModals);
 
   return (
     <>
-      <ContextForOpenable.Provider value={openableController}>
-        <VaultFinderEditResourceModal />
-      </ContextForOpenable.Provider>
       <div
         className={`h-full w-full overflow-auto p-[10px] ${props.className}`}
       >
         <div className='w-full flex-col space-y-[1rem]'>
           <button
             className='mt-aut mt-auto w-full rounded bg-black p-[0.5rem] font-bold text-slate-300'
-            onClick={() => openableController.open()}
+            onClick={() => modalController.editResourceController.open()}
           >
             EDIT
           </button>
