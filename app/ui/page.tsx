@@ -71,7 +71,7 @@ export default function Page() {
           <PolaroidModal></PolaroidModal>
         </div>
       </ContextForOpenable.Provider>
-      <p className='text-3xl font-bold text-white'>Dividors</p>
+      <p className='text-3xl font-bold text-white'>Dividers</p>
       <HorizontalDivider />
       <VerticalDivider />
       <PipIndicator />
