@@ -2,6 +2,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
+import { LoadingWrapper } from '@/ui/loading/controller/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
 import {
@@ -20,13 +21,15 @@ export function CreateSpaceModalView() {
     <ContextForCreateSpace.Provider value={createSpaceController}>
       <ContextForOpenable.Provider value={openableController}>
         <ContextForPagable.Provider value={pagableController}>
-          <PolaroidModal>
-            <FormContainer>
-              <FormTitle>Create Space</FormTitle>
-              <CreateSpaceModalPages />
-              <CreateSpaceModalFooter />
-            </FormContainer>
-          </PolaroidModal>
+          <LoadingWrapper>
+            <PolaroidModal>
+              <FormContainer>
+                <FormTitle>Create Space</FormTitle>
+                <CreateSpaceModalPages />
+                <CreateSpaceModalFooter />
+              </FormContainer>
+            </PolaroidModal>
+          </LoadingWrapper>
         </ContextForPagable.Provider>
       </ContextForOpenable.Provider>
     </ContextForCreateSpace.Provider>

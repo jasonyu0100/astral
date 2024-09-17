@@ -7,21 +7,7 @@ import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/co
 import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
-import { blogPostTemplate } from './templates/blog-post/main';
-import { businessPlanTemplate } from './templates/business-plan/main';
-import { clientOnboardingTemplate } from './templates/client-onboarding/main';
-import { companyTemplate } from './templates/company/main';
-import { contentCalendarTemplate } from './templates/content-calendar/main';
-import { courseDevelopmentTemplate } from './templates/course-development/main';
-import { starterProjectTemplate } from './templates/custom/main';
-import { emailCampaignTemplate } from './templates/email-campaign/main';
-import { eventPlanningTemplate } from './templates/event-planning/main';
-import { productLaunchTemplate } from './templates/product-launch/main';
-import { projectManagementTemplate } from './templates/product-management/main';
-import { socialMediaPostTemplate } from './templates/social-media-post/main';
-import { startupTemplate } from './templates/startup/main';
-import { userJourneyMappingTemplate } from './templates/user-journey/main';
-import { videoProjectTemplate } from './templates/video/main';
+import { projectManagementTemplate } from './templates/project-management';
 
 // SPACE
 
@@ -121,54 +107,30 @@ export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
 
 export enum SpaceTemplate {
   Custom = 'Custom',
-  Video = 'Video',
-  Startup = 'Startup',
-  Business = 'Business',
-  MarketingBrand = 'Marketing Brand',
-  SocialMediaPost = 'Social Post',
-  BlogPost = 'Blog Post',
-  ProductLaunch = 'Product Launch',
-  EventPlanning = 'Event Planning',
-  EmailCampaign = 'Email Campaign',
   ProjectManagement = 'Project Management',
-  CourseDevelopment = 'Course Development',
-  BusinessPlan = 'Business Plan',
-  ClientOnboarding = 'Client Onboarding',
-  UserJourney = 'User Journey',
-  ContentCalendar = 'Content Calendar',
 }
 
-export function getSpaceTemplates(variant: SpaceTemplate): TemplateSpaceObj {
-  switch (variant) {
-    case SpaceTemplate.Business:
-      return companyTemplate;
-    case SpaceTemplate.Startup:
-      return startupTemplate;
-    case SpaceTemplate.Video:
-      return videoProjectTemplate;
-    case SpaceTemplate.SocialMediaPost:
-      return socialMediaPostTemplate;
-    case SpaceTemplate.BlogPost:
-      return blogPostTemplate;
-    case SpaceTemplate.ProductLaunch:
-      return productLaunchTemplate;
-    case SpaceTemplate.EventPlanning:
-      return eventPlanningTemplate;
-    case SpaceTemplate.EmailCampaign:
-      return emailCampaignTemplate;
-    case SpaceTemplate.ProjectManagement:
-      return projectManagementTemplate;
-    case SpaceTemplate.CourseDevelopment:
-      return courseDevelopmentTemplate;
-    case SpaceTemplate.BusinessPlan:
-      return businessPlanTemplate;
-    case SpaceTemplate.ClientOnboarding:
-      return clientOnboardingTemplate;
-    case SpaceTemplate.UserJourney:
-      return userJourneyMappingTemplate;
-    case SpaceTemplate.ContentCalendar:
-      return contentCalendarTemplate;
-    default:
-      return starterProjectTemplate;
-  }
-}
+export const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
+  [SpaceTemplate.ProjectManagement]: projectManagementTemplate,
+  [SpaceTemplate.Custom]: {
+    title: 'Project Management',
+    description:
+      'A structured template for managing projects efficiently, from initiation to completion.',
+    summary:
+      'Organize, plan, and execute projects with clear timelines, milestones, and task ownership.',
+    category: 'Management',
+    chapters: [
+      {
+        title: 'Project Planning',
+        description: 'Define project scope, objectives, and deliverables.',
+        sceneTemplates: [],
+        logTemplates: [],
+        spotlightTemplates: [],
+        objective: '',
+        summary: '',
+      },
+    ],
+    objective:
+      'Manage your project efficiently with clear goals, tasks, and milestones.',
+  },
+};

@@ -11,8 +11,8 @@ import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import {
-  getSpaceTemplates,
   SpaceTemplate,
+  SpaceTemplateMap,
   TemplateChapterObj,
 } from '@/(server)/templates/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -260,7 +260,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       await spaceListController.actions.createActions.createFromTemplate(
         title,
         description,
-        getSpaceTemplates(category).objective,
+        SpaceTemplateMap[category].objective,
         user.id,
         thumbnail,
         category,
@@ -287,7 +287,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   useEffect(() => {
-    changeTemplateSpaceChapters(getSpaceTemplates(category).chapters);
+    changeTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
   }, [category]);
 
   const pageOne: PageOne = {
