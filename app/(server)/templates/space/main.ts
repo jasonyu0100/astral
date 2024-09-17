@@ -36,6 +36,7 @@ export type _TemplateSpaceObj = Omit<
   | 'target'
   | 'starred'
   | 'completed'
+  | 'collectionId'
 >;
 
 export interface TemplateSpaceObj extends _TemplateSpaceObj {

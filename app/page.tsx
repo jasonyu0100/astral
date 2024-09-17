@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
@@ -59,14 +59,14 @@ const Header = () => (
 const HeroSection = () => (
   <section className='grid grid-cols-1 items-center gap-[5rem] px-4 py-[3rem] sm:grid-cols-2'>
     <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
-      <h1 className='text-center font-permanentMarker text-4xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
+      <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
         Astral is the creative collaborative platform that grows with you.
-        Whether you're a creative visionary, a product manager, or a startup
-        founder, Astral provides you with the tools to transform your ideas into
-        reality.
+        Whether you're a creative visionary, product manager, or startup
+        founder, Astral empowers you and your team with the tools to transform
+        ideas into reality, fostering collaboration every step of the way.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
@@ -95,7 +95,7 @@ const HeroSection = () => (
 
 const Question = () => (
   <p className='w-full animate-pulse-slow text-center text-2xl font-bold text-slate-400 sm:text-5xl'>
-    "What does creativity look like in an age of AI?"
+    "What is creativity in an age of AI?"
   </p>
 );
 const CallToAction = () => {
@@ -118,7 +118,7 @@ const CallToAction = () => {
           className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
         >
           <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            schedule a demo...
+            schedule a look...
           </p>
         </a>
       ) : (
@@ -127,7 +127,7 @@ const CallToAction = () => {
           className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
         >
           <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            schedule a demo...
+            schedule a look...
           </p>
         </a>
       )}
@@ -161,7 +161,7 @@ const FeaturesSection = () => {
     return () => clearInterval(interval);
   }, [features.length]);
 
-  const handleFeatureClick = (index) => {
+  const handleFeatureClick = (index: SetStateAction<number>) => {
     setActiveFeature(index);
   };
 
@@ -322,7 +322,7 @@ const FooterCTA = () => (
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        Start your journey today
+        Start your journey in time
       </p>
     </a>
   </footer>
@@ -341,7 +341,7 @@ function PricingSection() {
             role='tablist'
             aria-orientation='horizontal'
             className='h-[80px] w-full max-w-[500px] rounded bg-slate-700 p-[5px]'
-            tabIndex='0'
+            tabIndex={0}
             style={{ outline: 'none' }}
           >
             <button
@@ -351,7 +351,7 @@ function PricingSection() {
               className={`h-full w-1/2 rounded font-bold text-slate-300 ${
                 activeTab === 'yearly' ? 'bg-slate-950' : ''
               }`}
-              tabIndex='0'
+              tabIndex={0}
               onClick={() => setActiveTab('yearly')}
             >
               Yearly
@@ -363,7 +363,7 @@ function PricingSection() {
               className={`h-full w-1/2 rounded font-bold text-slate-300 ${
                 activeTab === 'monthly' ? 'bg-slate-950' : ''
               }`}
-              tabIndex='-1'
+              tabIndex={0}
               onClick={() => setActiveTab('monthly')}
             >
               Monthly
@@ -423,7 +423,19 @@ function PricingSection() {
   );
 }
 
-function PricingCard({ title, price, description, imageSrc }) {
+interface PricingCardProps {
+  title: string;
+  price: string;
+  description: string;
+  imageSrc: string;
+}
+
+function PricingCard({
+  title,
+  price,
+  description,
+  imageSrc,
+}: PricingCardProps) {
   const [showDescription, setShowDescription] = useState(false);
 
   const handleToggle = () => {
@@ -463,43 +475,43 @@ function FAQSection() {
     {
       question: 'What is Astral?',
       answer:
-        'Astral is an AI-powered creative workflow platform designed to help creatives, product managers, and startup founders turn their ideas into actionable plans.',
+        'Astral is an AI-powered creative workflow platform designed to empower creatives, product managers, and startup founders by turning their ideas into collaborative, actionable plans.',
     },
     {
       question: 'How does Astral help me with my creative projects?',
       answer:
-        'Astral aggregates ideas from conversations, converts them into tasks, generates timelines, and provides a feedback loop, making it easier to align your team on project goals.',
+        'Astral helps you and your team by capturing ideas from conversations, turning them into tasks, generating timelines, and providing a supportive feedback loop to align everyone on shared project goals.',
     },
     {
       question: 'Who is Astral for?',
       answer:
-        'Astral is built for creatives, product managers, and startup founders looking for a collaborative platform that grows with their ideas, ideal for generalists who need an all-in-one solution.',
+        'Astral is built for anyone seeking a collaborative platform—creatives, product managers, startup founders, and teams looking to grow ideas together in an all-in-one environment.',
     },
     {
       question:
         'How does Astral differ from other project management tools like Miro or Slack?',
       answer:
-        'Unlike other platforms, Astral emphasizes idea aggregation and visual mapping. It takes conversation-first workflows and converts them into real-time insights and actionable tasks.',
+        'Unlike other platforms, Astral focuses on fostering collaboration through idea aggregation and visual mapping, turning conversation-first workflows into real-time insights and collective actions.',
     },
     {
       question: 'Is Astral suitable for teams or solo users?',
       answer:
-        'Astral is perfect for both solo users and teams. Solo users can organize their ideas and invite others as their projects grow.',
+        'Astral is designed to support both solo creatives and teams. As a solo user, you can organize and build out your ideas, and when ready, easily invite collaborators to join the journey.',
     },
     {
       question: 'How much does Astral cost?',
       answer:
-        'Astral is priced at $15 per month, offering an end-to-end solution for creative collaboration.',
+        'Astral is available for $15 per month, providing a comprehensive solution for collaborative creativity and workflow management.',
     },
     {
       question: 'Can I try Astral for free?',
       answer:
-        'Yes, Astral offers a 14-day free trial for you to explore its features.',
+        'Yes, Astral offers a 14-day free trial, allowing you and your team to experience its collaborative features and workflow tools.',
     },
     {
       question: 'How does Astral support collaboration?',
       answer:
-        'Astral facilitates collaboration by turning conversations into visual maps and actionable insights, allowing teams to work together in real-time.',
+        'Astral makes collaboration seamless by turning conversations into visual maps and actionable insights. This helps teams work together in real-time, ensuring everyone stays aligned and creative efforts flow naturally.',
     },
   ];
 

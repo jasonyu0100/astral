@@ -80,7 +80,7 @@ const useControllerForUserMain = (objId: string): Controller => {
       return false;
     },
     loginFromEmail: async (email: string, password: string) => {
-      const users = await gqlDbWrapper.listFromVariables({
+      const returnedUsers = await gqlDbWrapper.listFromVariables({
         filter: {
           email: {
             eq: email,
@@ -88,10 +88,13 @@ const useControllerForUserMain = (objId: string): Controller => {
         },
       });
 
-      if (users.length === 0) {
-        throw new Error('Email is invalid');
+      if (returnedUsers.length === 0) {
+        throw new Error('User is invalid');
       } else {
-        const user = users[0];
+        const user = returnedUsers[0];
+        if (!user.passwordHash) {
+          throw new Error('Password hash is missing');
+        }
         const check = await bcrypt.compare(password, user.passwordHash);
         if (!check) {
           alert("Password doesn't match");
@@ -101,7 +104,7 @@ const useControllerForUserMain = (objId: string): Controller => {
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (daysDifference > 22) {
-            throw new Error('Account trial is over');
+            throw new Error('Trial is over');
           }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
