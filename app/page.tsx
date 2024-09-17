@@ -6,7 +6,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { SetStateAction, useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
 import { borderFx, glassFx, roundedFx } from './style/data';
@@ -99,8 +98,6 @@ const Question = () => (
   </p>
 );
 const CallToAction = () => {
-  const isDesktop = useMediaQuery({ query: '(min-width: 1024px)' });
-
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
       <video
@@ -111,26 +108,14 @@ const CallToAction = () => {
         loop
       />
       <div className='h-[5rem] sm:h-[10rem]' />
-      {!isDesktop ? (
-        <a
-          href={'https://calendly.com/jasonyu0100/15min'}
-          target='_blank'
-          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-        >
-          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            schedule a look...
-          </p>
-        </a>
-      ) : (
-        <a
-          href={'/conversational/search'}
-          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-        >
-          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            schedule a look...
-          </p>
-        </a>
-      )}
+      <a
+        href={'/conversational/search'}
+        className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+      >
+        <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+          schedule a look...
+        </p>
+      </a>
     </section>
   );
 };
