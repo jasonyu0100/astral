@@ -154,7 +154,7 @@ export function useControllerForConversationalSearch() {
         const newUserMessage = await sendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(newUserMessage);
         const newAgentMessage = await sendAgentMessage(
-          'openAi',
+          'astral',
           agentResponse,
           conversation,
         );
@@ -176,7 +176,7 @@ export function useControllerForConversationalSearch() {
     const newUserMessage = await sendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(newUserMessage);
     const newAgentMessage = await sendAgentMessage(
-      'openAi',
+      'astral',
       agentResponse,
       newConversation,
     );

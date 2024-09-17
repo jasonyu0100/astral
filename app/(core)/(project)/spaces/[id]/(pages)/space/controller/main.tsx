@@ -208,7 +208,7 @@ Ensure the response follows the exact structure and format shown above, with pro
         const newUserMessage = await sendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(newUserMessage, role);
         const newAgentMessage = await sendAgentMessage(
-          'openAi',
+          'astral',
           agentResponse,
           conversation,
         );
@@ -233,7 +233,7 @@ Ensure the response follows the exact structure and format shown above, with pro
       role as ConversationRole,
     );
     const newAgentMessage = await sendAgentMessage(
-      'openAi',
+      'astral',
       agentResponse,
       newConversation,
     );

@@ -114,7 +114,7 @@ export function ConversationalSearchWrapper({
               .createConversation(userId, scene.id)
               .then((conversation) => {
                 conversationalSearchController.actions.sendAgentMessage(
-                  'openAi',
+                  'astral',
                   `👋 Hi there! Welcome to Astral!
 I’m your AI assistant, here to help you explore how Astral can supercharge your creative workflows.`,
                   conversation,
