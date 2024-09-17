@@ -36,9 +36,9 @@ const Header = () => (
         >
           Search
         </a>
-        <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
+        {/* <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
           Pricing
-        </a>
+        </a> */}
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>
@@ -554,7 +554,7 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
