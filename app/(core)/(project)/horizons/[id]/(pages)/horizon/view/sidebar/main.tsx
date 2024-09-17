@@ -1,5 +1,12 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizonHorizonSidebarItemFooter } from './item/footer/main';
+import {
+  HorizonHorizonSidebarItemHeader,
+  KarmaState,
+} from './item/header/main';
+import { HorizonHorizonSidebarItemMain } from './item/main';
 
 export function HorizonHorizonSidebar() {
   return (
@@ -9,7 +16,7 @@ export function HorizonHorizonSidebar() {
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      {/* <p className='text-xl font-bold text-slate-300'>Upcoming</p>
+      <p className='text-xl font-bold text-slate-300'>Upcoming</p>
       <p className='text-md font-light text-slate-300'>Arriving soon</p>
       <HorizonHorizonSidebarItemMain>
         <HorizonHorizonSidebarItemHeader
@@ -61,7 +68,7 @@ export function HorizonHorizonSidebar() {
         />
         <HorizonHorizonSidebarItemFooter time='Just now' />
       </HorizonHorizonSidebarItemMain>
-      <HorizontalDivider /> */}
+      <HorizontalDivider />
     </GlassAreaContainer>
   );
 }

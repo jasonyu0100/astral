@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesMap,
   SpacesMapSidebarContentMode,
-} from '../../../../../../controller/main';
+} from '../../../../../../../controller/main';
 
 export function SpacesMapChat() {
   const {

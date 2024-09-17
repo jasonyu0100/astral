@@ -4,9 +4,11 @@ import {
   SpacesMapDirectoryMode,
 } from '../../../../controller/main';
 import { SpacesMapHistory } from './history/main';
-import { SpacesMapBack } from './map/back/main';
-import { SpacesMapChat } from './map/chat/main';
-import { SpacesMapPalette } from './map/palette/main';
+import { SpacesMapBack } from './map/left/back/main';
+import { SpacesMapChat } from './map/left/chat/main';
+import { SpacesMapPalette } from './map/left/palette/main';
+import { SpacesMapNavigationDown } from './map/right/down/main';
+import { SpacesMapNavigationUp } from './map/right/up/main';
 import { SpacesMapScene } from './map/scene/main';
 
 export function SpacesMapContents() {
@@ -30,7 +32,8 @@ export function SpacesMapContents() {
           <SpacesMapScene />
           <SpacesMapPalette />
           <SpacesMapChat />
-          {/* <SpacesMapNavigation /> */}
+          <SpacesMapNavigationUp />
+          <SpacesMapNavigationDown />
         </>
       )}
     </div>

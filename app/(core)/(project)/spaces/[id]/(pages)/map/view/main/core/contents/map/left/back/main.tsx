@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesMap,
   SpacesMapDirectoryMode,
-} from '../../../../../../controller/main';
+} from '../../../../../../../controller/main';
 
 export function SpacesMapBack() {
   const {
