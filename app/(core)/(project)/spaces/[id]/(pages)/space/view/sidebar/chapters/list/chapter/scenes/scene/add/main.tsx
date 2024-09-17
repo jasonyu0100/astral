@@ -6,7 +6,7 @@ export function SpacesSpaceSidebarSceneAdd() {
   const modalController = useContext(ContextForSpacesSpaceModals);
 
   return (
-    <button
+    <div
       className='flex w-full flex-row items-center space-x-[1rem]'
       onClick={() => modalController.addSceneController.open()}
     >
@@ -14,6 +14,6 @@ export function SpacesSpaceSidebarSceneAdd() {
         <AstralAddIcon className='h-3/4 w-3/4' />
       </div>
       <p className='font-light text-slate-300'>Add</p>
-    </button>
+    </div>
   );
 }

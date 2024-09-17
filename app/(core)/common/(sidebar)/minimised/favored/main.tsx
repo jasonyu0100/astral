@@ -2,13 +2,12 @@ import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { useContext } from 'react';
-import { CommonSidebarFriends } from '../../common/friends/main';
 
-export function CommonSidebarMinimisedFriends() {
+export function CommonSidebarMinimisedFavoredList() {
   const mapController = useContext(ContextForSpacesMap);
 
   return (
-    <CommonSidebarFriends>
+    <div className='flex w-full flex-shrink-0 flex-col items-end space-y-[2rem] overflow-hidden rounded-full'>
       {exampleFileElems.map((fileElem) => (
         <div
           onClick={() => {
@@ -19,6 +18,6 @@ export function CommonSidebarMinimisedFriends() {
           <UserDisplayPictureElement fileElem={fileElem} />
         </div>
       ))}
-    </CommonSidebarFriends>
+    </div>
   );
 }

@@ -19,7 +19,6 @@ function Page() {
   return (
     <ViewWrapper>
       <HorizonHorizonView>
-        <HorizonHorizonSidebar />
         <div className='h-full flex-grow overflow-hidden'>
           <div className='flex h-[8rem] w-full flex-row items-center justify-between space-x-[2rem] p-[2rem] shadow-glow'>
             <GlassWindowFrame
@@ -40,6 +39,7 @@ function Page() {
             </div>
           </div>
         </div>
+        <HorizonHorizonSidebar />
       </HorizonHorizonView>
     </ViewWrapper>
   );

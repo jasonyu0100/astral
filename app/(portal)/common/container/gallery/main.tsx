@@ -14,7 +14,7 @@ export function PortalGalleryView() {
 
   return (
     <div
-      className='flex h-full w-full cursor-pointer flex-col items-center p-[3rem] pb-0'
+      className='flex h-full w-full cursor-pointer flex-col items-center p-[3rem]'
       onClick={() => polaroidHandler.tapPolaroid()}
     >
       <PortalGalleryPiece

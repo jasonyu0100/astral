@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextForSpacesSpaceModals } from '../../../../modal/controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../../modal/controller/main';
 
 export function SpacesSpaceSidebarChaptersAdd() {
   const modalController = useContext(ContextForSpacesSpaceModals);

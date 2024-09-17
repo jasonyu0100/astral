@@ -14,16 +14,16 @@ export function SpacesSpaceChapterActiveHeader() {
     >
       <p
         className={cn(
-          'animate-pulse-slow font-extraBold text-xl text-slate-300',
+          'w-full animate-pulse-slow whitespace-nowrap text-start font-extraBold text-xl text-slate-300',
         )}
       >
         {chapter.title}
       </p>
-      <p className='text-md font-md w-full text-slate-300'>
+      <p className='text-md font-md w-full text-start text-slate-300'>
         <span className='font-bold'>Chapter: </span>
         {chapterListController.state.currentObj?.objective || 'Open-ended'}
       </p>
-      <p className='font-md w-full text-sm text-slate-300'>
+      <p className='font-md w-full text-start text-sm text-slate-300'>
         {chapterListController.state.currentObj?.description || 'Open-ended'}
       </p>
     </div>
