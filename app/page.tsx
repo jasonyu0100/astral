@@ -272,13 +272,13 @@ const Map = () => {
           {/* Text Elements */}
           <div className='absolute left-[300px] top-0 h-[200px] w-[300px]'>
             <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-300'>
-              conversational search
+              conversations
             </p>
           </div>
 
           <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
             <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
-              scalable ideas
+              linked ideas
             </p>
           </div>
 

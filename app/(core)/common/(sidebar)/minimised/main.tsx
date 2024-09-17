@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { CommonSidebarMinimisedContainer } from '../common/container/minimised/main';
 import { ContextForCommonSidebar } from '../main';
 import { CommonSidebarTopBack } from '../top/back/main';
-import { CommonSidebarMinimisedFriendsWIP } from './friends/main';
+import { CommonSidebarMinimisedFriends } from './friends/main';
 
 export function CommonSidebarMinimised() {
   const context = useContext(ContextForCommonSidebar);
@@ -15,9 +15,8 @@ export function CommonSidebarMinimised() {
         href={context.backUrl || studioMap.studio.personal.link}
       />
       <HorizontalDivider className='my-[1rem] mb-[2rem]' />
-      <div className='h-full w-full overflow-hidden'>
-        <CommonSidebarMinimisedFriendsWIP />
-      </div>
+      <CommonSidebarMinimisedFriends />
+      <HorizontalDivider className='my-[2rem] mb-[2rem]' />
     </CommonSidebarMinimisedContainer>
   );
 }

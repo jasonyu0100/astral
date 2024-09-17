@@ -20,6 +20,7 @@ export function CommonSidebarDefault() {
         <CommonSidebarNetworkIndicator />
         <CommonSidebarVaultIndicator />
       </CommonSidebarIndicators>
+      <HorizontalDivider className='my-[2rem] mb-[2rem]' />
     </CommonSidebarDefaultContainer>
   );
 }

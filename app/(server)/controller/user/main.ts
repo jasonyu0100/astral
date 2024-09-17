@@ -94,12 +94,13 @@ const useControllerForUserMain = (objId: string): Controller => {
         const user = users[0];
         const check = await bcrypt.compare(password, user.passwordHash);
         if (!check) {
+          alert("Password doesn't match");
           throw new Error('Password is invalid');
         } else if (user.subscriptionId === null) {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (daysDifference > 60) {
+          if (daysDifference > 22) {
             throw new Error('Account trial is over');
           }
         } else {

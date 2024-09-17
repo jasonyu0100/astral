@@ -4,7 +4,7 @@ import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { useContext, useState } from 'react';
 import { CommonSidebarFriends } from '../../common/friends/main';
 
-export function CommonSidebarMinimisedFriendsWIP() {
+export function CommonSidebarMinimisedFriends() {
   const [tempFriends, setTempFriends] = useState(exampleFileElems);
   const mapController = useContext(ContextForSpacesMap);
 

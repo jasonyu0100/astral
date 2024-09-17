@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
 
 export enum ExplorerProjectsScope {
-  Local = '📍 - Local',
-  Group = '👥 - Group',
   Cluster = '💫 - Cluster',
+  Group = '👥 - Group',
+  Local = '📍 - Local',
 }
 
 export enum ExplorerProjectsGuild {
@@ -50,7 +50,7 @@ export const ContextForExplorerProjects = createContext(
 
 export function useControllerForExplorerProjects() {
   const [scope, setScope] = useState<ExplorerProjectsScope>(
-    ExplorerProjectsScope.Local,
+    ExplorerProjectsScope.Cluster,
   );
   const [guild, setGuild] = useState<ExplorerProjectsGuild>(
     ExplorerProjectsGuild.Writing,
