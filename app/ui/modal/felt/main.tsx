@@ -1,7 +1,7 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { ModalOverlay } from '../(common)/overlay/main';
-import { ModalContainerWrapper } from '../(common)/wrapper/main';
+import { ModalContainerDarkWrapper } from '../(common)/wrapper/dark/main';
 import { FeltModalCloseButton } from './close-button/main';
 import { FeltModalContainer } from './container/main';
 
@@ -17,12 +17,12 @@ export function FeltModal({ children }: FeltModalProps) {
       isOpen={openableController.opened}
       onClose={openableController.close}
     >
-      <ModalContainerWrapper>
+      <ModalContainerDarkWrapper>
         <FeltModalContainer>{children}</FeltModalContainer>
         <FeltModalCloseButton onClick={openableController.close}>
           FLIP ME
         </FeltModalCloseButton>
-      </ModalContainerWrapper>
+      </ModalContainerDarkWrapper>
     </ModalOverlay>
   );
 }

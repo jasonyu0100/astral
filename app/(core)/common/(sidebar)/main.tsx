@@ -6,6 +6,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
 import { CommonSidebarDefault } from './default/main';
 import { CommonSidebarMinimised } from './minimised/main';
+import { CommonSidebarModals } from './modals/controller/main';
 
 export interface ContextForCommonSidebar {
   indicator?: string;
@@ -39,8 +40,10 @@ export function CommonSidebar({
             backUrl: backUrl,
           }}
         >
-          {minimised && <CommonSidebarMinimised />}
-          {!minimised && <CommonSidebarDefault />}
+          <CommonSidebarModals>
+            {minimised && <CommonSidebarMinimised />}
+            {!minimised && <CommonSidebarDefault />}
+          </CommonSidebarModals>
         </ContextForCommonSidebar.Provider>
       </ContextForCurrentSpaceObj.Provider>
     </ContextForLoggedInUserObj.Provider>

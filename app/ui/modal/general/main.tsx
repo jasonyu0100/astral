@@ -1,7 +1,7 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { ModalOverlay } from '../(common)/overlay/main';
-import { ModalContainerWrapper } from '../(common)/wrapper/main';
+import { ModalContainerLightWrapper } from '../(common)/wrapper/light/main';
 
 interface PolaroidModalProps {
   children?: React.ReactNode;
@@ -15,7 +15,7 @@ export function CustomisableModal({ children }: PolaroidModalProps) {
       isOpen={openableController.opened}
       onClose={openableController.close}
     >
-      <ModalContainerWrapper>{children}</ModalContainerWrapper>
+      <ModalContainerLightWrapper>{children}</ModalContainerLightWrapper>
     </ModalOverlay>
   );
 }

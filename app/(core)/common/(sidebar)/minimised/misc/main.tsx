@@ -7,8 +7,10 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useState } from 'react';
+import { ContextForCommonSidebarModals } from '../../modals/controller/main';
 
 export function CommonSidebarMinimisedMiscList() {
+  const modalController = useContext(ContextForCommonSidebarModals);
   const mapController = useContext(ContextForSpacesMap);
   const [other, setOther] = useState<FileElem[]>([]);
 
@@ -31,7 +33,7 @@ export function CommonSidebarMinimisedMiscList() {
       {other.map((fileElem) => (
         <div
           onClick={() => {
-            mapController.actions.autoSort();
+            modalController.userChatModal.open();
             console.log('clicked');
           }}
         >

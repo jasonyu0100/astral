@@ -2,8 +2,10 @@ import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { useContext } from 'react';
+import { ContextForCommonSidebarModals } from '../../modals/controller/main';
 
 export function CommonSidebarMinimisedFavoredList() {
+  const modalController = useContext(ContextForCommonSidebarModals);
   const mapController = useContext(ContextForSpacesMap);
 
   return (
@@ -11,7 +13,7 @@ export function CommonSidebarMinimisedFavoredList() {
       {exampleFileElems.map((fileElem) => (
         <div
           onClick={() => {
-            mapController.actions.autoSort();
+            modalController.userChatModal.open();
             console.log('clicked');
           }}
         >

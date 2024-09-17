@@ -1,7 +1,7 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { ModalOverlay } from '../(common)/overlay/main';
-import { ModalContainerWrapper } from '../(common)/wrapper/main';
+import { ModalContainerLightWrapper } from '../(common)/wrapper/light/main';
 import { PolaroidModalCloseButton } from './close-button/main';
 import { PolaroidModalContainer } from './container/main';
 
@@ -17,12 +17,12 @@ export function PolaroidModal({ children }: PolaroidModalProps) {
       isOpen={openableController.opened}
       onClose={openableController.close}
     >
-      <ModalContainerWrapper>
+      <ModalContainerLightWrapper>
         <PolaroidModalContainer>{children}</PolaroidModalContainer>
         <PolaroidModalCloseButton onClick={openableController.close}>
           FLIP ME
         </PolaroidModalCloseButton>
-      </ModalContainerWrapper>
+      </ModalContainerLightWrapper>
     </ModalOverlay>
   );
 }

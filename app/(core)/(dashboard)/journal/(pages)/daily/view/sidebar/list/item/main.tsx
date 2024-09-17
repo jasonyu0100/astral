@@ -12,6 +12,7 @@ export function JournalDailySidebarListItem() {
   const collectionObj = useContext(ContextForGalleryCollectionObj);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const hoverableController = useControllerForHoverable();
+  const active = collectionListController.state.objId === collectionObj.id;
 
   return (
     <div
@@ -34,7 +35,7 @@ export function JournalDailySidebarListItem() {
             {collectionObj.title || 'untitled'}{' '}
           </p>
         </GlassWindowContents>
-        {hoverableController.hovered && (
+        {(hoverableController.hovered || active) && (
           <GlassWindowPane glassFx={glassFx['glass-10']} />
         )}
       </GlassWindowFrame>

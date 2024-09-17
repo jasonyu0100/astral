@@ -10,7 +10,7 @@ export function SpacesMapNavigation() {
   const modalController = useContext(ContextForSpacesMapModals);
 
   return (
-    <div className='absolute left-[1rem] z-50 flex h-full flex-col items-center justify-center'>
+    <div className='absolute left-[1rem] z-30 flex h-full flex-col items-center justify-center'>
       <div className='flex flex-col items-center justify-center'>
         <AstralChevronUpIcon
           className={cn('h-[3rem] w-[3rem] cursor-pointer', {
