@@ -1,16 +1,16 @@
 'use client';
 import {
-  ContextForSpaceChapterList,
-  useControllerForSpaceChapterList,
-} from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForSceneConversationList,
-  useControllerForSceneConversationList,
-} from '@/(server)/controller/space/chapter/scene/conversation/list';
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/(server)/controller/space/chapter/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+} from '@/(server)/controller/space/chapter/conversation/message/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(server)/controller/space/chapter/list';
 import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
@@ -42,7 +42,7 @@ export default function Page() {
   const sceneListController = useControllerForChapterSceneList(
     chapterListController.state.objId,
   );
-  const conversationListController = useControllerForSceneConversationList(
+  const conversationListController = useControllerForChapterConversationList(
     sceneListController.state.objId,
   );
   const messageListController = useControllerForConversationMessageList(
@@ -54,7 +54,7 @@ export default function Page() {
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForChapterSceneList.Provider value={sceneListController}>
-            <ContextForSceneConversationList.Provider
+            <ContextForChapterConversationList.Provider
               value={conversationListController}
             >
               <ContextForConversationMessageList.Provider
@@ -66,7 +66,7 @@ export default function Page() {
                   </ConversationalSearchWrapper>
                 </LoadingWrapper>
               </ContextForConversationMessageList.Provider>
-            </ContextForSceneConversationList.Provider>
+            </ContextForChapterConversationList.Provider>
           </ContextForChapterSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
@@ -85,7 +85,7 @@ export function ConversationalSearchWrapper({
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
 
   useEffect(() => {

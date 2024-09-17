@@ -1,5 +1,5 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
 import { useContext, useRef } from 'react';
 import { SpacesSpaceEmpty } from '../../empty/main';

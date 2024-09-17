@@ -1,5 +1,5 @@
-import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralAddIcon } from '@/icons/add/main';
 import { cn } from '@/lib/utils';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -11,9 +11,9 @@ import { useContext } from 'react';
 
 export function SpacesSpaceConversations() {
   const user = useGlobalUser((state) => state.user);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
   const conversationObj = conversationListController.state.currentObj;
 
@@ -54,7 +54,7 @@ export function SpacesSpaceConversations() {
             onClick={() => {
               conversationListController.actions.createActions.createConversation(
                 user.id,
-                sceneListController.state.objId,
+                chapterListController.state.objId,
               );
             }}
           >

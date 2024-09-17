@@ -1,4 +1,4 @@
-import { sceneConversationDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/main';
+import { spaceChapterMemberDbWrapper } from '@/(server)/client/space/chapter/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  sceneConversationModel,
-  SceneConversationObj,
-} from '@/(server)/model/space/chapter/scene/conversation/main';
+  spaceChapterMemberModel,
+  SpaceChapterMemberObj,
+} from '@/(server)/model/space/chapter/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SceneConversationObj;
-const gqlDbWrapper = sceneConversationDbWrapper;
-const listIdKey = sceneConversationModel.parentKey;
+type TargetObj = SpaceChapterMemberObj;
+const gqlDbWrapper = spaceChapterMemberDbWrapper;
+const listIdKey = spaceChapterMemberModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -32,9 +32,7 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createConversation: (userId: string, chatId: string) => Promise<TargetObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -50,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneConversationList = (
+const useControllerForSpaceChapterMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -58,7 +56,8 @@ const useControllerForSceneConversationList = (
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const currentObj = objs.filter((obj) => obj.id === id).at(0);
+  const currentObj =
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
@@ -131,8 +130,9 @@ const useControllerForSceneConversationList = (
         const prevObj = objs[prevIndex];
         changeId(prevObj.id);
         return prevObj;
+      } else {
+        return undefined;
       }
-      return undefined;
     },
     searchQuery: () => {
       if (query === '') {
@@ -150,18 +150,33 @@ const useControllerForSceneConversationList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    searchAndUpdateQuery: (newQuery: string) => {
-      changeQuery(newQuery);
-      if (newQuery === '') {
-        changeQueryResults(objs);
-        return objs;
+    searchAndUpdateQuery: (newQuery: string, newObjs?: TargetObj[]) => {
+      if (newObjs) {
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(newObjs);
+          return newObjs;
+        } else {
+          const results = newObjs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.id);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       } else {
-        const results = objs.filter((obj) => {
-          const regex = new RegExp(newQuery, 'i');
-          return regex.test(obj.summary);
-        });
-        changeQueryResults(results);
-        return results;
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(objs);
+          return objs;
+        } else {
+          const results = objs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.id);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       }
     },
     checkActive: function (obj: TargetObj): boolean {
@@ -240,9 +255,10 @@ const useControllerForSceneConversationList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sceneId: '',
-        summary: '',
+        chapterId: '',
+        spaceId: '',
         userId: '',
+        termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -256,19 +272,6 @@ const useControllerForSceneConversationList = (
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
       const newObjs = stateActions.pushIndex(newObj, index);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createConversation: async (userId: string, chatId: string) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        sceneId: chatId,
-        summary: '',
-        userId: userId,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -328,9 +331,11 @@ const useControllerForSceneConversationList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromBeginning().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
         if (initialId) {
-          stateActions.selectViaId(initialId);
+          if (objs.find((obj) => obj.id === initialId)) {
+            stateActions.selectViaId(initialId);
+          }
         }
       });
     }
@@ -342,8 +347,8 @@ const useControllerForSceneConversationList = (
   };
 };
 
-const ContextForSceneConversationList = createContext({} as Controller);
+const ContextForSpaceChapterMemberList = createContext({} as Controller);
 export {
-  ContextForSceneConversationList,
-  useControllerForSceneConversationList,
+  ContextForSpaceChapterMemberList,
+  useControllerForSpaceChapterMemberList,
 };

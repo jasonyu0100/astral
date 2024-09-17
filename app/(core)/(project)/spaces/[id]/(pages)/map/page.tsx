@@ -16,17 +16,17 @@ import {
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
 import {
-  ContextForSpaceChapterList,
-  useControllerForSpaceChapterList,
-} from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForSceneConversationList,
-  useControllerForSceneConversationList,
-} from '@/(server)/controller/space/chapter/scene/conversation/list';
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/(server)/controller/space/chapter/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+} from '@/(server)/controller/space/chapter/conversation/message/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/(server)/controller/space/chapter/list';
 import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
@@ -91,7 +91,7 @@ function Page({ params }: { params: { id: string } }) {
     collectionListController.state.objId,
   );
 
-  const conversationListController = useControllerForSceneConversationList(
+  const conversationListController = useControllerForChapterConversationList(
     sceneListController.state.objId,
   );
   const messageListController = useControllerForConversationMessageList(
@@ -116,7 +116,7 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForCollectionResourceList.Provider
                     value={resourceListController}
                   >
-                    <ContextForSceneConversationList.Provider
+                    <ContextForChapterConversationList.Provider
                       value={conversationListController}
                     >
                       <ContextForConversationMessageList.Provider
@@ -138,7 +138,7 @@ function Page({ params }: { params: { id: string } }) {
                           </UpdateWrapper>
                         </ContextForSpaceIdeaRelationshipListFromScene.Provider>
                       </ContextForConversationMessageList.Provider>
-                    </ContextForSceneConversationList.Provider>
+                    </ContextForChapterConversationList.Provider>
                   </ContextForCollectionResourceList.Provider>
                 </ContextForGalleryCollectionList.Provider>
               </ContextForGalleryList.Provider>

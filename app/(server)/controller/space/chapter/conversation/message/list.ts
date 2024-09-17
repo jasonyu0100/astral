@@ -1,4 +1,4 @@
-import { sceneMemberDbWrapper } from '@/(server)/client/space/chapter/scene/member/main';
+import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/conversation/message/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,17 +7,16 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  sceneMemberModel,
-  SceneMemberObj,
-} from '@/(server)/model/space/chapter/scene/member/main';
+  conversationMessageModel,
+  ConversationMessageObj,
+} from '@/(server)/model/space/chapter/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SceneMemberObj;
-const gqlDbWrapper = sceneMemberDbWrapper;
-const listIdKey = sceneMemberModel.parentKey;
+type TargetObj = ConversationMessageObj;
+const gqlDbWrapper = conversationMessageDbWrapper;
+const listIdKey = conversationMessageModel.parentKey;
 
 interface ControllerState {
-  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -28,11 +27,26 @@ interface ControllerState {
 interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
+  inputMessageText: string;
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {}
+interface StateActions extends BaseListStateActions<TargetObj> {
+  updateInputMessageText: (messageText: string) => void;
+}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  sendUserMessage: (
+    userId: string,
+    chatId: string,
+    conversationId: string,
+  ) => Promise<TargetObj>;
+  sendAgentMessage: (
+    agentId: string,
+    chatId: string,
+    conversationId: string,
+    message: string,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -48,20 +62,19 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneMemberList = (
-  listId: string | boolean | number,
-  initialId?: string | undefined | null,
+const useControllerForConversationMessageList = (
+  initialId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
+  const [inputMessageText, changeInputMessageText] = useState<string>('');
   const currentObj =
     objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
-    listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
@@ -69,6 +82,7 @@ const useControllerForSceneMemberList = (
     more: {
       query: query,
       queryResults: queryResults,
+      inputMessageText: inputMessageText,
     },
   };
 
@@ -111,6 +125,17 @@ const useControllerForSceneMemberList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
+      const currentIndex = objs.findIndex((obj) => obj.id === initialId);
+      const prevIndex = currentIndex - 1;
+
+      if (prevIndex >= 0) {
+        const prevObj = objs[prevIndex];
+        changeId(prevObj.id);
+        return prevObj;
+      }
+      return undefined;
+    },
+    goPrev: () => {
       const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
@@ -118,18 +143,6 @@ const useControllerForSceneMemberList = (
         const nextObj = objs[nextIndex];
         changeId(nextObj.id);
         return nextObj;
-      } else {
-        return undefined;
-      }
-    },
-    goPrev: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === id);
-      const prevIndex = currentIndex - 1;
-
-      if (prevIndex >= 0) {
-        const prevObj = objs[prevIndex];
-        changeId(prevObj.id);
-        return prevObj;
       } else {
         return undefined;
       }
@@ -182,6 +195,9 @@ const useControllerForSceneMemberList = (
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
     },
+    updateInputMessageText: function (newMessage: string): void {
+      changeInputMessageText(newMessage);
+    },
     find: (id: string) => {
       return objs.find((obj) => obj.id === id) || ({} as TargetObj);
     },
@@ -219,26 +235,23 @@ const useControllerForSceneMemberList = (
       return objs;
     },
     gatherFromEnd: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
-      changeQueryResults(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
     gatherFromBeginning: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const sortedObjs = stateActions.sortedViaDate(objs);
-      const reverseObjs = sortedObjs.reverse();
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
+      const reverseObjs = objs.reverse();
       changeObjs(reverseObjs);
-      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
         filter: {
-          chapterId: listId,
+          chapterId: initialId,
           title: {
             contains: search,
           },
@@ -255,7 +268,11 @@ const useControllerForSceneMemberList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        userId: '',
+        conversationId: '',
         sceneId: '',
+        message: '',
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -269,6 +286,46 @@ const useControllerForSceneMemberList = (
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
       const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    sendUserMessage: async (
+      userId: string,
+      chatId: string,
+      conversationId: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        conversationId: conversationId,
+        sceneId: chatId,
+        message: inputMessageText,
+        hasAttachment: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      changeInputMessageText('');
+      return newObj;
+    },
+    sendAgentMessage: async (
+      agentId: string,
+      chatId: string,
+      conversationId: string,
+      message: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        agentId: agentId,
+        conversationId: conversationId,
+        sceneId: chatId,
+        message: message,
+        hasAttachment: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -325,7 +382,7 @@ const useControllerForSceneMemberList = (
   };
 
   useMemo(() => {
-    if (listId === null || listId === undefined || listId === '') {
+    if (!initialId) {
       changeObjs([]);
     } else {
       controllerActions.gatherActions.gatherFromEnd().then((objs) => {
@@ -336,7 +393,7 @@ const useControllerForSceneMemberList = (
         }
       });
     }
-  }, [listId]);
+  }, [initialId]);
 
   return {
     state: controllerState,
@@ -344,5 +401,8 @@ const useControllerForSceneMemberList = (
   };
 };
 
-const ContextForSceneMemberList = createContext({} as Controller);
-export { ContextForSceneMemberList, useControllerForSceneMemberList };
+const ContextForConversationMessageList = createContext({} as Controller);
+export {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+};

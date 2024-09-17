@@ -4,25 +4,21 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main'
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/(server)/controller/space/chapter/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/controller/space/chapter/conversation/message/list';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForSceneConversationList,
-  useControllerForSceneConversationList,
-} from '@/(server)/controller/space/chapter/scene/conversation/list';
-import {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import {
-  ContextForChapterSceneList,
-  useControllerForChapterSceneList,
-} from '@/(server)/controller/space/chapter/scene/list';
-import {
-  ContextForSceneMemberList,
-  useControllerForSceneMemberList,
-} from '@/(server)/controller/space/chapter/scene/member/list';
+  ContextForSpaceChapterMemberList,
+  useControllerForSpaceChapterMemberList,
+} from '@/(server)/controller/space/chapter/member/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -44,7 +40,6 @@ import { SpacesSpaceView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const sceneId = searchParams.get('scene');
   const chapterId = searchParams.get('chapter');
 
   const setSpace = useGlobalSpace((state) => state.setSpace);
@@ -55,15 +50,11 @@ function Page({ params }: { params: { id: string } }) {
     spaceMainController.state.objId,
     chapterId,
   );
-  const sceneListController = useControllerForChapterSceneList(
+  const chapterMemberListController = useControllerForSpaceChapterMemberList(
     chapterListController.state.objId,
-    sceneId,
   );
-  const sceneMemberListController = useControllerForSceneMemberList(
-    sceneListController.state.objId,
-  );
-  const conversationListController = useControllerForSceneConversationList(
-    sceneListController.state.objId,
+  const conversationListController = useControllerForChapterConversationList(
+    chapterListController.state.objId,
   );
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
@@ -79,31 +70,29 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
-            <ContextForSceneMemberList.Provider
-              value={sceneMemberListController}
+          <ContextForSpaceChapterMemberList.Provider
+            value={chapterMemberListController}
+          >
+            <ContextForChapterConversationList.Provider
+              value={conversationListController}
             >
-              <ContextForSceneConversationList.Provider
-                value={conversationListController}
+              <ContextForConversationMessageList.Provider
+                value={messageListController}
               >
-                <ContextForConversationMessageList.Provider
-                  value={messageListController}
-                >
-                  <UpdateWrapper>
-                    <LoadingWrapper>
-                      <ControllerWrapper>
-                        <ModalWrapper>
-                          <ViewWrapper>
-                            <SpacesSpaceView />
-                          </ViewWrapper>
-                        </ModalWrapper>
-                      </ControllerWrapper>
-                    </LoadingWrapper>
-                  </UpdateWrapper>
-                </ContextForConversationMessageList.Provider>
-              </ContextForSceneConversationList.Provider>
-            </ContextForSceneMemberList.Provider>
-          </ContextForChapterSceneList.Provider>
+                <UpdateWrapper>
+                  <LoadingWrapper>
+                    <ControllerWrapper>
+                      <ModalWrapper>
+                        <ViewWrapper>
+                          <SpacesSpaceView />
+                        </ViewWrapper>
+                      </ModalWrapper>
+                    </ControllerWrapper>
+                  </LoadingWrapper>
+                </UpdateWrapper>
+              </ContextForConversationMessageList.Provider>
+            </ContextForChapterConversationList.Provider>
+          </ContextForSpaceChapterMemberList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
@@ -120,13 +109,11 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
     const chapterId = chapterListController.state?.objId;
-    const sceneId = sceneListController.state?.objId;
 
     // Get the current search params
     const currentSearchParams = new URLSearchParams(searchParams);
@@ -135,15 +122,11 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
     if (chapterId) {
       currentSearchParams.set('chapter', chapterId);
     }
-    if (sceneId) {
-      currentSearchParams.set('scene', sceneId);
-    }
 
     // Update the router to reflect the new search params
     router.replace(`?${currentSearchParams.toString()}`);
   }, [
     chapterListController.state?.objId,
-    sceneListController.state?.objId,
     router, // Ensure router is in the dependency array
   ]);
 

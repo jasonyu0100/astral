@@ -6,7 +6,6 @@ import {
 import { createContext } from 'react';
 import { SpacesSpaceAddAttachmentModal } from '../add/attachment/main';
 import { SpacesSpaceAddChapterModal } from '../add/chapter/main';
-import { SpacesSpaceAddSceneModal } from '../add/scene/main';
 import { SpacesSpaceGenerateMapModal } from '../generate/main';
 
 export const ContextForSpacesSpaceModals = createContext(
@@ -15,14 +14,12 @@ export const ContextForSpacesSpaceModals = createContext(
 
 export interface SpacesSpaceModals {
   addChapterController: ContextForOpenableInterface;
-  addSceneController: ContextForOpenableInterface;
   addAttachmentController: ContextForOpenableInterface;
   generateSceneController: ContextForOpenableInterface;
 }
 
 export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
   const addChapterController = useControllerForOpenable();
-  const addSceneController = useControllerForOpenable();
   const addAttachmentController = useControllerForOpenable();
   const generateSceneController = useControllerForOpenable();
 
@@ -30,7 +27,6 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
     <ContextForSpacesSpaceModals.Provider
       value={{
         addChapterController: addChapterController,
-        addSceneController: addSceneController,
         addAttachmentController: addAttachmentController,
         generateSceneController: generateSceneController,
       }}
@@ -38,9 +34,6 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
       {children}
       <ContextForOpenable.Provider value={addChapterController}>
         <SpacesSpaceAddChapterModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addSceneController}>
-        <SpacesSpaceAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addAttachmentController}>
         <SpacesSpaceAddAttachmentModal />

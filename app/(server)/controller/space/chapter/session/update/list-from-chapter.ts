@@ -56,11 +56,10 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     logId: string,
   ) => Promise<TargetObj>;
-  createFromChapterSceneConversation: (
+  createFromChapterChapterConversation: (
     userId: string,
     spaceId: string,
     chapterId: string,
-    sceneId: string,
     conversationId: string,
   ) => Promise<TargetObj>;
   createFromChapterSceneIdea: (
@@ -404,18 +403,16 @@ const useControllerForSessionUpdateListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterSceneConversation: async (
+    createFromChapterChapterConversation: async (
       userId,
       spaceId,
       chapterId,
-      sceneId,
       conversationId,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
         spaceId: spaceId,
-        sceneId: sceneId,
         conversationId: conversationId,
         added: false,
         title: '',

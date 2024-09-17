@@ -1,11 +1,11 @@
+import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
-import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
+import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import {
   currentState,
@@ -40,7 +40,7 @@ export function useControllerForConversationalSearch() {
   const messageListController = useContext(ContextForConversationMessageList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
   const updateListController = useControllerForSessionUpdateListFromChapter(
     chapterListController.state.objId,
@@ -61,7 +61,7 @@ export function useControllerForConversationalSearch() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation: SceneConversationObj) {
+  function checkConversationStatus(conversation: ChapterConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -76,7 +76,7 @@ export function useControllerForConversationalSearch() {
         user.id,
         sceneListController.state.objId,
       );
-    await updateListController.actions.createActions.createFromChapterSceneConversation(
+    await updateListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -86,10 +86,10 @@ export function useControllerForConversationalSearch() {
     return conversation;
   }
 
-  async function sendUserMessage(conversation: SceneConversationObj) {
+  async function sendUserMessage(conversation: ChapterConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.sceneId,
+      conversation.chapterId,
       conversation.id,
     );
   }
@@ -115,11 +115,11 @@ export function useControllerForConversationalSearch() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: SceneConversationObj,
+    conversation: ChapterConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.sceneId,
+      conversation.chapterId,
       conversation.id,
       message,
     );
@@ -127,7 +127,7 @@ export function useControllerForConversationalSearch() {
 
   async function summariseConversation(
     messages: ConversationMessageObj[],
-    conversationObj: SceneConversationObj,
+    conversationObj: ChapterConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 

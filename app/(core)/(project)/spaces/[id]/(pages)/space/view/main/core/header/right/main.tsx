@@ -1,4 +1,4 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
 import { ContextForSpacesSpaceModals } from '../../../../../modal/controller/main';

@@ -1,5 +1,5 @@
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 

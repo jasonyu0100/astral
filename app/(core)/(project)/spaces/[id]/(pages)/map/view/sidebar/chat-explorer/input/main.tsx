@@ -1,4 +1,4 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';

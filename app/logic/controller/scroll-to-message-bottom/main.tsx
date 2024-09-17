@@ -1,4 +1,4 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { createContext, RefObject, useContext, useEffect } from 'react';
 
 interface Controller {

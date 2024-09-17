@@ -2,8 +2,6 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { SpacesSpaceSidebarChapterSceneList } from '../scenes/main';
-import { SpacesSpaceSidebarSceneAdd } from '../scenes/scene/add/main';
 import { SpacesSpaceChapterActiveHeader } from './title/main';
 
 export function SpacesSpaceActiveMain() {
@@ -16,8 +14,6 @@ export function SpacesSpaceActiveMain() {
     >
       <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
         <SpacesSpaceChapterActiveHeader />
-        <SpacesSpaceSidebarChapterSceneList />
-        <SpacesSpaceSidebarSceneAdd />
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>

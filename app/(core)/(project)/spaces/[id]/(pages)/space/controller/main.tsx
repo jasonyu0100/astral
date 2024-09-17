@@ -1,11 +1,10 @@
+import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
+import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useState } from 'react';
@@ -47,9 +46,8 @@ export function useControllerForSpacesSpace() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const sceneListController = useContext(ContextForChapterSceneList);
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
   const updateListController = useControllerForSessionUpdateListFromChapter(
     chapterListController.state.objId,
@@ -75,7 +73,7 @@ export function useControllerForSpacesSpace() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation: SceneConversationObj) {
+  function checkConversationStatus(conversation: ChapterConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -88,22 +86,21 @@ export function useControllerForSpacesSpace() {
     const conversation =
       await conversationListController.actions.createActions.createConversation(
         user.id,
-        sceneListController.state.objId,
+        chapterListController.state.objId,
       );
-    await updateListController.actions.createActions.createFromChapterSceneConversation(
+    await updateListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      sceneListController.state.objId,
       conversation.id,
     );
     return conversation;
   }
 
-  async function sendUserMessage(conversation: SceneConversationObj) {
+  async function sendUserMessage(conversation: ChapterConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.sceneId,
+      conversation.chapterId,
       conversation.id,
     );
   }
@@ -118,7 +115,6 @@ export function useControllerForSpacesSpace() {
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
       `This is the message history:`,
       ...getMessageHistory(),
       `Reply to the user message and keep the objective in mind.`,
@@ -132,11 +128,11 @@ export function useControllerForSpacesSpace() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: SceneConversationObj,
+    conversation: ChapterConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.sceneId,
+      conversation.chapterId,
       conversation.id,
       message,
     );
@@ -148,8 +144,6 @@ export function useControllerForSpacesSpace() {
       `This is the space description: ${spaceController.state.obj.description}`,
       `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the scene title: ${sceneListController.state.currentObj?.title}`,
-      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
       `This is the message history:`,
       ...getMessageHistory(),
       `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference."`,
@@ -181,7 +175,7 @@ Ensure the response follows the exact structure and format shown above, with pro
 
   async function summariseConversation(
     messages: ConversationMessageObj[],
-    conversationObj: SceneConversationObj,
+    conversationObj: ChapterConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 

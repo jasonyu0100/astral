@@ -1,8 +1,7 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/scene/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { useContext } from 'react';
 import { SpacesSpaceConversations } from './conversations/main';
 import { SpacesSpaceMessages } from './messages/list/main';
-import { SpacesSpaceChatStatus } from './status/main';
 
 export function SpacesSpaceContents() {
   const messageListController = useContext(ContextForConversationMessageList);
@@ -19,7 +18,6 @@ export function SpacesSpaceContents() {
         </div>
       ) : (
         <>
-          <SpacesSpaceChatStatus />
           <SpacesSpaceMessages />
         </>
       )}

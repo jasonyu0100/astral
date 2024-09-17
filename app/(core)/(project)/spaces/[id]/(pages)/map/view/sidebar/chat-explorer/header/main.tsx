@@ -1,4 +1,4 @@
-import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 export function SpacesMapChatExplorerHeader() {
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
   return (
     <GlassWindowFrame className='h-[4rem] w-full flex-shrink-0 shadow-glow'>

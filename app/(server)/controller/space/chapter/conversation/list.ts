@@ -1,4 +1,4 @@
-import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/message/main';
+import { chapterConversationDbWrapper } from '@/(server)/client/space/chapter/conversation/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,16 +7,17 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  conversationMessageModel,
-  ConversationMessageObj,
-} from '@/(server)/model/space/chapter/scene/conversation/message/main';
+  ChapterConversationObj,
+  chapterConversationModel,
+} from '@/(server)/model/space/chapter/conversation/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ConversationMessageObj;
-const gqlDbWrapper = conversationMessageDbWrapper;
-const listIdKey = conversationMessageModel.parentKey;
+type TargetObj = ChapterConversationObj;
+const gqlDbWrapper = chapterConversationDbWrapper;
+const listIdKey = chapterConversationModel.parentKey;
 
 interface ControllerState {
+  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -27,25 +28,12 @@ interface ControllerState {
 interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
-  inputMessageText: string;
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {
-  updateInputMessageText: (messageText: string) => void;
-}
+interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  sendUserMessage: (
-    userId: string,
-    chatId: string,
-    conversationId: string,
-  ) => Promise<TargetObj>;
-  sendAgentMessage: (
-    agentId: string,
-    chatId: string,
-    conversationId: string,
-    message: string,
-  ) => Promise<TargetObj>;
+  createConversation: (userId: string, chatId: string) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -62,19 +50,19 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForConversationMessageList = (
-  initialId: string,
+const useControllerForChapterConversationList = (
+  listId: string | boolean | number,
+  initialId?: string | undefined | null,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const [inputMessageText, changeInputMessageText] = useState<string>('');
-  const currentObj =
-    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+  const currentObj = objs.filter((obj) => obj.id === id).at(0);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
+    listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
@@ -82,7 +70,6 @@ const useControllerForConversationMessageList = (
     more: {
       query: query,
       queryResults: queryResults,
-      inputMessageText: inputMessageText,
     },
   };
 
@@ -125,17 +112,6 @@ const useControllerForConversationMessageList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === initialId);
-      const prevIndex = currentIndex - 1;
-
-      if (prevIndex >= 0) {
-        const prevObj = objs[prevIndex];
-        changeId(prevObj.id);
-        return prevObj;
-      }
-      return undefined;
-    },
-    goPrev: () => {
       const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
@@ -146,6 +122,17 @@ const useControllerForConversationMessageList = (
       } else {
         return undefined;
       }
+    },
+    goPrev: () => {
+      const currentIndex = objs.findIndex((obj) => obj.id === id);
+      const prevIndex = currentIndex - 1;
+
+      if (prevIndex >= 0) {
+        const prevObj = objs[prevIndex];
+        changeId(prevObj.id);
+        return prevObj;
+      }
+      return undefined;
     },
     searchQuery: () => {
       if (query === '') {
@@ -163,40 +150,22 @@ const useControllerForConversationMessageList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    searchAndUpdateQuery: (newQuery: string, newObjs?: TargetObj[]) => {
-      if (newObjs) {
-        changeQuery(newQuery);
-        if (newQuery === '') {
-          changeQueryResults(newObjs);
-          return newObjs;
-        } else {
-          const results = newObjs.filter((obj) => {
-            const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
-          });
-          changeQueryResults(results);
-          return results;
-        }
+    searchAndUpdateQuery: (newQuery: string) => {
+      changeQuery(newQuery);
+      if (newQuery === '') {
+        changeQueryResults(objs);
+        return objs;
       } else {
-        changeQuery(newQuery);
-        if (newQuery === '') {
-          changeQueryResults(objs);
-          return objs;
-        } else {
-          const results = objs.filter((obj) => {
-            const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
-          });
-          changeQueryResults(results);
-          return results;
-        }
+        const results = objs.filter((obj) => {
+          const regex = new RegExp(newQuery, 'i');
+          return regex.test(obj.summary);
+        });
+        changeQueryResults(results);
+        return results;
       }
     },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
-    },
-    updateInputMessageText: function (newMessage: string): void {
-      changeInputMessageText(newMessage);
     },
     find: (id: string) => {
       return objs.find((obj) => obj.id === id) || ({} as TargetObj);
@@ -235,23 +204,26 @@ const useControllerForConversationMessageList = (
       return objs;
     },
     gatherFromEnd: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
+      changeQueryResults(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
     gatherFromBeginning: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
-      const reverseObjs = objs.reverse();
+      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const sortedObjs = stateActions.sortedViaDate(objs);
+      const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
+      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
         filter: {
-          chapterId: initialId,
+          chapterId: listId,
           title: {
             contains: search,
           },
@@ -268,11 +240,9 @@ const useControllerForConversationMessageList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        chapterId: '',
+        summary: '',
         userId: '',
-        conversationId: '',
-        sceneId: '',
-        message: '',
-        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -290,42 +260,15 @@ const useControllerForConversationMessageList = (
       changeId(newObj.id);
       return newObj;
     },
-    sendUserMessage: async (
-      userId: string,
-      chatId: string,
-      conversationId: string,
-    ) => {
+    createConversation: async (userId: string, chatId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        chapterId: chatId,
+        summary: '',
         userId: userId,
-        conversationId: conversationId,
-        sceneId: chatId,
-        message: inputMessageText,
-        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      changeInputMessageText('');
-      return newObj;
-    },
-    sendAgentMessage: async (
-      agentId: string,
-      chatId: string,
-      conversationId: string,
-      message: string,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        agentId: agentId,
-        conversationId: conversationId,
-        sceneId: chatId,
-        message: message,
-        hasAttachment: false,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushFront(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -382,18 +325,16 @@ const useControllerForConversationMessageList = (
   };
 
   useMemo(() => {
-    if (!initialId) {
+    if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
+      controllerActions.gatherActions.gatherFromBeginning().then(() => {
         if (initialId) {
-          if (objs.find((obj) => obj.id === initialId)) {
-            stateActions.selectViaId(initialId);
-          }
+          stateActions.selectViaId(initialId);
         }
       });
     }
-  }, [initialId]);
+  }, [listId]);
 
   return {
     state: controllerState,
@@ -401,8 +342,8 @@ const useControllerForConversationMessageList = (
   };
 };
 
-const ContextForConversationMessageList = createContext({} as Controller);
+const ContextForChapterConversationList = createContext({} as Controller);
 export {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
 };

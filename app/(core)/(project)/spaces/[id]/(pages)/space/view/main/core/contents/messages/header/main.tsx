@@ -1,4 +1,4 @@
-import { ContextForSceneConversationList } from '@/(server)/controller/space/chapter/scene/conversation/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { cn } from '@/lib/utils';
@@ -10,7 +10,7 @@ import { useContext } from 'react';
 
 export function SpacesSpaceChatConversationHeader() {
   const conversationListController = useContext(
-    ContextForSceneConversationList,
+    ContextForChapterConversationList,
   );
   const conversationObj = conversationListController.state.currentObj;
 

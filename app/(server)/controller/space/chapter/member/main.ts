@@ -1,4 +1,4 @@
-import { sceneConversationDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/main';
+import { spaceChapterMemberDbWrapper } from '@/(server)/client/space/chapter/member/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { SceneConversationObj } from '@/(server)/model/space/chapter/scene/conversation/main';
+import { SpaceChapterMemberObj } from '@/(server)/model/space/chapter/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SceneConversationObj;
-const gqlDbWrapper = sceneConversationDbWrapper;
+type TargetObj = SpaceChapterMemberObj;
+const gqlDbWrapper = spaceChapterMemberDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneConversationMain = (objId: string): Controller => {
+const useControllerForChatMemberMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,8 +112,5 @@ const useControllerForSceneConversationMain = (objId: string): Controller => {
   };
 };
 
-const ContextForSceneConversationMain = createContext({} as Controller);
-export {
-  ContextForSceneConversationMain,
-  useControllerForSceneConversationMain,
-};
+const ContextForChatMemberMain = createContext({} as Controller);
+export { ContextForChatMemberMain, useControllerForChatMemberMain };

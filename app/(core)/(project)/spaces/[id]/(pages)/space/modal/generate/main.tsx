@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
@@ -31,10 +31,8 @@ export function SpacesSpaceGenerateMapModal() {
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
-  const ideaListController = useControllerForSceneIdeaList(
-    sceneListController.state.objId,
-  );
+  const sceneListController = useControllerForChapterSceneList('');
+  const ideaListController = useControllerForSceneIdeaList('');
   const spaceIdeaRelationshipListController =
     useControllerForSpaceIdeaRelationshipListFromChapter(
       chapterListController.state.objId,

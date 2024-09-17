@@ -1,4 +1,4 @@
-import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/scene/conversation/message/main';
+import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/conversation/message/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,7 +6,7 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/scene/conversation/message/main';
+import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ConversationMessageObj;
