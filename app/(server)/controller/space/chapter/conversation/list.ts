@@ -268,7 +268,7 @@ const useControllerForChapterConversationList = (
         userId: userId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -328,7 +328,7 @@ const useControllerForChapterConversationList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromBeginning().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then(() => {
         if (initialId) {
           stateActions.selectViaId(initialId);
         }
