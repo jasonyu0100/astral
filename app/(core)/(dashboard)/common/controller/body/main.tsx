@@ -1,7 +1,6 @@
 'use client';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
 import { useState } from 'react';
-import { DashboardBackground } from '../../../../../ui/background/dashboard/main';
 
 export function DashboardBody({ children }: { children?: React.ReactNode }) {
   const [hovered, changeHovered] = useState(false);
@@ -19,9 +18,10 @@ export function DashboardBody({ children }: { children?: React.ReactNode }) {
           updateToggle: (value) => changeHovered(value),
         }}
       >
-        <DashboardBackground />
-        <div className='absolute top-0 flex h-full w-full flex-col overflow-auto'>
-          {children}
+        <div className={'h-full w-full overflow-auto'}>
+          <div className='absolute top-0 flex h-full w-full flex-col overflow-auto'>
+            {children}
+          </div>
         </div>
       </ContextForTogglable.Provider>
     </div>
