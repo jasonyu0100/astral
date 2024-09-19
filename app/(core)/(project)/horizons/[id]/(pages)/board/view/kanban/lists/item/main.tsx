@@ -1,4 +1,4 @@
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -8,7 +8,7 @@ import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function HorizonsBoardListItem() {
-  const log = useContext(ContextForChapterLogObj);
+  const log = useContext(ContextForChapterWayObj);
 
   return (
     <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>

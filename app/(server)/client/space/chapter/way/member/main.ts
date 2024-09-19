@@ -1,46 +1,46 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { LogMemberObj } from '@/(server)/model/space/chapter/way/member/main';
+import { WayMemberObj } from '@/(server)/model/space/chapter/way/member/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createLogMemberObj,
-  deleteLogMemberObj,
-  updateLogMemberObj,
+  createWayMemberObj,
+  deleteWayMemberObj,
+  updateWayMemberObj,
 } from '@/graphql/mutations';
-import { getLogMemberObj, listLogMemberObjs } from '@/graphql/queries';
+import { getWayMemberObj, listWayMemberObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as LogMemberObj;
+  return obj as WayMemberObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as LogMemberObj[];
+  return objs as WayMemberObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getLogMemberObj,
+    query: getWayMemberObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getLogMemberObj);
+  return castSingle(payload?.data?.getWayMemberObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getLogMemberObj,
+    query: getWayMemberObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getLogMemberObj);
+  return castSingle(payload?.data?.getWayMemberObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listLogMemberObjs,
+    query: listWayMemberObjs,
     variables: {
       filter: {
         [key]: {
@@ -50,41 +50,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listLogMemberObjs?.items || []);
+  return castMultiple(payload?.data?.listWayMemberObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listLogMemberObjs,
+    query: listWayMemberObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listLogMemberObjs?.items || []);
+  return castMultiple(payload?.data?.listWayMemberObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listLogMemberObjs,
+    query: listWayMemberObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listLogMemberObjs?.items || []);
+  return castMultiple(payload?.data?.listWayMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<LogMemberObj, 'id'>) {
+async function createObj(newObj: Omit<WayMemberObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createLogMemberObj,
+    query: createWayMemberObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createLogMemberObj);
+  return castSingle(payload?.data?.createWayMemberObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<LogMemberObj>) {
+async function updateObj(id: string, updateObj: Partial<WayMemberObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateLogMemberObj,
+    query: updateWayMemberObj,
     variables: {
       input: {
         id: id,
@@ -93,12 +93,12 @@ async function updateObj(id: string, updateObj: Partial<LogMemberObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateLogMemberObj);
+  return castSingle(payload?.data?.updateWayMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: LogMemberObj) {
+async function overwriteObj(id: string, newObj: WayMemberObj) {
   const payload = await amplifyClient.graphql({
-    query: updateLogMemberObj,
+    query: updateWayMemberObj,
     variables: {
       input: {
         id: id,
@@ -107,12 +107,12 @@ async function overwriteObj(id: string, newObj: LogMemberObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateLogMemberObj);
+  return castSingle(payload?.data?.updateWayMemberObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteLogMemberObj,
+    query: deleteWayMemberObj,
     variables: {
       input: {
         id: id,
@@ -120,10 +120,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteLogMemberObj);
+  return castSingle(payload?.data?.deleteWayMemberObj);
 }
 
-export const wayMemberDbWrapper: GqlDbWrapper<LogMemberObj> = {
+export const wayMemberDbWrapper: GqlDbWrapper<WayMemberObj> = {
   getObj,
   listObjs,
   listAllObjs,

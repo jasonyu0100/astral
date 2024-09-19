@@ -1,11 +1,11 @@
 import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem } from '@/(server)/model/elements/text/main';
-import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { useContext } from 'react';
 
 export function SpacesJourneySidebarLinksListItem() {
-  const linkObj = useContext(ContextForLogLinkObj);
+  const linkObj = useContext(ContextForWayLinkObj);
   const linkListController = useContext(ContextForLogLinkList);
 
   return (

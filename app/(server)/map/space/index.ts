@@ -12,6 +12,9 @@ import { spotlightCommentDbWrapper } from '@/(server)/client/space/chapter/spotl
 import { spotlightKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
 import { spotlightLinkDbWrapper } from '@/(server)/client/space/chapter/spotlight/link/main';
 import { chapterSpotlightDbWrapper } from '@/(server)/client/space/chapter/spotlight/main';
+import { wayLinkDbWrapper } from '@/(server)/client/space/chapter/way/link/main';
+import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/way/main';
+import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/way/member/main';
 import { spaceDbWrapper } from '@/(server)/client/space/main';
 import { spaceMemberDbWrapper } from '@/(server)/client/space/member/main';
 import { spaceMemberTermsDbWrapper } from '@/(server)/client/space/member/terms/main';
@@ -34,9 +37,9 @@ import {
   spotlightMemberGql,
   spotlightMemberModel,
 } from '@/(server)/model/space/chapter/spotlight/member/main';
-import { logLinkModel } from '@/(server)/model/space/chapter/way/link/main';
-import { chapterLogModel } from '@/(server)/model/space/chapter/way/main';
-import { logMemberModel } from '@/(server)/model/space/chapter/way/member/main';
+import { wayLinkModel } from '@/(server)/model/space/chapter/way/link/main';
+import { chapterWayModel } from '@/(server)/model/space/chapter/way/main';
+import { wayMemberModel } from '@/(server)/model/space/chapter/way/member/main';
 import { spaceModel } from '@/(server)/model/space/main';
 import { spaceMemberModel } from '@/(server)/model/space/member/main';
 import { spaceMemberTermsModel } from '@/(server)/model/space/member/terms/main';
@@ -88,16 +91,16 @@ export const spaceMap = {
         db: sceneIdeaDbWrapper,
       },
     },
-    log: {
-      model: chapterLogModel,
-      db: null,
+    way: {
+      model: chapterWayModel,
+      db: chapterWayDbWrapper,
       link: {
-        mode: logLinkModel,
-        db: null,
+        mode: wayLinkModel,
+        db: wayLinkDbWrapper,
       },
       member: {
-        model: logMemberModel,
-        db: null,
+        model: wayMemberModel,
+        db: wayMemberDbWrapper,
       },
     },
     spotlight: {

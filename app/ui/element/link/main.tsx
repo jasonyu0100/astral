@@ -1,9 +1,9 @@
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { useContext } from 'react';
 
 export function ElementLinkPreview() {
-  const link = useContext(ContextForLogLinkObj);
+  const link = useContext(ContextForWayLinkObj);
 
   return (
     <>

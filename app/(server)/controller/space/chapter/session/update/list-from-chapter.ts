@@ -389,13 +389,13 @@ const useControllerForReviewUpdateListFromChapter = (
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
-        logId: logId,
+        wayId: logId,
         added: false,
         spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterReviewUpdateVariant.LOG,
+        variant: ChapterReviewUpdateVariant.WAY,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

@@ -1,4 +1,4 @@
-import { logLinkDbWrapper } from '@/(server)/client/space/chapter/log/link/main';
+import { wayLinkDbWrapper } from '@/(server)/client/space/chapter/way/link/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -11,14 +11,14 @@ import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem } from '@/(server)/model/elements/text/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import {
-  logLinkModel,
+  wayLinkModel,
   WayLinkObj,
 } from '@/(server)/model/space/chapter/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = WayLinkObj;
-const gqlDbWrapper = logLinkDbWrapper;
-const listIdKey = logLinkModel.parentKey;
+const gqlDbWrapper = wayLinkDbWrapper;
+const listIdKey = wayLinkModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;

@@ -2,7 +2,7 @@ import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/wa
 import {
   ChapterWayObj,
   ChapterWayStatus,
-  ContextForChapterLogObj,
+  ContextForChapterWayObj,
 } from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
@@ -33,7 +33,7 @@ export function HorizonsBoardKanban() {
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
       await logListController.actions.editActions.edit(itemId, {
-        logStatus: toList,
+        wayStatus: toList,
       });
     };
 
@@ -69,9 +69,9 @@ export function HorizonsBoardKanban() {
               )} */}
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterLogObj.Provider value={log}>
+                  <ContextForChapterWayObj.Provider value={log}>
                     <HorizonsBoardListItem />
-                  </ContextForChapterLogObj.Provider>
+                  </ContextForChapterWayObj.Provider>
                 </li>
               ))}
             </ul>
@@ -99,11 +99,11 @@ export function HorizonsBoardKanban() {
                 </p>
               )} */}
               {inProgress.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsBoardListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </HorizonsBoardList>
@@ -123,11 +123,11 @@ export function HorizonsBoardKanban() {
               )} */}
 
               {review.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsBoardListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </HorizonsBoardList>
@@ -149,9 +149,9 @@ export function HorizonsBoardKanban() {
               )} */}
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterLogObj.Provider value={log}>
+                  <ContextForChapterWayObj.Provider value={log}>
                     <HorizonsBoardListItem />
-                  </ContextForChapterLogObj.Provider>
+                  </ContextForChapterWayObj.Provider>
                 </li>
               ))}
             </ul>
@@ -179,11 +179,11 @@ export function HorizonsBoardKanban() {
                 </p>
               )} */}
               {inProgress.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsBoardListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </HorizonsBoardList>
@@ -203,11 +203,11 @@ export function HorizonsBoardKanban() {
               )} */}
 
               {review.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsBoardListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </HorizonsBoardList>

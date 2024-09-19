@@ -1,4 +1,4 @@
-import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/log/member/main';
+import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/way/member/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,10 +6,10 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { LogMemberObj } from '@/(server)/model/space/chapter/way/member/main';
+import { WayMemberObj } from '@/(server)/model/space/chapter/way/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = LogMemberObj;
+type TargetObj = WayMemberObj;
 const gqlDbWrapper = wayMemberDbWrapper;
 
 interface ControllerState {

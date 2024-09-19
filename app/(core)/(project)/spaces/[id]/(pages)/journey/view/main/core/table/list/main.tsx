@@ -1,5 +1,5 @@
 import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { SpacesJourneyLogTableItem } from './item/main';
@@ -11,9 +11,9 @@ export function SpacesJourneyTableList() {
     <div className='flex w-full flex-col space-y-[1rem] pt-[2rem]'>
       {logListController.state.objs.map((log, index) => (
         <ContextForIndexable.Provider value={index}>
-          <ContextForChapterLogObj.Provider value={log}>
+          <ContextForChapterWayObj.Provider value={log}>
             <SpacesJourneyLogTableItem />
-          </ContextForChapterLogObj.Provider>
+          </ContextForChapterWayObj.Provider>
         </ContextForIndexable.Provider>
       ))}
     </div>

@@ -22,10 +22,10 @@ export interface WayLinkObj {
   created: string;
 }
 
-export const logLinkGql = `
-type LogLinkObj {
+export const wayLinkGql = `
+type WayLinkObj {
   id: String!
-  logId: String!
+  wayId: String!
   userId: String!
   fromIdea: Boolean!
   ideaId: String
@@ -42,27 +42,27 @@ type LogLinkObj {
 }
 `;
 
-export const ContextForLogLinkObj = createContext<WayLinkObj>({} as WayLinkObj);
+export const ContextForWayLinkObj = createContext<WayLinkObj>({} as WayLinkObj);
 
-export const exampleLogLink: WayLinkObj = {
+export const exampleWayLink: WayLinkObj = {
   id: '0',
   wayId: '0',
   userId: '0',
-  title: 'Log Link Example',
-  description: 'Log Link Description',
+  title: 'Way Link Example',
+  description: 'Way Link Description',
   variant: 'file',
   fileElem: exampleFileElem,
   created: new Date().toISOString(),
   fromIdea: false,
 };
 
-export const exampleLogLinks: WayLinkObj[] = [
+export const exampleWayLinks: WayLinkObj[] = [
   {
     id: '0',
     wayId: '0',
     userId: '0',
-    title: 'Log Link Example',
-    description: 'Log Link Description',
+    title: 'Way Link Example',
+    description: 'Way Link Description',
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
@@ -72,8 +72,8 @@ export const exampleLogLinks: WayLinkObj[] = [
     id: '0',
     wayId: '0',
     userId: '0',
-    title: 'Log Link Example',
-    description: 'Log Link Description',
+    title: 'Way Link Example',
+    description: 'Way Link Description',
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
@@ -83,8 +83,8 @@ export const exampleLogLinks: WayLinkObj[] = [
     id: '0',
     wayId: '0',
     userId: '0',
-    title: 'Log Link Example',
-    description: 'Log Link Description',
+    title: 'Way Link Example',
+    description: 'Way Link Description',
     variant: 'file',
     fileElem: exampleFileElem,
     created: new Date().toISOString(),
@@ -92,11 +92,11 @@ export const exampleLogLinks: WayLinkObj[] = [
   },
 ];
 
-export const logLinkModel: ModelInterface<WayLinkObj> = {
+export const wayLinkModel: ModelInterface<WayLinkObj> = {
   name: 'link',
-  gql: logLinkGql,
-  example: exampleLogLink,
-  examples: exampleLogLinks,
-  parentKey: 'logId',
+  gql: wayLinkGql,
+  example: exampleWayLink,
+  examples: exampleWayLinks,
+  parentKey: 'wayId',
   children: [],
 };

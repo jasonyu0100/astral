@@ -6,7 +6,7 @@ export enum ChapterReviewUpdateVariant {
   CHAPTER = 'CHAPTER',
   SCENE = 'SCENE',
   IDEA = 'IDEA',
-  LOG = 'LOG',
+  WAY = 'WAY',
   SPOTLIGHT = 'SPOTLIGHT',
   ATTACHMENT = 'ATTACHMENT',
   COMMENT = 'COMMENT',
@@ -28,7 +28,7 @@ export interface ChapterReviewUpdateObj {
   sceneId?: string;
   ideaId?: string;
   spotlightId?: string;
-  logId?: string;
+  wayId?: string;
   commentId?: string;
   attachmentId?: string;
   contributorId?: string;
@@ -50,7 +50,7 @@ type ChapterReviewUpdateObj {
   sceneId: String
   ideaId: String
   spotlightId: String
-  logId: String
+  wayId: String
   commentId: String
   attachmentId: String
   contributorId: String
@@ -75,7 +75,7 @@ export const exampleChapterReviewUpdate: ChapterReviewUpdateObj = {
   ideaId: undefined,
   sceneId: undefined,
   spotlightId: undefined,
-  logId: undefined,
+  wayId: undefined,
   commentId: undefined,
   attachmentId: undefined,
   contributorId: undefined,
@@ -97,7 +97,7 @@ export const exampleChapterReviewUpdates: ChapterReviewUpdateObj[] = [
     ideaId: undefined,
     sceneId: undefined,
     spotlightId: undefined,
-    logId: undefined,
+    wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,
     contributorId: undefined,
@@ -117,7 +117,7 @@ export const exampleChapterReviewUpdates: ChapterReviewUpdateObj[] = [
     ideaId: undefined,
     sceneId: undefined,
     spotlightId: undefined,
-    logId: undefined,
+    wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,
     contributorId: undefined,
@@ -137,7 +137,7 @@ export const exampleChapterReviewUpdates: ChapterReviewUpdateObj[] = [
     ideaId: undefined,
     sceneId: undefined,
     spotlightId: undefined,
-    logId: undefined,
+    wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,
     contributorId: undefined,

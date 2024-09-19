@@ -1,5 +1,5 @@
 import { ContextForSpacesJourney } from '@/(core)/(project)/spaces/[id]/(pages)/journey/controller/main';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -8,7 +8,7 @@ import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemCard() {
-  const log = useContext(ContextForChapterLogObj);
+  const log = useContext(ContextForChapterWayObj);
   const journeyController = useContext(ContextForSpacesJourney);
   const selected = journeyController.state.selectedLogs.includes(log);
 

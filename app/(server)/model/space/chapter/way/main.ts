@@ -11,7 +11,7 @@ export interface ChapterWayObj {
   id: string;
   userId: string;
   chapterId: string;
-  logStatus: string;
+  wayStatus: string;
   title: string;
   description: string;
   summary: string;
@@ -26,64 +26,64 @@ type ChapterWayObj {
   title: String!
   description: String!
   summary: String!
-  logStatus: String!
+  wayStatus: String!
   created: String!
 }
 `;
 
-export const ContextForChapterLogObj = createContext<ChapterWayObj>(
+export const ContextForChapterWayObj = createContext<ChapterWayObj>(
   {} as ChapterWayObj,
 );
 
-export const exampleChapterLog: ChapterWayObj = {
+export const exampleChapterWay: ChapterWayObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
-  title: 'Log Example',
-  description: 'Log Description',
-  summary: 'Log Summary',
+  title: 'Way Example',
+  description: 'Way Description',
+  summary: 'Way Summary',
   created: new Date().toISOString(),
-  logStatus: ChapterWayStatus.TODO,
+  wayStatus: ChapterWayStatus.TODO,
 };
 
-export const exampleChapterLogs: ChapterWayObj[] = [
+export const exampleChapterWays: ChapterWayObj[] = [
   {
     id: '0',
     userId: '0',
     chapterId: '0',
-    title: 'Log 1',
-    description: 'Log Description',
-    summary: 'Log Summary',
+    title: 'Way 1',
+    description: 'Way Description',
+    summary: 'Way Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterWayStatus.TODO,
+    wayStatus: ChapterWayStatus.TODO,
   },
   {
     id: '1',
     userId: '0',
     chapterId: '0',
-    title: 'Log 2',
-    description: 'Log Description',
-    summary: 'Log Summary',
+    title: 'Way 2',
+    description: 'Way Description',
+    summary: 'Way Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterWayStatus.TODO,
+    wayStatus: ChapterWayStatus.TODO,
   },
   {
     id: '2',
     userId: '0',
     chapterId: '0',
-    title: 'Log 3',
-    description: 'Log Description',
-    summary: 'Log Summary',
+    title: 'Way 3',
+    description: 'Way Description',
+    summary: 'Way Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterWayStatus.TODO,
+    wayStatus: ChapterWayStatus.TODO,
   },
 ];
 
-export const chapterLogModel: ModelInterface<ChapterWayObj> = {
-  name: 'log',
+export const chapterWayModel: ModelInterface<ChapterWayObj> = {
+  name: 'way',
   gql: chapterWayGql,
-  example: exampleChapterLog,
-  examples: exampleChapterLogs,
+  example: exampleChapterWay,
+  examples: exampleChapterWays,
   parentKey: 'chapterId',
   children: ['link'],
 };

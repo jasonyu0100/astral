@@ -1,59 +1,59 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface LogMemberObj {
+export interface WayMemberObj {
   id: string;
-  logId: string;
+  wayId: string;
   userId: string;
   created: string;
 }
 
-export const LogMemberGql = `
-type LogMemberObj {
+export const WayMemberGql = `
+type WayMemberObj {
   id: String!
-  logId: String!
+  wayId: String!
   userId: String!
   created: String!
 }
 `;
 
-export const ContextForLogMemberObj = createContext<LogMemberObj>(
-  {} as LogMemberObj,
+export const ContextForWayMemberObj = createContext<WayMemberObj>(
+  {} as WayMemberObj,
 );
 
-export const exampleLogMember: LogMemberObj = {
+export const exampleWayMember: WayMemberObj = {
   id: '0',
-  logId: '0',
+  wayId: '0',
   userId: '0',
   created: new Date().toISOString(),
 };
 
-export const exampleLogMembers: LogMemberObj[] = [
+export const exampleWayMembers: WayMemberObj[] = [
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     created: new Date().toISOString(),
   },
 ];
 
-export const logMemberModel: ModelInterface<LogMemberObj> = {
-  name: 'log',
-  gql: LogMemberGql,
-  example: exampleLogMember,
-  examples: exampleLogMembers,
-  parentKey: 'logId',
+export const wayMemberModel: ModelInterface<WayMemberObj> = {
+  name: 'member',
+  gql: WayMemberGql,
+  example: exampleWayMember,
+  examples: exampleWayMembers,
+  parentKey: 'wayId',
   children: [],
 };

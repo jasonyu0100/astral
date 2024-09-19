@@ -1,4 +1,4 @@
-import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/log/member/main';
+import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/way/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  logMemberModel,
-  LogMemberObj,
+  wayMemberModel,
+  WayMemberObj,
 } from '@/(server)/model/space/chapter/way/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = LogMemberObj;
+type TargetObj = WayMemberObj;
 const gqlDbWrapper = wayMemberDbWrapper;
-const listIdKey = logMemberModel.parentKey;
+const listIdKey = wayMemberModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -256,7 +256,7 @@ const useControllerForLogMemberList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        logId: '',
+        wayId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

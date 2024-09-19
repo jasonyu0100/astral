@@ -2,7 +2,7 @@ import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/wa
 import {
   ChapterWayObj,
   ChapterWayStatus,
-  ContextForChapterLogObj,
+  ContextForChapterWayObj,
 } from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
@@ -22,20 +22,20 @@ export function SpacesJourneyKanban() {
   useEffect(() => {
     if (populated) return;
     setTodo(
-      logListController.state.objs.filter((idea) => idea.logStatus === 'todo'),
+      logListController.state.objs.filter((idea) => idea.wayStatus === 'todo'),
     );
     setInProgress(
       logListController.state.objs.filter(
-        (idea) => idea.logStatus === 'in-progress',
+        (idea) => idea.wayStatus === 'in-progress',
       ),
     );
     setInReview(
       logListController.state.objs.filter(
-        (idea) => idea.logStatus === 'review',
+        (idea) => idea.wayStatus === 'review',
       ),
     );
     setDone(
-      logListController.state.objs.filter((idea) => idea.logStatus === 'done'),
+      logListController.state.objs.filter((idea) => idea.wayStatus === 'done'),
     );
     setPopulated(true);
   }, [logListController.state.objs]);
@@ -54,7 +54,7 @@ export function SpacesJourneyKanban() {
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
       await logListController.actions.editActions.edit(itemId, {
-        logStatus: toList,
+        wayStatus: toList,
       });
     };
 
@@ -90,9 +90,9 @@ export function SpacesJourneyKanban() {
               )} */}
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterLogObj.Provider value={log}>
+                  <ContextForChapterWayObj.Provider value={log}>
                     <SpaceJourneyListItem />
-                  </ContextForChapterLogObj.Provider>
+                  </ContextForChapterWayObj.Provider>
                 </li>
               ))}
             </ul>
@@ -122,11 +122,11 @@ export function SpacesJourneyKanban() {
                 </p>
               )} */}
               {inProgress.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </SpaceJourneyList>
@@ -146,11 +146,11 @@ export function SpacesJourneyKanban() {
               )} */}
 
               {review.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </SpaceJourneyList>
@@ -170,11 +170,11 @@ export function SpacesJourneyKanban() {
               )} */}
 
               {done.map((log) => (
-                <ContextForChapterLogObj.Provider value={log}>
+                <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterLogObj.Provider>
+                </ContextForChapterWayObj.Provider>
               ))}
             </ul>
           </SpaceJourneyList>

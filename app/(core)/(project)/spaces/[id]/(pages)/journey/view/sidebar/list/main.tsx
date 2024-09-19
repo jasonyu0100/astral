@@ -1,6 +1,6 @@
 import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
@@ -31,9 +31,9 @@ export function SpacesJourneySidebarList() {
                 obj.variant === ElementVariant.FILE,
           )
           .map((log) => (
-            <ContextForLogLinkObj.Provider value={log}>
+            <ContextForWayLinkObj.Provider value={log}>
               <SpacesJourneySidebarLinksListItem />
-            </ContextForLogLinkObj.Provider>
+            </ContextForWayLinkObj.Provider>
           ))}
         <HorizontalDivider />
         {sidebarMode === SpacesJourneySidebarMode.LINKS && (

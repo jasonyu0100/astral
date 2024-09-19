@@ -1,4 +1,4 @@
-import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/log/main';
+import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/way/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

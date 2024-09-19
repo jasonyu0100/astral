@@ -1,4 +1,4 @@
-import { logLinkDbWrapper } from '@/(server)/client/space/chapter/log/link/main';
+import { wayLinkDbWrapper } from '@/(server)/client/space/chapter/way/link/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -10,7 +10,7 @@ import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = WayLinkObj;
-const gqlDbWrapper = logLinkDbWrapper;
+const gqlDbWrapper = wayLinkDbWrapper;
 
 interface ControllerState {
   objId: string;

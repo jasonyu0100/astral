@@ -8,7 +8,7 @@ import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/(server)/controller/user/main';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -21,7 +21,7 @@ import { SpacesJourneyLogTableItemNumber } from './fields/number/main';
 import { SpacesJourneyLogTableItemStatus } from './fields/status/main';
 
 export function SpacesJourneyLogTableItem() {
-  const log = useContext(ContextForChapterLogObj);
+  const log = useContext(ContextForChapterWayObj);
   const userController = useControllerForUserMain(log.userId);
   const logListController = useContext(ContextForChapterLogList);
   const linkListController = useControllerForLogLinkList(log.id);

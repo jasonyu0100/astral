@@ -1,4 +1,4 @@
-import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/log/main';
+import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/way/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,7 +7,7 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  chapterLogModel,
+  chapterWayModel,
   ChapterWayObj,
   ChapterWayStatus,
 } from '@/(server)/model/space/chapter/way/main';
@@ -15,7 +15,7 @@ import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = ChapterWayObj;
 const gqlDbWrapper = chapterWayDbWrapper;
-const listIdKey = chapterLogModel.parentKey;
+const listIdKey = chapterWayModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -264,7 +264,7 @@ const useControllerForChapterLogList = (
         created: new Date().toISOString(),
         userId: '',
         chapterId: '',
-        logStatus: '',
+        wayStatus: '',
         title: '',
         description: '',
         summary: '',
@@ -280,7 +280,7 @@ const useControllerForChapterLogList = (
         created: new Date().toISOString(),
         userId: userId,
         chapterId: chapterId,
-        logStatus: ChapterWayStatus.TODO,
+        wayStatus: ChapterWayStatus.TODO,
         title: title,
         description: description,
         summary: '',

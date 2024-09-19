@@ -8,7 +8,7 @@ export function StudioSpacesRowLogs() {
   const reviewreviewUpdateListController =
     useControllerForReviewUpdateListFromSpace(spaceObj.id);
   const logs = reviewreviewUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterReviewUpdateVariant.LOG,
+    (update) => update.variant === ChapterReviewUpdateVariant.WAY,
   );
 
   return (

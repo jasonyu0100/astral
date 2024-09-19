@@ -2,11 +2,11 @@ import { GqlDbWrapper } from '@/(server)/client/main';
 import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createLogLinkObj,
-  deleteLogLinkObj,
-  updateLogLinkObj,
+  createWayLinkObj,
+  deleteWayLinkObj,
+  updateWayLinkObj,
 } from '@/graphql/mutations';
-import { getLogLinkObj, listLogLinkObjs } from '@/graphql/queries';
+import { getWayLinkObj, listWayLinkObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
@@ -19,28 +19,28 @@ function castMultiple(objs: unknown[]) {
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getLogLinkObj,
+    query: getWayLinkObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getLogLinkObj);
+  return castSingle(payload?.data?.getWayLinkObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getLogLinkObj,
+    query: getWayLinkObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getLogLinkObj);
+  return castSingle(payload?.data?.getWayLinkObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listLogLinkObjs,
+    query: listWayLinkObjs,
     variables: {
       filter: {
         [key]: {
@@ -50,41 +50,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listLogLinkObjs?.items || []);
+  return castMultiple(payload?.data?.listWayLinkObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listLogLinkObjs,
+    query: listWayLinkObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listLogLinkObjs?.items || []);
+  return castMultiple(payload?.data?.listWayLinkObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listLogLinkObjs,
+    query: listWayLinkObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listLogLinkObjs?.items || []);
+  return castMultiple(payload?.data?.listWayLinkObjs?.items || []);
 }
 
 async function createObj(newObj: Omit<WayLinkObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createLogLinkObj,
+    query: createWayLinkObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createLogLinkObj);
+  return castSingle(payload?.data?.createWayLinkObj);
 }
 
 async function updateObj(id: string, updateObj: Partial<WayLinkObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateLogLinkObj,
+    query: updateWayLinkObj,
     variables: {
       input: {
         id: id,
@@ -93,12 +93,12 @@ async function updateObj(id: string, updateObj: Partial<WayLinkObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateLogLinkObj);
+  return castSingle(payload?.data?.updateWayLinkObj);
 }
 
 async function overwriteObj(id: string, newObj: WayLinkObj) {
   const payload = await amplifyClient.graphql({
-    query: updateLogLinkObj,
+    query: updateWayLinkObj,
     variables: {
       input: {
         id: id,
@@ -107,12 +107,12 @@ async function overwriteObj(id: string, newObj: WayLinkObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateLogLinkObj);
+  return castSingle(payload?.data?.updateWayLinkObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteLogLinkObj,
+    query: deleteWayLinkObj,
     variables: {
       input: {
         id: id,
@@ -120,10 +120,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteLogLinkObj);
+  return castSingle(payload?.data?.deleteWayLinkObj);
 }
 
-export const logLinkDbWrapper: GqlDbWrapper<WayLinkObj> = {
+export const wayLinkDbWrapper: GqlDbWrapper<WayLinkObj> = {
   getObj,
   listObjs,
   listAllObjs,
