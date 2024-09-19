@@ -36,7 +36,7 @@ export default function Page() {
   }
 
   return (
-    <>
+    <div className='flex flex-col'>
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
         onClick={() => openNewCustomerBillingSession()}
@@ -49,6 +49,6 @@ export default function Page() {
       >
         BACK HOME
       </button>
-    </>
+    </div>
   );
 }

@@ -7,7 +7,15 @@ import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/ma
 import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
-import { projectManagementTemplate } from './templates/project-management';
+import { designSprintTemplate } from './templates/design-sprint';
+import { gameDevelopmentTemplate } from './templates/game-deverlopment';
+import { marketingCampaignTemplate } from './templates/marketing-campaign';
+import { productLaunchTemplate } from './templates/product-launch';
+import { productManagementTemplate } from './templates/project-management';
+import { softwareDevelopmentTemplate } from './templates/software-development';
+import { starterTemplate } from './templates/starter-project';
+import { startupOrganizationTemplate } from './templates/startup-organization';
+import { videoProductionTemplate } from './templates/video-production';
 
 // SPACE
 
@@ -38,11 +46,7 @@ export type _TemplateChapterObj = Omit<
   SpaceChapterObj,
   'id' | 'spaceId' | 'idx' | 'created' | 'userId'
 >;
-export interface TemplateChapterObj extends _TemplateChapterObj {
-  sceneTemplates: TemplateSceneObj[];
-  logTemplates: TemplateLogObj[];
-  spotlightTemplates: TemplateSpotlightObj[];
-}
+export interface TemplateChapterObj extends _TemplateChapterObj {}
 
 export const ContextForTemplateChapter = createContext(
   {} as TemplateChapterObj,
@@ -106,31 +110,25 @@ export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
 // TEMPLATES
 
 export enum SpaceTemplate {
-  Custom = 'Custom',
-  ProjectManagement = 'Project Management',
+  Starter = 'Starter Project',
+  ProductManagement = 'Product Management',
+  GameDevelopment = 'Game Development',
+  SoftwareDevelopment = 'Software Development',
+  MarketingCampaign = 'Marketing Campaign',
+  ProductLaunch = 'Product Launch',
+  StartupOrganization = 'Startup Organization',
+  VideoProduction = 'Video Production',
+  DesignSprint = 'Design Sprint',
 }
 
 export const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.ProjectManagement]: projectManagementTemplate,
-  [SpaceTemplate.Custom]: {
-    title: 'Project Management',
-    description:
-      'A structured template for managing projects efficiently, from initiation to completion.',
-    summary:
-      'Organize, plan, and execute projects with clear timelines, milestones, and task ownership.',
-    category: 'Management',
-    chapters: [
-      {
-        title: 'Project Planning',
-        description: 'Define project scope, objectives, and deliverables.',
-        sceneTemplates: [],
-        logTemplates: [],
-        spotlightTemplates: [],
-        objective: '',
-        summary: '',
-      },
-    ],
-    objective:
-      'Manage your project efficiently with clear goals, tasks, and milestones.',
-  },
+  [SpaceTemplate.ProductManagement]: productManagementTemplate,
+  [SpaceTemplate.Starter]: starterTemplate,
+  [SpaceTemplate.GameDevelopment]: gameDevelopmentTemplate,
+  [SpaceTemplate.SoftwareDevelopment]: softwareDevelopmentTemplate,
+  [SpaceTemplate.MarketingCampaign]: marketingCampaignTemplate,
+  [SpaceTemplate.ProductLaunch]: productLaunchTemplate,
+  [SpaceTemplate.StartupOrganization]: startupOrganizationTemplate,
+  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
+  [SpaceTemplate.DesignSprint]: designSprintTemplate,
 };

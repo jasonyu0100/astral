@@ -15,7 +15,7 @@ export default function Page() {
   }
 
   return (
-    <>
+    <div className='flex flex-col'>
       <button
         type='submit'
         role='link'
@@ -32,6 +32,6 @@ export default function Page() {
       >
         BACK HOME
       </button>
-    </>
+    </div>
   );
 }

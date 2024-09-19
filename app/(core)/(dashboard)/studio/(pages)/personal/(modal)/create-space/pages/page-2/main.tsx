@@ -11,7 +11,7 @@ export function CreateSpaceModalPageTwo() {
 
   return (
     <FormBody>
-      {category === SpaceTemplate.Custom ? (
+      {category === SpaceTemplate.Starter ? (
         <CreateSpaceEditStructure />
       ) : (
         <CreateSpaceTemplateStructure />

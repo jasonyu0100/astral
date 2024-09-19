@@ -1,14 +1,11 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
-import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import {
   SpaceTemplate,
@@ -66,9 +63,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const chapterListController = useControllerForSpaceChapterList('');
-  const sceneListController = useControllerForChapterSceneList('');
-  const spotlightListController =
-    useControllerForChapterSpotlightListFromChapter('');
   const reviewreviewUpdateListController =
     useControllerForReviewUpdateListFromChapter(
       chapterListController.state.objId,
@@ -80,7 +74,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [category, changeCategory] = useState(SpaceTemplate.Custom);
+  const [category, changeCategory] = useState(SpaceTemplate.Starter);
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(
@@ -118,103 +112,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     );
 
     return chapters;
-  }
-
-  async function createScenes(
-    space: SpaceObj,
-    chapters: SpaceChapterObj[],
-    templateSpaceChapters: TemplateChapterObj[],
-  ) {
-    console.assert(
-      chapters.length === templateSpaceChapters.length,
-      'Chapters and template chapters must be the same length',
-    );
-    const scenes = await Promise.all(
-      chapters.map(async (chapter, index) => {
-        const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter && templateChapter.sceneTemplates.length > 0) {
-          const scenes = await Promise.all(
-            templateChapter.sceneTemplates.map(async (templateScene) => {
-              const scene =
-                await sceneListController.actions.createActions.createScene(
-                  templateScene.title,
-                  templateScene.summary,
-                  templateScene.objective,
-                  user.id,
-                  chapter.id,
-                );
-              await reviewreviewUpdateListController.actions.createActions.createFromChapterScene(
-                user.id,
-                space.id,
-                chapter.id,
-                scene.id,
-              );
-              return scene;
-            }),
-          );
-          return scenes;
-        } else {
-          const scene =
-            await sceneListController.actions.createActions.createScene(
-              'untitled',
-              '',
-              '',
-              user.id,
-              chapter.id,
-            );
-          await reviewreviewUpdateListController.actions.createActions.createFromChapterScene(
-            user.id,
-            space.id,
-            chapter.id,
-            scene.id,
-          );
-          return [scene];
-        }
-      }),
-    );
-
-    return scenes;
-  }
-
-  async function createSpotlights(
-    space: SpaceObj,
-    chapters: SpaceChapterObj[],
-    templateSpaceChapters: TemplateChapterObj[],
-  ) {
-    console.assert(
-      chapters.length === templateSpaceChapters.length,
-      'Chapters and template chapters must be the same length',
-    );
-    const spotlights = await Promise.all(
-      chapters.map(async (chapter, index) => {
-        const templateChapter = templateSpaceChapters.at(index);
-        if (templateChapter && templateChapter.spotlightTemplates.length > 0) {
-          const spotlights = await Promise.all(
-            templateChapter.spotlightTemplates.map(async (templateReview) => {
-              const spotlight =
-                await spotlightListController.actions.createActions.createSpotlight(
-                  templateReview.title,
-                  templateReview.description,
-                  user.id,
-                  chapter.id,
-                );
-              await reviewreviewUpdateListController.actions.createActions.createFromChapterSpotlight(
-                user.id,
-                space.id,
-                chapter.id,
-                spotlight.id,
-              );
-              return spotlight;
-            }),
-          );
-          return spotlights;
-        } else {
-          return [];
-        }
-      }),
-    );
-
-    return spotlights;
   }
 
   async function createMembers(space: SpaceObj, members: string[]) {
@@ -275,14 +172,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     console.log('CHAPTERS CREATED', chapters);
     const members = await createMembers(space, memberIds);
     console.log('MEMBERS CREATED', members);
-    const scenes = await createScenes(space, chapters, templateSpaceChapters);
-    console.log('SCENES CREATED', scenes);
-    const spotlights = await createSpotlights(
-      space,
-      chapters,
-      templateSpaceChapters,
-    );
-    console.log('SPOTLIGHTS CREATED', spotlights);
     return space;
   }
 
