@@ -1,4 +1,4 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import {
   ChapterWayStatus,
   ContextForChapterWayObj,
@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemStatus() {
   const log = useContext(ContextForChapterWayObj);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
 
   return (
     <div>
@@ -18,7 +18,7 @@ export function SpacesJourneyLogTableItemStatus() {
           e.stopPropagation();
         }}
         onChange={(e) => {
-          logListController.actions.editActions.edit(log.id, {
+          wayListController.actions.editActions.edit(log.id, {
             wayStatus: e.target.value,
           });
         }}

@@ -9,7 +9,7 @@ export function ExplorerProjectsSidebar() {
     <GlassAreaContainer
       name={ExplorerProjectsSidebar.name}
       sizeFx='w-[360px] h-full'
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
       className='flex flex-col'
     >
       <div className='flex h-full w-full flex-col overflow-auto'>

@@ -12,8 +12,8 @@ import {
   useControllerForLogLinkList,
 } from '@/(server)/controller/space/chapter/way/link/list';
 import {
-  ContextForChapterLogList,
-  useControllerForChapterLogList,
+  ContextForChapterWayList,
+  useControllerForChapterWayList,
 } from '@/(server)/controller/space/chapter/way/list';
 import {
   ContextForSpaceMain,
@@ -43,19 +43,19 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const logListController = useControllerForChapterLogList(
+  const wayListController = useControllerForChapterWayList(
     chapterListController.state.objId,
     logId,
   );
   const linkListController = useControllerForLogLinkList(
-    logListController.state.objId,
+    wayListController.state.objId,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterLogList.Provider value={logListController}>
+          <ContextForChapterWayList.Provider value={wayListController}>
             <ContextForLogLinkList.Provider value={linkListController}>
               <UpdateWrapper>
                 <LoadingWrapper>
@@ -69,7 +69,7 @@ function Page({ params }: { params: { id: string } }) {
                 </LoadingWrapper>
               </UpdateWrapper>
             </ContextForLogLinkList.Provider>
-          </ContextForChapterLogList.Provider>
+          </ContextForChapterWayList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>

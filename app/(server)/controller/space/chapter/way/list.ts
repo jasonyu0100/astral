@@ -56,7 +56,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterLogList = (
+const useControllerForChapterWayList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -370,5 +370,5 @@ const useControllerForChapterLogList = (
   };
 };
 
-const ContextForChapterLogList = createContext({} as Controller);
-export { ContextForChapterLogList, useControllerForChapterLogList };
+const ContextForChapterWayList = createContext({} as Controller);
+export { ContextForChapterWayList, useControllerForChapterWayList };

@@ -9,7 +9,7 @@ export function JournalDailySidebar() {
       name={JournalDailySidebar.name}
       sizeFx='w-[360px] h-full overflow-hidden'
       className={`flex flex-col`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-10']}
     >
       <JournalDailySidebarSearch />
       <JournalDailySidebarList />

@@ -1,10 +1,10 @@
-import { useControllerForChapterLogMain } from '@/(server)/controller/space/chapter/way/main';
+import { useControllerForChapterWayMain } from '@/(server)/controller/space/chapter/way/main';
 import { ContextForSpotlightLinkObj } from '@/(server)/model/space/chapter/spotlight/link/main';
 import { useContext } from 'react';
 
 export function SpacesFlightLog() {
   const link = useContext(ContextForSpotlightLinkObj);
-  const log = useControllerForChapterLogMain(link.logId);
+  const log = useControllerForChapterWayMain(link.logId);
 
   return (
     <div className='flex aspect-[3/2] w-full flex-shrink-0 flex-col bg-yellow-500 p-[1rem]'>

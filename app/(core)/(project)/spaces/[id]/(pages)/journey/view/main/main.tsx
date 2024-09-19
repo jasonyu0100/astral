@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext, useEffect } from 'react';
 import {
@@ -8,7 +8,7 @@ import {
 } from '../../controller/main';
 import { SpacesJourneyEmpty } from './core/empty/main';
 import { SpacesJourneyKanban } from './core/kanban/main';
-import { SpacesJourneyLogTable } from './core/table/main';
+import { SpacesJourneyWayTable } from './core/table/main';
 import { SpacesJourneyHeader } from './header/main';
 import { SpacesJourneyChapterNavigation } from './navigation/main';
 
@@ -18,7 +18,7 @@ export function SpacesJourneyMain() {
     actions: { updateDataMode },
   } = useContext(ContextForSpacesJourney);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
 
   useEffect(() => {
     updateDataMode(SpacesJourneyDataMode.TABLE);
@@ -31,10 +31,10 @@ export function SpacesJourneyMain() {
     >
       <SpacesJourneyHeader />
 
-      {logListController.state.objId ? (
+      {wayListController.state.objId ? (
         <>
           {dataMode === SpacesJourneyDataMode.TABLE && (
-            <SpacesJourneyLogTable />
+            <SpacesJourneyWayTable />
           )}
           {dataMode === SpacesJourneyDataMode.COLUMNS && (
             <SpacesJourneyKanban key={chapterListController.state.objId} />

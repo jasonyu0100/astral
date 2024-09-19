@@ -1,4 +1,4 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import {
   ChapterWayObj,
   ChapterWayStatus,
@@ -11,7 +11,7 @@ import { SpaceJourneyList } from './lists/main';
 import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 
 export function SpacesJourneyKanban() {
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
 
   const [todo, setTodo] = useState<ChapterWayObj[]>([]);
   const [inProgress, setInProgress] = useState<ChapterWayObj[]>([]);
@@ -22,23 +22,23 @@ export function SpacesJourneyKanban() {
   useEffect(() => {
     if (populated) return;
     setTodo(
-      logListController.state.objs.filter((idea) => idea.wayStatus === 'todo'),
+      wayListController.state.objs.filter((idea) => idea.wayStatus === 'todo'),
     );
     setInProgress(
-      logListController.state.objs.filter(
+      wayListController.state.objs.filter(
         (idea) => idea.wayStatus === 'in-progress',
       ),
     );
     setInReview(
-      logListController.state.objs.filter(
+      wayListController.state.objs.filter(
         (idea) => idea.wayStatus === 'review',
       ),
     );
     setDone(
-      logListController.state.objs.filter((idea) => idea.wayStatus === 'done'),
+      wayListController.state.objs.filter((idea) => idea.wayStatus === 'done'),
     );
     setPopulated(true);
-  }, [logListController.state.objs]);
+  }, [wayListController.state.objs]);
 
   useEffect(() => {
     const elTodo = document.getElementById('todo');
@@ -53,7 +53,7 @@ export function SpacesJourneyKanban() {
 
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
-      await logListController.actions.editActions.edit(itemId, {
+      await wayListController.actions.editActions.edit(itemId, {
         wayStatus: toList,
       });
     };

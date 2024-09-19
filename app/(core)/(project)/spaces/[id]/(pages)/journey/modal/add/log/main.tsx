@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -19,7 +19,7 @@ export function SpacesJourneyAddLogModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const reviewUpdateListController =
@@ -28,7 +28,7 @@ export function SpacesJourneyAddLogModal() {
     );
 
   async function createLog() {
-    const log = await logListController.actions.createActions.createLog(
+    const log = await wayListController.actions.createActions.createLog(
       chapterListController.state.objId,
       user.id,
       title,

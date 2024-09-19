@@ -3,7 +3,7 @@ import {
   ContextForLogLinkList,
   useControllerForLogLinkList,
 } from '@/(server)/controller/space/chapter/way/link/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -23,7 +23,7 @@ import { SpacesJourneyLogTableItemStatus } from './fields/status/main';
 export function SpacesJourneyLogTableItem() {
   const log = useContext(ContextForChapterWayObj);
   const userController = useControllerForUserMain(log.userId);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
   const linkListController = useControllerForLogLinkList(log.id);
   const journeyController = useContext(ContextForSpacesJourney);
   const selected = journeyController.state.selectedLogs.includes(log);
@@ -42,7 +42,7 @@ export function SpacesJourneyLogTableItem() {
                   ),
                 );
               } else {
-                logListController.actions.stateActions.select(log);
+                wayListController.actions.stateActions.select(log);
                 journeyController.actions.updateSelectedLogs([
                   ...journeyController.state.selectedLogs,
                   log,

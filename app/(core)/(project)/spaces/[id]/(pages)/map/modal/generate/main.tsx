@@ -2,7 +2,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
-import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { useControllerForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
@@ -35,11 +35,11 @@ export function SpacesMapGenerateLog() {
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
-  const logListController = useControllerForChapterLogList(
+  const wayListController = useControllerForChapterWayList(
     chapterListController.state.objId,
   );
   const linkListController = useControllerForLogLinkList(
-    logListController.state.objId,
+    wayListController.state.objId,
   );
   const reviewUpdateListController =
     useControllerForReviewUpdateListFromChapter(
@@ -96,7 +96,7 @@ export function SpacesMapGenerateLog() {
   async function createLog() {
     loadingController.loadingController.open();
     openableController.close();
-    const log = await logListController.actions.createActions.createLog(
+    const log = await wayListController.actions.createActions.createLog(
       chapterListController.state.objId,
       user.id,
       title,

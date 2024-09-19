@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -22,7 +22,7 @@ export function SpacesJourneyAddFileLinkModal() {
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const linkListController = useContext(ContextForLogLinkList);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
   const [variant, changeVariant] = useState<FileElemVariant>(
@@ -37,7 +37,7 @@ export function SpacesJourneyAddFileLinkModal() {
   async function createFileIdea() {
     const idea = await linkListController.actions.createActions.createFromFile(
       user.id,
-      logListController.state.objId,
+      wayListController.state.objId,
       title,
       description,
       file,

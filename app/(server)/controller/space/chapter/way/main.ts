@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterLogMain = (objId: string): Controller => {
+const useControllerForChapterWayMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForChapterLogMain = (objId: string): Controller => {
   };
 };
 
-const ContextForChapterLogMain = createContext({} as Controller);
-export { ContextForChapterLogMain, useControllerForChapterLogMain };
+const ContextForChapterWayMain = createContext({} as Controller);
+export { ContextForChapterWayMain, useControllerForChapterWayMain };

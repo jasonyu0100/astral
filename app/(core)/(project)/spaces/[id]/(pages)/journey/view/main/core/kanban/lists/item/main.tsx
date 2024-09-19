@@ -1,4 +1,4 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -11,7 +11,7 @@ import { ContextForSpacesJourney } from '../../../../../../controller/main';
 
 export function SpaceJourneyListItem() {
   const journeyController = useContext(ContextForSpacesJourney);
-  const logListController = useContext(ContextForChapterLogList);
+  const wayListController = useContext(ContextForChapterWayList);
   const log = useContext(ContextForChapterWayObj);
   const selected = journeyController.state.selectedLogs.includes(log);
 
@@ -29,7 +29,7 @@ export function SpaceJourneyListItem() {
               ),
             );
           } else {
-            logListController.actions.stateActions.select(log);
+            wayListController.actions.stateActions.select(log);
             journeyController.actions.updateSelectedLogs([
               ...journeyController.state.selectedLogs,
               log,
