@@ -1,18 +1,18 @@
 'use client';
 import {
-  ContextForUserPrivateList,
-  useControllerForUserPrivateList,
+  ContextForUserPublicList,
+  useControllerForUserPublicList,
 } from '@/(server)/controller/user/private-list';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { VaultKnowledgeView } from './view/view';
 
 function Page() {
-  const userListController = useControllerForUserPrivateList(false);
+  const userListController = useControllerForUserPublicList(false);
 
   return (
-    <ContextForUserPrivateList.Provider value={userListController}>
+    <ContextForUserPublicList.Provider value={userListController}>
       <VaultKnowledgeView />
-    </ContextForUserPrivateList.Provider>
+    </ContextForUserPublicList.Provider>
   );
 }
 

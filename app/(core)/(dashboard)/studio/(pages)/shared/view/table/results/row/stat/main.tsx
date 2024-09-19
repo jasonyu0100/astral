@@ -1,20 +1,20 @@
-import { useControllerForSessionUpdateListFromSpace } from '@/(server)/controller/space/chapter/session/update/list-from-space';
-import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/session/update/main';
+import { useControllerForReviewUpdateListFromSpace } from '@/(server)/controller/space/chapter/session/update/list-from-space';
+import { ChapterReviewUpdateVariant } from '@/(server)/model/space/chapter/review/update/main';
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
 export function StudioSpacesRowStat() {
   const spaceObj = useContext(ContextForSpaceObj);
-  const sessionUpdateListController =
-    useControllerForSessionUpdateListFromSpace(spaceObj.id);
-  const chapters = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.CHAPTER,
+  const reviewreviewUpdateListController =
+    useControllerForReviewUpdateListFromSpace(spaceObj.id);
+  const chapters = reviewreviewUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterReviewUpdateVariant.CHAPTER,
   );
-  const scenes = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.SCENE,
+  const scenes = reviewreviewUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterReviewUpdateVariant.SCENE,
   );
-  const spotlighs = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.SPOTLIGHT,
+  const spotlighs = reviewreviewUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterReviewUpdateVariant.SPOTLIGHT,
   );
 
   return (

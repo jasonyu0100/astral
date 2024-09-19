@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import {
   exampleFileElem,
@@ -40,9 +40,10 @@ export function SpacesMapAddGenerateIdeaModal() {
   const [variant, changeVariant] = useState<FileElemVariant>(
     FileElemVariant.IMAGE,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   async function createFileIdea() {
     if (!file.src) {
@@ -61,7 +62,7 @@ export function SpacesMapAddGenerateIdeaModal() {
       file,
       ideaListController.state.objs.length,
     );
-    await updateListController.actions.createActions.createFromChapterSceneIdea(
+    await reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

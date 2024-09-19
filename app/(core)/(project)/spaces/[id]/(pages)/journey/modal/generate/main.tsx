@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
 import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
@@ -46,9 +46,10 @@ export function SpacesJourneySpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
   const [files, changeFiles] = useState([] as FileElem[]);
 
   useEffect(() => {
@@ -123,7 +124,7 @@ export function SpacesJourneySpotlightModal() {
     });
 
     // Create a new action to create a spotlight from a chapter
-    await updateListController.actions.createActions.createFromChapterSpotlight(
+    await reviewUpdateListController.actions.createActions.createFromChapterSpotlight(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -139,7 +140,7 @@ export function SpacesJourneySpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Generate Spotlight</FormTitle>
+          <FormTitle>Prepare Launch</FormTitle>
           <FormBody>
             <FormInput
               title='Title'

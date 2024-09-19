@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
@@ -35,9 +35,10 @@ export function SpacesMapCombineIdeas() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
   const [combinationDescription, setCombinationDescription] = useState('');
 
   async function combineIdeas() {
@@ -56,7 +57,7 @@ export function SpacesMapCombineIdeas() {
   async function executeCombineIdeas() {
     openableController.close();
     loadingController.loadingController.open();
-    const deletions = await Promise.all(
+    await Promise.all(
       selectedIdeas.map((idea) =>
         ideaListController.actions.deleteActions.delete(idea.id),
       ),
@@ -81,7 +82,7 @@ export function SpacesMapCombineIdeas() {
     );
     updateSelectedIdeas([idea]);
 
-    await updateListController.actions.createActions.createFromChapterSceneIdea(
+    await reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

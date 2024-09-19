@@ -1,10 +1,9 @@
 import { useControllerForSpotlightAttachmentListFromUser } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-user';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { UserProfileWorkItem } from './popular/item/main';
@@ -42,7 +41,7 @@ export function UserProfileOverviewAbout() {
       <HorizontalDivider />
       <GlassWindowFrame className='w-full' roundedFx={roundedFx.rounded}>
         <GlassWindowContents className='flex w-full flex-col'>
-          <div className='grid grid-cols-7 gap-[3px] bg-slate-950'>
+          <div className='grid grid-cols-7 gap-[1rem]'>
             {attachmentListController.state.objs
               .filter(
                 (attachment) => ElementVariant.FILE === attachment.variant,
@@ -55,7 +54,6 @@ export function UserProfileOverviewAbout() {
               ))}
           </div>
         </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
     </div>
   );

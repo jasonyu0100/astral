@@ -1,5 +1,5 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
+import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';

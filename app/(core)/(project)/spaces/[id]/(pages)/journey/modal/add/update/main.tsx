@@ -21,7 +21,7 @@ export function SpacesJourneyAddUpdateModal() {
   const [title, changeTitle] = useState('');
   const [message, changeMessage] = useState('');
 
-  async function addChapterSession() {
+  async function addChapterReview() {
     openableController.close();
   }
 
@@ -64,7 +64,7 @@ export function SpacesJourneyAddUpdateModal() {
             </GlassWindowFrame>
           </FormBody>
           <FormFooter>
-            <FormButton onClick={() => addChapterSession()}>Add</FormButton>
+            <FormButton onClick={() => addChapterReview()}>Add</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

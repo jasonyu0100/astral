@@ -1,10 +1,10 @@
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
-import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
 import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
+import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
 import { projectManagementTemplate } from './templates/project-management';
@@ -81,7 +81,7 @@ export type _TemplateSceneObj = Omit<
   'id' | 'chapterId' | 'userId' | 'created'
 >;
 export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
-export type _TemplateLogObj = Omit<ChapterLogObj, 'id' | 'chapterId'>;
+export type _TemplateLogObj = Omit<ChapterWayObj, 'id' | 'chapterId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];

@@ -26,7 +26,7 @@ const useUserStore = create<UserStore>()(
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
-        expires: 7,
+        expires: 42,
       });
       // Mutate state synchronously
       set((state: { user: UserObj }) => ({
@@ -40,7 +40,7 @@ const useUserStore = create<UserStore>()(
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
-        expires: 7,
+        expires: 42,
       });
       // Mutate state synchronously
       set((state: { user: UserObj }) => ({
@@ -54,7 +54,7 @@ const useUserStore = create<UserStore>()(
       // Update local storage
       Cookies.set('user', JSON.stringify(user), {
         sameSite: 'strict',
-        expires: 7,
+        expires: 42,
       });
       set((state: { user: UserObj }) => ({
         user: {

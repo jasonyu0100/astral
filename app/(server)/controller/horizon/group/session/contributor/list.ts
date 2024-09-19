@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  HorizonGroupSessionContributorObj,
-  horizonGroupSessionContributorModel,
+  HorizonGroupReviewContributorObj,
+  horizonGroupReviewContributorModel,
 } from '@/(server)/model/horizon/group/session/contributor/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonGroupSessionContributorObj;
+type TargetObj = HorizonGroupReviewContributorObj;
 const gqlDbWrapper = horizonGroupSessionContributorDbWrapper;
-const listIdKey = horizonGroupSessionContributorModel.parentKey;
+const listIdKey = horizonGroupReviewContributorModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -255,7 +255,7 @@ const useControllerForHorizonGroupSessionMemberList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sessionId: '',
+        reviewId: '',
         userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

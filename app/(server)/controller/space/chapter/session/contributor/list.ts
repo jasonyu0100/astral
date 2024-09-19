@@ -1,4 +1,4 @@
-import { ChapterSessionContributorDbWrapper } from '@/(server)/client/space/chapter/session/contributor/main';
+import { ChapterReviewContributorDbWrapper } from '@/(server)/client/space/chapter/session/contributor/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterSessionContributorModel,
-  ChapterSessionContributorObj,
-} from '@/(server)/model/space/chapter/session/contributor/main';
+  ChapterReviewContributorModel,
+  ChapterReviewContributorObj,
+} from '@/(server)/model/space/chapter/review/contributor/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionContributorObj;
-const gqlDbWrapper = ChapterSessionContributorDbWrapper;
-const listIdKey = ChapterSessionContributorModel.parentKey;
+type TargetObj = ChapterReviewContributorObj;
+const gqlDbWrapper = ChapterReviewContributorDbWrapper;
+const listIdKey = ChapterReviewContributorModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -50,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionContributorList = (
+const useControllerForChapterReviewContributorList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -257,7 +257,7 @@ const useControllerForChapterSessionContributorList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sessionId: '',
+        reviewId: '',
         userId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -269,7 +269,7 @@ const useControllerForChapterSessionContributorList = (
     createContributor: async (userId: string, sessionId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        sessionId: sessionId,
+        reviewId: sessionId,
         userId: userId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -359,8 +359,8 @@ const useControllerForChapterSessionContributorList = (
   };
 };
 
-const ContextForSpaceSessionContributorList = createContext({} as Controller);
+const ContextForChapterReviewContributorList = createContext({} as Controller);
 export {
-  ContextForSpaceSessionContributorList,
-  useControllerForChapterSessionContributorList,
+  ContextForChapterReviewContributorList as ContextForChapterReviewContributorList,
+  useControllerForChapterReviewContributorList as useControllerForChapterReviewContributorList,
 };

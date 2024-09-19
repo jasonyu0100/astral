@@ -1,7 +1,7 @@
 'use client';
 import {
-  ContextForUserPrivateList,
-  useControllerForUserPrivateList,
+  ContextForUserPublicList,
+  useControllerForUserPublicList,
 } from '@/(server)/controller/user/private-list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -14,15 +14,15 @@ import { NetworkCreativeView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const userListController = useControllerForUserPrivateList(false);
+  const userListController = useControllerForUserPublicList(false);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForUserPrivateList.Provider value={userListController}>
+      <ContextForUserPublicList.Provider value={userListController}>
         <ControllerWrapper>
           <NetworkCreativeView />
         </ControllerWrapper>
-      </ContextForUserPrivateList.Provider>
+      </ContextForUserPublicList.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
 }

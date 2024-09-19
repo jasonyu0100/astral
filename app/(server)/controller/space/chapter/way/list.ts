@@ -1,4 +1,4 @@
-import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
+import { chapterWayDbWrapper } from '@/(server)/client/space/chapter/log/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,15 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterSessionUpdateObj,
-  chapterSessionUpdateModel,
-} from '@/(server)/model/space/chapter/session/update/main';
+  chapterLogModel,
+  ChapterWayObj,
+  ChapterWayStatus,
+} from '@/(server)/model/space/chapter/way/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionUpdateObj;
-const gqlDbWrapper = chapterSessionUpdateDbWrapper;
-const listIdKey = chapterSessionUpdateModel.parentKey;
+type TargetObj = ChapterWayObj;
+const gqlDbWrapper = chapterWayDbWrapper;
+const listIdKey = chapterLogModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -32,7 +33,14 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createLog: (
+    chapterId: string,
+    userId: string,
+    title: string,
+    description: string,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -48,7 +56,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSessionUpdateList = (
+const useControllerForChapterLogList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -159,7 +167,7 @@ const useControllerForSessionUpdateList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -172,7 +180,7 @@ const useControllerForSessionUpdateList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -231,7 +239,6 @@ const useControllerForSessionUpdateList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
-      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -254,17 +261,32 @@ const useControllerForSessionUpdateList = (
   const createActions: CreateActions = {
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
         userId: '',
         chapterId: '',
-        added: false,
+        logStatus: '',
         title: '',
         description: '',
-        created: new Date().toISOString(),
-        variant: '',
-        spaceId: '',
+        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createLog: async (chapterId, userId, title, description) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        chapterId: chapterId,
+        logStatus: ChapterWayStatus.TODO,
+        title: title,
+        description: description,
+        summary: '',
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushFront(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -334,11 +356,9 @@ const useControllerForSessionUpdateList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
+      controllerActions.gatherActions.gatherFromBeginning().then(() => {
         if (initialId) {
-          if (objs.find((obj) => obj.id === initialId)) {
-            stateActions.selectViaId(initialId);
-          }
+          stateActions.selectViaId(initialId);
         }
       });
     }
@@ -350,5 +370,5 @@ const useControllerForSessionUpdateList = (
   };
 };
 
-const ContextForSessionUpdateList = createContext({} as Controller);
-export { ContextForSessionUpdateList, useControllerForSessionUpdateList };
+const ContextForChapterLogList = createContext({} as Controller);
+export { ContextForChapterLogList, useControllerForChapterLogList };

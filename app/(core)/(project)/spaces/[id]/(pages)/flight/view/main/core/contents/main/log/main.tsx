@@ -1,4 +1,4 @@
-import { useControllerForChapterLogMain } from '@/(server)/controller/space/chapter/log/main';
+import { useControllerForChapterLogMain } from '@/(server)/controller/space/chapter/way/main';
 import { ContextForSpotlightLinkObj } from '@/(server)/model/space/chapter/spotlight/link/main';
 import { useContext } from 'react';
 

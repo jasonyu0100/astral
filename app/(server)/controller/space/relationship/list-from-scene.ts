@@ -6,8 +6,8 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { LogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -33,8 +33,8 @@ interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromLink: (
-    fromLink: LogLinkObj,
-    toLink: LogLinkObj,
+    fromLink: WayLinkObj,
+    toLink: WayLinkObj,
   ) => Promise<TargetObj>;
   createFromIdea: (
     fromIdea: SceneIdeaObj,
@@ -283,7 +283,7 @@ const useControllerForSpaceIdeaRelationshipListFromScene = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromLink: async (fromLink: LogLinkObj, toLink: LogLinkObj) => {
+    createFromLink: async (fromLink: WayLinkObj, toLink: WayLinkObj) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: fromLink.spaceId || '',

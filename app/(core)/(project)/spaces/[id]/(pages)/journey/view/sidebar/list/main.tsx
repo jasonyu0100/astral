@@ -1,6 +1,6 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
+import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
+import { ContextForLogLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {

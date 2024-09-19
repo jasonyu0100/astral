@@ -13,7 +13,7 @@ export function SpacesJourneyHeaderRight() {
     <div className='flex w-1/3 flex-row items-center justify-end'>
       {selectedLogs.length === 0 && (
         <p className='animate-pulse-slow font-bold text-slate-500'>
-          No logs selected
+          No ways selected
         </p>
       )}
       {selectedLogs.length > 0 && (
@@ -24,7 +24,7 @@ export function SpacesJourneyHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Spotlight ({selectedLogs.length})
+            Prepare Launch ({selectedLogs.length})
           </p>
           <AstralArrowForwardIcon />
         </button>

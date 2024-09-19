@@ -1,4 +1,4 @@
-import { ChapterSessionDbWrapper } from '@/(server)/client/space/chapter/session/main';
+import { ChapterReviewDbWrapper } from '@/(server)/client/space/chapter/session/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ChapterSessionObj } from '@/(server)/model/space/chapter/session/main';
+import { ChapterReviewObj } from '@/(server)/model/space/chapter/review/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionObj;
-const gqlDbWrapper = ChapterSessionDbWrapper;
+type TargetObj = ChapterReviewObj;
+const gqlDbWrapper = ChapterReviewDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionMain = (objId: string): Controller => {
+const useControllerForChapterReviewMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForChapterSessionMain = (objId: string): Controller => {
   };
 };
 
-const ContextForChapterSessionMain = createContext({} as Controller);
-export { ContextForChapterSessionMain, useControllerForChapterSessionMain };
+const ContextForChapterReviewMain = createContext({} as Controller);
+export { ContextForChapterReviewMain, useControllerForChapterReviewMain };

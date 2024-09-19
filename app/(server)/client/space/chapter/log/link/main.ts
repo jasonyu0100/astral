@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { LogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
+import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createLogLinkObj,
@@ -10,11 +10,11 @@ import { getLogLinkObj, listLogLinkObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as LogLinkObj;
+  return obj as WayLinkObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as LogLinkObj[];
+  return objs as WayLinkObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +71,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listLogLinkObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<LogLinkObj, 'id'>) {
+async function createObj(newObj: Omit<WayLinkObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createLogLinkObj,
     variables: {
@@ -82,7 +82,7 @@ async function createObj(newObj: Omit<LogLinkObj, 'id'>) {
   return castSingle(payload?.data?.createLogLinkObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<LogLinkObj>) {
+async function updateObj(id: string, updateObj: Partial<WayLinkObj>) {
   const payload = await amplifyClient.graphql({
     query: updateLogLinkObj,
     variables: {
@@ -96,7 +96,7 @@ async function updateObj(id: string, updateObj: Partial<LogLinkObj>) {
   return castSingle(payload?.data?.updateLogLinkObj);
 }
 
-async function overwriteObj(id: string, newObj: LogLinkObj) {
+async function overwriteObj(id: string, newObj: WayLinkObj) {
   const payload = await amplifyClient.graphql({
     query: updateLogLinkObj,
     variables: {
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteLogLinkObj);
 }
 
-export const logLinkDbWrapper: GqlDbWrapper<LogLinkObj> = {
+export const logLinkDbWrapper: GqlDbWrapper<WayLinkObj> = {
   getObj,
   listObjs,
   listAllObjs,

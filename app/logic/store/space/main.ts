@@ -23,7 +23,7 @@ const useSpaceStore = create<SpaceStore>()(
       // Update local storage
       Cookies.set('space', JSON.stringify(space), {
         sameSite: 'strict',
-        expires: 7,
+        expires: 24,
       });
       // Mutate state synchronously
       set((state: { space: SpaceObj }) => ({

@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -22,9 +22,10 @@ export function SpacesJourneyAddLogModal() {
   const logListController = useContext(ContextForChapterLogList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   async function createLog() {
     const log = await logListController.actions.createActions.createLog(
@@ -33,7 +34,7 @@ export function SpacesJourneyAddLogModal() {
       title,
       description,
     );
-    await updateListController.actions.createActions.createFromChapterLog(
+    await reviewUpdateListController.actions.createActions.createFromChapterLog(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -46,7 +47,7 @@ export function SpacesJourneyAddLogModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Log</FormTitle>
+          <FormTitle>Create Way</FormTitle>
           <FormBody>
             <FormInput
               value={title}

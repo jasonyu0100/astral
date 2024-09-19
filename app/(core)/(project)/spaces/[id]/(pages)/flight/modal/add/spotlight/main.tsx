@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
 import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
@@ -29,9 +29,10 @@ export function SpacesFlightAddSpotlightModal() {
   );
 
   const openableController = useContext(ContextForOpenable);
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -58,7 +59,7 @@ export function SpacesFlightAddSpotlightModal() {
       );
     });
 
-    await updateListController.actions.createActions.createFromChapterSpotlight(
+    await reviewUpdateListController.actions.createActions.createFromChapterSpotlight(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

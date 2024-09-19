@@ -1,13 +1,13 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export enum ChapterLogStatus {
+export enum ChapterWayStatus {
   TODO = 'todo',
   IN_PROGRESS = 'in-progress',
   REVIEW = 'review',
   DONE = 'done',
 }
-export interface ChapterLogObj {
+export interface ChapterWayObj {
   id: string;
   userId: string;
   chapterId: string;
@@ -18,8 +18,8 @@ export interface ChapterLogObj {
   created: string;
 }
 
-export const chapteLogGql = `
-type ChapterLogObj {
+export const chapterWayGql = `
+type ChapterWayObj {
   id: String!
   userId: String!
   chapterId: String!
@@ -31,11 +31,11 @@ type ChapterLogObj {
 }
 `;
 
-export const ContextForChapterLogObj = createContext<ChapterLogObj>(
-  {} as ChapterLogObj,
+export const ContextForChapterLogObj = createContext<ChapterWayObj>(
+  {} as ChapterWayObj,
 );
 
-export const exampleChapterLog: ChapterLogObj = {
+export const exampleChapterLog: ChapterWayObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
@@ -43,10 +43,10 @@ export const exampleChapterLog: ChapterLogObj = {
   description: 'Log Description',
   summary: 'Log Summary',
   created: new Date().toISOString(),
-  logStatus: ChapterLogStatus.TODO,
+  logStatus: ChapterWayStatus.TODO,
 };
 
-export const exampleChapterLogs: ChapterLogObj[] = [
+export const exampleChapterLogs: ChapterWayObj[] = [
   {
     id: '0',
     userId: '0',
@@ -55,7 +55,7 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterLogStatus.TODO,
+    logStatus: ChapterWayStatus.TODO,
   },
   {
     id: '1',
@@ -65,7 +65,7 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterLogStatus.TODO,
+    logStatus: ChapterWayStatus.TODO,
   },
   {
     id: '2',
@@ -75,13 +75,13 @@ export const exampleChapterLogs: ChapterLogObj[] = [
     description: 'Log Description',
     summary: 'Log Summary',
     created: new Date().toISOString(),
-    logStatus: ChapterLogStatus.TODO,
+    logStatus: ChapterWayStatus.TODO,
   },
 ];
 
-export const chapterLogModel: ModelInterface<ChapterLogObj> = {
+export const chapterLogModel: ModelInterface<ChapterWayObj> = {
   name: 'log',
-  gql: chapteLogGql,
+  gql: chapterWayGql,
   example: exampleChapterLog,
   examples: exampleChapterLogs,
   parentKey: 'chapterId',

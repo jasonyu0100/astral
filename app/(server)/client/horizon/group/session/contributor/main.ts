@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { HorizonGroupSessionContributorObj } from '@/(server)/model/horizon/group/session/contributor/main';
+import { HorizonGroupReviewContributorObj } from '@/(server)/model/horizon/group/session/contributor/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createHorizonGroupSessionContributorObj,
@@ -13,11 +13,11 @@ import {
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as HorizonGroupSessionContributorObj;
+  return obj as HorizonGroupReviewContributorObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonGroupSessionContributorObj[];
+  return objs as HorizonGroupReviewContributorObj[];
 }
 
 async function getObj(value: string) {
@@ -80,9 +80,7 @@ async function listFromVariables(variables: object) {
   );
 }
 
-async function createObj(
-  newObj: Omit<HorizonGroupSessionContributorObj, 'id'>,
-) {
+async function createObj(newObj: Omit<HorizonGroupReviewContributorObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createHorizonGroupSessionContributorObj,
     variables: {
@@ -95,7 +93,7 @@ async function createObj(
 
 async function updateObj(
   id: string,
-  updateObj: Partial<HorizonGroupSessionContributorObj>,
+  updateObj: Partial<HorizonGroupReviewContributorObj>,
 ) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonGroupSessionContributorObj,
@@ -112,7 +110,7 @@ async function updateObj(
 
 async function overwriteObj(
   id: string,
-  newObj: HorizonGroupSessionContributorObj,
+  newObj: HorizonGroupReviewContributorObj,
 ) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonGroupSessionContributorObj,
@@ -140,7 +138,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonGroupSessionContributorObj);
 }
 
-export const horizonGroupSessionContributorDbWrapper: GqlDbWrapper<HorizonGroupSessionContributorObj> =
+export const horizonGroupSessionContributorDbWrapper: GqlDbWrapper<HorizonGroupReviewContributorObj> =
   {
     getObj,
     listObjs,

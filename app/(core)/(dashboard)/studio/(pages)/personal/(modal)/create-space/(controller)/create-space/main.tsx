@@ -2,7 +2,7 @@ import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/c
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
@@ -69,8 +69,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const sceneListController = useControllerForChapterSceneList('');
   const spotlightListController =
     useControllerForChapterSpotlightListFromChapter('');
-  const sessionUpdateListController =
-    useControllerForSessionUpdateListFromChapter(
+  const reviewreviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
       chapterListController.state.objId,
     );
   const spaceMembersListController = useControllerForSpaceMemberList('');
@@ -108,7 +108,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             space.id,
             index,
           );
-        await sessionUpdateListController.actions.createActions.createFromChapter(
+        await reviewreviewUpdateListController.actions.createActions.createFromChapter(
           user.id,
           space.id,
           chapter.id,
@@ -143,7 +143,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
-              await sessionUpdateListController.actions.createActions.createFromChapterScene(
+              await reviewreviewUpdateListController.actions.createActions.createFromChapterScene(
                 user.id,
                 space.id,
                 chapter.id,
@@ -162,7 +162,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               chapter.id,
             );
-          await sessionUpdateListController.actions.createActions.createFromChapterScene(
+          await reviewreviewUpdateListController.actions.createActions.createFromChapterScene(
             user.id,
             space.id,
             chapter.id,
@@ -198,7 +198,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
                   user.id,
                   chapter.id,
                 );
-              await sessionUpdateListController.actions.createActions.createFromChapterSpotlight(
+              await reviewreviewUpdateListController.actions.createActions.createFromChapterSpotlight(
                 user.id,
                 space.id,
                 chapter.id,

@@ -8,8 +8,8 @@ import {
 } from '@/(server)/controller/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { LogLinkObj } from '@/(server)/model/space/chapter/log/link/main';
 import { SpotlightAttachmentObj } from '@/(server)/model/space/chapter/spotlight/attachment/main';
+import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SpotlightAttachmentObj;
@@ -36,7 +36,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromLink: (
     userId: string,
     spotlightId: string,
-    link: LogLinkObj,
+    link: WayLinkObj,
   ) => Promise<TargetObj>;
   createFromFile: (
     userId: string,
@@ -279,7 +279,7 @@ const useControllerForSpotlightAttachmentListFromUser = (
     createFromLink: async (
       userId: string,
       spotlightId: string,
-      link: LogLinkObj,
+      link: WayLinkObj,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),

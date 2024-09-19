@@ -1,4 +1,4 @@
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';

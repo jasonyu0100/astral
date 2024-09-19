@@ -1,5 +1,5 @@
 import { ContextForSpacesJourney } from '@/(core)/(project)/spaces/[id]/(pages)/journey/controller/main';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
 import { cn } from '@/lib/utils';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';

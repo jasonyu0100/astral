@@ -1,4 +1,4 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
+import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemLength() {

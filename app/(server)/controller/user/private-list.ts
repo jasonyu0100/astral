@@ -46,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserPrivateList = (
+const useControllerForUserPublicList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -351,5 +351,8 @@ const useControllerForUserPrivateList = (
   };
 };
 
-const ContextForUserPrivateList = createContext({} as Controller);
-export { ContextForUserPrivateList, useControllerForUserPrivateList };
+const ContextForUserPublicList = createContext({} as Controller);
+export {
+  ContextForUserPublicList as ContextForUserPublicList,
+  useControllerForUserPublicList as useControllerForUserPublicList,
+};

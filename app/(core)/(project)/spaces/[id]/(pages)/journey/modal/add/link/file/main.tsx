@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -29,9 +29,10 @@ export function SpacesJourneyAddFileLinkModal() {
     FileElemVariant.IMAGE,
   );
   const [file, changeFile] = useState({} as FileElem);
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   async function createFileIdea() {
     const idea = await linkListController.actions.createActions.createFromFile(
@@ -41,7 +42,7 @@ export function SpacesJourneyAddFileLinkModal() {
       description,
       file,
     );
-    await updateListController.actions.createActions.createFromChapterSceneIdea(
+    await reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface HorizonGroupSessionObj {
+export interface HorizonGroupReviewObj {
   id: string;
   groupId: string;
   userId: string;
@@ -10,8 +10,8 @@ export interface HorizonGroupSessionObj {
   created: string;
 }
 
-export const horizonGroupSessionGql = `
-type HorizonGroupSessionObj {
+export const horizonGroupReviewGql = `
+type HorizonGroupReviewObj {
   id : String!
   groupId : String!
   userId: String!
@@ -21,10 +21,10 @@ type HorizonGroupSessionObj {
 }
 `;
 
-export const ContextForHorizonGroupSessionObj =
-  createContext<HorizonGroupSessionObj>({} as HorizonGroupSessionObj);
+export const ContextForHorizonGroupReviewObj =
+  createContext<HorizonGroupReviewObj>({} as HorizonGroupReviewObj);
 
-export const exampleHorizonGroupSession: HorizonGroupSessionObj = {
+export const exampleHorizonGroupReview: HorizonGroupReviewObj = {
   id: '0',
   groupId: '0',
   userId: '0',
@@ -33,7 +33,7 @@ export const exampleHorizonGroupSession: HorizonGroupSessionObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleHorizonGroupSessions: HorizonGroupSessionObj[] = [
+export const exampleHorizonGroupReviews: HorizonGroupReviewObj[] = [
   {
     id: '0',
     groupId: '0',
@@ -60,12 +60,11 @@ export const exampleHorizonGroupSessions: HorizonGroupSessionObj[] = [
   },
 ];
 
-export const horizonGroupSessionModel: ModelInterface<HorizonGroupSessionObj> =
-  {
-    name: 'session',
-    example: exampleHorizonGroupSession,
-    gql: horizonGroupSessionGql,
-    examples: exampleHorizonGroupSessions,
-    parentKey: 'groupId',
-    children: ['update'],
-  };
+export const horizonGroupReviewModel: ModelInterface<HorizonGroupReviewObj> = {
+  name: 'session',
+  example: exampleHorizonGroupReview,
+  gql: horizonGroupReviewGql,
+  examples: exampleHorizonGroupReviews,
+  parentKey: 'groupId',
+  children: ['update'],
+};

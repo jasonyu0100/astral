@@ -1,8 +1,8 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/log/link/list';
-import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { useControllerForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
@@ -41,9 +41,10 @@ export function SpacesMapGenerateLog() {
   const linkListController = useControllerForLogLinkList(
     logListController.state.objId,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
   const spaceIdeaRelationshipListController =
     useControllerForSpaceIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
@@ -113,7 +114,7 @@ export function SpacesMapGenerateLog() {
         ),
       ),
     );
-    const linkRelationships = await Promise.all(
+    await Promise.all(
       links.slice(0, links.length - 1).map((fromLink, index) => {
         const toLink = links[index + 1];
         const relationshipMatch =
@@ -134,7 +135,7 @@ export function SpacesMapGenerateLog() {
         }
       }),
     );
-    await updateListController.actions.createActions
+    await reviewUpdateListController.actions.createActions
       .createFromChapterLog(
         user.id,
         spaceController.state.objId,
@@ -152,7 +153,7 @@ export function SpacesMapGenerateLog() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Generate Log</FormTitle>
+          <FormTitle>Create Way</FormTitle>
           <FormBody>
             <FormInput
               value={title}

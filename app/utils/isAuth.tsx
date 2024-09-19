@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import { portalMap } from '@/(portal)/map';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
 export default function protectedUnderAstralAuth(Component: any) {
-  // eslint-disable-next-line react/display-name
   return (props: any) => {
     const userCookie = Cookies.get('user') || '';
     const isAuthed = userCookie ? JSON.parse(userCookie)?.id != null : false;

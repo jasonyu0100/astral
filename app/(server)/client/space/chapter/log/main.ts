@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createChapterLogObj,
@@ -10,11 +10,11 @@ import { getChapterLogObj, listChapterLogObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as ChapterLogObj;
+  return obj as ChapterWayObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ChapterLogObj[];
+  return objs as ChapterWayObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +71,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listChapterLogObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ChapterLogObj, 'id'>) {
+async function createObj(newObj: Omit<ChapterWayObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createChapterLogObj,
     variables: {
@@ -82,7 +82,7 @@ async function createObj(newObj: Omit<ChapterLogObj, 'id'>) {
   return castSingle(payload?.data?.createChapterLogObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<ChapterLogObj>) {
+async function updateObj(id: string, updateObj: Partial<ChapterWayObj>) {
   const payload = await amplifyClient.graphql({
     query: updateChapterLogObj,
     variables: {
@@ -96,7 +96,7 @@ async function updateObj(id: string, updateObj: Partial<ChapterLogObj>) {
   return castSingle(payload?.data?.updateChapterLogObj);
 }
 
-async function overwriteObj(id: string, newObj: ChapterLogObj) {
+async function overwriteObj(id: string, newObj: ChapterWayObj) {
   const payload = await amplifyClient.graphql({
     query: updateChapterLogObj,
     variables: {
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteChapterLogObj);
 }
 
-export const chapterLogDbWrapper: GqlDbWrapper<ChapterLogObj> = {
+export const chapterWayDbWrapper: GqlDbWrapper<ChapterWayObj> = {
   getObj,
   listObjs,
   listAllObjs,

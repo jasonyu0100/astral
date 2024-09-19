@@ -1,14 +1,14 @@
-import { useControllerForSessionUpdateListFromSpace } from '@/(server)/controller/space/chapter/session/update/list-from-space';
-import { ChapterSessionUpdateVariant } from '@/(server)/model/space/chapter/session/update/main';
+import { useControllerForReviewUpdateListFromSpace } from '@/(server)/controller/space/chapter/session/update/list-from-space';
+import { ChapterReviewUpdateVariant } from '@/(server)/model/space/chapter/review/update/main';
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
 export function StudioSpacesRowIdeas() {
   const spaceObj = useContext(ContextForSpaceObj);
-  const sessionUpdateListController =
-    useControllerForSessionUpdateListFromSpace(spaceObj.id);
-  const ideas = sessionUpdateListController.state.objs.filter(
-    (update) => update.variant === ChapterSessionUpdateVariant.IDEA,
+  const reviewreviewUpdateListController =
+    useControllerForReviewUpdateListFromSpace(spaceObj.id);
+  const ideas = reviewreviewUpdateListController.state.objs.filter(
+    (update) => update.variant === ChapterReviewUpdateVariant.IDEA,
   );
 
   return (

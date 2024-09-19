@@ -17,6 +17,7 @@ export function HorizonArcView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
+      <HorizonsArcSidebar />
       <div className='flex h-full flex-grow flex-col overflow-hidden'>
         <div
           className='flex flex-grow flex-col overflow-auto p-[2rem]'
@@ -61,7 +62,6 @@ export function HorizonArcView() {
           </div>
         </div>
       </div>
-      <HorizonsArcSidebar />
     </GlassAreaContainer>
   );
 }

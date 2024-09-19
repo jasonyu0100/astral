@@ -1,49 +1,49 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { ChapterSessionContributorObj } from '@/(server)/model/space/chapter/session/contributor/main';
+import { ChapterReviewContributorObj } from '@/(server)/model/space/chapter/review/contributor/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createChapterSessionContributorObj,
-  deleteChapterSessionContributorObj,
-  updateChapterSessionContributorObj,
+  createChapterReviewContributorObj,
+  deleteChapterReviewContributorObj,
+  updateChapterReviewContributorObj,
 } from '@/graphql/mutations';
 import {
-  getChapterSessionContributorObj,
-  listChapterSessionContributorObjs,
+  getChapterReviewContributorObj,
+  listChapterReviewContributorObjs,
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as ChapterSessionContributorObj;
+  return obj as ChapterReviewContributorObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ChapterSessionContributorObj[];
+  return objs as ChapterReviewContributorObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getChapterSessionContributorObj,
+    query: getChapterReviewContributorObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getChapterSessionContributorObj);
+  return castSingle(payload?.data?.getChapterReviewContributorObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getChapterSessionContributorObj,
+    query: getChapterReviewContributorObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getChapterSessionContributorObj);
+  return castSingle(payload?.data?.getChapterReviewContributorObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listChapterSessionContributorObjs,
+    query: listChapterReviewContributorObjs,
     variables: {
       filter: {
         [key]: {
@@ -54,49 +54,49 @@ async function listObjs(key: string, value: string | boolean | number) {
   });
 
   return castMultiple(
-    payload?.data?.listChapterSessionContributorObjs?.items || [],
+    payload?.data?.listChapterReviewContributorObjs?.items || [],
   );
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listChapterSessionContributorObjs,
+    query: listChapterReviewContributorObjs,
     variables: {},
   });
 
   return castMultiple(
-    payload?.data?.listChapterSessionContributorObjs?.items || [],
+    payload?.data?.listChapterReviewContributorObjs?.items || [],
   );
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listChapterSessionContributorObjs,
+    query: listChapterReviewContributorObjs,
     variables: variables,
   });
 
   return castMultiple(
-    payload?.data?.listChapterSessionContributorObjs?.items || [],
+    payload?.data?.listChapterReviewContributorObjs?.items || [],
   );
 }
 
-async function createObj(newObj: Omit<ChapterSessionContributorObj, 'id'>) {
+async function createObj(newObj: Omit<ChapterReviewContributorObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createChapterSessionContributorObj,
+    query: createChapterReviewContributorObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createChapterSessionContributorObj);
+  return castSingle(payload?.data?.createChapterReviewContributorObj);
 }
 
 async function updateObj(
   id: string,
-  updateObj: Partial<ChapterSessionContributorObj>,
+  updateObj: Partial<ChapterReviewContributorObj>,
 ) {
   const payload = await amplifyClient.graphql({
-    query: updateChapterSessionContributorObj,
+    query: updateChapterReviewContributorObj,
     variables: {
       input: {
         id: id,
@@ -105,12 +105,12 @@ async function updateObj(
     },
   });
 
-  return castSingle(payload?.data?.updateChapterSessionContributorObj);
+  return castSingle(payload?.data?.updateChapterReviewContributorObj);
 }
 
-async function overwriteObj(id: string, newObj: ChapterSessionContributorObj) {
+async function overwriteObj(id: string, newObj: ChapterReviewContributorObj) {
   const payload = await amplifyClient.graphql({
-    query: updateChapterSessionContributorObj,
+    query: updateChapterReviewContributorObj,
     variables: {
       input: {
         id: id,
@@ -119,12 +119,12 @@ async function overwriteObj(id: string, newObj: ChapterSessionContributorObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateChapterSessionContributorObj);
+  return castSingle(payload?.data?.updateChapterReviewContributorObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteChapterSessionContributorObj,
+    query: deleteChapterReviewContributorObj,
     variables: {
       input: {
         id: id,
@@ -132,10 +132,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteChapterSessionContributorObj);
+  return castSingle(payload?.data?.deleteChapterReviewContributorObj);
 }
 
-export const ChapterSessionContributorDbWrapper: GqlDbWrapper<ChapterSessionContributorObj> =
+export const ChapterReviewContributorDbWrapper: GqlDbWrapper<ChapterReviewContributorObj> =
   {
     getObj,
     listObjs,

@@ -3,7 +3,7 @@ import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collec
 import { useContext } from 'react';
 import { JournalDailyTableListItem } from './item/main';
 
-export function JouranlRecordTableList() {
+export function JournalDailyTableContents() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   return (
     <div className='flex w-full flex-col'>

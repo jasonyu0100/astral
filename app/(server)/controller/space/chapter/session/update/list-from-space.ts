@@ -1,4 +1,4 @@
-import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
+import { chapterReviewUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { ChapterSessionUpdateObj } from '@/(server)/model/space/chapter/session/update/main';
+import { ChapterReviewUpdateObj } from '@/(server)/model/space/chapter/review/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionUpdateObj;
-const gqlDbWrapper = chapterSessionUpdateDbWrapper;
+type TargetObj = ChapterReviewUpdateObj;
+const gqlDbWrapper = chapterReviewUpdateDbWrapper;
 const listIdKey = 'spaceId';
 
 interface ControllerState {
@@ -45,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSessionUpdateListFromSpace = (
+const useControllerForReviewUpdateListFromSpace = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -219,7 +219,7 @@ const useControllerForSessionUpdateListFromSpace = (
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions
         .sortedViaDate(objs)
-        .filter((obj) => !obj.sessionId);
+        .filter((obj) => !obj.reviewId);
       changeObjs(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
@@ -345,8 +345,8 @@ const useControllerForSessionUpdateListFromSpace = (
   };
 };
 
-const ContextForSessionUpdateListFromSpace = createContext({} as Controller);
+const ContextForReviewUpdateListFromSpace = createContext({} as Controller);
 export {
-  ContextForSessionUpdateListFromSpace,
-  useControllerForSessionUpdateListFromSpace,
+  ContextForReviewUpdateListFromSpace,
+  useControllerForReviewUpdateListFromSpace,
 };

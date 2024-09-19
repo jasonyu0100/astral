@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { ModelInterface } from '../../../main';
 
-export interface ChapterSessionObj {
+export interface ChapterReviewObj {
   id: string;
   spaceId: string;
   chapterId: string;
@@ -12,8 +12,8 @@ export interface ChapterSessionObj {
   created: string;
 }
 
-export const chapterSessionGql = `
-type ChapterSessionObj {
+export const chapterReviewGql = `
+type ChapterReviewObj {
   id: String!
   spaceId: String!
   userId: String!
@@ -25,11 +25,11 @@ type ChapterSessionObj {
 }
 `;
 
-export const ContextForChapterSessionObj = createContext<ChapterSessionObj>(
-  {} as ChapterSessionObj,
+export const ContextForChapterReviewObj = createContext<ChapterReviewObj>(
+  {} as ChapterReviewObj,
 );
 
-export const exampleChapterSession: ChapterSessionObj = {
+export const exampleChapterReview: ChapterReviewObj = {
   id: '0',
   spaceId: '0',
   userId: '0',
@@ -40,7 +40,7 @@ export const exampleChapterSession: ChapterSessionObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleChapterSessions: ChapterSessionObj[] = [
+export const exampleChapterReviews: ChapterReviewObj[] = [
   {
     id: '0',
     spaceId: '0',
@@ -75,11 +75,11 @@ export const exampleChapterSessions: ChapterSessionObj[] = [
   },
 ];
 
-export const chapterSessionModel: ModelInterface<ChapterSessionObj> = {
-  name: 'session',
-  gql: chapterSessionGql,
-  example: exampleChapterSession,
-  examples: exampleChapterSessions,
+export const chapterReviewModel: ModelInterface<ChapterReviewObj> = {
+  name: 'review',
+  gql: chapterReviewGql,
+  example: exampleChapterReview,
+  examples: exampleChapterReviews,
   parentKey: 'chapterId',
   children: ['update'],
 };

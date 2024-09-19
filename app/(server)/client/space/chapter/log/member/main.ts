@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { LogMemberObj } from '@/(server)/model/space/chapter/log/member/main';
+import { LogMemberObj } from '@/(server)/model/space/chapter/way/member/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createLogMemberObj,
@@ -123,7 +123,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteLogMemberObj);
 }
 
-export const logMemberDbWrapper: GqlDbWrapper<LogMemberObj> = {
+export const wayMemberDbWrapper: GqlDbWrapper<LogMemberObj> = {
   getObj,
   listObjs,
   listAllObjs,

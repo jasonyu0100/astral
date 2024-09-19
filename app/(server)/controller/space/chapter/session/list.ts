@@ -1,4 +1,4 @@
-import { ChapterSessionDbWrapper } from '@/(server)/client/space/chapter/session/main';
+import { ChapterReviewDbWrapper } from '@/(server)/client/space/chapter/session/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterSessionObj,
-  chapterSessionModel,
-} from '@/(server)/model/space/chapter/session/main';
+  chapterReviewModel,
+  ChapterReviewObj,
+} from '@/(server)/model/space/chapter/review/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionObj;
-const gqlDbWrapper = ChapterSessionDbWrapper;
-const listIdKey = chapterSessionModel.parentKey;
+type TargetObj = ChapterReviewObj;
+const gqlDbWrapper = ChapterReviewDbWrapper;
+const listIdKey = chapterReviewModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -57,7 +57,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterSessionList = (
+const useControllerForChapterReviewList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -367,5 +367,5 @@ const useControllerForChapterSessionList = (
   };
 };
 
-const ContextForChapterSessionList = createContext({} as Controller);
-export { ContextForChapterSessionList, useControllerForChapterSessionList };
+const ContextForChapterReviewList = createContext({} as Controller);
+export { ContextForChapterReviewList, useControllerForChapterReviewList };

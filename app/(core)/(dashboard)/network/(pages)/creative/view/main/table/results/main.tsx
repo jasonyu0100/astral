@@ -1,4 +1,4 @@
-import { ContextForUserPrivateList } from '@/(server)/controller/user/private-list';
+import { ContextForUserPublicList } from '@/(server)/controller/user/private-list';
 import {
   ContextForLoggedInUserObj,
   ContextForUserObj,
@@ -9,7 +9,7 @@ import { NetworkCreativeRowWrapper } from './wrapper/main';
 
 export function NetworkCreativeTableResults() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const userListController = useContext(ContextForUserPrivateList);
+  const userListController = useContext(ContextForUserPublicList);
 
   return (
     <div className={`flex w-full flex-col`}>

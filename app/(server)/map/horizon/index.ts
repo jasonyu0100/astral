@@ -12,27 +12,26 @@ import { horizonMemberDbWrapper } from '@/(server)/client/horizon/member/main';
 import { horizonMemberTermsDbWrapper } from '@/(server)/client/horizon/member/terms/main';
 import { horizonSessionContributorDbWrapper } from '@/(server)/client/horizon/session/contributor/main';
 import { horizonSessionDbWrapper } from '@/(server)/client/horizon/session/main';
+import { arcForumModel } from '@/(server)/model/horizon/arc/forum/main';
 import { forumMemberModel } from '@/(server)/model/horizon/arc/forum/member/main';
+import { postCommentGql } from '@/(server)/model/horizon/arc/forum/post/comment/main';
+import { forumPostModel } from '@/(server)/model/horizon/arc/forum/post/main';
+import { horizonArcModel } from '@/(server)/model/horizon/arc/main';
+import { arcPointModel } from '@/(server)/model/horizon/arc/point/main';
+import { horizonGroupModel } from '@/(server)/model/horizon/group/main';
 import { horizonGroupMemberModel } from '@/(server)/model/horizon/group/member/main';
 import { horizonGroupMemberTermsModel } from '@/(server)/model/horizon/group/member/terms/main';
 import {
-  horizonGroupSessionContributorGql,
-  horizonGroupSessionContributorModel,
-} from '@/(server)/model/horizon/group/session/contributor/main';
-import { horizonGroupSessionUpdateModel } from '@/(server)/model/horizon/group/session/update/main';
+  horizonGroupReviewContributorGql,
+  horizonGroupReviewContributorModel,
+} from '@/(server)/model/horizon/group/review/contributor/main';
+import { horizonGroupReviewModel } from '@/(server)/model/horizon/group/review/main';
+import { horizonGroupReviewUpdateModel } from '@/(server)/model/horizon/group/review/update/main';
+import { horizonModel } from '@/(server)/model/horizon/main';
 import { horizonMemberModel } from '@/(server)/model/horizon/member/main';
 import { horizonMemberTermsModel } from '@/(server)/model/horizon/member/terms/main';
 import { horizonSessionContributorModel } from '@/(server)/model/horizon/session/contributor/main';
-import { horizonSessionUpdateModel } from '@/(server)/model/horizon/session/update/main';
-import { arcForumModel } from '../../(model)/horizon/arc/forum/main';
-import { postCommentGql } from '../../(model)/horizon/arc/forum/post/comment/main';
-import { forumPostModel } from '../../(model)/horizon/arc/forum/post/main';
-import { horizonArcModel } from '../../(model)/horizon/arc/main';
-import { arcPointModel } from '../../(model)/horizon/arc/point/main';
-import { horizonGroupModel } from '../../(model)/horizon/group/main';
-import { horizonGroupSessionModel } from '../../(model)/horizon/group/session/main';
-import { horizonModel } from '../../(model)/horizon/main';
-import { horizonSessionModel } from '../../(model)/horizon/session/main';
+import { horizonSessionModel } from '@/(server)/model/horizon/session/main';
 
 export const horizonMap = {
   model: horizonModel,
@@ -73,28 +72,24 @@ export const horizonMap = {
       },
     },
     session: {
-      model: horizonGroupSessionModel,
+      model: horizonGroupReviewModel,
       db: horizonGroupSessionDbWrapper,
       update: {
-        model: horizonGroupSessionUpdateModel,
+        model: horizonGroupReviewUpdateModel,
         db: horizonGroupSessionDbWrapper,
       },
       contributor: {
-        model: horizonGroupSessionContributorModel,
-        db: horizonGroupSessionContributorGql,
+        model: horizonGroupReviewContributorModel,
+        db: horizonGroupReviewContributorGql,
       },
     },
   },
   session: {
     model: horizonSessionModel,
     db: horizonSessionDbWrapper,
-    update: {
-      model: horizonSessionUpdateModel,
-      db: horizonSessionDbWrapper,
-      member: {
-        model: horizonSessionContributorModel,
-        db: horizonSessionContributorDbWrapper,
-      },
+    contributor: {
+      model: horizonSessionContributorModel,
+      db: horizonSessionContributorDbWrapper,
     },
   },
   member: {

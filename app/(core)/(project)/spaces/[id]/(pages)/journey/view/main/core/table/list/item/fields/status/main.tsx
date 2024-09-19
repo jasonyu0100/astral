@@ -1,8 +1,8 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import {
-  ChapterLogStatus,
+  ChapterWayStatus,
   ContextForChapterLogObj,
-} from '@/(server)/model/space/chapter/log/main';
+} from '@/(server)/model/space/chapter/way/main';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemStatus() {
@@ -23,10 +23,10 @@ export function SpacesJourneyLogTableItemStatus() {
           });
         }}
       >
-        <option>{ChapterLogStatus.TODO}</option>
-        <option>{ChapterLogStatus.IN_PROGRESS}</option>
-        <option>{ChapterLogStatus.REVIEW}</option>
-        <option>{ChapterLogStatus.DONE}</option>
+        <option>{ChapterWayStatus.TODO}</option>
+        <option>{ChapterWayStatus.IN_PROGRESS}</option>
+        <option>{ChapterWayStatus.REVIEW}</option>
+        <option>{ChapterWayStatus.DONE}</option>
       </select>
     </div>
   );

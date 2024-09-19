@@ -1,7 +1,7 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export enum ChapterSessionUpdateVariant {
+export enum ChapterReviewUpdateVariant {
   CONVERSATION = 'CONVERSATION',
   CHAPTER = 'CHAPTER',
   SCENE = 'SCENE',
@@ -13,12 +13,12 @@ export enum ChapterSessionUpdateVariant {
   MEMBER = 'MEMBER',
 }
 
-export interface ChapterSessionUpdateObj {
+export interface ChapterReviewUpdateObj {
   id: string;
   userId: string;
   spaceId: string;
   chapterId: string;
-  sessionId?: string;
+  reviewId?: string;
   added: boolean;
   title: string;
   description: string;
@@ -31,16 +31,16 @@ export interface ChapterSessionUpdateObj {
   logId?: string;
   commentId?: string;
   attachmentId?: string;
-  memberId?: string;
+  contributorId?: string;
 }
 
-export const ChapterSessionUpdateGql = `
-type ChapterSessionUpdateObj {
+export const ChapterReviewUpdateGql = `
+type ChapterReviewUpdateObj {
   id: String!
   userId: String!
   chapterId: String!
   spaceId: String!
-  sessionId: String
+  reviewId: String
   added: Boolean!
   title: String!
   description: String!
@@ -53,24 +53,24 @@ type ChapterSessionUpdateObj {
   logId: String
   commentId: String
   attachmentId: String
-  memberId: String
+  contributorId: String
 }
 `;
 
-export const ContextForChapterSessionUpdateObj =
-  createContext<ChapterSessionUpdateObj>({} as ChapterSessionUpdateObj);
+export const ContextForChapterReviewUpdateObj =
+  createContext<ChapterReviewUpdateObj>({} as ChapterReviewUpdateObj);
 
-export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
+export const exampleChapterReviewUpdate: ChapterReviewUpdateObj = {
   id: '0',
   userId: '0',
   spaceId: '0',
   chapterId: '0',
   added: true,
-  sessionId: '0',
+  reviewId: '0',
   title: '',
   description: 'Hello World',
   created: new Date().toISOString(),
-  variant: ChapterSessionUpdateVariant.CONVERSATION,
+  variant: ChapterReviewUpdateVariant.CONVERSATION,
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
@@ -78,10 +78,10 @@ export const exampleChapterSessionUpdate: ChapterSessionUpdateObj = {
   logId: undefined,
   commentId: undefined,
   attachmentId: undefined,
-  memberId: undefined,
+  contributorId: undefined,
 };
 
-export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
+export const exampleChapterReviewUpdates: ChapterReviewUpdateObj[] = [
   {
     id: '0',
     userId: '0',
@@ -91,8 +91,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     title: '',
     description: 'Hello World',
     created: new Date().toISOString(),
-    sessionId: '0',
-    variant: ChapterSessionUpdateVariant.CONVERSATION,
+    reviewId: '0',
+    variant: ChapterReviewUpdateVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -100,7 +100,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     logId: undefined,
     commentId: undefined,
     attachmentId: undefined,
-    memberId: undefined,
+    contributorId: undefined,
   },
   {
     id: '0',
@@ -111,8 +111,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     added: false,
     description: 'Hello World',
     created: new Date().toISOString(),
-    sessionId: '0',
-    variant: ChapterSessionUpdateVariant.CONVERSATION,
+    reviewId: '0',
+    variant: ChapterReviewUpdateVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -120,7 +120,7 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     logId: undefined,
     commentId: undefined,
     attachmentId: undefined,
-    memberId: undefined,
+    contributorId: undefined,
   },
   {
     id: '0',
@@ -131,8 +131,8 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     added: false,
     description: 'Hello World',
     created: new Date().toISOString(),
-    sessionId: '0',
-    variant: ChapterSessionUpdateVariant.CONVERSATION,
+    reviewId: '0',
+    variant: ChapterReviewUpdateVariant.CONVERSATION,
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
@@ -140,16 +140,16 @@ export const exampleChapterSessionUpdates: ChapterSessionUpdateObj[] = [
     logId: undefined,
     commentId: undefined,
     attachmentId: undefined,
-    memberId: undefined,
+    contributorId: undefined,
   },
 ];
 
-export const chapterSessionUpdateModel: ModelInterface<ChapterSessionUpdateObj> =
+export const chapterReviewUpdateModel: ModelInterface<ChapterReviewUpdateObj> =
   {
     name: 'update',
-    gql: ChapterSessionUpdateGql,
-    example: exampleChapterSessionUpdate,
-    examples: exampleChapterSessionUpdates,
+    gql: ChapterReviewUpdateGql,
+    example: exampleChapterReviewUpdate,
+    examples: exampleChapterReviewUpdates,
     parentKey: 'sessionId',
     children: ['member'],
   };

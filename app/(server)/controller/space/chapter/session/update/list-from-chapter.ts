@@ -1,4 +1,4 @@
-import { chapterSessionUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
+import { chapterReviewUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,13 +7,13 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterSessionUpdateObj,
-  ChapterSessionUpdateVariant,
-} from '@/(server)/model/space/chapter/session/update/main';
+  ChapterReviewUpdateObj,
+  ChapterReviewUpdateVariant,
+} from '@/(server)/model/space/chapter/review/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterSessionUpdateObj;
-const gqlDbWrapper = chapterSessionUpdateDbWrapper;
+type TargetObj = ChapterReviewUpdateObj;
+const gqlDbWrapper = chapterReviewUpdateDbWrapper;
 const listIdKey = 'chapterId';
 
 interface ControllerState {
@@ -105,7 +105,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSessionUpdateListFromChapter = (
+const useControllerForReviewUpdateListFromChapter = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -279,7 +279,7 @@ const useControllerForSessionUpdateListFromChapter = (
       const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
       const sortedObjs = stateActions
         .sortedViaDate(objs)
-        .filter((obj) => !obj.sessionId);
+        .filter((obj) => !obj.reviewId);
       changeObjs(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
@@ -336,7 +336,7 @@ const useControllerForSessionUpdateListFromChapter = (
         description: '',
         spaceId: spaceId,
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.CHAPTER,
+        variant: ChapterReviewUpdateVariant.CHAPTER,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -354,7 +354,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.SCENE,
+        variant: ChapterReviewUpdateVariant.SCENE,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -377,7 +377,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.SPOTLIGHT,
+        variant: ChapterReviewUpdateVariant.SPOTLIGHT,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -395,7 +395,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.LOG,
+        variant: ChapterReviewUpdateVariant.LOG,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -418,7 +418,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.CONVERSATION,
+        variant: ChapterReviewUpdateVariant.CONVERSATION,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -443,7 +443,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.IDEA,
+        variant: ChapterReviewUpdateVariant.IDEA,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -467,7 +467,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.COMMENT,
+        variant: ChapterReviewUpdateVariant.COMMENT,
         chapterId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -492,7 +492,7 @@ const useControllerForSessionUpdateListFromChapter = (
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.ATTACHMENT,
+        variant: ChapterReviewUpdateVariant.ATTACHMENT,
         chapterId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -506,12 +506,12 @@ const useControllerForSessionUpdateListFromChapter = (
         userId: userId,
         chapterId: chapterId,
         spaceId: spaceId,
-        memberId: memberId,
+        contributorId: memberId,
         added: false,
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: ChapterSessionUpdateVariant.MEMBER,
+        variant: ChapterReviewUpdateVariant.MEMBER,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -597,8 +597,8 @@ const useControllerForSessionUpdateListFromChapter = (
   };
 };
 
-const ContextForSessionUpdateListFromChapter = createContext({} as Controller);
+const ContextForReviewUpdateListFromChapter = createContext({} as Controller);
 export {
-  ContextForSessionUpdateListFromChapter,
-  useControllerForSessionUpdateListFromChapter,
+  ContextForReviewUpdateListFromChapter as ContextForReviewUpdateListFromChapter,
+  useControllerForReviewUpdateListFromChapter as useControllerForReviewUpdateListFromChapter,
 };

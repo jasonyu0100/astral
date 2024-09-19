@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext, useEffect } from 'react';
 import {

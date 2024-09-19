@@ -1,4 +1,4 @@
-import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
@@ -10,15 +10,15 @@ interface ControllerState {
   sidebarMode: SpacesJourneySidebarMode;
   sidebarVisibility: SpacesJourneySidebarVisibility;
   dataMode: SpacesJourneyDataMode;
-  selectedLogs: ChapterLogObj[];
+  selectedLogs: ChapterWayObj[];
 }
 
 interface ControllerActions {
   updateSidebarMode: (mode: SpacesJourneySidebarMode) => void;
   updateSidebarVisibility: (visibility: SpacesJourneySidebarVisibility) => void;
   updateDataMode: (mode: SpacesJourneyDataMode) => void;
-  updateSelectedLogs: (logs: ChapterLogObj[]) => void;
-  checkContainsSelectedLog: (log: ChapterLogObj) => boolean;
+  updateSelectedLogs: (logs: ChapterWayObj[]) => void;
+  checkContainsSelectedLog: (log: ChapterWayObj) => boolean;
 }
 
 export const ContextForSpacesJourney = createContext({} as Controller);
@@ -39,7 +39,7 @@ export enum SpacesJourneySidebarVisibility {
 }
 
 export function useControllerForSpacesJourney(): Controller {
-  const [selectedLogs, setSelectedLogs] = useState<ChapterLogObj[]>([]);
+  const [selectedLogs, setSelectedLogs] = useState<ChapterWayObj[]>([]);
   const [dataMode, setDataMode] = useState<SpacesJourneyDataMode>(
     SpacesJourneyDataMode.TABLE,
   );
@@ -63,7 +63,7 @@ export function useControllerForSpacesJourney(): Controller {
       updateSidebarMode: (mode) => setSidebarMode(mode),
       updateDataMode: (mode) => setDataMode(mode),
       updateSelectedLogs: (logs) => setSelectedLogs(logs),
-      checkContainsSelectedLog: (log: ChapterLogObj) =>
+      checkContainsSelectedLog: (log: ChapterWayObj) =>
         selectedLogs.map((log) => log.id).includes(log.id),
     },
   };

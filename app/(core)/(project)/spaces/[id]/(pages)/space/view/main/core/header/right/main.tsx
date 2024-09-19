@@ -30,7 +30,7 @@ export function SpacesSpaceHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Generate Map ({conversationLength})
+            Set Constellation ({conversationLength})
           </p>
           <AstralArrowForwardIcon />
         </button>

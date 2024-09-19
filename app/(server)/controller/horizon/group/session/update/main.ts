@@ -6,10 +6,10 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { HorizonGroupSessionUpdateObj } from '@/(server)/model/horizon/group/session/update/main';
+import { HorizonGroupReviewUpdateObj } from '@/(server)/model/horizon/group/session/update/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonGroupSessionUpdateObj;
+type TargetObj = HorizonGroupReviewUpdateObj;
 const gqlDbWrapper = horizonGroupSessionUpdateDbWrapper;
 
 interface ControllerState {

@@ -1,4 +1,4 @@
-import { chapterLogDbWrapper } from '@/(server)/client/space/chapter/log/main';
+import { logLinkDbWrapper } from '@/(server)/client/space/chapter/log/link/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,16 +6,19 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
+import { FileElem } from '@/(server)/model/elements/file/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { TextElem } from '@/(server)/model/elements/text/main';
+import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import {
-  chapterLogModel,
-  ChapterLogObj,
-  ChapterLogStatus,
-} from '@/(server)/model/space/chapter/log/main';
+  logLinkModel,
+  WayLinkObj,
+} from '@/(server)/model/space/chapter/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterLogObj;
-const gqlDbWrapper = chapterLogDbWrapper;
-const listIdKey = chapterLogModel.parentKey;
+type TargetObj = WayLinkObj;
+const gqlDbWrapper = logLinkDbWrapper;
+const listIdKey = logLinkModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -34,11 +37,27 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createLog: (
-    chapterId: string,
+  createLinkFromIdea: (
     userId: string,
+    logId: string,
+    idea: SceneIdeaObj,
+    spaceId: string,
+    chapterId: string,
+    sceneId: string,
+  ) => Promise<TargetObj>;
+  createFromFile: (
+    userId: string,
+    logId: string,
     title: string,
     description: string,
+    file: FileElem,
+  ) => Promise<TargetObj>;
+  createFromText: (
+    userId: string,
+    logId: string,
+    title: string,
+    description: string,
+    text: TextElem,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -56,7 +75,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterLogList = (
+const useControllerForLogLinkList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -167,7 +186,7 @@ const useControllerForChapterLogList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -180,7 +199,7 @@ const useControllerForChapterLogList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -239,6 +258,7 @@ const useControllerForChapterLogList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
+      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -263,11 +283,11 @@ const useControllerForChapterLogList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        chapterId: '',
-        logStatus: '',
+        wayId: '',
         title: '',
         description: '',
-        summary: '',
+        variant: '',
+        fromIdea: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -275,18 +295,78 @@ const useControllerForChapterLogList = (
       changeId(newObj.id);
       return newObj;
     },
-    createLog: async (chapterId, userId, title, description) => {
+    createFromFile: async (
+      userId: string,
+      logId: string,
+      title: string,
+      description: string,
+      file: FileElem,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        chapterId: chapterId,
-        logStatus: ChapterLogStatus.TODO,
+        wayId: logId,
         title: title,
         description: description,
-        summary: '',
+        variant: ElementVariant.FILE,
+        fileElem: file,
+        fromIdea: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromText: async (
+      userId: string,
+      logId: string,
+      title: string,
+      description: string,
+      text: TextElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        wayId: logId,
+        title: title,
+        description: description,
+        variant: ElementVariant.TEXT,
+        textElem: text,
+        fromIdea: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createLinkFromIdea: async (
+      userId: string,
+      logId: string,
+      idea: SceneIdeaObj,
+      spaceId: string,
+      chapterId: string,
+      sceneId: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        wayId: logId,
+        title: idea.title,
+        description: idea.description,
+        variant: idea.variant,
+        fileElem: idea.fileElem,
+        textElem: idea.textElem,
+        urlElem: idea.urlElem,
+        ideaId: idea.id,
+        spaceId: spaceId,
+        chapterId: chapterId,
+        sceneId: sceneId,
+        fromIdea: true,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -356,9 +436,11 @@ const useControllerForChapterLogList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromBeginning().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
         if (initialId) {
-          stateActions.selectViaId(initialId);
+          if (objs.find((obj) => obj.id === initialId)) {
+            stateActions.selectViaId(initialId);
+          }
         }
       });
     }
@@ -370,5 +452,5 @@ const useControllerForChapterLogList = (
   };
 };
 
-const ContextForChapterLogList = createContext({} as Controller);
-export { ContextForChapterLogList, useControllerForChapterLogList };
+const ContextForLogLinkList = createContext({} as Controller);
+export { ContextForLogLinkList, useControllerForLogLinkList };

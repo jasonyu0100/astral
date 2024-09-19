@@ -1,5 +1,5 @@
 import { JournalDailyTableHeader } from './header/main';
-import { JouranlRecordTableList } from './list/main';
+import { JournalDailyTableContents } from './list/main';
 
 export function JournalDailyTable() {
   return (
@@ -8,7 +8,7 @@ export function JournalDailyTable() {
       className='overflow-auto p-[2rem]'
     >
       <JournalDailyTableHeader />
-      <JouranlRecordTableList />
+      <JournalDailyTableContents />
     </div>
   );
 }

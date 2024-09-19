@@ -1,5 +1,5 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
-import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForChapterLogObj } from '@/(server)/model/space/chapter/way/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { SpacesJourneyLogTableItem } from './item/main';

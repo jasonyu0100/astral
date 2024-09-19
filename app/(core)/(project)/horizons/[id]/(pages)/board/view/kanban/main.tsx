@@ -1,9 +1,9 @@
-import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/log/list';
+import { ContextForChapterLogList } from '@/(server)/controller/space/chapter/way/list';
 import {
-  ChapterLogObj,
-  ChapterLogStatus,
+  ChapterWayObj,
+  ChapterWayStatus,
   ContextForChapterLogObj,
-} from '@/(server)/model/space/chapter/log/main';
+} from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { HorizonsBoardListItem } from './lists/item/main';
@@ -13,10 +13,10 @@ import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 export function HorizonsBoardKanban() {
   const logListController = useContext(ContextForChapterLogList);
 
-  const [todo, setTodo] = useState<ChapterLogObj[]>([]);
-  const [inProgress, setInProgress] = useState<ChapterLogObj[]>([]);
-  const [review, setInReview] = useState<ChapterLogObj[]>([]);
-  const [done, setDone] = useState<ChapterLogObj[]>([]);
+  const [todo, setTodo] = useState<ChapterWayObj[]>([]);
+  const [inProgress, setInProgress] = useState<ChapterWayObj[]>([]);
+  const [review, setInReview] = useState<ChapterWayObj[]>([]);
+  const [done, setDone] = useState<ChapterWayObj[]>([]);
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle>Early</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.TODO}
+              id={ChapterWayStatus.TODO}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
@@ -89,7 +89,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle>Mid</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.IN_PROGRESS}
+              id={ChapterWayStatus.IN_PROGRESS}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
@@ -112,7 +112,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle>Late</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.REVIEW}
+              id={ChapterWayStatus.REVIEW}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
@@ -138,7 +138,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.TODO}
+              id={ChapterWayStatus.TODO}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
@@ -169,7 +169,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.IN_PROGRESS}
+              id={ChapterWayStatus.IN_PROGRESS}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
@@ -192,7 +192,7 @@ export function HorizonsBoardKanban() {
           <HorizonsBoardList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterLogStatus.REVIEW}
+              id={ChapterWayStatus.REVIEW}
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >

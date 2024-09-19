@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -29,9 +29,10 @@ export function SpacesMapAddTextIdeaModal() {
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
   const mapController = useContext(ContextForSpacesMap);
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   function create() {
     const { x, y, width, height } = mapController.actions.getAvailableXYWH();
@@ -54,7 +55,7 @@ export function SpacesMapAddTextIdeaModal() {
         ideaListController.state.objs.length,
       )
       .then((idea) => {
-        updateListController.actions.createActions.createFromChapterSceneIdea(
+        reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
           user.id,
           spaceController.state.objId,
           chapterListController.state.objId,

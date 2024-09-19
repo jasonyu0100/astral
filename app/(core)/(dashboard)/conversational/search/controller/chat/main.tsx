@@ -2,7 +2,7 @@ import { ContextForChapterConversationList } from '@/(server)/controller/space/c
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
@@ -42,9 +42,10 @@ export function useControllerForConversationalSearch() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -76,12 +77,11 @@ export function useControllerForConversationalSearch() {
         user.id,
         sceneListController.state.objId,
       );
-    await updateListController.actions.createActions.createFromChapterChapterConversation(
+    await reviewUpdateListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      sceneListController.state.objId,
-      conversation.id,
+      conversationListController.state.objId,
     );
     return conversation;
   }

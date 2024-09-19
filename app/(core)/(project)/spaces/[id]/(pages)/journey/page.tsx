@@ -10,11 +10,11 @@ import {
 import {
   ContextForLogLinkList,
   useControllerForLogLinkList,
-} from '@/(server)/controller/space/chapter/log/link/list';
+} from '@/(server)/controller/space/chapter/way/link/list';
 import {
   ContextForChapterLogList,
   useControllerForChapterLogList,
-} from '@/(server)/controller/space/chapter/log/list';
+} from '@/(server)/controller/space/chapter/way/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,

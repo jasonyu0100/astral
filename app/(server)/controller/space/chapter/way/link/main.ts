@@ -1,4 +1,4 @@
-import { chapterLogDbWrapper } from '@/(server)/client/space/chapter/log/main';
+import { logLinkDbWrapper } from '@/(server)/client/space/chapter/log/link/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ChapterLogObj } from '@/(server)/model/space/chapter/log/main';
+import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterLogObj;
-const gqlDbWrapper = chapterLogDbWrapper;
+type TargetObj = WayLinkObj;
+const gqlDbWrapper = logLinkDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterLogMain = (objId: string): Controller => {
+const useControllerForLogLinkMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,5 @@ const useControllerForChapterLogMain = (objId: string): Controller => {
   };
 };
 
-const ContextForChapterLogMain = createContext({} as Controller);
-export { ContextForChapterLogMain, useControllerForChapterLogMain };
+const ContextForLogLinkMain = createContext({} as Controller);
+export { ContextForLogLinkMain, useControllerForLogLinkMain };

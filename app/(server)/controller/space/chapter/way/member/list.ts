@@ -1,4 +1,4 @@
-import { logMemberDbWrapper } from '@/(server)/client/space/chapter/log/member/main';
+import { wayMemberDbWrapper } from '@/(server)/client/space/chapter/log/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -9,11 +9,11 @@ import {
 import {
   logMemberModel,
   LogMemberObj,
-} from '@/(server)/model/space/chapter/log/member/main';
+} from '@/(server)/model/space/chapter/way/member/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = LogMemberObj;
-const gqlDbWrapper = logMemberDbWrapper;
+const gqlDbWrapper = wayMemberDbWrapper;
 const listIdKey = logMemberModel.parentKey;
 
 interface ControllerState {

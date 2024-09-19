@@ -4,9 +4,9 @@ import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface LogLinkObj {
+export interface WayLinkObj {
   id: string;
-  logId: string;
+  wayId: string;
   userId: string;
   fromIdea: boolean;
   ideaId?: string;
@@ -42,11 +42,11 @@ type LogLinkObj {
 }
 `;
 
-export const ContextForLogLinkObj = createContext<LogLinkObj>({} as LogLinkObj);
+export const ContextForLogLinkObj = createContext<WayLinkObj>({} as WayLinkObj);
 
-export const exampleLogLink: LogLinkObj = {
+export const exampleLogLink: WayLinkObj = {
   id: '0',
-  logId: '0',
+  wayId: '0',
   userId: '0',
   title: 'Log Link Example',
   description: 'Log Link Description',
@@ -56,10 +56,10 @@ export const exampleLogLink: LogLinkObj = {
   fromIdea: false,
 };
 
-export const exampleLogLinks: LogLinkObj[] = [
+export const exampleLogLinks: WayLinkObj[] = [
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     title: 'Log Link Example',
     description: 'Log Link Description',
@@ -70,7 +70,7 @@ export const exampleLogLinks: LogLinkObj[] = [
   },
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     title: 'Log Link Example',
     description: 'Log Link Description',
@@ -81,7 +81,7 @@ export const exampleLogLinks: LogLinkObj[] = [
   },
   {
     id: '0',
-    logId: '0',
+    wayId: '0',
     userId: '0',
     title: 'Log Link Example',
     description: 'Log Link Description',
@@ -92,7 +92,7 @@ export const exampleLogLinks: LogLinkObj[] = [
   },
 ];
 
-export const logLinkModel: ModelInterface<LogLinkObj> = {
+export const logLinkModel: ModelInterface<WayLinkObj> = {
   name: 'link',
   gql: logLinkGql,
   example: exampleLogLink,

@@ -65,7 +65,7 @@ export function DashboardJournalAddResourceModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Entry</FormTitle>
+          <FormTitle>Entry</FormTitle>
           <FormBody>
             <FormUploadFile
               label='File'

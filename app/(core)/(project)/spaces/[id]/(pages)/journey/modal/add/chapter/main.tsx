@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSessionUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -18,9 +18,10 @@ export function SpacesJourneyAddChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const updateListController = useControllerForSessionUpdateListFromChapter(
-    chapterListController.state.objId,
-  );
+  const reviewUpdateListController =
+    useControllerForReviewUpdateListFromChapter(
+      chapterListController.state.objId,
+    );
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [objective, changeObjective] = useState('');
@@ -35,7 +36,7 @@ export function SpacesJourneyAddChapterModal() {
         user.id,
         spaceController.state.objId,
       );
-    await updateListController.actions.createActions.createFromChapter(
+    await reviewUpdateListController.actions.createActions.createFromChapter(
       user.id,
       spaceController.state.objId,
       chapter.id,

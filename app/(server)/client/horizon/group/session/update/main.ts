@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { HorizonGroupSessionUpdateObj } from '@/(server)/model/horizon/group/session/update/main';
+import { HorizonGroupReviewUpdateObj } from '@/(server)/model/horizon/group/session/update/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createHorizonGroupSessionUpdateObj,
@@ -13,11 +13,11 @@ import {
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as HorizonGroupSessionUpdateObj;
+  return obj as HorizonGroupReviewUpdateObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonGroupSessionUpdateObj[];
+  return objs as HorizonGroupReviewUpdateObj[];
 }
 
 async function getObj(value: string) {
@@ -80,7 +80,7 @@ async function listFromVariables(variables: object) {
   );
 }
 
-async function createObj(newObj: Omit<HorizonGroupSessionUpdateObj, 'id'>) {
+async function createObj(newObj: Omit<HorizonGroupReviewUpdateObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createHorizonGroupSessionUpdateObj,
     variables: {
@@ -93,7 +93,7 @@ async function createObj(newObj: Omit<HorizonGroupSessionUpdateObj, 'id'>) {
 
 async function updateObj(
   id: string,
-  updateObj: Partial<HorizonGroupSessionUpdateObj>,
+  updateObj: Partial<HorizonGroupReviewUpdateObj>,
 ) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonGroupSessionUpdateObj,
@@ -108,7 +108,7 @@ async function updateObj(
   return castSingle(payload?.data?.updateHorizonGroupSessionUpdateObj);
 }
 
-async function overwriteObj(id: string, newObj: HorizonGroupSessionUpdateObj) {
+async function overwriteObj(id: string, newObj: HorizonGroupReviewUpdateObj) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonGroupSessionUpdateObj,
     variables: {
@@ -135,7 +135,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonGroupSessionUpdateObj);
 }
 
-export const horizonGroupSessionUpdateDbWrapper: GqlDbWrapper<HorizonGroupSessionUpdateObj> =
+export const horizonGroupSessionUpdateDbWrapper: GqlDbWrapper<HorizonGroupReviewUpdateObj> =
   {
     getObj,
     listObjs,
