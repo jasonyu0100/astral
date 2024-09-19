@@ -1,8 +1,9 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { ImageBackground } from '@/ui/background/img/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizonPointSidebar } from './sidebar/main';
 
-export function HorizonPointView({ children }: { children?: React.ReactNode }) {
+export function HorizonPointView() {
   return (
     <GlassAreaContainer
       name={HorizonPointView.name}
@@ -13,7 +14,9 @@ export function HorizonPointView({ children }: { children?: React.ReactNode }) {
       roundedFx={roundedFx['rounded-container']}
     >
       <HorizonPointSidebar />
-      {children}
+      <div className='relative flex w-full flex-grow'>
+        <ImageBackground />
+      </div>
     </GlassAreaContainer>
   );
 }

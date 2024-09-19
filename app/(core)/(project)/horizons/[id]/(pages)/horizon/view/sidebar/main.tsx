@@ -9,12 +9,12 @@ import {
 export function HorizonHorizonSidebar() {
   const arrivingSoon = [
     {
-      title: 'Keep growing your network',
+      title: 'Members discussing the future',
       karma: KarmaState.Waxing,
       time: 'Arriving in 5 minutes',
     },
     {
-      title: 'Keep growing your network',
+      title: 'Members discussing the future',
       karma: KarmaState.Waxing,
       time: 'Arriving in 5 minutes',
     },
@@ -30,7 +30,7 @@ export function HorizonHorizonSidebar() {
       name={HorizonHorizonSidebar.name}
       sizeFx='w-[360px] h-full flex-shrink-0'
       className={`flex flex-col space-y-[1rem] p-[1rem]`}
-      glassFx={glassFx['glass-5']}
+      glassFx={glassFx['glass-20']}
     >
       <p className='text-xl font-bold text-slate-300'>Upcoming</p>
       <p className='text-md font-light text-slate-300'>Arriving soon</p>

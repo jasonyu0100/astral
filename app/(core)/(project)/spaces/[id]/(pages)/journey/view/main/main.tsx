@@ -1,6 +1,8 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
+import { ImageBackground } from '@/ui/background/img/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { AbsoluteHolder } from '@/ui/holder/main';
 import { useContext, useEffect } from 'react';
 import {
   ContextForSpacesJourney,
@@ -30,19 +32,23 @@ export function SpacesJourneyMain() {
       className={`flex h-full flex-grow flex-col`}
     >
       <SpacesJourneyHeader />
-
-      {wayListController.state.objId ? (
-        <>
-          {dataMode === SpacesJourneyDataMode.TABLE && (
-            <SpacesJourneyWayTable />
+      <div className='relative h-full w-full'>
+        <ImageBackground />
+        <AbsoluteHolder>
+          {wayListController.state.objId ? (
+            <>
+              {dataMode === SpacesJourneyDataMode.TABLE && (
+                <SpacesJourneyWayTable />
+              )}
+              {dataMode === SpacesJourneyDataMode.COLUMNS && (
+                <SpacesJourneyKanban key={chapterListController.state.objId} />
+              )}
+            </>
+          ) : (
+            <SpacesJourneyEmpty />
           )}
-          {dataMode === SpacesJourneyDataMode.COLUMNS && (
-            <SpacesJourneyKanban key={chapterListController.state.objId} />
-          )}
-        </>
-      ) : (
-        <SpacesJourneyEmpty />
-      )}
+        </AbsoluteHolder>
+      </div>
       <SpacesJourneyChapterNavigation />
     </GlassWindowFrame>
   );

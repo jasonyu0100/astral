@@ -13,7 +13,7 @@ export function SpacesSpaceMemberMessageDetail() {
         src={userObj.dp?.src || exampleFileElem.src}
         className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
       />
-      <p className='p-[0.5rem] text-left text-xs text-slate-500 text-opacity-50'>
+      <p className='p-[0.5rem] text-left text-xs text-slate-300'>
         from {userObj.displayName} at{' '}
         {new Date(message.created).toLocaleTimeString()}
       </p>

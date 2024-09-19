@@ -12,7 +12,7 @@ import { HorizonPointView } from './view/main';
 function Page() {
   return (
     <ViewWrapper>
-      <HorizonPointView></HorizonPointView>
+      <HorizonPointView />
     </ViewWrapper>
   );
 }

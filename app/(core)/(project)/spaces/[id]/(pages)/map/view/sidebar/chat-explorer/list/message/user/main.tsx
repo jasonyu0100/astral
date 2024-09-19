@@ -15,7 +15,7 @@ export function SpacesMapUserMessage() {
           src={loggedInUser.dp?.src || exampleFileElem.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
-        <p className='p-[0.5rem] text-xs text-slate-500'>
+        <p className='p-[0.5rem] text-xs text-slate-300'>
           from {loggedInUser.displayName} sent{' '}
           {getFormmatedTimeDifference(new Date(messageObj.created))}
         </p>

@@ -11,7 +11,7 @@ export function SpacesSpaceAgentMessageDetail() {
         src={'/stock/astral.png'}
         className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
       />
-      <p className='p-[0.5rem] text-left text-xs text-slate-500 text-opacity-50'>
+      <p className='p-[0.5rem] text-left text-xs text-slate-300'>
         from {message.agentId} sent{' '}
         {getFormmatedTimeDifference(new Date(message.created))}
       </p>

@@ -1,3 +1,5 @@
+import { ImageBackground } from '@/ui/background/img/main';
+import { AbsoluteHolder } from '@/ui/holder/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,
@@ -21,21 +23,24 @@ export function SpacesMapContents() {
       style={{ width: '100%', height: '100%' }}
       className='relative flex flex-col items-center'
     >
-      {directoryMode === SpacesMapDirectoryMode.DIRECTORY ? (
-        <>
-          <SpacesMapHistory />
-        </>
-      ) : (
-        <>
-          {/* <SpacesMapStatus /> */}
-          <SpacesMapBack />
-          <SpacesMapScene />
-          <SpacesMapPalette />
-          <SpacesMapChat />
-          <SpacesMapNavigationUp />
-          <SpacesMapNavigationDown />
-        </>
-      )}
+      <ImageBackground />
+      <AbsoluteHolder>
+        {directoryMode === SpacesMapDirectoryMode.DIRECTORY ? (
+          <>
+            <SpacesMapHistory />
+          </>
+        ) : (
+          <>
+            {/* <SpacesMapStatus /> */}
+            <SpacesMapBack />
+            <SpacesMapScene />
+            <SpacesMapPalette />
+            <SpacesMapChat />
+            <SpacesMapNavigationUp />
+            <SpacesMapNavigationDown />
+          </>
+        )}
+      </AbsoluteHolder>
     </div>
   );
 }

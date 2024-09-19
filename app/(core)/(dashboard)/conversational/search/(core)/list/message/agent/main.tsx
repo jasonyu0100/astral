@@ -12,7 +12,7 @@ export function SpaceMapAgentMessage() {
           src={'/brand/display-picture-astral.png'}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
-        <p className='p-[0.5rem] text-left text-xs text-slate-500 text-opacity-50'>
+        <p className='p-[0.5rem] text-left text-xs text-slate-300'>
           from {messageObj.agentId} sent{' '}
           {getFormmatedTimeDifference(new Date(messageObj.created))}
         </p>

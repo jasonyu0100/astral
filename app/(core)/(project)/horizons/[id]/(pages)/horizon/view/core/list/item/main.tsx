@@ -8,7 +8,7 @@ export function HorizonsHorizonListPost() {
   const horizonsHorizonModal = useContext(ContextForHorizonsHorizonModals);
   return (
     <div
-      className='flex w-full flex-row items-center space-x-[4rem]'
+      className='flex w-full flex-row items-center space-x-[4rem] p-[2rem]'
       onClick={() => {
         horizonsHorizonModal.horizonPostModal.open();
       }}
