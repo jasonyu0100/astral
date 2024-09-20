@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileElem, exampleDisplayPictureFileElem } from '../elements/file/main';
+import { FileElem } from '../elements/file/main';
 import { ModelInterface } from '../main';
 
 export interface AgentObj {
@@ -26,36 +26,79 @@ export const ContextForAgentObj = createContext<AgentObj>({} as AgentObj);
 
 export const exampleAgent: AgentObj = {
   id: '0',
-  name: 'John',
-  role: 'Musician',
+  name: 'Chat GPT',
+  role: 'Agent',
   bio: 'Been playing for X years',
-  dp: exampleDisplayPictureFileElem,
+  dp: {
+    id: '0',
+    src: '/fourier/chatgpt.jpg',
+    ext: 'image/png',
+    title: 'Chat GPT',
+    size: 0,
+    variant: 'IMAGE',
+  },
   created: new Date().toISOString(),
 };
 
 export const exampleAgents: AgentObj[] = [
   {
     id: '0',
-    name: 'John',
-    role: 'Musician',
+    name: 'Chat GPT',
+    role: 'Agent',
     bio: 'Been playing for X years',
-    dp: exampleDisplayPictureFileElem,
+    dp: {
+      id: '0',
+      src: '/fourier/chatgpt.jpg',
+      ext: 'image/png',
+      title: 'Chat GPT',
+      size: 0,
+      variant: 'IMAGE',
+    },
     created: new Date().toISOString(),
   },
   {
-    id: '0',
-    name: 'John',
-    role: 'Musician',
+    id: '1',
+    name: 'Gemini',
+    role: 'Agent',
     bio: 'Been playing for X years',
-    dp: exampleDisplayPictureFileElem,
+    dp: {
+      id: '0',
+      src: '/fourier/gemini.webp',
+      ext: 'image/webp',
+      title: 'Gemini',
+      size: 0,
+      variant: 'IMAGE',
+    },
     created: new Date().toISOString(),
   },
   {
-    id: '0',
-    name: 'John',
-    role: 'Musician',
+    id: '2',
+    name: 'Claude',
+    role: 'Agent',
     bio: 'Been playing for X years',
-    dp: exampleDisplayPictureFileElem,
+    dp: {
+      id: '0',
+      src: '/fourier/claude.svg',
+      ext: 'image/svg',
+      title: 'Claude',
+      size: 0,
+      variant: 'IMAGE',
+    },
+    created: new Date().toISOString(),
+  },
+  {
+    id: '3',
+    name: 'Palm',
+    role: 'Agent',
+    bio: 'Been playing for X years',
+    dp: {
+      id: '0',
+      src: '/fourier/palm.png',
+      ext: 'image/png',
+      title: 'Palm',
+      size: 0,
+      variant: 'IMAGE',
+    },
     created: new Date().toISOString(),
   },
 ];

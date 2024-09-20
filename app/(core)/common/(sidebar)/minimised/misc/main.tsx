@@ -1,4 +1,3 @@
-import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { glassFx, roundedFx } from '@/style/data';
@@ -11,7 +10,6 @@ import { ContextForCommonSidebarModals } from '../../modals/controller/main';
 
 export function CommonSidebarMinimisedMiscList() {
   const modalController = useContext(ContextForCommonSidebarModals);
-  const mapController = useContext(ContextForSpacesMap);
   const [other, setOther] = useState<FileElem[]>([]);
 
   return (

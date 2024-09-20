@@ -6,7 +6,7 @@ import {
 import { createContext } from 'react';
 import { SpacesSpaceAddAttachmentModal } from '../add/attachment/main';
 import { SpacesSpaceAddChapterModal } from '../add/chapter/main';
-import { SpacesSpaceGenerateMapModal } from '../generate/main';
+import { SpacesSpaceSetConstellationModal } from '../constellation/main';
 
 export const ContextForSpacesSpaceModals = createContext(
   {} as SpacesSpaceModals,
@@ -39,7 +39,7 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
         <SpacesSpaceAddAttachmentModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generateSceneController}>
-        <SpacesSpaceGenerateMapModal />
+        <SpacesSpaceSetConstellationModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSpaceModals.Provider>
   );
