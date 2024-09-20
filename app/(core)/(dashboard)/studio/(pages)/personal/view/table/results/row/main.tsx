@@ -1,4 +1,4 @@
-import { StudioSpacesRowIndicator } from './activity/main';
+import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
@@ -14,12 +14,14 @@ export function StudioSpacesRow() {
       <StudioSpacesRowInfo />
       <StudioSpacesRowCategory />
       <div></div>
-      <StudioSpacesRowIndicator />
       <div className='col-span-2 grid grid-cols-4'>
         <StudioSpacesRowDays />
         <StudioSpacesRowIdeas />
         <StudioSpacesRowLogs />
         <StudioSpacesRowSpotlights />
+      </div>
+      <div className='flex items-center justify-center'>
+        <AstralMoreVertIcon />
       </div>
     </div>
   );
