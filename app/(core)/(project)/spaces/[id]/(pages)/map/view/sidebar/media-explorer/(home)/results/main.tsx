@@ -10,6 +10,7 @@ export function SpacesMapGallerysResults() {
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
+      <HorizontalDivider />
       {galleryListController.state.more.queryResults.map((gallery) => (
         <ContextForGalleryObj.Provider value={gallery}>
           <SpacesMapGalleryItem />

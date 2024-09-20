@@ -2,14 +2,11 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
-import { ContextForSpacesMapModals } from '../../../../modal/controller/main';
-import SpacesMapRowAdd from './add/main';
 import { SpacesMapRowContainer } from './container/main';
 import { SpacesMapRowElement } from './element/main';
 
 export function SpacesMapNavigationRow() {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const modalController = useContext(ContextForSpacesMapModals);
 
   return (
     <SpacesMapRowContainer>
@@ -20,11 +17,6 @@ export function SpacesMapNavigationRow() {
           </ContextForIndexable.Provider>
         </ContextForSpaceChapterObj.Provider>
       ))}
-      <SpacesMapRowAdd
-        onClick={() => modalController.addChapterController.open()}
-      >
-        Add Chapter
-      </SpacesMapRowAdd>
     </SpacesMapRowContainer>
   );
 }

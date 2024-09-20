@@ -50,6 +50,7 @@ export function SpacesSpaceAddChapterModal() {
           <FormBody>
             <FormInput
               title='Title'
+              placeholder='Set a title for your chapter'
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />

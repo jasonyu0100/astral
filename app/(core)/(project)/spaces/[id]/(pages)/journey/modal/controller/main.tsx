@@ -4,7 +4,6 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesJourneyAddChapterModal } from '../add/chapter/main';
 import { SpacesJourneyAddFileLinkModal } from '../add/link/file/main';
 import { SpacesJourneyAddTextLinkModal } from '../add/link/text/main';
 import { SpacesJourneyAddLogModal } from '../add/log/main';
@@ -17,7 +16,6 @@ export const ContextForSpacesJourneyModals = createContext(
 );
 
 export interface SpacesJourneyModals {
-  addChapterController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
   addSpotlightController: ContextForOpenableInterface;
@@ -31,7 +29,6 @@ export function SpacesJourneyModals({
 }: {
   children: React.ReactNode;
 }) {
-  const addChapterController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
   const addSpotlightController = useControllerForOpenable();
@@ -42,7 +39,6 @@ export function SpacesJourneyModals({
   return (
     <ContextForSpacesJourneyModals.Provider
       value={{
-        addChapterController: addChapterController,
         addSceneController: addSceneController,
         addUpdateController: addUpdateController,
         addSpotlightController: addSpotlightController,
@@ -52,9 +48,6 @@ export function SpacesJourneyModals({
       }}
     >
       {children}
-      <ContextForOpenable.Provider value={addChapterController}>
-        <SpacesJourneyAddChapterModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
         <SpacesJourneyAddSceneModal />
       </ContextForOpenable.Provider>

@@ -4,7 +4,6 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesFlightAddChapterModal } from '../add/chapter/main';
 import { SpacesFlightAddCommentModal } from '../add/comment/main';
 import { SpacesFlightAddSceneModal } from '../add/scene/main';
 import { SpacesFlightAddSpotlightModal } from '../add/spotlight/main';
@@ -15,7 +14,6 @@ export const ContextForSpacesFlightModals = createContext(
 );
 
 export interface SpacesFlightModals {
-  addChapterController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
   addSpotlightController: ContextForOpenableInterface;
   addCommentController: ContextForOpenableInterface;
@@ -27,7 +25,6 @@ export function SpacesFlightModals({
 }: {
   children: React.ReactNode;
 }) {
-  const addChapterController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
@@ -37,7 +34,6 @@ export function SpacesFlightModals({
     <ContextForSpacesFlightModals.Provider
       value={
         {
-          addChapterController,
           addSceneController,
           addCommentController,
           shareReviewController,
@@ -46,9 +42,6 @@ export function SpacesFlightModals({
       }
     >
       {children}
-      <ContextForOpenable.Provider value={addChapterController}>
-        <SpacesFlightAddChapterModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
         <SpacesFlightAddSceneModal />
       </ContextForOpenable.Provider>

@@ -4,7 +4,6 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesMapAddChapterModal } from '../add/chapter/main';
 import { SpacesMapAddCollectionModal } from '../add/collection/main';
 import { SpacesMapAddGalleryModal } from '../add/gallery/main';
 import { SpacesMapAddFileIdeaModal } from '../add/idea/file/main';
@@ -20,7 +19,6 @@ import { SpacesMapGenerateLog } from '../generate/main';
 export const ContextForSpacesMapModals = createContext({} as SpacesMapModals);
 
 export interface SpacesMapModals {
-  addChapterController: ContextForOpenableInterface;
   addCollectionController: ContextForOpenableInterface;
   addGalleryController: ContextForOpenableInterface;
   addFileIdeaController: ContextForOpenableInterface;
@@ -35,7 +33,6 @@ export interface SpacesMapModals {
 }
 
 export function SpacesMapModals({ children }: { children: React.ReactNode }) {
-  const addChapterController = useControllerForOpenable();
   const addCollectionController = useControllerForOpenable();
   const addGalleryController = useControllerForOpenable();
   const addFileIdeaController = useControllerForOpenable();
@@ -51,7 +48,6 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
   return (
     <ContextForSpacesMapModals.Provider
       value={{
-        addChapterController: addChapterController,
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
         addFileIdeaController: addFileIdeaController,
@@ -66,9 +62,6 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
-      <ContextForOpenable.Provider value={addChapterController}>
-        <SpacesMapAddChapterModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addCollectionController}>
         <SpacesMapAddCollectionModal />
       </ContextForOpenable.Provider>
