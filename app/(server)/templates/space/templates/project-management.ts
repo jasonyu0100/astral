@@ -1,6 +1,6 @@
 import { TemplateSpaceObj } from '../main';
 
-export const productManagementTemplate: TemplateSpaceObj = {
+export const projectManagementTemplate: TemplateSpaceObj = {
   title: 'Product Management',
   description:
     'A structured template for managing the lifecycle of a product, from initial conception through to launch and post-launch activities.',

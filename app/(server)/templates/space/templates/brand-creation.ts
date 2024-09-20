@@ -1,6 +1,6 @@
 import { TemplateSpaceObj } from '../main';
 
-export const brandCreationDevelopmentTemplate: TemplateSpaceObj = {
+export const brandCreationTemplate: TemplateSpaceObj = {
   title: 'Brand Creation and Development',
   description:
     'A comprehensive template for building and evolving a brand from initial concept to established market presence.',

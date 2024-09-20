@@ -7,11 +7,13 @@ import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/ma
 import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { createContext } from 'react';
+import { brandCreationTemplate } from './templates/brand-creation';
 import { designSprintTemplate } from './templates/design-sprint';
+import { eventPlanningTemplate } from './templates/event-planning';
 import { gameDevelopmentTemplate } from './templates/game-deverlopment';
 import { marketingCampaignTemplate } from './templates/marketing-campaign';
 import { productLaunchTemplate } from './templates/product-launch';
-import { productManagementTemplate } from './templates/project-management';
+import { projectManagementTemplate } from './templates/project-management';
 import { softwareDevelopmentTemplate } from './templates/software-development';
 import { starterTemplate } from './templates/starter-project';
 import { startupOrganizationTemplate } from './templates/startup-organization';
@@ -110,8 +112,8 @@ export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
 // TEMPLATES
 
 export enum SpaceTemplate {
-  Starter = 'Starter Project',
-  ProductManagement = 'Product Management',
+  StarterProject = 'Starter Project',
+  ProjectManagement = 'Project Management',
   GameDevelopment = 'Game Development',
   SoftwareDevelopment = 'Software Development',
   MarketingCampaign = 'Marketing Campaign',
@@ -119,11 +121,18 @@ export enum SpaceTemplate {
   StartupOrganization = 'Startup Organization',
   VideoProduction = 'Video Production',
   DesignSprint = 'Design Sprint',
+  EventPlanning = 'Event Planning',
+  BrandCreation = 'Brand Creation',
+  // Execute order 66, when we and I and us and they are ready
+  // Video Production
+  // Music Production
+  // Marketing Campaign
+  // Film Production
 }
 
 export const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.ProductManagement]: productManagementTemplate,
-  [SpaceTemplate.Starter]: starterTemplate,
+  [SpaceTemplate.ProjectManagement]: projectManagementTemplate,
+  [SpaceTemplate.StarterProject]: starterTemplate,
   [SpaceTemplate.GameDevelopment]: gameDevelopmentTemplate,
   [SpaceTemplate.SoftwareDevelopment]: softwareDevelopmentTemplate,
   [SpaceTemplate.MarketingCampaign]: marketingCampaignTemplate,
@@ -131,4 +140,6 @@ export const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
   [SpaceTemplate.StartupOrganization]: startupOrganizationTemplate,
   [SpaceTemplate.VideoProduction]: videoProductionTemplate,
   [SpaceTemplate.DesignSprint]: designSprintTemplate,
+  [SpaceTemplate.EventPlanning]: eventPlanningTemplate,
+  [SpaceTemplate.BrandCreation]: brandCreationTemplate,
 };
