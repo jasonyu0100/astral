@@ -1,5 +1,5 @@
+import { FormInputProps } from '../../props/main';
 import { borderFx } from '../../style/data';
-import { FormInputProps } from '../../types/props/main';
 import { GlassAreaContainer } from '../glass/area/main';
 
 export function SearchBar({ ...props }: FormInputProps) {
