@@ -1,5 +1,5 @@
-import { Tabs } from '@/(core)/(dashboard)/common//tabs/main';
-import { TabsRow } from '@/(core)/(dashboard)/common//tabs/tabs-row/main';
+import { TabsContainer } from '@/ui/tabs/main';
+import { TabsRow } from '@/ui/tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
 import { TabThree } from './tab-2/main';
 import { TabTwo } from './tab-3/main';
@@ -18,13 +18,13 @@ export enum HorizonTabStage {
 
 export function HorizonTabs({ tab }: HorizonTabProps) {
   return (
-    <Tabs>
+    <TabsContainer>
       <TabsRow>
         <TabOne tab={tab} />
         <TabTwo tab={tab} />
         <TabThree tab={tab} />
         <TabFour tab={tab} />
       </TabsRow>
-    </Tabs>
+    </TabsContainer>
   );
 }

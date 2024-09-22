@@ -1,6 +1,6 @@
-import { TabOrangeShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/orange/main';
-import { Tab } from '../../../common//tabs/tabs-row/tab/main';
-import { TabText } from '../../../common//tabs/tabs-row/tab/text/main';
+import { Tab } from '@/ui/tabs/tabs-row/tab/main';
+import { TabOrangeShard } from '@/ui/tabs/tabs-row/tab/shard/orange/main';
+import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
 import { networkMap } from '../../map';
 import { CreativeTabStage } from '../main';
 

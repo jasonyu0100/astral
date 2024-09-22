@@ -1,6 +1,6 @@
-import { TabsBackButton } from '@/(core)/(dashboard)/common//tabs/tabs-row/back-button/main';
-import { Tabs } from '../../common//tabs/main';
-import { TabsRow } from '../../common//tabs/tabs-row/main';
+import { TabsContainer } from '@/ui/tabs/main';
+import { TabsBackButton } from '@/ui/tabs/tabs-row/back-button/main';
+import { TabsRow } from '@/ui/tabs/tabs-row/main';
 import { explorerMap } from '../../explorer/map';
 import { TabOne } from './tab-1/main';
 
@@ -14,12 +14,11 @@ interface CreativeTabProps {
 
 export function CreativeTabs({ tab }: CreativeTabProps) {
   return (
-    <Tabs>
+    <TabsContainer>
       <TabsBackButton href={explorerMap.explorer.projects.link} />
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} /> */}
       </TabsRow>
-    </Tabs>
+    </TabsContainer>
   );
 }

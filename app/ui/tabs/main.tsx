@@ -1,3 +1,3 @@
-export function Tabs({ children }: { children?: React.ReactNode }) {
+export function TabsContainer({ children }: { children?: React.ReactNode }) {
   return <div className='flex flex-row p-[1rem] px-[2rem]'>{children}</div>;
 }

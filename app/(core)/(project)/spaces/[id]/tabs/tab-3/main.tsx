@@ -1,9 +1,9 @@
 'use client';
 
-import { Tab } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/main';
-import { TabOrangeShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/orange/main';
-import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/main';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { Tab } from '@/ui/tabs/tabs-row/tab/main';
+import { TabOrangeShard } from '@/ui/tabs/tabs-row/tab/shard/orange/main';
+import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../layout';
 import { spacesMap } from '../../map';

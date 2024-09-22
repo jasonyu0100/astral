@@ -1,10 +1,10 @@
 'use client';
 
-import { Tab } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/main';
-import { TabPurpleShard } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/shard/purple/main';
-import { TabText } from '@/(core)/(dashboard)/common//tabs/tabs-row/tab/text/main';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { Tab } from '@/ui/tabs/tabs-row/tab/main';
+import { TabPurpleShard } from '@/ui/tabs/tabs-row/tab/shard/purple/main';
+import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../layout';
 import { spacesMap } from '../../map';

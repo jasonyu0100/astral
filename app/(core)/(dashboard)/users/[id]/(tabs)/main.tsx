@@ -1,5 +1,5 @@
-import { Tabs } from '@/(core)/(dashboard)/common//tabs/main';
-import { TabsRow } from '@/(core)/(dashboard)/common//tabs/tabs-row/main';
+import { TabsContainer } from '@/ui/tabs/main';
+import { TabsRow } from '@/ui/tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
 
 interface UserTabProps {
@@ -15,13 +15,10 @@ export enum UserTabStage {
 
 export function UserTabs({ tab }: UserTabProps) {
   return (
-    <Tabs>
+    <TabsContainer>
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} />
-        <TabThree tab={tab} />
-        <TabFour tab={tab} /> */}
       </TabsRow>
-    </Tabs>
+    </TabsContainer>
   );
 }

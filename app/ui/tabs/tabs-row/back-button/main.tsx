@@ -1,4 +1,4 @@
-import { CircleLeftIcon } from '@/(core)/(dashboard)/common//tabs/tabs-row/back-button/circle-left/main';
+import { CircleLeftIcon } from '@/(core)/(dashboard)/common/tabs/tabs-row/back-button/circle-left/main';
 import { LinkInputProps } from '@/types/props/main';
 import Link from 'next/link';
 

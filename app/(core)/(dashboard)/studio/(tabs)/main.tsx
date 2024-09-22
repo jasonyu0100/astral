@@ -1,5 +1,5 @@
-import { Tabs } from '../../common//tabs/main';
-import { TabsRow } from '../../common//tabs/tabs-row/main';
+import { TabsContainer } from '@/ui/tabs/main';
+import { TabsRow } from '@/ui/tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
 
 export enum StudioTabStages {
@@ -14,12 +14,10 @@ interface StudioTabProps {
 
 export function StudioTabs({ tab }: StudioTabProps) {
   return (
-    <Tabs>
+    <TabsContainer>
       <TabsRow>
         <TabOne tab={tab} />
-        {/* <TabTwo tab={tab} /> */}
-        {/* <TabThree tab={tab} /> */}
       </TabsRow>
-    </Tabs>
+    </TabsContainer>
   );
 }

@@ -1,5 +1,5 @@
-import { Tabs } from '@/(core)/(dashboard)/common//tabs/main';
-import { TabsRow } from '@/(core)/(dashboard)/common//tabs/tabs-row/main';
+import { TabsContainer } from '@/ui/tabs/main';
+import { TabsRow } from '@/ui/tabs/tabs-row/main';
 import { SpacesTabSpace } from './tab-1/main';
 import { SpacesTabMap } from './tab-2/main';
 import { SpaceTabJourney } from './tab-3/main';
@@ -18,13 +18,13 @@ export enum SpaceTabStage {
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
-    <Tabs>
+    <TabsContainer>
       <TabsRow>
         <SpacesTabSpace tab={tab} />
         <SpacesTabMap tab={tab} />
         <SpaceTabJourney tab={tab} />
         <SpacesTabFlight tab={tab} />
       </TabsRow>
-    </Tabs>
+    </TabsContainer>
   );
 }
