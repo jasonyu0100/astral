@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/types/props/main';
+import { DivInputProps } from '@/props/main';
 
 interface GlassPaneProps extends DivInputProps {
   glassFx?: string;

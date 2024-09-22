@@ -1,4 +1,4 @@
-import { SvgInputProps } from '@/types/props/main';
+import { SvgInputProps } from '@/props/main';
 
 export function AstralShareIcon({ ...props }: SvgInputProps) {
   return (

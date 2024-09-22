@@ -1,4 +1,4 @@
-import { HyperLinkInputProps } from '@/types/props/main';
+import { HyperLinkInputProps } from '@/props/main';
 
 export interface CommonSidebarIndicatorProps {
   indicator: string | undefined;

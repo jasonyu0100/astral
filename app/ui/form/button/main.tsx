@@ -1,5 +1,5 @@
-import { ButtonInputProps } from '@/types/props/main';
-import { cn } from '@/utils/cn';
+import { ButtonInputProps } from '@/props/main';
+import { ctwn } from '@/utils/cn';
 
 export enum ButtonVariant {
   PRIMARY = 'primary',
@@ -15,7 +15,7 @@ export function FormButton({ children, variant, ...props }: InputProps) {
   return (
     <button
       {...props}
-      className={cn(
+      className={ctwn(
         `flex h-[4rem] w-full flex-col items-center justify-center bg-slate-950 ${props.className}`,
         {
           'bg-black':
@@ -26,7 +26,7 @@ export function FormButton({ children, variant, ...props }: InputProps) {
       )}
     >
       <p
-        className={cn('text-center text-3xl font-bold leading-9', {
+        className={ctwn('text-center text-3xl font-bold leading-9', {
           'text-white':
             variant === ButtonVariant.PRIMARY || variant === undefined,
           'text-black': variant === ButtonVariant.SECONDARY,

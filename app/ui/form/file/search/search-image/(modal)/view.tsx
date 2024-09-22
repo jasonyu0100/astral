@@ -2,7 +2,7 @@ import { FileElem } from '@/(server)/model/elements/file/main';
 import { useUnsplashController } from '@/api/controller/unsplash/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ImageInputProps } from '@/types/props/main';
+import { ImageInputProps } from '@/props/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';

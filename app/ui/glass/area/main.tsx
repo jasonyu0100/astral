@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/types/props/main';
+import { DivInputProps } from '@/props/main';
 import { GlassAreaContents } from './contents/main';
 import { GlassAreaPane } from './pane/main';
 

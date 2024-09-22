@@ -1,4 +1,4 @@
-import { DivInputProps } from '@/types/props/main';
+import { DivInputProps } from '@/props/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 

@@ -1,6 +1,6 @@
 import { FileElem } from '@/(server)/model/elements/file/main';
+import { DivInputProps } from '@/props/main';
 import { roundedFx } from '@/style/data';
-import { DivInputProps } from '@/types/props/main';
 import { GlassEffectWrapper } from '@/ui/glass/effect/main';
 
 interface HorizonThumbnailElementProps extends DivInputProps {

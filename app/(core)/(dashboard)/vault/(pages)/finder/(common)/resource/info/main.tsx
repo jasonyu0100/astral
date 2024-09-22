@@ -1,5 +1,5 @@
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
-import { DivInputProps } from '@/types/props/main';
+import { DivInputProps } from '@/props/main';
 import { useContext } from 'react';
 import { ContextForVaultFinderEditModals } from '../../../(modals)/edit/controller/main';
 

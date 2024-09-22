@@ -1,6 +1,6 @@
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
-import { DivInputProps } from '@/types/props/main';
-import { cn } from '@/utils/cn';
+import { DivInputProps } from '@/props/main';
+import { ctwn } from '@/utils/cn';
 
 interface UserDpElementProps extends DivInputProps {
   fileElem: FileElem;
@@ -12,7 +12,7 @@ export function UserDisplayPictureElement({
 }: UserDpElementProps) {
   return (
     <img
-      className={cn(
+      className={ctwn(
         `h-[2.5rem] w-[2.5rem] flex-shrink-0 rounded-full shadow-glow`,
         props.className,
       )}

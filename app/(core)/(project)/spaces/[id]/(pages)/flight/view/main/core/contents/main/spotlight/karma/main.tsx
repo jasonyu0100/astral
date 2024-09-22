@@ -3,7 +3,7 @@ import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesFlightKarma() {
@@ -56,7 +56,7 @@ export function SpacesFlightKarma() {
   return (
     <div className='flex flex-col items-center'>
       <AstralArrowDropUp
-        className={cn('h-[3rem] w-[3rem]', {
+        className={ctwn('h-[3rem] w-[3rem]', {
           'fill-blue-500': userVote === 1,
           'fill-slate-500': userVote === -1,
           'fill-slate-300': userVote === 0,
@@ -64,7 +64,7 @@ export function SpacesFlightKarma() {
         onClick={() => upvote()}
       />
       <p
-        className={cn('text-xl font-bold text-slate-300', {
+        className={ctwn('text-xl font-bold text-slate-300', {
           'text-red-300': userVote === -1,
           'text-blue-300': userVote === 1,
           'text-slate-500': userVote === 0,
@@ -73,7 +73,7 @@ export function SpacesFlightKarma() {
         {cumulativeKarma}
       </p>
       <AstralArrowDropDown
-        className={cn('h-[3rem] w-[3rem]', {
+        className={ctwn('h-[3rem] w-[3rem]', {
           'fill-red-500': userVote === -1,
           'fill-slate-500': userVote === 1,
           'fill-slate-300': userVote === 0,

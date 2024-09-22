@@ -6,7 +6,7 @@ import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { StudioSpacesRowCategory } from './category/main';
 import { StudioSpacesRowDate } from './date/main';
-import { StudioSpacesRowDays } from './day/main';
+import { StudioSpacesRowDays } from './days/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
 import { StudioSpacesRowStat } from './stat/main';

@@ -1,6 +1,6 @@
 'use client';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { LinkInputProps } from '@/types/props/main';
+import { LinkInputProps } from '@/props/main';
 import Link from 'next/link';
 
 export function TopbarAvatar({ ...props }: LinkInputProps) {

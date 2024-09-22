@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { cn } from '@/lib/utils';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceChapterActiveHeader() {
@@ -13,7 +13,7 @@ export function SpacesSpaceChapterActiveHeader() {
       onClick={() => chapterListController.actions.stateActions.select(chapter)}
     >
       <p
-        className={cn(
+        className={ctwn(
           'w-full animate-pulse-slow whitespace-nowrap text-start font-extraBold text-xl text-slate-300',
         )}
       >

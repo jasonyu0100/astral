@@ -1,12 +1,12 @@
 import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralAddIcon } from '@/icons/add/main';
-import { cn } from '@/lib/utils';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceConversations() {
@@ -26,7 +26,7 @@ export function SpacesSpaceConversations() {
             roundedFx={roundedFx['rounded-full']}
           >
             <GlassWindowContents
-              className={cn(
+              className={ctwn(
                 'flex cursor-pointer flex-col items-center justify-center space-y-[1rem]',
                 {
                   'bg-blue-500': conversation.id === conversationObj?.id,
@@ -48,7 +48,7 @@ export function SpacesSpaceConversations() {
           roundedFx={roundedFx['rounded-full']}
         >
           <GlassWindowContents
-            className={cn(
+            className={ctwn(
               'flex cursor-pointer flex-col items-center justify-center space-y-[1rem]',
             )}
             onClick={() => {

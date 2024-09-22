@@ -1,4 +1,4 @@
-import { LinkInputProps } from '@/types/props/main';
+import { LinkInputProps } from '@/props/main';
 import Link from 'next/link';
 
 interface AltActionLinkProps extends LinkInputProps {

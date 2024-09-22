@@ -1,11 +1,11 @@
-import { SvgInputProps } from '@/types/props/main';
-import { cn } from '@/utils/cn';
+import { SvgInputProps } from '@/props/main';
+import { ctwn } from '@/utils/cn';
 
 export function AstralEqualizerIcon({ ...props }: SvgInputProps) {
   return (
     <svg
       {...props}
-      className={cn(
+      className={ctwn(
         'h-[1.5rem] w-[1.5rem] cursor-pointer fill-slate-300',
         props.className,
       )}

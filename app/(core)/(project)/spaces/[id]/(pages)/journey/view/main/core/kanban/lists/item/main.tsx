@@ -4,7 +4,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForSpacesJourney } from '../../../../../../controller/main';
@@ -18,7 +18,7 @@ export function SpaceJourneyListItem() {
   return (
     <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
       <GlassWindowContents
-        className={cn(
+        className={ctwn(
           'flex h-full w-full cursor-pointer flex-col space-y-[1rem] overflow-auto',
         )}
         onClick={() => {

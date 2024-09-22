@@ -1,4 +1,4 @@
-import { FormInputProps } from '@/types/props/main';
+import { FormInputProps } from '@/props/main';
 
 interface PortalFormInputProps extends FormInputProps {
   emoji?: string;

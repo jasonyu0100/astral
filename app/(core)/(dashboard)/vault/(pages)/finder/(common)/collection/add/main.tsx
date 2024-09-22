@@ -1,4 +1,4 @@
-import { ButtonInputProps } from '@/types/props/main';
+import { ButtonInputProps } from '@/props/main';
 import { CollectionContainer } from '../common/container/main';
 import { CollectionThumbnail } from '../common/thumbnail/main';
 

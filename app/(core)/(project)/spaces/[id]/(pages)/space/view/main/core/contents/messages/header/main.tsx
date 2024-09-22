@@ -1,11 +1,11 @@
 import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { cn } from '@/lib/utils';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceChatConversationHeader() {
@@ -31,7 +31,7 @@ export function SpacesSpaceChatConversationHeader() {
               roundedFx={roundedFx['rounded-full']}
             >
               <GlassWindowContents
-                className={cn(
+                className={ctwn(
                   'flex cursor-pointer flex-col items-center justify-center space-y-[1rem]',
                   {
                     'bg-blue-500': conversation.id === conversationObj?.id,

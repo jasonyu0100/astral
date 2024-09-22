@@ -7,8 +7,8 @@ import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
-import { cn } from '@/lib/utils';
 import { PipIndicator } from '@/ui/indicator/pip/main';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,
@@ -41,7 +41,7 @@ export function SpacesMapHeaderLeft() {
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralSidebarLeftIcon
-        className={cn({
+        className={ctwn({
           'rotate-180 transform':
             sidebarVisibility === SpacesMapSidebarVisibility.CLOSED,
         })}

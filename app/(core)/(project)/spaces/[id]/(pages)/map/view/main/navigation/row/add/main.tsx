@@ -1,5 +1,5 @@
+import { ButtonInputProps } from '@/props/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { ButtonInputProps } from '@/types/props/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 interface NavigationTimelineInputProps extends ButtonInputProps {

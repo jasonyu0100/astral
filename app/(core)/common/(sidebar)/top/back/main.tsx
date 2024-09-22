@@ -1,5 +1,5 @@
 import { AstralArrowCircleLeftIcon } from '@/icons/arrow-circle-left/main';
-import { LinkInputProps } from '@/types/props/main';
+import { LinkInputProps } from '@/props/main';
 import Link from 'next/link';
 
 export function CommonSidebarTopBack({ ...props }: LinkInputProps) {

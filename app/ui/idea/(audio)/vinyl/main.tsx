@@ -1,6 +1,6 @@
 import { useControllerForFlippable } from '@/logic/contexts/flippable/main';
 import { useControllerForTogglable } from '@/logic/contexts/togglable/main';
-import { DivInputProps } from '@/types/props/main';
+import { DivInputProps } from '@/props/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 

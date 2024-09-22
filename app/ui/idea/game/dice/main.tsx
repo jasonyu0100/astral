@@ -1,4 +1,4 @@
-import { ImageInputProps } from '@/types/props/main';
+import { ImageInputProps } from '@/props/main';
 
 export enum DiceFace {
   One = '1',

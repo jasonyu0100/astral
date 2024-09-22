@@ -1,5 +1,5 @@
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
-import { cn } from '@/lib/utils';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesFlight,
@@ -15,7 +15,7 @@ export function SpacesFlightHeaderRight() {
   return (
     <div className='flex w-1/3 flex-row justify-end'>
       <AstralSidebarRightIcon
-        className={cn({
+        className={ctwn({
           'rotate-180 transform':
             sidebarVisibility === SpacesFlightSidebarVisibility.CLOSED,
         })}

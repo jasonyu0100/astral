@@ -1,4 +1,5 @@
 'use client';
+import { AccordionItem } from '@radix-ui/react-accordion';
 import { SetStateAction, useEffect, useState } from 'react';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
@@ -7,6 +8,12 @@ import { GlassWindowContents } from './ui/glass/window/contents/main';
 import { GlassWindowFrame } from './ui/glass/window/main';
 import { GlassWindowPane } from './ui/glass/window/pane/main';
 import { HorizontalDivider } from './ui/indicator/divider/horizontal/main';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionTrigger,
+} from './ui/radix/accordion/main';
+import { ctwn } from './utils/cn';
 
 const Header = () => (
   <header className='flex w-full flex-col items-center justify-between space-y-4 p-4 sm:flex-row sm:space-y-0 sm:p-0'>
@@ -308,14 +315,14 @@ const FooterCTA = () => (
   </footer>
 );
 
-function PricingSection() {
+function MembershipSection() {
   const [activeTab, setActiveTab] = useState('yearly');
+  const ready = false;
 
   return (
-    <section className='py-12'>
+    <section className={ctwn('py-12', { hidden: ready })}>
       <div className='container mx-auto text-center'>
-        <h2 className='mb-6 text-3xl font-bold'>Pricing Plans</h2>
-        {/* Tab Switcher */}
+        <h2 className='mb-6 text-3xl font-bold'>Member Plans</h2>
         <div className='flex w-full flex-col items-center'>
           <div
             role='tablist'
@@ -349,24 +356,23 @@ function PricingSection() {
               Monthly
             </button>
           </div>
-
-          {/* Pricing Content */}
+          Membership Content
           <div className='mt-8'>
             {activeTab === 'yearly' && (
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
-                <PricingCard
+                <MemberPricingCard
                   title='Creator'
                   price='$149 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
                   imageSrc='/portal/producer-f.png'
                 />
-                <PricingCard
+                <MemberPricingCard
                   title='Team Pro'
                   price='$499 / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
                 />
-                <PricingCard
+                <MemberPricingCard
                   title='Enterprise Scale'
                   price='Custom Pricing'
                   description='Tailored for large organizations with advanced needs. Includes dedicated support, AI-powered insights, and enhanced security.'
@@ -376,19 +382,19 @@ function PricingSection() {
             )}
             {activeTab === 'monthly' && (
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
-                <PricingCard
+                <MemberPricingCard
                   title='Creator'
                   price='$15 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
                   imageSrc='/portal/performer-m.png'
                 />
-                <PricingCard
+                <MemberPricingCard
                   title='Team Pro'
                   price='$50 / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
                 />
-                <PricingCard
+                <MemberPricingCard
                   title='Enterprise Scale'
                   price='Custom Pricing'
                   description='Custom solutions with enterprise-grade features and full creative workflow integration.'
@@ -410,7 +416,7 @@ interface PricingCardProps {
   imageSrc: string;
 }
 
-function PricingCard({
+function MemberPricingCard({
   title,
   price,
   description,
@@ -428,7 +434,6 @@ function PricingCard({
       onClick={handleToggle}
     >
       {!showDescription ? (
-        // Front view (showing price)
         <>
           <img
             src={imageSrc}
@@ -441,7 +446,6 @@ function PricingCard({
           </div>
         </>
       ) : (
-        // Back view (showing description)
         <div className='w-full text-center'>
           <p className='text-lg font-semibold italic'>"{description}"</p>
         </div>
@@ -547,7 +551,7 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
-      {/* <PricingSection /> */}
+      <MembershipSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />

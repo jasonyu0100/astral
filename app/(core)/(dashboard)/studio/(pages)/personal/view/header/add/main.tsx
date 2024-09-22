@@ -1,5 +1,5 @@
 import { AstralGestureIcon } from '@/icons/gesture/main';
-import { ButtonInputProps } from '@/types/props/main';
+import { ButtonInputProps } from '@/props/main';
 
 export function StudioSpacesHeaderAdd({ ...props }: ButtonInputProps) {
   return (
