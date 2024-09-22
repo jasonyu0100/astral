@@ -49,5 +49,124 @@ export default function Page() {
     window.location.href = `/stripe/checkout?priceId=${priceId}`;
   }
 
-  return <div className='flex flex-col space-y-[2rem]'></div>;
+  return (
+    <div className='flex flex-col space-y-[2rem]'>
+      {/* <Tabs
+        defaultValue='yearly'
+        className='flex w-full flex-col items-center'
+        value={activeTab}
+      >
+        <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
+          <TabsTrigger
+            value='yearly'
+            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
+              'bg-slate-950': activeTab === 'yearly',
+            })}
+            onClick={() => setActiveTab('yearly')}
+          >
+            Yearly
+          </TabsTrigger>
+          <TabsTrigger
+            value='monthly'
+            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
+              'bg-slate-950': activeTab === 'monthly',
+            })}
+            onClick={() => setActiveTab('monthly')}
+          >
+            Monthly
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value='yearly' className='mt-[2rem]'>
+          <div className='flex h-[500px] flex-row space-x-[2rem]'>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
+            >
+              <img
+                src='/portal/producer-f.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Individual</p>
+                <p className='text-lg font-bold'>200 / year</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
+            >
+              <img
+                src='/portal/producer-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Team</p>
+                <p className='text-lg font-bold'>360 / year</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() =>
+                (window.location.href = 'mailto:business@ouros.media')
+              }
+            >
+              <img
+                src='/portal/personality-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Enterprise</p>
+                <p className='text-lg font-bold'>Contact us</p>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value='monthly' className='mt-[2rem]'>
+          <div className='flex h-[500px] flex-row space-x-[2rem]'>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
+            >
+              <img
+                src='/portal/performer-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Individual</p>
+                <p className='text-lg font-bold'>10 / month</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
+            >
+              <img
+                src='/portal/performer-f.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Team</p>
+                <p className='text-lg font-bold'>50 / month</p>
+              </div>
+            </div>
+            <div
+              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+              onClick={() =>
+                (window.location.href = 'mailto:business@ouros.media')
+              }
+            >
+              <img
+                src='/portal/personality-m.png'
+                className='aspect-square w-full bg-black'
+              />
+              <div className='flex h-full w-full flex-col justify-center'>
+                <p className='font-extraBold text-3xl'>Enterprise</p>
+                <p className='text-lg font-bold'>Contact us</p>
+              </div>
+            </div>
+          </div>
+        </TabsContent>
+      </Tabs> */}
+    </div>
+  );
 }

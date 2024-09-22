@@ -1,10 +1,4 @@
 'use client';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { SetStateAction, useEffect, useState } from 'react';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';

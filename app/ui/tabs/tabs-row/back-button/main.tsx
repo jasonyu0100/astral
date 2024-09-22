@@ -1,5 +1,5 @@
-import { CircleLeftIcon } from '@/(core)/(dashboard)/common/tabs/tabs-row/back-button/circle-left/main';
-import { LinkInputProps } from '@/types/props/main';
+import { AstralArrowCircleLeftIcon } from '@/icons/arrow-circle-left/main';
+import { LinkInputProps } from '@/props/main';
 import Link from 'next/link';
 
 export function TabsBackButton({ ...props }: LinkInputProps) {
@@ -8,7 +8,7 @@ export function TabsBackButton({ ...props }: LinkInputProps) {
       {...props}
       className='mr-[3rem] flex h-[3rem] w-[2rem] flex-col items-start justify-center'
     >
-      <CircleLeftIcon />
+      <AstralArrowCircleLeftIcon />
     </Link>
   );
 }
