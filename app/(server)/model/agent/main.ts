@@ -31,7 +31,7 @@ export const exampleAgent: AgentObj = {
   bio: 'Been playing for X years',
   dp: {
     id: '0',
-    src: '/agents/chatgpt.jpg',
+    src: '/llm/chatgpt.jpg',
     ext: 'image/png',
     title: 'Chat GPT',
     size: 0,
@@ -48,7 +48,7 @@ export const exampleAgents: AgentObj[] = [
     bio: 'Been playing for X years',
     dp: {
       id: '0',
-      src: '/agents/chatgpt.jpg',
+      src: '/llm/chatgpt.jpg',
       ext: 'image/png',
       title: 'Chat GPT',
       size: 0,
@@ -63,7 +63,7 @@ export const exampleAgents: AgentObj[] = [
     bio: 'Been playing for X years',
     dp: {
       id: '0',
-      src: '/agents/gemini.webp',
+      src: '/llm/gemini.webp',
       ext: 'image/webp',
       title: 'Gemini',
       size: 0,
@@ -78,7 +78,7 @@ export const exampleAgents: AgentObj[] = [
     bio: 'Been playing for X years',
     dp: {
       id: '0',
-      src: '/agents/claude.svg',
+      src: '/llm/claude.svg',
       ext: 'image/svg',
       title: 'Claude',
       size: 0,
@@ -93,7 +93,7 @@ export const exampleAgents: AgentObj[] = [
     bio: 'Been playing for X years',
     dp: {
       id: '0',
-      src: '/agents/palm.png',
+      src: '/llm/palm.png',
       ext: 'image/png',
       title: 'Palm',
       size: 0,
