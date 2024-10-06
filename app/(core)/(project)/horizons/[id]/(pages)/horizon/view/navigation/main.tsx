@@ -1,10 +1,10 @@
 import { NavigationTimelineContainer } from './container/main';
-import { HorizonsArcNavigationRow } from './row/main';
+import { HorizonsHorizonNavigationRow } from './row/main';
 
-export function HorizonsArcNavigation() {
+export function HorizonsHorizonNavigation() {
   return (
     <NavigationTimelineContainer>
-      <HorizonsArcNavigationRow />
+      <HorizonsHorizonNavigationRow />
     </NavigationTimelineContainer>
   );
 }

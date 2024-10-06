@@ -16,7 +16,7 @@ export function HorizonsHorizonPost() {
         <HorizonsHorizonListPost />
         <HorizonsHorizonListRow />
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }

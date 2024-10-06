@@ -18,6 +18,7 @@ function Page() {
   return (
     <ViewWrapper>
       <HorizonsFieldView>
+        <HorizonsFieldSidebar />
         <div className='flex h-full w-full flex-col overflow-hidden'>
           <div
             className='relative w-full'
@@ -30,7 +31,6 @@ function Page() {
           </div>
           <HorizonsFieldCreateSpace />
         </div>
-        <HorizonsFieldSidebar />
       </HorizonsFieldView>
     </ViewWrapper>
   );

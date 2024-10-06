@@ -7,13 +7,13 @@ export function HorizonsHorizonMain() {
   return (
     <div
       style={{
-        height: 'calc(100% - 8rem)',
+        height: 'calc(100% - 13rem)',
       }}
       className='relative flex w-full flex-col overflow-auto'
     >
       <ImageBackground />
       <AbsoluteHolder>
-        <div className='h-full w-full p-[2rem]'>
+        <div className='h-full w-full'>
           <div className='h-full w-full overflow-auto p-[2rem]'>
             <div className='flex w-full flex-col space-y-[4rem]'>
               <HorizonsHorizonStatus />
