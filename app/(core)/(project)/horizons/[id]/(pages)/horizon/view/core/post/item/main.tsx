@@ -8,7 +8,7 @@ export function HorizonsHorizonListPost() {
   const horizonsHorizonModal = useContext(ContextForHorizonsHorizonModals);
   return (
     <div
-      className='flex w-full flex-row items-center space-x-[4rem] p-[2rem]'
+      className='my-[2rem] flex w-full flex-row items-center space-x-[4rem]'
       onClick={() => {
         horizonsHorizonModal.horizonPostModal.open();
       }}
@@ -22,15 +22,15 @@ export function HorizonsHorizonListPost() {
           <p className='w-full text-center text-lg font-bold text-slate-300'>
             User Experience Design
           </p>
-          <p className='w-full text-center text-lg font-light text-slate-300'>
+          <p className='h-full w-full text-center text-lg font-light text-slate-300'>
             Astral is the creative collaborative platform that grows with you.
             Whether you're a creative visionary, product manager, or startup
             founder, Astral empowers you and your team with the tools to
             transform ideas into reality, fostering collaboration every step of
             the way.
           </p>
+          <HorizontalDivider />
         </div>
-        <HorizontalDivider />
       </div>
       <div className='flex flex-col items-center space-y-[1rem]'>
         <AstralArrowDropUp className='h-[3rem] w-[3rem]' />

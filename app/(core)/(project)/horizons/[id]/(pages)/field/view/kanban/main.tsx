@@ -6,11 +6,11 @@ import {
 } from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
-import { HorizonsBoardListItem } from './lists/item/main';
-import { HorizonsBoardList } from './lists/main';
+import { HorizonsFieldListItem } from './lists/item/main';
+import { HorizonsFieldList } from './lists/main';
 import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 
-export function HorizonsBoardKanban() {
+export function HorizonsFieldKanban() {
   const wayListController = useContext(ContextForChapterWayList);
 
   const [todo, setTodo] = useState<ChapterWayObj[]>([]);
@@ -55,7 +55,7 @@ export function HorizonsBoardKanban() {
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
       <div className='grid h-1/2 w-full grid-cols-3'>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle>Early</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.TODO}
@@ -70,23 +70,23 @@ export function HorizonsBoardKanban() {
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterWayObj.Provider value={log}>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </ContextForChapterWayObj.Provider>
                 </li>
               ))}
             </ul>
-            {/* <HorizonsBoardAddItem
+            {/* <HorizonsFieldAddItem
               onClick={() => {
                 setPopulated(false);
               }}
             >
               <p className='font-bold text-slate-300'>Add Log</p>
               <AstralAddIcon />
-            </HorizonsBoardAddItem> */}
-          </HorizonsBoardList>
+            </HorizonsFieldAddItem> */}
+          </HorizonsFieldList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle>Mid</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.IN_PROGRESS}
@@ -101,15 +101,15 @@ export function HorizonsBoardKanban() {
               {inProgress.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </li>
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsBoardList>
+          </HorizonsFieldList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle>Late</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
@@ -125,17 +125,17 @@ export function HorizonsBoardKanban() {
               {review.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </li>
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsBoardList>
+          </HorizonsFieldList>
         </div>
       </div>
       <div className='grid h-1/2 w-full grid-cols-3'>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.TODO}
@@ -150,23 +150,23 @@ export function HorizonsBoardKanban() {
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterWayObj.Provider value={log}>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </ContextForChapterWayObj.Provider>
                 </li>
               ))}
             </ul>
-            {/* <HorizonsBoardAddItem
+            {/* <HorizonsFieldAddItem
               onClick={() => {
                 setPopulated(false);
               }}
             >
               <p className='font-bold text-slate-300'>Add Log</p>
               <AstralAddIcon />
-            </HorizonsBoardAddItem> */}
-          </HorizonsBoardList>
+            </HorizonsFieldAddItem> */}
+          </HorizonsFieldList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.IN_PROGRESS}
@@ -181,15 +181,15 @@ export function HorizonsBoardKanban() {
               {inProgress.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </li>
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsBoardList>
+          </HorizonsFieldList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsBoardList>
+          <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
@@ -205,12 +205,12 @@ export function HorizonsBoardKanban() {
               {review.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
-                    <HorizonsBoardListItem />
+                    <HorizonsFieldListItem />
                   </li>
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsBoardList>
+          </HorizonsFieldList>
         </div>
       </div>
     </div>

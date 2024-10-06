@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
-export function HorizonsBoardList({ children }: { children: React.ReactNode }) {
+export function HorizonsFieldList({ children }: { children: React.ReactNode }) {
   return (
     <GlassWindowFrame
       className='h-full w-full p-[1rem]'

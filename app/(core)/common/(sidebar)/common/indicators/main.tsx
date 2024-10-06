@@ -4,7 +4,7 @@ export function CommonSidebarIndicators({
   children?: React.ReactNode;
 }) {
   return (
-    <div className='inline-flex flex-col items-start space-y-[2rem]'>
+    <div className='inline-flex flex-col items-start space-y-[2.5rem]'>
       {children}
     </div>
   );

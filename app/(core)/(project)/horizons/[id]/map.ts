@@ -6,11 +6,11 @@ export const horizonsMap = {
       horizon: {
         link: (id: string) => `${baseUrl}/${id}/horizon`,
       },
-      board: {
-        link: (id: string) => `${baseUrl}/${id}/board`,
-      },
       arc: {
         link: (id: string) => `${baseUrl}/${id}/arc`,
+      },
+      field: {
+        link: (id: string) => `${baseUrl}/${id}/field`,
       },
       point: {
         link: (id: string) => `${baseUrl}/${id}/point`,

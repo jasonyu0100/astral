@@ -7,7 +7,7 @@ import { ctwn } from '@/utils/cn';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function HorizonsBoardListItem() {
+export function HorizonsFieldListItem() {
   const log = useContext(ContextForChapterWayObj);
 
   return (
@@ -25,7 +25,7 @@ export function HorizonsBoardListItem() {
           {getFormattedDate(new Date(log.created))}
         </p>
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-20']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

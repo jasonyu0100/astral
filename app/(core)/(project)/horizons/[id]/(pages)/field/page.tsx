@@ -9,15 +9,15 @@ import { ImageBackground } from '@/ui/background/img/main';
 import { AbsoluteHolder } from '@/ui/holder/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
-import { HorizonsBoardCreateSpace } from './view/create/main';
-import { HorizonsBoardKanban } from './view/kanban/main';
-import { HorizonsBoardView } from './view/main';
-import { HorizonsBoardSidebar } from './view/sidebar/main';
+import { HorizonsFieldCreateSpace } from './view/create/main';
+import { HorizonsFieldKanban } from './view/kanban/main';
+import { HorizonsFieldView } from './view/main';
+import { HorizonsFieldSidebar } from './view/sidebar/main';
 
 function Page() {
   return (
     <ViewWrapper>
-      <HorizonsBoardView>
+      <HorizonsFieldView>
         <div className='flex h-full w-full flex-col overflow-hidden'>
           <div
             className='relative w-full'
@@ -25,13 +25,13 @@ function Page() {
           >
             <ImageBackground />
             <AbsoluteHolder>
-              <HorizonsBoardKanban />
+              <HorizonsFieldKanban />
             </AbsoluteHolder>
           </div>
-          <HorizonsBoardCreateSpace />
+          <HorizonsFieldCreateSpace />
         </div>
-        <HorizonsBoardSidebar />
-      </HorizonsBoardView>
+        <HorizonsFieldSidebar />
+      </HorizonsFieldView>
     </ViewWrapper>
   );
 }
@@ -41,7 +41,7 @@ function ViewWrapper({ children }: { children?: React.ReactNode }) {
     <DashboardController fullHeight>
       <CommonSidebar minimised backUrl={explorerMap.explorer.projects.link} />
       <DashboardBody>
-        <HorizonTabs tab={HorizonTabStage.Board} />
+        <HorizonTabs tab={HorizonTabStage.Field} />
         <DashboardContent>{children}</DashboardContent>
       </DashboardBody>
     </DashboardController>
