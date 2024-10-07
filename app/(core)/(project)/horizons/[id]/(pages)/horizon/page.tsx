@@ -8,9 +8,9 @@ import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
 import { HorizonsHorizonModals } from './modals/controller/main';
-import { HorizonsHorizonMain } from './view/core/main';
-import { HorizonsHorizonSchedulePost } from './view/core/schedule/main';
 import { HorizonHorizonView } from './view/main';
+import { HorizonsHorizonMain } from './view/main/main';
+import { HorizonsHorizonSchedulePost } from './view/main/schedule/main';
 import { HorizonHorizonSidebar } from './view/sidebar/main';
 
 function Page() {
