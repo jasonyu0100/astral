@@ -7,7 +7,7 @@ export function HorizonsHorizonMain() {
   return (
     <div
       style={{
-        height: 'calc(100% - 13rem)',
+        height: 'calc(100% - 8rem)',
       }}
       className='relative flex w-full flex-col overflow-auto'
     >

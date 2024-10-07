@@ -1,14 +1,18 @@
-import { borderFx, glassFx } from '@/style/data';
+import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { HorizonsFieldSidebarHeader } from './header/main';
+import { HorizonsFieldsSidebarList } from './list/main';
 
 export function HorizonsFieldSidebar() {
   return (
     <GlassAreaContainer
       name={HorizonsFieldSidebar.name}
-      sizeFx='w-[360px] h-full flex-shrink-0'
-      className={`flex flex-col space-y-[1rem] p-[1rem]`}
+      sizeFx='w-[360px] h-full'
       glassFx={glassFx['glass-10']}
-      borderFx={borderFx['border-l']}
-    ></GlassAreaContainer>
+      className={`flex flex-col items-center overflow-hidden`}
+    >
+      <HorizonsFieldSidebarHeader />
+      <HorizonsFieldsSidebarList />
+    </GlassAreaContainer>
   );
 }

@@ -6,7 +6,7 @@ export function HorizonsArcCore() {
   return (
     <div
       className='relative flex flex-grow flex-col'
-      style={{ height: 'calc(100% - 13rem)' }}
+      style={{ height: 'calc(100% - 5rem)' }}
     >
       <ImageBackground />
       <AbsoluteHolder>

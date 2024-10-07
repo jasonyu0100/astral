@@ -53,7 +53,7 @@ export function HorizonsFieldKanban() {
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid h-1/2 w-full grid-cols-3'>
+      <div className='grid h-full w-full grid-cols-3'>
         <div className='flex h-full flex-col space-y-[1rem]'>
           <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle>Early</SpacesJourneyKanbanListTitle>
@@ -111,86 +111,6 @@ export function HorizonsFieldKanban() {
         <div className='flex h-full flex-col space-y-[1rem]'>
           <HorizonsFieldList>
             <SpacesJourneyKanbanListTitle>Late</SpacesJourneyKanbanListTitle>
-            <ul
-              id={ChapterWayStatus.REVIEW}
-              className='w-full space-y-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {/* {review.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
-
-              {review.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
-                  <li data-id={log.id} className='drag-item'>
-                    <HorizonsFieldListItem />
-                  </li>
-                </ContextForChapterWayObj.Provider>
-              ))}
-            </ul>
-          </HorizonsFieldList>
-        </div>
-      </div>
-      <div className='grid h-1/2 w-full grid-cols-3'>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
-            <ul
-              id={ChapterWayStatus.TODO}
-              className='w-full space-y-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {/* {todo.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
-              {todo.map((log) => (
-                <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterWayObj.Provider value={log}>
-                    <HorizonsFieldListItem />
-                  </ContextForChapterWayObj.Provider>
-                </li>
-              ))}
-            </ul>
-            {/* <HorizonsFieldAddItem
-              onClick={() => {
-                setPopulated(false);
-              }}
-            >
-              <p className='font-bold text-slate-300'>Add Log</p>
-              <AstralAddIcon />
-            </HorizonsFieldAddItem> */}
-          </HorizonsFieldList>
-        </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
-            <ul
-              id={ChapterWayStatus.IN_PROGRESS}
-              className='w-full space-y-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {/* {inProgress.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
-              {inProgress.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
-                  <li data-id={log.id} className='drag-item'>
-                    <HorizonsFieldListItem />
-                  </li>
-                </ContextForChapterWayObj.Provider>
-              ))}
-            </ul>
-          </HorizonsFieldList>
-        </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle></SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
               className='w-full space-y-[1rem]'

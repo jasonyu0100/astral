@@ -17,10 +17,6 @@ function Page() {
   );
 }
 
-{
-  /* What is the point? */
-}
-
 function ViewWrapper({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardController fullHeight>

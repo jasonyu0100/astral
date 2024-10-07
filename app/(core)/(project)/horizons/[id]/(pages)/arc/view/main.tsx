@@ -2,7 +2,6 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizonsArcCore } from './core/main';
 import { HorizonsArcNavigation } from './navigation/main';
-import { HorizonsArcSchedule } from './schedule/main';
 import { HorizonsArcSidebar } from './sidebar/main';
 
 export function HorizonArcView() {
@@ -17,7 +16,7 @@ export function HorizonArcView() {
     >
       <HorizonsArcSidebar />
       <div className='flex h-full flex-grow flex-col overflow-hidden'>
-        <HorizonsArcSchedule />
+        {/* <HorizonsArcSchedule /> */}
         <HorizonsArcCore />
         <HorizonsArcNavigation />
       </div>

@@ -11,7 +11,6 @@ import { HorizonsHorizonModals } from './modals/controller/main';
 import { HorizonsHorizonMain } from './view/core/main';
 import { HorizonsHorizonSchedulePost } from './view/core/schedule/main';
 import { HorizonHorizonView } from './view/main';
-import { HorizonsHorizonNavigation } from './view/navigation/main';
 import { HorizonHorizonSidebar } from './view/sidebar/main';
 
 function Page() {
@@ -20,9 +19,9 @@ function Page() {
       <HorizonHorizonView>
         <HorizonHorizonSidebar />
         <div className='h-full flex-grow overflow-hidden'>
-          <HorizonsHorizonSchedulePost />
           <HorizonsHorizonMain />
-          <HorizonsHorizonNavigation />
+          <HorizonsHorizonSchedulePost />
+          {/* <HorizonsHorizonNavigation /> */}
         </div>
       </HorizonHorizonView>
     </ViewWrapper>
