@@ -28,6 +28,7 @@ import { AstralFullscreenIcon } from './fullscreen/main';
 import { AstralGestureIcon } from './gesture/main';
 import { AstralHideImageIcon } from './hide-image/main';
 import { AstralHideSourceIcon } from './hide-source/main';
+import { AstralHiearchyIcon } from './hiearchy/main';
 import { AstralHomeIcon } from './home/main';
 import { AstralImageIcon } from './image/main';
 import { AstralInfoIcon } from './info/main';
@@ -114,6 +115,7 @@ export default function Page() {
       <AstralCalendarIcon />
       <AstralSidebarLeftIcon />
       <AstralSidebarRightIcon />
+      <AstralHiearchyIcon />
     </div>
   );
 }

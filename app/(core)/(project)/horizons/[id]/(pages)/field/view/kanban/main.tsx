@@ -7,7 +7,7 @@ import {
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { HorizonsFieldListItem } from './lists/item/main';
-import { HorizonsFieldList } from './lists/main';
+import { HorizonsFieldRow } from './lists/main';
 import { SpacesJourneyKanbanListTitle } from './lists/title/main';
 
 export function HorizonsFieldKanban() {
@@ -53,10 +53,10 @@ export function HorizonsFieldKanban() {
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid h-full w-full grid-cols-3'>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle>Early</SpacesJourneyKanbanListTitle>
+      <div className='grid h-full w-full grid-rows-4'>
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <HorizonsFieldRow>
+            <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.TODO}
               className='w-full space-y-[1rem]'
@@ -83,11 +83,13 @@ export function HorizonsFieldKanban() {
               <p className='font-bold text-slate-300'>Add Log</p>
               <AstralAddIcon />
             </HorizonsFieldAddItem> */}
-          </HorizonsFieldList>
+          </HorizonsFieldRow>
         </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle>Mid</SpacesJourneyKanbanListTitle>
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <HorizonsFieldRow>
+            <SpacesJourneyKanbanListTitle>
+              In Progress
+            </SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.IN_PROGRESS}
               className='w-full space-y-[1rem]'
@@ -106,11 +108,11 @@ export function HorizonsFieldKanban() {
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsFieldList>
+          </HorizonsFieldRow>
         </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <HorizonsFieldList>
-            <SpacesJourneyKanbanListTitle>Late</SpacesJourneyKanbanListTitle>
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <HorizonsFieldRow>
+            <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
               className='w-full space-y-[1rem]'
@@ -130,7 +132,31 @@ export function HorizonsFieldKanban() {
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </HorizonsFieldList>
+          </HorizonsFieldRow>
+        </div>{' '}
+        <div className='flex w-full flex-col space-y-[1rem]'>
+          <HorizonsFieldRow>
+            <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
+            <ul
+              id={ChapterWayStatus.DONE}
+              className='w-full space-y-[1rem]'
+              style={{ height: '100%' }}
+            >
+              {/* {done.length === 0 && (
+                <p className='w-full text-center font-bold text-slate-500'>
+                  No items
+                </p>
+              )} */}
+
+              {done.map((log) => (
+                <ContextForChapterWayObj.Provider value={log}>
+                  <li data-id={log.id} className='drag-item'>
+                    <HorizonsFieldListItem />
+                  </li>
+                </ContextForChapterWayObj.Provider>
+              ))}
+            </ul>
+          </HorizonsFieldRow>
         </div>
       </div>
     </div>

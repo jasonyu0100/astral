@@ -2,7 +2,7 @@ import { AstralAddIcon } from '@/icons/add/main';
 import { AstralColumnsIcon } from '@/icons/columns/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralTableIcon } from '@/icons/table/main';
-import { PipIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/pip/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -34,7 +34,7 @@ export function SpacesJourneyHeaderLeft() {
           );
         }}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralTableIcon
         onClick={() => {
           if (dataMode === SpacesJourneyDataMode.COLUMNS) {
@@ -59,7 +59,7 @@ export function SpacesJourneyHeaderLeft() {
           'fill-blue-500': dataMode === SpacesJourneyDataMode.COLUMNS,
         })}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralAddIcon onClick={() => modalController.addLogController.open()} />
     </div>
   );

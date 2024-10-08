@@ -20,9 +20,9 @@ import { ImagePreview } from './form/image-preview/main';
 import { FormInput } from './form/input/main';
 import { FormSelect } from './form/select/main';
 import { FormTitle } from './form/title/main';
+import { BarDividerIndicator } from './indicator/bar/main';
 import { HorizontalDivider } from './indicator/divider/horizontal/main';
 import { VerticalDivider } from './indicator/divider/vertical/main';
-import { PipIndicator } from './indicator/pip/main';
 import { HorizontalSeperator } from './indicator/seperator/main';
 import { FeltModal } from './modal/felt/main';
 import { PolaroidModal } from './modal/polaroid/main';
@@ -74,7 +74,7 @@ export default function Page() {
       <p className='text-3xl font-bold text-white'>Dividers</p>
       <HorizontalDivider />
       <VerticalDivider />
-      <PipIndicator />
+      <BarDividerIndicator />
       <HorizontalSeperator />
       <p className='text-3xl font-bold text-white'>Form</p>
       <FormBody>

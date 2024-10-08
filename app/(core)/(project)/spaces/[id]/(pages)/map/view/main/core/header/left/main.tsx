@@ -7,7 +7,7 @@ import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
-import { PipIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/pip/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -53,7 +53,7 @@ export function SpacesMapHeaderLeft() {
           );
         }}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralCursorIcon
         className={
           selectedIdeas.length === 0 ? 'fill-slate-300' : 'fill-blue-500'
@@ -125,7 +125,7 @@ export function SpacesMapHeaderLeft() {
           }
         }}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

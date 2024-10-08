@@ -1,8 +1,8 @@
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralColumnsIcon } from '@/icons/columns/main';
+import { AstralHiearchyIcon } from '@/icons/hiearchy/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralTableIcon } from '@/icons/table/main';
-import { PipIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 
 export function HorizonsFieldHeaderLeft() {
@@ -27,7 +27,7 @@ export function HorizonsFieldHeaderLeft() {
           // );
         }}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralTableIcon
         onClick={() => {
           // if (dataMode === HorizonsFieldDataMode.COLUMNS) {
@@ -40,22 +40,9 @@ export function HorizonsFieldHeaderLeft() {
           // 'fill-blue-500': dataMode === HorizonsFieldDataMode.TABLE,
         })}
       />
-      <AstralColumnsIcon
-        onClick={() => {
-          // if (dataMode === HorizonsFieldDataMode.COLUMNS) {
-          //   updateDataMode(HorizonsFieldDataMode.TABLE);
-          // } else {
-          //   updateDataMode(HorizonsFieldDataMode.COLUMNS);
-          // }
-        }}
-        className={ctwn('fill-slate-300', {
-          // 'fill-blue-500': dataMode === HorizonsFieldDataMode.COLUMNS,
-        })}
-      />
-      <PipIndicator />
-      <AstralAddIcon
-      // onClick={() => modalController.addLogController.open()}
-      />
+      <AstralHiearchyIcon />
+      <BarDividerIndicator />
+      <AstralAddIcon />
     </div>
   );
 }

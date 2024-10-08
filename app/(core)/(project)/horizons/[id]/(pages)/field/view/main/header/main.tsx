@@ -1,5 +1,7 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { HorizonsFieldHeaderLeft } from './left/main';
+import { HorizonsFieldHeaderRight } from './right/main';
 
 export function HorizonsFieldHeader() {
   return (
@@ -9,9 +11,8 @@ export function HorizonsFieldHeader() {
       glassFx={glassFx['glass-5']}
       className={`flex items-center justify-between px-[1rem]`}
     >
-      {/* <HorizonsFieldHeaderLeft /> */}
-      {/* <HorizonsFieldHeaderMiddle /> */}
-      {/* <HorizonsFieldHeaderRight /> */}
+      <HorizonsFieldHeaderLeft />
+      <HorizonsFieldHeaderRight />
     </GlassAreaContainer>
   );
 }
