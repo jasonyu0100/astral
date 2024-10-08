@@ -12,35 +12,6 @@ type AgentObjConnection {
   nextToken: String
 }
 
-type ArcForumObj {
-  id: String!
-  arcId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-type ArcForumObjConnection {
-  items: [ArcForumObj]
-  nextToken: String
-}
-
-type ArcPointObj {
-  id: String!
-  arcId: String!
-  spaceId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  idx: Int!
-}
-
-type ArcPointObjConnection {
-  items: [ArcPointObj]
-  nextToken: String
-}
-
 type ChapterConversationObj {
   id: String!
   userId: String!
@@ -279,23 +250,6 @@ input CreateAgentObjInput {
   bio: String!
 }
 
-input CreateArcForumObjInput {
-  arcId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-input CreateArcPointObjInput {
-  arcId: String!
-  spaceId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  idx: Int!
-}
-
 input CreateChapterConversationObjInput {
   userId: String!
   chapterId: String!
@@ -443,20 +397,6 @@ input CreateConversationMessageObjInput {
   urlElem: UrlElemInput
 }
 
-input CreateForumMemberObjInput {
-  forumId: String!
-  userId: String!
-  created: String!
-}
-
-input CreateForumPostObjInput {
-  forumId: String!
-  title: String!
-  description: String!
-  created: String!
-  userId: String!
-}
-
 input CreateGalleryCollectionObjInput {
   galleryId: String!
   title: String!
@@ -476,15 +416,6 @@ input CreateGalleryObjInput {
   description: String!
   created: String!
   thumbnail: FileElemInput!
-}
-
-input CreateHorizonArcObjInput {
-  horizonId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  idx: Int!
 }
 
 input CreateHorizonGroupMemberObjInput {
@@ -583,14 +514,6 @@ input CreateHorizonSessionUpdateObjInput {
   sessionId: String!
   value: Int!
   message: String!
-  created: String!
-}
-
-input CreatePostCommentObjInput {
-  postId: String!
-  userId: String!
-  title: String!
-  description: String!
   created: String!
 }
 
@@ -823,14 +746,6 @@ input DeleteAgentObjInput {
   id: String!
 }
 
-input DeleteArcForumObjInput {
-  id: String!
-}
-
-input DeleteArcPointObjInput {
-  id: String!
-}
-
 input DeleteChapterConversationObjInput {
   id: String!
 }
@@ -887,14 +802,6 @@ input DeleteConversationMessageObjInput {
   id: String!
 }
 
-input DeleteForumMemberObjInput {
-  id: String!
-}
-
-input DeleteForumPostObjInput {
-  id: String!
-}
-
 input DeleteGalleryCollectionObjInput {
   id: String!
 }
@@ -904,10 +811,6 @@ input DeleteGalleryMemberObjInput {
 }
 
 input DeleteGalleryObjInput {
-  id: String!
-}
-
-input DeleteHorizonArcObjInput {
   id: String!
 }
 
@@ -964,10 +867,6 @@ input DeleteHorizonSessionUpdateMemberObjInput {
 }
 
 input DeleteHorizonSessionUpdateObjInput {
-  id: String!
-}
-
-input DeletePostCommentObjInput {
   id: String!
 }
 
@@ -1085,32 +984,6 @@ input FileElemInput {
   variant: String
 }
 
-type ForumMemberObj {
-  id: String!
-  forumId: String!
-  userId: String!
-  created: String!
-}
-
-type ForumMemberObjConnection {
-  items: [ForumMemberObj]
-  nextToken: String
-}
-
-type ForumPostObj {
-  id: String!
-  userId: String!
-  forumId: String!
-  title: String!
-  description: String!
-  created: String!
-}
-
-type ForumPostObjConnection {
-  items: [ForumPostObj]
-  nextToken: String
-}
-
 type GalleryCollectionObj {
   id: String!
   galleryId: String!
@@ -1147,21 +1020,6 @@ type GalleryObj {
 
 type GalleryObjConnection {
   items: [GalleryObj]
-  nextToken: String
-}
-
-type HorizonArcObj {
-  id: String!
-  horizonId: String!
-  userId: String!
-  title: String!
-  description: String!
-  created: String!
-  idx: Int!
-}
-
-type HorizonArcObjConnection {
-  items: [HorizonArcObj]
   nextToken: String
 }
 
@@ -1356,20 +1214,6 @@ input ModelSizeInput {
   ge: Int
   gt: Int
   between: [Int]
-}
-
-type PostCommentObj {
-  id: String!
-  postId: String!
-  title: String!
-  description: String!
-  userId: String!
-  created: String!
-}
-
-type PostCommentObjConnection {
-  items: [PostCommentObj]
-  nextToken: String
 }
 
 type SceneConversationObj {
@@ -1598,25 +1442,6 @@ input TableAgentObjFilterInput {
   bio: TableStringFilterInput
 }
 
-input TableArcForumObjFilterInput {
-  id: TableStringFilterInput
-  arcId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableArcPointObjFilterInput {
-  id: TableStringFilterInput
-  spaceId: TableStringFilterInput
-  arcId: TableStringFilterInput
-  userId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  idx: TableIntFilterInput
-}
-
 input TableBooleanFilterInput {
   ne: Boolean
   eq: Boolean
@@ -1789,22 +1614,6 @@ input TableFloatFilterInput {
   attributeExists: Boolean
 }
 
-input TableForumMemberObjFilterInput {
-  id: TableStringFilterInput
-  forumId: TableStringFilterInput
-  userId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableForumPostObjFilterInput {
-  id: TableStringFilterInput
-  forumId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  userId: TableStringFilterInput
-}
-
 input TableGalleryCollectionObjFilterInput {
   id: TableStringFilterInput
   galleryId: TableStringFilterInput
@@ -1826,16 +1635,6 @@ input TableGalleryObjFilterInput {
   title: TableStringFilterInput
   description: TableStringFilterInput
   created: TableStringFilterInput
-}
-
-input TableHorizonArcObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  horizonId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  idx: TableIntFilterInput
 }
 
 input TableHorizonGroupMemberObjFilterInput {
@@ -1974,15 +1773,6 @@ input TableIntFilterInput {
   gt: Int
   between: [Int]
   attributeExists: Boolean
-}
-
-input TablePostCommentObjFilterInput {
-  id: TableStringFilterInput
-  postId: TableStringFilterInput
-  userId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
 }
 
 input TableSceneConversationObjFilterInput {
@@ -2257,25 +2047,6 @@ input UpdateAgentObjInput {
   bio: String
 }
 
-input UpdateArcForumObjInput {
-  id: String!
-  arcId: String
-  title: String
-  description: String
-  created: String
-}
-
-input UpdateArcPointObjInput {
-  id: String!
-  spaceId: String
-  userId: String
-  arcId: String
-  title: String
-  description: String
-  created: String
-  idx: Int
-}
-
 input UpdateChapterConversationObjInput {
   id: String!
   userId: String
@@ -2434,22 +2205,6 @@ input UpdateConversationMessageObjInput {
   urlElem: UrlElemInput
 }
 
-input UpdateForumMemberObjInput {
-  id: String!
-  forumId: String
-  userId: String
-  created: String
-}
-
-input UpdateForumPostObjInput {
-  id: String!
-  userId: String
-  forumId: String
-  title: String
-  description: String
-  created: String
-}
-
 input UpdateGalleryCollectionObjInput {
   id: String!
   galleryId: String
@@ -2472,16 +2227,6 @@ input UpdateGalleryObjInput {
   description: String
   created: String
   thumbnail: FileElemInput
-}
-
-input UpdateHorizonArcObjInput {
-  id: String!
-  userId: String
-  horizonId: String
-  title: String
-  description: String
-  created: String
-  idx: Int
 }
 
 input UpdateHorizonGroupMemberObjInput {
@@ -2594,15 +2339,6 @@ input UpdateHorizonSessionUpdateObjInput {
   sessionId: String
   value: Int
   message: String
-  created: String
-}
-
-input UpdatePostCommentObjInput {
-  id: String!
-  userId: String
-  postId: String
-  title: String
-  description: String
   created: String
 }
 
@@ -3025,9 +2761,6 @@ type Mutation {
   createChapterSceneObj(input: CreateChapterSceneObjInput!): ChapterSceneObj
   updateChapterSceneObj(input: UpdateChapterSceneObjInput!): ChapterSceneObj
   deleteChapterSceneObj(input: DeleteChapterSceneObjInput!): ChapterSceneObj
-  createArcPointObj(input: CreateArcPointObjInput!): ArcPointObj
-  updateArcPointObj(input: UpdateArcPointObjInput!): ArcPointObj
-  deleteArcPointObj(input: DeleteArcPointObjInput!): ArcPointObj
   createConversationMessageObj(
     input: CreateConversationMessageObjInput!
   ): ConversationMessageObj
@@ -3040,15 +2773,6 @@ type Mutation {
   createSceneIdeaObj(input: CreateSceneIdeaObjInput!): SceneIdeaObj
   updateSceneIdeaObj(input: UpdateSceneIdeaObjInput!): SceneIdeaObj
   deleteSceneIdeaObj(input: DeleteSceneIdeaObjInput!): SceneIdeaObj
-  createForumPostObj(input: CreateForumPostObjInput!): ForumPostObj
-  updateForumPostObj(input: UpdateForumPostObjInput!): ForumPostObj
-  deleteForumPostObj(input: DeleteForumPostObjInput!): ForumPostObj
-  createPostCommentObj(input: CreatePostCommentObjInput!): PostCommentObj
-  updatePostCommentObj(input: UpdatePostCommentObjInput!): PostCommentObj
-  deletePostCommentObj(input: DeletePostCommentObjInput!): PostCommentObj
-  createHorizonArcObj(input: CreateHorizonArcObjInput!): HorizonArcObj
-  updateHorizonArcObj(input: UpdateHorizonArcObjInput!): HorizonArcObj
-  deleteHorizonArcObj(input: DeleteHorizonArcObjInput!): HorizonArcObj
   createHorizonObj(input: CreateHorizonObjInput!): HorizonObj
   updateHorizonObj(input: UpdateHorizonObjInput!): HorizonObj
   deleteHorizonObj(input: DeleteHorizonObjInput!): HorizonObj
@@ -3070,9 +2794,6 @@ type Mutation {
   createSpaceObj(input: CreateSpaceObjInput!): SpaceObj
   updateSpaceObj(input: UpdateSpaceObjInput!): SpaceObj
   deleteSpaceObj(input: DeleteSpaceObjInput!): SpaceObj
-  createForumMemberObj(input: CreateForumMemberObjInput!): ForumMemberObj
-  updateForumMemberObj(input: UpdateForumMemberObjInput!): ForumMemberObj
-  deleteForumMemberObj(input: DeleteForumMemberObjInput!): ForumMemberObj
   createHorizonMemberObj(input: CreateHorizonMemberObjInput!): HorizonMemberObj
   updateHorizonMemberObj(input: UpdateHorizonMemberObjInput!): HorizonMemberObj
   deleteHorizonMemberObj(input: DeleteHorizonMemberObjInput!): HorizonMemberObj
@@ -3100,9 +2821,6 @@ type Mutation {
   deleteUserReservationObj(
     input: DeleteUserReservationObjInput!
   ): UserReservationObj
-  createArcForumObj(input: CreateArcForumObjInput!): ArcForumObj
-  updateArcForumObj(input: UpdateArcForumObjInput!): ArcForumObj
-  deleteArcForumObj(input: DeleteArcForumObjInput!): ArcForumObj
   createAgentObj(input: CreateAgentObjInput!): AgentObj
   updateAgentObj(input: UpdateAgentObjInput!): AgentObj
   deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
@@ -3428,12 +3146,6 @@ type Query {
     limit: Int
     nextToken: String
   ): ChapterSceneObjConnection
-  getArcPointObj(id: String!): ArcPointObj
-  listArcPointObjs(
-    filter: TableArcPointObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ArcPointObjConnection
   getConversationMessageObj(id: String!): ConversationMessageObj
   listConversationMessageObjs(
     filter: TableConversationMessageObjFilterInput
@@ -3446,24 +3158,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SceneIdeaObjConnection
-  getForumPostObj(id: String!): ForumPostObj
-  listForumPostObjs(
-    filter: TableForumPostObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ForumPostObjConnection
-  getPostCommentObj(id: String!): PostCommentObj
-  listPostCommentObjs(
-    filter: TablePostCommentObjFilterInput
-    limit: Int
-    nextToken: String
-  ): PostCommentObjConnection
-  getHorizonArcObj(id: String!): HorizonArcObj
-  listHorizonArcObjs(
-    filter: TableHorizonArcObjFilterInput
-    limit: Int
-    nextToken: String
-  ): HorizonArcObjConnection
   getHorizonObj(id: String!): HorizonObj
   listHorizonObjs(
     filter: TableHorizonObjFilterInput
@@ -3494,12 +3188,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SpaceObjConnection
-  getForumMemberObj(id: String!): ForumMemberObj
-  listForumMemberObjs(
-    filter: TableForumMemberObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ForumMemberObjConnection
   getHorizonMemberObj(id: String!): HorizonMemberObj
   listHorizonMemberObjs(
     filter: TableHorizonMemberObjFilterInput
@@ -3530,12 +3218,6 @@ type Query {
     limit: Int
     nextToken: String
   ): UserReservationObjConnection
-  getArcForumObj(id: String!): ArcForumObj
-  listArcForumObjs(
-    filter: TableArcForumObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ArcForumObjConnection
   getAgentObj(id: String!): AgentObj
   listAgentObjs(
     filter: TableAgentObjFilterInput
@@ -3822,27 +3504,6 @@ type Subscription {
     description: String
     variant: String
   ): ChapterSceneObj @aws_subscribe(mutations: ["deleteChapterSceneObj"])
-  onCreateArcPointObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcPointObj @aws_subscribe(mutations: ["createArcPointObj"])
-  onUpdateArcPointObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcPointObj @aws_subscribe(mutations: ["updateArcPointObj"])
-  onDeleteArcPointObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcPointObj @aws_subscribe(mutations: ["deleteArcPointObj"])
   onCreateConversationMessageObj(
     id: String
     userId: String
@@ -3885,69 +3546,6 @@ type Subscription {
     description: String
     x: Int
   ): SceneIdeaObj @aws_subscribe(mutations: ["deleteSceneIdeaObj"])
-  onCreateForumPostObj(
-    id: String
-    forumId: String
-    title: String
-    description: String
-    created: String
-  ): ForumPostObj @aws_subscribe(mutations: ["createForumPostObj"])
-  onUpdateForumPostObj(
-    id: String
-    forumId: String
-    title: String
-    description: String
-    created: String
-  ): ForumPostObj @aws_subscribe(mutations: ["updateForumPostObj"])
-  onDeleteForumPostObj(
-    id: String
-    forumId: String
-    title: String
-    description: String
-    created: String
-  ): ForumPostObj @aws_subscribe(mutations: ["deleteForumPostObj"])
-  onCreatePostCommentObj(
-    id: String
-    postId: String
-    title: String
-    description: String
-    created: String
-  ): PostCommentObj @aws_subscribe(mutations: ["createPostCommentObj"])
-  onUpdatePostCommentObj(
-    id: String
-    postId: String
-    title: String
-    description: String
-    created: String
-  ): PostCommentObj @aws_subscribe(mutations: ["updatePostCommentObj"])
-  onDeletePostCommentObj(
-    id: String
-    postId: String
-    title: String
-    description: String
-    created: String
-  ): PostCommentObj @aws_subscribe(mutations: ["deletePostCommentObj"])
-  onCreateHorizonArcObj(
-    id: String
-    horizonId: String
-    title: String
-    description: String
-    created: String
-  ): HorizonArcObj @aws_subscribe(mutations: ["createHorizonArcObj"])
-  onUpdateHorizonArcObj(
-    id: String
-    horizonId: String
-    title: String
-    description: String
-    created: String
-  ): HorizonArcObj @aws_subscribe(mutations: ["updateHorizonArcObj"])
-  onDeleteHorizonArcObj(
-    id: String
-    horizonId: String
-    title: String
-    description: String
-    created: String
-  ): HorizonArcObj @aws_subscribe(mutations: ["deleteHorizonArcObj"])
   onCreateHorizonObj(
     id: String
     userId: String
@@ -4056,21 +3654,6 @@ type Subscription {
     created: String
     description: String
   ): SpaceObj @aws_subscribe(mutations: ["deleteSpaceObj"])
-  onCreateForumMemberObj(
-    id: String
-    forumId: String
-    userId: String
-  ): ForumMemberObj @aws_subscribe(mutations: ["createForumMemberObj"])
-  onUpdateForumMemberObj(
-    id: String
-    forumId: String
-    userId: String
-  ): ForumMemberObj @aws_subscribe(mutations: ["updateForumMemberObj"])
-  onDeleteForumMemberObj(
-    id: String
-    forumId: String
-    userId: String
-  ): ForumMemberObj @aws_subscribe(mutations: ["deleteForumMemberObj"])
   onCreateHorizonMemberObj(
     id: String
     horizonId: String
@@ -4155,27 +3738,6 @@ type Subscription {
     email: String
     role: String
   ): UserReservationObj @aws_subscribe(mutations: ["deleteUserReservationObj"])
-  onCreateArcForumObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcForumObj @aws_subscribe(mutations: ["createArcForumObj"])
-  onUpdateArcForumObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcForumObj @aws_subscribe(mutations: ["updateArcForumObj"])
-  onDeleteArcForumObj(
-    id: String
-    arcId: String
-    title: String
-    description: String
-    created: String
-  ): ArcForumObj @aws_subscribe(mutations: ["deleteArcForumObj"])
   onCreateAgentObj(
     id: String
     name: String
