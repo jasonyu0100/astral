@@ -54,19 +54,57 @@ type ChapterConversationObjConnection {
   nextToken: String
 }
 
-type ChapterLogObj {
+type ChapterReviewContributorObj {
   id: String!
+  reviewId: String!
   userId: String!
-  chapterId: String!
-  title: String!
-  description: String!
-  summary: String!
-  logStatus: String!
   created: String!
 }
 
-type ChapterLogObjConnection {
-  items: [ChapterLogObj]
+type ChapterReviewContributorObjConnection {
+  items: [ChapterReviewContributorObj]
+  nextToken: String
+}
+
+type ChapterReviewObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  chapterId: String!
+  title: String!
+  duration: Int!
+  description: String!
+  created: String!
+}
+
+type ChapterReviewObjConnection {
+  items: [ChapterReviewObj]
+  nextToken: String
+}
+
+type ChapterReviewUpdateObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  reviewId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  spotlightId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
+}
+
+type ChapterReviewUpdateObjConnection {
+  items: [ChapterReviewUpdateObj]
   nextToken: String
 }
 
@@ -167,6 +205,22 @@ type ChapterSpotlightObjConnection {
   nextToken: String
 }
 
+type ChapterWayObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  summary: String!
+  wayStatus: String!
+  created: String!
+}
+
+type ChapterWayObjConnection {
+  items: [ChapterWayObj]
+  nextToken: String
+}
+
 type CollectionResourceObj {
   id: String!
   userId: String!
@@ -249,14 +303,40 @@ input CreateChapterConversationObjInput {
   created: String!
 }
 
-input CreateChapterLogObjInput {
+input CreateChapterReviewContributorObjInput {
+  reviewId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateChapterReviewObjInput {
+  spaceId: String!
   userId: String!
   chapterId: String!
   title: String!
+  duration: Int!
   description: String!
-  summary: String!
-  logStatus: String!
   created: String!
+}
+
+input CreateChapterReviewUpdateObjInput {
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  reviewId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  spotlightId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
 }
 
 input CreateChapterSceneObjInput {
@@ -320,6 +400,16 @@ input CreateChapterSpotlightObjInput {
   spotlightStatus: String!
 }
 
+input CreateChapterWayObjInput {
+  userId: String!
+  chapterId: String!
+  title: String!
+  description: String!
+  summary: String!
+  wayStatus: String!
+  created: String!
+}
+
 input CreateCollectionResourceObjInput {
   userId: String!
   collectionId: String!
@@ -365,6 +455,27 @@ input CreateForumPostObjInput {
   description: String!
   created: String!
   userId: String!
+}
+
+input CreateGalleryCollectionObjInput {
+  galleryId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+input CreateGalleryMemberObjInput {
+  galleryId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateGalleryObjInput {
+  userId: String!
+  title: String!
+  description: String!
+  created: String!
+  thumbnail: FileElemInput!
 }
 
 input CreateHorizonArcObjInput {
@@ -472,29 +583,6 @@ input CreateHorizonSessionUpdateObjInput {
   sessionId: String!
   value: Int!
   message: String!
-  created: String!
-}
-
-input CreateLogLinkObjInput {
-  logId: String!
-  userId: String!
-  title: String!
-  fromIdea: Boolean!
-  ideaId: String
-  chapterId: String
-  spaceId: String
-  sceneId: String
-  description: String!
-  variant: String!
-  created: String!
-  fileElem: FileElemInput
-  textElem: TextElemInput
-  urlElem: UrlElemInput
-}
-
-input CreateLogMemberObjInput {
-  logId: String!
-  userId: String!
   created: String!
 }
 
@@ -708,24 +796,26 @@ input CreateUserSupporterObjInput {
   created: String!
 }
 
-input CreateGalleryCollectionObjInput {
-  galleryId: String!
+input CreateWayLinkObjInput {
+  wayId: String!
+  userId: String!
+  fromIdea: Boolean!
+  ideaId: String
+  chapterId: String
+  spaceId: String
+  sceneId: String
   title: String!
   description: String!
+  variant: String!
   created: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
-input CreateGalleryMemberObjInput {
-  galleryId: String!
+input CreateWayMemberObjInput {
+  wayId: String!
   userId: String!
-  created: String!
-}
-
-input CreateGalleryObjInput {
-  userId: String!
-  title: String!
-  description: String!
-  thumbnail: FileElemInput
   created: String!
 }
 
@@ -745,7 +835,15 @@ input DeleteChapterConversationObjInput {
   id: String!
 }
 
-input DeleteChapterLogObjInput {
+input DeleteChapterReviewContributorObjInput {
+  id: String!
+}
+
+input DeleteChapterReviewObjInput {
+  id: String!
+}
+
+input DeleteChapterReviewUpdateObjInput {
   id: String!
 }
 
@@ -773,6 +871,10 @@ input DeleteChapterSpotlightObjInput {
   id: String!
 }
 
+input DeleteChapterWayObjInput {
+  id: String!
+}
+
 input DeleteCollectionResourceObjInput {
   id: String!
 }
@@ -790,6 +892,18 @@ input DeleteForumMemberObjInput {
 }
 
 input DeleteForumPostObjInput {
+  id: String!
+}
+
+input DeleteGalleryCollectionObjInput {
+  id: String!
+}
+
+input DeleteGalleryMemberObjInput {
+  id: String!
+}
+
+input DeleteGalleryObjInput {
   id: String!
 }
 
@@ -850,14 +964,6 @@ input DeleteHorizonSessionUpdateMemberObjInput {
 }
 
 input DeleteHorizonSessionUpdateObjInput {
-  id: String!
-}
-
-input DeleteLogLinkObjInput {
-  id: String!
-}
-
-input DeleteLogMemberObjInput {
   id: String!
 }
 
@@ -953,15 +1059,11 @@ input DeleteUserSupporterObjInput {
   id: String!
 }
 
-input DeleteGalleryCollectionObjInput {
+input DeleteWayLinkObjInput {
   id: String!
 }
 
-input DeleteGalleryMemberObjInput {
-  id: String!
-}
-
-input DeleteGalleryObjInput {
+input DeleteWayMemberObjInput {
   id: String!
 }
 
@@ -1006,6 +1108,45 @@ type ForumPostObj {
 
 type ForumPostObjConnection {
   items: [ForumPostObj]
+  nextToken: String
+}
+
+type GalleryCollectionObj {
+  id: String!
+  galleryId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+type GalleryCollectionObjConnection {
+  items: [GalleryCollectionObj]
+  nextToken: String
+}
+
+type GalleryMemberObj {
+  id: String!
+  galleryId: String!
+  userId: String!
+  created: String!
+}
+
+type GalleryMemberObjConnection {
+  items: [GalleryMemberObj]
+  nextToken: String
+}
+
+type GalleryObj {
+  id: String!
+  userId: String!
+  title: String!
+  description: String!
+  thumbnail: FileElem!
+  created: String!
+}
+
+type GalleryObjConnection {
+  items: [GalleryObj]
   nextToken: String
 }
 
@@ -1204,41 +1345,6 @@ type HorizonSessionUpdateObj {
 
 type HorizonSessionUpdateObjConnection {
   items: [HorizonSessionUpdateObj]
-  nextToken: String
-}
-
-type LogLinkObj {
-  id: String!
-  fromIdea: Boolean!
-  ideaId: String
-  chapterId: String
-  spaceId: String
-  sceneId: String
-  logId: String!
-  userId: String!
-  title: String!
-  description: String!
-  variant: String!
-  fileElem: FileElem
-  textElem: TextElem
-  urlElem: UrlElem
-  created: String!
-}
-
-type LogLinkObjConnection {
-  items: [LogLinkObj]
-  nextToken: String
-}
-
-type LogMemberObj {
-  id: String!
-  logId: String!
-  userId: String!
-  created: String!
-}
-
-type LogMemberObjConnection {
-  items: [LogMemberObj]
   nextToken: String
 }
 
@@ -1525,15 +1631,43 @@ input TableChapterConversationObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableChapterLogObjFilterInput {
+input TableChapterReviewContributorObjFilterInput {
   id: TableStringFilterInput
+  reviewId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterReviewObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
   userId: TableStringFilterInput
   chapterId: TableStringFilterInput
   title: TableStringFilterInput
+  duration: TableIntFilterInput
   description: TableStringFilterInput
-  summary: TableStringFilterInput
-  logStatus: TableStringFilterInput
   created: TableStringFilterInput
+}
+
+input TableChapterReviewUpdateObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  reviewId: TableStringFilterInput
+  added: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  spotlightId: TableStringFilterInput
+  wayId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  attachmentId: TableStringFilterInput
+  contributorId: TableStringFilterInput
 }
 
 input TableChapterSceneObjFilterInput {
@@ -1603,6 +1737,17 @@ input TableChapterSpotlightObjFilterInput {
   spotlightStatus: TableStringFilterInput
 }
 
+input TableChapterWayObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  summary: TableStringFilterInput
+  wayStatus: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
 input TableCollectionResourceObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
@@ -1658,6 +1803,29 @@ input TableForumPostObjFilterInput {
   description: TableStringFilterInput
   created: TableStringFilterInput
   userId: TableStringFilterInput
+}
+
+input TableGalleryCollectionObjFilterInput {
+  id: TableStringFilterInput
+  galleryId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableGalleryMemberObjFilterInput {
+  id: TableStringFilterInput
+  galleryId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableGalleryObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
 }
 
 input TableHorizonArcObjFilterInput {
@@ -1806,28 +1974,6 @@ input TableIntFilterInput {
   gt: Int
   between: [Int]
   attributeExists: Boolean
-}
-
-input TableLogLinkObjFilterInput {
-  id: TableStringFilterInput
-  fromIdea: TableBooleanFilterInput
-  ideaId: TableStringFilterInput
-  chapterId: TableStringFilterInput
-  spaceId: TableStringFilterInput
-  sceneId: TableStringFilterInput
-  logId: TableStringFilterInput
-  userId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  variant: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableLogMemberObjFilterInput {
-  id: TableStringFilterInput
-  logId: TableStringFilterInput
-  userId: TableStringFilterInput
-  created: TableStringFilterInput
 }
 
 input TablePostCommentObjFilterInput {
@@ -2067,26 +2213,25 @@ input TableUserSupporterObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableGalleryCollectionObjFilterInput {
+input TableWayLinkObjFilterInput {
   id: TableStringFilterInput
-  galleryId: TableStringFilterInput
+  wayId: TableStringFilterInput
+  userId: TableStringFilterInput
+  fromIdea: TableBooleanFilterInput
+  ideaId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  sceneId: TableStringFilterInput
   title: TableStringFilterInput
   description: TableStringFilterInput
+  variant: TableStringFilterInput
   created: TableStringFilterInput
 }
 
-input TableGalleryMemberObjFilterInput {
+input TableWayMemberObjFilterInput {
   id: TableStringFilterInput
-  galleryId: TableStringFilterInput
+  wayId: TableStringFilterInput
   userId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableGalleryObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
   created: TableStringFilterInput
 }
 
@@ -2139,15 +2284,43 @@ input UpdateChapterConversationObjInput {
   created: String
 }
 
-input UpdateChapterLogObjInput {
+input UpdateChapterReviewContributorObjInput {
   id: String!
+  reviewId: String
+  userId: String
+  created: String
+}
+
+input UpdateChapterReviewObjInput {
+  id: String!
+  spaceId: String
   userId: String
   chapterId: String
   title: String
+  duration: Int
   description: String
-  summary: String
-  logStatus: String
   created: String
+}
+
+input UpdateChapterReviewUpdateObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  spaceId: String
+  reviewId: String
+  added: Boolean
+  title: String
+  description: String
+  created: String
+  variant: String
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  spotlightId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
 }
 
 input UpdateChapterSceneObjInput {
@@ -2217,6 +2390,17 @@ input UpdateChapterSpotlightObjInput {
   spotlightStatus: String
 }
 
+input UpdateChapterWayObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  title: String
+  description: String
+  summary: String
+  wayStatus: String
+  created: String
+}
+
 input UpdateCollectionResourceObjInput {
   id: String!
   userId: String
@@ -2264,6 +2448,30 @@ input UpdateForumPostObjInput {
   title: String
   description: String
   created: String
+}
+
+input UpdateGalleryCollectionObjInput {
+  id: String!
+  galleryId: String
+  title: String
+  description: String
+  created: String
+}
+
+input UpdateGalleryMemberObjInput {
+  id: String!
+  galleryId: String
+  userId: String
+  created: String
+}
+
+input UpdateGalleryObjInput {
+  id: String!
+  userId: String
+  title: String
+  description: String
+  created: String
+  thumbnail: FileElemInput
 }
 
 input UpdateHorizonArcObjInput {
@@ -2386,31 +2594,6 @@ input UpdateHorizonSessionUpdateObjInput {
   sessionId: String
   value: Int
   message: String
-  created: String
-}
-
-input UpdateLogLinkObjInput {
-  id: String!
-  fromIdea: Boolean
-  ideaId: String
-  chapterId: String
-  spaceId: String
-  sceneId: String
-  logId: String
-  userId: String
-  title: String
-  description: String
-  variant: String
-  created: String
-  fileElem: FileElemInput
-  textElem: TextElemInput
-  urlElem: UrlElemInput
-}
-
-input UpdateLogMemberObjInput {
-  id: String!
-  logId: String
-  userId: String
   created: String
 }
 
@@ -2648,27 +2831,28 @@ input UpdateUserSupporterObjInput {
   created: String
 }
 
-input UpdateGalleryCollectionObjInput {
+input UpdateWayLinkObjInput {
   id: String!
-  galleryId: String
+  wayId: String
+  userId: String
+  fromIdea: Boolean
+  ideaId: String
+  chapterId: String
+  spaceId: String
+  sceneId: String
   title: String
   description: String
+  variant: String
   created: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
 }
 
-input UpdateGalleryMemberObjInput {
+input UpdateWayMemberObjInput {
   id: String!
-  galleryId: String
+  wayId: String
   userId: String
-  created: String
-}
-
-input UpdateGalleryObjInput {
-  id: String!
-  userId: String
-  title: String
-  description: String
-  thumbnail: FileElemInput
   created: String
 }
 
@@ -2802,28 +2986,39 @@ type UserSupporterObjConnection {
   nextToken: String
 }
 
-type GalleryCollectionObj {
+type WayLinkObj {
   id: String!
-  galleryId: String!
+  wayId: String!
+  userId: String!
+  fromIdea: Boolean!
+  ideaId: String
+  chapterId: String
+  spaceId: String
+  sceneId: String
   title: String!
   description: String!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
   created: String!
 }
 
-type GalleryMemberObj {
+type WayLinkObjConnection {
+  items: [WayLinkObj]
+  nextToken: String
+}
+
+type WayMemberObj {
   id: String!
-  galleryId: String!
+  wayId: String!
   userId: String!
   created: String!
 }
 
-type GalleryObj {
-  id: String!
-  userId: String!
-  title: String!
-  description: String!
-  thumbnail: FileElem!
-  created: String!
+type WayMemberObjConnection {
+  items: [WayMemberObj]
+  nextToken: String
 }
 
 type Mutation {
@@ -3139,15 +3334,6 @@ type Mutation {
   createSpotlightLinkObj(input: CreateSpotlightLinkObjInput!): SpotlightLinkObj
   updateSpotlightLinkObj(input: UpdateSpotlightLinkObjInput!): SpotlightLinkObj
   deleteSpotlightLinkObj(input: DeleteSpotlightLinkObjInput!): SpotlightLinkObj
-  createLogLinkObj(input: CreateLogLinkObjInput!): LogLinkObj
-  updateLogLinkObj(input: UpdateLogLinkObjInput!): LogLinkObj
-  deleteLogLinkObj(input: DeleteLogLinkObjInput!): LogLinkObj
-  createLogMemberObj(input: CreateLogMemberObjInput!): LogMemberObj
-  updateLogMemberObj(input: UpdateLogMemberObjInput!): LogMemberObj
-  deleteLogMemberObj(input: DeleteLogMemberObjInput!): LogMemberObj
-  createChapterLogObj(input: CreateChapterLogObjInput!): ChapterLogObj
-  updateChapterLogObj(input: UpdateChapterLogObjInput!): ChapterLogObj
-  deleteChapterLogObj(input: DeleteChapterLogObjInput!): ChapterLogObj
   createSpaceIdeaRelationshipObj(
     input: CreateSpaceIdeaRelationshipObjInput!
   ): SpaceIdeaRelationshipObj
@@ -3187,6 +3373,51 @@ type Mutation {
   deleteChapterConversationObj(
     input: DeleteChapterConversationObjInput!
   ): ChapterConversationObj
+  createGalleryObj(input: CreateGalleryObjInput!): GalleryObj
+  updateGalleryObj(input: UpdateGalleryObjInput!): GalleryObj
+  deleteGalleryObj(input: DeleteGalleryObjInput!): GalleryObj
+  createGalleryCollectionObj(
+    input: CreateGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  updateGalleryCollectionObj(
+    input: UpdateGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  deleteGalleryCollectionObj(
+    input: DeleteGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  createGalleryMemberObj(input: CreateGalleryMemberObjInput!): GalleryMemberObj
+  updateGalleryMemberObj(input: UpdateGalleryMemberObjInput!): GalleryMemberObj
+  deleteGalleryMemberObj(input: DeleteGalleryMemberObjInput!): GalleryMemberObj
+  createChapterReviewObj(input: CreateChapterReviewObjInput!): ChapterReviewObj
+  updateChapterReviewObj(input: UpdateChapterReviewObjInput!): ChapterReviewObj
+  deleteChapterReviewObj(input: DeleteChapterReviewObjInput!): ChapterReviewObj
+  createChapterReviewUpdateObj(
+    input: CreateChapterReviewUpdateObjInput!
+  ): ChapterReviewUpdateObj
+  updateChapterReviewUpdateObj(
+    input: UpdateChapterReviewUpdateObjInput!
+  ): ChapterReviewUpdateObj
+  deleteChapterReviewUpdateObj(
+    input: DeleteChapterReviewUpdateObjInput!
+  ): ChapterReviewUpdateObj
+  createChapterReviewContributorObj(
+    input: CreateChapterReviewContributorObjInput!
+  ): ChapterReviewContributorObj
+  updateChapterReviewContributorObj(
+    input: UpdateChapterReviewContributorObjInput!
+  ): ChapterReviewContributorObj
+  deleteChapterReviewContributorObj(
+    input: DeleteChapterReviewContributorObjInput!
+  ): ChapterReviewContributorObj
+  createChapterWayObj(input: CreateChapterWayObjInput!): ChapterWayObj
+  updateChapterWayObj(input: UpdateChapterWayObjInput!): ChapterWayObj
+  deleteChapterWayObj(input: DeleteChapterWayObjInput!): ChapterWayObj
+  createWayLinkObj(input: CreateWayLinkObjInput!): WayLinkObj
+  updateWayLinkObj(input: UpdateWayLinkObjInput!): WayLinkObj
+  deleteWayLinkObj(input: DeleteWayLinkObjInput!): WayLinkObj
+  createWayMemberObj(input: CreateWayMemberObjInput!): WayMemberObj
+  updateWayMemberObj(input: UpdateWayMemberObjInput!): WayMemberObj
+  deleteWayMemberObj(input: DeleteWayMemberObjInput!): WayMemberObj
 }
 
 type Query {
@@ -3483,24 +3714,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SpotlightLinkObjConnection
-  getLogLinkObj(id: String!): LogLinkObj
-  listLogLinkObjs(
-    filter: TableLogLinkObjFilterInput
-    limit: Int
-    nextToken: String
-  ): LogLinkObjConnection
-  getLogMemberObj(id: String!): LogMemberObj
-  listLogMemberObjs(
-    filter: TableLogMemberObjFilterInput
-    limit: Int
-    nextToken: String
-  ): LogMemberObjConnection
-  getChapterLogObj(id: String!): ChapterLogObj
-  listChapterLogObjs(
-    filter: TableChapterLogObjFilterInput
-    limit: Int
-    nextToken: String
-  ): ChapterLogObjConnection
   getSpaceIdeaRelationshipObj(id: String!): SpaceIdeaRelationshipObj
   listSpaceIdeaRelationshipObjs(
     filter: TableSpaceIdeaRelationshipObjFilterInput
@@ -3531,6 +3744,60 @@ type Query {
     limit: Int
     nextToken: String
   ): ChapterConversationObjConnection
+  getGalleryObj(id: String!): GalleryObj
+  listGalleryObjs(
+    filter: TableGalleryObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryObjConnection
+  getGalleryCollectionObj(id: String!): GalleryCollectionObj
+  listGalleryCollectionObjs(
+    filter: TableGalleryCollectionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryCollectionObjConnection
+  getGalleryMemberObj(id: String!): GalleryMemberObj
+  listGalleryMemberObjs(
+    filter: TableGalleryMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryMemberObjConnection
+  getChapterReviewObj(id: String!): ChapterReviewObj
+  listChapterReviewObjs(
+    filter: TableChapterReviewObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterReviewObjConnection
+  getChapterReviewUpdateObj(id: String!): ChapterReviewUpdateObj
+  listChapterReviewUpdateObjs(
+    filter: TableChapterReviewUpdateObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterReviewUpdateObjConnection
+  getChapterReviewContributorObj(id: String!): ChapterReviewContributorObj
+  listChapterReviewContributorObjs(
+    filter: TableChapterReviewContributorObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterReviewContributorObjConnection
+  getChapterWayObj(id: String!): ChapterWayObj
+  listChapterWayObjs(
+    filter: TableChapterWayObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterWayObjConnection
+  getWayLinkObj(id: String!): WayLinkObj
+  listWayLinkObjs(
+    filter: TableWayLinkObjFilterInput
+    limit: Int
+    nextToken: String
+  ): WayLinkObjConnection
+  getWayMemberObj(id: String!): WayMemberObj
+  listWayMemberObjs(
+    filter: TableWayMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): WayMemberObjConnection
 }
 
 type Subscription {
@@ -4542,66 +4809,6 @@ type Subscription {
     logId: String
     created: String
   ): SpotlightLinkObj @aws_subscribe(mutations: ["deleteSpotlightLinkObj"])
-  onCreateLogLinkObj(
-    id: String
-    logId: String
-    userId: String
-    title: String
-    description: String
-  ): LogLinkObj @aws_subscribe(mutations: ["createLogLinkObj"])
-  onUpdateLogLinkObj(
-    id: String
-    logId: String
-    userId: String
-    title: String
-    description: String
-  ): LogLinkObj @aws_subscribe(mutations: ["updateLogLinkObj"])
-  onDeleteLogLinkObj(
-    id: String
-    logId: String
-    userId: String
-    title: String
-    description: String
-  ): LogLinkObj @aws_subscribe(mutations: ["deleteLogLinkObj"])
-  onCreateLogMemberObj(
-    id: String
-    logId: String
-    userId: String
-    created: String
-  ): LogMemberObj @aws_subscribe(mutations: ["createLogMemberObj"])
-  onUpdateLogMemberObj(
-    id: String
-    logId: String
-    userId: String
-    created: String
-  ): LogMemberObj @aws_subscribe(mutations: ["updateLogMemberObj"])
-  onDeleteLogMemberObj(
-    id: String
-    logId: String
-    userId: String
-    created: String
-  ): LogMemberObj @aws_subscribe(mutations: ["deleteLogMemberObj"])
-  onCreateChapterLogObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterLogObj @aws_subscribe(mutations: ["createChapterLogObj"])
-  onUpdateChapterLogObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterLogObj @aws_subscribe(mutations: ["updateChapterLogObj"])
-  onDeleteChapterLogObj(
-    id: String
-    userId: String
-    chapterId: String
-    title: String
-    description: String
-  ): ChapterLogObj @aws_subscribe(mutations: ["deleteChapterLogObj"])
   onCreateSpaceIdeaRelationshipObj(
     id: String
     userId: String
@@ -4716,4 +4923,193 @@ type Subscription {
     created: String
   ): ChapterConversationObj
     @aws_subscribe(mutations: ["deleteChapterConversationObj"])
+  onCreateGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["createGalleryObj"])
+  onUpdateGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["updateGalleryObj"])
+  onDeleteGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["deleteGalleryObj"])
+  onCreateGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["createGalleryCollectionObj"])
+  onUpdateGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["updateGalleryCollectionObj"])
+  onDeleteGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["deleteGalleryCollectionObj"])
+  onCreateGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["createGalleryMemberObj"])
+  onUpdateGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["updateGalleryMemberObj"])
+  onDeleteGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["deleteGalleryMemberObj"])
+  onCreateChapterReviewObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["createChapterReviewObj"])
+  onUpdateChapterReviewObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["updateChapterReviewObj"])
+  onDeleteChapterReviewObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterReviewObj @aws_subscribe(mutations: ["deleteChapterReviewObj"])
+  onCreateChapterReviewUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    reviewId: String
+  ): ChapterReviewUpdateObj
+    @aws_subscribe(mutations: ["createChapterReviewUpdateObj"])
+  onUpdateChapterReviewUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    reviewId: String
+  ): ChapterReviewUpdateObj
+    @aws_subscribe(mutations: ["updateChapterReviewUpdateObj"])
+  onDeleteChapterReviewUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    reviewId: String
+  ): ChapterReviewUpdateObj
+    @aws_subscribe(mutations: ["deleteChapterReviewUpdateObj"])
+  onCreateChapterReviewContributorObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ChapterReviewContributorObj
+    @aws_subscribe(mutations: ["createChapterReviewContributorObj"])
+  onUpdateChapterReviewContributorObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ChapterReviewContributorObj
+    @aws_subscribe(mutations: ["updateChapterReviewContributorObj"])
+  onDeleteChapterReviewContributorObj(
+    id: String
+    reviewId: String
+    userId: String
+    created: String
+  ): ChapterReviewContributorObj
+    @aws_subscribe(mutations: ["deleteChapterReviewContributorObj"])
+  onCreateChapterWayObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterWayObj @aws_subscribe(mutations: ["createChapterWayObj"])
+  onUpdateChapterWayObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterWayObj @aws_subscribe(mutations: ["updateChapterWayObj"])
+  onDeleteChapterWayObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): ChapterWayObj @aws_subscribe(mutations: ["deleteChapterWayObj"])
+  onCreateWayLinkObj(
+    id: String
+    wayId: String
+    userId: String
+    fromIdea: Boolean
+    ideaId: String
+  ): WayLinkObj @aws_subscribe(mutations: ["createWayLinkObj"])
+  onUpdateWayLinkObj(
+    id: String
+    wayId: String
+    userId: String
+    fromIdea: Boolean
+    ideaId: String
+  ): WayLinkObj @aws_subscribe(mutations: ["updateWayLinkObj"])
+  onDeleteWayLinkObj(
+    id: String
+    wayId: String
+    userId: String
+    fromIdea: Boolean
+    ideaId: String
+  ): WayLinkObj @aws_subscribe(mutations: ["deleteWayLinkObj"])
+  onCreateWayMemberObj(
+    id: String
+    wayId: String
+    userId: String
+    created: String
+  ): WayMemberObj @aws_subscribe(mutations: ["createWayMemberObj"])
+  onUpdateWayMemberObj(
+    id: String
+    wayId: String
+    userId: String
+    created: String
+  ): WayMemberObj @aws_subscribe(mutations: ["updateWayMemberObj"])
+  onDeleteWayMemberObj(
+    id: String
+    wayId: String
+    userId: String
+    created: String
+  ): WayMemberObj @aws_subscribe(mutations: ["deleteWayMemberObj"])
 }

@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForLogMemberList = (
+const useControllerForWayMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -345,5 +345,8 @@ const useControllerForLogMemberList = (
   };
 };
 
-const ContextForLogMemberList = createContext({} as Controller);
-export { ContextForLogMemberList, useControllerForLogMemberList };
+const ContextForWayMemberList = createContext({} as Controller);
+export {
+  ContextForWayMemberList as ContextForWayMemberList,
+  useControllerForWayMemberList as useControllerForWayMemberList,
+};

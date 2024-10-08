@@ -35,7 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForLogMemberMain = (objId: string): Controller => {
+const useControllerForWayMemberMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,8 @@ const useControllerForLogMemberMain = (objId: string): Controller => {
   };
 };
 
-const ContextForLogMemberMain = createContext({} as Controller);
-export { ContextForLogMemberMain, useControllerForLogMemberMain };
+const ContextForWayMemberMain = createContext({} as Controller);
+export {
+  ContextForWayMemberMain,
+  useControllerForWayMemberMain as useControllerForLogMemberMain,
+};
