@@ -4,7 +4,7 @@ export function HorizonsPointQuadrant({
   children?: React.ReactNode;
 }) {
   return (
-    <div className='flex h-full w-full flex-col space-y-[1rem] p-[2rem]'>
+    <div className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
       {children}
     </div>
   );

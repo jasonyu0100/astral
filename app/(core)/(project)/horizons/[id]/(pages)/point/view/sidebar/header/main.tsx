@@ -22,7 +22,7 @@ export function HorizonsFieldSidebarHeader() {
                 //   sidebarMode === SpacesJourneySidebarMode.LINKS,
               })}
             >
-              Horizon
+              Channel
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />
@@ -43,7 +43,7 @@ export function HorizonsFieldSidebarHeader() {
                 //   sidebarMode === SpacesJourneySidebarMode.NOTES,
               })}
             >
-              Spaces
+              History
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />

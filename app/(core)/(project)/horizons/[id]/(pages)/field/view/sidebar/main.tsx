@@ -1,7 +1,6 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizonsFieldSidebarHeader } from './header/main';
-import { HorizonsFieldsSidebarList } from './list/main';
 
 export function HorizonsFieldSidebar() {
   return (
@@ -12,7 +11,6 @@ export function HorizonsFieldSidebar() {
       className={`flex flex-col items-center overflow-hidden`}
     >
       <HorizonsFieldSidebarHeader />
-      <HorizonsFieldsSidebarList />
     </GlassAreaContainer>
   );
 }

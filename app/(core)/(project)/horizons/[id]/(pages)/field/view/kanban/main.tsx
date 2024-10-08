@@ -26,15 +26,13 @@ export function HorizonsFieldKanban() {
     const elDone = document.getElementById('done');
 
     const handleSortEnd = async (evt) => {
-      const fromList = evt.from.id;
-      const toList = evt.to.id;
-      const itemId = evt.item.dataset.id;
-
-      console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
-
-      await wayListController.actions.editActions.edit(itemId, {
-        wayStatus: toList,
-      });
+      // const fromList = evt.from.id;
+      // const toList = evt.to.id;
+      // const itemId = evt.item.dataset.id;
+      // console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
+      // await wayListController.actions.editActions.edit(itemId, {
+      //   wayStatus: toList,
+      // });
     };
 
     const sortableOptions = {
@@ -59,14 +57,15 @@ export function HorizonsFieldKanban() {
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.TODO}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
-              {/* {todo.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500'>adfs</div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500'>adfs</div>
+              </li>
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterWayObj.Provider value={log}>
@@ -75,14 +74,6 @@ export function HorizonsFieldKanban() {
                 </li>
               ))}
             </ul>
-            {/* <HorizonsFieldAddItem
-              onClick={() => {
-                setPopulated(false);
-              }}
-            >
-              <p className='font-bold text-slate-300'>Add Log</p>
-              <AstralAddIcon />
-            </HorizonsFieldAddItem> */}
           </HorizonsFieldRow>
         </div>
         <div className='flex w-full flex-col space-y-[1rem]'>
@@ -92,7 +83,7 @@ export function HorizonsFieldKanban() {
             </SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.IN_PROGRESS}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {inProgress.length === 0 && (
@@ -115,7 +106,7 @@ export function HorizonsFieldKanban() {
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {review.length === 0 && (
@@ -139,7 +130,7 @@ export function HorizonsFieldKanban() {
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.DONE}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {/* {done.length === 0 && (
