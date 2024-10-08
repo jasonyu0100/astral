@@ -1,6 +1,5 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import {
   HorizonHorizonSidebarItemHeader,
   KarmaState,
@@ -33,16 +32,6 @@ export function HorizonHorizonSidebar() {
       glassFx={glassFx['glass-10']}
     >
       <p className='text-xl font-bold text-slate-300'>Upcoming</p>
-      <p className='text-md font-light text-slate-300'>Arriving soon</p>
-      {arrivingSoon.map((post) => (
-        <HorizonHorizonSidebarItemHeader
-          title={post.title}
-          karma={post.karma}
-          time={post.time}
-        />
-      ))}
-      <HorizontalDivider />
-      <p className='text-md font-light text-slate-300'>Arriving in an hour</p>
       {arrivingSoon.map((post) => (
         <HorizonHorizonSidebarItemHeader
           title={post.title}

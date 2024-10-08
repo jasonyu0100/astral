@@ -83,11 +83,6 @@ export function SpacesJourneyKanban() {
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
-              {/* {todo.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
                   <ContextForChapterWayObj.Provider value={log}>
@@ -96,14 +91,6 @@ export function SpacesJourneyKanban() {
                 </li>
               ))}
             </ul>
-            {/* <SpaceJourneyAddItem
-              onClick={() => {
-                setPopulated(false);
-              }}
-            >
-              <p className='font-bold text-slate-300'>Add Log</p>
-              <AstralAddIcon />
-            </SpaceJourneyAddItem> */}
           </SpaceJourneyList>
         </div>
         <div className='flex h-full flex-col space-y-[1rem]'>
@@ -116,11 +103,6 @@ export function SpacesJourneyKanban() {
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
-              {/* {inProgress.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
               {inProgress.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
@@ -139,12 +121,6 @@ export function SpacesJourneyKanban() {
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
-              {/* {review.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
-
               {review.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
@@ -163,12 +139,6 @@ export function SpacesJourneyKanban() {
               className='w-full space-y-[1rem]'
               style={{ height: '100%' }}
             >
-              {/* {done.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
-                  No items
-                </p>
-              )} */}
-
               {done.map((log) => (
                 <ContextForChapterWayObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>

@@ -7,7 +7,7 @@ import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
-import { BarDividerIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {

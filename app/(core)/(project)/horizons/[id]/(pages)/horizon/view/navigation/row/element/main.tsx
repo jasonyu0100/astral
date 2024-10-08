@@ -15,7 +15,7 @@ export function HorizonsHorizonRowElement() {
         onClick={() => {}}
       >
         <p className='whitespace-nowrap text-sm font-bold text-slate-300'>
-          Arc Chapter
+          Horizon Chapter
         </p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />

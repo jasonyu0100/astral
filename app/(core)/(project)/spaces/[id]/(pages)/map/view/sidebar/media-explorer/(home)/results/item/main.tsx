@@ -1,5 +1,5 @@
 import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -12,28 +12,33 @@ export function SpacesMapGalleryItem() {
   const {
     actions: { goToGallery },
   } = useContext(ContextForSpacesMap);
-  const loggedInUser = useGlobalUser((state) => state.user);
+  const hoverableController = useControllerForHoverable();
 
   return (
-    <GlassWindowFrame
-      className='aspect-video w-full flex-shrink-0'
-      roundedFx={roundedFx.rounded}
-      borderFx={borderFx['border-around']}
+    <div
+      className='w-full'
+      onMouseEnter={() => hoverableController.onHover()}
+      onMouseLeave={() => hoverableController.onUnhover()}
     >
-      <GlassWindowContents
-        onClick={() => goToGallery(gallery)}
-        className='relative h-full w-full cursor-pointer'
+      <GlassWindowFrame
+        className='h-[4rem] w-full flex-shrink-0'
+        roundedFx={roundedFx['rounded-t']}
+        borderFx={borderFx['border-b']}
       >
-        <div className='absolute flex h-full w-full flex-col p-[1rem]'>
-          <p className='text-md w-full font-bold text-slate-300'>
-            {gallery.title || 'Untitled'}
-          </p>
-          <div className='mt-[1rem] text-sm font-normal text-slate-500'>
-            {loggedInUser?.fname} {loggedInUser?.lname}
+        <GlassWindowContents
+          onClick={() => goToGallery(gallery)}
+          className='relative h-full w-full cursor-pointer'
+        >
+          <div className='absolute flex h-full w-full flex-col p-[1rem]'>
+            <p className='text-md w-full font-bold text-slate-300'>
+              {gallery.title || 'Untitled'}
+            </p>
           </div>
-        </div>
-      </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
-    </GlassWindowFrame>
+        </GlassWindowContents>
+        {hoverableController.hovered && (
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        )}
+      </GlassWindowFrame>
+    </div>
   );
 }

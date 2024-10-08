@@ -7,7 +7,7 @@ export function SpaceJourneyList({ children }: { children: React.ReactNode }) {
   return (
     <GlassWindowFrame
       className='h-full w-full p-[1rem]'
-      borderFx={borderFx['border-l']}
+      borderFx={borderFx['border-l-dashed']}
     >
       <GlassWindowContents className='flex h-full flex-col items-center space-y-[1rem] overflow-auto'>
         {children}

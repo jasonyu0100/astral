@@ -2,7 +2,7 @@ import { AstralAddIcon } from '@/icons/add/main';
 import { AstralColumnsIcon } from '@/icons/columns/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralTableIcon } from '@/icons/table/main';
-import { BarDividerIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
