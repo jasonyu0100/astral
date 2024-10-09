@@ -23,7 +23,7 @@ export function SpacesTabFlight({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.flight.link(spaceId)}?chapter=${chapterId ?? ''}&spotlight=${postId ?? ''}`
+    ? `${spacesMap.spaces.id.flight.link(spaceId)}?chapter=${chapterId ?? ''}&post=${postId ?? ''}`
     : '#'; // Fallback URL if spaceId is undefined
 
   return (

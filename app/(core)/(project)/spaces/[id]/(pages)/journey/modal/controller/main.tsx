@@ -9,7 +9,7 @@ import { SpacesJourneyAddTextLinkModal } from '../add/link/text/main';
 import { SpacesJourneyAddLogModal } from '../add/log/main';
 import { SpacesJourneyAddSceneModal } from '../add/scene/main';
 import { SpacesJourneyAddUpdateModal } from '../add/update/main';
-import { SpacesJourneySpotlightModal } from '../generate/main';
+import { SpacesJourneyPostModal } from '../generate/main';
 
 export const ContextForSpacesJourneyModals = createContext(
   {} as SpacesJourneyModals,
@@ -18,7 +18,7 @@ export const ContextForSpacesJourneyModals = createContext(
 export interface SpacesJourneyModals {
   addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
-  addSpotlightController: ContextForOpenableInterface;
+  addPostController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
   addLogController: ContextForOpenableInterface;
@@ -31,7 +31,7 @@ export function SpacesJourneyModals({
 }) {
   const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
-  const addSpotlightController = useControllerForOpenable();
+  const addPostController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
   const addLogController = useControllerForOpenable();
@@ -41,7 +41,7 @@ export function SpacesJourneyModals({
       value={{
         addSceneController: addSceneController,
         addUpdateController: addUpdateController,
-        addSpotlightController: addSpotlightController,
+        addPostController: addPostController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
         addLogController: addLogController,
@@ -54,8 +54,8 @@ export function SpacesJourneyModals({
       <ContextForOpenable.Provider value={addUpdateController}>
         <SpacesJourneyAddUpdateModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addSpotlightController}>
-        <SpacesJourneySpotlightModal />
+      <ContextForOpenable.Provider value={addPostController}>
+        <SpacesJourneyPostModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextLinkController}>
         <SpacesJourneyAddTextLinkModal />

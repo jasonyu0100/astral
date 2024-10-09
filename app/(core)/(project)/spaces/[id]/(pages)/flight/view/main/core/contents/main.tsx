@@ -6,9 +6,7 @@ import { SpacesFlightEmpty } from './empty/main';
 import { SpacesFlightMain } from './main/main';
 
 export function SpacesFlightContents() {
-  const spotlightLightController = useContext(
-    ContextForUserPostListFromChapter,
-  );
+  const postLightController = useContext(ContextForUserPostListFromChapter);
   return (
     <div style={{ width: '100%', height: '100%' }}>
       <GlassAreaContainer
@@ -17,7 +15,7 @@ export function SpacesFlightContents() {
         className={`flex flex-col overflow-auto`}
       >
         <div className='flex flex-grow flex-col'>
-          {spotlightLightController.state.objId ? (
+          {postLightController.state.objId ? (
             <>
               <SpacesFlightMain />
               <SpacesFlightComments />

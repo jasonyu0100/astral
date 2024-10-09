@@ -1,9 +1,9 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/spotlight/attachment/main';
-import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/karma/main';
-import { postCommentDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/main';
-import { postKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
-import { postLinkDbWrapper } from '@/(server)/client/space/chapter/spotlight/link/main';
-import { userPostDbWrapper } from '@/(server)/client/space/chapter/spotlight/main';
+import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/post/attachment/main';
+import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/post/comment/karma/main';
+import { postCommentDbWrapper } from '@/(server)/client/space/chapter/post/comment/main';
+import { postKarmaDbWrapper } from '@/(server)/client/space/chapter/post/karma/main';
+import { postLinkDbWrapper } from '@/(server)/client/space/chapter/post/link/main';
+import { userPostDbWrapper } from '@/(server)/client/space/chapter/post/main';
 import { postAttachmentModel } from '@/(server)/model/post/attachment/main';
 import { commentKarmaModel } from '@/(server)/model/post/comment/karma/main';
 import { postCommentModel } from '@/(server)/model/post/comment/main';

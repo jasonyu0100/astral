@@ -4,9 +4,9 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main'
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
-  ContextForPostAttachmentListFromSpotlight,
-  useControllerForPostAttachmentListFromSpotlight,
-} from '@/(server)/controller/post/attachment/list-from-spotlight';
+  ContextForPostAttachmentListFromPost,
+  useControllerForPostAttachmentListFromPost,
+} from '@/(server)/controller/post/attachment/list-from-post';
 import {
   ContextForPostCommentList,
   useControllerForPostCommentList,
@@ -47,7 +47,7 @@ import { SpacesFlightView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const postId = searchParams.get('spotlight');
+  const postId = searchParams.get('post');
   const chapterId = searchParams.get('chapter');
 
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -63,13 +63,13 @@ function Page({ params }: { params: { id: string } }) {
   const commentListController = useControllerForPostCommentList(
     postListController.state.objId,
   );
+  console.log(commentListController.state.objs);
   const postKarmaListController = useControllerForPostKarmaList(
     postListController.state.objId,
   );
-  const attachmentListController =
-    useControllerForPostAttachmentListFromSpotlight(
-      postListController.state.objId,
-    );
+  const attachmentListController = useControllerForPostAttachmentListFromPost(
+    postListController.state.objId,
+  );
   const linkListController = useControllerForPostLinkList(
     postListController.state.objId,
   );
@@ -82,7 +82,7 @@ function Page({ params }: { params: { id: string } }) {
             value={postListController}
           >
             <ContextForPostKarmaList.Provider value={postKarmaListController}>
-              <ContextForPostAttachmentListFromSpotlight.Provider
+              <ContextForPostAttachmentListFromPost.Provider
                 value={attachmentListController}
               >
                 <ContextForPostCommentList.Provider
@@ -102,7 +102,7 @@ function Page({ params }: { params: { id: string } }) {
                     </UpdateWrapper>
                   </ContextForPostLinkList.Provider>
                 </ContextForPostCommentList.Provider>
-              </ContextForPostAttachmentListFromSpotlight.Provider>
+              </ContextForPostAttachmentListFromPost.Provider>
             </ContextForPostKarmaList.Provider>
           </ContextForUserPostListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>

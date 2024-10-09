@@ -1,4 +1,4 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/spotlight/attachment/main';
+import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/post/attachment/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

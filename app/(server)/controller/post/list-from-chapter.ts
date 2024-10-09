@@ -1,4 +1,4 @@
-import { userPostDbWrapper } from '@/(server)/client/space/chapter/spotlight/main';
+import { userPostDbWrapper } from '@/(server)/client/post/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -34,7 +34,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createSpotlight(
+  createPost(
     title: string,
     summary: string,
     userId: string,
@@ -276,7 +276,7 @@ const useControllerForUserPostListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createSpotlight: async (
+    createPost: async (
       title: string,
       description: string,
       userId: string,

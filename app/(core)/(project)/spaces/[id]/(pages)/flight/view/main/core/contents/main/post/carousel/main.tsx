@@ -1,11 +1,11 @@
-import { ContextForPostAttachmentListFromSpotlight } from '@/(server)/controller/post/attachment/list-from-spotlight';
+import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext, useState } from 'react';
 
 export function SpacesFlightCarousel() {
   const attachmentListController = useContext(
-    ContextForPostAttachmentListFromSpotlight,
+    ContextForPostAttachmentListFromPost,
   );
   const images = attachmentListController.state.objs.map(
     (obj) => obj.fileElem?.src || '',

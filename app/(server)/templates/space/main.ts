@@ -96,13 +96,13 @@ export interface TemplateSceneObj extends _TemplateSceneObj {
 // VERSE
 export interface TemplateLogObj extends _TemplateLogObj {}
 
-export type _TemplateSpotlightObj = Omit<UserPostObj, 'id' | 'chapterId'>;
+export type _TemplatePostObj = Omit<UserPostObj, 'id' | 'chapterId'>;
 export type _TemplateCommentObj = Omit<
   PostCommentObj,
   'id' | 'userId' | 'postId' | 'time'
 >;
 
-export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
+export interface TemplatePostObj extends _TemplatePostObj {
   comments?: _TemplateCommentObj[];
 }
 

@@ -1,4 +1,4 @@
-import { postCommentDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/main';
+import { postCommentDbWrapper } from '@/(server)/client/post/comment/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,

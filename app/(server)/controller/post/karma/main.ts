@@ -1,4 +1,4 @@
-import { postKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/karma/main';
+import { postKarmaDbWrapper } from '@/(server)/client/space/chapter/post/karma/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

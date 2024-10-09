@@ -5,8 +5,8 @@ import {
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpacesFlightAddCommentModal } from '../add/comment/main';
+import { SpacesFlightAddPostModal } from '../add/post/main';
 import { SpacesFlightAddSceneModal } from '../add/scene/main';
-import { SpacesFlightAddSpotlightModal } from '../add/spotlight/main';
 import { SpacesFlightShareReviewModal } from '../share/main';
 
 export const ContextForSpacesFlightModals = createContext(
@@ -15,7 +15,7 @@ export const ContextForSpacesFlightModals = createContext(
 
 export interface SpacesFlightModals {
   addSceneController: ContextForOpenableInterface;
-  addSpotlightController: ContextForOpenableInterface;
+  addPostController: ContextForOpenableInterface;
   addCommentController: ContextForOpenableInterface;
   shareReviewController: ContextForOpenableInterface;
 }
@@ -28,7 +28,7 @@ export function SpacesFlightModals({
   const addSceneController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
-  const addSpotlightController = useControllerForOpenable();
+  const addPostController = useControllerForOpenable();
 
   return (
     <ContextForSpacesFlightModals.Provider
@@ -37,7 +37,7 @@ export function SpacesFlightModals({
           addSceneController,
           addCommentController,
           shareReviewController,
-          addSpotlightController,
+          addPostController,
         } as SpacesFlightModals
       }
     >
@@ -51,8 +51,8 @@ export function SpacesFlightModals({
       <ContextForOpenable.Provider value={shareReviewController}>
         <SpacesFlightShareReviewModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addSpotlightController}>
-        <SpacesFlightAddSpotlightModal />
+      <ContextForOpenable.Provider value={addPostController}>
+        <SpacesFlightAddPostModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesFlightModals.Provider>
   );

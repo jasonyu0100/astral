@@ -3,17 +3,17 @@ import { UserActivityVariant } from '@/(server)/model/activity/main';
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
 import { useContext } from 'react';
 
-export function UserProfileSpacesRowSpotlights() {
+export function UserProfileSpacesRowPosts() {
   const spaceObj = useContext(ContextForSpaceObj);
   const reviewactivityListController =
     useControllerForUserActivityListFromSpace(spaceObj.id);
-  const spotlights = reviewactivityListController.state.objs.filter(
+  const posts = reviewactivityListController.state.objs.filter(
     (update) => update.variant === UserActivityVariant.POST,
   );
 
   return (
     <div className='flex flex-row items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>{spotlights.length}</p>
+      <p className='text-sm font-bold text-slate-300'>{posts.length}</p>
     </div>
   );
 }

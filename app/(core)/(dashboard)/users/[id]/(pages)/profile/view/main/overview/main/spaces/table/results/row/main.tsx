@@ -5,7 +5,7 @@ import { UserProfileSpacesRowNumber } from './number/main';
 import { UserProfileSpacesRowDays } from './stat/day/main';
 import { UserProfileSpacesRowIdeas } from './stat/ideas/main';
 import { UserProfileSpacesRowLogs } from './stat/logs/main';
-import { UserProfileSpacesRowSpotlights } from './stat/spotlights/main';
+import { UserProfileSpacesRowPosts } from './stat/posts/main';
 
 export function UserProfileSpacesRow() {
   return (
@@ -19,7 +19,7 @@ export function UserProfileSpacesRow() {
         <UserProfileSpacesRowDays />
         <UserProfileSpacesRowIdeas />
         <UserProfileSpacesRowLogs />
-        <UserProfileSpacesRowSpotlights />
+        <UserProfileSpacesRowPosts />
       </div>
     </div>
   );

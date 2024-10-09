@@ -1,4 +1,4 @@
-import { postLinkDbWrapper } from '@/(server)/client/space/chapter/spotlight/link/main';
+import { postLinkDbWrapper } from '@/(server)/client/space/chapter/post/link/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

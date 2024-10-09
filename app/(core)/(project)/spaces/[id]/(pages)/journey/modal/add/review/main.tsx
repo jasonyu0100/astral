@@ -14,7 +14,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpacesJourneyAddSpotlightModal() {
+export function SpacesJourneyAddPostModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
@@ -27,18 +27,17 @@ export function SpacesJourneyAddSpotlightModal() {
   );
 
   async function createReview() {
-    const spotlight =
-      await postListController.actions.createActions.createSpotlight(
-        title,
-        description,
-        user.id,
-        chapterListController.state.objId,
-      );
-    await activityListController.actions.createActions.createFromChapterSpotlight(
+    const post = await postListController.actions.createActions.createPost(
+      title,
+      description,
+      user.id,
+      chapterListController.state.objId,
+    );
+    await activityListController.actions.createActions.createFromChapterPost(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      spotlight.id,
+      post.id,
     );
     openableController.close();
   }
@@ -47,7 +46,7 @@ export function SpacesJourneyAddSpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Spotlight</FormTitle>
+          <FormTitle>Add Post</FormTitle>
           <FormBody>
             <FormInput
               title='Name'

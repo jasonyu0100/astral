@@ -1,4 +1,4 @@
-import { postMemberDbWrapper } from '@/(server)/client/space/chapter/spotlight/member/main';
+import { postMemberDbWrapper } from '@/(server)/client/space/chapter/post/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,

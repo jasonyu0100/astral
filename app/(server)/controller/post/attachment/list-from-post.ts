@@ -1,4 +1,4 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/spotlight/attachment/main';
+import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -62,7 +62,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostAttachmentListFromSpotlight = (
+const useControllerForPostAttachmentListFromPost = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -394,10 +394,8 @@ const useControllerForPostAttachmentListFromSpotlight = (
   };
 };
 
-const ContextForPostAttachmentListFromSpotlight = createContext(
-  {} as Controller,
-);
+const ContextForPostAttachmentListFromPost = createContext({} as Controller);
 export {
-  ContextForPostAttachmentListFromSpotlight as ContextForPostAttachmentListFromSpotlight,
-  useControllerForPostAttachmentListFromSpotlight as useControllerForPostAttachmentListFromSpotlight,
+  ContextForPostAttachmentListFromPost as ContextForPostAttachmentListFromPost,
+  useControllerForPostAttachmentListFromPost as useControllerForPostAttachmentListFromPost,
 };

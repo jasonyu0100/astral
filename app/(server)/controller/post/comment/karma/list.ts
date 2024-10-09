@@ -1,4 +1,4 @@
-import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/karma/main';
+import { commentKarmaDbWrapper } from '@/(server)/client/post/comment/karma/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,

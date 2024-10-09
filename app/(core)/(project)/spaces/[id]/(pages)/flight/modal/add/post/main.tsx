@@ -1,5 +1,5 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForPostAttachmentListFromSpotlight } from '@/(server)/controller/post/attachment/list-from-spotlight';
+import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
@@ -17,13 +17,13 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpacesFlightAddSpotlightModal() {
+export function SpacesFlightAddPostModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const attachmentListController = useContext(
-    ContextForPostAttachmentListFromSpotlight,
+    ContextForPostAttachmentListFromPost,
   );
 
   const openableController = useContext(ContextForOpenable);
@@ -35,32 +35,31 @@ export function SpacesFlightAddSpotlightModal() {
   const [description, changeDescription] = useState('');
   const [files, changeFiles] = useState([] as FileElem[]);
 
-  async function createSpotlight() {
+  async function createPost() {
     if (files.length === 0) {
       alert('Please upload at least one file');
       return;
     }
 
-    const spotlight =
-      await postListController.actions.createActions.createSpotlight(
-        title,
-        description,
-        user.id,
-        chapterListController.state.objId,
-      );
+    const post = await postListController.actions.createActions.createPost(
+      title,
+      description,
+      user.id,
+      chapterListController.state.objId,
+    );
     files.forEach(async (file) => {
       await attachmentListController.actions.createActions.createFromFile(
         user.id,
-        spotlight.id,
+        post.id,
         file,
       );
     });
 
-    await activityListController.actions.createActions.createFromChapterSpotlight(
+    await activityListController.actions.createActions.createFromChapterPost(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      spotlight.id,
+      post.id,
     );
     openableController.close();
   }
@@ -69,7 +68,7 @@ export function SpacesFlightAddSpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Spotlight</FormTitle>
+          <FormTitle>Create Post</FormTitle>
           <FormBody>
             <FormInput
               title='Title'
@@ -91,7 +90,7 @@ export function SpacesFlightAddSpotlightModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createSpotlight}>Next</FormButton>
+            <FormButton onClick={createPost}>Next</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

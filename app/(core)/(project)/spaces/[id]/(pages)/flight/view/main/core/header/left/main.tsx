@@ -34,7 +34,7 @@ export function SpacesFlightHeaderLeft() {
         />
         <BarDividerIndicator />
         <AstralAddIcon
-          onClick={() => modalController.addSpotlightController.open()}
+          onClick={() => modalController.addPostController.open()}
         />
       </div>
     </>

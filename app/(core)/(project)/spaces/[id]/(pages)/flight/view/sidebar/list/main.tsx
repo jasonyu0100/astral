@@ -16,8 +16,8 @@ export function SpacesFlightSidebarList() {
       >
         <div className='h-full w-full overflow-auto'>
           <div className='flex flex-col space-y-[1rem]'>
-            {postListController.state.more.queryResults.map((spotlight) => (
-              <ContextForUserPostObj.Provider value={spotlight}>
+            {postListController.state.more.queryResults.map((post) => (
+              <ContextForUserPostObj.Provider value={post}>
                 <SpacesFlightSidebarItem />
               </ContextForUserPostObj.Provider>
             ))}

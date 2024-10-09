@@ -1,4 +1,4 @@
-import { userPostDbWrapper } from '@/(server)/client/space/chapter/spotlight/main';
+import { userPostDbWrapper } from '@/(server)/client/space/chapter/post/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
