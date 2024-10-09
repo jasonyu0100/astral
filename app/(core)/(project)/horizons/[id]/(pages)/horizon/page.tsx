@@ -9,8 +9,7 @@ import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
 import { HorizonsHorizonModals } from './modals/controller/main';
 import { HorizonHorizonView } from './view/main';
-import { HorizonsHorizonMain } from './view/main/main';
-import { HorizonsHorizonSchedulePost } from './view/main/schedule/main';
+import { HorizonsHorizonCore } from './view/main/main';
 import { HorizonHorizonSidebar } from './view/sidebar/main';
 
 function Page() {
@@ -18,11 +17,7 @@ function Page() {
     <ViewWrapper>
       <HorizonHorizonView>
         <HorizonHorizonSidebar />
-        <div className='h-full flex-grow overflow-hidden'>
-          <HorizonsHorizonMain />
-          <HorizonsHorizonSchedulePost />
-          {/* <HorizonsHorizonNavigation /> */}
-        </div>
+        <HorizonsHorizonCore />
       </HorizonHorizonView>
     </ViewWrapper>
   );

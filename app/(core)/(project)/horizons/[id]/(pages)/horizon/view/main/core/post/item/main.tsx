@@ -2,7 +2,7 @@ import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
-import { ContextForHorizonsHorizonModals } from '../../../../modals/controller/main';
+import { ContextForHorizonsHorizonModals } from '../../../../../modals/controller/main';
 
 export function HorizonsHorizonListPost() {
   const horizonsHorizonModal = useContext(ContextForHorizonsHorizonModals);

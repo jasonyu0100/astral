@@ -5,39 +5,39 @@ import { AstralTableIcon } from '@/icons/table/main';
 import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 
-export function HorizonsFieldHeaderLeft() {
+export function HorizonsPointHeaderLeft() {
   // const {
   //   state: { dataMode, sidebarVisibility },
   //   actions: { updateDataMode, updateSidebarVisibility },
-  // } = useContext(ContextForHorizonsField);
-  // const modalController = useContext(ContextForHorizonsFieldModals);
+  // } = useContext(ContextForHorizonsPoint);
+  // const modalController = useContext(ContextForHorizonsPointModals);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralSidebarLeftIcon
         className={ctwn({
           // 'rotate-180 transform':
-          //   sidebarVisibility === HorizonsFieldSidebarVisibility.CLOSED,
+          //   sidebarVisibility === HorizonsPointSidebarVisibility.CLOSED,
         })}
         onClick={() => {
           // updateSidebarVisibility(
-          //   sidebarVisibility === HorizonsFieldSidebarVisibility.CLOSED
-          //     ? HorizonsFieldSidebarVisibility.OPEN
-          //     : HorizonsFieldSidebarVisibility.CLOSED,
+          //   sidebarVisibility === HorizonsPointSidebarVisibility.CLOSED
+          //     ? HorizonsPointSidebarVisibility.OPEN
+          //     : HorizonsPointSidebarVisibility.CLOSED,
           // );
         }}
       />
       <BarDividerIndicator />
       <AstralTableIcon
         onClick={() => {
-          // if (dataMode === HorizonsFieldDataMode.COLUMNS) {
-          //   updateDataMode(HorizonsFieldDataMode.TABLE);
+          // if (dataMode === HorizonsPointDataMode.COLUMNS) {
+          //   updateDataMode(HorizonsPointDataMode.TABLE);
           // } else {
-          //   updateDataMode(HorizonsFieldDataMode.COLUMNS);
+          //   updateDataMode(HorizonsPointDataMode.COLUMNS);
           // }
         }}
         className={ctwn('fill-slate-300', {
-          // 'fill-blue-500': dataMode === HorizonsFieldDataMode.TABLE,
+          // 'fill-blue-500': dataMode === HorizonsPointDataMode.TABLE,
         })}
       />
       <AstralHiearchyIcon />

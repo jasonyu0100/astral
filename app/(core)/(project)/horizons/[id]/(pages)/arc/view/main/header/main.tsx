@@ -1,18 +1,18 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { HorizonsPointHeaderLeft } from './left/main';
-import { HorizonsPointHeaderRight } from './right/main';
+import { HorizonsArcHeaderLeft } from './left/main';
+import { HorizonsArcHeaderRight } from './right/main';
 
-export function HorizonsPointHeader() {
+export function HorizonsArcHeader() {
   return (
     <GlassAreaContainer
-      name={HorizonsPointHeader.name}
+      name={HorizonsArcHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
       glassFx={glassFx['glass-5']}
       className={`flex items-center justify-between px-[1rem]`}
     >
-      <HorizonsPointHeaderLeft />
-      <HorizonsPointHeaderRight />
+      <HorizonsArcHeaderLeft />
+      <HorizonsArcHeaderRight />
     </GlassAreaContainer>
   );
 }

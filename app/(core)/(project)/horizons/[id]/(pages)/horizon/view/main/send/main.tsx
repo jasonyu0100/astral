@@ -4,7 +4,7 @@ import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 
-export function HorizonsHorizonSchedulePost() {
+export function HorizonsHorizonSendPost() {
   return (
     <div className='flex h-[8rem] w-full flex-row items-center justify-between space-x-[2rem] p-[2rem] shadow-glow'>
       <GlassWindowFrame

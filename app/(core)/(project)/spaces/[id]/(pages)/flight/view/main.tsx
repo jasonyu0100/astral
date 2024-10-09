@@ -22,10 +22,10 @@ export function SpacesFlightView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
-      <SpacesFlightMain />
       {sidebarVisibility !== SpacesFlightSidebarVisibility.CLOSED && (
         <SpacesFlightSidebar />
       )}
+      <SpacesFlightMain />
     </GlassAreaContainer>
   );
 }
