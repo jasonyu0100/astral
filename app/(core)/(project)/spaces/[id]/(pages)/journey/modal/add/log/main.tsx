@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -22,10 +22,9 @@ export function SpacesJourneyAddLogModal() {
   const wayListController = useContext(ContextForChapterWayList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForReviewUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createLog() {
     const log = await wayListController.actions.createActions.createLog(
@@ -34,7 +33,7 @@ export function SpacesJourneyAddLogModal() {
       title,
       description,
     );
-    await reviewUpdateListController.actions.createActions.createFromChapterLog(
+    await activityListController.actions.createActions.createFromChapterLog(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

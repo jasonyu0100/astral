@@ -1,9 +1,9 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
 import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
 import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -46,10 +46,9 @@ export function SpacesJourneySpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForReviewUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const [files, changeFiles] = useState([] as FileElem[]);
 
   useEffect(() => {
@@ -124,7 +123,7 @@ export function SpacesJourneySpotlightModal() {
     });
 
     // Create a new action to create a spotlight from a chapter
-    await reviewUpdateListController.actions.createActions.createFromChapterSpotlight(
+    await activityListController.actions.createActions.createFromChapterSpotlight(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

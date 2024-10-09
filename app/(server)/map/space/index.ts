@@ -3,9 +3,6 @@ import { conversationMessageDbWrapper } from '@/(server)/client/space/chapter/co
 import { spaceChapterDbWrapper } from '@/(server)/client/space/chapter/main';
 import { sceneIdeaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
 import { chapterSceneDbWrapper } from '@/(server)/client/space/chapter/scene/main';
-import { ChapterReviewContributorDbWrapper } from '@/(server)/client/space/chapter/session/contributor/main';
-import { ChapterReviewDbWrapper } from '@/(server)/client/space/chapter/session/main';
-import { chapterReviewUpdateDbWrapper } from '@/(server)/client/space/chapter/session/update/main';
 import { spotlightAttachmentDbWrapper } from '@/(server)/client/space/chapter/spotlight/attachment/main';
 import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/karma/main';
 import { spotlightCommentDbWrapper } from '@/(server)/client/space/chapter/spotlight/comment/main';
@@ -22,9 +19,6 @@ import { spaceIdeaRelationshipDbWrapper } from '@/(server)/client/space/relation
 import { chapterConversationModel } from '@/(server)/model/space/chapter/conversation/main';
 import { conversationMessageModel } from '@/(server)/model/space/chapter/conversation/message/main';
 import { spaceChapterModel } from '@/(server)/model/space/chapter/main';
-import { ChapterReviewContributorModel } from '@/(server)/model/space/chapter/review/contributor/main';
-import { chapterReviewModel } from '@/(server)/model/space/chapter/review/main';
-import { chapterReviewUpdateModel } from '@/(server)/model/space/chapter/review/update/main';
 import { sceneIdeaModel } from '@/(server)/model/space/chapter/scene/idea/main';
 import { chapterSceneModel } from '@/(server)/model/space/chapter/scene/main';
 import { spotlightAttachmentModel } from '@/(server)/model/space/chapter/spotlight/attachment/main';
@@ -63,18 +57,6 @@ export const spaceMap = {
   chapter: {
     db: spaceChapterDbWrapper,
     model: spaceChapterModel,
-    review: {
-      model: chapterReviewModel,
-      db: ChapterReviewDbWrapper,
-      update: {
-        model: chapterReviewUpdateModel,
-        db: chapterReviewUpdateDbWrapper,
-      },
-      contributor: {
-        model: ChapterReviewContributorModel,
-        db: ChapterReviewContributorDbWrapper,
-      },
-    },
     conversation: {
       db: chapterConversationDbWrapper,
       model: chapterConversationModel,

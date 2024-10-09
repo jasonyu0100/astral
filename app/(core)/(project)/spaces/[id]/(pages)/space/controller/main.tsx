@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
@@ -49,10 +49,9 @@ export function useControllerForSpacesSpace() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const [role, setRole] = useState<ConversationRole>(
     ConversationRole.Questioner,
   );
@@ -89,7 +88,7 @@ export function useControllerForSpacesSpace() {
         user.id,
         chapterListController.state.objId,
       );
-    await reviewUpdateListController.actions.createActions.createFromChapterChapterConversation(
+    await activityListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

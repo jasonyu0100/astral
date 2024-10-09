@@ -1,10 +1,10 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { useControllerForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -41,10 +41,9 @@ export function SpacesMapGenerateLog() {
   const linkListController = useControllerForLogLinkList(
     wayListController.state.objId,
   );
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForReviewUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
   const spaceIdeaRelationshipListController =
     useControllerForSpaceIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
@@ -135,7 +134,7 @@ export function SpacesMapGenerateLog() {
         }
       }),
     );
-    await reviewUpdateListController.actions.createActions
+    await activityListController.actions.createActions
       .createFromChapterLog(
         user.id,
         spaceController.state.objId,

@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
@@ -63,10 +63,9 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const chapterListController = useControllerForSpaceChapterList('');
-  const reviewreviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const spaceMembersListController = useControllerForSpaceMemberList('');
   const spaceMembersTermsListController =
     useControllerForSpaceMemberTermsList('');
@@ -102,7 +101,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             space.id,
             index,
           );
-        await reviewreviewUpdateListController.actions.createActions.createFromChapter(
+        await activityListController.actions.createActions.createFromChapter(
           user.id,
           space.id,
           chapter.id,

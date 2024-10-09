@@ -63,5 +63,5 @@ export const horizonModel: ModelInterface<HorizonObj> = {
   example: exampleHorizon,
   examples: exampleHorizons,
   parentKey: 'userId',
-  children: ['arc', 'cluster', 'update', 'member'],
+  children: [],
 };
