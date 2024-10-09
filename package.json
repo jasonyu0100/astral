@@ -33,7 +33,6 @@
     "aws-sdk": "^2.1536.0",
     "axios": "^1.6.5",
     "bcryptjs": "^2.4.3",
-    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cors": "^2.8.5",
     "date-fns": "^3.3.1",

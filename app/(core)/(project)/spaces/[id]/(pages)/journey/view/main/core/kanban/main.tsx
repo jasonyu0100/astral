@@ -46,10 +46,15 @@ export function SpacesJourneyKanban() {
     const elReview = document.getElementById('review');
     const elDone = document.getElementById('done');
 
-    const handleSortEnd = async (evt) => {
+    const handleSortEnd = async (evt: Sortable.SortableEvent) => {
       const fromList = evt.from.id;
       const toList = evt.to.id;
       const itemId = evt.item.dataset.id;
+
+      if (!itemId) {
+        console.error('Item ID is undefined');
+        return;
+      }
 
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
@@ -66,10 +71,10 @@ export function SpacesJourneyKanban() {
       },
     };
 
-    Sortable.create(elTodo, sortableOptions);
-    Sortable.create(elInProgress, sortableOptions);
-    Sortable.create(elReview, sortableOptions);
-    Sortable.create(elDone, sortableOptions);
+    if (elTodo) Sortable.create(elTodo, sortableOptions);
+    if (elInProgress) Sortable.create(elInProgress, sortableOptions);
+    if (elReview) Sortable.create(elReview, sortableOptions);
+    if (elDone) Sortable.create(elDone, sortableOptions);
   }, []);
 
   return (
