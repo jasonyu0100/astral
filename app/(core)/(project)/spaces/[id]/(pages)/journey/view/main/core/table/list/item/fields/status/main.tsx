@@ -1,32 +1,29 @@
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
-import {
-  ChapterWayStatus,
-  ContextForChapterWayObj,
-} from '@/(server)/model/space/chapter/way/main';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
+import { ContextForTaskObj, TaskStatus } from '@/(server)/model/task/main';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemStatus() {
-  const log = useContext(ContextForChapterWayObj);
-  const wayListController = useContext(ContextForChapterWayList);
+  const task = useContext(ContextForTaskObj);
+  const wayListController = useContext(ContextForTaskList);
 
   return (
     <div>
       <select
         className='text-light bg-transparent text-sm font-bold text-slate-300 outline-none'
-        value={log.wayStatus}
+        value={task.taskStatus}
         onClick={(e) => {
           e.stopPropagation();
         }}
         onChange={(e) => {
-          wayListController.actions.editActions.edit(log.id, {
-            wayStatus: e.target.value,
+          wayListController.actions.editActions.edit(task.id, {
+            taskStatus: e.target.value,
           });
         }}
       >
-        <option>{ChapterWayStatus.TODO}</option>
-        <option>{ChapterWayStatus.IN_PROGRESS}</option>
-        <option>{ChapterWayStatus.REVIEW}</option>
-        <option>{ChapterWayStatus.DONE}</option>
+        <option>{TaskStatus.TODO}</option>
+        <option>{TaskStatus.IN_PROGRESS}</option>
+        <option>{TaskStatus.REVIEW}</option>
+        <option>{TaskStatus.DONE}</option>
       </select>
     </div>
   );

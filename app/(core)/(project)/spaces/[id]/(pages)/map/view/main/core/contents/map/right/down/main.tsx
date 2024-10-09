@@ -1,10 +1,10 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesMapNavigationDown() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
     <div className='absolute bottom-[2rem] right-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>

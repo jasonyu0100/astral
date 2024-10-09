@@ -9,7 +9,7 @@ import {
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
-import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { WayLinkObj } from '@/(server)/model/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostAttachmentObj;

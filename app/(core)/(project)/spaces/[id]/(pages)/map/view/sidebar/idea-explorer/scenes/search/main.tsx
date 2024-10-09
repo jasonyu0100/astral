@@ -1,4 +1,4 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -6,7 +6,7 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpacesMapSidebarScenesSearch() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
     <div className='flex h-[4rem] w-full flex-shrink-0 flex-col items-center justify-center px-[1rem] shadow-glow'>

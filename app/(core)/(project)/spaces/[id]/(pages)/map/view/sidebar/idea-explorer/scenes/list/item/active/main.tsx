@@ -3,8 +3,7 @@ import {
   SpacesMapDirectoryMode,
   SpacesMapSidebarMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -15,7 +14,7 @@ export function SpacesMapSidebarScenesListActiveItem() {
   const {
     actions: { updateSidebarMode: updateSidebarMode, updateDirectoryMode },
   } = useContext(ContextForSpacesMap);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const scene = useContext(ContextForChapterSceneObj);
 
   return (

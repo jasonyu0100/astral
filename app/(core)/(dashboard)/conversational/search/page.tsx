@@ -8,13 +8,13 @@ import {
   useControllerForConversationMessageList,
 } from '@/(server)/controller/conversation/message/list';
 import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/(server)/controller/scene/list';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForChapterSceneList,
-  useControllerForChapterSceneList,
-} from '@/(server)/controller/space/chapter/scene/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -39,7 +39,7 @@ export default function Page() {
   const chapterListController = useControllerForSpaceChapterList(
     '0acb9371-e277-4ee6-af4d-ee4744490318',
   );
-  const sceneListController = useControllerForChapterSceneList(
+  const sceneListController = useControllerForIdeaSceneList(
     chapterListController.state.objId,
   );
   const conversationListController = useControllerForChapterConversationList(
@@ -53,7 +53,7 @@ export default function Page() {
     <ContextForUserObj.Provider value={userController.state.obj}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
+          <ContextForIdeaSceneList.Provider value={sceneListController}>
             <ContextForChapterConversationList.Provider
               value={conversationListController}
             >
@@ -67,7 +67,7 @@ export default function Page() {
                 </LoadingWrapper>
               </ContextForConversationMessageList.Provider>
             </ContextForChapterConversationList.Provider>
-          </ContextForChapterSceneList.Provider>
+          </ContextForIdeaSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForUserObj.Provider>
@@ -83,7 +83,7 @@ export function ConversationalSearchWrapper({
   const spaceController = useContext(ContextForSpaceMain);
   const conversationalSearchController = useControllerForConversationalSearch();
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );

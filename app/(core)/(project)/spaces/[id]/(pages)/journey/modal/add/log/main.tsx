@@ -1,7 +1,7 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -19,7 +19,7 @@ export function SpacesJourneyAddLogModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const wayListController = useContext(ContextForChapterWayList);
+  const wayListController = useContext(ContextForTaskList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const activityListController = useControllerForUserActivityListFromChapter(

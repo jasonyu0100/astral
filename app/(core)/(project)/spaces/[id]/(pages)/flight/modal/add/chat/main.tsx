@@ -1,5 +1,5 @@
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -19,7 +19,7 @@ export function SpacesFlightAddSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');
   const activityListController = useControllerForReviewUpdateListFromChapter(

@@ -1,11 +1,10 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { useContext } from 'react';
 import { SpacesMapSidebarScenesListActiveItem } from './item/active/main';
 import { SpacesMapSidebarScenesListInactiveItem } from './item/inactive/main';
 
 export function SpacesMapSidebarScenesList() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
     <div

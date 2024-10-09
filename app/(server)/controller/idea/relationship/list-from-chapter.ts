@@ -7,8 +7,8 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import { IdeaObj } from '@/(server)/model/idea/main';
-import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
 import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { WayLinkObj } from '@/(server)/model/way/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;

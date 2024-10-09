@@ -1,6 +1,6 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
@@ -15,7 +15,7 @@ export function SpacesJourneySidebarList() {
   const {
     state: { sidebarMode },
   } = useContext(ContextForSpacesJourney);
-  const linkListController = useContext(ContextForLogLinkList);
+  const linkListController = useContext(ContextForTaskLinkList);
 
   return (
     <div
@@ -30,10 +30,10 @@ export function SpacesJourneySidebarList() {
               : obj.variant === ElementVariant.URL ||
                 obj.variant === ElementVariant.FILE,
           )
-          .map((log) => (
-            <ContextForWayLinkObj.Provider value={log}>
+          .map((task) => (
+            <ContextForTaskLinkObj.Provider value={task}>
               <SpacesJourneySidebarLinksListItem />
-            </ContextForWayLinkObj.Provider>
+            </ContextForTaskLinkObj.Provider>
           ))}
         <HorizontalDivider />
         {sidebarMode === SpacesJourneySidebarMode.LINKS && (

@@ -4,8 +4,8 @@ import { PostCommentObj } from '@/(server)/model/post/comment/main';
 import { UserPostObj } from '@/(server)/model/post/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
-import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
+import { TaskObj } from '@/(server)/model/way/main';
 import { createContext } from 'react';
 import { brandCreationTemplate } from './templates/brand-creation';
 import { designSprintTemplate } from './templates/design-sprint';
@@ -87,7 +87,7 @@ export type _TemplateSceneObj = Omit<
   'id' | 'chapterId' | 'userId' | 'created'
 >;
 export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;
-export type _TemplateLogObj = Omit<ChapterWayObj, 'id' | 'chapterId'>;
+export type _TemplateLogObj = Omit<TaskObj, 'id' | 'chapterId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];

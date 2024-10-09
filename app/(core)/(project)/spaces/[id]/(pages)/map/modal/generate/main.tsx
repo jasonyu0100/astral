@@ -1,10 +1,10 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
-import { useControllerForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForTaskLinkList } from '@/(server)/controller/way/link/list';
+import { useControllerForTaskList } from '@/(server)/controller/way/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -34,11 +34,11 @@ export function SpacesMapGenerateLog() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
-  const wayListController = useControllerForChapterWayList(
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const wayListController = useControllerForTaskList(
     chapterListController.state.objId,
   );
-  const linkListController = useControllerForLogLinkList(
+  const linkListController = useControllerForTaskLinkList(
     wayListController.state.objId,
   );
   const activityListController = useControllerForUserActivityListFromChapter(

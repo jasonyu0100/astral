@@ -23,7 +23,7 @@ export const ContextForHorizonDecisionObj = createContext<HorizonDecisionObj>(
   {} as HorizonDecisionObj,
 );
 
-export const exampleHorizonDecision: HorizonDecisionObj = {
+export const exampleHorizonDecisionObj: HorizonDecisionObj = {
   id: '0',
   horizonId: '0',
   title: 'Key Strategy Decision',
@@ -31,7 +31,7 @@ export const exampleHorizonDecision: HorizonDecisionObj = {
   created: new Date().toISOString(),
 };
 
-export const exampleHorizonDecisions: HorizonDecisionObj[] = [
+export const exampleHorizonDecisionsList: HorizonDecisionObj[] = [
   {
     id: '0',
     horizonId: '0',
@@ -51,8 +51,8 @@ export const exampleHorizonDecisions: HorizonDecisionObj[] = [
 export const horizonDecisionModel: ModelInterface<HorizonDecisionObj> = {
   name: 'decision',
   gql: horizonDecisionGql,
-  example: exampleHorizonDecision,
-  examples: exampleHorizonDecisions,
+  example: exampleHorizonDecisionObj,
+  examples: exampleHorizonDecisionsList,
   parentKey: 'horizonId',
   children: ['quadrant'],
 };

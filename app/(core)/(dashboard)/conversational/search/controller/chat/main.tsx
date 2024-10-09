@@ -1,7 +1,7 @@
 import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ChapterConversationObj } from '@/(server)/model/conversation/main';
@@ -38,7 +38,7 @@ export function useControllerForConversationalSearch() {
   const spaceController = useContext(ContextForSpaceList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );

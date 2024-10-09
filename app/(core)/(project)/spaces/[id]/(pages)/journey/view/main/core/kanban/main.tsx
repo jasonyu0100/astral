@@ -1,9 +1,9 @@
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import {
-  ChapterWayObj,
-  ChapterWayStatus,
-  ContextForChapterWayObj,
-} from '@/(server)/model/space/chapter/way/main';
+  ContextForTaskObj,
+  TaskObj,
+  TaskStatus,
+} from '@/(server)/model/task/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { SpaceJourneyListItem } from './row/item/main';
@@ -11,31 +11,31 @@ import { SpaceJourneyRow } from './row/main';
 import { SpacesJourneyKanbanListTitle } from './row/title/main';
 
 export function SpacesJourneyKanban() {
-  const wayListController = useContext(ContextForChapterWayList);
+  const wayListController = useContext(ContextForTaskList);
 
-  const [todo, setTodo] = useState<ChapterWayObj[]>([]);
-  const [inProgress, setInProgress] = useState<ChapterWayObj[]>([]);
-  const [review, setInReview] = useState<ChapterWayObj[]>([]);
-  const [done, setDone] = useState<ChapterWayObj[]>([]);
+  const [todo, setTodo] = useState<TaskObj[]>([]);
+  const [inProgress, setInProgress] = useState<TaskObj[]>([]);
+  const [review, setInReview] = useState<TaskObj[]>([]);
+  const [done, setDone] = useState<TaskObj[]>([]);
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
     if (populated) return;
     setTodo(
-      wayListController.state.objs.filter((idea) => idea.wayStatus === 'todo'),
+      wayListController.state.objs.filter((idea) => idea.taskStatus === 'todo'),
     );
     setInProgress(
       wayListController.state.objs.filter(
-        (idea) => idea.wayStatus === 'in-progress',
+        (idea) => idea.taskStatus === 'in-progress',
       ),
     );
     setInReview(
       wayListController.state.objs.filter(
-        (idea) => idea.wayStatus === 'review',
+        (idea) => idea.taskStatus === 'review',
       ),
     );
     setDone(
-      wayListController.state.objs.filter((idea) => idea.wayStatus === 'done'),
+      wayListController.state.objs.filter((idea) => idea.taskStatus === 'done'),
     );
     setPopulated(true);
   }, [wayListController.state.objs]);
@@ -59,7 +59,7 @@ export function SpacesJourneyKanban() {
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
 
       await wayListController.actions.editActions.edit(itemId, {
-        wayStatus: toList,
+        taskStatus: toList,
       });
     };
 
@@ -84,15 +84,15 @@ export function SpacesJourneyKanban() {
           <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.TODO}
+              id={TaskStatus.TODO}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterWayObj.Provider value={log}>
+                  <ContextForTaskObj.Provider value={log}>
                     <SpaceJourneyListItem />
-                  </ContextForChapterWayObj.Provider>
+                  </ContextForTaskObj.Provider>
                 </li>
               ))}
             </ul>
@@ -104,16 +104,16 @@ export function SpacesJourneyKanban() {
               In-progress
             </SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.IN_PROGRESS}
+              id={TaskStatus.IN_PROGRESS}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {inProgress.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </SpaceJourneyRow>
@@ -122,16 +122,16 @@ export function SpacesJourneyKanban() {
           <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.REVIEW}
+              id={TaskStatus.REVIEW}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {review.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </SpaceJourneyRow>
@@ -140,16 +140,16 @@ export function SpacesJourneyKanban() {
           <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.DONE}
+              id={TaskStatus.DONE}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {done.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <SpaceJourneyListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </SpaceJourneyRow>

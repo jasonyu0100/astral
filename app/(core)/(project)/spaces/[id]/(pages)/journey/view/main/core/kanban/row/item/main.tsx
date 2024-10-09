@@ -1,5 +1,5 @@
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
-import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
+import { ContextForTaskObj } from '@/(server)/model/task/main';
 import { glassFx } from '@/style/glass/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -11,8 +11,8 @@ import { ContextForSpacesJourney } from '../../../../../../controller/main';
 
 export function SpaceJourneyListItem() {
   const journeyController = useContext(ContextForSpacesJourney);
-  const wayListController = useContext(ContextForChapterWayList);
-  const log = useContext(ContextForChapterWayObj);
+  const wayListController = useContext(ContextForTaskList);
+  const log = useContext(ContextForTaskObj);
   const selected = journeyController.state.selectedLogs.includes(log);
 
   return (

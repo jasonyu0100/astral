@@ -8,17 +8,17 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForLogLinkList,
-  useControllerForLogLinkList,
-} from '@/(server)/controller/space/chapter/way/link/list';
-import {
-  ContextForChapterWayList,
-  useControllerForChapterWayList,
-} from '@/(server)/controller/space/chapter/way/list';
-import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
+import {
+  ContextForTaskLinkList,
+  useControllerForTaskLinkList,
+} from '@/(server)/controller/way/link/list';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/(server)/controller/way/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
@@ -43,11 +43,11 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const wayListController = useControllerForChapterWayList(
+  const wayListController = useControllerForTaskList(
     chapterListController.state.objId,
     logId,
   );
-  const linkListController = useControllerForLogLinkList(
+  const linkListController = useControllerForTaskLinkList(
     wayListController.state.objId,
   );
 
@@ -55,8 +55,8 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterWayList.Provider value={wayListController}>
-            <ContextForLogLinkList.Provider value={linkListController}>
+          <ContextForTaskList.Provider value={wayListController}>
+            <ContextForTaskLinkList.Provider value={linkListController}>
               <UpdateWrapper>
                 <LoadingWrapper>
                   <ControllerWrapper>
@@ -68,8 +68,8 @@ function Page({ params }: { params: { id: string } }) {
                   </ControllerWrapper>
                 </LoadingWrapper>
               </UpdateWrapper>
-            </ContextForLogLinkList.Provider>
-          </ContextForChapterWayList.Provider>
+            </ContextForTaskLinkList.Provider>
+          </ContextForTaskList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>

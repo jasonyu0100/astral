@@ -1,9 +1,9 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
 
 export function SpacesMapHeaderCenter() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>

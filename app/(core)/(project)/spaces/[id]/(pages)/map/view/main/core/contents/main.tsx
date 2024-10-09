@@ -32,9 +32,9 @@ export function SpacesMapContents() {
         ) : (
           <>
             {/* <SpacesMapStatus /> */}
-            <SpacesMapBack />
             <SpacesMapScene />
             <SpacesMapPalette />
+            <SpacesMapBack />
             <SpacesMapChat />
             <SpacesMapNavigationUp />
             <SpacesMapNavigationDown />

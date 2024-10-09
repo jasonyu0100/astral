@@ -32,13 +32,13 @@ import {
   useControllerForIdeaRelationshipListFromScene,
 } from '@/(server)/controller/idea/relationship/list-from-scene';
 import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/(server)/controller/scene/list';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForChapterSceneList,
-  useControllerForChapterSceneList,
-} from '@/(server)/controller/space/chapter/scene/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -71,7 +71,7 @@ function Page({ params }: { params: { id: string } }) {
     spaceMainController.state.objId,
     chapterId,
   );
-  const sceneListController = useControllerForChapterSceneList(
+  const sceneListController = useControllerForIdeaSceneList(
     chapterListController.state.objId,
     sceneId,
   );
@@ -107,7 +107,7 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
+          <ContextForIdeaSceneList.Provider value={sceneListController}>
             <ContextForSceneIdeaList.Provider value={ideaListController}>
               <ContextForGalleryList.Provider value={galleryListController}>
                 <ContextForGalleryCollectionList.Provider
@@ -143,7 +143,7 @@ function Page({ params }: { params: { id: string } }) {
                 </ContextForGalleryCollectionList.Provider>
               </ContextForGalleryList.Provider>
             </ContextForSceneIdeaList.Provider>
-          </ContextForChapterSceneList.Provider>
+          </ContextForIdeaSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
@@ -160,7 +160,7 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const searchParams = useSearchParams();
   const router = useRouter();
 

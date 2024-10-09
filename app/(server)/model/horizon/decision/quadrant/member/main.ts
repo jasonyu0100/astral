@@ -1,53 +1,53 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface DecisionQuadrantMemberObj {
+export interface QuadrantMemberObj {
   id: string;
-  quadrantId: string; // Updated to quadrantId
+  quadrantId: string;
   userId: string;
-  created: string; // Updated to created
+  created: string;
 }
 
-export const decisionQuadrantMemberGql = `
-type DecisionQuadrantMemberObj {
+export const quadrantMemberGql = `
+type QuadrantMemberObj {
   id: String!
-  quadrantId: String!  // Updated to quadrantId
+  quadrantId: String!
   userId: String!
-  created: String!     // Updated to created
+  created: String!
 }
 `;
 
-export const ContextForDecisionQuadrantMemberObj =
-  createContext<DecisionQuadrantMemberObj>({} as DecisionQuadrantMemberObj);
+export const ContextForQuadrantMemberObj = createContext<QuadrantMemberObj>(
+  {} as QuadrantMemberObj,
+);
 
-export const exampleDecisionQuadrantMember: DecisionQuadrantMemberObj = {
+export const exampleQuadrantMember: QuadrantMemberObj = {
   id: '0',
-  quadrantId: '0', // Updated to quadrantId
+  quadrantId: '0',
   userId: '0',
-  created: new Date().toISOString(), // Updated to created
+  created: new Date().toISOString(),
 };
 
-export const exampleDecisionQuadrantMembers: DecisionQuadrantMemberObj[] = [
+export const exampleQuadrantMembers: QuadrantMemberObj[] = [
   {
     id: '0',
-    quadrantId: '0', // Updated to quadrantId
+    quadrantId: '0',
     userId: '0',
-    created: new Date().toISOString(), // Updated to created
+    created: new Date().toISOString(),
   },
   {
     id: '1',
-    quadrantId: '0', // Updated to quadrantId
+    quadrantId: '0',
     userId: '1',
-    created: new Date().toISOString(), // Updated to created
+    created: new Date().toISOString(),
   },
 ];
 
-export const decisionQuadrantMemberModel: ModelInterface<DecisionQuadrantMemberObj> =
-  {
-    name: 'member',
-    gql: decisionQuadrantMemberGql,
-    example: exampleDecisionQuadrantMember,
-    examples: exampleDecisionQuadrantMembers,
-    parentKey: 'quadrantId', // Updated to quadrantId
-    children: [],
-  };
+export const quadrantMemberModel: ModelInterface<QuadrantMemberObj> = {
+  name: 'member',
+  gql: quadrantMemberGql,
+  example: exampleQuadrantMember,
+  examples: exampleQuadrantMembers,
+  parentKey: 'quadrantId',
+  children: [],
+};

@@ -2,8 +2,8 @@ import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/c
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/idea/relationship/list-from-scene';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
@@ -115,7 +115,7 @@ export function useControllerForSpacesMap(): Controller {
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceController = useContext(ContextForSpaceMain);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const ideaRelationshipListController = useContext(

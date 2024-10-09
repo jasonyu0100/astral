@@ -2,8 +2,8 @@ import { useControllerForUserActivityListFromChapter } from '@/(server)/controll
 import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ChapterConversationObj } from '@/(server)/model/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
@@ -37,7 +37,7 @@ export function useControllerForSpacesMapChat() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const conversationListController = useContext(
     ContextForChapterConversationList,

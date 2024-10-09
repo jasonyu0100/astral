@@ -1,8 +1,8 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemLength() {
-  const linkListController = useContext(ContextForLogLinkList);
+  const linkListController = useContext(ContextForTaskLinkList);
   return (
     <div>
       <p className='text-light text-sm font-bold text-slate-300'>

@@ -1,5 +1,5 @@
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForWayLinkObj } from '@/(server)/model/way/link/main';
 import { useContext } from 'react';
 
 export function ElementLinkPreview() {

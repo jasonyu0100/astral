@@ -1,5 +1,5 @@
 import { ContextForSpacesJourney } from '@/(core)/(project)/spaces/[id]/(pages)/journey/controller/main';
-import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
+import { ContextForTaskObj } from '@/(server)/model/task/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -10,7 +10,7 @@ import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemNumber() {
   const index = useContext(ContextForIndexable);
-  const log = useContext(ContextForChapterWayObj);
+  const log = useContext(ContextForTaskObj);
   const {
     state: { selectedLogs },
     actions: { checkContainsSelectedLog, updateSelectedLogs },

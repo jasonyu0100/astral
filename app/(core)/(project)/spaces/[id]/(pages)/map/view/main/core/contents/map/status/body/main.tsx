@@ -1,8 +1,8 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { useContext } from 'react';
 
 export function SpacesMapStatusBody() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
     <div className='flex h-full w-full flex-col items-center justify-center'>

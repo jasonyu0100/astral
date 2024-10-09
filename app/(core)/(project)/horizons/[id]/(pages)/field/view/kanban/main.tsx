@@ -1,9 +1,9 @@
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import {
-  ChapterWayObj,
-  ChapterWayStatus,
-  ContextForChapterWayObj,
-} from '@/(server)/model/space/chapter/way/main';
+  ContextForTaskObj,
+  TaskObj,
+  TaskStatus,
+} from '@/(server)/model/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { HorizonsFieldListItem } from './row/item/main';
@@ -11,12 +11,12 @@ import { HorizonsFieldRow } from './row/main';
 import { SpacesJourneyKanbanListTitle } from './row/title/main';
 
 export function HorizonsFieldKanban() {
-  const wayListController = useContext(ContextForChapterWayList);
+  const wayListController = useContext(ContextForTaskList);
 
-  const [todo, setTodo] = useState<ChapterWayObj[]>([]);
-  const [inProgress, setInProgress] = useState<ChapterWayObj[]>([]);
-  const [review, setInReview] = useState<ChapterWayObj[]>([]);
-  const [done, setDone] = useState<ChapterWayObj[]>([]);
+  const [todo, setTodo] = useState<TaskObj[]>([]);
+  const [inProgress, setInProgress] = useState<TaskObj[]>([]);
+  const [review, setInReview] = useState<TaskObj[]>([]);
+  const [done, setDone] = useState<TaskObj[]>([]);
   const [populated, setPopulated] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function HorizonsFieldKanban() {
       const itemId = evt.item.dataset.id;
       console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
       await wayListController.actions.editActions.edit(itemId, {
-        wayStatus: toList,
+        taskStatus: toList,
       });
     };
 
@@ -56,7 +56,7 @@ export function HorizonsFieldKanban() {
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.TODO}
+              id={TaskStatus.TODO}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -102,9 +102,9 @@ export function HorizonsFieldKanban() {
               </li>
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
-                  <ContextForChapterWayObj.Provider value={log}>
+                  <ContextForTaskObj.Provider value={log}>
                     <HorizonsFieldListItem />
-                  </ContextForChapterWayObj.Provider>
+                  </ContextForTaskObj.Provider>
                 </li>
               ))}
             </ul>
@@ -116,7 +116,7 @@ export function HorizonsFieldKanban() {
               In Progress
             </SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.IN_PROGRESS}
+              id={TaskStatus.IN_PROGRESS}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -126,11 +126,11 @@ export function HorizonsFieldKanban() {
                 </p>
               )} */}
               {inProgress.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsFieldListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </HorizonsFieldRow>
@@ -139,7 +139,7 @@ export function HorizonsFieldKanban() {
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.REVIEW}
+              id={TaskStatus.REVIEW}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -150,11 +150,11 @@ export function HorizonsFieldKanban() {
               )} */}
 
               {review.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsFieldListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </HorizonsFieldRow>
@@ -163,7 +163,7 @@ export function HorizonsFieldKanban() {
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
             <ul
-              id={ChapterWayStatus.DONE}
+              id={TaskStatus.DONE}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -174,11 +174,11 @@ export function HorizonsFieldKanban() {
               )} */}
 
               {done.map((log) => (
-                <ContextForChapterWayObj.Provider value={log}>
+                <ContextForTaskObj.Provider value={log}>
                   <li data-id={log.id} className='drag-item'>
                     <HorizonsFieldListItem />
                   </li>
-                </ContextForChapterWayObj.Provider>
+                </ContextForTaskObj.Provider>
               ))}
             </ul>
           </HorizonsFieldRow>

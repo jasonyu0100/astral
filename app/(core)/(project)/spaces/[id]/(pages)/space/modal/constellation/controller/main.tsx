@@ -1,8 +1,8 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
+import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { TextElem } from '@/graphql/API';
@@ -49,7 +49,7 @@ export function useGenerateSceneController(): Controller {
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useControllerForChapterSceneList('');
+  const sceneListController = useControllerForIdeaSceneList('');
   const ideaListController = useControllerForSceneIdeaList('');
   const ideaRelationshipListController =
     useControllerForIdeaRelationshipListFromChapter(

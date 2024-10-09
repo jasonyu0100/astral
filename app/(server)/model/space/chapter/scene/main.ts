@@ -1,46 +1,50 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface ChapterSceneObj {
+export interface IdeaSceneObj {
   id: string;
   userId: string;
-  chapterId: string;
+  chapterId?: string;
+  arcId?: string;
   title: string;
   summary: string;
   objective: string;
   created: string;
 }
 
-export const chapterSceneGql = `
-type ChapterSceneObj {
+export const ideaSceneGql = `
+type IdeaSceneObj {
   id: String!
   userId: String!
-  chapterId: String!
+  chapterId: String
+  arcId: String
   title: String!
   summary: String!
   objective: String!
   created: String!
 }`;
 
-export const ContextForChapterSceneObj = createContext<ChapterSceneObj>(
-  {} as ChapterSceneObj,
+export const ContextForIdeaSceneObj = createContext<IdeaSceneObj>(
+  {} as IdeaSceneObj,
 );
 
-export const exampleChapterScene: ChapterSceneObj = {
+export const exampleIdeaScene: IdeaSceneObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
+  arcId: '0',
   title: 'Idea Scene',
   objective: 'Scene Description',
   summary: 'Scene Summary',
   created: new Date().toISOString(),
 };
 
-export const exampleChapterScenes: ChapterSceneObj[] = [
+export const exampleIdeaScenes: IdeaSceneObj[] = [
   {
     id: '0',
     userId: '0',
     chapterId: '0',
+    arcId: '0',
     title: 'Idea Scene 1',
     objective: 'Scene Description',
     summary: 'Scene Summary',
@@ -50,6 +54,7 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     id: '1',
     userId: '0',
     chapterId: '0',
+    arcId: '0',
     title: 'Idea Scene 2',
     objective: 'Scene Description',
     summary: 'Scene Summary',
@@ -59,6 +64,7 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
     id: '2',
     userId: '0',
     chapterId: '0',
+    arcId: '0',
     title: 'Idea Scene 3',
     objective: 'Scene Description',
     summary: 'Scene Summary',
@@ -66,11 +72,11 @@ export const exampleChapterScenes: ChapterSceneObj[] = [
   },
 ];
 
-export const chapterSceneModel: ModelInterface<ChapterSceneObj> = {
+export const ideaSceneModel: ModelInterface<IdeaSceneObj> = {
   name: 'scene',
-  gql: chapterSceneGql,
-  example: exampleChapterScene,
-  examples: exampleChapterScenes,
+  gql: ideaSceneGql,
+  example: exampleIdeaScene,
+  examples: exampleIdeaScenes,
   parentKey: 'chapterId',
-  children: ['idea', 'member', 'conversation'],
+  children: ['idea'],
 };
