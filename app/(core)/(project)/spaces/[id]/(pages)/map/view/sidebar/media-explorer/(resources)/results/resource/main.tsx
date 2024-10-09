@@ -1,8 +1,8 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -15,7 +15,7 @@ export function SpacesMapResourceResource() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const reviewactivityListController =
-    useControllerForReviewUpdateListFromChapter(
+    useControllerForUserActivityListFromChapter(
       chapterListController.state.objId,
     );
 

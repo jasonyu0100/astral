@@ -1,8 +1,8 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -29,7 +29,7 @@ export function SpacesMapAddTextIdeaModal() {
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
   const mapController = useContext(ContextForSpacesMap);
-  const activityListController = useControllerForReviewUpdateListFromChapter(
+  const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
 

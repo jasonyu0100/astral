@@ -1,8 +1,8 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
@@ -35,7 +35,7 @@ export function SpacesMapCombineIdeas() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForChapterSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const activityListController = useControllerForReviewUpdateListFromChapter(
+  const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
   const [combinationDescription, setCombinationDescription] = useState('');
