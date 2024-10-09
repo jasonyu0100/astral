@@ -1,8 +1,8 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForPostAttachmentListFromSpotlight } from '@/(server)/controller/post/attachment/list-from-spotlight';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -21,15 +21,13 @@ export function SpacesFlightAddSpotlightModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
   const attachmentListController = useContext(
-    ContextForSpotlightAttachmentListFromSpotlight,
+    ContextForPostAttachmentListFromSpotlight,
   );
 
   const openableController = useContext(ContextForOpenable);
-  const activityListController = useControllerForReviewUpdateListFromChapter(
+  const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
 
@@ -44,7 +42,7 @@ export function SpacesFlightAddSpotlightModal() {
     }
 
     const spotlight =
-      await spotlightListController.actions.createActions.createSpotlight(
+      await postListController.actions.createActions.createSpotlight(
         title,
         description,
         user.id,

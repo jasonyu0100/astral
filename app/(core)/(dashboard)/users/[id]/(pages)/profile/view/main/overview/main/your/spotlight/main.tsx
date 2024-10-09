@@ -1,5 +1,5 @@
-import { useControllerForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
-import { ContextForChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
+import { useControllerForPostAttachmentListFromSpotlight } from '@/(server)/controller/post/attachment/list-from-spotlight';
+import { ContextForUserPostObj } from '@/(server)/model/post/main';
 import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { getFormattedDate } from '@/utils/dateFormat';
@@ -8,9 +8,9 @@ import { useContext } from 'react';
 export function UserProfileOverviewSpotlight() {
   const index = useContext(ContextForIndexable);
   const profileUser = useContext(ContextForProfileUserObj);
-  const spotlightObj = useContext(ContextForChapterSpotlightObj);
+  const spotlightObj = useContext(ContextForUserPostObj);
   const attachmentListController =
-    useControllerForSpotlightAttachmentListFromSpotlight(spotlightObj.id);
+    useControllerForPostAttachmentListFromSpotlight(spotlightObj.id);
 
   return (
     <div className='grid grid-cols-8 items-center justify-center gap-[2rem]'>

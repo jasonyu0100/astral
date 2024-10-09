@@ -1,9 +1,9 @@
 import { useControllerForChapterWayMain } from '@/(server)/controller/space/chapter/way/main';
-import { ContextForSpotlightLinkObj } from '@/(server)/model/space/chapter/spotlight/link/main';
+import { ContextForPostLinkObj } from '@/(server)/model/post/link/main';
 import { useContext } from 'react';
 
 export function SpacesFlightLog() {
-  const link = useContext(ContextForSpotlightLinkObj);
+  const link = useContext(ContextForPostLinkObj);
   const log = useControllerForChapterWayMain(link.logId);
 
   return (

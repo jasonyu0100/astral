@@ -1,12 +1,10 @@
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 
 export function SpacesFlightTitle() {
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (
@@ -17,7 +15,7 @@ export function SpacesFlightTitle() {
           src={loggedInUser.dp?.src || exampleFileElem.src}
         />
         <p className='text-2xl font-bold text-slate-300'>
-          {spotlightListController.state.currentObj?.title || 'Untitled'}
+          {postListController.state.currentObj?.title || 'Untitled'}
         </p>
       </div>
     </div>

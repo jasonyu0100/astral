@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { CommentKarmaObj } from '@/(server)/model/space/chapter/spotlight/comment/karma/main';
+import { CommentKarmaObj } from '@/(server)/model/post/comment/karma/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createCommentKarmaObj,

@@ -48,7 +48,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     spaceId: string,
     chapterId: string,
-    spotlightId: string,
+    postId: string,
   ) => Promise<TargetObj>;
   createFromChapterLog: (
     userId: string,
@@ -69,18 +69,18 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     sceneId: string,
     ideaId: string,
   ) => Promise<TargetObj>;
-  createFromSpotlightComment: (
+  createFromPostComment: (
     userId: string,
     spaceId: string,
     chapterId: string,
-    spotlightId: string,
+    postId: string,
     commentId: string,
   ) => Promise<TargetObj>;
-  createFromSpotlightAttachment: (
+  createFromPostAttachment: (
     userId: string,
     spaceId: string,
     chapterId: string,
-    spotlightId: string,
+    postId: string,
     attachmentId: string,
   ) => Promise<TargetObj>;
   createFromChapterMember: (
@@ -362,22 +362,17 @@ const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterSpotlight: async (
-      userId,
-      spaceId,
-      chapterId,
-      spotlightId,
-    ) => {
+    createFromChapterSpotlight: async (userId, spaceId, chapterId, postId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
-        spotlightId: spotlightId,
+        postId: postId,
         added: false,
         spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: UserActivityVariant.SPOTLIGHT,
+        variant: UserActivityVariant.POST,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -451,17 +446,17 @@ const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromSpotlightComment: async (
+    createFromPostComment: async (
       userId,
       spaceId,
       chapterId,
-      spotlightId,
+      postId,
       commentId,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         spaceId: spaceId,
-        spotlightId: spotlightId,
+        postId: postId,
         commentId: commentId,
         added: false,
         title: '',
@@ -476,17 +471,17 @@ const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromSpotlightAttachment: async (
+    createFromPostAttachment: async (
       userId,
       spaceId,
       chapterId,
-      spotlightId,
+      postId,
       attachmentId,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         spaceId: spaceId,
-        spotlightId: spotlightId,
+        postId: postId,
         attachmentId: attachmentId,
         added: false,
         title: '',

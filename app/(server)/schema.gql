@@ -67,7 +67,7 @@ type ChapterReviewUpdateObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   wayId: String
   commentId: String
   attachmentId: String
@@ -148,7 +148,7 @@ type ChapterSessionUpdateObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   logId: String
   commentId: String
   attachmentId: String
@@ -160,7 +160,7 @@ type ChapterSessionUpdateObjConnection {
   nextToken: String
 }
 
-type ChapterSpotlightObj {
+type UserPostObj {
   id: String!
   userId: String!
   chapterId: String!
@@ -168,11 +168,11 @@ type ChapterSpotlightObj {
   description: String!
   summary: String!
   created: String!
-  spotlightStatus: String!
+  postStatus: String!
 }
 
-type ChapterSpotlightObjConnection {
-  items: [ChapterSpotlightObj]
+type UserPostObjConnection {
+  items: [UserPostObj]
   nextToken: String
 }
 
@@ -286,7 +286,7 @@ input CreateChapterReviewUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   wayId: String
   commentId: String
   attachmentId: String
@@ -337,21 +337,21 @@ input CreateChapterSessionUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   logId: String
   commentId: String
   attachmentId: String
   memberId: String
 }
 
-input CreateChapterSpotlightObjInput {
+input CreateUserPostObjInput {
   userId: String!
   chapterId: String!
   title: String!
   description: String!
   summary: String!
   created: String!
-  spotlightStatus: String!
+  postStatus: String!
 }
 
 input CreateChapterWayObjInput {
@@ -517,7 +517,7 @@ input CreateSpaceObjInput {
 
 input CreateSpotlightAttachmentObjInput {
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   variant: String!
   fileElem: FileElemInput
@@ -527,29 +527,50 @@ input CreateSpotlightAttachmentObjInput {
 
 input CreateSpotlightCommentObjInput {
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   message: String!
 }
 
 input CreateSpotlightKarmaObjInput {
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   neutrality: Boolean!
 }
 
 input CreateSpotlightLinkObjInput {
-  spotlightId: String!
+  postId: String!
   userId: String!
   logId: String!
   created: String!
 }
 
 input CreateSpotlightMemberObjInput {
-  spotlightId: String!
+  postId: String!
   userId: String!
   created: String!
+}
+
+input CreateUserActivityObjInput {
+  userId: String!
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
 }
 
 input CreateUserBackerObjInput {
@@ -683,7 +704,7 @@ input DeleteChapterSessionUpdateObjInput {
   id: String!
 }
 
-input DeleteChapterSpotlightObjInput {
+input DeleteUserPostObjInput {
   id: String!
 }
 
@@ -768,6 +789,10 @@ input DeleteSpotlightLinkObjInput {
 }
 
 input DeleteSpotlightMemberObjInput {
+  id: String!
+}
+
+input DeleteUserActivityObjInput {
   id: String!
 }
 
@@ -1032,7 +1057,7 @@ type SpaceObjConnection {
 type SpotlightAttachmentObj {
   id: String!
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   variant: String!
   fileElem: FileElem
@@ -1048,7 +1073,7 @@ type SpotlightAttachmentObjConnection {
 type SpotlightCommentObj {
   id: String!
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   message: String!
 }
@@ -1061,7 +1086,7 @@ type SpotlightCommentObjConnection {
 type SpotlightKarmaObj {
   id: String!
   userId: String
-  spotlightId: String!
+  postId: String!
   created: String!
   neutrality: Boolean!
 }
@@ -1073,7 +1098,7 @@ type SpotlightKarmaObjConnection {
 
 type SpotlightLinkObj {
   id: String!
-  spotlightId: String!
+  postId: String!
   userId: String!
   logId: String!
   created: String!
@@ -1086,7 +1111,7 @@ type SpotlightLinkObjConnection {
 
 type SpotlightMemberObj {
   id: String!
-  spotlightId: String!
+  postId: String!
   userId: String!
   created: String!
 }
@@ -1150,7 +1175,7 @@ input TableChapterReviewUpdateObjFilterInput {
   conversationId: TableStringFilterInput
   sceneId: TableStringFilterInput
   ideaId: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   wayId: TableStringFilterInput
   commentId: TableStringFilterInput
   attachmentId: TableStringFilterInput
@@ -1206,14 +1231,14 @@ input TableChapterSessionUpdateObjFilterInput {
   conversationId: TableStringFilterInput
   sceneId: TableStringFilterInput
   ideaId: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   logId: TableStringFilterInput
   commentId: TableStringFilterInput
   attachmentId: TableStringFilterInput
   memberId: TableStringFilterInput
 }
 
-input TableChapterSpotlightObjFilterInput {
+input TableUserPostObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
   chapterId: TableStringFilterInput
@@ -1221,7 +1246,7 @@ input TableChapterSpotlightObjFilterInput {
   description: TableStringFilterInput
   summary: TableStringFilterInput
   created: TableStringFilterInput
-  spotlightStatus: TableStringFilterInput
+  postStatus: TableStringFilterInput
 }
 
 input TableChapterWayObjFilterInput {
@@ -1430,7 +1455,7 @@ input TableSpaceObjFilterInput {
 input TableSpotlightAttachmentObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   created: TableStringFilterInput
   variant: TableStringFilterInput
 }
@@ -1438,7 +1463,7 @@ input TableSpotlightAttachmentObjFilterInput {
 input TableSpotlightCommentObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   created: TableStringFilterInput
   message: TableStringFilterInput
 }
@@ -1446,14 +1471,14 @@ input TableSpotlightCommentObjFilterInput {
 input TableSpotlightKarmaObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   created: TableStringFilterInput
   neutrality: TableBooleanFilterInput
 }
 
 input TableSpotlightLinkObjFilterInput {
   id: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   userId: TableStringFilterInput
   logId: TableStringFilterInput
   created: TableStringFilterInput
@@ -1461,7 +1486,7 @@ input TableSpotlightLinkObjFilterInput {
 
 input TableSpotlightMemberObjFilterInput {
   id: TableStringFilterInput
-  spotlightId: TableStringFilterInput
+  postId: TableStringFilterInput
   userId: TableStringFilterInput
   created: TableStringFilterInput
 }
@@ -1479,6 +1504,28 @@ input TableStringFilterInput {
   beginsWith: String
   attributeExists: Boolean
   size: ModelSizeInput
+}
+
+input TableUserActivityObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  acitivtyId: TableStringFilterInput
+  added: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  postId: TableStringFilterInput
+  wayId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  attachmentId: TableStringFilterInput
+  contributorId: TableStringFilterInput
 }
 
 input TableUserBackerObjFilterInput {
@@ -1637,7 +1684,7 @@ input UpdateChapterReviewUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   wayId: String
   commentId: String
   attachmentId: String
@@ -1693,14 +1740,14 @@ input UpdateChapterSessionUpdateObjInput {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   logId: String
   commentId: String
   attachmentId: String
   memberId: String
 }
 
-input UpdateChapterSpotlightObjInput {
+input UpdateUserPostObjInput {
   id: String!
   userId: String
   chapterId: String
@@ -1708,7 +1755,7 @@ input UpdateChapterSpotlightObjInput {
   description: String
   summary: String
   created: String
-  spotlightStatus: String
+  postStatus: String
 }
 
 input UpdateChapterWayObjInput {
@@ -1889,7 +1936,7 @@ input UpdateSpaceObjInput {
 input UpdateSpotlightAttachmentObjInput {
   id: String!
   userId: String
-  spotlightId: String
+  postId: String
   created: String
   variant: String
   fileElem: FileElemInput
@@ -1900,7 +1947,7 @@ input UpdateSpotlightAttachmentObjInput {
 input UpdateSpotlightCommentObjInput {
   id: String!
   userId: String
-  spotlightId: String
+  postId: String
   created: String
   message: String
 }
@@ -1908,14 +1955,14 @@ input UpdateSpotlightCommentObjInput {
 input UpdateSpotlightKarmaObjInput {
   id: String!
   userId: String
-  spotlightId: String
+  postId: String
   created: String
   neutrality: Boolean
 }
 
 input UpdateSpotlightLinkObjInput {
   id: String!
-  spotlightId: String
+  postId: String
   userId: String
   logId: String
   created: String
@@ -1923,9 +1970,31 @@ input UpdateSpotlightLinkObjInput {
 
 input UpdateSpotlightMemberObjInput {
   id: String!
-  spotlightId: String
+  postId: String
   userId: String
   created: String
+}
+
+input UpdateUserActivityObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean
+  title: String
+  description: String
+  created: String
+  variant: String
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
 }
 
 input UpdateUserBackerObjInput {
@@ -2041,6 +2110,33 @@ input UrlElemInput {
   url: String
   title: String
   variant: String
+}
+
+type UserActivityObj {
+  id: String!
+  userId: String!
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  wayId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
+}
+
+type UserActivityObjConnection {
+  items: [UserActivityObj]
+  nextToken: String
 }
 
 type UserBackerObj {
@@ -2342,15 +2438,9 @@ type Mutation {
   deleteSceneConversationObj(
     input: DeleteSceneConversationObjInput!
   ): SceneConversationObj
-  createChapterSpotlightObj(
-    input: CreateChapterSpotlightObjInput!
-  ): ChapterSpotlightObj
-  updateChapterSpotlightObj(
-    input: UpdateChapterSpotlightObjInput!
-  ): ChapterSpotlightObj
-  deleteChapterSpotlightObj(
-    input: DeleteChapterSpotlightObjInput!
-  ): ChapterSpotlightObj
+  createUserPostObj(input: CreateUserPostObjInput!): UserPostObj
+  updateUserPostObj(input: UpdateUserPostObjInput!): UserPostObj
+  deleteUserPostObj(input: DeleteUserPostObjInput!): UserPostObj
   createSpotlightMemberObj(
     input: CreateSpotlightMemberObjInput!
   ): SpotlightMemberObj
@@ -2465,6 +2555,9 @@ type Mutation {
   createWayMemberObj(input: CreateWayMemberObjInput!): WayMemberObj
   updateWayMemberObj(input: UpdateWayMemberObjInput!): WayMemberObj
   deleteWayMemberObj(input: DeleteWayMemberObjInput!): WayMemberObj
+  createUserActivityObj(input: CreateUserActivityObjInput!): UserActivityObj
+  updateUserActivityObj(input: UpdateUserActivityObjInput!): UserActivityObj
+  deleteUserActivityObj(input: DeleteUserActivityObjInput!): UserActivityObj
 }
 
 type Query {
@@ -2601,12 +2694,12 @@ type Query {
     limit: Int
     nextToken: String
   ): SceneConversationObjConnection
-  getChapterSpotlightObj(id: String!): ChapterSpotlightObj
-  listChapterSpotlightObjs(
-    filter: TableChapterSpotlightObjFilterInput
+  getUserPostObj(id: String!): UserPostObj
+  listUserPostObjs(
+    filter: TableUserPostObjFilterInput
     limit: Int
     nextToken: String
-  ): ChapterSpotlightObjConnection
+  ): UserPostObjConnection
   getSpotlightMemberObj(id: String!): SpotlightMemberObj
   listSpotlightMemberObjs(
     filter: TableSpotlightMemberObjFilterInput
@@ -2715,6 +2808,12 @@ type Query {
     limit: Int
     nextToken: String
   ): WayMemberObjConnection
+  getUserActivityObj(id: String!): UserActivityObj
+  listUserActivityObjs(
+    filter: TableUserActivityObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserActivityObjConnection
 }
 
 type Subscription {
@@ -3192,52 +3291,49 @@ type Subscription {
     created: String
   ): SceneConversationObj
     @aws_subscribe(mutations: ["deleteSceneConversationObj"])
-  onCreateChapterSpotlightObj(
+  onCreateUserPostObj(
     id: String
     userId: String
     chapterId: String
     title: String
     description: String
-  ): ChapterSpotlightObj
-    @aws_subscribe(mutations: ["createChapterSpotlightObj"])
-  onUpdateChapterSpotlightObj(
+  ): UserPostObj @aws_subscribe(mutations: ["createUserPostObj"])
+  onUpdateUserPostObj(
     id: String
     userId: String
     chapterId: String
     title: String
     description: String
-  ): ChapterSpotlightObj
-    @aws_subscribe(mutations: ["updateChapterSpotlightObj"])
-  onDeleteChapterSpotlightObj(
+  ): UserPostObj @aws_subscribe(mutations: ["updateUserPostObj"])
+  onDeleteUserPostObj(
     id: String
     userId: String
     chapterId: String
     title: String
     description: String
-  ): ChapterSpotlightObj
-    @aws_subscribe(mutations: ["deleteChapterSpotlightObj"])
+  ): UserPostObj @aws_subscribe(mutations: ["deleteUserPostObj"])
   onCreateSpotlightMemberObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     created: String
   ): SpotlightMemberObj @aws_subscribe(mutations: ["createSpotlightMemberObj"])
   onUpdateSpotlightMemberObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     created: String
   ): SpotlightMemberObj @aws_subscribe(mutations: ["updateSpotlightMemberObj"])
   onDeleteSpotlightMemberObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     created: String
   ): SpotlightMemberObj @aws_subscribe(mutations: ["deleteSpotlightMemberObj"])
   onCreateSpotlightCommentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     message: String
   ): SpotlightCommentObj
@@ -3245,7 +3341,7 @@ type Subscription {
   onUpdateSpotlightCommentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     message: String
   ): SpotlightCommentObj
@@ -3253,7 +3349,7 @@ type Subscription {
   onDeleteSpotlightCommentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     message: String
   ): SpotlightCommentObj
@@ -3261,7 +3357,7 @@ type Subscription {
   onCreateSpotlightAttachmentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     variant: String
   ): SpotlightAttachmentObj
@@ -3269,7 +3365,7 @@ type Subscription {
   onUpdateSpotlightAttachmentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     variant: String
   ): SpotlightAttachmentObj
@@ -3277,28 +3373,28 @@ type Subscription {
   onDeleteSpotlightAttachmentObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     variant: String
   ): SpotlightAttachmentObj
     @aws_subscribe(mutations: ["deleteSpotlightAttachmentObj"])
   onCreateSpotlightLinkObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     logId: String
     created: String
   ): SpotlightLinkObj @aws_subscribe(mutations: ["createSpotlightLinkObj"])
   onUpdateSpotlightLinkObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     logId: String
     created: String
   ): SpotlightLinkObj @aws_subscribe(mutations: ["updateSpotlightLinkObj"])
   onDeleteSpotlightLinkObj(
     id: String
-    spotlightId: String
+    postId: String
     userId: String
     logId: String
     created: String
@@ -3330,21 +3426,21 @@ type Subscription {
   onCreateSpotlightKarmaObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     neutrality: Boolean
   ): SpotlightKarmaObj @aws_subscribe(mutations: ["createSpotlightKarmaObj"])
   onUpdateSpotlightKarmaObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     neutrality: Boolean
   ): SpotlightKarmaObj @aws_subscribe(mutations: ["updateSpotlightKarmaObj"])
   onDeleteSpotlightKarmaObj(
     id: String
     userId: String
-    spotlightId: String
+    postId: String
     created: String
     neutrality: Boolean
   ): SpotlightKarmaObj @aws_subscribe(mutations: ["deleteSpotlightKarmaObj"])
@@ -3606,4 +3702,25 @@ type Subscription {
     userId: String
     created: String
   ): WayMemberObj @aws_subscribe(mutations: ["deleteWayMemberObj"])
+  onCreateUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["createUserActivityObj"])
+  onUpdateUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["updateUserActivityObj"])
+  onDeleteUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["deleteUserActivityObj"])
 }

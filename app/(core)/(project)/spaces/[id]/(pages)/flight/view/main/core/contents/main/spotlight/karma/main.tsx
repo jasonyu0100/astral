@@ -1,5 +1,5 @@
-import { ContextForSpotlightKarmaList } from '@/(server)/controller/space/chapter/spotlight/karma/list';
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForPostKarmaList } from '@/(server)/controller/post/karma/list';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
@@ -8,12 +8,10 @@ import { useContext } from 'react';
 
 export function SpacesFlightKarma() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
-  const spotlightKarmaListController = useContext(ContextForSpotlightKarmaList);
+  const postListController = useContext(ContextForUserPostListFromChapter);
+  const postKarmaListController = useContext(ContextForPostKarmaList);
 
-  const karmaVotes = spotlightKarmaListController.state.objs;
+  const karmaVotes = postKarmaListController.state.objs;
   const cumulativeKarma = karmaVotes.reduce(
     (acc, obj) => acc + (obj.neutrality === true ? 1 : -1),
     0,
@@ -27,12 +25,12 @@ export function SpacesFlightKarma() {
 
   async function upvote() {
     if (userKarma) {
-      spotlightKarmaListController.actions.editActions.edit(userKarma.id, {
+      postKarmaListController.actions.editActions.edit(userKarma.id, {
         neutrality: true,
       });
     } else {
-      spotlightKarmaListController.actions.createActions.createKarma(
-        spotlightListController.state.objId,
+      postKarmaListController.actions.createActions.createKarma(
+        postListController.state.objId,
         loggedInUser.id,
         true,
       );
@@ -41,12 +39,12 @@ export function SpacesFlightKarma() {
 
   async function downvote() {
     if (userKarma) {
-      spotlightKarmaListController.actions.editActions.edit(userKarma.id, {
+      postKarmaListController.actions.editActions.edit(userKarma.id, {
         neutrality: false,
       });
     } else {
-      spotlightKarmaListController.actions.createActions.createKarma(
-        spotlightListController.state.objId,
+      postKarmaListController.actions.createActions.createKarma(
+        postListController.state.objId,
         loggedInUser.id,
         false,
       );

@@ -8,7 +8,7 @@ export function StudioSpacesRowSpotlights() {
   const reviewactivityListController =
     useControllerForUserActivityListFromSpace(spaceObj.id);
   const spotlights = reviewactivityListController.state.objs.filter(
-    (update) => update.variant === UserActivityVariant.SPOTLIGHT,
+    (update) => update.variant === UserActivityVariant.POST,
   );
 
   return (

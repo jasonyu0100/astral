@@ -1,49 +1,46 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { PostCommentObj } from '@/(server)/model/post/comment/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createSpotlightCommentObj,
-  deleteSpotlightCommentObj,
-  updateSpotlightCommentObj,
+  createPostCommentObj,
+  deletePostCommentObj,
+  updatePostCommentObj,
 } from '@/graphql/mutations';
-import {
-  getSpotlightCommentObj,
-  listSpotlightCommentObjs,
-} from '@/graphql/queries';
+import { getPostCommentObj, listPostCommentObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as SpotlightCommentObj;
+  return obj as PostCommentObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as SpotlightCommentObj[];
+  return objs as PostCommentObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightCommentObj,
+    query: getPostCommentObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getSpotlightCommentObj);
+  return castSingle(payload?.data?.getPostCommentObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightCommentObj,
+    query: getPostCommentObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getSpotlightCommentObj);
+  return castSingle(payload?.data?.getPostCommentObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightCommentObjs,
+    query: listPostCommentObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,41 +50,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listSpotlightCommentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostCommentObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightCommentObjs,
+    query: listPostCommentObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listSpotlightCommentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostCommentObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightCommentObjs,
+    query: listPostCommentObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listSpotlightCommentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostCommentObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<SpotlightCommentObj, 'id'>) {
+async function createObj(newObj: Omit<PostCommentObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createSpotlightCommentObj,
+    query: createPostCommentObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createSpotlightCommentObj);
+  return castSingle(payload?.data?.createPostCommentObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<SpotlightCommentObj>) {
+async function updateObj(id: string, updateObj: Partial<PostCommentObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightCommentObj,
+    query: updatePostCommentObj,
     variables: {
       input: {
         id: id,
@@ -96,12 +93,12 @@ async function updateObj(id: string, updateObj: Partial<SpotlightCommentObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightCommentObj);
+  return castSingle(payload?.data?.updatePostCommentObj);
 }
 
-async function overwriteObj(id: string, newObj: SpotlightCommentObj) {
+async function overwriteObj(id: string, newObj: PostCommentObj) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightCommentObj,
+    query: updatePostCommentObj,
     variables: {
       input: {
         id: id,
@@ -110,12 +107,12 @@ async function overwriteObj(id: string, newObj: SpotlightCommentObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightCommentObj);
+  return castSingle(payload?.data?.updatePostCommentObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteSpotlightCommentObj,
+    query: deletePostCommentObj,
     variables: {
       input: {
         id: id,
@@ -123,10 +120,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteSpotlightCommentObj);
+  return castSingle(payload?.data?.deletePostCommentObj);
 }
 
-export const spotlightCommentDbWrapper: GqlDbWrapper<SpotlightCommentObj> = {
+export const postCommentDbWrapper: GqlDbWrapper<PostCommentObj> = {
   getObj,
   listObjs,
   listAllObjs,

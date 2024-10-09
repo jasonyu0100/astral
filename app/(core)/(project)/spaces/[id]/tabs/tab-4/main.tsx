@@ -1,7 +1,7 @@
 'use client';
 
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { Tab } from '@/ui/tabs/tabs-row/tab/main';
 import { TabPurpleShard } from '@/ui/tabs/tabs-row/tab/shard/purple/main';
 import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
@@ -12,20 +12,18 @@ import { SpaceTabStage } from '../main';
 
 export function SpacesTabFlight({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
   const spaceContext = useContext(CreativeSpacesContext);
   const tabText = SpaceTabStage.Flight;
   const active = tab === tabText;
 
   const spaceId = spaceContext?.spaceId;
   const chapterId = chapterListController?.state?.objId;
-  const spotlightId = spotlightListController?.state?.objId;
+  const postId = postListController?.state?.objId;
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.flight.link(spaceId)}?chapter=${chapterId ?? ''}&spotlight=${spotlightId ?? ''}`
+    ? `${spacesMap.spaces.id.flight.link(spaceId)}?chapter=${chapterId ?? ''}&spotlight=${postId ?? ''}`
     : '#'; // Fallback URL if spaceId is undefined
 
   return (

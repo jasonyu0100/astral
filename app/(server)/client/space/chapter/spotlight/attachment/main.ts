@@ -1,49 +1,49 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { SpotlightAttachmentObj } from '@/(server)/model/space/chapter/spotlight/attachment/main';
+import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createSpotlightAttachmentObj,
-  deleteSpotlightAttachmentObj,
-  updateSpotlightAttachmentObj,
+  createPostAttachmentObj,
+  deletePostAttachmentObj,
+  updatePostAttachmentObj,
 } from '@/graphql/mutations';
 import {
-  getSpotlightAttachmentObj,
-  listSpotlightAttachmentObjs,
+  getPostAttachmentObj,
+  listPostAttachmentObjs,
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as SpotlightAttachmentObj;
+  return obj as PostAttachmentObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as SpotlightAttachmentObj[];
+  return objs as PostAttachmentObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightAttachmentObj,
+    query: getPostAttachmentObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getSpotlightAttachmentObj);
+  return castSingle(payload?.data?.getPostAttachmentObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightAttachmentObj,
+    query: getPostAttachmentObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getSpotlightAttachmentObj);
+  return castSingle(payload?.data?.getPostAttachmentObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightAttachmentObjs,
+    query: listPostAttachmentObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,44 +53,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listSpotlightAttachmentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostAttachmentObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightAttachmentObjs,
+    query: listPostAttachmentObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listSpotlightAttachmentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostAttachmentObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightAttachmentObjs,
+    query: listPostAttachmentObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listSpotlightAttachmentObjs?.items || []);
+  return castMultiple(payload?.data?.listPostAttachmentObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<SpotlightAttachmentObj, 'id'>) {
+async function createObj(newObj: Omit<PostAttachmentObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createSpotlightAttachmentObj,
+    query: createPostAttachmentObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createSpotlightAttachmentObj);
+  return castSingle(payload?.data?.createPostAttachmentObj);
 }
 
-async function updateObj(
-  id: string,
-  updateObj: Partial<SpotlightAttachmentObj>,
-) {
+async function updateObj(id: string, updateObj: Partial<PostAttachmentObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightAttachmentObj,
+    query: updatePostAttachmentObj,
     variables: {
       input: {
         id: id,
@@ -99,12 +96,12 @@ async function updateObj(
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightAttachmentObj);
+  return castSingle(payload?.data?.updatePostAttachmentObj);
 }
 
-async function overwriteObj(id: string, newObj: SpotlightAttachmentObj) {
+async function overwriteObj(id: string, newObj: PostAttachmentObj) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightAttachmentObj,
+    query: updatePostAttachmentObj,
     variables: {
       input: {
         id: id,
@@ -113,12 +110,12 @@ async function overwriteObj(id: string, newObj: SpotlightAttachmentObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightAttachmentObj);
+  return castSingle(payload?.data?.updatePostAttachmentObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteSpotlightAttachmentObj,
+    query: deletePostAttachmentObj,
     variables: {
       input: {
         id: id,
@@ -126,18 +123,17 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteSpotlightAttachmentObj);
+  return castSingle(payload?.data?.deletePostAttachmentObj);
 }
 
-export const spotlightAttachmentDbWrapper: GqlDbWrapper<SpotlightAttachmentObj> =
-  {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-  };
+export const postAttachmentDbWrapper: GqlDbWrapper<PostAttachmentObj> = {
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

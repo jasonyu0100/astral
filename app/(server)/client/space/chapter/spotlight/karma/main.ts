@@ -1,49 +1,46 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { SpotlightKarmaObj } from '@/(server)/model/space/chapter/spotlight/karma/main';
+import { PostKarmaObj } from '@/(server)/model/post/karma/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createSpotlightKarmaObj,
-  deleteSpotlightKarmaObj,
-  updateSpotlightKarmaObj,
+  createPostKarmaObj,
+  deletePostKarmaObj,
+  updatePostKarmaObj,
 } from '@/graphql/mutations';
-import {
-  getSpotlightKarmaObj,
-  listSpotlightKarmaObjs,
-} from '@/graphql/queries';
+import { getPostKarmaObj, listPostKarmaObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as SpotlightKarmaObj;
+  return obj as PostKarmaObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as SpotlightKarmaObj[];
+  return objs as PostKarmaObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightKarmaObj,
+    query: getPostKarmaObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getSpotlightKarmaObj);
+  return castSingle(payload?.data?.getPostKarmaObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getSpotlightKarmaObj,
+    query: getPostKarmaObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getSpotlightKarmaObj);
+  return castSingle(payload?.data?.getPostKarmaObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightKarmaObjs,
+    query: listPostKarmaObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,41 +50,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listSpotlightKarmaObjs?.items || []);
+  return castMultiple(payload?.data?.listPostKarmaObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightKarmaObjs,
+    query: listPostKarmaObjs,
     variables: {},
   });
 
-  return castMultiple(payload?.data?.listSpotlightKarmaObjs?.items || []);
+  return castMultiple(payload?.data?.listPostKarmaObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listSpotlightKarmaObjs,
+    query: listPostKarmaObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listSpotlightKarmaObjs?.items || []);
+  return castMultiple(payload?.data?.listPostKarmaObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<SpotlightKarmaObj, 'id'>) {
+async function createObj(newObj: Omit<PostKarmaObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createSpotlightKarmaObj,
+    query: createPostKarmaObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createSpotlightKarmaObj);
+  return castSingle(payload?.data?.createPostKarmaObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<SpotlightKarmaObj>) {
+async function updateObj(id: string, updateObj: Partial<PostKarmaObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightKarmaObj,
+    query: updatePostKarmaObj,
     variables: {
       input: {
         id: id,
@@ -96,12 +93,12 @@ async function updateObj(id: string, updateObj: Partial<SpotlightKarmaObj>) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightKarmaObj);
+  return castSingle(payload?.data?.updatePostKarmaObj);
 }
 
-async function overwriteObj(id: string, newObj: SpotlightKarmaObj) {
+async function overwriteObj(id: string, newObj: PostKarmaObj) {
   const payload = await amplifyClient.graphql({
-    query: updateSpotlightKarmaObj,
+    query: updatePostKarmaObj,
     variables: {
       input: {
         id: id,
@@ -110,12 +107,12 @@ async function overwriteObj(id: string, newObj: SpotlightKarmaObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpotlightKarmaObj);
+  return castSingle(payload?.data?.updatePostKarmaObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteSpotlightKarmaObj,
+    query: deletePostKarmaObj,
     variables: {
       input: {
         id: id,
@@ -123,10 +120,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteSpotlightKarmaObj);
+  return castSingle(payload?.data?.deletePostKarmaObj);
 }
 
-export const spotlightKarmaDbWrapper: GqlDbWrapper<SpotlightKarmaObj> = {
+export const postKarmaDbWrapper: GqlDbWrapper<PostKarmaObj> = {
   getObj,
   listObjs,
   listAllObjs,

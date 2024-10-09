@@ -1,5 +1,5 @@
-import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -12,10 +12,8 @@ import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
 export function SpacesFlightAddCommentModal() {
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
-  const commentListController = useContext(ContextForSpotlightCommentList);
+  const postListController = useContext(ContextForUserPostListFromChapter);
+  const commentListController = useContext(ContextForPostCommentList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [message, changeMessage] = useState('');
@@ -23,7 +21,7 @@ export function SpacesFlightAddCommentModal() {
   async function createComment() {
     commentListController.actions.createActions.createComment(
       user.id,
-      spotlightListController.state.objId,
+      postListController.state.objId,
       message,
     );
     openableController.close();

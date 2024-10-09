@@ -1,4 +1,4 @@
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -6,9 +6,7 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpacesFlightSidebarSearch() {
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
 
   return (
     <div className='flex h-[4rem] w-full items-center justify-center p-[1rem] shadow-glow'>
@@ -21,7 +19,7 @@ export function SpacesFlightSidebarSearch() {
             className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent px-[1rem] font-bold text-slate-300 outline-none'
             placeholder='Venture forth...'
             onChange={(e) =>
-              spotlightListController.actions.stateActions.searchAndUpdateQuery(
+              postListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,
               )
             }

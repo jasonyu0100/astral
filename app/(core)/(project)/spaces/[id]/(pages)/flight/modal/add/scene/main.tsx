@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -22,7 +22,7 @@ export function SpacesFlightAddSceneModal() {
   const sceneListController = useContext(ContextForChapterSceneList);
   const [title, changeTitle] = useState('');
   const [summary, changeSummary] = useState('');
-  const activityListController = useControllerForReviewUpdateListFromChapter(
+  const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
 

@@ -14,7 +14,7 @@ export function StudioSpacesRowStat() {
     (update) => update.variant === UserActivityVariant.SCENE,
   );
   const spotlighs = reviewactivityListController.state.objs.filter(
-    (update) => update.variant === UserActivityVariant.SPOTLIGHT,
+    (update) => update.variant === UserActivityVariant.POST,
   );
 
   return (

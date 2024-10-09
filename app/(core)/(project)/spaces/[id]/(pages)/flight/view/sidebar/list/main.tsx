@@ -1,13 +1,11 @@
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
-import { ContextForChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
+import { ContextForUserPostObj } from '@/(server)/model/post/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
 import { SpacesFlightSidebarItem } from './item/main';
 
 export function SpacesFlightSidebarList() {
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
 
   return (
     <div style={{ height: '100%', width: '100%' }}>
@@ -18,13 +16,11 @@ export function SpacesFlightSidebarList() {
       >
         <div className='h-full w-full overflow-auto'>
           <div className='flex flex-col space-y-[1rem]'>
-            {spotlightListController.state.more.queryResults.map(
-              (spotlight) => (
-                <ContextForChapterSpotlightObj.Provider value={spotlight}>
-                  <SpacesFlightSidebarItem />
-                </ContextForChapterSpotlightObj.Provider>
-              ),
-            )}
+            {postListController.state.more.queryResults.map((spotlight) => (
+              <ContextForUserPostObj.Provider value={spotlight}>
+                <SpacesFlightSidebarItem />
+              </ContextForUserPostObj.Provider>
+            ))}
           </div>
         </div>
       </GlassAreaContainer>

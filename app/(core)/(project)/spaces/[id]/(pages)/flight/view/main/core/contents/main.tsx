@@ -1,4 +1,4 @@
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
 import { SpacesFlightComments } from './comments/main';
@@ -7,7 +7,7 @@ import { SpacesFlightMain } from './main/main';
 
 export function SpacesFlightContents() {
   const spotlightLightController = useContext(
-    ContextForChapterSpotlightListFromChapter,
+    ContextForUserPostListFromChapter,
   );
   return (
     <div style={{ width: '100%', height: '100%' }}>

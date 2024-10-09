@@ -7,7 +7,7 @@ export enum UserActivityVariant {
   SCENE = 'SCENE',
   IDEA = 'IDEA',
   WAY = 'WAY',
-  SPOTLIGHT = 'SPOTLIGHT',
+  POST = 'POST',
   ATTACHMENT = 'ATTACHMENT',
   COMMENT = 'COMMENT',
   MEMBER = 'MEMBER',
@@ -28,7 +28,7 @@ export interface UserActivityObj {
   conversationId?: string;
   sceneId?: string;
   ideaId?: string;
-  spotlightId?: string;
+  postId?: string;
   wayId?: string;
   commentId?: string;
   attachmentId?: string;
@@ -51,7 +51,7 @@ type UserActivityObj {
   conversationId: String
   sceneId: String
   ideaId: String
-  spotlightId: String
+  postId: String
   wayId: String
   commentId: String
   attachmentId: String
@@ -77,7 +77,7 @@ export const exampleUserActivity: UserActivityObj = {
   conversationId: '0',
   ideaId: undefined,
   sceneId: undefined,
-  spotlightId: undefined,
+  postId: undefined,
   wayId: undefined,
   commentId: undefined,
   attachmentId: undefined,
@@ -99,7 +99,7 @@ export const exampleUserActivitys: UserActivityObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    spotlightId: undefined,
+    postId: undefined,
     wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,
@@ -119,7 +119,7 @@ export const exampleUserActivitys: UserActivityObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    spotlightId: undefined,
+    postId: undefined,
     wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,
@@ -139,7 +139,7 @@ export const exampleUserActivitys: UserActivityObj[] = [
     conversationId: '0',
     ideaId: undefined,
     sceneId: undefined,
-    spotlightId: undefined,
+    postId: undefined,
     wayId: undefined,
     commentId: undefined,
     attachmentId: undefined,

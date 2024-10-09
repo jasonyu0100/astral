@@ -4,29 +4,29 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main'
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
+  ContextForPostAttachmentListFromSpotlight,
+  useControllerForPostAttachmentListFromSpotlight,
+} from '@/(server)/controller/post/attachment/list-from-spotlight';
+import {
+  ContextForPostCommentList,
+  useControllerForPostCommentList,
+} from '@/(server)/controller/post/comment/list';
+import {
+  ContextForPostKarmaList,
+  useControllerForPostKarmaList,
+} from '@/(server)/controller/post/karma/list';
+import {
+  ContextForPostLinkList,
+  useControllerForPostLinkList,
+} from '@/(server)/controller/post/link/list';
+import {
+  ContextForUserPostListFromChapter,
+  useControllerForUserPostListFromChapter,
+} from '@/(server)/controller/post/list-from-chapter';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForSpotlightAttachmentListFromSpotlight,
-  useControllerForSpotlightAttachmentListFromSpotlight,
-} from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
-import {
-  ContextForSpotlightCommentList,
-  useControllerForSpotlightCommentList,
-} from '@/(server)/controller/space/chapter/spotlight/comment/list';
-import {
-  ContextForSpotlightKarmaList,
-  useControllerForSpotlightKarmaList,
-} from '@/(server)/controller/space/chapter/spotlight/karma/list';
-import {
-  ContextForSpotlightLinkList,
-  useControllerForSpotlightLinkList,
-} from '@/(server)/controller/space/chapter/spotlight/link/list';
-import {
-  ContextForChapterSpotlightListFromChapter,
-  useControllerForChapterSpotlightListFromChapter,
-} from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
@@ -47,7 +47,7 @@ import { SpacesFlightView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const spotlightId = searchParams.get('spotlight');
+  const postId = searchParams.get('spotlight');
   const chapterId = searchParams.get('chapter');
 
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -56,44 +56,39 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const spotlightListController =
-    useControllerForChapterSpotlightListFromChapter(
-      chapterListController.state.objId,
-      spotlightId,
-    );
-  const commentListController = useControllerForSpotlightCommentList(
-    spotlightListController.state.objId,
+  const postListController = useControllerForUserPostListFromChapter(
+    chapterListController.state.objId,
+    postId,
   );
-  const spotlightKarmaListController = useControllerForSpotlightKarmaList(
-    spotlightListController.state.objId,
+  const commentListController = useControllerForPostCommentList(
+    postListController.state.objId,
+  );
+  const postKarmaListController = useControllerForPostKarmaList(
+    postListController.state.objId,
   );
   const attachmentListController =
-    useControllerForSpotlightAttachmentListFromSpotlight(
-      spotlightListController.state.objId,
+    useControllerForPostAttachmentListFromSpotlight(
+      postListController.state.objId,
     );
-  const linkListController = useControllerForSpotlightLinkList(
-    spotlightListController.state.objId,
+  const linkListController = useControllerForPostLinkList(
+    postListController.state.objId,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSpotlightListFromChapter.Provider
-            value={spotlightListController}
+          <ContextForUserPostListFromChapter.Provider
+            value={postListController}
           >
-            <ContextForSpotlightKarmaList.Provider
-              value={spotlightKarmaListController}
-            >
-              <ContextForSpotlightAttachmentListFromSpotlight.Provider
+            <ContextForPostKarmaList.Provider value={postKarmaListController}>
+              <ContextForPostAttachmentListFromSpotlight.Provider
                 value={attachmentListController}
               >
-                <ContextForSpotlightCommentList.Provider
+                <ContextForPostCommentList.Provider
                   value={commentListController}
                 >
-                  <ContextForSpotlightLinkList.Provider
-                    value={linkListController}
-                  >
+                  <ContextForPostLinkList.Provider value={linkListController}>
                     <UpdateWrapper>
                       <LoadingWrapper>
                         <ControllerWrapper>
@@ -105,11 +100,11 @@ function Page({ params }: { params: { id: string } }) {
                         </ControllerWrapper>
                       </LoadingWrapper>
                     </UpdateWrapper>
-                  </ContextForSpotlightLinkList.Provider>
-                </ContextForSpotlightCommentList.Provider>
-              </ContextForSpotlightAttachmentListFromSpotlight.Provider>
-            </ContextForSpotlightKarmaList.Provider>
-          </ContextForChapterSpotlightListFromChapter.Provider>
+                  </ContextForPostLinkList.Provider>
+                </ContextForPostCommentList.Provider>
+              </ContextForPostAttachmentListFromSpotlight.Provider>
+            </ContextForPostKarmaList.Provider>
+          </ContextForUserPostListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
