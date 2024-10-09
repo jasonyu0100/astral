@@ -1,11 +1,11 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
-import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
+import { ChapterConversationObj } from '@/(server)/model/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import {
   currentState,

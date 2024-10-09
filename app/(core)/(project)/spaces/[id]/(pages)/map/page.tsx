@@ -4,6 +4,14 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main'
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/(server)/controller/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/controller/conversation/message/list';
+import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
 } from '@/(server)/controller/gallery/collection/list';
@@ -15,14 +23,6 @@ import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
-import {
-  ContextForChapterConversationList,
-  useControllerForChapterConversationList,
-} from '@/(server)/controller/space/chapter/conversation/list';
-import {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/conversation/message/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,

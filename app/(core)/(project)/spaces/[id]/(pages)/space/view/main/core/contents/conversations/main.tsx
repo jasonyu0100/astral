@@ -1,4 +1,4 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralAddIcon } from '@/icons/add/main';
 import { useGlobalUser } from '@/logic/store/user/main';

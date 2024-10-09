@@ -1,49 +1,49 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
+import { ChapterConversationObj } from '@/(server)/model/conversation/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createConversationMessageObj,
-  deleteConversationMessageObj,
-  updateConversationMessageObj,
+  createChapterConversationObj,
+  deleteChapterConversationObj,
+  updateChapterConversationObj,
 } from '@/graphql/mutations';
 import {
-  getConversationMessageObj,
-  listConversationMessageObjs,
+  getChapterConversationObj,
+  listChapterConversationObjs,
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as ConversationMessageObj;
+  return obj as ChapterConversationObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ConversationMessageObj[];
+  return objs as ChapterConversationObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getConversationMessageObj,
+    query: getChapterConversationObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getConversationMessageObj);
+  return castSingle(payload?.data?.getChapterConversationObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getConversationMessageObj,
+    query: getChapterConversationObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getConversationMessageObj);
+  return castSingle(payload?.data?.getChapterConversationObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listConversationMessageObjs,
+    query: listChapterConversationObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,44 +53,44 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
-}
-
-async function listAllObjs() {
-  const payload = await amplifyClient.graphql({
-    query: listConversationMessageObjs,
-    variables: {},
-  });
-
-  return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
+  return castMultiple(payload?.data?.listChapterConversationObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listConversationMessageObjs,
+    query: listChapterConversationObjs,
     variables: variables,
   });
 
-  return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
+  return castMultiple(payload?.data?.listChapterConversationObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ConversationMessageObj, 'id'>) {
+async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: createConversationMessageObj,
+    query: listChapterConversationObjs,
+    variables: {},
+  });
+
+  return castMultiple(payload?.data?.listChapterConversationObjs?.items || []);
+}
+
+async function createObj(newObj: Omit<ChapterConversationObj, 'id'>) {
+  const payload = await amplifyClient.graphql({
+    query: createChapterConversationObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createConversationMessageObj);
+  return castSingle(payload?.data?.createChapterConversationObj);
 }
 
 async function updateObj(
   id: string,
-  updateObj: Partial<ConversationMessageObj>,
+  updateObj: Partial<ChapterConversationObj>,
 ) {
   const payload = await amplifyClient.graphql({
-    query: updateConversationMessageObj,
+    query: updateChapterConversationObj,
     variables: {
       input: {
         id: id,
@@ -99,12 +99,12 @@ async function updateObj(
     },
   });
 
-  return castSingle(payload?.data?.updateConversationMessageObj);
+  return castSingle(payload?.data?.updateChapterConversationObj);
 }
 
-async function overwriteObj(id: string, newObj: ConversationMessageObj) {
+async function overwriteObj(id: string, newObj: ChapterConversationObj) {
   const payload = await amplifyClient.graphql({
-    query: updateConversationMessageObj,
+    query: updateChapterConversationObj,
     variables: {
       input: {
         id: id,
@@ -113,12 +113,12 @@ async function overwriteObj(id: string, newObj: ConversationMessageObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateConversationMessageObj);
+  return castSingle(payload?.data?.updateChapterConversationObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteConversationMessageObj,
+    query: deleteChapterConversationObj,
     variables: {
       input: {
         id: id,
@@ -126,10 +126,10 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteConversationMessageObj);
+  return castSingle(payload?.data?.deleteChapterConversationObj);
 }
 
-export const conversationMessageDbWrapper: GqlDbWrapper<ConversationMessageObj> =
+export const chapterConversationDbWrapper: GqlDbWrapper<ChapterConversationObj> =
   {
     getObj,
     listObjs,

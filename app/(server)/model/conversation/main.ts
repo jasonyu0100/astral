@@ -4,7 +4,7 @@ import { createContext } from 'react';
 export interface ChapterConversationObj {
   id: string;
   userId: string;
-  chapterId: string;
+  chapterId?: string;
   summary: string;
   created: string;
 }
@@ -21,7 +21,7 @@ export const chapterConversationGql = `
 type ChapterConversationObj {
   id: String!
   userId: String!
-  chapterId: String!
+  chapterId: String
   summary: String!
   created: String!
 }

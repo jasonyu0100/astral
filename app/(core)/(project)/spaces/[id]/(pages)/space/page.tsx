@@ -6,11 +6,11 @@ import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
   ContextForChapterConversationList,
   useControllerForChapterConversationList,
-} from '@/(server)/controller/space/chapter/conversation/list';
+} from '@/(server)/controller/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/conversation/message/list';
+} from '@/(server)/controller/conversation/message/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,

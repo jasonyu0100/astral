@@ -1,6 +1,6 @@
+import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { PostCommentObj } from '@/(server)/model/post/comment/main';
 import { UserPostObj } from '@/(server)/model/post/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';

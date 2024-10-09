@@ -1,4 +1,4 @@
-import { chapterConversationDbWrapper } from '@/(server)/client/space/chapter/conversation/main';
+import { conversationMessageDbWrapper } from '@/(server)/client/conversation/message/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,17 +7,16 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterConversationObj,
-  chapterConversationModel,
-} from '@/(server)/model/space/chapter/conversation/main';
+  conversationMessageModel,
+  ConversationMessageObj,
+} from '@/(server)/model/conversation/message/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterConversationObj;
-const gqlDbWrapper = chapterConversationDbWrapper;
-const listIdKey = chapterConversationModel.parentKey;
+type TargetObj = ConversationMessageObj;
+const gqlDbWrapper = conversationMessageDbWrapper;
+const listIdKey = conversationMessageModel.parentKey;
 
 interface ControllerState {
-  listId: string | boolean | number;
   currentObj?: TargetObj;
   objs: TargetObj[];
   objId: string;
@@ -28,12 +27,25 @@ interface ControllerState {
 interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
+  inputMessageText: string;
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {}
+interface StateActions extends BaseListStateActions<TargetObj> {
+  updateInputMessageText: (messageText: string) => void;
+}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createConversation: (userId: string, chatId: string) => Promise<TargetObj>;
+  sendUserMessage: (
+    userId: string,
+    chatId: string,
+    conversationId: string,
+  ) => Promise<TargetObj>;
+  sendAgentMessage: (
+    agentId: string,
+    chatId: string,
+    conversationId: string,
+    message: string,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -50,19 +62,19 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterConversationList = (
-  listId: string | boolean | number,
-  initialId?: string | undefined | null,
+const useControllerForConversationMessageList = (
+  initialId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
   const [id, changeId] = useState<string>(objs?.at(0)?.id || '');
   const [query, changeQuery] = useState<string>('');
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
-  const currentObj = objs.filter((obj) => obj.id === id).at(0);
+  const [inputMessageText, changeInputMessageText] = useState<string>('');
+  const currentObj =
+    objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
   const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
-    listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
@@ -70,6 +82,7 @@ const useControllerForChapterConversationList = (
     more: {
       query: query,
       queryResults: queryResults,
+      inputMessageText: inputMessageText,
     },
   };
 
@@ -112,6 +125,17 @@ const useControllerForChapterConversationList = (
       return objs.at(objs.length - 1);
     },
     goNext: () => {
+      const currentIndex = objs.findIndex((obj) => obj.id === initialId);
+      const prevIndex = currentIndex - 1;
+
+      if (prevIndex >= 0) {
+        const prevObj = objs[prevIndex];
+        changeId(prevObj.id);
+        return prevObj;
+      }
+      return undefined;
+    },
+    goPrev: () => {
       const currentIndex = objs.findIndex((obj) => obj.id === id);
       const nextIndex = currentIndex + 1;
 
@@ -122,17 +146,6 @@ const useControllerForChapterConversationList = (
       } else {
         return undefined;
       }
-    },
-    goPrev: () => {
-      const currentIndex = objs.findIndex((obj) => obj.id === id);
-      const prevIndex = currentIndex - 1;
-
-      if (prevIndex >= 0) {
-        const prevObj = objs[prevIndex];
-        changeId(prevObj.id);
-        return prevObj;
-      }
-      return undefined;
     },
     searchQuery: () => {
       if (query === '') {
@@ -150,22 +163,40 @@ const useControllerForChapterConversationList = (
     updateQuery: (newQuery: string) => {
       changeQuery(newQuery);
     },
-    searchAndUpdateQuery: (newQuery: string) => {
-      changeQuery(newQuery);
-      if (newQuery === '') {
-        changeQueryResults(objs);
-        return objs;
+    searchAndUpdateQuery: (newQuery: string, newObjs?: TargetObj[]) => {
+      if (newObjs) {
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(newObjs);
+          return newObjs;
+        } else {
+          const results = newObjs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.id);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       } else {
-        const results = objs.filter((obj) => {
-          const regex = new RegExp(newQuery, 'i');
-          return regex.test(obj.summary);
-        });
-        changeQueryResults(results);
-        return results;
+        changeQuery(newQuery);
+        if (newQuery === '') {
+          changeQueryResults(objs);
+          return objs;
+        } else {
+          const results = objs.filter((obj) => {
+            const regex = new RegExp(newQuery, 'i');
+            return regex.test(obj.id);
+          });
+          changeQueryResults(results);
+          return results;
+        }
       }
     },
     checkActive: function (obj: TargetObj): boolean {
       return obj.id === id;
+    },
+    updateInputMessageText: function (newMessage: string): void {
+      changeInputMessageText(newMessage);
     },
     find: (id: string) => {
       return objs.find((obj) => obj.id === id) || ({} as TargetObj);
@@ -204,26 +235,23 @@ const useControllerForChapterConversationList = (
       return objs;
     },
     gatherFromEnd: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
       const sortedObjs = stateActions.sortedViaDate(objs);
       changeObjs(sortedObjs);
-      changeQueryResults(sortedObjs);
       changeId(sortedObjs.at(0)?.id || '');
       return sortedObjs;
     },
     gatherFromBeginning: async () => {
-      const objs = await gqlDbWrapper.listObjs(listIdKey, listId);
-      const sortedObjs = stateActions.sortedViaDate(objs);
-      const reverseObjs = sortedObjs.reverse();
+      const objs = await gqlDbWrapper.listObjs(listIdKey, initialId);
+      const reverseObjs = objs.reverse();
       changeObjs(reverseObjs);
-      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
     gatherSearch: async (search: string) => {
       const objs = await gqlDbWrapper.listFromVariables({
         filter: {
-          chapterId: listId,
+          chapterId: initialId,
           title: {
             contains: search,
           },
@@ -240,9 +268,11 @@ const useControllerForChapterConversationList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chapterId: '',
-        summary: '',
         userId: '',
+        conversationId: '',
+        sceneId: '',
+        message: '',
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -260,12 +290,39 @@ const useControllerForChapterConversationList = (
       changeId(newObj.id);
       return newObj;
     },
-    createConversation: async (userId: string, chatId: string) => {
+    sendUserMessage: async (
+      userId: string,
+      chatId: string,
+      conversationId: string,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chapterId: chatId,
-        summary: '',
         userId: userId,
+        conversationId: conversationId,
+        sceneId: chatId,
+        message: inputMessageText,
+        hasAttachment: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      changeInputMessageText('');
+      return newObj;
+    },
+    sendAgentMessage: async (
+      agentId: string,
+      chatId: string,
+      conversationId: string,
+      message: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        agentId: agentId,
+        conversationId: conversationId,
+        sceneId: chatId,
+        message: message,
+        hasAttachment: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -325,16 +382,18 @@ const useControllerForChapterConversationList = (
   };
 
   useMemo(() => {
-    if (listId === null || listId === undefined || listId === '') {
+    if (!initialId) {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
         if (initialId) {
-          stateActions.selectViaId(initialId);
+          if (objs.find((obj) => obj.id === initialId)) {
+            stateActions.selectViaId(initialId);
+          }
         }
       });
     }
-  }, [listId]);
+  }, [initialId]);
 
   return {
     state: controllerState,
@@ -342,8 +401,8 @@ const useControllerForChapterConversationList = (
   };
 };
 
-const ContextForChapterConversationList = createContext({} as Controller);
+const ContextForConversationMessageList = createContext({} as Controller);
 export {
-  ContextForChapterConversationList,
-  useControllerForChapterConversationList,
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
 };

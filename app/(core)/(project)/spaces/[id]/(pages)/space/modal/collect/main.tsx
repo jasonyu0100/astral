@@ -1,5 +1,5 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
