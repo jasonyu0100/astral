@@ -1,8 +1,8 @@
 import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
 import { PostCommentObj } from '@/(server)/model/post/comment/main';
 import { UserPostObj } from '@/(server)/model/post/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
@@ -86,7 +86,7 @@ export type _TemplateSceneObj = Omit<
   ChapterSceneObj,
   'id' | 'chapterId' | 'userId' | 'created'
 >;
-export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
+export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;
 export type _TemplateLogObj = Omit<ChapterWayObj, 'id' | 'chapterId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {

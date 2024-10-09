@@ -1,4 +1,4 @@
-import { spaceIdeaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
+import { ideaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,13 +6,13 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
 import { WayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
-import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpaceIdeaRelationshipObj;
-const gqlDbWrapper = spaceIdeaRelationshipDbWrapper;
+type TargetObj = IdeaRelationshipObj;
+const gqlDbWrapper = ideaRelationshipDbWrapper;
 const listIdKey = 'fromSceneId';
 
 interface ControllerState {
@@ -37,8 +37,8 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     toLink: WayLinkObj,
   ) => Promise<TargetObj>;
   createFromIdea: (
-    fromIdea: SceneIdeaObj,
-    toIdea: SceneIdeaObj,
+    fromIdea: IdeaObj,
+    toIdea: IdeaObj,
     spaceId: string,
     chapterId: string,
     sceneId: string,
@@ -59,7 +59,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceIdeaRelationshipListFromScene = (
+const useControllerForIdeaRelationshipListFromScene = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -304,8 +304,8 @@ const useControllerForSpaceIdeaRelationshipListFromScene = (
       return newObj;
     },
     createFromIdea: async (
-      fromIdea: SceneIdeaObj,
-      toIdea: SceneIdeaObj,
+      fromIdea: IdeaObj,
+      toIdea: IdeaObj,
       spaceId: string,
       chapterId: string,
       sceneId: string,
@@ -410,10 +410,8 @@ const useControllerForSpaceIdeaRelationshipListFromScene = (
   };
 };
 
-const ContextForSpaceIdeaRelationshipListFromScene = createContext(
-  {} as Controller,
-);
+const ContextForIdeaRelationshipListFromScene = createContext({} as Controller);
 export {
-  ContextForSpaceIdeaRelationshipListFromScene,
-  useControllerForSpaceIdeaRelationshipListFromScene,
+  ContextForIdeaRelationshipListFromScene,
+  useControllerForIdeaRelationshipListFromScene,
 };

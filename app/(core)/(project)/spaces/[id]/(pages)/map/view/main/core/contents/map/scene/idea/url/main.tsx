@@ -1,9 +1,9 @@
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
 
 export function SpacesMapUrlIdea() {
-  const ideaObj = useContext(ContextForSceneIdeaObj);
+  const ideaObj = useContext(ContextForIdeaObj);
 
   return (
     <div className='relative h-full w-full overflow-hidden'>

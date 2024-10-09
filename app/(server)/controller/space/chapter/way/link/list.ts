@@ -9,7 +9,7 @@ import {
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem } from '@/(server)/model/elements/text/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
 import {
   wayLinkModel,
   WayLinkObj,
@@ -40,7 +40,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createLinkFromIdea: (
     userId: string,
     logId: string,
-    idea: SceneIdeaObj,
+    idea: IdeaObj,
     spaceId: string,
     chapterId: string,
     sceneId: string,
@@ -344,7 +344,7 @@ const useControllerForLogLinkList = (
     createLinkFromIdea: async (
       userId: string,
       logId: string,
-      idea: SceneIdeaObj,
+      idea: IdeaObj,
       spaceId: string,
       chapterId: string,
       sceneId: string,

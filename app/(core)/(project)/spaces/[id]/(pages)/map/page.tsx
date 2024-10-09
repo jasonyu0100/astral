@@ -40,8 +40,8 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
 import {
-  ContextForSpaceIdeaRelationshipListFromScene,
-  useControllerForSpaceIdeaRelationshipListFromScene,
+  ContextForIdeaRelationshipListFromScene,
+  useControllerForIdeaRelationshipListFromScene,
 } from '@/(server)/controller/space/relationship/list-from-scene';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -98,8 +98,8 @@ function Page({ params }: { params: { id: string } }) {
     conversationListController.state.objId,
   );
 
-  const spaceIdeaRelationshipListController =
-    useControllerForSpaceIdeaRelationshipListFromScene(
+  const ideaRelationshipListController =
+    useControllerForIdeaRelationshipListFromScene(
       sceneListController.state.objId,
     );
 
@@ -122,8 +122,8 @@ function Page({ params }: { params: { id: string } }) {
                       <ContextForConversationMessageList.Provider
                         value={messageListController}
                       >
-                        <ContextForSpaceIdeaRelationshipListFromScene.Provider
-                          value={spaceIdeaRelationshipListController}
+                        <ContextForIdeaRelationshipListFromScene.Provider
+                          value={ideaRelationshipListController}
                         >
                           <UpdateWrapper>
                             <LoadingWrapper>
@@ -136,7 +136,7 @@ function Page({ params }: { params: { id: string } }) {
                               </ControllerWrapper>
                             </LoadingWrapper>
                           </UpdateWrapper>
-                        </ContextForSpaceIdeaRelationshipListFromScene.Provider>
+                        </ContextForIdeaRelationshipListFromScene.Provider>
                       </ContextForConversationMessageList.Provider>
                     </ContextForChapterConversationList.Provider>
                   </ContextForCollectionResourceList.Provider>

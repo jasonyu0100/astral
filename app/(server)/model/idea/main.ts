@@ -5,18 +5,18 @@ import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export enum PageElementColumn {
+export enum IdeaColumn {
   IDEAS = 'todo',
   IN_PROGRESS = 'in-progress',
   REVIEW = 'review',
   DONE = 'done',
 }
 
-export interface PageElementObj {
+export interface IdeaObj {
   id: string;
   idx: number;
   userId: string;
-  pageId: string;
+  sceneId: string;
   title: string;
   description: string;
   column: string;
@@ -34,16 +34,16 @@ export interface PageElementObj {
   created: string;
 }
 
-export const pageElementGql = `
-type PageElementObj {
+export const ideaGql = `
+type IdeaObj {
   id: String!
   idx: Int!
   userId: String!
-  pageId: String!
+  sceneId: String!
   title: String!
   description: String!
   column: String!
-  hidden: Boolean!
+  visibile: Boolean!
   x: Int!
   y: Int!
   width: Int!
@@ -53,23 +53,21 @@ type PageElementObj {
   variant: String!
   fileElem: FileElem
   textElem: TextElem
-  urlElem: urlElem
+  urlElem: UrlElem
   created: String!
 }
 `;
 
-export const ContextForPageElementObj = createContext<PageElementObj>(
-  {} as PageElementObj,
-);
+export const ContextForIdeaObj = createContext<IdeaObj>({} as IdeaObj);
 
-export const examplePageElement: PageElementObj = {
+export const exampleIdea: IdeaObj = {
   id: '0',
   idx: 0,
   userId: '0',
-  pageId: '0',
+  sceneId: '0',
   title: 'Star 1',
   description: 'Twinkle twinkle little star',
-  column: PageElementColumn.IDEAS,
+  column: IdeaColumn.IDEAS,
   visible: false,
   x: 120,
   y: 120,
@@ -82,15 +80,15 @@ export const examplePageElement: PageElementObj = {
   created: new Date().toISOString(),
 };
 
-export const examplePageElements: PageElementObj[] = [
+export const exampleIdeas: IdeaObj[] = [
   {
     id: '0',
     idx: 0,
     userId: '0',
-    pageId: '0',
+    sceneId: '0',
     title: 'Star 0',
     description: 'Twinkle twinkle little star',
-    column: PageElementColumn.IDEAS,
+    column: IdeaColumn.IDEAS,
     visible: false,
     x: 120,
     y: 120,
@@ -106,10 +104,10 @@ export const examplePageElements: PageElementObj[] = [
     id: '1',
     idx: 1,
     userId: '0',
-    pageId: '0',
+    sceneId: '0',
     title: 'Star 1',
     description: 'Twinkle twinkle little star',
-    column: PageElementColumn.IDEAS,
+    column: IdeaColumn.IDEAS,
     visible: false,
     x: 240,
     y: 120,
@@ -125,10 +123,10 @@ export const examplePageElements: PageElementObj[] = [
     id: '2',
     idx: 2,
     userId: '0',
-    pageId: '0',
+    sceneId: '0',
     title: 'Star 2',
     description: 'Twinkle twinkle little star',
-    column: PageElementColumn.IDEAS,
+    column: IdeaColumn.IDEAS,
     visible: false,
     x: 360,
     y: 120,
@@ -142,11 +140,11 @@ export const examplePageElements: PageElementObj[] = [
   },
 ];
 
-export const pageElementModel: ModelInterface<PageElementObj> = {
-  name: 'element',
-  gql: pageElementGql,
-  example: examplePageElement,
-  examples: examplePageElements,
-  parentKey: 'pageId',
+export const ideaModel: ModelInterface<IdeaObj> = {
+  name: 'idea',
+  gql: ideaGql,
+  example: exampleIdea,
+  examples: exampleIdeas,
+  parentKey: 'sceneId',
   children: [],
 };

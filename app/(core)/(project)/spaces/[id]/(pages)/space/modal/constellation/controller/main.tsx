@@ -3,7 +3,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -51,8 +51,8 @@ export function useGenerateSceneController(): Controller {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useControllerForChapterSceneList('');
   const ideaListController = useControllerForSceneIdeaList('');
-  const spaceIdeaRelationshipListController =
-    useControllerForSpaceIdeaRelationshipListFromChapter(
+  const ideaRelationshipListController =
+    useControllerForIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
     );
 
@@ -136,7 +136,7 @@ export function useGenerateSceneController(): Controller {
     const ideaRelationships = await Promise.all(
       ideas.slice(0, ideas.length - 1).map((idea, index) => {
         const toIdea = ideas[index + 1];
-        return spaceIdeaRelationshipListController.actions.createActions.createFromIdea(
+        return ideaRelationshipListController.actions.createActions.createFromIdea(
           idea,
           toIdea,
           spaceController.state.objId,

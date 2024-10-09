@@ -1,4 +1,4 @@
-import { sceneIdeaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
+import { ideaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SceneIdeaObj;
-const gqlDbWrapper = sceneIdeaDbWrapper;
+type TargetObj = IdeaObj;
+const gqlDbWrapper = ideaDbWrapper;
 
 interface ControllerState {
   objId: string;

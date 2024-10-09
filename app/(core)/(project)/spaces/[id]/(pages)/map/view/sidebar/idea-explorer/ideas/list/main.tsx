@@ -1,5 +1,5 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
 import { SpacesMapSidebarIdeasBack } from './back/main';
 import { SpacesMapSidebarIdeasListItem } from './item/main';
@@ -15,9 +15,9 @@ export function SpacesMapSidebarIdeasList() {
       <div className='flex flex-col space-y-[1rem]'>
         <SpacesMapSidebarIdeasBack />
         {ideaListController.state.more.queryResults.map((idea) => (
-          <ContextForSceneIdeaObj.Provider value={idea}>
+          <ContextForIdeaObj.Provider value={idea}>
             <SpacesMapSidebarIdeasListItem />
-          </ContextForSceneIdeaObj.Provider>
+          </ContextForIdeaObj.Provider>
         ))}
       </div>
     </div>

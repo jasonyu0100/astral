@@ -4,9 +4,9 @@ import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/
 import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { useControllerForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -44,8 +44,8 @@ export function SpacesMapGenerateLog() {
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
-  const spaceIdeaRelationshipListController =
-    useControllerForSpaceIdeaRelationshipListFromChapter(
+  const ideaRelationshipListController =
+    useControllerForIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
     );
   const [title, setTitle] = useState('');
@@ -117,17 +117,17 @@ export function SpacesMapGenerateLog() {
       links.slice(0, links.length - 1).map((fromLink, index) => {
         const toLink = links[index + 1];
         const relationshipMatch =
-          spaceIdeaRelationshipListController.actions.stateActions.getLinkMatch(
+          ideaRelationshipListController.actions.stateActions.getLinkMatch(
             fromLink,
             toLink,
           );
         if (relationshipMatch) {
-          return spaceIdeaRelationshipListController.actions.editActions.updateFromLink(
+          return ideaRelationshipListController.actions.editActions.updateFromLink(
             fromLink,
             toLink,
           );
         } else {
-          return spaceIdeaRelationshipListController.actions.createActions.createFromLink(
+          return ideaRelationshipListController.actions.createActions.createFromLink(
             fromLink,
             toLink,
           );
@@ -167,9 +167,9 @@ export function SpacesMapGenerateLog() {
             />
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {selectedIdeas.map((idea) => (
-                <ContextForSceneIdeaObj.Provider value={idea}>
+                <ContextForIdeaObj.Provider value={idea}>
                   <ElementIdeaPreview />
-                </ContextForSceneIdeaObj.Provider>
+                </ContextForIdeaObj.Provider>
               ))}
             </div>
           </FormBody>

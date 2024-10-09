@@ -1,5 +1,5 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { AstralSourceIcon } from '@/icons/source/main';
 import { glassFx } from '@/style/data';
@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import { ElementIdeaDetailsPreview } from '../../../../../../../../../../../../ui/element/idea/details/main';
 
 export function SpacesMapSidebarIdeasListItem() {
-  const idea = useContext(ContextForSceneIdeaObj);
+  const idea = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (

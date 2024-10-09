@@ -1,4 +1,4 @@
-import { spaceIdeaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
+import { ideaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpaceIdeaRelationshipObj;
-const gqlDbWrapper = spaceIdeaRelationshipDbWrapper;
+type TargetObj = IdeaRelationshipObj;
+const gqlDbWrapper = ideaRelationshipDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,9 +35,7 @@ export interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceIdeaRelationshipMain = (
-  objId: string,
-): Controller => {
+const useControllerForIdeaRelationshipMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -114,8 +112,5 @@ const useControllerForSpaceIdeaRelationshipMain = (
   };
 };
 
-const ContextForSpaceIdeaRelationshipMain = createContext({} as Controller);
-export {
-  ContextForSpaceIdeaRelationshipMain,
-  useControllerForSpaceIdeaRelationshipMain,
-};
+const ContextForIdeaRelationshipMain = createContext({} as Controller);
+export { ContextForIdeaRelationshipMain, useControllerForIdeaRelationshipMain };

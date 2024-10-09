@@ -5,7 +5,7 @@ import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -99,9 +99,9 @@ export function SpacesMapCombineIdeas() {
           <FormBody>
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {selectedIdeas.map((idea) => (
-                <ContextForSceneIdeaObj.Provider value={idea}>
+                <ContextForIdeaObj.Provider value={idea}>
                   <ElementIdeaPreview />
-                </ContextForSceneIdeaObj.Provider>
+                </ContextForIdeaObj.Provider>
               ))}
             </div>
             <HorizontalDivider />

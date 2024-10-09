@@ -1,4 +1,4 @@
-import { sceneIdeaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
+import { ideaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -10,16 +10,12 @@ import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem } from '@/(server)/model/elements/text/main';
 import { UrlElem } from '@/(server)/model/elements/url/main';
-import {
-  SceneIdeaColumn,
-  sceneIdeaModel,
-  SceneIdeaObj,
-} from '@/(server)/model/space/chapter/scene/idea/main';
+import { IdeaColumn, ideaModel, IdeaObj } from '@/(server)/model/idea/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SceneIdeaObj;
-const gqlDbWrapper = sceneIdeaDbWrapper;
-const listIdKey = sceneIdeaModel.parentKey;
+type TargetObj = IdeaObj;
+const gqlDbWrapper = ideaDbWrapper;
+const listIdKey = ideaModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -320,7 +316,7 @@ const useControllerForSceneIdeaList = (
         scale: 1,
         rotation: 0,
         idx: 0,
-        column: SceneIdeaColumn.IDEAS,
+        column: IdeaColumn.IDEAS,
         visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -355,7 +351,7 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         userId: userId,
         idx: 0,
-        column: SceneIdeaColumn.IDEAS,
+        column: IdeaColumn.IDEAS,
         visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -390,7 +386,7 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         userId: userId,
         idx: 0,
-        column: SceneIdeaColumn.IDEAS,
+        column: IdeaColumn.IDEAS,
         visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
@@ -414,7 +410,7 @@ const useControllerForSceneIdeaList = (
         rotation: 0,
         userId: '',
         idx: 0,
-        column: SceneIdeaColumn.IDEAS,
+        column: IdeaColumn.IDEAS,
         visible: true,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

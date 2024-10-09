@@ -1,49 +1,49 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
-  createSpaceIdeaRelationshipObj,
-  deleteSpaceIdeaRelationshipObj,
-  updateSpaceIdeaRelationshipObj,
+  createIdeaRelationshipObj,
+  deleteIdeaRelationshipObj,
+  updateIdeaRelationshipObj,
 } from '@/graphql/mutations';
 import {
-  getSpaceIdeaRelationshipObj,
-  listSpaceIdeaRelationshipObjs,
+  getIdeaRelationshipObj,
+  listIdeaRelationshipObjs,
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
 function castSingle(obj: unknown) {
-  return obj as SpaceIdeaRelationshipObj;
+  return obj as IdeaRelationshipObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as SpaceIdeaRelationshipObj[];
+  return objs as IdeaRelationshipObj[];
 }
 
 async function getObj(value: string) {
   const payload = await amplifyClient.graphql({
-    query: getSpaceIdeaRelationshipObj,
+    query: getIdeaRelationshipObj,
     variables: {
       id: value,
     },
   });
 
-  return castSingle(payload?.data?.getSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.getIdeaRelationshipObj);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getFromVariables(variables: any) {
   const payload = await amplifyClient.graphql({
-    query: getSpaceIdeaRelationshipObj,
+    query: getIdeaRelationshipObj,
     variables: variables,
   });
 
-  return castSingle(payload?.data?.getSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.getIdeaRelationshipObj);
 }
 
 async function listObjs(key: string, value: string | boolean | number) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceIdeaRelationshipObjs,
+    query: listIdeaRelationshipObjs,
     variables: {
       filter: {
         [key]: {
@@ -53,50 +53,41 @@ async function listObjs(key: string, value: string | boolean | number) {
     },
   });
 
-  return castMultiple(
-    payload?.data?.listSpaceIdeaRelationshipObjs?.items || [],
-  );
+  return castMultiple(payload?.data?.listIdeaRelationshipObjs?.items || []);
 }
 
 async function listAllObjs() {
   const payload = await amplifyClient.graphql({
-    query: listSpaceIdeaRelationshipObjs,
+    query: listIdeaRelationshipObjs,
     variables: {},
   });
 
-  return castMultiple(
-    payload?.data?.listSpaceIdeaRelationshipObjs?.items || [],
-  );
+  return castMultiple(payload?.data?.listIdeaRelationshipObjs?.items || []);
 }
 
 async function listFromVariables(variables: object) {
   const payload = await amplifyClient.graphql({
-    query: listSpaceIdeaRelationshipObjs,
+    query: listIdeaRelationshipObjs,
     variables: variables,
   });
 
-  return castMultiple(
-    payload?.data?.listSpaceIdeaRelationshipObjs?.items || [],
-  );
+  return castMultiple(payload?.data?.listIdeaRelationshipObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<SpaceIdeaRelationshipObj, 'id'>) {
+async function createObj(newObj: Omit<IdeaRelationshipObj, 'id'>) {
   const payload = await amplifyClient.graphql({
-    query: createSpaceIdeaRelationshipObj,
+    query: createIdeaRelationshipObj,
     variables: {
       input: gqlArgs(newObj),
     },
   });
 
-  return castSingle(payload?.data?.createSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.createIdeaRelationshipObj);
 }
 
-async function updateObj(
-  id: string,
-  updateObj: Partial<SpaceIdeaRelationshipObj>,
-) {
+async function updateObj(id: string, updateObj: Partial<IdeaRelationshipObj>) {
   const payload = await amplifyClient.graphql({
-    query: updateSpaceIdeaRelationshipObj,
+    query: updateIdeaRelationshipObj,
     variables: {
       input: {
         id: id,
@@ -105,12 +96,12 @@ async function updateObj(
     },
   });
 
-  return castSingle(payload?.data?.updateSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.updateIdeaRelationshipObj);
 }
 
-async function overwriteObj(id: string, newObj: SpaceIdeaRelationshipObj) {
+async function overwriteObj(id: string, newObj: IdeaRelationshipObj) {
   const payload = await amplifyClient.graphql({
-    query: updateSpaceIdeaRelationshipObj,
+    query: updateIdeaRelationshipObj,
     variables: {
       input: {
         id: id,
@@ -119,12 +110,12 @@ async function overwriteObj(id: string, newObj: SpaceIdeaRelationshipObj) {
     },
   });
 
-  return castSingle(payload?.data?.updateSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.updateIdeaRelationshipObj);
 }
 
 async function deleteObj(id: string) {
   const payload = await amplifyClient.graphql({
-    query: deleteSpaceIdeaRelationshipObj,
+    query: deleteIdeaRelationshipObj,
     variables: {
       input: {
         id: id,
@@ -132,18 +123,17 @@ async function deleteObj(id: string) {
     },
   });
 
-  return castSingle(payload?.data?.deleteSpaceIdeaRelationshipObj);
+  return castSingle(payload?.data?.deleteIdeaRelationshipObj);
 }
 
-export const spaceIdeaRelationshipDbWrapper: GqlDbWrapper<SpaceIdeaRelationshipObj> =
-  {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-  };
+export const ideaRelationshipDbWrapper: GqlDbWrapper<IdeaRelationshipObj> = {
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

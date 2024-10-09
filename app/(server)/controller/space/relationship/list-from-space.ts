@@ -1,4 +1,4 @@
-import { spaceIdeaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
+import { ideaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = SpaceIdeaRelationshipObj;
-const gqlDbWrapper = spaceIdeaRelationshipDbWrapper;
+type TargetObj = IdeaRelationshipObj;
+const gqlDbWrapper = ideaRelationshipDbWrapper;
 const listIdKey = 'fromSpaceId';
 
 interface ControllerState {
@@ -45,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceIdeaRelationshipListFromSpace = (
+const useControllerForIdeaRelationshipListFromSpace = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -350,10 +350,8 @@ const useControllerForSpaceIdeaRelationshipListFromSpace = (
   };
 };
 
-const ContextForSpaceIdeaRelationshipListFromSpace = createContext(
-  {} as Controller,
-);
+const ContextForIdeaRelationshipListFromSpace = createContext({} as Controller);
 export {
-  ContextForSpaceIdeaRelationshipListFromSpace,
-  useControllerForSpaceIdeaRelationshipListFromSpace,
+  ContextForIdeaRelationshipListFromSpace,
+  useControllerForIdeaRelationshipListFromSpace,
 };

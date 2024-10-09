@@ -1,9 +1,9 @@
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
 
 export function ElementIdeaDetailsPreview() {
-  const idea = useContext(ContextForSceneIdeaObj);
+  const idea = useContext(ContextForIdeaObj);
 
   return (
     <>

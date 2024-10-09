@@ -1,6 +1,6 @@
 'use client';
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
 import { ContextForSpacesMap } from '../../../../../../controller/main';
@@ -41,11 +41,11 @@ export function SpacesMapScene() {
       >
         {visibleIdeas.map((idea, index) => (
           <ContextForIndexable.Provider value={index}>
-            <ContextForSceneIdeaObj.Provider value={idea}>
+            <ContextForIdeaObj.Provider value={idea}>
               <SpacesMapMovable key={idea.id}>
                 <SpacesMapMovableIdea />
               </SpacesMapMovable>
-            </ContextForSceneIdeaObj.Provider>
+            </ContextForIdeaObj.Provider>
           </ContextForIndexable.Provider>
         ))}
         <SpacesMapContentsSceneConnections />

@@ -4,11 +4,11 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ContextForSpaceIdeaRelationshipListFromScene } from '@/(server)/controller/space/relationship/list-from-scene';
+import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/space/relationship/list-from-scene';
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
-import { SpaceIdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
+import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { createContext, useContext, useState } from 'react';
 
@@ -21,7 +21,7 @@ interface ControllerState {
   isSwitchOn: boolean;
   divWidth: number;
   divHeight: number;
-  selectedIdeas: SceneIdeaObj[];
+  selectedIdeas: IdeaObj[];
   directoryMode: SpacesMapDirectoryMode;
   connectionMode: SpacesMapConnectionMode;
   mapMode: SpacesMapInteractionMode;
@@ -45,13 +45,13 @@ interface ControllerActions {
   updateDivHeight: (height: number) => void;
   updateConnectionMode: (mode: SpacesMapConnectionMode) => void;
   updatePeopleMode: (mode: SpacesMapPeopleMode) => void;
-  updateSelectedIdeas: (ideas: SceneIdeaObj[]) => void;
+  updateSelectedIdeas: (ideas: IdeaObj[]) => void;
   updateInteractionMode: (mode: SpacesMapInteractionMode) => void;
   updateSidebarContentMode: (mode: SpacesMapSidebarContentMode) => void;
   updateSidebarMode: (mode: SpacesMapSidebarMode) => void;
-  checkContainsSelectedIdea: (ideaObj: SceneIdeaObj) => boolean;
+  checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
   updateSidebarVisibility: (visibility: SpacesMapSidebarVisibility) => void;
-  linkIdeas: () => Promise<SpaceIdeaRelationshipObj[]>;
+  linkIdeas: () => Promise<IdeaRelationshipObj[]>;
   selectAll: () => void;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
@@ -118,10 +118,10 @@ export function useControllerForSpacesMap(): Controller {
   const sceneListController = useContext(ContextForChapterSceneList);
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
-  const spaceIdeaRelationshipListController = useContext(
-    ContextForSpaceIdeaRelationshipListFromScene,
+  const ideaRelationshipListController = useContext(
+    ContextForIdeaRelationshipListFromScene,
   );
-  const [selectedIdeas, setSelectedIdeas] = useState<SceneIdeaObj[]>([]);
+  const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
   const [peopleMode, setPeopleMode] = useState<SpacesMapPeopleMode>(
     SpacesMapPeopleMode.OFF,
   );
@@ -243,7 +243,7 @@ export function useControllerForSpacesMap(): Controller {
     const ideaRelationships = await Promise.all(
       selectedIdeas.slice(0, selectedIdeas.length - 1).map((idea, index) => {
         const toIdea = selectedIdeas[index + 1];
-        return spaceIdeaRelationshipListController.actions.createActions.createFromIdea(
+        return ideaRelationshipListController.actions.createActions.createFromIdea(
           idea,
           toIdea,
           spaceController.state.objId,
@@ -293,7 +293,7 @@ export function useControllerForSpacesMap(): Controller {
         collectionListController.actions.stateActions.select(collection);
         changeSidebarMediaMode(SpacesMapSidebarMediaMode.Collection);
       },
-      checkContainsSelectedIdea: (idea: SceneIdeaObj) =>
+      checkContainsSelectedIdea: (idea: IdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),
       autoSort: autoSort,
       getAvailableXYWH: getAvailableXYWH,
