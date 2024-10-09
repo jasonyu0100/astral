@@ -1,89 +1,87 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export enum ChapterWayStatus {
+export enum TaskStatus {
   TODO = 'todo',
   IN_PROGRESS = 'in-progress',
   REVIEW = 'review',
   DONE = 'done',
 }
-export interface ChapterWayObj {
+export interface TaskObj {
   id: string;
   userId: string;
-  chapterId: string;
-  wayStatus: string;
+  arcId: string;
+  taskStatus: string;
   title: string;
   description: string;
   summary: string;
   created: string;
 }
 
-export const chapterWayGql = `
-type ChapterWayObj {
+export const taskGql = `
+type TaskObj {
   id: String!
   userId: String!
-  chapterId: String!
+  arcId: String!
   title: String!
   description: String!
   summary: String!
-  wayStatus: String!
+  taskStatus: String!
   created: String!
 }
 `;
 
-export const ContextForChapterWayObj = createContext<ChapterWayObj>(
-  {} as ChapterWayObj,
-);
+export const ContextForTaskObj = createContext<TaskObj>({} as TaskObj);
 
-export const exampleChapterWay: ChapterWayObj = {
+export const exampleTask: TaskObj = {
   id: '0',
   userId: '0',
-  chapterId: '0',
+  arcId: '0',
   title: 'Way Example',
   description: 'Way Description',
   summary: 'Way Summary',
   created: new Date().toISOString(),
-  wayStatus: ChapterWayStatus.TODO,
+  taskStatus: TaskStatus.TODO,
 };
 
-export const exampleChapterWays: ChapterWayObj[] = [
+export const exampleTasks: TaskObj[] = [
   {
     id: '0',
     userId: '0',
-    chapterId: '0',
+    arcId: '0',
     title: 'Way 1',
     description: 'Way Description',
     summary: 'Way Summary',
     created: new Date().toISOString(),
-    wayStatus: ChapterWayStatus.TODO,
+    taskStatus: TaskStatus.TODO,
   },
   {
     id: '1',
     userId: '0',
-    chapterId: '0',
+    arcId: '0',
     title: 'Way 2',
     description: 'Way Description',
     summary: 'Way Summary',
     created: new Date().toISOString(),
-    wayStatus: ChapterWayStatus.TODO,
+    taskStatus: TaskStatus.TODO,
   },
   {
     id: '2',
     userId: '0',
-    chapterId: '0',
+    arcId: '0',
     title: 'Way 3',
     description: 'Way Description',
     summary: 'Way Summary',
     created: new Date().toISOString(),
-    wayStatus: ChapterWayStatus.TODO,
+    taskStatus: TaskStatus.TODO,
   },
 ];
 
-export const chapterWayModel: ModelInterface<ChapterWayObj> = {
-  name: 'way',
-  gql: chapterWayGql,
-  example: exampleChapterWay,
-  examples: exampleChapterWays,
-  parentKey: 'chapterId',
+export const taskModel: ModelInterface<TaskObj> = {
+  name: 'task',
+  gql: taskGql,
+  example: exampleTask,
+  examples: exampleTasks,
+  parentKey: 'arcId',
   children: ['link', 'member'],
 };
