@@ -6,9 +6,7 @@ export const horizonMap = {
   db: horizonDbWrapper,
   arc: {
     tab: {
-      page: {
-        element: {},
-      },
+      scene: {},
     },
     task: {
       link: {},

@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';

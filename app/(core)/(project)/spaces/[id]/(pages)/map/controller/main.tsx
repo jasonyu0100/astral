@@ -1,10 +1,10 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/idea/relationship/list-from-scene';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/space/relationship/list-from-scene';
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
 import { IdeaObj } from '@/(server)/model/idea/main';

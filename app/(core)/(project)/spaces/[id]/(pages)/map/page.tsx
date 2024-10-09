@@ -24,13 +24,17 @@ import {
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
 import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/(server)/controller/idea/list';
+import {
+  ContextForIdeaRelationshipListFromScene,
+  useControllerForIdeaRelationshipListFromScene,
+} from '@/(server)/controller/idea/relationship/list-from-scene';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForSceneIdeaList,
-  useControllerForSceneIdeaList,
-} from '@/(server)/controller/space/chapter/scene/idea/list';
 import {
   ContextForChapterSceneList,
   useControllerForChapterSceneList,
@@ -39,10 +43,6 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
-import {
-  ContextForIdeaRelationshipListFromScene,
-  useControllerForIdeaRelationshipListFromScene,
-} from '@/(server)/controller/space/relationship/list-from-scene';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';

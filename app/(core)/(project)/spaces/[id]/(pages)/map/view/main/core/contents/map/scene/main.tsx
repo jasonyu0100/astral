@@ -1,5 +1,5 @@
 'use client';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';

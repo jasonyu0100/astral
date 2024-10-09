@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';

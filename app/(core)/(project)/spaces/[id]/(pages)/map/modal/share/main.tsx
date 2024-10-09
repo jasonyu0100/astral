@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';

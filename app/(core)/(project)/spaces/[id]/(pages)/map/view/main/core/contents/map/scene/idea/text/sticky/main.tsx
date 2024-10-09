@@ -1,4 +1,4 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { TextElem } from '@/(server)/model/elements/text/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';

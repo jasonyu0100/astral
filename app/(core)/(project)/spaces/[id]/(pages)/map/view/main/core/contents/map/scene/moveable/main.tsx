@@ -4,7 +4,7 @@ import {
   SpacesMapConnectionMode,
   SpacesMapPeopleMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';

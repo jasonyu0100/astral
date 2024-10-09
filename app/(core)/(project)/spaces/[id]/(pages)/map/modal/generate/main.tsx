@@ -1,10 +1,10 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { useControllerForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
 import { useControllerForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';

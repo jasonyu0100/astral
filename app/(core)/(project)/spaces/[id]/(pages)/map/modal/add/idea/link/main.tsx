@@ -1,6 +1,6 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';

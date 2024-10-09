@@ -1,9 +1,9 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { useControllerForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
 import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
