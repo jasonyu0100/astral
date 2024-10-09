@@ -1,4 +1,6 @@
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { borderFx } from '@/style/data';
+import { UserDisplayPictureElement } from '@/ui/cover/user/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 
@@ -9,33 +11,25 @@ export function HorizonsHorizonListRow() {
       borderFx={borderFx['border-t']}
     >
       <GlassWindowContents className='flex flex-col items-center space-y-[1rem]'>
-        <div className='flex w-full flex-row space-x-[2rem] overflow-auto pb-[2rem]'>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-          <div className='flex aspect-[11/13] h-[150px] flex-shrink-0 flex-col items-center space-y-[1rem] bg-white p-[1rem] '>
-            <img src='/stock/passion.png' className='aspect-square w-full' />
-            <p className='font-permanentMarker'>123</p>
-          </div>
-        </div>
+        <UserComment />
+        <UserComment />
+        <UserComment />
       </GlassWindowContents>
     </GlassWindowFrame>
+  );
+}
+
+export function UserComment() {
+  return (
+    <div className='flex w-full flex-row justify-between'>
+      <div className='flex flex-row items-center space-x-[1rem]'>
+        <UserDisplayPictureElement fileElem={exampleFileElem} />
+        <p className='font-bold text-slate-300'>John Smith</p>
+        <p className='font-bold text-slate-300'>-</p>
+        <p className='font-bold text-slate-300'>
+          Looking good, just needs a little work
+        </p>
+      </div>
+    </div>
   );
 }

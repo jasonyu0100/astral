@@ -4,7 +4,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 
-export function HorizonsFieldSidebarHeader() {
+export function HorizonsArcSidebarHeader() {
   return (
     <div className='grid h-[4rem] w-full flex-shrink-0 grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
       <div>
@@ -22,7 +22,7 @@ export function HorizonsFieldSidebarHeader() {
                 //   sidebarMode === SpacesJourneySidebarMode.LINKS,
               })}
             >
-              Decisions
+              Sections
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />

@@ -1,4 +1,4 @@
-import { ContextForTaskObj } from '@/(server)/model/way/main';
+import { ContextForTaskObj } from '@/(server)/model/task/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -8,7 +8,7 @@ import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function HorizonsFieldListItem() {
-  const log = useContext(ContextForTaskObj);
+  const task = useContext(ContextForTaskObj);
 
   return (
     <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
@@ -18,11 +18,11 @@ export function HorizonsFieldListItem() {
         )}
         onClick={() => {}}
       >
-        <p className='text-lg font-bold text-slate-300'>{log.title}</p>
-        <p className='font-md text-slate-300'>{log.description}</p>
+        <p className='text-lg font-bold text-slate-300'>{task.title}</p>
+        <p className='font-md text-slate-300'>{task.description}</p>
         <p className='text-md mt-auto font-light text-slate-300'>
-          {getFormattedAMPM(new Date(log.created))},
-          {getFormattedDate(new Date(log.created))}
+          {getFormattedAMPM(new Date(task.created))},
+          {getFormattedDate(new Date(task.created))}
         </p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
