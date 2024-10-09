@@ -61,7 +61,7 @@ export function SpacesJourneyKanban() {
     const sortableOptions = {
       group: 'shared', // Set both lists to the same group
       animation: 500,
-      onEnd: (evt) => {
+      onEnd: (evt: Sortable.SortableEvent) => {
         handleSortEnd(evt); // Handle sort end
       },
     };

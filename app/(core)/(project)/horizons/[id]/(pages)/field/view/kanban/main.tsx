@@ -25,28 +25,28 @@ export function HorizonsFieldKanban() {
     const elReview = document.getElementById('review');
     const elDone = document.getElementById('done');
 
-    const handleSortEnd = async (evt) => {
-      // const fromList = evt.from.id;
-      // const toList = evt.to.id;
-      // const itemId = evt.item.dataset.id;
-      // console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
-      // await wayListController.actions.editActions.edit(itemId, {
-      //   wayStatus: toList,
-      // });
+    const handleSortEnd = async (evt: Sortable.SortableEvent) => {
+      const fromList = evt.from.id;
+      const toList = evt.to.id;
+      const itemId = evt.item.dataset.id;
+      console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
+      await wayListController.actions.editActions.edit(itemId, {
+        wayStatus: toList,
+      });
     };
 
     const sortableOptions = {
       group: 'shared', // Set both lists to the same group
       animation: 500,
-      onEnd: (evt) => {
+      onEnd: (evt: Sortable.SortableEvent) => {
         handleSortEnd(evt); // Handle sort end
       },
     };
 
-    Sortable.create(elTodo, sortableOptions);
-    Sortable.create(elInProgress, sortableOptions);
-    Sortable.create(elReview, sortableOptions);
-    Sortable.create(elDone, sortableOptions);
+    if (elTodo) Sortable.create(elTodo, sortableOptions);
+    if (elInProgress) Sortable.create(elInProgress, sortableOptions);
+    if (elReview) Sortable.create(elReview, sortableOptions);
+    if (elDone) Sortable.create(elDone, sortableOptions);
   }, []);
 
   return (
