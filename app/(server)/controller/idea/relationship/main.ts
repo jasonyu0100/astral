@@ -1,4 +1,4 @@
-import { ideaRelationshipDbWrapper } from '@/(server)/client/space/relationship/main';
+import { ideaRelationshipDbWrapper } from '@/(server)/client/idea/relationship/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

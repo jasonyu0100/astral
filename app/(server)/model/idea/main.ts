@@ -16,7 +16,8 @@ export interface IdeaObj {
   id: string;
   idx: number;
   userId: string;
-  sceneId: string;
+  sceneId?: string;
+  pageId?: string;
   title: string;
   description: string;
   column: string;
@@ -39,7 +40,8 @@ type IdeaObj {
   id: String!
   idx: Int!
   userId: String!
-  sceneId: String!
+  sceneId: String
+  pageId: String
   title: String!
   description: String!
   column: String!

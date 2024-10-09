@@ -1,4 +1,4 @@
-import { ideaDbWrapper } from '@/(server)/client/space/chapter/scene/idea/main';
+import { ideaDbWrapper } from '@/(server)/client/idea/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,

@@ -418,6 +418,43 @@ input CreateGalleryObjInput {
   thumbnail: FileElemInput!
 }
 
+input CreateIdeaObjInput {
+  sceneId: String
+  pageId: String
+  userId: String!
+  idx: Int!
+  column: String!
+  title: String!
+  description: String!
+  visible: Boolean!
+  x: Int!
+  y: Int!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String!
+}
+
+input CreateIdeaRelationshipObjInput {
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float!
+  created: String!
+}
+
 input CreatePostAttachmentObjInput {
   userId: String
   postId: String!
@@ -462,7 +499,7 @@ input CreateSceneConversationObjInput {
   created: String!
 }
 
-input CreateIdeaObjInput {
+input CreateSceneIdeaObjInput {
   sceneId: String!
   userId: String!
   idx: Int!
@@ -506,7 +543,7 @@ input CreateSpaceChapterObjInput {
   created: String!
 }
 
-input CreateIdeaRelationshipObjInput {
+input CreateSpaceIdeaRelationshipObjInput {
   spaceId: String!
   fromUserId: String!
   fromChapterId: String!
@@ -779,6 +816,14 @@ input DeleteGalleryObjInput {
   id: String!
 }
 
+input DeleteIdeaObjInput {
+  id: String!
+}
+
+input DeleteIdeaRelationshipObjInput {
+  id: String!
+}
+
 input DeletePostAttachmentObjInput {
   id: String!
 }
@@ -803,7 +848,7 @@ input DeleteSceneConversationObjInput {
   id: String!
 }
 
-input DeleteIdeaObjInput {
+input DeleteSceneIdeaObjInput {
   id: String!
 }
 
@@ -819,7 +864,7 @@ input DeleteSpaceChapterObjInput {
   id: String!
 }
 
-input DeleteIdeaRelationshipObjInput {
+input DeleteSpaceIdeaRelationshipObjInput {
   id: String!
 }
 
@@ -960,6 +1005,55 @@ type GalleryObjConnection {
   nextToken: String
 }
 
+type IdeaObj {
+  id: String!
+  idx: Int!
+  userId: String!
+  sceneId: String
+  pageId: String
+  title: String!
+  description: String!
+  column: String!
+  visible: Boolean!
+  x: Int!
+  y: Int!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+  created: String!
+}
+
+type IdeaObjConnection {
+  items: [IdeaObj]
+  nextToken: String
+}
+
+type IdeaRelationshipObj {
+  id: String!
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float!
+  created: String!
+}
+
+type IdeaRelationshipObjConnection {
+  items: [IdeaRelationshipObj]
+  nextToken: String
+}
+
 input ModelSizeInput {
   ne: Int
   eq: Int
@@ -1050,7 +1144,7 @@ type SceneConversationObjConnection {
   nextToken: String
 }
 
-type IdeaObj {
+type SceneIdeaObj {
   id: String!
   userId: String!
   sceneId: String!
@@ -1072,8 +1166,8 @@ type IdeaObj {
   created: String!
 }
 
-type IdeaObjConnection {
-  items: [IdeaObj]
+type SceneIdeaObjConnection {
+  items: [SceneIdeaObj]
   nextToken: String
 }
 
@@ -1118,7 +1212,7 @@ type SpaceChapterObjConnection {
   nextToken: String
 }
 
-type IdeaRelationshipObj {
+type SpaceIdeaRelationshipObj {
   id: String!
   fromUserId: String!
   spaceId: String!
@@ -1133,8 +1227,8 @@ type IdeaRelationshipObj {
   created: String!
 }
 
-type IdeaRelationshipObjConnection {
-  items: [IdeaRelationshipObj]
+type SpaceIdeaRelationshipObjConnection {
+  items: [SpaceIdeaRelationshipObj]
   nextToken: String
 }
 
@@ -1471,6 +1565,42 @@ input TableIDFilterInput {
   size: ModelSizeInput
 }
 
+input TableIdeaObjFilterInput {
+  id: TableStringFilterInput
+  idx: TableIntFilterInput
+  userId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  pageId: TableStringFilterInput
+  visible: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  column: TableStringFilterInput
+  x: TableIntFilterInput
+  y: TableIntFilterInput
+  width: TableIntFilterInput
+  height: TableIntFilterInput
+  scale: TableFloatFilterInput
+  rotation: TableIntFilterInput
+  variant: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableIdeaRelationshipObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  fromUserId: TableStringFilterInput
+  fromChapterId: TableStringFilterInput
+  fromSceneId: TableStringFilterInput
+  fromIdeaId: TableStringFilterInput
+  toUserId: TableStringFilterInput
+  toChapterId: TableStringFilterInput
+  toSceneId: TableStringFilterInput
+  toIdeaId: TableStringFilterInput
+  weight: TableFloatFilterInput
+  created: TableStringFilterInput
+}
+
 input TableIntFilterInput {
   ne: Int
   eq: Int
@@ -1529,7 +1659,7 @@ input TableSceneConversationObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableIdeaObjFilterInput {
+input TableSceneIdeaObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
   sceneId: TableStringFilterInput
@@ -1574,7 +1704,7 @@ input TableSpaceChapterObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableIdeaRelationshipObjFilterInput {
+input TableSpaceIdeaRelationshipObjFilterInput {
   id: TableStringFilterInput
   fromUserId: TableStringFilterInput
   toUserId: TableStringFilterInput
@@ -2004,6 +2134,45 @@ input UpdateGalleryObjInput {
   thumbnail: FileElemInput
 }
 
+input UpdateIdeaObjInput {
+  id: String!
+  idx: Int
+  userId: String
+  visible: Boolean
+  sceneId: String
+  pageId: String
+  title: String
+  description: String
+  column: String
+  x: Int
+  y: Int
+  width: Int
+  height: Int
+  scale: Float
+  rotation: Int
+  variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String
+}
+
+input UpdateIdeaRelationshipObjInput {
+  id: String!
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float
+  created: String
+}
+
 input UpdatePostAttachmentObjInput {
   id: String!
   userId: String
@@ -2054,7 +2223,7 @@ input UpdateSceneConversationObjInput {
   created: String
 }
 
-input UpdateIdeaObjInput {
+input UpdateSceneIdeaObjInput {
   id: String!
   userId: String
   sceneId: String
@@ -2103,7 +2272,7 @@ input UpdateSpaceChapterObjInput {
   created: String
 }
 
-input UpdateIdeaRelationshipObjInput {
+input UpdateSpaceIdeaRelationshipObjInput {
   id: String!
   fromUserId: String
   spaceId: String
@@ -2544,9 +2713,9 @@ type Mutation {
   deleteConversationMessageObj(
     input: DeleteConversationMessageObjInput!
   ): ConversationMessageObj
-  createIdeaObj(input: CreateIdeaObjInput!): IdeaObj
-  updateIdeaObj(input: UpdateIdeaObjInput!): IdeaObj
-  deleteIdeaObj(input: DeleteIdeaObjInput!): IdeaObj
+  createSceneIdeaObj(input: CreateSceneIdeaObjInput!): SceneIdeaObj
+  updateSceneIdeaObj(input: UpdateSceneIdeaObjInput!): SceneIdeaObj
+  deleteSceneIdeaObj(input: DeleteSceneIdeaObjInput!): SceneIdeaObj
   createCollectionResourceObj(
     input: CreateCollectionResourceObjInput!
   ): CollectionResourceObj
@@ -2718,15 +2887,15 @@ type Mutation {
   createSpotlightLinkObj(input: CreateSpotlightLinkObjInput!): SpotlightLinkObj
   updateSpotlightLinkObj(input: UpdateSpotlightLinkObjInput!): SpotlightLinkObj
   deleteSpotlightLinkObj(input: DeleteSpotlightLinkObjInput!): SpotlightLinkObj
-  createIdeaRelationshipObj(
-    input: CreateIdeaRelationshipObjInput!
-  ): IdeaRelationshipObj
-  updateIdeaRelationshipObj(
-    input: UpdateIdeaRelationshipObjInput!
-  ): IdeaRelationshipObj
-  deleteIdeaRelationshipObj(
-    input: DeleteIdeaRelationshipObjInput!
-  ): IdeaRelationshipObj
+  createSpaceIdeaRelationshipObj(
+    input: CreateSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
+  updateSpaceIdeaRelationshipObj(
+    input: UpdateSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
+  deleteSpaceIdeaRelationshipObj(
+    input: DeleteSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
   createSpotlightKarmaObj(
     input: CreateSpotlightKarmaObjInput!
   ): SpotlightKarmaObj
@@ -2829,6 +2998,18 @@ type Mutation {
   createUserPostObj(input: CreateUserPostObjInput!): UserPostObj
   updateUserPostObj(input: UpdateUserPostObjInput!): UserPostObj
   deleteUserPostObj(input: DeleteUserPostObjInput!): UserPostObj
+  createIdeaRelationshipObj(
+    input: CreateIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  updateIdeaRelationshipObj(
+    input: UpdateIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  deleteIdeaRelationshipObj(
+    input: DeleteIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  createIdeaObj(input: CreateIdeaObjInput!): IdeaObj
+  updateIdeaObj(input: UpdateIdeaObjInput!): IdeaObj
+  deleteIdeaObj(input: DeleteIdeaObjInput!): IdeaObj
 }
 
 type Query {
@@ -2845,12 +3026,12 @@ type Query {
     limit: Int
     nextToken: String
   ): ConversationMessageObjConnection
-  getIdeaObj(id: String!): IdeaObj
-  listIdeaObjs(
-    filter: TableIdeaObjFilterInput
+  getSceneIdeaObj(id: String!): SceneIdeaObj
+  listSceneIdeaObjs(
+    filter: TableSceneIdeaObjFilterInput
     limit: Int
     nextToken: String
-  ): IdeaObjConnection
+  ): SceneIdeaObjConnection
   getCollectionResourceObj(id: String!): CollectionResourceObj
   listCollectionResourceObjs(
     filter: TableCollectionResourceObjFilterInput
@@ -2995,12 +3176,12 @@ type Query {
     limit: Int
     nextToken: String
   ): SpotlightLinkObjConnection
-  getIdeaRelationshipObj(id: String!): IdeaRelationshipObj
-  listIdeaRelationshipObjs(
-    filter: TableIdeaRelationshipObjFilterInput
+  getSpaceIdeaRelationshipObj(id: String!): SpaceIdeaRelationshipObj
+  listSpaceIdeaRelationshipObjs(
+    filter: TableSpaceIdeaRelationshipObjFilterInput
     limit: Int
     nextToken: String
-  ): IdeaRelationshipObjConnection
+  ): SpaceIdeaRelationshipObjConnection
   getSpotlightKarmaObj(id: String!): SpotlightKarmaObj
   listSpotlightKarmaObjs(
     filter: TableSpotlightKarmaObjFilterInput
@@ -3121,6 +3302,18 @@ type Query {
     limit: Int
     nextToken: String
   ): UserPostObjConnection
+  getIdeaRelationshipObj(id: String!): IdeaRelationshipObj
+  listIdeaRelationshipObjs(
+    filter: TableIdeaRelationshipObjFilterInput
+    limit: Int
+    nextToken: String
+  ): IdeaRelationshipObjConnection
+  getIdeaObj(id: String!): IdeaObj
+  listIdeaObjs(
+    filter: TableIdeaObjFilterInput
+    limit: Int
+    nextToken: String
+  ): IdeaObjConnection
 }
 
 type Subscription {
@@ -3166,27 +3359,27 @@ type Subscription {
     created: String
   ): ConversationMessageObj
     @aws_subscribe(mutations: ["deleteConversationMessageObj"])
-  onCreateIdeaObj(
+  onCreateSceneIdeaObj(
     id: String
     sceneId: String
     title: String
     description: String
     x: Int
-  ): IdeaObj @aws_subscribe(mutations: ["createIdeaObj"])
-  onUpdateIdeaObj(
+  ): SceneIdeaObj @aws_subscribe(mutations: ["createSceneIdeaObj"])
+  onUpdateSceneIdeaObj(
     id: String
     sceneId: String
     title: String
     description: String
     x: Int
-  ): IdeaObj @aws_subscribe(mutations: ["updateIdeaObj"])
-  onDeleteIdeaObj(
+  ): SceneIdeaObj @aws_subscribe(mutations: ["updateSceneIdeaObj"])
+  onDeleteSceneIdeaObj(
     id: String
     sceneId: String
     title: String
     description: String
     x: Int
-  ): IdeaObj @aws_subscribe(mutations: ["deleteIdeaObj"])
+  ): SceneIdeaObj @aws_subscribe(mutations: ["deleteSceneIdeaObj"])
   onCreateCollectionResourceObj(
     id: String
     userId: String
@@ -3709,30 +3902,30 @@ type Subscription {
     logId: String
     created: String
   ): SpotlightLinkObj @aws_subscribe(mutations: ["deleteSpotlightLinkObj"])
-  onCreateIdeaRelationshipObj(
+  onCreateSpaceIdeaRelationshipObj(
     id: String
     userId: String
     spaceId: String
     fromChapterId: String
     fromSceneId: String
-  ): IdeaRelationshipObj
-    @aws_subscribe(mutations: ["createIdeaRelationshipObj"])
-  onUpdateIdeaRelationshipObj(
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["createSpaceIdeaRelationshipObj"])
+  onUpdateSpaceIdeaRelationshipObj(
     id: String
     userId: String
     spaceId: String
     fromChapterId: String
     fromSceneId: String
-  ): IdeaRelationshipObj
-    @aws_subscribe(mutations: ["updateIdeaRelationshipObj"])
-  onDeleteIdeaRelationshipObj(
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["updateSpaceIdeaRelationshipObj"])
+  onDeleteSpaceIdeaRelationshipObj(
     id: String
     userId: String
     spaceId: String
     fromChapterId: String
     fromSceneId: String
-  ): IdeaRelationshipObj
-    @aws_subscribe(mutations: ["deleteIdeaRelationshipObj"])
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["deleteSpaceIdeaRelationshipObj"])
   onCreateSpotlightKarmaObj(
     id: String
     userId: String
@@ -4153,4 +4346,49 @@ type Subscription {
     title: String
     description: String
   ): UserPostObj @aws_subscribe(mutations: ["deleteUserPostObj"])
+  onCreateIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["createIdeaRelationshipObj"])
+  onUpdateIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["updateIdeaRelationshipObj"])
+  onDeleteIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["deleteIdeaRelationshipObj"])
+  onCreateIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["createIdeaObj"])
+  onUpdateIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["updateIdeaObj"])
+  onDeleteIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["deleteIdeaObj"])
 }

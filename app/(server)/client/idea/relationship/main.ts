@@ -1,5 +1,5 @@
 import { GqlDbWrapper } from '@/(server)/client/main';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import {
   createIdeaRelationshipObj,
