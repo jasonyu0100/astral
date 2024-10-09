@@ -1,36 +1,45 @@
 import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
 
-export interface ChapterConversationObj {
+export interface ConversationObj {
   id: string;
   userId: string;
   chapterId?: string;
+  decisionId?: string;
+  toUserId?: string;
+  toAgentId?: string;
   summary: string;
   created: string;
 }
 
-export const exampleChapterConversation: ChapterConversationObj = {
+export const exampleConversation: ConversationObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
+  decisionId: '0',
+  toUserId: '0',
   summary: 'A conversation about the idea',
   created: new Date().toISOString(),
 };
 
-export const chapterConversationGql = `
-type ChapterConversationObj {
+export const conversationGql = `
+type ConversationObj {
   id: String!
   userId: String!
   chapterId: String
+  decisionId: String
+  toUserId: String
+  toAgentId: String
   summary: String!
   created: String!
 }
 `;
 
-export const ContextForChapterConversationObj =
-  createContext<ChapterConversationObj>({} as ChapterConversationObj);
+export const ContextForConversationObj = createContext<ConversationObj>(
+  {} as ConversationObj,
+);
 
-export const exampleChapterConversations: ChapterConversationObj[] = [
+export const exampleConversations: ConversationObj[] = [
   {
     id: '0',
     userId: '0',
@@ -54,12 +63,11 @@ export const exampleChapterConversations: ChapterConversationObj[] = [
   },
 ];
 
-export const chapterConversationModel: ModelInterface<ChapterConversationObj> =
-  {
-    name: 'conversation',
-    gql: chapterConversationGql,
-    example: exampleChapterConversation,
-    examples: exampleChapterConversations,
-    parentKey: 'chapterId',
-    children: ['message'],
-  };
+export const conversationModel: ModelInterface<ConversationObj> = {
+  name: 'conversation',
+  gql: conversationGql,
+  example: exampleConversation,
+  examples: exampleConversations,
+  parentKey: 'chapterId',
+  children: ['message'],
+};

@@ -5,7 +5,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ChapterConversationObj } from '@/(server)/model/conversation/main';
+import { ConversationObj } from '@/(server)/model/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -74,7 +74,7 @@ export function useControllerForSpacesMapChat() {
     return ideaHistory;
   }
 
-  function checkConversationStatus(conversation: ChapterConversationObj) {
+  function checkConversationStatus(conversation: ConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -98,7 +98,7 @@ export function useControllerForSpacesMapChat() {
     return conversation;
   }
 
-  async function sendUserMessage(conversation: ChapterConversationObj) {
+  async function sendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
       conversation.chapterId,
@@ -128,7 +128,7 @@ export function useControllerForSpacesMapChat() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: ChapterConversationObj,
+    conversation: ConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
@@ -140,7 +140,7 @@ export function useControllerForSpacesMapChat() {
 
   async function summariseConversation(
     messages: ConversationMessageObj[],
-    conversationObj: ChapterConversationObj,
+    conversationObj: ConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 

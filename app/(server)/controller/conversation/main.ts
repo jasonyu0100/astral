@@ -1,4 +1,4 @@
-import { chapterConversationDbWrapper } from '@/(server)/client/conversation/main';
+import { conversationDbWrapper } from '@/(server)/client/conversation/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { ChapterConversationObj } from '@/(server)/model/conversation/main';
+import { ConversationObj } from '@/(server)/model/conversation/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterConversationObj;
-const gqlDbWrapper = chapterConversationDbWrapper;
+type TargetObj = ConversationObj;
+const gqlDbWrapper = conversationDbWrapper;
 
 interface ControllerState {
   objId: string;

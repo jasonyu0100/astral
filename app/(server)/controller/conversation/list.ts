@@ -1,4 +1,4 @@
-import { chapterConversationDbWrapper } from '@/(server)/client/conversation/main';
+import { conversationDbWrapper } from '@/(server)/client/conversation/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -7,14 +7,14 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import {
-  ChapterConversationObj,
-  chapterConversationModel,
+  ConversationObj,
+  conversationModel,
 } from '@/(server)/model/conversation/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = ChapterConversationObj;
-const gqlDbWrapper = chapterConversationDbWrapper;
-const listIdKey = chapterConversationModel.parentKey;
+type TargetObj = ConversationObj;
+const gqlDbWrapper = conversationDbWrapper;
+const listIdKey = conversationModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
