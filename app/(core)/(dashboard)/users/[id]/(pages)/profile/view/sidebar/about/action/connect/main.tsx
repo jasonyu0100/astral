@@ -73,23 +73,13 @@ export function ProfileAboutConnectAction() {
       .filter((connection) => connection.connectedId === profileUser.id)
       .map((connection) => connection.id);
 
-    const deletedConnectionsFromLoggedIn =
-      await userConnectionListController.actions.deleteActions.deleteMany([
-        ...fromLoggedInIds,
-      ]);
+    await userConnectionListController.actions.deleteActions.deleteMany([
+      ...fromLoggedInIds,
+    ]);
 
-    const deletedConnectionsFromProfile =
-      await profileConnectionListController.actions.deleteActions.deleteMany([
-        ...fromProfileIds,
-      ]);
-
-    [...deletedConnectionsFromLoggedIn, ...deletedConnectionsFromProfile].map(
-      async (connection) => {
-        await termsListController.actions.deleteActions.delete(
-          connection.termsId,
-        );
-      },
-    );
+    await profileConnectionListController.actions.deleteActions.deleteMany([
+      ...fromProfileIds,
+    ]);
   }
 
   return (
