@@ -25,7 +25,7 @@ export const ContextForSpacesJourney = createContext({} as Controller);
 
 export enum SpacesJourneyDataMode {
   TABLE = 'Table',
-  COLUMNS = 'Columns',
+  ROWS = 'Rows',
 }
 
 export enum SpacesJourneySidebarMode {

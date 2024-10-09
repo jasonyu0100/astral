@@ -6,9 +6,9 @@ import {
 } from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
-import { SpaceJourneyListItem } from './lists/item/main';
-import { SpaceJourneyList } from './lists/main';
-import { SpacesJourneyKanbanListTitle } from './lists/title/main';
+import { SpaceJourneyListItem } from './row/item/main';
+import { SpaceJourneyRow } from './row/main';
+import { SpacesJourneyKanbanListTitle } from './row/title/main';
 
 export function SpacesJourneyKanban() {
   const wayListController = useContext(ContextForChapterWayList);
@@ -74,13 +74,13 @@ export function SpacesJourneyKanban() {
 
   return (
     <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid h-full w-full grid-cols-4'>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceJourneyList>
+      <div className='grid h-full w-full grid-rows-4'>
+        <div className='flex h-full flex-col'>
+          <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.TODO}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {todo.map((log) => (
@@ -91,16 +91,16 @@ export function SpacesJourneyKanban() {
                 </li>
               ))}
             </ul>
-          </SpaceJourneyList>
+          </SpaceJourneyRow>
         </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceJourneyList>
+        <div className='flex h-full flex-col'>
+          <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>
               In-progress
             </SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.IN_PROGRESS}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {inProgress.map((log) => (
@@ -111,14 +111,14 @@ export function SpacesJourneyKanban() {
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </SpaceJourneyList>
+          </SpaceJourneyRow>
         </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceJourneyList>
+        <div className='flex h-full flex-col'>
+          <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.REVIEW}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {review.map((log) => (
@@ -129,14 +129,14 @@ export function SpacesJourneyKanban() {
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </SpaceJourneyList>
+          </SpaceJourneyRow>
         </div>
-        <div className='flex h-full flex-col space-y-[1rem]'>
-          <SpaceJourneyList>
+        <div className='flex h-full flex-col'>
+          <SpaceJourneyRow>
             <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
             <ul
               id={ChapterWayStatus.DONE}
-              className='w-full space-y-[1rem]'
+              className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
               {done.map((log) => (
@@ -147,7 +147,7 @@ export function SpacesJourneyKanban() {
                 </ContextForChapterWayObj.Provider>
               ))}
             </ul>
-          </SpaceJourneyList>
+          </SpaceJourneyRow>
         </div>
       </div>
     </div>

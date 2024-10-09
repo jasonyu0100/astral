@@ -1,11 +1,11 @@
 import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
 import { ContextForChapterWayObj } from '@/(server)/model/space/chapter/way/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { glassFx } from '@/style/glass/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
-import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForSpacesJourney } from '../../../../../../controller/main';
 
@@ -16,10 +16,10 @@ export function SpaceJourneyListItem() {
   const selected = journeyController.state.selectedLogs.includes(log);
 
   return (
-    <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>
+    <GlassWindowFrame className='aspect-video h-full bg-yellow-500 p-[0.5rem]'>
       <GlassWindowContents
         className={ctwn(
-          'flex h-full w-full cursor-pointer flex-col space-y-[1rem] overflow-auto',
+          'flex h-full w-full cursor-pointer flex-col space-y-[0.5rem] overflow-auto',
         )}
         onClick={() => {
           if (journeyController.state.selectedLogs.includes(log)) {
@@ -37,18 +37,13 @@ export function SpaceJourneyListItem() {
           }
         }}
       >
-        <p className='text-lg font-bold text-slate-300'>{log.title}</p>
-        <p className='font-md text-slate-300'>{log.description}</p>
-        <p className='text-md mt-auto font-light text-slate-300'>
-          {getFormattedAMPM(new Date(log.created))},
+        <p className='text-xs font-light '>
           {getFormattedDate(new Date(log.created))}
         </p>
+        <p className='text-md font-bold '>{log.title}</p>
+        <p className='text-sm '>{log.description}</p>
       </GlassWindowContents>
-      {selected ? (
-        <GlassWindowPane glassFx={glassFx['glass-20']} />
-      ) : (
-        <GlassWindowPane glassFx={glassFx['glass-5']} />
-      )}
+      {selected && <GlassWindowPane glassFx={glassFx['glass-30']} />}
     </GlassWindowFrame>
   );
 }

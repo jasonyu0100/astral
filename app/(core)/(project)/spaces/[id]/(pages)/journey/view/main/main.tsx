@@ -40,7 +40,7 @@ export function SpacesJourneyMain() {
               {dataMode === SpacesJourneyDataMode.TABLE && (
                 <SpacesJourneyWayTable />
               )}
-              {dataMode === SpacesJourneyDataMode.COLUMNS && (
+              {dataMode === SpacesJourneyDataMode.ROWS && (
                 <SpacesJourneyKanban key={chapterListController.state.objId} />
               )}
             </>

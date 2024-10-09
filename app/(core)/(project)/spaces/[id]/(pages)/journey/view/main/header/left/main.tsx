@@ -37,10 +37,10 @@ export function SpacesJourneyHeaderLeft() {
       <BarDividerIndicator />
       <AstralTableIcon
         onClick={() => {
-          if (dataMode === SpacesJourneyDataMode.COLUMNS) {
+          if (dataMode === SpacesJourneyDataMode.ROWS) {
             updateDataMode(SpacesJourneyDataMode.TABLE);
           } else {
-            updateDataMode(SpacesJourneyDataMode.COLUMNS);
+            updateDataMode(SpacesJourneyDataMode.ROWS);
           }
         }}
         className={ctwn('fill-slate-300', {
@@ -49,14 +49,14 @@ export function SpacesJourneyHeaderLeft() {
       />
       <AstralColumnsIcon
         onClick={() => {
-          if (dataMode === SpacesJourneyDataMode.COLUMNS) {
+          if (dataMode === SpacesJourneyDataMode.ROWS) {
             updateDataMode(SpacesJourneyDataMode.TABLE);
           } else {
-            updateDataMode(SpacesJourneyDataMode.COLUMNS);
+            updateDataMode(SpacesJourneyDataMode.ROWS);
           }
         }}
         className={ctwn('fill-slate-300', {
-          'fill-blue-500': dataMode === SpacesJourneyDataMode.COLUMNS,
+          'fill-blue-500': dataMode === SpacesJourneyDataMode.ROWS,
         })}
       />
       <BarDividerIndicator />

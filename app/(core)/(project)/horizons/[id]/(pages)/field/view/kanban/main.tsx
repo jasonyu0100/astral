@@ -6,9 +6,9 @@ import {
 } from '@/(server)/model/space/chapter/way/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
-import { HorizonsFieldListItem } from './lists/item/main';
-import { HorizonsFieldRow } from './lists/main';
-import { SpacesJourneyKanbanListTitle } from './lists/title/main';
+import { HorizonsFieldListItem } from './row/item/main';
+import { HorizonsFieldRow } from './row/main';
+import { SpacesJourneyKanbanListTitle } from './row/title/main';
 
 export function HorizonsFieldKanban() {
   const wayListController = useContext(ContextForChapterWayList);
@@ -61,10 +61,44 @@ export function HorizonsFieldKanban() {
               style={{ height: '100%' }}
             >
               <li className='drag-item'>
-                <div className='aspect-square h-full bg-yellow-500'>adfs</div>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
               </li>
               <li className='drag-item'>
-                <div className='aspect-square h-full bg-yellow-500'>adfs</div>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
+              </li>
+              <li className='drag-item'>
+                <div className='aspect-square h-full bg-yellow-500 p-[1rem]'>
+                  Test
+                </div>
               </li>
               {todo.map((log) => (
                 <li data-id={log.id} className='drag-item'>
