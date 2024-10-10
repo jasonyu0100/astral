@@ -1,4 +1,5 @@
-import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
+import { useControllerForUserConnectionListFromFollower } from '@/(server)/controller/user/connection/list-from-follower';
+import { ContextForProfileUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import {
   ContextForUserProfile,
@@ -9,7 +10,9 @@ export function UserProfileAboutFollowers() {
   const {
     actions: { updatePage },
   } = useContext(ContextForUserProfile);
-  const connectionListController = useContext(ContextForUserConnectionList);
+  const profileUser = useContext(ContextForProfileUserObj);
+  const connectionListController =
+    useControllerForUserConnectionListFromFollower(profileUser.id);
 
   return (
     <div className='justify- flex w-full flex-row items-center justify-center space-x-[1rem]'>

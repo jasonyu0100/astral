@@ -1,4 +1,4 @@
-import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
+import { ContextForUserConnectionListFromFollowing } from '@/(server)/controller/user/connection/list-from-following';
 import { useContext } from 'react';
 import {
   ContextForUserProfile,
@@ -9,7 +9,9 @@ import { ContextForCollaborators } from '../controller/main';
 export function UserProfileCollaboratorsHeader() {
   const collaboratorController = useContext(ContextForCollaborators);
   const profileController = useContext(ContextForUserProfile);
-  const userConectionList = useContext(ContextForUserConnectionList);
+  const userConectionList = useContext(
+    ContextForUserConnectionListFromFollowing,
+  );
 
   return (
     <div className='flex h-[4rem] flex-shrink-0 shadow-glow'>

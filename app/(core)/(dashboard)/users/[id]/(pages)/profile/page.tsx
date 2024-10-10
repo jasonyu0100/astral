@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  ContextForUserConnectionList,
-  useControllerForUserConnectionList,
-} from '@/(server)/controller/user/connection/list';
+  ContextForUserConnectionListFromFollowing,
+  useControllerForUserConnectionListFromFollowing,
+} from '@/(server)/controller/user/connection/list-from-following';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -28,23 +28,22 @@ function Page() {
   const profileIdContext = useContext(ContextForProfileId);
   const userController = useControllerForUserMain(profileIdContext.userId);
   const profileUser = userController.state.obj;
-  const profileConnectionListController = useControllerForUserConnectionList(
-    profileUser.id,
-  );
+  const connectionListController =
+    useControllerForUserConnectionListFromFollowing(profileUser.id);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForProfileUserObj.Provider value={profileUser}>
         <ContextForUserMain.Provider value={userController}>
-          <ContextForUserConnectionList.Provider
-            value={profileConnectionListController}
+          <ContextForUserConnectionListFromFollowing.Provider
+            value={connectionListController}
           >
             <UserProfileModals>
               <ProfileControllerWrapper>
                 <UserProfileView />
               </ProfileControllerWrapper>
             </UserProfileModals>
-          </ContextForUserConnectionList.Provider>
+          </ContextForUserConnectionListFromFollowing.Provider>
         </ContextForUserMain.Provider>
       </ContextForProfileUserObj.Provider>
     </ContextForLoggedInUserObj.Provider>

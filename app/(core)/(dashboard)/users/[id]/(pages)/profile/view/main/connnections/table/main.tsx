@@ -1,4 +1,4 @@
-import { ContextForUserConnectionList } from '@/(server)/controller/user/connection/list';
+import { ContextForUserConnectionListFromFollowing } from '@/(server)/controller/user/connection/list-from-following';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
@@ -7,7 +7,9 @@ import { UserProfileConnectionsTableRow } from './row/main';
 import { UserProfileConnectionsRowWrapper } from './wrapper/main';
 
 export function UserProfileCollaboratorsTable() {
-  const userConectionList = useContext(ContextForUserConnectionList);
+  const userConectionList = useContext(
+    ContextForUserConnectionListFromFollowing,
+  );
 
   return (
     <div

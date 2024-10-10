@@ -1,7 +1,7 @@
 import {
-  ContextForUserConnectionList,
-  useControllerForUserConnectionList,
-} from '@/(server)/controller/user/connection/list';
+  ContextForUserConnectionListFromFollowing,
+  useControllerForUserConnectionListFromFollowing,
+} from '@/(server)/controller/user/connection/list-from-following';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import {
   ContextForTogglable,
@@ -17,7 +17,7 @@ export function CreateSpaceMembers() {
   const { pageThree } = useContext(ContextForCreateSpace);
   const { memberIds, updateMemberIds } = pageThree;
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const connectListController = useControllerForUserConnectionList(
+  const connectListController = useControllerForUserConnectionListFromFollowing(
     loggedInUser.id,
   );
 
@@ -38,11 +38,13 @@ export function CreateSpaceMembers() {
         ))}
       </div>
       {togglableController.toggled && (
-        <ContextForUserConnectionList.Provider value={connectListController}>
+        <ContextForUserConnectionListFromFollowing.Provider
+          value={connectListController}
+        >
           <ContextForTogglable.Provider value={togglableController}>
             <CreateSpaceCollaboratorList />
           </ContextForTogglable.Provider>
-        </ContextForUserConnectionList.Provider>
+        </ContextForUserConnectionListFromFollowing.Provider>
       )}
     </>
   );

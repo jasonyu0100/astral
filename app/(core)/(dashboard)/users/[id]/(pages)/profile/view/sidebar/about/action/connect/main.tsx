@@ -1,7 +1,7 @@
 import {
-  ContextForUserConnectionList,
-  useControllerForUserConnectionList,
-} from '@/(server)/controller/user/connection/list';
+  ContextForUserConnectionListFromFollowing,
+  useControllerForUserConnectionListFromFollowing,
+} from '@/(server)/controller/user/connection/list-from-following';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
@@ -16,11 +16,10 @@ export function ProfileAboutConnectAction() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const profileUser = useContext(ContextForProfileUserObj);
   const profileConnectionListController = useContext(
-    ContextForUserConnectionList,
+    ContextForUserConnectionListFromFollowing,
   );
-  const userConnectionListController = useControllerForUserConnectionList(
-    loggedInUser.id,
-  );
+  const userConnectionListController =
+    useControllerForUserConnectionListFromFollowing(loggedInUser.id);
   const mutualConnected = checkMutualConnected();
 
   // CONNECTION IS LIMITED BY DUNBAR AND IS INITIATED ON A TERMS BASIS
@@ -45,13 +44,11 @@ export function ProfileAboutConnectAction() {
     await userConnectionListController.actions.createActions.createConnection(
       loggedInUser.id, // initiator
       profileUser.id, // receiver
-      terms.id,
     );
     // PROFILE RECEIVES INVITATION
     await profileConnectionListController.actions.createActions.createConnection(
       profileUser.id, // initiator
       loggedInUser.id, // receiver
-      terms.id,
     );
   }
 
