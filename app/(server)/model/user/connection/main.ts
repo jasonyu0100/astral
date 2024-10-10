@@ -3,16 +3,16 @@ import { ModelInterface } from '../../main';
 
 export interface UserConnectionObj {
   id: string;
-  userId: string;
-  connectedId: string;
+  sourceId: string;
+  destinationId: string;
   created: string;
 }
 
 export const userConnectionGql = `
 type UserConnectionObj {
   id: String!
-  userId: String!
-  connectedId: String!
+  sourceId: String!
+  destinationId: String!
   created: String!
 }
 `;
@@ -23,28 +23,28 @@ export const ContextForUserConnectionObj = createContext<UserConnectionObj>(
 
 export const exampleUserConnection: UserConnectionObj = {
   id: '0',
-  connectedId: '0',
-  userId: '0',
+  destinationId: '0',
+  sourceId: '0',
   created: new Date().toISOString(),
 };
 
 export const exampleUserConnections: UserConnectionObj[] = [
   {
     id: '0',
-    connectedId: '0',
-    userId: '0',
+    destinationId: '0',
+    sourceId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    connectedId: '0',
-    userId: '0',
+    destinationId: '0',
+    sourceId: '0',
     created: new Date().toISOString(),
   },
   {
     id: '0',
-    connectedId: '0',
-    userId: '0',
+    destinationId: '0',
+    sourceId: '0',
     created: new Date().toISOString(),
   },
 ];
@@ -54,6 +54,6 @@ export const userConnectionModel: ModelInterface<UserConnectionObj> = {
   gql: userConnectionGql,
   example: exampleUserConnection,
   examples: exampleUserConnections,
-  parentKey: 'userId',
+  parentKey: 'sourceId',
   children: [],
 };

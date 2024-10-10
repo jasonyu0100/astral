@@ -11,7 +11,7 @@ import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserConnectionObj;
 const gqlDbWrapper = userConnectionDbWrapper;
-const listIdKey = 'connectedId';
+const listIdKey = 'destinationId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -257,8 +257,8 @@ export const useControllerForUserConnectionListFromFollower = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
-        connectedId: '',
+        sourceId: '',
+        destinationId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -269,8 +269,8 @@ export const useControllerForUserConnectionListFromFollower = (
     createConnection: async (userId: string, connectedId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: userId,
-        connectedId: connectedId,
+        sourceId: userId,
+        destinationId: connectedId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

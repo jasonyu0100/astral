@@ -260,8 +260,8 @@ export const useControllerForUserConnectionListFromFollowing = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
-        connectedId: '',
+        sourceId: '',
+        destinationId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -272,8 +272,8 @@ export const useControllerForUserConnectionListFromFollowing = (
     createConnection: async (userId: string, connectedId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: userId,
-        connectedId: connectedId,
+        sourceId: userId,
+        destinationId: connectedId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

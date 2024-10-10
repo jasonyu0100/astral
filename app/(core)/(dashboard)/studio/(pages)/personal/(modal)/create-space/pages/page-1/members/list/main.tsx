@@ -25,8 +25,8 @@ export function CreateSpaceCollaboratorList() {
           <ContextForUserConnectionObj.Provider value={connection}>
             <CreateSpaceCollaboratorRow
               onClick={() => {
-                if (!memberIds.includes(connection.connectedId)) {
-                  updateMemberIds([...memberIds, connection.connectedId]);
+                if (!memberIds.includes(connection.destinationId)) {
+                  updateMemberIds([...memberIds, connection.destinationId]);
                 }
                 togglableController.toggle();
               }}

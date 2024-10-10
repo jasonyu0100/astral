@@ -7,7 +7,7 @@ import { UserProfileConnectionsRowNumber } from './number/main';
 
 export function UserProfileConnectionsTableRow() {
   const connectionObj = useContext(ContextForUserConnectionObj);
-  const userController = useControllerForUserMain(connectionObj.connectedId);
+  const userController = useControllerForUserMain(connectionObj.destinationId);
   const user = userController.state.obj;
 
   return (

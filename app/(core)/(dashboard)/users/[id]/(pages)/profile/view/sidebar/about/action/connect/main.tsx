@@ -28,11 +28,11 @@ export function ProfileAboutConnectAction() {
   function checkMutualConnected() {
     const fromLoggedIn =
       profileConnectionListController.state.objs.filter(
-        (connection) => connection.connectedId === loggedInUser.id,
+        (connection) => connection.destinationId === loggedInUser.id,
       ).length > 0;
     const fromProfile =
       userConnectionListController.state.objs.filter(
-        (connection) => connection.connectedId === profileUser.id,
+        (connection) => connection.destinationId === profileUser.id,
       ).length > 0;
     return fromLoggedIn && fromProfile;
   }
@@ -55,11 +55,11 @@ export function ProfileAboutConnectAction() {
   async function removeTwoWayConnection() {
     alert('Removing Two Way Connection');
     const fromProfileIds = profileConnectionListController.state.objs
-      .filter((connection) => connection.connectedId === loggedInUser.id)
+      .filter((connection) => connection.destinationId === loggedInUser.id)
       .map((connection) => connection.id);
 
     const fromLoggedInIds = userConnectionListController.state.objs
-      .filter((connection) => connection.connectedId === profileUser.id)
+      .filter((connection) => connection.destinationId === profileUser.id)
       .map((connection) => connection.id);
 
     await userConnectionListController.actions.deleteActions.deleteMany([
