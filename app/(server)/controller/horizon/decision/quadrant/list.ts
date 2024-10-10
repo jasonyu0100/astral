@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { decisionQuadrantDbWrapper } from '@/(server)/client/horizon/decision/quadrant/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,13 +6,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { horizonModel, HorizonObj } from '@/(server)/model/horizon/main';
+import {
+  decisionQuadrantModel,
+  DecisionQuadrantObj,
+  DecisionQuadrantVariant,
+} from '@/(server)/model/horizon/decision/quadrant/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
-const listIdKey = horizonModel.parentKey;
+type TargetObj = DecisionQuadrantObj;
+const gqlDbWrapper = decisionQuadrantDbWrapper;
+const listIdKey = decisionQuadrantModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -46,7 +49,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForHorizonList = (
+export const useControllerForDecisionQuadrantList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -253,11 +256,10 @@ export const useControllerForHorizonList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
+        decisionId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
-        category: '',
+        variant: DecisionQuadrantVariant.FirstQuadrant,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -346,4 +348,4 @@ export const useControllerForHorizonList = (
   };
 };
 
-export const ContextForHorizonList = createContext({} as Controller);
+export const ContextForDecisionQuadrantList = createContext({} as Controller);

@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { horizonDecisionDbWrapper } from '@/(server)/client/horizon/decision/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,13 +6,15 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { horizonModel, HorizonObj } from '@/(server)/model/horizon/main';
+import {
+  horizonDecisionModel,
+  HorizonDecisionObj,
+} from '@/(server)/model/horizon/decision/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
-const listIdKey = horizonModel.parentKey;
+type TargetObj = HorizonDecisionObj;
+const gqlDbWrapper = horizonDecisionDbWrapper;
+const listIdKey = horizonDecisionModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -46,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForHorizonList = (
+export const useControllerForHorizonDecisionList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -253,11 +255,9 @@ export const useControllerForHorizonList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
+        horizonId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
-        category: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -346,4 +346,4 @@ export const useControllerForHorizonList = (
   };
 };
 
-export const ContextForHorizonList = createContext({} as Controller);
+export const ContextForHorizonDecisionList = createContext({} as Controller);

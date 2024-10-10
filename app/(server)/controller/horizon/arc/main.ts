@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { horizonArcDbWrapper } from '@/(server)/client/horizon/arc/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,12 +6,12 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { HorizonObj } from '@/(server)/model/horizon/main';
+import { HorizonArcObj } from '@/(server)/model/horizon/arc/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
-export const ContextForHorizonMain = createContext({} as Controller);
+type TargetObj = HorizonArcObj;
+const gqlDbWrapper = horizonArcDbWrapper;
+export const ContextForHorizonArcMain = createContext({} as Controller);
 
 interface ControllerState {
   objId: string;
@@ -36,7 +36,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForHorizonMain = (objId: string): Controller => {
+export const useControllerForHorizonArcMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {

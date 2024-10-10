@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { decisionQuadrantDbWrapper } from '@/(server)/client/horizon/decision/quadrant/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -6,11 +6,11 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { HorizonObj } from '@/(server)/model/horizon/main';
+import { DecisionQuadrantObj } from '@/(server)/model/horizon/decision/quadrant/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
+type TargetObj = DecisionQuadrantObj;
+const gqlDbWrapper = decisionQuadrantDbWrapper;
 
 interface ControllerState {
   objId: string;
@@ -35,7 +35,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForHorizonMain = (objId: string): Controller => {
+export const useControllerForDecisionQuadrantMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,4 +114,4 @@ export const useControllerForHorizonMain = (objId: string): Controller => {
   };
 };
 
-export const ContextForHorizonMain = createContext({} as Controller);
+export const ContextForDecisionQuadrantMain = createContext({} as Controller);

@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { horizonSpaceMemberDbWrapper } from '@/(server)/client/horizon/member/space/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,13 +6,15 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { horizonModel, HorizonObj } from '@/(server)/model/horizon/main';
+import {
+  horizonSpaceMemberModel,
+  HorizonSpaceMemberObj,
+} from '@/(server)/model/horizon/member/space/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
-const listIdKey = horizonModel.parentKey;
+type TargetObj = HorizonSpaceMemberObj;
+const gqlDbWrapper = horizonSpaceMemberDbWrapper;
+const listIdKey = horizonSpaceMemberModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -46,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForHorizonList = (
+export const useControllerForHorizonSpaceMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -157,7 +159,7 @@ export const useControllerForHorizonList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -170,7 +172,7 @@ export const useControllerForHorizonList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -253,11 +255,8 @@ export const useControllerForHorizonList = (
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        userId: '',
-        title: '',
-        description: '',
-        thumbnail: exampleFileElem,
-        category: '',
+        horizonId: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -346,4 +345,4 @@ export const useControllerForHorizonList = (
   };
 };
 
-export const ContextForHorizonList = createContext({} as Controller);
+export const ContextForHorizonSpaceMemberList = createContext({} as Controller);

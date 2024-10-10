@@ -128,7 +128,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonSpaceMemberObj);
 }
 
-export const horizonDbWrapper: GqlDbWrapper<TargetObj> = {
+export const horizonSpaceMemberDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,
