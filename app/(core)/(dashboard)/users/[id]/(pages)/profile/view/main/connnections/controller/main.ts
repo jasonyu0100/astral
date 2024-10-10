@@ -1,16 +1,16 @@
 import { createContext, useState } from 'react';
 
-export enum CollaboratorsPage {
-  Collaborators = 'Collaborators',
-  Links = 'Links',
+export enum ConnectionsPage {
+  Following = 'Following',
+  Followers = 'Followers',
 }
 
 interface ControllerState {
-  page: CollaboratorsPage;
+  page: ConnectionsPage;
 }
 
 interface ControllerActions {
-  updatePage: (view: CollaboratorsPage) => void;
+  updatePage: (view: ConnectionsPage) => void;
 }
 
 interface Controller {
@@ -21,14 +21,14 @@ interface Controller {
 export const ContextForCollaborators = createContext({} as Controller);
 
 export function useControllerForCollaborators(): Controller {
-  const [page, setPage] = useState(CollaboratorsPage.Collaborators);
+  const [page, setPage] = useState(ConnectionsPage.Following);
 
   return {
     state: {
       page,
     },
     actions: {
-      updatePage: (page: CollaboratorsPage) => setPage(page),
+      updatePage: (page: ConnectionsPage) => setPage(page),
     },
   };
 }

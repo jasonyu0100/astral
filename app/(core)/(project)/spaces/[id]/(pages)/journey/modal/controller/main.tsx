@@ -8,7 +8,6 @@ import { SpacesJourneyAddFileLinkModal } from '../add/link/file/main';
 import { SpacesJourneyAddTextLinkModal } from '../add/link/text/main';
 import { SpacesJourneyAddLogModal } from '../add/log/main';
 import { SpacesJourneyAddSceneModal } from '../add/scene/main';
-import { SpacesJourneyAddUpdateModal } from '../add/update/main';
 import { SpacesJourneyPostModal } from '../generate/main';
 
 export const ContextForSpacesJourneyModals = createContext(
@@ -50,9 +49,6 @@ export function SpacesJourneyModals({
       {children}
       <ContextForOpenable.Provider value={addSceneController}>
         <SpacesJourneyAddSceneModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addUpdateController}>
-        <SpacesJourneyAddUpdateModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addPostController}>
         <SpacesJourneyPostModal />

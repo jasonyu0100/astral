@@ -97,7 +97,6 @@ export enum SpacesMapSidebarMode {
   IDEAS = 'Ideas',
   SCENES = 'Scenes',
   CHAT = 'Chat',
-  COLLABORATORS = 'Collaborators',
 }
 
 export enum SpacesMapConnectionMode {

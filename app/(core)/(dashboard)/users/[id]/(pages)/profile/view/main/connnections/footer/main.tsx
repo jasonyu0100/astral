@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CollaboratorsPage, ContextForCollaborators } from '../controller/main';
+import { ConnectionsPage, ContextForCollaborators } from '../controller/main';
 
 export function UserProfileCollaboratorsFooter() {
   const collaboratorController = useContext(ContextForCollaborators);
@@ -9,29 +9,27 @@ export function UserProfileCollaboratorsFooter() {
       <div
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between pt-[1rem]'
         onClick={() =>
-          collaboratorController.actions.updatePage(
-            CollaboratorsPage.Collaborators,
-          )
+          collaboratorController.actions.updatePage(ConnectionsPage.Following)
         }
       >
         <p className='text-md justify-end font-light text-slate-300'>
-          {CollaboratorsPage.Collaborators}
+          {ConnectionsPage.Following}
         </p>
         <div
-          className={`h-[3px] w-full animate-pulse-slow bg-opacity-30 ${collaboratorController.state.page === CollaboratorsPage.Collaborators ? 'bg-slate-300' : 'bg-transparent'}`}
+          className={`h-[3px] w-full animate-pulse-slow bg-opacity-30 ${collaboratorController.state.page === ConnectionsPage.Following ? 'bg-slate-300' : 'bg-transparent'}`}
         />
       </div>
       <div
         className='flex h-full w-1/2 cursor-pointer flex-col items-center justify-between pt-[1rem]'
         onClick={() =>
-          collaboratorController.actions.updatePage(CollaboratorsPage.Links)
+          collaboratorController.actions.updatePage(ConnectionsPage.Followers)
         }
       >
         <p className='text-md justify-end font-light text-slate-300'>
-          {CollaboratorsPage.Links}
+          {ConnectionsPage.Followers}
         </p>
         <div
-          className={`h-[3px] w-full animate-pulse-slow bg-opacity-30 ${collaboratorController.state.page === CollaboratorsPage.Links ? 'bg-slate-300' : 'bg-transparent'}`}
+          className={`h-[3px] w-full animate-pulse-slow bg-opacity-30 ${collaboratorController.state.page === ConnectionsPage.Followers ? 'bg-slate-300' : 'bg-transparent'}`}
         />
       </div>
     </div>

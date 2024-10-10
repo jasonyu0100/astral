@@ -5,7 +5,7 @@ import {
   UserProfilePage,
 } from '../../../../controller/main';
 
-export function UserProfileAboutFollowing() {
+export function UserProfileAboutFollowers() {
   const {
     actions: { updatePage },
   } = useContext(ContextForUserProfile);
@@ -19,7 +19,7 @@ export function UserProfileAboutFollowing() {
           updatePage(UserProfilePage.Connections);
         }}
       >
-        {connectionListController.state.objs.length} Following
+        {connectionListController.state.objs.length} Followers
       </p>
     </div>
   );
