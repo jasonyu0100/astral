@@ -9,6 +9,8 @@ import { getSpaceMemberObj, listSpaceMemberObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 import { GqlDbWrapper } from '../../main';
 
+type TargetObj = SpaceMemberObj;
+
 function castSingle(obj: unknown) {
   return obj as SpaceMemberObj;
 }

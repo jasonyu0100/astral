@@ -9,12 +9,14 @@ import {
 import { getPostMemberObj, listPostMemberObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = PostMemberObj;
+
 function castSingle(obj: unknown) {
-  return obj as PostMemberObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as PostMemberObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listPostMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<PostMemberObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createPostMemberObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<PostMemberObj, 'id'>) {
   return castSingle(payload?.data?.createPostMemberObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<PostMemberObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updatePostMemberObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<PostMemberObj>) {
   return castSingle(payload?.data?.updatePostMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: PostMemberObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updatePostMemberObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deletePostMemberObj);
 }
 
-export const postMemberDbWrapper: GqlDbWrapper<PostMemberObj> = {
+export const postMemberDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

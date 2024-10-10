@@ -12,12 +12,14 @@ import {
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = IdeaRelationshipObj;
+
 function castSingle(obj: unknown) {
-  return obj as IdeaRelationshipObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as IdeaRelationshipObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +76,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listIdeaRelationshipObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<IdeaRelationshipObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createIdeaRelationshipObj,
     variables: {
@@ -85,7 +87,7 @@ async function createObj(newObj: Omit<IdeaRelationshipObj, 'id'>) {
   return castSingle(payload?.data?.createIdeaRelationshipObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<IdeaRelationshipObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateIdeaRelationshipObj,
     variables: {
@@ -99,7 +101,7 @@ async function updateObj(id: string, updateObj: Partial<IdeaRelationshipObj>) {
   return castSingle(payload?.data?.updateIdeaRelationshipObj);
 }
 
-async function overwriteObj(id: string, newObj: IdeaRelationshipObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateIdeaRelationshipObj,
     variables: {
@@ -126,7 +128,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteIdeaRelationshipObj);
 }
 
-export const ideaRelationshipDbWrapper: GqlDbWrapper<IdeaRelationshipObj> = {
+export const ideaRelationshipDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

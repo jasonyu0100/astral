@@ -12,12 +12,14 @@ import {
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = CollectionResourceObj;
+
 function castSingle(obj: unknown) {
-  return obj as CollectionResourceObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as CollectionResourceObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +76,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listCollectionResourceObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<CollectionResourceObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createCollectionResourceObj,
     variables: {
@@ -85,10 +87,7 @@ async function createObj(newObj: Omit<CollectionResourceObj, 'id'>) {
   return castSingle(payload?.data?.createCollectionResourceObj);
 }
 
-async function updateObj(
-  id: string,
-  updateObj: Partial<CollectionResourceObj>,
-) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateCollectionResourceObj,
     variables: {
@@ -102,7 +101,7 @@ async function updateObj(
   return castSingle(payload?.data?.updateCollectionResourceObj);
 }
 
-async function overwriteObj(id: string, newObj: CollectionResourceObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateCollectionResourceObj,
     variables: {
@@ -129,15 +128,14 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteCollectionResourceObj);
 }
 
-export const collectionResourceDbWrapper: GqlDbWrapper<CollectionResourceObj> =
-  {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-  };
+export const collectionResourceDbWrapper: GqlDbWrapper<TargetObj> = {
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

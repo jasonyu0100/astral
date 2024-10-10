@@ -9,12 +9,14 @@ import {
 import { getPostKarmaObj, listPostKarmaObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = PostKarmaObj;
+
 function castSingle(obj: unknown) {
-  return obj as PostKarmaObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as PostKarmaObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listPostKarmaObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<PostKarmaObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createPostKarmaObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<PostKarmaObj, 'id'>) {
   return castSingle(payload?.data?.createPostKarmaObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<PostKarmaObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updatePostKarmaObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<PostKarmaObj>) {
   return castSingle(payload?.data?.updatePostKarmaObj);
 }
 
-async function overwriteObj(id: string, newObj: PostKarmaObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updatePostKarmaObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deletePostKarmaObj);
 }
 
-export const postKarmaDbWrapper: GqlDbWrapper<PostKarmaObj> = {
+export const postKarmaDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

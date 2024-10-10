@@ -12,12 +12,14 @@ import {
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = HorizonSpaceMemberObj;
+
 function castSingle(obj: unknown) {
-  return obj as HorizonSpaceMemberObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as HorizonSpaceMemberObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +76,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listHorizonSpaceMemberObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<HorizonSpaceMemberObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createHorizonSpaceMemberObj,
     variables: {
@@ -85,10 +87,7 @@ async function createObj(newObj: Omit<HorizonSpaceMemberObj, 'id'>) {
   return castSingle(payload?.data?.createHorizonSpaceMemberObj);
 }
 
-async function updateObj(
-  id: string,
-  updateObj: Partial<HorizonSpaceMemberObj>,
-) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonSpaceMemberObj,
     variables: {
@@ -102,7 +101,7 @@ async function updateObj(
   return castSingle(payload?.data?.updateHorizonSpaceMemberObj);
 }
 
-async function overwriteObj(id: string, newObj: HorizonSpaceMemberObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateHorizonSpaceMemberObj,
     variables: {
@@ -129,7 +128,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteHorizonSpaceMemberObj);
 }
 
-export const horizonDbWrapper: GqlDbWrapper<HorizonSpaceMemberObj> = {
+export const horizonDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

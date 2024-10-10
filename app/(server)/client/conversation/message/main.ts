@@ -12,12 +12,14 @@ import {
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = ConversationMessageObj;
+
 function castSingle(obj: unknown) {
-  return obj as ConversationMessageObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as ConversationMessageObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +76,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listConversationMessageObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<ConversationMessageObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createConversationMessageObj,
     variables: {
@@ -85,10 +87,7 @@ async function createObj(newObj: Omit<ConversationMessageObj, 'id'>) {
   return castSingle(payload?.data?.createConversationMessageObj);
 }
 
-async function updateObj(
-  id: string,
-  updateObj: Partial<ConversationMessageObj>,
-) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateConversationMessageObj,
     variables: {
@@ -102,7 +101,7 @@ async function updateObj(
   return castSingle(payload?.data?.updateConversationMessageObj);
 }
 
-async function overwriteObj(id: string, newObj: ConversationMessageObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateConversationMessageObj,
     variables: {
@@ -129,15 +128,14 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteConversationMessageObj);
 }
 
-export const conversationMessageDbWrapper: GqlDbWrapper<ConversationMessageObj> =
-  {
-    getObj,
-    listObjs,
-    listAllObjs,
-    createObj,
-    updateObj,
-    overwriteObj,
-    deleteObj,
-    getFromVariables,
-    listFromVariables,
-  };
+export const conversationMessageDbWrapper: GqlDbWrapper<TargetObj> = {
+  getObj,
+  listObjs,
+  listAllObjs,
+  createObj,
+  updateObj,
+  overwriteObj,
+  deleteObj,
+  getFromVariables,
+  listFromVariables,
+};

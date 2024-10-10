@@ -9,6 +9,8 @@ import {
 import { getPostLinkObj, listPostLinkObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = PostLinkObj;
+
 function castSingle(obj: unknown) {
   return obj as PostLinkObj;
 }
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listPostLinkObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<PostLinkObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createPostLinkObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<PostLinkObj, 'id'>) {
   return castSingle(payload?.data?.createPostLinkObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<PostLinkObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updatePostLinkObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<PostLinkObj>) {
   return castSingle(payload?.data?.updatePostLinkObj);
 }
 
-async function overwriteObj(id: string, newObj: PostLinkObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updatePostLinkObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deletePostLinkObj);
 }
 
-export const postLinkDbWrapper: GqlDbWrapper<PostLinkObj> = {
+export const postLinkDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

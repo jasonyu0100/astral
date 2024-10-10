@@ -9,12 +9,14 @@ import { getGalleryObj, listGalleryObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 import { GqlDbWrapper } from '../main';
 
+type TargetObj = GalleryObj;
+
 function castSingle(obj: unknown) {
-  return obj as GalleryObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as GalleryObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listGalleryObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<GalleryObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createGalleryObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<GalleryObj, 'id'>) {
   return castSingle(payload?.data?.createGalleryObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<GalleryObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateGalleryObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<GalleryObj>) {
   return castSingle(payload?.data?.updateGalleryObj);
 }
 
-async function overwriteObj(id: string, newObj: GalleryObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateGalleryObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteGalleryObj);
 }
 
-export const galleryDbWrapper: GqlDbWrapper<GalleryObj> = {
+export const galleryDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

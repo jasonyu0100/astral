@@ -12,12 +12,14 @@ import {
 } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = PostAttachmentObj;
+
 function castSingle(obj: unknown) {
-  return obj as PostAttachmentObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as PostAttachmentObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {

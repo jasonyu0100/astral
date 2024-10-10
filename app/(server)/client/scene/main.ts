@@ -9,12 +9,14 @@ import {
 import { getIdeaSceneObj, listIdeaSceneObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = IdeaSceneObj;
+
 function castSingle(obj: unknown) {
-  return obj as IdeaSceneObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as IdeaSceneObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listIdeaSceneObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<IdeaSceneObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createIdeaSceneObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<IdeaSceneObj, 'id'>) {
   return castSingle(payload?.data?.createIdeaSceneObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<IdeaSceneObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateIdeaSceneObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<IdeaSceneObj>) {
   return castSingle(payload?.data?.updateIdeaSceneObj);
 }
 
-async function overwriteObj(id: string, newObj: IdeaSceneObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateIdeaSceneObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteIdeaSceneObj);
 }
 
-export const ideaSceneDbWrapper: GqlDbWrapper<IdeaSceneObj> = {
+export const ideaSceneDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

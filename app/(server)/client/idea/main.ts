@@ -9,12 +9,14 @@ import {
 import { getIdeaObj, listIdeaObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = IdeaObj;
+
 function castSingle(obj: unknown) {
-  return obj as IdeaObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as IdeaObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listIdeaObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<IdeaObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createIdeaObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<IdeaObj, 'id'>) {
   return castSingle(payload?.data?.createIdeaObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<IdeaObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateIdeaObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteIdeaObj);
 }
 
-export const ideaDbWrapper: GqlDbWrapper<IdeaObj> = {
+export const ideaDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,
