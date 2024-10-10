@@ -36,7 +36,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromLink: (
     userId: string,
     postId: string,
-    link: WayLinkObj,
+    link: TaskLinkObj,
   ) => Promise<TargetObj>;
   createFromFile: (
     userId: string,
