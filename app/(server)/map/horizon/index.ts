@@ -16,7 +16,6 @@ export const horizonMap = {
     tab: {
       scene: sceneMap,
     },
-    way: {},
   },
   decision: {
     model: horizonDecisionModel,

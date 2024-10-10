@@ -13,7 +13,7 @@ export interface DecisionQuadrantObj {
   decisionId: string;
   title: string;
   description: string;
-  quadrantVariant: DecisionQuadrantVariant;
+  variant: DecisionQuadrantVariant;
   created: string;
 }
 
@@ -23,7 +23,7 @@ type DecisionQuadrantObj {
   decisionId: String!
   title: String!
   description: String!
-  quadrantVariant: DecisionQuadrantVariant!
+  variant: String!
   created: String!
 }
 `;
@@ -37,7 +37,7 @@ export const exampleDecisionQuadrant: DecisionQuadrantObj = {
   decisionId: '0',
   title: 'First Quadrant',
   description: 'Focuses on high-priority and high-impact tasks.',
-  quadrantVariant: DecisionQuadrantVariant.FirstQuadrant,
+  variant: DecisionQuadrantVariant.FirstQuadrant,
   created: new Date().toISOString(),
 };
 
@@ -47,7 +47,7 @@ export const exampleDecisionQuadrants: DecisionQuadrantObj[] = [
     decisionId: '0',
     title: 'First Quadrant',
     description: 'Focuses on high-priority and high-impact tasks.',
-    quadrantVariant: DecisionQuadrantVariant.FirstQuadrant,
+    variant: DecisionQuadrantVariant.FirstQuadrant,
     created: new Date().toISOString(),
   },
   {
@@ -55,7 +55,7 @@ export const exampleDecisionQuadrants: DecisionQuadrantObj[] = [
     decisionId: '0',
     title: 'Second Quadrant',
     description: 'Low-priority but high-impact tasks.',
-    quadrantVariant: DecisionQuadrantVariant.SecondQuadrant,
+    variant: DecisionQuadrantVariant.SecondQuadrant,
     created: new Date().toISOString(),
   },
 ];
