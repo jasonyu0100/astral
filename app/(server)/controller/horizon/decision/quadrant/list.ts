@@ -1,4 +1,4 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
+import { horizonDbWrapper } from '@/(server)/client/horizon/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,15 +6,13 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
-import { TaskLinkObj } from '@/(server)/model/task/link/main';
-import { createContext, useState } from 'react';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { horizonModel, HorizonObj } from '@/(server)/model/horizon/main';
+import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = PostAttachmentObj;
-const gqlDbWrapper = postAttachmentDbWrapper;
-const listIdKey = 'postId';
+type TargetObj = HorizonObj;
+const gqlDbWrapper = horizonDbWrapper;
+const listIdKey = horizonModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -32,18 +30,7 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromLink: (
-    userId: string,
-    postId: string,
-    link: TaskLinkObj,
-  ) => Promise<TargetObj>;
-  createFromFile: (
-    userId: string,
-    postId: string,
-    file: FileElem,
-  ) => Promise<TargetObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -59,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostAttachmentListFromPost = (
+const useControllerForHorizonList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -170,7 +157,7 @@ const useControllerForPostAttachmentListFromPost = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -183,7 +170,7 @@ const useControllerForPostAttachmentListFromPost = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -267,42 +254,10 @@ const useControllerForPostAttachmentListFromPost = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        postId: '',
-        variant: '',
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromLink: async (
-      userId: string,
-      postId: string,
-      link: TaskLinkObj,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        postId: postId,
-        variant: link.variant,
-        textElem: link.textElem,
-        fileElem: link.fileElem,
-        urlElem: link.urlElem,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromFile: async (userId: string, postId: string, file: FileElem) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        postId: postId,
-        variant: ElementVariant.FILE,
-        fileElem: file,
+        title: '',
+        description: '',
+        thumbnail: exampleFileElem,
+        category: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -391,8 +346,5 @@ const useControllerForPostAttachmentListFromPost = (
   };
 };
 
-const ContextForPostAttachmentListFromPost = createContext({} as Controller);
-export {
-  ContextForPostAttachmentListFromPost as ContextForPostAttachmentListFromPost,
-  useControllerForPostAttachmentListFromPost as useControllerForPostAttachmentListFromPost,
-};
+const ContextForHorizonList = createContext({} as Controller);
+export { ContextForHorizonList, useControllerForHorizonList };

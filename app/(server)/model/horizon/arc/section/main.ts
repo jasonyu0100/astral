@@ -1,10 +1,10 @@
+import { ModelInterface } from '@/(server)/model/main';
 import { createContext } from 'react';
-import { ModelInterface } from '../../main';
 
-export interface HorizonArcObj {
+export interface ArcSectionObj {
   id: string;
   userId: string;
-  horizonId: string;
+  arcId: string;
   title: string;
   description: string;
   objective: string;
@@ -13,23 +13,23 @@ export interface HorizonArcObj {
   created: string;
 }
 
-export const horizonArcGql = `
-type HorizonArcObj {
+export const arcSectionGql = `
+type ArcSectionObj {
   id: String!
   userId: String!
-  horizonId: String!
+  arcId: String!
   title: String!
   description: String!
   objective: String!
   idx: Int!
   created: String!
 }
-  `;
+`;
 
-export const exampleHorizonArc: HorizonArcObj = {
+export const exampleArcSection: ArcSectionObj = {
   id: '0',
   userId: '0',
-  horizonId: '0',
+  arcId: '0',
   title: 'Melody',
   description: 'This is an arc description',
   objective: 'This is an arc objective',
@@ -38,11 +38,11 @@ export const exampleHorizonArc: HorizonArcObj = {
   created: new Date().toISOString(),
 };
 
-export const ContextForHorizonArcObj = createContext<HorizonArcObj>(
-  {} as HorizonArcObj,
+export const ContextForArcSectionObj = createContext<ArcSectionObj>(
+  {} as ArcSectionObj,
 );
 
-export const exampleHorizonArcs: HorizonArcObj[] = [
+export const exampleArcSections: ArcSectionObj[] = [
   {
     id: '0',
     userId: '0',
@@ -50,7 +50,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     description: 'This is an arc description',
     objective: 'This is an arc objective',
     summary: 'This is an arc summary',
-    horizonId: '0',
+    arcId: '0',
     idx: 0,
     created: new Date().toISOString(),
   },
@@ -61,7 +61,7 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     description: 'This is an arc description',
     objective: 'This is an arc objective',
     summary: 'This is an arc summary',
-    horizonId: '0',
+    arcId: '0',
     idx: 1,
     created: new Date().toISOString(),
   },
@@ -72,17 +72,17 @@ export const exampleHorizonArcs: HorizonArcObj[] = [
     description: 'This is an arc description',
     objective: 'This is an arc objective',
     summary: 'This is an arc summary',
-    horizonId: '0',
+    arcId: '0',
     idx: 2,
     created: new Date().toISOString(),
   },
 ];
 
-export const horizonArcModel: ModelInterface<HorizonArcObj> = {
-  name: 'arc',
-  gql: horizonArcGql,
-  example: exampleHorizonArc,
-  examples: exampleHorizonArcs,
-  parentKey: 'horizonId',
-  children: ['section'],
+export const arcSectionModel: ModelInterface<ArcSectionObj> = {
+  name: 'section',
+  gql: arcSectionGql,
+  example: exampleArcSection,
+  examples: exampleArcSections,
+  parentKey: 'arcId',
+  children: [],
 };
