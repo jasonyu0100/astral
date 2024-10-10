@@ -1,5 +1,5 @@
-import { ContextForCommentKarmaList } from '@/(server)/controller/space/chapter/spotlight/comment/karma/list';
-import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ContextForCommentKarmaList } from '@/(server)/controller/post/comment/karma/list';
+import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
@@ -7,7 +7,7 @@ import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesFlightCommentKarma() {
-  const commentObj = useContext(ContextForSpotlightCommentObj);
+  const commentObj = useContext(ContextForPostCommentObj);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const commentKarmaListController = useContext(ContextForCommentKarmaList);
 

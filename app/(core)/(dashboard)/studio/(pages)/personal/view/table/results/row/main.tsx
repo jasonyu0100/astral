@@ -5,7 +5,7 @@ import { StudioSpacesRowNumber } from './number/main';
 import { StudioSpacesRowDays } from './stat/day/main';
 import { StudioSpacesRowIdeas } from './stat/ideas/main';
 import { StudioSpacesRowLogs } from './stat/logs/main';
-import { StudioSpacesRowSpotlights } from './stat/spotlights/main';
+import { StudioSpacesRowPosts } from './stat/posts/main';
 
 export function StudioSpacesRow() {
   return (
@@ -18,7 +18,7 @@ export function StudioSpacesRow() {
         <StudioSpacesRowDays />
         <StudioSpacesRowIdeas />
         <StudioSpacesRowLogs />
-        <StudioSpacesRowSpotlights />
+        <StudioSpacesRowPosts />
       </div>
       <div className='flex items-center justify-center'>
         <AstralMoreVertIcon />

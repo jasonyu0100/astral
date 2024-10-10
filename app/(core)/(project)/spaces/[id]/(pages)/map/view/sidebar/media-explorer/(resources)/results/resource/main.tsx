@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
@@ -12,10 +12,10 @@ export function SpacesMapResourceResource() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const reviewreviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
+  const reviewactivityListController =
+    useControllerForUserActivityListFromChapter(
       chapterListController.state.objId,
     );
 
@@ -34,7 +34,7 @@ export function SpacesMapResourceResource() {
       resource.fileElem || ({} as FileElem),
       ideaListController.state.objs.length,
     );
-    await reviewreviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
+    await reviewactivityListController.actions.createActions.createFromChapterSceneIdea(
       loggedInUser.id,
       spaceController.state.objId,
       chapterListController.state.objId,

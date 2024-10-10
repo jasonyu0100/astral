@@ -1,10 +1,10 @@
-import { ContextForSpotlightCommentList } from '@/(server)/controller/space/chapter/spotlight/comment/list';
-import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
+import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { useContext } from 'react';
 import { SpacesFlightContentComment } from './comment/main';
 
 export function SpacesFlightList() {
-  const commentListController = useContext(ContextForSpotlightCommentList);
+  const commentListController = useContext(ContextForPostCommentList);
 
   return (
     <div className='flex w-full flex-col space-y-[2rem] py-[2rem]'>
@@ -12,9 +12,9 @@ export function SpacesFlightList() {
         Comments ({commentListController.state.objs.length})
       </p>
       {commentListController.state.objs.toReversed().map((comment) => (
-        <ContextForSpotlightCommentObj.Provider value={comment}>
+        <ContextForPostCommentObj.Provider value={comment}>
           <SpacesFlightContentComment />
-        </ContextForSpotlightCommentObj.Provider>
+        </ContextForPostCommentObj.Provider>
       ))}
     </div>
   );

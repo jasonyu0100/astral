@@ -4,8 +4,8 @@ import {
   SpacesMapConnectionMode,
   SpacesMapPeopleMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
@@ -19,7 +19,7 @@ export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
   } = useContext(ContextForSpacesMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const ideaObj = useContext(ContextForSceneIdeaObj);
+  const ideaObj = useContext(ContextForIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
   const moveableRef = useRef<Moveable>(null);
   const hoverableController = useControllerForHoverable();

@@ -1,8 +1,8 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { useControllerForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
+import { useControllerForPostLinkList } from '@/(server)/controller/post/link/list';
+import { useControllerForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { useControllerForSpotlightAttachmentListFromSpotlight } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-spotlight';
-import { useControllerForSpotlightLinkList } from '@/(server)/controller/space/chapter/spotlight/link/list';
-import { useControllerForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
@@ -22,7 +22,7 @@ import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
 import { ContextForSpacesJourney } from '../../controller/main';
 
-export function SpacesJourneySpotlightModal() {
+export function SpacesJourneyPostModal() {
   const {
     state: { selectedLogs },
   } = useContext(ContextForSpacesJourney);
@@ -30,26 +30,23 @@ export function SpacesJourneySpotlightModal() {
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController =
-    useControllerForChapterSpotlightListFromChapter(
-      chapterListController.state.objId,
-    );
-  const attachmentListController =
-    useControllerForSpotlightAttachmentListFromSpotlight(
-      spotlightListController.state.objId,
-    );
-  const linkListController = useControllerForSpotlightLinkList(
-    spotlightListController.state.objId,
+  const postListController = useControllerForUserPostListFromChapter(
+    chapterListController.state.objId,
+  );
+  const attachmentListController = useControllerForPostAttachmentListFromPost(
+    postListController.state.objId,
+  );
+  const linkListController = useControllerForPostLinkList(
+    postListController.state.objId,
   );
 
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const [files, changeFiles] = useState([] as FileElem[]);
 
   useEffect(() => {
@@ -92,7 +89,7 @@ export function SpacesJourneySpotlightModal() {
       });
   }
 
-  async function createSpotlight() {
+  async function createPost() {
     if (files.length === 0) {
       alert('Please upload at least one file');
       return;
@@ -101,34 +98,33 @@ export function SpacesJourneySpotlightModal() {
     openableController.close();
     loadingController.loadingController.open();
 
-    const spotlight =
-      await spotlightListController.actions.createActions.createSpotlight(
-        title,
-        description,
-        user.id,
-        chapterListController.state.objId,
-      );
+    const post = await postListController.actions.createActions.createPost(
+      title,
+      description,
+      user.id,
+      chapterListController.state.objId,
+    );
     files.forEach(async (file) => {
       await attachmentListController.actions.createActions.createFromFile(
         user.id,
-        spotlight.id,
+        post.id,
         file,
       );
     });
     selectedLogs.forEach(async (log) => {
       await linkListController.actions.createActions.createFromLog(
         user.id,
-        spotlight.id,
+        post.id,
         log.id,
       );
     });
 
-    // Create a new action to create a spotlight from a chapter
-    await reviewUpdateListController.actions.createActions.createFromChapterSpotlight(
+    // Create a new action to create a post from a chapter
+    await activityListController.actions.createActions.createFromChapterPost(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      spotlight.id,
+      post.id,
     );
 
     window.location.href = spacesMap.spaces.id.flight.link(
@@ -162,7 +158,7 @@ export function SpacesJourneySpotlightModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createSpotlight}>Next</FormButton>
+            <FormButton onClick={createPost}>Next</FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

@@ -1,11 +1,10 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 
 export function SpacesMapSidebarScenesListInactiveItem() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const scene = useContext(ContextForChapterSceneObj);
 
   return (

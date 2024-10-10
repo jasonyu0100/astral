@@ -7,7 +7,6 @@ export interface SpaceChapterMemberObj {
   chapterId: string;
   userId: string;
   created: string;
-  termsId: string;
 }
 
 export const spaceChapterMemberGql = `
@@ -16,7 +15,6 @@ type SpaceChapterMemberObj {
   spaceId: String!
   userId: String!
   created: String!
-  termsId: String!
 }
 `;
 
@@ -29,7 +27,6 @@ export const exampleSpaceChapterMember: SpaceChapterMemberObj = {
   chapterId: '0',
   userId: '0',
   created: new Date().toISOString(),
-  termsId: '0',
 };
 
 export const exampleSpaceChapterMembers: SpaceChapterMemberObj[] = [
@@ -39,7 +36,6 @@ export const exampleSpaceChapterMembers: SpaceChapterMemberObj[] = [
     chapterId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    termsId: '0',
   },
   {
     id: '0',
@@ -47,7 +43,6 @@ export const exampleSpaceChapterMembers: SpaceChapterMemberObj[] = [
     chapterId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    termsId: '0',
   },
   {
     id: '0',
@@ -55,7 +50,6 @@ export const exampleSpaceChapterMembers: SpaceChapterMemberObj[] = [
     chapterId: '0',
     userId: '0',
     created: new Date().toISOString(),
-    termsId: '0',
   },
 ];
 

@@ -1,5 +1,5 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { borderFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -10,7 +10,7 @@ import { ContextForSpacesMapModals } from '../../../../../modal/controller/main'
 import { SpacesMapHistoryItem } from './item/main';
 
 export function SpacesMapHistory() {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const modalController = useContext(ContextForSpacesMapModals);
 
   return (
@@ -27,9 +27,9 @@ export function SpacesMapHistory() {
       </GlassWindowFrame>
       <div className='flex flex-col space-y-[1rem]'>
         {sceneListController.state.objs.map((scene) => (
-          <ContextForChapterSceneObj.Provider value={scene}>
+          <ContextForIdeaSceneObj.Provider value={scene}>
             <SpacesMapHistoryItem />
-          </ContextForChapterSceneObj.Provider>
+          </ContextForIdeaSceneObj.Provider>
         ))}
         <GlassWindowFrame className='w-full p-[1rem]'>
           <GlassWindowContents

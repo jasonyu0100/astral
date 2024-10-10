@@ -1,4 +1,3 @@
-import { useControllerForUserBackerTermsMain } from '@/(server)/controller/user/backer/terms/main';
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForUserBackerObj } from '@/(server)/model/user/backer/main';
@@ -10,9 +9,6 @@ export function UserProfileSupportersTableRow() {
   const backerObj = useContext(ContextForUserBackerObj);
   const userController = useControllerForUserMain(backerObj.backedId);
   const user = userController.state.obj;
-  const termsController = useControllerForUserBackerTermsMain(
-    backerObj.termsId,
-  );
 
   return (
     <ContextForUserObj.Provider value={user}>
@@ -31,16 +27,6 @@ export function UserProfileSupportersTableRow() {
         <div></div>
         <div className='flex'>
           <p className='text-md font-bold text-white'>{user.role}</p>
-        </div>
-        <div className='flex justify-center'>
-          <p className='text-md font-light text-white'>
-            {new Date(termsController.state.obj.end).toDateString()}
-          </p>
-        </div>
-        <div className='flex justify-center'>
-          <p className='text-md font-light text-white'>
-            {termsController.state.obj.description}
-          </p>
         </div>
       </div>
     </ContextForUserObj.Provider>

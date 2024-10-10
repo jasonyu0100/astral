@@ -7,18 +7,14 @@ import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
-import { HorizonPointView } from './view/main';
+import { HorizonsPointView } from './view/main';
 
 function Page() {
   return (
     <ViewWrapper>
-      <HorizonPointView />
+      <HorizonsPointView />
     </ViewWrapper>
   );
-}
-
-{
-  /* What is the point? */
 }
 
 function ViewWrapper({ children }: { children?: React.ReactNode }) {

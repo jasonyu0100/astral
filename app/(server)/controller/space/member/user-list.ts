@@ -30,11 +30,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createMember(
-    userId: string,
-    spaceId: string,
-    termId: string,
-  ): Promise<TargetObj>;
+  createMember(userId: string, spaceId: string): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -260,7 +256,6 @@ const useControllerForSpaceMemberOfUserList = (
         created: new Date().toISOString(),
         userId: '',
         spaceId: '',
-        termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -268,12 +263,11 @@ const useControllerForSpaceMemberOfUserList = (
       changeId(newObj.id);
       return newObj;
     },
-    createMember: async (userId: string, spaceId: string, termId: string) => {
+    createMember: async (userId: string, spaceId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         spaceId: spaceId,
-        termsId: termId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

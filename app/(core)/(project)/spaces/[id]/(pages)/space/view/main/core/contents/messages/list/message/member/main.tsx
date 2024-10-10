@@ -1,5 +1,5 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { ContextForConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
 import { SpacesSpaceMemberMessageDetail } from './detail/main';

@@ -1,43 +1,46 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
+import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem } from '@/(server)/model/elements/text/main';
-import { ContextForWayLinkObj } from '@/(server)/model/space/chapter/way/link/main';
+import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { useContext } from 'react';
 
 export function SpacesJourneySidebarLinksListItem() {
-  const linkObj = useContext(ContextForWayLinkObj);
-  const linkListController = useContext(ContextForLogLinkList);
+  const taskLinkObj = useContext(ContextForTaskLinkObj);
+  const linkListController = useContext(ContextForTaskLinkList);
 
   return (
     <>
-      {linkObj.variant === ElementVariant.FILE && (
+      {taskLinkObj.variant === ElementVariant.FILE && (
         <>
-          <img src={linkObj.fileElem?.src} />
+          <img src={taskLinkObj.fileElem?.src} />
         </>
       )}
-      {linkObj.variant === ElementVariant.TEXT && (
+      {taskLinkObj.variant === ElementVariant.TEXT && (
         <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
           <textarea
             className='h-full w-full resize-none bg-transparent p-[1rem] text-black outline-none'
             // defaultValue={linkObj.textElem?.text}
             onBlur={(e) => {
-              linkListController.actions.stateActions.updateObj(linkObj.id, {
-                ...linkObj,
-                textElem: {
-                  ...(linkObj.textElem || ({} as TextElem)),
-                  text: e.target.value,
+              linkListController.actions.stateActions.updateObj(
+                taskLinkObj.id,
+                {
+                  ...taskLinkObj,
+                  textElem: {
+                    ...(taskLinkObj.textElem || ({} as TextElem)),
+                    text: e.target.value,
+                  },
                 },
-              });
+              );
             }}
           >
-            {linkObj.textElem?.text}
+            {taskLinkObj.textElem?.text}
           </textarea>
         </div>
       )}
-      {linkObj.variant === ElementVariant.URL && (
+      {taskLinkObj.variant === ElementVariant.URL && (
         <iframe
           onDrag={(e) => e.stopPropagation()}
-          src={linkObj.urlElem?.url}
+          src={taskLinkObj.urlElem?.url}
           title='YouTube video player'
         />
       )}

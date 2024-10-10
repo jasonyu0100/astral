@@ -1,4 +1,4 @@
-import { useControllerForSpotlightAttachmentListFromUser } from '@/(server)/controller/space/chapter/spotlight/attachment/list-from-user';
+import { useControllerForPostAttachmentListFromUser } from '@/(server)/controller/post/attachment/list-from-user';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -7,8 +7,9 @@ import { useContext } from 'react';
 
 export function UserProfileOverviewGallery() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const attachmentListController =
-    useControllerForSpotlightAttachmentListFromUser(loggedInUser.id);
+  const attachmentListController = useControllerForPostAttachmentListFromUser(
+    loggedInUser.id,
+  );
 
   return (
     <GlassWindowFrame className='w-full'>

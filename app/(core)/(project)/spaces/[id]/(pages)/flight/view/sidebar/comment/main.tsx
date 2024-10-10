@@ -1,5 +1,5 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -7,7 +7,7 @@ import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpacesFlightSidebarComment() {
-  const comment = useContext(ContextForSpotlightCommentObj);
+  const comment = useContext(ContextForPostCommentObj);
   const userController = useControllerForUserMain(comment.userId);
 
   return (

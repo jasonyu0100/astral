@@ -70,13 +70,7 @@ export function ProfileAboutBackAction() {
       .filter((obj) => obj.backedId === profileUser.id)
       .map((obj) => obj.id);
 
-    const backings =
-      await profileBackerListController.actions.deleteActions.deleteMany(ids);
     await loggedInBackerListController.actions.deleteActions.deleteMany(ids);
-
-    backings.map(async (backing) => {
-      await termsListController.actions.deleteActions.delete(backing.termsId);
-    });
   }
 
   return (

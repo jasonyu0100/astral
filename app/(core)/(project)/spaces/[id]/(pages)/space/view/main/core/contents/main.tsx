@@ -1,4 +1,4 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
 import { ImageBackground } from '@/ui/background/img/main';
 import { AbsoluteHolder } from '@/ui/holder/main';
 import { useContext } from 'react';

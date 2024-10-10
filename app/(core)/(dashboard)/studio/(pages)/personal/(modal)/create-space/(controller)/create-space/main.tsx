@@ -1,10 +1,9 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
-import { useControllerForSpaceMemberTermsList } from '@/(server)/controller/space/member/terms/list';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import {
@@ -63,14 +62,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const chapterListController = useControllerForSpaceChapterList('');
-  const reviewreviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const spaceMembersListController = useControllerForSpaceMemberList('');
-  const spaceMembersTermsListController =
-    useControllerForSpaceMemberTermsList('');
-
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
@@ -102,7 +97,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             space.id,
             index,
           );
-        await reviewreviewUpdateListController.actions.createActions.createFromChapter(
+        await activityListController.actions.createActions.createFromChapter(
           user.id,
           space.id,
           chapter.id,
@@ -117,17 +112,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   async function createMembers(space: SpaceObj, members: string[]) {
     const memberObjs = await Promise.all(
       members.map(async (memberId) => {
-        const terms =
-          await spaceMembersTermsListController.actions.createActions.createTerms(
-            'Member terms',
-            '1 year',
-            moment().add(1, 'year').toISOString(),
-          );
         const member =
           await spaceMembersListController.actions.createActions.createMember(
             memberId,
             space.id,
-            terms.id,
           );
         return member;
       }),

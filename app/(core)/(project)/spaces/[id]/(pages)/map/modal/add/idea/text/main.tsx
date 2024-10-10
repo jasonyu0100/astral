@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
@@ -22,17 +22,16 @@ export function SpacesMapAddTextIdeaModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
   const mapController = useContext(ContextForSpacesMap);
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
 
   function create() {
     const { x, y, width, height } = mapController.actions.getAvailableXYWH();
@@ -55,7 +54,7 @@ export function SpacesMapAddTextIdeaModal() {
         ideaListController.state.objs.length,
       )
       .then((idea) => {
-        reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
+        activityListController.actions.createActions.createFromChapterSceneIdea(
           user.id,
           spaceController.state.objId,
           chapterListController.state.objId,

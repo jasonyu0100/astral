@@ -1,11 +1,11 @@
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
+import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
+import { PostCommentObj } from '@/(server)/model/post/comment/main';
+import { UserPostObj } from '@/(server)/model/post/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { SceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
 import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
-import { SpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
-import { ChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
-import { ChapterWayObj } from '@/(server)/model/space/chapter/way/main';
 import { SpaceObj } from '@/(server)/model/space/main';
+import { TaskObj } from '@/(server)/model/way/main';
 import { createContext } from 'react';
 import { brandCreationTemplate } from './templates/brand-creation';
 import { designSprintTemplate } from './templates/design-sprint';
@@ -86,8 +86,8 @@ export type _TemplateSceneObj = Omit<
   ChapterSceneObj,
   'id' | 'chapterId' | 'userId' | 'created'
 >;
-export type _TemplateIdeaObj = Omit<SceneIdeaObj, 'id' | 'sceneId'>;
-export type _TemplateLogObj = Omit<ChapterWayObj, 'id' | 'chapterId'>;
+export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;
+export type _TemplateLogObj = Omit<TaskObj, 'id' | 'chapterId'>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
@@ -96,16 +96,13 @@ export interface TemplateSceneObj extends _TemplateSceneObj {
 // VERSE
 export interface TemplateLogObj extends _TemplateLogObj {}
 
-export type _TemplateSpotlightObj = Omit<
-  ChapterSpotlightObj,
-  'id' | 'chapterId'
->;
+export type _TemplatePostObj = Omit<UserPostObj, 'id' | 'chapterId'>;
 export type _TemplateCommentObj = Omit<
-  SpotlightCommentObj,
-  'id' | 'userId' | 'spotlightId' | 'time'
+  PostCommentObj,
+  'id' | 'userId' | 'postId' | 'time'
 >;
 
-export interface TemplateSpotlightObj extends _TemplateSpotlightObj {
+export interface TemplatePostObj extends _TemplatePostObj {
   comments?: _TemplateCommentObj[];
 }
 

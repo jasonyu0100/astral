@@ -7,14 +7,13 @@ export function StudioSpacesTableHeader() {
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
         <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
           <div>
-            <p className='text-center font-bold text-slate-500'>#</p>
+            <p className='text-center text-sm font-bold text-slate-500'>#</p>
           </div>
-          <div>
-            <p className='font-bold text-slate-500'>Space</p>
+          <div className='col-span-2'>
+            <p className='text-sm font-bold text-slate-500'>Space</p>
           </div>
-          <div></div>
-          <div>
-            <p className='text-center font-bold text-slate-500'></p>
+          <div className='flex items-center justify-center'>
+            <p className='text-sm font-bold text-slate-500'>Type</p>
           </div>
           <div></div>
           <div className='col-span-2 grid grid-cols-4'>

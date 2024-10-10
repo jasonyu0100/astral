@@ -1,13 +1,13 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ConversationObj } from '@/(server)/model/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
-import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext } from 'react';
@@ -37,15 +37,14 @@ export function useControllerForSpacesMapChat() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -75,7 +74,7 @@ export function useControllerForSpacesMapChat() {
     return ideaHistory;
   }
 
-  function checkConversationStatus(conversation: ChapterConversationObj) {
+  function checkConversationStatus(conversation: ConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -90,7 +89,7 @@ export function useControllerForSpacesMapChat() {
         user.id,
         sceneListController.state.objId,
       );
-    await reviewUpdateListController.actions.createActions.createFromChapterChapterConversation(
+    await activityListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -99,7 +98,7 @@ export function useControllerForSpacesMapChat() {
     return conversation;
   }
 
-  async function sendUserMessage(conversation: ChapterConversationObj) {
+  async function sendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
       conversation.chapterId,
@@ -129,7 +128,7 @@ export function useControllerForSpacesMapChat() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: ChapterConversationObj,
+    conversation: ConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
@@ -141,7 +140,7 @@ export function useControllerForSpacesMapChat() {
 
   async function summariseConversation(
     messages: ConversationMessageObj[],
-    conversationObj: ChapterConversationObj,
+    conversationObj: ConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 

@@ -1,5 +1,5 @@
-import { ContextForLogLinkList } from '@/(server)/controller/space/chapter/way/link/list';
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -15,8 +15,8 @@ import { useContext, useState } from 'react';
 
 export function SpacesJourneyAddTextLinkModal() {
   const user = useContext(ContextForLoggedInUserObj);
-  const linkListController = useContext(ContextForLogLinkList);
-  const wayListController = useContext(ContextForChapterWayList);
+  const linkListController = useContext(ContextForTaskLinkList);
+  const wayListController = useContext(ContextForTaskList);
   const openableController = useContext(ContextForOpenable);
   const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
   const [title, changeTitle] = useState<string>('');

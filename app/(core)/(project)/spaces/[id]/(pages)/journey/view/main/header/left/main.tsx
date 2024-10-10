@@ -2,7 +2,7 @@ import { AstralAddIcon } from '@/icons/add/main';
 import { AstralColumnsIcon } from '@/icons/columns/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralTableIcon } from '@/icons/table/main';
-import { PipIndicator } from '@/ui/indicator/pip/main';
+import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -34,13 +34,13 @@ export function SpacesJourneyHeaderLeft() {
           );
         }}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralTableIcon
         onClick={() => {
-          if (dataMode === SpacesJourneyDataMode.COLUMNS) {
+          if (dataMode === SpacesJourneyDataMode.ROWS) {
             updateDataMode(SpacesJourneyDataMode.TABLE);
           } else {
-            updateDataMode(SpacesJourneyDataMode.COLUMNS);
+            updateDataMode(SpacesJourneyDataMode.ROWS);
           }
         }}
         className={ctwn('fill-slate-300', {
@@ -49,17 +49,17 @@ export function SpacesJourneyHeaderLeft() {
       />
       <AstralColumnsIcon
         onClick={() => {
-          if (dataMode === SpacesJourneyDataMode.COLUMNS) {
+          if (dataMode === SpacesJourneyDataMode.ROWS) {
             updateDataMode(SpacesJourneyDataMode.TABLE);
           } else {
-            updateDataMode(SpacesJourneyDataMode.COLUMNS);
+            updateDataMode(SpacesJourneyDataMode.ROWS);
           }
         }}
         className={ctwn('fill-slate-300', {
-          'fill-blue-500': dataMode === SpacesJourneyDataMode.COLUMNS,
+          'fill-blue-500': dataMode === SpacesJourneyDataMode.ROWS,
         })}
       />
-      <PipIndicator />
+      <BarDividerIndicator />
       <AstralAddIcon onClick={() => modalController.addLogController.open()} />
     </div>
   );

@@ -1,11 +1,11 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
-import { ContextForConversationMessageList } from '@/(server)/controller/space/chapter/conversation/message/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
-import { ChapterConversationObj } from '@/(server)/model/space/chapter/conversation/main';
-import { ConversationMessageObj } from '@/(server)/model/space/chapter/conversation/message/main';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
+import { ConversationObj } from '@/(server)/model/conversation/main';
+import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import {
   currentState,
@@ -38,14 +38,13 @@ export function useControllerForConversationalSearch() {
   const spaceController = useContext(ContextForSpaceList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const messageListController = useContext(ContextForConversationMessageList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForReviewUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -62,7 +61,7 @@ export function useControllerForConversationalSearch() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation: ChapterConversationObj) {
+  function checkConversationStatus(conversation: ConversationObj) {
     const current = new Date();
     const conversationCreated = new Date(conversation.created);
     const diff = current.getTime() - conversationCreated.getTime();
@@ -77,7 +76,7 @@ export function useControllerForConversationalSearch() {
         user.id,
         sceneListController.state.objId,
       );
-    await reviewUpdateListController.actions.createActions.createFromChapterChapterConversation(
+    await activityListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -86,7 +85,7 @@ export function useControllerForConversationalSearch() {
     return conversation;
   }
 
-  async function sendUserMessage(conversation: ChapterConversationObj) {
+  async function sendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
       conversation.chapterId,
@@ -115,7 +114,7 @@ export function useControllerForConversationalSearch() {
   async function sendAgentMessage(
     agentId: string,
     message: string,
-    conversation: ChapterConversationObj,
+    conversation: ConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
@@ -127,7 +126,7 @@ export function useControllerForConversationalSearch() {
 
   async function summariseConversation(
     messages: ConversationMessageObj[],
-    conversationObj: ChapterConversationObj,
+    conversationObj: ConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 

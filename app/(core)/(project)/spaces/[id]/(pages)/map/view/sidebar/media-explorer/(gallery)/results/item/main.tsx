@@ -20,7 +20,7 @@ export function SpacesMapCollectionItem() {
     <GlassWindowFrame
       className='aspect-video w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
-      borderFx={borderFx['border-around']}
+      borderFx={borderFx['border-b']}
     >
       <GlassWindowContents
         onClick={() => goToCollection(collection)}

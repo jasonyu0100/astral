@@ -4,6 +4,14 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main'
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/(server)/controller/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/(server)/controller/conversation/message/list';
+import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
 } from '@/(server)/controller/gallery/collection/list';
@@ -16,33 +24,25 @@ import {
   useControllerForGalleryList,
 } from '@/(server)/controller/gallery/list';
 import {
-  ContextForChapterConversationList,
-  useControllerForChapterConversationList,
-} from '@/(server)/controller/space/chapter/conversation/list';
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/(server)/controller/idea/list';
 import {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-} from '@/(server)/controller/space/chapter/conversation/message/list';
+  ContextForIdeaRelationshipListFromScene,
+  useControllerForIdeaRelationshipListFromScene,
+} from '@/(server)/controller/idea/relationship/list-from-scene';
+import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/(server)/controller/scene/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForSceneIdeaList,
-  useControllerForSceneIdeaList,
-} from '@/(server)/controller/space/chapter/scene/idea/list';
-import {
-  ContextForChapterSceneList,
-  useControllerForChapterSceneList,
-} from '@/(server)/controller/space/chapter/scene/list';
-import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
-import {
-  ContextForSpaceIdeaRelationshipListFromScene,
-  useControllerForSpaceIdeaRelationshipListFromScene,
-} from '@/(server)/controller/space/relationship/list-from-scene';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
@@ -71,7 +71,7 @@ function Page({ params }: { params: { id: string } }) {
     spaceMainController.state.objId,
     chapterId,
   );
-  const sceneListController = useControllerForChapterSceneList(
+  const sceneListController = useControllerForIdeaSceneList(
     chapterListController.state.objId,
     sceneId,
   );
@@ -98,8 +98,8 @@ function Page({ params }: { params: { id: string } }) {
     conversationListController.state.objId,
   );
 
-  const spaceIdeaRelationshipListController =
-    useControllerForSpaceIdeaRelationshipListFromScene(
+  const ideaRelationshipListController =
+    useControllerForIdeaRelationshipListFromScene(
       sceneListController.state.objId,
     );
 
@@ -107,7 +107,7 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForChapterSceneList.Provider value={sceneListController}>
+          <ContextForIdeaSceneList.Provider value={sceneListController}>
             <ContextForSceneIdeaList.Provider value={ideaListController}>
               <ContextForGalleryList.Provider value={galleryListController}>
                 <ContextForGalleryCollectionList.Provider
@@ -122,8 +122,8 @@ function Page({ params }: { params: { id: string } }) {
                       <ContextForConversationMessageList.Provider
                         value={messageListController}
                       >
-                        <ContextForSpaceIdeaRelationshipListFromScene.Provider
-                          value={spaceIdeaRelationshipListController}
+                        <ContextForIdeaRelationshipListFromScene.Provider
+                          value={ideaRelationshipListController}
                         >
                           <UpdateWrapper>
                             <LoadingWrapper>
@@ -136,14 +136,14 @@ function Page({ params }: { params: { id: string } }) {
                               </ControllerWrapper>
                             </LoadingWrapper>
                           </UpdateWrapper>
-                        </ContextForSpaceIdeaRelationshipListFromScene.Provider>
+                        </ContextForIdeaRelationshipListFromScene.Provider>
                       </ContextForConversationMessageList.Provider>
                     </ContextForChapterConversationList.Provider>
                   </ContextForCollectionResourceList.Provider>
                 </ContextForGalleryCollectionList.Provider>
               </ContextForGalleryList.Provider>
             </ContextForSceneIdeaList.Provider>
-          </ContextForChapterSceneList.Provider>
+          </ContextForIdeaSceneList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
@@ -160,7 +160,7 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const searchParams = useSearchParams();
   const router = useRouter();
 

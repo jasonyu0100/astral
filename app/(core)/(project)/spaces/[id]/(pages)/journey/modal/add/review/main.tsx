@@ -1,7 +1,7 @@
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/update/list-from-chapter';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
@@ -14,34 +14,30 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function SpacesJourneyAddSpotlightModal() {
+export function SpacesJourneyAddPostModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
+  const postListController = useContext(ContextForUserPostListFromChapter);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForReviewUpdateListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createReview() {
-    const spotlight =
-      await spotlightListController.actions.createActions.createSpotlight(
-        title,
-        description,
-        user.id,
-        chapterListController.state.objId,
-      );
-    await reviewUpdateListController.actions.createActions.createFromChapterSpotlight(
+    const post = await postListController.actions.createActions.createPost(
+      title,
+      description,
+      user.id,
+      chapterListController.state.objId,
+    );
+    await activityListController.actions.createActions.createFromChapterPost(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      spotlight.id,
+      post.id,
     );
     openableController.close();
   }
@@ -50,7 +46,7 @@ export function SpacesJourneyAddSpotlightModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Spotlight</FormTitle>
+          <FormTitle>Add Post</FormTitle>
           <FormBody>
             <FormInput
               title='Name'

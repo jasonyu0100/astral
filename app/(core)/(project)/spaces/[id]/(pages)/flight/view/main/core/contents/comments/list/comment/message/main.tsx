@@ -1,12 +1,12 @@
 import { ContextForUserMain } from '@/(server)/controller/user/main';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpacesFlightCommentMessage() {
   const userController = useContext(ContextForUserMain);
-  const commentObj = useContext(ContextForSpotlightCommentObj);
+  const commentObj = useContext(ContextForPostCommentObj);
 
   return (
     <div className='flex w-full flex-col'>

@@ -1,12 +1,12 @@
 import {
   ContextForCommentKarmaList,
   useControllerForCommentKarmaList,
-} from '@/(server)/controller/space/chapter/spotlight/comment/karma/list';
+} from '@/(server)/controller/post/comment/karma/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/(server)/controller/user/main';
-import { ContextForSpotlightCommentObj } from '@/(server)/model/space/chapter/spotlight/comment/main';
+import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
@@ -14,7 +14,7 @@ import { SpacesFlightCommentKarma } from './karma/main';
 import { SpacesFlightCommentMessage } from './message/main';
 
 export function SpacesFlightContentComment() {
-  const commentObj = useContext(ContextForSpotlightCommentObj);
+  const commentObj = useContext(ContextForPostCommentObj);
   const commentUser = useControllerForUserMain(commentObj.userId);
   const commentKarma = useControllerForCommentKarmaList(commentObj.id);
 

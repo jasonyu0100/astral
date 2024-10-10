@@ -1,11 +1,11 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -33,12 +33,11 @@ export function SpacesMapCombineIdeas() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const [combinationDescription, setCombinationDescription] = useState('');
 
   async function combineIdeas() {
@@ -82,7 +81,7 @@ export function SpacesMapCombineIdeas() {
     );
     updateSelectedIdeas([idea]);
 
-    await reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
+    await activityListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
@@ -100,9 +99,9 @@ export function SpacesMapCombineIdeas() {
           <FormBody>
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {selectedIdeas.map((idea) => (
-                <ContextForSceneIdeaObj.Provider value={idea}>
+                <ContextForIdeaObj.Provider value={idea}>
                   <ElementIdeaPreview />
-                </ContextForSceneIdeaObj.Provider>
+                </ContextForIdeaObj.Provider>
               ))}
             </div>
             <HorizontalDivider />

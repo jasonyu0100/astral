@@ -1,6 +1,6 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -17,13 +17,12 @@ import { useContext, useState } from 'react';
 export function SpacesMapAddSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');
 
@@ -35,7 +34,7 @@ export function SpacesMapAddSceneModal() {
       user.id,
       chapterListController.state.objId,
     );
-    await reviewUpdateListController.actions.createActions.createFromChapterScene(
+    await activityListController.actions.createActions.createFromChapterScene(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

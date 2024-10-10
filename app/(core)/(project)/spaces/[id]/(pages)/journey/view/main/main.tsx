@@ -1,5 +1,5 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterWayList } from '@/(server)/controller/space/chapter/way/list';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { ImageBackground } from '@/ui/background/img/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { AbsoluteHolder } from '@/ui/holder/main';
@@ -20,7 +20,7 @@ export function SpacesJourneyMain() {
     actions: { updateDataMode },
   } = useContext(ContextForSpacesJourney);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const wayListController = useContext(ContextForChapterWayList);
+  const wayListController = useContext(ContextForTaskList);
 
   useEffect(() => {
     updateDataMode(SpacesJourneyDataMode.TABLE);
@@ -40,7 +40,7 @@ export function SpacesJourneyMain() {
               {dataMode === SpacesJourneyDataMode.TABLE && (
                 <SpacesJourneyWayTable />
               )}
-              {dataMode === SpacesJourneyDataMode.COLUMNS && (
+              {dataMode === SpacesJourneyDataMode.ROWS && (
                 <SpacesJourneyKanban key={chapterListController.state.objId} />
               )}
             </>

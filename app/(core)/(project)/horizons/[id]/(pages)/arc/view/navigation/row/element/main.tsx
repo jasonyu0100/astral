@@ -22,7 +22,7 @@ export function HorizonsArcRowElement() {
       {/* {!active ? (
               <GlassWindowPane glassFx={glassFx['glass-5']} />
             ) : (
-              <GlassWindowPane glassFx={glassFx['glass-20']} />
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
             )} */}
     </GlassWindowFrame>
   );

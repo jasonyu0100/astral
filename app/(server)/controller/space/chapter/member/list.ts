@@ -258,7 +258,6 @@ const useControllerForSpaceChapterMemberList = (
         chapterId: '',
         spaceId: '',
         userId: '',
-        termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

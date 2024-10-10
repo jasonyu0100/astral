@@ -1,10 +1,8 @@
 import { createContext, useState } from 'react';
 
 export enum ProfilePage {
-  Your = 'Your',
-  Spaces = 'Spaces',
-  Project = 'Project',
-  Aura = 'Aura',
+  Overview = 'Overview',
+  Storyline = 'Storyline',
 }
 
 interface ControllerState {
@@ -23,7 +21,7 @@ interface Controller {
 export const ContextForProfile = createContext({} as Controller);
 
 export function useControllerForProfile(): Controller {
-  const [page, setPage] = useState(ProfilePage.Your);
+  const [page, setPage] = useState(ProfilePage.Overview);
 
   return {
     state: {

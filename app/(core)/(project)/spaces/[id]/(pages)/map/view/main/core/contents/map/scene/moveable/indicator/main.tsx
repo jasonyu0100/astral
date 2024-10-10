@@ -1,5 +1,5 @@
 import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -13,7 +13,7 @@ export function SpacesMapIdeaIndicator() {
   const {
     actions: { checkContainsSelectedIdea },
   } = useContext(ContextForSpacesMap);
-  const ideaObj = useContext(ContextForSceneIdeaObj);
+  const ideaObj = useContext(ContextForIdeaObj);
 
   return (
     <div className='absolute bottom-[-3rem] flex w-full flex-row items-center justify-center'>

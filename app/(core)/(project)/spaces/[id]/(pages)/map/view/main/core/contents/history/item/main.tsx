@@ -1,5 +1,5 @@
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { ContextForChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -16,8 +16,8 @@ export function SpacesMapHistoryItem() {
   const {
     actions: { updateDirectoryMode },
   } = useContext(ContextForSpacesMap);
-  const sceneListController = useContext(ContextForChapterSceneList);
-  const scene = useContext(ContextForChapterSceneObj);
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const scene = useContext(ContextForIdeaSceneObj);
   const hoverableController = useControllerForHoverable();
 
   return (

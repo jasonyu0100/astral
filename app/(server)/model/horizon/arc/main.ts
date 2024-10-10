@@ -3,67 +3,78 @@ import { ModelInterface } from '../../main';
 
 export interface HorizonArcObj {
   id: string;
-  horizonId: string;
   userId: string;
+  horizonId: string;
   title: string;
   description: string;
-  created: string;
+  objective: string;
+  summary: string;
   idx: number;
+  created: string;
 }
 
 export const horizonArcGql = `
 type HorizonArcObj {
   id: String!
-  horizonId: String!
   userId: String!
+  horizonId: String!
   title: String!
   description: String!
-  created: String!
+  objective: String!
   idx: Int!
+  created: String!
 }
-`;
+  `;
+
+export const exampleHorizonArc: HorizonArcObj = {
+  id: '0',
+  userId: '0',
+  horizonId: '0',
+  title: 'Melody',
+  description: 'This is an arc description',
+  objective: 'This is an arc objective',
+  summary: 'This is an arc summary',
+  idx: 0,
+  created: new Date().toISOString(),
+};
 
 export const ContextForHorizonArcObj = createContext<HorizonArcObj>(
   {} as HorizonArcObj,
 );
 
-export const exampleHorizonArc: HorizonArcObj = {
-  id: '0',
-  horizonId: '0',
-  userId: '0',
-  title: 'Work from creativity',
-  description: 'Arc Description',
-  created: new Date().toISOString(),
-  idx: 0,
-};
-
 export const exampleHorizonArcs: HorizonArcObj[] = [
   {
     id: '0',
-    horizonId: '0',
     userId: '0',
-    title: 'Work from creativity',
-    description: 'Review Description',
-    created: new Date().toISOString(),
+    title: 'Concept',
+    description: 'This is an arc description',
+    objective: 'This is an arc objective',
+    summary: 'This is an arc summary',
+    horizonId: '0',
     idx: 0,
+    created: new Date().toISOString(),
   },
   {
     id: '1',
-    horizonId: '0',
     userId: '0',
-    title: 'Work from creativity',
-    description: 'Review Description',
-    created: new Date().toISOString(),
+    title: 'Beat',
+    description: 'This is an arc description',
+    objective: 'This is an arc objective',
+    summary: 'This is an arc summary',
+    horizonId: '0',
     idx: 1,
+    created: new Date().toISOString(),
   },
   {
     id: '2',
-    horizonId: '0',
     userId: '0',
-    title: 'Work from creativity',
-    description: 'Review Description',
-    created: new Date().toISOString(),
+    title: 'Melody',
+    description: 'This is an arc description',
+    objective: 'This is an arc objective',
+    summary: 'This is an arc summary',
+    horizonId: '0',
     idx: 2,
+    created: new Date().toISOString(),
   },
 ];
 
@@ -73,5 +84,5 @@ export const horizonArcModel: ModelInterface<HorizonArcObj> = {
   example: exampleHorizonArc,
   examples: exampleHorizonArcs,
   parentKey: 'horizonId',
-  children: ['point', 'forum'],
+  children: ['tab', 'task'],
 };

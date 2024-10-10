@@ -1,4 +1,4 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/space/chapter/conversation/list';
+import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { glassFx, roundedFx } from '@/style/data';

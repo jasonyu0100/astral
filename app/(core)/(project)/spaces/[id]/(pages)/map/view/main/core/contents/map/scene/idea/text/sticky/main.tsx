@@ -1,12 +1,12 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { TextElem } from '@/(server)/model/elements/text/main';
-import { ContextForSceneIdeaObj } from '@/(server)/model/space/chapter/scene/idea/main';
+import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
 
 import { useEffect, useRef, useState } from 'react';
 
 export function SpacesMapTextStickyIdea() {
-  const ideaObj = useContext(ContextForSceneIdeaObj);
+  const ideaObj = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const divRef = useRef(null);
   const [fontSize, setFontSize] = useState('1rem'); // Default font size

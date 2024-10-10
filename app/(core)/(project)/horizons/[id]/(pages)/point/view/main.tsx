@@ -1,22 +1,20 @@
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { ImageBackground } from '@/ui/background/img/main';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { HorizonsPointMain } from './main/main';
 import { HorizonPointSidebar } from './sidebar/main';
 
-export function HorizonPointView() {
+export function HorizonsPointView() {
   return (
     <GlassAreaContainer
-      name={HorizonPointView.name}
-      sizeFx='flex-grow h-full'
+      name={HorizonsPointView.name}
+      sizeFx='flex-grow h-full overflow-hidden'
       className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
       <HorizonPointSidebar />
-      <div className='relative flex w-full flex-grow'>
-        <ImageBackground />
-      </div>
+      <HorizonsPointMain />
     </GlassAreaContainer>
   );
 }

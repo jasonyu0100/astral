@@ -1,6 +1,6 @@
-import { ContextForChapterSpotlightListFromChapter } from '@/(server)/controller/space/chapter/spotlight/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForChapterSpotlightObj } from '@/(server)/model/space/chapter/spotlight/main';
+import { ContextForUserPostObj } from '@/(server)/model/post/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -9,12 +9,9 @@ import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesFlightSidebarItem() {
-  const spotlight = useContext(ContextForChapterSpotlightObj);
-  const spotlightListController = useContext(
-    ContextForChapterSpotlightListFromChapter,
-  );
-  const selected =
-    spotlightListController.actions.stateActions.checkActive(spotlight);
+  const post = useContext(ContextForUserPostObj);
+  const postListController = useContext(ContextForUserPostListFromChapter);
+  const selected = postListController.actions.stateActions.checkActive(post);
 
   return (
     <GlassWindowFrame
@@ -23,9 +20,7 @@ export function SpacesFlightSidebarItem() {
       borderFx={selected ? borderFx['border-around'] : ''}
     >
       <GlassWindowContents
-        onClick={() =>
-          spotlightListController.actions.stateActions.select(spotlight)
-        }
+        onClick={() => postListController.actions.stateActions.select(post)}
         className='flex h-full w-full flex-row items-center space-x-[1rem]'
       >
         <img
@@ -37,7 +32,7 @@ export function SpacesFlightSidebarItem() {
             'text-slate-300': selected,
           })}
         >
-          {spotlight.title}
+          {post.title}
         </p>
       </GlassWindowContents>
       {selected ? (

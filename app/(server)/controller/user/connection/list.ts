@@ -36,7 +36,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createConnection: (
     userId: string,
     connectedId: string,
-    termsId: string,
   ) => Promise<UserConnectionObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -263,7 +262,6 @@ const useControllerForUserConnectionList = (
         created: new Date().toISOString(),
         userId: '',
         connectedId: '',
-        termsId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -271,16 +269,11 @@ const useControllerForUserConnectionList = (
       changeId(newObj.id);
       return newObj;
     },
-    createConnection: async (
-      userId: string,
-      connectedId: string,
-      termsId: string,
-    ) => {
+    createConnection: async (userId: string, connectedId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         connectedId: connectedId,
-        termsId: termsId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

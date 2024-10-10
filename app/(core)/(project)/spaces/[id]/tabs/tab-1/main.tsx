@@ -1,7 +1,7 @@
 'use client';
 
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { Tab } from '@/ui/tabs/tabs-row/tab/main';
 import { TabBlueShard } from '@/ui/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
@@ -11,7 +11,7 @@ import { spacesMap } from '../../map';
 import { SpaceTabStage } from '../main';
 
 export function SpacesTabSpace({ tab }: { tab?: string }) {
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativeSpacesContext);
   const tabText = SpaceTabStage.Space;

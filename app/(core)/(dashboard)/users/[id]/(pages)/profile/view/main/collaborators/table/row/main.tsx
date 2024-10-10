@@ -1,4 +1,3 @@
-import { useControllerForUserConnectionTermsMain } from '@/(server)/controller/user/connection/terms/main';
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
@@ -10,9 +9,6 @@ export function UserProfileConnectionsTableRow() {
   const connectionObj = useContext(ContextForUserConnectionObj);
   const userController = useControllerForUserMain(connectionObj.connectedId);
   const user = userController.state.obj;
-  const termsController = useControllerForUserConnectionTermsMain(
-    connectionObj.termsId,
-  );
 
   return (
     <ContextForUserObj.Provider value={user}>
@@ -31,16 +27,6 @@ export function UserProfileConnectionsTableRow() {
         <div></div>
         <div className='flex'>
           <p className='text-md font-bold text-white'>{user?.role}</p>
-        </div>
-        <div className='flex justify-center'>
-          <p className='text-md font-light text-white'>
-            {new Date(termsController.state.obj.end).toDateString()}
-          </p>
-        </div>
-        <div className='flex justify-center'>
-          <p className='text-md font-light text-white'>
-            {termsController.state.obj.description}
-          </p>
         </div>
       </div>
     </ContextForUserObj.Provider>

@@ -1,9 +1,9 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { useControllerForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
+import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { useControllerForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { useControllerForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForSpaceIdeaRelationshipListFromChapter } from '@/(server)/controller/space/relationship/list-from-chapter';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -49,10 +49,10 @@ export function useGenerateSceneController(): Controller {
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useControllerForChapterSceneList('');
+  const sceneListController = useControllerForIdeaSceneList('');
   const ideaListController = useControllerForSceneIdeaList('');
-  const spaceIdeaRelationshipListController =
-    useControllerForSpaceIdeaRelationshipListFromChapter(
+  const ideaRelationshipListController =
+    useControllerForIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
     );
 
@@ -136,7 +136,7 @@ export function useGenerateSceneController(): Controller {
     const ideaRelationships = await Promise.all(
       ideas.slice(0, ideas.length - 1).map((idea, index) => {
         const toIdea = ideas[index + 1];
-        return spaceIdeaRelationshipListController.actions.createActions.createFromIdea(
+        return ideaRelationshipListController.actions.createActions.createFromIdea(
           idea,
           toIdea,
           spaceController.state.objId,

@@ -1,7 +1,7 @@
+import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/space/chapter/scene/idea/list';
-import { ContextForChapterSceneList } from '@/(server)/controller/space/chapter/scene/list';
-import { useControllerForReviewUpdateListFromChapter } from '@/(server)/controller/space/chapter/session/update/list-from-chapter';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import {
   exampleFileElem,
@@ -32,7 +32,7 @@ export function SpacesMapAddGenerateIdeaModal() {
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const sceneListController = useContext(ContextForChapterSceneList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('' as string);
   const [prompt, changePrompt] = useState('' as string);
@@ -40,10 +40,9 @@ export function SpacesMapAddGenerateIdeaModal() {
   const [variant, changeVariant] = useState<FileElemVariant>(
     FileElemVariant.IMAGE,
   );
-  const reviewUpdateListController =
-    useControllerForReviewUpdateListFromChapter(
-      chapterListController.state.objId,
-    );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
 
   async function createFileIdea() {
     if (!file.src) {
@@ -62,7 +61,7 @@ export function SpacesMapAddGenerateIdeaModal() {
       file,
       ideaListController.state.objs.length,
     );
-    await reviewUpdateListController.actions.createActions.createFromChapterSceneIdea(
+    await activityListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,

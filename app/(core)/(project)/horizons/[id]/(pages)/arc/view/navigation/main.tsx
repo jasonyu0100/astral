@@ -4,9 +4,7 @@ import { HorizonsArcNavigationRow } from './row/main';
 export function HorizonsArcNavigation() {
   return (
     <NavigationTimelineContainer>
-      {/* <NavigationTimelineGoLeftAction /> */}
       <HorizonsArcNavigationRow />
-      {/* <NavigationTimelineGoRightAction /> */}
     </NavigationTimelineContainer>
   );
 }

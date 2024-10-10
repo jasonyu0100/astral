@@ -84,5 +84,5 @@ export const spaceChapterModel: ModelInterface<SpaceChapterObj> = {
   example: exampleSpaceChapter,
   examples: exampleSpaceChapters,
   parentKey: 'spaceId',
-  children: ['chat', 'scene', 'log', 'spotlight'],
+  children: ['chat', 'scene', 'log', 'post'],
 };
