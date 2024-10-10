@@ -1,4 +1,4 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/post/attachment/main';
+import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -9,7 +9,7 @@ import {
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
-import { WayLinkObj } from '@/(server)/model/way/link/main';
+import { TaskLinkObj } from '@/(server)/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostAttachmentObj;
@@ -279,7 +279,7 @@ const useControllerForPostAttachmentListFromUser = (
     createFromLink: async (
       userId: string,
       postId: string,
-      link: WayLinkObj,
+      link: TaskLinkObj,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),

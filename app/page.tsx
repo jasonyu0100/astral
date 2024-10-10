@@ -103,7 +103,7 @@ const CallToAction = () => {
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
       <video
-        src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/conversation-to-map.mp4'
+        src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/demo.mov'
         className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
         autoPlay
         muted
