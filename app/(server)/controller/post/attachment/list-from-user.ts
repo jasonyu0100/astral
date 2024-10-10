@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-user.ts
 import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/post/attachment/main';
+========
+import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-post.ts
+=======
+import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
+>>>>>>> main
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -8,13 +16,44 @@ import {
 } from '@/(server)/controller/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-user.ts
 import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
+========
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+>>>>>>> main
+import {
+  PostAttachmentObj,
+  postAttachmentModel,
+} from '@/(server)/model/post/attachment/main';
+<<<<<<< HEAD
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-post.ts
 import { WayLinkObj } from '@/(server)/model/way/link/main';
+=======
+import { WayLinkObj } from '@/(server)/model/way/link/main';
+========
+import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
+import { TaskLinkObj } from '@/(server)/model/task/link/main';
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostAttachmentObj;
 const gqlDbWrapper = postAttachmentDbWrapper;
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-user.ts
 const listIdKey = 'userId';
+========
+const listIdKey = postAttachmentModel.parentKey;
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-post.ts
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+const listIdKey = postAttachmentModel.parentKey;
+========
+const listIdKey = 'userId';
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -36,7 +75,15 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromLink: (
     userId: string,
     postId: string,
+<<<<<<< HEAD
     link: WayLinkObj,
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+    link: WayLinkObj,
+========
+    link: TaskLinkObj,
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
   ) => Promise<TargetObj>;
   createFromFile: (
     userId: string,
@@ -59,7 +106,19 @@ interface Controller {
   actions: ControllerActions;
 }
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-user.ts
 const useControllerForPostAttachmentListFromUser = (
+========
+const useControllerForPostAttachmentListFromPost = (
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-post.ts
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+const useControllerForPostAttachmentListFromPost = (
+========
+const useControllerForPostAttachmentListFromUser = (
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -279,7 +338,15 @@ const useControllerForPostAttachmentListFromUser = (
     createFromLink: async (
       userId: string,
       postId: string,
+<<<<<<< HEAD
       link: WayLinkObj,
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+      link: WayLinkObj,
+========
+      link: TaskLinkObj,
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -391,8 +458,28 @@ const useControllerForPostAttachmentListFromUser = (
   };
 };
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-user.ts
 const ContextForPostAttachmentListFromUser = createContext({} as Controller);
 export {
   ContextForPostAttachmentListFromUser,
   useControllerForPostAttachmentListFromUser,
+========
+=======
+<<<<<<<< HEAD:app/(server)/controller/post/attachment/list-from-post.ts
+>>>>>>> main
+const ContextForPostAttachmentListFromPost = createContext({} as Controller);
+export {
+  ContextForPostAttachmentListFromPost as ContextForPostAttachmentListFromPost,
+  useControllerForPostAttachmentListFromPost as useControllerForPostAttachmentListFromPost,
+<<<<<<< HEAD
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-post.ts
+=======
+========
+const ContextForPostAttachmentListFromUser = createContext({} as Controller);
+export {
+  ContextForPostAttachmentListFromUser,
+  useControllerForPostAttachmentListFromUser,
+>>>>>>>> main:app/(server)/controller/post/attachment/list-from-user.ts
+>>>>>>> main
 };
