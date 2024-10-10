@@ -10,7 +10,7 @@ import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { PostAttachmentObj } from '@/(server)/model/post/attachment/main';
 import { TaskLinkObj } from '@/(server)/model/task/link/main';
-import { createContext, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostAttachmentObj;
 const gqlDbWrapper = postAttachmentDbWrapper;

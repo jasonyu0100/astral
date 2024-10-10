@@ -2,7 +2,7 @@ import { ContextForConversationMessageList } from '@/(server)/controller/convers
 import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 
 export function ConversationalSearchChatList() {
@@ -10,10 +10,15 @@ export function ConversationalSearchChatList() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollToBottom } = useControllerForMessageScrollToBottom(ref);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messageListController.state?.objs]);
+
   return (
     <div
       className='flex w-full flex-col items-center justify-center'
       style={{ height: 'calc(100% - 7rem - 7rem)' }}
+      ref={ref}
     >
       <div
         className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-purple-500 to-violet-500 px-[2rem]'
