@@ -9,12 +9,14 @@ import {
 import { getTaskLinkObj, listTaskLinkObjs } from '@/graphql/queries';
 import { gqlArgs } from '@/utils/clean';
 
+type TargetObj = TaskLinkObj;
+
 function castSingle(obj: unknown) {
-  return obj as TaskLinkObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as TaskLinkObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -71,7 +73,7 @@ async function listAllObjs() {
   return castMultiple(payload?.data?.listTaskLinkObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<TaskLinkObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createTaskLinkObj,
     variables: {
@@ -82,7 +84,7 @@ async function createObj(newObj: Omit<TaskLinkObj, 'id'>) {
   return castSingle(payload?.data?.createTaskLinkObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<TaskLinkObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateTaskLinkObj,
     variables: {
@@ -96,7 +98,7 @@ async function updateObj(id: string, updateObj: Partial<TaskLinkObj>) {
   return castSingle(payload?.data?.updateTaskLinkObj);
 }
 
-async function overwriteObj(id: string, newObj: TaskLinkObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateTaskLinkObj,
     variables: {
@@ -123,7 +125,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteTaskLinkObj);
 }
 
-export const taskLinkDbWrapper: GqlDbWrapper<TaskLinkObj> = {
+export const taskLinkDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,

@@ -12,12 +12,14 @@ import {
 import { gqlArgs } from '@/utils/clean';
 import { GqlDbWrapper } from '../../main';
 
+type TargetObj = UserReservationObj;
+
 function castSingle(obj: unknown) {
-  return obj as UserReservationObj;
+  return obj as TargetObj;
 }
 
 function castMultiple(objs: unknown[]) {
-  return objs as UserReservationObj[];
+  return objs as TargetObj[];
 }
 
 async function getObj(value: string) {
@@ -74,7 +76,7 @@ async function listFromVariables(variables: object) {
   return castMultiple(payload?.data?.listUserReservationObjs?.items || []);
 }
 
-async function createObj(newObj: Omit<UserReservationObj, 'id'>) {
+async function createObj(newObj: Omit<TargetObj, 'id'>) {
   const payload = await amplifyClient.graphql({
     query: createUserReservationObj,
     variables: {
@@ -85,7 +87,7 @@ async function createObj(newObj: Omit<UserReservationObj, 'id'>) {
   return castSingle(payload?.data?.createUserReservationObj);
 }
 
-async function updateObj(id: string, updateObj: Partial<UserReservationObj>) {
+async function updateObj(id: string, updateObj: Partial<TargetObj>) {
   const payload = await amplifyClient.graphql({
     query: updateUserReservationObj,
     variables: {
@@ -99,7 +101,7 @@ async function updateObj(id: string, updateObj: Partial<UserReservationObj>) {
   return castSingle(payload?.data?.updateUserReservationObj);
 }
 
-async function overwriteObj(id: string, newObj: UserReservationObj) {
+async function overwriteObj(id: string, newObj: TargetObj) {
   const payload = await amplifyClient.graphql({
     query: updateUserReservationObj,
     variables: {
@@ -126,7 +128,7 @@ async function deleteObj(id: string) {
   return castSingle(payload?.data?.deleteUserReservationObj);
 }
 
-export const userReservationDbWrapper: GqlDbWrapper<UserReservationObj> = {
+export const userReservationDbWrapper: GqlDbWrapper<TargetObj> = {
   getObj,
   listObjs,
   listAllObjs,
