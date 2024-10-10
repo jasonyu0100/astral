@@ -30,12 +30,14 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForConversationMessageMain = (objId: string): Controller => {
+export const useControllerForConversationMessageMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,8 +114,6 @@ const useControllerForConversationMessageMain = (objId: string): Controller => {
   };
 };
 
-const ContextForConversationMessageMain = createContext({} as Controller);
-export {
-  ContextForConversationMessageMain,
-  useControllerForConversationMessageMain,
-};
+export const ContextForConversationMessageMain = createContext(
+  {} as Controller,
+);

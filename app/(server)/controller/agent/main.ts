@@ -8,7 +8,6 @@ import {
 } from '@/(server)/controller/main';
 import { AgentObj } from '@/(server)/model/agent/main';
 import { createContext, useMemo, useState } from 'react';
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 type TargetObj = AgentObj;
 const gqlDbWrapper = agentDbWrapper;
@@ -30,12 +29,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForAgentMain = (objId: string): Controller => {
+export const useControllerForAgentMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +111,4 @@ const useControllerForAgentMain = (objId: string): Controller => {
   };
 };
 
-const ContextForAgentMain = createContext({} as Controller);
-export { ContextForAgentMain, useControllerForAgentMain };
+export const ContextForAgentMain = createContext({} as Controller);

@@ -1,4 +1,4 @@
-import { ContextForUserPublicList } from '@/(server)/controller/user/private-list';
+import { ContextForUserPublicList } from '@/(server)/controller/user/list-from-allowed-public';
 import {
   ContextForLoggedInUserObj,
   ContextForUserObj,

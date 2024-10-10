@@ -45,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserActivityListFromSpace = (
+export const useControllerForUserActivityListFromSpace = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -345,8 +345,6 @@ const useControllerForUserActivityListFromSpace = (
   };
 };
 
-const ContextForUserActivityListFromSpace = createContext({} as Controller);
-export {
-  ContextForUserActivityListFromSpace as ContextForUserActivityListFromSpace,
-  useControllerForUserActivityListFromSpace as useControllerForUserActivityListFromSpace,
-};
+export const ContextForUserActivityListFromSpace = createContext(
+  {} as Controller,
+);

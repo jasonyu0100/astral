@@ -7,8 +7,9 @@ import { useContext } from 'react';
 
 export function UserProfileOverviewGallery() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
+  console.log(loggedInUser);
   const attachmentListController = useControllerForPostAttachmentListFromUser(
-    loggedInUser.id,
+    loggedInUser?.id || '',
   );
 
   return (

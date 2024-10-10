@@ -6,7 +6,7 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/(server)/controller/main';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;
@@ -30,12 +30,14 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForIdeaRelationshipMain = (objId: string): Controller => {
+export const useControllerForIdeaRelationshipMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +114,4 @@ const useControllerForIdeaRelationshipMain = (objId: string): Controller => {
   };
 };
 
-const ContextForIdeaRelationshipMain = createContext({} as Controller);
-export { ContextForIdeaRelationshipMain, useControllerForIdeaRelationshipMain };
+export const ContextForIdeaRelationshipMain = createContext({} as Controller);

@@ -53,7 +53,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserConnectionList = (
+export const useControllerForUserConnectionList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -362,5 +362,4 @@ const useControllerForUserConnectionList = (
   };
 };
 
-const ContextForUserConnectionList = createContext({} as Controller);
-export { ContextForUserConnectionList, useControllerForUserConnectionList };
+export const ContextForUserConnectionList = createContext({} as Controller);

@@ -54,7 +54,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostCommentList = (
+export const useControllerForPostCommentList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -365,5 +365,4 @@ const useControllerForPostCommentList = (
   };
 };
 
-const ContextForPostCommentList = createContext({} as Controller);
-export { ContextForPostCommentList, useControllerForPostCommentList };
+export const ContextForPostCommentList = createContext({} as Controller);

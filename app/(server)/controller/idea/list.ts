@@ -86,7 +86,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSceneIdeaList = (
+export const useControllerForSceneIdeaList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -500,5 +500,4 @@ const useControllerForSceneIdeaList = (
   };
 };
 
-const ContextForSceneIdeaList = createContext({} as Controller);
-export { ContextForSceneIdeaList, useControllerForSceneIdeaList };
+export const ContextForSceneIdeaList = createContext({} as Controller);

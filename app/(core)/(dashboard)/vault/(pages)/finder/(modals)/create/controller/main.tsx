@@ -12,7 +12,7 @@ export const ContextForVaultFinderCreateModals = createContext(
   {} as Controller,
 );
 
-export interface Controller {
+interface Controller {
   createCollectionController: ContextForOpenableInterface;
   createGalleryController: ContextForOpenableInterface;
   createResourceController: ContextForOpenableInterface;

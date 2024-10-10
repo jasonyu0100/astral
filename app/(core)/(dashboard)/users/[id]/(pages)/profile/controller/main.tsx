@@ -19,8 +19,7 @@ interface Controller {
 }
 
 export enum UserProfilePage {
-  Supporters = 'Supporters',
-  Collaborators = 'Collaborators',
+  Connections = 'Connections',
   Overview = 'Overview',
 }
 

@@ -1,4 +1,4 @@
-import { postCommentDbWrapper } from '@/(server)/client/space/chapter/post/comment/main';
+import { postCommentDbWrapper } from '@/(server)/client/post/comment/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForPostCommentMain = (objId: string): Controller => {
+export const useControllerForPostCommentMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForPostCommentMain = (objId: string): Controller => {
   };
 };
 
-const ContextForPostCommentMain = createContext({} as Controller);
-export { ContextForPostCommentMain, useControllerForPostCommentMain };
+export const ContextForPostCommentMain = createContext({} as Controller);

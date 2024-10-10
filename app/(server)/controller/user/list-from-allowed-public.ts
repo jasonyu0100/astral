@@ -1,4 +1,4 @@
-import { userConnectionTermsDbWrapper } from '@/(server)/client/user/connection/terms/main';
+import { userDbWrapper } from '@/(server)/client/user/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,15 +6,13 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import {
-  userConnectionTermsModel,
-  UserConnectionTermsObj,
-} from '@/(server)/model/user/connection/term/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
+import { UserObj } from '@/(server)/model/user/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserConnectionTermsObj;
-const gqlDbWrapper = userConnectionTermsDbWrapper;
-const listIdKey = userConnectionTermsModel.parentKey;
+type TargetObj = UserObj;
+const gqlDbWrapper = userDbWrapper;
+const listIdKey = 'private';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -32,13 +30,7 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createTerms: (
-    title: string,
-    description: string,
-    end: string,
-  ) => Promise<UserConnectionTermsObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -54,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserConnectionTermsList = (
+export const useControllerForUserPublicList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -165,7 +157,7 @@ const useControllerForUserConnectionTermsList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -178,7 +170,7 @@ const useControllerForUserConnectionTermsList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -258,25 +250,19 @@ const useControllerForUserConnectionTermsList = (
   };
 
   const createActions: CreateActions = {
-    createTerms: async (title: string, description: string, end: string) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        title: title,
-        description: description,
-        end: end,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
     createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        title: '',
-        description: '',
-        end: '',
+        fname: '',
+        lname: '',
+        displayName: '',
+        email: '',
+        dp: exampleFileElem,
+        role: '',
+        bio: '',
+        journalId: '',
+        private: true,
+        degree: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -365,8 +351,4 @@ const useControllerForUserConnectionTermsList = (
   };
 };
 
-const ContextForUserConnectionTermsList = createContext({} as Controller);
-export {
-  ContextForUserConnectionTermsList,
-  useControllerForUserConnectionTermsList,
-};
+export const ContextForUserPublicList = createContext({} as Controller);

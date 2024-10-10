@@ -1,4 +1,4 @@
-import { userBackerTermsDbWrapper } from '@/(server)/client/user/backer/terms/main';
+import { spaceMemberDbWrapper } from '@/(server)/client/space/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,15 +6,12 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import {
-  userBackerTermsModel,
-  UserBackerTermsObj,
-} from '@/(server)/model/user/backer/term/main';
+import { SpaceMemberObj } from '@/(server)/model/space/member/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = UserBackerTermsObj;
-const gqlDbWrapper = userBackerTermsDbWrapper;
-const listIdKey = userBackerTermsModel.parentKey;
+type TargetObj = SpaceMemberObj;
+const gqlDbWrapper = spaceMemberDbWrapper;
+const listIdKey = 'userId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -33,11 +30,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createTerms: (
-    title: string,
-    description: string,
-    end: string,
-  ) => Promise<UserBackerTermsObj>;
+  createMember(userId: string, spaceId: string): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -54,7 +47,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserBackerTermsList = (
+export const useControllerForSpaceMemberListFromUser = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -165,7 +158,7 @@ const useControllerForUserBackerTermsList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -178,7 +171,7 @@ const useControllerForUserBackerTermsList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.title);
+            return regex.test(obj.id);
           });
           changeQueryResults(results);
           return results;
@@ -258,12 +251,11 @@ const useControllerForUserBackerTermsList = (
   };
 
   const createActions: CreateActions = {
-    createTerms: async (title: string, description: string, end: string) => {
+    createEmpty: async () => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        title: title,
-        description: description,
-        end: end,
+        userId: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -271,12 +263,11 @@ const useControllerForUserBackerTermsList = (
       changeId(newObj.id);
       return newObj;
     },
-    createEmpty: async () => {
+    createMember: async (userId: string, spaceId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        title: '',
-        description: '',
-        end: '',
+        userId: userId,
+        spaceId: spaceId,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -365,5 +356,6 @@ const useControllerForUserBackerTermsList = (
   };
 };
 
-const ContextForUserBackerTermsList = createContext({} as Controller);
-export { ContextForUserBackerTermsList, useControllerForUserBackerTermsList };
+export const ContextForSpaceMemberListFromUser = createContext(
+  {} as Controller,
+);

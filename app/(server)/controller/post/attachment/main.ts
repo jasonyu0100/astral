@@ -1,4 +1,4 @@
-import { postAttachmentDbWrapper } from '@/(server)/client/space/chapter/post/attachment/main';
+import { postAttachmentDbWrapper } from '@/(server)/client/post/attachment/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,14 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForPostAttachmentMain = (objId: string): Controller => {
+export const useControllerForPostAttachmentMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +114,4 @@ const useControllerForPostAttachmentMain = (objId: string): Controller => {
   };
 };
 
-const ContextForPostAttachmentMain = createContext({} as Controller);
-export { ContextForPostAttachmentMain, useControllerForPostAttachmentMain };
+export const ContextForPostAttachmentMain = createContext({} as Controller);

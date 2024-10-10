@@ -2,7 +2,7 @@
 import {
   ContextForUserPublicList,
   useControllerForUserPublicList,
-} from '@/(server)/controller/user/private-list';
+} from '@/(server)/controller/user/list-from-allowed-public';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { StudioBackedView } from './view/view';
 

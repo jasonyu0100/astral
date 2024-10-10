@@ -7,8 +7,8 @@ import {
   BaseListStateActions,
 } from '@/(server)/controller/list';
 import { IdeaObj } from '@/(server)/model/idea/main';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
-import { WayLinkObj } from '@/(server)/model/way/link/main';
+import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
+import { TaskLinkObj } from '@/(server)/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;
@@ -33,8 +33,8 @@ interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromLink: (
-    fromLink: WayLinkObj,
-    toLink: WayLinkObj,
+    fromLink: TaskLinkObj,
+    toLink: TaskLinkObj,
   ) => Promise<TargetObj>;
   createFromIdea: (
     fromIdea: IdeaObj,
@@ -59,7 +59,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForIdeaRelationshipListFromScene = (
+export const useControllerForIdeaRelationshipListFromScene = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -283,7 +283,7 @@ const useControllerForIdeaRelationshipListFromScene = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromLink: async (fromLink: WayLinkObj, toLink: WayLinkObj) => {
+    createFromLink: async (fromLink: TaskLinkObj, toLink: TaskLinkObj) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         spaceId: fromLink.spaceId || '',
@@ -410,8 +410,6 @@ const useControllerForIdeaRelationshipListFromScene = (
   };
 };
 
-const ContextForIdeaRelationshipListFromScene = createContext({} as Controller);
-export {
-  ContextForIdeaRelationshipListFromScene,
-  useControllerForIdeaRelationshipListFromScene,
-};
+export const ContextForIdeaRelationshipListFromScene = createContext(
+  {} as Controller,
+);

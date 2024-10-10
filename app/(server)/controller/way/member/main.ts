@@ -1,4 +1,4 @@
-import { taskMemberDbWrapper } from '@/(server)/client/way/member/main';
+import { taskMemberDbWrapper } from '@/(server)/client/task/member/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForWayMemberMain = (objId: string): Controller => {
+export const useControllerForWayMemberMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,8 +112,4 @@ const useControllerForWayMemberMain = (objId: string): Controller => {
   };
 };
 
-const ContextForWayMemberMain = createContext({} as Controller);
-export {
-  ContextForWayMemberMain,
-  useControllerForWayMemberMain as useControllerForLogMemberMain,
-};
+export const ContextForWayMemberMain = createContext({} as Controller);

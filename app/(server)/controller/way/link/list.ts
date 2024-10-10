@@ -72,7 +72,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForTaskLinkList = (
+export const useControllerForTaskLinkList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -449,8 +449,4 @@ const useControllerForTaskLinkList = (
   };
 };
 
-const ContextForTaskLinkList = createContext({} as Controller);
-export {
-  ContextForTaskLinkList as ContextForTaskLinkList,
-  useControllerForTaskLinkList as useControllerForTaskLinkList,
-};
+export const ContextForTaskLinkList = createContext({} as Controller);

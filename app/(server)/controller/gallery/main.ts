@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForGalleryMain = (objId: string): Controller => {
+export const useControllerForGalleryMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForGalleryMain = (objId: string): Controller => {
   };
 };
 
-const ContextForGalleryMain = createContext({} as Controller);
-export { ContextForGalleryMain, useControllerForGalleryMain };
+export const ContextForGalleryMain = createContext({} as Controller);

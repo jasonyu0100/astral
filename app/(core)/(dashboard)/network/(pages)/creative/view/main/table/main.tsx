@@ -1,4 +1,4 @@
-import { ContextForUserPublicList } from '@/(server)/controller/user/private-list';
+import { ContextForUserPublicList } from '@/(server)/controller/user/list-from-allowed-public';
 import { useContext } from 'react';
 import { NetworkCreativeEmpty } from './empty/main';
 import { NetworkCreativeTableHeader } from './header/main';

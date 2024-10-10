@@ -51,7 +51,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostKarmaList = (
+export const useControllerForPostKarmaList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -366,5 +366,4 @@ const useControllerForPostKarmaList = (
   };
 };
 
-const ContextForPostKarmaList = createContext({} as Controller);
-export { ContextForPostKarmaList, useControllerForPostKarmaList };
+export const ContextForPostKarmaList = createContext({} as Controller);

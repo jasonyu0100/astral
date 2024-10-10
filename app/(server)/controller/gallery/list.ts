@@ -53,7 +53,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForGalleryList = (
+export const useControllerForGalleryList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -366,5 +366,4 @@ const useControllerForGalleryList = (
   };
 };
 
-const ContextForGalleryList = createContext({} as Controller);
-export { ContextForGalleryList, useControllerForGalleryList };
+export const ContextForGalleryList = createContext({} as Controller);

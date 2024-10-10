@@ -53,12 +53,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForResourceList = (
+export const useControllerForCollectionResourceList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -382,8 +382,4 @@ const useControllerForResourceList = (
   };
 };
 
-const ContextForCollectionResourceList = createContext({} as Controller);
-export {
-  ContextForCollectionResourceList,
-  useControllerForResourceList as useControllerForCollectionResourceList,
-};
+export const ContextForCollectionResourceList = createContext({} as Controller);

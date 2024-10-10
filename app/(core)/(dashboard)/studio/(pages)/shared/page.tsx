@@ -1,8 +1,8 @@
 'use client';
 import {
-  ContextForSpaceMemberOfUserList,
-  useControllerForSpaceMemberOfUserList,
-} from '@/(server)/controller/space/member/user-list';
+  ContextForSpaceMemberListFromUser,
+  useControllerForSpaceMemberListFromUser,
+} from '@/(server)/controller/space/member/list-from-user';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
@@ -10,15 +10,15 @@ import { StudioSharedView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const memberListController = useControllerForSpaceMemberOfUserList(
+  const memberListController = useControllerForSpaceMemberListFromUser(
     loggedInUser.id,
   );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForSpaceMemberOfUserList.Provider value={memberListController}>
+      <ContextForSpaceMemberListFromUser.Provider value={memberListController}>
         <StudioSharedView />
-      </ContextForSpaceMemberOfUserList.Provider>
+      </ContextForSpaceMemberListFromUser.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
 }

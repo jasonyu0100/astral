@@ -46,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonList = (
+export const useControllerForHorizonList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -346,5 +346,4 @@ const useControllerForHorizonList = (
   };
 };
 
-const ContextForHorizonList = createContext({} as Controller);
-export { ContextForHorizonList, useControllerForHorizonList };
+export const ContextForHorizonList = createContext({} as Controller);

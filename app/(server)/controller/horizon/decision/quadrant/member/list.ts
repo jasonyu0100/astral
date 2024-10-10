@@ -13,6 +13,7 @@ import { createContext, useMemo, useState } from 'react';
 type TargetObj = HorizonObj;
 const gqlDbWrapper = horizonDbWrapper;
 const listIdKey = horizonModel.parentKey;
+export const ContextForHorizonList = createContext({} as Controller);
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -46,7 +47,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonList = (
+export const useControllerForHorizonList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -345,6 +346,3 @@ const useControllerForHorizonList = (
     actions: controllerActions,
   };
 };
-
-const ContextForHorizonList = createContext({} as Controller);
-export { ContextForHorizonList, useControllerForHorizonList };

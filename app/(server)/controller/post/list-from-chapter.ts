@@ -56,7 +56,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserPostListFromChapter = (
+export const useControllerForUserPostListFromChapter = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -376,8 +376,6 @@ const useControllerForUserPostListFromChapter = (
   };
 };
 
-const ContextForUserPostListFromChapter = createContext({} as Controller);
-export {
-  ContextForUserPostListFromChapter,
-  useControllerForUserPostListFromChapter,
-};
+export const ContextForUserPostListFromChapter = createContext(
+  {} as Controller,
+);

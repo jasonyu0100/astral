@@ -37,12 +37,14 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForUserReservationMain = (objId: string): Controller => {
+export const useControllerForUserReservationMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -135,5 +137,4 @@ const useControllerForUserReservationMain = (objId: string): Controller => {
   };
 };
 
-const ContextForUserReservationMain = createContext({} as Controller);
-export { ContextForUserReservationMain, useControllerForUserReservationMain };
+export const ContextForUserReservationMain = createContext({} as Controller);

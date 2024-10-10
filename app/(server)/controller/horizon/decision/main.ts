@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForHorizonMain = (objId: string): Controller => {
+export const useControllerForHorizonMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForHorizonMain = (objId: string): Controller => {
   };
 };
 
-const ContextForHorizonMain = createContext({} as Controller);
-export { ContextForHorizonMain, useControllerForHorizonMain };
+export const ContextForHorizonMain = createContext({} as Controller);

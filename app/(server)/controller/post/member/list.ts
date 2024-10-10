@@ -1,4 +1,4 @@
-import { postMemberDbWrapper } from '@/(server)/client/space/chapter/post/member/main';
+import { postMemberDbWrapper } from '@/(server)/client/post/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostMemberList = (
+export const useControllerForPostMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -345,5 +345,4 @@ const useControllerForPostMemberList = (
   };
 };
 
-const ContextForPostMemberList = createContext({} as Controller);
-export { ContextForPostMemberList, useControllerForPostMemberList };
+export const ContextForPostMemberList = createContext({} as Controller);

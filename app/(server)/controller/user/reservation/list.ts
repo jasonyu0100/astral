@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserReservationList = (
+export const useControllerForUserReservationList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -347,5 +347,4 @@ const useControllerForUserReservationList = (
   };
 };
 
-const ContextForUserReservationList = createContext({} as Controller);
-export { ContextForUserReservationList, useControllerForUserReservationList };
+export const ContextForUserReservationList = createContext({} as Controller);

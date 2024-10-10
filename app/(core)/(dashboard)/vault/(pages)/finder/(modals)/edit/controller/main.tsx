@@ -10,7 +10,7 @@ import { VaultFinderEditResourceModal } from '../resource/main';
 
 export const ContextForVaultFinderEditModals = createContext({} as Controller);
 
-export interface Controller {
+interface Controller {
   editCollectionController: ContextForOpenableInterface;
   editGalleryController: ContextForOpenableInterface;
   editResourceController: ContextForOpenableInterface;

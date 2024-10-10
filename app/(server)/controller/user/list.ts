@@ -46,7 +46,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForUserList = (
+export const useControllerForUserList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -351,5 +351,4 @@ const useControllerForUserList = (
   };
 };
 
-const ContextForUserList = createContext({} as Controller);
-export { ContextForUserList, useControllerForUserList };
+export const ContextForUserList = createContext({} as Controller);

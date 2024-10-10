@@ -1,4 +1,4 @@
-import { userPostDbWrapper } from '@/(server)/client/space/chapter/post/main';
+import { userPostDbWrapper } from '@/(server)/client/post/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForUserPostMain = (objId: string): Controller => {
+export const useControllerForUserPostMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForUserPostMain = (objId: string): Controller => {
   };
 };
 
-const ContextForUserPostMain = createContext({} as Controller);
-export { ContextForUserPostMain, useControllerForUserPostMain };
+export const ContextForUserPostMain = createContext({} as Controller);

@@ -1,4 +1,4 @@
-import { postLinkDbWrapper } from '@/(server)/client/space/chapter/post/link/main';
+import { postLinkDbWrapper } from '@/(server)/client/post/link/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForPostLinkMain = (objId: string): Controller => {
+export const useControllerForPostLinkMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForPostLinkMain = (objId: string): Controller => {
   };
 };
 
-const ContextForPostLinkMain = createContext({} as Controller);
-export { ContextForPostLinkMain, useControllerForPostLinkMain };
+export const ContextForPostLinkMain = createContext({} as Controller);

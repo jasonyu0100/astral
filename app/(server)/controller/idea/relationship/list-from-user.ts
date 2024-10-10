@@ -6,7 +6,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;
@@ -45,7 +45,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForIdeaRelationshipListFromUser = (
+export const useControllerForIdeaRelationshipListFromUser = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -350,8 +350,6 @@ const useControllerForIdeaRelationshipListFromUser = (
   };
 };
 
-const ContextForIdeaRelationshipListFromUser = createContext({} as Controller);
-export {
-  ContextForIdeaRelationshipListFromUser,
-  useControllerForIdeaRelationshipListFromUser,
-};
+export const ContextForIdeaRelationshipListFromUser = createContext(
+  {} as Controller,
+);

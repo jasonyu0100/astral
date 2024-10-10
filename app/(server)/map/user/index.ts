@@ -1,16 +1,10 @@
-import { userBackerDbWrapper } from '@/(server)/client/user/backer/main';
-import { userBackerTermsDbWrapper } from '@/(server)/client/user/backer/terms/main';
 import { userConnectionDbWrapper } from '@/(server)/client/user/connection/main';
-import { userConnectionTermsDbWrapper } from '@/(server)/client/user/connection/terms/main';
 import { userDbWrapper } from '@/(server)/client/user/main';
 import { userReservationDbWrapper } from '@/(server)/client/user/reservation/main';
-import { userBackerModel } from '@/(server)/model/user/backer/main';
-import { userBackerTermsModel } from '@/(server)/model/user/backer/term/main';
 import { userConnectionModel } from '@/(server)/model/user/connection/main';
-import { userConnectionTermsModel } from '@/(server)/model/user/connection/term/main';
+import { userModel } from '@/(server)/model/user/main';
+import { userReservationModel } from '@/(server)/model/user/reservation/main';
 import { userVaultModel } from '@/(server)/model/user/vault/main';
-import { userModel } from '../../(model)/user/main';
-import { userReservationModel } from '../../(model)/user/reservation/main';
 
 export const userMap = {
   model: userModel,
@@ -18,18 +12,6 @@ export const userMap = {
   connection: {
     model: userConnectionModel,
     db: userConnectionDbWrapper,
-    terms: {
-      model: userConnectionTermsModel,
-      db: userConnectionTermsDbWrapper,
-    },
-  },
-  backer: {
-    model: userBackerModel,
-    db: userBackerDbWrapper,
-    terms: {
-      model: userBackerTermsModel,
-      db: userBackerTermsDbWrapper,
-    },
   },
   reservation: {
     model: userReservationModel,

@@ -1,4 +1,4 @@
-import { horizonDbWrapper } from '@/(server)/client/horizon/main';
+import { arcSectionDbWrapper } from '@/(server)/client/horizon/arc/section/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,13 +6,16 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { horizonModel, HorizonObj } from '@/(server)/model/horizon/main';
+import {
+  arcSectionModel,
+  ArcSectionObj,
+} from '@/(server)/model/horizon/arc/section/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = HorizonObj;
-const gqlDbWrapper = horizonDbWrapper;
-const listIdKey = horizonModel.parentKey;
+type TargetObj = ArcSectionObj;
+const gqlDbWrapper = arcSectionDbWrapper;
+const listIdKey = arcSectionModel.parentKey;
+export const ContextForArcSectionList = createContext({} as Controller);
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -46,7 +49,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForHorizonList = (
+export const useControllerForHorizonList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -254,10 +257,12 @@ const useControllerForHorizonList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
+        arcId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
-        category: '',
+        objective: '',
+        summary: '',
+        idx: 0,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -345,6 +350,3 @@ const useControllerForHorizonList = (
     actions: controllerActions,
   };
 };
-
-const ContextForHorizonList = createContext({} as Controller);
-export { ContextForHorizonList, useControllerForHorizonList };

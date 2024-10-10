@@ -59,7 +59,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForPostAttachmentListFromPost = (
+export const useControllerForPostAttachmentListFromPost = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -391,8 +391,6 @@ const useControllerForPostAttachmentListFromPost = (
   };
 };
 
-const ContextForPostAttachmentListFromPost = createContext({} as Controller);
-export {
-  ContextForPostAttachmentListFromPost as ContextForPostAttachmentListFromPost,
-  useControllerForPostAttachmentListFromPost as useControllerForPostAttachmentListFromPost,
-};
+export const ContextForPostAttachmentListFromPost = createContext(
+  {} as Controller,
+);

@@ -50,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForChapterConversationList = (
+export const useControllerForChapterConversationList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -342,8 +342,6 @@ const useControllerForChapterConversationList = (
   };
 };
 
-const ContextForChapterConversationList = createContext({} as Controller);
-export {
-  ContextForChapterConversationList,
-  useControllerForChapterConversationList,
-};
+export const ContextForChapterConversationList = createContext(
+  {} as Controller,
+);

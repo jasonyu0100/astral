@@ -1,4 +1,4 @@
-import { taskMemberDbWrapper } from '@/(server)/client/way/member/main';
+import { taskMemberDbWrapper } from '@/(server)/client/task/member/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForWayMemberList = (
+export const useControllerForWayMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -345,8 +345,4 @@ const useControllerForWayMemberList = (
   };
 };
 
-const ContextForWayMemberList = createContext({} as Controller);
-export {
-  ContextForWayMemberList as ContextForWayMemberList,
-  useControllerForWayMemberList as useControllerForWayMemberList,
-};
+export const ContextForWayMemberList = createContext({} as Controller);

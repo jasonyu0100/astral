@@ -62,7 +62,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForConversationMessageList = (
+export const useControllerForConversationMessageList = (
   initialId: string,
 ): Controller => {
   const [objs, changeObjs] = useState<TargetObj[]>([]);
@@ -401,8 +401,6 @@ const useControllerForConversationMessageList = (
   };
 };
 
-const ContextForConversationMessageList = createContext({} as Controller);
-export {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-};
+export const ContextForConversationMessageList = createContext(
+  {} as Controller,
+);

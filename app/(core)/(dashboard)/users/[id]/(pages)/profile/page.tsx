@@ -1,10 +1,6 @@
 'use client';
 
 import {
-  ContextForUserBackerList,
-  useControllerForUserBackerList,
-} from '@/(server)/controller/user/backer/list';
-import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
 } from '@/(server)/controller/user/connection/list';
@@ -35,9 +31,6 @@ function Page() {
   const profileConnectionListController = useControllerForUserConnectionList(
     profileUser.id,
   );
-  const profilebackerListController = useControllerForUserBackerList(
-    profileUser.id,
-  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -46,15 +39,11 @@ function Page() {
           <ContextForUserConnectionList.Provider
             value={profileConnectionListController}
           >
-            <ContextForUserBackerList.Provider
-              value={profilebackerListController}
-            >
-              <UserProfileModals>
-                <ProfileControllerWrapper>
-                  <UserProfileView />
-                </ProfileControllerWrapper>
-              </UserProfileModals>
-            </ContextForUserBackerList.Provider>
+            <UserProfileModals>
+              <ProfileControllerWrapper>
+                <UserProfileView />
+              </ProfileControllerWrapper>
+            </UserProfileModals>
           </ContextForUserConnectionList.Provider>
         </ContextForUserMain.Provider>
       </ContextForProfileUserObj.Provider>

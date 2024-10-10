@@ -1,4 +1,4 @@
-import { commentKarmaDbWrapper } from '@/(server)/client/space/chapter/post/comment/karma/main';
+import { commentKarmaDbWrapper } from '@/(server)/client/post/comment/karma/main';
 import {
   BaseCreateActions,
   BaseDeleteActions,
@@ -30,12 +30,12 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForCommentKarmaMain = (objId: string): Controller => {
+export const useControllerForCommentKarmaMain = (objId: string): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -112,5 +112,4 @@ const useControllerForCommentKarmaMain = (objId: string): Controller => {
   };
 };
 
-const ContextForCommentKarmaMain = createContext({} as Controller);
-export { ContextForCommentKarmaMain, useControllerForCommentKarmaMain };
+export const ContextForCommentKarmaMain = createContext({} as Controller);

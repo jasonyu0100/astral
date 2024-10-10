@@ -48,7 +48,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceChapterMemberList = (
+export const useControllerForSpaceChapterMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -346,8 +346,4 @@ const useControllerForSpaceChapterMemberList = (
   };
 };
 
-const ContextForSpaceChapterMemberList = createContext({} as Controller);
-export {
-  ContextForSpaceChapterMemberList,
-  useControllerForSpaceChapterMemberList,
-};
+export const ContextForSpaceChapterMemberList = createContext({} as Controller);

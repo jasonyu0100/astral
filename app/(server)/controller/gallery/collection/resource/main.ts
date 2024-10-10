@@ -29,12 +29,14 @@ interface ControllerActions {
   deleteActions: DeleteActions;
 }
 
-export interface Controller {
+interface Controller {
   state: ControllerState;
   actions: ControllerActions;
 }
 
-const useControllerForCollectionResourceMain = (objId: string): Controller => {
+export const useControllerForCollectionResourceMain = (
+  objId: string,
+): Controller => {
   const [obj, changeObj] = useState<TargetObj>({} as TargetObj);
 
   const controllerState: ControllerState = {
@@ -111,8 +113,4 @@ const useControllerForCollectionResourceMain = (objId: string): Controller => {
   };
 };
 
-const ContextForCollectionResourceMain = createContext({} as Controller);
-export {
-  ContextForCollectionResourceMain,
-  useControllerForCollectionResourceMain,
-};
+export const ContextForCollectionResourceMain = createContext({} as Controller);

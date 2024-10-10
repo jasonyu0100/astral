@@ -54,7 +54,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForCommentKarmaList = (
+export const useControllerForCommentKarmaList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -369,5 +369,4 @@ const useControllerForCommentKarmaList = (
   };
 };
 
-const ContextForCommentKarmaList = createContext({} as Controller);
-export { ContextForCommentKarmaList, useControllerForCommentKarmaList };
+export const ContextForCommentKarmaList = createContext({} as Controller);

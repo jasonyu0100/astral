@@ -2,7 +2,6 @@ import {
   ContextForUserConnectionList,
   useControllerForUserConnectionList,
 } from '@/(server)/controller/user/connection/list';
-import { useControllerForUserConnectionTermsList } from '@/(server)/controller/user/connection/terms/list';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
@@ -11,7 +10,6 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import moment from 'moment';
 import { useContext } from 'react';
 
 export function ProfileAboutConnectAction() {
@@ -23,7 +21,6 @@ export function ProfileAboutConnectAction() {
   const userConnectionListController = useControllerForUserConnectionList(
     loggedInUser.id,
   );
-  const termsListController = useControllerForUserConnectionTermsList('');
   const mutualConnected = checkMutualConnected();
 
   // CONNECTION IS LIMITED BY DUNBAR AND IS INITIATED ON A TERMS BASIS
@@ -44,11 +41,6 @@ export function ProfileAboutConnectAction() {
   async function addTwoWayConnection() {
     // PERMISSION NEEDED
     alert('Two Way Connnection');
-    const terms = await termsListController.actions.createActions.createTerms(
-      'Connection terms',
-      '1 year',
-      moment().add(1, 'year').toISOString(),
-    );
     // LOGGED IN CONNECTS WITH PROFILE
     await userConnectionListController.actions.createActions.createConnection(
       loggedInUser.id, // initiator

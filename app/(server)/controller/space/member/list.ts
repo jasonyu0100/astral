@@ -50,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-const useControllerForSpaceMemberList = (
+export const useControllerForSpaceMemberList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -359,5 +359,4 @@ const useControllerForSpaceMemberList = (
   };
 };
 
-const ContextForSpaceMemberList = createContext({} as Controller);
-export { ContextForSpaceMemberList, useControllerForSpaceMemberList };
+export const ContextForSpaceMemberList = createContext({} as Controller);
