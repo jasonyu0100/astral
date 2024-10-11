@@ -1,4 +1,6 @@
 'use client';
+import { cn } from '@/utils/cn';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
 export const stripeProducts = {
@@ -51,7 +53,7 @@ export default function Page() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      {/* <Tabs
+      <Tabs
         defaultValue='yearly'
         className='flex w-full flex-col items-center'
         value={activeTab}
@@ -166,7 +168,7 @@ export default function Page() {
             </div>
           </div>
         </TabsContent>
-      </Tabs> */}
+      </Tabs>
     </div>
   );
 }
