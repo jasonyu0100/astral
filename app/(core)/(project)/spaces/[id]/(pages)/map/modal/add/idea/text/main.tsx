@@ -5,15 +5,9 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormTextArea } from '@/ui/form/area/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesMap } from '../../../../controller/main';
 
@@ -67,43 +61,27 @@ export function SpacesMapAddTextIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Note Element</FormTitle>
-          <FormBody>
-            {/* <FormSelect
-              title='Variant'
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value)}
-            >
-              <option value={TextElemVariant.LINE}>Line</option>
-              <option value={TextElemVariant.STICKY}>Sticky</option>
-              <option value={TextElemVariant.BLOCK}>Block</option>
-              <option value={TextElemVariant.CODE}>Code</option>
-            </FormSelect> */}
-            {/* <FormInput
-              placeholder='Description'
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            /> */}
-            <FormTextArea
-              title='Text'
-              value={text}
+      <CustomisableModal>
+        <div
+          className='flex h-1/2 flex-row items-center space-x-[2rem] p-[2rem]'
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
+          <div className='aspect-square h-full bg-yellow-500 p-[3rem]'>
+            <textarea
+              className='h-full w-full bg-transparent outline-none'
               onChange={(e) => changeText(e.target.value)}
-              rows={10}
             />
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={create}>Add</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+          </div>
+          <div
+            onClick={create}
+            className='flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-blue-500'
+          >
+            <AstralArrowForwardIcon />
+          </div>
+        </div>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }
