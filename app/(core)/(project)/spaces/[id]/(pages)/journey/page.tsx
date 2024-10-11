@@ -11,6 +11,10 @@ import {
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
 import {
+  ContextForSpaceMemberList,
+  useControllerForSpaceMemberList,
+} from '@/(server)/controller/space/member/list';
+import {
   ContextForTaskLinkList,
   useControllerForTaskLinkList,
 } from '@/(server)/controller/way/link/list';
@@ -38,7 +42,10 @@ function Page({ params }: { params: { id: string } }) {
   const logId = searchParams.get('log');
   const chapterId = searchParams.get('chapter');
   const user = useGlobalUser((state) => state.user);
-  const spaceController = useControllerForSpaceMain(params.id);
+  const spaceMainController = useControllerForSpaceMain(params.id);
+  const spaceMemberListController = useControllerForSpaceMemberList(
+    spaceMainController.state.objId,
+  );
   const chapterListController = useControllerForSpaceChapterList(
     params.id,
     chapterId,
@@ -53,24 +60,26 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
-      <ContextForSpaceMain.Provider value={spaceController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForTaskList.Provider value={wayListController}>
-            <ContextForTaskLinkList.Provider value={linkListController}>
-              <UpdateWrapper>
-                <LoadingWrapper>
-                  <ControllerWrapper>
-                    <ModalWrapper>
-                      <ViewWrapper>
-                        <SpacesJourneyView />
-                      </ViewWrapper>
-                    </ModalWrapper>
-                  </ControllerWrapper>
-                </LoadingWrapper>
-              </UpdateWrapper>
-            </ContextForTaskLinkList.Provider>
-          </ContextForTaskList.Provider>
-        </ContextForSpaceChapterList.Provider>
+      <ContextForSpaceMain.Provider value={spaceMainController}>
+        <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForTaskList.Provider value={wayListController}>
+              <ContextForTaskLinkList.Provider value={linkListController}>
+                <UpdateWrapper>
+                  <LoadingWrapper>
+                    <ControllerWrapper>
+                      <ModalWrapper>
+                        <ViewWrapper>
+                          <SpacesJourneyView />
+                        </ViewWrapper>
+                      </ModalWrapper>
+                    </ControllerWrapper>
+                  </LoadingWrapper>
+                </UpdateWrapper>
+              </ContextForTaskLinkList.Provider>
+            </ContextForTaskList.Provider>
+          </ContextForSpaceChapterList.Provider>
+        </ContextForSpaceMemberList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );

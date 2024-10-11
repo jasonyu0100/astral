@@ -42,6 +42,10 @@ import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
+import {
+  ContextForSpaceMemberList,
+  useControllerForSpaceMemberList,
+} from '@/(server)/controller/space/member/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { LoadingWrapper } from '@/ui/loading/controller/main';
@@ -67,6 +71,9 @@ function Page({ params }: { params: { id: string } }) {
   const chapterId = searchParams.get('chapter');
 
   const spaceMainController = useControllerForSpaceMain(params.id);
+  const spaceMemberListController = useControllerForSpaceMemberList(
+    spaceMainController.state.objId,
+  );
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
     chapterId,
@@ -106,45 +113,47 @@ function Page({ params }: { params: { id: string } }) {
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForIdeaSceneList.Provider value={sceneListController}>
-            <ContextForSceneIdeaList.Provider value={ideaListController}>
-              <ContextForGalleryList.Provider value={galleryListController}>
-                <ContextForGalleryCollectionList.Provider
-                  value={collectionListController}
-                >
-                  <ContextForCollectionResourceList.Provider
-                    value={resourceListController}
+        <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+          <ContextForSpaceChapterList.Provider value={chapterListController}>
+            <ContextForIdeaSceneList.Provider value={sceneListController}>
+              <ContextForSceneIdeaList.Provider value={ideaListController}>
+                <ContextForGalleryList.Provider value={galleryListController}>
+                  <ContextForGalleryCollectionList.Provider
+                    value={collectionListController}
                   >
-                    <ContextForChapterConversationList.Provider
-                      value={conversationListController}
+                    <ContextForCollectionResourceList.Provider
+                      value={resourceListController}
                     >
-                      <ContextForConversationMessageList.Provider
-                        value={messageListController}
+                      <ContextForChapterConversationList.Provider
+                        value={conversationListController}
                       >
-                        <ContextForIdeaRelationshipListFromScene.Provider
-                          value={ideaRelationshipListController}
+                        <ContextForConversationMessageList.Provider
+                          value={messageListController}
                         >
-                          <UpdateWrapper>
-                            <LoadingWrapper>
-                              <ControllerWrapper>
-                                <ModalWrapper>
-                                  <ViewWrapper>
-                                    <SpacesMapView />
-                                  </ViewWrapper>
-                                </ModalWrapper>
-                              </ControllerWrapper>
-                            </LoadingWrapper>
-                          </UpdateWrapper>
-                        </ContextForIdeaRelationshipListFromScene.Provider>
-                      </ContextForConversationMessageList.Provider>
-                    </ContextForChapterConversationList.Provider>
-                  </ContextForCollectionResourceList.Provider>
-                </ContextForGalleryCollectionList.Provider>
-              </ContextForGalleryList.Provider>
-            </ContextForSceneIdeaList.Provider>
-          </ContextForIdeaSceneList.Provider>
-        </ContextForSpaceChapterList.Provider>
+                          <ContextForIdeaRelationshipListFromScene.Provider
+                            value={ideaRelationshipListController}
+                          >
+                            <UpdateWrapper>
+                              <LoadingWrapper>
+                                <ControllerWrapper>
+                                  <ModalWrapper>
+                                    <ViewWrapper>
+                                      <SpacesMapView />
+                                    </ViewWrapper>
+                                  </ModalWrapper>
+                                </ControllerWrapper>
+                              </LoadingWrapper>
+                            </UpdateWrapper>
+                          </ContextForIdeaRelationshipListFromScene.Provider>
+                        </ContextForConversationMessageList.Provider>
+                      </ContextForChapterConversationList.Provider>
+                    </ContextForCollectionResourceList.Provider>
+                  </ContextForGalleryCollectionList.Provider>
+                </ContextForGalleryList.Provider>
+              </ContextForSceneIdeaList.Provider>
+            </ContextForIdeaSceneList.Provider>
+          </ContextForSpaceChapterList.Provider>
+        </ContextForSpaceMemberList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
