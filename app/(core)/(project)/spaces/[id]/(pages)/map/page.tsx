@@ -2,7 +2,6 @@
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
   ContextForChapterConversationList,
   useControllerForChapterConversationList,
@@ -49,7 +48,8 @@ import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
-import { SpaceTabs, SpaceTabStage } from '../../tabs/main';
+import { SpaceSidebar } from '../../../sidebar/main';
+import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
   ContextForSpacesMapChat,
   useControllerForSpacesMapChat,
@@ -206,7 +206,7 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
     <DashboardController fullHeight>
-      <CommonSidebar minimised />
+      <SpaceSidebar />
       <DashboardContent>
         <SpaceTabs tab={SpaceTabStage.Map} />
         <DashboardBody>{children}</DashboardBody>

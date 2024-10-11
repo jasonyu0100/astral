@@ -2,7 +2,6 @@
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import {
   ContextForChapterConversationList,
   useControllerForChapterConversationList,
@@ -16,13 +15,13 @@ import {
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
 import {
-  ContextForSpaceChapterMemberList,
-  useControllerForSpaceChapterMemberList,
-} from '@/(server)/controller/space/chapter/member/list';
-import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
 } from '@/(server)/controller/space/main';
+import {
+  ContextForSpaceMemberList,
+  useControllerForSpaceMemberList,
+} from '@/(server)/controller/space/member/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -30,7 +29,8 @@ import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
-import { SpaceTabs, SpaceTabStage } from '../../tabs/main';
+import { SpaceSidebar } from '../../../sidebar/main';
+import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
   ContextForSpacesSpace,
   useControllerForSpacesSpace,
@@ -46,12 +46,12 @@ function Page({ params }: { params: { id: string } }) {
 
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
+  const spaceMemberListController = useControllerForSpaceMemberList(
+    spaceMainController.state.objId,
+  );
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
     chapterId,
-  );
-  const chapterMemberListController = useControllerForSpaceChapterMemberList(
-    chapterListController.state.objId,
   );
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
@@ -70,9 +70,7 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForSpaceChapterMemberList.Provider
-            value={chapterMemberListController}
-          >
+          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
             <ContextForChapterConversationList.Provider
               value={conversationListController}
             >
@@ -92,7 +90,7 @@ function Page({ params }: { params: { id: string } }) {
                 </UpdateWrapper>
               </ContextForConversationMessageList.Provider>
             </ContextForChapterConversationList.Provider>
-          </ContextForSpaceChapterMemberList.Provider>
+          </ContextForSpaceMemberList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
@@ -146,7 +144,7 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
     <DashboardController fullHeight>
-      <CommonSidebar minimised />
+      <SpaceSidebar />
       <DashboardContent>
         <SpaceTabs tab={SpaceTabStage.Space} />
         <DashboardBody>{children}</DashboardBody>

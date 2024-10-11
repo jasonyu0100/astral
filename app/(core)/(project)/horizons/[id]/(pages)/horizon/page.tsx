@@ -3,10 +3,9 @@
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
 import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
-import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
-import { CommonSidebar } from '@/(core)/common/(sidebar)/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { HorizonTabs, HorizonTabStage } from '../../(tabs)/main';
+import { HorizonSidebar } from '../../../sidebar/main';
+import { HorizonTabs, HorizonTabStage } from '../../../tabs/main';
 import { HorizonsHorizonModals } from './modals/controller/main';
 import { HorizonHorizonView } from './view/main';
 import { HorizonsHorizonCore } from './view/main/main';
@@ -27,7 +26,7 @@ function ViewWrapper({ children }: { children?: React.ReactNode }) {
   return (
     <HorizonsHorizonModals>
       <DashboardController fullHeight>
-        <CommonSidebar minimised backUrl={explorerMap.explorer.projects.link} />
+        <HorizonSidebar />
         <DashboardBody>
           <HorizonTabs tab={HorizonTabStage.Horizon} />
           <DashboardContent>{children}</DashboardContent>

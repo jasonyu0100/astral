@@ -5,7 +5,6 @@ import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
 import { CommonSidebarDefault } from './default/main';
-import { CommonSidebarMinimised } from './minimised/main';
 import { CommonSidebarModals } from './modals/controller/main';
 
 export interface ContextForCommonSidebar {
@@ -41,8 +40,7 @@ export function CommonSidebar({
           }}
         >
           <CommonSidebarModals>
-            {minimised && <CommonSidebarMinimised />}
-            {!minimised && <CommonSidebarDefault />}
+            <CommonSidebarDefault />
           </CommonSidebarModals>
         </ContextForCommonSidebar.Provider>
       </ContextForCurrentSpaceObj.Provider>

@@ -7,8 +7,8 @@ import { ContextForCreateSpace } from '../../../../(controller)/create-space/mai
 import { CreateSpaceCollaboratorRow } from './row/main';
 
 export function CreateSpaceCollaboratorList() {
-  const { pageOne } = useContext(ContextForCreateSpace);
-  const { memberIds, updateMemberIds } = pageOne;
+  const { pageThree } = useContext(ContextForCreateSpace);
+  const { memberIds, updateMemberIds } = pageThree;
   const connectListController = useContext(
     ContextForUserConnectionListFromSource,
   );
