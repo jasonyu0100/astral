@@ -4,7 +4,7 @@ import {
   SpaceThumbnailElement,
   SpaceThumbnailVariant,
 } from '@/ui/cover/space/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpaceInfoThumbnail() {
@@ -18,7 +18,7 @@ export function SpaceInfoThumbnail() {
       <SpaceThumbnailElement
         variant={SpaceThumbnailVariant.EVENT_HORIZON}
         fileElem={space?.thumbnail}
-        className={ctwn({
+        className={cn({
           'animate-spin': hoverableController.hovered,
         })}
       />

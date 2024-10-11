@@ -5,7 +5,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesJourneyLogTableItemNumber() {
@@ -24,7 +24,7 @@ export function SpacesJourneyLogTableItemNumber() {
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents
-          className={ctwn('flex items-center justify-center', {
+          className={cn('flex items-center justify-center', {
             'bg-blue-500': selected,
           })}
           onClick={() => {

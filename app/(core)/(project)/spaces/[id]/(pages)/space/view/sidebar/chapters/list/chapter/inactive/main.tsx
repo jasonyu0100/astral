@@ -3,7 +3,7 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { borderFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceInactiveMain() {
@@ -22,7 +22,7 @@ export function SpacesSpaceInactiveMain() {
         }
       >
         <p
-          className={ctwn(
+          className={cn(
             'whitespace-nowrap font-extraBold text-xl text-slate-400',
           )}
         >

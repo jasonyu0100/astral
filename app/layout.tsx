@@ -1,6 +1,6 @@
 import { fontVariables } from './fonts';
 import './globals.css';
-import { ctwn } from './utils/cn';
+import { cn } from './utils/cn';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
@@ -11,7 +11,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       <head>
         <meta name='referrer' content='origin' />
       </head>
-      <body className={ctwn('bg-slate-950', [...fontVariables])}>
+      <body className={cn('bg-slate-950', [...fontVariables])}>
         <main>{!isMaintenanceMode && <>{children}</>}</main>
       </body>
     </html>

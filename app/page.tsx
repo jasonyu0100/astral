@@ -13,7 +13,7 @@ import {
   AccordionContent,
   AccordionTrigger,
 } from './ui/radix/accordion/main';
-import { ctwn } from './utils/cn';
+import { cn } from './utils/cn';
 
 const Header = () => (
   <header className='flex w-full flex-col items-center justify-between space-y-4 p-4 sm:flex-row sm:space-y-0 sm:p-0'>
@@ -320,7 +320,7 @@ function MembershipSection() {
   const ready = false;
 
   return (
-    <section className={ctwn('py-12', { hidden: ready })}>
+    <section className={cn('py-12', { hidden: ready })}>
       <div className='container mx-auto text-center'>
         <h2 className='mb-6 text-3xl font-bold'>Member Plans</h2>
         <div className='flex w-full flex-col items-center'>

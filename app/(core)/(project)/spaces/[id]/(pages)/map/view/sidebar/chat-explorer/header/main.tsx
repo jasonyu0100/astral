@@ -2,7 +2,7 @@ import { ContextForChapterConversationList } from '@/(server)/controller/convers
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesMapChatExplorerHeader() {
@@ -21,7 +21,7 @@ export function SpacesMapChatExplorerHeader() {
                 conversationListController.actions.stateActions.goPrev();
               }
             }}
-            className={ctwn('fill-slate-300', {
+            className={cn('fill-slate-300', {
               'fill-slate-500': conversationListController.state.index === 0,
             })}
           />
@@ -44,7 +44,7 @@ export function SpacesMapChatExplorerHeader() {
                 conversationListController.actions.stateActions.goNext();
               }
             }}
-            className={ctwn('fill-slate-300', {
+            className={cn('fill-slate-300', {
               'fill-slate-500':
                 conversationListController.state.index ===
                 conversationListController.state.objs.length - 1,

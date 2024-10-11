@@ -5,7 +5,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesMapIdeaIndicator() {
@@ -22,7 +22,7 @@ export function SpacesMapIdeaIndicator() {
         roundedFx={roundedFx['rounded-full']}
       >
         <GlassWindowContents
-          className={ctwn('flex items-center justify-center rounded-full', {
+          className={cn('flex items-center justify-center rounded-full', {
             'animate-pulse-slow bg-blue-500':
               checkContainsSelectedIdea(ideaObj),
           })}

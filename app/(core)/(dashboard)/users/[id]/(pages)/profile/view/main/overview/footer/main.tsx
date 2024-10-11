@@ -1,4 +1,4 @@
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForProfile, ProfilePage } from '../controller/main';
 
@@ -15,7 +15,7 @@ export function UserProfileFooter() {
           {ProfilePage.Spaces}
         </p>
         <div
-          className={ctwn(
+          className={cn(
             `h-[3px] w-full animate-pulse-slow bg-transparent bg-opacity-30`,
             {
               'bg-slate-300':
@@ -34,7 +34,7 @@ export function UserProfileFooter() {
           {ProfilePage.Highlights}
         </p>
         <div
-          className={ctwn(
+          className={cn(
             `h-[3px] w-full animate-pulse-slow bg-transparent bg-opacity-30`,
             {
               'bg-slate-300':

@@ -1,7 +1,7 @@
 import { DivInputProps } from '@/props/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 
 interface InputProps extends DivInputProps {
   onClick?: () => void;
@@ -10,7 +10,7 @@ interface InputProps extends DivInputProps {
 
 export function ResourceContainer({ children, onClick, ...props }: InputProps) {
   return (
-    <GlassWindowFrame className={ctwn(`aspect-square w-full`, props.className)}>
+    <GlassWindowFrame className={cn(`aspect-square w-full`, props.className)}>
       <GlassWindowContents
         onClick={onClick}
         className={`flex w-full cursor-pointer flex-col items-center justify-center`}

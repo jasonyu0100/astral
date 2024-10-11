@@ -1,4 +1,4 @@
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 
 export function ModalOverlay({
   children,
@@ -12,7 +12,7 @@ export function ModalOverlay({
   return (
     <div
       id='ModalOverlay'
-      className={ctwn(
+      className={cn(
         'fixed inset-0 z-40 flex h-screen w-screen items-center justify-center',
         {
           hidden: !isOpen,

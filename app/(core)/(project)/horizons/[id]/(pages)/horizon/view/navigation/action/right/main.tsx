@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { WrapperTooltip } from '@/ui/tooltip/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function NavigationTimelineGoRightAction() {
@@ -14,7 +14,7 @@ export function NavigationTimelineGoRightAction() {
         onClick={() => chapterListController.actions.stateActions.goNext()}
       >
         <AstralChevronRightIcon
-          className={ctwn('h-[3rem] w-[3rem] fill-slate-300', {
+          className={cn('h-[3rem] w-[3rem] fill-slate-300', {
             'fill-slate-500':
               chapterListController.state.index ===
               chapterListController.state.objs.length - 1,

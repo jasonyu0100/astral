@@ -5,7 +5,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceChatConversationHeader() {
@@ -31,7 +31,7 @@ export function SpacesSpaceChatConversationHeader() {
               roundedFx={roundedFx['rounded-full']}
             >
               <GlassWindowContents
-                className={ctwn(
+                className={cn(
                   'flex cursor-pointer flex-col items-center justify-center space-y-[1rem]',
                   {
                     'bg-blue-500': conversation.id === conversationObj?.id,

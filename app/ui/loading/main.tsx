@@ -1,5 +1,5 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function LoadingOverlay() {
@@ -7,7 +7,7 @@ export function LoadingOverlay() {
   const isOpen = openableController.opened;
   return (
     <div
-      className={ctwn(
+      className={cn(
         'fixed inset-0 z-50 flex h-full w-full items-center justify-center',
         {
           hidden: !isOpen,

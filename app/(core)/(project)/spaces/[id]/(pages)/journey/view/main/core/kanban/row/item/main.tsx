@@ -4,7 +4,7 @@ import { glassFx } from '@/style/glass/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForSpacesJourney } from '../../../../../../controller/main';
@@ -18,7 +18,7 @@ export function SpaceJourneyListItem() {
   return (
     <GlassWindowFrame className='aspect-video h-full bg-yellow-500 p-[0.5rem]'>
       <GlassWindowContents
-        className={ctwn(
+        className={cn(
           'flex h-full w-full cursor-pointer flex-col space-y-[0.5rem] overflow-auto',
         )}
         onClick={() => {

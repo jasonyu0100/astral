@@ -1,7 +1,7 @@
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
 import { BarDividerIndicator } from '@/ui/indicator/bar/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesFlight,
@@ -20,7 +20,7 @@ export function SpacesFlightHeaderLeft() {
     <>
       <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
         <AstralSidebarRightIcon
-          className={ctwn({
+          className={cn({
             'rotate-180 transform':
               sidebarVisibility === SpacesFlightSidebarVisibility.CLOSED,
           })}

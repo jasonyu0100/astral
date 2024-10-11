@@ -1,5 +1,5 @@
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,
@@ -15,7 +15,7 @@ export function SpacesMapChat() {
   return (
     <div className='absolute bottom-[2rem] left-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
       <AstralChatIndicatorIcon
-        className={ctwn(
+        className={cn(
           'h-[2rem] w-[2rem] animate-pulse-slow cursor-pointer fill-slate-500',
           {
             'fill-slate-300':

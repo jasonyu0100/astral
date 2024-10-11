@@ -1,11 +1,11 @@
 import { SvgInputProps } from '@/props/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 
 export function AstralSettingsIcon({ ...props }: SvgInputProps) {
   return (
     <svg
       {...props}
-      className={ctwn(
+      className={cn(
         'h-[1.5rem] w-[1.5rem] cursor-pointer fill-slate-300',
         props.className,
       )}

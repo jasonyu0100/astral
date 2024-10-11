@@ -2,7 +2,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesJourney,
@@ -27,7 +27,7 @@ export function SpacesJourneySidebarHeader() {
             onClick={() => updateSidebarMode(SpacesJourneySidebarMode.LINKS)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={cn('font-bold text-slate-500', {
                 'text-slate-300':
                   sidebarMode === SpacesJourneySidebarMode.LINKS,
               })}
@@ -50,7 +50,7 @@ export function SpacesJourneySidebarHeader() {
             onClick={() => updateSidebarMode(SpacesJourneySidebarMode.NOTES)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={cn('font-bold text-slate-500', {
                 'text-slate-300':
                   sidebarMode === SpacesJourneySidebarMode.NOTES,
               })}

@@ -6,7 +6,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { ctwn } from '@/utils/cn';
+import { cn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesFlightRowElement() {
@@ -20,7 +20,7 @@ export function SpacesFlightRowElement() {
 
   return (
     <GlassWindowFrame
-      className={ctwn('z-10 h-[3.5rem] max-w-[300px]', {
+      className={cn('z-10 h-[3.5rem] max-w-[300px]', {
         'animate-pulse-slow': active,
       })}
       roundedFx={roundedFx['rounded-full']}

@@ -21,7 +21,7 @@ export function UserProfileAboutConnections() {
   const profileFollowing = fromSourceConnectionListController.state.objs;
 
   return (
-    <div className='flex w-full flex-row items-center justify-center justify-between space-x-[1rem]'>
+    <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
       <p
         className='cursor-pointer text-lg font-bold text-white'
         onClick={() => {
