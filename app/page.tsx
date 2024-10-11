@@ -43,7 +43,7 @@ const Header = () => (
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>
-      <a href='/register' className='text-sm font-bold text-white sm:text-lg'>
+      <a href='/reserve' className='text-sm font-bold text-white sm:text-lg'>
         Signup
       </a>
       <a
@@ -70,7 +70,7 @@ const HeroSection = () => (
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
-          href='/register'
+          href='/reserve'
           className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-4 sm:h-[5rem] sm:px-[1rem]'
         >
           <span className='text-xl font-bold text-slate-300'>Start now</span>
@@ -305,7 +305,7 @@ const Map = () => {
 const FooterCTA = () => (
   <footer className='flex w-full items-center justify-center py-8'>
     <a
-      href='/register'
+      href='/reserve'
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
