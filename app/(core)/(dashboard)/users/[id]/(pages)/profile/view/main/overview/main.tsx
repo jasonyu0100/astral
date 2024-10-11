@@ -1,5 +1,5 @@
 import { ContextForProfile, useControllerForProfile } from './controller/main';
-import { UserProfileFooter } from './header/main';
+import { UserProfileFooter } from './footer/main';
 import { UserProfileOverviewPages } from './main/main';
 
 export function UserProfileOverviewMain() {

@@ -10,10 +10,10 @@ export function UserProfileOverviewPages() {
     <div className='w-full p-[2rem]' style={{ height: 'calc(100% - 4rem)' }}>
       <div className='h-full w-full overflow-auto pr-[2rem]'>
         <div className='flex w-full flex-col'>
-          {profileController.state.page === ProfilePage.Overview && (
+          {profileController.state.page === ProfilePage.Spaces && (
             <UserProfileOverviewYour />
           )}
-          {profileController.state.page === ProfilePage.Storyline && (
+          {profileController.state.page === ProfilePage.Highlights && (
             <UserProfileOverviewSpaces />
           )}
         </div>
