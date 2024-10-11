@@ -60,7 +60,7 @@ export function SpacesJourneyHeaderLeft() {
         })}
       />
       <BarDividerIndicator />
-      <AstralAddIcon onClick={() => modalController.addLogController.open()} />
+      <AstralAddIcon onClick={() => modalController.addTaskController.open()} />
     </div>
   );
 }

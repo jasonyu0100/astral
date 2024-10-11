@@ -152,7 +152,7 @@ export function SpacesMapGenerateLog() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Way</FormTitle>
+          <FormTitle>Genereate Task</FormTitle>
           <FormBody>
             <FormInput
               value={title}

@@ -2,19 +2,14 @@ import { useControllerForUserActivityListFromChapter } from '@/(server)/controll
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { FormTextArea } from '@/ui/form/area/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
-export function SpacesJourneyAddLogModal() {
+export function SpacesJourneyAddTaskModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
@@ -44,27 +39,28 @@ export function SpacesJourneyAddLogModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Create Way</FormTitle>
-          <FormBody>
-            <FormInput
-              value={title}
+      <CustomisableModal>
+        <CustomisableModalHalfContents>
+          <div className='aspect-square h-full space-y-[2rem] bg-yellow-500 p-[3rem]'>
+            <input
+              placeholder='Enter title here...'
+              className='w-full bg-transparent outline-none placeholder:text-slate-800'
               onChange={(e) => setTitle(e.target.value)}
-              title='Title'
             />
-            <FormTextArea
-              value={description}
+            <textarea
+              placeholder='Enter description here...'
+              className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
               onChange={(e) => setDescription(e.target.value)}
-              title='Description'
-              rows={8}
             />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createLog}>Next</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+          </div>
+          <div
+            onClick={createLog}
+            className='flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-blue-500'
+          >
+            <AstralArrowForwardIcon />
+          </div>
+        </CustomisableModalHalfContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

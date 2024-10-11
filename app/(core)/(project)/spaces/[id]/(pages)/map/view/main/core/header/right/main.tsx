@@ -24,7 +24,7 @@ export function SpacesMapHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Create Way ({selectedIdeas.length})
+            Create Task ({selectedIdeas.length})
           </p>
           <AstralArrowForwardIcon />
         </button>

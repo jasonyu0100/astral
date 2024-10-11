@@ -6,8 +6,8 @@ import {
 import { createContext } from 'react';
 import { SpacesJourneyAddFileLinkModal } from '../add/link/file/main';
 import { SpacesJourneyAddTextLinkModal } from '../add/link/text/main';
-import { SpacesJourneyAddLogModal } from '../add/log/main';
 import { SpacesJourneyAddSceneModal } from '../add/scene/main';
+import { SpacesJourneyAddTaskModal } from '../add/task/main';
 import { SpacesJourneyPostModal } from '../generate/main';
 
 export const ContextForSpacesJourneyModals = createContext(
@@ -20,7 +20,7 @@ export interface SpacesJourneyModals {
   addPostController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
-  addLogController: ContextForOpenableInterface;
+  addTaskController: ContextForOpenableInterface;
 }
 
 export function SpacesJourneyModals({
@@ -33,7 +33,7 @@ export function SpacesJourneyModals({
   const addPostController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
-  const addLogController = useControllerForOpenable();
+  const addTaskController = useControllerForOpenable();
 
   return (
     <ContextForSpacesJourneyModals.Provider
@@ -43,7 +43,7 @@ export function SpacesJourneyModals({
         addPostController: addPostController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
-        addLogController: addLogController,
+        addTaskController: addTaskController,
       }}
     >
       {children}
@@ -59,8 +59,8 @@ export function SpacesJourneyModals({
       <ContextForOpenable.Provider value={addFileLinkController}>
         <SpacesJourneyAddFileLinkModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addLogController}>
-        <SpacesJourneyAddLogModal />
+      <ContextForOpenable.Provider value={addTaskController}>
+        <SpacesJourneyAddTaskModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesJourneyModals.Provider>
   );

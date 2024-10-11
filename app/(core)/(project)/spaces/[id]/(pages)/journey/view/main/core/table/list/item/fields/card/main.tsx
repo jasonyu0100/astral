@@ -1,4 +1,5 @@
 import { ContextForSpacesJourney } from '@/(core)/(project)/spaces/[id]/(pages)/journey/controller/main';
+import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { ContextForTaskObj } from '@/(server)/model/task/main';
 import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
@@ -11,6 +12,7 @@ export function SpacesJourneyLogTableItemCard() {
   const task = useContext(ContextForTaskObj);
   const journeyController = useContext(ContextForSpacesJourney);
   const selected = journeyController.state.selectedLogs.includes(task);
+  const taskListController = useContext(ContextForTaskList);
 
   return (
     <GlassWindowFrame className='col-span-3 aspect-video w-full overflow-auto bg-yellow-500 p-[1rem]'>
@@ -20,10 +22,25 @@ export function SpacesJourneyLogTableItemCard() {
           {getFormattedDate(new Date(task.created))}
         </p>
         <br />
-        <p className='w-full text-xl font-bold '>{task.title || 'Untitled'}</p>
-        <p className='font-md w-full text-lg '>
-          {task.description || 'No description'}
-        </p>
+        <input
+          className='w-full bg-transparent text-xl font-bold outline-none placeholder:text-slate-800'
+          defaultValue={task.title || 'Untitled'}
+          onBlur={(e) =>
+            taskListController.actions.editActions.edit(task.id, {
+              title: e.target.value,
+            })
+          }
+        />
+        <textarea
+          defaultValue={task.description || ''}
+          placeholder='Enter text here...'
+          className='font-md w-full bg-transparent text-lg outline-none placeholder:text-slate-800'
+          onBlur={(e) =>
+            taskListController.actions.editActions.edit(task.id, {
+              description: e.target.value,
+            })
+          }
+        />
       </GlassWindowContents>
       {selected ? (
         <GlassWindowPane glassFx={glassFx['glass-20']} />
