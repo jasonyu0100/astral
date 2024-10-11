@@ -5,14 +5,10 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddUrlIdeaModal() {
@@ -129,79 +125,54 @@ export function SpacesMapAddUrlIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Url Element</FormTitle>
-          <FormBody>
-            {/* <FormSelect
-              title='Variant'
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value)}
-            >
-              <option value={UrlElemVariant.YOUTUBE}>YouTube</option>
-              <option value={UrlElemVariant.SPOTIFY}>Spotify</option>
-            </FormSelect> */}
-            {/* <FormInput
-              placeholder='Description'
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            /> */}
-            {variant === UrlElemVariant.YOUTUBE && (
-              <>
-                <FormInput
-                  placeholder='https://www.youtube.com/watch?v=EcomZGuMZis'
-                  title='Url'
-                  value={youtubeId}
-                  onChange={(e) =>
-                    changeYoutubeId(extractVideoId(e.target.value))
-                  }
-                />
-                {youtubeId && (
-                  <div className='max-h-[400px] w-full'>
-                    <iframe
-                      onDrag={(e) => e.stopPropagation()}
-                      style={{ width: '100%', height: '400px' }}
-                      src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
-                      title='YouTube video player'
-                    />
-                  </div>
-                )}
-              </>
-            )}
-            {variant === UrlElemVariant.SPOTIFY && (
-              <>
-                <FormInput
-                  placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
-                  title='Url'
-                  value={spotifyId}
-                  onChange={(e) =>
-                    changeSpotifyId(extractSpotifyTrackId(e.target.value))
-                  }
-                />
-                {spotifyId && (
-                  <div className='max-h-[400px] w-full'>
-                    <iframe
-                      src={`https://open.spotify.com/embed/track/${spotifyId}`}
-                      style={{ width: '100%', height: '400px' }}
-                      allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                      loading='lazy'
-                    />
-                  </div>
-                )}
-              </>
-            )}
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
+      <CustomisableModal>
+        <CustomisableModalHalfContents>
+          <div className='flex flex-col space-y-[2rem]'>
+            <div className='h-[400px] w-[500px]'>
+              <iframe
+                onDrag={(e) => e.stopPropagation()}
+                style={{ width: '100%', height: '100%' }}
+                src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
+                title='YouTube video player'
+              />
+            </div>
+            <input
+              placeholder='Enter a youtube url'
+              className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent outline-none'
+              onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createIdea}>Add</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+          </div>
+          <div
+            onClick={createIdea}
+            className='flex h-[5rem] w-[5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
+          >
+            <AstralArrowForwardIcon />
+          </div>
+        </CustomisableModalHalfContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }
+
+// {variant === UrlElemVariant.SPOTIFY && (
+//   <>
+//     <FormInput
+//       placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
+//       title='Url'
+//       value={spotifyId}
+//       onChange={(e) =>
+//         changeSpotifyId(extractSpotifyTrackId(e.target.value))
+//       }
+//     />
+//     {spotifyId && (
+//       <div className='max-h-[400px] w-full'>
+//         <iframe
+//           src={`https://open.spotify.com/embed/track/${spotifyId}`}
+//           style={{ width: '100%', height: '400px' }}
+//           allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+//           loading='lazy'
+//         />
+//       </div>
+//     )}
+//   </>
+// )}
