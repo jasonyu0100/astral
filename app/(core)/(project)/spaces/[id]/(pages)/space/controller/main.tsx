@@ -21,7 +21,7 @@ interface ControllerState {
 }
 
 interface ControllerActions {
-  sendMessage: () => Promise<ConversationMessageObj>;
+  triggerMessageSendToConversation: () => Promise<ConversationMessageObj>;
   updateRole: (role: ConversationRole) => void;
   summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
@@ -52,9 +52,8 @@ export function useControllerForSpacesSpace() {
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
-  const [role, setRole] = useState<ConversationRole>(
-    ConversationRole.Questioner,
-  );
+
+  const [role, setRole] = useState<ConversationRole>(ConversationRole.Channel);
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesSpaceSidebarVisibility>(SpacesSpaceSidebarVisibility.OPEN);
 
@@ -73,13 +72,17 @@ export function useControllerForSpacesSpace() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation: ConversationObj) {
-    const current = new Date();
-    const conversationCreated = new Date(conversation.created);
-    const diff = current.getTime() - conversationCreated.getTime();
-    const conversationDuration = 24 * 60 * 7; // a weekabsolute right-[0px] flex h-full w-[6rem] items-center justify-center
-    const diffInMinutes = diff / (1000 * 60);
-    return diffInMinutes < conversationDuration;
+  function checkConversationStatus(conversation?: ConversationObj) {
+    if (conversation === undefined) {
+      return false;
+    } else {
+      const current = new Date();
+      const conversationCreated = new Date(conversation.created);
+      const diff = current.getTime() - conversationCreated.getTime();
+      const conversationDuration = 24 * 60 * 7; // a weekabsolute right-[0px] flex h-full w-[6rem] items-center justify-center
+      const diffInMinutes = diff / (1000 * 60);
+      return diffInMinutes < conversationDuration;
+    }
   }
 
   async function createNewConversation() {
@@ -100,7 +103,7 @@ export function useControllerForSpacesSpace() {
   async function sendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.chapterId,
+      conversation.chapterId || '',
       conversation.id,
     );
   }
@@ -132,7 +135,7 @@ export function useControllerForSpacesSpace() {
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.chapterId,
+      conversation.chapterId || '',
       conversation.id,
       message,
     );
@@ -194,53 +197,41 @@ Ensure the response follows the exact structure and format shown above, with pro
     return newConversation;
   }
 
-  async function sendMessage() {
+  async function sendAndReceiveMessage(conversation: ConversationObj) {
+    const newUserMessage = await sendUserMessage(conversation);
+    let messages = [];
+    if (role !== ConversationRole.Channel) {
+      const agentResponse = await generateAgentResponse(newUserMessage, role);
+      const newAgentMessage = await sendAgentMessage(
+        'astral',
+        agentResponse,
+        conversation,
+      );
+      messages = [
+        ...messageListController.state.objs,
+        newUserMessage,
+        newAgentMessage,
+      ];
+    } else {
+      messages = [...messageListController.state.objs, newUserMessage];
+    }
+    return messages;
+  }
+
+  async function triggerMessageSendToConversation() {
     const conversation = conversationListController.state.currentObj;
-    if (conversation !== undefined) {
-      const conversationStatus = checkConversationStatus(conversation);
-      if (conversationStatus) {
-        const newUserMessage = await sendUserMessage(conversation);
-        const agentResponse = await generateAgentResponse(newUserMessage, role);
-        const newAgentMessage = await sendAgentMessage(
-          'astral',
-          agentResponse,
-          conversation,
-        );
-
-        const messages = [
-          ...messageListController.state.objs,
-          newUserMessage,
-          newAgentMessage,
-        ];
-
-        await summariseConversation(messages, conversation);
-        return newAgentMessage;
-      } else {
-        alert('Your conversation is older then a week. Starting a new one');
-      }
+    const conversationStatus = checkConversationStatus(conversation);
+    let messages = [];
+    if (conversation !== undefined && conversationStatus) {
+      messages = await sendAndReceiveMessage(conversation);
+    } else {
+      alert('Your conversation is older then a week. Starting a new one');
+      const newConversation = await createNewConversation();
+      messages = await sendAndReceiveMessage(newConversation);
+      await summariseConversation(messages, newConversation);
     }
 
-    const newConversation = await createNewConversation();
-    const newUserMessage = await sendUserMessage(newConversation);
-    const agentResponse = await generateAgentResponse(
-      newUserMessage,
-      role as ConversationRole,
-    );
-    const newAgentMessage = await sendAgentMessage(
-      'astral',
-      agentResponse,
-      newConversation,
-    );
-
-    const messages = [
-      ...messageListController.state.objs,
-      newUserMessage,
-      newAgentMessage,
-    ];
-
-    await summariseConversation(messages, newConversation);
-
-    return newAgentMessage;
+    return messages;
   }
 
   return {
@@ -250,7 +241,7 @@ Ensure the response follows the exact structure and format shown above, with pro
     },
     actions: {
       summariseConversationIntoNotes,
-      sendMessage,
+      triggerMessageSendToConversation,
       updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => {
         setSidebarVisibility(visibility);
       },

@@ -1,4 +1,5 @@
 import { AstralAddIcon } from './add/main';
+import { AstralAlbumIcon } from './album/main';
 import { AstralArrowBackIcon } from './arrow-back/main';
 import { AstralArrowCircleLeftIcon } from './arrow-circle-left/main';
 import { AstralArrowCircleRightIcon } from './arrow-circle-right/main';
@@ -59,6 +60,7 @@ import { AstralVoiceIcon } from './voice/main';
 export default function Page() {
   return (
     <div className='grid w-full grid-cols-8 gap-[1rem] p-[4rem]'>
+      <AstralAlbumIcon />
       <AstralAddIcon />
       <AstralFileIcon />
       <AstralSendIcon />

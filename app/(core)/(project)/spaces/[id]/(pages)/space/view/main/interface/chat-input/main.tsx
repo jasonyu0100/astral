@@ -10,12 +10,12 @@ export function SpacesSpaceInputText() {
   const messageListController = useContext(ContextForConversationMessageList);
 
   const {
-    actions: { sendMessage },
+    actions: { triggerMessageSendToConversation },
   } = useContext(ContextForSpacesSpace);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      sendMessage();
+      triggerMessageSendToConversation();
     }
   };
 
