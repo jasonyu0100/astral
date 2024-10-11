@@ -18,9 +18,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const ContextForCollaborators = createContext({} as Controller);
+export const ContextForConnections = createContext({} as Controller);
 
-export function useControllerForCollaborators(): Controller {
+export function useControllerForConnections(): Controller {
   const [page, setPage] = useState(ConnectionsPage.Following);
 
   return {

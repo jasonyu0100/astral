@@ -11,7 +11,7 @@ import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserConnectionObj;
 const gqlDbWrapper = userConnectionDbWrapper;
-const listIdKey = 'destinationId';
+const listIdKey = 'sourceId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -50,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForUserConnectionListFromFollower = (
+export const useControllerForUserConnectionListFromSource = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -359,6 +359,6 @@ export const useControllerForUserConnectionListFromFollower = (
   };
 };
 
-export const ContextForUserConnectionListFromFollower = createContext(
+export const ContextForUserConnectionListFromSource = createContext(
   {} as Controller,
 );

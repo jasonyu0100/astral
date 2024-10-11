@@ -1,19 +1,19 @@
 import {
-  ContextForCollaborators,
-  useControllerForCollaborators,
+  ContextForConnections,
+  useControllerForConnections,
 } from './controller/main';
 import { UserProfileCollaboratorsFooter } from './footer/main';
 import { UserProfileCollaboratorsHeader } from './header/main';
 import { UserProfileCollaboratorsTable } from './table/main';
 
-export function UserProfileCollaboratorsMain() {
-  const collaboratorController = useControllerForCollaborators();
+export function UserProfileConnectionsMain() {
+  const collaboratorController = useControllerForConnections();
 
   return (
-    <ContextForCollaborators.Provider value={collaboratorController}>
+    <ContextForConnections.Provider value={collaboratorController}>
       <UserProfileCollaboratorsHeader />
       <UserProfileCollaboratorsTable />
       <UserProfileCollaboratorsFooter />
-    </ContextForCollaborators.Provider>
+    </ContextForConnections.Provider>
   );
 }

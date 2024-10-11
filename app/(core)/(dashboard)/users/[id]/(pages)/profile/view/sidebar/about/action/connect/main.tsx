@@ -1,7 +1,5 @@
-import {
-  ContextForUserConnectionListFromFollowing,
-  useControllerForUserConnectionListFromFollowing,
-} from '@/(server)/controller/user/connection/list-from-following';
+import { ContextForUserConnectionListFromDestination } from '@/(server)/controller/user/connection/list-from-destination';
+import { ContextForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
@@ -10,65 +8,72 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+export enum ConnectionStatus {
+  FOLLOWING = 'FOLLOWING',
+  FOLLOWER = 'FOLLOWER',
+  MUTUAL = 'MUTUAL',
+  FOLLOW = 'FOLLOW',
+}
 
 export function ProfileAboutConnectAction() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const profileUser = useContext(ContextForProfileUserObj);
-  const profileConnectionListController = useContext(
-    ContextForUserConnectionListFromFollowing,
+  const fromSourceFollowingController = useContext(
+    ContextForUserConnectionListFromSource,
   );
-  const userConnectionListController =
-    useControllerForUserConnectionListFromFollowing(loggedInUser.id);
-  const mutualConnected = checkMutualConnected();
+  const fromDestinationFollowingController = useContext(
+    ContextForUserConnectionListFromDestination,
+  );
+  const profileFollowing = fromSourceFollowingController.state.objs;
+  const profileFollowers = fromDestinationFollowingController.state.objs;
 
-  // CONNECTION IS LIMITED BY DUNBAR AND IS INITIATED ON A TERMS BASIS
-  // CONNECTION IS TWO WAY
+  const [connectionStatus, setConnectionStatus] = useState(
+    ConnectionStatus.FOLLOW,
+  );
 
-  function checkMutualConnected() {
-    const fromLoggedIn =
-      profileConnectionListController.state.objs.filter(
-        (connection) => connection.destinationId === loggedInUser.id,
-      ).length > 0;
-    const fromProfile =
-      userConnectionListController.state.objs.filter(
-        (connection) => connection.destinationId === profileUser.id,
-      ).length > 0;
-    return fromLoggedIn && fromProfile;
+  useEffect(() => {
+    setConnectionStatus(checkConnectionStatus());
+  }, [profileFollowing, profileFollowers]);
+
+  function checkConnectionStatus() {
+    const fromLoggedInFollows = profileFollowers.some(
+      (connection) => connection.sourceId === loggedInUser.id,
+    );
+    const fromProfileFollows = profileFollowing.some(
+      (connection) => connection.destinationId === loggedInUser.id,
+    );
+
+    if (fromLoggedInFollows && fromProfileFollows) {
+      return ConnectionStatus.MUTUAL;
+    } else if (fromLoggedInFollows) {
+      return ConnectionStatus.FOLLOWING;
+    } else if (fromProfileFollows) {
+      return ConnectionStatus.FOLLOWER;
+    } else {
+      return ConnectionStatus.FOLLOW;
+    }
   }
 
-  async function addTwoWayConnection() {
-    // PERMISSION NEEDED
-    alert('Two Way Connnection');
-    // LOGGED IN CONNECTS WITH PROFILE
-    await userConnectionListController.actions.createActions.createConnection(
+  async function followProfile() {
+    await fromDestinationFollowingController.actions.createActions.createConnection(
       loggedInUser.id, // initiator
       profileUser.id, // receiver
     );
-    // PROFILE RECEIVES INVITATION
-    await profileConnectionListController.actions.createActions.createConnection(
-      profileUser.id, // initiator
-      loggedInUser.id, // receiver
-    );
+
+    alert('Following Profile');
   }
 
-  async function removeTwoWayConnection() {
-    alert('Removing Two Way Connection');
-    const fromProfileIds = profileConnectionListController.state.objs
-      .filter((connection) => connection.destinationId === loggedInUser.id)
+  async function unfollowProfile() {
+    const fromProfileIds = fromDestinationFollowingController.state.objs
+      .filter((connection) => connection.sourceId === loggedInUser.id)
       .map((connection) => connection.id);
 
-    const fromLoggedInIds = userConnectionListController.state.objs
-      .filter((connection) => connection.destinationId === profileUser.id)
-      .map((connection) => connection.id);
-
-    await userConnectionListController.actions.deleteActions.deleteMany([
-      ...fromLoggedInIds,
-    ]);
-
-    await profileConnectionListController.actions.deleteActions.deleteMany([
+    await fromDestinationFollowingController.actions.deleteActions.deleteMany([
       ...fromProfileIds,
     ]);
+    alert('Unfollowing Profile');
   }
 
   return (
@@ -80,16 +85,14 @@ export function ProfileAboutConnectAction() {
       <GlassWindowContents
         className='flex h-full w-full cursor-pointer items-center justify-center'
         onClick={() => {
-          if (mutualConnected) {
-            removeTwoWayConnection();
+          if (connectionStatus === ConnectionStatus.FOLLOW) {
+            followProfile();
           } else {
-            addTwoWayConnection();
+            unfollowProfile();
           }
         }}
       >
-        <p className='font-bold text-slate-300'>
-          {mutualConnected ? 'Connected' : 'Connect'}
-        </p>
+        <p className='font-bold text-slate-300'>{connectionStatus}</p>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>

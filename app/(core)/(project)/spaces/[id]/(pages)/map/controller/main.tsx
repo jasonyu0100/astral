@@ -8,7 +8,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
 import { IdeaObj } from '@/(server)/model/idea/main';
-import { IdeaRelationshipObj } from '@/(server)/model/space/relationship/main';
+import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { createContext, useContext, useState } from 'react';
 

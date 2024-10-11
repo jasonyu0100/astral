@@ -6,15 +6,12 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/(server)/controller/list';
-import {
-  userConnectionModel,
-  UserConnectionObj,
-} from '@/(server)/model/user/connection/main';
+import { UserConnectionObj } from '@/(server)/model/user/connection/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserConnectionObj;
 const gqlDbWrapper = userConnectionDbWrapper;
-const listIdKey = userConnectionModel.parentKey;
+const listIdKey = 'destinationId';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -53,7 +50,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForUserConnectionListFromFollowing = (
+export const useControllerForUserConnectionListFromDestination = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -362,6 +359,6 @@ export const useControllerForUserConnectionListFromFollowing = (
   };
 };
 
-export const ContextForUserConnectionListFromFollowing = createContext(
+export const ContextForUserConnectionListFromDestination = createContext(
   {} as Controller,
 );

@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { ConnectionsPage, ContextForCollaborators } from '../controller/main';
+import { ConnectionsPage, ContextForConnections } from '../controller/main';
 
 export function UserProfileCollaboratorsFooter() {
-  const collaboratorController = useContext(ContextForCollaborators);
+  const collaboratorController = useContext(ContextForConnections);
 
   return (
     <div className='flex h-[4rem] w-full flex-shrink-0 flex-row items-center justify-between px-[2rem]'>

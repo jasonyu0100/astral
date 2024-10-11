@@ -1,17 +1,15 @@
-import { ContextForUserConnectionListFromFollowing } from '@/(server)/controller/user/connection/list-from-following';
+import { ContextForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
 import { useContext } from 'react';
 import {
   ContextForUserProfile,
   UserProfilePage,
 } from '../../../../controller/main';
-import { ContextForCollaborators } from '../controller/main';
+import { ContextForConnections } from '../controller/main';
 
 export function UserProfileCollaboratorsHeader() {
-  const collaboratorController = useContext(ContextForCollaborators);
+  const collaboratorController = useContext(ContextForConnections);
   const profileController = useContext(ContextForUserProfile);
-  const userConectionList = useContext(
-    ContextForUserConnectionListFromFollowing,
-  );
+  const userConectionList = useContext(ContextForUserConnectionListFromSource);
 
   return (
     <div className='flex h-[4rem] flex-shrink-0 shadow-glow'>

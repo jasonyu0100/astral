@@ -1,9 +1,13 @@
 'use client';
 
 import {
-  ContextForUserConnectionListFromFollowing,
-  useControllerForUserConnectionListFromFollowing,
-} from '@/(server)/controller/user/connection/list-from-following';
+  ContextForUserConnectionListFromDestination,
+  useControllerForUserConnectionListFromDestination,
+} from '@/(server)/controller/user/connection/list-from-destination';
+import {
+  ContextForUserConnectionListFromSource,
+  useControllerForUserConnectionListFromSource,
+} from '@/(server)/controller/user/connection/list-from-source';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -28,22 +32,28 @@ function Page() {
   const profileIdContext = useContext(ContextForProfileId);
   const userController = useControllerForUserMain(profileIdContext.userId);
   const profileUser = userController.state.obj;
-  const connectionListController =
-    useControllerForUserConnectionListFromFollowing(profileUser.id);
+  const fromSourceFollowingController =
+    useControllerForUserConnectionListFromSource(profileUser.id);
+  const fromDestinationFollowingController =
+    useControllerForUserConnectionListFromDestination(profileUser.id);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForProfileUserObj.Provider value={profileUser}>
         <ContextForUserMain.Provider value={userController}>
-          <ContextForUserConnectionListFromFollowing.Provider
-            value={connectionListController}
+          <ContextForUserConnectionListFromSource.Provider
+            value={fromSourceFollowingController}
           >
-            <UserProfileModals>
-              <ProfileControllerWrapper>
-                <UserProfileView />
-              </ProfileControllerWrapper>
-            </UserProfileModals>
-          </ContextForUserConnectionListFromFollowing.Provider>
+            <ContextForUserConnectionListFromDestination.Provider
+              value={fromDestinationFollowingController}
+            >
+              <UserProfileModals>
+                <ProfileControllerWrapper>
+                  <UserProfileView />
+                </ProfileControllerWrapper>
+              </UserProfileModals>
+            </ContextForUserConnectionListFromDestination.Provider>
+          </ContextForUserConnectionListFromSource.Provider>
         </ContextForUserMain.Provider>
       </ContextForProfileUserObj.Provider>
     </ContextForLoggedInUserObj.Provider>

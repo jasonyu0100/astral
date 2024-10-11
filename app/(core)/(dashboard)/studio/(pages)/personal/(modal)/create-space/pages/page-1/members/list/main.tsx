@@ -1,4 +1,4 @@
-import { ContextForUserConnectionListFromFollowing } from '@/(server)/controller/user/connection/list-from-following';
+import { ContextForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
@@ -10,7 +10,7 @@ export function CreateSpaceCollaboratorList() {
   const { pageOne } = useContext(ContextForCreateSpace);
   const { memberIds, updateMemberIds } = pageOne;
   const connectListController = useContext(
-    ContextForUserConnectionListFromFollowing,
+    ContextForUserConnectionListFromSource,
   );
   const togglableController = useContext(ContextForTogglable);
 
