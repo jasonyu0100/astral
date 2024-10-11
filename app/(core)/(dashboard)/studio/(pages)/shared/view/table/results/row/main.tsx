@@ -1,35 +1,26 @@
-import { useControllerForSpaceMain } from '@/(server)/controller/space/main';
-import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { ContextForSpaceObj } from '@/(server)/model/space/main';
-import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
-import { ContextForUserObj } from '@/(server)/model/user/main';
-import { useContext } from 'react';
 import { StudioSpacesRowCategory } from './category/main';
-import { StudioSpacesRowDate } from './date/main';
-import { StudioSpacesRowDays } from './days/main';
 import { StudioSpacesRowInfo } from './info/main';
 import { StudioSpacesRowNumber } from './number/main';
-import { StudioSpacesRowStat } from './stat/main';
+import { StudioSpacesRowDays } from './stat/day/main';
+import { StudioSpacesRowIdeas } from './stat/ideas/main';
+import { StudioSpacesRowLogs } from './stat/logs/main';
+import { StudioSpacesRowPosts } from './stat/posts/main';
 
 export function StudioSpacesRow() {
-  const memberObj = useContext(ContextForSpaceMemberObj);
-  const spaceController = useControllerForSpaceMain(memberObj.spaceId);
-  const userController = useControllerForUserMain(
-    spaceController.state.obj.userId,
-  );
-
   return (
-    <ContextForSpaceObj.Provider value={spaceController.state.obj}>
-      <ContextForUserObj.Provider value={userController.state.obj}>
-        <div className='grid w-full grid-cols-7 py-[2rem]'>
-          <StudioSpacesRowNumber />
-          <StudioSpacesRowInfo />
-          <StudioSpacesRowCategory />
-          <StudioSpacesRowStat />
+    <>
+      <div className='grid w-full grid-cols-8 py-[2rem]'>
+        <StudioSpacesRowNumber />
+        <StudioSpacesRowInfo />
+        <StudioSpacesRowCategory />
+        <div></div>
+        <div className='col-span-2 grid grid-cols-4'>
           <StudioSpacesRowDays />
-          <StudioSpacesRowDate />
+          <StudioSpacesRowIdeas />
+          <StudioSpacesRowLogs />
+          <StudioSpacesRowPosts />
         </div>
-      </ContextForUserObj.Provider>
-    </ContextForSpaceObj.Provider>
+      </div>
+    </>
   );
 }

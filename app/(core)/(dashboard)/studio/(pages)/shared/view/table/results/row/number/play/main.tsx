@@ -8,7 +8,7 @@ export function StudioSpacesNumberPlay() {
 
   return (
     <a href={spacesMap.spaces.id.space.link(space.id)}>
-      <AstralPlayIcon className='h-[4rem] w-[4rem]' />
+      <AstralPlayIcon className='h-[1.5rem] w-[1.5rem]' />
     </a>
   );
 }

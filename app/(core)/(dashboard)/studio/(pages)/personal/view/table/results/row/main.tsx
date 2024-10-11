@@ -43,7 +43,7 @@ export function StudioSpacesRow() {
             </PopoverTrigger>
             <PopoverContent>
               <GlassWindowFrame
-                className='mt-[2rem] p-[1rem]'
+                className='p-[1rem]'
                 roundedFx={roundedFx.rounded}
               >
                 <GlassWindowContents>

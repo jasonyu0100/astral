@@ -1,14 +1,30 @@
+import { borderFx } from '@/style/data';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+
 export function StudioSpacesTableHeader() {
   return (
-    <div className='mb-[1rem] w-full px-[3rem]'>
-      <div className='grid w-full grid-cols-7 items-center divide-slate-300  border-b-[1px] border-slate-300 border-opacity-30 py-[1rem]'>
-        <p className='text-center font-bold text-slate-500'>#</p>
-        <p className='px-[0.5rem] font-bold text-slate-500'>title</p>
-        <p className='text-center font-bold text-slate-500'>category</p>
-        <p className='text-center font-bold text-slate-500'></p>
-        <p className='text-center font-bold text-slate-500'></p>
-        <p className='text-center font-bold text-slate-500'></p>
-      </div>
+    <div className='w-full px-[3rem]'>
+      <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
+        <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
+          <div>
+            <p className='text-center text-sm font-bold text-slate-500'>#</p>
+          </div>
+          <div className='col-span-2'>
+            <p className='text-sm font-bold text-slate-500'>Space</p>
+          </div>
+          <div className='flex items-center justify-center'>
+            <p className='text-sm font-bold text-slate-500'>Type</p>
+          </div>
+          <div></div>
+          <div className='col-span-2 grid grid-cols-4'>
+            <p className='text-center text-lg font-bold text-slate-300'>🗓️</p>
+            <p className='text-center text-lg font-bold text-slate-300'>💡</p>
+            <p className='text-center text-lg font-bold text-slate-300'>🟨</p>
+            <p className='text-center text-lg font-bold text-slate-300'>🎤</p>
+          </div>
+          <div></div>
+        </div>
+      </GlassWindowFrame>
     </div>
   );
 }

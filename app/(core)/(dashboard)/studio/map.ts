@@ -8,9 +8,6 @@ export const studioMap = {
     shared: {
       link: `${baseUrl}/shared`,
     },
-    backed: {
-      link: `${baseUrl}/backed`,
-    },
     link: `${baseUrl}`,
   },
 };

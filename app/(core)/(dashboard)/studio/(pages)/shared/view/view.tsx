@@ -1,10 +1,11 @@
-import { StudioSharedContainer } from './container/main';
+'use client';
+import { StudioSpacesContainer } from './container/main';
 import { StudioSpacesTable } from './table/main';
 
-export function StudioSharedView() {
+export function StudioSpacesView() {
   return (
-    <StudioSharedContainer>
+    <StudioSpacesContainer>
       <StudioSpacesTable />
-    </StudioSharedContainer>
+    </StudioSpacesContainer>
   );
 }
