@@ -5,8 +5,10 @@ export function SpacesSpaceMemberMessageText() {
   const message = useContext(ContextForConversationMessageObj);
 
   return (
-    <p className='rounded-[2rem] bg-gradient-to-br from-purple-800 to-purple-500 p-[1rem] text-left text-white'>
-      {message.message}
-    </p>
+    <div className='mr-auto flex flex-row'>
+      <p className='rounded-[2rem] bg-gradient-to-br from-purple-800 to-purple-500 p-[1rem] text-left text-white'>
+        {message.message}
+      </p>
+    </div>
   );
 }
