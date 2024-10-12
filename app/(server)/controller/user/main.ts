@@ -163,7 +163,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
         role: role,
         bio: `${fname} ${lname} - ${role}`,
         journalId: '',
-        private: true,
+        private: false,
         degree: 0,
       });
       return user;
