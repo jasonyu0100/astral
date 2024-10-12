@@ -28,6 +28,7 @@ const nextConfig = {
     VERSES_MODE: process.env.VERSES_MODE,
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
     GRAPHQL_APIKEY: process.env.GRAPHQL_APIKEY,
+    GRAPHQL_REALTIME: process.env.GRAPHQL_REALTIME,
     S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
     S3_SECRET_KEY: process.env.S3_SECRET_KEY,
     GOOGLE_AUTH_API_KEY: process.env.GOOGLE_AUTH_API_KEY,

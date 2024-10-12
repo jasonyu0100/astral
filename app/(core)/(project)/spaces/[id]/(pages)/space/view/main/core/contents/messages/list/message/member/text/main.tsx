@@ -5,7 +5,7 @@ export function SpacesSpaceMemberMessageText() {
   const message = useContext(ContextForConversationMessageObj);
 
   return (
-    <p className='rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left text-white'>
+    <p className='rounded-[2rem] bg-gradient-to-br from-purple-800 to-purple-500 p-[1rem] text-left text-white'>
       {message.message}
     </p>
   );
