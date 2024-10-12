@@ -23,7 +23,7 @@ export function ConversationalSearchChatList() {
       <div
         className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-purple-500 to-violet-500 px-[2rem]'
         onClick={() => {
-          window.location.href = `/reserve`;
+          window.location.href = `/register`;
         }}
       >
         <p className='font-bold text-slate-300'>Continue</p>
