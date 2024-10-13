@@ -1,6 +1,5 @@
 import {
   FileElem,
-  FileElemVariant,
   getFileVariantFromMimeType,
 } from '@/(server)/model/elements/file/main';
 import { generateUploadURL } from '@/api/aws/s3/main';
@@ -14,16 +13,12 @@ export interface UploadActions {
 export interface UploadHandlerObj {
   fileElem: FileElem;
   defaultFileElem?: FileElem;
-  variant?: FileElemVariant;
   uploadActions: UploadActions;
 }
 
 export const UploadHandlerContext = createContext({} as UploadHandlerObj);
 
-export const useS3UploadController = (
-  defaultFileElem?: FileElem,
-  variant?: FileElemVariant,
-): UploadHandlerObj => {
+export const useS3UploadController = (value?: FileElem): UploadHandlerObj => {
   const [file, changeFile] = useState({} as FileElem);
 
   const uploadActions: UploadActions = {
@@ -63,14 +58,13 @@ export const useS3UploadController = (
   };
 
   useMemo(() => {
-    if (defaultFileElem === undefined) return;
-    changeFile(defaultFileElem);
-  }, [defaultFileElem]);
+    if (value === undefined) return;
+    changeFile(value);
+  }, [value]);
 
   return {
     fileElem: file,
-    defaultFileElem: defaultFileElem,
-    variant,
+    defaultFileElem: value,
     uploadActions,
   };
 };

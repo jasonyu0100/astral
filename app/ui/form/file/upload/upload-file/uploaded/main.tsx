@@ -1,19 +1,27 @@
+import { UploadHandlerContext } from '@/api/controller/s3/single/main';
+import { AstralCloseIcon } from '@/icons/close/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';
-import { UploadedEntryRemove } from './remove/main';
 
 export function UploadedFile() {
+  const uploadHandler = useContext(UploadHandlerContext);
+
   return (
     <GlassWindowFrame
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx.rounded}
     >
-      <GlassWindowContents className='flex flex-row p-[1rem]'>
+      <GlassWindowContents className='flex flex-row items-center space-x-[1rem] pr-[2rem]'>
         <UploadedFileEntryBody />
-        <UploadedEntryRemove />
+        <AstralCloseIcon
+          onClick={() => {
+            uploadHandler.uploadActions.clearFile();
+          }}
+        />
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

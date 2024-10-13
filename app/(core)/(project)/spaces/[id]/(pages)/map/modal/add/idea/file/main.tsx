@@ -5,15 +5,14 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
 import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormTitle } from '@/ui/form/title/main';
+import { AstralTextInput } from '@/ui/input/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
+import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddFileIdeaModal() {
@@ -59,23 +58,24 @@ export function SpacesMapAddFileIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents>
-          <FormTitle>Upload File</FormTitle>
-          <FormBody>
-            <FormUploadFile
-              label={'File'}
-              onChange={(file) => changeFile(file)}
-              variant={variant}
-            />
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createFileIdea}>Add</FormButton>
-          </FormFooter>
+        <CustomisableModalContents className='h-3/4'>
+          <div className='flex flex-col space-y-[3rem]'>
+            <div className='flex flex-row items-center space-x-[3rem]'>
+              <AstralModalStep>1</AstralModalStep>
+              <FormUploadFile onChange={(file) => changeFile(file)} />
+            </div>
+            <div className='flex flex-row items-center space-x-[3rem]'>
+              <AstralModalStep>2</AstralModalStep>
+              <AstralTextInput
+                placeholder='Enter the title of the idea'
+                value={title}
+                onChange={(e) => changeTitle(e.target.value)}
+              />
+              <AstralButtonRoundedAction onClick={createFileIdea}>
+                <AstralCheckIcon />
+              </AstralButtonRoundedAction>
+            </div>
+          </div>
         </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>

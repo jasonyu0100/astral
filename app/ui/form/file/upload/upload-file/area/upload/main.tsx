@@ -10,7 +10,7 @@ export function UploadFileAreaInterface() {
 
   return (
     <input
-      accept={getFileAccepts(uploadHandler.variant || FileElemVariant.ANY)}
+      accept={getFileAccepts(FileElemVariant.ANY)}
       type='file'
       id='fileInput'
       className='absolute inset-0 h-full w-full cursor-pointer opacity-0'
