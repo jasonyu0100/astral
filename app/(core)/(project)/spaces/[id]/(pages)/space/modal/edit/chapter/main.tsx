@@ -42,7 +42,7 @@ export function SpacesSpaceEditChapterModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Add Chapter</FormTitle>
+          <FormTitle>Edit Chapter</FormTitle>
           <FormBody>
             <FormInput
               title='Title'

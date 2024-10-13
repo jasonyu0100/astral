@@ -6,12 +6,12 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralCheckIcon } from '@/icons/check/main';
-import { AstralCloseIcon } from '@/icons/close/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
-import { AstralTextInput } from '@/ui/input/main';
+import { AstralTextLineInput } from '@/ui/input/line/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
+import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddYouTubeUrlModal() {
@@ -80,15 +80,17 @@ export function SpacesMapAddYouTubeUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-1/3 space-x-[2rem]'>
-          {!youtubeId && (
-            <AstralTextInput
+        <CustomisableModalContents className='h-1/2'>
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <AstralModalStep>1</AstralModalStep>
+            <AstralTextLineInput
               placeholder='Enter a YouTube url e.g https://www.youtube.com/watch?v=...'
               onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
-          )}
+          </div>
           {youtubeId && (
-            <div className='flex flex-col items-center space-y-[2rem]'>
+            <div className='flex flex-row items-center space-x-[2rem]'>
+              <AstralModalStep>2</AstralModalStep>
               <iframe
                 onDrag={(e) => e.stopPropagation()}
                 className='aspect-video'
@@ -96,17 +98,17 @@ export function SpacesMapAddYouTubeUrlModal() {
                 src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
                 title='YouTube video player'
               />
-              <div className='flex flex-row space-x-[2rem]'>
-                <AstralButtonRoundedAction
-                  onClick={() => changeYoutubeId('')}
-                  className='bg-gradient-to-br from-slate-600 to-slate-400'
-                >
-                  <AstralCloseIcon />
-                </AstralButtonRoundedAction>
-                <AstralButtonRoundedAction onClick={createIdea}>
-                  <AstralCheckIcon />
-                </AstralButtonRoundedAction>
-              </div>
+            </div>
+          )}
+          {youtubeId && (
+            <div className='flex flex-row items-center space-x-[2rem]'>
+              <AstralButtonRoundedAction
+                onClick={createIdea}
+                className='h-[4rem] w-[4rem]'
+              >
+                <AstralCheckIcon />
+              </AstralButtonRoundedAction>
+              <p className='text-2xl font-bold text-slate-300'>Add YouTube</p>
             </div>
           )}
         </CustomisableModalContents>

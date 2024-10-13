@@ -77,9 +77,9 @@ export function SpacesMapAddSpotifyUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents>
-          <div className='flex flex-col space-y-[2rem]'>
-            <div className='flex flex-row justify-between space-x-[2rem]'>
+        <CustomisableModalContents className='h-1/2'>
+          <div className='flex flex-row items-center space-x-[4rem]'>
+            <div className='flex flex-row items-center space-x-[2rem]'>
               <AstralModalStep>1</AstralModalStep>
               <input
                 placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
@@ -92,9 +92,9 @@ export function SpacesMapAddSpotifyUrlModal() {
                 className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
               />
             </div>
-            <div className='flex flex-row justify-between space-x-[2rem]'>
-              {spotifyId && (
-                <>
+            {spotifyId && (
+              <>
+                <div className='flex flex-row items-center space-x-[2rem]'>
                   <AstralModalStep>2</AstralModalStep>
                   <div className='max-h-[400px] w-full'>
                     <iframe
@@ -104,15 +104,20 @@ export function SpacesMapAddSpotifyUrlModal() {
                       loading='lazy'
                     />
                   </div>
+                </div>
+                <div className='flex flex-row items-center space-x-[2rem]'>
                   <div
                     onClick={createIdea}
-                    className='flex h-[5rem] w-[5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
+                    className='flex h-[4rem] w-[4rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
                   >
                     <AstralArrowForwardIcon />
                   </div>
-                </>
-              )}
-            </div>
+                  <p className='text-2xl font-bold text-slate-300'>
+                    Add Spotify
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </CustomisableModalContents>
       </CustomisableModal>

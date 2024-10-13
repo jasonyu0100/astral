@@ -10,6 +10,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
+import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesMap } from '../../../../controller/main';
 
@@ -64,20 +65,30 @@ export function SpacesMapAddTextIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-1/2 space-x-[3rem]'>
-          <div className='aspect-square h-full bg-yellow-500 p-[3rem]'>
-            <textarea
-              placeholder='Enter text here...'
-              className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
-              onChange={(e) => changeText(e.target.value)}
-            />
+        <CustomisableModalContents className='h-1/2'>
+          <div className='flex flex-row items-center space-x-[4rem]'>
+            <div className='flex flex-row items-center space-x-[2rem]'>
+              <AstralModalStep>1</AstralModalStep>
+              <div className='aspect-square h-full bg-yellow-500 p-[2rem]'>
+                <textarea
+                  placeholder='Enter text here...'
+                  className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
+                  onChange={(e) => changeText(e.target.value)}
+                />
+              </div>
+            </div>
+            {text.length > 0 && (
+              <div className='flex flex-row items-center space-x-[2rem]'>
+                <AstralButtonRoundedAction
+                  className='h-[4rem] w-[4rem]'
+                  onClick={create}
+                >
+                  <AstralArrowForwardIcon />
+                </AstralButtonRoundedAction>
+                <p className='text-2xl font-bold text-slate-300'>Add Sticky</p>
+              </div>
+            )}
           </div>
-          <AstralButtonRoundedAction
-            className='h-[5rem] w-[5rem]'
-            onClick={create}
-          >
-            <AstralArrowForwardIcon />
-          </AstralButtonRoundedAction>
         </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
