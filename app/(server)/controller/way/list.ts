@@ -327,6 +327,7 @@ export const useControllerForTaskList = (
     delete: async (id: string) => {
       const deletedObj = await gqlDbWrapper.deleteObj(id);
       changeObjs((prev) => prev.filter((chat) => chat.id !== id));
+      changeQueryResults((prev) => prev.filter((chat) => chat.id !== id));
       changeId(objs.at(0)?.id || '');
       return deletedObj;
     },
@@ -335,6 +336,9 @@ export const useControllerForTaskList = (
         ids.map((id) => gqlDbWrapper.deleteObj(id)),
       );
       changeObjs((prev) => prev.filter((chat) => !ids.includes(chat.id)));
+      changeQueryResults((prev) =>
+        prev.filter((chat) => !ids.includes(chat.id)),
+      );
       changeId(objs.at(0)?.id || '');
       return deletedObjs;
     },

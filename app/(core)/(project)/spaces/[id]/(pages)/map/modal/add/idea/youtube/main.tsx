@@ -5,8 +5,11 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
+import { AstralCloseIcon } from '@/icons/close/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
+import { AstralTextInput } from '@/ui/input/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
@@ -77,28 +80,35 @@ export function SpacesMapAddYouTubeUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents>
-          <div className='flex flex-col space-y-[2rem]'>
-            <div className='h-[400px] w-[500px]'>
+        <CustomisableModalContents className='h-1/3 space-x-[2rem]'>
+          {!youtubeId && (
+            <AstralTextInput
+              placeholder='Enter a YouTube url e.g https://www.youtube.com/watch?v=...'
+              onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
+            />
+          )}
+          {youtubeId && (
+            <div className='flex flex-col items-center space-y-[2rem]'>
               <iframe
                 onDrag={(e) => e.stopPropagation()}
-                style={{ width: '100%', height: '100%' }}
+                className='aspect-video'
+                style={{ width: '500px' }}
                 src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
                 title='YouTube video player'
               />
+              <div className='flex flex-row space-x-[2rem]'>
+                <AstralButtonRoundedAction
+                  onClick={() => changeYoutubeId('')}
+                  className='bg-gradient-to-br from-slate-600 to-slate-400'
+                >
+                  <AstralCloseIcon />
+                </AstralButtonRoundedAction>
+                <AstralButtonRoundedAction onClick={createIdea}>
+                  <AstralCheckIcon />
+                </AstralButtonRoundedAction>
+              </div>
             </div>
-            <input
-              placeholder='Enter a youtube url'
-              className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
-              onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
-            />
-          </div>
-          <div
-            onClick={createIdea}
-            className='flex h-[5rem] w-[5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
-          >
-            <AstralArrowForwardIcon />
-          </div>
+          )}
         </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>

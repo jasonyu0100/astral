@@ -11,9 +11,9 @@ import { FormButton } from '@/ui/form/button/main';
 import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddFileIdeaModal() {
@@ -58,24 +58,10 @@ export function SpacesMapAddFileIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
+      <CustomisableModal>
+        <CustomisableModalContents>
           <FormTitle>Upload File</FormTitle>
           <FormBody>
-            {/* <FormSelect
-              title='Variant'
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
-            >
-              <option value={FileElemVariant.AUDIO}>AUDIO</option>
-              <option value={FileElemVariant.IMAGE}>IMAGE</option>
-              <option value={FileElemVariant.VIDEO}>VIDEO</option>
-            </FormSelect> */}
-            {/* <FormInput
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            /> */}
             <FormUploadFile
               label={'File'}
               onChange={(file) => changeFile(file)}
@@ -90,8 +76,8 @@ export function SpacesMapAddFileIdeaModal() {
           <FormFooter>
             <FormButton onClick={createFileIdea}>Add</FormButton>
           </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+        </CustomisableModalContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

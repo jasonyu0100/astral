@@ -1,7 +1,7 @@
 import {
   ProjectTabStage,
   ProjectTabs,
-} from '@/(core)/(dashboard)/explorer/(tabs)/main';
+} from '@/(core)/(dashboard)/explorer/tabs/main';
 
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 

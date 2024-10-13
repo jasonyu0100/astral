@@ -13,9 +13,11 @@ import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
+import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddGenerateIdeaModal() {
@@ -72,47 +74,42 @@ export function SpacesMapAddGenerateIdeaModal() {
       <CustomisableModal>
         <CustomisableModalContents>
           <div className='flex w-1/2 flex-col space-y-[2rem]'>
-            <div className='flex flex-row items-center justify-between space-x-[2rem]'>
-              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
-                <p className='font-bold text-slate-300'>1.</p>
-              </div>
-              <input
-                placeholder='Enter an image prompt'
-                className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
-                title='Prompt'
-                value={prompt}
-                onChange={(e) => changePrompt(e.target.value)}
-              />
-              <div
-                className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
-                onClick={() => {
-                  loadingController.loadingController.open();
-                  openableController.close();
-                  getImageResponse(prompt).then((res) => {
-                    openableController.open();
-                    changeFile({
-                      ...exampleFileElem,
-                      src: res[0].url || exampleFileElem.src,
-                    });
-                    loadingController.loadingController.close();
-                  });
-                }}
-              >
-                <AstralManufacturingIcon />
-              </div>
-            </div>
-            {file.src && (
-              <div className='flex flex-row items-center justify-between space-x-[2rem]'>
-                <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
-                  <p className='font-bold text-slate-300'>2.</p>
-                </div>
-                <img src={file.src} className='w-1/2' />
+            {!file.src && (
+              <div className='flex w-full flex-row items-center justify-between space-x-[4rem]'>
+                <AstralModalStep>1</AstralModalStep>
+                <input
+                  placeholder='Enter an image prompt'
+                  className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
+                  title='Prompt'
+                  value={prompt}
+                  onChange={(e) => changePrompt(e.target.value)}
+                />
                 <div
-                  onClick={createFileIdea}
-                  className='flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-blue-500'
+                  className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
+                  onClick={() => {
+                    loadingController.loadingController.open();
+                    openableController.close();
+                    getImageResponse(prompt).then((res) => {
+                      openableController.open();
+                      changeFile({
+                        ...exampleFileElem,
+                        src: res[0].url || exampleFileElem.src,
+                      });
+                      loadingController.loadingController.close();
+                    });
+                  }}
                 >
-                  <AstralArrowForwardIcon />
+                  <AstralManufacturingIcon />
                 </div>
+              </div>
+            )}
+            {file.src && (
+              <div className='flex w-full flex-row items-center justify-between space-x-[4rem]'>
+                <AstralModalStep>2</AstralModalStep>
+                <img src={file.src} className='aspect-video w-full' />
+                <AstralButtonRoundedAction onClick={createFileIdea}>
+                  <AstralArrowForwardIcon />
+                </AstralButtonRoundedAction>
               </div>
             )}
           </div>

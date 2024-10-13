@@ -1,4 +1,4 @@
-import { StudioTabs, StudioTabStages } from '../../(tabs)/main';
+import { StudioTabs, StudioTabStages } from '../../tabs/main';
 
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 

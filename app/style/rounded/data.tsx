@@ -5,6 +5,7 @@ export const roundedFx = {
   rounded: 'rounded-[1rem] overflow-hidden',
   'rounded-xs': 'rounded-[0.25rem] overflow-hidden',
   'rounded-sm': 'rounded-[0.5rem] overflow-hidden',
+  'rounded-lg': 'rounded-[2rem] overflow-hidden',
   'rounded-tl': 'rounded-tl-[1rem] overflow-hidden',
   'rounded-tr': 'rounded-tr-[1rem] overflow-hidden',
   'rounded-bl': 'rounded-bl-[1rem] overflow-hidden',

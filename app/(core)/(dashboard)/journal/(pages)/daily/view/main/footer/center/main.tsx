@@ -1,4 +1,4 @@
-import { DashboardJournalAddResourceModal } from '@/(core)/(dashboard)/journal/(modal)/add/entry/main';
+import { DashboardJournalAddResourceModal } from '@/(core)/(dashboard)/journal/modal/add/entry/main';
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import {
   ContextForOpenable,

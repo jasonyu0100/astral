@@ -459,6 +459,7 @@ export const useControllerForSceneIdeaList = (
     delete: async (id: string) => {
       const deletedObj = await gqlDbWrapper.deleteObj(id);
       changeObjs((prev) => prev.filter((chat) => chat.id !== id));
+      changeQueryResults((prev) => prev.filter((chat) => chat.id !== id));
       changeId(objs.at(0)?.id || '');
       return deletedObj;
     },
@@ -467,6 +468,9 @@ export const useControllerForSceneIdeaList = (
         ids.map((id) => gqlDbWrapper.deleteObj(id)),
       );
       changeObjs((prev) => prev.filter((chat) => !ids.includes(chat.id)));
+      changeQueryResults((prev) =>
+        prev.filter((chat) => !ids.includes(chat.id)),
+      );
       changeId(objs.at(0)?.id || '');
       return deletedObjs;
     },

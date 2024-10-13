@@ -11,6 +11,7 @@ import { AstralBackIndicatorIcon } from './back/main';
 import { AstralBubbleIcon } from './bubble/main';
 import { AstralCalendarIcon } from './calendar/main';
 import { AstralChatIndicatorIcon } from './chat/main';
+import { AstralCheckIcon } from './check/main';
 import { AstralChevronDownIcon } from './chevron-down/main';
 import { AstralChevronLeftIcon } from './chevron-left/main';
 import { AstralChevronRightIcon } from './chevron-right/main';
@@ -21,6 +22,7 @@ import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
 import { AstralDoneIcon } from './done/main';
 import { AstralEditNoteIcon } from './edit-note/main';
+import { AstralEditIcon } from './edit/main';
 import { AstralEqualizerIcon } from './equalizer/main';
 import { AstralFileIcon } from './file/main';
 import { AstralFolderOpenIcon } from './folder-open/main';
@@ -126,6 +128,8 @@ export default function Page() {
       <AstralUploadIcon />
       <AstralSmartDisplayIcon />
       <AstralManageSearchIcon />
+      <AstralCheckIcon />
+      <AstralEditIcon />
     </div>
   );
 }

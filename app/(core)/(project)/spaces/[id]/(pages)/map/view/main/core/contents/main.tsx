@@ -12,6 +12,7 @@ import { SpacesMapPalette } from './map/left/palette/main';
 import { SpacesMapNavigationDown } from './map/right/down/main';
 import { SpacesMapNavigationUp } from './map/right/up/main';
 import { SpacesMapScene } from './map/scene/main';
+import { SpacesMapStatus } from './map/status/main';
 
 export function SpacesMapContents() {
   const {
@@ -31,8 +32,8 @@ export function SpacesMapContents() {
           </>
         ) : (
           <>
-            {/* <SpacesMapStatus /> */}
             <SpacesMapScene />
+            <SpacesMapStatus />
             <SpacesMapPalette />
             <SpacesMapBack />
             <SpacesMapChat />
