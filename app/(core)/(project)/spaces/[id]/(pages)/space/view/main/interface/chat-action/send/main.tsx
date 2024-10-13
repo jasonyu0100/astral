@@ -4,7 +4,7 @@ import { ContextForSpacesSpace } from '../../../../../controller/main';
 
 export function SpacesSpaceInputRightSend() {
   const {
-    actions: { triggerMessageSendToConversation: sendMessage },
+    actions: { sendMessageIntoConversation: sendMessage },
   } = useContext(ContextForSpacesSpace);
   return (
     <button

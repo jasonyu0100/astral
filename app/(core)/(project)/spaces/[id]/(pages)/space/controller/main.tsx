@@ -21,10 +21,11 @@ interface ControllerState {
 }
 
 interface ControllerActions {
-  triggerMessageSendToConversation: () => Promise<ConversationMessageObj>;
   updateRole: (role: ConversationRole) => void;
-  summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
+  summariseConversationIntoQuery: () => Promise<string>;
+  summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
+  sendMessageIntoConversation: () => Promise<ConversationMessageObj>;
 }
 
 export enum SpacesSpaceSidebarVisibility {
@@ -176,6 +177,18 @@ Ensure the response follows the exact structure and format shown above, with pro
     return json.insights;
   }
 
+  async function summariseConversationIntoQuery() {
+    const messageHistory = [
+      ...getMessageHistory(),
+      `Summarise conversation into a series of search query as per the conversation history. E.G "How to improve my productivity?"`,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    console.log(agentResponse);
+    return agentResponse;
+  }
   async function summariseConversation(
     messages: ConversationMessageObj[],
     conversationObj: ConversationObj,
@@ -218,7 +231,7 @@ Ensure the response follows the exact structure and format shown above, with pro
     return messages;
   }
 
-  async function triggerMessageSendToConversation() {
+  async function sendMessageToConversation() {
     const conversation = conversationListController.state.currentObj;
     const conversationStatus = checkConversationStatus(conversation);
     let messages = [];
@@ -236,12 +249,13 @@ Ensure the response follows the exact structure and format shown above, with pro
 
   return {
     state: {
-      sidebarVisibility: sidebarVisibility,
+      sidebarVisibility,
       role: role,
     },
     actions: {
       summariseConversationIntoNotes,
-      triggerMessageSendToConversation,
+      summariseConversationIntoQuery: summariseConversationIntoQuery,
+      sendMessageToConversation: sendMessageToConversation,
       updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => {
         setSidebarVisibility(visibility);
       },

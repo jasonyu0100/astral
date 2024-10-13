@@ -12,19 +12,26 @@ import { ContextForLoading } from '@/ui/loading/controller/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ContextForSpacesSpace } from '../../../controller/main';
 
-enum GenerateSceneTab {
-  STICKIES,
-  SEARCH,
+export enum GenerateSceneTab {
+  TEXT = 'Text',
+  ARTICLES = 'Articles',
+  MEDIA = 'Media',
+  IMAGERY = 'Imagery',
+  VAULT = 'Vault',
 }
 
 interface ControllerState {
+  tab: GenerateSceneTab;
   stickies: string[];
   searchResults: any[];
+  searchQuery: string;
 }
 
 interface ControllerActions {
   createMap: () => Promise<void>;
   editSticky: (index: number, text: string) => void;
+  updateTab: (tab: GenerateSceneTab) => void;
+  updateQuery: (query: string) => void;
 }
 
 interface Controller {
@@ -38,14 +45,13 @@ export const ContextForGenerateSceneController = createContext(
 
 export function useGenerateSceneController(): Controller {
   const user = useGlobalUser((state) => state.user);
-  const [tab, setTab] = useState(GenerateSceneTab.STICKIES);
+  const [tab, setTab] = useState(GenerateSceneTab.TEXT);
   const [stickies, setStickies] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   const loadingController = useContext(ContextForLoading);
-  const {
-    actions: { summariseConversationIntoNotes },
-  } = useContext(ContextForSpacesSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -59,18 +65,39 @@ export function useGenerateSceneController(): Controller {
   useEffect(() => {
     if (openableController.opened) {
       loadingController.loadingController.open();
-      if (tab === GenerateSceneTab.STICKIES) {
-        summariseConversationIntoNotes().then((stickies) => {
-          setStickies(stickies.map((sticky) => sticky.text));
-          loadingController.loadingController.close();
-        });
-      } else if (tab === GenerateSceneTab.SEARCH) {
+      if (tab === GenerateSceneTab.TEXT) {
+        spacesSpaceController.actions
+          .summariseConversationIntoNotes()
+          .then((stickies) => {
+            setStickies(stickies.map((sticky) => sticky.text));
+            loadingController.loadingController.close();
+          });
+      } else if (tab === GenerateSceneTab.ARTICLES) {
+        spacesSpaceController.actions
+          .summariseConversationIntoQuery()
+          .then((query) => {
+            setSearchQuery(query);
+            searchArticles(query).then(() => {
+              loadingController.loadingController.close();
+            });
+          });
+      } else if (tab === GenerateSceneTab.IMAGERY) {
         searchArticles('how to create a map').then(() => {
           loadingController.loadingController.close();
         });
+      } else if (tab === GenerateSceneTab.MEDIA) {
+        searchArticles('how to create a map').then(() => {
+          loadingController.loadingController.close();
+        });
+      } else if (tab === GenerateSceneTab.VAULT) {
+        searchArticles('how to create a map').then(() => {
+          loadingController.loadingController.close();
+        });
+      } else {
+        loadingController.loadingController.open();
       }
     }
-  }, [openableController.opened]);
+  }, [openableController.opened, tab]);
 
   const searchArticles = async (query: string) => {
     const searchEngineId = '4562e5a04e0824515';
@@ -164,10 +191,14 @@ export function useGenerateSceneController(): Controller {
 
   return {
     state: {
+      tab,
+      searchQuery: searchQuery,
       stickies,
       searchResults,
     },
     actions: {
+      updateTab: (tab: GenerateSceneTab) => setTab(tab),
+      updateQuery: (query: string) => setSearchQuery(query),
       createMap,
       editSticky,
     },
