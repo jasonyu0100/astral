@@ -1,5 +1,5 @@
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext } from 'react';
 import {
@@ -8,6 +8,8 @@ import {
   useGenerateSceneController,
 } from './controller/main';
 import { SpacesSpaceSearchArticlesContent } from './main/articles/main';
+import { SpacesSpaceSearchImageryContent } from './main/imagery/main';
+import { SpacesSpaceSearchMediaContent } from './main/media/main';
 import { SpacesSpaceSearchTextContent } from './main/text/main';
 import { SpacesSpaceGenerateRowAdd } from './row/add/main';
 import { SpacesSpaceSearchArticlesTab } from './tabs/articles/main';
@@ -26,14 +28,15 @@ export function SpacesSpaceSetConstellationModal() {
         value={generateSceneController}
       >
         <CustomisableModal>
-          <CustomisableModalHalfContents>
+          <CustomisableModalContents>
             <div className='flex h-full w-full flex-col justify-center'>
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  className='flex max-h-[500px] w-full flex-row items-center justify-center space-x-[2rem] overflow-auto p-[2rem]'
+                  className='flex w-full flex-row items-center justify-center space-x-[2rem] overflow-auto'
+                  style={{ height: '800px' }}
                 >
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.TEXT && <SpacesSpaceSearchTextContent />}
@@ -43,10 +46,10 @@ export function SpacesSpaceSetConstellationModal() {
                   )}
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.IMAGERY && (
-                    <SpacesSpaceSearchTextContent />
+                    <SpacesSpaceSearchImageryContent />
                   )}
                   {generateSceneController.state.tab ===
-                    GenerateSceneTab.MEDIA && <SpacesSpaceSearchTextContent />}
+                    GenerateSceneTab.MEDIA && <SpacesSpaceSearchMediaContent />}
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.VAULT && <SpacesSpaceSearchTextContent />}
                 </div>
@@ -62,7 +65,7 @@ export function SpacesSpaceSetConstellationModal() {
                 </div>
               </div>
             </div>
-          </CustomisableModalHalfContents>
+          </CustomisableModalContents>
         </CustomisableModal>
       </ContextForGenerateSceneController.Provider>
     </ContextForOpenable.Provider>

@@ -7,7 +7,7 @@ import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
@@ -77,7 +77,7 @@ export function SpacesMapAddYouTubeUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalHalfContents>
+        <CustomisableModalContents>
           <div className='flex flex-col space-y-[2rem]'>
             <div className='h-[400px] w-[500px]'>
               <iframe
@@ -99,7 +99,7 @@ export function SpacesMapAddYouTubeUrlModal() {
           >
             <AstralArrowForwardIcon />
           </div>
-        </CustomisableModalHalfContents>
+        </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
   );

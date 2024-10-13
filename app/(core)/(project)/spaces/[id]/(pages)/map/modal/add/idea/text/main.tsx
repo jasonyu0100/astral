@@ -7,7 +7,7 @@ import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesMap } from '../../../../controller/main';
@@ -63,7 +63,7 @@ export function SpacesMapAddTextIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalHalfContents>
+        <CustomisableModalContents>
           <div className='aspect-square h-full bg-yellow-500 p-[3rem]'>
             <textarea
               placeholder='Enter text here...'
@@ -77,7 +77,7 @@ export function SpacesMapAddTextIdeaModal() {
           >
             <AstralArrowForwardIcon />
           </div>
-        </CustomisableModalHalfContents>
+        </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
   );

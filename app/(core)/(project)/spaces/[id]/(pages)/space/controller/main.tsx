@@ -23,9 +23,11 @@ interface ControllerState {
 interface ControllerActions {
   updateRole: (role: ConversationRole) => void;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
+  sendMessageIntoConversation: () => Promise<ConversationMessageObj>;
   summariseConversationIntoQuery: () => Promise<string>;
   summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
-  sendMessageIntoConversation: () => Promise<ConversationMessageObj>;
+  summariseConversationIntoKeywords: () => Promise<string>;
+  summariseConversationIntoSearchTerm: () => Promise<string>;
 }
 
 export enum SpacesSpaceSidebarVisibility {
@@ -180,15 +182,39 @@ Ensure the response follows the exact structure and format shown above, with pro
   async function summariseConversationIntoQuery() {
     const messageHistory = [
       ...getMessageHistory(),
-      `Summarise conversation into a series of search query as per the conversation history. E.G "How to improve my productivity?"`,
+      `Summarise conversation into a single search query as per the conversation history. E.G "How to improve my productivity?"`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
 
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
-    console.log(agentResponse);
     return agentResponse;
   }
+
+  async function summariseConversationIntoKeywords() {
+    const messageHistory = [
+      ...getMessageHistory(),
+      `Summarise conversation into a series of key words as per the conversation history. E.G "Productivity, Color, Design"`,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    return agentResponse;
+  }
+
+  async function summariseConversationIntoSearchTerm() {
+    const messageHistory = [
+      ...getMessageHistory(),
+      `Summarise conversation into a youtube search term as per the conversation history.`,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    return agentResponse;
+  }
+
   async function summariseConversation(
     messages: ConversationMessageObj[],
     conversationObj: ConversationObj,
@@ -253,8 +279,10 @@ Ensure the response follows the exact structure and format shown above, with pro
       role: role,
     },
     actions: {
+      summariseConversationIntoSearchTerm: summariseConversationIntoSearchTerm,
       summariseConversationIntoNotes,
       summariseConversationIntoQuery: summariseConversationIntoQuery,
+      summariseConversationIntoKeywords: summariseConversationIntoKeywords,
       sendMessageToConversation: sendMessageToConversation,
       updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => {
         setSidebarVisibility(visibility);

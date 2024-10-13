@@ -5,7 +5,7 @@ import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
@@ -40,7 +40,7 @@ export function SpacesJourneyAddTaskModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalHalfContents>
+        <CustomisableModalContents>
           <div className='aspect-square h-full space-y-[2rem] bg-yellow-500 p-[3rem]'>
             <input
               placeholder='Enter title here...'
@@ -59,7 +59,7 @@ export function SpacesJourneyAddTaskModal() {
           >
             <AstralArrowForwardIcon />
           </div>
-        </CustomisableModalHalfContents>
+        </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
   );

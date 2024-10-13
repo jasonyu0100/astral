@@ -1,5 +1,5 @@
 import { FileElem } from '@/(server)/model/elements/file/main';
-import { useUnsplashController } from '@/api/controller/unsplash/main';
+import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ImageInputProps } from '@/props/main';
@@ -16,7 +16,7 @@ export default function SearchModalView() {
   const [images, changeImages] = useState<FileElem[]>([]);
   const [query, changeQuery] = useState('');
   const [selected, changeSelected] = useState({} as FileElem);
-  const { searchImage } = useUnsplashController();
+  const { searchImage } = useControllerForUnsplash();
 
   useEffect(() => {
     searchImage('stars').then((res) => {

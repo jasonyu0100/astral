@@ -1,7 +1,7 @@
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { useEffect } from 'react';
 
-export const useUnsplashController = () => {
+export const useControllerForUnsplash = () => {
   const authNextJs = async () => {
     fetch(
       `https://api.unsplash.com/photos/?client_id=${process.env.UNSPLASH_API_KEY}`,

@@ -14,7 +14,7 @@ import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
-import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
@@ -70,7 +70,7 @@ export function SpacesMapAddGenerateIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalHalfContents>
+        <CustomisableModalContents>
           <div className='flex w-1/2 flex-col space-y-[2rem]'>
             <div className='flex flex-row items-center justify-between space-x-[2rem]'>
               <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
@@ -116,7 +116,7 @@ export function SpacesMapAddGenerateIdeaModal() {
               </div>
             )}
           </div>
-        </CustomisableModalHalfContents>
+        </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
   );

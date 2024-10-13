@@ -5,6 +5,7 @@ import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list'
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
+import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -22,9 +23,12 @@ export enum GenerateSceneTab {
 
 interface ControllerState {
   tab: GenerateSceneTab;
+  searchQuery: string;
+  keywords: string;
   stickies: string[];
   searchResults: any[];
-  searchQuery: string;
+  imageResults: any[];
+  videoResults: any[];
 }
 
 interface ControllerActions {
@@ -47,8 +51,11 @@ export function useGenerateSceneController(): Controller {
   const user = useGlobalUser((state) => state.user);
   const [tab, setTab] = useState(GenerateSceneTab.TEXT);
   const [stickies, setStickies] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [imageResults, setImageResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [videoResults, setVideoResults] = useState([]);
+  const [keywords, setKeywords] = useState('');
 
   const loadingController = useContext(ContextForLoading);
   const spacesSpaceController = useContext(ContextForSpacesSpace);
@@ -61,6 +68,8 @@ export function useGenerateSceneController(): Controller {
     useControllerForIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
     );
+
+  const unsplashController = useControllerForUnsplash();
 
   useEffect(() => {
     if (openableController.opened) {
@@ -82,13 +91,25 @@ export function useGenerateSceneController(): Controller {
             });
           });
       } else if (tab === GenerateSceneTab.IMAGERY) {
-        searchArticles('how to create a map').then(() => {
-          loadingController.loadingController.close();
-        });
+        spacesSpaceController.actions
+          .summariseConversationIntoKeywords()
+          .then((keywords) => {
+            setKeywords(keywords);
+            unsplashController.searchImage(keywords).then((images) => {
+              setImageResults(images);
+              loadingController.loadingController.close();
+            });
+          });
       } else if (tab === GenerateSceneTab.MEDIA) {
-        searchArticles('how to create a map').then(() => {
-          loadingController.loadingController.close();
-        });
+        spacesSpaceController.actions
+          .summariseConversationIntoSearchTerm()
+          .then((searchTerm) => {
+            searchYouTubeVideos(searchTerm).then((result) => {
+              setVideoResults(result);
+              console.log(result);
+              loadingController.loadingController.close();
+            });
+          });
       } else if (tab === GenerateSceneTab.VAULT) {
         searchArticles('how to create a map').then(() => {
           loadingController.loadingController.close();
@@ -119,6 +140,33 @@ export function useGenerateSceneController(): Controller {
       return [];
     }
   };
+
+  async function searchYouTubeVideos(query: string) {
+    const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
+    const maxResults = 5; // You can change this value to adjust the number of results
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(query)}&part=snippet&type=video&maxResults=${maxResults}`;
+
+    try {
+      // Fetch data from the YouTube API
+      console.log(url);
+      const response = await fetch(url);
+
+      // Handle errors if the request was unsuccessful
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      // Parse the JSON response
+      const data = await response.json();
+
+      // Log and return the array of video search results or an empty array if none
+      console.log(data);
+      return data.items || []; // Return search results, default to an empty array if none
+    } catch (error) {
+      // Log any errors encountered during the request
+      console.error('Error fetching data from YouTube API', error);
+    }
+  }
 
   async function createMap() {
     openableController.close();
@@ -160,7 +208,7 @@ export function useGenerateSceneController(): Controller {
       }),
     );
 
-    const ideaRelationships = await Promise.all(
+    await Promise.all(
       ideas.slice(0, ideas.length - 1).map((idea, index) => {
         const toIdea = ideas[index + 1];
         return ideaRelationshipListController.actions.createActions.createFromIdea(
@@ -192,9 +240,12 @@ export function useGenerateSceneController(): Controller {
   return {
     state: {
       tab,
-      searchQuery: searchQuery,
       stickies,
       searchResults,
+      imageResults,
+      searchQuery,
+      keywords,
+      videoResults,
     },
     actions: {
       updateTab: (tab: GenerateSceneTab) => setTab(tab),
